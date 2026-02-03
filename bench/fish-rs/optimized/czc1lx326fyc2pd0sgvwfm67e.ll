@@ -54,7 +54,7 @@ define void @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf.
   br i1 %5, label %6, label %7, !prof !6
 
 6:                                                ; preds = %2
-  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.2) #7
+  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.2) #6
   unreachable
 
 7:                                                ; preds = %2
@@ -133,11 +133,11 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   br i1 %27, label %29, label %30, !prof !6
 
 28:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.sroa.0.0.i.i, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.5) #7
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.sroa.0.0.i.i, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.5) #6
   unreachable
 
 29:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
-  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.4) #7
+  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.4) #6
   unreachable
 
 30:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"

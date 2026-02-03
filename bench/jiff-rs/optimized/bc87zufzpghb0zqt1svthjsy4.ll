@@ -14186,75 +14186,75 @@ define internal fastcc void @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Writ
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1067
   store i32 0, ptr %2, align 4, !noalias !1067
-  %3 = icmp samesign ult i32 %0, 128
+  %4 = icmp samesign ult i32 %0, 128
   %.sroa.0.05.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.0.05.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %2, i64 2
   %.sroa.0.05.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.05.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %2, i64 3
-  br i1 %3, label %6, label %4
+  br i1 %4, label %7, label %5
 
-4:                                                ; preds = %1
-  %5 = icmp samesign ult i32 %0, 2048
-  br i1 %5, label %10, label %8
+5:                                                ; preds = %1
+  %6 = icmp samesign ult i32 %0, 2048
+  br i1 %6, label %11, label %9
 
-6:                                                ; preds = %1
-  %7 = trunc nuw nsw i32 %0 to i8
-  store i8 %7, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+7:                                                ; preds = %1
+  %8 = trunc nuw nsw i32 %0 to i8
+  store i8 %8, ptr %2, align 4, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-8:                                                ; preds = %4
-  %9 = icmp samesign ult i32 %0, 65536
-  br i1 %9, label %32, label %17
+9:                                                ; preds = %5
+  %10 = icmp samesign ult i32 %0, 65536
+  br i1 %10, label %33, label %18
 
-10:                                               ; preds = %4
-  %11 = lshr i32 %0, 6
-  %12 = trunc nuw nsw i32 %11 to i8
-  %13 = or disjoint i8 %12, -64
-  store i8 %13, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %14 = trunc i32 %0 to i8
-  %15 = and i8 %14, 63
-  %16 = or disjoint i8 %15, -128
-  store i8 %16, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+11:                                               ; preds = %5
+  %12 = lshr i32 %0, 6
+  %13 = trunc nuw nsw i32 %12 to i8
+  %14 = or disjoint i8 %13, -64
+  store i8 %14, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %15 = trunc i32 %0 to i8
+  %16 = and i8 %15, 63
+  %17 = or disjoint i8 %16, -128
+  store i8 %17, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-17:                                               ; preds = %8
-  %18 = lshr i32 %0, 18
-  %19 = trunc nuw nsw i32 %18 to i8
-  %20 = or disjoint i8 %19, -16
-  store i8 %20, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %21 = lshr i32 %0, 12
-  %22 = trunc i32 %21 to i8
-  %23 = and i8 %22, 63
-  %24 = or disjoint i8 %23, -128
-  store i8 %24, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
-  %25 = lshr i32 %0, 6
-  %26 = trunc i32 %25 to i8
-  %27 = and i8 %26, 63
-  %28 = or disjoint i8 %27, -128
-  store i8 %28, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
-  %29 = trunc i32 %0 to i8
-  %30 = and i8 %29, 63
-  %31 = or disjoint i8 %30, -128
-  store i8 %31, ptr %.sroa.0.05.i.sroa.gep3.i, align 1, !alias.scope !1070, !noalias !1067
+18:                                               ; preds = %9
+  %19 = lshr i32 %0, 18
+  %20 = trunc nuw nsw i32 %19 to i8
+  %21 = or disjoint i8 %20, -16
+  store i8 %21, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %22 = lshr i32 %0, 12
+  %23 = trunc i32 %22 to i8
+  %24 = and i8 %23, 63
+  %25 = or disjoint i8 %24, -128
+  store i8 %25, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+  %26 = lshr i32 %0, 6
+  %27 = trunc i32 %26 to i8
+  %28 = and i8 %27, 63
+  %29 = or disjoint i8 %28, -128
+  store i8 %29, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
+  %30 = trunc i32 %0 to i8
+  %31 = and i8 %30, 63
+  %32 = or disjoint i8 %31, -128
+  store i8 %32, ptr %.sroa.0.05.i.sroa.gep3.i, align 1, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-32:                                               ; preds = %8
-  %33 = lshr i32 %0, 12
-  %34 = trunc nuw nsw i32 %33 to i8
-  %35 = or disjoint i8 %34, -32
-  store i8 %35, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %36 = lshr i32 %0, 6
-  %37 = trunc i32 %36 to i8
-  %38 = and i8 %37, 63
-  %39 = or disjoint i8 %38, -128
-  store i8 %39, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
-  %40 = trunc i32 %0 to i8
-  %41 = and i8 %40, 63
-  %42 = or disjoint i8 %41, -128
-  store i8 %42, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
+33:                                               ; preds = %9
+  %34 = lshr i32 %0, 12
+  %35 = trunc nuw nsw i32 %34 to i8
+  %36 = or disjoint i8 %35, -32
+  store i8 %36, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %37 = lshr i32 %0, 6
+  %38 = trunc i32 %37 to i8
+  %39 = and i8 %38, 63
+  %40 = or disjoint i8 %39, -128
+  store i8 %40, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+  %41 = trunc i32 %0 to i8
+  %42 = and i8 %41, 63
+  %43 = or disjoint i8 %42, -128
+  store i8 %43, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit: ; preds = %6, %10, %17, %32
+_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit: ; preds = %7, %11, %18, %33
   %.sroa.0.05.i.sroa.phi.i = phi ptr [ %.sroa.0.05.i.sroa.gep.i, %6 ], [ %.sroa.0.05.i.sroa.gep1.i, %10 ], [ %.sroa.0.05.i.sroa.gep2.i, %17 ], [ %.sroa.0.05.i.sroa.gep3.i, %32 ]
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he8c9407ef5b33ecaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %.sroa.0.05.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1067

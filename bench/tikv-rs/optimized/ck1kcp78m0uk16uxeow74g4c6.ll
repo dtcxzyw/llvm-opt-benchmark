@@ -88,7 +88,7 @@ declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 nound
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #3
 
 attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

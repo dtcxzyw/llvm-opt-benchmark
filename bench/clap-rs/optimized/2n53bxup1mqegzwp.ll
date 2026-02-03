@@ -22,7 +22,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   br i1 %8, label %15, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #8
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #7
   unreachable
 
 10:                                               ; preds = %7
@@ -33,7 +33,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   ret { ptr, i64 } %14
 
 15:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %1, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #8
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %1, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #7
   unreachable
 }
 
@@ -71,8 +71,8 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
   unreachable
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i": ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 %6
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %12, i64 %3), !alias.scope !17, !noalias !24
   %bcmp.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %.not46.i.i = icmp eq i32 %bcmp.i.i.i.fr.i.i.i, 0
@@ -83,7 +83,7 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
   br i1 %exitcond.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit32.i.i", label %.lr.ph.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit32.i.i": ; preds = %.critedge38.backedge.i.i, %.critedge38.preheader.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 %5
+  %14 = getelementptr inbounds i8, ptr %0, i64 %5
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %bcmp.i.i.i.i29.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %13, i64 %3), !alias.scope !25, !noalias !32
   %bcmp.i.i.i.fr.i30.i.i = freeze i32 %bcmp.i.i.i.i29.i.i
@@ -212,7 +212,7 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit": ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @_ZN4core9panicking13assert_failed17h78db69186c9d5469E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(16) @anon.9acd36be39784948a154da50af79fd9d.4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.5) #8
+  call void @_ZN4core9panicking13assert_failed17h78db69186c9d5469E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(16) @anon.9acd36be39784948a154da50af79fd9d.4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.5) #7
   unreachable
 }
 
@@ -244,8 +244,8 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
   unreachable
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i": ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 %7
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
+  %14 = getelementptr inbounds i8, ptr %1, i64 %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %13, i64 %4), !alias.scope !91, !noalias !98
   %bcmp.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %.not46.i.i = icmp eq i32 %bcmp.i.i.i.fr.i.i.i, 0
@@ -256,7 +256,7 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
   br i1 %exitcond.not.i.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit", label %.lr.ph.i.i
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit": ; preds = %.critedge38.backedge.i.i, %.critedge38.preheader.i.i
-  %14 = getelementptr inbounds i8, ptr %1, i64 %6
+  %15 = getelementptr inbounds i8, ptr %1, i64 %6
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %bcmp.i.i.i.i29.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %14, i64 %4), !alias.scope !99, !noalias !106
   %bcmp.i.i.i.fr.i30.i.i = freeze i32 %bcmp.i.i.i.i29.i.i
@@ -265,39 +265,39 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread16": ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i", %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit"
   %.sroa.4.0.i19 = phi i64 [ %6, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit" ], [ %7, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i" ]
-  %15 = add i64 %.sroa.4.0.i19, %4
-  %16 = icmp ugt i64 %.sroa.4.0.i19, %2
-  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
+  %16 = add i64 %.sroa.4.0.i19, %4
+  %17 = icmp ugt i64 %.sroa.4.0.i19, %2
+  br i1 %17, label %18, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
 
-17:                                               ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread16"
+18:                                               ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread16"
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.sroa.4.0.i19, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.6.llvm.8584779980762939608) #8, !noalias !111
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit": ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread16"
-  %18 = icmp ugt i64 %15, %2
-  br i1 %18, label %22, label %19
+  %19 = icmp ugt i64 %16, %2
+  br i1 %19, label %23, label %20
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread": ; preds = %5, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit"
   store ptr null, ptr %0, align 8
-  br label %23
+  br label %24
 
-19:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
-  %20 = sub nuw i64 %2, %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 %15
+20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
+  %21 = sub nuw i64 %2, %16
+  %22 = getelementptr inbounds i8, ptr %1, i64 %16
   store ptr %1, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0.i19, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %22, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %20, ptr %.sroa.66.0..sroa_idx, align 8
-  br label %23
+  store i64 %21, ptr %.sroa.66.0..sroa_idx, align 8
+  br label %24
 
-22:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %15, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.7.llvm.8584779980762939608) #8
+23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2e16e49de880e58eE.llvm.8584779980762939608.exit"
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %16, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9acd36be39784948a154da50af79fd9d.7.llvm.8584779980762939608) #7
   unreachable
 
-23:                                               ; preds = %19, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread"
+24:                                               ; preds = %20, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread"
   ret void
 }
 
@@ -326,18 +326,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #5 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: read) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #8 = { noreturn }
 

@@ -31,17 +31,17 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h609b6ab02d8c66ecE"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0 = alloca i32, align 4
+  %.sroa.0.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %3 = icmp ult i32 %1, 128
-  %.sroa.0.1.gep.i.sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2.gep1.i.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  %.sroa.0.3.gep2.i.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
   br i1 %3, label %49, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  store i32 0, ptr %.sroa.0, align 4, !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  store i32 0, ptr %.sroa.0.i, align 4, !noalias !12
   %5 = icmp ult i32 %1, 2048
   br i1 %5, label %8, label %6
 
@@ -53,20 +53,20 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %9 = lshr i32 %1, 6
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
-  store i8 %11, ptr %.sroa.0, align 4, !alias.scope !15, !noalias !12
+  store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !15, !noalias !12
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
   %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
-  store i8 %15, ptr %.sroa.0, align 4, !alias.scope !15, !noalias !12
+  store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !15, !noalias !12
   %16 = lshr i32 %1, 6
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.1.gep.i.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %19, ptr %.sroa.0.1.gep.i.sroa_idx7, align 1, !alias.scope !15, !noalias !12
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !15, !noalias !12
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 20:                                               ; preds = %6
@@ -74,23 +74,23 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 7
   %24 = or disjoint i8 %23, -16
-  store i8 %24, ptr %.sroa.0, align 4, !alias.scope !15, !noalias !12
+  store i8 %24, ptr %.sroa.0.i, align 4, !alias.scope !15, !noalias !12
   %25 = lshr i32 %1, 12
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.1.gep.i.sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %28, ptr %.sroa.0.1.gep.i.sroa_idx6, align 1, !alias.scope !15, !noalias !12
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !15, !noalias !12
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.2.gep1.i.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %32, ptr %.sroa.0.2.gep1.i.sroa_idx9, align 2, !alias.scope !15, !noalias !12
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !15, !noalias !12
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %20, %12, %8
-  %.sink.i.sroa.phi.i = phi ptr [ %.sroa.0.1.gep.i.sroa_idx5, %8 ], [ %.sroa.0.2.gep1.i.sroa_idx8, %12 ], [ %.sroa.0.3.gep2.i.sroa_idx10, %20 ]
+  %.sink.i.sroa.phi.i = phi ptr [ %.sroa.0.i.1.i.1.i.1.gep.sroa_idx, %8 ], [ %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx, %12 ], [ %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx, %20 ]
   %33 = phi i64 [ 2, %8 ], [ 3, %12 ], [ 4, %20 ]
   %34 = trunc i32 %1 to i8
   %35 = and i8 %34, 63
@@ -113,11 +113,11 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !29, !noalias !27, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %33, i1 false)
   %47 = load i64, ptr %37, align 8, !alias.scope !29, !noalias !27, !noundef !4
   %48 = add i64 %47, %33
   store i64 %48, ptr %37, align 8, !alias.scope !29, !noalias !27
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %_ZN5alloc6string6String4push17h73faea9791f3dabaE.exit
 
 49:                                               ; preds = %2
@@ -202,7 +202,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #6
+declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

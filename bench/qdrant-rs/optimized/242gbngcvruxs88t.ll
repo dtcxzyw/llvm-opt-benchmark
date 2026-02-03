@@ -42,7 +42,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 14:                                               ; preds = %21, %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #13
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #12
           to label %24 unwind label %32
 
 16:                                               ; preds = %6
@@ -83,7 +83,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 32:                                               ; preds = %37, %14
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable
 
 34:                                               ; preds = %35, %29
@@ -97,7 +97,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %24
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #12
           to label %36 unwind label %32
 }
 
@@ -240,7 +240,7 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr write
 
 30:                                               ; preds = %26
   call void @_ZN4core3fmt9Arguments6new_v117h5bbb60e36a2abd7bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.5, i64 1, ptr nonnull align 8 %4, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #15
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #14
   unreachable
 }
 
@@ -586,16 +586,16 @@ declare zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hbe0c5c4ec9f1d0a9E(ptr ali
 declare zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hecbbcb173259e2f6E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #10
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -608,7 +608,7 @@ attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync no
 attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { cold }
 attributes #14 = { cold noreturn nounwind }

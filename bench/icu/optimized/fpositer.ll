@@ -72,7 +72,7 @@ define void @_ZN6icu_7721FieldPositionIteratorC2ERKS0_(ptr noundef nonnull align
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %30, label %10
+  br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -80,58 +80,58 @@ define void @_ZN6icu_7721FieldPositionIteratorC2ERKS0_(ptr noundef nonnull align
   %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #8
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   invoke void @_ZN6icu_779UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %12 unwind label %24
+          to label %12 unwind label %25
 
-12:                                               ; preds = %10
+13:                                               ; preds = %10
   store ptr %11, ptr %4, align 8, !tbaa !6
-  %13 = load ptr, ptr %8, align 8, !tbaa !6
-  invoke void @_ZN6icu_779UVector326assignERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %14 unwind label %26
+  %14 = load ptr, ptr %8, align 8, !tbaa !6
+  invoke void @_ZN6icu_779UVector326assignERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %14 unwind label %27
 
-14:                                               ; preds = %12
-  %15 = load i32, ptr %3, align 4, !tbaa !14
-  %.not12 = icmp eq i32 %15, 0
-  br i1 %.not12, label %28, label %16
+15:                                               ; preds = %13
+  %16 = load i32, ptr %3, align 4, !tbaa !14
+  %.not12 = icmp eq i32 %16, 0
+  br i1 %.not12, label %29, label %17
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %4, align 8, !tbaa !6
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %23, label %19
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %24, label %20
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %17, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
-  br label %23
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %18, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
+  br label %24
 
-23:                                               ; preds = %19, %16
+24:                                               ; preds = %20, %17
   store ptr null, ptr %4, align 8, !tbaa !6
   store i32 -1, ptr %5, align 8, !tbaa !13
-  br label %28
+  br label %29
 
-24:                                               ; preds = %10
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #8
-  br label %29
-
-26:                                               ; preds = %12
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  br label %29
-
-28:                                               ; preds = %23, %14
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
-29:                                               ; preds = %24, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
+27:                                               ; preds = %13
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  br label %30
+
+29:                                               ; preds = %24, %15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %31
+
+30:                                               ; preds = %25, %27
+  %.pn = phi { ptr, i32 } [ %28, %26 ], [ %26, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
   resume { ptr, i32 } %.pn
 
-30:                                               ; preds = %28, %2
+31:                                               ; preds = %29, %2
   ret void
 }
 

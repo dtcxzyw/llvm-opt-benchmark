@@ -51,9 +51,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit:
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.40.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %2 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
+  %4 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i1 %2
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

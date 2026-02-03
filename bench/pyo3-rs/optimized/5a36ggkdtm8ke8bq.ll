@@ -78,13 +78,13 @@ define void @_ZN8pyo3_ffi8datetime17PyDateTime_IMPORT17hb5076f9810e237b1E() unna
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.0, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.7) #10
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.0, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.7) #9
           to label %8 unwind label %6, !noalias !5
 
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17hc54f7bafc361eb6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #11
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17hc54f7bafc361eb6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #10
           to label %common.resume unwind label %9, !noalias !5
 
 8:                                                ; preds = %5
@@ -202,7 +202,7 @@ declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias nou
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #7
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #6
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h22cd71d8b7ce202fE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
@@ -220,13 +220,13 @@ declare noundef ptr @PyCapsule_Import(ptr noundef, i32 noundef) unnamed_addr #2
 declare hidden void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17hc54f7bafc361eb6fE"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -236,7 +236,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { noreturn }
 attributes #11 = { cold }

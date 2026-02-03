@@ -888,7 +888,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %15 = load ptr, ptr %headerName, align 8
   %16 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, %16
-  br i1 %cmp.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit, label %lor.rhs.i.i.i
+  br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i
   %call.i.i.i.i27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
@@ -901,12 +901,12 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i
   %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit, label %if.end.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %call2.i.i.i.i, ptr %call3.i.i.i.i, i64 %call4.i.i.i.i)
   %17 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %17, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit, label %while.cond.i.backedge
+  br i1 %17, label %if.end, label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.end.i.i.i.i.i, %lor.rhs.i.i.i
   %cmp.i23.not = icmp eq i32 %and.i26, 0
@@ -931,7 +931,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %cmp.i = icmp eq i64 %shr.i, 0
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !11
 
-_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i, %if.end.i.i.i.i.i
+if.end:                                           ; preds = %land.rhs.i.i.i.i, %while.body.i, %if.end.i.i.i.i.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i.i.i.i.le) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i.i.i.i.le) ]
@@ -945,7 +945,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %cmp.i.i.i34.not57 = icmp eq ptr %second, %22
   br i1 %cmp.i.i.i34.not57, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit
+for.body.lr.ph:                                   ; preds = %if.end
   %table_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %value.coerce1.fr to i64
   %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %value.coerce0.fr to i64
@@ -1111,7 +1111,7 @@ for.end.loopexit87:                               ; preds = %for.inc
   %52 = zext nneg i8 %encoderHasUnackedEntry.1 to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc.us67, %for.inc.us67.us, %for.inc.us, %for.end.loopexit87, %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit
+for.end:                                          ; preds = %for.inc.us67, %for.inc.us67.us, %for.inc.us, %for.end.loopexit87, %if.end
   %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE13makeConstIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit ], [ 0, %for.inc.us67.us ], [ 1, %for.inc.us ], [ %52, %for.end.loopexit87 ], [ 0, %for.inc.us67 ]
   %. = sub nsw i32 0, %encoderHasUnackedEntry.0.lcssa
   br label %return

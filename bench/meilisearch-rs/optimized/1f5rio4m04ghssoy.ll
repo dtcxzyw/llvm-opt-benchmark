@@ -47,15 +47,15 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..
   br label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
 
 _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i: ; preds = %9, %7, %3, %0
-  %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
-  %11 = icmp eq i32 %10, 2
-  br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
+  %11 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
+  %12 = icmp eq i32 %11, 2
+  br i1 %12, label %13, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
 
-12:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
+13:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hb69143d82f88043dE(ptr noundef nonnull align 4 %.0.val)
   br label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
 
-"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, %12
+"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, %13
   ret void
 }
 

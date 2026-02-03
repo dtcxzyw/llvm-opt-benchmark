@@ -94,13 +94,13 @@ define hidden noundef i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I
 
 10:                                               ; preds = %10, %5
   %.sroa.07.0.i = phi i32 [ %2, %5 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %10 ]
-  %.sroa.09.0.i = phi i64 [ 0, %5 ], [ %12, %10 ]
+  %.sroa.07.0.i = phi i64 [ 0, %5 ], [ %12, %10 ]
   %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i32, ptr %11, align 4, !noundef !3
   %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.07.0.i, i32 %.val.i)
-  %12 = add nuw i64 %.sroa.09.0.i, 1
-  %13 = icmp eq i64 %12, %9
-  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %10
+  %13 = add nuw i64 %.sroa.09.0.i, 1
+  %14 = icmp eq i64 %13, %9
+  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit": ; preds = %10, %3
   %.sroa.04.0.i = phi i32 [ %2, %3 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %10 ]

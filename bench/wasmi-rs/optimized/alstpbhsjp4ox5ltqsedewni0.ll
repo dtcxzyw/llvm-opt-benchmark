@@ -178,7 +178,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"
   %8 = icmp ult i64 %7, 576460752303423488
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ugt i64 %1, %7
-  br i1 %9, label %10, label %29
+  br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h554eacf8da0c13dcE.exit"
 
 10:                                               ; preds = %5
   %11 = sub nuw i64 %1, %7
@@ -228,7 +228,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"
   %exitcond.not.i = icmp eq i64 %26, %11
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-29:                                               ; preds = %5, %._crit_edge.i
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h554eacf8da0c13dcE.exit": ; preds = %5, %._crit_edge.i
   %storemerge = phi i64 [ %25, %._crit_edge.i ], [ %1, %5 ]
   store i64 %storemerge, ptr %6, align 8
   ret void
@@ -241,7 +241,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he68b3cb74bd146a2E"
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = icmp ugt i64 %1, %6
-  br i1 %8, label %9, label %24
+  br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb35e3abaddc6f782E.exit"
 
 9:                                                ; preds = %4
   %10 = sub nuw i64 %1, %6
@@ -280,7 +280,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he68b3cb74bd146a2E"
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   br label %24
 
-24:                                               ; preds = %4, %._crit_edge.i
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb35e3abaddc6f782E.exit": ; preds = %4, %._crit_edge.i
   %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void

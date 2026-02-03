@@ -29,7 +29,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   %10 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb844b111d5be2405E"(ptr nonnull align 8 %3, ptr nonnull align 8 %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %10
+  ret i1 %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39,22 +39,22 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %6 = load i64, ptr %5, align 8, !noalias !5, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %7 = load i64, ptr %6, align 8, !noalias !5, !noundef !3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !5, !noundef !3
   %9 = add i64 %8, %6
   call void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Clone$GT$5clone17had7f047f5d3ae9d5E"(ptr nonnull sret({ { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }) align 8 %4, ptr nonnull align 8 %2), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %9, ptr %10, align 8, !alias.scope !5
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %9, ptr %11, align 8, !alias.scope !5
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

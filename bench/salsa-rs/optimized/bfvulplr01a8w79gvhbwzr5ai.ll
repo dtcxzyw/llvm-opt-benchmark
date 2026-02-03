@@ -66,7 +66,7 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not, label %6, label %4, !prof !5
+  br i1 %.not, label %7, label %4, !prof !5
 
 4:                                                ; preds = %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
@@ -92,7 +92,7 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.45.i)
   ret void
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ddedaacfb52f9be45e107cd3e73f36ed.3) #18
   unreachable
 }

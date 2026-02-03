@@ -372,25 +372,25 @@ define void @"_ZN5rayon3str77_$LT$impl$u20$rayon..str..private..Pattern$u20$for$
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
+declare void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
+declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
+declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

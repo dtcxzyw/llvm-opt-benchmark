@@ -13320,7 +13320,7 @@ switch.lookup:                                    ; preds = %2
 define dso_local i32 @nghttp2_session_upgrade(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call fastcc i32 @nghttp2_session_upgrade_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %nghttp2_session_get_stream.exit, label %13
+  br i1 %.not, label %nghttp2_session_get_stream.exit, label %14
 
 nghttp2_session_get_stream.exit:                  ; preds = %4
   %6 = tail call ptr @nghttp2_map_find(ptr noundef %0, i32 noundef 1) #20
@@ -13335,7 +13335,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %4
   store i32 %12, ptr %10, align 4, !tbaa !246
   br label %13
 
-13:                                               ; preds = %4, %nghttp2_session_get_stream.exit
+14:                                               ; preds = %4, %nghttp2_session_get_stream.exit
   ret i32 %5
 }
 

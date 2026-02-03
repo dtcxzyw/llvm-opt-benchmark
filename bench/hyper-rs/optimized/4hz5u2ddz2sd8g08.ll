@@ -61,14 +61,14 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i"
 
 28:                                               ; preds = %16
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %20, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #8
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %20, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #7
           to label %.noexc22 unwind label %46
 
 .noexc22:                                         ; preds = %28
   unreachable
 
 29:                                               ; preds = %26
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %23, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %23, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #7
           to label %.noexc23 unwind label %46
 
 .noexc23:                                         ; preds = %29
@@ -141,7 +141,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 54:                                               ; preds = %46
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
 56:                                               ; preds = %3, %.thread

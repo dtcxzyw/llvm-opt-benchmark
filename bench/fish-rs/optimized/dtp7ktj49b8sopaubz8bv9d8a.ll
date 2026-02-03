@@ -253,14 +253,14 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !5
   br label %29
 
-.lr.ph.i.i.i:                                     ; preds = %29
+17:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(32) %4, i64 32, i1 false), !noalias !5
   store i64 32, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !5
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  br label %17
+  br label %.lr.ph.i.i.i
 
-17:                                               ; preds = %17, %.lr.ph.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %17, %.lr.ph.i.i.i
   %.sroa.0.08.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i ], [ %22, %17 ]
   %18 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %19, %17 ]
   %19 = add nuw nsw i64 %18, 1
@@ -268,9 +268,9 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %21 = load i8, ptr %20, align 1, !range !13, !alias.scope !14, !noalias !17, !noundef !3
   %22 = add i8 %21, %.sroa.0.08.i.i.i
   %.not.i.i.i = icmp eq i64 %19, 32
-  br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i", label %17
+  br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i", label %.lr.ph.i.i.i
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i": ; preds = %17
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i": ; preds = %.lr.ph.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.02835.i, i64 32
   %24 = add i64 %.sroa.06.036.i, 32
   store i64 32, ptr %3, align 8, !alias.scope !18, !noalias !19
@@ -293,7 +293,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 1, !noalias !5
   %exitcond.not.i = icmp eq i64 %30, 32
-  br i1 %exitcond.not.i, label %.lr.ph.i.i.i, label %29
+  br i1 %exitcond.not.i, label %17, label %29
 
 .lr.ph40.i:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha21ba39c927a9d87E.exit.thread.i", %38
   %.sroa.0.2 = phi ptr [ %39, %38 ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha21ba39c927a9d87E.exit.thread.i" ]

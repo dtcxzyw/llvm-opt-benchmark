@@ -827,14 +827,14 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp7.not43, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then4
-  %2 = getelementptr inbounds nuw i8, ptr %name, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %name, i64 16
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %while.body.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %name)
   %call8 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef -2, ptr noundef null)
-  store ptr %2, ptr %name, align 8, !tbaa !119
+  store ptr %3, ptr %name, align 8, !tbaa !119
   %cmp.i = icmp eq ptr %call8, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -852,42 +852,42 @@ if.end.i:                                         ; preds = %while.body
 if.then.i.i:                                      ; preds = %if.end.i
   %call2.i11.i33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0)
   store ptr %call2.i11.i33, ptr %name, align 8, !tbaa !4
-  %3 = load i64, ptr %__dnew.i.i, align 8, !tbaa !133
-  store i64 %3, ptr %2, align 8, !tbaa !121
+  %4 = load i64, ptr %__dnew.i.i, align 8, !tbaa !133
+  store i64 %4, ptr %3, align 8, !tbaa !121
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %4 = phi ptr [ %call2.i11.i33, %if.then.i.i ], [ %2, %if.end.i ]
+  %5 = phi ptr [ %call2.i11.i33, %if.then.i.i ], [ %3, %if.end.i ]
   switch i64 %call.i.i, label %if.end.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i
     i64 0, label %invoke.cont
   ]
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %5 = load i8, ptr %call8, align 1, !tbaa !121
-  store i8 %5, ptr %4, align 1, !tbaa !121
+  %6 = load i8, ptr %call8, align 1, !tbaa !121
+  store i8 %6, ptr %5, align 1, !tbaa !121
   br label %invoke.cont
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %call8, i64 %call.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %call8, i64 %call.i.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
-  %6 = load i64, ptr %__dnew.i.i, align 8, !tbaa !133
-  store i64 %6, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !120
-  %7 = load ptr, ptr %name, align 8, !tbaa !4
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
+  %7 = load i64, ptr %__dnew.i.i, align 8, !tbaa !133
+  store i64 %7, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !120
+  %8 = load ptr, ptr %name, align 8, !tbaa !4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !121
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
-  %8 = load ptr, ptr %name, align 8, !tbaa !4
+  %9 = load ptr, ptr %name, align 8, !tbaa !4
   %call12 = invoke noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef %L)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  %9 = icmp eq ptr %call12, null
+  %10 = icmp eq ptr %call12, null
   %add.ptr = getelementptr inbounds nuw i8, ptr %call12, i64 16
-  %spec.select = select i1 %9, ptr null, ptr %add.ptr
-  invoke void @_Z19read_inventory_listP9lua_StateiP9InventoryPKcP8IGameDefi(ptr noundef %L, i32 noundef -1, ptr noundef %1, ptr noundef %8, ptr noundef %spec.select, i32 noundef -1)
+  %spec.select = select i1 %10, ptr null, ptr %add.ptr
+  invoke void @_Z19read_inventory_listP9lua_StateiP9InventoryPKcP8IGameDefi(ptr noundef %L, i32 noundef -1, ptr noundef %1, ptr noundef %9, ptr noundef %spec.select, i32 noundef -1)
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -895,12 +895,12 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont14 unwind label %lpad10
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  %10 = load ptr, ptr %name, align 8, !tbaa !4
-  %cmp.i.i.i = icmp eq ptr %10, %2
+  %11 = load ptr, ptr %name, align 8, !tbaa !4
+  %cmp.i.i.i = icmp eq ptr %11, %3
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %invoke.cont14
-  call void @_ZdlPv(ptr noundef %10) #22
+  call void @_ZdlPv(ptr noundef %11) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont14, %if.then.i.i34
@@ -910,19 +910,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !134
 
 lpad10:                                           ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %name, align 8, !tbaa !4
-  %cmp.i.i.i35 = icmp eq ptr %12, %2
+  %13 = load ptr, ptr %name, align 8, !tbaa !4
+  %cmp.i.i.i35 = icmp eq ptr %13, %3
   br i1 %cmp.i.i.i35, label %ehcleanup, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %lpad10
-  call void @_ZdlPv(ptr noundef %12) #22
+  call void @_ZdlPv(ptr noundef %13) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad10, %if.then.i.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %name)
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 
 while.end:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then4
   call void @lua_settop(ptr noundef %L, i32 noundef -2)

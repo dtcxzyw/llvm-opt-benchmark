@@ -561,7 +561,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #5
+declare void @llvm.experimental.noalias.scope.decl(metadata) #4
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

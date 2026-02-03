@@ -31,14 +31,14 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9143d68ca1389f62E.llvm.10518328448262610784.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9143d68ca1389f62E.llvm.10518328448262610784.exit": ; preds = %3, %12
-  %13 = phi i64 [ %8, %3 ], [ %.pre, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %6, i1 false)
-  %17 = load i64, ptr %7, align 8, !noundef !7
-  %18 = add i64 %17, %6
-  store i64 %18, ptr %7, align 8
+  %14 = phi i64 [ %8, %3 ], [ %.pre, %12 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
+  %17 = getelementptr inbounds i8, ptr %16, i64 %14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %1, i64 %6, i1 false)
+  %18 = load i64, ptr %7, align 8, !noundef !7
+  %19 = add i64 %18, %6
+  store i64 %19, ptr %7, align 8
   ret void
 }
 

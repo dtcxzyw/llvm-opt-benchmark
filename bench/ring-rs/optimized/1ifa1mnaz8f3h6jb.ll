@@ -2429,8 +2429,8 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit: ; preds = %.split11
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %48 = icmp eq i64 %27, 0
-  br i1 %48, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hbb007d906e555d86E.exit._crit_edge", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.i"
+  %42 = icmp eq i64 %27, 0
+  br i1 %42, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hbb007d906e555d86E.exit._crit_edge", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.i"
 }
 
 ; Function Attrs: nonlazybind uwtable

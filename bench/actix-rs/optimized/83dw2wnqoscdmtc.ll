@@ -175,7 +175,7 @@ define hidden void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for
 define hidden void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h84efa79208c010dcE"(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !range !25, !noundef !12
   %4 = icmp eq i64 %3, -9223372036854775808
-  br i1 %4, label %5, label %13
+  br i1 %4, label %5, label %14
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -193,13 +193,13 @@ define hidden void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h84efa79208c010
   store ptr %12, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !26, !noalias !31
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !26, !noalias !31
-  br label %14
+  br label %15
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %5
+15:                                               ; preds = %14, %5
   ret void
 }
 

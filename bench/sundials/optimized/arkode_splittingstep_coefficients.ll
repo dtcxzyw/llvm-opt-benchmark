@@ -61,84 +61,84 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   br i1 %20, label %.loopexit.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %10
-  %21 = add nuw nsw i32 %1, 1
-  %22 = mul nuw nsw i32 %21, %0
-  %23 = zext nneg i32 %22 to i64
-  %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #14
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
+  %22 = add nuw nsw i32 %1, 1
+  %23 = mul nuw nsw i32 %22, %0
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 3
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %26 = zext nneg i32 %21 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = mul nuw nsw i32 %22, %2
-  %28 = zext nneg i32 %27 to i64
-  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 8) #15
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %37, label %.preheader.preheader
+  %29 = mul nuw nsw i32 %23, %2
+  %30 = zext nneg i32 %29 to i64
+  %31 = tail call noalias ptr @calloc(i64 noundef %30, i64 noundef 8) #15
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %39, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %31 = zext nneg i32 %2 to i64
-  %32 = add nuw i32 %1, 1
-  %33 = zext nneg i32 %21 to i64
-  %wide.trip.count93 = zext i32 %32 to i64
+  %33 = zext nneg i32 %2 to i64
+  %34 = add nuw i32 %1, 1
+  %35 = zext nneg i32 %22 to i64
+  %wide.trip.count93 = zext i32 %34 to i64
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = mul nuw nsw i64 %indvars.iv, %26
-  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %34
-  %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  store ptr %35, ptr %36, align 8, !tbaa !16
+  %36 = mul nuw nsw i64 %indvars.iv, %26
+  %37 = getelementptr inbounds nuw ptr, ptr %26, i64 %36
+  %38 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  store ptr %37, ptr %38, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-37:                                               ; preds = %._crit_edge
+39:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %16) #16
-  %38 = load ptr, ptr %18, align 8, !tbaa !16
-  %.not19.i65 = icmp eq ptr %38, null
-  br i1 %.not19.i65, label %.loopexit.sink.split, label %39
-
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !18
-  %.not20.i66 = icmp eq ptr %40, null
-  br i1 %.not20.i66, label %42, label %41
+  %40 = load ptr, ptr %18, align 8, !tbaa !16
+  %.not19.i65 = icmp eq ptr %40, null
+  br i1 %.not19.i65, label %.loopexit.sink.split, label %41
 
 41:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %40) #16
-  %.pre21.i68 = load ptr, ptr %18, align 8, !tbaa !16
-  br label %42
+  %42 = load ptr, ptr %40, align 8, !tbaa !18
+  %.not20.i66 = icmp eq ptr %42, null
+  br i1 %.not20.i66, label %44, label %43
 
-42:                                               ; preds = %41, %39
-  %43 = phi ptr [ %.pre21.i68, %41 ], [ %38, %39 ]
-  tail call void @free(ptr noundef %43) #16
+43:                                               ; preds = %41
+  tail call void @free(ptr noundef nonnull %42) #16
+  %.pre21.i68 = load ptr, ptr %18, align 8, !tbaa !16
+  br label %44
+
+44:                                               ; preds = %43, %41
+  %45 = phi ptr [ %.pre21.i68, %41 ], [ %40, %39 ]
+  tail call void @free(ptr noundef %45) #16
   br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge86
   %indvars.iv95 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next96, %._crit_edge86 ]
-  %44 = mul nuw nsw i64 %indvars.iv95, %33
-  %45 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv95
-  %46 = load ptr, ptr %45, align 8, !tbaa !16
-  br label %47
+  %46 = mul nuw nsw i64 %indvars.iv95, %35
+  %47 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv95
+  %48 = load ptr, ptr %47, align 8, !tbaa !16
+  br label %49
 
-._crit_edge86:                                    ; preds = %47
+._crit_edge86:                                    ; preds = %49
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %15
   br i1 %exitcond99.not, label %.loopexit, label %.preheader
 
-47:                                               ; preds = %.preheader, %47
+49:                                               ; preds = %.preheader, %49
   %indvars.iv90 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next91, %47 ]
-  %48 = add nuw nsw i64 %indvars.iv90, %44
-  %49 = mul nuw nsw i64 %48, %31
-  %50 = getelementptr inbounds nuw double, ptr %29, i64 %49
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv90
-  store ptr %50, ptr %51, align 8, !tbaa !18
+  %50 = add nuw nsw i64 %indvars.iv90, %46
+  %51 = mul nuw nsw i64 %50, %33
+  %52 = getelementptr inbounds nuw double, ptr %31, i64 %51
+  %53 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv90
+  store ptr %52, ptr %53, align 8, !tbaa !18
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge86, label %47
+  br i1 %exitcond94.not, label %._crit_edge86, label %49
 
-.loopexit.sink.split:                             ; preds = %37, %42, %10
+.loopexit.sink.split:                             ; preds = %39, %44, %10
   %.sink = phi ptr [ %16, %10 ], [ %18, %42 ], [ %18, %37 ]
   tail call void @free(ptr noundef nonnull %.sink) #16
   tail call void @free(ptr noundef nonnull %8) #16

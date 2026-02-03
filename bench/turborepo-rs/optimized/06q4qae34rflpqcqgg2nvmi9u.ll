@@ -40,7 +40,7 @@ define void @_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDT
 9:                                                ; preds = %8, %.noexc4, %2
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #11
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #10
           to label %14 unwind label %12
 
 11:                                               ; preds = %.noexc4
@@ -53,7 +53,7 @@ define void @_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDT
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #12
+  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #11
   unreachable
 
 14:                                               ; preds = %9

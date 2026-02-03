@@ -376,20 +376,20 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %8 = phi ptr [ %13, %.lr.ph ], [ %7, %2 ]
-  %9 = phi { ptr, ptr } [ %12, %.lr.ph ], [ %6, %2 ]
+  %8 = phi ptr [ %14, %.lr.ph ], [ %7, %2 ]
+  %9 = phi { ptr, ptr } [ %13, %.lr.ph ], [ %6, %2 ]
   %10 = extractvalue { ptr, ptr } %9, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   store ptr %10, ptr %3, align 8
-  %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17hada7ef8221dc89edE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d16563b45468e483725d44465c1d4f32.7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d16563b45468e483725d44465c1d4f32.8)
+  %12 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17hada7ef8221dc89edE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d16563b45468e483725d44465c1d4f32.7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d16563b45468e483725d44465c1d4f32.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %12 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h236f3db1eb020987E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %.not = icmp eq ptr %13, null
+  %13 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h236f3db1eb020987E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
+  %14 = extractvalue { ptr, ptr } %13, 0
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

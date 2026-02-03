@@ -161,17 +161,17 @@ define void @ZSTD_XXH32_copyState(ptr noundef writeonly captures(none) initializ
 define noundef i32 @ZSTD_XXH32_reset(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  %3 = add i32 %1, 606290984
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %4, align 4, !tbaa !3
-  %5 = add i32 %1, -2048144777
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %5, ptr %6, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %7, align 4, !tbaa !3
-  %8 = add i32 %1, 1640531535
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %8, ptr %9, align 4, !tbaa !3
+  %4 = add i32 %1, 606290984
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %4, ptr %5, align 4, !tbaa !3
+  %6 = add i32 %1, -2048144777
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %6, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %1, ptr %8, align 4, !tbaa !3
+  %9 = add i32 %1, 1640531535
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %9, ptr %10, align 4, !tbaa !3
   ret i32 0
 }
 
@@ -650,17 +650,17 @@ define void @ZSTD_XXH64_copyState(ptr noundef writeonly captures(none) initializ
 define noundef i32 @ZSTD_XXH64_reset(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
-  %3 = add i64 %1, 6983438078262162902
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %4, align 8, !tbaa !17
-  %5 = add i64 %1, -4417276706812531889
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %5, ptr %6, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %7, align 8, !tbaa !17
-  %8 = add i64 %1, 7046029288634856825
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %8, ptr %9, align 8, !tbaa !17
+  %4 = add i64 %1, 6983438078262162902
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %4, ptr %5, align 8, !tbaa !17
+  %6 = add i64 %1, -4417276706812531889
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %6, ptr %7, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %1, ptr %8, align 8, !tbaa !17
+  %9 = add i64 %1, 7046029288634856825
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %9, ptr %10, align 8, !tbaa !17
   ret i32 0
 }
 

@@ -628,14 +628,14 @@ define hidden void @_ZN5alloc3str17join_generic_copy17ha626a64902a2a2f3E(ptr dea
   %.sroa.27.1320 = phi i64 [ %72, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h44bff27bd06e0be4E.exit108" ], [ %64, %.preheader279 ]
   %.sroa.0153.0319 = phi ptr [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h44bff27bd06e0be4E.exit108" ], [ %22, %.preheader279 ]
   %67 = getelementptr i8, ptr %.sroa.0153.0319, i64 8
-  %.val91 = load ptr, ptr %67, align 8, !nonnull !3, !noundef !3
+  %.val92 = load ptr, ptr %67, align 8, !nonnull !3, !noundef !3
   %68 = getelementptr i8, ptr %.sroa.0153.0319, i64 16
   %.val92 = load i64, ptr %68, align 8, !noundef !3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val91) ]
   %.not85 = icmp ugt i64 %.val92, %.sroa.27.1320
-  br i1 %.not85, label %69, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h44bff27bd06e0be4E.exit108", !prof !37
+  br i1 %.not85, label %68, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h44bff27bd06e0be4E.exit108", !prof !37
 
-69:                                               ; preds = %.lr.ph322
+68:                                               ; preds = %.lr.ph322
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %.invoke
 
@@ -818,7 +818,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17ha626a64902a2a2f3E(ptr dea
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.invoke
 
-.invoke:                                          ; preds = %69, %77, %81, %90, %94, %103, %106, %115, %119, %127, %130
+.invoke:                                          ; preds = %68, %77, %81, %90, %94, %103, %106, %115, %119, %127, %130
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %69 ], [ %.sink.sroa.gep391, %77 ], [ %.sink.sroa.gep392, %81 ], [ %.sink.sroa.gep393, %90 ], [ %.sink.sroa.gep394, %94 ], [ %.sink.sroa.gep395, %103 ], [ %.sink.sroa.gep396, %106 ], [ %.sink.sroa.gep397, %115 ], [ %.sink.sroa.gep398, %119 ], [ %.sink.sroa.gep399, %127 ], [ %.sink.sroa.gep400, %130 ]
   %.sink.sroa.phi401 = phi ptr [ %.sink.sroa.gep402, %69 ], [ %.sink.sroa.gep403, %77 ], [ %.sink.sroa.gep404, %81 ], [ %.sink.sroa.gep405, %90 ], [ %.sink.sroa.gep406, %94 ], [ %.sink.sroa.gep407, %103 ], [ %.sink.sroa.gep408, %106 ], [ %.sink.sroa.gep409, %115 ], [ %.sink.sroa.gep410, %119 ], [ %.sink.sroa.gep411, %127 ], [ %.sink.sroa.gep412, %130 ]
   %.sink.sroa.phi413 = phi ptr [ %.sink.sroa.gep414, %69 ], [ %.sink.sroa.gep415, %77 ], [ %.sink.sroa.gep416, %81 ], [ %.sink.sroa.gep417, %90 ], [ %.sink.sroa.gep418, %94 ], [ %.sink.sroa.gep419, %103 ], [ %.sink.sroa.gep420, %106 ], [ %.sink.sroa.gep421, %115 ], [ %.sink.sroa.gep422, %119 ], [ %.sink.sroa.gep423, %127 ], [ %.sink.sroa.gep424, %130 ]
