@@ -5911,13 +5911,13 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   store ptr null, ptr @orig_post_startup_cb, align 8, !tbaa !39
   %5 = tail call i32 %3() #26
   %.not45 = icmp eq i32 %5, 0
-  br i1 %.not45, label %6, label %300
+  br i1 %.not45, label %6, label %297
 
 6:                                                ; preds = %4, %0
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 161), align 1, !tbaa !295, !range !37, !noundef !38
   %8 = trunc nuw i8 %7 to i1
   store i8 %7, ptr @file_cache_only, align 1, !tbaa !52
-  br i1 %8, label %121, label %9
+  br i1 %8, label %118, label %9
 
 9:                                                ; preds = %6
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 8), align 8, !tbaa !17
@@ -5956,11 +5956,11 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   %.035 = phi i64 [ %28, %22 ], [ %10, %15 ], [ %10, %9 ]
   %.034 = phi i64 [ %27, %22 ], [ 0, %15 ], [ 0, %9 ]
   %30 = tail call i32 @zend_shared_alloc_startup(i64 noundef %.035, i64 noundef %.034) #26
-  switch i32 %30, label %101 [
+  switch i32 %30, label %98 [
     i32 1, label %31
-    i32 0, label %95
-    i32 4, label %96
-    i32 2, label %100
+    i32 0, label %92
+    i32 4, label %93
+    i32 2, label %97
   ]
 
 31:                                               ; preds = %29
@@ -5991,7 +5991,7 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   tail call void @zend_accel_hash_init(ptr noundef nonnull %40, i32 noundef %42) #26
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8, !tbaa !254
   %.not22.i = icmp eq i64 %43, 0
-  br i1 %.not22.i, label %76, label %44
+  br i1 %.not22.i, label %73, label %44
 
 44:                                               ; preds = %37
   %.tr.i = trunc i64 %43 to i32
@@ -6019,564 +6019,561 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 464
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 176
   store ptr %64, ptr %65, align 8, !tbaa !54
-  %66 = ptrtoint ptr %64 to i64
-  %67 = and i64 %66, 7
-  %68 = icmp eq i64 %67, 0
-  tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw i8, ptr %57, i64 184
-  store ptr %64, ptr %69, align 8, !tbaa !55
-  %70 = getelementptr inbounds nuw i8, ptr %57, i64 208
-  %71 = shl nsw i64 %43, 20
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 192
-  store ptr %72, ptr %73, align 8, !tbaa !61
-  %gepdiff.i = or disjoint i64 %71, 40
-  %74 = icmp ult i64 %gepdiff.i, 34359738360
-  tail call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds nuw i8, ptr %57, i64 200
-  store ptr null, ptr %75, align 8, !tbaa !261
+  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 8) ]
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 184
+  store ptr %64, ptr %66, align 8, !tbaa !55
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 208
+  %68 = shl nsw i64 %43, 20
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 192
+  store ptr %69, ptr %70, align 8, !tbaa !61
+  %gepdiff.i = or disjoint i64 %68, 40
+  %71 = icmp ult i64 %gepdiff.i, 34359738360
+  tail call void @llvm.assume(i1 %71)
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 200
+  store ptr null, ptr %72, align 8, !tbaa !261
   %gepdiff23.i = add nuw nsw i64 %62, 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, i8 0, i64 %gepdiff23.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, i8 0, i64 %gepdiff23.i, i1 false)
   br label %zend_accel_init_shm.exit
 
-76:                                               ; preds = %37
-  %77 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 208
-  store i32 0, ptr %78, align 4, !tbaa !59
+73:                                               ; preds = %37
+  %74 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 208
+  store i32 0, ptr %75, align 4, !tbaa !59
   br label %zend_accel_init_shm.exit
 
-zend_accel_init_shm.exit:                         ; preds = %44, %76
+zend_accel_init_shm.exit:                         ; preds = %44, %73
   tail call void @zend_interned_strings_set_request_storage_handlers(ptr noundef nonnull @accel_new_interned_string_for_php, ptr noundef nonnull @accel_init_interned_string_for_php, ptr noundef nonnull @accel_init_interned_string_for_php) #26
-  %79 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store i8 0, ptr %80, align 8, !tbaa !157
-  %81 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  store i64 0, ptr %82, align 8, !tbaa !9
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 113
-  store i8 0, ptr %83, align 1, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 104
-  store i64 0, ptr %84, align 8, !tbaa !50
-  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !252
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 80
-  store i64 %85, ptr %86, align 8, !tbaa !253
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  store i8 1, ptr %88, align 8, !tbaa !47
-  %89 = tail call i64 @time(ptr noundef null) #26
-  %90 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 88
-  store i64 %89, ptr %91, align 8, !tbaa !304
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 96
-  store i64 0, ptr %92, align 8, !tbaa !256
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 121
-  store i8 0, ptr %93, align 1, !tbaa !165
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 144
-  store i64 -1, ptr %94, align 8
+  %76 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  store i8 0, ptr %77, align 8, !tbaa !157
+  %78 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  store i64 0, ptr %79, align 8, !tbaa !9
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 113
+  store i8 0, ptr %80, align 1, !tbaa !30
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 104
+  store i64 0, ptr %81, align 8, !tbaa !50
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !252
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 80
+  store i64 %82, ptr %83, align 8, !tbaa !253
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
+  store i8 1, ptr %85, align 8, !tbaa !47
+  %86 = tail call i64 @time(ptr noundef null) #26
+  %87 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 88
+  store i64 %86, ptr %88, align 8, !tbaa !304
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 96
+  store i64 0, ptr %89, align 8, !tbaa !256
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 121
+  store i8 0, ptr %90, align 1, !tbaa !165
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 144
+  store i64 -1, ptr %91, align 8
   br label %.sink.split
 
-95:                                               ; preds = %29
+92:                                               ; preds = %29
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.68) #31
   unreachable
 
-96:                                               ; preds = %29
+93:                                               ; preds = %29
   tail call void @zend_shared_alloc_lock() #26
-  %97 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %99 = load ptr, ptr %98, align 8, !tbaa !302
-  store ptr %99, ptr @accel_shared_globals, align 8, !tbaa !28
+  %94 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = load ptr, ptr %95, align 8, !tbaa !302
+  store ptr %96, ptr @accel_shared_globals, align 8, !tbaa !28
   tail call void @zend_interned_strings_set_request_storage_handlers(ptr noundef nonnull @accel_new_interned_string_for_php, ptr noundef nonnull @accel_init_interned_string_for_php, ptr noundef nonnull @accel_init_interned_string_for_php) #26
   br label %.sink.split
 
-100:                                              ; preds = %29
+97:                                               ; preds = %29
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.69) #31
   unreachable
 
-.sink.split:                                      ; preds = %96, %zend_accel_init_shm.exit
-  %.033.ph = phi i1 [ true, %96 ], [ false, %zend_accel_init_shm.exit ]
+.sink.split:                                      ; preds = %93, %zend_accel_init_shm.exit
+  %.033.ph = phi i1 [ true, %93 ], [ false, %zend_accel_init_shm.exit ]
   tail call void @zend_shared_alloc_unlock() #26
-  br label %101
+  br label %98
 
-101:                                              ; preds = %.sink.split, %29
+98:                                               ; preds = %.sink.split, %29
   %.033 = phi i1 [ false, %29 ], [ %.033.ph, %.sink.split ]
-  %102 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 96
-  %104 = load i64, ptr %103, align 8, !tbaa !256
-  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 296), align 8, !tbaa !257
+  %99 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 96
+  %101 = load i64, ptr %100, align 8, !tbaa !256
+  store i64 %101, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 296), align 8, !tbaa !257
   tail call void @zend_shared_alloc_lock() #26
-  %105 = load i8, ptr @jit_globals, align 8, !tbaa !296, !range !37, !noundef !38
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %117
+  %102 = load i8, ptr @jit_globals, align 8, !tbaa !296, !range !37, !noundef !38
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %114
 
-107:                                              ; preds = %101
-  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8, !tbaa !301
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %111
+104:                                              ; preds = %98
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8, !tbaa !301
+  %106 = icmp eq i64 %105, 0
+  br i1 %106, label %107, label %108
 
-110:                                              ; preds = %107
+107:                                              ; preds = %104
   store i8 0, ptr @jit_globals, align 8, !tbaa !296
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !305
-  br label %117
+  br label %114
 
-111:                                              ; preds = %107
-  %112 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
-  %114 = load ptr, ptr %113, align 8, !tbaa !306
-  %.not48 = icmp eq ptr %114, null
-  br i1 %.not48, label %115, label %116
+108:                                              ; preds = %104
+  %109 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
+  %111 = load ptr, ptr %110, align 8, !tbaa !306
+  %.not48 = icmp eq ptr %111, null
+  br i1 %.not48, label %112, label %113
 
-115:                                              ; preds = %111
+112:                                              ; preds = %108
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.70) #31
   unreachable
 
-116:                                              ; preds = %111
-  tail call void @zend_jit_startup(ptr noundef nonnull %114, i64 noundef %.034, i1 noundef zeroext %.033) #26
+113:                                              ; preds = %108
+  tail call void @zend_jit_startup(ptr noundef nonnull %111, i64 noundef %.034, i1 noundef zeroext %.033) #26
   store i8 1, ptr @zend_jit_startup_ok, align 1, !tbaa !52
-  br label %117
+  br label %114
 
-117:                                              ; preds = %110, %116, %101
+114:                                              ; preds = %107, %113, %98
   tail call void @zend_shared_alloc_save_state() #26
   tail call void @zend_shared_alloc_unlock() #26
-  %118 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
-  %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %120, label %126
+  %115 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
+  %116 = trunc nuw i8 %115 to i1
+  br i1 %116, label %117, label %123
 
-120:                                              ; preds = %117
+117:                                              ; preds = %114
   tail call void @zend_accel_shared_protect(i1 noundef zeroext true) #26
-  br label %126
+  br label %123
 
-121:                                              ; preds = %6
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
-  %.not49 = icmp eq ptr %122, null
-  br i1 %.not49, label %123, label %124
+118:                                              ; preds = %6
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
+  %.not49 = icmp eq ptr %119, null
+  br i1 %.not49, label %120, label %121
 
-123:                                              ; preds = %121
+120:                                              ; preds = %118
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.71) #31
   unreachable
 
-124:                                              ; preds = %121
+121:                                              ; preds = %118
   store i8 0, ptr @jit_globals, align 8, !tbaa !296
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !305
-  %125 = tail call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #32
-  store ptr %125, ptr @accel_shared_globals, align 8, !tbaa !28
-  br label %126
+  %122 = tail call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #32
+  store ptr %122, ptr @accel_shared_globals, align 8, !tbaa !28
+  br label %123
 
-126:                                              ; preds = %120, %117, %124
-  %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 160), align 8, !tbaa !307, !range !37, !noundef !38
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %132
+123:                                              ; preds = %117, %114, %121
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 160), align 8, !tbaa !307, !range !37, !noundef !38
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %129
 
-129:                                              ; preds = %126
+126:                                              ; preds = %123
   tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 3, ptr noundef nonnull @.str.72) #26
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
-  %.not50 = icmp eq ptr %130, null
-  br i1 %.not50, label %131, label %.thread
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
+  %.not50 = icmp eq ptr %127, null
+  br i1 %.not50, label %128, label %.thread
 
-131:                                              ; preds = %129
+128:                                              ; preds = %126
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.73) #31
   unreachable
 
-132:                                              ; preds = %126
+129:                                              ; preds = %123
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
   %.not51 = icmp eq ptr %.pr, null
-  br i1 %.not51, label %148, label %.thread
+  br i1 %.not51, label %145, label %.thread
 
-.thread:                                          ; preds = %129, %132
-  %.067 = phi i32 [ 7, %132 ], [ 5, %129 ]
+.thread:                                          ; preds = %126, %129
+  %.067 = phi i32 [ 7, %129 ], [ 5, %126 ]
   tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 3, ptr noundef nonnull @.str.74, ptr noundef nonnull @zend_system_id) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
-  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
-  %134 = load i8, ptr %133, align 1, !tbaa !64
-  %135 = icmp eq i8 %134, 47
-  br i1 %135, label %136, label %146
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
+  %131 = load i8, ptr %130, align 1, !tbaa !64
+  %132 = icmp eq i8 %131, 47
+  br i1 %132, label %133, label %143
 
-136:                                              ; preds = %.thread
-  %137 = call i32 @stat(ptr noundef nonnull %133, ptr noundef nonnull %2) #26
-  %.not52 = icmp eq i32 %137, 0
-  br i1 %.not52, label %138, label %146
+133:                                              ; preds = %.thread
+  %134 = call i32 @stat(ptr noundef nonnull %130, ptr noundef nonnull %2) #26
+  %.not52 = icmp eq i32 %134, 0
+  br i1 %.not52, label %135, label %143
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %140 = load i32, ptr %139, align 8, !tbaa !308
-  %141 = and i32 %140, 61440
-  %142 = icmp eq i32 %141, 16384
-  br i1 %142, label %143, label %146
+135:                                              ; preds = %133
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %137 = load i32, ptr %136, align 8, !tbaa !308
+  %138 = and i32 %137, 61440
+  %139 = icmp eq i32 %138, 16384
+  br i1 %139, label %140, label %143
 
-143:                                              ; preds = %138
-  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
-  %145 = tail call i32 @access(ptr noundef %144, i32 noundef %.067) #26
-  %.not53 = icmp eq i32 %145, 0
-  br i1 %.not53, label %147, label %146
+140:                                              ; preds = %135
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
+  %142 = tail call i32 @access(ptr noundef %141, i32 noundef %.067) #26
+  %.not53 = icmp eq i32 %142, 0
+  br i1 %.not53, label %144, label %143
 
-146:                                              ; preds = %143, %138, %136, %.thread
+143:                                              ; preds = %140, %135, %133, %.thread
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.75) #31
   unreachable
 
-147:                                              ; preds = %143
+144:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %148
+  br label %145
 
-148:                                              ; preds = %147, %132
-  %149 = load ptr, ptr @zend_compile_file, align 8, !tbaa !39
-  store ptr %149, ptr @accelerator_orig_compile_file, align 8, !tbaa !39
+145:                                              ; preds = %144, %129
+  %146 = load ptr, ptr @zend_compile_file, align 8, !tbaa !39
+  store ptr %146, ptr @accelerator_orig_compile_file, align 8, !tbaa !39
   store ptr @persistent_compile_file, ptr @zend_compile_file, align 8, !tbaa !39
-  %150 = load ptr, ptr @zend_stream_open_function, align 8, !tbaa !39
-  store ptr %150, ptr @accelerator_orig_zend_stream_open_function, align 8, !tbaa !39
+  %147 = load ptr, ptr @zend_stream_open_function, align 8, !tbaa !39
+  store ptr %147, ptr @accelerator_orig_zend_stream_open_function, align 8, !tbaa !39
   store ptr @persistent_stream_open_function, ptr @zend_stream_open_function, align 8, !tbaa !39
-  %151 = load ptr, ptr @zend_resolve_path, align 8, !tbaa !39
-  store ptr %151, ptr @accelerator_orig_zend_resolve_path, align 8, !tbaa !39
+  %148 = load ptr, ptr @zend_resolve_path, align 8, !tbaa !39
+  store ptr %148, ptr @accelerator_orig_zend_resolve_path, align 8, !tbaa !39
   store ptr @persistent_zend_resolve_path, ptr @zend_resolve_path, align 8, !tbaa !39
-  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !238
-  %153 = tail call ptr @zend_hash_str_find(ptr noundef %152, ptr noundef nonnull @.str.76, i64 noundef 5) #26
-  %.not.i59 = icmp eq ptr %153, null
-  br i1 %.not.i59, label %zend_hash_str_find_ptr.exit61.thread, label %154
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !238
+  %150 = tail call ptr @zend_hash_str_find(ptr noundef %149, ptr noundef nonnull @.str.76, i64 noundef 5) #26
+  %.not.i59 = icmp eq ptr %150, null
+  br i1 %.not.i59, label %zend_hash_str_find_ptr.exit61.thread, label %151
 
-154:                                              ; preds = %148
-  %155 = load ptr, ptr %153, align 8, !tbaa !64, !nonnull !38, !noundef !38
-  %156 = load i8, ptr %155, align 8, !tbaa !64
-  %157 = icmp eq i8 %156, 1
-  br i1 %157, label %158, label %zend_hash_str_find_ptr.exit61.thread
+151:                                              ; preds = %145
+  %152 = load ptr, ptr %150, align 8, !tbaa !64, !nonnull !38, !noundef !38
+  %153 = load i8, ptr %152, align 8, !tbaa !64
+  %154 = icmp eq i8 %153, 1
+  br i1 %154, label %155, label %zend_hash_str_find_ptr.exit61.thread
 
-158:                                              ; preds = %154
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 88
-  %160 = load ptr, ptr %159, align 8, !tbaa !64
-  store ptr %160, ptr @orig_chdir, align 8, !tbaa !39
-  store ptr @zif_accel_chdir, ptr %159, align 8, !tbaa !64
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 88
+  %157 = load ptr, ptr %156, align 8, !tbaa !64
+  store ptr %157, ptr @orig_chdir, align 8, !tbaa !39
+  store ptr @zif_accel_chdir, ptr %156, align 8, !tbaa !64
   br label %zend_hash_str_find_ptr.exit61.thread
 
-zend_hash_str_find_ptr.exit61.thread:             ; preds = %148, %158, %154
+zend_hash_str_find_ptr.exit61.thread:             ; preds = %145, %155, %151
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), i8 0, i64 16, i1 false)
-  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8, !tbaa !278
-  %162 = tail call ptr @zend_hash_str_find(ptr noundef %161, ptr noundef nonnull @.str.8, i64 noundef 12) #26
-  %.not.i = icmp eq ptr %162, null
-  br i1 %.not.i, label %zend_hash_str_find_ptr.exit.thread, label %163
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8, !tbaa !278
+  %159 = tail call ptr @zend_hash_str_find(ptr noundef %158, ptr noundef nonnull @.str.8, i64 noundef 12) #26
+  %.not.i = icmp eq ptr %159, null
+  br i1 %.not.i, label %zend_hash_str_find_ptr.exit.thread, label %160
 
-163:                                              ; preds = %zend_hash_str_find_ptr.exit61.thread
-  %164 = load ptr, ptr %162, align 8, !tbaa !64, !nonnull !38, !noundef !38
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  %166 = load ptr, ptr %165, align 8, !tbaa !309
-  store ptr %166, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8, !tbaa !150
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !279
-  store ptr %168, ptr @orig_include_path_on_modify, align 8, !tbaa !39
-  store ptr @accel_include_path_on_modify, ptr %167, align 8, !tbaa !279
+160:                                              ; preds = %zend_hash_str_find_ptr.exit61.thread
+  %161 = load ptr, ptr %159, align 8, !tbaa !64, !nonnull !38, !noundef !38
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 40
+  %163 = load ptr, ptr %162, align 8, !tbaa !309
+  store ptr %163, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 192), align 8, !tbaa !150
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %165 = load ptr, ptr %164, align 8, !tbaa !279
+  store ptr %165, ptr @orig_include_path_on_modify, align 8, !tbaa !39
+  store ptr @accel_include_path_on_modify, ptr %164, align 8, !tbaa !279
   br label %zend_hash_str_find_ptr.exit.thread
 
-zend_hash_str_find_ptr.exit.thread:               ; preds = %zend_hash_str_find_ptr.exit61.thread, %163
+zend_hash_str_find_ptr.exit.thread:               ; preds = %zend_hash_str_find_ptr.exit61.thread, %160
   store i8 1, ptr @accel_startup_ok, align 1, !tbaa !52
   tail call void @zend_accel_override_file_functions() #26
   store ptr null, ptr @accel_blacklist, align 8, !tbaa !310
-  %169 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
-  %170 = trunc nuw i8 %169 to i1
-  %171 = load i8, ptr @accel_startup_ok, align 1, !range !37
-  %172 = trunc nuw i8 %171 to i1
-  %or.cond4 = select i1 %170, i1 %172, i1 false
-  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8
-  %174 = icmp ne ptr %173, null
-  %or.cond6 = select i1 %or.cond4, i1 %174, i1 false
-  br i1 %or.cond6, label %175, label %179
+  %166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
+  %167 = trunc nuw i8 %166 to i1
+  %168 = load i8, ptr @accel_startup_ok, align 1, !range !37
+  %169 = trunc nuw i8 %168 to i1
+  %or.cond4 = select i1 %167, i1 %169, i1 false
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8
+  %171 = icmp ne ptr %170, null
+  %or.cond6 = select i1 %or.cond4, i1 %171, i1 false
+  br i1 %or.cond6, label %172, label %176
 
-175:                                              ; preds = %zend_hash_str_find_ptr.exit.thread
-  %176 = load i8, ptr %173, align 1, !tbaa !64
-  %.not56 = icmp eq i8 %176, 0
-  br i1 %.not56, label %179, label %177
+172:                                              ; preds = %zend_hash_str_find_ptr.exit.thread
+  %173 = load i8, ptr %170, align 1, !tbaa !64
+  %.not56 = icmp eq i8 %173, 0
+  br i1 %.not56, label %176, label %174
 
-177:                                              ; preds = %175
+174:                                              ; preds = %172
   tail call void @zend_accel_blacklist_init(ptr noundef nonnull @accel_blacklist) #26
-  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8, !tbaa !314
-  tail call void @zend_accel_blacklist_load(ptr noundef nonnull @accel_blacklist, ptr noundef %178) #26
-  br label %179
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 32), align 8, !tbaa !314
+  tail call void @zend_accel_blacklist_load(ptr noundef nonnull @accel_blacklist, ptr noundef %175) #26
+  br label %176
 
-179:                                              ; preds = %177, %175, %zend_hash_str_find_ptr.exit.thread
-  %180 = load i8, ptr @file_cache_only, align 1, !tbaa !52, !range !37, !noundef !38
-  %181 = trunc nuw i8 %180 to i1
-  %182 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
-  %183 = icmp eq i64 %182, 0
-  %or.cond8.not = select i1 %181, i1 true, i1 %183
-  br i1 %or.cond8.not, label %accel_use_shm_interned_strings.exit, label %184
+176:                                              ; preds = %174, %172, %zend_hash_str_find_ptr.exit.thread
+  %177 = load i8, ptr @file_cache_only, align 1, !tbaa !52, !range !37, !noundef !38
+  %178 = trunc nuw i8 %177 to i1
+  %179 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 128), align 8
+  %180 = icmp eq i64 %179, 0
+  %or.cond8.not = select i1 %178, i1 true, i1 %180
+  br i1 %or.cond8.not, label %accel_use_shm_interned_strings.exit, label %181
 
-184:                                              ; preds = %179
-  %185 = load i32, ptr @zend_signal_globals, align 8, !tbaa !42
-  %186 = add nsw i32 %185, 1
-  store i32 %186, ptr @zend_signal_globals, align 8, !tbaa !42
-  %187 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
-  %188 = trunc nuw i8 %187 to i1
-  br i1 %188, label %189, label %190
+181:                                              ; preds = %176
+  %182 = load i32, ptr @zend_signal_globals, align 8, !tbaa !42
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr @zend_signal_globals, align 8, !tbaa !42
+  %184 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
+  %185 = trunc nuw i8 %184 to i1
+  br i1 %185, label %186, label %187
 
-189:                                              ; preds = %184
+186:                                              ; preds = %181
   tail call void @zend_accel_shared_protect(i1 noundef zeroext false) #26
-  br label %190
+  br label %187
 
-190:                                              ; preds = %189, %184
+187:                                              ; preds = %186, %181
   tail call void @zend_shared_alloc_lock() #26
-  %191 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 200
-  %193 = load ptr, ptr %192, align 8, !tbaa !261
-  %194 = icmp eq ptr %193, null
-  br i1 %194, label %195, label %196
+  %188 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 200
+  %190 = load ptr, ptr %189, align 8, !tbaa !261
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %192, label %193
 
-195:                                              ; preds = %190
+192:                                              ; preds = %187
   tail call fastcc void @accel_copy_permanent_strings(ptr noundef nonnull @accel_new_interned_string)
-  br label %197
+  br label %194
 
-196:                                              ; preds = %190
+193:                                              ; preds = %187
   store i8 1, ptr @accel_globals, align 8, !tbaa !148
   tail call fastcc void @accel_copy_permanent_strings(ptr noundef nonnull @accel_replace_string_by_shm_permanent)
   store i8 0, ptr @accel_globals, align 8, !tbaa !148
-  br label %197
+  br label %194
 
-197:                                              ; preds = %196, %195
-  %198 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 184
-  %200 = load ptr, ptr %199, align 8, !tbaa !55
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 200
-  store ptr %200, ptr %201, align 8, !tbaa !261
+194:                                              ; preds = %193, %192
+  %195 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 184
+  %197 = load ptr, ptr %196, align 8, !tbaa !55
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 200
+  store ptr %197, ptr %198, align 8, !tbaa !261
   tail call void @zend_shared_alloc_unlock() #26
-  %202 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %204, label %205
+  %199 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
+  %200 = trunc nuw i8 %199 to i1
+  br i1 %200, label %201, label %202
 
-204:                                              ; preds = %197
+201:                                              ; preds = %194
   tail call void @zend_accel_shared_protect(i1 noundef zeroext true) #26
-  br label %205
+  br label %202
 
-205:                                              ; preds = %204, %197
-  %206 = load i32, ptr @zend_signal_globals, align 8, !tbaa !42
-  %207 = add nsw i32 %206, -1
-  store i32 %207, ptr @zend_signal_globals, align 8, !tbaa !42
-  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4, !tbaa !51
-  %209 = icmp eq i32 %206, %208
-  br i1 %209, label %210, label %accel_use_shm_interned_strings.exit
+202:                                              ; preds = %201, %194
+  %203 = load i32, ptr @zend_signal_globals, align 8, !tbaa !42
+  %204 = add nsw i32 %203, -1
+  store i32 %204, ptr @zend_signal_globals, align 8, !tbaa !42
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 4), align 4, !tbaa !51
+  %206 = icmp eq i32 %203, %205
+  br i1 %206, label %207, label %accel_use_shm_interned_strings.exit
 
-210:                                              ; preds = %205
+207:                                              ; preds = %202
   tail call void @zend_signal_handler_unblock() #26
   br label %accel_use_shm_interned_strings.exit
 
-accel_use_shm_interned_strings.exit:              ; preds = %210, %205, %179
-  %211 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
-  %212 = trunc nuw i8 %211 to i1
-  %213 = load i8, ptr @accel_startup_ok, align 1, !range !37
-  %214 = trunc nuw i8 %213 to i1
-  %or.cond.i = select i1 %212, i1 %214, i1 false
-  br i1 %or.cond.i, label %215, label %accel_finish_startup.exit.thread
+accel_use_shm_interned_strings.exit:              ; preds = %207, %202, %176
+  %208 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
+  %209 = trunc nuw i8 %208 to i1
+  %210 = load i8, ptr @accel_startup_ok, align 1, !range !37
+  %211 = trunc nuw i8 %210 to i1
+  %or.cond.i = select i1 %209, i1 %211, i1 false
+  br i1 %or.cond.i, label %212, label %accel_finish_startup.exit.thread
 
-215:                                              ; preds = %accel_use_shm_interned_strings.exit
-  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 168), align 8, !tbaa !315
-  %.not.i64 = icmp eq ptr %216, null
-  br i1 %.not.i64, label %accel_finish_startup.exit.thread, label %217
+212:                                              ; preds = %accel_use_shm_interned_strings.exit
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 168), align 8, !tbaa !315
+  %.not.i64 = icmp eq ptr %213, null
+  br i1 %.not.i64, label %accel_finish_startup.exit.thread, label %214
 
-217:                                              ; preds = %215
-  %218 = load i8, ptr %216, align 1, !tbaa !64
-  %.not5.i = icmp eq i8 %218, 0
-  br i1 %.not5.i, label %accel_finish_startup.exit.thread, label %219
+214:                                              ; preds = %212
+  %215 = load i8, ptr %213, align 1, !tbaa !64
+  %.not5.i = icmp eq i8 %215, 0
+  br i1 %.not5.i, label %accel_finish_startup.exit.thread, label %216
 
-219:                                              ; preds = %217
-  %220 = load i8, ptr @file_cache_only, align 1, !tbaa !52, !range !37, !noundef !38
-  %221 = trunc nuw i8 %220 to i1
-  br i1 %221, label %222, label %223, !prof !53
+216:                                              ; preds = %214
+  %217 = load i8, ptr @file_cache_only, align 1, !tbaa !52, !range !37, !noundef !38
+  %218 = trunc nuw i8 %217 to i1
+  br i1 %218, label %219, label %220, !prof !53
 
-222:                                              ; preds = %219
+219:                                              ; preds = %216
   tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.78) #26
   br label %accel_finish_startup.exit.thread
 
-223:                                              ; preds = %219
+220:                                              ; preds = %216
   tail call void @zend_shared_alloc_lock() #26
-  %224 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 128
-  %226 = load ptr, ptr %225, align 8, !tbaa !255
-  %.not6.i = icmp eq ptr %226, null
-  br i1 %.not6.i, label %228, label %227
+  %221 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 128
+  %223 = load ptr, ptr %222, align 8, !tbaa !255
+  %.not6.i = icmp eq ptr %223, null
+  br i1 %.not6.i, label %225, label %224
 
-227:                                              ; preds = %223
+224:                                              ; preds = %220
   tail call fastcc void @preload_load()
   tail call void @zend_shared_alloc_unlock() #26
   br label %accel_finish_startup.exit.thread
 
-228:                                              ; preds = %223
-  %229 = tail call i32 @geteuid() #26
-  %.not.i.i = icmp eq i32 %229, 0
-  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8, !tbaa !316
-  %.not23.i.i = icmp eq ptr %230, null
-  br i1 %.not.i.i, label %235, label %231
+225:                                              ; preds = %220
+  %226 = tail call i32 @geteuid() #26
+  %.not.i.i = icmp eq i32 %226, 0
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8, !tbaa !316
+  %.not23.i.i = icmp eq ptr %227, null
+  br i1 %.not.i.i, label %232, label %228
 
-231:                                              ; preds = %228
-  br i1 %.not23.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %232
+228:                                              ; preds = %225
+  br i1 %.not23.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %229
 
-232:                                              ; preds = %231
-  %233 = load i8, ptr %230, align 1, !tbaa !64
-  %.not26.i.i = icmp eq i8 %233, 0
-  br i1 %.not26.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %234
+229:                                              ; preds = %228
+  %230 = load i8, ptr %227, align 1, !tbaa !64
+  %.not26.i.i = icmp eq i8 %230, 0
+  br i1 %.not26.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %231
 
-234:                                              ; preds = %232
+231:                                              ; preds = %229
   tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.80) #26
   br label %accel_finish_startup_preload_subprocess.exit.thread.i
 
-235:                                              ; preds = %228
-  br i1 %.not23.i.i, label %238, label %236
+232:                                              ; preds = %225
+  br i1 %.not23.i.i, label %235, label %233
 
-236:                                              ; preds = %235
-  %237 = load i8, ptr %230, align 1, !tbaa !64
-  %.not24.i.i = icmp eq i8 %237, 0
-  br i1 %.not24.i.i, label %238, label %245
+233:                                              ; preds = %232
+  %234 = load i8, ptr %227, align 1, !tbaa !64
+  %.not24.i.i = icmp eq i8 %234, 0
+  br i1 %.not24.i.i, label %235, label %242
 
-238:                                              ; preds = %236, %235
-  %239 = load ptr, ptr @sapi_module, align 8, !tbaa !283
-  %240 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %239, ptr noundef nonnull dereferenceable(4) @.str.43) #29
-  %241 = icmp eq i32 %240, 0
-  br i1 %241, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %242
+235:                                              ; preds = %233, %232
+  %236 = load ptr, ptr @sapi_module, align 8, !tbaa !283
+  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %236, ptr noundef nonnull dereferenceable(4) @.str.43) #29
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %239
 
-242:                                              ; preds = %238
-  %243 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %239, ptr noundef nonnull dereferenceable(7) @.str.66) #29
-  %.not27.i.i = icmp eq i32 %243, 0
-  br i1 %.not27.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %244
+239:                                              ; preds = %235
+  %240 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %236, ptr noundef nonnull dereferenceable(7) @.str.66) #29
+  %.not27.i.i = icmp eq i32 %240, 0
+  br i1 %.not27.i.i, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %241
 
-244:                                              ; preds = %242
+241:                                              ; preds = %239
   tail call void @zend_shared_alloc_unlock() #26
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.81) #31
   unreachable
 
-245:                                              ; preds = %236
-  %246 = tail call ptr @getpwnam(ptr noundef nonnull %230)
-  %247 = icmp eq ptr %246, null
-  br i1 %247, label %248, label %250
+242:                                              ; preds = %233
+  %243 = tail call ptr @getpwnam(ptr noundef nonnull %227)
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %245, label %247
 
-248:                                              ; preds = %245
+245:                                              ; preds = %242
   tail call void @zend_shared_alloc_unlock() #26
-  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8, !tbaa !316
-  tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %249) #31
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8, !tbaa !316
+  tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %246) #31
   unreachable
 
-250:                                              ; preds = %245
-  %251 = getelementptr inbounds nuw i8, ptr %246, i64 16
-  %252 = load i32, ptr %251, align 8, !tbaa !317
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %254
+247:                                              ; preds = %242
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  %249 = load i32, ptr %248, align 8, !tbaa !317
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %accel_finish_startup_preload_subprocess.exit.thread.i, label %251
 
-254:                                              ; preds = %250
-  %255 = tail call i32 @fork() #26
-  switch i32 %255, label %accel_finish_startup_preload_subprocess.exit.i [
-    i32 -1, label %256
-    i32 0, label %257
+251:                                              ; preds = %247
+  %252 = tail call i32 @fork() #26
+  switch i32 %252, label %accel_finish_startup_preload_subprocess.exit.i [
+    i32 -1, label %253
+    i32 0, label %254
   ]
 
-256:                                              ; preds = %254
+253:                                              ; preds = %251
   tail call void @zend_shared_alloc_unlock() #26
   tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.83) #31
   unreachable
 
-257:                                              ; preds = %254
-  %258 = getelementptr inbounds nuw i8, ptr %246, i64 20
-  %259 = load i32, ptr %258, align 4, !tbaa !319
-  %260 = tail call i32 @setgid(i32 noundef %259) #26
-  %261 = icmp slt i32 %260, 0
-  br i1 %261, label %262, label %264
+254:                                              ; preds = %251
+  %255 = getelementptr inbounds nuw i8, ptr %243, i64 20
+  %256 = load i32, ptr %255, align 4, !tbaa !319
+  %257 = tail call i32 @setgid(i32 noundef %256) #26
+  %258 = icmp slt i32 %257, 0
+  br i1 %258, label %259, label %261
 
-262:                                              ; preds = %257
-  %263 = load i32, ptr %258, align 4, !tbaa !319
-  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.84, i32 noundef %263) #26
+259:                                              ; preds = %254
+  %260 = load i32, ptr %255, align 4, !tbaa !319
+  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.84, i32 noundef %260) #26
   tail call void @exit(i32 noundef 1) #33
   unreachable
 
-264:                                              ; preds = %257
-  %265 = load ptr, ptr %246, align 8, !tbaa !320
-  %266 = load i32, ptr %258, align 4, !tbaa !319
-  %267 = tail call i32 @initgroups(ptr noundef %265, i32 noundef %266) #26
-  %268 = icmp slt i32 %267, 0
-  br i1 %268, label %269, label %272
+261:                                              ; preds = %254
+  %262 = load ptr, ptr %243, align 8, !tbaa !320
+  %263 = load i32, ptr %255, align 4, !tbaa !319
+  %264 = tail call i32 @initgroups(ptr noundef %262, i32 noundef %263) #26
+  %265 = icmp slt i32 %264, 0
+  br i1 %265, label %266, label %269
 
-269:                                              ; preds = %264
-  %270 = load ptr, ptr %246, align 8, !tbaa !320
-  %271 = load i32, ptr %251, align 8, !tbaa !317
-  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.85, ptr noundef %270, i32 noundef %271) #26
+266:                                              ; preds = %261
+  %267 = load ptr, ptr %243, align 8, !tbaa !320
+  %268 = load i32, ptr %248, align 8, !tbaa !317
+  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.85, ptr noundef %267, i32 noundef %268) #26
   tail call void @exit(i32 noundef 1) #33
   unreachable
 
-272:                                              ; preds = %264
-  %273 = load i32, ptr %251, align 8, !tbaa !317
-  %274 = tail call i32 @setuid(i32 noundef %273) #26
-  %275 = icmp slt i32 %274, 0
-  br i1 %275, label %276, label %accel_finish_startup_preload_subprocess.exit.thread14.i
+269:                                              ; preds = %261
+  %270 = load i32, ptr %248, align 8, !tbaa !317
+  %271 = tail call i32 @setuid(i32 noundef %270) #26
+  %272 = icmp slt i32 %271, 0
+  br i1 %272, label %273, label %accel_finish_startup_preload_subprocess.exit.thread14.i
 
-276:                                              ; preds = %272
-  %277 = load i32, ptr %251, align 8, !tbaa !317
-  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.86, i32 noundef %277) #26
+273:                                              ; preds = %269
+  %274 = load i32, ptr %248, align 8, !tbaa !317
+  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.86, i32 noundef %274) #26
   tail call void @exit(i32 noundef 1) #33
   unreachable
 
-accel_finish_startup_preload_subprocess.exit.thread.i: ; preds = %250, %242, %238, %234, %232, %231
-  %278 = tail call fastcc i32 @accel_finish_startup_preload(i1 noundef zeroext false)
+accel_finish_startup_preload_subprocess.exit.thread.i: ; preds = %247, %239, %235, %231, %229, %228
+  %275 = tail call fastcc i32 @accel_finish_startup_preload(i1 noundef zeroext false)
   br label %accel_finish_startup.exit
 
-accel_finish_startup_preload_subprocess.exit.thread14.i: ; preds = %272
-  %279 = tail call fastcc i32 @accel_finish_startup_preload(i1 noundef zeroext true)
-  %280 = icmp ne i32 %279, 0
-  %281 = zext i1 %280 to i32
-  tail call void @exit(i32 noundef %281) #31
+accel_finish_startup_preload_subprocess.exit.thread14.i: ; preds = %269
+  %276 = tail call fastcc i32 @accel_finish_startup_preload(i1 noundef zeroext true)
+  %277 = icmp ne i32 %276, 0
+  %278 = zext i1 %277 to i32
+  tail call void @exit(i32 noundef %278) #31
   unreachable
 
-accel_finish_startup_preload_subprocess.exit.i:   ; preds = %254
+accel_finish_startup_preload_subprocess.exit.i:   ; preds = %251
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %282 = call i32 @waitpid(i32 noundef %255, ptr noundef nonnull %1, i32 noundef 0) #26
-  %283 = icmp slt i32 %282, 0
-  br i1 %283, label %284, label %285
+  %279 = call i32 @waitpid(i32 noundef %252, ptr noundef nonnull %1, i32 noundef 0) #26
+  %280 = icmp slt i32 %279, 0
+  br i1 %280, label %281, label %282
 
-284:                                              ; preds = %accel_finish_startup_preload_subprocess.exit.i
+281:                                              ; preds = %accel_finish_startup_preload_subprocess.exit.i
   call void @zend_shared_alloc_unlock() #26
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef %255) #31
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef %252) #31
   unreachable
 
-285:                                              ; preds = %accel_finish_startup_preload_subprocess.exit.i
-  %286 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 128
-  %288 = load ptr, ptr %287, align 8, !tbaa !255
-  %.not7.i = icmp eq ptr %288, null
-  br i1 %.not7.i, label %290, label %289
+282:                                              ; preds = %accel_finish_startup_preload_subprocess.exit.i
+  %283 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 128
+  %285 = load ptr, ptr %284, align 8, !tbaa !255
+  %.not7.i = icmp eq ptr %285, null
+  br i1 %.not7.i, label %287, label %286
 
-289:                                              ; preds = %285
+286:                                              ; preds = %282
   call fastcc void @preload_load()
-  br label %290
+  br label %287
 
-290:                                              ; preds = %289, %285
+287:                                              ; preds = %286, %282
   call void @zend_shared_alloc_unlock() #26
-  %291 = load i32, ptr %1, align 4, !tbaa !59
-  %292 = and i32 %291, 65407
-  %or.cond9.i = icmp ne i32 %292, 0
+  %288 = load i32, ptr %1, align 4, !tbaa !59
+  %289 = and i32 %288, 65407
+  %or.cond9.i = icmp ne i32 %289, 0
   %.2.i = sext i1 %or.cond9.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %accel_finish_startup.exit
 
-accel_finish_startup.exit:                        ; preds = %accel_finish_startup_preload_subprocess.exit.thread.i, %290
-  %.0.i63 = phi i32 [ %278, %accel_finish_startup_preload_subprocess.exit.thread.i ], [ %.2.i, %290 ]
+accel_finish_startup.exit:                        ; preds = %accel_finish_startup_preload_subprocess.exit.thread.i, %287
+  %.0.i63 = phi i32 [ %275, %accel_finish_startup_preload_subprocess.exit.thread.i ], [ %.2.i, %287 ]
   %.not = icmp eq i32 %.0.i63, 0
-  br i1 %.not, label %accel_finish_startup.exit.thread, label %300
+  br i1 %.not, label %accel_finish_startup.exit.thread, label %297
 
-accel_finish_startup.exit.thread:                 ; preds = %217, %accel_use_shm_interned_strings.exit, %215, %227, %222, %accel_finish_startup.exit
-  %293 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
-  %294 = trunc nuw i8 %293 to i1
-  %295 = load i8, ptr @accel_startup_ok, align 1, !range !37
-  %296 = trunc nuw i8 %295 to i1
-  %or.cond10 = select i1 %294, i1 %296, i1 false
-  br i1 %or.cond10, label %297, label %300
+accel_finish_startup.exit.thread:                 ; preds = %214, %accel_use_shm_interned_strings.exit, %212, %224, %219, %accel_finish_startup.exit
+  %290 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
+  %291 = trunc nuw i8 %290 to i1
+  %292 = load i8, ptr @accel_startup_ok, align 1, !range !37
+  %293 = trunc nuw i8 %292 to i1
+  %or.cond10 = select i1 %291, i1 %293, i1 false
+  br i1 %or.cond10, label %294, label %297
 
-297:                                              ; preds = %accel_finish_startup.exit.thread
-  %298 = load ptr, ptr @zend_inheritance_cache_get, align 8, !tbaa !39
-  store ptr %298, ptr @accelerator_orig_inheritance_cache_get, align 8, !tbaa !39
-  %299 = load ptr, ptr @zend_inheritance_cache_add, align 8, !tbaa !39
-  store ptr %299, ptr @accelerator_orig_inheritance_cache_add, align 8, !tbaa !39
+294:                                              ; preds = %accel_finish_startup.exit.thread
+  %295 = load ptr, ptr @zend_inheritance_cache_get, align 8, !tbaa !39
+  store ptr %295, ptr @accelerator_orig_inheritance_cache_get, align 8, !tbaa !39
+  %296 = load ptr, ptr @zend_inheritance_cache_add, align 8, !tbaa !39
+  store ptr %296, ptr @accelerator_orig_inheritance_cache_add, align 8, !tbaa !39
   store ptr @zend_accel_inheritance_cache_get, ptr @zend_inheritance_cache_get, align 8, !tbaa !39
   store ptr @zend_accel_inheritance_cache_add, ptr @zend_inheritance_cache_add, align 8, !tbaa !39
-  br label %300
+  br label %297
 
-300:                                              ; preds = %accel_finish_startup.exit, %297, %accel_finish_startup.exit.thread, %4
-  %.2 = phi i32 [ -1, %4 ], [ -1, %accel_finish_startup.exit ], [ 0, %297 ], [ 0, %accel_finish_startup.exit.thread ]
+297:                                              ; preds = %accel_finish_startup.exit, %294, %accel_finish_startup.exit.thread, %4
+  %.2 = phi i32 [ -1, %4 ], [ -1, %accel_finish_startup.exit ], [ 0, %294 ], [ 0, %accel_finish_startup.exit.thread ]
   ret i32 %.2
 }
 
