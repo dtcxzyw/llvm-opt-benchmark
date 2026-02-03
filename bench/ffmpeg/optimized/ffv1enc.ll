@@ -33667,35 +33667,35 @@ set_sr_golomb.exit:                               ; preds = %put_bits.exit.i.i, 
   %106 = add nuw nsw i32 %.0.i18, 1
   %107 = xor i32 %.0.i18, -1
   %.not.i = icmp sgt i32 %.035.i, %107
-  br i1 %.not.i, label %113, label %108
+  br i1 %.not.i, label %114, label %108
 
 108:                                              ; preds = %set_sr_golomb.exit
   %109 = load i8, ptr %4, align 2, !tbaa !299
-  %spec.select.i = tail call i8 @llvm.sadd.sat.i8(i8 %109, i8 -1)
+  %110 = tail call i8 @llvm.sadd.sat.i8(i8 %109, i8 -1)
   store i8 %spec.select.i, ptr %4, align 2, !tbaa !299
-  %110 = add nsw i32 %106, %.035.i
-  %111 = sub nsw i32 0, %.0.i18
-  %112 = tail call i32 @llvm.smax.i32(i32 %110, i32 %111)
+  %111 = add nsw i32 %106, %.035.i
+  %112 = sub nsw i32 0, %.0.i18
+  %113 = tail call i32 @llvm.smax.i32(i32 %111, i32 %112)
   br label %update_vlc_state.exit
 
-113:                                              ; preds = %set_sr_golomb.exit
-  %114 = icmp sgt i32 %.035.i, 0
-  br i1 %114, label %115, label %update_vlc_state.exit
+114:                                              ; preds = %set_sr_golomb.exit
+  %115 = icmp sgt i32 %.035.i, 0
+  br i1 %115, label %116, label %update_vlc_state.exit
 
-115:                                              ; preds = %113
-  %116 = load i8, ptr %4, align 2, !tbaa !299
-  %spec.select43.i = tail call i8 @llvm.sadd.sat.i8(i8 %116, i8 1)
+116:                                              ; preds = %114
+  %117 = load i8, ptr %4, align 2, !tbaa !299
+  %spec.select43.i = tail call i8 @llvm.sadd.sat.i8(i8 %117, i8 1)
   store i8 %spec.select43.i, ptr %4, align 2, !tbaa !299
-  %117 = sub nsw i32 %.035.i, %106
-  %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 0)
+  %118 = sub nsw i32 %.035.i, %106
+  %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 0)
   br label %update_vlc_state.exit
 
-update_vlc_state.exit:                            ; preds = %108, %113, %115
-  %.1.i = phi i32 [ %112, %108 ], [ %118, %115 ], [ %.035.i, %113 ]
-  %119 = trunc nsw i32 %.1.i to i16
-  store i16 %119, ptr %18, align 4, !tbaa !304
-  %120 = trunc i32 %106 to i8
-  store i8 %120, ptr %10, align 1, !tbaa !301
+update_vlc_state.exit:                            ; preds = %108, %114, %116
+  %.1.i = phi i32 [ %113, %108 ], [ %119, %115 ], [ %.035.i, %113 ]
+  %120 = trunc nsw i32 %.1.i to i16
+  store i16 %120, ptr %18, align 4, !tbaa !304
+  %121 = trunc i32 %106 to i8
+  store i8 %121, ptr %10, align 1, !tbaa !301
   ret void
 }
 
