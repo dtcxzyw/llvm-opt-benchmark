@@ -37,6 +37,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 5:                                                ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3b0bc60b23cdc925E.llvm.6823518425481094615.exit"
   %.sroa.6.0 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3b0bc60b23cdc925E.llvm.6823518425481094615.exit" ], [ %50, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit.i" ]
   %6 = getelementptr inbounds i8, ptr %0, i64 %.sroa.6.0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = icmp eq i64 %.sroa.6.0, %1
   br i1 %7, label %_ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.6823518425481094615.exit, label %8
 
@@ -53,6 +54,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %15 = icmp ne i64 %14, %1
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %17 = load i8, ptr %9, align 1, !noalias !4, !noundef !15
   %18 = shl nuw nsw i32 %13, 6
   %19 = and i8 %17, 63
@@ -70,6 +72,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %26 = icmp ne i64 %25, %1
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %28 = load i8, ptr %16, align 1, !noalias !4, !noundef !15
   %29 = shl nuw nsw i32 %20, 6
   %30 = and i8 %28, 63
@@ -85,6 +88,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %37 = icmp ne i64 %36, %1
   tail call void @llvm.assume(i1 %37)
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %39 = load i8, ptr %27, align 1, !noalias !4, !noundef !15
   %40 = shl nuw nsw i32 %13, 18
   %41 = and i32 %40, 1835008
@@ -111,6 +115,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.682351842548
   %.sroa.614.0 = phi i64 [ %50, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit.i" ], [ undef, %5 ], [ undef, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i" ]
   %storemerge.i = phi i1 [ true, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit.i" ], [ false, %5 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i" ]
   %51 = getelementptr inbounds i8, ptr %0, i64 %.sroa.6.1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %.sroa.6.1, %52
   br label %54
@@ -132,6 +137,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.682351842548
   %63 = icmp ne i64 %.sroa.6.1, %62
   tail call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds i8, ptr %56, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %65 = load i8, ptr %64, align 1, !noalias !16, !noundef !15
   %66 = and i8 %65, 31
   %67 = zext nneg i8 %66 to i32
@@ -147,6 +153,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.682351842548
   %71 = icmp ne i64 %.sroa.6.1, %70
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds i8, ptr %56, i64 -3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
   %73 = load i8, ptr %72, align 1, !noalias !16, !noundef !15
   %74 = and i8 %73, 15
   %75 = zext nneg i8 %74 to i32
@@ -158,6 +165,7 @@ _ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452aE.llvm.682351842548
   %78 = icmp ne i64 %.sroa.6.1, %77
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds i8, ptr %56, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   %80 = load i8, ptr %79, align 1, !noalias !16, !noundef !15
   %81 = and i8 %80, 7
   %82 = zext nneg i8 %81 to i32
@@ -229,6 +237,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5e
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !27, !noalias !30, !noundef !15
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = ptrtoint ptr %7 to i64
   %.promoted = load i64, ptr %3, align 8, !alias.scope !27, !noalias !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -253,6 +262,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5e
   %20 = icmp ne i64 %6, %19
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds i8, ptr %13, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = load i8, ptr %21, align 1, !noalias !34, !noundef !15
   %23 = and i8 %22, 31
   %24 = zext nneg i8 %23 to i32
@@ -268,6 +278,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5e
   %28 = icmp ne i64 %6, %27
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds i8, ptr %13, i64 -3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %30 = load i8, ptr %29, align 1, !noalias !34, !noundef !15
   %31 = and i8 %30, 15
   %32 = zext nneg i8 %31 to i32
@@ -279,6 +290,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5e
   %35 = icmp ne i64 %6, %34
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds i8, ptr %13, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   %37 = load i8, ptr %36, align 1, !noalias !34, !noundef !15
   %38 = and i8 %37, 7
   %39 = zext nneg i8 %38 to i32
@@ -347,6 +359,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452
   %12 = phi i64 [ %57, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit" ], [ %.promoted, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %13 = getelementptr inbounds i8, ptr %4, i64 %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %14 = icmp eq i64 %12, %6
   br i1 %14, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcd7a1fbf0842f8b6E.llvm.6823518425481094615.exit.thread", label %15
 
@@ -363,6 +376,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452
   %22 = icmp ne i64 %21, %6
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %24 = load i8, ptr %16, align 1, !noalias !44, !noundef !15
   %25 = shl nuw nsw i32 %20, 6
   %26 = and i8 %24, 63
@@ -380,6 +394,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452
   %33 = icmp ne i64 %32, %6
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %35 = load i8, ptr %23, align 1, !noalias !44, !noundef !15
   %36 = shl nuw nsw i32 %27, 6
   %37 = and i8 %35, 63
@@ -395,6 +410,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17hda43b8b455e3452
   %44 = icmp ne i64 %43, %6
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %46 = load i8, ptr %34, align 1, !noalias !44, !noundef !15
   %47 = shl nuw nsw i32 %20, 18
   %48 = and i32 %47, 1835008
@@ -669,6 +685,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %7 = load i64, ptr %6, align 8, !noundef !15
   %8 = getelementptr inbounds i8, ptr %5, i64 %4
   %9 = getelementptr inbounds i8, ptr %5, i64 %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %10 = ptrtoint ptr %9 to i64
   %11 = icmp eq i64 %4, %7
   br i1 %11, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.thread11", label %12
@@ -686,6 +703,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %19 = icmp ne i64 %18, %7
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %21 = load i8, ptr %13, align 1, !noalias !49, !noundef !15
   %22 = shl nuw nsw i32 %17, 6
   %23 = and i8 %21, 63
@@ -703,6 +721,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %30 = icmp ne i64 %29, %7
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %32 = load i8, ptr %20, align 1, !noalias !49, !noundef !15
   %33 = shl nuw nsw i32 %24, 6
   %34 = and i8 %32, 63
@@ -718,6 +737,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %41 = icmp ne i64 %40, %7
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   %43 = load i8, ptr %31, align 1, !noalias !49, !noundef !15
   %44 = shl nuw nsw i32 %17, 18
   %45 = and i32 %44, 1835008
@@ -761,6 +781,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %7 = load i64, ptr %6, align 8, !noundef !15
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = getelementptr inbounds i8, ptr %5, i64 %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %10 = ptrtoint ptr %8 to i64
   %11 = icmp eq i64 %7, %4
   br i1 %11, label %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h189d834bc25f9481E.exit.thread", label %12
@@ -776,6 +797,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %17 = icmp ne i64 %7, %16
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %9, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %19 = load i8, ptr %18, align 1, !noalias !54, !noundef !15
   %20 = and i8 %19, 31
   %21 = zext nneg i8 %20 to i32
@@ -791,6 +813,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %25 = icmp ne i64 %7, %24
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds i8, ptr %9, i64 -3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %27 = load i8, ptr %26, align 1, !noalias !54, !noundef !15
   %28 = and i8 %27, 15
   %29 = zext nneg i8 %28 to i32
@@ -802,6 +825,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %32 = icmp ne i64 %7, %31
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds i8, ptr %9, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %34 = load i8, ptr %33, align 1, !noalias !54, !noundef !15
   %35 = and i8 %34, 7
   %36 = zext nneg i8 %35 to i32

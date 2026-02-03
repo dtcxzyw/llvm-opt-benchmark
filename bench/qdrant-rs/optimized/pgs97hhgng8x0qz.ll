@@ -452,6 +452,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h009278cd587dc262E.exit: ; preds = %.
   br label %.invoke198
 
 162:                                              ; preds = %159
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre137) ]
   %163 = getelementptr inbounds { i64, i64 }, ptr %.pre137, i64 %.sroa.4.0.i46.ph
   %164 = load i64, ptr %163, align 8, !noundef !14
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -483,6 +484,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h009278cd587dc262E.exit: ; preds = %.
   unreachable
 
 171:                                              ; preds = %162
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre137) ]
   %172 = getelementptr inbounds { i64, i64 }, ptr %.pre137, i64 %167
   %173 = load i64, ptr %172, align 8, !noundef !14
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -569,6 +571,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h009278cd587dc262E.exit: ; preds = %.
   %.02819.i = phi ptr [ %214, %.lr.ph.i56 ], [ %188, %196 ]
   %.sroa.0.118.i = phi ptr [ %217, %.lr.ph.i56 ], [ %14, %196 ]
   %.sroa.18.217.i = phi ptr [ %212, %.lr.ph.i56 ], [ %187, %196 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.118.i) ]
   %.028.val.i = load i32, ptr %.02819.i, align 4, !alias.scope !53, !noundef !14
   %.val36.i = load i32, ptr %.sroa.0.118.i, align 4, !noalias !53, !noundef !14
   %210 = icmp ult i32 %.028.val.i, %.val36.i
@@ -593,7 +596,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h009278cd587dc262E.exit: ; preds = %.
   %220 = ptrtoint ptr %.sroa.10.1.i to i64
   %221 = ptrtoint ptr %.sroa.0.0.i55 to i64
   %222 = sub nuw i64 %220, %221
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.18.1.i, ptr align 4 %.sroa.0.0.i55, i64 %222, i1 false), !noalias !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.18.1.i, ptr nonnull align 4 %.sroa.0.0.i55, i64 %222, i1 false), !noalias !56
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre137) ]
   %223 = add i64 %173, %164
   store i64 %223, ptr %172, align 8
   store i64 %166, ptr %174, align 8

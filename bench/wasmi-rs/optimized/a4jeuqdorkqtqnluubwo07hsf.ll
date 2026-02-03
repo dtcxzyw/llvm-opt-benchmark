@@ -184,6 +184,7 @@ define void @_ZN10wasmi_fuzz12crash_inputs21generate_crash_inputs17h3cc47bdd2293
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
@@ -327,13 +328,14 @@ define void @_ZN10wasmi_fuzz12crash_inputs21generate_crash_inputs17h3cc47bdd2293
   %90 = add nuw i64 %89, 1
   store i64 %90, ptr %83, align 8, !alias.scope !120, !noalias !123
   %91 = call { ptr, i64 } @"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17he718173d41498862E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, i64 noundef %89), !noalias !125
+  %.val.i.i.i.i.i = load ptr, ptr %88, align 8, !alias.scope !120, !noalias !123, !nonnull !6, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i.i.i.i) ]
   %92 = extractvalue { ptr, i64 } %91, 0
   %.not.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i, label %_ZN6digest11FixedOutput14finalize_fixed17hadcb9a5976a3bd9aE.exit, label %93
 
 93:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h911bd087de725c8aE.exit.i.i.i.i"
   %94 = extractvalue { ptr, i64 } %91, 1
-  %.val.i.i.i.i.i = load ptr, ptr %88, align 8, !alias.scope !120, !noalias !123, !nonnull !6, !noundef !6
   %95 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i.i, i64 %89
   %96 = load i32, ptr %95, align 4, !noalias !119, !noundef !6
   call void @llvm.experimental.noalias.scope.decl(metadata !126)

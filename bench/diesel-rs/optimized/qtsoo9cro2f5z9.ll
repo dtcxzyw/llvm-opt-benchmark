@@ -572,6 +572,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   br i1 %31, label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hd19b4a66119bc535E.exit.thread.i", label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hd19b4a66119bc535E.exit.i"
 
 "_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hd19b4a66119bc535E.exit.i": ; preds = %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !70
   store ptr %2, ptr %8, align 8, !noalias !70
   store i64 %3, ptr %22, align 8, !noalias !70
@@ -892,6 +893,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   br i1 %31, label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb928ac29e79f69e7E.exit.thread.i", label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb928ac29e79f69e7E.exit.i"
 
 "_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb928ac29e79f69e7E.exit.i": ; preds = %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !108
   store ptr %2, ptr %8, align 8, !noalias !108
   store i64 %3, ptr %22, align 8, !noalias !108

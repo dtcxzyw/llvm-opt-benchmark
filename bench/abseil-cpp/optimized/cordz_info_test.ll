@@ -16852,6 +16852,7 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_129CordzInfoTest_RefCo
   br i1 %.not.i, label %34, label %31
 
 31:                                               ; preds = %.noexc
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = atomicrmw add ptr %32, i32 2 monotonic, align 4
   br label %34

@@ -5610,6 +5610,7 @@ _ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i: ; preds = %100
   %109 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %108, i64 %102
   %110 = icmp ne ptr %.029.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %110)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   store ptr %.0.i.i.i.i, ptr %109, align 8, !tbaa !323, !noalias !320
   %111 = lshr i64 %102, 1
   %112 = ptrtoint ptr %109 to i64
@@ -6738,6 +6739,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16initializeC
   %57 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %45, i64 %.042133
   call void @llvm.assume(i1 %46)
   %58 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %.0134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %57) ]
   %59 = load ptr, ptr %58, align 8, !tbaa !323
   store ptr %59, ptr %57, align 8, !tbaa !323
   %60 = add nuw i64 %.042133, 1
@@ -6938,6 +6940,7 @@ _ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i: ; preds 
   %152 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %151, i64 %141
   %153 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %153)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %152) ]
   %154 = load ptr, ptr %98, align 8, !tbaa !323
   store ptr %154, ptr %152, align 8, !tbaa !323
   %.not118 = icmp eq i32 %.sroa.081.1, 0

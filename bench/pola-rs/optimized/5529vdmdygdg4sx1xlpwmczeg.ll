@@ -21,6 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h334be6ccbd10af4cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %2 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(16) null)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -40,6 +41,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h77173e52ce54
   %4 = alloca [136 x i8], align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef ptr %.val(ptr noalias noundef align 4 dereferenceable_or_null(16) null), !noalias !4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %7
@@ -95,6 +97,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb1e965b06dc0
   %4 = alloca [64 x i8], align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef ptr %.val(ptr noalias noundef align 4 dereferenceable_or_null(16) null), !noalias !10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %7
@@ -149,6 +152,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17heaed4184b911
   %5 = alloca [24 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %7 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(128) null), !noalias !16
   %8 = icmp eq ptr %7, null
   br i1 %8, label %39, label %9
@@ -442,6 +446,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !56, !noalias !57, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val3.i.i = load ptr, ptr %10, align 8, !alias.scope !56, !noalias !57, !nonnull !3, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   %11 = ptrtoint ptr %.val3.i.i to i64
   %12 = ptrtoint ptr %.val.i.i to i64
   %13 = sub nuw i64 %11, %12
@@ -486,6 +492,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %.val.i.i.i.i = load ptr, ptr %27, align 8, !alias.scope !73, !noalias !74, !nonnull !3, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.val3.i.i.i.i = load ptr, ptr %28, align 8, !alias.scope !73, !noalias !74, !nonnull !3, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i.i.i.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i.i.i) ]
   %29 = ptrtoint ptr %.val3.i.i.i.i to i64
   %30 = ptrtoint ptr %.val.i.i.i.i to i64
   %31 = sub nuw i64 %29, %30
@@ -630,6 +638,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   %.val = load ptr, ptr %.sroa.0.010, align 8, !nonnull !3, !align !86, !noundef !3
   %28 = getelementptr i8, ptr %.sroa.0.010, i64 8
   %.val6 = load i64, ptr %28, align 8, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %29 = load i64, ptr %5, align 8, !range !34, !alias.scope !87, !noundef !3
   %30 = sub i64 %29, %26
   %31 = icmp ugt i64 %.val6, %30
@@ -963,6 +972,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN7slotmap5basi
   %13 = load ptr, ptr %12, align 8, !nonnull !3
   %14 = getelementptr inbounds nuw { { [9 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %17 = load i32, ptr %16, align 8, !alias.scope !115, !noundef !3
   %18 = icmp eq i32 %17, %15
@@ -996,6 +1006,7 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN89_$LT$slotma
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw { { [9 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %17 = load i32, ptr %16, align 8, !alias.scope !118, !noundef !3
   %18 = icmp eq i32 %17, %15
@@ -1032,6 +1043,7 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN92_$LT$slotma
   %14 = load ptr, ptr %13, align 8, !alias.scope !121, !nonnull !3
   %15 = getelementptr inbounds nuw { { [9 x i64] }, i32, [1 x i32] }, ptr %14, i64 %11
   %16 = extractvalue { i32, i32 } %7, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %18 = load i32, ptr %17, align 8, !alias.scope !124, !noalias !121, !noundef !3
   %19 = icmp eq i32 %18, %16

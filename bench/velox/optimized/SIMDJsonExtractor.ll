@@ -753,7 +753,12 @@ if.end.i76:                                       ; preds = %if.then.i94, %if.en
   %arrayidx.i174 = getelementptr inbounds nuw i8, ptr %8, i64 %idxprom.i173
   %15 = load i8, ptr %arrayidx.i174, align 1, !noalias !17
   %cmp.i106 = icmp eq i8 %15, 125
-  br i1 %cmp.i106, label %if.end.i68, label %if.end.i32.lr.ph
+  br i1 %cmp.i106, label %if.end.i68, label %if.end.i68.thread
+
+if.end.i68.thread:                                ; preds = %if.end.i76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  br label %if.end.i32.lr.ph
 
 if.end.i68:                                       ; preds = %if.end.i76
   %_position.i249 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -772,14 +777,16 @@ if.end.i68:                                       ; preds = %if.end.i76
   %ref.tmp3.i.sroa.0.sroa.4.0.copyload.pre = load ptr, ptr %_start_position.i, align 8, !noalias !17
   %_depth.i.i311.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload.pre, i64 36
   %.pre468 = load i32, ptr %_depth.i.i311.phi.trans.insert, align 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload.pre) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload.pre) ]
   %cmp.i313.not456 = icmp slt i32 %.pre468, %ref.tmp3.i.sroa.0.sroa.2.0.copyload.pre
   br i1 %cmp.i313.not456, label %return, label %if.end.i32.lr.ph
 
-if.end.i32.lr.ph:                                 ; preds = %if.end.i76, %if.end.i68
-  %ref.tmp3.i.sroa.0.sroa.0.0.copyload487 = phi ptr [ %ref.tmp3.i.sroa.0.sroa.0.0.copyload.pre, %if.end.i68 ], [ %11, %if.end.i76 ]
-  %ref.tmp3.i.sroa.0.sroa.2.0.copyload486 = phi i32 [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload.pre, %if.end.i68 ], [ %12, %if.end.i76 ]
-  %ref.tmp3.i.sroa.0.sroa.4.0.copyload485 = phi ptr [ %ref.tmp3.i.sroa.0.sroa.4.0.copyload.pre, %if.end.i68 ], [ %9, %if.end.i76 ]
-  %19 = phi i32 [ %.pre468, %if.end.i68 ], [ %12, %if.end.i76 ]
+if.end.i32.lr.ph:                                 ; preds = %if.end.i68.thread, %if.end.i68
+  %ref.tmp3.i.sroa.0.sroa.0.0.copyload487 = phi ptr [ %11, %if.end.i68.thread ], [ %ref.tmp3.i.sroa.0.sroa.0.0.copyload.pre, %if.end.i68 ]
+  %ref.tmp3.i.sroa.0.sroa.2.0.copyload486 = phi i32 [ %12, %if.end.i68.thread ], [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload.pre, %if.end.i68 ]
+  %ref.tmp3.i.sroa.0.sroa.4.0.copyload485 = phi ptr [ %9, %if.end.i68.thread ], [ %ref.tmp3.i.sroa.0.sroa.4.0.copyload.pre, %if.end.i68 ]
+  %19 = phi i32 [ %12, %if.end.i68.thread ], [ %.pre468, %if.end.i68 ]
   %_depth.i.i311488 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload487, i64 36
   %error.i353 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload487, i64 32
   %_position.i262 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload487, i64 8
@@ -843,6 +850,7 @@ if.end.i39:                                       ; preds = %if.end.i365
   store i32 %add.i427, ptr %_depth.i.i311488, align 4, !noalias !23
   %cmp.i278 = icmp ugt ptr %incdec.ptr.i.i419, %ref.tmp3.i.sroa.0.sroa.4.0.copyload485
   tail call void @llvm.assume(i1 %cmp.i278), !noalias !26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %incdec.ptr.i404) ]
   %28 = load ptr, ptr %_string_buf_loc.i, align 8, !noalias !31
   %29 = load <4 x i64>, ptr %incdec.ptr.i404, align 1
   store <4 x i64> %29, ptr %28, align 1
@@ -1396,8 +1404,8 @@ _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
 
 _ZNR5folly8ExpectedIiNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
   %conv = ashr i64 %retval.sroa.3.0.insert.insert.i.i.i.i, 32
-  %cmp.i.i172 = icmp ne ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload, null
-  call void @llvm.assume(i1 %cmp.i.i172)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload) ]
   %_depth.i.i.i217 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload, i64 36
   %22 = load i32, ptr %_depth.i.i.i217, align 4
   %cmp.i.i219.not187 = icmp slt i32 %22, %ref.tmp3.i.sroa.0.sroa.2.0.copyload

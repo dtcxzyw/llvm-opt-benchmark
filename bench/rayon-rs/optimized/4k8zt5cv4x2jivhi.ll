@@ -61,10 +61,11 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = and i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   store ptr %6, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %8, ptr %9, align 8
@@ -74,11 +75,13 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #19
   resume { ptr, i32 } %11
 
 "_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h389c90f79e7d37dcE.exit": ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #19
   ret void
 }
@@ -90,10 +93,11 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h94c2fe8421
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %7 = load ptr, ptr %6, align 8, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   store ptr %7, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8
@@ -103,13 +107,17 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h94c2fe8421
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8) #19
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8) #19
   ret void
 }
@@ -803,6 +811,7 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17hfd0b4b8b47e514f2E.exit: ; p
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %11 = load ptr, ptr %3, align 8, !invariant.load !4, !nonnull !4
   invoke void %11(ptr noundef nonnull align 1 %2)
           to label %21 unwind label %12
@@ -810,6 +819,8 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17hfd0b4b8b47e514f2E.exit: ; p
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !range !19, !invariant.load !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -824,6 +835,8 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17hfd0b4b8b47e514f2E.exit: ; p
   br label %.body
 
 21:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !range !19, !invariant.load !4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1180,6 +1193,7 @@ define hidden void @_ZN10rayon_core5latch10CountLatch3new17hd2fc7d765e79c2b4E(pt
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val.i = load ptr, ptr %5, align 16, !noalias !69, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %6 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !69
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
@@ -1214,6 +1228,7 @@ define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(p
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %.val = load ptr, ptr %6, align 16, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %7 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %9, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"

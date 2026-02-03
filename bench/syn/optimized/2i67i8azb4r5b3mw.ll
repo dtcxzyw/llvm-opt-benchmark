@@ -1307,10 +1307,12 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %3
   %5 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 328, i64 noundef 8) #26
   resume { ptr, i32 } %5
 
 "_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.exit": ; preds = %3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 328, i64 noundef 8) #26
   br label %2
 }
@@ -6992,10 +6994,12 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h
   %29 = add i64 %28, 1
   store i64 %29, ptr %14, align 8, !alias.scope !1419, !noalias !1422
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 240, i64 noundef 8) #26
   ret void
 
 30:                                               ; preds = %19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 240, i64 noundef 8) #26
   resume { ptr, i32 } %20
 }
@@ -7582,6 +7586,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   unreachable
 
 75:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 296, i64 noundef 8) #26
   br label %.body
 
@@ -7608,6 +7613,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   %82 = add i64 %79, 1
   store i64 %82, ptr %.sroa.523.0..sroa_idx, align 8, !alias.scope !1489, !noalias !1492
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1486
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 296, i64 noundef 8) #26
   %83 = load ptr, ptr %1, align 8, !noundef !64
   %84 = load ptr, ptr %16, align 8, !noundef !64
@@ -7906,6 +7912,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   unreachable
 
 75:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 176, i64 noundef 8) #26
   br label %.body
 
@@ -7932,6 +7939,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   %82 = add i64 %79, 1
   store i64 %82, ptr %.sroa.523.0..sroa_idx, align 8, !alias.scope !1527, !noalias !1530
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1524
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 176, i64 noundef 8) #26
   %83 = load ptr, ptr %1, align 8, !noundef !64
   %84 = load ptr, ptr %16, align 8, !noundef !64
@@ -8191,6 +8199,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   unreachable
 
 75:                                               ; preds = %71
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 328, i64 noundef 8) #26
   br label %.body
 
@@ -8217,6 +8226,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   %82 = add i64 %79, 1
   store i64 %82, ptr %.sroa.523.0..sroa_idx, align 8, !alias.scope !1555, !noalias !1558
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1552
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef 328, i64 noundef 8) #26
   %83 = load ptr, ptr %1, align 8, !noundef !64
   %84 = load ptr, ptr %16, align 8, !noundef !64
@@ -9893,6 +9903,7 @@ define hidden void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.4.0..sroa_idx, i64 320, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 328, i64 noundef 8) #26
   br label %19
 
@@ -10005,6 +10016,7 @@ define hidden void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
   %.sroa.06.0.copyload = load i64, ptr %.val15, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.val15, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.4.0..sroa_idx, i64 320, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val15) ]
   call void @__rust_dealloc(ptr noundef nonnull %.val15, i64 noundef 328, i64 noundef 8) #26
   br label %17
 
@@ -11613,6 +11625,7 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !2328, !noalias !2331, !noundef !64
   %9 = getelementptr inbounds { { { i64, [21 x i64] }, { { i64, ptr }, i64 }, { i64, [3 x i64] }, { i32, [1 x i32] } }, { [1 x i32] }, [1 x i32] }, ptr %4, i64 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   br label %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.outer"
 
 "_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.outer": ; preds = %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.outer.backedge", %2
@@ -11622,6 +11635,7 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
 
 "_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit": ; preds = %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.outer", %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h66042a23a7b7bca7E.exit.i"
   %.sroa.0.0.i = phi ptr [ %14, %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h66042a23a7b7bca7E.exit.i" ], [ %.sroa.0.0.i.ph, %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb0fd1541688be8f9E.exit.outer" ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i) ]
   %10 = icmp eq ptr %.sroa.0.0.i, %9
   br i1 %10, label %11, label %13
 
@@ -11706,12 +11720,14 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !alias.scope !2370, !noalias !2373, !noundef !64
   %10 = getelementptr inbounds { { i64, [14 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %5, i64 %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %.sroa.9.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %18, %2
   %.sroa.6.0.i = phi ptr [ %9, %2 ], [ %.sroa.6.1.ph.i, %18 ]
   %.sroa.0.0.i = phi ptr [ %5, %2 ], [ %.sroa.0.1.ph.i, %18 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i) ]
   %12 = icmp eq ptr %.sroa.0.0.i, %10
   br i1 %12, label %13, label %15
 
@@ -11751,6 +11767,7 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !alias.scope !2380, !noalias !2383, !noundef !64
   %11 = getelementptr inbounds { { { i64, [28 x i64] }, { { i64, ptr }, i64 }, { i64, [4 x i64] } }, { [1 x i32] }, [1 x i32] }, ptr %6, i64 %8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11764,6 +11781,7 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
 
 "_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit": ; preds = %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.outer", %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a2ab58f46441019E.exit.i"
   %.sroa.0.0.i = phi ptr [ %20, %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a2ab58f46441019E.exit.i" ], [ %.sroa.0.0.i.ph, %"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17ha8f636f012a28e1bE.exit.outer" ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i) ]
   %16 = icmp eq ptr %.sroa.0.0.i, %11
   br i1 %16, label %17, label %19
 

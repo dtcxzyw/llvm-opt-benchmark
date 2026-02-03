@@ -66,9 +66,10 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not, label %7, label %4, !prof !5
+  br i1 %.not, label %6, label %4, !prof !5
 
 4:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload, align 8, !alias.scope !12, !noalias !13
@@ -84,15 +85,14 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.45.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i, i64 16, i1 false)
-  %6 = icmp ne ptr %.sroa.5.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.sroa.0.0.copyload) ]
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.5.sroa.0.0.copyload, align 8
   %.sroa.45.0..8.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.0..8.val.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.45.i)
   ret void
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ddedaacfb52f9be45e107cd3e73f36ed.3) #18
   unreachable
 }
@@ -138,6 +138,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br i1 %.not.i.i, label %6, label %4, !prof !5
 
 4:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload.i.i) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !alias.scope !33, !noalias !34
@@ -157,8 +158,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1836a743e5b97eafE.exit: ; preds = %4
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.45.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i, i64 16, i1 false), !noalias !38
-  %7 = icmp ne ptr %.sroa.5.sroa.0.0.copyload.i.i, null
-  tail call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.sroa.0.0.copyload.i.i) ]
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.5.sroa.0.0.copyload.i.i, align 8, !noalias !38
   %.sroa.45.0..8.val.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.0..8.val.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.i.i.i, i64 16, i1 false), !noalias !38
@@ -363,6 +363,7 @@ define void @_ZN5salsa8function4sync9SyncTable9try_claim17hc3347ac797fe07c9E(ptr
   store i32 %3, ptr %.sroa.59.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %42 = cmpxchg ptr %1, i8 1, i8 0 release monotonic, align 1
   %43 = extractvalue { i8, i1 } %42, 1
   br i1 %43, label %"_ZN4core3ptr211drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$salsa..id..Id$C$salsa..function..sync..SyncState$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5d44fd46d70a7ec2E.exit", label %44, !prof !20
@@ -382,6 +383,7 @@ define void @_ZN5salsa8function4sync9SyncTable9try_claim17hc3347ac797fe07c9E(ptr
 
 .thread:                                          ; preds = %38, %.thread28
   %.pn27 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread28 ], [ %39, %38 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %47 = cmpxchg ptr %1, i8 1, i8 0 release monotonic, align 1
   %48 = extractvalue { i8, i1 } %47, 1
   br i1 %48, label %"_ZN4core3ptr211drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$salsa..id..Id$C$salsa..function..sync..SyncState$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5d44fd46d70a7ec2E.exit23", label %49, !prof !20
@@ -412,6 +414,7 @@ define hidden void @_ZN5salsa8function4sync10ClaimGuard35remove_from_map_and_unb
 12:                                               ; preds = %36, %33, %19, %8
   %13 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %14 = cmpxchg ptr %3, i8 1, i8 0 release monotonic, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %"_ZN4core3ptr211drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$salsa..id..Id$C$salsa..function..sync..SyncState$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5d44fd46d70a7ec2E.exit", label %16, !prof !20
@@ -435,6 +438,7 @@ define hidden void @_ZN5salsa8function4sync10ClaimGuard35remove_from_map_and_unb
   unreachable
 
 21:                                               ; preds = %36, %17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %22 = cmpxchg ptr %3, i8 1, i8 0 release monotonic, align 1
   %23 = extractvalue { i8, i1 } %22, 1
   br i1 %23, label %"_ZN4core3ptr211drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$salsa..id..Id$C$salsa..function..sync..SyncState$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5d44fd46d70a7ec2E.exit6", label %24, !prof !20
@@ -870,6 +874,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h3d018d9c9ce997a4E
 13:                                               ; preds = %.invoke
   %14 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %15 = atomicrmw sub ptr %4, i64 16 release, align 8
   %16 = and i64 %15, -14
   %17 = icmp eq i64 %16, 18
@@ -901,6 +906,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h3d018d9c9ce997a4E
   %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds nuw i32, ptr %34, i64 %28
   %36 = load i32, ptr %35, align 4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %37 = atomicrmw sub ptr %4, i64 16 release, align 8
   %38 = and i64 %37, -14
   %39 = icmp eq i64 %38, 18
@@ -947,6 +953,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa26next_memo_ingredient_index17hefc79685
 9:                                                ; preds = %36, %32, %25, %19
   %10 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %11 = cmpxchg ptr %4, i64 8, i64 0 release monotonic, align 8
   %12 = extractvalue { i64, i1 } %11, 1
   br i1 %12, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$$GT$$GT$17hc268aa1d7ac90c8eE.exit", label %13, !prof !20
@@ -1014,6 +1021,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa26next_memo_ingredient_index17hefc79685
   store i32 %2, ptr %40, align 4
   %41 = add nuw nsw i64 %29, 1
   store i64 %41, ptr %28, align 8, !alias.scope !61
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %42 = cmpxchg ptr %4, i64 8, i64 0 release monotonic, align 8
   %43 = extractvalue { i64, i1 } %42, 1
   br i1 %43, label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$$GT$$GT$17hc268aa1d7ac90c8eE.exit9", label %44, !prof !20

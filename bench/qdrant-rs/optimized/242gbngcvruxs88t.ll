@@ -42,7 +42,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 14:                                               ; preds = %21, %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #12
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #13
           to label %24 unwind label %32
 
 16:                                               ; preds = %6
@@ -83,7 +83,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 32:                                               ; preds = %37, %14
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
   unreachable
 
 34:                                               ; preds = %35, %29
@@ -97,7 +97,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %24
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #12
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #13
           to label %36 unwind label %32
 }
 
@@ -175,6 +175,7 @@ define { ptr, i64 } @_ZN6common3cpu9CpuBudget3new17h4641c308df318575E(i64 %0) un
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %4 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %0, 1
   ret { ptr, i64 } %5
@@ -239,7 +240,7 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr write
 
 30:                                               ; preds = %26
   call void @_ZN4core3fmt9Arguments6new_v117h5bbb60e36a2abd7bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.5, i64 1, ptr nonnull align 8 %4, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #14
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #15
   unreachable
 }
 
@@ -321,6 +322,7 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
   store i64 1, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, i64 40, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %18 = insertvalue { ptr, i64 } poison, ptr %17, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %16, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
@@ -571,6 +573,9 @@ declare void @_ZN15thread_priority4unix27set_current_thread_priority17h314f853b5
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf3fb010157cee8d6E"(ptr sret({ i32, [5 x i32] }) align 8, ptr align 8) unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3926bd7f0c49eda5E"(ptr align 8, ptr align 8) unnamed_addr #0
 
@@ -581,16 +586,16 @@ declare zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hbe0c5c4ec9f1d0a9E(ptr ali
 declare zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hecbbcb173259e2f6E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #9
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -601,12 +606,13 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { cold }
-attributes #13 = { cold noreturn nounwind }
-attributes #14 = { noreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { cold }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -7917,8 +7917,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %13, %15
 19:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit
   %20 = load ptr, ptr %3, align 8, !tbaa !48
   %21 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
-  %.not.not.i2 = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %.not.not.i2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -8066,8 +8065,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %13, %15
 19:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit
   %20 = load ptr, ptr %3, align 8, !tbaa !48
   %21 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
-  %.not.not.i2 = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %.not.not.i2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -8181,8 +8179,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %12, %14
 18:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit
   %19 = load ptr, ptr %2, align 8, !tbaa !48
   %20 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %.not.not.i1 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.not.i1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -8249,8 +8246,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %12, %14
 18:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit
   %19 = load ptr, ptr %2, align 8, !tbaa !48
   %20 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %.not.not.i1 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.not.i1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -8317,8 +8313,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %12, %14
 18:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit
   %19 = load ptr, ptr %2, align 8, !tbaa !48
   %20 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %.not.not.i1 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.not.i1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -8564,8 +8559,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %1, %18, %20
           to label %.noexc unwind label %93
 
 .noexc:                                           ; preds = %24
-  %.not.not.i12 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %.not.not.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   %29 = invoke noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
           to label %.noexc15 unwind label %93
 
@@ -9037,8 +9031,7 @@ _ZN11CMainWindow14activeMdiChildEv.exit.thread:   ; preds = %1, %_ZN11CMainWindo
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %68 = load ptr, ptr %3, align 8, !tbaa !48
   %69 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %68)
-  %.not.not.i2 = icmp ne ptr %69, null
-  tail call void @llvm.assume(i1 %.not.not.i2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %69) ]
   %70 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %71 = load ptr, ptr %70, align 8, !tbaa !46
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8

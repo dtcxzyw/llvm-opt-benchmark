@@ -101,6 +101,7 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   %3 = alloca { i64, { i64, i64 } }, align 8
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -111,13 +112,14 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds nuw i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
+  %.val8.i = load ptr, ptr %.ptr, align 8, !noalias !4, !nonnull !7, !align !8, !noundef !7
   %10 = getelementptr i8, ptr %.ptr, i64 8
   %.val9.i = load i64, ptr %10, align 8, !noalias !4, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val8.i) ]
   %11 = icmp eq i64 %.val9.i, %1
   br i1 %11, label %12, label %.loopexit.i
 
 12:                                               ; preds = %9
-  %.val8.i = load ptr, ptr %.ptr, align 8, !noalias !4, !nonnull !7, !align !8, !noundef !7
   %13 = getelementptr inbounds i8, ptr %.val8.i, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !9
@@ -147,8 +149,11 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %23 = getelementptr inbounds i8, ptr %17, i64 %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %24 = getelementptr inbounds i8, ptr %18, i64 %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   %.fca.0.extract.val.i.i.i.i = load i8, ptr %23, align 1, !noalias !28, !noundef !7
   %.fca.1.extract.val.i.i.i.i = load i8, ptr %24, align 1, !noalias !28, !noundef !7
   %25 = add i8 %.fca.0.extract.val.i.i.i.i, -65
@@ -226,6 +231,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %3 = alloca { i64, { i64, i64 } }, align 8
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -236,13 +242,14 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds nuw i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
+  %.val8.i = load ptr, ptr %.ptr, align 8, !noalias !35, !nonnull !7, !align !8, !noundef !7
   %10 = getelementptr i8, ptr %.ptr, i64 8
   %.val9.i = load i64, ptr %10, align 8, !noalias !35, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val8.i) ]
   %11 = icmp eq i64 %.val9.i, %1
   br i1 %11, label %12, label %.loopexit.i
 
 12:                                               ; preds = %9
-  %.val8.i = load ptr, ptr %.ptr, align 8, !noalias !35, !nonnull !7, !align !8, !noundef !7
   %13 = getelementptr inbounds i8, ptr %.val8.i, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !38
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !38
@@ -272,8 +279,11 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %23 = getelementptr inbounds i8, ptr %17, i64 %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %24 = getelementptr inbounds i8, ptr %18, i64 %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   %.fca.0.extract.val.i.i.i.i = load i8, ptr %23, align 1, !noalias !57, !noundef !7
   %.fca.1.extract.val.i.i.i.i = load i8, ptr %24, align 1, !noalias !57, !noundef !7
   %25 = add i8 %.fca.0.extract.val.i.i.i.i, -65

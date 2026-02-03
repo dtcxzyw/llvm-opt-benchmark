@@ -223,6 +223,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
 .lr.ph.i:                                         ; preds = %10
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.0..sroa_idx.i) ]
   br label %16
 
 .loopexit.i:                                      ; preds = %38, %.lr.ph40.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha21ba39c927a9d87E.exit.thread.i", %2
@@ -252,24 +253,24 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !5
   br label %29
 
-17:                                               ; preds = %29
+.lr.ph.i.i.i:                                     ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(32) %4, i64 32, i1 false), !noalias !5
   store i64 32, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !5
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  br label %.lr.ph.i.i.i
+  br label %17
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %17
-  %.sroa.0.08.i.i.i = phi i8 [ %22, %.lr.ph.i.i.i ], [ 0, %17 ]
-  %18 = phi i64 [ %19, %.lr.ph.i.i.i ], [ 0, %17 ]
+17:                                               ; preds = %17, %.lr.ph.i.i.i
+  %.sroa.0.08.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i ], [ %22, %17 ]
+  %18 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %19, %17 ]
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.5.0..sroa_idx.i, i64 %18
   %21 = load i8, ptr %20, align 1, !range !13, !alias.scope !14, !noalias !17, !noundef !3
   %22 = add i8 %21, %.sroa.0.08.i.i.i
   %.not.i.i.i = icmp eq i64 %19, 32
-  br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i", label %17
 
-"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i": ; preds = %.lr.ph.i.i.i
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i": ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.02835.i, i64 32
   %24 = add i64 %.sroa.06.036.i, 32
   store i64 32, ptr %3, align 8, !alias.scope !18, !noalias !19
@@ -292,7 +293,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 1, !noalias !5
   %exitcond.not.i = icmp eq i64 %30, 32
-  br i1 %exitcond.not.i, label %17, label %29
+  br i1 %exitcond.not.i, label %.lr.ph.i.i.i, label %29
 
 .lr.ph40.i:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha21ba39c927a9d87E.exit.thread.i", %38
   %.sroa.0.2 = phi ptr [ %39, %38 ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha21ba39c927a9d87E.exit.thread.i" ]
@@ -347,6 +348,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %56 = zext nneg i8 %55 to i32
   %57 = icmp ne ptr %54, %8
   call void @llvm.assume(i1 %57)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
   %58 = load i8, ptr %54, align 1, !noalias !20, !noundef !3
   %59 = shl nuw nsw i32 %56, 6
   %60 = and i8 %58, 63
@@ -363,6 +365,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.ph, i64 2
   %67 = icmp ne ptr %66, %8
   call void @llvm.assume(i1 %67)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %66) ]
   %68 = load i8, ptr %66, align 1, !noalias !20, !noundef !3
   %69 = shl nuw nsw i32 %61, 6
   %70 = and i8 %68, 63
@@ -377,6 +380,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.ph, i64 3
   %77 = icmp ne ptr %76, %8
   call void @llvm.assume(i1 %77)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %76) ]
   %78 = load i8, ptr %76, align 1, !noalias !20, !noundef !3
   %79 = shl nuw nsw i32 %56, 18
   %80 = and i32 %79, 1835008
@@ -427,12 +431,14 @@ define void @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..FormatStrin
   %16 = icmp ne ptr %13, %7
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %18 = icmp samesign ugt i8 %14, -33
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd348f569470c642bE.exit14.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd348f569470c642bE.exit16.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd348f569470c642bE.exit14.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd348f569470c642bE.exit12.i"
   %19 = icmp ne ptr %17, %7
   tail call void @llvm.assume(i1 %19)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %20 = icmp samesign ugt i8 %14, -17
   %spec.select.v = select i1 %20, i64 4, i64 3
   %spec.select = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 %spec.select.v
@@ -483,6 +489,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %14 = icmp ne ptr %9, %7
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %16 = load i8, ptr %9, align 1, !noalias !26, !noundef !3
   %17 = shl nuw nsw i32 %13, 6
   %18 = and i8 %16, 63
@@ -499,6 +506,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %24 = icmp ne ptr %15, %7
   tail call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %26 = load i8, ptr %15, align 1, !noalias !26, !noundef !3
   %27 = shl nuw nsw i32 %19, 6
   %28 = and i8 %26, 63
@@ -513,6 +521,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %34 = icmp ne ptr %25, %7
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   %36 = load i8, ptr %25, align 1, !noalias !26, !noundef !3
   %37 = shl nuw nsw i32 %13, 18
   %38 = and i32 %37, 1835008
@@ -591,6 +600,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %67 = icmp ne ptr %62, %7
   tail call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   %69 = load i8, ptr %62, align 1, !noalias !41, !noundef !3
   %70 = shl nuw nsw i32 %66, 6
   %71 = and i8 %69, 63
@@ -607,6 +617,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %77 = icmp ne ptr %68, %7
   tail call void @llvm.assume(i1 %77)
   %78 = getelementptr inbounds nuw i8, ptr %61, i64 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %68) ]
   %79 = load i8, ptr %68, align 1, !noalias !41, !noundef !3
   %80 = shl nuw nsw i32 %72, 6
   %81 = and i8 %79, 63
@@ -621,6 +632,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %87 = icmp ne ptr %78, %7
   tail call void @llvm.assume(i1 %87)
   %88 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %89 = load i8, ptr %78, align 1, !noalias !41, !noundef !3
   %90 = shl nuw nsw i32 %66, 18
   %91 = and i32 %90, 1835008

@@ -3097,13 +3097,12 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN22aws_smithy_runtime_api6client12in
   %4 = alloca { i64, [42 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load i64, ptr %5, align 8, !range !6, !noundef !5
-  %7 = icmp ne i64 %6, 2
+  %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %9 = load i8, ptr %8, align 8, !range !84, !noundef !5
   %10 = trunc nuw i8 %9 to i1
-  %.not1 = xor i1 %10, true
-  %brmerge = or i1 %7, %.not1
-  br i1 %brmerge, label %11, label %12
+  %brmerge.not = and i1 %7, %10
+  br i1 %brmerge.not, label %12, label %11
 
 11:                                               ; preds = %2
   br i1 %10, label %14, label %13
@@ -3117,7 +3116,6 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN22aws_smithy_runtime_api6client12in
   br label %12
 
 14:                                               ; preds = %11
-  tail call void @llvm.assume(i1 %7)
   call void @_ZN22aws_smithy_runtime_api4http7request7Request9try_clone17h6791bb70b2509758E(ptr noalias noundef nonnull sret({ i64, [42 x i64] }) align 8 captures(none) dereferenceable(344) %4, ptr noundef nonnull align 8 %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   store i8 2, ptr %15, align 1

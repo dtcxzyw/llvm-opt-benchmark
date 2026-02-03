@@ -2469,7 +2469,9 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_date17h334f2ef5618d5284E.e
   %206 = select i1 %205, i8 32, i8 0
   %.sroa.09.0 = or i8 %202, %206
   %.val = load ptr, ptr %15, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %.val.i = load ptr, ptr %.val, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !122
   store i32 0, ptr %9, align 4, !noalias !122
   %207 = icmp sgt i8 %202, -1
@@ -3313,6 +3315,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_date17h4e3d6d1218f1fff7E.e
   %207 = select i1 %206, i8 32, i8 0
   %.sroa.09.0 = or i8 %203, %207
   %.val = load ptr, ptr %16, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !207
   store i32 0, ptr %10, align 4, !noalias !207
   %208 = icmp sgt i8 %203, -1
@@ -3796,6 +3799,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter14prin
   %27 = select i1 %26, i8 32, i8 0
   %.sroa.09.0 = or i8 %23, %27
   %.val = load ptr, ptr %12, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !255
   store i32 0, ptr %10, align 4, !noalias !255
   %28 = icmp sgt i8 %23, -1
@@ -9425,6 +9429,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %71, %.prehead
 100:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit"
   %101 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 89)
   %.val = load ptr, ptr %17, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !695
   store i32 0, ptr %7, align 4, !noalias !695
   %102 = icmp samesign ult i32 %101, 128
@@ -9624,6 +9629,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit228: ; preds = %173, %.pre
 201:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit218"
   %202 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 77)
   %.val253 = load ptr, ptr %17, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val253) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !710
   store i32 0, ptr %6, align 4, !noalias !710
   %203 = icmp samesign ult i32 %202, 128
@@ -9823,6 +9829,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit232: ; preds = %274, %.pre
 302:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit219"
   %303 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 87)
   %.val254 = load ptr, ptr %17, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val254) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !725
   store i32 0, ptr %5, align 4, !noalias !725
   %304 = icmp samesign ult i32 %303, 128
@@ -10022,6 +10029,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit236: ; preds = %375, %.pre
 403:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit220"
   %404 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 68)
   %.val255 = load ptr, ptr %17, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val255) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !740
   store i32 0, ptr %4, align 4, !noalias !740
   %405 = icmp samesign ult i32 %404, 128
@@ -13578,6 +13586,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit115: ; preds = %125, %.pre
 151:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit"
   %152 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 72)
   %.val = load ptr, ptr %12, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1024
   store i32 0, ptr %6, align 4, !noalias !1024
   %153 = icmp samesign ult i32 %152, 128
@@ -13662,6 +13671,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit115: ; preds = %125, %.pre
 196:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit109"
   %197 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 77)
   %.val124 = load ptr, ptr %12, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val124) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1030
   store i32 0, ptr %5, align 4, !noalias !1030
   %198 = icmp samesign ult i32 %197, 128
@@ -13848,6 +13858,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit119: ; preds = %268, %.pre
 290:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit110"
   %291 = call noundef i32 @_ZN4jiff3fmt8temporal7printer11SpanPrinter5label17hf5ca1f9add08c92dE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef 83)
   %.val125 = load ptr, ptr %12, align 8, !nonnull !6, !align !121, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val125) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1045
   store i32 0, ptr %4, align 4, !noalias !1045
   %292 = icmp samesign ult i32 %291, 128
@@ -14172,80 +14183,79 @@ _ZN4core4char7methods15encode_utf8_raw17h47e0c198e2a85c4bE.exit: ; preds = %8, %
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$10write_char17hc8773bada09487b2E"(ptr %.0.val, i32 noundef range(i32 0, 1114112) %0) unnamed_addr #0 {
   %2 = alloca [4 x i8], align 4
-  %3 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1067
   store i32 0, ptr %2, align 4, !noalias !1067
-  %4 = icmp samesign ult i32 %0, 128
+  %3 = icmp samesign ult i32 %0, 128
   %.sroa.0.05.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.0.05.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %2, i64 2
   %.sroa.0.05.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.05.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %2, i64 3
-  br i1 %4, label %7, label %5
+  br i1 %3, label %6, label %4
 
-5:                                                ; preds = %1
-  %6 = icmp samesign ult i32 %0, 2048
-  br i1 %6, label %11, label %9
+4:                                                ; preds = %1
+  %5 = icmp samesign ult i32 %0, 2048
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %1
-  %8 = trunc nuw nsw i32 %0 to i8
-  store i8 %8, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+6:                                                ; preds = %1
+  %7 = trunc nuw nsw i32 %0 to i8
+  store i8 %7, ptr %2, align 4, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-9:                                                ; preds = %5
-  %10 = icmp samesign ult i32 %0, 65536
-  br i1 %10, label %33, label %18
+8:                                                ; preds = %4
+  %9 = icmp samesign ult i32 %0, 65536
+  br i1 %9, label %32, label %17
 
-11:                                               ; preds = %5
-  %12 = lshr i32 %0, 6
-  %13 = trunc nuw nsw i32 %12 to i8
-  %14 = or disjoint i8 %13, -64
-  store i8 %14, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %15 = trunc i32 %0 to i8
-  %16 = and i8 %15, 63
-  %17 = or disjoint i8 %16, -128
-  store i8 %17, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+10:                                               ; preds = %4
+  %11 = lshr i32 %0, 6
+  %12 = trunc nuw nsw i32 %11 to i8
+  %13 = or disjoint i8 %12, -64
+  store i8 %13, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %14 = trunc i32 %0 to i8
+  %15 = and i8 %14, 63
+  %16 = or disjoint i8 %15, -128
+  store i8 %16, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-18:                                               ; preds = %9
-  %19 = lshr i32 %0, 18
-  %20 = trunc nuw nsw i32 %19 to i8
-  %21 = or disjoint i8 %20, -16
-  store i8 %21, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %22 = lshr i32 %0, 12
-  %23 = trunc i32 %22 to i8
-  %24 = and i8 %23, 63
-  %25 = or disjoint i8 %24, -128
-  store i8 %25, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
-  %26 = lshr i32 %0, 6
-  %27 = trunc i32 %26 to i8
-  %28 = and i8 %27, 63
-  %29 = or disjoint i8 %28, -128
-  store i8 %29, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
-  %30 = trunc i32 %0 to i8
-  %31 = and i8 %30, 63
-  %32 = or disjoint i8 %31, -128
-  store i8 %32, ptr %.sroa.0.05.i.sroa.gep3.i, align 1, !alias.scope !1070, !noalias !1067
+17:                                               ; preds = %8
+  %18 = lshr i32 %0, 18
+  %19 = trunc nuw nsw i32 %18 to i8
+  %20 = or disjoint i8 %19, -16
+  store i8 %20, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %21 = lshr i32 %0, 12
+  %22 = trunc i32 %21 to i8
+  %23 = and i8 %22, 63
+  %24 = or disjoint i8 %23, -128
+  store i8 %24, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+  %25 = lshr i32 %0, 6
+  %26 = trunc i32 %25 to i8
+  %27 = and i8 %26, 63
+  %28 = or disjoint i8 %27, -128
+  store i8 %28, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
+  %29 = trunc i32 %0 to i8
+  %30 = and i8 %29, 63
+  %31 = or disjoint i8 %30, -128
+  store i8 %31, ptr %.sroa.0.05.i.sroa.gep3.i, align 1, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-33:                                               ; preds = %9
-  %34 = lshr i32 %0, 12
-  %35 = trunc nuw nsw i32 %34 to i8
-  %36 = or disjoint i8 %35, -32
-  store i8 %36, ptr %2, align 4, !alias.scope !1070, !noalias !1067
-  %37 = lshr i32 %0, 6
-  %38 = trunc i32 %37 to i8
-  %39 = and i8 %38, 63
-  %40 = or disjoint i8 %39, -128
-  store i8 %40, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
-  %41 = trunc i32 %0 to i8
-  %42 = and i8 %41, 63
-  %43 = or disjoint i8 %42, -128
-  store i8 %43, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
+32:                                               ; preds = %8
+  %33 = lshr i32 %0, 12
+  %34 = trunc nuw nsw i32 %33 to i8
+  %35 = or disjoint i8 %34, -32
+  store i8 %35, ptr %2, align 4, !alias.scope !1070, !noalias !1067
+  %36 = lshr i32 %0, 6
+  %37 = trunc i32 %36 to i8
+  %38 = and i8 %37, 63
+  %39 = or disjoint i8 %38, -128
+  store i8 %39, ptr %.sroa.0.05.i.sroa.gep.i, align 1, !alias.scope !1070, !noalias !1067
+  %40 = trunc i32 %0 to i8
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, -128
+  store i8 %42, ptr %.sroa.0.05.i.sroa.gep1.i, align 2, !alias.scope !1070, !noalias !1067
   br label %_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit
 
-_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit: ; preds = %7, %11, %18, %33
-  %.sroa.0.05.i.sroa.phi.i = phi ptr [ %.sroa.0.05.i.sroa.gep.i, %7 ], [ %.sroa.0.05.i.sroa.gep1.i, %11 ], [ %.sroa.0.05.i.sroa.gep2.i, %18 ], [ %.sroa.0.05.i.sroa.gep3.i, %33 ]
+_ZN4jiff3fmt5Write10write_char17h6e26dc6cb2678f54E.exit: ; preds = %6, %10, %17, %32
+  %.sroa.0.05.i.sroa.phi.i = phi ptr [ %.sroa.0.05.i.sroa.gep.i, %6 ], [ %.sroa.0.05.i.sroa.gep1.i, %10 ], [ %.sroa.0.05.i.sroa.gep2.i, %17 ], [ %.sroa.0.05.i.sroa.gep3.i, %32 ]
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he8c9407ef5b33ecaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %.sroa.0.05.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1067
   ret void

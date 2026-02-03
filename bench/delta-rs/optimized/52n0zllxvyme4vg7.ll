@@ -791,6 +791,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hc9b6119b1b27d029E.exit, label %.lr.ph.i
 
@@ -1853,6 +1854,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 
 16:                                               ; preds = %11
   %.val.i = load ptr, ptr %9, align 8, !noalias !268, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %17 = ptrtoint ptr %.val.i to i64
   %18 = and i64 %17, 3
   switch i64 %18, label %default.unreachable [
@@ -2006,6 +2008,7 @@ define hidden void @"_ZN15deltalake_mount4file14regular_rename28_$u7b$$u7b$closu
   %25 = load ptr, ptr %24, align 8, !alias.scope !309, !noalias !312, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !300
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !314
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7f8e389ca306a717E.llvm.16543861533300112609(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull %25)
           to label %.noexc26 unwind label %21
 
@@ -2127,6 +2130,7 @@ _ZN3std2fs6rename17hfdc0114d0fce9968E.exit:       ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !345
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !345
   %.val.i.i = load ptr, ptr %10, align 8, !noalias !345, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   %63 = ptrtoint ptr %.val.i.i to i64
   %64 = and i64 %63, 3
   switch i64 %64, label %default.unreachable [

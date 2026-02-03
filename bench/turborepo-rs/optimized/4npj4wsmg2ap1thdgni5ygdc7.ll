@@ -58,6 +58,8 @@ define noundef i64 @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort
   %.val10.us = load i64, ptr %25, align 8, !noundef !7
   %.val11.us = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %.val12.us = load i64, ptr %14, align 8, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11.us) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.us) ]
   %26 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val11.us, i64 noundef %.val12.us, ptr noalias noundef nonnull readonly align 1 %.val.us, i64 noundef %.val10.us), !range !8
   %27 = icmp ne i8 %26, -1
   %28 = getelementptr inbounds i8, ptr %.sroa.19.125.us, i64 -24
@@ -100,6 +102,8 @@ define noundef i64 @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort
   %.val10 = load i64, ptr %39, align 8, !noundef !7
   %.val11 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %.val12 = load i64, ptr %14, align 8, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %40 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val11, i64 noundef %.val12, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val10), !range !8
   %41 = icmp ne i8 %40, -1
   %42 = getelementptr inbounds i8, ptr %.sroa.19.125, i64 -24
@@ -195,6 +199,8 @@ define noundef i64 @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort
   %.val10.us = load i64, ptr %25, align 8, !noundef !7
   %.val11.us = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %.val12.us = load i64, ptr %14, align 8, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.us) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11.us) ]
   %26 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val.us, i64 noundef %.val10.us, ptr noalias noundef nonnull readonly align 1 %.val11.us, i64 noundef %.val12.us), !range !8
   %27 = icmp eq i8 %26, -1
   %28 = getelementptr inbounds i8, ptr %.sroa.19.125.us, i64 -24
@@ -237,6 +243,8 @@ define noundef i64 @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort
   %.val10 = load i64, ptr %39, align 8, !noundef !7
   %.val11 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %.val12 = load i64, ptr %14, align 8, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11) ]
   %40 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val10, ptr noalias noundef nonnull readonly align 1 %.val11, i64 noundef %.val12), !range !8
   %41 = icmp eq i8 %40, -1
   %42 = getelementptr inbounds i8, ptr %.sroa.19.125, i64 -24
@@ -368,6 +376,8 @@ _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot12choose_pivotNtNtCs68wO
   %.val = load ptr, ptr %42, align 8, !nonnull !7, !noundef !7
   %43 = getelementptr i8, ptr %39, i64 16
   %.val30 = load i64, ptr %43, align 8, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.022.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %44 = call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.022.0.val, i64 noundef %.sroa.022.0.val29, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val30), !range !8
   %.not43 = icmp eq i8 %44, -1
   br i1 %.not43, label %.thread, label %.thread40
@@ -414,6 +424,8 @@ _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot12choose_pivotNtNtCs68wO
   %.val10.i = load i64, ptr %55, align 8, !alias.scope !24, !noalias !27, !noundef !7
   %.val11.i = load ptr, ptr %48, align 8, !alias.scope !24, !noalias !27, !nonnull !7, !noundef !7
   %.val12.i = load i64, ptr %49, align 8, !alias.scope !24, !noalias !27, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11.i) ]
   %56 = call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val10.i, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !range !8, !noalias !29
   %57 = icmp eq i8 %56, -1
   %58 = getelementptr inbounds i8, ptr %.sroa.19.125.i, i64 -24
@@ -508,6 +520,8 @@ _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot12choose_pivotNtNtCs68wO
   %.val10.us.i = load i64, ptr %92, align 8, !alias.scope !36, !noalias !39, !noundef !7
   %.val11.us.i = load ptr, ptr %81, align 8, !alias.scope !36, !noalias !39, !nonnull !7, !noundef !7
   %.val12.us.i = load i64, ptr %82, align 8, !alias.scope !36, !noalias !39, !noundef !7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11.us.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.us.i) ]
   %93 = call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val11.us.i, i64 noundef %.val12.us.i, ptr noalias noundef nonnull readonly align 1 %.val.us.i, i64 noundef %.val10.us.i), !range !8, !noalias !41
   %94 = icmp ne i8 %93, -1
   %95 = getelementptr inbounds i8, ptr %.sroa.19.125.us.i, i64 -24
@@ -576,6 +590,7 @@ _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5
 
 118:                                              ; preds = %77
   %119 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph75, i64 %.sroa.11.1.lcssa.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.ph75) ]
   call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %119, i64 noundef %69, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %9, ptr noalias noundef nonnull align 1 %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %120 = icmp ult i64 %.sroa.11.1.lcssa.i, 33

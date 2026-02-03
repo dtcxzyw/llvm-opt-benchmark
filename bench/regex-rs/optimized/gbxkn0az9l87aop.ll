@@ -495,6 +495,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   br label %.invoke217
 
 173:                                              ; preds = %170
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre154) ]
   %174 = getelementptr inbounds { i64, i64 }, ptr %.pre154, i64 %.sroa.4.0.i52.ph
   %175 = load i64, ptr %174, align 8, !noundef !14
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
@@ -526,6 +527,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   unreachable
 
 182:                                              ; preds = %173
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre154) ]
   %183 = getelementptr inbounds { i64, i64 }, ptr %.pre154, i64 %178
   %184 = load i64, ptr %183, align 8, !noundef !14
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -618,6 +620,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   %.02818.i = phi ptr [ %231, %.lr.ph.i63 ], [ %199, %207 ]
   %.sroa.0.117.i = phi ptr [ %234, %.lr.ph.i63 ], [ %14, %207 ]
   %.sroa.18.216.i = phi ptr [ %229, %.lr.ph.i63 ], [ %198, %207 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.117.i) ]
   %.028.val.i = load i64, ptr %.02818.i, align 8, !alias.scope !100, !noalias !101, !noundef !14
   %224 = getelementptr i8, ptr %.02818.i, i64 24
   %.028.val35.i = load i64, ptr %224, align 8, !alias.scope !86
@@ -648,7 +651,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   %237 = ptrtoint ptr %.sroa.10.1.i to i64
   %238 = ptrtoint ptr %.sroa.0.0.i62 to i64
   %239 = sub nuw i64 %237, %238
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.18.1.i, ptr align 8 %.sroa.0.0.i62, i64 %239, i1 false), !noalias !102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.18.1.i, ptr nonnull align 8 %.sroa.0.0.i62, i64 %239, i1 false), !noalias !102
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre154) ]
   %240 = add i64 %184, %175
   store i64 %240, ptr %183, align 8
   store i64 %177, ptr %185, align 8
@@ -1214,6 +1218,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfd7792d2e61b7fbbE.exit: ; preds = %.
   br label %.invoke221
 
 175:                                              ; preds = %172
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %176 = getelementptr inbounds { i64, i64 }, ptr %.pre155, i64 %.sroa.4.0.i52.ph
   %177 = load i64, ptr %176, align 8, !noundef !14
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -1245,6 +1250,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfd7792d2e61b7fbbE.exit: ; preds = %.
   unreachable
 
 184:                                              ; preds = %175
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %185 = getelementptr inbounds { i64, i64 }, ptr %.pre155, i64 %180
   %186 = load i64, ptr %185, align 8, !noundef !14
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -1349,6 +1355,7 @@ _ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i: ; preds 
   %.02829.i = phi ptr [ %239, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ], [ %201, %209 ]
   %.sroa.0.128.i = phi ptr [ %242, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ], [ %13, %209 ]
   %.sroa.18.227.i = phi ptr [ %237, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ], [ %200, %209 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.128.i) ]
   %.028.val.i = load i8, ptr %.02829.i, align 1, !alias.scope !183, !noundef !14
   %.val.i65 = load i8, ptr %.sroa.0.128.i, align 1, !noalias !183, !noundef !14
   %230 = icmp ult i8 %.028.val.i, %.val.i65
@@ -1390,7 +1397,8 @@ _ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i: ; pred
   %245 = ptrtoint ptr %.sroa.10.1.i to i64
   %246 = ptrtoint ptr %.sroa.0.0.i63 to i64
   %247 = sub nuw i64 %245, %246
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.18.1.i, ptr align 1 %.sroa.0.0.i63, i64 %247, i1 false), !noalias !186
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.18.1.i, ptr nonnull align 1 %.sroa.0.0.i63, i64 %247, i1 false), !noalias !186
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %248 = add i64 %186, %177
   store i64 %248, ptr %185, align 8
   store i64 %179, ptr %187, align 8
@@ -1960,6 +1968,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h43f6f797a37a05edE.exit: ; preds = %.
   br label %.invoke221
 
 175:                                              ; preds = %172
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %176 = getelementptr inbounds { i64, i64 }, ptr %.pre155, i64 %.sroa.4.0.i52.ph
   %177 = load i64, ptr %176, align 8, !noundef !14
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -1991,6 +2000,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h43f6f797a37a05edE.exit: ; preds = %.
   unreachable
 
 184:                                              ; preds = %175
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %185 = getelementptr inbounds { i64, i64 }, ptr %.pre155, i64 %180
   %186 = load i64, ptr %185, align 8, !noundef !14
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -2095,6 +2105,7 @@ _ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i: ; preds 
   %.02829.i = phi ptr [ %239, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %201, %209 ]
   %.sroa.0.128.i = phi ptr [ %242, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %14, %209 ]
   %.sroa.18.227.i = phi ptr [ %237, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ], [ %200, %209 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.128.i) ]
   %.028.val.i = load i32, ptr %.02829.i, align 4, !range !216, !alias.scope !255, !noundef !14
   %.val.i65 = load i32, ptr %.sroa.0.128.i, align 4, !range !216, !noalias !255, !noundef !14
   %230 = icmp samesign ult i32 %.028.val.i, %.val.i65
@@ -2136,7 +2147,8 @@ _ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i: ; pred
   %245 = ptrtoint ptr %.sroa.10.1.i to i64
   %246 = ptrtoint ptr %.sroa.0.0.i63 to i64
   %247 = sub nuw i64 %245, %246
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.18.1.i, ptr align 4 %.sroa.0.0.i63, i64 %247, i1 false), !noalias !258
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.18.1.i, ptr nonnull align 4 %.sroa.0.0.i63, i64 %247, i1 false), !noalias !258
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre155) ]
   %248 = add i64 %186, %177
   store i64 %248, ptr %185, align 8
   store i64 %179, ptr %187, align 8

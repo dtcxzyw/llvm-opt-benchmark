@@ -12,6 +12,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr i8, ptr %3, i64 16
   %.val1 = load i64, ptr %5, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %6 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hf13399e56476983fE"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %6
 }
@@ -23,6 +24,7 @@ define noundef zeroext i1 @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr i8, ptr %3, i64 16
   %.val1 = load i64, ptr %5, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %6 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hee1d20a2d69c4613E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %6
 }
@@ -211,8 +213,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #6
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -220,7 +225,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

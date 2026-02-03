@@ -1190,6 +1190,8 @@ default.unreachable:                              ; preds = %_ZN4ring4aead5block
 _ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit: ; preds = %86, %87, %88
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.087, i64 16, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.i) ]
   br label %89
 
 89:                                               ; preds = %89, %_ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit
@@ -1197,6 +1199,7 @@ _ZN4ring4aead3aes3Key13encrypt_block17hb516baeef254fb70E.exit: ; preds = %86, %8
   %90 = add nuw nsw i64 %.sroa.8.013.i, 1
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.8.013.i
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 %.sroa.8.013.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %92) ]
   %93 = load i8, ptr %92, align 1, !noundef !4
   %94 = load i8, ptr %91, align 1, !alias.scope !156, !noalias !159, !noundef !4
   %95 = xor i8 %94, %93
@@ -2400,27 +2403,34 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit: ; preds = %.split11
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit": ; preds = %_ZN4ring6digest7Context6finish17ha820283835585a81E.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %.0.sroa.speculated.i.i.i13 = call noundef i64 @llvm.umin.i64(i64 %.0.sroa.speculated.i.i.i, i64 %39)
   %.not = icmp eq i64 %39, 0
-  br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
+  br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.lr.ph"
+
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.045) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
+  br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
+
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.lr.ph", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
+  %.sroa.826.044 = phi i64 [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.lr.ph" ], [ %44, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit" ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 %.sroa.826.044
+  %43 = getelementptr inbounds i8, ptr %20, i64 %.sroa.826.044
+  %44 = add nuw i64 %.sroa.826.044, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %45 = load i8, ptr %43, align 1, !noundef !4
+  %46 = load i8, ptr %42, align 1, !noundef !4
+  %47 = xor i8 %46, %45
+  store i8 %47, ptr %42, align 1
+  %exitcond.not = icmp eq i64 %44, %.0.sroa.speculated.i.i.i13
+  br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %42 = icmp eq i64 %27, 0
-  br i1 %42, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hbb007d906e555d86E.exit._crit_edge", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.i"
-
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
-  %.sroa.826.044 = phi i64 [ %45, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit" ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 %.sroa.826.044
-  %44 = getelementptr inbounds i8, ptr %20, i64 %.sroa.826.044
-  %45 = add nuw i64 %.sroa.826.044, 1
-  %46 = load i8, ptr %44, align 1, !noundef !4
-  %47 = load i8, ptr %43, align 1, !noundef !4
-  %48 = xor i8 %47, %46
-  store i8 %48, ptr %43, align 1
-  %exitcond.not = icmp eq i64 %45, %.0.sroa.speculated.i.i.i13
-  br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit"
+  %48 = icmp eq i64 %27, 0
+  br i1 %48, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hbb007d906e555d86E.exit._crit_edge", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.i"
 }
 
 ; Function Attrs: nonlazybind uwtable

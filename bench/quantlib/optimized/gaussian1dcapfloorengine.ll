@@ -2096,16 +2096,19 @@ lpad273:                                          ; preds = %invoke.cont280
 invoke.cont280:                                   ; preds = %invoke.cont267, %invoke.cont297
   %j271.01155 = phi i64 [ %add, %invoke.cont297 ], [ 0, %invoke.cont267 ]
   %price.01154 = phi double [ %add299, %invoke.cont297 ], [ 0.000000e+00, %invoke.cont267 ]
-  %193 = load ptr, ptr %impl_.i.i, align 8, !tbaa !116, !nonnull !27, !noundef !27
+  %193 = load ptr, ptr %impl_.i.i, align 8, !tbaa !116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %193) ]
   %194 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %193, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #26
   %c_.i = getelementptr inbounds nuw i8, ptr %194, i64 88
   %195 = load ptr, ptr %c_.i, align 8, !tbaa !105
   %add.ptr.i359 = getelementptr inbounds nuw double, ptr %195, i64 %j271.01155
   %196 = load double, ptr %add.ptr.i359, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %193) ]
   %b_.i = getelementptr inbounds nuw i8, ptr %194, i64 64
   %197 = load ptr, ptr %b_.i, align 8, !tbaa !105
   %add.ptr.i361 = getelementptr inbounds nuw double, ptr %197, i64 %j271.01155
   %198 = load double, ptr %add.ptr.i361, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %193) ]
   %a_.i = getelementptr inbounds nuw i8, ptr %194, i64 40
   %199 = load ptr, ptr %a_.i, align 8, !tbaa !105
   %add.ptr.i363 = getelementptr inbounds nuw double, ptr %199, i64 %j271.01155
@@ -2162,16 +2165,19 @@ lpad307:                                          ; preds = %invoke.cont377, %co
   br label %ehcleanup385
 
 invoke.cont336:                                   ; preds = %if.then304
-  %215 = load ptr, ptr %impl_.i.i, align 8, !tbaa !116, !nonnull !27, !noundef !27
+  %215 = load ptr, ptr %impl_.i.i, align 8, !tbaa !116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %215) ]
   %216 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %215, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #26
   %c_.i378 = getelementptr inbounds nuw i8, ptr %216, i64 88
   %217 = load ptr, ptr %c_.i378, align 8, !tbaa !105
   %add.ptr.i380 = getelementptr inbounds nuw double, ptr %217, i64 %.lcssa1049
   %218 = load double, ptr %add.ptr.i380, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %215) ]
   %b_.i382 = getelementptr inbounds nuw i8, ptr %216, i64 64
   %219 = load ptr, ptr %b_.i382, align 8, !tbaa !105
   %add.ptr.i384 = getelementptr inbounds nuw double, ptr %219, i64 %.lcssa1049
   %220 = load double, ptr %add.ptr.i384, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %215) ]
   %a_.i386 = getelementptr inbounds nuw i8, ptr %216, i64 40
   %221 = load ptr, ptr %a_.i386, align 8, !tbaa !105
   %add.ptr.i388 = getelementptr inbounds nuw double, ptr %221, i64 %.lcssa1049
@@ -3098,16 +3104,19 @@ lpad559:                                          ; preds = %invoke.cont566
 invoke.cont566:                                   ; preds = %invoke.cont552, %invoke.cont584
   %j557.01165 = phi i64 [ %add581, %invoke.cont584 ], [ 0, %invoke.cont552 ]
   %price556.01164 = phi double [ %add586, %invoke.cont584 ], [ 0.000000e+00, %invoke.cont552 ]
-  %361 = load ptr, ptr %impl_.i.i624, align 8, !tbaa !116, !nonnull !27, !noundef !27
+  %361 = load ptr, ptr %impl_.i.i624, align 8, !tbaa !116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %361) ]
   %362 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %361, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #26
   %c_.i625 = getelementptr inbounds nuw i8, ptr %362, i64 88
   %363 = load ptr, ptr %c_.i625, align 8, !tbaa !105
   %add.ptr.i626 = getelementptr inbounds nuw double, ptr %363, i64 %j557.01165
   %364 = load double, ptr %add.ptr.i626, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %361) ]
   %b_.i628 = getelementptr inbounds nuw i8, ptr %362, i64 64
   %365 = load ptr, ptr %b_.i628, align 8, !tbaa !105
   %add.ptr.i629 = getelementptr inbounds nuw double, ptr %365, i64 %j557.01165
   %366 = load double, ptr %add.ptr.i629, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %361) ]
   %a_.i631 = getelementptr inbounds nuw i8, ptr %362, i64 40
   %367 = load ptr, ptr %a_.i631, align 8, !tbaa !105
   %add.ptr.i632 = getelementptr inbounds nuw double, ptr %367, i64 %j557.01165
@@ -3164,14 +3173,17 @@ lpad597:                                          ; preds = %invoke.cont649, %co
   br label %ehcleanup656
 
 invoke.cont626:                                   ; preds = %if.then593
-  %383 = load ptr, ptr %impl_.i.i624, align 8, !tbaa !116, !nonnull !27, !noundef !27
+  %383 = load ptr, ptr %impl_.i.i624, align 8, !tbaa !116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %383) ]
   %384 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %383, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #26
   %c_.i647 = getelementptr inbounds nuw i8, ptr %384, i64 88
   %385 = load ptr, ptr %c_.i647, align 8, !tbaa !105
   %386 = load double, ptr %385, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %383) ]
   %b_.i650 = getelementptr inbounds nuw i8, ptr %384, i64 64
   %387 = load ptr, ptr %b_.i650, align 8, !tbaa !105
   %388 = load double, ptr %387, align 8, !tbaa !42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %383) ]
   %a_.i653 = getelementptr inbounds nuw i8, ptr %384, i64 40
   %389 = load ptr, ptr %a_.i653, align 8, !tbaa !105
   %390 = load double, ptr %389, align 8, !tbaa !42

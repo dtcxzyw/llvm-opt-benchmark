@@ -64,7 +64,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %19
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !12
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #7, !noalias !12
   unreachable
 
 25:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -78,6 +78,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
 28:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   %29 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %30 = sub i64 %2, %.0.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   store ptr %1, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %31, align 8
@@ -152,7 +153,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %14, %18
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %21
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !24
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #7, !noalias !24
   unreachable
 
 27:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -164,6 +165,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %14, %18
 29:                                               ; preds = %21, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   %30 = getelementptr inbounds i8, ptr %5, i64 %.0.i
   %31 = sub i64 %7, %.0.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i64, ptr %32, align 8, !noundef !14
   %34 = add i64 %33, %.0.i
@@ -242,7 +244,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %19
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !34
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #7, !noalias !34
   unreachable
 
 25:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -256,6 +258,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
 28:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   %29 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %30 = sub i64 %2, %.0.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   store ptr %1, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %31, align 8
@@ -327,7 +330,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %19
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !44
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef range(i64 1, 0) %.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #7, !noalias !44
   unreachable
 
 25:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -341,6 +344,7 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %12, %16
 28:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   %29 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %30 = sub i64 %2, %.0.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   store ptr %1, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %31, align 8
@@ -364,34 +368,38 @@ define void @"_ZN5rayon3str77_$LT$impl$u20$rayon..str..private..Pattern$u20$for$
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #2
+
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
+declare void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
+declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
+declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

@@ -6663,7 +6663,8 @@ _ZNK8Variable14is_union_fieldEv.exit.i.i:         ; preds = %tailrecurse.i.i
   br i1 %116, label %117, label %tailrecurse.i.i
 
 117:                                              ; preds = %_ZNK8Variable14is_union_fieldEv.exit.i.i
-  %118 = load ptr, ptr %110, align 8, !tbaa !39, !nonnull !105, !noundef !105
+  %118 = load ptr, ptr %110, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
   %119 = load i32, ptr %118, align 8, !tbaa !57
   %.not7.i6.i = icmp eq i32 %119, 2
   br i1 %.not7.i6.i, label %tailrecurse.i42, label %.preheader.i.i44
@@ -9798,7 +9799,8 @@ _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   br i1 %8, label %9, label %tailrecurse.i
 
 9:                                                ; preds = %_ZNK8Variable14is_union_fieldEv.exit.i
-  %10 = load ptr, ptr %2, align 8, !tbaa !39, !nonnull !105, !noundef !105
+  %10 = load ptr, ptr %2, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = load i32, ptr %10, align 8, !tbaa !57
   %.not7.i6 = icmp eq i32 %11, 2
   br i1 %.not7.i6, label %tailrecurse, label %.preheader.i

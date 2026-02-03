@@ -54,7 +54,7 @@ define void @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf.
   br i1 %5, label %6, label %7, !prof !6
 
 6:                                                ; preds = %2
-  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.2) #6
+  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.2) #7
   unreachable
 
 7:                                                ; preds = %2
@@ -85,6 +85,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i"
   %.sroa.01.018.i.i.i = phi i64 [ %14, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i" ], [ 0, %.lr.ph.i.i.i.preheader ]
   %11 = phi ptr [ %13, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i" ], [ %3, %.lr.ph.i.i.i.preheader ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = load i32, ptr %11, align 4, !range !5, !alias.scope !7, !noalias !10, !noundef !3
   %.not.i.i.i.i = icmp eq i32 %12, 37
   br i1 %.not.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i"
@@ -113,6 +114,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
 .lr.ph.i.i.i6:                                    ; preds = %.lr.ph.i.i.i6.preheader, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i"
   %.sroa.01.018.i.i.i7 = phi i64 [ %23, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i" ], [ 0, %.lr.ph.i.i.i6.preheader ]
   %19 = phi ptr [ %22, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i" ], [ %18, %.lr.ph.i.i.i6.preheader ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %20 = load i32, ptr %19, align 4, !range !5, !alias.scope !19, !noalias !22, !noundef !3
   %21 = icmp eq i32 %20, 37
   br i1 %21, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
@@ -131,11 +133,11 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   br i1 %27, label %29, label %30, !prof !6
 
 28:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.sroa.0.0.i.i, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.5) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.sroa.0.0.i.i, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.5) #7
   unreachable
 
 29:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
-  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.4) #6
+  tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.db5b5264aa4d041cff4cacb9b40c1303.0, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.4) #7
   unreachable
 
 30:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
@@ -151,7 +153,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   br i1 %36, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE.exit", !prof !6
 
 37:                                               ; preds = %30
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %35, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.3) #6, !noalias !30
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %35, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.3) #7, !noalias !30
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE.exit": ; preds = %30
@@ -171,6 +173,9 @@ declare void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
@@ -186,7 +191,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { noreturn }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

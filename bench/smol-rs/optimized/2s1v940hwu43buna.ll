@@ -203,7 +203,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
 ._crit_edge:                                      ; preds = %44, %2
   %.lcssa23 = phi i64 [ %10, %2 ], [ %47, %44 ]
   %.lcssa17 = phi i64 [ %11, %2 ], [ %51, %44 ]
-  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa23, i64 noundef %.lcssa17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.1) #9
+  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa23, i64 noundef %.lcssa17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.1) #10
   unreachable
 
 26:                                               ; preds = %18
@@ -223,7 +223,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
 33:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #10, !srcloc !7
+  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #11, !srcloc !7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load atomic i64, ptr %17 monotonic, align 128
   %35 = load i64, ptr %5, align 8, !noundef !4
@@ -326,7 +326,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   br label %._crit_edge
 
 23:                                               ; preds = %14
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %17, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.2) #9
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %17, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.2) #10
           to label %24 unwind label %.loopexit.split-lp
 
 24:                                               ; preds = %23
@@ -359,7 +359,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
 40:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #10, !srcloc !7
+  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #11, !srcloc !7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load atomic i64, ptr %0 monotonic, align 128
   %42 = load i64, ptr %11, align 128, !noundef !4
@@ -434,7 +434,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
 69:                                               ; preds = %68
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12
   unreachable
 }
 
@@ -443,12 +443,12 @@ define hidden void @"_ZN3std4sync6rwlock24RwLockReadGuard$LT$T$GT$3new17hbe8e28c
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load atomic i8, ptr %3 monotonic, align 8
   %5 = icmp ne i8 %4, 0
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = zext i1 %5 to i64
-  %.sink.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %6, align 8, !alias.scope !10
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %7, align 8, !alias.scope !10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %7, align 8, !alias.scope !10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %8, align 8, !alias.scope !10
   store i64 %spec.select.i, ptr %0, align 8, !alias.scope !10
   ret void
 }
@@ -463,6 +463,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr i8, ptr %6, i64 16
   %.val1 = load i64, ptr %8, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !13
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !19
   %9 = getelementptr inbounds i8, ptr %.val, i64 %.val1
@@ -652,7 +653,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.19) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.19) #10
   unreachable
 
 13:                                               ; preds = %2
@@ -670,7 +671,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.22) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.22) #10
   unreachable
 
 20:                                               ; preds = %2
@@ -712,7 +713,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.19) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.19) #10
   unreachable
 
 13:                                               ; preds = %2
@@ -730,7 +731,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.22) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.22) #10
   unreachable
 
 20:                                               ; preds = %2
@@ -883,7 +884,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %51, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.31) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.31) #10
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
@@ -897,7 +898,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b
   store ptr @anon.b27b68f4daf3d822f9ecbda9123d023d.5, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.34) #9
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b27b68f4daf3d822f9ecbda9123d023d.34) #10
   unreachable
 }
 
@@ -1019,8 +1020,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1030,10 +1034,11 @@ attributes #4 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { noreturn }
-attributes #10 = { nounwind }
-attributes #11 = { cold noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind }
+attributes #12 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

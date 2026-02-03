@@ -452,6 +452,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
@@ -615,6 +616,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !49, !noundef !9
   %5 = getelementptr i8, ptr %4, i64 8
   %.val1 = load i64, ptr %5, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !80
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !86
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val1
@@ -660,6 +662,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -721,6 +724,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !align !10, !noundef !9
   %4 = getelementptr i8, ptr %3, i64 8
   %.val1 = load i64, ptr %4, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a6f7f12d816ee5bE"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val1, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %5
 }
@@ -790,6 +794,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !116
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -850,6 +855,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %21 = alloca [8 x i8], align 8
   %22 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %22, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %23 = load i8, ptr %.val, align 8, !range !129, !alias.scope !126, !noalias !130, !noundef !9
   %24 = add nsw i8 %23, -6
@@ -1116,6 +1122,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !149
@@ -1220,6 +1227,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !171
   store ptr %.val, ptr %3, align 8, !noalias !171
@@ -1283,6 +1291,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = alloca [8 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %6, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %7 = load i64, ptr %.val, align 8, !range !188, !alias.scope !185, !noalias !189, !noundef !9
   %8 = xor i64 %7, -9223372036854775808
@@ -1431,6 +1440,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !217
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -1488,6 +1498,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !align !49, !noundef !9
   %4 = getelementptr i8, ptr %3, i64 8
   %.val1 = load ptr, ptr %4, align 8, !nonnull !9, !align !10, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val1, i64 32
   %6 = load ptr, ptr %5, align 8, !invariant.load !9, !noalias !233, !nonnull !9
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -1500,6 +1512,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !align !10, !noundef !9
   %4 = getelementptr i8, ptr %3, i64 8
   %.val1 = load i64, ptr %4, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7a0a6c5994e02d4E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val1, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %5
 }
@@ -1862,9 +1875,11 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5f2ae8b6bed3ffa
   store i64 %.val2, ptr %.sroa.812.0..sroa_idx.i, align 8, !alias.scope !241
   %.sroa.913.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.913.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !241
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %.val.i = load ptr, ptr %1, align 8, !noalias !244, !nonnull !9, !align !49, !noundef !9
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1.i = load i64, ptr %10, align 8, !noalias !244, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17he62b249348ac77c6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !247
   store i8 -1, ptr %3, align 1, !noalias !247
@@ -1966,6 +1981,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h612c5de4e2be311
   store i64 %.val2, ptr %.sroa.812.0..sroa_idx.i, align 8, !alias.scope !265
   %.sroa.913.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.913.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !265
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17he62b249348ac77c6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !268
   store i8 -1, ptr %4, align 1, !noalias !268
@@ -2105,6 +2121,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %.val = load ptr, ptr %2, align 8, !nonnull !9, !align !49, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3 = load i64, ptr %4, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h214329bcf264de1fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val3)
   ret i1 %5
 }
@@ -2117,6 +2134,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %.val3 = load ptr, ptr %1, align 8, !nonnull !9, !align !49, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i64, ptr %4, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h214329bcf264de1fE"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 1 %.val3, i64 noundef %.val4)
   ret i1 %5
 }

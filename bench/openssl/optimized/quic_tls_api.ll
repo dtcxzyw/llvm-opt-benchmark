@@ -449,38 +449,37 @@ declare i32 @ossl_quic_tls_configure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SSL_set_quic_tls_transport_params(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = load i32, ptr %0, align 8, !tbaa !3
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %10, label %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %4 = load i32, ptr %0, align 8, !tbaa !3
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %9, label %6
 
-7:                                                ; preds = %3
-  %8 = and i32 %5, 128
-  %.not = icmp ne i32 %8, 0
+6:                                                ; preds = %3
+  %7 = and i32 %4, 128
+  %.not = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %.not)
-  %9 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #5
-  br label %10
+  %8 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #5
+  br label %9
 
-10:                                               ; preds = %3, %7
-  %11 = phi ptr [ %0, %3 ], [ %9, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
+9:                                                ; preds = %3, %6
+  %10 = phi ptr [ %0, %3 ], [ %8, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
+  %12 = load ptr, ptr %11, align 8, !tbaa !81
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
-15:                                               ; preds = %10
+14:                                               ; preds = %9
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @__func__.SSL_set_quic_tls_transport_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #5
-  br label %18
+  br label %17
 
-16:                                               ; preds = %10
-  %17 = tail call i32 @ossl_quic_tls_set_transport_params(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %2) #5
-  br label %18
+15:                                               ; preds = %9
+  %16 = tail call i32 @ossl_quic_tls_set_transport_params(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %2) #5
+  br label %17
 
-18:                                               ; preds = %16, %15
-  %.0 = phi i32 [ 0, %15 ], [ %17, %16 ]
+17:                                               ; preds = %15, %14
+  %.0 = phi i32 [ 0, %14 ], [ %16, %15 ]
   ret i32 %.0
 }
 

@@ -1870,51 +1870,50 @@ define internal ptr @placeholder_new(ptr noundef %0, ptr noundef readonly captur
 
 get_functools_state_by_type.exit:                 ; preds = %6, %5
   %10 = tail call ptr @PyType_GetModuleByDef(ptr noundef %0, ptr noundef nonnull @_functools_module) #10
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr i8, ptr %10, i64 32
-  %.val.i = load ptr, ptr %12, align 8, !tbaa !4
-  %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
-  %.not18 = icmp eq ptr %14, null
-  br i1 %.not18, label %20, label %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  %11 = getelementptr i8, ptr %10, i64 32
+  %.val.i = load ptr, ptr %11, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
+  %.not18 = icmp eq ptr %13, null
+  br i1 %.not18, label %19, label %14
 
-15:                                               ; preds = %get_functools_state_by_type.exit
-  %16 = load i32, ptr %14, align 8, !tbaa !21
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %_Py_NewRef.exit, label %18
+14:                                               ; preds = %get_functools_state_by_type.exit
+  %15 = load i32, ptr %13, align 8, !tbaa !21
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %_Py_NewRef.exit, label %17
 
-18:                                               ; preds = %15
-  %19 = add nuw i32 %16, 1
-  store i32 %19, ptr %14, align 8, !tbaa !21
+17:                                               ; preds = %14
+  %18 = add nuw i32 %15, 1
+  store i32 %18, ptr %13, align 8, !tbaa !21
   br label %_Py_NewRef.exit
 
-20:                                               ; preds = %get_functools_state_by_type.exit
-  %21 = tail call ptr @PyType_GenericNew(ptr noundef %0, ptr noundef null, ptr noundef null) #10
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_Py_NewRef.exit, label %23
+19:                                               ; preds = %get_functools_state_by_type.exit
+  %20 = tail call ptr @PyType_GenericNew(ptr noundef %0, ptr noundef null, ptr noundef null) #10
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_Py_NewRef.exit, label %22
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %13, align 8, !tbaa !16
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %_Py_NewRef.exit
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %12, align 8, !tbaa !16
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %_Py_NewRef.exit
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %21, align 8, !tbaa !21
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %_Py_NewRef.exit20, label %29
+25:                                               ; preds = %22
+  %26 = load i32, ptr %20, align 8, !tbaa !21
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %_Py_NewRef.exit20, label %28
 
-29:                                               ; preds = %26
-  %30 = add nuw i32 %27, 1
-  store i32 %30, ptr %21, align 8, !tbaa !21
+28:                                               ; preds = %25
+  %29 = add nuw i32 %26, 1
+  store i32 %29, ptr %20, align 8, !tbaa !21
   br label %_Py_NewRef.exit20
 
-_Py_NewRef.exit20:                                ; preds = %26, %29
-  store ptr %21, ptr %13, align 8, !tbaa !16
+_Py_NewRef.exit20:                                ; preds = %25, %28
+  store ptr %20, ptr %12, align 8, !tbaa !16
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %18, %15, %23, %_Py_NewRef.exit20, %20, %8
-  %.0 = phi ptr [ null, %8 ], [ %21, %23 ], [ null, %20 ], [ %21, %_Py_NewRef.exit20 ], [ %14, %15 ], [ %14, %18 ]
+_Py_NewRef.exit:                                  ; preds = %17, %14, %22, %_Py_NewRef.exit20, %19, %8
+  %.0 = phi ptr [ null, %8 ], [ %20, %22 ], [ null, %19 ], [ %20, %_Py_NewRef.exit20 ], [ %13, %14 ], [ %13, %17 ]
   ret ptr %.0
 }
 

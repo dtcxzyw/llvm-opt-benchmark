@@ -898,12 +898,14 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_h
   br label %"_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17hb692267e8bc8925aE.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17hb692267e8bc8925aE.exit": ; preds = %17, %.noexc2, %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 88, i64 noundef 8) #15
   ret void
 
 21:                                               ; preds = %7, %.noexc
   %22 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 88, i64 noundef 8) #15
   resume { ptr, i32 } %22
 }
@@ -1119,6 +1121,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
   %36 = load ptr, ptr %35, align 8, !nonnull !12, !noundef !12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8, !noundef !12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit.i.i.i"
 
 "_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit.i.i.i": ; preds = %40, %34
@@ -1178,11 +1181,13 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
 
 "_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.exit.i": ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i"
   %67 = mul nuw i64 %3, 40
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %67, i64 noundef 8) #15, !noalias !323
   br label %common.resume
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$http..header..value..HeaderValue$GT$$GT$17hf2cc884ef86a95e8E.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit.i.i.i"
   %68 = mul nuw i64 %3, 40
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %68, i64 noundef 8) #15, !noalias !323
   br label %"_ZN4core3ptr63drop_in_place$LT$$u5b$http..header..value..HeaderValue$u5d$$GT$17h3bb6985a81f3dda2E.exit"
 

@@ -997,6 +997,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   br label %.invoke293
 
 158:                                              ; preds = %155
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   %159 = getelementptr inbounds { i64, i64 }, ptr %.pre, i64 %.sroa.4.0.i56.ph
   %160 = load i64, ptr %159, align 8, !noundef !16
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -1028,6 +1029,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   unreachable
 
 167:                                              ; preds = %158
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   %168 = getelementptr inbounds { i64, i64 }, ptr %.pre, i64 %163
   %169 = load i64, ptr %168, align 8, !noundef !16
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -1113,6 +1115,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %.02823.i = phi ptr [ %210, %207 ], [ %184, %192 ]
   %.sroa.0.222.i = phi ptr [ %213, %207 ], [ %16, %192 ]
   %.sroa.18.321.i = phi ptr [ %208, %207 ], [ %183, %192 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.222.i) ]
   %206 = invoke fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h2ba0d34c37be0f42E(ptr noundef nonnull align 8 %.02823.i, ptr noundef nonnull align 8 %.sroa.0.222.i)
           to label %207 unwind label %.loopexit.split-lp.i
 
@@ -1148,7 +1151,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %217 = ptrtoint ptr %.sroa.10.2.i to i64
   %218 = ptrtoint ptr %.sroa.0.1.i68 to i64
   %219 = sub nuw i64 %217, %218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.18.2.i, ptr align 8 %.sroa.0.1.i68, i64 %219, i1 false), !noalias !154
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.18.2.i, ptr nonnull align 8 %.sroa.0.1.i68, i64 %219, i1 false), !noalias !154
   br label %.body
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0f724e5ad5439e18E.exit": ; preds = %207, %199, %192, %187
@@ -1158,7 +1161,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %220 = ptrtoint ptr %.sroa.10.1.i to i64
   %221 = ptrtoint ptr %.sroa.0.0.i66 to i64
   %222 = sub nuw i64 %220, %221
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.18.1.i, ptr align 8 %.sroa.0.0.i66, i64 %222, i1 false), !noalias !159
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.18.1.i, ptr nonnull align 8 %.sroa.0.0.i66, i64 %222, i1 false), !noalias !159
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   %223 = add i64 %169, %160
   store i64 %223, ptr %168, align 8
   store i64 %162, ptr %170, align 8

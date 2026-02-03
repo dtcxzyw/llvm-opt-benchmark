@@ -3852,7 +3852,8 @@ _ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ENS1_15VertexI
   %.sroa.15.2 = phi ptr [ %.sroa.15.3, %_ZNSt20back_insert_iteratorISt6vectorIPN3g2o10HyperGraph4EdgeESaIS4_EEEaSERKS4_.exit.i ], [ null, %._crit_edge92 ]
   %.sroa.03.08.i = phi ptr [ %108, %_ZNSt20back_insert_iteratorISt6vectorIPN3g2o10HyperGraph4EdgeESaIS4_EEEaSERKS4_.exit.i ], [ %72, %._crit_edge92 ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i, i64 32
-  %80 = load ptr, ptr %79, align 8, !tbaa !134, !nonnull !87, !noundef !87
+  %80 = load ptr, ptr %79, align 8, !tbaa !134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   %81 = call ptr @__dynamic_cast(ptr nonnull readonly %80, ptr nonnull @_ZTIN3g2o10HyperGraph4EdgeE, ptr nonnull @_ZTIN3g2o16OptimizableGraph4EdgeE, i64 0) #46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 60
   %83 = load i32, ptr %82, align 4, !tbaa !60

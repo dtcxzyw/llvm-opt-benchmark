@@ -15945,8 +15945,7 @@ type_flatten.exit:                                ; preds = %511
   br label %sema_expr_analyse_or_error.exit
 
 .critedge5.i.thread100:                           ; preds = %536, %528, %529, %.critedge5.i.thread, %.critedge5.i
-  %.not183.i = icmp ne ptr %495, null
-  tail call void @llvm.assume(i1 %.not183.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %495) ]
   %606 = load i32, ptr %495, align 8
   %607 = icmp eq i32 %606, 40
   br i1 %607, label %608, label %611
@@ -15960,8 +15959,7 @@ type_flatten.exit:                                ; preds = %511
   %.0156.i = phi ptr [ %610, %608 ], [ %495, %.critedge5.i.thread100 ]
   %612 = getelementptr inbounds nuw i8, ptr %.0156.i, i64 8
   %613 = load ptr, ptr %612, align 8
-  %.not184.i = icmp ne ptr %510, null
-  tail call void @llvm.assume(i1 %.not184.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %510) ]
   %614 = load i32, ptr %510, align 8
   %615 = icmp eq i32 %614, 40
   br i1 %615, label %616, label %619

@@ -707,8 +707,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
   br i1 %11, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i", label %12
 
 12:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
-  %.val39.i = load ptr, ptr %10, align 8, !alias.scope !82, !nonnull !3, !noundef !3
+  %.val39.i = load ptr, ptr %10, align 8, !alias.scope !82
   %13 = mul nuw nsw i64 %5, 232
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val39.i) ]
   store ptr %.val39.i, ptr %3, align 8, !alias.scope !85, !noalias !82
   %.sroa.5.0..sroa_idx.i41.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %13, ptr %.sroa.5.0..sroa_idx.i41.i, align 8, !alias.scope !85, !noalias !82
@@ -766,8 +767,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
   br i1 %11, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i", label %12
 
 12:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
-  %.val39.i = load ptr, ptr %10, align 8, !alias.scope !89, !nonnull !3, !noundef !3
+  %.val39.i = load ptr, ptr %10, align 8, !alias.scope !89
   %13 = mul nuw nsw i64 %5, 168
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val39.i) ]
   store ptr %.val39.i, ptr %3, align 8, !alias.scope !92, !noalias !89
   %.sroa.5.0..sroa_idx.i41.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %13, ptr %.sroa.5.0..sroa_idx.i41.i, align 8, !alias.scope !92, !noalias !89
@@ -815,8 +817,9 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hb0fd2
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val1 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %.val1 = load ptr, ptr %7, align 8
   %8 = mul nuw i64 %.val, %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val1, i64 noundef %8, i64 noundef range(i64 1, -9223372036854775807) %1) #23
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit"
 
@@ -933,8 +936,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12
   br i1 %29, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i", label %30
 
 30:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
-  %.val39.i = load ptr, ptr %28, align 8, !alias.scope !95, !nonnull !3, !noundef !3
+  %.val39.i = load ptr, ptr %28, align 8, !alias.scope !95
   %31 = mul nuw i64 %14, %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val39.i) ]
   store ptr %.val39.i, ptr %6, align 8, !alias.scope !98, !noalias !95
   %.sroa.5.0..sroa_idx.i41.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %31, ptr %.sroa.5.0..sroa_idx.i41.i, align 8, !alias.scope !98, !noalias !95

@@ -44,6 +44,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store i64 %10, ptr %6, align 8, !noalias !6
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   store ptr %11, ptr %4, align 8, !noalias !6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %12, align 8, !noalias !6
@@ -308,6 +309,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$core..cell..RefCell$LT$T$GT$$u20$as
   store i64 %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %11, align 8
@@ -374,6 +376,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$core..cell..RefCell$LT$T$GT$$u20$as
   store i64 %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %11, align 8
@@ -440,6 +443,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$core..cell..RefCell$LT$T$GT$$u20$as
   store i64 %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %11, align 8
@@ -553,14 +557,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #4
+declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

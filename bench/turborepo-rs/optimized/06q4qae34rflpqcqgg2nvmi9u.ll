@@ -40,7 +40,7 @@ define void @_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDT
 9:                                                ; preds = %8, %.noexc4, %2
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #10
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #11
           to label %14 unwind label %12
 
 11:                                               ; preds = %.noexc4
@@ -53,7 +53,7 @@ define void @_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDT
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #12
   unreachable
 
 14:                                               ; preds = %9
@@ -99,6 +99,7 @@ define hidden void @_RINvYNtCseBw3mChBYfU_3hex15BytesToHexCharsNtNtNtNtCs1LoaDTb
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
   %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
   %.sroa.0.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 3
@@ -319,6 +320,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -329,8 +333,9 @@ attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #7 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { cold }
-attributes #11 = { cold noreturn nounwind }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { cold }
+attributes #12 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

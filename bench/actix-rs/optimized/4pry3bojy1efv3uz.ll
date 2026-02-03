@@ -209,6 +209,7 @@ define hidden noundef ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u2
   %.val911.i = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %13, %9 ]
   %11 = load <16 x i8>, ptr %10, align 16, !noalias !31
   %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i) ]
   %13 = getelementptr inbounds i8, ptr %.val911.i, i64 -384
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.cast.i = bitcast <16 x i1> %12 to i16
@@ -223,6 +224,7 @@ define hidden noundef ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u2
   %17 = add i16 %.lcssa.i, -1
   %18 = and i16 %17, %.lcssa.i
   store i16 %18, ptr %6, align 8, !alias.scope !28
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i) ]
   %19 = sub nsw i64 0, %16
   %20 = getelementptr inbounds { { { { { ptr, i64 } }, {}, {} } }, i32, [1 x i32] }, ptr %.val3.i, i64 %19
   %21 = add i64 %3, -1
@@ -264,6 +266,7 @@ define hidden noundef ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u2
   %.val911.i = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %13, %9 ]
   %11 = load <16 x i8>, ptr %10, align 16, !noalias !40
   %12 = icmp sgt <16 x i8> %11, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i) ]
   %13 = getelementptr inbounds i8, ptr %.val911.i, i64 -384
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.cast.i = bitcast <16 x i1> %12 to i16
@@ -278,6 +281,7 @@ define hidden noundef ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u2
   %17 = add i16 %.lcssa.i, -1
   %18 = and i16 %17, %.lcssa.i
   store i16 %18, ptr %6, align 8, !alias.scope !37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i) ]
   %19 = sub nsw i64 0, %16
   %20 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i32, [1 x i32] }, ptr %.val3.i, i64 %19
   %21 = add i64 %3, -1
@@ -410,6 +414,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h9fe04f5422
   %.val911.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %.sroa.03.018, %11 ]
   %13 = load <16 x i8>, ptr %12, align 16, !noalias !48
   %14 = icmp sgt <16 x i8> %13, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i.i) ]
   %15 = getelementptr inbounds i8, ptr %.val911.i.i, i64 -384
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.cast.i.i = bitcast <16 x i1> %14 to i16
@@ -422,6 +427,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h9fe04f5422
   %.lcssa.i.i = phi i16 [ %.sroa.84.015, %11 ], [ %.cast.i.i, %.lr.ph.i.i ]
   %17 = add i16 %.lcssa.i.i, -1
   %18 = and i16 %17, %.lcssa.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.1) ]
   %19 = add i64 %.sroa.105.016, -1
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %21 = zext nneg i16 %20 to i64
@@ -478,6 +484,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd32faf45f1
   %.val911.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %.sroa.03.018, %11 ]
   %13 = load <16 x i8>, ptr %12, align 16, !noalias !77
   %14 = icmp sgt <16 x i8> %13, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i.i) ]
   %15 = getelementptr inbounds i8, ptr %.val911.i.i, i64 -384
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.cast.i.i = bitcast <16 x i1> %14 to i16
@@ -490,6 +497,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd32faf45f1
   %.lcssa.i.i = phi i16 [ %.sroa.84.015, %11 ], [ %.cast.i.i, %.lr.ph.i.i ]
   %17 = add i16 %.lcssa.i.i, -1
   %18 = and i16 %17, %.lcssa.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.1) ]
   %19 = add i64 %.sroa.105.016, -1
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %21 = zext nneg i16 %20 to i64
@@ -549,6 +557,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h783e215
   %.val911.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %.sroa.03.018.i, %18 ]
   %20 = load <16 x i8>, ptr %19, align 16, !noalias !106
   %21 = icmp sgt <16 x i8> %20, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i.i.i) ]
   %22 = getelementptr inbounds i8, ptr %.val911.i.i.i, i64 -384
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.cast.i.i.i = bitcast <16 x i1> %21 to i16
@@ -561,6 +570,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h783e215
   %.lcssa.i.i.i = phi i16 [ %.sroa.84.015.i, %18 ], [ %.cast.i.i.i, %.lr.ph.i.i.i ]
   %24 = add i16 %.lcssa.i.i.i, -1
   %25 = and i16 %24, %.lcssa.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.1.i) ]
   %26 = add i64 %.sroa.105.016.i, -1
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
@@ -650,6 +660,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17ha9ab62d
   %.val911.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %.sroa.03.018.i, %18 ]
   %20 = load <16 x i8>, ptr %19, align 16, !noalias !138
   %21 = icmp sgt <16 x i8> %20, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911.i.i.i) ]
   %22 = getelementptr inbounds i8, ptr %.val911.i.i.i, i64 -384
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.cast.i.i.i = bitcast <16 x i1> %21 to i16
@@ -662,6 +673,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17ha9ab62d
   %.lcssa.i.i.i = phi i16 [ %.sroa.84.015.i, %18 ], [ %.cast.i.i.i, %.lr.ph.i.i.i ]
   %24 = add i16 %.lcssa.i.i.i, -1
   %25 = and i16 %24, %.lcssa.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.1.i) ]
   %26 = add i64 %.sroa.105.016.i, -1
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
@@ -806,7 +818,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17ha6e269db982b
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h36e548844c8f16f9E.llvm.8051598444039092977"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8, !alias.scope !194, !noundef !11
@@ -832,6 +844,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %7 = add i16 %.lcssa, -1
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !194
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   %9 = sub nsw i64 0, %6
   %10 = getelementptr inbounds { { { { { ptr, i64 } }, {}, {} } }, i32, [1 x i32] }, ptr %.val3, i64 %9
   ret ptr %10
@@ -841,6 +854,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %.val911 = phi ptr [ %.promoted, %.lr.ph ], [ %15, %11 ]
   %13 = load <16 x i8>, ptr %12, align 16, !noalias !197
   %14 = icmp sgt <16 x i8> %13, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911) ]
   %15 = getelementptr inbounds i8, ptr %.val911, i64 -384
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.cast = bitcast <16 x i1> %14 to i16
@@ -848,7 +862,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   br i1 %.not.i, label %11, label %._crit_edge
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd4f32f52198b99c9E.llvm.8051598444039092977"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8, !alias.scope !200, !noundef !11
@@ -874,6 +888,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %7 = add i16 %.lcssa, -1
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !200
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   %9 = sub nsw i64 0, %6
   %10 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i32, [1 x i32] }, ptr %.val3, i64 %9
   ret ptr %10
@@ -883,6 +898,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %.val911 = phi ptr [ %.promoted, %.lr.ph ], [ %15, %11 ]
   %13 = load <16 x i8>, ptr %12, align 16, !noalias !203
   %14 = icmp sgt <16 x i8> %13, splat (i8 -1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val911) ]
   %15 = getelementptr inbounds i8, ptr %.val911, i64 -384
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.cast = bitcast <16 x i1> %14 to i16
@@ -937,7 +953,7 @@ attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, argm
 attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }

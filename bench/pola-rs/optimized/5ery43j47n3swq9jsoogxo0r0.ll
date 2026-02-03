@@ -81,30 +81,29 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35768d8aae598695E"(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = lshr exact i64 %9, 2
-  br label %11
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = lshr exact i64 %8, 2
+  br label %10
 
-11:                                               ; preds = %11, %6
-  %.sroa.07.0.i = phi i32 [ %2, %6 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
-  %.sroa.09.0.i = phi i64 [ 0, %6 ], [ %13, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.09.0.i
-  %.val.i = load i32, ptr %12, align 4, !noundef !3
+10:                                               ; preds = %10, %5
+  %.sroa.07.0.i = phi i32 [ %2, %5 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %10 ]
+  %.sroa.09.0.i = phi i64 [ 0, %5 ], [ %12, %10 ]
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.09.0.i
+  %.val.i = load i32, ptr %11, align 4, !noundef !3
   %.sroa.0.0.i.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.07.0.i, i32 %.val.i)
-  %13 = add nuw i64 %.sroa.09.0.i, 1
-  %14 = icmp eq i64 %13, %10
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %11
+  %12 = add nuw i64 %.sroa.09.0.i, 1
+  %13 = icmp eq i64 %12, %9
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit", label %10
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit": ; preds = %11, %3
-  %.sroa.04.0.i = phi i32 [ %2, %3 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %11 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68279598991a4ca2E.exit": ; preds = %10, %3
+  %.sroa.04.0.i = phi i32 [ %2, %3 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %10 ]
   ret i32 %.sroa.04.0.i
 }
 
@@ -149,6 +148,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %3, align 8, !nonnull !3, !align !8, !noundef !3
   %4 = getelementptr i8, ptr %3, i64 8
   %.val1 = load i64, ptr %4, align 8, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf6a5cb102847ddcE"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %5
 }
@@ -343,11 +343,13 @@ define internal void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$polar
   br label %31
 
 "_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h9d30786684d9210fE.exit": ; preds = %.invoke, %5, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$std..io..error..Error$GT$$GT$17haa627bd948fa0910E.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 64, i64 noundef 8) #15
   ret void
 
 31:                                               ; preds = %29, %12, %17, %24
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %25, %24 ], [ %13, %17 ], [ %13, %12 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 64, i64 noundef 8) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -421,12 +423,14 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
           to label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit" unwind label %29
 
 "_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit": ; preds = %.invoke12, %.invoke, %1, %4, %8, %16, %12, %23, %19, %27
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #15
   ret void
 
 29:                                               ; preds = %.invoke12, %.invoke, %27, %8
   %30 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #15
   resume { ptr, i32 } %30
 }

@@ -50,6 +50,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   %21 = sub i64 %18, %20
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %8, i64 %21)
   %22 = load ptr, ptr %10, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %23 = add i64 %.0.sroa.speculated.i, %20
   %24 = load ptr, ptr %2, align 8, !noalias !13, !nonnull !4, !align !16, !noundef !4
   %25 = icmp ugt i64 %20, %23
@@ -60,14 +61,14 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i"
 
 28:                                               ; preds = %16
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %20, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #7
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %20, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #8
           to label %.noexc22 unwind label %46
 
 .noexc22:                                         ; preds = %28
   unreachable
 
 29:                                               ; preds = %26
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %23, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #7
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %23, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c310c0ae85789e15ff270161430c191.17) #8
           to label %.noexc23 unwind label %46
 
 .noexc23:                                         ; preds = %29
@@ -140,7 +141,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 54:                                               ; preds = %46
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 56:                                               ; preds = %3, %.thread
@@ -232,6 +233,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -239,8 +243,9 @@ attributes #3 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn }
-attributes #8 = { cold noreturn nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { noreturn }
+attributes #9 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

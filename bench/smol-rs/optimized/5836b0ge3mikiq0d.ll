@@ -74,6 +74,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$parking..Parke
   %.val = load ptr, ptr %8, align 8, !nonnull !17, !align !18, !noundef !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2 = load ptr, ptr %9, align 8, !noundef !17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %11 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
   invoke void %11(ptr noundef %.val2)
@@ -84,6 +85,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$parking..Parke
   %.val3 = load ptr, ptr %12, align 8, !nonnull !17, !align !18, !noundef !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %13, align 8, !noundef !17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   %14 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
   %15 = load ptr, ptr %14, align 8, !nonnull !17, !noundef !17
   invoke void %15(ptr noundef %.val4)
@@ -487,6 +489,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
 83:                                               ; preds = %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i
   store i64 -1, ptr %.0.i.i6.i, align 8, !noalias !104
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i6.i) ]
   br label %86
 
 85:                                               ; preds = %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i
@@ -624,6 +627,7 @@ default.unreachable:                              ; preds = %.backedge.i.i
 
 131:                                              ; preds = %126
   %.val.i.i.i = load ptr, ptr %128, align 8, !noalias !107, !nonnull !17, !noundef !17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i.i) ]
   %132 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 128
   invoke void @_ZN14async_executor6Runner3new17h7accacdf95488721E(ptr noalias noundef nonnull sret({ ptr, { ptr, { i64 } }, ptr, { i64 } }) align 8 captures(none) dereferenceable(40) %92, ptr noundef nonnull align 128 %132)
           to label %133 unwind label %129, !noalias !107
@@ -652,6 +656,7 @@ _ZN8fastrand10global_rng3RNG7__getit17h976a44bdba5e523cE.exit.i.i.i.i.i: ; preds
   %144 = lshr i128 %143, 64
   %145 = xor i128 %144, %143
   %146 = trunc i128 %145 to i64
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i2.i.i.i.i.i) ]
   store i64 %139, ptr %.0.i.i2.i.i.i.i.i, align 8, !noalias !107
   br label %149
 
@@ -922,6 +927,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.i.
   %.val.i357.i.i = load ptr, ptr %226, align 8, !alias.scope !134, !noalias !104, !nonnull !17, !align !18, !noundef !17
   %227 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %.val2.i.i.i = load ptr, ptr %227, align 8, !alias.scope !134, !noalias !104, !noundef !17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i357.i.i) ]
   %228 = getelementptr inbounds nuw i8, ptr %.val.i357.i.i, i64 24
   %229 = load ptr, ptr %228, align 8, !noalias !104, !nonnull !17, !noundef !17
   invoke void %229(ptr noundef %.val2.i.i.i)
@@ -932,6 +938,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.i.
   %.val3.i.i.i = load ptr, ptr %230, align 8, !alias.scope !134, !noalias !104, !nonnull !17, !align !18, !noundef !17
   %231 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %.val4.i.i.i = load ptr, ptr %231, align 8, !alias.scope !134, !noalias !104, !noundef !17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i.i.i) ]
   %232 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 24
   %233 = load ptr, ptr %232, align 8, !noalias !104, !nonnull !17, !noundef !17
   invoke void %233(ptr noundef %.val4.i.i.i)
@@ -1952,6 +1959,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
 
 "_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit": ; preds = %.noexc22, %534
   %.pn = phi { ptr, i32 } [ %535, %534 ], [ %eh.lpad-body, %.noexc22 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %46) ]
   %530 = load i64, ptr %46, align 8, !range !52, !alias.scope !256, !noalias !259, !noundef !17
   %531 = icmp eq i64 %530, 2
   br i1 %531, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit", label %532
@@ -1967,6 +1975,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
   br label %"_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit"
 
 "_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit27": ; preds = %.noexc25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %46) ]
   %536 = load i64, ptr %46, align 8, !range !52, !noundef !17
   %537 = icmp eq i64 %536, 2
   br i1 %537, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h69eb9e1cbda42f23E.exit", label %538

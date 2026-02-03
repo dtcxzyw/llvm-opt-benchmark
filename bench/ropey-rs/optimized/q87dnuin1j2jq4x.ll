@@ -20,32 +20,31 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h436592eca368d2f9E.llvm.11761237816275622986"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %1 to i64
-  %7 = sub nuw i64 %5, %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !alias.scope !4, !noundef !9
-  %10 = load i64, ptr %0, align 8, !alias.scope !4, !noundef !9
-  %11 = sub i64 %10, %9
-  %12 = icmp ugt i64 %7, %11
-  br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %4 = ptrtoint ptr %2 to i64
+  %5 = ptrtoint ptr %1 to i64
+  %6 = sub nuw i64 %4, %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8, !alias.scope !4, !noundef !9
+  %9 = load i64, ptr %0, align 8, !alias.scope !4, !noundef !9
+  %10 = sub i64 %9, %8
+  %11 = icmp ugt i64 %6, %10
+  br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit"
 
-13:                                               ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he044785a704de353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9, i64 noundef %7)
-  %.pre.i = load i64, ptr %8, align 8, !alias.scope !10
+12:                                               ; preds = %3
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he044785a704de353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %8, i64 noundef %6)
+  %.pre.i = load i64, ptr %7, align 8, !alias.scope !10
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit": ; preds = %3, %13
-  %14 = phi i64 [ %9, %3 ], [ %.pre.i, %13 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !10, !nonnull !9, !noundef !9
-  %17 = getelementptr inbounds i8, ptr %16, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %7, i1 false)
-  %18 = load i64, ptr %8, align 8, !alias.scope !10, !noundef !9
-  %19 = add i64 %18, %7
-  store i64 %19, ptr %8, align 8, !alias.scope !10
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit": ; preds = %3, %12
+  %13 = phi i64 [ %8, %3 ], [ %.pre.i, %12 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !10, !nonnull !9, !noundef !9
+  %16 = getelementptr inbounds i8, ptr %15, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
+  %17 = load i64, ptr %7, align 8, !alias.scope !10, !noundef !9
+  %18 = add i64 %17, %6
+  store i64 %18, ptr %7, align 8, !alias.scope !10
   ret void
 }
 
@@ -57,10 +56,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val = load ptr, ptr %5, align 8, !nonnull !9, !align !11, !noundef !9
   %6 = getelementptr i8, ptr %5, i64 8
   %.val1 = load i64, ptr %6, align 8, !noundef !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12
   call void @_ZN4core3fmt9Formatter10debug_list17h6fd145ef502d86b6E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !18
   %.idx.i.i = shl nsw i64 %.val1, 5
   %7 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe2e676908234756E.exit", label %.lr.ph.i.i.i
 

@@ -7395,7 +7395,7 @@ define ptr @ossl_quic_accept_connection(ptr noundef %0, i64 noundef %1) local_un
   %.not = icmp eq i64 %4, 0
   %5 = call fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4)
   %.not25 = icmp eq i32 %5, 0
-  br i1 %.not25, label %113, label %6
+  br i1 %.not25, label %112, label %6
 
 6:                                                ; preds = %2
   %.val.i = load ptr, ptr %3, align 8, !tbaa !157
@@ -7487,7 +7487,7 @@ ql_listen.exit:                                   ; preds = %qctx_lock_for_io.ex
   %50 = call ptr @ossl_quic_engine_get0_reactor(ptr noundef %.val32.val) #12
   %51 = call i32 @ossl_quic_reactor_block_until_pred(ptr noundef %50, ptr noundef nonnull @quic_accept_connection_wait, ptr noundef %48, i32 noundef 0) #12
   %52 = icmp slt i32 %51, 1
-  br i1 %52, label %110, label %qctx_maybe_autotick.exit
+  br i1 %52, label %109, label %qctx_maybe_autotick.exit
 
 53:                                               ; preds = %43, %42
   %.val31 = load ptr, ptr %3, align 8, !tbaa !157
@@ -7523,7 +7523,7 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
   %67 = load ptr, ptr %66, align 8, !tbaa !139
   %68 = call i32 @ossl_quic_port_is_running(ptr noundef %67) #12
   %.not28 = icmp eq i32 %68, 0
-  br i1 %.not28, label %110, label %69
+  br i1 %.not28, label %109, label %69
 
 69:                                               ; preds = %qctx_maybe_autotick.exit
   %70 = load ptr, ptr %22, align 8, !tbaa !163
@@ -7552,56 +7552,55 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
   %87 = load ptr, ptr %86, align 8, !tbaa !139
   %88 = call ptr @ossl_quic_port_pop_incoming(ptr noundef %87) #12
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %110, label %.thread35
+  br i1 %89, label %109, label %.thread35
 
 .thread35:                                        ; preds = %ql_listen.exit, %79, %.thread, %69
   %.1 = phi ptr [ %88, %79 ], [ null, %.thread ], [ %73, %69 ], [ %35, %ql_listen.exit ]
   %90 = call ptr @ossl_quic_channel_get0_tls(ptr noundef %.1) #12
-  %91 = icmp ne ptr %90, null
-  call void @llvm.assume(i1 %91)
-  %92 = load i32, ptr %90, align 8, !tbaa !31
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %98, label %94
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
+  %91 = load i32, ptr %90, align 8, !tbaa !31
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %97, label %93
 
-94:                                               ; preds = %.thread35
-  %95 = and i32 %92, 128
-  %96 = icmp ne i32 %95, 0
-  call void @llvm.assume(i1 %96)
-  %97 = call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %90) #12
-  br label %98
+93:                                               ; preds = %.thread35
+  %94 = and i32 %91, 128
+  %95 = icmp ne i32 %94, 0
+  call void @llvm.assume(i1 %95)
+  %96 = call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %90) #12
+  br label %97
 
-98:                                               ; preds = %.thread35, %94
-  %99 = phi ptr [ %97, %94 ], [ %90, %.thread35 ]
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  %101 = load ptr, ptr %100, align 8, !tbaa !235
-  %102 = load ptr, ptr %22, align 8, !tbaa !163
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 128
-  store ptr %102, ptr %103, align 8, !tbaa !135
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 336
-  %105 = load i16, ptr %104, align 8
-  %106 = and i16 %105, -513
-  store i16 %106, ptr %104, align 8
-  %107 = call i32 @SSL_up_ref(ptr noundef %102) #12
-  %.not30 = icmp eq i32 %107, 0
-  br i1 %.not30, label %108, label %110
+97:                                               ; preds = %.thread35, %93
+  %98 = phi ptr [ %96, %93 ], [ %90, %.thread35 ]
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
+  %100 = load ptr, ptr %99, align 8, !tbaa !235
+  %101 = load ptr, ptr %22, align 8, !tbaa !163
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 128
+  store ptr %101, ptr %102, align 8, !tbaa !135
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 336
+  %104 = load i16, ptr %103, align 8
+  %105 = and i16 %104, -513
+  store i16 %105, ptr %103, align 8
+  %106 = call i32 @SSL_up_ref(ptr noundef %101) #12
+  %.not30 = icmp eq i32 %106, 0
+  br i1 %.not30, label %107, label %109
 
-108:                                              ; preds = %98
-  call void @SSL_free(ptr noundef nonnull %101) #12
-  %109 = call ptr @ossl_quic_channel_get0_tls(ptr noundef %.1) #12
-  call void @SSL_free(ptr noundef %109) #12
-  br label %110
+107:                                              ; preds = %97
+  call void @SSL_free(ptr noundef nonnull %100) #12
+  %108 = call ptr @ossl_quic_channel_get0_tls(ptr noundef %.1) #12
+  call void @SSL_free(ptr noundef %108) #12
+  br label %109
 
-110:                                              ; preds = %98, %108, %79, %qctx_maybe_autotick.exit, %45
-  %.019 = phi ptr [ null, %79 ], [ %101, %98 ], [ null, %108 ], [ null, %qctx_maybe_autotick.exit ], [ null, %45 ]
+109:                                              ; preds = %97, %107, %79, %qctx_maybe_autotick.exit, %45
+  %.019 = phi ptr [ null, %79 ], [ %100, %97 ], [ null, %107 ], [ null, %qctx_maybe_autotick.exit ], [ null, %45 ]
   %.val33 = load ptr, ptr %3, align 8, !tbaa !157
-  %111 = getelementptr i8, ptr %.val33, i64 88
-  %.val33.val = load ptr, ptr %111, align 8, !tbaa !143
-  %112 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val33.val) #12
-  call void @ossl_crypto_mutex_unlock(ptr noundef %112) #12
-  br label %113
+  %110 = getelementptr i8, ptr %.val33, i64 88
+  %.val33.val = load ptr, ptr %110, align 8, !tbaa !143
+  %111 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val33.val) #12
+  call void @ossl_crypto_mutex_unlock(ptr noundef %111) #12
+  br label %112
 
-113:                                              ; preds = %2, %110
-  %.0 = phi ptr [ %.019, %110 ], [ null, %2 ]
+112:                                              ; preds = %2, %109
+  %.0 = phi ptr [ %.019, %109 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

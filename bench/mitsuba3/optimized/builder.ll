@@ -2183,7 +2183,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %55, label %8, !prof !15
+  br i1 %7, label %54, label %8, !prof !15
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -2212,70 +2212,69 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
 20:                                               ; preds = %8
   %21 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1, ptr noundef null)
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %55
+  br i1 %22, label %23, label %54
 
 23:                                               ; preds = %20, %12
-  %24 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %26 = load ptr, ptr %25, align 8, !tbaa !63
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %25 = load ptr, ptr %24, align 8, !tbaa !63
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %36
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %30 = load ptr, ptr %29, align 8, !tbaa !64
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %29 = load ptr, ptr %28, align 8, !tbaa !64
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %28
-  store ptr %10, ptr %29, align 8, !tbaa !64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  br label %44
+31:                                               ; preds = %27
+  store ptr %10, ptr %28, align 8, !tbaa !64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  br label %43
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %30, ptr %35, align 8, !tbaa !16
-  %36 = load ptr, ptr %29, align 8, !tbaa !64
-  store ptr %10, ptr %36, align 8, !tbaa !16
-  br label %44
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %29, ptr %34, align 8, !tbaa !16
+  %35 = load ptr, ptr %28, align 8, !tbaa !64
+  store ptr %10, ptr %35, align 8, !tbaa !16
+  br label %43
 
-37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !16
-  store ptr %26, ptr %10, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %39, ptr %40, align 8, !tbaa !16
-  store ptr %10, ptr %38, align 8, !tbaa !16
-  %41 = icmp eq ptr %39, null
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %43 = select i1 %41, ptr %42, ptr %39
-  br label %44
+36:                                               ; preds = %23
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  store ptr %25, ptr %10, align 8, !tbaa !16
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !16
+  store ptr %10, ptr %37, align 8, !tbaa !16
+  %40 = icmp eq ptr %38, null
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %42 = select i1 %40, ptr %41, ptr %38
+  br label %43
 
-44:                                               ; preds = %37, %34, %32
-  %45 = phi ptr [ %33, %32 ], [ %29, %34 ], [ %43, %37 ]
-  store ptr %10, ptr %45, align 8, !tbaa !16
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %47 = load i8, ptr %46, align 1, !tbaa !61
-  %48 = or i8 %47, -128
-  store i8 %48, ptr %46, align 1, !tbaa !61
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %50 = load i8, ptr %49, align 8, !tbaa !16
-  %51 = icmp eq i8 %50, 2
-  br i1 %51, label %52, label %54
+43:                                               ; preds = %36, %33, %31
+  %44 = phi ptr [ %32, %31 ], [ %28, %33 ], [ %42, %36 ]
+  store ptr %10, ptr %44, align 8, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %46 = load i8, ptr %45, align 1, !tbaa !61
+  %47 = or i8 %46, -128
+  store i8 %47, ptr %45, align 1, !tbaa !61
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %49 = load i8, ptr %48, align 8, !tbaa !16
+  %50 = icmp eq i8 %49, 2
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %44
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 409
-  store i8 1, ptr %53, align 1, !tbaa !65
+51:                                               ; preds = %43
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 409
+  store i8 1, ptr %52, align 1, !tbaa !65
+  br label %53
+
+53:                                               ; preds = %51, %43
+  store ptr %10, ptr %24, align 8, !tbaa !63
   br label %54
 
-54:                                               ; preds = %52, %44
-  store ptr %10, ptr %25, align 8, !tbaa !63
-  br label %55
-
-55:                                               ; preds = %54, %20, %3
-  %56 = phi i32 [ 5, %3 ], [ 0, %54 ], [ %21, %20 ]
-  ret i32 %56
+54:                                               ; preds = %53, %20, %3
+  %55 = phi i32 [ 5, %3 ], [ 0, %53 ], [ %21, %20 ]
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress uwtable

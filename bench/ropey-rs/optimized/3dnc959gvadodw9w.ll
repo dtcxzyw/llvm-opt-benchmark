@@ -244,6 +244,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$1
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit.i.i.i.i": ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !alias.scope !97, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %7, i64 noundef 1) #18, !noalias !101
   br label %"_ZN4core3ptr53drop_in_place$LT$ropey..tree..node_text..NodeText$GT$17h06903e8b80578e21E.exit"
 
@@ -265,6 +266,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.idx.i.i.i = shl nuw nsw i64 %16, 3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %21 = icmp eq i8 %15, 0
   br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$ropey..tree..node_text..NodeText$GT$17h06903e8b80578e21E.exit", label %.lr.ph.i.i.i
 
@@ -390,6 +392,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$ropey..tree..node_text..Node
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit.i.i.i": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !186, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %4, i64 noundef 1) #18, !noalias !190
   br label %"_ZN4core3ptr67drop_in_place$LT$ropey..tree..node_text..inner..NodeSmallString$GT$17h76f674562ae8b056E.exit"
 
@@ -414,6 +417,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$ropey..tree..node_children..
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i.i": ; preds = %1
   %.idx.i.i = shl nuw nsw i64 %4, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..inner..NodeChildrenInternal$GT$17haf21cb8a7decc8feE.exit", label %.lr.ph.i.i
 
@@ -457,6 +461,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$ropey..tree..node_text..inne
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit.i.i": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !213, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %4, i64 noundef 1) #18, !noalias !217
   br label %"_ZN4core3ptr90drop_in_place$LT$smallvec..SmallVec$LT$ropey..tree..node_text..inner..BackingArray$GT$$GT$17h042faa891899c314E.exit"
 
@@ -532,6 +537,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..sync..ArcInner$LT$rop
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit.i.i.i.i.i": ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !245, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %8, i64 noundef 1) #18, !noalias !249
   br label %"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$17h20cd6a5fa0832ca3E.llvm.10316259052761615454.exit"
 
@@ -553,6 +559,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..sync..ArcInner$LT$rop
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.idx.i.i.i.i = shl nuw nsw i64 %17, 3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %22 = icmp eq i8 %16, 0
   br i1 %22, label %"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$17h20cd6a5fa0832ca3E.llvm.10316259052761615454.exit", label %.lr.ph.i.i.i.i
 
@@ -593,6 +600,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i": ; preds = %1
   %.idx.i = shl nuw nsw i64 %4, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %"_ZN97_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0810109c904f8a5fE.exit", label %.lr.ph.i
 
@@ -699,6 +707,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$smallvec..SmallVec$LT$ropey.
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit.i": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !289, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %4, i64 noundef 1) #18, !noalias !295
   br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba1f0457f5a4ef8cE.llvm.10316259052761615454.exit"
 
@@ -933,20 +942,18 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17from_raw_parts_in17h31a3f1e3234e71fdE.llvm.10316259052761615454"(ptr noundef %0, i64 noundef %1) unnamed_addr #9 {
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = insertvalue { i64, ptr } poison, i64 %1, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %0, 1
-  ret { i64, ptr } %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %3 = insertvalue { i64, ptr } poison, i64 %1, 0
+  %4 = insertvalue { i64, ptr } %3, ptr %0, 1
+  ret { i64, ptr } %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17from_raw_parts_in17h8277551db2175a1dE.llvm.10316259052761615454"(ptr noundef %0, i64 noundef %1) unnamed_addr #9 {
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = insertvalue { i64, ptr } poison, i64 %1, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %0, 1
-  ret { i64, ptr } %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %3 = insertvalue { i64, ptr } poison, i64 %1, 0
+  %4 = insertvalue { i64, ptr } %3, ptr %0, 1
+  ret { i64, ptr } %4
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
@@ -982,6 +989,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha53c611e89e7adbdE.llvm.10316259052761615454.exit": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %4, i64 noundef 1) #18, !noalias !364
   br label %9
 
@@ -1070,6 +1078,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   store i64 %5, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %34, ptr %37, align 8
@@ -1323,6 +1332,7 @@ define void @"_ZN97_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit": ; preds = %1
   %.idx = shl nuw nsw i64 %4, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

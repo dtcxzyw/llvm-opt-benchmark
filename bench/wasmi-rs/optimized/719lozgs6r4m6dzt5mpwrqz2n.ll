@@ -89,6 +89,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %.val = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = getelementptr i8, ptr %3, i64 8
   %.val1 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val1, i64 32
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !noalias !6, !nonnull !3
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -111,6 +113,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
@@ -128,6 +131,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = alloca [8 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %7 = load i64, ptr %.val, align 8, !range !23, !alias.scope !20, !noalias !24, !noundef !3
   %8 = xor i64 %7, -9223372036854775808
@@ -189,6 +193,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %21 = alloca [8 x i8], align 8
   %22 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %22, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %23 = load i8, ptr %.val, align 8, !range !32, !alias.scope !29, !noalias !33, !noundef !3
   %24 = add nsw i8 %23, -6
@@ -382,6 +387,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 40

@@ -27,36 +27,35 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$usize$GT$$GT$$GT$17he19c1a5a167e0c8aE"(ptr %.0.val, i8 %.8.val) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %3 = trunc nuw i8 %.8.val to i1
-  br i1 %3, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %2 = trunc nuw i8 %.8.val to i1
+  br i1 %2, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %3
 
-4:                                                ; preds = %0
-  %5 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h69e92bec4f5667f3E monotonic, align 8
-  %6 = and i64 %5, 9223372036854775807
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %8
+3:                                                ; preds = %0
+  %4 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h69e92bec4f5667f3E monotonic, align 8
+  %5 = and i64 %4, 9223372036854775807
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %7
 
-8:                                                ; preds = %4
-  %9 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17heeecc5f696389655E()
-  br i1 %9, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %10
+7:                                                ; preds = %3
+  %8 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17heeecc5f696389655E()
+  br i1 %8, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, label %9
 
-10:                                               ; preds = %8
-  store atomic i8 1, ptr %2 monotonic, align 1
+9:                                                ; preds = %7
+  store atomic i8 1, ptr %1 monotonic, align 1
   br label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
 
-_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i: ; preds = %10, %8, %4, %0
-  %11 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
-  %12 = icmp eq i32 %11, 2
-  br i1 %12, label %13, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
+_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i: ; preds = %9, %7, %3, %0
+  %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
 
-13:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
+12:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hb69143d82f88043dE(ptr noundef nonnull align 4 %.0.val)
   br label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit"
 
-"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, %13
+"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haafa48b421243f22E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i, %12
   ret void
 }
 
@@ -156,6 +155,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !align !27, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val11 = load i64, ptr %18, align 8, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -213,6 +213,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %42 = icmp ne i64 %30, 1
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %38, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
   %44 = load i8, ptr %43, align 1, !noalias !46, !noundef !5
   %45 = and i8 %44, 31
   %46 = zext nneg i8 %45 to i32
@@ -227,6 +228,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %50 = icmp ne i64 %30, 2
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds i8, ptr %38, i64 -3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   %52 = load i8, ptr %51, align 1, !noalias !46, !noundef !5
   %53 = and i8 %52, 15
   %54 = zext nneg i8 %53 to i32
@@ -245,6 +247,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %61 = icmp ne i64 %30, 3
   tail call void @llvm.assume(i1 %61)
   %62 = getelementptr inbounds i8, ptr %38, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   %63 = load i8, ptr %62, align 1, !noalias !46, !noundef !5
   %64 = and i8 %63, 7
   %65 = zext nneg i8 %64 to i32
@@ -748,6 +751,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h56b0c0ceaa5aa866E.exit.i": ; preds = %62
   %63 = getelementptr i8, ptr %1, i64 %2
   %64 = getelementptr i8, ptr %63, i64 -13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(13) @anon.0d18f9b890c379d9c30b9e9e5116147c.29, ptr noundef nonnull readonly align 1 dereferenceable(13) %64, i64 13), !alias.scope !76
   %65 = icmp eq i32 %bcmp.i.i.i, 0
   %66 = add i64 %2, -13
@@ -837,6 +841,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
   %.val = load ptr, ptr %87, align 8, !nonnull !5, !noundef !5
   %88 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.val41 = load i64, ptr %88, align 8, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
@@ -1223,6 +1228,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %164) ]
   %221 = getelementptr inbounds nuw i8, ptr %164, i64 4
   br i1 %167, label %_ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i.i, label %222
 

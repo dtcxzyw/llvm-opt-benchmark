@@ -170,9 +170,11 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %.val4.i = load ptr, ptr %3, align 8, !nonnull !5, !align !29, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val5.i = load i64, ptr %5, align 8, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4.i) ]
   br label %7
 
 ._crit_edge:                                      ; preds = %20, %4
@@ -193,6 +195,8 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val23 = load ptr, ptr %11, align 8, !nonnull !5, !align !29, !noundef !5
   %12 = getelementptr i8, ptr %11, i64 8
   %.val24 = load i64, ptr %12, align 8, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23) ]
   %13 = sub i64 %.val24, %.val5.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24, i64 %.val5.i)
   %14 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23, ptr nonnull readonly align 1 %.val4.i, i64 %..i.i.i.i), !alias.scope !40
@@ -228,9 +232,11 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %.val4.i.i = load ptr, ptr %2, align 8, !alias.scope !50, !noalias !47, !nonnull !5, !align !29, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5.i.i = load i64, ptr %4, align 8, !alias.scope !50, !noalias !47, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4.i.i) ]
   br label %6
 
 ._crit_edge.i:                                    ; preds = %17, %3
@@ -251,6 +257,8 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   %.val23.i = load ptr, ptr %10, align 8, !alias.scope !47, !noalias !50, !nonnull !5, !align !29, !noundef !5
   %11 = getelementptr i8, ptr %10, i64 8
   %.val24.i = load i64, ptr %11, align 8, !alias.scope !47, !noalias !50, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23.i) ]
   %12 = sub i64 %.val24.i, %.val5.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24.i, i64 %.val5.i.i)
   %13 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23.i, ptr nonnull readonly align 1 %.val4.i.i, i64 %..i.i.i.i.i), !alias.scope !52, !noalias !59
@@ -316,6 +324,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1
 define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce8637fe14E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   br label %3
 
 3:                                                ; preds = %14, %2
@@ -330,6 +339,8 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %.val23.i.i = load ptr, ptr %7, align 8, !alias.scope !67, !noalias !68, !nonnull !5, !align !29, !noundef !5
   %8 = getelementptr i8, ptr %7, i64 8
   %.val24.i.i = load i64, ptr %8, align 8, !alias.scope !67, !noalias !68, !noundef !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23.i.i) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23.i.i) ]
   %9 = sub i64 %.val24.i.i, %1
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24.i.i, i64 %1)
   %10 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23.i.i, ptr nonnull readonly align 1 %0, i64 %..i.i.i.i.i.i), !alias.scope !71, !noalias !78

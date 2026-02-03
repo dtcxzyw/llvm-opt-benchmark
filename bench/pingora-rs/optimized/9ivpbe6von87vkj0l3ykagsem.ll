@@ -133,6 +133,7 @@ define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_ve
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %11 = getelementptr i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !9, !noundef !8
   %.not.i = icmp eq i64 %12, 0
@@ -145,10 +146,9 @@ define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_ve
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E.exit": ; preds = %6, %13
   %.sroa.3.0.i = phi i64 [ %12, %13 ], [ 0, %6 ]
   %.sroa.02.0.i = phi ptr [ %.val.i, %13 ], [ inttoptr (i64 1 to ptr), %6 ]
-  %14 = icmp ne ptr %.sroa.02.0.i, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call { i64, ptr } @"_ZN89_$LT$pingora_proxy..subrequest..DummyIO$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hf05cd47417d7183cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
-  ret { i64, ptr } %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.02.0.i) ]
+  %14 = tail call { i64, ptr } @"_ZN89_$LT$pingora_proxy..subrequest..DummyIO$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hf05cd47417d7183cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  ret { i64, ptr } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -177,6 +177,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$3new17h5b8de3a0a9a5239bE.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 6656
   %15 = load i64, ptr %14, align 8, !noundef !8
   %16 = add i64 %15, 32
