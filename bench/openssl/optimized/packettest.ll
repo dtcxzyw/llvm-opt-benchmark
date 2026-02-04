@@ -1604,11 +1604,11 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   br label %1
 
 1:                                                ; preds = %0, %35
-  %.052 = phi i64 [ 0, %0 ], [ %36, %35 ]
-  %.sroa.5.051 = phi i64 [ 0, %0 ], [ %.sroa.5.1, %35 ]
-  %.sroa.0.050 = phi ptr [ null, %0 ], [ %.sroa.0.1, %35 ]
-  %2 = getelementptr inbounds nuw %struct.quic_test_case.0, ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.052
-  %3 = or disjoint i64 %.052, -8
+  %.054 = phi i64 [ 0, %0 ], [ %36, %35 ]
+  %.sroa.5.053 = phi i64 [ 0, %0 ], [ %.sroa.5.1, %35 ]
+  %.sroa.0.052 = phi ptr [ null, %0 ], [ %.sroa.0.1, %35 ]
+  %2 = getelementptr inbounds nuw %struct.quic_test_case.0, ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.054
+  %3 = or disjoint i64 %.054, -8
   %.not = icmp samesign ult i64 %3, -2
   br i1 %.not, label %PACKET_buf_init.exit, label %PACKET_buf_init.exit.thread
 
@@ -1633,31 +1633,31 @@ PACKET_buf_init.exit.thread:                      ; preds = %1
   br label %.thread29
 
 .thread29:                                        ; preds = %10, %PACKET_buf_init.exit.thread
-  %.sroa.022.02733 = phi ptr [ %.sroa.022.0, %10 ], [ %2, %PACKET_buf_init.exit.thread ]
-  %.sroa.7.02832 = phi i64 [ %.sroa.7.0, %10 ], [ 16, %PACKET_buf_init.exit.thread ]
-  %11 = load i8, ptr %.sroa.022.02733, align 1, !tbaa !4
+  %.sroa.022.12733 = phi ptr [ %.sroa.022.0, %10 ], [ %2, %PACKET_buf_init.exit.thread ]
+  %.sroa.7.12832 = phi i64 [ %.sroa.7.0, %10 ], [ 16, %PACKET_buf_init.exit.thread ]
+  %11 = load i8, ptr %.sroa.022.12733, align 1, !tbaa !4
   %12 = lshr i8 %11, 6
   %13 = zext nneg i8 %12 to i32
   %14 = shl nuw nsw i32 1, %13
   %15 = zext nneg i32 %14 to i64
-  %16 = icmp samesign ult i64 %.sroa.7.02832, %15
+  %16 = icmp samesign ult i64 %.sroa.7.12832, %15
   br i1 %16, label %PACKET_get_quic_length_prefixed.exit, label %17
 
 17:                                               ; preds = %.thread29
-  %18 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %.sroa.022.02733) #7
-  %19 = sub nuw nsw i64 %.sroa.7.02832, %15
+  %18 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %.sroa.022.12733) #7
+  %19 = sub nuw nsw i64 %.sroa.7.12832, %15
   %20 = icmp ult i64 %19, %18
   br i1 %20, label %PACKET_get_quic_length_prefixed.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.02733, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.12733, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   br label %PACKET_get_quic_length_prefixed.exit
 
 PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
-  %.sroa.022.1 = phi ptr [ %23, %21 ], [ %.sroa.022.02733, %.thread29 ], [ %.sroa.022.02733, %17 ]
-  %.sroa.0.1 = phi ptr [ %22, %21 ], [ %.sroa.0.050, %.thread29 ], [ %.sroa.0.050, %17 ]
-  %.sroa.5.1 = phi i64 [ %18, %21 ], [ %.sroa.5.051, %.thread29 ], [ %.sroa.5.051, %17 ]
+  %.sroa.022.2 = phi ptr [ %23, %21 ], [ %.sroa.022.12733, %.thread29 ], [ %.sroa.022.12733, %17 ]
+  %.sroa.0.1 = phi ptr [ %22, %21 ], [ %.sroa.0.052, %.thread29 ], [ %.sroa.0.052, %17 ]
+  %.sroa.5.1 = phi i64 [ %18, %21 ], [ %.sroa.5.053, %.thread29 ], [ %.sroa.5.053, %17 ]
   %.0.i21 = phi i32 [ 1, %21 ], [ 0, %.thread29 ], [ 0, %17 ]
   %24 = zext i1 %.not to i32
   %25 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 555, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i32 noundef %.0.i21, i32 noundef %24) #7
@@ -1668,7 +1668,7 @@ PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
   br i1 %.not, label %.thread42, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 559, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull %.sroa.022.1, ptr noundef nonnull %2) #7
+  %28 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 559, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull %.sroa.022.2, ptr noundef nonnull %2) #7
   %.not20 = icmp eq i32 %28, 0
   br i1 %.not20, label %split, label %35
 
@@ -1686,7 +1686,7 @@ PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
   br i1 %.not19, label %split, label %35
 
 35:                                               ; preds = %31, %27
-  %36 = add nuw nsw i64 %.052, 1
+  %36 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %36, 8
   br i1 %exitcond.not, label %split, label %1, !llvm.loop !21
 

@@ -1189,8 +1189,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %.not.i.i35, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %20, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.pr270 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %19, %20 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.pr270, i64 56
+  %.pr330 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %19, %20 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.pr330, i64 56
   %.015.i.i36 = load ptr, ptr %34, align 8
   %.not1216.i.i37 = icmp eq ptr %.015.i.i36, null
   br i1 %.not1216.i.i37, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47, label %.lr.ph.i.i38
@@ -1802,8 +1802,8 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit50:              ; preds = %86, %73
   store float %466, ptr %.sroa.69.0..sroa_idx, align 4
   %.sroa.83.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 100
   store float %469, ptr %.sroa.83.0..sroa_idx, align 4
-  %.sroa.97205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 104
-  store float %473, ptr %.sroa.97205.0..sroa_idx, align 4
+  %.sroa.97253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 104
+  store float %473, ptr %.sroa.97253.0..sroa_idx, align 4
   %.sroa.110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 108
   store float %477, ptr %.sroa.110.0..sroa_idx, align 4
   %.sroa.122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 112

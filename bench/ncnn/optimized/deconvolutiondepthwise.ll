@@ -2162,48 +2162,48 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %41 = sub i32 %39, %40
   %42 = icmp sgt i32 %5, 0
   %43 = icmp sgt i32 %4, 0
-  %or.cond64 = and i1 %42, %43
-  br i1 %or.cond64, label %.preheader.us, label %._crit_edge54
+  %or.cond67 = and i1 %42, %43
+  br i1 %or.cond67, label %.preheader.us, label %._crit_edge57
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
-  %.03953.us = phi i32 [ %50, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.04052.us = phi i32 [ %45, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.04151.us = phi i32 [ %49, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %44 = sext i32 %.04052.us to i64
-  %45 = add i32 %4, %.04052.us
+  %.03956.us = phi i32 [ %50, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.04055.us = phi i32 [ %45, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.04154.us = phi i32 [ %49, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %44 = sext i32 %.04055.us to i64
+  %45 = add i32 %4, %.04055.us
   br label %46
 
 46:                                               ; preds = %.preheader.us, %46
   %indvars.iv = phi i64 [ %44, %.preheader.us ], [ %indvars.iv.next, %46 ]
-  %.14247.us = phi i32 [ %.04151.us, %.preheader.us ], [ %48, %46 ]
+  %.14250.us = phi i32 [ %.04154.us, %.preheader.us ], [ %48, %46 ]
   %47 = getelementptr inbounds i32, ptr %.sroa.045.0, i64 %indvars.iv
-  store i32 %.14247.us, ptr %47, align 4, !tbaa !73
+  store i32 %.14250.us, ptr %47, align 4, !tbaa !73
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %48 = add nsw i32 %.14247.us, %8
+  %48 = add nsw i32 %.14250.us, %8
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %45, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %46
   %49 = add nsw i32 %41, %48
-  %50 = add nuw nsw i32 %.03953.us, 1
-  %exitcond58.not = icmp eq i32 %50, %5
-  br i1 %exitcond58.not, label %._crit_edge54, label %.preheader.us, !llvm.loop !76
+  %50 = add nuw nsw i32 %.03956.us, 1
+  %exitcond61.not = icmp eq i32 %50, %5
+  br i1 %exitcond61.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !76
 
-._crit_edge54:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
+._crit_edge57:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %51 = icmp eq i32 %25, %10
   %52 = icmp eq i32 %10, %29
   %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %53, label %56
 
-53:                                               ; preds = %._crit_edge54
+53:                                               ; preds = %._crit_edge57
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !77
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %23, i32 %55)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE.omp_outlined, ptr nonnull %17, ptr nonnull %0, ptr nonnull %2, ptr nonnull %19, ptr nonnull %1, ptr nonnull %3, ptr nonnull %16, ptr nonnull %15, ptr nonnull %20, ptr nonnull %18, ptr nonnull %12)
   br label %61
 
-56:                                               ; preds = %._crit_edge54
+56:                                               ; preds = %._crit_edge57
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %57 = sdiv i32 %25, %10
   store i32 %57, ptr %21, align 4, !tbaa !73

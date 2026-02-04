@@ -52193,32 +52193,32 @@ define linkonce_odr noundef zeroext i1 @_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_it
   br label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i
 
 _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i: ; preds = %13, %6
-  %.sroa.0.1.i.i = phi ptr [ null, %13 ], [ %9, %6 ]
-  %.sroa.4.1.i.i = phi i64 [ 0, %13 ], [ %12, %6 ]
-  %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %.sroa.4.1.i.i)
+  %.sroa.0.2.i.i = phi ptr [ null, %13 ], [ %9, %6 ]
+  %.sroa.4.2.i.i = phi i64 [ 0, %13 ], [ %12, %6 ]
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %.sroa.4.2.i.i)
   %.not.i.i = icmp eq i64 %.sroa.speculated.i.i, 0
   br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i
-  %bcmp = tail call i32 @bcmp(ptr %.sroa.0.1.i.i, ptr nonnull %1, i64 %.sroa.speculated.i.i)
+  %bcmp = tail call i32 @bcmp(ptr %.sroa.0.2.i.i, ptr nonnull %1, i64 %.sroa.speculated.i.i)
   %.not14.i.i = icmp ne i32 %bcmp, 0
-  %15 = sub i64 %.sroa.4.1.i.i, %14
-  %16 = icmp sgt i64 %15, 2147483647
-  %or.cond = or i1 %16, %.not14.i.i
-  br i1 %or.cond, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit, label %17
+  %14 = sub i64 %.sroa.4.2.i.i, %13
+  %15 = icmp sgt i64 %14, 2147483647
+  %or.cond = or i1 %15, %.not14.i.i
+  br i1 %or.cond, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit, label %16
 
 select.unfold.i.i:                                ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i
-  %.old = sub i64 %.sroa.4.1.i.i, %14
+  %.old = sub i64 %.sroa.4.2.i.i, %13
   %.old2 = icmp sgt i64 %.old, 2147483647
-  br i1 %.old2, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit, label %17
+  br i1 %.old2, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit, label %16
 
-17:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %select.unfold.i.i
-  %18 = icmp eq i64 %.sroa.4.1.i.i, %14
+16:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %select.unfold.i.i
+  %17 = icmp eq i64 %.sroa.4.2.i.i, %13
   br label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit
 
-_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %select.unfold.i.i, %17
-  %.3.i.i = phi i1 [ false, %select.unfold.i.i ], [ %18, %17 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE7compareES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %select.unfold.i.i, %16
+  %.3.i.i = phi i1 [ false, %select.unfold.i.i ], [ %17, %17 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   ret i1 %.3.i.i
 }
 

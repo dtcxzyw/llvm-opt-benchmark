@@ -171,8 +171,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = tail call i64 @BIO_ctrl(ptr noundef %15, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
   %17 = and i64 %16, 4294967295
-  %.not15120 = icmp eq i64 %17, 0
-  br i1 %.not15120, label %.lr.ph, label %._crit_edge
+  %.not15134 = icmp eq i64 %17, 0
+  br i1 %.not15134, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 36
@@ -185,7 +185,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %324
 
 22:                                               ; preds = %.lr.ph, %319
-  %.0121 = phi i32 [ 1, %.lr.ph ], [ %.2, %319 ]
+  %.0135 = phi i32 [ 1, %.lr.ph ], [ %.2, %319 ]
   %23 = call i32 @test_readstanza(ptr noundef nonnull %10) #7
   %.not16 = icmp eq i32 %23, 0
   br i1 %.not16, label %._crit_edge, label %24
@@ -201,17 +201,17 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %26, %122
-  %.sroa.1732.1 = phi i64 [ %.sroa.1732.2, %122 ], [ 0, %26 ]
-  %.sroa.20.1 = phi i32 [ %.sroa.20.2, %122 ], [ 0, %26 ]
-  %.sroa.14.1 = phi i32 [ %.sroa.14.2, %122 ], [ 0, %26 ]
-  %.sroa.2335.1 = phi i64 [ %.sroa.2335.2, %122 ], [ 0, %26 ]
-  %.sroa.26.1 = phi double [ %.sroa.26.2, %122 ], [ 0.000000e+00, %26 ]
-  %.sroa.29.1 = phi i32 [ %.sroa.29.2, %122 ], [ 0, %26 ]
-  %.sroa.32.1 = phi i32 [ %.sroa.32.2, %122 ], [ 0, %26 ]
-  %.sroa.35.1 = phi i32 [ %.sroa.35.2, %122 ], [ 0, %26 ]
-  %.sroa.38.1 = phi i32 [ %.sroa.38.2, %122 ], [ 0, %26 ]
-  %.sroa.41.1 = phi i32 [ %.sroa.41.2, %122 ], [ 0, %26 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %122 ], [ null, %26 ]
+  %.sroa.1732.3 = phi i64 [ %.sroa.1732.4, %122 ], [ 0, %26 ]
+  %.sroa.20.3 = phi i32 [ %.sroa.20.4, %122 ], [ 0, %26 ]
+  %.sroa.14.3 = phi i32 [ %.sroa.14.4, %122 ], [ 0, %26 ]
+  %.sroa.2335.3 = phi i64 [ %.sroa.2335.4, %122 ], [ 0, %26 ]
+  %.sroa.26.3 = phi double [ %.sroa.26.4, %122 ], [ 0.000000e+00, %26 ]
+  %.sroa.29.3 = phi i32 [ %.sroa.29.4, %122 ], [ 0, %26 ]
+  %.sroa.32.3 = phi i32 [ %.sroa.32.4, %122 ], [ 0, %26 ]
+  %.sroa.35.3 = phi i32 [ %.sroa.35.4, %122 ], [ 0, %26 ]
+  %.sroa.38.3 = phi i32 [ %.sroa.38.4, %122 ], [ 0, %26 ]
+  %.sroa.41.3 = phi i32 [ %.sroa.41.4, %122 ], [ 0, %26 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %122 ], [ null, %26 ]
   %.0200.i = phi i32 [ %123, %122 ], [ 0, %26 ]
   %.095199.i = phi ptr [ %.1.i, %122 ], [ null, %26 ]
   %.096198.i = phi ptr [ %124, %122 ], [ %19, %26 ]
@@ -391,17 +391,17 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 116:                                              ; preds = %110, %106, %96, %92, %81, %77, %67, %63, %52, %48, %34
-  %.sroa.1732.2 = phi i64 [ %.sroa.1732.1, %34 ], [ %.sroa.1732.1, %48 ], [ %.sroa.1732.1, %52 ], [ %.sroa.1732.1, %63 ], [ %69, %67 ], [ %.sroa.1732.1, %77 ], [ %.sroa.1732.1, %81 ], [ %.sroa.1732.1, %92 ], [ %.sroa.1732.1, %96 ], [ %.sroa.1732.1, %106 ], [ %.sroa.1732.1, %110 ]
-  %.sroa.20.2 = phi i32 [ %.sroa.20.1, %34 ], [ %.sroa.20.1, %48 ], [ %.sroa.20.1, %52 ], [ %.sroa.20.1, %63 ], [ %.sroa.20.1, %67 ], [ %.sroa.20.1, %77 ], [ %84, %81 ], [ %.sroa.20.1, %92 ], [ %.sroa.20.1, %96 ], [ %.sroa.20.1, %106 ], [ %.sroa.20.1, %110 ]
-  %.sroa.14.2 = phi i32 [ %.sroa.14.1, %34 ], [ %.sroa.14.1, %48 ], [ %55, %52 ], [ %.sroa.14.1, %63 ], [ %.sroa.14.1, %67 ], [ %.sroa.14.1, %77 ], [ %.sroa.14.1, %81 ], [ %.sroa.14.1, %92 ], [ %.sroa.14.1, %96 ], [ %.sroa.14.1, %106 ], [ %.sroa.14.1, %110 ]
-  %.sroa.2335.2 = phi i64 [ %.sroa.2335.1, %34 ], [ %.sroa.2335.1, %48 ], [ %.sroa.2335.1, %52 ], [ %.sroa.2335.1, %63 ], [ %.sroa.2335.1, %67 ], [ %.sroa.2335.1, %77 ], [ %.sroa.2335.1, %81 ], [ %.sroa.2335.1, %92 ], [ %98, %96 ], [ %.sroa.2335.1, %106 ], [ %.sroa.2335.1, %110 ]
-  %.sroa.26.2 = phi double [ %.sroa.26.1, %34 ], [ %.sroa.26.1, %48 ], [ %.sroa.26.1, %52 ], [ %.sroa.26.1, %63 ], [ %.sroa.26.1, %67 ], [ %.sroa.26.1, %77 ], [ %.sroa.26.1, %81 ], [ %.sroa.26.1, %92 ], [ %.sroa.26.1, %96 ], [ %.sroa.26.1, %106 ], [ %112, %110 ]
-  %.sroa.29.2 = phi i32 [ %.sroa.29.1, %34 ], [ %.sroa.29.1, %48 ], [ 1, %52 ], [ %.sroa.29.1, %63 ], [ %.sroa.29.1, %67 ], [ %.sroa.29.1, %77 ], [ %.sroa.29.1, %81 ], [ %.sroa.29.1, %92 ], [ %.sroa.29.1, %96 ], [ %.sroa.29.1, %106 ], [ %.sroa.29.1, %110 ]
-  %.sroa.32.2 = phi i32 [ %.sroa.32.1, %34 ], [ %.sroa.32.1, %48 ], [ %.sroa.32.1, %52 ], [ %.sroa.32.1, %63 ], [ 1, %67 ], [ %.sroa.32.1, %77 ], [ %.sroa.32.1, %81 ], [ %.sroa.32.1, %92 ], [ %.sroa.32.1, %96 ], [ %.sroa.32.1, %106 ], [ %.sroa.32.1, %110 ]
-  %.sroa.35.2 = phi i32 [ %.sroa.35.1, %34 ], [ %.sroa.35.1, %48 ], [ %.sroa.35.1, %52 ], [ %.sroa.35.1, %63 ], [ %.sroa.35.1, %67 ], [ %.sroa.35.1, %77 ], [ 1, %81 ], [ %.sroa.35.1, %92 ], [ %.sroa.35.1, %96 ], [ %.sroa.35.1, %106 ], [ %.sroa.35.1, %110 ]
-  %.sroa.38.2 = phi i32 [ %.sroa.38.1, %34 ], [ %.sroa.38.1, %48 ], [ %.sroa.38.1, %52 ], [ %.sroa.38.1, %63 ], [ %.sroa.38.1, %67 ], [ %.sroa.38.1, %77 ], [ %.sroa.38.1, %81 ], [ %.sroa.38.1, %92 ], [ 1, %96 ], [ %.sroa.38.1, %106 ], [ %.sroa.38.1, %110 ]
-  %.sroa.41.2 = phi i32 [ %.sroa.41.1, %34 ], [ %.sroa.41.1, %48 ], [ %.sroa.41.1, %52 ], [ %.sroa.41.1, %63 ], [ %.sroa.41.1, %67 ], [ %.sroa.41.1, %77 ], [ %.sroa.41.1, %81 ], [ %.sroa.41.1, %92 ], [ %.sroa.41.1, %96 ], [ %.sroa.41.1, %106 ], [ 1, %110 ]
-  %.sroa.0.2 = phi ptr [ %37, %34 ], [ %.sroa.0.1, %48 ], [ %.sroa.0.1, %52 ], [ %.sroa.0.1, %63 ], [ %.sroa.0.1, %67 ], [ %.sroa.0.1, %77 ], [ %.sroa.0.1, %81 ], [ %.sroa.0.1, %92 ], [ %.sroa.0.1, %96 ], [ %.sroa.0.1, %106 ], [ %.sroa.0.1, %110 ]
+  %.sroa.1732.4 = phi i64 [ %.sroa.1732.3, %34 ], [ %.sroa.1732.3, %48 ], [ %.sroa.1732.3, %52 ], [ %.sroa.1732.3, %63 ], [ %69, %67 ], [ %.sroa.1732.3, %77 ], [ %.sroa.1732.3, %81 ], [ %.sroa.1732.3, %92 ], [ %.sroa.1732.3, %96 ], [ %.sroa.1732.3, %106 ], [ %.sroa.1732.3, %110 ]
+  %.sroa.20.4 = phi i32 [ %.sroa.20.3, %34 ], [ %.sroa.20.3, %48 ], [ %.sroa.20.3, %52 ], [ %.sroa.20.3, %63 ], [ %.sroa.20.3, %67 ], [ %.sroa.20.3, %77 ], [ %84, %81 ], [ %.sroa.20.3, %92 ], [ %.sroa.20.3, %96 ], [ %.sroa.20.3, %106 ], [ %.sroa.20.3, %110 ]
+  %.sroa.14.4 = phi i32 [ %.sroa.14.3, %34 ], [ %.sroa.14.3, %48 ], [ %55, %52 ], [ %.sroa.14.3, %63 ], [ %.sroa.14.3, %67 ], [ %.sroa.14.3, %77 ], [ %.sroa.14.3, %81 ], [ %.sroa.14.3, %92 ], [ %.sroa.14.3, %96 ], [ %.sroa.14.3, %106 ], [ %.sroa.14.3, %110 ]
+  %.sroa.2335.4 = phi i64 [ %.sroa.2335.3, %34 ], [ %.sroa.2335.3, %48 ], [ %.sroa.2335.3, %52 ], [ %.sroa.2335.3, %63 ], [ %.sroa.2335.3, %67 ], [ %.sroa.2335.3, %77 ], [ %.sroa.2335.3, %81 ], [ %.sroa.2335.3, %92 ], [ %98, %96 ], [ %.sroa.2335.3, %106 ], [ %.sroa.2335.3, %110 ]
+  %.sroa.26.4 = phi double [ %.sroa.26.3, %34 ], [ %.sroa.26.3, %48 ], [ %.sroa.26.3, %52 ], [ %.sroa.26.3, %63 ], [ %.sroa.26.3, %67 ], [ %.sroa.26.3, %77 ], [ %.sroa.26.3, %81 ], [ %.sroa.26.3, %92 ], [ %.sroa.26.3, %96 ], [ %.sroa.26.3, %106 ], [ %112, %110 ]
+  %.sroa.29.4 = phi i32 [ %.sroa.29.3, %34 ], [ %.sroa.29.3, %48 ], [ 1, %52 ], [ %.sroa.29.3, %63 ], [ %.sroa.29.3, %67 ], [ %.sroa.29.3, %77 ], [ %.sroa.29.3, %81 ], [ %.sroa.29.3, %92 ], [ %.sroa.29.3, %96 ], [ %.sroa.29.3, %106 ], [ %.sroa.29.3, %110 ]
+  %.sroa.32.4 = phi i32 [ %.sroa.32.3, %34 ], [ %.sroa.32.3, %48 ], [ %.sroa.32.3, %52 ], [ %.sroa.32.3, %63 ], [ 1, %67 ], [ %.sroa.32.3, %77 ], [ %.sroa.32.3, %81 ], [ %.sroa.32.3, %92 ], [ %.sroa.32.3, %96 ], [ %.sroa.32.3, %106 ], [ %.sroa.32.3, %110 ]
+  %.sroa.35.4 = phi i32 [ %.sroa.35.3, %34 ], [ %.sroa.35.3, %48 ], [ %.sroa.35.3, %52 ], [ %.sroa.35.3, %63 ], [ %.sroa.35.3, %67 ], [ %.sroa.35.3, %77 ], [ 1, %81 ], [ %.sroa.35.3, %92 ], [ %.sroa.35.3, %96 ], [ %.sroa.35.3, %106 ], [ %.sroa.35.3, %110 ]
+  %.sroa.38.4 = phi i32 [ %.sroa.38.3, %34 ], [ %.sroa.38.3, %48 ], [ %.sroa.38.3, %52 ], [ %.sroa.38.3, %63 ], [ %.sroa.38.3, %67 ], [ %.sroa.38.3, %77 ], [ %.sroa.38.3, %81 ], [ %.sroa.38.3, %92 ], [ 1, %96 ], [ %.sroa.38.3, %106 ], [ %.sroa.38.3, %110 ]
+  %.sroa.41.4 = phi i32 [ %.sroa.41.3, %34 ], [ %.sroa.41.3, %48 ], [ %.sroa.41.3, %52 ], [ %.sroa.41.3, %63 ], [ %.sroa.41.3, %67 ], [ %.sroa.41.3, %77 ], [ %.sroa.41.3, %81 ], [ %.sroa.41.3, %92 ], [ %.sroa.41.3, %96 ], [ %.sroa.41.3, %106 ], [ 1, %110 ]
+  %.sroa.0.4 = phi ptr [ %37, %34 ], [ %.sroa.0.3, %48 ], [ %.sroa.0.3, %52 ], [ %.sroa.0.3, %63 ], [ %.sroa.0.3, %67 ], [ %.sroa.0.3, %77 ], [ %.sroa.0.3, %81 ], [ %.sroa.0.3, %92 ], [ %.sroa.0.3, %96 ], [ %.sroa.0.3, %106 ], [ %.sroa.0.3, %110 ]
   %.1106.i = phi i32 [ %.0105193.i, %34 ], [ 1, %48 ], [ 1, %52 ], [ %.0105193.i, %63 ], [ %.0105193.i, %67 ], [ %.0105193.i, %77 ], [ %.0105193.i, %81 ], [ %.0105193.i, %92 ], [ %.0105193.i, %96 ], [ %.0105193.i, %106 ], [ %.0105193.i, %110 ]
   %.1104.i = phi i32 [ %.0103194.i, %34 ], [ %.0103194.i, %48 ], [ %.0103194.i, %52 ], [ 1, %63 ], [ 1, %67 ], [ %.0103194.i, %77 ], [ %.0103194.i, %81 ], [ %.0103194.i, %92 ], [ %.0103194.i, %96 ], [ %.0103194.i, %106 ], [ %.0103194.i, %110 ]
   %.1102.i = phi i32 [ %.0101195.i, %34 ], [ %.0101195.i, %48 ], [ %.0101195.i, %52 ], [ %.0101195.i, %63 ], [ %.0101195.i, %67 ], [ 1, %77 ], [ 1, %81 ], [ %.0101195.i, %92 ], [ %.0101195.i, %96 ], [ %.0101195.i, %106 ], [ %.0101195.i, %110 ]
@@ -427,17 +427,17 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %126, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %122, %26
-  %.sroa.1732.0 = phi i64 [ 0, %26 ], [ %.sroa.1732.2, %122 ]
-  %.sroa.20.0 = phi i32 [ 0, %26 ], [ %.sroa.20.2, %122 ]
-  %.sroa.14.0 = phi i32 [ 0, %26 ], [ %.sroa.14.2, %122 ]
-  %.sroa.2335.0 = phi i64 [ 0, %26 ], [ %.sroa.2335.2, %122 ]
-  %.sroa.26.0 = phi double [ 0.000000e+00, %26 ], [ %.sroa.26.2, %122 ]
-  %.sroa.29.0 = phi i32 [ 0, %26 ], [ %.sroa.29.2, %122 ]
-  %.sroa.32.0 = phi i32 [ 0, %26 ], [ %.sroa.32.2, %122 ]
-  %.sroa.35.0 = phi i32 [ 0, %26 ], [ %.sroa.35.2, %122 ]
-  %.sroa.38.0 = phi i32 [ 0, %26 ], [ %.sroa.38.2, %122 ]
-  %.sroa.41.0 = phi i32 [ 0, %26 ], [ %.sroa.41.2, %122 ]
-  %.sroa.0.0 = phi ptr [ null, %26 ], [ %.sroa.0.2, %122 ]
+  %.sroa.1732.2 = phi i64 [ 0, %26 ], [ %.sroa.1732.4, %122 ]
+  %.sroa.20.2 = phi i32 [ 0, %26 ], [ %.sroa.20.4, %122 ]
+  %.sroa.14.2 = phi i32 [ 0, %26 ], [ %.sroa.14.4, %122 ]
+  %.sroa.2335.2 = phi i64 [ 0, %26 ], [ %.sroa.2335.4, %122 ]
+  %.sroa.26.2 = phi double [ 0.000000e+00, %26 ], [ %.sroa.26.4, %122 ]
+  %.sroa.29.2 = phi i32 [ 0, %26 ], [ %.sroa.29.4, %122 ]
+  %.sroa.32.2 = phi i32 [ 0, %26 ], [ %.sroa.32.4, %122 ]
+  %.sroa.35.2 = phi i32 [ 0, %26 ], [ %.sroa.35.4, %122 ]
+  %.sroa.38.2 = phi i32 [ 0, %26 ], [ %.sroa.38.4, %122 ]
+  %.sroa.41.2 = phi i32 [ 0, %26 ], [ %.sroa.41.4, %122 ]
+  %.sroa.0.2 = phi ptr [ null, %26 ], [ %.sroa.0.4, %122 ]
   %.0105.lcssa.i = phi i32 [ 0, %26 ], [ %.1106.i, %122 ]
   %.0103.lcssa.i = phi i32 [ 0, %26 ], [ %.1104.i, %122 ]
   %.0101.lcssa.i = phi i32 [ 0, %26 ], [ %.1102.i, %122 ]
@@ -464,7 +464,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %.not116.i, label %139, label %135
 
 135:                                              ; preds = %133
-  %136 = icmp ne i32 %.sroa.29.0, 0
+  %136 = icmp ne i32 %.sroa.29.2, 0
   %137 = zext i1 %136 to i32
   %138 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 133, ptr noundef nonnull @.str.37, i32 noundef %137) #7
   %.not117.i = icmp eq i32 %138, 0
@@ -476,8 +476,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 141:                                              ; preds = %135
-  store i32 %.sroa.14.0, ptr @param_conversion_load_stanza.ref_i32, align 4, !tbaa !21
-  store i32 %.sroa.14.0, ptr @param_conversion_load_stanza.datum_i32, align 4, !tbaa !21
+  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.ref_i32, align 4, !tbaa !21
+  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.datum_i32, align 4, !tbaa !21
   br label %192
 
 142:                                              ; preds = %130
@@ -491,7 +491,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %.not114.i, label %151, label %147
 
 147:                                              ; preds = %145
-  %148 = icmp ne i32 %.sroa.32.0, 0
+  %148 = icmp ne i32 %.sroa.32.2, 0
   %149 = zext i1 %148 to i32
   %150 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 142, ptr noundef nonnull @.str.40, i32 noundef %149) #7
   %.not115.i = icmp eq i32 %150, 0
@@ -503,8 +503,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 153:                                              ; preds = %147
-  store i64 %.sroa.1732.0, ptr @param_conversion_load_stanza.ref_i64, align 8, !tbaa !22
-  store i64 %.sroa.1732.0, ptr @param_conversion_load_stanza.datum_i64, align 8, !tbaa !22
+  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.ref_i64, align 8, !tbaa !22
+  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.datum_i64, align 8, !tbaa !22
   br label %192
 
 154:                                              ; preds = %142
@@ -518,7 +518,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %.not112.i, label %163, label %159
 
 159:                                              ; preds = %157
-  %160 = icmp ne i32 %.sroa.35.0, 0
+  %160 = icmp ne i32 %.sroa.35.2, 0
   %161 = zext i1 %160 to i32
   %162 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 151, ptr noundef nonnull @.str.43, i32 noundef %161) #7
   %.not113.i = icmp eq i32 %162, 0
@@ -530,8 +530,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 165:                                              ; preds = %159
-  store i32 %.sroa.20.0, ptr @param_conversion_load_stanza.ref_u32, align 4, !tbaa !21
-  store i32 %.sroa.20.0, ptr @param_conversion_load_stanza.datum_u32, align 4, !tbaa !21
+  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.ref_u32, align 4, !tbaa !21
+  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.datum_u32, align 4, !tbaa !21
   br label %192
 
 166:                                              ; preds = %154
@@ -545,7 +545,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %.not110.i, label %175, label %171
 
 171:                                              ; preds = %169
-  %172 = icmp ne i32 %.sroa.38.0, 0
+  %172 = icmp ne i32 %.sroa.38.2, 0
   %173 = zext i1 %172 to i32
   %174 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 160, ptr noundef nonnull @.str.46, i32 noundef %173) #7
   %.not111.i = icmp eq i32 %174, 0
@@ -557,8 +557,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 177:                                              ; preds = %171
-  store i64 %.sroa.2335.0, ptr @param_conversion_load_stanza.ref_u64, align 8, !tbaa !22
-  store i64 %.sroa.2335.0, ptr @param_conversion_load_stanza.datum_u64, align 8, !tbaa !22
+  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.ref_u64, align 8, !tbaa !22
+  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.datum_u64, align 8, !tbaa !22
   br label %192
 
 178:                                              ; preds = %166
@@ -572,7 +572,7 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br i1 %.not108.i, label %187, label %183
 
 183:                                              ; preds = %181
-  %184 = icmp ne i32 %.sroa.41.0, 0
+  %184 = icmp ne i32 %.sroa.41.2, 0
   %185 = zext i1 %184 to i32
   %186 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.49, i32 noundef %185) #7
   %.not109.i = icmp eq i32 %186, 0
@@ -584,8 +584,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 189:                                              ; preds = %183
-  store double %.sroa.26.0, ptr @param_conversion_load_stanza.ref_d, align 8, !tbaa !24
-  store double %.sroa.26.0, ptr @param_conversion_load_stanza.datum_d, align 8, !tbaa !24
+  store double %.sroa.26.2, ptr @param_conversion_load_stanza.ref_d, align 8, !tbaa !24
+  store double %.sroa.26.2, ptr @param_conversion_load_stanza.datum_d, align 8, !tbaa !24
   br label %192
 
 190:                                              ; preds = %178
@@ -598,9 +598,9 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br label %319
 
 192:                                              ; preds = %189, %177, %165, %153, %141
-  %.sroa.4443.0 = phi ptr [ @param_conversion_load_stanza.ref_i64, %153 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_d, %189 ]
-  %.sroa.54.0 = phi ptr [ @param_conversion_load_stanza.datum_i64, %153 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_d, %189 ]
-  %.sroa.69.0 = phi i64 [ 8, %153 ], [ 8, %177 ], [ 4, %165 ], [ 4, %141 ], [ 8, %189 ]
+  %.sroa.4443.2 = phi ptr [ @param_conversion_load_stanza.ref_i64, %153 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_d, %189 ]
+  %.sroa.54.2 = phi ptr [ @param_conversion_load_stanza.datum_i64, %153 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_d, %189 ]
+  %.sroa.69.2 = phi i64 [ 8, %153 ], [ 8, %177 ], [ 4, %165 ], [ 4, %141 ], [ 8, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %193 = load i32, ptr %20, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -608,8 +608,8 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.not.i20 = icmp eq i32 %.sroa.29.0, 0
-  %194 = call i32 @OSSL_PARAM_get_int32(ptr noundef %.sroa.0.0, ptr noundef nonnull %2) #7
+  %.not.i20 = icmp eq i32 %.sroa.29.2, 0
+  %194 = call i32 @OSSL_PARAM_get_int32(ptr noundef %.sroa.0.2, ptr noundef nonnull %2) #7
   %195 = icmp ne i32 %194, 0
   %196 = zext i1 %195 to i32
   br i1 %.not.i20, label %197, label %202
@@ -632,16 +632,16 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 204:                                              ; preds = %202
   %205 = load i32, ptr %2, align 4, !tbaa !21
-  %206 = icmp eq i32 %205, %.sroa.14.0
+  %206 = icmp eq i32 %205, %.sroa.14.2
   %207 = zext i1 %206 to i32
   %208 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 200, ptr noundef nonnull @.str.56, i32 noundef %207) #7
   %.not77.i = icmp eq i32 %208, 0
   br i1 %.not77.i, label %param_conversion_test.exit, label %209
 
 209:                                              ; preds = %204
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.0, i8 44, i64 %.sroa.69.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
   %210 = load i32, ptr %2, align 4, !tbaa !21
-  %211 = call i32 @OSSL_PARAM_set_int32(ptr noundef %.sroa.0.0, i32 noundef %210) #7
+  %211 = call i32 @OSSL_PARAM_set_int32(ptr noundef %.sroa.0.2, i32 noundef %210) #7
   %212 = icmp ne i32 %211, 0
   %213 = zext i1 %212 to i32
   %214 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 205, ptr noundef nonnull @.str.58, i32 noundef %213) #7
@@ -649,13 +649,13 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not78.i, label %param_conversion_test.exit, label %215
 
 215:                                              ; preds = %209
-  %216 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.0, i64 noundef %.sroa.69.0, ptr noundef nonnull %.sroa.4443.0, i64 noundef %.sroa.69.0) #7
+  %216 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.2, i64 noundef %.sroa.69.2, ptr noundef nonnull %.sroa.4443.2, i64 noundef %.sroa.69.2) #7
   %.not79.i = icmp eq i32 %216, 0
   br i1 %.not79.i, label %param_conversion_test.exit, label %217
 
 217:                                              ; preds = %215, %199
-  %.not80.i = icmp eq i32 %.sroa.32.0, 0
-  %218 = call i32 @OSSL_PARAM_get_int64(ptr noundef %.sroa.0.0, ptr noundef nonnull %3) #7
+  %.not80.i = icmp eq i32 %.sroa.32.2, 0
+  %218 = call i32 @OSSL_PARAM_get_int64(ptr noundef %.sroa.0.2, ptr noundef nonnull %3) #7
   %219 = icmp ne i32 %218, 0
   %220 = zext i1 %219 to i32
   br i1 %.not80.i, label %221, label %226
@@ -678,16 +678,16 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 228:                                              ; preds = %226
   %229 = load i64, ptr %3, align 8, !tbaa !22
-  %230 = icmp eq i64 %229, %.sroa.1732.0
+  %230 = icmp eq i64 %229, %.sroa.1732.2
   %231 = zext i1 %230 to i32
   %232 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 221, ptr noundef nonnull @.str.64, i32 noundef %231) #7
   %.not84.i = icmp eq i32 %232, 0
   br i1 %.not84.i, label %param_conversion_test.exit, label %233
 
 233:                                              ; preds = %228
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.0, i8 44, i64 %.sroa.69.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
   %234 = load i64, ptr %3, align 8, !tbaa !22
-  %235 = call i32 @OSSL_PARAM_set_int64(ptr noundef %.sroa.0.0, i64 noundef %234) #7
+  %235 = call i32 @OSSL_PARAM_set_int64(ptr noundef %.sroa.0.2, i64 noundef %234) #7
   %236 = icmp ne i32 %235, 0
   %237 = zext i1 %236 to i32
   %238 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 226, ptr noundef nonnull @.str.66, i32 noundef %237) #7
@@ -695,13 +695,13 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not85.i, label %param_conversion_test.exit, label %239
 
 239:                                              ; preds = %233
-  %240 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.0, i64 noundef %.sroa.69.0, ptr noundef nonnull %.sroa.4443.0, i64 noundef %.sroa.69.0) #7
+  %240 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.2, i64 noundef %.sroa.69.2, ptr noundef nonnull %.sroa.4443.2, i64 noundef %.sroa.69.2) #7
   %.not86.i = icmp eq i32 %240, 0
   br i1 %.not86.i, label %param_conversion_test.exit, label %241
 
 241:                                              ; preds = %239, %223
-  %.not87.i = icmp eq i32 %.sroa.35.0, 0
-  %242 = call i32 @OSSL_PARAM_get_uint32(ptr noundef %.sroa.0.0, ptr noundef nonnull %4) #7
+  %.not87.i = icmp eq i32 %.sroa.35.2, 0
+  %242 = call i32 @OSSL_PARAM_get_uint32(ptr noundef %.sroa.0.2, ptr noundef nonnull %4) #7
   %243 = icmp ne i32 %242, 0
   %244 = zext i1 %243 to i32
   br i1 %.not87.i, label %245, label %250
@@ -724,16 +724,16 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 252:                                              ; preds = %250
   %253 = load i32, ptr %4, align 4, !tbaa !21
-  %254 = icmp eq i32 %253, %.sroa.20.0
+  %254 = icmp eq i32 %253, %.sroa.20.2
   %255 = zext i1 %254 to i32
   %256 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 242, ptr noundef nonnull @.str.70, i32 noundef %255) #7
   %.not91.i = icmp eq i32 %256, 0
   br i1 %.not91.i, label %param_conversion_test.exit, label %257
 
 257:                                              ; preds = %252
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.0, i8 44, i64 %.sroa.69.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
   %258 = load i32, ptr %4, align 4, !tbaa !21
-  %259 = call i32 @OSSL_PARAM_set_uint32(ptr noundef %.sroa.0.0, i32 noundef %258) #7
+  %259 = call i32 @OSSL_PARAM_set_uint32(ptr noundef %.sroa.0.2, i32 noundef %258) #7
   %260 = icmp ne i32 %259, 0
   %261 = zext i1 %260 to i32
   %262 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 247, ptr noundef nonnull @.str.72, i32 noundef %261) #7
@@ -741,13 +741,13 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not92.i, label %param_conversion_test.exit, label %263
 
 263:                                              ; preds = %257
-  %264 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 248, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.0, i64 noundef %.sroa.69.0, ptr noundef nonnull %.sroa.4443.0, i64 noundef %.sroa.69.0) #7
+  %264 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 248, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.2, i64 noundef %.sroa.69.2, ptr noundef nonnull %.sroa.4443.2, i64 noundef %.sroa.69.2) #7
   %.not93.i = icmp eq i32 %264, 0
   br i1 %.not93.i, label %param_conversion_test.exit, label %265
 
 265:                                              ; preds = %263, %247
-  %.not94.i = icmp eq i32 %.sroa.38.0, 0
-  %266 = call i32 @OSSL_PARAM_get_uint64(ptr noundef %.sroa.0.0, ptr noundef nonnull %5) #7
+  %.not94.i = icmp eq i32 %.sroa.38.2, 0
+  %266 = call i32 @OSSL_PARAM_get_uint64(ptr noundef %.sroa.0.2, ptr noundef nonnull %5) #7
   %267 = icmp ne i32 %266, 0
   %268 = zext i1 %267 to i32
   br i1 %.not94.i, label %269, label %274
@@ -770,16 +770,16 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 276:                                              ; preds = %274
   %277 = load i64, ptr %5, align 8, !tbaa !22
-  %278 = icmp eq i64 %277, %.sroa.2335.0
+  %278 = icmp eq i64 %277, %.sroa.2335.2
   %279 = zext i1 %278 to i32
   %280 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.76, i32 noundef %279) #7
   %.not98.i = icmp eq i32 %280, 0
   br i1 %.not98.i, label %param_conversion_test.exit, label %281
 
 281:                                              ; preds = %276
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.0, i8 44, i64 %.sroa.69.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
   %282 = load i64, ptr %5, align 8, !tbaa !22
-  %283 = call i32 @OSSL_PARAM_set_uint64(ptr noundef %.sroa.0.0, i64 noundef %282) #7
+  %283 = call i32 @OSSL_PARAM_set_uint64(ptr noundef %.sroa.0.2, i64 noundef %282) #7
   %284 = icmp ne i32 %283, 0
   %285 = zext i1 %284 to i32
   %286 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 268, ptr noundef nonnull @.str.78, i32 noundef %285) #7
@@ -787,13 +787,13 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not99.i, label %param_conversion_test.exit, label %287
 
 287:                                              ; preds = %281
-  %288 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.0, i64 noundef %.sroa.69.0, ptr noundef nonnull %.sroa.4443.0, i64 noundef %.sroa.69.0) #7
+  %288 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.2, i64 noundef %.sroa.69.2, ptr noundef nonnull %.sroa.4443.2, i64 noundef %.sroa.69.2) #7
   %.not100.i = icmp eq i32 %288, 0
   br i1 %.not100.i, label %param_conversion_test.exit, label %289
 
 289:                                              ; preds = %287, %271
-  %.not101.i = icmp eq i32 %.sroa.41.0, 0
-  %290 = call i32 @OSSL_PARAM_get_double(ptr noundef %.sroa.0.0, ptr noundef nonnull %6) #7
+  %.not101.i = icmp eq i32 %.sroa.41.2, 0
+  %290 = call i32 @OSSL_PARAM_get_double(ptr noundef %.sroa.0.2, ptr noundef nonnull %6) #7
   %291 = icmp ne i32 %290, 0
   %292 = zext i1 %291 to i32
   br i1 %.not101.i, label %293, label %298
@@ -820,23 +820,23 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %302, label %307, label %303
 
 303:                                              ; preds = %300
-  %304 = fcmp ord double %.sroa.26.0, 0.000000e+00
+  %304 = fcmp ord double %.sroa.26.2, 0.000000e+00
   %305 = zext i1 %304 to i32
   %306 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 300, ptr noundef nonnull @.str.83, i32 noundef %305) #7
   %.not105.i = icmp eq i32 %306, 0
   br i1 %.not105.i, label %param_conversion_test.exit, label %311
 
 307:                                              ; preds = %300
-  %308 = fcmp oeq double %301, %.sroa.26.0
+  %308 = fcmp oeq double %301, %.sroa.26.2
   %309 = zext i1 %308 to i32
   %310 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 304, ptr noundef nonnull @.str.85, i32 noundef %309) #7
   %.not106.i = icmp eq i32 %310, 0
   br i1 %.not106.i, label %param_conversion_test.exit, label %311
 
 311:                                              ; preds = %307, %303
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.0, i8 44, i64 %.sroa.69.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
   %312 = load double, ptr %6, align 8, !tbaa !24
-  %313 = call i32 @OSSL_PARAM_set_double(ptr noundef %.sroa.0.0, double noundef %312) #7
+  %313 = call i32 @OSSL_PARAM_set_double(ptr noundef %.sroa.0.2, double noundef %312) #7
   %314 = icmp ne i32 %313, 0
   %315 = zext i1 %314 to i32
   %316 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 309, ptr noundef nonnull @.str.87, i32 noundef %315) #7
@@ -844,7 +844,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not107.i, label %param_conversion_test.exit, label %317
 
 317:                                              ; preds = %311
-  %318 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 310, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.0, i64 noundef %.sroa.69.0, ptr noundef nonnull %.sroa.4443.0, i64 noundef %.sroa.69.0) #7
+  %318 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 310, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %.sroa.54.2, i64 noundef %.sroa.69.2, ptr noundef nonnull %.sroa.4443.2, i64 noundef %.sroa.69.2) #7
   %.not108.i21 = icmp eq i32 %318, 0
   br i1 %.not108.i21, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
 
@@ -867,7 +867,7 @@ param_conversion_test.exit:                       ; preds = %197, %199, %202, %2
   br label %319
 
 319:                                              ; preds = %param_conversion_load_stanza.exit.thread, %param_conversion_test.exit, %param_conversion_test.exit.thread, %24
-  %.2 = phi i32 [ %.0121, %param_conversion_test.exit.thread ], [ %.0121, %24 ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
+  %.2 = phi i32 [ %.0135, %param_conversion_test.exit.thread ], [ %.0135, %24 ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
   call void @test_clearstanza(ptr noundef nonnull %10) #7
   %320 = load ptr, ptr %14, align 8, !tbaa !4
   %321 = call i64 @BIO_ctrl(ptr noundef %320, i32 noundef 2, i64 noundef 0, ptr noundef null) #7

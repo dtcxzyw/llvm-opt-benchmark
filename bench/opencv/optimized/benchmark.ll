@@ -3159,7 +3159,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
   %.sroa.speculated38.i = select i1 %39, double %.sroa.12.0.copyload.i, double %27
   %45 = fadd double %40, %.sroa.speculated38.i
   %46 = fcmp olt double %45, %41
-  br i1 %46, label %64, label %47
+  br i1 %46, label %63, label %47
 
 47:                                               ; preds = %44, %38
   %.sroa.speculated46.i = select i1 %42, double %.sroa.7.0.copyload.i, double %24
@@ -3175,7 +3175,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
   %50 = fadd double %.sroa.speculated46.i, %.sroa.speculated33.i
   %.sroa.speculated43.i = select i1 %42, double %24, double %.sroa.7.0.copyload.i
   %51 = fcmp olt double %50, %.sroa.speculated43.i
-  br i1 %51, label %64, label %52
+  br i1 %51, label %63, label %52
 
 52:                                               ; preds = %49, %._crit_edge.i.i
   %53 = phi double [ %.pre75.i.sroa.speculated.i, %._crit_edge.i.i ], [ %.sroa.speculated43.i, %49 ]
@@ -3193,14 +3193,14 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
   %60 = fcmp ole double %.sroa.speculated55.i.i, 0.000000e+00
   %61 = fcmp ole double %.sroa.speculated.i.i, 0.000000e+00
   %62 = select i1 %60, i1 true, i1 %61
-  br i1 %62, label %64, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread
+  br i1 %62, label %64, label %.sink.split.i.i
 
-_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread:   ; preds = %52
+.sink.split.i.i:                                  ; preds = %52
   %63 = fmul double %.sroa.speculated55.i.i, %.sroa.speculated.i.i
   br label %64
 
-64:                                               ; preds = %52, %49, %44, %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread
-  %.ph = phi double [ 0.000000e+00, %52 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %44 ], [ %63, %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread ]
+63:                                               ; preds = %52, %49, %44, %.sink.split.i.i
+  %.sroa.12.0.i.ph.ph = phi double [ 0.000000e+00, %52 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %44 ], [ %63, %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread ]
   %65 = fcmp ogt double %.sroa.0.0.copyload.i, %21
   %66 = select i1 %65, double %21, double %.sroa.0.0.copyload.i
   %67 = fcmp ogt double %.sroa.7.0.copyload.i, %24
@@ -3217,7 +3217,7 @@ _ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit.thread:   ; preds = %52
   %76 = fsub double %.sroa.speculated.i.i22, %68
   br label %_ZN2cvorIdEENS_5Rect_IT_EERKS3_S5_.exit
 
-_ZN2cvorIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %34, %4, %64
+_ZN2cvorIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %34, %4, %63
   %77 = phi double [ %.ph, %64 ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %34 ]
   %.sroa.11.0.i = phi double [ %76, %64 ], [ %30, %4 ], [ %.sroa.17.0.copyload.i, %34 ]
   %.sroa.9.0.i = phi double [ %72, %64 ], [ %27, %4 ], [ %.sroa.12.0.copyload.i, %34 ]

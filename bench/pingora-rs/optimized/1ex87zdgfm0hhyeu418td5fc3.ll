@@ -3194,9 +3194,9 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   store ptr inttoptr (i64 8 to ptr), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 0, ptr %82, align 8
-  %.val28229 = load i8, ptr %1, align 8, !range !198, !noundef !3
-  %83 = icmp eq i8 %.val28229, 4
-  br i1 %83, label %.loopexit95, label %.lr.ph
+  %.val28231 = load i8, ptr %1, align 8, !range !198, !noundef !3
+  %83 = icmp eq i8 %.val28231, 4
+  br i1 %83, label %.loopexit97, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9faE.exit
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3254,9 +3254,9 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %.sroa.4328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %.sroa.5.0..sroa_idx329 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.sroa.6330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %.sroa.4330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %.sroa.5.0..sroa_idx331 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %.sroa.6332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
   br label %131
@@ -3269,12 +3269,12 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   br label %455
 
-.body38:                                          ; preds = %.loopexit96, %.loopexit.split-lp, %446, %435, %415, %360, %396, %160, %.body.i, %300, %304, %310, %314, %316, %319
+.body38:                                          ; preds = %.loopexit98, %.loopexit.split-lp, %446, %435, %415, %360, %396, %160, %.body.i, %300, %304, %310, %314, %316, %319
   %.pn = phi { ptr, i32 } [ %416, %415 ], [ %436, %435 ], [ %447, %446 ], [ %397, %396 ], [ %311, %310 ], [ %361, %360 ], [ %301, %300 ], [ %161, %160 ], [ %.pn.i, %.body.i ], [ %301, %304 ], [ %311, %319 ], [ %311, %316 ], [ %311, %314 ], [ %lpad.loopexit, %.loopexit96 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$pingora_core..protocols..http..HttpTask$GT$$GT$17hcf043738ee3b6a46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #27
           to label %456 unwind label %425
 
-.loopexit96:                                      ; preds = %137, %152, %332, %344, %372, %380
+.loopexit98:                                      ; preds = %137, %152, %332, %344, %372, %380
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body38
@@ -3285,9 +3285,9 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   br label %.body38
 
 131:                                              ; preds = %.lr.ph, %423
-  %.val28234 = phi i8 [ %.val28229, %.lr.ph ], [ %.val28, %423 ]
-  %.sroa.870.0233 = phi ptr [ undef, %.lr.ph ], [ %.sroa.870.1, %423 ]
-  %switch.i33 = icmp samesign ult i8 %.val28234, 2
+  %.val28236 = phi i8 [ %.val28231, %.lr.ph ], [ %.val28, %423 ]
+  %.sroa.870.0235 = phi ptr [ undef, %.lr.ph ], [ %.sroa.870.1, %423 ]
+  %switch.i33 = icmp samesign ult i8 %.val28236, 2
   br i1 %switch.i33, label %132, label %324
 
 132:                                              ; preds = %131
@@ -3321,7 +3321,7 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   %138 = load ptr, ptr %57, align 8, !alias.scope !213, !noalias !218, !nonnull !3, !noundef !3
   %139 = load i64, ptr %58, align 8, !alias.scope !213, !noalias !218, !noundef !3
   invoke void @_ZN8httparse12ParserConfig14parse_response17hb69ac3d15ed5ef02E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %42, ptr noalias noundef nonnull readonly align 1 dereferenceable(7) %43, ptr noalias noundef nonnull align 8 dereferenceable(40) %44, ptr noalias noundef nonnull readonly align 1 %138, i64 noundef %139)
-          to label %.noexc unwind label %.loopexit96
+          to label %.noexc unwind label %.loopexit98
 
 .noexc:                                           ; preds = %137
   %140 = load i64, ptr %42, align 8, !range !69, !noalias !216, !noundef !3
@@ -3362,9 +3362,9 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
 146:                                              ; preds = %.noexc
   %147 = load i64, ptr %109, align 8, !noalias !216
   %148 = trunc nuw i64 %140 to i1
-  br i1 %148, label %.thread88, label %149
+  br i1 %148, label %.thread90, label %149
 
-.thread88:                                        ; preds = %146
+.thread90:                                        ; preds = %146
   store i8 1, ptr %1, align 8, !alias.scope !213, !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !216
@@ -3384,7 +3384,7 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   %153 = load i16, ptr %104, align 4, !noalias !216
   %154 = load i64, ptr %106, align 8, !noalias !216, !noundef !3
   invoke void @_ZN12pingora_http14ResponseHeader5build17hf0d2aa7a0e466a10E(ptr noalias noundef nonnull sret([232 x i8]) align 8 captures(none) dereferenceable(232) %36, i16 noundef %153, i64 noundef 1, i64 %154)
-          to label %.noexc37 unwind label %.loopexit96
+          to label %.noexc37 unwind label %.loopexit98
 
 .noexc37:                                         ; preds = %152
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
@@ -3468,7 +3468,7 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
           to label %181 unwind label %.loopexit.split-lp.i.loopexit, !noalias !218
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.i.loopexit.split-lp, %297, %288, %222, %204, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %lpad.phi79.i, %297 ], [ %lpad.thr_comm.split-lp.i, %288 ], [ %223, %222 ], [ %205, %204 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit98, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp99, %.loopexit.split-lp.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.phi79.i, %297 ], [ %lpad.thr_comm.split-lp.i, %288 ], [ %223, %222 ], [ %205, %204 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit100, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$pingora_http..ResponseHeader$GT$17hc2a95013739e4722E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %37) #27
           to label %.body38 unwind label %298, !noalias !218
 
@@ -3478,12 +3478,12 @@ _ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9f
   br label %.body.i
 
 .loopexit.split-lp.i.loopexit:                    ; preds = %180, %188, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i", %227, %.noexc32.i, %230
-  %lpad.loopexit98 = landingpad { ptr, i32 }
+  %lpad.loopexit100 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %178
-  %lpad.loopexit.split-lp99 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp101 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -3903,18 +3903,18 @@ _ZN13pingora_error5Error7because17h1a244ae6673b34e3E.exit.i: ; preds = %.noexc43
   br label %.thread
 
 324:                                              ; preds = %131
-  %325 = and i8 %.val28234, 6
+  %325 = and i8 %.val28236, 6
   %switch.i34 = icmp eq i8 %325, 2
-  br i1 %switch.i34, label %326, label %.loopexit95
+  br i1 %switch.i34, label %326, label %.loopexit97
 
 326:                                              ; preds = %324
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %327 = load i64, ptr %58, align 8, !alias.scope !313, !noalias !316, !noundef !3
   %328 = icmp eq i64 %327, 0
-  br i1 %328, label %.loopexit95, label %329
+  br i1 %328, label %.loopexit97, label %329
 
 329:                                              ; preds = %326
-  %330 = icmp eq i8 %.val28234, 3
+  %330 = icmp eq i8 %.val28236, 3
   %331 = load i64, ptr %84, align 8, !alias.scope !313, !noalias !316, !noundef !3
   br i1 %330, label %372, label %332, !prof !318
 
@@ -3933,7 +3933,7 @@ _ZN13pingora_error5Error7because17h1a244ae6673b34e3E.exit.i: ; preds = %.noexc43
   store i64 %337, ptr %85, align 8, !alias.scope !313, !noalias !316
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !319
   invoke void @_ZN5bytes9bytes_mut8BytesMut8split_to17hb1cc839c2499b114E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %18, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, i64 noundef %.sroa.016.0.i)
-          to label %.noexc54 unwind label %.loopexit96
+          to label %.noexc54 unwind label %.loopexit98
 
 .noexc54:                                         ; preds = %332
   call void @llvm.experimental.noalias.scope.decl(metadata !320)
@@ -3963,7 +3963,7 @@ _ZN13pingora_error5Error7because17h1a244ae6673b34e3E.exit.i: ; preds = %.noexc43
   store i64 %351, ptr %90, align 8, !noalias !325
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !325
   invoke void @"_ZN92_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17h213cb3dcec34bfc3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
-          to label %.noexc55 unwind label %.loopexit96
+          to label %.noexc55 unwind label %.loopexit98
 
 .noexc55:                                         ; preds = %344
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
@@ -4043,7 +4043,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i: ; preds = %366, 
   store i64 %373, ptr %84, align 8, !alias.scope !313, !noalias !316
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !319
   invoke void @_ZN5bytes9bytes_mut8BytesMut5split17hf81ef47d12d71519E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(32) %57)
-          to label %.noexc58 unwind label %.loopexit96
+          to label %.noexc58 unwind label %.loopexit98
 
 .noexc58:                                         ; preds = %372
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
@@ -4073,7 +4073,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i: ; preds = %366, 
   store i64 %387, ptr %97, align 8, !noalias !345
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !345
   invoke void @"_ZN92_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17h213cb3dcec34bfc3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %.noexc59 unwind label %.loopexit96
+          to label %.noexc59 unwind label %.loopexit98
 
 .noexc59:                                         ; preds = %380
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
@@ -4150,19 +4150,19 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i: ; preds = %402
 _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit: ; preds = %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i
   %.sroa.17.2 = phi ptr [ %.sroa.755.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.7.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
   %.sroa.15.2 = phi i64 [ %.sroa.652.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.6.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
-  %.sroa.1274.2 = phi ptr [ %.sroa.549.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
-  %.sroa.873.0 = phi ptr [ %.sroa.047.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.0.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
-  %.not = icmp eq ptr %.sroa.873.0, null
-  br i1 %.not, label %.loopexit95, label %408
+  %.sroa.1275.2 = phi ptr [ %.sroa.549.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
+  %.sroa.873.2 = phi ptr [ %.sroa.047.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit36.i ], [ %.sroa.0.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
+  %.not = icmp eq ptr %.sroa.873.2, null
+  br i1 %.not, label %.loopexit97, label %408
 
 408:                                              ; preds = %_ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %.val27 = load i8, ptr %1, align 8, !range !198, !noundef !3
   %409 = icmp eq i8 %.val27, 4
-  store ptr %.sroa.873.0, ptr %100, align 8
-  store ptr %.sroa.1274.2, ptr %.sroa.4328.0..sroa_idx, align 8
-  store i64 %.sroa.15.2, ptr %.sroa.5.0..sroa_idx329, align 8
-  store ptr %.sroa.17.2, ptr %.sroa.6330.0..sroa_idx, align 8
+  store ptr %.sroa.873.2, ptr %100, align 8
+  store ptr %.sroa.1275.2, ptr %.sroa.4330.0..sroa_idx, align 8
+  store i64 %.sroa.15.2, ptr %.sroa.5.0..sroa_idx331, align 8
+  store ptr %.sroa.17.2, ptr %.sroa.6332.0..sroa_idx, align 8
   %410 = zext i1 %409 to i8
   store i8 %410, ptr %101, align 1
   store i8 1, ptr %49, align 8
@@ -4197,10 +4197,10 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
   br label %423
 
 423:                                              ; preds = %450, %419
-  %.sroa.870.1 = phi ptr [ %.sroa.870.291, %450 ], [ %.sroa.870.0233, %419 ]
+  %.sroa.870.1 = phi ptr [ %.sroa.870.293, %450 ], [ %.sroa.870.0235, %419 ]
   %.val28 = load i8, ptr %1, align 8, !range !198, !noundef !3
   %424 = icmp eq i8 %.val28, 4
-  br i1 %424, label %.loopexit95, label %131
+  br i1 %424, label %.loopexit97, label %131
 
 425:                                              ; preds = %.body38
   %426 = landingpad { ptr, i32 }
@@ -4208,11 +4208,11 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
   unreachable
 
-.loopexit101:                                     ; preds = %.loopexit, %.thread
-  %.sroa.870.287 = phi ptr [ %.sroa.870.2.ph, %.thread ], [ %.sroa.870.0.copyload, %.loopexit ]
+.loopexit103:                                     ; preds = %.loopexit, %.thread
+  %.sroa.870.289 = phi ptr [ %.sroa.870.2.ph, %.thread ], [ %.sroa.870.0.copyload, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.870.287, ptr %427, align 8
+  store ptr %.sroa.870.289, ptr %427, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$pingora_core..protocols..http..HttpTask$GT$$GT$17hcf043738ee3b6a46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
@@ -4226,7 +4226,7 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %.loopexit101
+  br label %.loopexit103
 
 .loopexit:                                        ; preds = %249, %258, %260, %.lr.ph.i.i.i, %.noexc31.i, %.noexc31.i, %.noexc33.i, %.noexc34.i, %239, %240, %240, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i"
   %.sroa.116.0.sink.i.i = phi i64 [ 0, %.noexc33.i ], [ 0, %.noexc31.i ], [ 0, %.noexc34.i ], [ %.sroa.116.0.i.i, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i" ], [ 0, %.lr.ph.i.i.i ], [ 0, %.noexc31.i ], [ %238, %239 ], [ 0, %240 ], [ 0, %240 ], [ 0, %260 ], [ 0, %258 ], [ 0, %249 ]
@@ -4244,19 +4244,19 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %428 = icmp eq i64 %.sroa.0.0.copyload, 4
-  br i1 %428, label %.loopexit101, label %429
+  br i1 %428, label %.loopexit103, label %429
 
-429:                                              ; preds = %.thread88, %.loopexit
-  %.sroa.0.092 = phi i64 [ 3, %.thread88 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.870.291 = phi ptr [ %.sroa.870.0233, %.thread88 ], [ %.sroa.870.0.copyload, %.loopexit ]
+429:                                              ; preds = %.thread90, %.loopexit
+  %.sroa.0.094 = phi i64 [ 3, %.thread88 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.870.293 = phi ptr [ %.sroa.870.0235, %.thread88 ], [ %.sroa.870.0.copyload, %.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.12, i64 216, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
-  %.not25 = icmp eq i64 %.sroa.0.092, 3
+  %.not25 = icmp eq i64 %.sroa.0.094, 3
   br i1 %.not25, label %454, label %430
 
 430:                                              ; preds = %429
-  store i64 %.sroa.0.092, ptr %51, align 8
-  store ptr %.sroa.870.291, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.0.094, ptr %51, align 8
+  store ptr %.sroa.870.293, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7, i64 216, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %431 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !367
@@ -4324,14 +4324,14 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
 
 454:                                              ; preds = %429
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  br label %.loopexit95
+  br label %.loopexit97
 
-.loopexit95:                                      ; preds = %423, %324, %326, %_ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit, %_ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9faE.exit, %454
+.loopexit97:                                      ; preds = %423, %324, %326, %_ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit, %_ZN13pingora_cache3put14parse_response13ResponseParse8put_data17ha3544ab4682fb9faE.exit, %454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %455
 
-455:                                              ; preds = %.loopexit95, %.loopexit101, %130
+455:                                              ; preds = %.loopexit97, %.loopexit103, %130
   ret void
 
 456:                                              ; preds = %.body38

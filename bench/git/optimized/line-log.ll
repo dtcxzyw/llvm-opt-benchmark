@@ -2918,11 +2918,11 @@ diff_ranges_filter_touched.exit.i.i:              ; preds = %107, %diff_ranges_f
 .critedge.i.i.i:                                  ; preds = %186, %.preheader.i12.i.i, %185
   %.357.i.i.i = phi i32 [ %177, %185 ], [ %.14167.i.i.i, %.preheader.i12.i.i ], [ %187, %186 ]
   %.not.i.i.i13.i.i = icmp ult i32 %.sroa.8.2.i.i, %.sroa.0.2.i.i
-  %.pre118.i.i = zext i32 %.sroa.8.2.i.i to i64
+  %.pre121.i.i = zext i32 %.sroa.8.2.i.i to i64
   br i1 %.not.i.i.i13.i.i, label %range_set_append.exit.i18.i.i, label %st_mult.exit.i.i.i.i14.i.i
 
 st_mult.exit.i.i.i.i14.i.i:                       ; preds = %.critedge.i.i.i
-  %192 = add nuw nsw i64 %.pre118.i.i, 1
+  %192 = add nuw nsw i64 %.pre121.i.i, 1
   %193 = mul i32 %.sroa.0.2.i.i, 3
   %194 = add i32 %193, 48
   %195 = lshr i32 %194, 1
@@ -2937,7 +2937,7 @@ st_mult.exit.i.i.i.i14.i.i:                       ; preds = %.critedge.i.i.i
 range_set_append.exit.i18.i.i:                    ; preds = %st_mult.exit.i.i.i.i14.i.i, %.critedge.i.i.i
   %.sroa.0.3.i.i = phi i32 [ %storemerge.i.i.i.i16.i.i, %st_mult.exit.i.i.i.i14.i.i ], [ %.sroa.0.2.i.i, %.critedge.i.i.i ]
   %.sroa.15.3.i.i = phi ptr [ %199, %st_mult.exit.i.i.i.i14.i.i ], [ %.sroa.15.2.i.i, %.critedge.i.i.i ]
-  %200 = getelementptr inbounds nuw %struct.range, ptr %.sroa.15.3.i.i, i64 %.pre118.i.i
+  %200 = getelementptr inbounds nuw %struct.range, ptr %.sroa.15.3.i.i, i64 %.pre121.i.i
   store i64 %.03968.i.i.i, ptr %200, align 8, !tbaa !13
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i64 %175, ptr %201, align 8, !tbaa !16
@@ -2954,11 +2954,11 @@ range_set_append.exit.i18.i.i:                    ; preds = %st_mult.exit.i.i.i.
 
 206:                                              ; preds = %204
   %.not.i.i46.i.i.i = icmp ult i32 %.sroa.8.2.i.i, %.sroa.0.2.i.i
-  %.pre121.i.i = zext i32 %.sroa.8.2.i.i to i64
+  %.pre124.i.i = zext i32 %.sroa.8.2.i.i to i64
   br i1 %.not.i.i46.i.i.i, label %.range_set_grow.exit_crit_edge.i.i51.i.i.i, label %st_mult.exit.i.i.i47.i.i.i
 
 st_mult.exit.i.i.i47.i.i.i:                       ; preds = %206
-  %207 = add nuw nsw i64 %.pre121.i.i, 1
+  %207 = add nuw nsw i64 %.pre124.i.i, 1
   %208 = mul i32 %.sroa.0.2.i.i, 3
   %209 = add i32 %208, 48
   %210 = lshr i32 %209, 1
@@ -2975,7 +2975,7 @@ st_mult.exit.i.i.i47.i.i.i:                       ; preds = %206
   %.sroa.0.6.i.i = phi i32 [ %storemerge.i.i.i49.i.i.i, %st_mult.exit.i.i.i47.i.i.i ], [ %.sroa.0.2.i.i, %206 ]
   %.sroa.15.6.i.i = phi ptr [ %214, %st_mult.exit.i.i.i47.i.i.i ], [ %.sroa.15.2.i.i, %206 ]
   %215 = phi ptr [ %.pre.i25.i.i, %st_mult.exit.i.i.i47.i.i.i ], [ %179, %206 ]
-  %216 = getelementptr inbounds nuw %struct.range, ptr %.sroa.15.6.i.i, i64 %.pre121.i.i
+  %216 = getelementptr inbounds nuw %struct.range, ptr %.sroa.15.6.i.i, i64 %.pre124.i.i
   store i64 %.03968.i.i.i, ptr %216, align 8, !tbaa !13
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 %190, ptr %217, align 8, !tbaa !16
@@ -3019,12 +3019,12 @@ range_set_difference.exit.i.i:                    ; preds = %.loopexit.i.i.i
 
 .preheader.lr.ph.i26.i.i:                         ; preds = %range_set_difference.exit.i.i
   %wide.trip.count.i27.i.i = zext i32 %.sroa.8.1.i.i to i64
-  %.promoted88.i.i = load ptr, ptr %26, align 8
+  %.promoted91.i.i = load ptr, ptr %26, align 8
   br label %.preheader.i28.i.i
 
 .preheader.i28.i.i:                               ; preds = %range_set_append.exit.i35.i.i, %.preheader.lr.ph.i26.i.i
-  %.pre.i.i.i3790.i.i = phi ptr [ %.promoted88.i.i, %.preheader.lr.ph.i26.i.i ], [ %.pre.i.i.i3789.i.i, %range_set_append.exit.i35.i.i ]
-  %storemerge.i.i.i.i3387.i.i = phi i32 [ 0, %.preheader.lr.ph.i26.i.i ], [ %storemerge.i.i.i.i3386.i.i, %range_set_append.exit.i35.i.i ]
+  %.pre.i.i.i3793.i.i = phi ptr [ %.promoted91.i.i, %.preheader.lr.ph.i26.i.i ], [ %.pre.i.i.i3792.i.i, %range_set_append.exit.i35.i.i ]
+  %storemerge.i.i.i.i3390.i.i = phi i32 [ 0, %.preheader.lr.ph.i26.i.i ], [ %storemerge.i.i.i.i3389.i.i, %range_set_append.exit.i35.i.i ]
   %indvars.iv14.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i26.i.i ], [ %.pre.i, %range_set_append.exit.i35.i.i ]
   %.02810.i.i.i = phi i32 [ 0, %.preheader.lr.ph.i26.i.i ], [ %.1.lcssa.i.i.i, %range_set_append.exit.i35.i.i ]
   %.0299.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i26.i.i ], [ %.130.lcssa.i.i.i, %range_set_append.exit.i35.i.i ]
@@ -3073,13 +3073,13 @@ range_set_difference.exit.i.i:                    ; preds = %.loopexit.i.i.i
   %250 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %251 = load i64, ptr %250, align 8, !tbaa !16
   %252 = add nsw i64 %251, %.130.lcssa.i.i.i
-  %253 = zext i32 %storemerge.i.i.i.i3387.i.i to i64
+  %253 = zext i32 %storemerge.i.i.i.i3390.i.i to i64
   %.not.i.i.i30.i.i = icmp samesign ult i64 %indvars.iv14.i.i.i, %253
   %.pre.i = add nuw nsw i64 %indvars.iv14.i.i.i, 1
   br i1 %.not.i.i.i30.i.i, label %range_set_append.exit.i35.i.i, label %st_mult.exit.i.i.i.i31.i.i
 
 st_mult.exit.i.i.i.i31.i.i:                       ; preds = %.critedge.i29.i.i
-  %254 = mul i32 %storemerge.i.i.i.i3387.i.i, 3
+  %254 = mul i32 %storemerge.i.i.i.i3390.i.i, 3
   %255 = add i32 %254, 48
   %256 = lshr i32 %255, 1
   %257 = zext nneg i32 %256 to i64
@@ -3087,13 +3087,13 @@ st_mult.exit.i.i.i.i31.i.i:                       ; preds = %.critedge.i29.i.i
   %storemerge.i.i.i.i33.i.i = trunc i64 %storemerge14.i.i.i.i32.i.i to i32
   %258 = shl nuw nsw i64 %storemerge14.i.i.i.i32.i.i, 4
   %259 = and i64 %258, 68719476720
-  %260 = call ptr @xrealloc(ptr noundef %.pre.i.i.i3790.i.i, i64 noundef %259) #16
+  %260 = call ptr @xrealloc(ptr noundef %.pre.i.i.i3793.i.i, i64 noundef %259) #16
   br label %range_set_append.exit.i35.i.i
 
 range_set_append.exit.i35.i.i:                    ; preds = %st_mult.exit.i.i.i.i31.i.i, %.critedge.i29.i.i
-  %.pre.i.i.i3789.i.i = phi ptr [ %260, %st_mult.exit.i.i.i.i31.i.i ], [ %.pre.i.i.i3790.i.i, %.critedge.i29.i.i ]
-  %storemerge.i.i.i.i3386.i.i = phi i32 [ %storemerge.i.i.i.i33.i.i, %st_mult.exit.i.i.i.i31.i.i ], [ %storemerge.i.i.i.i3387.i.i, %.critedge.i29.i.i ]
-  %261 = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i3789.i.i, i64 %indvars.iv14.i.i.i
+  %.pre.i.i.i3792.i.i = phi ptr [ %260, %st_mult.exit.i.i.i.i31.i.i ], [ %.pre.i.i.i3793.i.i, %.critedge.i29.i.i ]
+  %storemerge.i.i.i.i3389.i.i = phi i32 [ %storemerge.i.i.i.i33.i.i, %st_mult.exit.i.i.i.i31.i.i ], [ %storemerge.i.i.i.i3390.i.i, %.critedge.i29.i.i ]
+  %261 = getelementptr inbounds nuw %struct.range, ptr %.pre.i.i.i3792.i.i, i64 %indvars.iv14.i.i.i
   store i64 %249, ptr %261, align 8, !tbaa !13
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i64 %252, ptr %262, align 8, !tbaa !16
@@ -3102,8 +3102,8 @@ range_set_append.exit.i35.i.i:                    ; preds = %st_mult.exit.i.i.i.
 
 range_set_shift_diff.exit.loopexit.i.i:           ; preds = %range_set_append.exit.i35.i.i
   store i32 %.sroa.8.1.i.i, ptr %27, align 4
-  store i32 %storemerge.i.i.i.i3386.i.i, ptr %5, align 8
-  store ptr %.pre.i.i.i3789.i.i, ptr %26, align 8
+  store i32 %storemerge.i.i.i.i3389.i.i, ptr %5, align 8
+  store ptr %.pre.i.i.i3792.i.i, ptr %26, align 8
   br label %process_diff_filepair.exit
 
 process_diff_filepair.exit.thread:                ; preds = %45, %47, %.lr.ph.split
@@ -3114,10 +3114,10 @@ process_diff_filepair.exit.thread:                ; preds = %45, %47, %.lr.ph.sp
   br label %.thread
 
 process_diff_filepair.exit:                       ; preds = %diff_ranges_filter_touched.exit.i.i, %range_set_difference.exit.i.i, %range_set_shift_diff.exit.loopexit.i.i
-  %263 = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ null, %range_set_difference.exit.i.i ], [ %.pre.i.i.i3789.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
-  %.sroa.15.755.i.i = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_difference.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
+  %263 = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ null, %range_set_difference.exit.i.i ], [ %.pre.i.i.i3792.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
+  %.sroa.15.758.i.i = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_difference.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
   call fastcc void @range_set_union(ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %87)
-  call void @free(ptr noundef %.sroa.15.755.i.i) #16
+  call void @free(ptr noundef %.sroa.15.758.i.i) #16
   call void @free(ptr noundef %263) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %264 = getelementptr inbounds nuw i8, ptr %.02665.i, i64 24

@@ -1101,9 +1101,9 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   br label %60
 
 60:                                               ; preds = %172, %45
-  %.063 = phi i8 [ 1, %45 ], [ 0, %172 ]
-  %.050 = phi i1 [ false, %45 ], [ true, %172 ]
-  %.043 = phi i1 [ false, %45 ], [ %.346, %172 ]
+  %.064 = phi i8 [ 1, %45 ], [ 0, %172 ]
+  %.062 = phi i1 [ false, %45 ], [ true, %172 ]
+  %.045 = phi i1 [ false, %45 ], [ %.348, %172 ]
   %.041 = phi i1 [ false, %45 ], [ %.3, %172 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = load ptr, ptr %30, align 8, !tbaa !16
@@ -1126,7 +1126,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   br label %73
 
 68:                                               ; preds = %66, %63
-  br i1 %.050, label %69, label %.loopexit97
+  br i1 %.062, label %69, label %.loopexit97
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %28, align 8, !tbaa !36
@@ -1147,8 +1147,8 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   br label %173
 
 73:                                               ; preds = %.preheader96, %165
-  %.265 = phi i8 [ %.568, %165 ], [ %.063, %.preheader96 ]
-  %.245 = phi i1 [ %.548, %165 ], [ %.043, %.preheader96 ]
+  %.258 = phi i8 [ %.561, %165 ], [ %.063, %.preheader96 ]
+  %.247 = phi i1 [ %.550, %165 ], [ %.045, %.preheader96 ]
   %.2 = phi i1 [ %.5, %165 ], [ %.041, %.preheader96 ]
   %74 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %6)
           to label %75 unwind label %.loopexit
@@ -1207,7 +1207,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
           to label %98 unwind label %82
 
 98:                                               ; preds = %96, %95
-  %99 = trunc nuw i8 %.265 to i1
+  %99 = trunc nuw i8 %.258 to i1
   br i1 %99, label %104, label %100
 
 100:                                              ; preds = %98
@@ -1244,13 +1244,13 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %10
   br label %117
 
 115:                                              ; preds = %117
-  %116 = add nuw i64 %.055113, 1
+  %116 = add nuw i64 %.043113, 1
   %exitcond.not = icmp eq i64 %116, %113
   br i1 %exitcond.not, label %.critedge, label %117, !llvm.loop !141
 
 117:                                              ; preds = %.lr.ph, %115
-  %.055113 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
-  %118 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %114, i64 %.055113
+  %.043113 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
+  %118 = getelementptr inbounds nuw %"struct.CmdExtract::ExtractRef", ptr %114, i64 %.043113
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   %120 = call i32 @wcscmp(ptr noundef nonnull %54, ptr noundef %119) #25
   %121 = icmp eq i32 %120, 0
@@ -1341,7 +1341,7 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
   br label %173
 
 153:                                              ; preds = %107
-  br i1 %.245, label %154, label %162
+  br i1 %.247, label %154, label %162
 
 154:                                              ; preds = %153
   br i1 %67, label %158, label %155
@@ -1360,28 +1360,28 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
   br label %162
 
 162:                                              ; preds = %122, %_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit, %153, %158, %.critedge, %108, %89
-  %.649 = phi i1 [ %.245, %89 ], [ true, %122 ], [ true, %108 ], [ true, %_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit ], [ true, %.critedge ], [ false, %158 ], [ false, %153 ]
+  %.651 = phi i1 [ %.247, %89 ], [ true, %122 ], [ true, %108 ], [ true, %_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit ], [ true, %.critedge ], [ false, %158 ], [ false, %153 ]
   %.6 = phi i1 [ %.2, %89 ], [ true, %122 ], [ true, %108 ], [ true, %_ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit ], [ true, %.critedge ], [ %.2, %158 ], [ %.2, %153 ]
   %163 = load i8, ptr %57, align 1, !tbaa !146, !range !67, !noundef !68
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %.thread, label %165
 
 165:                                              ; preds = %77, %162
-  %.568 = phi i8 [ 0, %162 ], [ %.265, %77 ]
-  %.548 = phi i1 [ %.649, %162 ], [ %.245, %77 ]
+  %.561 = phi i8 [ 0, %162 ], [ %.258, %77 ]
+  %.550 = phi i1 [ %.651, %162 ], [ %.247, %77 ]
   %.5 = phi i1 [ %.6, %162 ], [ %.2, %77 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %6)
           to label %73 unwind label %82
 
 .thread:                                          ; preds = %84, %162, %75, %79
-  %.353 = phi i1 [ %81, %79 ], [ true, %162 ], [ false, %84 ], [ false, %75 ]
-  %.346 = phi i1 [ %.245, %79 ], [ %.649, %162 ], [ %.245, %84 ], [ %.245, %75 ]
+  %.367 = phi i1 [ %81, %79 ], [ true, %162 ], [ false, %84 ], [ false, %75 ]
+  %.348 = phi i1 [ %.247, %79 ], [ %.651, %162 ], [ %.247, %84 ], [ %.247, %75 ]
   %.3 = phi i1 [ %.2, %79 ], [ %.6, %162 ], [ %.2, %84 ], [ %.2, %75 ]
   %166 = invoke noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(8256) %6)
           to label %167 unwind label %.loopexit.split-lp
 
 167:                                              ; preds = %.thread
-  %or.cond12 = select i1 %2, i1 %.353, i1 false
+  %or.cond12 = select i1 %2, i1 %.367, i1 false
   br i1 %or.cond12, label %168, label %.loopexit97
 
 168:                                              ; preds = %167

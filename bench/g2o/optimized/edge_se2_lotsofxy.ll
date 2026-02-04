@@ -842,8 +842,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90: ; preds = %_ZN5Eig
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit63.thread: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge
-  %.sroa.0144.0164 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90 ]
-  %93 = getelementptr inbounds nuw double, ptr %.sroa.0144.0164, i64 %71
+  %.sroa.0144.1164 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90 ]
+  %93 = getelementptr inbounds nuw double, ptr %.sroa.0144.1164, i64 %71
   store <2 x double> %.sroa.0178.8.vec.insert, ptr %93, align 1, !tbaa !117
   %94 = getelementptr double, ptr %93, i64 %17
   store <2 x double> %.sroa.7.24.vec.insert, ptr %94, align 1, !tbaa !117
@@ -877,7 +877,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i73: ;
 
 .lr.ph.i.i.i.i.i.i.i.i.i82.preheader:             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i73
   %114 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i74, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr nonnull align 8 %.sroa.0144.0164, i64 %114, i1 false), !tbaa !81
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr nonnull align 8 %.sroa.0144.1164, i64 %114, i1 false), !tbaa !81
   br label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i75
 
 _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i75: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i82.preheader, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i73
@@ -887,7 +887,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i80.preheader:               ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i75
   %116 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i74, 3
   %scevgep = getelementptr i8, ptr %97, i64 %116
-  %scevgep166 = getelementptr i8, ptr %.sroa.0144.0164, i64 %116
+  %scevgep166 = getelementptr i8, ptr %.sroa.0144.1164, i64 %116
   %117 = add i64 %.0.i.i.i.i.i.i.i.i.i74, 2
   %smax = tail call i64 @llvm.smax.i64(i64 %112, i64 %117)
   %118 = xor i64 %.0.i.i.i.i.i.i.i.i.i74, -1
@@ -907,14 +907,14 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %125 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i74, 3
   %126 = add i64 %124, %125
   %scevgep167 = getelementptr i8, ptr %97, i64 %126
-  %scevgep168 = getelementptr i8, ptr %.sroa.0144.0164, i64 %126
+  %scevgep168 = getelementptr i8, ptr %.sroa.0144.1164, i64 %126
   %127 = sub i64 %109, %111
   %128 = shl nuw i64 %127, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep167, ptr align 8 %scevgep168, i64 %128, i1 false), !tbaa !81
   br label %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit85
 
 _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit85: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i77.preheader, %._crit_edge.i.i.i.i.i.i.i.i76
-  tail call void @free(ptr noundef nonnull %.sroa.0144.0164) #35
+  tail call void @free(ptr noundef nonnull %.sroa.0144.1164) #35
   %129 = add i32 %.038165, 1
   %130 = zext i32 %129 to i64
   %131 = load ptr, ptr %10, align 8, !tbaa !111

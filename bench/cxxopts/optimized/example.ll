@@ -51166,7 +51166,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %44 = load i8, ptr %43, align 8, !tbaa !1098, !range !219, !noundef !220
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %53
+  br i1 %45, label %46, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
 
 46:                                               ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -51176,12 +51176,12 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %.not.not.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.not.i.i.i, label %53, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
+  br i1 %.not.not.i.i.i, label %53, label %56
 
-53:                                               ; preds = %46, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit
+_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i: ; preds = %46, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit
   br label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
 
-_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i: ; preds = %53, %46
+_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i:; preds = %53, %46
   %.sroa.0.1.i.i.i = phi ptr [ null, %53 ], [ %49, %46 ]
   %.sroa.4.1.i.i.i = phi i64 [ 0, %53 ], [ %52, %46 ]
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -51202,8 +51202,8 @@ _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt
 64:                                               ; preds = %57, %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
   br label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i
 
-_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i: ; preds = %64, %57
-  %.sroa.0.1.i2.i.i = phi ptr [ null, %64 ], [ %60, %57 ]
+_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i:; preds = %64, %57
+  %spec.select.i.i.i = phi ptr [ null, %64 ], [ %60, %57 ]
   %.sroa.4.1.i3.i.i = phi i64 [ 0, %64 ], [ %63, %57 ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.1.i3.i.i, i64 %.sroa.4.1.i.i.i)
   %.not.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
@@ -51212,22 +51212,22 @@ _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.0.1.i.i.i, ptr %.sroa.0.1.i2.i.i, i64 %.sroa.speculated.i.i.i)
   %.not14.i.i.i = icmp ne i32 %bcmp.i, 0
-  %65 = sub i64 %.sroa.4.1.i.i.i, %.sroa.4.1.i3.i.i
-  %66 = icmp sgt i64 %65, 2147483647
+  %63 = sub i64 %.sroa.4.1.i.i.i, %.sroa.4.1.i3.i.i
+  %64 = icmp sgt i64 %63, 2147483647
   %or.cond.i = or i1 %66, %.not14.i.i.i
-  br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %67
+  br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
 
 select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i
   %.old.i = sub i64 %.sroa.4.1.i.i.i, %.sroa.4.1.i3.i.i
   %.old2.i = icmp sgt i64 %.old.i, 2147483647
-  br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %67
+  br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
 
-67:                                               ; preds = %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %68 = icmp eq i64 %.sroa.4.1.i.i.i, %.sroa.4.1.i3.i.i
+65:                                               ; preds = %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %66 = icmp eq i64 %.sroa.4.1.i.i.i, %.sroa.4.1.i3.i.i
   br label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit
 
-_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit: ; preds = %67, %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %11, %15, %21, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %select.unfold.i.i.i ], [ %68, %67 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit: ; preds = %65, %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %11, %15, %21, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %select.unfold.i.i.i ], [ %66, %67 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %.0
 }
 
@@ -52135,9 +52135,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt7__cxx1120regex_token_it
   %14 = load i8, ptr %13, align 8, !range !219
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %12, i1 %15, i1 false
-  br i1 %or.cond, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i, label %31
+  br i1 %or.cond, label %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i, label %31
 
-_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i: ; preds = %9
+_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i: ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -52156,9 +52156,9 @@ _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt
   %.not.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i.i, label %select.unfold.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
   %.not.not.i6.i.i = icmp eq ptr %25, %26
-  %.sroa.0.1.i2.i.i = select i1 %.not.not.i6.i.i, ptr null, ptr %26
+  %spec.select.i.i.i = select i1 %.not.not.i6.i.i, ptr null, ptr %26
   %.not.not.i.i.i = icmp eq ptr %19, %20
   %spec.select = select i1 %.not.not.i.i.i, ptr null, ptr %20
   %bcmp.i = tail call i32 @bcmp(ptr %spec.select, ptr %.sroa.0.1.i2.i.i, i64 %.sroa.speculated.i.i.i)
@@ -52167,7 +52167,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_
   %or.cond22 = and i1 %30, %.not14.i.i.i
   br i1 %or.cond22, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %.thread
 
-select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i
+select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
   %.old = icmp eq i64 %23, %29
   br i1 %.old, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %.thread
 
@@ -52177,8 +52177,8 @@ select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_
 31:                                               ; preds = %9
   %or.cond13 = or i1 %5, %12
   %32 = select i1 %or.cond13, i1 true, i1 %8
-  %or.cond29 = select i1 %32, i1 true, i1 %15
-  br i1 %or.cond29, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %33
+  %or.cond27 = select i1 %32, i1 true, i1 %15
+  br i1 %or.cond27, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %33
 
 33:                                               ; preds = %31
   %34 = tail call noundef zeroext i1 @_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) #32

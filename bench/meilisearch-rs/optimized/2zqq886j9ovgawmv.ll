@@ -35813,10 +35813,10 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h4b35b
 
 "_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i": ; preds = %215, %212
   store i64 0, ptr %1, align 8, !alias.scope !7308, !noalias !7215
-  %.sroa.4.0..sroa_idx78.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %206, ptr %.sroa.4.0..sroa_idx78.i, align 8, !alias.scope !7308, !noalias !7215
-  %.sroa.5.0..sroa_idx80.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx80.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7309, !noalias !7215
+  %.sroa.4.0..sroa_idx80.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %206, ptr %.sroa.4.0..sroa_idx80.i, align 8, !alias.scope !7308, !noalias !7215
+  %.sroa.5.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx82.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7309, !noalias !7215
   call void @llvm.experimental.noalias.scope.decl(metadata !7310)
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %220 = load i64, ptr %219, align 8, !alias.scope !7313, !noalias !7314, !noundef !16
@@ -35828,14 +35828,14 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h4b35b
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i"
-  %.sroa.3.0..sroa_idx76.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx78.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %223 = load ptr, ptr %222, align 8, !alias.scope !7313, !noalias !7314, !nonnull !16, !noundef !16
   %224 = load i64, ptr %223, align 8, !noalias !7316, !noundef !16
   store i64 1, ptr %1, align 8, !alias.scope !7313, !noalias !7314
-  store i64 %224, ptr %.sroa.3.0..sroa_idx76.i, align 8, !alias.scope !7313, !noalias !7314
+  store i64 %224, ptr %.sroa.3.0..sroa_idx78.i, align 8, !alias.scope !7313, !noalias !7314
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !7317
-  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx78.i, i64 noundef %224), !noalias !7324
+  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx80.i, i64 noundef %224), !noalias !7324
   %225 = load ptr, ptr %15, align 8, !noalias !7317, !noundef !16
   %226 = icmp eq ptr %225, null
   %227 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -35844,21 +35844,21 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h4b35b
   %230 = load ptr, ptr %229, align 8, !noalias !7223, !nonnull !16, !align !1118
   %231 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %232 = load i64, ptr %231, align 8, !noalias !7223
-  %.sroa.582.0.i = select i1 %226, i64 undef, i64 %228
+  %.sroa.584.0.i = select i1 %226, i64 undef, i64 %228
   %.sroa.6.0.i = select i1 %226, ptr undef, ptr %230
   %.sroa.7.0.i = select i1 %226, i64 undef, i64 %232
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !7317
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i": ; preds = %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i", %221
-  %.sroa.081.0.i = phi ptr [ null, %221 ], [ %225, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
-  %.sroa.582.1.i = phi i64 [ undef, %221 ], [ %.sroa.582.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.083.0.i = phi ptr [ null, %221 ], [ %225, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.584.1.i = phi i64 [ undef, %221 ], [ %.sroa.584.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.6.1.i = phi ptr [ undef, %221 ], [ %.sroa.6.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.7.1.i = phi i64 [ undef, %221 ], [ %.sroa.7.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.081.0.i, ptr %233, align 8, !alias.scope !7215, !noalias !7218
-  %.sroa.582.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.582.1.i, ptr %.sroa.582.0..sroa_idx.i, align 8, !alias.scope !7215, !noalias !7218
+  store ptr %.sroa.083.0.i, ptr %233, align 8, !alias.scope !7215, !noalias !7218
+  %.sroa.584.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.584.1.i, ptr %.sroa.584.0..sroa_idx.i, align 8, !alias.scope !7215, !noalias !7218
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.6.1.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !7215, !noalias !7218
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36912,10 +36912,10 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h0be31
 
 "_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i": ; preds = %215, %212
   store i64 0, ptr %1, align 8, !alias.scope !7470, !noalias !7378
-  %.sroa.4.0..sroa_idx78.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %206, ptr %.sroa.4.0..sroa_idx78.i, align 8, !alias.scope !7470, !noalias !7378
-  %.sroa.5.0..sroa_idx80.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx80.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7471, !noalias !7378
+  %.sroa.4.0..sroa_idx80.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %206, ptr %.sroa.4.0..sroa_idx80.i, align 8, !alias.scope !7470, !noalias !7378
+  %.sroa.5.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx82.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7471, !noalias !7378
   call void @llvm.experimental.noalias.scope.decl(metadata !7472)
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %220 = load i64, ptr %219, align 8, !alias.scope !7475, !noalias !7476, !noundef !16
@@ -36927,14 +36927,14 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h0be31
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i"
-  %.sroa.3.0..sroa_idx76.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx78.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %223 = load ptr, ptr %222, align 8, !alias.scope !7475, !noalias !7476, !nonnull !16, !noundef !16
   %224 = load i64, ptr %223, align 8, !noalias !7478, !noundef !16
   store i64 1, ptr %1, align 8, !alias.scope !7475, !noalias !7476
-  store i64 %224, ptr %.sroa.3.0..sroa_idx76.i, align 8, !alias.scope !7475, !noalias !7476
+  store i64 %224, ptr %.sroa.3.0..sroa_idx78.i, align 8, !alias.scope !7475, !noalias !7476
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !7479
-  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx78.i, i64 noundef %224), !noalias !7486
+  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx80.i, i64 noundef %224), !noalias !7486
   %225 = load ptr, ptr %15, align 8, !noalias !7479, !noundef !16
   %226 = icmp eq ptr %225, null
   %227 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -36943,21 +36943,21 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h0be31
   %230 = load ptr, ptr %229, align 8, !noalias !7386, !nonnull !16, !align !1118
   %231 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %232 = load i64, ptr %231, align 8, !noalias !7386
-  %.sroa.582.0.i = select i1 %226, i64 undef, i64 %228
+  %.sroa.584.0.i = select i1 %226, i64 undef, i64 %228
   %.sroa.6.0.i = select i1 %226, ptr undef, ptr %230
   %.sroa.7.0.i = select i1 %226, i64 undef, i64 %232
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !7479
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i": ; preds = %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i", %221
-  %.sroa.081.0.i = phi ptr [ null, %221 ], [ %225, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
-  %.sroa.582.1.i = phi i64 [ undef, %221 ], [ %.sroa.582.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.083.0.i = phi ptr [ null, %221 ], [ %225, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.584.1.i = phi i64 [ undef, %221 ], [ %.sroa.584.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.6.1.i = phi ptr [ undef, %221 ], [ %.sroa.6.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.7.1.i = phi i64 [ undef, %221 ], [ %.sroa.7.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.081.0.i, ptr %233, align 8, !alias.scope !7378, !noalias !7381
-  %.sroa.582.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.582.1.i, ptr %.sroa.582.0..sroa_idx.i, align 8, !alias.scope !7378, !noalias !7381
+  store ptr %.sroa.083.0.i, ptr %233, align 8, !alias.scope !7378, !noalias !7381
+  %.sroa.584.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.584.1.i, ptr %.sroa.584.0..sroa_idx.i, align 8, !alias.scope !7378, !noalias !7381
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.6.1.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !7378, !noalias !7381
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37973,10 +37973,10 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h91ec4
 
 "_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i": ; preds = %196, %193
   store i64 0, ptr %1, align 8, !alias.scope !7641, !noalias !7540
-  %.sroa.4.0..sroa_idx77.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %191, ptr %.sroa.4.0..sroa_idx77.i, align 8, !alias.scope !7641, !noalias !7540
-  %.sroa.5.0..sroa_idx79.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx79.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7642, !noalias !7540
+  %.sroa.4.0..sroa_idx79.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %191, ptr %.sroa.4.0..sroa_idx79.i, align 8, !alias.scope !7641, !noalias !7540
+  %.sroa.5.0..sroa_idx81.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx81.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i, i64 56, i1 false), !alias.scope !7642, !noalias !7540
   call void @llvm.experimental.noalias.scope.decl(metadata !7643)
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %201 = load i64, ptr %200, align 8, !alias.scope !7646, !noalias !7647, !noundef !16
@@ -37988,14 +37988,14 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h91ec4
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit.i"
-  %.sroa.3.0..sroa_idx75.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx77.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %204 = load ptr, ptr %203, align 8, !alias.scope !7646, !noalias !7647, !nonnull !16, !noundef !16
   %205 = load i64, ptr %204, align 8, !noalias !7649, !noundef !16
   store i64 1, ptr %1, align 8, !alias.scope !7646, !noalias !7647
-  store i64 %205, ptr %.sroa.3.0..sroa_idx75.i, align 8, !alias.scope !7646, !noalias !7647
+  store i64 %205, ptr %.sroa.3.0..sroa_idx77.i, align 8, !alias.scope !7646, !noalias !7647
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !7650
-  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx77.i, i64 noundef %205), !noalias !7657
+  call void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.4.0..sroa_idx79.i, i64 noundef %205), !noalias !7657
   %206 = load ptr, ptr %15, align 8, !noalias !7650, !noundef !16
   %207 = icmp eq ptr %206, null
   %208 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -38004,21 +38004,21 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h91ec4
   %211 = load ptr, ptr %210, align 8, !noalias !7548, !nonnull !16, !align !1118
   %212 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %213 = load i64, ptr %212, align 8, !noalias !7548
-  %.sroa.581.0.i = select i1 %207, i64 undef, i64 %209
+  %.sroa.583.0.i = select i1 %207, i64 undef, i64 %209
   %.sroa.6.0.i = select i1 %207, ptr undef, ptr %211
   %.sroa.7.0.i = select i1 %207, i64 undef, i64 %213
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !7650
   br label %"_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i"
 
 "_ZN6grenad5block20BlockCursor$LT$B$GT$13move_on_first17h9dae2d698d8f22e5E.exit.i": ; preds = %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i", %202
-  %.sroa.080.0.i = phi ptr [ null, %202 ], [ %206, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
-  %.sroa.581.1.i = phi i64 [ undef, %202 ], [ %.sroa.581.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.082.0.i = phi ptr [ null, %202 ], [ %206, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
+  %.sroa.583.1.i = phi i64 [ undef, %202 ], [ %.sroa.583.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.6.1.i = phi ptr [ undef, %202 ], [ %.sroa.6.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %.sroa.7.1.i = phi i64 [ undef, %202 ], [ %.sroa.7.0.i, %"_ZN6grenad5block20BlockCursor$LT$B$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17hfa08444ef99c4fc6E.llvm.331090089658796353.exit.i.i70.i" ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.080.0.i, ptr %214, align 8, !alias.scope !7540, !noalias !7543
-  %.sroa.581.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.581.1.i, ptr %.sroa.581.0..sroa_idx.i, align 8, !alias.scope !7540, !noalias !7543
+  store ptr %.sroa.082.0.i, ptr %214, align 8, !alias.scope !7540, !noalias !7543
+  %.sroa.583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.583.1.i, ptr %.sroa.583.0..sroa_idx.i, align 8, !alias.scope !7540, !noalias !7543
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.6.1.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !7540, !noalias !7543
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38571,7 +38571,7 @@ define hidden void @"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$36mo
   %.sroa.533.i = alloca [56 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %16 = alloca [8 x i8], align 8
-  %.sroa.577 = alloca [56 x i8], align 8
+  %.sroa.579 = alloca [56 x i8], align 8
   %17 = alloca [64 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -39013,7 +39013,7 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h23e41
   br label %195
 
 181:                                              ; preds = %170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.577, ptr noundef nonnull align 8 dereferenceable(56) %176, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.579, ptr noundef nonnull align 8 dereferenceable(56) %176, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !7765)
   %182 = load i64, ptr %1, align 8, !range !322, !alias.scope !7768, !noalias !7765, !noundef !16
@@ -39030,16 +39030,16 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h23e41
           cleanup
   store i64 0, ptr %1, align 8, !alias.scope !7772
   store ptr %175, ptr %185, align 8, !alias.scope !7772
-  %.sroa.577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.577.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.577, i64 56, i1 false), !alias.scope !7772
+  %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.579.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.579, i64 56, i1 false), !alias.scope !7772
   br label %common.resume
 
 "_ZN4core6option15Option$LT$T$GT$6insert17h52e77b3176a1367fE.exit": ; preds = %181, %184
   store i64 0, ptr %1, align 8, !alias.scope !7772
-  %.sroa.4.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %175, ptr %.sroa.4.0..sroa_idx75, align 8, !alias.scope !7772
-  %.sroa.577.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.577.0..sroa_idx78, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.577, i64 56, i1 false), !alias.scope !7772
+  %.sroa.4.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %175, ptr %.sroa.4.0..sroa_idx77, align 8, !alias.scope !7772
+  %.sroa.579.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.579.0..sroa_idx80, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.579, i64 56, i1 false), !alias.scope !7772
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @"_ZN6grenad5block20BlockCursor$LT$B$GT$36move_on_key_greater_than_or_equal_to17h151ca372188a34ceE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %188, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   store i64 0, ptr %0, align 8

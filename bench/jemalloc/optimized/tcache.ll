@@ -711,7 +711,7 @@ malloc_mutex_lock.exit.thread84:                  ; preds = %malloc_mutex_lock.e
   br label %._crit_edge107
 
 ._crit_edge107:                                   ; preds = %._crit_edge107.loopexit, %154
-  %.sroa.7.0.lcssa = phi i64 [ 0, %154 ], [ %162, %._crit_edge107.loopexit ]
+  %.sroa.7.2.lcssa = phi i64 [ 0, %154 ], [ %162, %._crit_edge107.loopexit ]
   %.sroa.057.2.lcssa = phi ptr [ %.sroa.057.0125, %154 ], [ %.sroa.057.5, %._crit_edge107.loopexit ]
   %.1.lcssa = phi i32 [ %.0126, %154 ], [ %.4, %._crit_edge107.loopexit ]
   br i1 %70, label %213, label %arena_bin_flush_batch_impl.exit
@@ -844,11 +844,11 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %198, %194, %190, %2
   br i1 %exitcond156.not, label %.lr.ph120, label %222, !llvm.loop !91
 
 ._crit_edge121.loopexit:                          ; preds = %arena_dalloc_bin_locked_step.exit.i
-  %226 = add i64 %215, %.sroa.7.0.lcssa
+  %226 = add i64 %215, %.sroa.7.2.lcssa
   br label %._crit_edge121
 
 ._crit_edge121:                                   ; preds = %._crit_edge114.thread, %._crit_edge121.loopexit
-  %.sroa.7.2.lcssa = phi i64 [ %.sroa.7.0.lcssa, %._crit_edge114.thread ], [ %226, %._crit_edge121.loopexit ]
+  %.sroa.7.5.lcssa = phi i64 [ %.sroa.7.2.lcssa, %._crit_edge114.thread ], [ %226, %._crit_edge121.loopexit ]
   %.sroa.057.6.lcssa = phi ptr [ %.sroa.057.2.lcssa, %._crit_edge114.thread ], [ %.sroa.057.7, %._crit_edge121.loopexit ]
   %.5.lcssa = phi i32 [ %.1.lcssa, %._crit_edge114.thread ], [ %.6, %._crit_edge121.loopexit ]
   %227 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 192
@@ -958,16 +958,16 @@ arena_dalloc_bin_locked_step.exit.i:              ; preds = %271, %267, %285, %2
   br i1 %exitcond157.not, label %._crit_edge121.loopexit, label %236, !llvm.loop !95
 
 arena_bin_flush_batch_impl.exit:                  ; preds = %._crit_edge121, %213, %._crit_edge107
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0.lcssa, %._crit_edge107 ], [ %.sroa.7.2.lcssa, %._crit_edge121 ], [ %.sroa.7.0.lcssa, %213 ]
+  %.sroa.7.3 = phi i64 [ %.sroa.7.2.lcssa, %._crit_edge107 ], [ %.sroa.7.5.lcssa, %._crit_edge121 ], [ %.sroa.7.2.lcssa, %213 ]
   %.sroa.057.3 = phi ptr [ %.sroa.057.2.lcssa, %._crit_edge107 ], [ %.sroa.057.6.lcssa, %._crit_edge121 ], [ %.sroa.057.2.lcssa, %213 ]
   %.2 = phi i32 [ %.1.lcssa, %._crit_edge107 ], [ %.5.lcssa, %._crit_edge121 ], [ %.1.lcssa, %213 ]
   %287 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 120
   %288 = load i64, ptr %287, align 8, !tbaa !96
-  %289 = add i64 %288, %.sroa.7.1
+  %289 = add i64 %288, %.sroa.7.3
   store i64 %289, ptr %287, align 8, !tbaa !96
   %290 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 136
   %291 = load i64, ptr %290, align 8, !tbaa !97
-  %292 = sub i64 %291, %.sroa.7.1
+  %292 = sub i64 %291, %.sroa.7.3
   store i64 %292, ptr %290, align 8, !tbaa !97
   %293 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 64
   store atomic i8 0, ptr %293 monotonic, align 8
@@ -1836,7 +1836,7 @@ malloc_mutex_lock.exit.thread121.us:              ; preds = %malloc_mutex_lock.e
   br label %._crit_edge158.us
 
 ._crit_edge158.us:                                ; preds = %._crit_edge158.us.loopexit, %185
-  %.sroa.7.0.lcssa.us = phi i64 [ 0, %185 ], [ %191, %._crit_edge158.us.loopexit ]
+  %.sroa.7.3.lcssa.us = phi i64 [ 0, %185 ], [ %191, %._crit_edge158.us.loopexit ]
   %.sroa.094.2.lcssa.us = phi ptr [ %.sroa.094.0176.us, %185 ], [ %.sroa.094.5.us, %._crit_edge158.us.loopexit ]
   %.1.lcssa.us = phi i32 [ %.0177.us, %185 ], [ %.4.us, %._crit_edge158.us.loopexit ]
   br i1 %123, label %192, label %arena_bin_flush_batch_impl.exit.us
@@ -1858,11 +1858,11 @@ malloc_mutex_lock.exit.thread121.us:              ; preds = %malloc_mutex_lock.e
   br label %._crit_edge172.us
 
 ._crit_edge172.us.loopexit:                       ; preds = %arena_dalloc_bin_locked_step.exit.i.us
-  %198 = add i64 %194, %.sroa.7.0.lcssa.us
+  %198 = add i64 %194, %.sroa.7.3.lcssa.us
   br label %._crit_edge172.us
 
 ._crit_edge172.us:                                ; preds = %._crit_edge165.us.thread, %._crit_edge172.us.loopexit
-  %.sroa.7.2.lcssa.us = phi i64 [ %.sroa.7.0.lcssa.us, %._crit_edge165.us.thread ], [ %198, %._crit_edge172.us.loopexit ]
+  %.sroa.7.6.lcssa.us = phi i64 [ %.sroa.7.3.lcssa.us, %._crit_edge165.us.thread ], [ %198, %._crit_edge172.us.loopexit ]
   %.sroa.094.6.lcssa.us = phi ptr [ %.sroa.094.2.lcssa.us, %._crit_edge165.us.thread ], [ %.sroa.094.7.us, %._crit_edge172.us.loopexit ]
   %.5.lcssa.us = phi i32 [ %.1.lcssa.us, %._crit_edge165.us.thread ], [ %.6.us, %._crit_edge172.us.loopexit ]
   %199 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 192
@@ -1981,16 +1981,16 @@ arena_dalloc_bin_locked_step.exit.i.us:           ; preds = %254, %244, %240, %2
   br i1 %exitcond218.not, label %.lr.ph171.us, label %259, !llvm.loop !91
 
 arena_bin_flush_batch_impl.exit.us:               ; preds = %._crit_edge172.us, %192, %._crit_edge158.us
-  %.sroa.7.1.us = phi i64 [ %.sroa.7.0.lcssa.us, %._crit_edge158.us ], [ %.sroa.7.2.lcssa.us, %._crit_edge172.us ], [ %.sroa.7.0.lcssa.us, %192 ]
+  %.sroa.7.4.us = phi i64 [ %.sroa.7.3.lcssa.us, %._crit_edge158.us ], [ %.sroa.7.6.lcssa.us, %._crit_edge172.us ], [ %.sroa.7.3.lcssa.us, %192 ]
   %.sroa.094.3.us = phi ptr [ %.sroa.094.2.lcssa.us, %._crit_edge158.us ], [ %.sroa.094.6.lcssa.us, %._crit_edge172.us ], [ %.sroa.094.2.lcssa.us, %192 ]
   %.2.us = phi i32 [ %.1.lcssa.us, %._crit_edge158.us ], [ %.5.lcssa.us, %._crit_edge172.us ], [ %.1.lcssa.us, %192 ]
   %263 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 120
   %264 = load i64, ptr %263, align 8, !tbaa !96
-  %265 = add i64 %264, %.sroa.7.1.us
+  %265 = add i64 %264, %.sroa.7.4.us
   store i64 %265, ptr %263, align 8, !tbaa !96
   %266 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 136
   %267 = load i64, ptr %266, align 8, !tbaa !97
-  %268 = sub i64 %267, %.sroa.7.1.us
+  %268 = sub i64 %267, %.sroa.7.4.us
   store i64 %268, ptr %266, align 8, !tbaa !97
   %269 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 64
   store atomic i8 0, ptr %269 monotonic, align 8

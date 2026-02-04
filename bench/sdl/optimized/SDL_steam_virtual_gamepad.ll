@@ -140,22 +140,22 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
   store i32 0, ptr @SDL_steam_virtual_gamepad_info_count, align 4
   %38 = load i64, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 %38
-  %.not108 = icmp eq i64 %38, 0
-  br i1 %.not108, label %AddVirtualGamepadInfo.exit75, label %.preheader
+  %.not118 = icmp eq i64 %38, 0
+  br i1 %.not118, label %AddVirtualGamepadInfo.exit75, label %.preheader
 
 .preheader:                                       ; preds = %SDL_FreeSteamVirtualGamepadInfo.exit, %108
-  %.0101 = phi i32 [ %.1, %108 ], [ -1, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.047100 = phi ptr [ %.2.lcssa, %108 ], [ %21, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.sroa.13.099 = phi i32 [ %.sroa.13.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.sroa.12.098 = phi i16 [ %.sroa.12.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.sroa.11.097 = phi i16 [ %.sroa.11.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.sroa.8.096 = phi ptr [ %.sroa.8.2, %108 ], [ null, %SDL_FreeSteamVirtualGamepadInfo.exit ]
-  %.sroa.0.095 = phi i64 [ %.sroa.0.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.0111 = phi i32 [ %.1, %108 ], [ -1, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.047110 = phi ptr [ %.2.lcssa, %108 ], [ %21, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.sroa.13.0109 = phi i32 [ %.sroa.13.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.sroa.12.0108 = phi i16 [ %.sroa.12.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.sroa.11.0107 = phi i16 [ %.sroa.11.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.sroa.8.0106 = phi ptr [ %.sroa.8.2, %108 ], [ null, %SDL_FreeSteamVirtualGamepadInfo.exit ]
+  %.sroa.0.0105 = phi i64 [ %.sroa.0.2, %108 ], [ 0, %SDL_FreeSteamVirtualGamepadInfo.exit ]
   br label %40
 
 40:                                               ; preds = %.preheader, %.critedge2
-  %.14889 = phi ptr [ %.047100, %.preheader ], [ %42, %.critedge2 ]
-  %41 = load i8, ptr %.14889, align 1
+  %.14899 = phi ptr [ %.047110, %.preheader ], [ %42, %.critedge2 ]
+  %41 = load i8, ptr %.14899, align 1
   switch i8 %41, label %.critedge [
     i8 0, label %.critedge2
     i8 13, label %.critedge2
@@ -163,48 +163,48 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
   ]
 
 .critedge2:                                       ; preds = %40, %40, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.14889, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.14899, i64 1
   %43 = icmp ult ptr %42, %39
   br i1 %43, label %40, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %40, %.critedge2
-  %.148.lcssa = phi ptr [ %.14889, %40 ], [ %42, %.critedge2 ]
+  %.148.lcssa = phi ptr [ %.14899, %40 ], [ %42, %.critedge2 ]
   %44 = icmp ult ptr %.148.lcssa, %39
   br i1 %44, label %.lr.ph, label %.critedge4
 
 .lr.ph:                                           ; preds = %.critedge, %46
-  %.290 = phi ptr [ %47, %46 ], [ %.148.lcssa, %.critedge ]
-  %45 = load i8, ptr %.290, align 1
+  %.2100 = phi ptr [ %47, %46 ], [ %.148.lcssa, %.critedge ]
+  %45 = load i8, ptr %.2100, align 1
   switch i8 %45, label %46 [
     i8 13, label %.critedge4
     i8 10, label %.critedge4
   ]
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.290, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.2100, i64 1
   %48 = icmp ult ptr %47, %39
   br i1 %48, label %.lr.ph, label %.critedge4, !llvm.loop !6
 
 .critedge4:                                       ; preds = %46, %.lr.ph, %.lr.ph, %.critedge
-  %.2.lcssa = phi ptr [ %.148.lcssa, %.critedge ], [ %.290, %.lr.ph ], [ %.290, %.lr.ph ], [ %47, %46 ]
+  %.2.lcssa = phi ptr [ %.148.lcssa, %.critedge ], [ %.2100, %.lr.ph ], [ %.2100, %.lr.ph ], [ %47, %46 ]
   store i8 0, ptr %.2.lcssa, align 1
   %49 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %.148.lcssa, ptr noundef nonnull @.str.1, ptr noundef nonnull %3) #6
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %51, label %78
 
 51:                                               ; preds = %.critedge4
-  %52 = icmp sgt i32 %.0101, -1
+  %52 = icmp sgt i32 %.0111, -1
   br i1 %52, label %53, label %AddVirtualGamepadInfo.exit
 
 53:                                               ; preds = %51
   call void @SDL_AssertJoysticksLocked() #6
   %54 = load i32, ptr @SDL_steam_virtual_gamepad_info_count, align 4
-  %.not.i63 = icmp slt i32 %.0101, %54
+  %.not.i63 = icmp slt i32 %.0111, %54
   %.pre.i64 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
   br i1 %.not.i63, label %67, label %55
 
 55:                                               ; preds = %53
-  %56 = add nuw i32 %.0101, 1
+  %56 = add nuw i32 %.0111, 1
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 3
   %59 = call ptr @SDL_realloc_REAL(ptr noundef %.pre.i64, i64 noundef %58) #7
@@ -213,14 +213,14 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
 
 .preheader.i:                                     ; preds = %55
   %SDL_steam_virtual_gamepad_info_count.promoted.i = load i32, ptr @SDL_steam_virtual_gamepad_info_count, align 4
-  %.not1821.i = icmp sgt i32 %SDL_steam_virtual_gamepad_info_count.promoted.i, %.0101
+  %.not1821.i = icmp sgt i32 %SDL_steam_virtual_gamepad_info_count.promoted.i, %.0111
   br i1 %.not1821.i, label %66, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %60 = sext i32 %SDL_steam_virtual_gamepad_info_count.promoted.i to i64
   %61 = shl nsw i64 %60, 3
   %scevgep.i = getelementptr i8, ptr %59, i64 %61
-  %62 = sub i32 %.0101, %SDL_steam_virtual_gamepad_info_count.promoted.i
+  %62 = sub i32 %.0111, %SDL_steam_virtual_gamepad_info_count.promoted.i
   %63 = zext i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
   %65 = add nuw nsw i64 %64, 8
@@ -234,7 +234,7 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
 
 67:                                               ; preds = %66, %53
   %68 = phi ptr [ %59, %66 ], [ %.pre.i64, %53 ]
-  %69 = zext nneg i32 %.0101 to i64
+  %69 = zext nneg i32 %.0111 to i64
   %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %.not19.i = icmp eq ptr %71, null
@@ -246,26 +246,26 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
   br i1 %.not20.i, label %AddVirtualGamepadInfo.exit, label %74
 
 74:                                               ; preds = %72
-  store i64 %.sroa.0.095, ptr %73, align 8
+  store i64 %.sroa.0.0105, ptr %73, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %.sroa.8.096, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %.sroa.8.0106, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i16 %.sroa.11.097, ptr %.sroa.11.0..sroa_idx, align 8
+  store i16 %.sroa.11.0107, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 18
-  store i16 %.sroa.12.098, ptr %.sroa.12.0..sroa_idx, align 2
+  store i16 %.sroa.12.0108, ptr %.sroa.12.0..sroa_idx, align 2
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 20
-  store i32 %.sroa.13.099, ptr %.sroa.13.0..sroa_idx, align 4
+  store i32 %.sroa.13.0109, ptr %.sroa.13.0..sroa_idx, align 4
   %75 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %69
   store ptr %73, ptr %76, align 8
   br label %AddVirtualGamepadInfo.exit
 
 AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, %51
-  %.sroa.0.1 = phi i64 [ %.sroa.0.095, %51 ], [ %.sroa.0.095, %72 ], [ 0, %74 ], [ %.sroa.0.095, %67 ], [ %.sroa.0.095, %55 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.096, %51 ], [ %.sroa.8.096, %72 ], [ null, %74 ], [ %.sroa.8.096, %67 ], [ %.sroa.8.096, %55 ]
-  %.sroa.11.1 = phi i16 [ %.sroa.11.097, %51 ], [ %.sroa.11.097, %72 ], [ 0, %74 ], [ %.sroa.11.097, %67 ], [ %.sroa.11.097, %55 ]
-  %.sroa.12.1 = phi i16 [ %.sroa.12.098, %51 ], [ %.sroa.12.098, %72 ], [ 0, %74 ], [ %.sroa.12.098, %67 ], [ %.sroa.12.098, %55 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.099, %51 ], [ %.sroa.13.099, %72 ], [ 0, %74 ], [ %.sroa.13.099, %67 ], [ %.sroa.13.099, %55 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0105, %51 ], [ %.sroa.0.0105, %72 ], [ 0, %74 ], [ %.sroa.0.0105, %67 ], [ %.sroa.0.0105, %55 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0106, %51 ], [ %.sroa.8.0106, %72 ], [ null, %74 ], [ %.sroa.8.0106, %67 ], [ %.sroa.8.0106, %55 ]
+  %.sroa.11.1 = phi i16 [ %.sroa.11.0107, %51 ], [ %.sroa.11.0107, %72 ], [ 0, %74 ], [ %.sroa.11.0107, %67 ], [ %.sroa.11.0107, %55 ]
+  %.sroa.12.1 = phi i16 [ %.sroa.12.0108, %51 ], [ %.sroa.12.0108, %72 ], [ 0, %74 ], [ %.sroa.12.0108, %67 ], [ %.sroa.12.0108, %55 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0109, %51 ], [ %.sroa.13.0109, %72 ], [ 0, %74 ], [ %.sroa.13.0109, %67 ], [ %.sroa.13.0109, %55 ]
   %77 = load i32, ptr %3, align 4
   br label %108
 
@@ -282,7 +282,7 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %80
-  call void @SDL_free_REAL(ptr noundef %.sroa.8.096) #6
+  call void @SDL_free_REAL(ptr noundef %.sroa.8.0106) #6
   %85 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %81) #6
   br label %108
 
@@ -325,12 +325,12 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
   br label %108
 
 108:                                              ; preds = %78, %89, %101, %106, %103, %95, %84, %AddVirtualGamepadInfo.exit
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.0.095, %78 ], [ %.sroa.0.095, %84 ], [ %.sroa.0.095, %89 ], [ %.sroa.0.095, %95 ], [ %.sroa.0.095, %101 ], [ %107, %106 ], [ %.sroa.0.095, %103 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.8.096, %78 ], [ %85, %84 ], [ %.sroa.8.096, %89 ], [ %.sroa.8.096, %95 ], [ %.sroa.8.096, %101 ], [ %.sroa.8.096, %106 ], [ %.sroa.8.096, %103 ]
-  %.sroa.11.2 = phi i16 [ %.sroa.11.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.11.097, %78 ], [ %.sroa.11.097, %84 ], [ %91, %89 ], [ %.sroa.11.097, %95 ], [ %.sroa.11.097, %101 ], [ %.sroa.11.097, %106 ], [ %.sroa.11.097, %103 ]
-  %.sroa.12.2 = phi i16 [ %.sroa.12.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.12.098, %78 ], [ %.sroa.12.098, %84 ], [ %.sroa.12.098, %89 ], [ %97, %95 ], [ %.sroa.12.098, %101 ], [ %.sroa.12.098, %106 ], [ %.sroa.12.098, %103 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.13.099, %78 ], [ %.sroa.13.099, %84 ], [ %.sroa.13.099, %89 ], [ %.sroa.13.099, %95 ], [ %102, %101 ], [ %.sroa.13.099, %106 ], [ %.sroa.13.099, %103 ]
-  %.1 = phi i32 [ %77, %AddVirtualGamepadInfo.exit ], [ %.0101, %78 ], [ %.0101, %84 ], [ %.0101, %89 ], [ %.0101, %95 ], [ %.0101, %101 ], [ %.0101, %106 ], [ %.0101, %103 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.0.0105, %78 ], [ %.sroa.0.0105, %84 ], [ %.sroa.0.0105, %89 ], [ %.sroa.0.0105, %95 ], [ %.sroa.0.0105, %101 ], [ %107, %106 ], [ %.sroa.0.0105, %103 ]
+  %.sroa.8.2 = phi ptr [ %.sroa.8.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.8.0106, %78 ], [ %85, %84 ], [ %.sroa.8.0106, %89 ], [ %.sroa.8.0106, %95 ], [ %.sroa.8.0106, %101 ], [ %.sroa.8.0106, %106 ], [ %.sroa.8.0106, %103 ]
+  %.sroa.11.2 = phi i16 [ %.sroa.11.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.11.0107, %78 ], [ %.sroa.11.0107, %84 ], [ %91, %89 ], [ %.sroa.11.0107, %95 ], [ %.sroa.11.0107, %101 ], [ %.sroa.11.0107, %106 ], [ %.sroa.11.0107, %103 ]
+  %.sroa.12.2 = phi i16 [ %.sroa.12.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.12.0108, %78 ], [ %.sroa.12.0108, %84 ], [ %.sroa.12.0108, %89 ], [ %97, %95 ], [ %.sroa.12.0108, %101 ], [ %.sroa.12.0108, %106 ], [ %.sroa.12.0108, %103 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.13.0109, %78 ], [ %.sroa.13.0109, %84 ], [ %.sroa.13.0109, %89 ], [ %.sroa.13.0109, %95 ], [ %102, %101 ], [ %.sroa.13.0109, %106 ], [ %.sroa.13.0109, %103 ]
+  %.1 = phi i32 [ %77, %AddVirtualGamepadInfo.exit ], [ %.0111, %78 ], [ %.0111, %84 ], [ %.0111, %89 ], [ %.0111, %95 ], [ %.0111, %101 ], [ %.0111, %106 ], [ %.0111, %103 ]
   %109 = icmp ult ptr %.2.lcssa, %39
   br i1 %109, label %.preheader, label %._crit_edge, !llvm.loop !7
 
@@ -395,8 +395,8 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
   store i16 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx80, align 8
   %.sroa.12.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %131, i64 18
   store i16 %.sroa.12.2, ptr %.sroa.12.0..sroa_idx82, align 2
-  %.sroa.13.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %131, i64 20
-  store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx84, align 4
+  %.sroa.13.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %131, i64 20
+  store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx85, align 4
   %133 = load ptr, ptr @SDL_steam_virtual_gamepad_info, align 8
   %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %127
   store ptr %131, ptr %134, align 8
