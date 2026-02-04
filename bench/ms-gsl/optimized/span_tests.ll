@@ -46078,18 +46078,18 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS6_EEC2E
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit, label %32, !llvm.loop !299
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit: ; preds = %32
-  %.pre24 = load ptr, ptr %23, align 8
-  %.pre25 = load ptr, ptr %0, align 8
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre27 = ptrtoint ptr %.pre25 to i64
-  %.pre29 = sub i64 %.pre26, %.pre27
-  %37 = sdiv exact i64 %.pre29, -56
+  %.pre21 = load ptr, ptr %23, align 8
+  %.pre22 = load ptr, ptr %0, align 8
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre24 = ptrtoint ptr %.pre22 to i64
+  %.pre26 = sub i64 %.pre23, %.pre24
+  %37 = sdiv exact i64 %.pre26, -56
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit, %29
-  %.pre-phi30 = phi i64 [ %37, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit ], [ 0, %29 ]
-  %38 = phi ptr [ %.pre24, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %39 = add i64 %.pre-phi30, %1
+  %.pre-phi27 = phi i64 [ %37, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit ], [ 0, %29 ]
+  %38 = phi ptr [ %.pre21, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESt6vectorIS8_SaIS8_EEEES8_EvT_SE_RKT0_.exit.loopexit ], [ %24, %29 ]
+  %39 = add i64 %.pre-phi27, %1
   %.not7.i.i.i.i = icmp eq i64 %39, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPNSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEEmS6_S6_ET_S8_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 
@@ -48950,13 +48950,13 @@ _ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   store i8 1, ptr %26, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
+  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8
   br label %27
 
 27:                                               ; preds = %25, %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit
   %28 = phi i1 [ true, %25 ], [ %22, %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
-  %29 = phi ptr [ %.pre39, %25 ], [ %12, %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
+  %29 = phi ptr [ %.pre36, %25 ], [ %12, %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
   %30 = phi ptr [ %.pre, %25 ], [ %8, %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -49042,8 +49042,8 @@ _ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   unreachable
 
 _ZSt8distanceIN3gsl7details13span_iteratorIcEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit: ; preds = %74
-  %.sroa.236.0.copyload = load ptr, ptr %35, align 8
-  %79 = icmp eq ptr %.sroa.236.0.copyload, null
+  %.sroa.233.0.copyload = load ptr, ptr %35, align 8
+  %79 = icmp eq ptr %.sroa.233.0.copyload, null
   br i1 %79, label %_ZSt8distanceIN3gsl7details13span_iteratorIcEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit14, label %80, !prof !19
 
 80:                                               ; preds = %_ZSt8distanceIN3gsl7details13span_iteratorIcEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit

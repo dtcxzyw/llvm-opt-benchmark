@@ -3086,11 +3086,11 @@ define void @_ZNK5arrow9ArrayData5SliceEll(ptr dead_on_unwind noalias writable s
   call void @_ZN5arrow4util8ArrowLogD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i64, ptr %7, align 8, !tbaa !94
-  %.pre22 = load i64, ptr %5, align 8, !tbaa !82
+  %.pre20 = load i64, ptr %5, align 8, !tbaa !82
   br label %.critedge10
 
 .critedge10:                                      ; preds = %4, %.critedge
-  %21 = phi i64 [ %2, %4 ], [ %.pre22, %.critedge ]
+  %21 = phi i64 [ %2, %4 ], [ %.pre20, %.critedge ]
   %22 = phi i64 [ %8, %4 ], [ %.pre, %.critedge ]
   %23 = sub nsw i64 %22, %21
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %3, i64 %23)

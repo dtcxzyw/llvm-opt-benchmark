@@ -2329,8 +2329,8 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %6 = load i16, ptr %5, align 2
   %7 = lshr i16 %6, 4
   %8 = and i16 %7, 63
-  %.not100 = icmp eq i16 %8, 0
-  br i1 %.not100, label %.loopexit, label %.lr.ph
+  %.not99 = icmp eq i16 %8, 0
+  br i1 %.not99, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2429,8 +2429,8 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.08.0.copyload = load i24, ptr %55, align 8
-  %.sroa.08.0.insert.ext34 = zext i24 %.sroa.08.0.copyload to i64
-  %56 = inttoptr i64 %.sroa.08.0.insert.ext34 to ptr
+  %.sroa.08.0.insert.ext33 = zext i24 %.sroa.08.0.copyload to i64
+  %56 = inttoptr i64 %.sroa.08.0.insert.ext33 to ptr
   br label %86
 
 57:                                               ; preds = %52
@@ -2439,9 +2439,9 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   br i1 %58, label %60, label %62
 
 60:                                               ; preds = %57
-  %.sroa.08.0.copyload37 = load i24, ptr %59, align 8
-  %.sroa.08.0.insert.ext39 = zext i24 %.sroa.08.0.copyload37 to i64
-  %61 = inttoptr i64 %.sroa.08.0.insert.ext39 to ptr
+  %.sroa.08.0.copyload36 = load i24, ptr %59, align 8
+  %.sroa.08.0.insert.ext38 = zext i24 %.sroa.08.0.copyload36 to i64
+  %61 = inttoptr i64 %.sroa.08.0.insert.ext38 to ptr
   br label %86
 
 62:                                               ; preds = %57
@@ -2453,7 +2453,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %.sroa.08.0.insert.ext29 = zext i24 %65 to i64
   %66 = inttoptr i64 %.sroa.08.0.insert.ext29 to ptr
   %.pre = load ptr, ptr %9, align 8, !tbaa !38
-  %.pre103 = load i8, ptr %22, align 8, !tbaa !53
+  %.pre102 = load i8, ptr %22, align 8, !tbaa !53
   br label %86
 
 67:                                               ; preds = %21
@@ -2490,7 +2490,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   br label %86
 
 86:                                               ; preds = %42, %50, %48, %68, %76, %72, %54, %62, %60, %36, %39, %26, %30
-  %87 = phi i8 [ %23, %68 ], [ %23, %72 ], [ %23, %76 ], [ %23, %26 ], [ %23, %30 ], [ %23, %36 ], [ %23, %39 ], [ %23, %60 ], [ %.pre103, %62 ], [ 97, %50 ], [ 97, %48 ], [ %23, %54 ], [ 97, %42 ]
+  %87 = phi i8 [ %23, %68 ], [ %23, %72 ], [ %23, %76 ], [ %23, %26 ], [ %23, %30 ], [ %23, %36 ], [ %23, %39 ], [ %23, %60 ], [ %.pre102, %62 ], [ 97, %50 ], [ 97, %48 ], [ %23, %54 ], [ 97, %42 ]
   %88 = phi ptr [ %10, %68 ], [ %10, %72 ], [ %10, %76 ], [ %10, %26 ], [ %10, %30 ], [ %10, %36 ], [ %10, %39 ], [ %10, %60 ], [ %.pre, %62 ], [ %10, %50 ], [ %10, %48 ], [ %10, %54 ], [ %10, %42 ]
   %.sroa.08.0 = phi ptr [ %71, %68 ], [ %75, %72 ], [ %85, %76 ], [ %29, %26 ], [ %33, %30 ], [ %38, %36 ], [ %41, %39 ], [ %61, %60 ], [ %66, %62 ], [ %., %50 ], [ %44, %48 ], [ %56, %54 ], [ %47, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2498,10 +2498,10 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %89 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !49
   %91 = call i32 @lv_style_get_prop(ptr noundef %90, i8 noundef zeroext %87, ptr noundef nonnull %3) #9
-  %.not93 = icmp ne i32 %91, 0
+  %.not92 = icmp ne i32 %91, 0
   %92 = load ptr, ptr %3, align 8
   %93 = icmp eq ptr %.sroa.08.0, %92
-  %or.cond = select i1 %.not93, i1 %93, i1 false
+  %or.cond = select i1 %.not92, i1 %93, i1 false
   br i1 %or.cond, label %94, label %105
 
 94:                                               ; preds = %86
@@ -2513,8 +2513,8 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %.sroa.08.0.extract.trunc = trunc i64 %97 to i32
   %99 = load i32, ptr %3, align 8
   %100 = icmp eq i32 %99, %.sroa.08.0.extract.trunc
-  %or.cond96 = select i1 %98, i1 %100, i1 false
-  br i1 %or.cond96, label %.critedge, label %105
+  %or.cond95 = select i1 %98, i1 %100, i1 false
+  br i1 %or.cond95, label %.critedge, label %105
 
 .critedge:                                        ; preds = %94
   %101 = load ptr, ptr %9, align 8, !tbaa !38

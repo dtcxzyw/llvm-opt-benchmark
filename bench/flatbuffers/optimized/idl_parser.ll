@@ -82479,10 +82479,10 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc90
   %170 = ptrtoint ptr %163 to i64
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 2
-  %.not71137 = icmp eq ptr %.0.i.i.i.i.i.ph, %163
-  br i1 %.not71137, label %.critedge.thread, label %.lr.ph141
+  %.not71134 = icmp eq ptr %.0.i.i.i.i.i.ph, %163
+  br i1 %.not71134, label %.critedge.thread, label %.lr.ph138
 
-.lr.ph141:                                        ; preds = %.preheader
+.lr.ph138:                                        ; preds = %.preheader
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 275
@@ -82545,10 +82545,10 @@ _ZNK10reflection5Field2idEv.exit:                 ; preds = %199, %_ZNK11flatbuf
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %183, !llvm.loop !1882
 
-206:                                              ; preds = %.lr.ph141, %306
-  %.060139 = phi i64 [ 0, %.lr.ph141 ], [ %.pre-phi, %306 ]
-  %.061138 = phi i64 [ 0, %.lr.ph141 ], [ %.162, %306 ]
-  %207 = getelementptr inbounds nuw i32, ptr %163, i64 %.060139
+206:                                              ; preds = %.lr.ph138, %306
+  %.060136 = phi i64 [ 0, %.lr.ph138 ], [ %.pre-phi, %306 ]
+  %.061135 = phi i64 [ 0, %.lr.ph138 ], [ %.162, %306 ]
+  %207 = getelementptr inbounds nuw i32, ptr %163, i64 %.060136
   %208 = load i32, ptr %207, align 4, !tbaa !192
   %209 = shl i32 %208, 2
   %210 = zext i32 %209 to i64
@@ -82625,7 +82625,7 @@ _ZNK10reflection5Field2idEv.exit:                 ; preds = %199, %_ZNK11flatbuf
 246:                                              ; preds = %243, %214, %206
   %247 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread117
+  br label %.thread114
 
 248:                                              ; preds = %245
   %249 = getelementptr inbounds nuw i8, ptr %213, i64 273
@@ -82648,7 +82648,7 @@ _ZNK10reflection5Field2idEv.exit:                 ; preds = %199, %_ZNK11flatbuf
   br i1 %258, label %259, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %256
-  %.pre148 = add nuw i64 %.060139, 1
+  %.pre145 = add nuw i64 %.060136, 1
   br label %306
 
 259:                                              ; preds = %256
@@ -82657,7 +82657,7 @@ _ZNK10reflection5Field2idEv.exit:                 ; preds = %199, %_ZNK11flatbuf
           to label %262 unwind label %304
 
 262:                                              ; preds = %259
-  %263 = add nuw i64 %.060139, 1
+  %263 = add nuw i64 %.060136, 1
   %264 = icmp ult i64 %263, %172
   br i1 %264, label %265, label %293
 
@@ -82670,7 +82670,7 @@ _ZNK10reflection5Field2idEv.exit:                 ; preds = %199, %_ZNK11flatbuf
   %271 = load i32, ptr %270, align 4, !tbaa !192
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw i8, ptr %270, i64 %272
-  %274 = add i64 %261, %.061138
+  %274 = add i64 %261, %.061135
   %275 = load i32, ptr %273, align 4, !tbaa !192
   %276 = sext i32 %275 to i64
   %277 = sub nsw i64 0, %276
@@ -82701,7 +82701,7 @@ _ZNK10reflection5Field6offsetEv.exit:             ; preds = %283, %_ZNK11flatbuf
   br label %299
 
 293:                                              ; preds = %262
-  %294 = add i64 %261, %.061138
+  %294 = add i64 %261, %.061135
   %295 = load i64, ptr %176, align 8, !tbaa !362
   %296 = sub i64 0, %294
   %297 = add i64 %295, -1
@@ -82719,13 +82719,13 @@ _ZNK10reflection5Field6offsetEv.exit:             ; preds = %283, %_ZNK11flatbuf
 304:                                              ; preds = %259
   %305 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread117
+  br label %.thread114
 
 306:                                              ; preds = %._crit_edge, %299
-  %.pre-phi = phi i64 [ %.pre148, %._crit_edge ], [ %263, %299 ]
-  %.162 = phi i64 [ %.061138, %._crit_edge ], [ %303, %299 ]
-  %exitcond147.not = icmp eq i64 %.pre-phi, %172
-  br i1 %exitcond147.not, label %.critedge.thread, label %206, !llvm.loop !1883
+  %.pre-phi = phi i64 [ %.pre145, %._crit_edge ], [ %263, %299 ]
+  %.162 = phi i64 [ %.061135, %._crit_edge ], [ %303, %299 ]
+  %exitcond144.not = icmp eq i64 %.pre-phi, %172
+  br i1 %exitcond144.not, label %.critedge.thread, label %206, !llvm.loop !1883
 
 .critedge.thread.sink.split:                      ; preds = %252, %245, %242
   call void @_ZN11flatbuffers8FieldDefD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %213) #37
@@ -82733,23 +82733,23 @@ _ZNK10reflection5Field6offsetEv.exit:             ; preds = %283, %_ZNK11flatbuf
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %306, %.critedge.thread.sink.split, %.preheader
-  %.not71128 = phi i1 [ true, %.preheader ], [ false, %.critedge.thread.sink.split ], [ true, %306 ]
-  %.idx205 = shl nuw nsw i64 %161, 2
-  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %.idx205) #36
+  %.not71125 = phi i1 [ true, %.preheader ], [ false, %.critedge.thread.sink.split ], [ true, %306 ]
+  %.idx202 = shl nuw nsw i64 %161, 2
+  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %.idx202) #36
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-.thread117:                                       ; preds = %246, %304
-  %.pn72120 = phi { ptr, i32 } [ %247, %246 ], [ %305, %304 ]
+.thread114:                                       ; preds = %246, %304
+  %.pn72117 = phi { ptr, i32 } [ %247, %246 ], [ %305, %304 ]
   %.idx = shl nuw nsw i64 %161, 2
   call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %.idx) #36
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit101
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK10reflection6Object6fieldsEv.exit, %.critedge.thread, %_ZNK10reflection6Object10attributesEv.exit
-  %.0 = phi i1 [ false, %_ZNK10reflection6Object10attributesEv.exit ], [ %.not71128, %.critedge.thread ], [ true, %_ZNK10reflection6Object6fieldsEv.exit ]
+  %.0 = phi i1 [ false, %_ZNK10reflection6Object10attributesEv.exit ], [ %.not71125, %.critedge.thread ], [ true, %_ZNK10reflection6Object6fieldsEv.exit ]
   ret i1 %.0
 
-_ZNSt6vectorIjSaIjEED2Ev.exit101:                 ; preds = %.thread117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
-  %.pn72.pn.pn = phi { ptr, i32 } [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.pn72120, %.thread117 ]
+_ZNSt6vectorIjSaIjEED2Ev.exit101:                 ; preds = %.thread114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
+  %.pn72.pn.pn = phi { ptr, i32 } [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.pn72117, %.thread114 ]
   resume { ptr, i32 } %.pn72.pn.pn
 }
 

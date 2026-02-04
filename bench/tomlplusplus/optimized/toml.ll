@@ -4992,21 +4992,21 @@ _ZN4toml2v313source_regionD2Ev.exit:              ; preds = %26, %_ZN9__gnu_cxx2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4toml2v34nodeaSEOS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.012 = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
+  %.sroa.010 = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %33, label %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit
 
 _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit: ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.012)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !100, !noalias !154
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !141, !noalias !154
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8, !tbaa !159
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5060,7 +5060,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %29, 
   br label %_ZN4toml2v313source_regionD2Ev.exit8
 
 _ZN4toml2v313source_regionD2Ev.exit8:             ; preds = %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit, %17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010)
   br label %33
 
 33:                                               ; preds = %_ZN4toml2v313source_regionD2Ev.exit8, %2
@@ -9288,21 +9288,21 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit14: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4toml2v35arrayaSEOS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.012.i = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
+  %.sroa.010.i = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit, label %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i
 
 _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i: ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.012.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !100, !noalias !255
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !141, !noalias !255
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8, !tbaa !159
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9356,7 +9356,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %29
   br label %_ZN4toml2v34nodeaSEOS1_.exit
 
 _ZN4toml2v34nodeaSEOS1_.exit:                     ; preds = %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i, %17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010.i)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !178
@@ -11724,21 +11724,21 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit15: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(89) ptr @_ZN4toml2v35tableaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.012.i = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
+  %.sroa.010.i = alloca { %"struct.toml::v3::source_position", %"struct.toml::v3::source_position" }, align 8
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %58, label %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i
 
 _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i: ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.012.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !100, !noalias !310
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !141, !noalias !310
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.i, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8, !tbaa !159
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11792,7 +11792,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %29
   br label %_ZN4toml2v34nodeaSEOS1_.exit
 
 _ZN4toml2v34nodeaSEOS1_.exit:                     ; preds = %_ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i, %17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010.i)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !282
@@ -36777,8 +36777,8 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %77, %80, %82
   br label %206
 
 _ZNK4toml2v34impl7impl_ex6parser16current_positionEj.exit39: ; preds = %72, %51
-  %.sroa.0.1 = phi i64 [ %52, %51 ], [ %.sroa.0.0.copyload, %72 ]
-  %.sroa.7.1 = phi ptr [ %53, %51 ], [ %.sroa.7.0.copyload, %72 ]
+  %.sroa.0.0 = phi i64 [ %52, %51 ], [ %.sroa.0.0.copyload, %72 ]
+  %.sroa.7.0 = phi ptr [ %53, %51 ], [ %.sroa.7.0.copyload, %72 ]
   %91 = load ptr, ptr %12, align 8, !tbaa !329
   %.not.i29 = icmp eq ptr %91, null
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -36804,7 +36804,7 @@ _ZNK4toml2v34impl7impl_ex6parser16current_positionEj.exit39: ; preds = %72, %51
 98:                                               ; preds = %94
   store i64 %95, ptr %96, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %.sroa.0.1, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %.sroa.0.0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %99 = load ptr, ptr %19, align 8, !tbaa !432
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %100, ptr %19, align 8, !tbaa !432
@@ -36843,7 +36843,7 @@ _ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %10
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %105
   store i64 %95, ptr %115, align 8
   %.sroa.5.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i64 %.sroa.0.1, ptr %.sroa.5.0..sroa_idx11.i, align 8
+  store i64 %.sroa.0.0, ptr %.sroa.5.0..sroa_idx11.i, align 8
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %102, %96
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -36876,11 +36876,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 _ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %98
   %121 = load i64, ptr %15, align 8, !tbaa !11
   %122 = sub i64 4611686018427387903, %121
-  %123 = icmp ult i64 %122, %.sroa.0.1
+  %123 = icmp ult i64 %122, %.sroa.0.0
   br i1 %123, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit.i: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i
-  %124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef %.sroa.7.1, i64 noundef %.sroa.0.1)
+  %124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef %.sroa.7.0, i64 noundef %.sroa.0.0)
           to label %.noexc44 unwind label %.loopexit
 
 .noexc44:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit.i
