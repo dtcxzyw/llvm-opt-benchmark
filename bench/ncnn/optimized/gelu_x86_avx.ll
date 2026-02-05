@@ -180,8 +180,8 @@ define internal void @_ZNK4ncnn12GELU_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %36 = fmul fast <8 x float> %35, %33
   %37 = fadd fast <8 x float> %36, %33
   %38 = fmul fast <8 x float> %37, splat (float 0x3FE9884520000000)
-  %39 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> splat (float -9.000000e+00), <8 x float> nofpclass(nan inf) %38)
-  %40 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> splat (float 9.000000e+00), <8 x float> nofpclass(nan inf) %39)
+  %39 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> splat (float -9.000000e+00), <8 x float> nofpclass(nan inf) %38)
+  %40 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> splat (float 9.000000e+00), <8 x float> nofpclass(nan inf) %39)
   %41 = fmul fast <8 x float> %40, %40
   %42 = fmul fast <8 x float> %41, splat (float 0x3CB3E4B800000000)
   %43 = fsub fast <8 x float> splat (float 0x3D4C266FC0000000), %42
@@ -230,8 +230,8 @@ define internal void @_ZNK4ncnn12GELU_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %75 = fmul fast <4 x float> %74, %72
   %76 = fadd fast <4 x float> %75, %72
   %77 = fmul fast <4 x float> %76, splat (float 0x3FE9884520000000)
-  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> splat (float -9.000000e+00), <4 x float> nofpclass(nan inf) %77)
-  %79 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 9.000000e+00), <4 x float> nofpclass(nan inf) %78)
+  %78 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> splat (float -9.000000e+00), <4 x float> nofpclass(nan inf) %77)
+  %79 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 9.000000e+00), <4 x float> nofpclass(nan inf) %78)
   %80 = fmul fast <4 x float> %79, %79
   %81 = fmul fast <4 x float> %80, splat (float 0x3CB3E4B800000000)
   %82 = fsub fast <4 x float> splat (float 0x3D4C266FC0000000), %81

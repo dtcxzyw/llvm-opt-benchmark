@@ -251,7 +251,7 @@ define internal void @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %.04055 = phi ptr [ %35, %.lr.ph ], [ %28, %.noexc ]
   %.04154 = phi i32 [ %36, %.lr.ph ], [ 0, %.noexc ]
   %33 = load <16 x float>, ptr %.04055, align 1, !tbaa !46
-  %34 = call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> zeroinitializer, <16 x float> nofpclass(nan inf) %33, i32 4)
+  %34 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> zeroinitializer, <16 x float> nofpclass(nan inf) %33, i32 4)
   store <16 x float> %34, ptr %.04055, align 1, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %.04055, i64 64
   %36 = add nuw nsw i32 %.04154, 16
@@ -272,7 +272,7 @@ define internal void @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %.158 = phi ptr [ %45, %.lr.ph59 ], [ %.040.lcssa, %.preheader53 ]
   %.14257 = phi i32 [ %46, %.lr.ph59 ], [ %.041.lcssa, %.preheader53 ]
   %43 = load <8 x float>, ptr %.158, align 1, !tbaa !46
-  %44 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %43)
+  %44 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %43)
   store <8 x float> %44, ptr %.158, align 1, !tbaa !46
   %45 = getelementptr inbounds nuw i8, ptr %.158, i64 32
   %46 = add nuw nsw i32 %.14257, 8
@@ -292,7 +292,7 @@ define internal void @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %.263 = phi ptr [ %54, %.lr.ph64 ], [ %.1.lcssa, %.preheader52 ]
   %.24362 = phi i32 [ %55, %.lr.ph64 ], [ %.142.lcssa, %.preheader52 ]
   %52 = load <4 x float>, ptr %.263, align 16, !tbaa !46
-  %53 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %52)
+  %53 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %52)
   store <4 x float> %53, ptr %.263, align 16, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %.263, i64 16
   %55 = add nuw nsw i32 %.24362, 4
@@ -435,8 +435,8 @@ define internal void @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %.175 = phi ptr [ %55, %.lr.ph77 ], [ %.058.lcssa, %._crit_edge ]
   %.16074 = phi i32 [ %56, %.lr.ph77 ], [ %.059.lcssa, %._crit_edge ]
   %50 = load <8 x float>, ptr %.175, align 1, !tbaa !46
-  %51 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %50)
-  %52 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %50)
+  %51 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %50)
+  %52 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %50)
   %53 = fmul fast <8 x float> %52, %47
   %54 = fadd fast <8 x float> %53, %51
   store <8 x float> %54, ptr %.175, align 1, !tbaa !46
@@ -473,8 +473,8 @@ define internal void @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %.282 = phi ptr [ %73, %.lr.ph84 ], [ %.1.lcssa, %._crit_edge78 ]
   %.26181 = phi i32 [ %74, %.lr.ph84 ], [ %.160.lcssa, %._crit_edge78 ]
   %68 = load <4 x float>, ptr %.282, align 16, !tbaa !46
-  %69 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %68)
-  %70 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %68)
+  %69 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %68)
+  %70 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %68)
   %71 = fmul fast <4 x float> %70, %63
   %72 = fadd fast <4 x float> %71, %69
   store <4 x float> %72, ptr %.282, align 16, !tbaa !46

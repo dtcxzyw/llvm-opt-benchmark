@@ -146,8 +146,8 @@ define internal void @_ZNK4ncnn12TanH_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %.03399 = phi ptr [ %67, %.lr.ph ], [ %28, %.noexc ]
   %33 = load <8 x float>, ptr %.03399, align 1, !tbaa !43
   %34 = fmul fast <8 x float> %33, splat (float -2.000000e+00)
-  %35 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x40561814A0000000))
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %35, <8 x float> splat (float 0xC0561814A0000000))
+  %35 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x40561814A0000000))
+  %36 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %35, <8 x float> splat (float 0xC0561814A0000000))
   %37 = fmul fast <8 x float> %36, splat (float 0x3FF7154760000000)
   %38 = fadd fast <8 x float> %37, splat (float 5.000000e-01)
   %39 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %38, i32 1)
@@ -198,8 +198,8 @@ define internal void @_ZNK4ncnn12TanH_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %.134102 = phi ptr [ %109, %.lr.ph104 ], [ %.033.lcssa, %.preheader98 ]
   %74 = load <4 x float>, ptr %.134102, align 1, !tbaa !43
   %75 = fmul fast <4 x float> %74, splat (float -2.000000e+00)
-  %76 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %75, <4 x float> splat (float 0x40561814A0000000))
-  %77 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> splat (float 0xC0561814A0000000))
+  %76 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %75, <4 x float> splat (float 0x40561814A0000000))
+  %77 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> splat (float 0xC0561814A0000000))
   %78 = fmul fast <4 x float> %77, splat (float 0x3FF7154760000000)
   %79 = fadd fast <4 x float> %78, splat (float 5.000000e-01)
   %80 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %79)

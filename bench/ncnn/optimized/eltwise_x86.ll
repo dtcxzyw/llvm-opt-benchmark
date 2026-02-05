@@ -1608,7 +1608,7 @@ define internal void @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_E
   %.044102 = phi ptr [ %80, %.lr.ph ], [ %66, %.noexc46 ]
   %76 = load <4 x float>, ptr %.039105, align 16, !tbaa !66
   %77 = load <4 x float>, ptr %.044102, align 16, !tbaa !66
-  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> nofpclass(nan inf) %77)
+  %78 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> nofpclass(nan inf) %77)
   store <4 x float> %78, ptr %.042103, align 16, !tbaa !66
   %79 = getelementptr inbounds nuw i8, ptr %.039105, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.044102, i64 16
@@ -1775,7 +1775,7 @@ define internal void @_ZNK4ncnn11Eltwise_x867forwardERKSt6vectorINS_3MatESaIS2_E
   %.03770 = phi ptr [ %66, %.lr.ph ], [ %58, %.noexc ]
   %62 = load <4 x float>, ptr %.03770, align 16, !tbaa !66
   %63 = load <4 x float>, ptr %.03472, align 16, !tbaa !66
-  %64 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %62, <4 x float> nofpclass(nan inf) %63)
+  %64 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %62, <4 x float> nofpclass(nan inf) %63)
   store <4 x float> %64, ptr %.03770, align 16, !tbaa !66
   %65 = getelementptr inbounds nuw i8, ptr %.03472, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %.03770, i64 16

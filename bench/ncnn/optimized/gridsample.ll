@@ -720,17 +720,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit446.us.us: ; preds = %307, %303
   br i1 %.not.i445.us, label %_ZN4ncnnL13compute_coordEfiii.exit.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit.thread757.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit.thread757.us.us: ; preds = %311
-  %312 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %310)
+  %312 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %310)
   %313 = fsub fast float %312, %280
-  %314 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %313)
+  %314 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %313)
   %315 = fsub fast float %280, %314
   br label %322
 
 _ZN4ncnnL13compute_coordEfiii.exit.thread.us.us:  ; preds = %311
   %316 = fadd fast float %310, 5.000000e-01
-  %317 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %316)
+  %317 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %316)
   %318 = fsub fast float %317, %281
-  %319 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %318)
+  %319 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %318)
   %320 = fsub fast float %283, %319
   %.sroa.speculated4.i12.i.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %320, float 0.000000e+00)
   %.sroa.speculated.i13.i.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.us.us, float %280)
@@ -772,17 +772,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit449.us.us: ; preds = %326, %322
   br i1 %.not.i445.us, label %_ZN4ncnnL13compute_coordEfiii.exit456.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit456.thread763.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit456.thread763.us.us: ; preds = %332
-  %333 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %331)
+  %333 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %331)
   %334 = fsub fast float %333, %290
-  %335 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %334)
+  %335 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %334)
   %336 = fsub fast float %290, %335
   br label %343
 
 _ZN4ncnnL13compute_coordEfiii.exit456.thread.us.us: ; preds = %332
   %337 = fadd fast float %331, 5.000000e-01
-  %338 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %337)
+  %338 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %337)
   %339 = fsub fast float %338, %291
-  %340 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %339)
+  %340 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %339)
   %341 = fsub fast float %292, %340
   %.sroa.speculated4.i12.i452.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %341, float 0.000000e+00)
   %.sroa.speculated.i13.i453.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i452.us.us, float %294)
@@ -823,17 +823,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit458.us.us: ; preds = %347, %343
   br i1 %.not.i445.us, label %358, label %353
 
 353:                                              ; preds = %352
-  %354 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %351)
+  %354 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %351)
   %355 = fsub fast float %354, %267
-  %356 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %355)
+  %356 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %355)
   %357 = fsub fast float %267, %356
   br label %_ZN4ncnnL13compute_coordEfiii.exit465.us.us
 
 358:                                              ; preds = %352
   %359 = fadd fast float %351, 5.000000e-01
-  %360 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %359)
+  %360 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %359)
   %361 = fsub fast float %360, %268
-  %362 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %361)
+  %362 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %361)
   %363 = fsub fast float %270, %362
   %.sroa.speculated4.i12.i461.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %363, float 0.000000e+00)
   %.sroa.speculated.i13.i462.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i461.us.us, float %267)
@@ -984,17 +984,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit467.us.us: ; preds = %424, %420
   br i1 %.not.i466.us, label %_ZN4ncnnL13compute_coordEfiii.exit474.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit474.thread769.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit474.thread769.us.us: ; preds = %428
-  %429 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %427)
+  %429 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %427)
   %430 = fsub fast float %429, %399
-  %431 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %430)
+  %431 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %430)
   %432 = fsub fast float %399, %431
   br label %439
 
 _ZN4ncnnL13compute_coordEfiii.exit474.thread.us.us: ; preds = %428
   %433 = fadd fast float %427, 5.000000e-01
-  %434 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %433)
+  %434 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %433)
   %435 = fsub fast float %434, %400
-  %436 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %435)
+  %436 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %435)
   %437 = fsub fast float %402, %436
   %.sroa.speculated4.i12.i470.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %437, float 0.000000e+00)
   %.sroa.speculated.i13.i471.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i470.us.us, float %399)
@@ -1036,17 +1036,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit476.us.us: ; preds = %443, %439
   br i1 %.not.i466.us, label %_ZN4ncnnL13compute_coordEfiii.exit483.thread.us.us, label %_ZN4ncnnL13compute_coordEfiii.exit483.thread775.us.us
 
 _ZN4ncnnL13compute_coordEfiii.exit483.thread775.us.us: ; preds = %449
-  %450 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %448)
+  %450 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %448)
   %451 = fsub fast float %450, %409
-  %452 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %451)
+  %452 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %451)
   %453 = fsub fast float %409, %452
   br label %460
 
 _ZN4ncnnL13compute_coordEfiii.exit483.thread.us.us: ; preds = %449
   %454 = fadd fast float %448, 5.000000e-01
-  %455 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %454)
+  %455 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %454)
   %456 = fsub fast float %455, %410
-  %457 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %456)
+  %457 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %456)
   %458 = fsub fast float %411, %457
   %.sroa.speculated4.i12.i479.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %458, float 0.000000e+00)
   %.sroa.speculated.i13.i480.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i479.us.us, float %413)
@@ -1087,17 +1087,17 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit485.us.us: ; preds = %464, %460
   br i1 %.not.i466.us, label %475, label %470
 
 470:                                              ; preds = %469
-  %471 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %468)
+  %471 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %468)
   %472 = fsub fast float %471, %376
-  %473 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %472)
+  %473 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %472)
   %474 = fsub fast float %376, %473
   br label %_ZN4ncnnL13compute_coordEfiii.exit492.us.us
 
 475:                                              ; preds = %469
   %476 = fadd fast float %468, 5.000000e-01
-  %477 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %476)
+  %477 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %476)
   %478 = fsub fast float %477, %377
-  %479 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %478)
+  %479 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %478)
   %480 = fsub fast float %379, %479
   %.sroa.speculated4.i12.i488.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %480, float 0.000000e+00)
   %.sroa.speculated.i13.i489.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i488.us.us, float %376)
@@ -1448,28 +1448,28 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i98.us.us.us, label %82, label %73
 
 73:                                               ; preds = %72
-  %74 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %70)
+  %74 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %70)
   %75 = fsub fast float %74, %61
-  %76 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %75)
+  %76 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %75)
   %77 = fsub fast float %61, %76
-  %78 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %71)
+  %78 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %71)
   %79 = fsub fast float %78, %66
-  %80 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %79)
+  %80 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %79)
   %81 = fsub fast float %66, %80
   br label %_ZN4ncnnL13compute_coordEfiii.exit105.us.us.us
 
 82:                                               ; preds = %72
   %83 = fadd fast float %70, 5.000000e-01
-  %84 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %84, %62
-  %86 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %85)
+  %86 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %85)
   %87 = fsub fast float %63, %86
   %.sroa.speculated4.i12.i.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %87, float 0.000000e+00)
   %.sroa.speculated.i13.i.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.us.us.us, float %61)
   %88 = fadd fast float %71, 5.000000e-01
-  %89 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %88)
+  %89 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %88)
   %90 = fsub fast float %89, %67
-  %91 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %90)
+  %91 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %90)
   %92 = fsub fast float %68, %91
   %.sroa.speculated4.i12.i101.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %92, float 0.000000e+00)
   %.sroa.speculated.i13.i102.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i101.us.us.us, float %66)
@@ -1485,9 +1485,9 @@ _ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us: ; preds = %69
 _ZN4ncnnL13compute_coordEfiii.exit105.us.us.us:   ; preds = %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us, %82, %73, %69
   %.0.i186.us.us.us = phi float [ %.sroa.speculated.i.i.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us ], [ %77, %73 ], [ %.sroa.speculated.i13.i.us.us.us, %82 ], [ %70, %69 ]
   %.0.i100.us.us.us = phi nsz float [ %.sroa.speculated.i.i104.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread187.us.us.us ], [ %81, %73 ], [ %.sroa.speculated.i13.i102.us.us.us, %82 ], [ %71, %69 ]
-  %93 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.0.i186.us.us.us)
+  %93 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %.0.i186.us.us.us)
   %94 = fptosi float %93 to i32
-  %95 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.0.i100.us.us.us)
+  %95 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %.0.i100.us.us.us)
   %96 = fptosi float %95 to i32
   %97 = add nsw i32 %94, 1
   %98 = add nsw i32 %96, 1
@@ -1748,28 +1748,28 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i74.us.us.us, label %82, label %73
 
 73:                                               ; preds = %72
-  %74 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %70)
+  %74 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %70)
   %75 = fsub fast float %74, %61
-  %76 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %75)
+  %76 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %75)
   %77 = fsub fast float %61, %76
-  %78 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %71)
+  %78 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %71)
   %79 = fsub fast float %78, %66
-  %80 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %79)
+  %80 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %79)
   %81 = fsub fast float %66, %80
   br label %_ZN4ncnnL13compute_coordEfiii.exit81.us.us.us
 
 82:                                               ; preds = %72
   %83 = fadd fast float %70, 5.000000e-01
-  %84 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %84, %62
-  %86 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %85)
+  %86 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %85)
   %87 = fsub fast float %63, %86
   %.sroa.speculated4.i12.i.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %87, float 0.000000e+00)
   %.sroa.speculated.i13.i.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.us.us.us, float %61)
   %88 = fadd fast float %71, 5.000000e-01
-  %89 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %88)
+  %89 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %88)
   %90 = fsub fast float %89, %67
-  %91 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %90)
+  %91 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %90)
   %92 = fsub fast float %68, %91
   %.sroa.speculated4.i12.i77.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %92, float 0.000000e+00)
   %.sroa.speculated.i13.i78.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i77.us.us.us, float %66)
@@ -1786,10 +1786,10 @@ _ZN4ncnnL13compute_coordEfiii.exit81.us.us.us:    ; preds = %_ZN4ncnnL13compute_
   %.0.i132.us.us.us = phi float [ %.sroa.speculated.i.i.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread133.us.us.us ], [ %77, %73 ], [ %.sroa.speculated.i13.i.us.us.us, %82 ], [ %70, %69 ]
   %.0.i76.us.us.us = phi nsz float [ %.sroa.speculated.i.i80.us.us.us, %_ZN4ncnnL13compute_coordEfiii.exit.thread133.us.us.us ], [ %81, %73 ], [ %.sroa.speculated.i13.i78.us.us.us, %82 ], [ %71, %69 ]
   %93 = fadd fast float %.0.i132.us.us.us, 5.000000e-01
-  %94 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %93)
+  %94 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %93)
   %95 = fptosi float %94 to i32
   %96 = fadd fast float %.0.i76.us.us.us, 5.000000e-01
-  %97 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %96)
+  %97 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %96)
   %98 = fptosi float %97 to i32
   %99 = or i32 %98, %95
   %or.cond.i.i.us.us.us = icmp sgt i32 %99, -1
@@ -1963,30 +1963,30 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   br i1 %.not.i.i.us.us.us, label %90, label %80
 
 80:                                               ; preds = %79
-  %81 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %78)
+  %81 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %78)
   %82 = fsub fast float %81, %48
-  %83 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %82)
+  %83 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %82)
   %84 = fsub fast float %48, %83
   %85 = sitofp i32 %73 to float
-  %86 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %85)
+  %86 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %85)
   %87 = fsub fast float %86, %50
-  %88 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %87)
+  %88 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %87)
   %89 = fsub fast float %50, %88
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i.us.us.us
 
 90:                                               ; preds = %79
   %91 = fadd fast float %78, 5.000000e-01
-  %92 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %91)
+  %92 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %91)
   %93 = fsub fast float %92, %51
-  %94 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %93)
+  %94 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %93)
   %95 = fsub fast float %52, %94
   %.sroa.speculated4.i12.i.i.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %95, float 0.000000e+00)
   %.sroa.speculated.i13.i.i.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i.us.us.us, float %48)
   %96 = sitofp i32 %73 to float
   %97 = fadd fast float %96, 5.000000e-01
-  %98 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %97)
+  %98 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %97)
   %99 = fsub fast float %98, %53
-  %100 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %99)
+  %100 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %99)
   %101 = fsub fast float %54, %100
   %.sroa.speculated4.i12.i12.i.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %101, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i.us.us.us, float %50)
@@ -2038,30 +2038,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit.us.us.us: ; preds = %109, %_ZN4
   br i1 %.not.i.i.us.us.us, label %129, label %119
 
 119:                                              ; preds = %118
-  %120 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %117)
+  %120 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %117)
   %121 = fsub fast float %120, %48
-  %122 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %121)
+  %122 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %121)
   %123 = fsub fast float %48, %122
   %124 = sitofp i32 %73 to float
-  %125 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %124)
+  %125 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %124)
   %126 = fsub fast float %125, %50
-  %127 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %126)
+  %127 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %126)
   %128 = fsub fast float %50, %127
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i131.us.us.us
 
 129:                                              ; preds = %118
   %130 = fadd fast float %117, 5.000000e-01
-  %131 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %130)
+  %131 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %130)
   %132 = fsub fast float %131, %51
-  %133 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %132)
+  %133 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %132)
   %134 = fsub fast float %52, %133
   %.sroa.speculated4.i12.i.i137.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %134, float 0.000000e+00)
   %.sroa.speculated.i13.i.i138.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i137.us.us.us, float %48)
   %135 = sitofp i32 %73 to float
   %136 = fadd fast float %135, 5.000000e-01
-  %137 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %136)
+  %137 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %136)
   %138 = fsub fast float %137, %53
-  %139 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %138)
+  %139 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %138)
   %140 = fsub fast float %54, %139
   %.sroa.speculated4.i12.i12.i139.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %140, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i140.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i139.us.us.us, float %50)
@@ -2113,30 +2113,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit147.us.us.us: ; preds = %148, %_
   br i1 %.not.i.i.us.us.us, label %168, label %158
 
 158:                                              ; preds = %157
-  %159 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %156)
+  %159 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %156)
   %160 = fsub fast float %159, %48
-  %161 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %160)
+  %161 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %160)
   %162 = fsub fast float %48, %161
   %163 = sitofp i32 %73 to float
-  %164 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %163)
+  %164 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %163)
   %165 = fsub fast float %164, %50
-  %166 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %165)
+  %166 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %165)
   %167 = fsub fast float %50, %166
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i149.us.us.us
 
 168:                                              ; preds = %157
   %169 = fadd fast float %156, 5.000000e-01
-  %170 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %169)
+  %170 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %169)
   %171 = fsub fast float %170, %51
-  %172 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %171)
+  %172 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %171)
   %173 = fsub fast float %52, %172
   %.sroa.speculated4.i12.i.i155.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %173, float 0.000000e+00)
   %.sroa.speculated.i13.i.i156.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i155.us.us.us, float %48)
   %174 = sitofp i32 %73 to float
   %175 = fadd fast float %174, 5.000000e-01
-  %176 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %175)
+  %176 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %175)
   %177 = fsub fast float %176, %53
-  %178 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %177)
+  %178 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %177)
   %179 = fsub fast float %54, %178
   %.sroa.speculated4.i12.i12.i157.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %179, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i158.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i157.us.us.us, float %50)
@@ -2188,30 +2188,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit165.us.us.us: ; preds = %187, %_
   br i1 %.not.i.i.us.us.us, label %207, label %197
 
 197:                                              ; preds = %196
-  %198 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %195)
+  %198 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %195)
   %199 = fsub fast float %198, %48
-  %200 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %199)
+  %200 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %199)
   %201 = fsub fast float %48, %200
   %202 = sitofp i32 %73 to float
-  %203 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %202)
+  %203 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %202)
   %204 = fsub fast float %203, %50
-  %205 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %204)
+  %205 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %204)
   %206 = fsub fast float %50, %205
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i167.us.us.us
 
 207:                                              ; preds = %196
   %208 = fadd fast float %195, 5.000000e-01
-  %209 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %208)
+  %209 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %208)
   %210 = fsub fast float %209, %51
-  %211 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %210)
+  %211 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %210)
   %212 = fsub fast float %52, %211
   %.sroa.speculated4.i12.i.i173.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %212, float 0.000000e+00)
   %.sroa.speculated.i13.i.i174.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i173.us.us.us, float %48)
   %213 = sitofp i32 %73 to float
   %214 = fadd fast float %213, 5.000000e-01
-  %215 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %214)
+  %215 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %214)
   %216 = fsub fast float %215, %53
-  %217 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %216)
+  %217 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %216)
   %218 = fsub fast float %54, %217
   %.sroa.speculated4.i12.i12.i175.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %218, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i176.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i175.us.us.us, float %50)
@@ -2262,30 +2262,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit183.us.us.us: ; preds = %226, %_
   br i1 %.not.i.i.us.us.us, label %245, label %235
 
 235:                                              ; preds = %234
-  %236 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %78)
+  %236 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %78)
   %237 = fsub fast float %236, %48
-  %238 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %237)
+  %238 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %237)
   %239 = fsub fast float %48, %238
   %240 = sitofp i32 %71 to float
-  %241 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %240)
+  %241 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %240)
   %242 = fsub fast float %241, %50
-  %243 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %242)
+  %243 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %242)
   %244 = fsub fast float %50, %243
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i185.us.us.us
 
 245:                                              ; preds = %234
   %246 = fadd fast float %78, 5.000000e-01
-  %247 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %246)
+  %247 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %246)
   %248 = fsub fast float %247, %51
-  %249 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %248)
+  %249 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %248)
   %250 = fsub fast float %52, %249
   %.sroa.speculated4.i12.i.i191.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %250, float 0.000000e+00)
   %.sroa.speculated.i13.i.i192.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i191.us.us.us, float %48)
   %251 = sitofp i32 %71 to float
   %252 = fadd fast float %251, 5.000000e-01
-  %253 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %252)
+  %253 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %252)
   %254 = fsub fast float %253, %53
-  %255 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %254)
+  %255 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %254)
   %256 = fsub fast float %54, %255
   %.sroa.speculated4.i12.i12.i193.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %256, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i194.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i193.us.us.us, float %50)
@@ -2336,30 +2336,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit201.us.us.us: ; preds = %264, %_
   br i1 %.not.i.i.us.us.us, label %283, label %273
 
 273:                                              ; preds = %272
-  %274 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %117)
+  %274 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %117)
   %275 = fsub fast float %274, %48
-  %276 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %275)
+  %276 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %275)
   %277 = fsub fast float %48, %276
   %278 = sitofp i32 %71 to float
-  %279 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %278)
+  %279 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %278)
   %280 = fsub fast float %279, %50
-  %281 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %280)
+  %281 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %280)
   %282 = fsub fast float %50, %281
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i203.us.us.us
 
 283:                                              ; preds = %272
   %284 = fadd fast float %117, 5.000000e-01
-  %285 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %284)
+  %285 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %284)
   %286 = fsub fast float %285, %51
-  %287 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %286)
+  %287 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %286)
   %288 = fsub fast float %52, %287
   %.sroa.speculated4.i12.i.i209.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %288, float 0.000000e+00)
   %.sroa.speculated.i13.i.i210.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i209.us.us.us, float %48)
   %289 = sitofp i32 %71 to float
   %290 = fadd fast float %289, 5.000000e-01
-  %291 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %290)
+  %291 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %290)
   %292 = fsub fast float %291, %53
-  %293 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %292)
+  %293 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %292)
   %294 = fsub fast float %54, %293
   %.sroa.speculated4.i12.i12.i211.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %294, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i212.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i211.us.us.us, float %50)
@@ -2410,30 +2410,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit219.us.us.us: ; preds = %302, %_
   br i1 %.not.i.i.us.us.us, label %321, label %311
 
 311:                                              ; preds = %310
-  %312 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %156)
+  %312 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %156)
   %313 = fsub fast float %312, %48
-  %314 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %313)
+  %314 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %313)
   %315 = fsub fast float %48, %314
   %316 = sitofp i32 %71 to float
-  %317 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %316)
+  %317 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %316)
   %318 = fsub fast float %317, %50
-  %319 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %318)
+  %319 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %318)
   %320 = fsub fast float %50, %319
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i221.us.us.us
 
 321:                                              ; preds = %310
   %322 = fadd fast float %156, 5.000000e-01
-  %323 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %322)
+  %323 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %322)
   %324 = fsub fast float %323, %51
-  %325 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %324)
+  %325 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %324)
   %326 = fsub fast float %52, %325
   %.sroa.speculated4.i12.i.i227.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %326, float 0.000000e+00)
   %.sroa.speculated.i13.i.i228.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i227.us.us.us, float %48)
   %327 = sitofp i32 %71 to float
   %328 = fadd fast float %327, 5.000000e-01
-  %329 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %328)
+  %329 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %328)
   %330 = fsub fast float %329, %53
-  %331 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %330)
+  %331 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %330)
   %332 = fsub fast float %54, %331
   %.sroa.speculated4.i12.i12.i229.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %332, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i230.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i229.us.us.us, float %50)
@@ -2484,30 +2484,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit237.us.us.us: ; preds = %340, %_
   br i1 %.not.i.i.us.us.us, label %359, label %349
 
 349:                                              ; preds = %348
-  %350 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %195)
+  %350 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %195)
   %351 = fsub fast float %350, %48
-  %352 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %351)
+  %352 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %351)
   %353 = fsub fast float %48, %352
   %354 = sitofp i32 %71 to float
-  %355 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %354)
+  %355 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %354)
   %356 = fsub fast float %355, %50
-  %357 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %356)
+  %357 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %356)
   %358 = fsub fast float %50, %357
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i239.us.us.us
 
 359:                                              ; preds = %348
   %360 = fadd fast float %195, 5.000000e-01
-  %361 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %360)
+  %361 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %360)
   %362 = fsub fast float %361, %51
-  %363 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %362)
+  %363 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %362)
   %364 = fsub fast float %52, %363
   %.sroa.speculated4.i12.i.i245.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %364, float 0.000000e+00)
   %.sroa.speculated.i13.i.i246.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i245.us.us.us, float %48)
   %365 = sitofp i32 %71 to float
   %366 = fadd fast float %365, 5.000000e-01
-  %367 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %366)
+  %367 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %366)
   %368 = fsub fast float %367, %53
-  %369 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %368)
+  %369 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %368)
   %370 = fsub fast float %54, %369
   %.sroa.speculated4.i12.i12.i247.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %370, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i248.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i247.us.us.us, float %50)
@@ -2558,30 +2558,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit255.us.us.us: ; preds = %378, %_
   br i1 %.not.i.i.us.us.us, label %397, label %387
 
 387:                                              ; preds = %386
-  %388 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %78)
+  %388 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %78)
   %389 = fsub fast float %388, %48
-  %390 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %389)
+  %390 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %389)
   %391 = fsub fast float %48, %390
   %392 = sitofp i32 %75 to float
-  %393 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %392)
+  %393 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %392)
   %394 = fsub fast float %393, %50
-  %395 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %394)
+  %395 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %394)
   %396 = fsub fast float %50, %395
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i257.us.us.us
 
 397:                                              ; preds = %386
   %398 = fadd fast float %78, 5.000000e-01
-  %399 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %398)
+  %399 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %398)
   %400 = fsub fast float %399, %51
-  %401 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %400)
+  %401 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %400)
   %402 = fsub fast float %52, %401
   %.sroa.speculated4.i12.i.i263.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %402, float 0.000000e+00)
   %.sroa.speculated.i13.i.i264.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i263.us.us.us, float %48)
   %403 = sitofp i32 %75 to float
   %404 = fadd fast float %403, 5.000000e-01
-  %405 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %404)
+  %405 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %404)
   %406 = fsub fast float %405, %53
-  %407 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %406)
+  %407 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %406)
   %408 = fsub fast float %54, %407
   %.sroa.speculated4.i12.i12.i265.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %408, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i266.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i265.us.us.us, float %50)
@@ -2632,30 +2632,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit273.us.us.us: ; preds = %416, %_
   br i1 %.not.i.i.us.us.us, label %435, label %425
 
 425:                                              ; preds = %424
-  %426 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %117)
+  %426 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %117)
   %427 = fsub fast float %426, %48
-  %428 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %427)
+  %428 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %427)
   %429 = fsub fast float %48, %428
   %430 = sitofp i32 %75 to float
-  %431 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %430)
+  %431 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %430)
   %432 = fsub fast float %431, %50
-  %433 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %432)
+  %433 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %432)
   %434 = fsub fast float %50, %433
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i275.us.us.us
 
 435:                                              ; preds = %424
   %436 = fadd fast float %117, 5.000000e-01
-  %437 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %436)
+  %437 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %436)
   %438 = fsub fast float %437, %51
-  %439 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %438)
+  %439 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %438)
   %440 = fsub fast float %52, %439
   %.sroa.speculated4.i12.i.i281.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %440, float 0.000000e+00)
   %.sroa.speculated.i13.i.i282.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i281.us.us.us, float %48)
   %441 = sitofp i32 %75 to float
   %442 = fadd fast float %441, 5.000000e-01
-  %443 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %442)
+  %443 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %442)
   %444 = fsub fast float %443, %53
-  %445 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %444)
+  %445 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %444)
   %446 = fsub fast float %54, %445
   %.sroa.speculated4.i12.i12.i283.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %446, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i284.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i283.us.us.us, float %50)
@@ -2706,30 +2706,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit291.us.us.us: ; preds = %454, %_
   br i1 %.not.i.i.us.us.us, label %473, label %463
 
 463:                                              ; preds = %462
-  %464 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %156)
+  %464 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %156)
   %465 = fsub fast float %464, %48
-  %466 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %465)
+  %466 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %465)
   %467 = fsub fast float %48, %466
   %468 = sitofp i32 %75 to float
-  %469 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %468)
+  %469 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %468)
   %470 = fsub fast float %469, %50
-  %471 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %470)
+  %471 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %470)
   %472 = fsub fast float %50, %471
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i293.us.us.us
 
 473:                                              ; preds = %462
   %474 = fadd fast float %156, 5.000000e-01
-  %475 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %474)
+  %475 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %474)
   %476 = fsub fast float %475, %51
-  %477 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %476)
+  %477 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %476)
   %478 = fsub fast float %52, %477
   %.sroa.speculated4.i12.i.i299.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %478, float 0.000000e+00)
   %.sroa.speculated.i13.i.i300.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i299.us.us.us, float %48)
   %479 = sitofp i32 %75 to float
   %480 = fadd fast float %479, 5.000000e-01
-  %481 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %480)
+  %481 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %480)
   %482 = fsub fast float %481, %53
-  %483 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %482)
+  %483 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %482)
   %484 = fsub fast float %54, %483
   %.sroa.speculated4.i12.i12.i301.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %484, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i302.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i301.us.us.us, float %50)
@@ -2780,30 +2780,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit309.us.us.us: ; preds = %492, %_
   br i1 %.not.i.i.us.us.us, label %511, label %501
 
 501:                                              ; preds = %500
-  %502 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %195)
+  %502 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %195)
   %503 = fsub fast float %502, %48
-  %504 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %503)
+  %504 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %503)
   %505 = fsub fast float %48, %504
   %506 = sitofp i32 %75 to float
-  %507 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %506)
+  %507 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %506)
   %508 = fsub fast float %507, %50
-  %509 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %508)
+  %509 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %508)
   %510 = fsub fast float %50, %509
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i311.us.us.us
 
 511:                                              ; preds = %500
   %512 = fadd fast float %195, 5.000000e-01
-  %513 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %512)
+  %513 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %512)
   %514 = fsub fast float %513, %51
-  %515 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %514)
+  %515 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %514)
   %516 = fsub fast float %52, %515
   %.sroa.speculated4.i12.i.i317.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %516, float 0.000000e+00)
   %.sroa.speculated.i13.i.i318.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i317.us.us.us, float %48)
   %517 = sitofp i32 %75 to float
   %518 = fadd fast float %517, 5.000000e-01
-  %519 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %518)
+  %519 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %518)
   %520 = fsub fast float %519, %53
-  %521 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %520)
+  %521 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %520)
   %522 = fsub fast float %54, %521
   %.sroa.speculated4.i12.i12.i319.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %522, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i320.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i319.us.us.us, float %50)
@@ -2854,30 +2854,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit327.us.us.us: ; preds = %530, %_
   br i1 %.not.i.i.us.us.us, label %549, label %539
 
 539:                                              ; preds = %538
-  %540 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %78)
+  %540 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %78)
   %541 = fsub fast float %540, %48
-  %542 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %541)
+  %542 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %541)
   %543 = fsub fast float %48, %542
   %544 = sitofp i32 %77 to float
-  %545 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %544)
+  %545 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %544)
   %546 = fsub fast float %545, %50
-  %547 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %546)
+  %547 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %546)
   %548 = fsub fast float %50, %547
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i329.us.us.us
 
 549:                                              ; preds = %538
   %550 = fadd fast float %78, 5.000000e-01
-  %551 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %550)
+  %551 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %550)
   %552 = fsub fast float %551, %51
-  %553 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %552)
+  %553 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %552)
   %554 = fsub fast float %52, %553
   %.sroa.speculated4.i12.i.i335.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %554, float 0.000000e+00)
   %.sroa.speculated.i13.i.i336.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i335.us.us.us, float %48)
   %555 = sitofp i32 %77 to float
   %556 = fadd fast float %555, 5.000000e-01
-  %557 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %556)
+  %557 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %556)
   %558 = fsub fast float %557, %53
-  %559 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %558)
+  %559 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %558)
   %560 = fsub fast float %54, %559
   %.sroa.speculated4.i12.i12.i337.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %560, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i338.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i337.us.us.us, float %50)
@@ -2928,30 +2928,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit345.us.us.us: ; preds = %568, %_
   br i1 %.not.i.i.us.us.us, label %587, label %577
 
 577:                                              ; preds = %576
-  %578 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %117)
+  %578 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %117)
   %579 = fsub fast float %578, %48
-  %580 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %579)
+  %580 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %579)
   %581 = fsub fast float %48, %580
   %582 = sitofp i32 %77 to float
-  %583 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %582)
+  %583 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %582)
   %584 = fsub fast float %583, %50
-  %585 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %584)
+  %585 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %584)
   %586 = fsub fast float %50, %585
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i347.us.us.us
 
 587:                                              ; preds = %576
   %588 = fadd fast float %117, 5.000000e-01
-  %589 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %588)
+  %589 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %588)
   %590 = fsub fast float %589, %51
-  %591 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %590)
+  %591 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %590)
   %592 = fsub fast float %52, %591
   %.sroa.speculated4.i12.i.i353.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %592, float 0.000000e+00)
   %.sroa.speculated.i13.i.i354.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i353.us.us.us, float %48)
   %593 = sitofp i32 %77 to float
   %594 = fadd fast float %593, 5.000000e-01
-  %595 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %594)
+  %595 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %594)
   %596 = fsub fast float %595, %53
-  %597 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %596)
+  %597 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %596)
   %598 = fsub fast float %54, %597
   %.sroa.speculated4.i12.i12.i355.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %598, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i356.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i355.us.us.us, float %50)
@@ -3002,30 +3002,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit363.us.us.us: ; preds = %606, %_
   br i1 %.not.i.i.us.us.us, label %625, label %615
 
 615:                                              ; preds = %614
-  %616 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %156)
+  %616 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %156)
   %617 = fsub fast float %616, %48
-  %618 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %617)
+  %618 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %617)
   %619 = fsub fast float %48, %618
   %620 = sitofp i32 %77 to float
-  %621 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %620)
+  %621 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %620)
   %622 = fsub fast float %621, %50
-  %623 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %622)
+  %623 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %622)
   %624 = fsub fast float %50, %623
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i365.us.us.us
 
 625:                                              ; preds = %614
   %626 = fadd fast float %156, 5.000000e-01
-  %627 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %626)
+  %627 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %626)
   %628 = fsub fast float %627, %51
-  %629 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %628)
+  %629 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %628)
   %630 = fsub fast float %52, %629
   %.sroa.speculated4.i12.i.i371.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %630, float 0.000000e+00)
   %.sroa.speculated.i13.i.i372.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i371.us.us.us, float %48)
   %631 = sitofp i32 %77 to float
   %632 = fadd fast float %631, 5.000000e-01
-  %633 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %632)
+  %633 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %632)
   %634 = fsub fast float %633, %53
-  %635 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %634)
+  %635 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %634)
   %636 = fsub fast float %54, %635
   %.sroa.speculated4.i12.i12.i373.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %636, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i374.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i373.us.us.us, float %50)
@@ -3076,30 +3076,30 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit381.us.us.us: ; preds = %644, %_
   br i1 %.not.i.i.us.us.us, label %663, label %653
 
 653:                                              ; preds = %652
-  %654 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %195)
+  %654 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %195)
   %655 = fsub fast float %654, %48
-  %656 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %655)
+  %656 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %655)
   %657 = fsub fast float %48, %656
   %658 = sitofp i32 %77 to float
-  %659 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %658)
+  %659 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %658)
   %660 = fsub fast float %659, %50
-  %661 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %660)
+  %661 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %660)
   %662 = fsub fast float %50, %661
   br label %_ZN4ncnnL13compute_coordEfiii.exit16.i383.us.us.us
 
 663:                                              ; preds = %652
   %664 = fadd fast float %195, 5.000000e-01
-  %665 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %664)
+  %665 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %664)
   %666 = fsub fast float %665, %51
-  %667 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %666)
+  %667 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %666)
   %668 = fsub fast float %52, %667
   %.sroa.speculated4.i12.i.i389.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %668, float 0.000000e+00)
   %.sroa.speculated.i13.i.i390.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i.i389.us.us.us, float %48)
   %669 = sitofp i32 %77 to float
   %670 = fadd fast float %669, 5.000000e-01
-  %671 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %670)
+  %671 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %670)
   %672 = fsub fast float %671, %53
-  %673 = call fast noundef float @llvm.fabs.f32(float nofpclass(nan inf) %672)
+  %673 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %672)
   %674 = fsub fast float %54, %673
   %.sroa.speculated4.i12.i12.i391.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %674, float 0.000000e+00)
   %.sroa.speculated.i13.i13.i392.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i12.i12.i391.us.us.us, float %50)
@@ -3384,11 +3384,11 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %65 = load float, ptr %.2102295.us.us.us.us.us, align 4, !tbaa !53
   %66 = load float, ptr %.2105294.us.us.us.us.us, align 4, !tbaa !53
   %67 = load float, ptr %.2108293.us.us.us.us.us, align 4, !tbaa !53
-  %68 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %65)
+  %68 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %65)
   %69 = fptosi float %68 to i32
-  %70 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %66)
+  %70 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %66)
   %71 = fptosi float %70 to i32
-  %72 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %67)
+  %72 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %67)
   %73 = fptosi float %72 to i32
   %74 = add nsw i32 %69, 1
   %75 = add nsw i32 %71, 1
@@ -3759,13 +3759,13 @@ define internal void @_ZNK4ncnn10GridSample7forwardERKSt6vectorINS_3MatESaIS2_EE
   %66 = load float, ptr %.247158.us.us.us.us.us, align 4, !tbaa !53
   %67 = load float, ptr %.250157.us.us.us.us.us, align 4, !tbaa !53
   %68 = fadd fast float %65, 5.000000e-01
-  %69 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %68)
+  %69 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %68)
   %70 = fptosi float %69 to i32
   %71 = fadd fast float %66, 5.000000e-01
-  %72 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %71)
+  %72 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %71)
   %73 = fptosi float %72 to i32
   %74 = fadd fast float %67, 5.000000e-01
-  %75 = call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %74)
+  %75 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %74)
   %76 = fptosi float %75 to i32
   %77 = or i32 %73, %70
   %78 = or i32 %77, %76

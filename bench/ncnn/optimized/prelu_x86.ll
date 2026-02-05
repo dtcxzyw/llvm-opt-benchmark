@@ -340,8 +340,8 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %26 = load ptr, ptr %5, align 8, !tbaa !40
   %27 = getelementptr inbounds float, ptr %26, i64 %23
   %28 = load <4 x float>, ptr %27, align 1, !tbaa !47
-  %29 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
-  %30 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
+  %29 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
+  %30 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
   %31 = fmul fast <4 x float> %30, %28
   %32 = fadd fast <4 x float> %31, %29
   store <4 x float> %32, ptr %24, align 16, !tbaa !47
@@ -505,8 +505,8 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %26 = load float, ptr %5, align 4, !tbaa !44
   %27 = insertelement <4 x float> poison, float %26, i64 0
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> zeroinitializer
-  %29 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
-  %30 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
+  %29 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
+  %30 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
   %31 = fmul fast <4 x float> %28, %30
   %32 = fadd fast <4 x float> %31, %29
   store <4 x float> %32, ptr %24, align 16, !tbaa !47
@@ -687,8 +687,8 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %.03240 = phi ptr [ %61, %.lr.ph ], [ %33, %50 ]
   %.03339 = phi i32 [ %62, %.lr.ph ], [ 0, %50 ]
   %56 = load <4 x float>, ptr %.03240, align 1, !tbaa !47
-  %57 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %56)
-  %58 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %56)
+  %57 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %56)
+  %58 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %56)
   %59 = fmul fast <4 x float> %58, %52
   %60 = fadd fast <4 x float> %59, %57
   store <4 x float> %60, ptr %.03240, align 1, !tbaa !47
@@ -827,8 +827,8 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %.03247 = phi ptr [ %59, %.lr.ph ], [ %31, %48 ]
   %.03346 = phi i32 [ %60, %.lr.ph ], [ 0, %48 ]
   %54 = load <4 x float>, ptr %.03247, align 16, !tbaa !47
-  %55 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %54)
-  %56 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %54)
+  %55 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %54)
+  %56 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %54)
   %57 = fmul fast <4 x float> %56, %50
   %58 = fadd fast <4 x float> %57, %55
   store <4 x float> %58, ptr %.03247, align 16, !tbaa !47

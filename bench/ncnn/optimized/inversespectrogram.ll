@@ -275,7 +275,7 @@ define hidden noundef i32 @_ZN4ncnn18InverseSpectrogram10load_paramERKNS_9ParamD
   br label %.lr.ph70
 
 ._crit_edge71.loopexit:                           ; preds = %.lr.ph70
-  %73 = tail call fast float @llvm.sqrt.f32(float nofpclass(nan inf) %79)
+  %73 = tail call fast nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %79)
   br label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %.preheader
@@ -634,7 +634,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
 
 169:                                              ; preds = %.loopexit275
   %170 = sitofp i32 %102 to double
-  %171 = call fast noundef double @llvm.sqrt.f64(double %170)
+  %171 = call fast noundef nofpclass(nan inf) double @llvm.sqrt.f64(double %170)
   %172 = fptrunc fast double %171 to float
   %173 = icmp sgt i32 %102, 0
   br i1 %173, label %.lr.ph322, label %._crit_edge

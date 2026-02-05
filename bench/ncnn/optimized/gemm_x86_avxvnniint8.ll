@@ -3135,7 +3135,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.2461271.i = phi ptr [ %681, %.lr.ph274.i ], [ %.1460.lcssa.i, %.preheader128.i ]
   %670 = load float, ptr %.2461271.i, align 4, !tbaa !98
   %671 = fmul fast float %670, %617
-  %672 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %671)
+  %672 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %671)
   %673 = fptosi float %672 to i32
   %spec.select.i123.i = tail call i32 @llvm.smax.i32(i32 %673, i32 -127)
   %.0.i124.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i123.i, i32 127)
@@ -3144,7 +3144,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %674 = getelementptr inbounds float, ptr %.2461271.i, i64 %596
   %675 = load float, ptr %674, align 4, !tbaa !98
   %676 = fmul fast float %675, %619
-  %677 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %676)
+  %677 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %676)
   %678 = fptosi float %677 to i32
   %spec.select.i462125.i = tail call i32 @llvm.smax.i32(i32 %678, i32 -127)
   %.0.i463126.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i462125.i, i32 127)
@@ -3215,7 +3215,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.1433289.i = phi ptr [ %718, %.lr.ph292.i ], [ %.0432.lcssa.i, %.preheader.i ]
   %713 = load float, ptr %.1433289.i, align 4, !tbaa !98
   %714 = fmul fast float %713, %693
-  %715 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %714)
+  %715 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %714)
   %716 = fptosi float %715 to i32
   %spec.select.i464121.i = tail call i32 @llvm.smax.i32(i32 %716, i32 -127)
   %.0.i465122.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i464121.i, i32 127)
@@ -4293,7 +4293,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.2499262.i = phi i32 [ %773, %.lr.ph265.i ], [ %.1498.lcssa.i, %.preheader147.i ]
   %761 = load float, ptr %.6494263.i, align 4, !tbaa !98
   %762 = fmul fast float %761, %689
-  %763 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %762)
+  %763 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %762)
   %764 = fptosi float %763 to i32
   %spec.select.i502140.i = tail call i32 @llvm.smax.i32(i32 %764, i32 -127)
   %.0.i503141.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i502140.i, i32 127)
@@ -4302,7 +4302,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %765 = getelementptr inbounds nuw i8, ptr %.6494263.i, i64 4
   %766 = load float, ptr %765, align 4, !tbaa !98
   %767 = fmul fast float %766, %691
-  %768 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %767)
+  %768 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %767)
   %769 = fptosi float %768 to i32
   %spec.select.i500142.i = tail call i32 @llvm.smax.i32(i32 %769, i32 -127)
   %.0.i501143.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i500142.i, i32 127)
@@ -4439,7 +4439,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.5483291.i = phi ptr [ %851, %.lr.ph294.i ], [ %.4482.lcssa.i, %.preheader.i ]
   %846 = load float, ptr %.5483291.i, align 4, !tbaa !98
   %847 = fmul fast float %846, %784
-  %848 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %847)
+  %848 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %847)
   %849 = fptosi float %848 to i32
   %spec.select.i138.i = tail call i32 @llvm.smax.i32(i32 %849, i32 -127)
   %.0.i139.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i138.i, i32 127)
@@ -5372,7 +5372,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.2394258.i = phi ptr [ %630, %.lr.ph261.i ], [ %.1393.lcssa.i, %.preheader115.i ]
   %619 = load float, ptr %.2394258.i, align 4, !tbaa !98
   %620 = fmul fast float %619, %6
-  %621 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %620)
+  %621 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %620)
   %622 = fptosi float %621 to i32
   %spec.select.i403110.i = tail call i32 @llvm.smax.i32(i32 %622, i32 -127)
   %.0.i404111.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i403110.i, i32 127)
@@ -5381,7 +5381,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %623 = getelementptr inbounds float, ptr %.2394258.i, i64 %553
   %624 = load float, ptr %623, align 4, !tbaa !98
   %625 = fmul fast float %624, %6
-  %626 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %625)
+  %626 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %625)
   %627 = fptosi float %626 to i32
   %spec.select.i401112.i = tail call i32 @llvm.smax.i32(i32 %627, i32 -127)
   %.0.i402113.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i401112.i, i32 127)
@@ -5447,7 +5447,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.1361276.i = phi ptr [ %662, %.lr.ph279.i ], [ %.0360.lcssa.i, %.preheader.i ]
   %657 = load float, ptr %.1361276.i, align 4, !tbaa !98
   %658 = fmul fast float %657, %6
-  %659 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %658)
+  %659 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %658)
   %660 = fptosi float %659 to i32
   %spec.select.i108.i = tail call i32 @llvm.smax.i32(i32 %660, i32 -127)
   %.0.i109.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i108.i, i32 127)
@@ -6264,7 +6264,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.2431248.i.us.us = phi i32 [ %572, %.lr.ph251.i.us.us ], [ %.1430.lcssa.i.us.us, %.preheader135.i.us.us ]
   %560 = load float, ptr %.6426249.i.us.us, align 4, !tbaa !98
   %561 = fmul fast float %560, %6
-  %562 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %561)
+  %562 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %561)
   %563 = fptosi float %562 to i32
   %spec.select.i434128.i.us.us = tail call i32 @llvm.smax.i32(i32 %563, i32 -127)
   %.0.i435129.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i434128.i.us.us, i32 127)
@@ -6273,7 +6273,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %564 = getelementptr inbounds nuw i8, ptr %.6426249.i.us.us, i64 4
   %565 = load float, ptr %564, align 4, !tbaa !98
   %566 = fmul fast float %565, %6
-  %567 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %566)
+  %567 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %566)
   %568 = fptosi float %567 to i32
   %spec.select.i432130.i.us.us = tail call i32 @llvm.smax.i32(i32 %568, i32 -127)
   %.0.i433131.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i432130.i.us.us, i32 127)
@@ -6517,7 +6517,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.5414277.i.us.us = phi ptr [ %718, %.lr.ph280.i.us.us ], [ %.4413.lcssa.i.us.us, %.preheader.i.us.us ]
   %713 = load float, ptr %.5414277.i.us.us, align 4, !tbaa !98
   %714 = fmul fast float %713, %6
-  %715 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %714)
+  %715 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %714)
   %716 = fptosi float %715 to i32
   %spec.select.i126.i.us.us = tail call i32 @llvm.smax.i32(i32 %716, i32 -127)
   %.0.i127.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i126.i.us.us, i32 127)

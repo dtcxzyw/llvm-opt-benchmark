@@ -421,7 +421,7 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef capture
   %93 = shufflevector <8 x float> %92, <8 x float> poison, <8 x i32> zeroinitializer
   %94 = fdiv fast <8 x float> %.0303.lcssa, %91
   %95 = fadd fast <8 x float> %94, %93
-  %96 = tail call fast noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> nofpclass(nan inf) %95)
+  %96 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> nofpclass(nan inf) %95)
   %97 = fmul fast <8 x float> %96, %.3294
   br label %98
 
@@ -442,7 +442,7 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef capture
   %108 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> zeroinitializer
   %109 = fdiv fast <4 x float> %103, %106
   %110 = fadd fast <4 x float> %109, %108
-  %111 = tail call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %110)
+  %111 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %110)
   %112 = fmul fast <4 x float> %111, %.2300
   %113 = shufflevector <4 x float> %111, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %114 = shufflevector <4 x float> %112, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>

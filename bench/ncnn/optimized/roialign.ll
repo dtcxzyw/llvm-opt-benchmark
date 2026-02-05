@@ -191,9 +191,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   br label %90
 
 86:                                               ; preds = %79
-  %87 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %73)
+  %87 = tail call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %73)
   %88 = fptosi float %87 to i32
-  %89 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %70)
+  %89 = tail call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %70)
   %.pre = fptosi float %89 to i32
   br label %90
 
@@ -377,9 +377,9 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 
 84:                                               ; preds = %59
   %85 = fsub fast float %.sroa.speculated87.us.us.us, %.sroa.speculated103.us.us.us
-  %86 = call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %85)
+  %86 = call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %85)
   %87 = fsub fast float %.sroa.speculated.us.us.us, %.sroa.speculated95.us.us.us
-  %88 = call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %87)
+  %88 = call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %87)
   br label %89
 
 89:                                               ; preds = %59, %84

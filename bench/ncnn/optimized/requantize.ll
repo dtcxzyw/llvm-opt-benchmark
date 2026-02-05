@@ -1299,7 +1299,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %17
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.i:         ; preds = %92, %88, %80, %74, %69, %68, %62, %56, %54, %.lr.ph.i
   %.1.i = phi nsz float [ %53, %.lr.ph.i ], [ %55, %54 ], [ %61, %56 ], [ %66, %68 ], [ %.026.i, %62 ], [ %73, %69 ], [ %79, %74 ], [ %95, %92 ], [ %53, %88 ], [ 0.000000e+00, %80 ]
   %96 = fmul fast float %.1.i, %45
-  %97 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %96)
+  %97 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %96)
   %98 = fptosi float %97 to i32
   %spec.select5.i.i = tail call i32 @llvm.smax.i32(i32 %98, i32 -127)
   %.06.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)
@@ -1613,7 +1613,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.i:         ; preds = %112, %108, %100, %94, %89, %88, %82, %76, %74, %.lr.ph.i
   %.1.i = phi nsz float [ %73, %.lr.ph.i ], [ %75, %74 ], [ %81, %76 ], [ %86, %88 ], [ %.026.i, %82 ], [ %93, %89 ], [ %99, %94 ], [ %115, %112 ], [ %73, %108 ], [ 0.000000e+00, %100 ]
   %116 = fmul fast float %.1.i, %66
-  %117 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %116)
+  %117 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %116)
   %118 = fptosi float %117 to i32
   %spec.select5.i.i = call i32 @llvm.smax.i32(i32 %118, i32 -127)
   %.06.i.i = call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)
@@ -1846,7 +1846,7 @@ define internal void @_ZNK4ncnn10Requantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.i:         ; preds = %112, %108, %100, %94, %89, %88, %82, %76, %74, %.lr.ph.i
   %.1.i = phi nsz float [ %73, %.lr.ph.i ], [ %75, %74 ], [ %81, %76 ], [ %86, %88 ], [ %.026.i, %82 ], [ %93, %89 ], [ %99, %94 ], [ %115, %112 ], [ %73, %108 ], [ 0.000000e+00, %100 ]
   %116 = fmul fast float %.1.i, %64
-  %117 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %116)
+  %117 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %116)
   %118 = fptosi float %117 to i32
   %spec.select5.i.i = call i32 @llvm.smax.i32(i32 %118, i32 -127)
   %.06.i.i = call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)

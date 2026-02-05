@@ -415,7 +415,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %17
   %.089.i = phi ptr [ %40, %.lr.ph.i ], [ %20, %.lr.ph.i.preheader ]
   %35 = load float, ptr %.0710.i, align 4, !tbaa !44
   %36 = fmul fast float %35, %32
-  %37 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %36)
+  %37 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %36)
   %38 = fptosi float %37 to i32
   %spec.select5.i.i = tail call i32 @llvm.smax.i32(i32 %38, i32 -127)
   %.06.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)
@@ -609,7 +609,7 @@ define internal void @_ZNK4ncnn8Quantize7forwardERKNS_3MatERS1_RKNS_6OptionE.omp
   %.089.i = phi ptr [ %54, %.lr.ph.i ], [ %41, %.lr.ph.i.preheader ]
   %49 = load float, ptr %.0710.i, align 4, !tbaa !44
   %50 = fmul fast float %49, %32
-  %51 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %50)
+  %51 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %50)
   %52 = fptosi float %51 to i32
   %spec.select5.i.i = call i32 @llvm.smax.i32(i32 %52, i32 -127)
   %.06.i.i = call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)
@@ -736,7 +736,7 @@ define internal void @_ZNK4ncnn8Quantize7forwardERKNS_3MatERS1_RKNS_6OptionE.omp
   %.089.i = phi ptr [ %54, %.lr.ph.i ], [ %42, %.lr.ph.i.preheader ]
   %49 = load float, ptr %.0710.i, align 4, !tbaa !44
   %50 = fmul fast float %49, %32
-  %51 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %50)
+  %51 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %50)
   %52 = fptosi float %51 to i32
   %spec.select5.i.i = call i32 @llvm.smax.i32(i32 %52, i32 -127)
   %.06.i.i = call i32 @llvm.smin.i32(i32 %spec.select5.i.i, i32 127)

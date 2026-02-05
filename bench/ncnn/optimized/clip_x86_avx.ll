@@ -145,8 +145,8 @@ define internal void @_ZNK4ncnn12Clip_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %.04256 = phi ptr [ %42, %.lr.ph ], [ %31, %.noexc ]
   %.04355 = phi i32 [ %43, %.lr.ph ], [ 0, %.noexc ]
   %39 = load <8 x float>, ptr %.04256, align 1, !tbaa !47
-  %40 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %39, <8 x float> nofpclass(nan inf) %34)
-  %41 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %40, <8 x float> nofpclass(nan inf) %37)
+  %40 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %39, <8 x float> nofpclass(nan inf) %34)
+  %41 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %40, <8 x float> nofpclass(nan inf) %37)
   store <8 x float> %41, ptr %.04256, align 1, !tbaa !47
   %42 = getelementptr inbounds nuw i8, ptr %.04256, i64 32
   %43 = add nuw nsw i32 %.04355, 8
@@ -185,8 +185,8 @@ define internal void @_ZNK4ncnn12Clip_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %.159 = phi ptr [ %61, %.lr.ph61 ], [ %.042.lcssa, %._crit_edge ]
   %.14458 = phi i32 [ %62, %.lr.ph61 ], [ %.043.lcssa, %._crit_edge ]
   %58 = load <4 x float>, ptr %.159, align 16, !tbaa !47
-  %59 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %58, <4 x float> nofpclass(nan inf) %51)
-  %60 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %59, <4 x float> nofpclass(nan inf) %53)
+  %59 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %58, <4 x float> nofpclass(nan inf) %51)
+  %60 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %59, <4 x float> nofpclass(nan inf) %53)
   store <4 x float> %60, ptr %.159, align 16, !tbaa !47
   %61 = getelementptr inbounds nuw i8, ptr %.159, i64 16
   %62 = add nuw nsw i32 %.14458, 4

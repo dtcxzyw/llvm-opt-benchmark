@@ -436,7 +436,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.0280325 = phi <8 x float> [ %115, %.lr.ph329 ], [ zeroinitializer, %._crit_edge321 ]
   %113 = load <8 x float>, ptr %.5327, align 1, !tbaa !54
   %114 = fsub fast <8 x float> %113, %110
-  %115 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %114, <8 x float> nofpclass(nan inf) %114, <8 x float> nofpclass(nan inf) %.0280325)
+  %115 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %114, <8 x float> nofpclass(nan inf) %114, <8 x float> nofpclass(nan inf) %.0280325)
   %116 = getelementptr inbounds nuw i8, ptr %.5327, i64 32
   %117 = add nuw nsw i32 %.1186326, 8
   %118 = or disjoint i32 %117, 7
@@ -464,7 +464,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.0279334 = phi <4 x float> [ %131, %.lr.ph338 ], [ zeroinitializer, %._crit_edge330 ]
   %129 = load <4 x float>, ptr %.6336, align 1, !tbaa !54
   %130 = fsub fast <4 x float> %129, %126
-  %131 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %130, <4 x float> nofpclass(nan inf) %130, <4 x float> nofpclass(nan inf) %.0279334)
+  %131 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %130, <4 x float> nofpclass(nan inf) %130, <4 x float> nofpclass(nan inf) %.0279334)
   %132 = getelementptr inbounds nuw i8, ptr %.6336, i64 16
   %133 = add nuw nsw i32 %.2187335, 4
   %134 = or disjoint i32 %133, 3
@@ -568,8 +568,8 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %180 = load <8 x float>, ptr %.1199361, align 1, !tbaa !54
   %181 = load <8 x float>, ptr %.9364, align 1, !tbaa !54
   %182 = fmul fast <8 x float> %179, %174
-  %183 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %179, <8 x float> nofpclass(nan inf) %176, <8 x float> nofpclass(nan inf) %180)
-  %184 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %181, <8 x float> nofpclass(nan inf) %182, <8 x float> nofpclass(nan inf) %183)
+  %183 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %179, <8 x float> nofpclass(nan inf) %176, <8 x float> nofpclass(nan inf) %180)
+  %184 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %181, <8 x float> nofpclass(nan inf) %182, <8 x float> nofpclass(nan inf) %183)
   store <8 x float> %184, ptr %.9364, align 1, !tbaa !54
   %185 = getelementptr inbounds nuw i8, ptr %.1195362, i64 32
   %186 = getelementptr inbounds nuw i8, ptr %.1199361, i64 32
@@ -614,8 +614,8 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %204 = load <4 x float>, ptr %.2200372, align 1, !tbaa !54
   %205 = load <4 x float>, ptr %.10375, align 1, !tbaa !54
   %206 = fmul fast <4 x float> %203, %195
-  %207 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %203, <4 x float> nofpclass(nan inf) %197, <4 x float> nofpclass(nan inf) %204)
-  %208 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %205, <4 x float> nofpclass(nan inf) %206, <4 x float> nofpclass(nan inf) %207)
+  %207 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %203, <4 x float> nofpclass(nan inf) %197, <4 x float> nofpclass(nan inf) %204)
+  %208 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %205, <4 x float> nofpclass(nan inf) %206, <4 x float> nofpclass(nan inf) %207)
   store <4 x float> %208, ptr %.10375, align 1, !tbaa !54
   %209 = getelementptr inbounds nuw i8, ptr %.2196373, i64 16
   %210 = getelementptr inbounds nuw i8, ptr %.2200372, i64 16
@@ -680,7 +680,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.13396 = phi ptr [ %244, %.lr.ph398 ], [ %.12.lcssa, %._crit_edge392 ]
   %.1174395 = phi i32 [ %245, %.lr.ph398 ], [ %.0173.lcssa, %._crit_edge392 ]
   %242 = load <8 x float>, ptr %.13396, align 1, !tbaa !54
-  %243 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %242, <8 x float> nofpclass(nan inf) %237, <8 x float> nofpclass(nan inf) %239)
+  %243 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %242, <8 x float> nofpclass(nan inf) %237, <8 x float> nofpclass(nan inf) %239)
   store <8 x float> %243, ptr %.13396, align 1, !tbaa !54
   %244 = getelementptr inbounds nuw i8, ptr %.13396, i64 32
   %245 = add nuw nsw i32 %.1174395, 8
@@ -712,7 +712,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.14403 = phi ptr [ %260, %.lr.ph405 ], [ %.13.lcssa, %._crit_edge399 ]
   %.2175402 = phi i32 [ %261, %.lr.ph405 ], [ %.1174.lcssa, %._crit_edge399 ]
   %258 = load <4 x float>, ptr %.14403, align 1, !tbaa !54
-  %259 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %258, <4 x float> nofpclass(nan inf) %251, <4 x float> nofpclass(nan inf) %253)
+  %259 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %258, <4 x float> nofpclass(nan inf) %251, <4 x float> nofpclass(nan inf) %253)
   store <4 x float> %259, ptr %.14403, align 1, !tbaa !54
   %260 = getelementptr inbounds nuw i8, ptr %.14403, i64 16
   %261 = add nuw nsw i32 %.2175402, 4
@@ -997,7 +997,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.0250296 = phi <8 x float> [ %121, %.lr.ph300 ], [ zeroinitializer, %._crit_edge292 ]
   %119 = load <8 x float>, ptr %.5298, align 1, !tbaa !54
   %120 = fsub fast <8 x float> %119, %116
-  %121 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %120, <8 x float> nofpclass(nan inf) %120, <8 x float> nofpclass(nan inf) %.0250296)
+  %121 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %120, <8 x float> nofpclass(nan inf) %120, <8 x float> nofpclass(nan inf) %.0250296)
   %122 = getelementptr inbounds nuw i8, ptr %.5298, i64 32
   %123 = add nuw nsw i32 %.1178297, 8
   %124 = or disjoint i32 %123, 7
@@ -1025,7 +1025,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.0249305 = phi <4 x float> [ %137, %.lr.ph309 ], [ zeroinitializer, %._crit_edge301 ]
   %135 = load <4 x float>, ptr %.6307, align 1, !tbaa !54
   %136 = fsub fast <4 x float> %135, %132
-  %137 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %136, <4 x float> nofpclass(nan inf) %136, <4 x float> nofpclass(nan inf) %.0249305)
+  %137 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %136, <4 x float> nofpclass(nan inf) %136, <4 x float> nofpclass(nan inf) %.0249305)
   %138 = getelementptr inbounds nuw i8, ptr %.6307, i64 16
   %139 = add nuw nsw i32 %.2179306, 4
   %140 = or disjoint i32 %139, 3
@@ -1132,7 +1132,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.10329 = phi ptr [ %189, %.lr.ph331 ], [ %.9.lcssa, %._crit_edge325 ]
   %.1169328 = phi i32 [ %190, %.lr.ph331 ], [ %.0168.lcssa, %._crit_edge325 ]
   %187 = load <8 x float>, ptr %.10329, align 1, !tbaa !54
-  %188 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %187, <8 x float> nofpclass(nan inf) %182, <8 x float> nofpclass(nan inf) %184)
+  %188 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %187, <8 x float> nofpclass(nan inf) %182, <8 x float> nofpclass(nan inf) %184)
   store <8 x float> %188, ptr %.10329, align 1, !tbaa !54
   %189 = getelementptr inbounds nuw i8, ptr %.10329, i64 32
   %190 = add nuw nsw i32 %.1169328, 8
@@ -1164,7 +1164,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.11336 = phi ptr [ %205, %.lr.ph338 ], [ %.10.lcssa, %._crit_edge332 ]
   %.2170335 = phi i32 [ %206, %.lr.ph338 ], [ %.1169.lcssa, %._crit_edge332 ]
   %203 = load <4 x float>, ptr %.11336, align 1, !tbaa !54
-  %204 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %203, <4 x float> nofpclass(nan inf) %196, <4 x float> nofpclass(nan inf) %198)
+  %204 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %203, <4 x float> nofpclass(nan inf) %196, <4 x float> nofpclass(nan inf) %198)
   store <4 x float> %204, ptr %.11336, align 1, !tbaa !54
   %205 = getelementptr inbounds nuw i8, ptr %.11336, i64 16
   %206 = add nuw nsw i32 %.2170335, 4
@@ -1231,7 +1231,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.14360 = phi ptr [ %242, %.lr.ph362 ], [ %.13.lcssa, %._crit_edge356 ]
   %.1159359 = phi i32 [ %243, %.lr.ph362 ], [ %.0158.lcssa, %._crit_edge356 ]
   %240 = load <8 x float>, ptr %.14360, align 1, !tbaa !54
-  %241 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %240, <8 x float> nofpclass(nan inf) %235, <8 x float> nofpclass(nan inf) %237)
+  %241 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %240, <8 x float> nofpclass(nan inf) %235, <8 x float> nofpclass(nan inf) %237)
   store <8 x float> %241, ptr %.14360, align 1, !tbaa !54
   %242 = getelementptr inbounds nuw i8, ptr %.14360, i64 32
   %243 = add nuw nsw i32 %.1159359, 8
@@ -1263,7 +1263,7 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   %.15367 = phi ptr [ %257, %.lr.ph369 ], [ %.14.lcssa, %._crit_edge363 ]
   %.2160366 = phi i32 [ %258, %.lr.ph369 ], [ %.1159.lcssa, %._crit_edge363 ]
   %255 = load <4 x float>, ptr %.15367, align 1, !tbaa !54
-  %256 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %255, <4 x float> nofpclass(nan inf) %249, <4 x float> nofpclass(nan inf) %251)
+  %256 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %255, <4 x float> nofpclass(nan inf) %249, <4 x float> nofpclass(nan inf) %251)
   store <4 x float> %256, ptr %.15367, align 1, !tbaa !54
   %257 = getelementptr inbounds nuw i8, ptr %.15367, i64 16
   %258 = add nuw nsw i32 %.2160366, 4
@@ -1582,7 +1582,7 @@ _ZN4ncnn3MatD2Ev.exit174:                         ; preds = %._crit_edge363, %._
   %.0325375 = phi <8 x float> [ %169, %.lr.ph379 ], [ zeroinitializer, %._crit_edge370 ]
   %167 = load <8 x float>, ptr %.1165376, align 1, !tbaa !54
   %168 = fsub fast <8 x float> %167, %75
-  %169 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %168, <8 x float> nofpclass(nan inf) %168, <8 x float> nofpclass(nan inf) %.0325375)
+  %169 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %168, <8 x float> nofpclass(nan inf) %168, <8 x float> nofpclass(nan inf) %.0325375)
   %170 = getelementptr inbounds nuw i8, ptr %.1165376, i64 32
   %171 = add nuw nsw i32 %.1161377, 8
   %172 = or disjoint i32 %171, 7
@@ -1610,7 +1610,7 @@ _ZN4ncnn3MatD2Ev.exit174:                         ; preds = %._crit_edge363, %._
   %.0324384 = phi <4 x float> [ %185, %.lr.ph388 ], [ zeroinitializer, %._crit_edge380 ]
   %183 = load <4 x float>, ptr %.2166385, align 1, !tbaa !54
   %184 = fsub fast <4 x float> %183, %77
-  %185 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %184, <4 x float> nofpclass(nan inf) %184, <4 x float> nofpclass(nan inf) %.0324384)
+  %185 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %184, <4 x float> nofpclass(nan inf) %184, <4 x float> nofpclass(nan inf) %.0324384)
   %186 = getelementptr inbounds nuw i8, ptr %.2166385, i64 16
   %187 = add nuw nsw i32 %.2162386, 4
   %188 = or disjoint i32 %187, 3
@@ -1721,7 +1721,7 @@ _ZN4ncnn3MatD2Ev.exit173:                         ; preds = %212, %209
   %.1135412 = phi i32 [ %243, %.lr.ph414 ], [ %.0134.lcssa, %._crit_edge408 ]
   %.1137411 = phi ptr [ %242, %.lr.ph414 ], [ %.0136.lcssa, %._crit_edge408 ]
   %240 = load <8 x float>, ptr %.1137411, align 1, !tbaa !54
-  %241 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %240, <8 x float> nofpclass(nan inf) %235, <8 x float> nofpclass(nan inf) %237)
+  %241 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %240, <8 x float> nofpclass(nan inf) %235, <8 x float> nofpclass(nan inf) %237)
   store <8 x float> %241, ptr %.1137411, align 1, !tbaa !54
   %242 = getelementptr inbounds nuw i8, ptr %.1137411, i64 32
   %243 = add nuw nsw i32 %.1135412, 8
@@ -1755,7 +1755,7 @@ _ZN4ncnn3MatD2Ev.exit173:                         ; preds = %212, %209
   %.2419 = phi i32 [ %259, %.lr.ph421 ], [ %.1135.lcssa, %._crit_edge415 ]
   %.2138418 = phi ptr [ %258, %.lr.ph421 ], [ %.1137.lcssa, %._crit_edge415 ]
   %256 = load <4 x float>, ptr %.2138418, align 1, !tbaa !54
-  %257 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %256, <4 x float> nofpclass(nan inf) %249, <4 x float> nofpclass(nan inf) %251)
+  %257 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %256, <4 x float> nofpclass(nan inf) %249, <4 x float> nofpclass(nan inf) %251)
   store <4 x float> %257, ptr %.2138418, align 1, !tbaa !54
   %258 = getelementptr inbounds nuw i8, ptr %.2138418, i64 16
   %259 = add nuw nsw i32 %.2419, 4

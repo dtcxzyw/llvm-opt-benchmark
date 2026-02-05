@@ -155,9 +155,9 @@ define internal void @_ZNK4ncnn17HardSwish_x86_fma15forward_inplaceERNS_3MatERKN
   %42 = load float, ptr %22, align 8, !tbaa !47
   %43 = insertelement <8 x float> poison, float %42, i64 0
   %44 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> zeroinitializer
-  %45 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %38, <8 x float> nofpclass(nan inf) %44, <8 x float> nofpclass(nan inf) %41)
-  %46 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %45, <8 x float> zeroinitializer)
-  %47 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %46, <8 x float> nofpclass(nan inf) splat (float 1.000000e+00))
+  %45 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %38, <8 x float> nofpclass(nan inf) %44, <8 x float> nofpclass(nan inf) %41)
+  %46 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %45, <8 x float> zeroinitializer)
+  %47 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %46, <8 x float> nofpclass(nan inf) splat (float 1.000000e+00))
   %48 = fmul fast <8 x float> %47, %38
   store <8 x float> %48, ptr %.04562, align 1, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %.04562, i64 32
@@ -186,8 +186,8 @@ define internal void @_ZNK4ncnn17HardSwish_x86_fma15forward_inplaceERNS_3MatERKN
   %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> zeroinitializer
   %63 = fmul fast <4 x float> %62, %56
   %64 = fadd fast <4 x float> %63, %59
-  %65 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %64, <4 x float> zeroinitializer)
-  %66 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %65, <4 x float> splat (float 1.000000e+00))
+  %65 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %64, <4 x float> zeroinitializer)
+  %66 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %65, <4 x float> splat (float 1.000000e+00))
   %67 = fmul fast <4 x float> %66, %56
   store <4 x float> %67, ptr %.165, align 16, !tbaa !43
   %68 = getelementptr inbounds nuw i8, ptr %.165, i64 16

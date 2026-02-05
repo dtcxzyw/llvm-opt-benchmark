@@ -144,8 +144,8 @@ define internal void @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %.0142 = phi i32 [ %135, %.lr.ph ], [ 0, %.noexc ]
   %.027141 = phi ptr [ %134, %.lr.ph ], [ %28, %.noexc ]
   %32 = load <4 x float>, ptr %.027141, align 1, !tbaa !43
-  %33 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %32, <4 x float> splat (float 0x40561814A0000000))
-  %34 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %33, <4 x float> splat (float 0xC0561814A0000000))
+  %33 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %32, <4 x float> splat (float 0x40561814A0000000))
+  %34 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %33, <4 x float> splat (float 0xC0561814A0000000))
   %35 = fmul fast <4 x float> %34, splat (float 0x3FF7154760000000)
   %36 = fadd fast <4 x float> %35, splat (float 5.000000e-01)
   %37 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %36)
@@ -176,7 +176,7 @@ define internal void @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %62 = fmul fast <4 x float> %57, %61
   %63 = fadd fast <4 x float> %62, splat (float 1.000000e+00)
   %64 = fcmp fast ole <4 x float> %63, zeroinitializer
-  %65 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %63, <4 x float> splat (float 0x3810000000000000))
+  %65 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %63, <4 x float> splat (float 0x3810000000000000))
   %66 = bitcast <4 x float> %65 to <4 x i32>
   %67 = lshr <4 x i32> %66, splat (i32 23)
   %68 = and <4 x i32> %66, splat (i32 -2139095041)
@@ -215,8 +215,8 @@ define internal void @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %98 = fadd fast <4 x float> %97, %reass.mul140
   %.neg = fmul fast <4 x float> %98, splat (float -2.000000e+00)
   %99 = select fast <4 x i1> %64, <4 x float> splat (float 0x7FFFFFFFE0000000), <4 x float> %.neg
-  %100 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %99, <4 x float> splat (float 0x40561814A0000000))
-  %101 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %100, <4 x float> splat (float 0xC0561814A0000000))
+  %100 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %99, <4 x float> splat (float 0x40561814A0000000))
+  %101 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %100, <4 x float> splat (float 0xC0561814A0000000))
   %102 = fmul fast <4 x float> %101, splat (float 0x3FF7154760000000)
   %103 = fadd fast <4 x float> %102, splat (float 5.000000e-01)
   %104 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %103)

@@ -995,7 +995,7 @@ define internal void @_ZNK4ncnn3MVN7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outl
   %34 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv40
   %35 = load float, ptr %34, align 4, !tbaa !42
   %36 = fmul fast float %35, %32
-  %37 = call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %36)
+  %37 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %36)
   %38 = load float, ptr %27, align 8, !tbaa !28
   %39 = fadd fast float %37, %38
   %40 = fdiv fast float 1.000000e+00, %39

@@ -14919,7 +14919,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
   %.0 = phi i32 [ %13, %12 ], [ %6, %7 ]
   %15 = uitofp i64 %10 to float
   %16 = fmul fast float %15, 0x3FD5555560000000
-  %17 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %16)
+  %17 = tail call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %16)
   %18 = fptosi float %17 to i32
   %19 = sdiv i32 %18, 16
   %20 = shl nsw i32 %19, 4
@@ -14952,7 +14952,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
 37:                                               ; preds = %33, %14
   %storemerge = phi i32 [ %.sroa.speculated74, %33 ], [ %.sroa.speculated78, %14 ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !4
-  %38 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %15)
+  %38 = tail call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %15)
   %39 = sitofp i32 %storemerge to float
   %40 = fsub fast float %38, %39
   %41 = fptosi float %40 to i32

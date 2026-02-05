@@ -146,8 +146,8 @@ define internal void @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %32 = load <4 x float>, ptr %.039126, align 16, !tbaa !43
   %33 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %32)
   %34 = fneg fast <4 x float> %33
-  %35 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %34, <4 x float> splat (float 0x40561814A0000000))
-  %36 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %35, <4 x float> splat (float 0xC0561814A0000000))
+  %35 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %34, <4 x float> splat (float 0x40561814A0000000))
+  %36 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %35, <4 x float> splat (float 0xC0561814A0000000))
   %37 = fmul fast <4 x float> %36, splat (float 0x3FF7154760000000)
   %38 = fadd fast <4 x float> %37, splat (float 5.000000e-01)
   %39 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %38)
@@ -178,7 +178,7 @@ define internal void @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %64 = fmul fast <4 x float> %59, %63
   %65 = fadd fast <4 x float> %64, splat (float 1.000000e+00)
   %66 = fcmp fast ole <4 x float> %65, zeroinitializer
-  %67 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %65, <4 x float> splat (float 0x3810000000000000))
+  %67 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %65, <4 x float> splat (float 0x3810000000000000))
   %68 = bitcast <4 x float> %67 to <4 x i32>
   %69 = lshr <4 x i32> %68, splat (i32 23)
   %70 = and <4 x i32> %68, splat (i32 -2139095041)

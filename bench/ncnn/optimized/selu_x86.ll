@@ -203,10 +203,10 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %.04284 = phi ptr [ %101, %.lr.ph ], [ %56, %.noexc ]
   %.04383 = phi i32 [ %102, %.lr.ph ], [ 0, %.noexc ]
   %64 = load <4 x float>, ptr %.04284, align 1, !tbaa !50
-  %65 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
-  %66 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
-  %67 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %66, <4 x float> splat (float 0x40561814A0000000))
-  %68 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %67, <4 x float> splat (float 0xC0561814A0000000))
+  %65 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
+  %66 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %64)
+  %67 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %66, <4 x float> splat (float 0x40561814A0000000))
+  %68 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %67, <4 x float> splat (float 0xC0561814A0000000))
   %69 = fmul fast <4 x float> %68, splat (float 0x3FF7154760000000)
   %70 = fadd fast <4 x float> %69, splat (float 5.000000e-01)
   %71 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %70)

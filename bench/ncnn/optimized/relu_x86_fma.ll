@@ -251,7 +251,7 @@ define internal void @_ZNK4ncnn12ReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %.03346 = phi ptr [ %35, %.lr.ph ], [ %28, %.noexc ]
   %.03445 = phi i32 [ %36, %.lr.ph ], [ 0, %.noexc ]
   %33 = load <8 x float>, ptr %.03346, align 1, !tbaa !46
-  %34 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %33)
+  %34 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %33)
   store <8 x float> %34, ptr %.03346, align 1, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %.03346, i64 32
   %36 = add nuw nsw i32 %.03445, 8
@@ -271,7 +271,7 @@ define internal void @_ZNK4ncnn12ReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %.149 = phi ptr [ %44, %.lr.ph50 ], [ %.033.lcssa, %.preheader44 ]
   %.13548 = phi i32 [ %45, %.lr.ph50 ], [ %.034.lcssa, %.preheader44 ]
   %42 = load <4 x float>, ptr %.149, align 16, !tbaa !46
-  %43 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %42)
+  %43 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %42)
   store <4 x float> %43, ptr %.149, align 16, !tbaa !46
   %44 = getelementptr inbounds nuw i8, ptr %.149, i64 16
   %45 = add nuw nsw i32 %.13548, 4
@@ -384,8 +384,8 @@ define internal void @_ZNK4ncnn12ReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %.04659 = phi ptr [ %40, %.lr.ph ], [ %30, %.noexc ]
   %.04758 = phi i32 [ %41, %.lr.ph ], [ 0, %.noexc ]
   %35 = load <8 x float>, ptr %.04659, align 1, !tbaa !46
-  %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %35)
-  %37 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %35)
+  %36 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %35)
+  %37 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %35)
   %38 = fmul fast <8 x float> %37, %33
   %39 = fadd fast <8 x float> %38, %36
   store <8 x float> %39, ptr %.04659, align 1, !tbaa !46
@@ -422,8 +422,8 @@ define internal void @_ZNK4ncnn12ReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6Op
   %.162 = phi ptr [ %58, %.lr.ph64 ], [ %.046.lcssa, %._crit_edge ]
   %.14861 = phi i32 [ %59, %.lr.ph64 ], [ %.047.lcssa, %._crit_edge ]
   %53 = load <4 x float>, ptr %.162, align 16, !tbaa !46
-  %54 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %53)
-  %55 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %53)
+  %54 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %53)
+  %55 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %53)
   %56 = fmul fast <4 x float> %55, %48
   %57 = fadd fast <4 x float> %56, %54
   store <4 x float> %57, ptr %.162, align 16, !tbaa !46

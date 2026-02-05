@@ -528,7 +528,7 @@ _ZN4ncnn3MatD2Ev.exit49:                          ; preds = %43, %40, %49, %53, 
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %81 = load float, ptr %80, align 4, !tbaa !51
   %.sroa.speculated77 = call nnan ninf nsz float @llvm.maxnum.f32(float %.080.lcssa, float %81)
-  %82 = call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated77)
+  %82 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated77)
   br label %83
 
 83:                                               ; preds = %75, %79, %70
@@ -1295,7 +1295,7 @@ define internal void @_ZNK4ncnn9Normalize15forward_inplaceERNS_3MatERKNS_6Option
   br label %.noexc29.us
 
 34:                                               ; preds = %._crit_edge.us
-  %35 = call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %51)
+  %35 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %51)
   %36 = load float, ptr %30, align 4, !tbaa !51
   %37 = fcmp fast olt float %35, %36
   %.sroa.speculated.us = select i1 %37, float %36, float %35

@@ -155,9 +155,9 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   %42 = load float, ptr %22, align 8, !tbaa !47
   %43 = insertelement <16 x float> poison, float %42, i64 0
   %44 = shufflevector <16 x float> %43, <16 x float> poison, <16 x i32> zeroinitializer
-  %45 = call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %38, <16 x float> nofpclass(nan inf) %44, <16 x float> nofpclass(nan inf) %41)
-  %46 = call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %45, <16 x float> zeroinitializer, i32 4)
-  %47 = call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> nofpclass(nan inf) %46, <16 x float> splat (float 1.000000e+00), i32 4)
+  %45 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %38, <16 x float> nofpclass(nan inf) %44, <16 x float> nofpclass(nan inf) %41)
+  %46 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %45, <16 x float> zeroinitializer, i32 4)
+  %47 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> nofpclass(nan inf) %46, <16 x float> splat (float 1.000000e+00), i32 4)
   store <16 x float> %47, ptr %.05573, align 1, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %.05573, i64 64
   %49 = add nuw nsw i32 %.05672, 16
@@ -184,9 +184,9 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   %60 = load float, ptr %22, align 8, !tbaa !47
   %61 = insertelement <8 x float> poison, float %60, i64 0
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <8 x i32> zeroinitializer
-  %63 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %56, <8 x float> nofpclass(nan inf) %62, <8 x float> nofpclass(nan inf) %59)
-  %64 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %63, <8 x float> zeroinitializer)
-  %65 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %64, <8 x float> nofpclass(nan inf) splat (float 1.000000e+00))
+  %63 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %56, <8 x float> nofpclass(nan inf) %62, <8 x float> nofpclass(nan inf) %59)
+  %64 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %63, <8 x float> zeroinitializer)
+  %65 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %64, <8 x float> nofpclass(nan inf) splat (float 1.000000e+00))
   store <8 x float> %65, ptr %.176, align 1, !tbaa !43
   %66 = getelementptr inbounds nuw i8, ptr %.176, i64 32
   %67 = add nuw nsw i32 %.15775, 8
@@ -214,8 +214,8 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> zeroinitializer
   %80 = fmul fast <4 x float> %79, %73
   %81 = fadd fast <4 x float> %80, %76
-  %82 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %81, <4 x float> zeroinitializer)
-  %83 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %82, <4 x float> splat (float 1.000000e+00))
+  %82 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %81, <4 x float> zeroinitializer)
+  %83 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %82, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %83, ptr %.281, align 16, !tbaa !43
   %84 = getelementptr inbounds nuw i8, ptr %.281, i64 16
   %85 = add nuw nsw i32 %.25880, 4

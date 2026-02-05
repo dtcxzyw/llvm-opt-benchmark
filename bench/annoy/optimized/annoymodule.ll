@@ -3644,13 +3644,13 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i: ; preds = %.lr.ph.i42.i, %9
 102:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i
   %103 = fpext nnan ninf nsz arcp contract afn float %.1.lcssa.i41.i to double
   %104 = fmul nnan ninf nsz arcp contract afn double %103, 2.000000e+00
-  %105 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %100)
+  %105 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %100)
   %106 = fpext nnan ninf nsz arcp contract afn float %105 to double
   %107 = fdiv nnan ninf nsz arcp contract afn double %104, %106
   %108 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %107
   %109 = fptrunc nnan ninf nsz arcp contract afn double %108 to float
   %110 = tail call nnan ninf nsz float @llvm.maxnum.f32(float nofpclass(nan inf) %109, float 0.000000e+00)
-  %111 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %110)
+  %111 = tail call nnan ninf nsz arcp contract afn nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %110)
   br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit
 
 _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit: ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i, %102
@@ -5690,7 +5690,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i: ; preds = %.lr
   br i1 %92, label %.preheader.i.i, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit.i
 
 .preheader.i.i:                                   ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i
-  %93 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i.i)
+  %93 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i.i)
   %94 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %93
   %95 = icmp sgt i32 %1, 0
   br i1 %95, label %.lr.ph.preheader.i.i, label %.thread227.i
@@ -5760,7 +5760,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i75.i: ; preds = %.
   br i1 %120, label %.preheader.i77.i, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit92.i
 
 .preheader.i77.i:                                 ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i75.i
-  %121 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i76.i)
+  %121 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i76.i)
   %122 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %121
   %123 = icmp sgt i32 %1, 0
   br i1 %123, label %.lr.ph.preheader.i78.i, label %.thread227.i
@@ -6086,7 +6086,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i.i: ; preds = %.lr.ph.i42.i.i
 279:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i.i
   %280 = fpext nnan ninf nsz arcp contract afn float %.1.lcssa.i41.i.i to double
   %281 = fmul nnan ninf nsz arcp contract afn double %280, 2.000000e+00
-  %282 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %277)
+  %282 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %277)
   %283 = fpext nnan ninf nsz arcp contract afn float %282 to double
   %284 = fdiv nnan ninf nsz arcp contract afn double %281, %283
   %285 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %284
@@ -6256,7 +6256,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i131.i: ; preds = %.lr.ph.i42.
 363:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i131.i
   %364 = fpext nnan ninf nsz arcp contract afn float %.1.lcssa.i41.i132.i to double
   %365 = fmul nnan ninf nsz arcp contract afn double %364, 2.000000e+00
-  %366 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %361)
+  %366 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %361)
   %367 = fpext nnan ninf nsz arcp contract afn float %366 to double
   %368 = fdiv nnan ninf nsz arcp contract afn double %365, %367
   %369 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %368
@@ -6312,7 +6312,7 @@ _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit162.i: ; preds = %
 
 _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i168.i, %385
   %.1.lcssa.i.i167.i = phi float [ %.017.i.i165.i, %385 ], [ %389, %.lr.ph.i.i168.i ]
-  %393 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i167.i)
+  %393 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i167.i)
   %394 = fcmp nnan ninf nsz arcp contract afn ogt float %.1.lcssa.i.i167.i, 0.000000e+00
   br i1 %394, label %395, label %465
 
@@ -6542,7 +6542,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i21: ; preds = %.lr
   br i1 %488, label %.lr.ph.i.preheader, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i21
-  %489 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i22)
+  %489 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i22)
   %490 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %489
   br label %.lr.ph.i
 
@@ -7560,7 +7560,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i: ; preds = %.lr.ph.i42.i, %3
 337:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit52.i
   %338 = fpext nnan ninf nsz arcp contract afn float %.1.lcssa.i41.i to double
   %339 = fmul nnan ninf nsz arcp contract afn double %338, 2.000000e+00
-  %340 = call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %335)
+  %340 = call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %335)
   %341 = fpext nnan ninf nsz arcp contract afn float %340 to double
   %342 = fdiv nnan ninf nsz arcp contract afn double %339, %341
   %343 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %342
@@ -7735,7 +7735,7 @@ _ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EED2Ev.exit: ; 
   %403 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0163.0.lcssa, i64 %.0302
   %404 = load float, ptr %403, align 4, !tbaa !182
   %.sroa.speculated.i136 = call nnan ninf nsz float @llvm.maxnum.f32(float nofpclass(nan inf) %404, float 0.000000e+00)
-  %405 = call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i136)
+  %405 = call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i136)
   %406 = load ptr, ptr %379, align 8, !tbaa !14
   %407 = load ptr, ptr %380, align 8, !tbaa !100
   %.not.i.i137 = icmp eq ptr %406, %407
@@ -10323,7 +10323,7 @@ define linkonce_odr noundef nofpclass(nan inf) float @_ZNK5Annoy10AnnoyIndexIifN
 _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit: ; preds = %.lr.ph.i.i, %35
   %.125.lcssa.i.i = phi float [ %.024.i.i, %35 ], [ %41, %.lr.ph.i.i ]
   %.sroa.speculated.i = tail call nnan ninf nsz float @llvm.maxnum.f32(float nofpclass(nan inf) %.125.lcssa.i.i, float 0.000000e+00)
-  %46 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i)
+  %46 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i)
   ret float %46
 }
 
@@ -12498,7 +12498,7 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
   br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph49
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %206 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
+  %206 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
   %207 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %206
   br label %.lr.ph.i
 
@@ -13353,7 +13353,7 @@ _ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EED2Ev.exit: ; 
   %319 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0136.0.lcssa, i64 %.0264
   %320 = load float, ptr %319, align 4, !tbaa !182
   %.sroa.speculated.i109 = call nnan ninf nsz float @llvm.maxnum.f32(float nofpclass(nan inf) %320, float 0.000000e+00)
-  %321 = call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i109)
+  %321 = call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.sroa.speculated.i109)
   %322 = load ptr, ptr %295, align 8, !tbaa !14
   %323 = load ptr, ptr %296, align 8, !tbaa !100
   %.not.i.i110 = icmp eq ptr %322, %323
@@ -16676,7 +16676,7 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
   br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph50
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %206 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
+  %206 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
   %207 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %206
   br label %.lr.ph.i
 
@@ -24116,7 +24116,7 @@ define linkonce_odr void @_ZN5Annoy10DotProduct10preprocessIfiNS0_4NodeIifEEEEvP
 _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us: ; preds = %.lr.ph.i.us, %20
   %.1.lcssa.i.us = phi float [ %26, %20 ], [ %29, %.lr.ph.i.us ]
   %33 = fcmp nnan ninf nsz arcp contract afn olt float %.1.lcssa.i.us, 0.000000e+00
-  %34 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.us)
+  %34 = tail call nnan ninf nsz arcp contract afn nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.us)
   %35 = select nnan ninf nsz arcp contract afn i1 %33, float 0.000000e+00, float %34
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store float %35, ptr %36, align 4, !tbaa !381
@@ -24152,7 +24152,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us: ; preds = %.lr.ph.i.us, %20
 
 _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.us60: ; preds = %.lr.ph.i.us52
   %48 = fcmp nnan ninf nsz arcp contract afn olt float %44, 0.000000e+00
-  %49 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %44)
+  %49 = tail call nnan ninf nsz arcp contract afn nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %44)
   %50 = select nnan ninf nsz arcp contract afn i1 %48, float 0.000000e+00, float %49
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store float %50, ptr %51, align 4, !tbaa !381
@@ -24207,7 +24207,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit:  ; preds = %.lr.ph.split, %_ZN5
   %square44 = fmul nnan ninf nsz arcp contract afn float %66, %66
   %67 = fsub nnan ninf nsz arcp contract afn float %57, %square44
   %68 = fcmp nnan ninf nsz arcp contract afn olt float %67, 0.000000e+00
-  %69 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %67)
+  %69 = tail call nnan ninf nsz arcp contract afn nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %67)
   %70 = select nnan ninf nsz arcp contract afn i1 %68, float 0.000000e+00, float %69
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store float %57, ptr %71, align 4, !tbaa !385
@@ -26458,7 +26458,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit79.i54: ; preds = %.lr.ph.i69.i57
   %353 = fadd nnan ninf nsz arcp contract afn float %.1.lcssa.i68.i55, %352
   %354 = fpext nnan ninf nsz arcp contract afn float %353 to double
   %355 = fmul nnan ninf nsz arcp contract afn double %354, 2.000000e+00
-  %356 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %347)
+  %356 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %347)
   %357 = fpext nnan ninf nsz arcp contract afn float %356 to double
   %358 = fdiv nnan ninf nsz arcp contract afn double %355, %357
   %359 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %358
@@ -26716,7 +26716,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit79.i: ; preds = %.lr.ph.i69.i, %4
   %488 = fadd nnan ninf nsz arcp contract afn float %.1.lcssa.i68.i, %487
   %489 = fpext nnan ninf nsz arcp contract afn float %488 to double
   %490 = fmul nnan ninf nsz arcp contract afn double %489, 2.000000e+00
-  %491 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %482)
+  %491 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %482)
   %492 = fpext nnan ninf nsz arcp contract afn float %491 to double
   %493 = fdiv nnan ninf nsz arcp contract afn double %490, %492
   %494 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %493
@@ -26778,7 +26778,7 @@ _ZN5Annoy10DotProduct8get_normIfNS0_4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.p
   %521 = load float, ptr %520, align 4, !tbaa !381
   %522 = fmul nnan ninf nsz arcp contract afn float %521, %521
   %523 = fadd nnan ninf nsz arcp contract afn float %.1.lcssa.i.i128.i, %522
-  %524 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %523)
+  %524 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %523)
   %525 = fcmp nnan ninf nsz arcp contract afn ogt float %523, 0.000000e+00
   br i1 %525, label %526, label %618
 
@@ -27379,7 +27379,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit79: ; preds = %.lr.ph.i69, %130
   %148 = fadd nnan ninf nsz arcp contract afn float %.1.lcssa.i68, %147
   %149 = fpext nnan ninf nsz arcp contract afn float %148 to double
   %150 = fmul nnan ninf nsz arcp contract afn double %149, 2.000000e+00
-  %151 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %140)
+  %151 = tail call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %140)
   %152 = fpext nnan ninf nsz arcp contract afn float %151 to double
   %153 = fdiv nnan ninf nsz arcp contract afn double %150, %152
   %154 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %153
@@ -28275,7 +28275,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit79.i: ; preds = %.lr.ph.i69.i, %3
   %389 = fadd nnan ninf nsz arcp contract afn float %.1.lcssa.i68.i, %388
   %390 = fpext nnan ninf nsz arcp contract afn float %389 to double
   %391 = fmul nnan ninf nsz arcp contract afn double %390, 2.000000e+00
-  %392 = call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %382)
+  %392 = call nnan ninf nsz arcp contract afn noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %382)
   %393 = fpext nnan ninf nsz arcp contract afn float %392 to double
   %394 = fdiv nnan ninf nsz arcp contract afn double %391, %393
   %395 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %394

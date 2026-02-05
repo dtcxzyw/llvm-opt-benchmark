@@ -430,7 +430,7 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %.410735.i = phi ptr [ %97, %.lr.ph.i ], [ %33, %.thread25.i ]
   %93 = load <16 x i32>, ptr %.437.i, align 1, !tbaa !44
   %94 = sitofp <16 x i32> %93 to <16 x float>
-  %95 = call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %94, <16 x float> nofpclass(nan inf) %43, <16 x float> nofpclass(nan inf) %88)
+  %95 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %94, <16 x float> nofpclass(nan inf) %43, <16 x float> nofpclass(nan inf) %88)
   store <16 x float> %95, ptr %.410735.i, align 1, !tbaa !44
   %96 = getelementptr inbounds nuw i8, ptr %.437.i, i64 64
   %97 = getelementptr inbounds nuw i8, ptr %.410735.i, i64 64
@@ -453,7 +453,7 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %.510840.i = phi ptr [ %107, %.lr.ph43.i ], [ %.4107.lcssa.i, %.preheader34.i ]
   %103 = load <8 x i32>, ptr %.542.i, align 1, !tbaa !44
   %104 = sitofp <8 x i32> %103 to <8 x float>
-  %105 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %104, <8 x float> nofpclass(nan inf) %41, <8 x float> nofpclass(nan inf) %86)
+  %105 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %104, <8 x float> nofpclass(nan inf) %41, <8 x float> nofpclass(nan inf) %86)
   store <8 x float> %105, ptr %.510840.i, align 1, !tbaa !44
   %106 = getelementptr inbounds nuw i8, ptr %.542.i, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %.510840.i, i64 32
@@ -475,7 +475,7 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %.610947.i = phi ptr [ %116, %.lr.ph50.i ], [ %.5108.lcssa.i, %.preheader33.i ]
   %112 = load <4 x i32>, ptr %.649.i, align 1, !tbaa !44
   %113 = sitofp <4 x i32> %112 to <4 x float>
-  %114 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %113, <4 x float> nofpclass(nan inf) %39, <4 x float> nofpclass(nan inf) %84)
+  %114 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %113, <4 x float> nofpclass(nan inf) %39, <4 x float> nofpclass(nan inf) %84)
   store <4 x float> %114, ptr %.610947.i, align 1, !tbaa !44
   %115 = getelementptr inbounds nuw i8, ptr %.649.i, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %.610947.i, i64 16
@@ -723,7 +723,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %.410735 = phi ptr [ %87, %.lr.ph ], [ %1, %.thread25 ]
   %83 = load <16 x i32>, ptr %.437, align 1, !tbaa !44
   %84 = sitofp <16 x i32> %83 to <16 x float>
-  %85 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %84, <16 x float> nofpclass(nan inf) %.0111, <16 x float> nofpclass(nan inf) %.0100)
+  %85 = tail call fast noundef nofpclass(nan inf) <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %84, <16 x float> nofpclass(nan inf) %.0111, <16 x float> nofpclass(nan inf) %.0100)
   store <16 x float> %85, ptr %.410735, align 1, !tbaa !44
   %86 = getelementptr inbounds nuw i8, ptr %.437, i64 64
   %87 = getelementptr inbounds nuw i8, ptr %.410735, i64 64
@@ -746,7 +746,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %.510840 = phi ptr [ %97, %.lr.ph43 ], [ %.4107.lcssa, %.preheader34 ]
   %93 = load <8 x i32>, ptr %.542, align 1, !tbaa !44
   %94 = sitofp <8 x i32> %93 to <8 x float>
-  %95 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %94, <8 x float> nofpclass(nan inf) %.114, <8 x float> nofpclass(nan inf) %.116)
+  %95 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %94, <8 x float> nofpclass(nan inf) %.114, <8 x float> nofpclass(nan inf) %.116)
   store <8 x float> %95, ptr %.510840, align 1, !tbaa !44
   %96 = getelementptr inbounds nuw i8, ptr %.542, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %.510840, i64 32
@@ -768,7 +768,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %.610947 = phi ptr [ %106, %.lr.ph50 ], [ %.5108.lcssa, %.preheader33 ]
   %102 = load <4 x i32>, ptr %.649, align 1, !tbaa !44
   %103 = sitofp <4 x i32> %102 to <4 x float>
-  %104 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %103, <4 x float> nofpclass(nan inf) %.012, <4 x float> nofpclass(nan inf) %.017)
+  %104 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %103, <4 x float> nofpclass(nan inf) %.012, <4 x float> nofpclass(nan inf) %.017)
   store <4 x float> %104, ptr %.610947, align 1, !tbaa !44
   %105 = getelementptr inbounds nuw i8, ptr %.649, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %.610947, i64 16

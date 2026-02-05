@@ -213,8 +213,8 @@ define internal void @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatERKNS_
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> zeroinitializer
   %68 = fmul fast <4 x float> %67, %61
   %69 = fadd fast <4 x float> %68, %64
-  %70 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %69, <4 x float> zeroinitializer)
-  %71 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %70, <4 x float> splat (float 1.000000e+00))
+  %70 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %69, <4 x float> zeroinitializer)
+  %71 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %70, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %71, ptr %.03648, align 16, !tbaa !52
   %72 = getelementptr inbounds nuw i8, ptr %.03648, i64 16
   %73 = add nuw nsw i32 %.03747, 4

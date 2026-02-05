@@ -3859,7 +3859,7 @@ define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiiiiRiS0_S0_i(i32
   %.0 = phi i32 [ %15, %14 ], [ %9, %10 ]
   %17 = uitofp i64 %12 to float
   %18 = fmul fast float %17, 0x3FB5555560000000
-  %19 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %18)
+  %19 = tail call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %18)
   %20 = fptosi float %19 to i32
   %21 = sdiv i32 %20, 8
   %22 = shl nsw i32 %21, 3
@@ -12215,62 +12215,62 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %205 = load float, ptr %.118061304, align 4, !tbaa !61
   %206 = insertelement <8 x float> poison, float %205, i64 0
   %207 = shufflevector <8 x float> %206, <8 x float> poison, <8 x i32> zeroinitializer
-  %208 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %207, <8 x float> nofpclass(nan inf) %.45541301)
+  %208 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %207, <8 x float> nofpclass(nan inf) %.45541301)
   %209 = getelementptr inbounds nuw i8, ptr %.118061304, i64 4
   %210 = load float, ptr %209, align 4, !tbaa !61
   %211 = insertelement <8 x float> poison, float %210, i64 0
   %212 = shufflevector <8 x float> %211, <8 x float> poison, <8 x i32> zeroinitializer
-  %213 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %212, <8 x float> nofpclass(nan inf) %.45591300)
+  %213 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %212, <8 x float> nofpclass(nan inf) %.45591300)
   %214 = getelementptr inbounds nuw i8, ptr %.118061304, i64 8
   %215 = load float, ptr %214, align 4, !tbaa !61
   %216 = insertelement <8 x float> poison, float %215, i64 0
   %217 = shufflevector <8 x float> %216, <8 x float> poison, <8 x i32> zeroinitializer
-  %218 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %217, <8 x float> nofpclass(nan inf) %.45671299)
+  %218 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %217, <8 x float> nofpclass(nan inf) %.45671299)
   %219 = getelementptr inbounds nuw i8, ptr %.118061304, i64 12
   %220 = load float, ptr %219, align 4, !tbaa !61
   %221 = insertelement <8 x float> poison, float %220, i64 0
   %222 = shufflevector <8 x float> %221, <8 x float> poison, <8 x i32> zeroinitializer
-  %223 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %222, <8 x float> nofpclass(nan inf) %.45721298)
+  %223 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %222, <8 x float> nofpclass(nan inf) %.45721298)
   %224 = getelementptr inbounds nuw i8, ptr %.118061304, i64 16
   %225 = load float, ptr %224, align 4, !tbaa !61
   %226 = insertelement <8 x float> poison, float %225, i64 0
   %227 = shufflevector <8 x float> %226, <8 x float> poison, <8 x i32> zeroinitializer
-  %228 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %227, <8 x float> nofpclass(nan inf) %.45771297)
+  %228 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %227, <8 x float> nofpclass(nan inf) %.45771297)
   %229 = getelementptr inbounds nuw i8, ptr %.118061304, i64 20
   %230 = load float, ptr %229, align 4, !tbaa !61
   %231 = insertelement <8 x float> poison, float %230, i64 0
   %232 = shufflevector <8 x float> %231, <8 x float> poison, <8 x i32> zeroinitializer
-  %233 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %232, <8 x float> nofpclass(nan inf) %.45881296)
+  %233 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %232, <8 x float> nofpclass(nan inf) %.45881296)
   %234 = getelementptr inbounds nuw i8, ptr %.118061304, i64 24
   %235 = load float, ptr %234, align 4, !tbaa !61
   %236 = insertelement <8 x float> poison, float %235, i64 0
   %237 = shufflevector <8 x float> %236, <8 x float> poison, <8 x i32> zeroinitializer
-  %238 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %237, <8 x float> nofpclass(nan inf) %.45931295)
+  %238 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %237, <8 x float> nofpclass(nan inf) %.45931295)
   %239 = getelementptr inbounds nuw i8, ptr %.118061304, i64 28
   %240 = load float, ptr %239, align 4, !tbaa !61
   %241 = insertelement <8 x float> poison, float %240, i64 0
   %242 = shufflevector <8 x float> %241, <8 x float> poison, <8 x i32> zeroinitializer
-  %243 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %242, <8 x float> nofpclass(nan inf) %.45981294)
+  %243 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %242, <8 x float> nofpclass(nan inf) %.45981294)
   %244 = getelementptr inbounds nuw i8, ptr %.118061304, i64 32
   %245 = load float, ptr %244, align 4, !tbaa !61
   %246 = insertelement <8 x float> poison, float %245, i64 0
   %247 = shufflevector <8 x float> %246, <8 x float> poison, <8 x i32> zeroinitializer
-  %248 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %247, <8 x float> nofpclass(nan inf) %.46031293)
+  %248 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %247, <8 x float> nofpclass(nan inf) %.46031293)
   %249 = getelementptr inbounds nuw i8, ptr %.118061304, i64 36
   %250 = load float, ptr %249, align 4, !tbaa !61
   %251 = insertelement <8 x float> poison, float %250, i64 0
   %252 = shufflevector <8 x float> %251, <8 x float> poison, <8 x i32> zeroinitializer
-  %253 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %252, <8 x float> nofpclass(nan inf) %.46171292)
+  %253 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %252, <8 x float> nofpclass(nan inf) %.46171292)
   %254 = getelementptr inbounds nuw i8, ptr %.118061304, i64 40
   %255 = load float, ptr %254, align 4, !tbaa !61
   %256 = insertelement <8 x float> poison, float %255, i64 0
   %257 = shufflevector <8 x float> %256, <8 x float> poison, <8 x i32> zeroinitializer
-  %258 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %257, <8 x float> nofpclass(nan inf) %.46221291)
+  %258 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %257, <8 x float> nofpclass(nan inf) %.46221291)
   %259 = getelementptr inbounds nuw i8, ptr %.118061304, i64 44
   %260 = load float, ptr %259, align 4, !tbaa !61
   %261 = insertelement <8 x float> poison, float %260, i64 0
   %262 = shufflevector <8 x float> %261, <8 x float> poison, <8 x i32> zeroinitializer
-  %263 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %262, <8 x float> nofpclass(nan inf) %.46271290)
+  %263 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %204, <8 x float> nofpclass(nan inf) %262, <8 x float> nofpclass(nan inf) %.46271290)
   %264 = getelementptr inbounds nuw i8, ptr %.018201303, i64 32
   %265 = getelementptr inbounds nuw i8, ptr %.118061304, i64 48
   %266 = add nuw nsw i32 %.018211302, 1
@@ -12627,42 +12627,42 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %464 = load float, ptr %.318081339, align 4, !tbaa !61
   %465 = insertelement <8 x float> poison, float %464, i64 0
   %466 = shufflevector <8 x float> %465, <8 x float> poison, <8 x i32> zeroinitializer
-  %467 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %466, <8 x float> nofpclass(nan inf) %.46421336)
+  %467 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %466, <8 x float> nofpclass(nan inf) %.46421336)
   %468 = getelementptr inbounds nuw i8, ptr %.318081339, i64 4
   %469 = load float, ptr %468, align 4, !tbaa !61
   %470 = insertelement <8 x float> poison, float %469, i64 0
   %471 = shufflevector <8 x float> %470, <8 x float> poison, <8 x i32> zeroinitializer
-  %472 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %471, <8 x float> nofpclass(nan inf) %.46471335)
+  %472 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %471, <8 x float> nofpclass(nan inf) %.46471335)
   %473 = getelementptr inbounds nuw i8, ptr %.318081339, i64 8
   %474 = load float, ptr %473, align 4, !tbaa !61
   %475 = insertelement <8 x float> poison, float %474, i64 0
   %476 = shufflevector <8 x float> %475, <8 x float> poison, <8 x i32> zeroinitializer
-  %477 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %476, <8 x float> nofpclass(nan inf) %.46521334)
+  %477 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %476, <8 x float> nofpclass(nan inf) %.46521334)
   %478 = getelementptr inbounds nuw i8, ptr %.318081339, i64 12
   %479 = load float, ptr %478, align 4, !tbaa !61
   %480 = insertelement <8 x float> poison, float %479, i64 0
   %481 = shufflevector <8 x float> %480, <8 x float> poison, <8 x i32> zeroinitializer
-  %482 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %481, <8 x float> nofpclass(nan inf) %.46571333)
+  %482 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %481, <8 x float> nofpclass(nan inf) %.46571333)
   %483 = getelementptr inbounds nuw i8, ptr %.318081339, i64 16
   %484 = load float, ptr %483, align 4, !tbaa !61
   %485 = insertelement <8 x float> poison, float %484, i64 0
   %486 = shufflevector <8 x float> %485, <8 x float> poison, <8 x i32> zeroinitializer
-  %487 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %486, <8 x float> nofpclass(nan inf) %.46821332)
+  %487 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %486, <8 x float> nofpclass(nan inf) %.46821332)
   %488 = getelementptr inbounds nuw i8, ptr %.318081339, i64 20
   %489 = load float, ptr %488, align 4, !tbaa !61
   %490 = insertelement <8 x float> poison, float %489, i64 0
   %491 = shufflevector <8 x float> %490, <8 x float> poison, <8 x i32> zeroinitializer
-  %492 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %491, <8 x float> nofpclass(nan inf) %.46871331)
+  %492 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %491, <8 x float> nofpclass(nan inf) %.46871331)
   %493 = getelementptr inbounds nuw i8, ptr %.318081339, i64 24
   %494 = load float, ptr %493, align 4, !tbaa !61
   %495 = insertelement <8 x float> poison, float %494, i64 0
   %496 = shufflevector <8 x float> %495, <8 x float> poison, <8 x i32> zeroinitializer
-  %497 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %496, <8 x float> nofpclass(nan inf) %.46921330)
+  %497 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %496, <8 x float> nofpclass(nan inf) %.46921330)
   %498 = getelementptr inbounds nuw i8, ptr %.318081339, i64 28
   %499 = load float, ptr %498, align 4, !tbaa !61
   %500 = insertelement <8 x float> poison, float %499, i64 0
   %501 = shufflevector <8 x float> %500, <8 x float> poison, <8 x i32> zeroinitializer
-  %502 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %501, <8 x float> nofpclass(nan inf) %.46971329)
+  %502 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %463, <8 x float> nofpclass(nan inf) %501, <8 x float> nofpclass(nan inf) %.46971329)
   %503 = getelementptr inbounds nuw i8, ptr %.018221338, i64 32
   %504 = getelementptr inbounds nuw i8, ptr %.318081339, i64 32
   %505 = add nuw nsw i32 %.018251337, 1
@@ -12907,22 +12907,22 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %623 = load float, ptr %.518101368, align 4, !tbaa !61
   %624 = insertelement <8 x float> poison, float %623, i64 0
   %625 = shufflevector <8 x float> %624, <8 x float> poison, <8 x i32> zeroinitializer
-  %626 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %625, <8 x float> nofpclass(nan inf) %.47021365)
+  %626 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %625, <8 x float> nofpclass(nan inf) %.47021365)
   %627 = getelementptr inbounds nuw i8, ptr %.518101368, i64 4
   %628 = load float, ptr %627, align 4, !tbaa !61
   %629 = insertelement <8 x float> poison, float %628, i64 0
   %630 = shufflevector <8 x float> %629, <8 x float> poison, <8 x i32> zeroinitializer
-  %631 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %630, <8 x float> nofpclass(nan inf) %.47371364)
+  %631 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %630, <8 x float> nofpclass(nan inf) %.47371364)
   %632 = getelementptr inbounds nuw i8, ptr %.518101368, i64 8
   %633 = load float, ptr %632, align 4, !tbaa !61
   %634 = insertelement <8 x float> poison, float %633, i64 0
   %635 = shufflevector <8 x float> %634, <8 x float> poison, <8 x i32> zeroinitializer
-  %636 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %635, <8 x float> nofpclass(nan inf) %.47421363)
+  %636 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %635, <8 x float> nofpclass(nan inf) %.47421363)
   %637 = getelementptr inbounds nuw i8, ptr %.518101368, i64 12
   %638 = load float, ptr %637, align 4, !tbaa !61
   %639 = insertelement <8 x float> poison, float %638, i64 0
   %640 = shufflevector <8 x float> %639, <8 x float> poison, <8 x i32> zeroinitializer
-  %641 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %640, <8 x float> nofpclass(nan inf) %.47471362)
+  %641 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %622, <8 x float> nofpclass(nan inf) %640, <8 x float> nofpclass(nan inf) %.47471362)
   %642 = getelementptr inbounds nuw i8, ptr %.018261367, i64 32
   %643 = getelementptr inbounds nuw i8, ptr %.518101368, i64 16
   %644 = add nuw nsw i32 %.018271366, 1
@@ -13114,12 +13114,12 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %729 = load float, ptr %.718121391, align 4, !tbaa !61
   %730 = insertelement <8 x float> poison, float %729, i64 0
   %731 = shufflevector <8 x float> %730, <8 x float> poison, <8 x i32> zeroinitializer
-  %732 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %728, <8 x float> nofpclass(nan inf) %731, <8 x float> nofpclass(nan inf) %.47571388)
+  %732 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %728, <8 x float> nofpclass(nan inf) %731, <8 x float> nofpclass(nan inf) %.47571388)
   %733 = getelementptr inbounds nuw i8, ptr %.718121391, i64 4
   %734 = load float, ptr %733, align 4, !tbaa !61
   %735 = insertelement <8 x float> poison, float %734, i64 0
   %736 = shufflevector <8 x float> %735, <8 x float> poison, <8 x i32> zeroinitializer
-  %737 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %728, <8 x float> nofpclass(nan inf) %736, <8 x float> nofpclass(nan inf) %.47621387)
+  %737 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %728, <8 x float> nofpclass(nan inf) %736, <8 x float> nofpclass(nan inf) %.47621387)
   %738 = getelementptr inbounds nuw i8, ptr %.018281390, i64 32
   %739 = getelementptr inbounds nuw i8, ptr %.718121391, i64 8
   %740 = add nuw nsw i32 %.018291389, 1
@@ -13284,7 +13284,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %792 = load float, ptr %.918141411, align 4, !tbaa !61
   %793 = insertelement <8 x float> poison, float %792, i64 0
   %794 = shufflevector <8 x float> %793, <8 x float> poison, <8 x i32> zeroinitializer
-  %795 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %791, <8 x float> nofpclass(nan inf) %794, <8 x float> nofpclass(nan inf) %.47671408)
+  %795 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %791, <8 x float> nofpclass(nan inf) %794, <8 x float> nofpclass(nan inf) %.47671408)
   %796 = getelementptr inbounds nuw i8, ptr %.018301410, i64 32
   %797 = getelementptr inbounds nuw i8, ptr %.918141411, i64 4
   %798 = add nuw nsw i32 %.018311409, 1
@@ -13617,62 +13617,62 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %966 = load float, ptr %.118481449, align 4, !tbaa !61
   %967 = insertelement <4 x float> poison, float %966, i64 0
   %968 = shufflevector <4 x float> %967, <4 x float> poison, <4 x i32> zeroinitializer
-  %969 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %968, <4 x float> nofpclass(nan inf) %.47721446)
+  %969 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %968, <4 x float> nofpclass(nan inf) %.47721446)
   %970 = getelementptr inbounds nuw i8, ptr %.118481449, i64 4
   %971 = load float, ptr %970, align 4, !tbaa !61
   %972 = insertelement <4 x float> poison, float %971, i64 0
   %973 = shufflevector <4 x float> %972, <4 x float> poison, <4 x i32> zeroinitializer
-  %974 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %973, <4 x float> nofpclass(nan inf) %.47771445)
+  %974 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %973, <4 x float> nofpclass(nan inf) %.47771445)
   %975 = getelementptr inbounds nuw i8, ptr %.118481449, i64 8
   %976 = load float, ptr %975, align 4, !tbaa !61
   %977 = insertelement <4 x float> poison, float %976, i64 0
   %978 = shufflevector <4 x float> %977, <4 x float> poison, <4 x i32> zeroinitializer
-  %979 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %978, <4 x float> nofpclass(nan inf) %.47921444)
+  %979 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %978, <4 x float> nofpclass(nan inf) %.47921444)
   %980 = getelementptr inbounds nuw i8, ptr %.118481449, i64 12
   %981 = load float, ptr %980, align 4, !tbaa !61
   %982 = insertelement <4 x float> poison, float %981, i64 0
   %983 = shufflevector <4 x float> %982, <4 x float> poison, <4 x i32> zeroinitializer
-  %984 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %983, <4 x float> nofpclass(nan inf) %.47971443)
+  %984 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %983, <4 x float> nofpclass(nan inf) %.47971443)
   %985 = getelementptr inbounds nuw i8, ptr %.118481449, i64 16
   %986 = load float, ptr %985, align 4, !tbaa !61
   %987 = insertelement <4 x float> poison, float %986, i64 0
   %988 = shufflevector <4 x float> %987, <4 x float> poison, <4 x i32> zeroinitializer
-  %989 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %988, <4 x float> nofpclass(nan inf) %.48021442)
+  %989 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %988, <4 x float> nofpclass(nan inf) %.48021442)
   %990 = getelementptr inbounds nuw i8, ptr %.118481449, i64 20
   %991 = load float, ptr %990, align 4, !tbaa !61
   %992 = insertelement <4 x float> poison, float %991, i64 0
   %993 = shufflevector <4 x float> %992, <4 x float> poison, <4 x i32> zeroinitializer
-  %994 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %993, <4 x float> nofpclass(nan inf) %.48071441)
+  %994 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %993, <4 x float> nofpclass(nan inf) %.48071441)
   %995 = getelementptr inbounds nuw i8, ptr %.118481449, i64 24
   %996 = load float, ptr %995, align 4, !tbaa !61
   %997 = insertelement <4 x float> poison, float %996, i64 0
   %998 = shufflevector <4 x float> %997, <4 x float> poison, <4 x i32> zeroinitializer
-  %999 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %998, <4 x float> nofpclass(nan inf) %.48121440)
+  %999 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %998, <4 x float> nofpclass(nan inf) %.48121440)
   %1000 = getelementptr inbounds nuw i8, ptr %.118481449, i64 28
   %1001 = load float, ptr %1000, align 4, !tbaa !61
   %1002 = insertelement <4 x float> poison, float %1001, i64 0
   %1003 = shufflevector <4 x float> %1002, <4 x float> poison, <4 x i32> zeroinitializer
-  %1004 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1003, <4 x float> nofpclass(nan inf) %.48371439)
+  %1004 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1003, <4 x float> nofpclass(nan inf) %.48371439)
   %1005 = getelementptr inbounds nuw i8, ptr %.118481449, i64 32
   %1006 = load float, ptr %1005, align 4, !tbaa !61
   %1007 = insertelement <4 x float> poison, float %1006, i64 0
   %1008 = shufflevector <4 x float> %1007, <4 x float> poison, <4 x i32> zeroinitializer
-  %1009 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1008, <4 x float> nofpclass(nan inf) %.48421438)
+  %1009 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1008, <4 x float> nofpclass(nan inf) %.48421438)
   %1010 = getelementptr inbounds nuw i8, ptr %.118481449, i64 36
   %1011 = load float, ptr %1010, align 4, !tbaa !61
   %1012 = insertelement <4 x float> poison, float %1011, i64 0
   %1013 = shufflevector <4 x float> %1012, <4 x float> poison, <4 x i32> zeroinitializer
-  %1014 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1013, <4 x float> nofpclass(nan inf) %.48471437)
+  %1014 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1013, <4 x float> nofpclass(nan inf) %.48471437)
   %1015 = getelementptr inbounds nuw i8, ptr %.118481449, i64 40
   %1016 = load float, ptr %1015, align 4, !tbaa !61
   %1017 = insertelement <4 x float> poison, float %1016, i64 0
   %1018 = shufflevector <4 x float> %1017, <4 x float> poison, <4 x i32> zeroinitializer
-  %1019 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1018, <4 x float> nofpclass(nan inf) %.48521436)
+  %1019 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1018, <4 x float> nofpclass(nan inf) %.48521436)
   %1020 = getelementptr inbounds nuw i8, ptr %.118481449, i64 44
   %1021 = load float, ptr %1020, align 4, !tbaa !61
   %1022 = insertelement <4 x float> poison, float %1021, i64 0
   %1023 = shufflevector <4 x float> %1022, <4 x float> poison, <4 x i32> zeroinitializer
-  %1024 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1023, <4 x float> nofpclass(nan inf) %.48571435)
+  %1024 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %965, <4 x float> nofpclass(nan inf) %1023, <4 x float> nofpclass(nan inf) %.48571435)
   %1025 = getelementptr inbounds nuw i8, ptr %.018621448, i64 16
   %1026 = getelementptr inbounds nuw i8, ptr %.118481449, i64 48
   %1027 = add nuw nsw i32 %.018631447, 1
@@ -13957,42 +13957,42 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1173 = load float, ptr %.318501487, align 4, !tbaa !61
   %1174 = insertelement <4 x float> poison, float %1173, i64 0
   %1175 = shufflevector <4 x float> %1174, <4 x float> poison, <4 x i32> zeroinitializer
-  %1176 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1175, <4 x float> nofpclass(nan inf) %.48621484)
+  %1176 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1175, <4 x float> nofpclass(nan inf) %.48621484)
   %1177 = getelementptr inbounds nuw i8, ptr %.318501487, i64 4
   %1178 = load float, ptr %1177, align 4, !tbaa !61
   %1179 = insertelement <4 x float> poison, float %1178, i64 0
   %1180 = shufflevector <4 x float> %1179, <4 x float> poison, <4 x i32> zeroinitializer
-  %1181 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1180, <4 x float> nofpclass(nan inf) %.48671483)
+  %1181 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1180, <4 x float> nofpclass(nan inf) %.48671483)
   %1182 = getelementptr inbounds nuw i8, ptr %.318501487, i64 8
   %1183 = load float, ptr %1182, align 4, !tbaa !61
   %1184 = insertelement <4 x float> poison, float %1183, i64 0
   %1185 = shufflevector <4 x float> %1184, <4 x float> poison, <4 x i32> zeroinitializer
-  %1186 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1185, <4 x float> nofpclass(nan inf) %.48721482)
+  %1186 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1185, <4 x float> nofpclass(nan inf) %.48721482)
   %1187 = getelementptr inbounds nuw i8, ptr %.318501487, i64 12
   %1188 = load float, ptr %1187, align 4, !tbaa !61
   %1189 = insertelement <4 x float> poison, float %1188, i64 0
   %1190 = shufflevector <4 x float> %1189, <4 x float> poison, <4 x i32> zeroinitializer
-  %1191 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1190, <4 x float> nofpclass(nan inf) %.48771481)
+  %1191 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1190, <4 x float> nofpclass(nan inf) %.48771481)
   %1192 = getelementptr inbounds nuw i8, ptr %.318501487, i64 16
   %1193 = load float, ptr %1192, align 4, !tbaa !61
   %1194 = insertelement <4 x float> poison, float %1193, i64 0
   %1195 = shufflevector <4 x float> %1194, <4 x float> poison, <4 x i32> zeroinitializer
-  %1196 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1195, <4 x float> nofpclass(nan inf) %.48971477)
+  %1196 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1195, <4 x float> nofpclass(nan inf) %.48971477)
   %1197 = getelementptr inbounds nuw i8, ptr %.318501487, i64 20
   %1198 = load float, ptr %1197, align 4, !tbaa !61
   %1199 = insertelement <4 x float> poison, float %1198, i64 0
   %1200 = shufflevector <4 x float> %1199, <4 x float> poison, <4 x i32> zeroinitializer
-  %1201 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1200, <4 x float> nofpclass(nan inf) %.48921478)
+  %1201 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1200, <4 x float> nofpclass(nan inf) %.48921478)
   %1202 = getelementptr inbounds nuw i8, ptr %.318501487, i64 24
   %1203 = load float, ptr %1202, align 4, !tbaa !61
   %1204 = insertelement <4 x float> poison, float %1203, i64 0
   %1205 = shufflevector <4 x float> %1204, <4 x float> poison, <4 x i32> zeroinitializer
-  %1206 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1205, <4 x float> nofpclass(nan inf) %.48871479)
+  %1206 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1205, <4 x float> nofpclass(nan inf) %.48871479)
   %1207 = getelementptr inbounds nuw i8, ptr %.318501487, i64 28
   %1208 = load float, ptr %1207, align 4, !tbaa !61
   %1209 = insertelement <4 x float> poison, float %1208, i64 0
   %1210 = shufflevector <4 x float> %1209, <4 x float> poison, <4 x i32> zeroinitializer
-  %1211 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1210, <4 x float> nofpclass(nan inf) %.48821480)
+  %1211 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1172, <4 x float> nofpclass(nan inf) %1210, <4 x float> nofpclass(nan inf) %.48821480)
   %1212 = getelementptr inbounds nuw i8, ptr %.018641486, i64 16
   %1213 = getelementptr inbounds nuw i8, ptr %.318501487, i64 32
   %1214 = add nuw nsw i32 %.018651485, 1
@@ -14201,22 +14201,22 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1308 = load float, ptr %.518521516, align 4, !tbaa !61
   %1309 = insertelement <4 x float> poison, float %1308, i64 0
   %1310 = shufflevector <4 x float> %1309, <4 x float> poison, <4 x i32> zeroinitializer
-  %1311 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1310, <4 x float> nofpclass(nan inf) %.48321510)
+  %1311 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1310, <4 x float> nofpclass(nan inf) %.48321510)
   %1312 = getelementptr inbounds nuw i8, ptr %.518521516, i64 4
   %1313 = load float, ptr %1312, align 4, !tbaa !61
   %1314 = insertelement <4 x float> poison, float %1313, i64 0
   %1315 = shufflevector <4 x float> %1314, <4 x float> poison, <4 x i32> zeroinitializer
-  %1316 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1315, <4 x float> nofpclass(nan inf) %.48271511)
+  %1316 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1315, <4 x float> nofpclass(nan inf) %.48271511)
   %1317 = getelementptr inbounds nuw i8, ptr %.518521516, i64 8
   %1318 = load float, ptr %1317, align 4, !tbaa !61
   %1319 = insertelement <4 x float> poison, float %1318, i64 0
   %1320 = shufflevector <4 x float> %1319, <4 x float> poison, <4 x i32> zeroinitializer
-  %1321 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1320, <4 x float> nofpclass(nan inf) %.48221512)
+  %1321 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1320, <4 x float> nofpclass(nan inf) %.48221512)
   %1322 = getelementptr inbounds nuw i8, ptr %.518521516, i64 12
   %1323 = load float, ptr %1322, align 4, !tbaa !61
   %1324 = insertelement <4 x float> poison, float %1323, i64 0
   %1325 = shufflevector <4 x float> %1324, <4 x float> poison, <4 x i32> zeroinitializer
-  %1326 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1325, <4 x float> nofpclass(nan inf) %.48171513)
+  %1326 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1307, <4 x float> nofpclass(nan inf) %1325, <4 x float> nofpclass(nan inf) %.48171513)
   %1327 = getelementptr inbounds nuw i8, ptr %.018681515, i64 16
   %1328 = getelementptr inbounds nuw i8, ptr %.518521516, i64 16
   %1329 = add nuw nsw i32 %.018691514, 1
@@ -14368,12 +14368,12 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1386 = load float, ptr %.718541539, align 4, !tbaa !61
   %1387 = insertelement <4 x float> poison, float %1386, i64 0
   %1388 = shufflevector <4 x float> %1387, <4 x float> poison, <4 x i32> zeroinitializer
-  %1389 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1385, <4 x float> nofpclass(nan inf) %1388, <4 x float> nofpclass(nan inf) %.47871535)
+  %1389 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1385, <4 x float> nofpclass(nan inf) %1388, <4 x float> nofpclass(nan inf) %.47871535)
   %1390 = getelementptr inbounds nuw i8, ptr %.718541539, i64 4
   %1391 = load float, ptr %1390, align 4, !tbaa !61
   %1392 = insertelement <4 x float> poison, float %1391, i64 0
   %1393 = shufflevector <4 x float> %1392, <4 x float> poison, <4 x i32> zeroinitializer
-  %1394 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1385, <4 x float> nofpclass(nan inf) %1393, <4 x float> nofpclass(nan inf) %.47821536)
+  %1394 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1385, <4 x float> nofpclass(nan inf) %1393, <4 x float> nofpclass(nan inf) %.47821536)
   %1395 = getelementptr inbounds nuw i8, ptr %.018701538, i64 16
   %1396 = getelementptr inbounds nuw i8, ptr %.718541539, i64 8
   %1397 = add nuw nsw i32 %.018711537, 1
@@ -14504,7 +14504,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1437 = load float, ptr %.918561559, align 4, !tbaa !61
   %1438 = insertelement <4 x float> poison, float %1437, i64 0
   %1439 = shufflevector <4 x float> %1438, <4 x float> poison, <4 x i32> zeroinitializer
-  %1440 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1436, <4 x float> nofpclass(nan inf) %1439, <4 x float> nofpclass(nan inf) %.47521556)
+  %1440 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1436, <4 x float> nofpclass(nan inf) %1439, <4 x float> nofpclass(nan inf) %.47521556)
   %1441 = getelementptr inbounds nuw i8, ptr %.018721558, i64 16
   %1442 = getelementptr inbounds nuw i8, ptr %.918561559, i64 4
   %1443 = add nuw nsw i32 %.018731557, 1
@@ -14758,16 +14758,16 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1556 = load float, ptr %.018671589, align 4, !tbaa !61
   %1557 = insertelement <4 x float> poison, float %1556, i64 0
   %1558 = shufflevector <4 x float> %1557, <4 x float> poison, <4 x i32> zeroinitializer
-  %1559 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1551, <4 x float> nofpclass(nan inf) %.47321582)
-  %1560 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1553, <4 x float> nofpclass(nan inf) %.47271583)
-  %1561 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1555, <4 x float> nofpclass(nan inf) %.47221584)
+  %1559 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1551, <4 x float> nofpclass(nan inf) %.47321582)
+  %1560 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1553, <4 x float> nofpclass(nan inf) %.47271583)
+  %1561 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1558, <4 x float> nofpclass(nan inf) %1555, <4 x float> nofpclass(nan inf) %.47221584)
   %1562 = getelementptr inbounds nuw i8, ptr %.018671589, i64 4
   %1563 = load float, ptr %1562, align 4, !tbaa !61
   %1564 = insertelement <4 x float> poison, float %1563, i64 0
   %1565 = shufflevector <4 x float> %1564, <4 x float> poison, <4 x i32> zeroinitializer
-  %1566 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1551, <4 x float> nofpclass(nan inf) %.47171585)
-  %1567 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1553, <4 x float> nofpclass(nan inf) %.47121586)
-  %1568 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1555, <4 x float> nofpclass(nan inf) %.47071587)
+  %1566 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1551, <4 x float> nofpclass(nan inf) %.47171585)
+  %1567 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1553, <4 x float> nofpclass(nan inf) %.47121586)
+  %1568 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1565, <4 x float> nofpclass(nan inf) %1555, <4 x float> nofpclass(nan inf) %.47071587)
   %1569 = getelementptr inbounds nuw i8, ptr %.018671589, i64 8
   %1570 = getelementptr inbounds nuw i8, ptr %.118851588, i64 48
   %1571 = add nuw nsw i32 %.018661590, 1
@@ -14935,14 +14935,14 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1646 = load float, ptr %.018241617, align 4, !tbaa !61
   %1647 = insertelement <4 x float> poison, float %1646, i64 0
   %1648 = shufflevector <4 x float> %1647, <4 x float> poison, <4 x i32> zeroinitializer
-  %1649 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1648, <4 x float> nofpclass(nan inf) %1643, <4 x float> nofpclass(nan inf) %.46771612)
-  %1650 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1648, <4 x float> nofpclass(nan inf) %1645, <4 x float> nofpclass(nan inf) %.46721613)
+  %1649 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1648, <4 x float> nofpclass(nan inf) %1643, <4 x float> nofpclass(nan inf) %.46771612)
+  %1650 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1648, <4 x float> nofpclass(nan inf) %1645, <4 x float> nofpclass(nan inf) %.46721613)
   %1651 = getelementptr inbounds nuw i8, ptr %.018241617, i64 4
   %1652 = load float, ptr %1651, align 4, !tbaa !61
   %1653 = insertelement <4 x float> poison, float %1652, i64 0
   %1654 = shufflevector <4 x float> %1653, <4 x float> poison, <4 x i32> zeroinitializer
-  %1655 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1654, <4 x float> nofpclass(nan inf) %1643, <4 x float> nofpclass(nan inf) %.46671614)
-  %1656 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1654, <4 x float> nofpclass(nan inf) %1645, <4 x float> nofpclass(nan inf) %.46621615)
+  %1655 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1654, <4 x float> nofpclass(nan inf) %1643, <4 x float> nofpclass(nan inf) %.46671614)
+  %1656 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1654, <4 x float> nofpclass(nan inf) %1645, <4 x float> nofpclass(nan inf) %.46621615)
   %1657 = getelementptr inbounds nuw i8, ptr %.018241617, i64 8
   %1658 = getelementptr inbounds nuw i8, ptr %.318871616, i64 32
   %1659 = add nuw nsw i32 %.018231618, 1
@@ -15078,12 +15078,12 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1712 = load float, ptr %.017561640, align 4, !tbaa !61
   %1713 = insertelement <4 x float> poison, float %1712, i64 0
   %1714 = shufflevector <4 x float> %1713, <4 x float> poison, <4 x i32> zeroinitializer
-  %1715 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1714, <4 x float> nofpclass(nan inf) %1711, <4 x float> nofpclass(nan inf) %.46371637)
+  %1715 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1714, <4 x float> nofpclass(nan inf) %1711, <4 x float> nofpclass(nan inf) %.46371637)
   %1716 = getelementptr inbounds nuw i8, ptr %.017561640, i64 4
   %1717 = load float, ptr %1716, align 4, !tbaa !61
   %1718 = insertelement <4 x float> poison, float %1717, i64 0
   %1719 = shufflevector <4 x float> %1718, <4 x float> poison, <4 x i32> zeroinitializer
-  %1720 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1719, <4 x float> nofpclass(nan inf) %1711, <4 x float> nofpclass(nan inf) %.46321638)
+  %1720 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1719, <4 x float> nofpclass(nan inf) %1711, <4 x float> nofpclass(nan inf) %.46321638)
   %1721 = getelementptr inbounds nuw i8, ptr %.017561640, i64 8
   %1722 = getelementptr inbounds nuw i8, ptr %.518891639, i64 16
   %1723 = add nuw nsw i32 %.017551641, 1
@@ -15483,9 +15483,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1884 = load float, ptr %.016881715, align 4, !tbaa !61
   %1885 = insertelement <4 x float> poison, float %1884, i64 0
   %1886 = shufflevector <4 x float> %1885, <4 x float> poison, <4 x i32> zeroinitializer
-  %1887 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1879, <4 x float> nofpclass(nan inf) %.26121711)
-  %1888 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1881, <4 x float> nofpclass(nan inf) %.26091712)
-  %1889 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1883, <4 x float> nofpclass(nan inf) %.26061713)
+  %1887 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1879, <4 x float> nofpclass(nan inf) %.26121711)
+  %1888 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1881, <4 x float> nofpclass(nan inf) %.26091712)
+  %1889 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1886, <4 x float> nofpclass(nan inf) %1883, <4 x float> nofpclass(nan inf) %.26061713)
   %1890 = getelementptr inbounds nuw i8, ptr %.016881715, i64 4
   %1891 = getelementptr inbounds nuw i8, ptr %.116931714, i64 48
   %1892 = add nuw nsw i32 %.016871716, 1
@@ -15589,8 +15589,8 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1926 = load float, ptr %.016861739, align 4, !tbaa !61
   %1927 = insertelement <4 x float> poison, float %1926, i64 0
   %1928 = shufflevector <4 x float> %1927, <4 x float> poison, <4 x i32> zeroinitializer
-  %1929 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1928, <4 x float> nofpclass(nan inf) %1923, <4 x float> nofpclass(nan inf) %.25831736)
-  %1930 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1928, <4 x float> nofpclass(nan inf) %1925, <4 x float> nofpclass(nan inf) %.25801737)
+  %1929 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1928, <4 x float> nofpclass(nan inf) %1923, <4 x float> nofpclass(nan inf) %.25831736)
+  %1930 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1928, <4 x float> nofpclass(nan inf) %1925, <4 x float> nofpclass(nan inf) %.25801737)
   %1931 = getelementptr inbounds nuw i8, ptr %.016861739, i64 4
   %1932 = getelementptr inbounds nuw i8, ptr %.316951738, i64 32
   %1933 = add nuw nsw i32 %.016851740, 1
@@ -15681,7 +15681,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1959 = load float, ptr %.016841760, align 4, !tbaa !61
   %1960 = insertelement <4 x float> poison, float %1959, i64 0
   %1961 = shufflevector <4 x float> %1960, <4 x float> poison, <4 x i32> zeroinitializer
-  %1962 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1961, <4 x float> nofpclass(nan inf) %1958, <4 x float> nofpclass(nan inf) %.25621758)
+  %1962 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1961, <4 x float> nofpclass(nan inf) %1958, <4 x float> nofpclass(nan inf) %.25621758)
   %1963 = getelementptr inbounds nuw i8, ptr %.016841760, i64 4
   %1964 = getelementptr inbounds nuw i8, ptr %.51759, i64 16
   %1965 = add nuw nsw i32 %.016831761, 1
@@ -22539,14 +22539,14 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3216.i
 
 353:                                              ; preds = %342
-  %354 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.62888.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %235)
-  %355 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02964.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %236)
-  %356 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02977.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %237)
-  %357 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02978.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %238)
-  %358 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02979.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %239)
-  %359 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02980.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %240)
-  %360 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02981.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %241)
-  %361 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02982.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %242)
+  %354 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.62888.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %235)
+  %355 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02964.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %236)
+  %356 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02977.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %237)
+  %357 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02978.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %238)
+  %358 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02979.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %239)
+  %359 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02980.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %240)
+  %360 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02981.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %241)
+  %361 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.02982.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %242)
   br label %.thread3216.i
 
 362:                                              ; preds = %262
@@ -23005,10 +23005,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3245.i
 
 658:                                              ; preds = %651
-  %659 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.102892.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %578)
-  %660 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03052.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %579)
-  %661 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03053.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %580)
-  %662 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03067.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %581)
+  %659 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.102892.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %578)
+  %660 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03052.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %579)
+  %661 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03053.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %580)
+  %662 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03067.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %581)
   br label %.thread3245.i
 
 663:                                              ; preds = %593
@@ -23310,8 +23310,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3266.i
 
 839:                                              ; preds = %834
-  %840 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.142896.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %765)
-  %841 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03180.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %766)
+  %840 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.142896.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %765)
+  %841 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.03180.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %766)
   br label %.thread3266.i
 
 842:                                              ; preds = %774
@@ -23510,7 +23510,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.sink3809.i = phi i64 [ 16, %902 ], [ 4, %907 ], [ 32, %900 ]
   %.182900.i = phi nsz <8 x float> [ %906, %902 ], [ %930, %907 ], [ %901, %900 ]
   %932 = getelementptr inbounds nuw i8, ptr %.163549.i, i64 %.sink3809.i
-  %933 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.182900.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %892)
+  %933 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %.182900.i, <8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %892)
   br label %.thread3283.i
 
 934:                                              ; preds = %898
@@ -23875,10 +23875,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %1151
 
 1146:                                             ; preds = %1140
-  %1147 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.63166.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1088)
-  %1148 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03110.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1089)
-  %1149 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03108.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1090)
-  %1150 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %storemerge.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1091)
+  %1147 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.63166.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1088)
+  %1148 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03110.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1089)
+  %1149 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03108.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1090)
+  %1150 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %storemerge.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1091)
   br label %1151
 
 1151:                                             ; preds = %1146, %1141
@@ -23938,10 +23938,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3325.i
 
 1188:                                             ; preds = %1181
-  %1189 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.73167.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1092)
-  %1190 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.13111.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1093)
-  %1191 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.13109.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1094)
-  %1192 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03107.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1095)
+  %1189 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.73167.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1092)
+  %1190 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.13111.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1093)
+  %1191 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.13109.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1094)
+  %1192 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03107.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1095)
   br label %.thread3325.i
 
 1193:                                             ; preds = %1115
@@ -24314,10 +24314,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3351.i
 
 1422:                                             ; preds = %1415
-  %1423 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.113171.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1375)
-  %1424 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03070.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1376)
-  %1425 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03069.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1377)
-  %1426 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03068.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1378)
+  %1423 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.113171.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1375)
+  %1424 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03070.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1376)
+  %1425 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03069.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1377)
+  %1426 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03068.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1378)
   br label %.thread3351.i
 
 1427:                                             ; preds = %1390
@@ -24551,8 +24551,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread3369.i
 
 1554:                                             ; preds = %1549
-  %1555 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.153175.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1510)
-  %1556 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03054.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1511)
+  %1555 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.153175.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1510)
+  %1556 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.03054.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1511)
   br label %.thread3369.i
 
 1557:                                             ; preds = %1519
@@ -24691,7 +24691,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.sink3813.i = phi i64 [ 4, %1602 ], [ 16, %1600 ]
   %.193179.i = phi nsz <4 x float> [ %1613, %1602 ], [ %1601, %1600 ]
   %1615 = getelementptr inbounds nuw i8, ptr %.363600.i, i64 %.sink3813.i
-  %1616 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.193179.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1592)
+  %1616 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %.193179.i, <4 x float> nofpclass(nan inf) %106, <4 x float> nofpclass(nan inf) %1592)
   br label %.thread3383.i
 
 1617:                                             ; preds = %1598
@@ -24991,10 +24991,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %1784
 
 1779:                                             ; preds = %1766
-  %1780 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1767, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1750)
-  %1781 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1769, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1751)
-  %1782 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1771, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1752)
-  %1783 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1773, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1753)
+  %1780 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1767, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1750)
+  %1781 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1769, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1751)
+  %1782 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1771, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1752)
+  %1783 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1773, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1753)
   br label %1784
 
 1784:                                             ; preds = %1779, %1774
@@ -25201,8 +25201,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1865 = load <4 x float>, ptr %1864, align 1, !tbaa !86
   %1866 = fadd fast <4 x float> %1863, %1852
   %1867 = fadd fast <4 x float> %1865, %1853
-  %1868 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1863, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1852)
-  %1869 = tail call fast <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1865, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1853)
+  %1868 = tail call fast nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1863, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1852)
+  %1869 = tail call fast nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %1865, <4 x float> nofpclass(nan inf) %974, <4 x float> nofpclass(nan inf) %1853)
   %.42975.i = select nsz i1 %976, <4 x float> %1866, <4 x float> %1868
   %.42969.i = select nsz i1 %976, <4 x float> %1867, <4 x float> %1869
   %1870 = getelementptr inbounds nuw i8, ptr %.473630.i, i64 16
@@ -25606,8 +25606,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %2062 = load <4 x float>, ptr %.603665.i, align 1, !tbaa !86
   %2063 = getelementptr inbounds nuw i8, ptr %.603665.i, i64 16
   %2064 = load <4 x float>, ptr %2063, align 1, !tbaa !86
-  %2065 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2062, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2052)
-  %2066 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2064, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2056)
+  %2065 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2062, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2052)
+  %2066 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2064, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2056)
   %2067 = getelementptr inbounds nuw i8, ptr %.603665.i, i64 32
   br label %2068
 
@@ -25730,7 +25730,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
 
 2104:                                             ; preds = %2103
   %2105 = load <4 x float>, ptr %.623676.i, align 1, !tbaa !86
-  %2106 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2105, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2100)
+  %2106 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %2105, <4 x float> nofpclass(nan inf) %1650, <4 x float> nofpclass(nan inf) %2100)
   %2107 = getelementptr inbounds nuw i8, ptr %.623676.i, i64 16
   br label %2108
 
@@ -25996,7 +25996,7 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
   %29 = load <4 x i32>, ptr %.14163.us.i, align 1, !tbaa !86
   %30 = and <4 x i32> %29, splat (i32 2147483647)
   %31 = bitcast <4 x i32> %30 to <4 x float>
-  %32 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.13665.us.i, <4 x float> nofpclass(nan inf) %31)
+  %32 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.13665.us.i, <4 x float> nofpclass(nan inf) %31)
   %33 = getelementptr inbounds nuw i8, ptr %.14163.us.i, i64 16
   %34 = add nuw nsw i32 %.13864.us.i, 4
   %35 = or disjoint i32 %34, 3
@@ -26010,7 +26010,7 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
   %38 = load <8 x i32>, ptr %.04058.us.i, align 1, !tbaa !86
   %39 = and <8 x i32> %38, splat (i32 2147483647)
   %40 = bitcast <8 x i32> %39 to <8 x float>
-  %41 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.160.us.i, <8 x float> nofpclass(nan inf) %40)
+  %41 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.160.us.i, <8 x float> nofpclass(nan inf) %40)
   %42 = getelementptr inbounds nuw i8, ptr %.04058.us.i, i64 32
   %43 = add nuw nsw i32 %.03759.us.i, 8
   %44 = or disjoint i32 %43, 7
@@ -26046,7 +26046,7 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
   %51 = load <4 x i32>, ptr %50, align 1, !tbaa !86
   %52 = and <4 x i32> %51, splat (i32 2147483647)
   %53 = bitcast <4 x i32> %52 to <4 x float>
-  %54 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i.us, <4 x float> nofpclass(nan inf) %53)
+  %54 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i.us, <4 x float> nofpclass(nan inf) %53)
   %indvars.iv.next151.i.us = add nuw nsw i64 %indvars.iv150.i.us, 1
   %exitcond154.not.i.us = icmp eq i64 %indvars.iv.next151.i.us, %wide.trip.count153.i
   br i1 %exitcond154.not.i.us, label %_ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit, label %..preheader_crit_edge.us105.i.us, !llvm.loop !426
@@ -26054,7 +26054,7 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
 ._crit_edge.us110.i.loopexit:                     ; preds = %.lr.ph73.us109.i
   %55 = and <4 x i32> %65, splat (i32 2147483647)
   %56 = bitcast <4 x i32> %55 to <4 x float>
-  %57 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i, <4 x float> nofpclass(nan inf) %56)
+  %57 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i, <4 x float> nofpclass(nan inf) %56)
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond154.not.i = icmp eq i64 %indvars.iv.next151.i, %wide.trip.count153.i
   br i1 %exitcond154.not.i, label %_ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit, label %..preheader_crit_edge.us105.i, !llvm.loop !426
@@ -26123,18 +26123,18 @@ _ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit: ; preds = %._crit_edge.u
   %.0.lcssa.i = phi <8 x float> [ zeroinitializer, %2 ], [ %41, %._crit_edge.us.i ], [ zeroinitializer, %.lr.ph80.split.split.i ], [ zeroinitializer, %..preheader_crit_edge.us105.i.us ], [ zeroinitializer, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %._crit_edge.us128.i ]
   %76 = shufflevector <8 x float> %.0.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %77 = shufflevector <8 x float> %.0.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %78 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> nofpclass(nan inf) %77)
+  %78 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> nofpclass(nan inf) %77)
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %80 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %78, <4 x float> nofpclass(nan inf) %79)
+  %80 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %78, <4 x float> nofpclass(nan inf) %79)
   %81 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %82 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %80, <4 x float> nofpclass(nan inf) %81)
+  %82 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %80, <4 x float> nofpclass(nan inf) %81)
   %83 = extractelement <4 x float> %82, i64 0
   %84 = fcmp fast olt float %.055.lcssa.i, %83
   %.sroa.speculated46.i = select i1 %84, float %83, float %.055.lcssa.i
   %85 = shufflevector <4 x float> %.035.lcssa.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %86 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.035.lcssa.i, <4 x float> nofpclass(nan inf) %85)
+  %86 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.035.lcssa.i, <4 x float> nofpclass(nan inf) %85)
   %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %88 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %86, <4 x float> nofpclass(nan inf) %87)
+  %88 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %86, <4 x float> nofpclass(nan inf) %87)
   %89 = extractelement <4 x float> %88, i64 0
   %90 = fcmp fast olt float %.sroa.speculated46.i, %89
   %.sroa.speculated.i = select i1 %90, float %89, float %.sroa.speculated46.i
@@ -27034,7 +27034,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.2339502.i = phi ptr [ %486, %.lr.ph505.i ], [ %.1338.lcssa.i, %.preheader398.i ]
   %475 = load float, ptr %.2339502.i, align 4, !tbaa !61
   %476 = fmul fast float %475, %6
-  %477 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %476)
+  %477 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %476)
   %478 = fptosi float %477 to i32
   %spec.select.i393.i = tail call i32 @llvm.smax.i32(i32 %478, i32 -127)
   %.0.i394.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i393.i, i32 127)
@@ -27043,7 +27043,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %479 = getelementptr inbounds float, ptr %.2339502.i, i64 %407
   %480 = load float, ptr %479, align 4, !tbaa !61
   %481 = fmul fast float %480, %6
-  %482 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %481)
+  %482 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %481)
   %483 = fptosi float %482 to i32
   %spec.select.i342395.i = tail call i32 @llvm.smax.i32(i32 %483, i32 -127)
   %.0.i343396.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i342395.i, i32 127)
@@ -27109,7 +27109,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.1310520.i = phi ptr [ %518, %.lr.ph523.i ], [ %.0309.lcssa.i, %.preheader.i ]
   %513 = load float, ptr %.1310520.i, align 4, !tbaa !61
   %514 = fmul fast float %513, %6
-  %515 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %514)
+  %515 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %514)
   %516 = fptosi float %515 to i32
   %spec.select.i344391.i = tail call i32 @llvm.smax.i32(i32 %516, i32 -127)
   %.0.i345392.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i344391.i, i32 127)
@@ -27881,7 +27881,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.2446655.i.us.us = phi i32 [ %535, %.lr.ph658.i.us.us ], [ %.1445.lcssa.i.us.us, %.preheader558.i.us.us ]
   %523 = load float, ptr %.6441656.i.us.us, align 4, !tbaa !61
   %524 = fmul fast float %523, %6
-  %525 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %524)
+  %525 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %524)
   %526 = fptosi float %525 to i32
   %spec.select.i451550.i.us.us = tail call i32 @llvm.smax.i32(i32 %526, i32 -127)
   %.0.i452551.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i451550.i.us.us, i32 127)
@@ -27890,7 +27890,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %527 = getelementptr inbounds nuw i8, ptr %.6441656.i.us.us, i64 4
   %528 = load float, ptr %527, align 4, !tbaa !61
   %529 = fmul fast float %528, %6
-  %530 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %529)
+  %530 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %529)
   %531 = fptosi float %530 to i32
   %spec.select.i449552.i.us.us = tail call i32 @llvm.smax.i32(i32 %531, i32 -127)
   %.0.i450553.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i449552.i.us.us, i32 127)
@@ -28151,7 +28151,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.5424684.i.us.us = phi ptr [ %698, %.lr.ph687.i.us.us ], [ %.4423.lcssa.i.us.us, %.preheader.i.us.us ]
   %693 = load float, ptr %.5424684.i.us.us, align 4, !tbaa !61
   %694 = fmul fast float %693, %6
-  %695 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %694)
+  %695 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %694)
   %696 = fptosi float %695 to i32
   %spec.select.i548.i.us.us = tail call i32 @llvm.smax.i32(i32 %696, i32 -127)
   %.0.i549.i.us.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i548.i.us.us, i32 127)
@@ -29077,7 +29077,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %219 = load <8 x i32>, ptr %.08224.i.i.us, align 1, !tbaa !86
   %220 = and <8 x i32> %219, splat (i32 2147483647)
   %221 = bitcast <8 x i32> %220 to <8 x float>
-  %222 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.08523.i.i.us, <8 x float> nofpclass(nan inf) %221)
+  %222 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.08523.i.i.us, <8 x float> nofpclass(nan inf) %221)
   %223 = getelementptr inbounds nuw i8, ptr %.08224.i.i.us, i64 32
   %224 = add nuw nsw i32 %.08822.i.i.us, 8
   %225 = or disjoint i32 %224, 7
@@ -29099,7 +29099,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %229 = load <4 x i32>, ptr %.18329.i.i.us, align 1, !tbaa !86
   %230 = and <4 x i32> %229, splat (i32 2147483647)
   %231 = bitcast <4 x i32> %230 to <4 x float>
-  %232 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.08628.i.i.us, <4 x float> nofpclass(nan inf) %231)
+  %232 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.08628.i.i.us, <4 x float> nofpclass(nan inf) %231)
   %233 = getelementptr inbounds nuw i8, ptr %.18329.i.i.us, i64 16
   %234 = add nuw nsw i32 %.18927.i.i.us, 4
   %235 = or disjoint i32 %234, 3
@@ -29136,18 +29136,18 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
 242:                                              ; preds = %._crit_edge.i.i.us
   %243 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %244 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %245 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %243, <4 x float> nofpclass(nan inf) %244)
+  %245 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %243, <4 x float> nofpclass(nan inf) %244)
   %246 = shufflevector <4 x float> %245, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %247 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %245, <4 x float> nofpclass(nan inf) %246)
+  %247 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %245, <4 x float> nofpclass(nan inf) %246)
   %248 = shufflevector <4 x float> %247, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %249 = call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %247, <4 x float> nofpclass(nan inf) %248)
+  %249 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %247, <4 x float> nofpclass(nan inf) %248)
   %250 = extractelement <4 x float> %249, i64 0
   %251 = fcmp fast olt float %.014.lcssa.i.i.us, %250
   %.sroa.speculated4.i.i.us = select i1 %251, float %250, float %.014.lcssa.i.i.us
   %252 = shufflevector <4 x float> %.086.lcssa.i.i.us, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %253 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %252)
+  %253 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %252)
   %254 = shufflevector <4 x float> %253, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %255 = call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %253, <4 x float> nofpclass(nan inf) %254)
+  %255 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %253, <4 x float> nofpclass(nan inf) %254)
   %256 = extractelement <4 x float> %255, i64 0
   %257 = fcmp fast olt float %.sroa.speculated4.i.i.us, %256
   %.sroa.speculated.i.i.us = select i1 %257, float %256, float %.sroa.speculated4.i.i.us
@@ -29163,8 +29163,8 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
 263:                                              ; preds = %._crit_edge.i.i.us
   %264 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %265 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %266 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %264)
-  %267 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %266, <4 x float> nofpclass(nan inf) %265)
+  %266 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %264)
+  %267 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %266, <4 x float> nofpclass(nan inf) %265)
   %268 = fdiv fast <4 x float> splat (float 1.270000e+02), %267
   %269 = fmul fast <4 x float> %267, %197
   store <4 x float> %268, ptr %.041.i.i.us, align 16, !tbaa !86
@@ -29488,16 +29488,16 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %65 = load <8 x i32>, ptr %64, align 1, !tbaa !86
   %66 = and <8 x i32> %59, splat (i32 2147483647)
   %67 = bitcast <8 x i32> %66 to <8 x float>
-  %68 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.047756.i, <8 x float> nofpclass(nan inf) %67)
+  %68 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.047756.i, <8 x float> nofpclass(nan inf) %67)
   %69 = and <8 x i32> %61, splat (i32 2147483647)
   %70 = bitcast <8 x i32> %69 to <8 x float>
-  %71 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048055.i, <8 x float> nofpclass(nan inf) %70)
+  %71 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048055.i, <8 x float> nofpclass(nan inf) %70)
   %72 = and <8 x i32> %63, splat (i32 2147483647)
   %73 = bitcast <8 x i32> %72 to <8 x float>
-  %74 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048354.i, <8 x float> nofpclass(nan inf) %73)
+  %74 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048354.i, <8 x float> nofpclass(nan inf) %73)
   %75 = and <8 x i32> %65, splat (i32 2147483647)
   %76 = bitcast <8 x i32> %75 to <8 x float>
-  %77 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048453.i, <8 x float> nofpclass(nan inf) %76)
+  %77 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.048453.i, <8 x float> nofpclass(nan inf) %76)
   %78 = getelementptr inbounds float, ptr %.047657.i, i64 %30
   %79 = add nuw nsw i32 %.048552.i, 1
   %exitcond.not.i = icmp eq i32 %79, %16
@@ -29519,14 +29519,14 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %81 = shufflevector <8 x float> %.0477.lcssa.i, <8 x float> %.0483.lcssa.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %82 = shufflevector <8 x float> %.0480.lcssa.i, <8 x float> %.0484.lcssa.i, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %83 = shufflevector <8 x float> %.0480.lcssa.i, <8 x float> %.0484.lcssa.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %84 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %80, <8 x float> nofpclass(nan inf) %81)
-  %85 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %82, <8 x float> nofpclass(nan inf) %83)
+  %84 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %80, <8 x float> nofpclass(nan inf) %81)
+  %85 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %82, <8 x float> nofpclass(nan inf) %83)
   %86 = shufflevector <8 x float> %84, <8 x float> %85, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %87 = shufflevector <8 x float> %84, <8 x float> %85, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %88 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %86, <8 x float> nofpclass(nan inf) %87)
+  %88 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %86, <8 x float> nofpclass(nan inf) %87)
   %89 = shufflevector <8 x float> %88, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %90 = shufflevector <8 x float> %88, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %91 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %89, <4 x float> nofpclass(nan inf) %90)
+  %91 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %89, <4 x float> nofpclass(nan inf) %90)
   %92 = fdiv fast <4 x float> splat (float 1.270000e+02), %91
   %93 = fmul fast <4 x float> %91, %37
   store <4 x float> %92, ptr %.045263.i, align 16, !tbaa !86
@@ -29540,11 +29540,11 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %98 = shufflevector <8 x float> %.0477.lcssa.i, <8 x float> %.0483.lcssa.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %99 = shufflevector <8 x float> %.0480.lcssa.i, <8 x float> %.0484.lcssa.i, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %100 = shufflevector <8 x float> %.0480.lcssa.i, <8 x float> %.0484.lcssa.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %101 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %97, <8 x float> nofpclass(nan inf) %98)
-  %102 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %99, <8 x float> nofpclass(nan inf) %100)
+  %101 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %97, <8 x float> nofpclass(nan inf) %98)
+  %102 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %99, <8 x float> nofpclass(nan inf) %100)
   %103 = shufflevector <8 x float> %101, <8 x float> %102, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %104 = shufflevector <8 x float> %101, <8 x float> %102, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %105 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %103, <8 x float> nofpclass(nan inf) %104)
+  %105 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %103, <8 x float> nofpclass(nan inf) %104)
   %106 = shufflevector <8 x float> %105, <8 x float> poison, <8 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7>
   %107 = fdiv fast <8 x float> splat (float 1.270000e+02), %106
   %108 = fmul fast <8 x float> %106, %36
@@ -29645,16 +29645,16 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %159 = load <8 x i32>, ptr %158, align 1, !tbaa !86
   %160 = and <8 x i32> %153, splat (i32 2147483647)
   %161 = bitcast <8 x i32> %160 to <8 x float>
-  %162 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050173.i, <8 x float> nofpclass(nan inf) %161)
+  %162 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050173.i, <8 x float> nofpclass(nan inf) %161)
   %163 = and <8 x i32> %155, splat (i32 2147483647)
   %164 = bitcast <8 x i32> %163 to <8 x float>
-  %165 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050372.i, <8 x float> nofpclass(nan inf) %164)
+  %165 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050372.i, <8 x float> nofpclass(nan inf) %164)
   %166 = and <8 x i32> %157, splat (i32 2147483647)
   %167 = bitcast <8 x i32> %166 to <8 x float>
-  %168 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050571.i, <8 x float> nofpclass(nan inf) %167)
+  %168 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050571.i, <8 x float> nofpclass(nan inf) %167)
   %169 = and <8 x i32> %159, splat (i32 2147483647)
   %170 = bitcast <8 x i32> %169 to <8 x float>
-  %171 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050670.i, <8 x float> nofpclass(nan inf) %170)
+  %171 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.050670.i, <8 x float> nofpclass(nan inf) %170)
   %172 = getelementptr inbounds float, ptr %.048674.i, i64 %46
   %173 = add nuw nsw i32 %.050769.i, 2
   %174 = or disjoint i32 %173, 1
@@ -29668,8 +29668,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.0503.lcssa.i = phi <8 x float> [ zeroinitializer, %149 ], [ %165, %.lr.ph76.i ]
   %.0501.lcssa.i = phi <8 x float> [ zeroinitializer, %149 ], [ %162, %.lr.ph76.i ]
   %.0486.lcssa.i = phi ptr [ %152, %149 ], [ %172, %.lr.ph76.i ]
-  %176 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0501.lcssa.i, <8 x float> nofpclass(nan inf) %.0505.lcssa.i)
-  %177 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0503.lcssa.i, <8 x float> nofpclass(nan inf) %.0506.lcssa.i)
+  %176 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0501.lcssa.i, <8 x float> nofpclass(nan inf) %.0505.lcssa.i)
+  %177 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0503.lcssa.i, <8 x float> nofpclass(nan inf) %.0506.lcssa.i)
   %178 = icmp slt i32 %.0507.lcssa.i, %16
   br i1 %178, label %.lr.ph89.i, label %._crit_edge90.i
 
@@ -29683,10 +29683,10 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %181 = load <8 x i32>, ptr %180, align 1, !tbaa !86
   %182 = and <8 x i32> %179, splat (i32 2147483647)
   %183 = bitcast <8 x i32> %182 to <8 x float>
-  %184 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.150286.i, <8 x float> nofpclass(nan inf) %183)
+  %184 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.150286.i, <8 x float> nofpclass(nan inf) %183)
   %185 = and <8 x i32> %181, splat (i32 2147483647)
   %186 = bitcast <8 x i32> %185 to <8 x float>
-  %187 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.150485.i, <8 x float> nofpclass(nan inf) %186)
+  %187 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.150485.i, <8 x float> nofpclass(nan inf) %186)
   %188 = getelementptr inbounds float, ptr %.148787.i, i64 %44
   %189 = add nuw nsw i32 %.150884.i, 1
   %exitcond256.not.i = icmp eq i32 %189, %16
@@ -29704,19 +29704,19 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
 .thread31.i:                                      ; preds = %._crit_edge90.i
   %190 = shufflevector <8 x float> %.1502.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %191 = shufflevector <8 x float> %.1502.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %192 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %190, <4 x float> nofpclass(nan inf) %191)
+  %192 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %190, <4 x float> nofpclass(nan inf) %191)
   %193 = shufflevector <4 x float> %192, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %194 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %192, <4 x float> nofpclass(nan inf) %193)
+  %194 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %192, <4 x float> nofpclass(nan inf) %193)
   %195 = shufflevector <4 x float> %194, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %196 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %194, <4 x float> nofpclass(nan inf) %195)
+  %196 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %194, <4 x float> nofpclass(nan inf) %195)
   %197 = extractelement <4 x float> %196, i64 0
   %198 = shufflevector <8 x float> %.1504.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %199 = shufflevector <8 x float> %.1504.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %200 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %198, <4 x float> nofpclass(nan inf) %199)
+  %200 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %198, <4 x float> nofpclass(nan inf) %199)
   %201 = shufflevector <4 x float> %200, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %202 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %200, <4 x float> nofpclass(nan inf) %201)
+  %202 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %200, <4 x float> nofpclass(nan inf) %201)
   %203 = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %204 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %202, <4 x float> nofpclass(nan inf) %203)
+  %204 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %202, <4 x float> nofpclass(nan inf) %203)
   %205 = extractelement <4 x float> %204, i64 0
   %206 = fdiv fast float 1.270000e+02, %197
   store float %206, ptr %.495.i, align 4, !tbaa !61
@@ -29737,10 +29737,10 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
 216:                                              ; preds = %._crit_edge90.i
   %217 = shufflevector <8 x float> %.1502.lcssa.i, <8 x float> %.1504.lcssa.i, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %218 = shufflevector <8 x float> %.1502.lcssa.i, <8 x float> %.1504.lcssa.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %219 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %217, <8 x float> nofpclass(nan inf) %218)
+  %219 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %217, <8 x float> nofpclass(nan inf) %218)
   %220 = shufflevector <8 x float> %219, <8 x float> poison, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %221 = shufflevector <8 x float> %219, <8 x float> poison, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %222 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %220, <4 x float> nofpclass(nan inf) %221)
+  %222 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %220, <4 x float> nofpclass(nan inf) %221)
   %223 = fdiv fast <4 x float> splat (float 1.270000e+02), %222
   %224 = fmul fast <4 x float> %222, %52
   store <4 x float> %223, ptr %.495.i, align 16, !tbaa !86
@@ -29822,16 +29822,16 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %264 = load <8 x i32>, ptr %263, align 1, !tbaa !86
   %265 = and <8 x i32> %258, splat (i32 2147483647)
   %266 = bitcast <8 x i32> %265 to <8 x float>
-  %267 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0512104.i, <8 x float> nofpclass(nan inf) %266)
+  %267 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0512104.i, <8 x float> nofpclass(nan inf) %266)
   %268 = and <8 x i32> %260, splat (i32 2147483647)
   %269 = bitcast <8 x i32> %268 to <8 x float>
-  %270 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0515103.i, <8 x float> nofpclass(nan inf) %269)
+  %270 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0515103.i, <8 x float> nofpclass(nan inf) %269)
   %271 = and <8 x i32> %262, splat (i32 2147483647)
   %272 = bitcast <8 x i32> %271 to <8 x float>
-  %273 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0517102.i, <8 x float> nofpclass(nan inf) %272)
+  %273 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0517102.i, <8 x float> nofpclass(nan inf) %272)
   %274 = and <8 x i32> %264, splat (i32 2147483647)
   %275 = bitcast <8 x i32> %274 to <8 x float>
-  %276 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0518101.i, <8 x float> nofpclass(nan inf) %275)
+  %276 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0518101.i, <8 x float> nofpclass(nan inf) %275)
   %277 = getelementptr inbounds float, ptr %.0509105.i, i64 %142
   %278 = add nuw nsw i32 %.0519100.i, 4
   %279 = or disjoint i32 %278, 3
@@ -29845,8 +29845,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.0515.lcssa.i = phi <8 x float> [ zeroinitializer, %254 ], [ %270, %.lr.ph107.i ]
   %.0512.lcssa.i = phi <8 x float> [ zeroinitializer, %254 ], [ %267, %.lr.ph107.i ]
   %.0509.lcssa.i = phi ptr [ %257, %254 ], [ %277, %.lr.ph107.i ]
-  %281 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0512.lcssa.i, <8 x float> nofpclass(nan inf) %.0517.lcssa.i)
-  %282 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0515.lcssa.i, <8 x float> nofpclass(nan inf) %.0518.lcssa.i)
+  %281 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0512.lcssa.i, <8 x float> nofpclass(nan inf) %.0517.lcssa.i)
+  %282 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.0515.lcssa.i, <8 x float> nofpclass(nan inf) %.0518.lcssa.i)
   %283 = or disjoint i32 %.0519.lcssa.i, 1
   %284 = icmp slt i32 %283, %16
   br i1 %284, label %.lr.ph120.i, label %._crit_edge121.i
@@ -29861,10 +29861,10 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %287 = load <8 x i32>, ptr %286, align 1, !tbaa !86
   %288 = and <8 x i32> %285, splat (i32 2147483647)
   %289 = bitcast <8 x i32> %288 to <8 x float>
-  %290 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1513117.i, <8 x float> nofpclass(nan inf) %289)
+  %290 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1513117.i, <8 x float> nofpclass(nan inf) %289)
   %291 = and <8 x i32> %287, splat (i32 2147483647)
   %292 = bitcast <8 x i32> %291 to <8 x float>
-  %293 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1516116.i, <8 x float> nofpclass(nan inf) %292)
+  %293 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1516116.i, <8 x float> nofpclass(nan inf) %292)
   %294 = getelementptr inbounds float, ptr %.1510118.i, i64 %138
   %295 = add nuw nsw i32 %.1520115.i, 2
   %296 = or disjoint i32 %295, 1
@@ -29876,7 +29876,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.1516.lcssa.i = phi <8 x float> [ %282, %._crit_edge108.i ], [ %293, %.lr.ph120.i ]
   %.1513.lcssa.i = phi <8 x float> [ %281, %._crit_edge108.i ], [ %290, %.lr.ph120.i ]
   %.1510.lcssa.i = phi ptr [ %.0509.lcssa.i, %._crit_edge108.i ], [ %294, %.lr.ph120.i ]
-  %298 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1513.lcssa.i, <8 x float> nofpclass(nan inf) %.1516.lcssa.i)
+  %298 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.1513.lcssa.i, <8 x float> nofpclass(nan inf) %.1516.lcssa.i)
   %299 = icmp slt i32 %.1520.lcssa.i, %16
   br i1 %299, label %.lr.ph130.i, label %._crit_edge131.i
 
@@ -29887,7 +29887,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %300 = load <8 x i32>, ptr %.2511128.i, align 1, !tbaa !86
   %301 = and <8 x i32> %300, splat (i32 2147483647)
   %302 = bitcast <8 x i32> %301 to <8 x float>
-  %303 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.2514127.i, <8 x float> nofpclass(nan inf) %302)
+  %303 = tail call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.2514127.i, <8 x float> nofpclass(nan inf) %302)
   %304 = getelementptr inbounds float, ptr %.2511128.i, i64 %136
   %305 = add nuw nsw i32 %.2521126.i, 1
   %exitcond260.not.i = icmp eq i32 %305, %16
@@ -29904,11 +29904,11 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
 .thread38.i:                                      ; preds = %._crit_edge131.i
   %306 = shufflevector <8 x float> %.2514.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %307 = shufflevector <8 x float> %.2514.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %308 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %306, <4 x float> nofpclass(nan inf) %307)
+  %308 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %306, <4 x float> nofpclass(nan inf) %307)
   %309 = shufflevector <4 x float> %308, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %310 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %308, <4 x float> nofpclass(nan inf) %309)
+  %310 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %308, <4 x float> nofpclass(nan inf) %309)
   %311 = shufflevector <4 x float> %310, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %312 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %310, <4 x float> nofpclass(nan inf) %311)
+  %312 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %310, <4 x float> nofpclass(nan inf) %311)
   %313 = extractelement <4 x float> %312, i64 0
   %314 = fdiv fast float 1.270000e+02, %313
   store float %314, ptr %.8135.i, align 4, !tbaa !61
@@ -29923,14 +29923,14 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %320 = shufflevector <8 x float> %.2514.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %321 = shufflevector <8 x float> %.2514.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %322 = shufflevector <8 x float> %.2514.lcssa.i, <8 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %323 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %320, <4 x float> nofpclass(nan inf) %322)
+  %323 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %320, <4 x float> nofpclass(nan inf) %322)
   %324 = shufflevector <4 x float> %323, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %325 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %323, <4 x float> nofpclass(nan inf) %324)
+  %325 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %323, <4 x float> nofpclass(nan inf) %324)
   %326 = extractelement <4 x float> %325, i64 0
   %327 = shufflevector <4 x float> %321, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %328 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %321, <4 x float> nofpclass(nan inf) %327)
+  %328 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %321, <4 x float> nofpclass(nan inf) %327)
   %329 = shufflevector <4 x float> %328, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %330 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %328, <4 x float> nofpclass(nan inf) %329)
+  %330 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %328, <4 x float> nofpclass(nan inf) %329)
   %331 = extractelement <4 x float> %330, i64 0
   %332 = fdiv fast float 1.270000e+02, %326
   store float %332, ptr %.8135.i, align 4, !tbaa !61
@@ -30059,16 +30059,16 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %393 = load <4 x i32>, ptr %392, align 1, !tbaa !86
   %394 = and <4 x i32> %387, splat (i32 2147483647)
   %395 = bitcast <4 x i32> %394 to <4 x float>
-  %396 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0495141.i, <4 x float> nofpclass(nan inf) %395)
+  %396 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0495141.i, <4 x float> nofpclass(nan inf) %395)
   %397 = and <4 x i32> %389, splat (i32 2147483647)
   %398 = bitcast <4 x i32> %397 to <4 x float>
-  %399 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0493142.i, <4 x float> nofpclass(nan inf) %398)
+  %399 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0493142.i, <4 x float> nofpclass(nan inf) %398)
   %400 = and <4 x i32> %391, splat (i32 2147483647)
   %401 = bitcast <4 x i32> %400 to <4 x float>
-  %402 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0492143.i, <4 x float> nofpclass(nan inf) %401)
+  %402 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0492143.i, <4 x float> nofpclass(nan inf) %401)
   %403 = and <4 x i32> %393, splat (i32 2147483647)
   %404 = bitcast <4 x i32> %403 to <4 x float>
-  %405 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0491144.i, <4 x float> nofpclass(nan inf) %404)
+  %405 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0491144.i, <4 x float> nofpclass(nan inf) %404)
   %406 = getelementptr inbounds float, ptr %.0498140.i, i64 %249
   %407 = add nuw nsw i32 %.0488145.i, 4
   %408 = or disjoint i32 %407, 3
@@ -30082,8 +30082,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.0492.lcssa.i = phi <4 x float> [ zeroinitializer, %383 ], [ %402, %.lr.ph147.i ]
   %.0491.lcssa.i = phi <4 x float> [ zeroinitializer, %383 ], [ %405, %.lr.ph147.i ]
   %.0488.lcssa.i = phi i32 [ 0, %383 ], [ %250, %.lr.ph147.i ]
-  %410 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0495.lcssa.i, <4 x float> nofpclass(nan inf) %.0492.lcssa.i)
-  %411 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0493.lcssa.i, <4 x float> nofpclass(nan inf) %.0491.lcssa.i)
+  %410 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0495.lcssa.i, <4 x float> nofpclass(nan inf) %.0492.lcssa.i)
+  %411 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.0493.lcssa.i, <4 x float> nofpclass(nan inf) %.0491.lcssa.i)
   %412 = or disjoint i32 %.0488.lcssa.i, 1
   %413 = icmp slt i32 %412, %16
   br i1 %413, label %.lr.ph160.i, label %._crit_edge161.i
@@ -30098,10 +30098,10 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %416 = load <4 x i32>, ptr %415, align 1, !tbaa !86
   %417 = and <4 x i32> %414, splat (i32 2147483647)
   %418 = bitcast <4 x i32> %417 to <4 x float>
-  %419 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1496156.i, <4 x float> nofpclass(nan inf) %418)
+  %419 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1496156.i, <4 x float> nofpclass(nan inf) %418)
   %420 = and <4 x i32> %416, splat (i32 2147483647)
   %421 = bitcast <4 x i32> %420 to <4 x float>
-  %422 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1494157.i, <4 x float> nofpclass(nan inf) %421)
+  %422 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1494157.i, <4 x float> nofpclass(nan inf) %421)
   %423 = getelementptr inbounds float, ptr %.1499155.i, i64 %245
   %424 = add nuw nsw i32 %.1489158.i, 2
   %425 = or disjoint i32 %424, 1
@@ -30113,7 +30113,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.1496.lcssa.i = phi <4 x float> [ %410, %._crit_edge148.i ], [ %419, %.lr.ph160.i ]
   %.1494.lcssa.i = phi <4 x float> [ %411, %._crit_edge148.i ], [ %422, %.lr.ph160.i ]
   %.1489.lcssa.i = phi i32 [ %.0488.lcssa.i, %._crit_edge148.i ], [ %424, %.lr.ph160.i ]
-  %427 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1496.lcssa.i, <4 x float> nofpclass(nan inf) %.1494.lcssa.i)
+  %427 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.1496.lcssa.i, <4 x float> nofpclass(nan inf) %.1494.lcssa.i)
   %428 = icmp slt i32 %.1489.lcssa.i, %16
   br i1 %428, label %.lr.ph170.i, label %._crit_edge171.i
 
@@ -30124,7 +30124,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %429 = load <4 x i32>, ptr %.2500166.i, align 1, !tbaa !86
   %430 = and <4 x i32> %429, splat (i32 2147483647)
   %431 = bitcast <4 x i32> %430 to <4 x float>
-  %432 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.2497167.i, <4 x float> nofpclass(nan inf) %431)
+  %432 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.2497167.i, <4 x float> nofpclass(nan inf) %431)
   %433 = getelementptr inbounds float, ptr %.2500166.i, i64 %243
   %434 = add nuw nsw i32 %.2490168.i, 1
   %exitcond264.not.i = icmp eq i32 %434, %16
@@ -30139,9 +30139,9 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
 
 .thread45.i:                                      ; preds = %._crit_edge171.i
   %435 = shufflevector <4 x float> %.2497.lcssa.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %436 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.2497.lcssa.i, <4 x float> nofpclass(nan inf) %435)
+  %436 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.2497.lcssa.i, <4 x float> nofpclass(nan inf) %435)
   %437 = shufflevector <4 x float> %436, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %438 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %436, <4 x float> nofpclass(nan inf) %437)
+  %438 = tail call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %436, <4 x float> nofpclass(nan inf) %437)
   %439 = extractelement <4 x float> %438, i64 0
   %440 = fdiv fast float 1.270000e+02, %439
   store float %440, ptr %.12175.i, align 4, !tbaa !61
@@ -31251,7 +31251,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %.2519749.i = phi i32 [ %748, %.lr.ph752.i ], [ %.1518.lcssa.i, %.preheader643.i ]
   %736 = load float, ptr %.6514750.i, align 4, !tbaa !61
   %737 = fmul fast float %736, %662
-  %738 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %737)
+  %738 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %737)
   %739 = fptosi float %738 to i32
   %spec.select.i524635.i = tail call i32 @llvm.smax.i32(i32 %739, i32 -127)
   %.0.i525636.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i524635.i, i32 127)
@@ -31260,7 +31260,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %740 = getelementptr inbounds nuw i8, ptr %.6514750.i, i64 4
   %741 = load float, ptr %740, align 4, !tbaa !61
   %742 = fmul fast float %741, %664
-  %743 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %742)
+  %743 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %742)
   %744 = fptosi float %743 to i32
   %spec.select.i522637.i = tail call i32 @llvm.smax.i32(i32 %744, i32 -127)
   %.0.i523638.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i522637.i, i32 127)
@@ -31406,7 +31406,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %.5497778.i = phi ptr [ %835, %.lr.ph781.i ], [ %.4496.lcssa.i, %.preheader.i ]
   %830 = load float, ptr %.5497778.i, align 4, !tbaa !61
   %831 = fmul fast float %830, %759
-  %832 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %831)
+  %832 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %831)
   %833 = fptosi float %832 to i32
   %spec.select.i633.i = tail call i32 @llvm.smax.i32(i32 %833, i32 -127)
   %.0.i634.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i633.i, i32 127)
@@ -32203,7 +32203,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.2400571.i = phi ptr [ %523, %.lr.ph574.i ], [ %.1399.lcssa.i, %.preheader456.i ]
   %512 = load float, ptr %.2400571.i, align 4, !tbaa !61
   %513 = fmul fast float %512, %457
-  %514 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %513)
+  %514 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %513)
   %515 = fptosi float %514 to i32
   %spec.select.i405451.i = tail call i32 @llvm.smax.i32(i32 %515, i32 -127)
   %.0.i406452.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i405451.i, i32 127)
@@ -32212,7 +32212,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %516 = getelementptr inbounds float, ptr %.2400571.i, i64 %436
   %517 = load float, ptr %516, align 4, !tbaa !61
   %518 = fmul fast float %517, %459
-  %519 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %518)
+  %519 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %518)
   %520 = fptosi float %519 to i32
   %spec.select.i403453.i = tail call i32 @llvm.smax.i32(i32 %520, i32 -127)
   %.0.i404454.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i403453.i, i32 127)
@@ -32283,7 +32283,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.1371589.i = phi ptr [ %560, %.lr.ph592.i ], [ %.0370.lcssa.i, %.preheader.i ]
   %555 = load float, ptr %.1371589.i, align 4, !tbaa !61
   %556 = fmul fast float %555, %535
-  %557 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %556)
+  %557 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %556)
   %558 = fptosi float %557 to i32
   %spec.select.i449.i = tail call i32 @llvm.smax.i32(i32 %558, i32 -127)
   %.0.i450.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i449.i, i32 127)
@@ -32816,7 +32816,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %219 = load <8 x i32>, ptr %.08224.i.i.us, align 1, !tbaa !86
   %220 = and <8 x i32> %219, splat (i32 2147483647)
   %221 = bitcast <8 x i32> %220 to <8 x float>
-  %222 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.08523.i.i.us, <8 x float> nofpclass(nan inf) %221)
+  %222 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.08523.i.i.us, <8 x float> nofpclass(nan inf) %221)
   %223 = getelementptr inbounds nuw i8, ptr %.08224.i.i.us, i64 32
   %224 = add nuw nsw i32 %.08822.i.i.us, 8
   %225 = or disjoint i32 %224, 7
@@ -32838,7 +32838,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %229 = load <4 x i32>, ptr %.18329.i.i.us, align 1, !tbaa !86
   %230 = and <4 x i32> %229, splat (i32 2147483647)
   %231 = bitcast <4 x i32> %230 to <4 x float>
-  %232 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.08628.i.i.us, <4 x float> nofpclass(nan inf) %231)
+  %232 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.08628.i.i.us, <4 x float> nofpclass(nan inf) %231)
   %233 = getelementptr inbounds nuw i8, ptr %.18329.i.i.us, i64 16
   %234 = add nuw nsw i32 %.18927.i.i.us, 4
   %235 = or disjoint i32 %234, 3
@@ -32875,18 +32875,18 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
 242:                                              ; preds = %._crit_edge.i.i.us
   %243 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %244 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %245 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %243, <4 x float> nofpclass(nan inf) %244)
+  %245 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %243, <4 x float> nofpclass(nan inf) %244)
   %246 = shufflevector <4 x float> %245, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %247 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %245, <4 x float> nofpclass(nan inf) %246)
+  %247 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %245, <4 x float> nofpclass(nan inf) %246)
   %248 = shufflevector <4 x float> %247, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %249 = call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %247, <4 x float> nofpclass(nan inf) %248)
+  %249 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %247, <4 x float> nofpclass(nan inf) %248)
   %250 = extractelement <4 x float> %249, i64 0
   %251 = fcmp fast olt float %.014.lcssa.i.i.us, %250
   %.sroa.speculated4.i.i.us = select i1 %251, float %250, float %.014.lcssa.i.i.us
   %252 = shufflevector <4 x float> %.086.lcssa.i.i.us, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  %253 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %252)
+  %253 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %252)
   %254 = shufflevector <4 x float> %253, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %255 = call fast noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %253, <4 x float> nofpclass(nan inf) %254)
+  %255 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ss(<4 x float> nofpclass(nan inf) %253, <4 x float> nofpclass(nan inf) %254)
   %256 = extractelement <4 x float> %255, i64 0
   %257 = fcmp fast olt float %.sroa.speculated4.i.i.us, %256
   %.sroa.speculated.i.i.us = select i1 %257, float %256, float %.sroa.speculated4.i.i.us
@@ -32902,8 +32902,8 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
 263:                                              ; preds = %._crit_edge.i.i.us
   %264 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %265 = shufflevector <8 x float> %.085.lcssa.i.i.us, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %266 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %264)
-  %267 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %266, <4 x float> nofpclass(nan inf) %265)
+  %266 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.086.lcssa.i.i.us, <4 x float> nofpclass(nan inf) %264)
+  %267 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %266, <4 x float> nofpclass(nan inf) %265)
   %268 = fdiv fast <4 x float> splat (float 1.270000e+02), %267
   %269 = fmul fast <4 x float> %267, %197
   store <4 x float> %268, ptr %.041.i.i.us, align 16, !tbaa !86

@@ -4725,7 +4725,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %.03335 = phi ptr [ %30, %.lr.ph ], [ %40, %34 ]
   %35 = load float, ptr %.03236, align 4, !tbaa !50
   %36 = load float, ptr %.03335, align 4, !tbaa !50
-  %37 = tail call fast noundef float @llvm.pow.f32(float %35, float %36)
+  %37 = tail call fast noundef nofpclass(nan inf) float @llvm.pow.f32(float %35, float %36)
   %38 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   store float %37, ptr %38, align 4, !tbaa !50
   %39 = getelementptr inbounds nuw float, ptr %.03236, i64 %32
@@ -4819,7 +4819,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %.03335 = phi ptr [ %30, %.lr.ph ], [ %40, %34 ]
   %35 = load float, ptr %.03236, align 4, !tbaa !50
   %36 = load float, ptr %.03335, align 4, !tbaa !50
-  %37 = tail call fast noundef float @llvm.atan2.f32(float %35, float %36)
+  %37 = tail call fast noundef nofpclass(nan inf) float @llvm.atan2.f32(float %35, float %36)
   %38 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   store float %37, ptr %38, align 4, !tbaa !50
   %39 = getelementptr inbounds nuw float, ptr %.03236, i64 %32
@@ -6809,7 +6809,7 @@ define internal void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_
   %.03446.us = phi ptr [ %57, %.lr.ph.us ], [ %65, %59 ]
   %60 = load float, ptr %.03347.us, align 4, !tbaa !50
   %61 = load float, ptr %.03446.us, align 4, !tbaa !50
-  %62 = call fast noundef float @llvm.pow.f32(float %60, float %61)
+  %62 = call fast noundef nofpclass(nan inf) float @llvm.pow.f32(float %60, float %61)
   %63 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
   store float %62, ptr %63, align 4, !tbaa !50
   %64 = getelementptr inbounds nuw float, ptr %.03347.us, i64 %49
@@ -6992,7 +6992,7 @@ define internal void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_
   %.040184.us.us.us.us = phi ptr [ %110, %105 ], [ %101, %.noexc76.us.us.us.us ]
   %106 = load float, ptr %.040184.us.us.us.us, align 4, !tbaa !50
   %107 = load float, ptr %.039185.us.us.us.us, align 4, !tbaa !50
-  %108 = call fast noundef float @llvm.pow.f32(float %106, float %107)
+  %108 = call fast noundef nofpclass(nan inf) float @llvm.pow.f32(float %106, float %107)
   %109 = getelementptr inbounds nuw float, ptr %.1188.us.us.us.us, i64 %indvars.iv
   store float %108, ptr %109, align 4, !tbaa !50
   %110 = getelementptr inbounds nuw float, ptr %.040184.us.us.us.us, i64 %48
@@ -7119,7 +7119,7 @@ define internal void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKN
   %.03446.us = phi ptr [ %57, %.lr.ph.us ], [ %65, %59 ]
   %60 = load float, ptr %.03347.us, align 4, !tbaa !50
   %61 = load float, ptr %.03446.us, align 4, !tbaa !50
-  %62 = call fast noundef float @llvm.atan2.f32(float %60, float %61)
+  %62 = call fast noundef nofpclass(nan inf) float @llvm.atan2.f32(float %60, float %61)
   %63 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
   store float %62, ptr %63, align 4, !tbaa !50
   %64 = getelementptr inbounds nuw float, ptr %.03347.us, i64 %49
@@ -7302,7 +7302,7 @@ define internal void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKN
   %.040184.us.us.us.us = phi ptr [ %110, %105 ], [ %101, %.noexc76.us.us.us.us ]
   %106 = load float, ptr %.040184.us.us.us.us, align 4, !tbaa !50
   %107 = load float, ptr %.039185.us.us.us.us, align 4, !tbaa !50
-  %108 = call fast noundef float @llvm.atan2.f32(float %106, float %107)
+  %108 = call fast noundef nofpclass(nan inf) float @llvm.atan2.f32(float %106, float %107)
   %109 = getelementptr inbounds nuw float, ptr %.1188.us.us.us.us, i64 %indvars.iv
   store float %108, ptr %109, align 4, !tbaa !50
   %110 = getelementptr inbounds nuw float, ptr %.040184.us.us.us.us, i64 %48
@@ -7882,7 +7882,7 @@ define internal void @_ZN4ncnnL24binary_op_scalar_inplaceINS_13binary_op_powEEEv
   %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !50
   %33 = load float, ptr %6, align 4, !tbaa !50
-  %34 = call fast noundef float @llvm.pow.f32(float %32, float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.pow.f32(float %32, float %33)
   store float %34, ptr %31, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8125,7 +8125,7 @@ define internal void @_ZN4ncnnL24binary_op_scalar_inplaceINS_14binary_op_rpowEEE
   %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %32 = load float, ptr %6, align 4, !tbaa !50
   %33 = load float, ptr %31, align 4, !tbaa !50
-  %34 = call fast noundef float @llvm.pow.f32(float %32, float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.pow.f32(float %32, float %33)
   store float %34, ptr %31, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8206,7 +8206,7 @@ define internal void @_ZN4ncnnL24binary_op_scalar_inplaceINS_15binary_op_atan2EE
   %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !50
   %33 = load float, ptr %6, align 4, !tbaa !50
-  %34 = call fast noundef float @llvm.atan2.f32(float %32, float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.atan2.f32(float %32, float %33)
   store float %34, ptr %31, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8287,7 +8287,7 @@ define internal void @_ZN4ncnnL24binary_op_scalar_inplaceINS_16binary_op_ratan2E
   %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %32 = load float, ptr %6, align 4, !tbaa !50
   %33 = load float, ptr %31, align 4, !tbaa !50
-  %34 = call fast noundef float @llvm.atan2.f32(float %32, float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.atan2.f32(float %32, float %33)
   store float %34, ptr %31, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

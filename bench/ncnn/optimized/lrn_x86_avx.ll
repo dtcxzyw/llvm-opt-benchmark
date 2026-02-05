@@ -1070,7 +1070,7 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %102 = fmul fast <8 x float> %101, %55
   %103 = fadd fast <8 x float> %102, %52
   %104 = fcmp fast ole <8 x float> %103, zeroinitializer
-  %105 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %103, <8 x float> splat (float 0x3810000000000000))
+  %105 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %103, <8 x float> splat (float 0x3810000000000000))
   %106 = bitcast <8 x float> %105 to <8 x i32>
   %107 = bitcast <8 x float> %105 to <8 x i32>
   %108 = and <8 x i32> %107, splat (i32 -2139095041)
@@ -1110,8 +1110,8 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %139 = fadd fast <8 x float> %138, %reass.mul233
   %140 = select <8 x i1> %104, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %139
   %141 = fmul fast <8 x float> %140, %59
-  %142 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %141, <8 x float> splat (float 0x40561814A0000000))
-  %143 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %142, <8 x float> splat (float 0xC0561814A0000000))
+  %142 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %141, <8 x float> splat (float 0x40561814A0000000))
+  %143 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %142, <8 x float> splat (float 0xC0561814A0000000))
   %144 = fmul fast <8 x float> %143, splat (float 0x3FF7154760000000)
   %145 = fadd fast <8 x float> %144, splat (float 5.000000e-01)
   %146 = call fast <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %145, i32 1)

@@ -103,25 +103,25 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %43 = load float, ptr %42, align 8, !tbaa !28
   %44 = fmul fast float %43, %41
-  %45 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %44)
+  %45 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %44)
   %46 = fptosi float %45 to i32
   store i32 %46, ptr %8, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %48 = load float, ptr %47, align 4, !tbaa !41
   %49 = fmul fast float %48, %43
-  %50 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %49)
+  %50 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %49)
   %51 = fptosi float %50 to i32
   store i32 %51, ptr %9, align 4, !tbaa !33
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %53 = load float, ptr %52, align 4, !tbaa !41
   %54 = fmul fast float %53, %43
-  %55 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %54)
+  %55 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %54)
   %56 = fptosi float %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %58 = load float, ptr %57, align 4, !tbaa !41
   %59 = fmul fast float %58, %43
-  %60 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %59)
+  %60 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %59)
   %61 = fptosi float %60 to i32
   %62 = sub nsw i32 %56, %46
   %63 = tail call i32 @llvm.smax.i32(i32 %62, i32 0)

@@ -113,8 +113,8 @@ define internal void @_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6Optio
   %42 = load <16 x float>, ptr %.04488, align 1, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %.04488, i64 64
   %44 = load <16 x float>, ptr %43, align 1, !tbaa !30
-  %45 = call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %42)
-  %46 = call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %44)
+  %45 = call fast noundef nofpclass(nan inf) <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %42)
+  %46 = call fast noundef nofpclass(nan inf) <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %44)
   %47 = shufflevector <16 x bfloat> %45, <16 x bfloat> %46, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x bfloat> %47, ptr %.04089, align 1, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %.04488, i64 128
@@ -139,7 +139,7 @@ define internal void @_ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6Optio
   %.14194 = phi ptr [ %60, %.lr.ph96 ], [ %.040.lcssa, %.preheader87 ]
   %.14593 = phi ptr [ %59, %.lr.ph96 ], [ %.044.lcssa, %.preheader87 ]
   %57 = load <16 x float>, ptr %.14593, align 1, !tbaa !30
-  %58 = call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %57)
+  %58 = call fast noundef nofpclass(nan inf) <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> nofpclass(nan inf) %57)
   store <16 x bfloat> %58, ptr %.14194, align 1, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %.14593, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %.14194, i64 32

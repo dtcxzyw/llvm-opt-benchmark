@@ -166,8 +166,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   %82 = load i32, ptr %81, align 4, !tbaa !46
   %83 = icmp sgt i32 %82, 0
   %84 = uitofp nneg i32 %82 to float
-  %85 = tail call fast float @llvm.ceil.f32(float nofpclass(nan inf) %77)
-  %86 = tail call fast float @llvm.ceil.f32(float nofpclass(nan inf) %74)
+  %85 = tail call fast nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %77)
+  %86 = tail call fast nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %74)
   %.in = select i1 %83, float %84, float %85
   %87 = select fast i1 %83, float %84, float %86
   %88 = fptosi float %.in to i32
@@ -290,9 +290,9 @@ _ZNSt6vectorIN4ncnn7PreCalcIfEESaIS2_EED2Ev.exit46: ; preds = %122, %119
   br label %139
 
 135:                                              ; preds = %128
-  %136 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %77)
+  %136 = tail call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %77)
   %137 = fptosi float %136 to i32
-  %138 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %74)
+  %138 = tail call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %74)
   %.pre = fptosi float %138 to i32
   br label %139
 
@@ -449,7 +449,7 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %.sroa.speculated111.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %27, float 0.000000e+00)
   %.sroa.speculated107.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated111.us, float %13)
   %28 = fsub fast float %.sroa.speculated107.us, %.sroa.speculated123.us
-  %29 = tail call fast float @llvm.ceil.f32(float nofpclass(nan inf) %28)
+  %29 = tail call fast nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %28)
   br label %30
 
 30:                                               ; preds = %.preheader.us, %.loopexit.us
@@ -472,7 +472,7 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %.sroa.speculated103.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %40, float 0.000000e+00)
   %.sroa.speculated.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated103.us, float %14)
   %41 = fsub fast float %.sroa.speculated.us, %.sroa.speculated115.us
-  %42 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %41)
+  %42 = tail call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %41)
   br label %43
 
 43:                                               ; preds = %30, %37
@@ -706,9 +706,9 @@ define internal void @_ZNK4ncnn16ROIAlign_x86_fma7forwardERKSt6vectorINS_3MatESa
   %82 = fcmp fast ogt float %.sroa.speculated88.us.us.us, %54
   %.sroa.speculated.us.us.us = select i1 %82, float %54, float %.sroa.speculated88.us.us.us
   %83 = fsub fast float %.sroa.speculated92.us.us.us, %.sroa.speculated108.us.us.us
-  %84 = call fast float @llvm.ceil.f32(float nofpclass(nan inf) %83)
+  %84 = call fast nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %83)
   %85 = fsub fast float %.sroa.speculated.us.us.us, %.sroa.speculated100.us.us.us
-  %86 = call fast float @llvm.ceil.f32(float nofpclass(nan inf) %85)
+  %86 = call fast nofpclass(nan inf) float @llvm.ceil.f32(float nofpclass(nan inf) %85)
   %.in.us.us.us = select i1 %45, float %46, float %84
   %87 = select fast i1 %45, float %46, float %86
   %88 = fptosi float %.in.us.us.us to i32

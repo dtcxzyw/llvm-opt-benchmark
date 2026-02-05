@@ -798,7 +798,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.142.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12641.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12641.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.fabs.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float %33)
   store float %34, ptr %.12641.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12641.us.us, i64 4
   %36 = add nuw nsw i32 %.142.us.us, 1
@@ -847,7 +847,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.142 = phi i32 [ %57, %.lr.ph43 ], [ %.0.lcssa, %.preheader ]
   %.12641 = phi ptr [ %56, %.lr.ph43 ], [ %.025.lcssa, %.preheader ]
   %54 = load float, ptr %.12641, align 4, !tbaa !45
-  %55 = call fast noundef float @llvm.fabs.f32(float %54)
+  %55 = call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float %54)
   store float %55, ptr %.12641, align 4, !tbaa !45
   %56 = getelementptr inbounds nuw i8, ptr %.12641, i64 4
   %57 = add nuw nsw i32 %.142, 1
@@ -1094,7 +1094,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.144.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12643.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12643.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.floor.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float %33)
   store float %34, ptr %.12643.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12643.us.us, i64 4
   %36 = add nuw nsw i32 %.144.us.us, 1
@@ -1155,7 +1155,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.144 = phi i32 [ %68, %.lr.ph45 ], [ %.0.lcssa, %.preheader ]
   %.12643 = phi ptr [ %67, %.lr.ph45 ], [ %.025.lcssa, %.preheader ]
   %65 = load float, ptr %.12643, align 4, !tbaa !45
-  %66 = call fast noundef float @llvm.floor.f32(float %65)
+  %66 = call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float %65)
   store float %66, ptr %.12643, align 4, !tbaa !45
   %67 = getelementptr inbounds nuw i8, ptr %.12643, i64 4
   %68 = add nuw nsw i32 %.144, 1
@@ -1250,7 +1250,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.141.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12640.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12640.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.ceil.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float %33)
   store float %34, ptr %.12640.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12640.us.us, i64 4
   %36 = add nuw nsw i32 %.141.us.us, 1
@@ -1313,7 +1313,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.141 = phi i32 [ %70, %.lr.ph42 ], [ %.0.lcssa, %.preheader ]
   %.12640 = phi ptr [ %69, %.lr.ph42 ], [ %.025.lcssa, %.preheader ]
   %67 = load float, ptr %.12640, align 4, !tbaa !45
-  %68 = call fast noundef float @llvm.ceil.f32(float %67)
+  %68 = call fast noundef nofpclass(nan inf) float @llvm.ceil.f32(float %67)
   store float %68, ptr %.12640, align 4, !tbaa !45
   %69 = getelementptr inbounds nuw i8, ptr %.12640, i64 4
   %70 = add nuw nsw i32 %.141, 1
@@ -1543,7 +1543,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.140.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12639.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12639.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.sqrt.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float %33)
   store float %34, ptr %.12639.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12639.us.us, i64 4
   %36 = add nuw nsw i32 %.140.us.us, 1
@@ -1579,7 +1579,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.036 = phi i32 [ %50, %.lr.ph ], [ 0, %.noexc ]
   %.02535 = phi ptr [ %49, %.lr.ph ], [ %43, %.noexc ]
   %47 = load <4 x float>, ptr %.02535, align 16, !tbaa !49
-  %48 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %47)
+  %48 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %47)
   store <4 x float> %48, ptr %.02535, align 16, !tbaa !49
   %49 = getelementptr inbounds nuw i8, ptr %.02535, i64 16
   %50 = add nuw nsw i32 %.036, 4
@@ -1592,7 +1592,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.140 = phi i32 [ %57, %.lr.ph41 ], [ %.0.lcssa, %.preheader ]
   %.12639 = phi ptr [ %56, %.lr.ph41 ], [ %.025.lcssa, %.preheader ]
   %54 = load float, ptr %.12639, align 4, !tbaa !45
-  %55 = call fast noundef float @llvm.sqrt.f32(float %54)
+  %55 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float %54)
   store float %55, ptr %.12639, align 4, !tbaa !45
   %56 = getelementptr inbounds nuw i8, ptr %.12639, i64 4
   %57 = add nuw nsw i32 %.140, 1
@@ -1724,7 +1724,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.036 = phi i32 [ %51, %.lr.ph ], [ 0, %.noexc ]
   %.02535 = phi ptr [ %50, %.lr.ph ], [ %44, %.noexc ]
   %48 = load <4 x float>, ptr %.02535, align 16, !tbaa !49
-  %49 = call fast noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %48)
+  %49 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> nofpclass(nan inf) %48)
   store <4 x float> %49, ptr %.02535, align 16, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %.02535, i64 16
   %51 = add nuw nsw i32 %.036, 4
@@ -1830,7 +1830,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.163.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12662.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12662.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.exp.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.exp.f32(float %33)
   store float %34, ptr %.12662.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12662.us.us, i64 4
   %36 = add nuw nsw i32 %.163.us.us, 1
@@ -1866,8 +1866,8 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.059 = phi i32 [ %79, %.lr.ph ], [ 0, %.noexc ]
   %.02558 = phi ptr [ %78, %.lr.ph ], [ %43, %.noexc ]
   %47 = load <4 x float>, ptr %.02558, align 16, !tbaa !49
-  %48 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x40561814A0000000))
-  %49 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %48, <4 x float> splat (float 0xC0561814A0000000))
+  %48 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x40561814A0000000))
+  %49 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %48, <4 x float> splat (float 0xC0561814A0000000))
   %50 = fmul fast <4 x float> %49, splat (float 0x3FF7154760000000)
   %51 = fadd fast <4 x float> %50, splat (float 5.000000e-01)
   %52 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %51)
@@ -1908,7 +1908,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.163 = phi i32 [ %86, %.lr.ph64 ], [ %.0.lcssa, %.preheader ]
   %.12662 = phi ptr [ %85, %.lr.ph64 ], [ %.025.lcssa, %.preheader ]
   %83 = load float, ptr %.12662, align 4, !tbaa !45
-  %84 = call fast noundef float @llvm.exp.f32(float %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.exp.f32(float %83)
   store float %84, ptr %.12662, align 4, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %.12662, i64 4
   %86 = add nuw nsw i32 %.163, 1
@@ -2006,7 +2006,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.175.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12674.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12674.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.log.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.log.f32(float %33)
   store float %34, ptr %.12674.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12674.us.us, i64 4
   %36 = add nuw nsw i32 %.175.us.us, 1
@@ -2043,7 +2043,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.02570 = phi ptr [ %84, %.lr.ph ], [ %43, %.noexc ]
   %47 = load <4 x float>, ptr %.02570, align 16, !tbaa !49
   %48 = fcmp fast ole <4 x float> %47, zeroinitializer
-  %49 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x3810000000000000))
+  %49 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x3810000000000000))
   %50 = bitcast <4 x float> %49 to <4 x i32>
   %51 = lshr <4 x i32> %50, splat (i32 23)
   %52 = and <4 x i32> %50, splat (i32 -2139095041)
@@ -2093,7 +2093,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.175 = phi i32 [ %92, %.lr.ph76 ], [ %.0.lcssa, %.preheader ]
   %.12674 = phi ptr [ %91, %.lr.ph76 ], [ %.025.lcssa, %.preheader ]
   %89 = load float, ptr %.12674, align 4, !tbaa !45
-  %90 = call fast noundef float @llvm.log.f32(float %89)
+  %90 = call fast noundef nofpclass(nan inf) float @llvm.log.f32(float %89)
   store float %90, ptr %.12674, align 4, !tbaa !45
   %91 = getelementptr inbounds nuw i8, ptr %.12674, i64 4
   %92 = add nuw nsw i32 %.175, 1
@@ -2185,7 +2185,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.175.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12674.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12674.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.sin.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.sin.f32(float %33)
   store float %34, ptr %.12674.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12674.us.us, i64 4
   %36 = add nuw nsw i32 %.175.us.us, 1
@@ -2266,7 +2266,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.175 = phi i32 [ %85, %.lr.ph76 ], [ %.0.lcssa, %.preheader ]
   %.12674 = phi ptr [ %84, %.lr.ph76 ], [ %.025.lcssa, %.preheader ]
   %82 = load float, ptr %.12674, align 4, !tbaa !45
-  %83 = call fast noundef float @llvm.sin.f32(float %82)
+  %83 = call fast noundef nofpclass(nan inf) float @llvm.sin.f32(float %82)
   store float %83, ptr %.12674, align 4, !tbaa !45
   %84 = getelementptr inbounds nuw i8, ptr %.12674, i64 4
   %85 = add nuw nsw i32 %.175, 1
@@ -2358,7 +2358,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.174.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12673.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12673.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.cos.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.cos.f32(float %33)
   store float %34, ptr %.12673.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12673.us.us, i64 4
   %36 = add nuw nsw i32 %.174.us.us, 1
@@ -2440,7 +2440,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.174 = phi i32 [ %86, %.lr.ph75 ], [ %.0.lcssa, %.preheader ]
   %.12673 = phi ptr [ %85, %.lr.ph75 ], [ %.025.lcssa, %.preheader ]
   %83 = load float, ptr %.12673, align 4, !tbaa !45
-  %84 = call fast noundef float @llvm.cos.f32(float %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.cos.f32(float %83)
   store float %84, ptr %.12673, align 4, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %.12673, i64 4
   %86 = add nuw nsw i32 %.174, 1
@@ -2532,7 +2532,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.182.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12681.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12681.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.tan.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.tan.f32(float %33)
   store float %34, ptr %.12681.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12681.us.us, i64 4
   %36 = add nuw nsw i32 %.182.us.us, 1
@@ -2627,7 +2627,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor12unar
   %.182 = phi i32 [ %101, %.lr.ph83 ], [ %.0.lcssa, %.preheader ]
   %.12681 = phi ptr [ %100, %.lr.ph83 ], [ %.025.lcssa, %.preheader ]
   %98 = load float, ptr %.12681, align 4, !tbaa !45
-  %99 = call fast noundef float @llvm.tan.f32(float %98)
+  %99 = call fast noundef nofpclass(nan inf) float @llvm.tan.f32(float %98)
   store float %99, ptr %.12681, align 4, !tbaa !45
   %100 = getelementptr inbounds nuw i8, ptr %.12681, i64 4
   %101 = add nuw nsw i32 %.182, 1
@@ -2719,7 +2719,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.163.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12662.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12662.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.asin.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.asin.f32(float %33)
   store float %34, ptr %.12662.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12662.us.us, i64 4
   %36 = add nuw nsw i32 %.163.us.us, 1
@@ -2762,7 +2762,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %52 = select <4 x i1> %51, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
   %53 = fmul fast <4 x float> %50, splat (float 5.000000e-01)
   %54 = fsub fast <4 x float> splat (float 5.000000e-01), %53
-  %55 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %54)
+  %55 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %54)
   %56 = select <4 x i1> %51, <4 x float> %55, <4 x float> %50
   %57 = fmul fast <4 x float> %56, %56
   %58 = fmul fast <4 x float> %57, %57
@@ -2796,7 +2796,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.163 = phi i32 [ %85, %.lr.ph64 ], [ %.0.lcssa, %.preheader ]
   %.12662 = phi ptr [ %84, %.lr.ph64 ], [ %.025.lcssa, %.preheader ]
   %82 = load float, ptr %.12662, align 4, !tbaa !45
-  %83 = call fast noundef float @llvm.asin.f32(float %82)
+  %83 = call fast noundef nofpclass(nan inf) float @llvm.asin.f32(float %82)
   store float %83, ptr %.12662, align 4, !tbaa !45
   %84 = getelementptr inbounds nuw i8, ptr %.12662, i64 4
   %85 = add nuw nsw i32 %.163, 1
@@ -2888,7 +2888,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.157.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12656.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12656.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.acos.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.acos.f32(float %33)
   store float %34, ptr %.12656.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12656.us.us, i64 4
   %36 = add nuw nsw i32 %.157.us.us, 1
@@ -2930,7 +2930,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %51 = fcmp fast ugt <4 x float> %50, splat (float 5.000000e-01)
   %52 = fmul fast <4 x float> %50, splat (float 5.000000e-01)
   %53 = fsub fast <4 x float> splat (float 5.000000e-01), %52
-  %54 = call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %53)
+  %54 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.sqrt.v4f32(<4 x float> nofpclass(nan inf) %53)
   %.v = select <4 x i1> %51, <4 x float> %54, <4 x float> %50
   %55 = fmul fast <4 x float> %.v, %.v
   %56 = fmul fast <4 x float> %55, %55
@@ -2969,7 +2969,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.157 = phi i32 [ %86, %.lr.ph58 ], [ %.0.lcssa, %.preheader ]
   %.12656 = phi ptr [ %85, %.lr.ph58 ], [ %.025.lcssa, %.preheader ]
   %83 = load float, ptr %.12656, align 4, !tbaa !45
-  %84 = call fast noundef float @llvm.acos.f32(float %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.acos.f32(float %83)
   store float %84, ptr %.12656, align 4, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %.12656, i64 4
   %86 = add nuw nsw i32 %.157, 1
@@ -3061,7 +3061,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.165.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12664.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12664.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.atan.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.atan.f32(float %33)
   store float %34, ptr %.12664.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12664.us.us, i64 4
   %36 = add nuw nsw i32 %.165.us.us, 1
@@ -3139,7 +3139,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.165 = phi i32 [ %86, %.lr.ph66 ], [ %.0.lcssa, %.preheader ]
   %.12664 = phi ptr [ %85, %.lr.ph66 ], [ %.025.lcssa, %.preheader ]
   %83 = load float, ptr %.12664, align 4, !tbaa !45
-  %84 = call fast noundef float @llvm.atan.f32(float %83)
+  %84 = call fast noundef nofpclass(nan inf) float @llvm.atan.f32(float %83)
   store float %84, ptr %.12664, align 4, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %.12664, i64 4
   %86 = add nuw nsw i32 %.165, 1
@@ -3369,7 +3369,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.164.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12663.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12663.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.tanh.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.tanh.f32(float %33)
   store float %34, ptr %.12663.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12663.us.us, i64 4
   %36 = add nuw nsw i32 %.164.us.us, 1
@@ -3406,8 +3406,8 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.02559 = phi ptr [ %82, %.lr.ph ], [ %43, %.noexc ]
   %47 = load <4 x float>, ptr %.02559, align 16, !tbaa !49
   %48 = fmul fast <4 x float> %47, splat (float -2.000000e+00)
-  %49 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %48, <4 x float> splat (float 0x40561814A0000000))
-  %50 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %49, <4 x float> splat (float 0xC0561814A0000000))
+  %49 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %48, <4 x float> splat (float 0x40561814A0000000))
+  %50 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %49, <4 x float> splat (float 0xC0561814A0000000))
   %51 = fmul fast <4 x float> %50, splat (float 0x3FF7154760000000)
   %52 = fadd fast <4 x float> %51, splat (float 5.000000e-01)
   %53 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %52)
@@ -3451,7 +3451,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %.164 = phi i32 [ %90, %.lr.ph65 ], [ %.0.lcssa, %.preheader ]
   %.12663 = phi ptr [ %89, %.lr.ph65 ], [ %.025.lcssa, %.preheader ]
   %87 = load float, ptr %.12663, align 4, !tbaa !45
-  %88 = call fast noundef float @llvm.tanh.f32(float %87)
+  %88 = call fast noundef nofpclass(nan inf) float @llvm.tanh.f32(float %87)
   store float %88, ptr %.12663, align 4, !tbaa !45
   %89 = getelementptr inbounds nuw i8, ptr %.12663, i64 4
   %90 = add nuw nsw i32 %.164, 1
@@ -3543,7 +3543,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.174.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12673.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12673.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.log10.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.log10.f32(float %33)
   store float %34, ptr %.12673.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12673.us.us, i64 4
   %36 = add nuw nsw i32 %.174.us.us, 1
@@ -3580,7 +3580,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.02569 = phi ptr [ %85, %.lr.ph ], [ %43, %.noexc ]
   %47 = load <4 x float>, ptr %.02569, align 16, !tbaa !49
   %48 = fcmp fast ole <4 x float> %47, zeroinitializer
-  %49 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x3810000000000000))
+  %49 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %47, <4 x float> splat (float 0x3810000000000000))
   %50 = bitcast <4 x float> %49 to <4 x i32>
   %51 = lshr <4 x i32> %50, splat (i32 23)
   %52 = and <4 x i32> %50, splat (i32 -2139095041)
@@ -3631,7 +3631,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.174 = phi i32 [ %93, %.lr.ph75 ], [ %.0.lcssa, %.preheader ]
   %.12673 = phi ptr [ %92, %.lr.ph75 ], [ %.025.lcssa, %.preheader ]
   %90 = load float, ptr %.12673, align 4, !tbaa !45
-  %91 = call fast noundef float @llvm.log10.f32(float %90)
+  %91 = call fast noundef nofpclass(nan inf) float @llvm.log10.f32(float %90)
   store float %91, ptr %.12673, align 4, !tbaa !45
   %92 = getelementptr inbounds nuw i8, ptr %.12673, i64 4
   %93 = add nuw nsw i32 %.174, 1
@@ -3723,7 +3723,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.140.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12639.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12639.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.nearbyint.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.nearbyint.f32(float %33)
   store float %34, ptr %.12639.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12639.us.us, i64 4
   %36 = add nuw nsw i32 %.140.us.us, 1
@@ -3773,7 +3773,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.140 = phi i32 [ %58, %.lr.ph41 ], [ %.0.lcssa, %.preheader ]
   %.12639 = phi ptr [ %57, %.lr.ph41 ], [ %.025.lcssa, %.preheader ]
   %55 = load float, ptr %.12639, align 4, !tbaa !45
-  %56 = call fast noundef float @llvm.nearbyint.f32(float %55)
+  %56 = call fast noundef nofpclass(nan inf) float @llvm.nearbyint.f32(float %55)
   store float %56, ptr %.12639, align 4, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %.12639, i64 4
   %58 = add nuw nsw i32 %.140, 1
@@ -3868,7 +3868,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.140.us.us = phi i32 [ 0, %.noexc.us.us ], [ %36, %32 ]
   %.12639.us.us = phi ptr [ %31, %.noexc.us.us ], [ %35, %32 ]
   %33 = load float, ptr %.12639.us.us, align 4, !tbaa !45
-  %34 = call fast noundef float @llvm.trunc.f32(float %33)
+  %34 = call fast noundef nofpclass(nan inf) float @llvm.trunc.f32(float %33)
   store float %34, ptr %.12639.us.us, align 4, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.12639.us.us, i64 4
   %36 = add nuw nsw i32 %.140.us.us, 1
@@ -3918,7 +3918,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor14unar
   %.140 = phi i32 [ %58, %.lr.ph41 ], [ %.0.lcssa, %.preheader ]
   %.12639 = phi ptr [ %57, %.lr.ph41 ], [ %.025.lcssa, %.preheader ]
   %55 = load float, ptr %.12639, align 4, !tbaa !45
-  %56 = call fast noundef float @llvm.trunc.f32(float %55)
+  %56 = call fast noundef nofpclass(nan inf) float @llvm.trunc.f32(float %55)
   store float %56, ptr %.12639, align 4, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %.12639, i64 4
   %58 = add nuw nsw i32 %.140, 1

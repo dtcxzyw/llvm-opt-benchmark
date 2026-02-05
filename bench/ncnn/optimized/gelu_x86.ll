@@ -227,8 +227,8 @@ define internal void @_ZNK4ncnn8GELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %57 = fmul fast <4 x float> %56, %54
   %58 = fadd fast <4 x float> %57, %54
   %59 = fmul fast <4 x float> %58, splat (float 0x3FE9884520000000)
-  %60 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> splat (float -9.000000e+00), <4 x float> nofpclass(nan inf) %59)
-  %61 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 9.000000e+00), <4 x float> nofpclass(nan inf) %60)
+  %60 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> splat (float -9.000000e+00), <4 x float> nofpclass(nan inf) %59)
+  %61 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 9.000000e+00), <4 x float> nofpclass(nan inf) %60)
   %62 = fmul fast <4 x float> %61, %61
   %63 = fmul fast <4 x float> %62, splat (float 0x3CB3E4B800000000)
   %64 = fsub fast <4 x float> splat (float 0x3D4C266FC0000000), %63

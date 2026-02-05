@@ -974,11 +974,11 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %.0136300 = phi i32 [ %162, %160 ], [ 0, %130 ]
   %146 = call fast <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %.0134301, <8 x i32> %87, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %147 = shufflevector <8 x float> %146, <8 x float> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3>
-  %148 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %146, <8 x float> nofpclass(nan inf) %147)
+  %148 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %146, <8 x float> nofpclass(nan inf) %147)
   %149 = shufflevector <8 x float> %148, <8 x float> poison, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5>
-  %150 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %148, <8 x float> nofpclass(nan inf) %149)
+  %150 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %148, <8 x float> nofpclass(nan inf) %149)
   %151 = shufflevector <8 x float> %150, <8 x float> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %152 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %150, <8 x float> nofpclass(nan inf) %151)
+  %152 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %150, <8 x float> nofpclass(nan inf) %151)
   %153 = extractelement <8 x float> %152, i64 0
   %154 = fcmp fast ogt float %153, %.0130302
   br i1 %154, label %155, label %160

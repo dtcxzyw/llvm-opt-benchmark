@@ -258,11 +258,11 @@ define hidden noundef i32 @_ZN4ncnn8Proposal10load_paramERKNS_9ParamDictE(ptr no
   %41 = load float, ptr %40, align 4, !tbaa !45
   %42 = call fast float @llvm.sqrt.f32(float %41)
   %43 = fdiv fast float %29, %42
-  %44 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %43)
+  %44 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %43)
   %45 = fptosi float %44 to i32
   %46 = sitofp i32 %45 to float
   %47 = fmul fast float %41, %46
-  %48 = call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %47)
+  %48 = call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %47)
   %49 = fptosi float %48 to i32
   %50 = sitofp i32 %49 to float
   %51 = mul nuw nsw i64 %indvars.iv52.i, %39

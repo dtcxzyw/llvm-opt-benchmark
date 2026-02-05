@@ -283,7 +283,7 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
   br label %.lr.ph72
 
 ._crit_edge73.loopexit:                           ; preds = %.lr.ph72
-  %78 = tail call fast float @llvm.sqrt.f32(float nofpclass(nan inf) %85)
+  %78 = tail call fast nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %85)
   br label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %._crit_edge73.loopexit, %.preheader
@@ -706,7 +706,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   %39 = icmp sgt i32 %38, 0
   %40 = sitofp i32 %38 to double
   %41 = load i32, ptr %36, align 4, !tbaa !40
-  %42 = call fast double @llvm.sqrt.f64(double %40)
+  %42 = call fast nofpclass(nan inf) double @llvm.sqrt.f64(double %40)
   %43 = fdiv fast double 1.000000e+00, %42
   %44 = fptrunc fast double %43 to float
   %45 = load i32, ptr %35, align 8, !tbaa !35
@@ -779,7 +779,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   %75 = fmul fast float %.271.us.us.us, %.271.us.us.us
   %76 = fmul fast float %.268.us.us.us, %.268.us.us.us
   %77 = fadd fast float %76, %75
-  %78 = call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %77)
+  %78 = call fast noundef nofpclass(nan inf) float @llvm.sqrt.f32(float nofpclass(nan inf) %77)
   store float %78, ptr %.063101.us.us.us, align 4, !tbaa !42
   %79 = getelementptr inbounds nuw i8, ptr %.063101.us.us.us, i64 4
   br label %.thread93.us.us.us

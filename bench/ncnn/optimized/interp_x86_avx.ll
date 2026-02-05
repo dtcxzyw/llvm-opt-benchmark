@@ -1873,7 +1873,7 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %26 = fmul fast double %.087, %22
   %spec.select = select i1 %.not, double %25, double %26
   %.085 = fptrunc double %spec.select to float
-  %27 = tail call fast noundef float @llvm.floor.f32(float nofpclass(nan inf) %.085)
+  %27 = tail call fast noundef nofpclass(nan inf) float @llvm.floor.f32(float nofpclass(nan inf) %.085)
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %.085, %29
