@@ -1936,8 +1936,8 @@ _scale_to_screen.exit169:                         ; preds = %187, %190, %192
   %214 = sitofp i32 %181 to float
   %215 = sitofp i32 %153 to float
   %216 = fsub reassoc nsz arcp contract afn float %214, %215
-  %217 = fpext reassoc nsz arcp contract afn float %216 to double
-  %218 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %217, double 0.000000e+00)
+  %217 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %216, float 0.000000e+00)
+  %218 = fpext float %217 to double
   %219 = sitofp i32 %84 to double
   call void @cairo_rectangle(ptr noundef %1, double noundef %212, double noundef %213, double noundef %218, double noundef %219) #14
   call void @cairo_fill(ptr noundef %1) #14
@@ -3765,6 +3765,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

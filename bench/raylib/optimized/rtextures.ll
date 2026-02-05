@@ -13483,41 +13483,37 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias writable writeonl
   %38 = tail call float @hypotf(float noundef %37, float noundef %32) #58
   %39 = fsub float %38, %18
   %40 = fdiv float %39, %20
-  %41 = fpext float %40 to double
-  %42 = tail call double @llvm.maxnum.f64(double %41, double 0.000000e+00)
-  %43 = fptrunc double %42 to float
-  %44 = fpext float %43 to double
-  %45 = tail call double @llvm.minnum.f64(double %44, double 1.000000e+00)
-  %46 = fptrunc double %45 to float
-  %47 = fmul float %21, %46
-  %48 = fsub float 1.000000e+00, %46
-  %49 = fmul float %48, %22
-  %50 = fadd float %47, %49
-  %51 = fptosi float %50 to i32
-  %52 = trunc i32 %51 to i8
+  %41 = tail call float @llvm.maxnum.f32(float %40, float 0.000000e+00)
+  %42 = tail call float @llvm.minnum.f32(float %41, float 1.000000e+00)
+  %43 = fmul float %42, %21
+  %44 = fsub float 1.000000e+00, %42
+  %45 = fmul float %44, %22
+  %46 = fadd float %43, %45
+  %47 = fptosi float %46 to i32
+  %48 = trunc i32 %47 to i8
   %gep = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %52, ptr %gep, align 1
-  %53 = fmul float %23, %46
-  %54 = fmul float %48, %24
-  %55 = fadd float %53, %54
-  %56 = fptosi float %55 to i32
-  %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  store i8 %57, ptr %58, align 1
-  %59 = fmul float %25, %46
-  %60 = fmul float %48, %26
-  %61 = fadd float %59, %60
-  %62 = fptosi float %61 to i32
-  %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %gep, i64 2
-  store i8 %63, ptr %64, align 1
-  %65 = fmul float %27, %46
-  %66 = fmul float %48, %28
-  %67 = fadd float %65, %66
-  %68 = fptosi float %67 to i32
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %gep, i64 3
-  store i8 %69, ptr %70, align 1
+  store i8 %48, ptr %gep, align 1
+  %49 = fmul float %42, %23
+  %50 = fmul float %44, %24
+  %51 = fadd float %49, %50
+  %52 = fptosi float %51 to i32
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  store i8 %53, ptr %54, align 1
+  %55 = fmul float %42, %25
+  %56 = fmul float %44, %26
+  %57 = fadd float %55, %56
+  %58 = fptosi float %57 to i32
+  %59 = trunc i32 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %gep, i64 2
+  store i8 %59, ptr %60, align 1
+  %61 = fmul float %42, %27
+  %62 = fmul float %44, %28
+  %63 = fadd float %61, %62
+  %64 = fptosi float %63 to i32
+  %65 = trunc i32 %64 to i8
+  %66 = getelementptr inbounds nuw i8, ptr %gep, i64 3
+  store i8 %65, ptr %66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %34
@@ -13529,25 +13525,19 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias writable writeonl
 
 ._crit_edge61:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 7, ptr %74, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 7, ptr %70, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @hypotf(float noundef, float noundef) local_unnamed_addr #31
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #16
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #16
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @GenImageGradientSquare(ptr dead_on_unwind noalias writable writeonly sret(%struct.Image) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 %4, i32 %5) local_unnamed_addr #30 {

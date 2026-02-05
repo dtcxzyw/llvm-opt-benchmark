@@ -2269,7 +2269,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu19int
   %114 = icmp slt i32 %111, %.sroa.speculated75.i.i.i
   br i1 %114, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %269
+._crit_edge.loopexit.i.i.i:                       ; preds = %267
   %.pre.i.i.i = load ptr, ptr %8, align 8, !tbaa !155
   br label %._crit_edge.i.i.i
 
@@ -2281,10 +2281,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu19int
   %119 = icmp slt i32 %116, %118
   br i1 %119, label %41, label %._crit_edge118.loopexit.i.i.i, !llvm.loop !166
 
-.lr.ph.i.i.i:                                     ; preds = %.thread.i.i.i, %269
-  %.056114.i.i.i = phi i32 [ %270, %269 ], [ %111, %.thread.i.i.i ]
-  %.sroa.8.0113.i.i.i = phi float [ %122, %269 ], [ %91, %.thread.i.i.i ]
-  %.sroa.093.0112.i.i.i = phi <2 x float> [ %.sroa.093.4.vec.insert.i.i.i, %269 ], [ %.sroa.0.4.vec.insert.i62.i.i.i, %.thread.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.thread.i.i.i, %267
+  %.056114.i.i.i = phi i32 [ %268, %267 ], [ %111, %.thread.i.i.i ]
+  %.sroa.8.0113.i.i.i = phi float [ %122, %267 ], [ %91, %.thread.i.i.i ]
+  %.sroa.093.0112.i.i.i = phi <2 x float> [ %.sroa.093.4.vec.insert.i.i.i, %267 ], [ %.sroa.0.4.vec.insert.i62.i.i.i, %.thread.i.i.i ]
   %.sroa.093.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.093.0112.i.i.i, i64 0
   %120 = fadd float %92, %.sroa.093.0.vec.extract.i.i.i
   %.sroa.093.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %120, i64 0
@@ -2293,7 +2293,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu19int
   %.sroa.093.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.093.0.vec.insert.i.i.i, float %121, i64 1
   %122 = fadd float %94, %.sroa.8.0113.i.i.i
   %123 = fcmp ugt float %122, 0.000000e+00
-  br i1 %123, label %124, label %269
+  br i1 %123, label %124, label %267
 
 124:                                              ; preds = %.lr.ph.i.i.i
   %125 = load ptr, ptr %11, align 8, !tbaa !167
@@ -2380,14 +2380,14 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %
   %193 = fsub float %192, %190
   %194 = tail call float @llvm.fmuladd.f32(float %188, float %193, float %190)
   %195 = fcmp oeq float %194, 0.000000e+00
-  br i1 %195, label %269, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
+  br i1 %195, label %267, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %153, %147, %140, %124
   %.0.i111.i.i.i = phi float [ %194, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %124 ], [ 0x7FF8000000000000, %147 ], [ 0x7FF8000000000000, %140 ], [ 0x7FF8000000000000, %153 ]
   %196 = fptosi float %132 to i32
   %197 = fptosi float %137 to i32
   %198 = icmp sgt i32 %196, -1
-  br i1 %198, label %199, label %269
+  br i1 %198, label %199, label %267
 
 199:                                              ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
   %200 = getelementptr inbounds nuw i8, ptr %138, i64 12
@@ -2395,13 +2395,13 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %202 = icmp sgt i32 %201, %196
   %203 = icmp sgt i32 %197, -1
   %or.cond.i.i.i = select i1 %202, i1 %203, i1 false
-  br i1 %or.cond.i.i.i, label %204, label %269
+  br i1 %or.cond.i.i.i, label %204, label %267
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %206 = load i32, ptr %205, align 8, !tbaa !3
   %207 = icmp sgt i32 %206, %197
-  br i1 %207, label %208, label %269
+  br i1 %207, label %208, label %267
 
 208:                                              ; preds = %204
   %209 = load ptr, ptr %13, align 8, !tbaa !169
@@ -2425,57 +2425,55 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %227 = load float, ptr %226, align 4, !tbaa !23
   %228 = fneg float %227
   %229 = fcmp ult float %225, %228
-  br i1 %229, label %269, label %230
+  br i1 %229, label %267, label %230
 
 230:                                              ; preds = %208
   %231 = load ptr, ptr %16, align 8, !tbaa !172
   %232 = load float, ptr %231, align 4, !tbaa !23
   %233 = fmul float %225, %232
-  %234 = fpext float %233 to double
-  %235 = tail call double @llvm.minnum.f64(double %234, double 1.000000e+00)
-  %236 = fptrunc double %235 to float
-  %237 = fmul float %236, -1.280000e+02
-  %238 = fptosi float %237 to i8
-  %.not.i.i.i.i = icmp eq i8 %238, 0
-  %239 = fcmp olt double %235, 0xB690000000000000
-  %240 = select i1 %239, i8 1, i8 -1
-  %241 = select i1 %.not.i.i.i.i, i8 %240, i8 %238
-  %242 = load ptr, ptr %7, align 8, !tbaa !160
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %244 = load i32, ptr %243, align 4, !tbaa !33
-  %245 = mul nsw i32 %244, %.056114.i.i.i
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %49, i64 %246
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 1
-  %249 = load i8, ptr %247, align 1, !tbaa !57
-  %250 = sitofp i8 %249 to float
-  %251 = fmul float %250, -7.812500e-03
-  %252 = load i8, ptr %248, align 1, !tbaa !57
-  %253 = uitofp i8 %252 to float
-  %254 = sitofp i8 %241 to float
-  %255 = fmul float %254, -7.812500e-03
-  %256 = tail call float @llvm.fmuladd.f32(float %251, float %253, float %255)
-  %257 = zext i8 %252 to i32
-  %258 = add nuw nsw i32 %257, 1
-  %259 = uitofp nneg i32 %258 to float
-  %260 = fdiv float %256, %259
-  %261 = fmul float %260, -1.280000e+02
-  %262 = fptosi float %261 to i8
-  %.not.i70.i.i.i = icmp eq i8 %262, 0
-  %263 = fcmp olt float %260, 0.000000e+00
-  %264 = select i1 %263, i8 1, i8 -1
-  %265 = select i1 %.not.i70.i.i.i, i8 %264, i8 %262
-  store i8 %265, ptr %247, align 1, !tbaa !57
-  %266 = load ptr, ptr %17, align 8, !tbaa !173
-  %267 = load i32, ptr %266, align 4, !tbaa !33
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %267, i32 %258)
-  %268 = trunc i32 %.sroa.speculated.i.i.i to i8
-  store i8 %268, ptr %248, align 1, !tbaa !57
-  br label %269
+  %234 = tail call float @llvm.minnum.f32(float %233, float 1.000000e+00)
+  %235 = fmul float %234, -1.280000e+02
+  %236 = fptosi float %235 to i8
+  %.not.i.i.i.i = icmp eq i8 %236, 0
+  %237 = fcmp olt float %234, 0.000000e+00
+  %238 = select i1 %237, i8 1, i8 -1
+  %239 = select i1 %.not.i.i.i.i, i8 %238, i8 %236
+  %240 = load ptr, ptr %7, align 8, !tbaa !160
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load i32, ptr %241, align 4, !tbaa !33
+  %243 = mul nsw i32 %242, %.056114.i.i.i
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %49, i64 %244
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 1
+  %247 = load i8, ptr %245, align 1, !tbaa !57
+  %248 = sitofp i8 %247 to float
+  %249 = fmul float %248, -7.812500e-03
+  %250 = load i8, ptr %246, align 1, !tbaa !57
+  %251 = uitofp i8 %250 to float
+  %252 = sitofp i8 %239 to float
+  %253 = fmul float %252, -7.812500e-03
+  %254 = tail call float @llvm.fmuladd.f32(float %249, float %251, float %253)
+  %255 = zext i8 %250 to i32
+  %256 = add nuw nsw i32 %255, 1
+  %257 = uitofp nneg i32 %256 to float
+  %258 = fdiv float %254, %257
+  %259 = fmul float %258, -1.280000e+02
+  %260 = fptosi float %259 to i8
+  %.not.i70.i.i.i = icmp eq i8 %260, 0
+  %261 = fcmp olt float %258, 0.000000e+00
+  %262 = select i1 %261, i8 1, i8 -1
+  %263 = select i1 %.not.i70.i.i.i, i8 %262, i8 %260
+  store i8 %263, ptr %245, align 1, !tbaa !57
+  %264 = load ptr, ptr %17, align 8, !tbaa !173
+  %265 = load i32, ptr %264, align 4, !tbaa !33
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %265, i32 %256)
+  %266 = trunc i32 %.sroa.speculated.i.i.i to i8
+  store i8 %266, ptr %246, align 1, !tbaa !57
+  br label %267
 
-269:                                              ; preds = %230, %208, %204, %199, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
-  %270 = add nuw nsw i32 %.056114.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %270, %.sroa.speculated75.i.i.i
+267:                                              ; preds = %230, %208, %204, %199, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
+  %268 = add nuw nsw i32 %.056114.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %268, %.sroa.speculated75.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !174
 
 "_ZSt10__invoke_rIvRZN2cv5kinfu19integrateVolumeUnitEffiNS0_4MatxIfLi4ELi4EEENS0_7Point3_IiEENS0_3VecIiLi4EEERKNS0_11_InputArrayEfRKS3_RKNS1_4IntrESA_SA_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESN_E4typeEOSQ_DpOSR_.exit": ; preds = %._crit_edge118.i.i.i, %2, %.lr.ph121.i.i.i
@@ -2519,9 +2517,6 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 "_ZNSt14_Function_base13_Base_managerIZN2cv5kinfu19integrateVolumeUnitEffiNS1_4MatxIfLi4ELi4EEENS1_7Point3_IiEENS1_3VecIiLi4EEERKNS1_11_InputArrayEfRKS4_RKNS2_4IntrESB_SB_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #5
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #5
@@ -2747,7 +2742,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu22int
   %116 = icmp slt i32 %113, %.sroa.speculated115.i.i.i
   br i1 %116, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %312
+._crit_edge.loopexit.i.i.i:                       ; preds = %310
   %.pre.i.i.i = load ptr, ptr %8, align 8, !tbaa !178
   br label %._crit_edge.i.i.i
 
@@ -2759,10 +2754,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu22int
   %121 = icmp slt i32 %118, %120
   br i1 %121, label %43, label %._crit_edge164.loopexit.i.i.i, !llvm.loop !185
 
-.lr.ph.i.i.i:                                     ; preds = %.thread.i.i.i, %312
-  %.087160.i.i.i = phi i32 [ %313, %312 ], [ %113, %.thread.i.i.i ]
-  %.sroa.9.0159.i.i.i = phi float [ %124, %312 ], [ %93, %.thread.i.i.i ]
-  %.sroa.0132.0158.i.i.i = phi <2 x float> [ %.sroa.0132.4.vec.insert.i.i.i, %312 ], [ %.sroa.0.4.vec.insert.i96.i.i.i, %.thread.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.thread.i.i.i, %310
+  %.087160.i.i.i = phi i32 [ %311, %310 ], [ %113, %.thread.i.i.i ]
+  %.sroa.9.0159.i.i.i = phi float [ %124, %310 ], [ %93, %.thread.i.i.i ]
+  %.sroa.0132.0158.i.i.i = phi <2 x float> [ %.sroa.0132.4.vec.insert.i.i.i, %310 ], [ %.sroa.0.4.vec.insert.i96.i.i.i, %.thread.i.i.i ]
   %.sroa.0132.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.0132.0158.i.i.i, i64 0
   %122 = fadd float %94, %.sroa.0132.0.vec.extract.i.i.i
   %.sroa.0132.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %122, i64 0
@@ -2771,7 +2766,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu22int
   %.sroa.0132.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0132.0.vec.insert.i.i.i, float %123, i64 1
   %124 = fadd float %96, %.sroa.9.0159.i.i.i
   %125 = fcmp ugt float %124, 0.000000e+00
-  br i1 %125, label %126, label %312
+  br i1 %125, label %126, label %310
 
 126:                                              ; preds = %.lr.ph.i.i.i
   %127 = load ptr, ptr %11, align 8, !tbaa !186
@@ -2868,7 +2863,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %
   %205 = fsub float %204, %202
   %206 = tail call float @llvm.fmuladd.f32(float %200, float %205, float %202)
   %207 = fcmp oeq float %206, 0.000000e+00
-  br i1 %207, label %312, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
+  br i1 %207, label %310, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %165, %159, %152, %126
   %.0.i151.i.i.i = phi float [ %206, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %126 ], [ 0x7FF8000000000000, %159 ], [ 0x7FF8000000000000, %152 ], [ 0x7FF8000000000000, %165 ]
@@ -2877,7 +2872,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %210 = fptosi float %144 to i32
   %211 = fptosi float %149 to i32
   %212 = icmp sgt i32 %209, -1
-  br i1 %212, label %213, label %312
+  br i1 %212, label %213, label %310
 
 213:                                              ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
   %214 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -2885,7 +2880,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %216 = icmp sgt i32 %215, %209
   %217 = icmp sgt i32 %208, -1
   %or.cond.i.i.i = select i1 %216, i1 %217, i1 false
-  br i1 %or.cond.i.i.i, label %218, label %312
+  br i1 %or.cond.i.i.i, label %218, label %310
 
 218:                                              ; preds = %213
   %219 = getelementptr inbounds nuw i8, ptr %150, i64 12
@@ -2893,7 +2888,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %221 = icmp sgt i32 %220, %208
   %222 = icmp sgt i32 %211, -1
   %or.cond3.i.i.i = select i1 %221, i1 %222, i1 false
-  br i1 %or.cond3.i.i.i, label %223, label %312
+  br i1 %or.cond3.i.i.i, label %223, label %310
 
 223:                                              ; preds = %218
   %224 = load ptr, ptr %14, align 8, !tbaa !189
@@ -2902,13 +2897,13 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %227 = icmp sgt i32 %226, %211
   %228 = icmp sgt i32 %210, -1
   %or.cond5.i.i.i = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond5.i.i.i, label %229, label %312
+  br i1 %or.cond5.i.i.i, label %229, label %310
 
 229:                                              ; preds = %223
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 12
   %231 = load i32, ptr %230, align 4, !tbaa !16
   %232 = icmp sgt i32 %231, %210
-  br i1 %232, label %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, label %312
+  br i1 %232, label %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, label %310
 
 _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %229
   %233 = load ptr, ptr %15, align 8, !tbaa !190
@@ -2947,73 +2942,71 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %229
   %261 = load float, ptr %260, align 4, !tbaa !23
   %262 = fneg float %261
   %263 = fcmp ult float %259, %262
-  br i1 %263, label %312, label %264
+  br i1 %263, label %310, label %264
 
 264:                                              ; preds = %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i
   %265 = load ptr, ptr %18, align 8, !tbaa !193
   %266 = load float, ptr %265, align 4, !tbaa !23
   %267 = fmul float %259, %266
-  %268 = fpext float %267 to double
-  %269 = tail call double @llvm.minnum.f64(double %268, double 1.000000e+00)
-  %270 = fptrunc double %269 to float
-  %271 = fmul float %270, -1.280000e+02
-  %272 = fptosi float %271 to i8
-  %.not.i.i.i.i = icmp eq i8 %272, 0
-  %273 = fcmp olt double %269, 0xB690000000000000
-  %274 = select i1 %273, i8 1, i8 -1
-  %275 = select i1 %.not.i.i.i.i, i8 %274, i8 %272
-  %276 = load ptr, ptr %7, align 8, !tbaa !181
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %278 = load i32, ptr %277, align 4, !tbaa !33
-  %279 = mul nsw i32 %278, %.087160.i.i.i
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %51, i64 %280
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 1
-  %283 = load i8, ptr %282, align 1, !tbaa !57
-  %284 = icmp eq i8 %283, 0
-  br i1 %284, label %285, label %292
+  %268 = tail call float @llvm.minnum.f32(float %267, float 1.000000e+00)
+  %269 = fmul float %268, -1.280000e+02
+  %270 = fptosi float %269 to i8
+  %.not.i.i.i.i = icmp eq i8 %270, 0
+  %271 = fcmp olt float %268, 0.000000e+00
+  %272 = select i1 %271, i8 1, i8 -1
+  %273 = select i1 %.not.i.i.i.i, i8 %272, i8 %270
+  %274 = load ptr, ptr %7, align 8, !tbaa !181
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %276 = load i32, ptr %275, align 4, !tbaa !33
+  %277 = mul nsw i32 %276, %.087160.i.i.i
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %51, i64 %278
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 1
+  %281 = load i8, ptr %280, align 1, !tbaa !57
+  %282 = icmp eq i8 %281, 0
+  br i1 %282, label %283, label %290
 
-285:                                              ; preds = %264
-  %286 = getelementptr inbounds nuw i8, ptr %281, i64 6
-  %287 = getelementptr inbounds nuw i8, ptr %281, i64 4
-  %288 = getelementptr inbounds nuw i8, ptr %281, i64 2
-  %289 = fptosi float %.sroa.0.0.copyload.i.i.i to i16
-  store i16 %289, ptr %288, align 2, !tbaa !194
-  %290 = fptosi float %.sroa.4.0.copyload.i.i.i to i16
-  store i16 %290, ptr %287, align 2, !tbaa !194
-  %291 = fptosi float %.sroa.5.0.copyload.i.i.i to i16
-  store i16 %291, ptr %286, align 2, !tbaa !194
-  br label %292
+283:                                              ; preds = %264
+  %284 = getelementptr inbounds nuw i8, ptr %279, i64 6
+  %285 = getelementptr inbounds nuw i8, ptr %279, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %279, i64 2
+  %287 = fptosi float %.sroa.0.0.copyload.i.i.i to i16
+  store i16 %287, ptr %286, align 2, !tbaa !194
+  %288 = fptosi float %.sroa.4.0.copyload.i.i.i to i16
+  store i16 %288, ptr %285, align 2, !tbaa !194
+  %289 = fptosi float %.sroa.5.0.copyload.i.i.i to i16
+  store i16 %289, ptr %284, align 2, !tbaa !194
+  br label %290
 
-292:                                              ; preds = %285, %264
-  %293 = load i8, ptr %281, align 1, !tbaa !57
-  %294 = sitofp i8 %293 to float
-  %295 = fmul float %294, -7.812500e-03
-  %296 = uitofp i8 %283 to float
-  %297 = sitofp i8 %275 to float
-  %298 = fmul float %297, -7.812500e-03
-  %299 = tail call float @llvm.fmuladd.f32(float %295, float %296, float %298)
-  %300 = zext i8 %283 to i32
-  %301 = add nuw nsw i32 %300, 1
-  %302 = uitofp nneg i32 %301 to float
-  %303 = fdiv float %299, %302
-  %304 = fmul float %303, -1.280000e+02
-  %305 = fptosi float %304 to i8
-  %.not.i110.i.i.i = icmp eq i8 %305, 0
-  %306 = fcmp olt float %303, 0.000000e+00
-  %307 = select i1 %306, i8 1, i8 -1
-  %308 = select i1 %.not.i110.i.i.i, i8 %307, i8 %305
-  store i8 %308, ptr %281, align 1, !tbaa !57
-  %309 = load ptr, ptr %19, align 8, !tbaa !196
-  %310 = load i32, ptr %309, align 4, !tbaa !33
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %310, i32 %301)
-  %311 = trunc i32 %.sroa.speculated.i.i.i to i8
-  store i8 %311, ptr %282, align 1, !tbaa !57
-  br label %312
+290:                                              ; preds = %283, %264
+  %291 = load i8, ptr %279, align 1, !tbaa !57
+  %292 = sitofp i8 %291 to float
+  %293 = fmul float %292, -7.812500e-03
+  %294 = uitofp i8 %281 to float
+  %295 = sitofp i8 %273 to float
+  %296 = fmul float %295, -7.812500e-03
+  %297 = tail call float @llvm.fmuladd.f32(float %293, float %294, float %296)
+  %298 = zext i8 %281 to i32
+  %299 = add nuw nsw i32 %298, 1
+  %300 = uitofp nneg i32 %299 to float
+  %301 = fdiv float %297, %300
+  %302 = fmul float %301, -1.280000e+02
+  %303 = fptosi float %302 to i8
+  %.not.i110.i.i.i = icmp eq i8 %303, 0
+  %304 = fcmp olt float %301, 0.000000e+00
+  %305 = select i1 %304, i8 1, i8 -1
+  %306 = select i1 %.not.i110.i.i.i, i8 %305, i8 %303
+  store i8 %306, ptr %279, align 1, !tbaa !57
+  %307 = load ptr, ptr %19, align 8, !tbaa !196
+  %308 = load i32, ptr %307, align 4, !tbaa !33
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %308, i32 %299)
+  %309 = trunc i32 %.sroa.speculated.i.i.i to i8
+  store i8 %309, ptr %280, align 1, !tbaa !57
+  br label %310
 
-312:                                              ; preds = %292, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %229, %223, %218, %213, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
-  %313 = add nuw nsw i32 %.087160.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %313, %.sroa.speculated115.i.i.i
+310:                                              ; preds = %290, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %229, %223, %218, %213, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
+  %311 = add nuw nsw i32 %.087160.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %311, %.sroa.speculated115.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !197
 
 "_ZSt10__invoke_rIvRZN2cv5kinfu22integrateRGBVolumeUnitEffiNS0_4MatxIfLi4ELi4EEENS0_7Point3_IiEENS0_3VecIiLi4EEERKNS0_11_InputArrayESA_fRKS3_RKNS1_4IntrESF_SA_SA_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESN_E4typeEOSQ_DpOSR_.exit": ; preds = %._crit_edge164.i.i.i, %2, %.lr.ph167.i.i.i
@@ -3074,6 +3067,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #19

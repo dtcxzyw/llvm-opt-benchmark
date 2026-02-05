@@ -8716,8 +8716,8 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %125 = fmul reassoc nsz arcp contract afn float %122, %53
   %126 = fpext reassoc nsz arcp contract afn float %125 to double
   %127 = fsub reassoc nsz arcp contract afn float %124, %122
-  %128 = fpext reassoc nsz arcp contract afn float %127 to double
-  %129 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %128, double 0.000000e+00)
+  %128 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %127, float 0.000000e+00)
+  %129 = fpext float %128 to double
   %130 = fmul reassoc nsz arcp contract afn double %129, %54
   call void @cairo_rectangle(ptr noundef %1, double noundef %126, double noundef 0.000000e+00, double noundef %130, double noundef %55) #31
   call void @cairo_fill(ptr noundef %1) #31
@@ -8817,8 +8817,8 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %185 = fpext reassoc nsz arcp contract afn float %184 to double
   %186 = sitofp i32 %4 to double
   %187 = fsub reassoc nsz arcp contract afn float %182, %180
-  %188 = fpext reassoc nsz arcp contract afn float %187 to double
-  %189 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %188, double 0.000000e+00)
+  %188 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %187, float 0.000000e+00)
+  %189 = fpext float %188 to double
   %190 = fmul reassoc nsz arcp contract afn double %189, %186
   %191 = sitofp i32 %5 to double
   call void @cairo_rectangle(ptr noundef %1, double noundef %185, double noundef 0.000000e+00, double noundef %190, double noundef %191) #31
@@ -9253,9 +9253,6 @@ declare ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef, ptr noundef) local_
 declare void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @dt_ioppr_transform_image_colorspace(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #6
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.exp.f32(float) #6

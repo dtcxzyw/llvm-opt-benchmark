@@ -13727,18 +13727,16 @@ _ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551
   %91 = fsub float 1.000000e+00, %86
   %92 = fmul float %90, %91
   %93 = fmul float %69, %92
-  %94 = fpext float %93 to double
-  %95 = tail call double @llvm.maxnum.f64(double %94, double 0x3C9CD2B2A0000000)
-  %96 = fptrunc double %95 to float
-  %97 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %3, i64 %80
-  store float %89, ptr %97, align 4
-  %.sroa_idx60 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store float %96, ptr %.sroa_idx60, align 4
+  %94 = tail call float @llvm.maxnum.f32(float %93, float 0x3C9CD2B2A0000000)
+  %95 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %3, i64 %80
+  store float %89, ptr %95, align 4
+  %.sroa_idx60 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  store float %94, ptr %.sroa_idx60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr %0, align 4, !tbaa !403
-  %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph, label %._crit_edge86, !llvm.loop !413
+  %96 = load i32, ptr %0, align 4, !tbaa !403
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %indvars.iv.next, %97
+  br i1 %98, label %.lr.ph, label %._crit_edge86, !llvm.loop !413
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -13746,9 +13744,6 @@ declare float @llvm.maxnum.f32(float, float) #27
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #28
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #27
 
 declare noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
