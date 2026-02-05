@@ -4476,39 +4476,39 @@ define dso_local noundef ptr @_ZN4llvm20PredicateInfoBuilder16materializeStackER
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !26, !noalias !317
   %24 = zext i32 %23 to i64
-  %.idx89 = mul nuw nsw i64 %24, 48
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx89
+  %.idx85 = mul nuw nsw i64 %24, 48
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx85
   br label %26
 
 26:                                               ; preds = %27, %4
-  %.sroa.067.0 = phi ptr [ %25, %4 ], [ %28, %27 ]
-  %.not71 = icmp eq ptr %.sroa.067.0, %21
-  br i1 %.not71, label %31, label %27
+  %.sroa.063.0 = phi ptr [ %25, %4 ], [ %28, %27 ]
+  %.not67 = icmp eq ptr %.sroa.063.0, %21
+  br i1 %.not67, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.sroa.067.0, i64 -48
-  %29 = getelementptr inbounds i8, ptr %.sroa.067.0, i64 -32
+  %28 = getelementptr inbounds i8, ptr %.sroa.063.0, i64 -48
+  %29 = getelementptr inbounds i8, ptr %.sroa.063.0, i64 -32
   %30 = load ptr, ptr %29, align 8, !tbaa !315
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %26, label %31, !llvm.loop !320
 
 31:                                               ; preds = %27, %26
-  %.sroa.067.0.lcssa = phi ptr [ %.sroa.067.0, %27 ], [ %21, %26 ]
+  %.sroa.063.0.lcssa = phi ptr [ %.sroa.063.0, %27 ], [ %21, %26 ]
   %32 = ptrtoint ptr %25 to i64
-  %33 = ptrtoint ptr %.sroa.067.0.lcssa to i64
+  %33 = ptrtoint ptr %.sroa.063.0.lcssa to i64
   %34 = sub i64 %32, %33
   %.neg = sdiv exact i64 %34, -48
-  %.idx90 = mul nsw i64 %.neg, 48
-  %35 = getelementptr inbounds i8, ptr %25, i64 %.idx90
-  %.idx73 = mul nuw nsw i64 %24, 48
-  %36 = add nsw i64 %.idx89, %.idx90
-  %.not3174 = icmp eq i64 %36, %.idx73
-  br i1 %.not3174, label %._crit_edge, label %.lr.ph
+  %.idx86 = mul nsw i64 %.neg, 48
+  %35 = getelementptr inbounds i8, ptr %25, i64 %.idx86
+  %.idx69 = mul nuw nsw i64 %24, 48
+  %36 = add nsw i64 %.idx85, %.idx86
+  %.not3170 = icmp eq i64 %36, %.idx69
+  br i1 %.not3170, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx73
-  %.idx72 = mul nsw i64 %.neg, 48
-  %38 = sub nsw i64 0, %.idx72
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx69
+  %.idx68 = mul nsw i64 %.neg, 48
+  %38 = sub nsw i64 0, %.idx68
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -4537,28 +4537,28 @@ define dso_local noundef ptr @_ZN4llvm20PredicateInfoBuilder16materializeStackER
 58:                                               ; preds = %.lr.ph, %167
   %.sroa.0.0 = phi ptr [ undef, %.lr.ph ], [ %.sroa.0.1, %167 ]
   %59 = phi ptr [ %37, %.lr.ph ], [ %172, %167 ]
-  %.idx76 = phi i64 [ %.idx73, %.lr.ph ], [ %.idx, %167 ]
+  %.idx72 = phi i64 [ %.idx69, %.lr.ph ], [ %.idx, %167 ]
   %60 = phi ptr [ %21, %.lr.ph ], [ %169, %167 ]
-  %.075 = phi ptr [ %35, %.lr.ph ], [ %168, %167 ]
+  %.071 = phi ptr [ %35, %.lr.ph ], [ %168, %167 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %61 = icmp eq ptr %.075, %60
+  %61 = icmp eq ptr %.071, %60
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %.075, i64 -32
+  %63 = getelementptr inbounds i8, ptr %.071, i64 -32
   %64 = load ptr, ptr %63, align 8, !tbaa !315
   br label %65
 
 65:                                               ; preds = %58, %62
   %66 = phi ptr [ %64, %62 ], [ %3, %58 ]
   store ptr %66, ptr %5, align 8, !tbaa !157
-  %67 = getelementptr inbounds nuw i8, ptr %.075, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.071, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !94
-  %69 = icmp eq i64 %.idx76, %38
+  %69 = icmp eq i64 %.idx72, %38
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %59, i64 %.idx72
+  %71 = getelementptr inbounds i8, ptr %59, i64 %.idx68
   %72 = getelementptr inbounds i8, ptr %71, i64 -32
   %73 = load ptr, ptr %72, align 8, !tbaa !315
   br label %74
@@ -4669,7 +4669,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %109, %108
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_13PredicateBaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.205") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %123, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %124 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.071, i64 16
   store ptr %121, ptr %124, align 8, !tbaa !315
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #21
@@ -4751,7 +4751,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit36:
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_13PredicateBaseENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.205") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %162, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(8) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %163 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.071, i64 16
   store ptr %160, ptr %163, align 8, !tbaa !315
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #21
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #21
@@ -4770,7 +4770,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit3
 167:                                              ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit37, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit
   %.sroa.0.1 = phi ptr [ %120, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit ], [ %.sroa.0.0, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %168 = getelementptr inbounds nuw i8, ptr %.075, i64 48
+  %168 = getelementptr inbounds nuw i8, ptr %.071, i64 48
   %169 = load ptr, ptr %2, align 8, !tbaa !25
   %170 = load i32, ptr %22, align 8, !tbaa !26
   %171 = zext i32 %170 to i64

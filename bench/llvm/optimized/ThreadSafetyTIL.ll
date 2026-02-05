@@ -65,13 +65,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.20.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.20.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.20.0, 1
   ret { ptr, i64 } %.fca.1.insert

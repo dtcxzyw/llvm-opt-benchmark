@@ -806,20 +806,20 @@ bitarray_new.exit:                                ; preds = %3, %14
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %25, align 8
   %26 = icmp sgt i32 %7, 0
-  br i1 %26, label %.lr.ph106, label %._crit_edge107
+  br i1 %26, label %.lr.ph100, label %._crit_edge101
 
-.lr.ph106:                                        ; preds = %bitarray_new.exit
+.lr.ph100:                                        ; preds = %bitarray_new.exit
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %29
 
-29:                                               ; preds = %.lr.ph106, %150
-  %indvars.iv110 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next111, %150 ]
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %30 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next111
+29:                                               ; preds = %.lr.ph100, %150
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next105, %150 ]
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %30 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next105
   %31 = load i32, ptr %30, align 4, !tbaa !36
-  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv110
+  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv104
   %33 = load i32, ptr %32, align 4, !tbaa !36
   %34 = sub nsw i32 %31, %33
   %.not = icmp eq i32 %34, 1
@@ -833,10 +833,10 @@ bitarray_new.exit:                                ; preds = %3, %14
   store i64 %37, ptr %27, align 8
   %38 = icmp ult i64 %37, 65
   %.0.i = select i1 %38, ptr %5, ptr %36
-  %39 = lshr i64 %indvars.iv110, 3
+  %39 = lshr i64 %indvars.iv104, 3
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !54
-  %42 = trunc i64 %indvars.iv110 to i8
+  %42 = trunc i64 %indvars.iv104 to i8
   %43 = and i8 %42, 7
   %44 = lshr i8 %41, %43
   %45 = trunc i8 %44 to i1
@@ -874,7 +874,7 @@ bitarray_set.exit:                                ; preds = %46
   %64 = getelementptr i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !36
   %66 = icmp slt i32 %63, %65
-  br i1 %66, label %.lr.ph.preheader, label %._crit_edge104
+  br i1 %66, label %.lr.ph.preheader, label %._crit_edge98
 
 .lr.ph.preheader:                                 ; preds = %bitarray_set.exit
   %67 = sext i32 %63 to i64
@@ -883,11 +883,11 @@ bitarray_set.exit:                                ; preds = %46
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %120
   %68 = phi i32 [ %65, %.lr.ph.preheader ], [ %121, %120 ]
   %indvars.iv = phi i64 [ %67, %.lr.ph.preheader ], [ %indvars.iv.next, %120 ]
-  %.05695 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %120 ]
-  %.sroa.21.293 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.21.3, %120 ]
-  %.sroa.14.292 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.14.3, %120 ]
-  %.sroa.9.291 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.9.3, %120 ]
-  %.sroa.0.290 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.0.3, %120 ]
+  %.05689 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %120 ]
+  %.sroa.21.087 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.21.1, %120 ]
+  %.sroa.14.086 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.14.1, %120 ]
+  %.sroa.9.085 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.9.1, %120 ]
+  %.sroa.0.084 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.0.1, %120 ]
   %69 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !36
   %71 = sext i32 %70 to i64
@@ -903,49 +903,49 @@ bitarray_set.exit64:                              ; preds = %.lr.ph
   %78 = load i64, ptr %25, align 8, !tbaa !57
   %79 = icmp ult i64 %78, 65
   %80 = load ptr, ptr %6, align 8
-  %spec.select84 = select i1 %79, ptr %6, ptr %80
+  %spec.select78 = select i1 %79, ptr %6, ptr %80
   %81 = trunc i32 %70 to i8
   %82 = and i8 %81, 7
   %83 = shl nuw i8 1, %82
   %84 = lshr i64 %71, 3
-  %85 = getelementptr inbounds nuw i8, ptr %spec.select84, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %spec.select78, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !54
   %87 = or i8 %86, %83
   store i8 %87, ptr %85, align 1, !tbaa !54
   %88 = load i32, ptr %69, align 4, !tbaa !36
   %89 = tail call double @distance(ptr noundef %2, i32 noundef %0, i32 noundef %49, i32 noundef %88) #25
-  %90 = fadd double %.05695, %89
+  %90 = fadd double %.05689, %89
   %91 = load i32, ptr %69, align 4, !tbaa !36
-  %92 = icmp eq i64 %.sroa.14.292, %.sroa.21.293
+  %92 = icmp eq i64 %.sroa.14.086, %.sroa.21.087
   br i1 %92, label %93, label %ints_append.exit
 
 93:                                               ; preds = %bitarray_set.exit64
-  %94 = icmp eq i64 %.sroa.21.293, 0
-  %95 = shl i64 %.sroa.21.293, 1
+  %94 = icmp eq i64 %.sroa.21.087, 0
+  %95 = shl i64 %.sroa.21.087, 1
   %spec.select.i.i = select i1 %94, i64 1, i64 %95
   %mul.ov.i.i = icmp ugt i64 %spec.select.i.i, 4611686018427387903
   br i1 %mul.ov.i.i, label %112, label %96
 
 96:                                               ; preds = %93
   %97 = shl nuw i64 %spec.select.i.i, 2
-  %98 = tail call ptr @realloc(ptr noundef %.sroa.0.290, i64 noundef %97) #27
+  %98 = tail call ptr @realloc(ptr noundef %.sroa.0.084, i64 noundef %97) #27
   %99 = icmp eq ptr %98, null
   br i1 %99, label %112, label %100
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %.sroa.21.293
-  %102 = sub i64 %spec.select.i.i, %.sroa.21.293
+  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %.sroa.21.087
+  %102 = sub i64 %spec.select.i.i, %.sroa.21.087
   %103 = shl i64 %102, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %101, i8 0, i64 %103, i1 false)
-  %104 = add i64 %.sroa.21.293, %.sroa.9.291
-  %105 = icmp ugt i64 %104, %.sroa.21.293
+  %104 = add i64 %.sroa.21.087, %.sroa.9.085
+  %105 = icmp ugt i64 %104, %.sroa.21.087
   br i1 %105, label %106, label %ints_append.exit
 
 106:                                              ; preds = %100
-  %107 = sub i64 %.sroa.21.293, %.sroa.9.291
+  %107 = sub i64 %.sroa.21.087, %.sroa.9.085
   %108 = sub i64 %spec.select.i.i, %107
   %109 = getelementptr inbounds nuw i32, ptr %98, i64 %108
-  %110 = getelementptr inbounds nuw i32, ptr %98, i64 %.sroa.9.291
+  %110 = getelementptr inbounds nuw i32, ptr %98, i64 %.sroa.9.085
   %111 = shl i64 %107, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %109, ptr nonnull align 4 %110, i64 %111, i1 false)
   br label %ints_append.exit
@@ -959,93 +959,93 @@ bitarray_set.exit64:                              ; preds = %.lr.ph
   unreachable
 
 ints_append.exit:                                 ; preds = %100, %106, %bitarray_set.exit64
-  %.sroa.0.4 = phi ptr [ %.sroa.0.290, %bitarray_set.exit64 ], [ %98, %106 ], [ %98, %100 ]
-  %.sroa.9.5 = phi i64 [ %.sroa.9.291, %bitarray_set.exit64 ], [ %108, %106 ], [ %.sroa.9.291, %100 ]
-  %.sroa.21.4 = phi i64 [ %.sroa.21.293, %bitarray_set.exit64 ], [ %spec.select.i.i, %106 ], [ %spec.select.i.i, %100 ]
-  %116 = add i64 %.sroa.9.5, %.sroa.14.292
-  %117 = urem i64 %116, %.sroa.21.4
-  %118 = getelementptr inbounds nuw i32, ptr %.sroa.0.4, i64 %117
+  %.sroa.0.2 = phi ptr [ %.sroa.0.084, %bitarray_set.exit64 ], [ %98, %106 ], [ %98, %100 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.085, %bitarray_set.exit64 ], [ %108, %106 ], [ %.sroa.9.085, %100 ]
+  %.sroa.21.2 = phi i64 [ %.sroa.21.087, %bitarray_set.exit64 ], [ %spec.select.i.i, %106 ], [ %spec.select.i.i, %100 ]
+  %116 = add i64 %.sroa.9.3, %.sroa.14.086
+  %117 = urem i64 %116, %.sroa.21.2
+  %118 = getelementptr inbounds nuw i32, ptr %.sroa.0.2, i64 %117
   store i32 %91, ptr %118, align 4, !tbaa !36
-  %119 = add i64 %.sroa.14.292, 1
+  %119 = add i64 %.sroa.14.086, 1
   %.pre = load i32, ptr %64, align 4, !tbaa !36
   br label %120
 
 120:                                              ; preds = %.lr.ph, %ints_append.exit
   %121 = phi i32 [ %.pre, %ints_append.exit ], [ %68, %.lr.ph ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %ints_append.exit ], [ %.sroa.0.290, %.lr.ph ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.5, %ints_append.exit ], [ %.sroa.9.291, %.lr.ph ]
-  %.sroa.14.3 = phi i64 [ %119, %ints_append.exit ], [ %.sroa.14.292, %.lr.ph ]
-  %.sroa.21.3 = phi i64 [ %.sroa.21.4, %ints_append.exit ], [ %.sroa.21.293, %.lr.ph ]
-  %.1 = phi double [ %90, %ints_append.exit ], [ %.05695, %.lr.ph ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %ints_append.exit ], [ %.sroa.0.084, %.lr.ph ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.3, %ints_append.exit ], [ %.sroa.9.085, %.lr.ph ]
+  %.sroa.14.1 = phi i64 [ %119, %ints_append.exit ], [ %.sroa.14.086, %.lr.ph ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.2, %ints_append.exit ], [ %.sroa.21.087, %.lr.ph ]
+  %.1 = phi double [ %90, %ints_append.exit ], [ %.05689, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
   br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %120
-  %124 = uitofp i64 %.sroa.14.3 to double
+  %124 = uitofp i64 %.sroa.14.1 to double
   %125 = fdiv double %.1, %124
-  %126 = icmp ugt i64 %.sroa.14.3, 1
+  %126 = icmp ugt i64 %.sroa.14.1, 1
   %127 = fdiv double 0x4018552E8777604C, %124
   %128 = select i1 %126, double %127, double 0.000000e+00
-  %.not108 = icmp eq i64 %.sroa.14.3, 0
-  br i1 %.not108, label %._crit_edge104, label %.lr.ph103
+  %.not102 = icmp eq i64 %.sroa.14.1, 0
+  br i1 %.not102, label %._crit_edge98, label %.lr.ph97
 
-.lr.ph103:                                        ; preds = %._crit_edge
+.lr.ph97:                                         ; preds = %._crit_edge
   %129 = mul nsw i32 %49, %0
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds double, ptr %2, i64 %130
   %132 = getelementptr i8, ptr %131, i64 8
   br label %133
 
-._crit_edge104:                                   ; preds = %133, %bitarray_set.exit, %._crit_edge
-  %.sroa.0.2.lcssa126135 = phi ptr [ null, %bitarray_set.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.3, %133 ]
-  tail call void @free(ptr noundef %.sroa.0.2.lcssa126135) #25
+._crit_edge98:                                    ; preds = %133, %bitarray_set.exit, %._crit_edge
+  %.sroa.0.0.lcssa120129 = phi ptr [ null, %bitarray_set.exit ], [ %.sroa.0.1, %._crit_edge ], [ %.sroa.0.1, %133 ]
+  tail call void @free(ptr noundef %.sroa.0.0.lcssa120129) #25
   br label %150
 
-133:                                              ; preds = %.lr.ph103, %133
-  %.0101 = phi i64 [ 0, %.lr.ph103 ], [ %149, %133 ]
-  %.054100 = phi double [ 1.000000e-01, %.lr.ph103 ], [ %148, %133 ]
-  %134 = add i64 %.0101, %.sroa.9.3
-  %135 = urem i64 %134, %.sroa.21.3
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.0.3, i64 %135
+133:                                              ; preds = %.lr.ph97, %133
+  %.095 = phi i64 [ 0, %.lr.ph97 ], [ %149, %133 ]
+  %.05494 = phi double [ 1.000000e-01, %.lr.ph97 ], [ %148, %133 ]
+  %134 = add i64 %.095, %.sroa.9.1
+  %135 = urem i64 %134, %.sroa.21.1
+  %136 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !36
-  %138 = tail call double @cos(double noundef %.054100) #25, !tbaa !36
+  %138 = tail call double @cos(double noundef %.05494) #25, !tbaa !36
   %139 = load double, ptr %131, align 8, !tbaa !39
   %140 = tail call double @llvm.fmuladd.f64(double %138, double %125, double %139)
   %141 = mul nsw i32 %137, %0
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds double, ptr %2, i64 %142
   store double %140, ptr %143, align 8, !tbaa !39
-  %144 = tail call double @sin(double noundef %.054100) #25, !tbaa !36
+  %144 = tail call double @sin(double noundef %.05494) #25, !tbaa !36
   %145 = load double, ptr %132, align 8, !tbaa !39
   %146 = tail call double @llvm.fmuladd.f64(double %144, double %125, double %145)
   %147 = getelementptr i8, ptr %143, i64 8
   store double %146, ptr %147, align 8, !tbaa !39
-  %148 = fadd double %128, %.054100
-  %149 = add nuw i64 %.0101, 1
-  %exitcond.not = icmp eq i64 %149, %.sroa.14.3
-  br i1 %exitcond.not, label %._crit_edge104, label %133, !llvm.loop !60
+  %148 = fadd double %128, %.05494
+  %149 = add nuw i64 %.095, 1
+  %exitcond.not = icmp eq i64 %149, %.sroa.14.1
+  br i1 %exitcond.not, label %._crit_edge98, label %133, !llvm.loop !60
 
-150:                                              ; preds = %46, %._crit_edge104, %35, %29
-  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond113.not, label %._crit_edge107.loopexit, label %29, !llvm.loop !61
+150:                                              ; preds = %46, %._crit_edge98, %35, %29
+  %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
+  br i1 %exitcond107.not, label %._crit_edge101.loopexit, label %29, !llvm.loop !61
 
-._crit_edge107.loopexit:                          ; preds = %150
-  %.pre114 = load i64, ptr %25, align 8, !tbaa !57
-  br label %._crit_edge107
+._crit_edge101.loopexit:                          ; preds = %150
+  %.pre108 = load i64, ptr %25, align 8, !tbaa !57
+  br label %._crit_edge101
 
-._crit_edge107:                                   ; preds = %._crit_edge107.loopexit, %bitarray_new.exit
-  %151 = phi i64 [ %.pre114, %._crit_edge107.loopexit ], [ %12, %bitarray_new.exit ]
+._crit_edge101:                                   ; preds = %._crit_edge101.loopexit, %bitarray_new.exit
+  %151 = phi i64 [ %.pre108, %._crit_edge101.loopexit ], [ %12, %bitarray_new.exit ]
   %152 = icmp ugt i64 %151, 64
   br i1 %152, label %153, label %bitarray_reset.exit
 
-153:                                              ; preds = %._crit_edge107
+153:                                              ; preds = %._crit_edge101
   %154 = load ptr, ptr %6, align 8, !tbaa !54
   tail call void @free(ptr noundef %154) #25
   br label %bitarray_reset.exit
 
-bitarray_reset.exit:                              ; preds = %._crit_edge107, %153
+bitarray_reset.exit:                              ; preds = %._crit_edge101, %153
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

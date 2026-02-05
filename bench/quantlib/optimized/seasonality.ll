@@ -1318,8 +1318,8 @@ if.then.i.i.i.i.i7:                               ; preds = %invoke.cont
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i7, %invoke.cont
   %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !16
   %5 = load ptr, ptr %seasonalityFactors, align 8, !tbaa !17
-  %cmp22.not = icmp eq ptr %4, %5
-  br i1 %cmp22.not, label %for.cond.cleanup, label %for.body.lr.ph
+  %cmp16.not = icmp eq ptr %4, %5
+  br i1 %cmp16.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %4 to i64
@@ -1340,12 +1340,12 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
   ret void
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %i.023
+  %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %i.017
   %9 = load double, ptr %add.ptr.i, align 8, !tbaa !33
-  %add.ptr.i13 = getelementptr inbounds nuw double, ptr %6, i64 %i.023
+  %add.ptr.i13 = getelementptr inbounds nuw double, ptr %6, i64 %i.017
   store double %9, ptr %add.ptr.i13, align 8, !tbaa !33
-  %inc = add nuw i64 %i.023, 1
+  %inc = add nuw i64 %i.017, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i12
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !35
 }

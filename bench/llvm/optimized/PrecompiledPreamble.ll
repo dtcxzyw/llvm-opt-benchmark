@@ -1312,7 +1312,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i, %128, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i
-  %.sroa.0289.1 = phi ptr [ null, %128 ], [ %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i ], [ %132, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i ]
+  %.sroa.0286.1 = phi ptr [ null, %128 ], [ %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i ], [ %132, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !87
   %155 = load ptr, ptr %19, align 8, !tbaa !80, !noalias !87
   %156 = icmp eq ptr %155, %98
@@ -1331,8 +1331,8 @@ _ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit: ; preds = %_ZNSt7_
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !87
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.not362 = icmp eq ptr %.sroa.0289.1, null
-  br i1 %.not362, label %158, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread
+  %.not359 = icmp eq ptr %.sroa.0286.1, null
+  br i1 %.not359, label %158, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread
 
 158:                                              ; preds = %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1348,11 +1348,11 @@ _ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit: ; preds = %_ZNSt7_
   br label %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread: ; preds = %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit.thread, %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit
-  %.sroa.0289.2311 = phi ptr [ %79, %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit.thread ], [ %.sroa.0289.1, %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit ]
+  %.sroa.0286.2308 = phi ptr [ %79, %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit.thread ], [ %.sroa.0286.1, %_ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit ]
   %164 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26, !noalias !105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false), !noalias !105
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  store ptr %.sroa.0289.2311, ptr %165, align 8, !tbaa !28, !noalias !105
+  store ptr %.sroa.0286.2308, ptr %165, align 8, !tbaa !28, !noalias !105
   br label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 _ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread: ; preds = %163, %158
@@ -1364,7 +1364,7 @@ _ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2
   br label %727
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread, %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sroa.0294.0 = phi ptr [ %73, %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %164, %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread ]
+  %.sroa.0291.0 = phi ptr [ %73, %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %164, %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit107.thread ]
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %169 = and i64 %3, 4294967295
   %.not.i.i.i108 = icmp samesign eq i64 %169, 0
@@ -1385,9 +1385,9 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   %176 = getelementptr inbounds nuw i8, ptr %58, i64 208
   store i32 21, ptr %176, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  br i1 %7, label %.thread319, label %178
+  br i1 %7, label %.thread316, label %178
 
-.thread319:                                       ; preds = %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
+.thread316:                                       ; preds = %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
   %177 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %177, ptr %29, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1395,7 +1395,7 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   br label %187
 
 178:                                              ; preds = %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0294.0, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0291.0, i64 16
   %.val.i = load ptr, ptr %179, align 8, !tbaa !28
   %.val1.i = load ptr, ptr %.val.i, align 8, !tbaa !92
   %180 = getelementptr i8, ptr %.val.i, i64 8
@@ -1417,10 +1417,10 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   %186 = icmp ugt i64 %.val2.i, 15
   br i1 %186, label %187, label %._crit_edge.i.i.i.i109
 
-187:                                              ; preds = %.thread319, %185
-  %.sroa.0276.0317325 = phi ptr [ @.str.11, %.thread319 ], [ %.val1.i, %185 ]
-  %.sroa.5277.0318323 = phi i64 [ 42, %.thread319 ], [ %.val2.i, %185 ]
-  %188 = phi ptr [ %177, %.thread319 ], [ %181, %185 ]
+187:                                              ; preds = %.thread316, %185
+  %.sroa.0276.0314322 = phi ptr [ @.str.11, %.thread316 ], [ %.val1.i, %185 ]
+  %.sroa.5277.0315320 = phi i64 [ 42, %.thread316 ], [ %.val2.i, %185 ]
+  %188 = phi ptr [ %177, %.thread316 ], [ %181, %185 ]
   %189 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0) #24
   store ptr %189, ptr %29, align 8, !tbaa !92
   %190 = load i64, ptr %15, align 8, !tbaa !8
@@ -1428,22 +1428,22 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIcSaIcE
   br label %._crit_edge.i.i.i.i109
 
 ._crit_edge.i.i.i.i109:                           ; preds = %187, %185
-  %.sroa.0276.0317324 = phi ptr [ %.sroa.0276.0317325, %187 ], [ %.val1.i, %185 ]
-  %.sroa.5277.0318322 = phi i64 [ %.sroa.5277.0318323, %187 ], [ %.val2.i, %185 ]
+  %.sroa.0276.0314321 = phi ptr [ %.sroa.0276.0314322, %187 ], [ %.val1.i, %185 ]
+  %.sroa.5277.0315319 = phi i64 [ %.sroa.5277.0315320, %187 ], [ %.val2.i, %185 ]
   %191 = phi ptr [ %188, %187 ], [ %181, %185 ]
   %192 = phi ptr [ %189, %187 ], [ %181, %185 ]
-  switch i64 %.sroa.5277.0318322, label %195 [
+  switch i64 %.sroa.5277.0315319, label %195 [
     i64 1, label %193
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   ]
 
 193:                                              ; preds = %._crit_edge.i.i.i.i109
-  %194 = load i8, ptr %.sroa.0276.0317324, align 1, !tbaa !38
+  %194 = load i8, ptr %.sroa.0276.0314321, align 1, !tbaa !38
   store i8 %194, ptr %192, align 1, !tbaa !38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
 
 195:                                              ; preds = %._crit_edge.i.i.i.i109
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr align 1 %.sroa.0276.0317324, i64 %.sroa.5277.0318322, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr align 1 %.sroa.0276.0314321, i64 %.sroa.5277.0315319, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit: ; preds = %._crit_edge.i.i.i.i109, %193, %195
@@ -1996,7 +1996,7 @@ _ZNSt12__shared_ptrIN5clang19DependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED
 
 440:                                              ; preds = %_ZNSt12__shared_ptrIN5clang19DependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %439
   call void @_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefEPNS1_12MemoryBufferE(ptr noundef nonnull align 8 dereferenceable(376) %60, ptr %423, i64 %425, ptr noundef %438)
-  %441 = load ptr, ptr %.sroa.0294.0, align 8, !tbaa !231
+  %441 = load ptr, ptr %.sroa.0291.0, align 8, !tbaa !231
   %.not.i147 = icmp eq ptr %441, null
   %442 = zext i1 %.not.i147 to i8
   %443 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #26, !noalias !233
@@ -2020,9 +2020,9 @@ _ZNSt12__shared_ptrIN5clang19DependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 24
   %454 = load ptr, ptr %453, align 8, !tbaa !198
   %455 = call noundef zeroext i1 @_ZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileE(ptr noundef nonnull align 8 dereferenceable(104) %443, ptr noundef nonnull align 8 dereferenceable(352) %234, ptr noundef nonnull align 8 dereferenceable(77) %454) #24
-  br i1 %455, label %456, label %.thread329
+  br i1 %455, label %456, label %.thread326
 
-.thread329:                                       ; preds = %440
+.thread326:                                       ; preds = %440
   call void @_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef 3, ptr noundef null)
   br label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
 
@@ -2037,8 +2037,8 @@ _ZNSt12__shared_ptrIN5clang19DependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED
   %462 = load ptr, ptr %461, align 8
   call void %462(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.420") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %9) #24
   %463 = load ptr, ptr %38, align 8
-  %.not364 = icmp eq ptr %463, null
-  br i1 %.not364, label %472, label %464
+  %.not361 = icmp eq ptr %463, null
+  br i1 %.not361, label %472, label %464
 
 464:                                              ; preds = %456
   %465 = ptrtoint ptr %463 to i64
@@ -2113,8 +2113,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120MissingFileCollectorESt14default_deleteIS1_EE
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %42, ptr noundef nonnull align 8 dereferenceable(104) %443) #24
   %496 = load ptr, ptr %42, align 8, !tbaa !496
-  %.not365 = icmp eq ptr %496, null
-  br i1 %.not365, label %_ZN4llvm5ErrorD2Ev.exit154, label %497
+  %.not362 = icmp eq ptr %496, null
+  br i1 %.not362, label %_ZN4llvm5ErrorD2Ev.exit154, label %497
 
 497:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_120MissingFileCollectorESt14default_deleteIS1_EED2Ev.exit
   store ptr %496, ptr %43, align 8, !tbaa !496
@@ -2187,8 +2187,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS
   %529 = load ptr, ptr %377, align 8, !tbaa !501
   %530 = getelementptr inbounds nuw i8, ptr %371, i64 56
   %531 = load ptr, ptr %530, align 8, !tbaa !502
-  %.not67370 = icmp eq ptr %529, %531
-  br i1 %.not67370, label %._crit_edge, label %.lr.ph
+  %.not67367 = icmp eq ptr %529, %531
+  br i1 %.not67367, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.exit
   %532 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2216,9 +2216,9 @@ _ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EE5resetEPS1_.
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %543 = load ptr, ptr %542, align 8
   call void %543(ptr noundef nonnull align 8 dereferenceable(352) %234) #24
-  call void @_ZN5clang19PrecompiledPreamble10PCHStorage6shrinkEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0294.0)
+  call void @_ZN5clang19PrecompiledPreamble10PCHStorage6shrinkEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0291.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %544 = ptrtoint ptr %.sroa.0294.0 to i64
+  %544 = ptrtoint ptr %.sroa.0291.0 to i64
   store i64 %544, ptr %48, align 8, !tbaa !26
   store ptr %.sroa.0279.3, ptr %49, align 8, !tbaa !10
   %545 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2290,10 +2290,10 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
   br label %654
 
 580:                                              ; preds = %.lr.ph, %.critedge4
-  %.062371 = phi ptr [ %529, %.lr.ph ], [ %653, %.critedge4 ]
+  %.062368 = phi ptr [ %529, %.lr.ph ], [ %653, %.critedge4 ]
   %581 = load ptr, ptr %369, align 8, !tbaa !208
-  %582 = load ptr, ptr %.062371, align 8, !tbaa !92
-  %583 = getelementptr inbounds nuw i8, ptr %.062371, i64 8
+  %582 = load ptr, ptr %.062368, align 8, !tbaa !92
+  %583 = getelementptr inbounds nuw i8, ptr %.062368, i64 8
   %584 = load i64, ptr %583, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %14, ptr noundef nonnull align 8 dereferenceable(808) %581, ptr %582, i64 %584, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #24
@@ -2349,8 +2349,8 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %598
 _ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit.i, %598, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   %603 = inttoptr i64 %596 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not366 = icmp eq i64 %596, 0
-  br i1 %.not366, label %.critedge4, label %604
+  %.not363 = icmp eq i64 %596, 0
+  br i1 %.not363, label %.critedge4, label %604
 
 604:                                              ; preds = %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit
   %.sroa.0.0.copyload.i164 = load i32, ptr %533, align 8, !tbaa !39
@@ -2496,7 +2496,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit186:       ; preds = %645
   br label %.critedge4
 
 .critedge4:                                       ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit, %_ZNK5clang12FileEntryRef7getNameEv.exit186, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit, %_ZN5clangeqINS_12FileEntryRefES1_EEbRKNS_20CustomizableOptionalIT_EERKNS2_IT0_EE.exit
-  %653 = getelementptr inbounds nuw i8, ptr %.062371, i64 32
+  %653 = getelementptr inbounds nuw i8, ptr %.062368, i64 32
   %.not67 = icmp eq ptr %653, %531
   br i1 %.not67, label %._crit_edge, label %580
 
@@ -2506,7 +2506,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit186:       ; preds = %645
   %.sroa.9.2 = phi ptr [ %.sroa.9.3, %_ZN4llvm5ErrorD2Ev.exit153 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ %.sroa.9.3, %523 ]
   %.sroa.0279.2 = phi ptr [ %.sroa.0279.3, %_ZN4llvm5ErrorD2Ev.exit153 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ %.sroa.0279.3, %523 ]
   %.sroa.0232.1 = phi ptr [ %443, %_ZN4llvm5ErrorD2Ev.exit153 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ %443, %523 ]
-  %.sroa.0294.5 = phi ptr [ %.sroa.0294.0, %_ZN4llvm5ErrorD2Ev.exit153 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ %.sroa.0294.0, %523 ]
+  %.sroa.0291.5 = phi ptr [ %.sroa.0291.0, %_ZN4llvm5ErrorD2Ev.exit153 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ %.sroa.0291.0, %523 ]
   call void @_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %655 = load ptr, ptr %38, align 8, !tbaa !267
@@ -2525,25 +2525,25 @@ _ZNKSt14default_deleteIN5clang11PPCallbacksEEclEPS1_.exit.i188: ; preds = %654
   %.not.i190 = icmp eq ptr %.sroa.0232.1, null
   br i1 %.not.i190, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i: ; preds = %.thread329, %659
-  %.sroa.0294.4346 = phi ptr [ %.sroa.0294.0, %.thread329 ], [ %.sroa.0294.5, %659 ]
-  %.sroa.0232.0345 = phi ptr [ %443, %.thread329 ], [ %.sroa.0232.1, %659 ]
-  %.sroa.0279.1343 = phi ptr [ %.sroa.0279.3, %.thread329 ], [ %.sroa.0279.2, %659 ]
-  %.sroa.9.1341 = phi ptr [ %.sroa.9.3, %.thread329 ], [ %.sroa.9.2, %659 ]
-  %.sroa.0247.1339 = phi ptr [ %234, %.thread329 ], [ %.sroa.0247.2, %659 ]
-  %.sroa.0245.1337 = phi ptr [ %.sroa.0245.3, %.thread329 ], [ %.sroa.0245.2, %659 ]
-  %660 = load ptr, ptr %.sroa.0232.0345, align 8, !tbaa !36
+_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i: ; preds = %.thread326, %659
+  %.sroa.0291.4343 = phi ptr [ %.sroa.0291.0, %.thread326 ], [ %.sroa.0291.5, %659 ]
+  %.sroa.0232.0342 = phi ptr [ %443, %.thread326 ], [ %.sroa.0232.1, %659 ]
+  %.sroa.0279.1340 = phi ptr [ %.sroa.0279.3, %.thread326 ], [ %.sroa.0279.2, %659 ]
+  %.sroa.9.1338 = phi ptr [ %.sroa.9.3, %.thread326 ], [ %.sroa.9.2, %659 ]
+  %.sroa.0247.1336 = phi ptr [ %234, %.thread326 ], [ %.sroa.0247.2, %659 ]
+  %.sroa.0245.1334 = phi ptr [ %.sroa.0245.3, %.thread326 ], [ %.sroa.0245.2, %659 ]
+  %660 = load ptr, ptr %.sroa.0232.0342, align 8, !tbaa !36
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 64
   %662 = load ptr, ptr %661, align 8
-  call void %662(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0232.0345) #24
+  call void %662(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0232.0342) #24
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %659, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
-  %.sroa.0294.4347 = phi ptr [ %.sroa.0294.5, %659 ], [ %.sroa.0294.4346, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
-  %.sroa.0279.1344 = phi ptr [ %.sroa.0279.2, %659 ], [ %.sroa.0279.1343, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
-  %.sroa.9.1342 = phi ptr [ %.sroa.9.2, %659 ], [ %.sroa.9.1341, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
-  %.sroa.0247.1340 = phi ptr [ %.sroa.0247.2, %659 ], [ %.sroa.0247.1339, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
-  %.sroa.0245.1338 = phi ptr [ %.sroa.0245.2, %659 ], [ %.sroa.0245.1337, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.0291.4344 = phi ptr [ %.sroa.0291.5, %659 ], [ %.sroa.0291.4343, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.0279.1341 = phi ptr [ %.sroa.0279.2, %659 ], [ %.sroa.0279.1340, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.9.1339 = phi ptr [ %.sroa.9.2, %659 ], [ %.sroa.9.1338, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.0247.1337 = phi ptr [ %.sroa.0247.2, %659 ], [ %.sroa.0247.1336, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.0245.1335 = phi ptr [ %.sroa.0245.2, %659 ], [ %.sroa.0245.1334, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
   %663 = load ptr, ptr %36, align 8, !tbaa !229
   %.not.i191 = icmp eq ptr %663, null
   br i1 %.not.i191, label %667, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i
@@ -2599,12 +2599,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194: ; preds = %682, %6
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %685, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194, %671, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123
-  %.sroa.0245.0 = phi ptr [ %.sroa.0245.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0245.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0245.1338, %671 ], [ %.sroa.0245.1338, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0245.1338, %685 ]
-  %.sroa.0247.0 = phi ptr [ %234, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %234, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0247.1340, %671 ], [ %.sroa.0247.1340, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0247.1340, %685 ]
-  %.sroa.9.0 = phi ptr [ %.sroa.9.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.9.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.9.1342, %671 ], [ %.sroa.9.1342, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.9.1342, %685 ]
-  %.sroa.0279.0 = phi ptr [ %.sroa.0279.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0279.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0279.1344, %671 ], [ %.sroa.0279.1344, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0279.1344, %685 ]
-  %.sroa.0294.3 = phi ptr [ %.sroa.0294.0, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0294.0, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0294.4347, %671 ], [ %.sroa.0294.4347, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0294.4347, %685 ]
-  %.sroa.6302.1 = phi ptr [ %61, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %61, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ null, %671 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ null, %685 ]
+  %.sroa.0245.0 = phi ptr [ %.sroa.0245.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0245.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0245.1335, %671 ], [ %.sroa.0245.1335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0245.1335, %685 ]
+  %.sroa.0247.0 = phi ptr [ %234, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %234, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0247.1337, %671 ], [ %.sroa.0247.1337, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0247.1337, %685 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.9.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.9.1339, %671 ], [ %.sroa.9.1339, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.9.1339, %685 ]
+  %.sroa.0279.0 = phi ptr [ %.sroa.0279.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0279.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0279.1341, %671 ], [ %.sroa.0279.1341, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0279.1341, %685 ]
+  %.sroa.0291.3 = phi ptr [ %.sroa.0291.0, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %.sroa.0291.0, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ %.sroa.0291.4344, %671 ], [ %.sroa.0291.4344, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ %.sroa.0291.4344, %685 ]
+  %.sroa.6299.1 = phi ptr [ %61, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit127 ], [ %61, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit123 ], [ null, %671 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i194 ], [ null, %685 ]
   %.not.i.i196 = icmp eq ptr %.sroa.0245.0, null
   br i1 %.not.i.i196, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %686
 
@@ -2643,11 +2643,11 @@ _ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit: ;
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit199
 
 _ZNSt6vectorIcSaIcEED2Ev.exit199:                 ; preds = %696, %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit
-  %.not.i200 = icmp eq ptr %.sroa.0294.3, null
+  %.not.i200 = icmp eq ptr %.sroa.0291.3, null
   br i1 %.not.i200, label %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208, label %700
 
 700:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit199
-  %701 = getelementptr inbounds nuw i8, ptr %.sroa.0294.3, i64 16
+  %701 = getelementptr inbounds nuw i8, ptr %.sroa.0291.3, i64 16
   %702 = load ptr, ptr %701, align 8, !tbaa !28
   %.not.i.i.i.i201 = icmp eq ptr %702, null
   br i1 %.not.i.i.i.i201, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i.i202, label %703
@@ -2658,7 +2658,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit199:                 ; preds = %696, %_ZNSt10unique
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i.i202: ; preds = %703, %700
   store ptr null, ptr %701, align 8, !tbaa !28
-  %704 = getelementptr inbounds nuw i8, ptr %.sroa.0294.3, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %.sroa.0291.3, i64 8
   %705 = load ptr, ptr %704, align 8, !tbaa !30
   %.not.i.i.i.i.i203 = icmp eq ptr %705, null
   br i1 %.not.i.i.i.i.i203, label %_ZNKSt14default_deleteIN5clang19PrecompiledPreamble10PCHStorageEEclEPS2_.exit.i207, label %706
@@ -2708,17 +2708,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i205: ; preds = %7
   br label %_ZNKSt14default_deleteIN5clang19PrecompiledPreamble10PCHStorageEEclEPS2_.exit.i207
 
 _ZNKSt14default_deleteIN5clang19PrecompiledPreamble10PCHStorageEEclEPS2_.exit.i207: ; preds = %726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i205, %711, %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i.i202
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0294.3, i64 noundef 24) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0291.3, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208
 
 _ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit199, %_ZNKSt14default_deleteIN5clang19PrecompiledPreamble10PCHStorageEEclEPS2_.exit.i207
-  %.not.i.i209 = icmp eq ptr %.sroa.6302.1, null
+  %.not.i.i209 = icmp eq ptr %.sroa.6299.1, null
   br i1 %.not.i.i209, label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218, label %727
 
 727:                                              ; preds = %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208
-  %.sroa.6302.0352359 = phi ptr [ %61, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread ], [ %.sroa.6302.1, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208 ]
-  %.sroa.7308.0353357 = phi ptr [ %52, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread ], [ null, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208 ]
-  %728 = getelementptr inbounds nuw i8, ptr %.sroa.6302.0352359, i64 8
+  %.sroa.6299.0349356 = phi ptr [ %61, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread ], [ %.sroa.6299.1, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208 ]
+  %.sroa.7305.0350354 = phi ptr [ %52, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208.thread ], [ null, %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208 ]
+  %728 = getelementptr inbounds nuw i8, ptr %.sroa.6299.0349356, i64 8
   %729 = load atomic i64, ptr %728 acquire, align 8
   %730 = icmp eq i64 %729, 4294967297
   %731 = trunc i64 %729 to i32
@@ -2726,16 +2726,16 @@ _ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2
 
 732:                                              ; preds = %727
   store i32 0, ptr %728, align 8, !tbaa !33
-  %733 = getelementptr inbounds nuw i8, ptr %.sroa.6302.0352359, i64 12
+  %733 = getelementptr inbounds nuw i8, ptr %.sroa.6299.0349356, i64 12
   store i32 0, ptr %733, align 4, !tbaa !35
-  %734 = load ptr, ptr %.sroa.6302.0352359, align 8, !tbaa !36
+  %734 = load ptr, ptr %.sroa.6299.0349356, align 8, !tbaa !36
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 16
   %736 = load ptr, ptr %735, align 8
-  call void %736(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6302.0352359) #24
-  %737 = load ptr, ptr %.sroa.6302.0352359, align 8, !tbaa !36
+  call void %736(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6299.0349356) #24
+  %737 = load ptr, ptr %.sroa.6299.0349356, align 8, !tbaa !36
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 24
   %739 = load ptr, ptr %738, align 8
-  call void %739(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6302.0352359) #24
+  call void %739(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6299.0349356) #24
   br label %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213
 
 740:                                              ; preds = %727
@@ -2758,15 +2758,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i211: ; preds = %744, %7
   br i1 %746, label %747, label %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213, !prof !40
 
 747:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i211
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6302.0352359) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6299.0349356) #24
   br label %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213
 
 _ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213: ; preds = %732, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i211, %747
-  %.not.i.i214 = icmp eq ptr %.sroa.7308.0353357, null
+  %.not.i.i214 = icmp eq ptr %.sroa.7305.0350354, null
   br i1 %.not.i.i214, label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218, label %748
 
 748:                                              ; preds = %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213
-  %749 = getelementptr inbounds nuw i8, ptr %.sroa.7308.0353357, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %.sroa.7305.0350354, i64 8
   %750 = load atomic i64, ptr %749 acquire, align 8
   %751 = icmp eq i64 %750, 4294967297
   %752 = trunc i64 %750 to i32
@@ -2774,16 +2774,16 @@ _ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213
 
 753:                                              ; preds = %748
   store i32 0, ptr %749, align 8, !tbaa !33
-  %754 = getelementptr inbounds nuw i8, ptr %.sroa.7308.0353357, i64 12
+  %754 = getelementptr inbounds nuw i8, ptr %.sroa.7305.0350354, i64 12
   store i32 0, ptr %754, align 4, !tbaa !35
-  %755 = load ptr, ptr %.sroa.7308.0353357, align 8, !tbaa !36
+  %755 = load ptr, ptr %.sroa.7305.0350354, align 8, !tbaa !36
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 16
   %757 = load ptr, ptr %756, align 8
-  call void %757(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7308.0353357) #24
-  %758 = load ptr, ptr %.sroa.7308.0353357, align 8, !tbaa !36
+  call void %757(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7305.0350354) #24
+  %758 = load ptr, ptr %.sroa.7305.0350354, align 8, !tbaa !36
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 24
   %760 = load ptr, ptr %759, align 8
-  call void %760(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7308.0353357) #24
+  call void %760(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7305.0350354) #24
   br label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218
 
 761:                                              ; preds = %748
@@ -2806,7 +2806,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i216: ; preds = %765, %7
   br i1 %767, label %768, label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218, !prof !40
 
 768:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i216
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7308.0353357) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7305.0350354) #24
   br label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218
 
 _ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit218: ; preds = %_ZNSt10unique_ptrIN5clang19PrecompiledPreamble10PCHStorageESt14default_deleteIS2_EED2Ev.exit208, %_ZNSt12__shared_ptrIN5clang9PCHBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit213, %753, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i216, %768

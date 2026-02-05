@@ -12736,20 +12736,20 @@ _ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit.i58: ; preds = 
   %2043 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2042) #19
   %2044 = extractvalue { ptr, i64 } %2043, 1
   %.not.i.i59 = icmp eq i64 %2044, 6
-  br i1 %.not.i.i59, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i
+  br i1 %.not.i.i59, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %2041
   %2045 = extractvalue { ptr, i64 } %2043, 0
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2045, ptr noundef nonnull dereferenceable(6) @.str.68, i64 6)
   %2046 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %2046, label %.thread25, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i
+  br i1 %2046, label %.thread25, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %2041
+_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %2041
   %2047 = load i8, ptr %1997, align 8, !tbaa !186
   %.not.i60 = icmp eq i8 %2047, 85
   br i1 %.not.i60, label %2048, label %.thread25
 
-2048:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i
+2048:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
   %2049 = getelementptr inbounds i8, ptr %1997, i64 -32
   %2050 = load ptr, ptr %2049, align 8, !tbaa !275
   %.not.i.i.i.i61 = icmp eq ptr %2050, null
@@ -12938,8 +12938,8 @@ _ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.ex
   call fastcc void @_ZN12_GLOBAL__N_18DSEState21deleteDeadInstructionEPN4llvm11InstructionEPNS1_15SmallPtrSetImplIPNS1_12MemoryAccessEEE(ptr noundef nonnull align 8 dereferenceable(1720) %0, ptr noundef %2149, ptr noundef null)
   br label %.thread25
 
-.thread25:                                        ; preds = %2048, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i52, %.thread, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i53, %_ZN4llvm14CastIsPossibleINS_10MemSetInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i55, %2004, %2051, %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i, %2035, %2038, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %2028, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit.i58, %2032, %2030, %2001, %_ZN12_GLOBAL__N_18DSEState17eliminateDeadDefsERKNS_21MemoryLocationWrapperE.exit, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread28, %2145, %_ZN12_GLOBAL__N_18DSEState11storeIsNoopEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread23
-  %.1 = phi i1 [ true, %_ZN12_GLOBAL__N_18DSEState11storeIsNoopEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread23 ], [ true, %2145 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit ], [ %1732, %2048 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread28 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17eliminateDeadDefsERKNS_21MemoryLocationWrapperE.exit ], [ %1732, %2001 ], [ %1732, %2030 ], [ %1732, %2032 ], [ %1732, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit.i58 ], [ %1732, %2028 ], [ %1732, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %1732, %2038 ], [ %1732, %2035 ], [ %1732, %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i ], [ %1732, %2051 ], [ %1732, %2004 ], [ %1732, %_ZN4llvm14CastIsPossibleINS_10MemSetInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i55 ], [ %1732, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i53 ], [ %1732, %.thread ], [ %1732, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i52 ], [ %1732, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ]
+.thread25:                                        ; preds = %2048, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i52, %.thread, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i53, %_ZN4llvm14CastIsPossibleINS_10MemSetInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i55, %2004, %2051, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i, %2035, %2038, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %2028, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit.i58, %2032, %2030, %2001, %_ZN12_GLOBAL__N_18DSEState17eliminateDeadDefsERKNS_21MemoryLocationWrapperE.exit, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread28, %2145, %_ZN12_GLOBAL__N_18DSEState11storeIsNoopEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread23
+  %.1 = phi i1 [ true, %_ZN12_GLOBAL__N_18DSEState11storeIsNoopEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread23 ], [ true, %2145 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit ], [ %1732, %2048 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueE.exit.thread28 ], [ %1732, %_ZN12_GLOBAL__N_18DSEState17eliminateDeadDefsERKNS_21MemoryLocationWrapperE.exit ], [ %1732, %2001 ], [ %1732, %2030 ], [ %1732, %2032 ], [ %1732, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit.i58 ], [ %1732, %2028 ], [ %1732, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %1732, %2038 ], [ %1732, %2035 ], [ %1732, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i ], [ %1732, %2051 ], [ %1732, %2004 ], [ %1732, %_ZN4llvm14CastIsPossibleINS_10MemSetInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i55 ], [ %1732, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i53 ], [ %1732, %.thread ], [ %1732, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i52 ], [ %1732, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ]
   %2150 = getelementptr inbounds nuw i8, ptr %.023129, i64 80
   %.not = icmp eq ptr %2150, %77
   br i1 %.not, label %.loopexit, label %191

@@ -15490,8 +15490,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exitthread-pre-split
   %80 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exitthread-pre-split ], [ %.sroa.0105.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread ]
-  %.not116 = icmp eq ptr %80, null
-  br i1 %.not116, label %_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.thread
+  %.not114 = icmp eq ptr %80, null
+  br i1 %.not114, label %_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
   store i8 0, ptr %0, align 8
@@ -15515,21 +15515,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i27 = icmp eq i8 %88, 0
-  br i1 %.not.i.i.i.i27, label %91, label %.thread152
+  br i1 %.not.i.i.i.i27, label %91, label %.thread150
 
-.thread152:                                       ; preds = %86
+.thread150:                                       ; preds = %86
   %89 = load i32, ptr %87, align 4
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %87, align 4
-  br label %.thread154
+  br label %.thread152
 
 91:                                               ; preds = %86
   %92 = atomicrmw volatile add ptr %87, i32 1 acq_rel, align 4
-  %.pre120 = load i8, ptr @__libc_single_threaded, align 1
-  %93 = icmp eq i8 %.pre120, 0
-  br i1 %93, label %97, label %.thread154
+  %.pre118 = load i8, ptr @__libc_single_threaded, align 1
+  %93 = icmp eq i8 %.pre118, 0
+  br i1 %93, label %97, label %.thread152
 
-.thread154:                                       ; preds = %91, %.thread152
+.thread152:                                       ; preds = %91, %.thread150
   %94 = load i32, ptr %87, align 4
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %87, align 4
@@ -15540,14 +15540,14 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 97:                                               ; preds = %91
   %98 = atomicrmw volatile add ptr %87, i32 1 acq_rel, align 4
-  %.pre121 = load i8, ptr @__libc_single_threaded, align 1
-  %99 = icmp eq i8 %.pre121, 0
+  %.pre119 = load i8, ptr @__libc_single_threaded, align 1
+  %99 = icmp eq i8 %.pre119, 0
   store ptr %.ph, ptr %6, align 8
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %85, ptr %100, align 8
   br i1 %99, label %104, label %101
 
-101:                                              ; preds = %.thread154, %97
+101:                                              ; preds = %.thread152, %97
   %102 = load i32, ptr %87, align 4
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %87, align 4
@@ -15797,8 +15797,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnecti
 
 215:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit52
   %216 = load ptr, ptr %8, align 8
-  %.not118 = icmp eq ptr %216, null
-  br i1 %.not118, label %238, label %217
+  %.not116 = icmp eq ptr %216, null
+  br i1 %.not116, label %238, label %217
 
 217:                                              ; preds = %215
   %218 = load ptr, ptr %216, align 8
@@ -15812,14 +15812,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnecti
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread: ; preds = %221
-  %.pre122 = load i64, ptr %9, align 8
-  store i64 %.pre122, ptr %213, align 8
+  %.pre120 = load i64, ptr %9, align 8
+  store i64 %.pre120, ptr %213, align 8
   store i64 0, ptr %9, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %221
-  %.pre123 = load ptr, ptr %9, align 8
-  %222 = ptrtoint ptr %.pre123 to i64
+  %.pre121 = load ptr, ptr %9, align 8
+  %222 = ptrtoint ptr %.pre121 to i64
   %223 = and i64 %222, 7
   %.not.i.i54 = icmp eq i64 %223, 0
   br i1 %.not.i.i54, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %224
@@ -15941,8 +15941,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 275:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit
   %276 = load ptr, ptr %10, align 8
-  %.not119 = icmp eq ptr %276, null
-  br i1 %.not119, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68, label %277
+  %.not117 = icmp eq ptr %276, null
+  br i1 %.not117, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68, label %277
 
 277:                                              ; preds = %275
   %278 = load ptr, ptr %276, align 8
@@ -15975,8 +15975,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit65.thread: ; preds = %2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit65: ; preds = %281
-  %.pre124 = load ptr, ptr %11, align 8
-  %291 = ptrtoint ptr %.pre124 to i64
+  %.pre122 = load ptr, ptr %11, align 8
+  %291 = ptrtoint ptr %.pre122 to i64
   %292 = and i64 %291, 7
   %.not.i.i66 = icmp eq i64 %292, 0
   br i1 %.not.i.i66, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68, label %293

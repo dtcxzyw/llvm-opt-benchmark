@@ -8437,8 +8437,8 @@ _ZN17QArrayDataPointerI16QCPErrorBarsDataE5derefEv.exit.i.i: ; preds = %_ZN17QAr
   br label %_ZN5QListI16QCPErrorBarsDataE5clearEv.exit
 
 .lr.ph:                                           ; preds = %44, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
-  %.0432 = phi i32 [ %122, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit ], [ 0, %44 ]
-  %79 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef align 8 dereferenceable_or_null(513) %41, i32 noundef %.0432)
+  %.0428 = phi i32 [ %122, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit ], [ 0, %44 ]
+  %79 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef align 8 dereferenceable_or_null(513) %41, i32 noundef %.0428)
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 192
   %81 = load ptr, ptr %80, align 8, !noalias !20
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 200
@@ -8538,10 +8538,10 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %112,
   unreachable
 
 _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %106, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %116
-  %120 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef align 8 dereferenceable_or_null(513) %41, i32 noundef %.0432)
-  %121 = icmp eq i32 %.0432, 0
+  %120 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef align 8 dereferenceable_or_null(513) %41, i32 noundef %.0428)
+  %121 = icmp eq i32 %.0428, 0
   call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(57) %120, i1 noundef zeroext %121)
-  %122 = add nuw nsw i32 %.0432, 1
+  %122 = add nuw nsw i32 %.0428, 1
   %123 = call noundef i32 @_ZNK11QCustomPlot10graphCountEv(ptr noundef align 8 dereferenceable_or_null(513) %41)
   %124 = icmp slt i32 %122, %123
   br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !23
@@ -9626,11 +9626,11 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
 510:                                              ; preds = %502
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %storemerge433 = load ptr, ptr %512, align 8
-  %.not108434 = icmp eq ptr %storemerge433, null
-  br i1 %.not108434, label %._crit_edge444, label %.lr.ph443
+  %storemerge429 = load ptr, ptr %512, align 8
+  %.not108430 = icmp eq ptr %storemerge429, null
+  br i1 %.not108430, label %._crit_edge440, label %.lr.ph439
 
-.lr.ph443:                                        ; preds = %510
+.lr.ph439:                                        ; preds = %510
   %513 = trunc nuw i8 %506 to i1
   %514 = xor i8 %508, 1
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -9640,16 +9640,16 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
   %519 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %525
 
-._crit_edge444.loopexit:                          ; preds = %627
+._crit_edge440.loopexit:                          ; preds = %627
   %520 = sext i32 %.155 to i64
   %521 = sext i32 %.1 to i64
-  br label %._crit_edge444
+  br label %._crit_edge440
 
-._crit_edge444:                                   ; preds = %._crit_edge444.loopexit, %510
-  %.058.lcssa = phi i64 [ 0, %510 ], [ %.159, %._crit_edge444.loopexit ]
-  %.056.lcssa = phi i64 [ 0, %510 ], [ %.157, %._crit_edge444.loopexit ]
-  %.054.lcssa = phi i64 [ 0, %510 ], [ %520, %._crit_edge444.loopexit ]
-  %.053.lcssa = phi i64 [ 0, %510 ], [ %521, %._crit_edge444.loopexit ]
+._crit_edge440:                                   ; preds = %._crit_edge440.loopexit, %510
+  %.058.lcssa = phi i64 [ 0, %510 ], [ %.159, %._crit_edge440.loopexit ]
+  %.056.lcssa = phi i64 [ 0, %510 ], [ %.157, %._crit_edge440.loopexit ]
+  %.054.lcssa = phi i64 [ 0, %510 ], [ %520, %._crit_edge440.loopexit ]
+  %.053.lcssa = phi i64 [ 0, %510 ], [ %521, %._crit_edge440.loopexit ]
   %522 = load i32, ptr %511, align 8
   switch i32 %522, label %633 [
     i32 0, label %628
@@ -9664,36 +9664,36 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
           cleanup
   br label %830
 
-525:                                              ; preds = %.lr.ph443, %627
-  %storemerge441 = phi ptr [ %storemerge433, %.lr.ph443 ], [ %storemerge, %627 ]
-  %.053440 = phi i32 [ 0, %.lr.ph443 ], [ %.1, %627 ]
-  %.054439 = phi i32 [ 0, %.lr.ph443 ], [ %.155, %627 ]
-  %.056438 = phi i64 [ 0, %.lr.ph443 ], [ %.157, %627 ]
-  %.058437 = phi i64 [ 0, %.lr.ph443 ], [ %.159, %627 ]
-  %.060436 = phi i8 [ %514, %.lr.ph443 ], [ %.161, %627 ]
-  %.062435 = phi i1 [ %513, %.lr.ph443 ], [ false, %627 ]
+525:                                              ; preds = %.lr.ph439, %627
+  %storemerge437 = phi ptr [ %storemerge429, %.lr.ph439 ], [ %storemerge, %627 ]
+  %.053436 = phi i32 [ 0, %.lr.ph439 ], [ %.1, %627 ]
+  %.054435 = phi i32 [ 0, %.lr.ph439 ], [ %.155, %627 ]
+  %.056434 = phi i64 [ 0, %.lr.ph439 ], [ %.157, %627 ]
+  %.058433 = phi i64 [ 0, %.lr.ph439 ], [ %.159, %627 ]
+  %.060432 = phi i8 [ %514, %.lr.ph439 ], [ %.161, %627 ]
+  %.062431 = phi i1 [ %513, %.lr.ph439 ], [ false, %627 ]
   %526 = load i16, ptr %517, align 8
   %527 = load i16, ptr %518, align 8
-  %528 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 56
-  %529 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 80
-  %530 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 48
+  %528 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 56
+  %529 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 80
+  %530 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 48
   %531 = load i16, ptr %530, align 8
-  %532 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 50
+  %532 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 50
   %533 = load i16, ptr %532, align 2
   %534 = invoke i32 @compare_headers(ptr noundef nonnull %515, ptr noundef nonnull %516, i16 noundef zeroext %526, i16 noundef zeroext %527, ptr noundef nonnull %528, ptr noundef nonnull %529, i16 noundef zeroext %531, i16 noundef zeroext %533, i32 noundef 0)
           to label %535 unwind label %545
 
 535:                                              ; preds = %525
-  %.not417 = icmp eq i32 %534, 0
-  %536 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 44
+  %.not413 = icmp eq i32 %534, 0
+  %536 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 44
   %537 = load i32, ptr %536, align 4
   %538 = zext i32 %537 to i64
-  br i1 %.not417, label %539, label %547
+  br i1 %.not413, label %539, label %547
 
 539:                                              ; preds = %535
-  %540 = add i64 %.056438, %538
-  %541 = add i32 %.053440, 1
-  %542 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 105
+  %540 = add i64 %.056434, %538
+  %541 = add i32 %.053436, 1
+  %542 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 105
   %543 = load i8, ptr %542, align 1
   %544 = icmp ne i8 %543, 0
   br label %550
@@ -9704,32 +9704,32 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
   br label %830
 
 547:                                              ; preds = %535
-  %548 = add i64 %.058437, %538
-  %549 = add i32 %.054439, 1
+  %548 = add i64 %.058433, %538
+  %549 = add i32 %.054435, 1
   br label %550
 
 550:                                              ; preds = %547, %539
-  %.159 = phi i64 [ %548, %547 ], [ %.058437, %539 ]
-  %.157 = phi i64 [ %.056438, %547 ], [ %540, %539 ]
-  %.155 = phi i32 [ %549, %547 ], [ %.054439, %539 ]
-  %.1 = phi i32 [ %.053440, %547 ], [ %541, %539 ]
+  %.159 = phi i64 [ %548, %547 ], [ %.058433, %539 ]
+  %.157 = phi i64 [ %.056434, %547 ], [ %540, %539 ]
+  %.155 = phi i32 [ %549, %547 ], [ %.054435, %539 ]
+  %.1 = phi i32 [ %.053436, %547 ], [ %541, %539 ]
   %.052 = phi i1 [ true, %547 ], [ %544, %539 ]
-  %551 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 12
+  %551 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 12
   %552 = load i32, ptr %551, align 4
   %553 = uitofp i32 %552 to double
-  %554 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 16
   %555 = load i32, ptr %554, align 8
   %556 = uitofp i32 %555 to double
   %557 = fdiv double %556, 1.000000e+06
   %558 = fadd double %557, %553
-  br i1 %.062435, label %559, label %560
+  br i1 %.062431, label %559, label %560
 
 559:                                              ; preds = %550
   store double %558, ptr %503, align 8
   br label %560
 
 560:                                              ; preds = %559, %550
-  %561 = trunc nuw i8 %.060436 to i1
+  %561 = trunc nuw i8 %.060432 to i1
   br i1 %561, label %562, label %600
 
 562:                                              ; preds = %560
@@ -9741,13 +9741,13 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
           to label %568 unwind label %576
 
 568:                                              ; preds = %562
-  %.not418 = icmp eq i32 %567, 0
-  br i1 %.not418, label %584, label %569
+  %.not414 = icmp eq i32 %567, 0
+  br i1 %.not414, label %584, label %569
 
 569:                                              ; preds = %568
-  %570 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 20
+  %570 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 20
   %571 = load i32, ptr %570, align 4
-  %572 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 28
+  %572 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 28
   %573 = load i32, ptr %572, align 4
   %.not125 = icmp eq i32 %571, %573
   br i1 %.not125, label %578, label %574
@@ -9762,26 +9762,26 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
   br label %830
 
 578:                                              ; preds = %569
-  %579 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 36
+  %579 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 36
   %580 = load i16, ptr %579, align 4
   %581 = lshr i16 %580, 1
   %582 = and i16 %581, 1
   %sext = add nsw i16 %582, -1
   %583 = sext i16 %sext to i32
-  %spec.select564 = add i32 %571, %583
+  %spec.select560 = add i32 %571, %583
   br label %.sink.split
 
 584:                                              ; preds = %568
-  %585 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 36
+  %585 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 36
   %586 = load i16, ptr %585, align 4
   %587 = and i16 %586, 2
   %.not122.not = icmp eq i16 %587, 0
   br i1 %.not122.not, label %588, label %600
 
 588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 20
+  %589 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 20
   %590 = load i32, ptr %589, align 4
-  %591 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 28
+  %591 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 28
   %592 = load i32, ptr %591, align 4
   %.not123 = icmp eq i32 %590, %592
   br i1 %.not123, label %595, label %593
@@ -9791,7 +9791,7 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
   br label %.sink.split
 
 595:                                              ; preds = %588
-  %596 = getelementptr inbounds nuw i8, ptr %storemerge441, i64 24
+  %596 = getelementptr inbounds nuw i8, ptr %storemerge437, i64 24
   %597 = load i32, ptr %596, align 8
   %598 = load i32, ptr %504, align 8
   %reass.sub = sub i32 %598, %597
@@ -9799,7 +9799,7 @@ _ZN7QStringD2Ev.exit272:                          ; preds = %500, %_ZN17QArrayDa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %578, %593, %595, %574
-  %.sink = phi i32 [ %575, %574 ], [ %594, %593 ], [ %spec.select564, %578 ], [ %599, %595 ]
+  %.sink = phi i32 [ %575, %574 ], [ %594, %593 ], [ %spec.select560, %578 ], [ %599, %595 ]
   store i32 %.sink, ptr %504, align 8
   br label %600
 
@@ -9868,7 +9868,7 @@ _ZNSt8multimapIdP7segmentSt4lessIdESaISt4pairIKdS1_EEE11lower_boundERS5_.exit.i:
   %622 = getelementptr inbounds nuw i8, ptr %615, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double %603, ptr %7, align 8
-  store ptr %storemerge441, ptr %519, align 8
+  store ptr %storemerge437, ptr %519, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %622, ptr %6, align 8
   %623 = invoke ptr @_ZNSt8_Rb_treeIdSt4pairIKdP7segmentESt10_Select1stIS4_ESt4lessIdESaIS4_EE16_M_insert_equal_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %622, ptr %.08.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -9885,31 +9885,31 @@ _ZNSt8multimapIdP7segmentSt4lessIdESaISt4pairIKdS1_EEE11lower_boundERS5_.exit.i:
   br label %830
 
 627:                                              ; preds = %624, %600
-  %storemerge = load ptr, ptr %storemerge441, align 8
+  %storemerge = load ptr, ptr %storemerge437, align 8
   %.not108 = icmp eq ptr %storemerge, null
-  br i1 %.not108, label %._crit_edge444.loopexit, label %525, !llvm.loop !52
+  br i1 %.not108, label %._crit_edge440.loopexit, label %525, !llvm.loop !52
 
-628:                                              ; preds = %._crit_edge444
+628:                                              ; preds = %._crit_edge440
   invoke void @_ZN15TCPStreamDialog11fillStevensEv(ptr noundef align 8 dereferenceable_or_null(584) %0)
           to label %633 unwind label %523
 
-629:                                              ; preds = %._crit_edge444
+629:                                              ; preds = %._crit_edge440
   invoke void @_ZN15TCPStreamDialog12fillTcptraceEv(ptr noundef align 8 dereferenceable_or_null(584) %0)
           to label %633 unwind label %523
 
-630:                                              ; preds = %._crit_edge444
+630:                                              ; preds = %._crit_edge440
   invoke void @_ZN15TCPStreamDialog14fillThroughputEv(ptr noundef align 8 dereferenceable_or_null(584) %0)
           to label %633 unwind label %523
 
-631:                                              ; preds = %._crit_edge444
+631:                                              ; preds = %._crit_edge440
   invoke void @_ZN15TCPStreamDialog17fillRoundTripTimeEv(ptr noundef align 8 dereferenceable_or_null(584) %0)
           to label %633 unwind label %523
 
-632:                                              ; preds = %._crit_edge444
+632:                                              ; preds = %._crit_edge440
   invoke void @_ZN15TCPStreamDialog15fillWindowScaleEv(ptr noundef align 8 dereferenceable_or_null(584) %0)
           to label %633 unwind label %523
 
-633:                                              ; preds = %._crit_edge444, %632, %631, %630, %629, %628
+633:                                              ; preds = %._crit_edge440, %632, %631, %630, %629, %628
   invoke void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %41, i1 noundef zeroext true)
           to label %634 unwind label %523
 
@@ -11473,11 +11473,11 @@ _ZL12free_addressP8_address.exit:                 ; preds = %_ZL12copy_addressP8
   store ptr %31, ptr %32, align 8
   store ptr %31, ptr %6, align 8
   store i32 %25, ptr %4, align 4
-  %.pre20 = load i32, ptr %22, align 8
+  %.pre16 = load i32, ptr %22, align 8
   br label %_ZL12copy_addressP8_addressPKS_.exit1
 
 _ZL12copy_addressP8_addressPKS_.exit1:            ; preds = %_ZL12free_addressP8_address.exit, %29
-  %33 = phi i32 [ %23, %_ZL12free_addressP8_address.exit ], [ %.pre20, %29 ]
+  %33 = phi i32 [ %23, %_ZL12free_addressP8_address.exit ], [ %.pre16, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %35 = load i16, ptr %34, align 8
   store i16 %35, ptr %13, align 8
@@ -11514,10 +11514,10 @@ _ZL12copy_addressP8_addressPKS_.exit5:            ; preds = %_ZL12free_addressP8
   store i16 %14, ptr %34, align 8
   %.not.i.i6 = icmp eq i32 %3, 0
   %46 = icmp slt i32 %5, 1
-  %or.cond.not19 = or i1 %.not.i.i6, %46
+  %or.cond.not15 = or i1 %.not.i.i6, %46
   %.not6.i.i7 = icmp eq ptr %.sroa.10.0, null
-  %or.cond18 = select i1 %or.cond.not19, i1 true, i1 %.not6.i.i7
-  br i1 %or.cond18, label %_ZL12free_addressP8_address.exit8, label %47
+  %or.cond14 = select i1 %or.cond.not15, i1 true, i1 %.not6.i.i7
+  br i1 %or.cond14, label %_ZL12free_addressP8_address.exit8, label %47
 
 _ZL12copy_addressP8_addressPKS_.exit5.thread:     ; preds = %_ZL12free_addressP8_address.exit4
   store i16 %14, ptr %34, align 8

@@ -191,12 +191,12 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %35, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre31 = load i64, ptr %5, align 8, !tbaa !13
-  %43 = trunc i64 %.pre31 to i1
+  %.pre28 = load i64, ptr %5, align 8, !tbaa !13
+  %43 = trunc i64 %.pre28 to i1
   br i1 %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit19, label %44
 
 44:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
-  %45 = inttoptr i64 %.pre31 to ptr
+  %45 = inttoptr i64 %.pre28 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit19 unwind label %46
 
@@ -363,12 +363,12 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %35, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre31 = load i64, ptr %5, align 8, !tbaa !13
-  %43 = trunc i64 %.pre31 to i1
+  %.pre28 = load i64, ptr %5, align 8, !tbaa !13
+  %43 = trunc i64 %.pre28 to i1
   br i1 %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit19, label %44
 
 44:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
-  %45 = inttoptr i64 %.pre31 to ptr
+  %45 = inttoptr i64 %.pre28 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit19 unwind label %46
 

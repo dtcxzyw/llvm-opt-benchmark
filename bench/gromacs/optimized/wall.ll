@@ -741,7 +741,7 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %80 = icmp eq i32 %.0161216.us, 0
   %. = select i1 %80, float %68, float %11
   %81 = or i1 %.not, %80
-  %.sroa.0182.1.us = select i1 %81, ptr %3, ptr %.sroa.0182.0.copyload
+  %.sroa.0182.0.us = select i1 %81, ptr %3, ptr %.sroa.0182.0.copyload
   %.0162.us = select i1 %.not, float 1.000000e+00, float %.
   br i1 %27, label %.preheader.us.us, label %._crit_edge210.us
 
@@ -765,7 +765,7 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %.0165207.us.us = phi float [ %.2167.us.us, %._crit_edge205.us.us ], [ 0.000000e+00, %.split.us219 ]
   %88 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv263
   %89 = load i16, ptr %88, align 2, !tbaa !263
-  %90 = getelementptr inbounds nuw i32, ptr %.sroa.0182.1.us, i64 %indvars.iv263
+  %90 = getelementptr inbounds nuw i32, ptr %.sroa.0182.0.us, i64 %indvars.iv263
   %91 = load i32, ptr %90, align 4, !tbaa !214
   %92 = shl nsw i32 %91, 1
   %93 = zext i16 %89 to i32

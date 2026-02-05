@@ -352,7 +352,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
 
 148:                                              ; preds = %142
   store i8 1, ptr %74, align 1, !alias.scope !6, !noalias !11
-  br label %.loopexit36
+  br label %.loopexit35
 
 .sink.split:                                      ; preds = %86, %146
   %.sroa.011.0.i.sink = phi i32 [ %.sroa.4.0.i35.ph.i, %146 ], [ %.sroa.011.0.i, %86 ]
@@ -378,7 +378,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %153 = load i64, ptr %5, align 8, !alias.scope !28, !noalias !31, !noundef !4
   %.not.i.i.not = icmp ult i64 %153, %14
   %154 = icmp ugt i64 %153, %14
-  br i1 %154, label %.loopexit36, label %155
+  br i1 %154, label %.loopexit35, label %155
 
 155:                                              ; preds = %152
   %156 = load i64, ptr %0, align 8, !range !24, !alias.scope !28, !noalias !31, !noundef !4
@@ -391,7 +391,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
 157:                                              ; preds = %155
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %159 = load i64, ptr %158, align 8, !alias.scope !28, !noalias !31, !noundef !4
-  br label %.loopexit36
+  br label %.loopexit35
 
 160:                                              ; preds = %155
   %161 = icmp eq i64 %153, 0
@@ -425,7 +425,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   store i64 1, ptr %0, align 8, !alias.scope !28, !noalias !31
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %168, align 8, !alias.scope !28, !noalias !31
-  br label %.loopexit36
+  br label %.loopexit35
 
 169:                                              ; preds = %163
   br i1 %.not.i.i.not, label %170, label %174
@@ -889,7 +889,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h1cadcf59d1fcb3
 _ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17hb55f71593cb1634aE.exit: ; preds = %346
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %354 = load i64, ptr %353, align 8, !alias.scope !42, !noalias !45, !noundef !4
-  br label %.loopexit36
+  br label %.loopexit35
 
 _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h1cadcf59d1fcb3d4E.exit._ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h1cadcf59d1fcb3d4E.exit.thread_crit_edge.i: ; preds = %344, %345
   %.sroa.10.4.ph = phi i64 [ %.sroa.10.8.insert.mask, %345 ], [ %.sroa.10.8.insert.insert15, %344 ]
@@ -907,7 +907,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h1cadcf59d1fcb3
   store i8 0, ptr %74, align 1, !alias.scope !6, !noalias !11
   br label %82
 
-.loopexit36:                                      ; preds = %152, %148, %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17hb55f71593cb1634aE.exit, %.loopexit.i, %157
+.loopexit35:                                      ; preds = %152, %148, %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17hb55f71593cb1634aE.exit, %.loopexit.i, %157
   %.sroa.12.0.ph = phi i64 [ undef, %148 ], [ %354, %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17hb55f71593cb1634aE.exit ], [ 0, %.loopexit.i ], [ %159, %157 ], [ %.sroa.10.0, %152 ]
   %.sroa.7.0.ph = phi i64 [ 2, %148 ], [ 0, %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17hb55f71593cb1634aE.exit ], [ 0, %.loopexit.i ], [ 0, %157 ], [ 3, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !60

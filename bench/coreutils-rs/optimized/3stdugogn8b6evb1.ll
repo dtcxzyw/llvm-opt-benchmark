@@ -3291,12 +3291,12 @@ _ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i: ; preds = %_ZN4cor
 218:                                              ; preds = %._crit_edge.i23.i
   %219 = sub nuw i64 %.val5.i.i, %.1.i.i
   %220 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %.1.i.i
-  %221 = add i64 %219, %.sroa.57.4.i
-  %222 = icmp eq i64 %.sroa.75.4.i, 0
+  %221 = add i64 %219, %.sroa.57.2.i
+  %222 = icmp eq i64 %.sroa.75.2.i, 0
   br i1 %222, label %252, label %223
 
 223:                                              ; preds = %218
-  %224 = sub i64 8, %.sroa.75.4.i
+  %224 = sub i64 8, %.sroa.75.2.i
   %.0.sroa.speculated.i.i.i25.i = call noundef i64 @llvm.umin.i64(i64 %219, i64 %224)
   %225 = icmp ugt i64 %.0.sroa.speculated.i.i.i25.i, 3
   br i1 %225, label %226, label %228
@@ -3340,10 +3340,10 @@ _ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i: ; preds = %_ZN4cor
 
 _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %238
   %.2.i.i.i31.i = phi i64 [ %246, %240 ], [ %.118.i.i.i28.i, %238 ]
-  %247 = shl i64 %.sroa.75.4.i, 3
+  %247 = shl i64 %.sroa.75.2.i, 3
   %248 = and i64 %247, 56
   %249 = shl i64 %.2.i.i.i31.i, %248
-  %250 = or i64 %249, %.sroa.65.5.i
+  %250 = or i64 %249, %.sroa.65.3.i
   %251 = icmp ult i64 %219, %224
   br i1 %251, label %274, label %257
 
@@ -3379,7 +3379,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
   br label %252
 
 274:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i
-  %275 = add i64 %219, %.sroa.75.4.i
+  %275 = add i64 %219, %.sroa.75.2.i
   br label %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i"
 
 ._crit_edge.i.i50.i:                              ; preds = %.lr.ph.i.i43.i, %252
@@ -3462,7 +3462,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
   br i1 %324, label %.lr.ph.i.i43.i, label %._crit_edge.i.i50.i
 
 "_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i": ; preds = %293, %291, %274
-  %.sroa.65.3.i = phi i64 [ %250, %274 ], [ %301, %293 ], [ %.118.i15.i.i36.i, %291 ]
+  %.sroa.65.1.i = phi i64 [ %250, %274 ], [ %301, %293 ], [ %.118.i15.i.i36.i, %291 ]
   %.sroa.42.3.i = phi i64 [ %.sroa.42.5.i, %274 ], [ %.sroa.42.2.i, %293 ], [ %.sroa.42.2.i, %291 ]
   %.sroa.29.3.i = phi i64 [ %.sroa.29.5.i, %274 ], [ %.sroa.29.2.i, %293 ], [ %.sroa.29.2.i, %291 ]
   %.sroa.16.3.i = phi i64 [ %.sroa.16.5.i, %274 ], [ %.sroa.16.2.i, %293 ], [ %.sroa.16.2.i, %291 ]
@@ -3472,9 +3472,9 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
   br label %"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17haa402715a134392aE.llvm.4965012825681948001.exit.i"
 
 .lr.ph.i21.i:                                     ; preds = %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i, %330
-  %.sroa.75.3.i = phi i64 [ %.sroa.75.4.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
-  %.sroa.65.4.i = phi i64 [ %.sroa.65.5.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
-  %.sroa.57.3.i = phi i64 [ %.sroa.57.4.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
+  %.sroa.75.1.i = phi i64 [ %.sroa.75.2.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
+  %.sroa.65.2.i = phi i64 [ %.sroa.65.3.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
+  %.sroa.57.1.i = phi i64 [ %.sroa.57.2.i, %330 ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
   %.sroa.42.4.i = phi i64 [ %.sroa.42.5.i, %330 ], [ %194, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
   %.sroa.29.4.i = phi i64 [ %.sroa.29.5.i, %330 ], [ %192, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
   %.sroa.16.4.i = phi i64 [ %.sroa.16.5.i, %330 ], [ %193, %_ZN4core3ptr19swap_nonoverlapping17heab18489499bea9cE.exit.i ]
@@ -3489,9 +3489,9 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
   br i1 %329, label %331, label %330
 
 330:                                              ; preds = %449, %.lr.ph.i21.i
-  %.sroa.75.4.i = phi i64 [ %.sroa.75.5.i, %449 ], [ %.sroa.75.3.i, %.lr.ph.i21.i ]
-  %.sroa.65.5.i = phi i64 [ %.sroa.65.7.i, %449 ], [ %.sroa.65.4.i, %.lr.ph.i21.i ]
-  %.sroa.57.4.i = phi i64 [ %.sroa.57.5.i, %449 ], [ %.sroa.57.3.i, %.lr.ph.i21.i ]
+  %.sroa.75.2.i = phi i64 [ %.sroa.75.3.i, %449 ], [ %.sroa.75.1.i, %.lr.ph.i21.i ]
+  %.sroa.65.3.i = phi i64 [ %.sroa.65.5.i, %449 ], [ %.sroa.65.2.i, %.lr.ph.i21.i ]
+  %.sroa.57.2.i = phi i64 [ %.sroa.57.3.i, %449 ], [ %.sroa.57.1.i, %.lr.ph.i21.i ]
   %.sroa.42.5.i = phi i64 [ %.sroa.42.9.i, %449 ], [ %.sroa.42.4.i, %.lr.ph.i21.i ]
   %.sroa.29.5.i = phi i64 [ %.sroa.29.9.i, %449 ], [ %.sroa.29.4.i, %.lr.ph.i21.i ]
   %.sroa.16.5.i = phi i64 [ %.sroa.16.9.i, %449 ], [ %.sroa.16.4.i, %.lr.ph.i21.i ]
@@ -3508,12 +3508,12 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.i.i": ; preds = %331
   %333 = sub nuw i64 %.sroa.09.045.i.i, %.047.i.i
   %334 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %.047.i.i
-  %335 = add i64 %333, %.sroa.57.3.i
-  %336 = icmp eq i64 %.sroa.75.3.i, 0
+  %335 = add i64 %333, %.sroa.57.1.i
+  %336 = icmp eq i64 %.sroa.75.1.i, 0
   br i1 %336, label %366, label %337
 
 337:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.i.i"
-  %338 = sub i64 8, %.sroa.75.3.i
+  %338 = sub i64 8, %.sroa.75.1.i
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %333, i64 %338)
   %339 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i, 3
   br i1 %339, label %340, label %342
@@ -3557,10 +3557,10 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i30.i: ; preds = %240, %2
 
 _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   %.2.i.i.i.i = phi i64 [ %360, %354 ], [ %.118.i.i.i.i, %352 ]
-  %361 = shl i64 %.sroa.75.3.i, 3
+  %361 = shl i64 %.sroa.75.1.i, 3
   %362 = and i64 %361, 56
   %363 = shl i64 %.2.i.i.i.i, %362
-  %364 = or i64 %363, %.sroa.65.4.i
+  %364 = or i64 %363, %.sroa.65.2.i
   %365 = icmp ult i64 %333, %338
   br i1 %365, label %388, label %371
 
@@ -3596,7 +3596,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   br label %366
 
 388:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i
-  %389 = add i64 %333, %.sroa.75.3.i
+  %389 = add i64 %333, %.sroa.75.1.i
   br label %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i"
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %366
@@ -3679,7 +3679,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   br i1 %438, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 "_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i": ; preds = %407, %405, %388
-  %.sroa.65.6.i = phi i64 [ %364, %388 ], [ %415, %407 ], [ %.118.i15.i.i.i, %405 ]
+  %.sroa.65.4.i = phi i64 [ %364, %388 ], [ %415, %407 ], [ %.118.i15.i.i.i, %405 ]
   %.sroa.42.8.i = phi i64 [ %.sroa.42.4.i, %388 ], [ %.sroa.42.7.i, %407 ], [ %.sroa.42.7.i, %405 ]
   %.sroa.29.8.i = phi i64 [ %.sroa.29.4.i, %388 ], [ %.sroa.29.7.i, %407 ], [ %.sroa.29.7.i, %405 ]
   %.sroa.16.8.i = phi i64 [ %.sroa.16.4.i, %388 ], [ %.sroa.16.7.i, %407 ], [ %.sroa.16.7.i, %405 ]
@@ -3689,9 +3689,9 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   br label %440
 
 440:                                              ; preds = %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i", %331
-  %.sroa.75.5.i = phi i64 [ %storemerge.i.i.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.75.3.i, %331 ]
-  %.sroa.65.7.i = phi i64 [ %.sroa.65.6.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.65.4.i, %331 ]
-  %.sroa.57.5.i = phi i64 [ %335, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.57.3.i, %331 ]
+  %.sroa.75.3.i = phi i64 [ %storemerge.i.i.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.75.1.i, %331 ]
+  %.sroa.65.5.i = phi i64 [ %.sroa.65.4.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.65.2.i, %331 ]
+  %.sroa.57.3.i = phi i64 [ %335, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.57.1.i, %331 ]
   %.sroa.42.9.i = phi i64 [ %.sroa.42.8.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.42.4.i, %331 ]
   %.sroa.29.9.i = phi i64 [ %.sroa.29.8.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.29.4.i, %331 ]
   %.sroa.16.9.i = phi i64 [ %.sroa.16.8.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit.i" ], [ %.sroa.16.4.i, %331 ]
@@ -3731,9 +3731,9 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   br i1 %457, label %449, label %448
 
 "_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17haa402715a134392aE.llvm.4965012825681948001.exit.i": ; preds = %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i", %._crit_edge.i23.i
-  %.sroa.75.6.i = phi i64 [ %storemerge.i.i40.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.75.4.i, %._crit_edge.i23.i ]
-  %.sroa.65.8.i = phi i64 [ %.sroa.65.3.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.65.5.i, %._crit_edge.i23.i ]
-  %.sroa.57.6.i = phi i64 [ %221, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.57.4.i, %._crit_edge.i23.i ]
+  %.sroa.75.4.i = phi i64 [ %storemerge.i.i40.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.75.2.i, %._crit_edge.i23.i ]
+  %.sroa.65.6.i = phi i64 [ %.sroa.65.1.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.65.3.i, %._crit_edge.i23.i ]
+  %.sroa.57.4.i = phi i64 [ %221, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.57.2.i, %._crit_edge.i23.i ]
   %.sroa.42.10.i = phi i64 [ %.sroa.42.3.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.42.5.i, %._crit_edge.i23.i ]
   %.sroa.29.10.i = phi i64 [ %.sroa.29.3.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.29.5.i, %._crit_edge.i23.i ]
   %.sroa.16.10.i = phi i64 [ %.sroa.16.3.i, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.sroa.16.5.i, %._crit_edge.i23.i ]
@@ -3741,12 +3741,12 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
   %.134.i.i = phi i64 [ %325, %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit53.i" ], [ %.2.i.i, %._crit_edge.i23.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !441
   store i64 %.134.i.i, ptr %4, align 8, !noalias !441
-  %458 = add i64 %.sroa.57.6.i, 8
-  %459 = icmp eq i64 %.sroa.75.6.i, 0
+  %458 = add i64 %.sroa.57.4.i, 8
+  %459 = icmp eq i64 %.sroa.75.4.i, 0
   br i1 %459, label %486, label %460
 
 460:                                              ; preds = %"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17haa402715a134392aE.llvm.4965012825681948001.exit.i"
-  %461 = sub i64 8, %.sroa.75.6.i
+  %461 = sub i64 8, %.sroa.75.4.i
   %.0.sroa.speculated.i.i.i54.i = call noundef i64 @llvm.umin.i64(i64 %461, i64 8)
   %462 = icmp ugt i64 %461, 3
   %463 = and i64 %.134.i.i, 4294967295
@@ -3784,11 +3784,11 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %354, %352
 
 _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i: ; preds = %474, %472
   %.2.i.i.i60.i = phi i64 [ %480, %474 ], [ %.118.i.i.i57.i, %472 ]
-  %481 = shl i64 %.sroa.75.6.i, 3
+  %481 = shl i64 %.sroa.75.4.i, 3
   %482 = and i64 %481, 56
   %483 = shl i64 %.2.i.i.i60.i, %482
-  %484 = or i64 %483, %.sroa.65.8.i
-  %485 = icmp ugt i64 %.sroa.75.6.i, 8
+  %484 = or i64 %483, %.sroa.65.6.i
+  %485 = icmp ugt i64 %.sroa.75.4.i, 8
   br i1 %485, label %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit82.i", label %492
 
 486:                                              ; preds = %492, %"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17haa402715a134392aE.llvm.4965012825681948001.exit.i", %"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17haa402715a134392aE.llvm.4965012825681948001.exit.thread.i"
@@ -3897,19 +3897,19 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i: ; preds = %474, %4
   br label %._crit_edge.i.i79.i
 
 "_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit82.i": ; preds = %526, %524, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i
-  %553 = phi i64 [ %487, %524 ], [ %487, %526 ], [ %458, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
-  %.sroa.65.9.i = phi i64 [ %.118.i15.i.i65.i, %524 ], [ %534, %526 ], [ %484, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
-  %.sroa.42.13.i = phi i64 [ %.sroa.42.12.i, %524 ], [ %.sroa.42.12.i, %526 ], [ %.sroa.42.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
-  %.sroa.29.13.i = phi i64 [ %.sroa.29.12.i, %524 ], [ %.sroa.29.12.i, %526 ], [ %.sroa.29.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
-  %.sroa.16.13.i = phi i64 [ %.sroa.16.12.i, %524 ], [ %.sroa.16.12.i, %526 ], [ %.sroa.16.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
-  %.sroa.0.13.i = phi i64 [ %.sroa.0.12.i, %524 ], [ %.sroa.0.12.i, %526 ], [ %.sroa.0.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ]
+  %553 = phi i64 [ %458, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %487, %526 ], [ %487, %524 ]
+  %.sroa.65.7.i = phi i64 [ %484, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %534, %526 ], [ %.118.i15.i.i65.i, %524 ]
+  %.sroa.42.13.i = phi i64 [ %.sroa.42.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %.sroa.42.12.i, %526 ], [ %.sroa.42.12.i, %524 ]
+  %.sroa.29.13.i = phi i64 [ %.sroa.29.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %.sroa.29.12.i, %526 ], [ %.sroa.29.12.i, %524 ]
+  %.sroa.16.13.i = phi i64 [ %.sroa.16.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %.sroa.16.12.i, %526 ], [ %.sroa.16.12.i, %524 ]
+  %.sroa.0.13.i = phi i64 [ %.sroa.0.10.i, %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i59.i ], [ %.sroa.0.12.i, %526 ], [ %.sroa.0.12.i, %524 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !441
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !497
   store i64 %.sroa.0.13.i, ptr %5, align 8, !noalias !502
   store i64 %.sroa.16.13.i, ptr %.sroa.16.0..sroa_idx.i, align 8, !noalias !502
   store i64 %.sroa.29.13.i, ptr %.sroa.29.0..sroa_idx.i, align 8, !noalias !502
   %554 = shl i64 %553, 56
-  %555 = or i64 %554, %.sroa.65.9.i
+  %555 = or i64 %554, %.sroa.65.7.i
   %556 = xor i64 %.sroa.42.13.i, %555
   store i64 %556, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !497
   invoke void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8c_rounds17hcb48a26c074fadc7E.llvm.11973937877542342116"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)

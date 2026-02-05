@@ -1014,9 +1014,9 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit: ; preds = %32
   %58 = load ptr, ptr %57, align 8, !tbaa !67
   %59 = load ptr, ptr %56, align 8, !tbaa !70
   %.not.i = icmp ne ptr %58, %59
-  %.pre137 = ptrtoint ptr %58 to i64
-  %.pre138 = ptrtoint ptr %59 to i64
-  %.pre140 = sub i64 %.pre137, %.pre138
+  %.pre136 = ptrtoint ptr %58 to i64
+  %.pre137 = ptrtoint ptr %59 to i64
+  %.pre139 = sub i64 %.pre136, %.pre137
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %62 = load ptr, ptr %61, align 8
@@ -1024,9 +1024,9 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit: ; preds = %32
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
-  %67 = icmp eq i64 %66, %.pre140
+  %67 = icmp eq i64 %66, %.pre139
   %68 = select i1 %.not.i, i1 %67, i1 false
-  %69 = sdiv exact i64 %.pre140, 24
+  %69 = sdiv exact i64 %.pre139, 24
   %70 = trunc i64 %69 to i32
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %_ZN5Eigen16CommaInitializerINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcmERKi.exit60.lr.ph, label %._crit_edge119
@@ -1062,13 +1062,13 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcmERKi.exit60.lr.
   %.sroa.12.32..sroa_idx83.us = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 56
   %.sroa.12.32.copyload84.us = load double, ptr %.sroa.12.32..sroa_idx83.us, align 8, !tbaa !26
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 64
-  %.sroa.13.sroa.0.0.copyload134 = load <2 x double>, ptr %81, align 8
-  %.sroa.13.sroa.8.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 80
-  %.sroa.13.sroa.8.0.copyload136 = load double, ptr %.sroa.13.sroa.8.0..sroa_idx135, align 8, !tbaa !26
+  %.sroa.13.sroa.0.0.copyload133 = load <2 x double>, ptr %81, align 8
+  %.sroa.13.sroa.8.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 80
+  %.sroa.13.sroa.8.0.copyload135 = load double, ptr %.sroa.13.sroa.8.0..sroa_idx134, align 8, !tbaa !26
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 88
-  %.sroa.15.sroa.0.0.copyload131 = load <2 x double>, ptr %82, align 8
-  %.sroa.15.sroa.8.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 104
-  %.sroa.15.sroa.8.0.copyload133 = load double, ptr %.sroa.15.sroa.8.0..sroa_idx132, align 8, !tbaa !26
+  %.sroa.15.sroa.0.0.copyload130 = load <2 x double>, ptr %82, align 8
+  %.sroa.15.sroa.8.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %.sroa.086.0117.us, i64 104
+  %.sroa.15.sroa.8.0.copyload132 = load double, ptr %.sroa.15.sroa.8.0..sroa_idx131, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.077)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.077, ptr noundef nonnull align 4 dereferenceable(12) %79, i64 12, i1 false)
   switch i32 %5, label %.loopexit.us [
@@ -1100,12 +1100,12 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcmERKi.exit60.lr.
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %86, %.lr.ph.split.us, %88, %85, %84, %83
-  %.sroa.14.2 = phi double [ %.sroa.12.32.copyload84.us, %83 ], [ %92, %88 ], [ 0.000000e+00, %.lr.ph.split.us ], [ %.sroa.13.sroa.8.0.copyload136, %85 ], [ %.sroa.15.sroa.8.0.copyload133, %84 ], [ %.sroa.12.32.copyload84.us, %86 ]
-  %.sroa.0.2 = phi <2 x double> [ %.sroa.8.32.copyload80.us, %83 ], [ %91, %88 ], [ zeroinitializer, %.lr.ph.split.us ], [ %.sroa.13.sroa.0.0.copyload134, %85 ], [ %.sroa.15.sroa.0.0.copyload131, %84 ], [ %.sroa.8.32.copyload80.us, %86 ]
+  %.sroa.14.0 = phi double [ %.sroa.12.32.copyload84.us, %83 ], [ %92, %88 ], [ 0.000000e+00, %.lr.ph.split.us ], [ %.sroa.13.sroa.8.0.copyload135, %85 ], [ %.sroa.15.sroa.8.0.copyload132, %84 ], [ %.sroa.12.32.copyload84.us, %86 ]
+  %.sroa.0.2 = phi <2 x double> [ %.sroa.8.32.copyload80.us, %83 ], [ %91, %88 ], [ zeroinitializer, %.lr.ph.split.us ], [ %.sroa.13.sroa.0.0.copyload133, %85 ], [ %.sroa.15.sroa.0.0.copyload130, %84 ], [ %.sroa.8.32.copyload80.us, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.077, i64 12, i1 false), !tbaa.struct !78
   store <2 x double> %.sroa.0.2, ptr %76, align 8
-  store double %.sroa.14.2, ptr %.sroa.14.0..sroa_idx128, align 8, !tbaa !26
+  store double %.sroa.14.0, ptr %.sroa.14.0..sroa_idx128, align 8, !tbaa !26
   invoke void @_ZN6open3d8geometry9VoxelGrid8AddVoxelERKNS0_5VoxelE(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %93 unwind label %.split.us
 

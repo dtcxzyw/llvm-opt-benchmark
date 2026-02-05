@@ -184,13 +184,13 @@ define dso_local void @_ZN4llvm23parseCachePruningPolicyENS_9StringRefE(ptr dead
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %33, %34
   %.sroa.0231.0 = phi ptr [ %.sroa.0231.0.copyload, %33 ], [ %36, %34 ]
   %.sroa.5233.0 = phi i64 [ %.sroa.5233.0.copyload, %33 ], [ %.sroa.speculated.i.i.i, %34 ]
-  %.sroa.9237.1 = phi i64 [ 0, %33 ], [ %39, %34 ]
-  %.sroa.6236.1 = phi ptr [ null, %33 ], [ %38, %34 ]
+  %.sroa.9237.0 = phi i64 [ 0, %33 ], [ %39, %34 ]
+  %.sroa.6236.0 = phi ptr [ null, %33 ], [ %38, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %.sroa.0231.0, ptr %9, align 8, !tbaa !11
   store i64 %.sroa.5233.0, ptr %24, align 8, !tbaa !12
-  store ptr %.sroa.6236.1, ptr %25, align 8, !tbaa !11
-  store i64 %.sroa.9237.1, ptr %.sroa.2243.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.6236.0, ptr %25, align 8, !tbaa !11
+  store i64 %.sroa.9237.0, ptr %.sroa.2243.0..sroa_idx, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 61, ptr %7, align 1, !tbaa !13, !noalias !20
   %40 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %7, i64 1, i64 noundef 0) #18, !noalias !23
@@ -215,8 +215,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %33, %34
 _ZNK4llvm9StringRef5splitEc.exit35:               ; preds = %42, %43
   %.sroa.0228.0 = phi ptr [ %.sroa.0228.0.copyload, %42 ], [ %45, %43 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %42 ], [ %.sroa.speculated.i.i.i31, %43 ]
-  %.sroa.9.1 = phi i64 [ 0, %42 ], [ %48, %43 ]
-  %.sroa.6.1 = phi ptr [ null, %42 ], [ %47, %43 ]
+  %.sroa.9.0 = phi i64 [ 0, %42 ], [ %48, %43 ]
+  %.sroa.6.0 = phi ptr [ null, %42 ], [ %47, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i64 %.sroa.5.0, label %_ZN4llvm5ErrorD2Ev.exit179 [
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -232,7 +232,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm9StringRef
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.sroa.6.1, i64 %.sroa.9.1)
+  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.sroa.6.0, i64 %.sroa.9.0)
   %50 = load i8, ptr %29, align 8
   %51 = trunc i8 %50 to i1
   %52 = load i64, ptr %10, align 8
@@ -257,7 +257,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit40:              ; preds = %_ZNK4llvm9StringRef
 
 _ZN4llvmeqENS_9StringRefES0_.exit40.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit40
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %.sroa.6.1, i64 %.sroa.9.1)
+  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %.sroa.6.0, i64 %.sroa.9.0)
   %56 = load i8, ptr %27, align 8
   %57 = trunc i8 %56 to i1
   %58 = load i64, ptr %11, align 8
@@ -281,7 +281,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit52:              ; preds = %_ZNK4llvm9StringRef
   br i1 %61, label %_ZN4llvmeqENS_9StringRefES0_.exit52.thread, label %_ZN4llvm5ErrorD2Ev.exit179
 
 _ZN4llvmeqENS_9StringRefES0_.exit52.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit52
-  %62 = getelementptr i8, ptr %.sroa.6.1, i64 %.sroa.9.1
+  %62 = getelementptr i8, ptr %.sroa.6.0, i64 %.sroa.9.0
   %63 = getelementptr i8, ptr %62, i64 -1
   %64 = load i8, ptr %63, align 1, !tbaa !13
   %.not = icmp eq i8 %64, 37
@@ -296,9 +296,9 @@ _ZN4llvm5ErrorD2Ev.exit54:                        ; preds = %_ZN4llvmeqENS_9Stri
   store i8 5, ptr %66, align 1, !tbaa !34, !alias.scope !31
   store ptr @.str.4, ptr %13, align 8, !tbaa !13, !alias.scope !31
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %.sroa.6.1, ptr %67, align 8, !tbaa !13, !alias.scope !31
+  store ptr %.sroa.6.0, ptr %67, align 8, !tbaa !13, !alias.scope !31
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %.sroa.9.1, ptr %68, align 8, !tbaa !13, !alias.scope !31
+  store i64 %.sroa.9.0, ptr %68, align 8, !tbaa !13, !alias.scope !31
   store ptr %13, ptr %12, align 8, !alias.scope !35
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @.str.5, ptr %69, align 8, !alias.scope !35
@@ -319,10 +319,10 @@ _ZN4llvm5ErrorD2Ev.exit54:                        ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge, !llvm.loop !26
 
 77:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit52.thread
-  %78 = add i64 %.sroa.9.1, -1
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.9.1, i64 %78)
+  %78 = add i64 %.sroa.9.0, -1
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.9.0, i64 %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %79 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.6.1, i64 %.sroa.speculated.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %79 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.6.0, i64 %.sroa.speculated.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   br i1 %79, label %_ZN4llvm5ErrorD2Ev.exit74, label %92
 
 _ZN4llvm5ErrorD2Ev.exit74:                        ; preds = %77
@@ -335,7 +335,7 @@ _ZN4llvm5ErrorD2Ev.exit74:                        ; preds = %77
   store i8 5, ptr %81, align 1, !tbaa !34, !alias.scope !50
   store ptr @.str.4, ptr %15, align 8, !tbaa !13, !alias.scope !50
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %.sroa.6.1, ptr %82, align 8, !tbaa !13, !alias.scope !50
+  store ptr %.sroa.6.0, ptr %82, align 8, !tbaa !13, !alias.scope !50
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %.sroa.speculated.i.i, ptr %83, align 8, !tbaa !13, !alias.scope !50
   store ptr %15, ptr %14, align 8, !alias.scope !53
@@ -372,7 +372,7 @@ _ZN4llvm5ErrorD2Ev.exit94:                        ; preds = %92
   store i8 5, ptr %96, align 1, !tbaa !34, !alias.scope !68
   store ptr @.str.4, ptr %17, align 8, !tbaa !13, !alias.scope !68
   %97 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %.sroa.6.1, ptr %97, align 8, !tbaa !13, !alias.scope !68
+  store ptr %.sroa.6.0, ptr %97, align 8, !tbaa !13, !alias.scope !68
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %.sroa.speculated.i.i, ptr %98, align 8, !tbaa !13, !alias.scope !68
   store ptr %17, ptr %16, align 8, !alias.scope !71
@@ -404,7 +404,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit98:              ; preds = %_ZNK4llvm9StringRef
   br i1 %109, label %_ZN4llvmeqENS_9StringRefES0_.exit98.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit135
 
 _ZN4llvmeqENS_9StringRefES0_.exit98.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit98
-  %110 = getelementptr i8, ptr %.sroa.6.1, i64 %.sroa.9.1
+  %110 = getelementptr i8, ptr %.sroa.6.0, i64 %.sroa.9.0
   %111 = getelementptr i8, ptr %110, i64 -1
   %112 = load i8, ptr %111, align 1, !tbaa !13
   %113 = sext i8 %112 to i32
@@ -416,25 +416,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit98.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   ]
 
 115:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit98.thread
-  %116 = add i64 %.sroa.9.1, -1
-  %.sroa.speculated.i.i99 = call i64 @llvm.umin.i64(i64 %.sroa.9.1, i64 %116)
+  %116 = add i64 %.sroa.9.0, -1
+  %.sroa.speculated.i.i99 = call i64 @llvm.umin.i64(i64 %.sroa.9.0, i64 %116)
   br label %121
 
 117:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit98.thread
-  %118 = add i64 %.sroa.9.1, -1
-  %.sroa.speculated.i.i102 = call i64 @llvm.umin.i64(i64 %.sroa.9.1, i64 %118)
+  %118 = add i64 %.sroa.9.0, -1
+  %.sroa.speculated.i.i102 = call i64 @llvm.umin.i64(i64 %.sroa.9.0, i64 %118)
   br label %121
 
 119:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit98.thread
-  %120 = add i64 %.sroa.9.1, -1
-  %.sroa.speculated.i.i105 = call i64 @llvm.umin.i64(i64 %.sroa.9.1, i64 %120)
+  %120 = add i64 %.sroa.9.0, -1
+  %.sroa.speculated.i.i105 = call i64 @llvm.umin.i64(i64 %.sroa.9.0, i64 %120)
   br label %121
 
 121:                                              ; preds = %119, %117, %115, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread
-  %.sroa.21.2 = phi i64 [ %.sroa.9.1, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread ], [ %.sroa.speculated.i.i99, %115 ], [ %.sroa.speculated.i.i102, %117 ], [ %.sroa.speculated.i.i105, %119 ]
+  %.sroa.21.0 = phi i64 [ %.sroa.9.0, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread ], [ %.sroa.speculated.i.i99, %115 ], [ %.sroa.speculated.i.i102, %117 ], [ %.sroa.speculated.i.i105, %119 ]
   %.027 = phi i64 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit98.thread ], [ 1024, %115 ], [ 1048576, %117 ], [ 1073741824, %119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %122 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.6.1, i64 %.sroa.21.2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %122 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.6.0, i64 %.sroa.21.0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   br i1 %122, label %.thread, label %135
 
 .thread:                                          ; preds = %121
@@ -447,9 +447,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit98.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   store i8 5, ptr %124, align 1, !tbaa !34, !alias.scope !84
   store ptr @.str.4, ptr %19, align 8, !tbaa !13, !alias.scope !84
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.sroa.6.1, ptr %125, align 8, !tbaa !13, !alias.scope !84
+  store ptr %.sroa.6.0, ptr %125, align 8, !tbaa !13, !alias.scope !84
   %126 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 %.sroa.21.2, ptr %126, align 8, !tbaa !13, !alias.scope !84
+  store i64 %.sroa.21.0, ptr %126, align 8, !tbaa !13, !alias.scope !84
   store ptr %19, ptr %18, align 8, !alias.scope !87
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @.str.6, ptr %127, align 8, !alias.scope !87
@@ -482,7 +482,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit135:             ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit135.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit135
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %139 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.6.1, i64 %.sroa.9.1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %139 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.6.0, i64 %.sroa.9.0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   br i1 %139, label %_ZN4llvm5ErrorD2Ev.exit159, label %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit139
 
 _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit139: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit135.thread
@@ -500,9 +500,9 @@ _ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %_ZN4llvmeqENS_9Stri
   store i8 5, ptr %142, align 1, !tbaa !34, !alias.scope !100
   store ptr @.str.4, ptr %21, align 8, !tbaa !13, !alias.scope !100
   %143 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %.sroa.6.1, ptr %143, align 8, !tbaa !13, !alias.scope !100
+  store ptr %.sroa.6.0, ptr %143, align 8, !tbaa !13, !alias.scope !100
   %144 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i64 %.sroa.9.1, ptr %144, align 8, !tbaa !13, !alias.scope !100
+  store i64 %.sroa.9.0, ptr %144, align 8, !tbaa !13, !alias.scope !100
   store ptr %21, ptr %20, align 8, !alias.scope !103
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @.str.6, ptr %145, align 8, !alias.scope !103

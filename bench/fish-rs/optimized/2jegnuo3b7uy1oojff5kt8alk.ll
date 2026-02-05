@@ -8773,11 +8773,11 @@ _ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit: ; preds = %_ZN4fis
   %.sroa.7.017 = phi i32 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %.sroa.7.0.i.le, %.loopexit ]
   %.sroa.10.016 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %30, %.loopexit ]
   %.sroa.12.015 = phi i8 [ 11, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %24, %.loopexit ]
-  %.sroa.15.114 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %53, %.loopexit ]
-  %.sroa.20.113 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %88, %.loopexit ]
-  %.sroa.19.112 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %.sroa.0.0.i, %.loopexit ]
-  %.sroa.18.111 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %85, %.loopexit ]
-  %.sroa.17.110 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %84, %.loopexit ]
+  %.sroa.15.014 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %53, %.loopexit ]
+  %.sroa.20.013 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %88, %.loopexit ]
+  %.sroa.19.012 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %.sroa.0.0.i, %.loopexit ]
+  %.sroa.18.011 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %85, %.loopexit ]
+  %.sroa.17.010 = phi i8 [ 0, %_ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit.thread ], [ %84, %.loopexit ]
   store i32 %.sroa.0.018, ptr %0, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.017, ptr %.sroa.7.0..sroa_idx, align 4
@@ -8786,15 +8786,15 @@ _ZN4fish3ast11TokenStream9advance_117hf3602a593112f0e1E.exit: ; preds = %_ZN4fis
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.sroa.12.015, ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %.sroa.15.114, ptr %.sroa.15.0..sroa_idx, align 2
+  store i8 %.sroa.15.014, ptr %.sroa.15.0..sroa_idx, align 2
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sroa.17.110, ptr %.sroa.17.0..sroa_idx, align 1
+  store i8 %.sroa.17.010, ptr %.sroa.17.0..sroa_idx, align 1
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %.sroa.18.111, ptr %.sroa.18.0..sroa_idx, align 4
+  store i8 %.sroa.18.011, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sroa.19.112, ptr %.sroa.19.0..sroa_idx, align 1
+  store i8 %.sroa.19.012, ptr %.sroa.19.0..sroa_idx, align 1
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %.sroa.20.113, ptr %.sroa.20.0..sroa_idx, align 2
+  store i8 %.sroa.20.013, ptr %.sroa.20.0..sroa_idx, align 2
   ret void
 }
 

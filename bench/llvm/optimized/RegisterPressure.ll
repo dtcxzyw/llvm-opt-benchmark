@@ -2501,8 +2501,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %57 = load i32, ptr %56, align 8, !tbaa !240
-  %.not39 = icmp eq i32 %57, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i32 %57, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit
   %58 = load ptr, ptr %55, align 8, !tbaa !233
@@ -2524,8 +2524,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
   ret void
 
 71:                                               ; preds = %.lr.ph, %163
-  %.040 = phi ptr [ %58, %.lr.ph ], [ %.3, %163 ]
-  %72 = load i32, ptr %.040, align 8, !tbaa !236
+  %.029 = phi ptr [ %58, %.lr.ph ], [ %.3, %163 ]
+  %72 = load i32, ptr %.029, align 8, !tbaa !236
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %_ZL12getLiveRangeRKN4llvm13LiveIntervalsEj.exit
 
@@ -2657,14 +2657,14 @@ _ZL12getLiveRangeRKN4llvm13LiveIntervalsEj.exit.thread: ; preds = %_ZNK4llvm13Li
   br label %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
 
 _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit:    ; preds = %130, %133, %127
-  %.sroa.7.3 = phi i64 [ %135, %133 ], [ %124, %127 ], [ %.sroa.0.0.i, %130 ]
-  %136 = and i64 %.sroa.7.3, 6
+  %.sroa.7.0 = phi i64 [ %135, %133 ], [ %124, %127 ], [ %.sroa.0.0.i, %130 ]
+  %136 = and i64 %.sroa.7.0, 6
   %137 = icmp eq i64 %136, 6
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
-  %.sroa.0.0.copyload = load i32, ptr %.040, align 8, !tbaa !236
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %.029, align 8, !tbaa !236
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !394
   %139 = load i32, ptr %68, align 8, !tbaa !240
   %140 = load i32, ptr %69, align 4, !tbaa !389
@@ -2689,7 +2689,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14VRegMaskOrUnitELb1EE9push_backES1_.exit: 
   %148 = load i32, ptr %68, align 8, !tbaa !240
   %149 = add i32 %148, 1
   store i32 %149, ptr %68, align 8, !tbaa !240
-  %150 = getelementptr inbounds nuw i8, ptr %.040, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %151 = load ptr, ptr %55, align 8, !tbaa !233
   %152 = load i32, ptr %56, align 8, !tbaa !240
   %153 = zext i32 %152 to i64
@@ -2701,7 +2701,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14VRegMaskOrUnitELb1EE9push_backES1_.exit: 
   %156 = ptrtoint ptr %154 to i64
   %157 = ptrtoint ptr %150 to i64
   %158 = sub i64 %156, %157
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.040, ptr nonnull align 8 %150, i64 %158, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.029, ptr nonnull align 8 %150, i64 %158, i1 false)
   %.pre.i20 = load i32, ptr %56, align 8, !tbaa !240
   br label %159
 
@@ -2712,13 +2712,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14VRegMaskOrUnitELb1EE9push_backES1_.exit: 
   br label %163
 
 .thread:                                          ; preds = %_ZL12getLiveRangeRKN4llvm13LiveIntervalsEj.exit.thread, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit, %_ZL12getLiveRangeRKN4llvm13LiveIntervalsEj.exit
-  %162 = getelementptr inbounds nuw i8, ptr %.040, i64 16
-  %.pre43 = load i32, ptr %56, align 8, !tbaa !240
+  %162 = getelementptr inbounds nuw i8, ptr %.029, i64 16
+  %.pre32 = load i32, ptr %56, align 8, !tbaa !240
   br label %163
 
 163:                                              ; preds = %159, %.thread
-  %164 = phi i32 [ %.pre43, %.thread ], [ %161, %159 ]
-  %.3 = phi ptr [ %162, %.thread ], [ %.040, %159 ]
+  %164 = phi i32 [ %.pre32, %.thread ], [ %161, %159 ]
+  %.3 = phi ptr [ %162, %.thread ], [ %.029, %159 ]
   %165 = load ptr, ptr %55, align 8, !tbaa !233
   %166 = zext i32 %164 to i64
   %167 = getelementptr inbounds nuw %"struct.llvm::VRegMaskOrUnit", ptr %165, i64 %166

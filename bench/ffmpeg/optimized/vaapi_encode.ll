@@ -2166,9 +2166,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_quality(p
   br label %27
 
 27:                                               ; preds = %25, %23
-  %.0 = phi i32 [ %26, %25 ], [ %6, %23 ]
+  %.017 = phi i32 [ %26, %25 ], [ %6, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 1544
-  store i32 %.0, ptr %28, align 8, !tbaa !109
+  store i32 %.017, ptr %28, align 8, !tbaa !109
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1548
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   %.val = load ptr, ptr %3, align 8, !tbaa !4
@@ -2176,9 +2176,9 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_quality(p
   br label %29
 
 29:                                               ; preds = %27, %22, %21, %15
-  %.017 = phi i32 [ -542398533, %15 ], [ 0, %21 ], [ 0, %22 ], [ 0, %27 ]
+  %.0 = phi i32 [ -542398533, %15 ], [ 0, %21 ], [ 0, %22 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.017
+  ret i32 %.0
 }
 
 ; Function Attrs: cold nounwind optsize uwtable

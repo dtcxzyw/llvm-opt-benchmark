@@ -7828,8 +7828,8 @@ define void @_ZN5Yosys9DriverMap3addEPNS_5RTLIL6ModuleE(ptr noundef nonnull alig
   %6 = load ptr, ptr %5, align 8, !tbaa !330
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !330
-  %.not75 = icmp eq ptr %6, %8
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+  %.not73 = icmp eq ptr %6, %8
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -7837,9 +7837,9 @@ define void @_ZN5Yosys9DriverMap3addEPNS_5RTLIL6ModuleE(ptr noundef nonnull alig
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %12 = load ptr, ptr %11, align 8, !tbaa !332, !noalias !334
   %13 = icmp eq ptr %10, %12
-  br i1 %13, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit34, label %.lr.ph87
+  br i1 %13, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit34, label %.lr.ph85
 
-.lr.ph87:                                         ; preds = %._crit_edge
+.lr.ph85:                                         ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %15 = ptrtoint ptr %12 to i64
   %16 = ptrtoint ptr %10 to i64
@@ -7857,14 +7857,14 @@ define void @_ZN5Yosys9DriverMap3addEPNS_5RTLIL6ModuleE(ptr noundef nonnull alig
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.064.076 = phi ptr [ %27, %.lr.ph ], [ %6, %2 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.064.076, i64 56
-  tail call void @_ZN5Yosys9DriverMap3addERKNS_5RTLIL7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.064.076, ptr noundef nonnull align 8 dereferenceable(56) %26)
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.064.076, i64 112
+  %.sroa.062.074 = phi ptr [ %27, %.lr.ph ], [ %6, %2 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.062.074, i64 56
+  tail call void @_ZN5Yosys9DriverMap3addERKNS_5RTLIL7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.062.074, ptr noundef nonnull align 8 dereferenceable(56) %26)
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.062.074, i64 112
   %.not = icmp eq ptr %27, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %._crit_edge82
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %._crit_edge80
   %28 = load i32, ptr %14, align 4, !tbaa !17
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %14, align 4, !tbaa !17
@@ -7873,10 +7873,10 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %._crit_edge82
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit34: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, %._crit_edge
   ret void
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.lr.ph87
-  %indvars.iv95 = phi i64 [ %22, %.lr.ph87 ], [ %indvars.iv.next96, %._crit_edge82 ]
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge80, %.lr.ph85
+  %indvars.iv93 = phi i64 [ %22, %.lr.ph85 ], [ %indvars.iv.next94, %._crit_edge80 ]
   %30 = load ptr, ptr %9, align 8, !tbaa !337
-  %31 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Cell *>::entry_t", ptr %30, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Cell *>::entry_t", ptr %30, i64 %indvars.iv93
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !339
   %34 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys5RTLIL4Cell11connectionsEv(ptr noundef nonnull align 8 dereferenceable(192) %33)
@@ -7892,17 +7892,17 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 72
   %44 = and i64 %43, 4294967295
-  %.not6878 = icmp eq i64 %44, 0
-  br i1 %.not6878, label %._crit_edge82, label %.lr.ph81.preheader
+  %.not6676 = icmp eq i64 %44, 0
+  br i1 %.not6676, label %._crit_edge80, label %.lr.ph79.preheader
 
-.lr.ph81.preheader:                               ; preds = %35
-  %sext107 = shl i64 %43, 32
-  %45 = ashr exact i64 %sext107, 32
-  br label %.lr.ph81
+.lr.ph79.preheader:                               ; preds = %35
+  %sext105 = shl i64 %43, 32
+  %45 = ashr exact i64 %sext105, 32
+  br label %.lr.ph79
 
-._crit_edge82:                                    ; preds = %.loopexit, %35
-  %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
-  %46 = icmp eq i64 %indvars.iv95, 0
+._crit_edge80:                                    ; preds = %.loopexit, %35
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %46 = icmp eq i64 %indvars.iv93, 0
   br i1 %46, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
 47:                                               ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
@@ -7910,8 +7910,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41
 
-.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.loopexit
-  %indvars.iv = phi i64 [ %45, %.lr.ph81.preheader ], [ %indvars.iv.next, %.loopexit ]
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
+  %indvars.iv = phi i64 [ %45, %.lr.ph79.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %49 = load ptr, ptr %36, align 8, !tbaa !317
   %50 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %49, i64 %indvars.iv.next
@@ -7920,7 +7920,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.
   invoke void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(56) %51)
           to label %.noexc unwind label %106
 
-.noexc:                                           ; preds = %.lr.ph81
+.noexc:                                           ; preds = %.lr.ph79
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !342
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -8045,10 +8045,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %97, %90, %_ZN5Yosys
 
 .loopexit:                                        ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not68 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not68, label %._crit_edge82, label %.lr.ph81
+  %.not66 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %.not66, label %._crit_edge80, label %.lr.ph79
 
-106:                                              ; preds = %.lr.ph81
+106:                                              ; preds = %.lr.ph79
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41

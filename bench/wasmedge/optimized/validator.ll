@@ -3656,8 +3656,8 @@ define void @_ZN8WasmEdge9Validator9Validator17validateConstExprEN5cxx204spanIKN
   %32 = alloca %"struct.WasmEdge::ErrInfo::InfoInstruction", align 8
   %.idx = shl nsw i64 %3, 5
   %33 = getelementptr inbounds i8, ptr %2, i64 %.idx
-  %.not320 = icmp eq i64 %3, 0
-  br i1 %.not320, label %._crit_edge, label %.lr.ph
+  %.not290 = icmp eq i64 %3, 0
+  br i1 %.not290, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -3670,8 +3670,8 @@ define void @_ZN8WasmEdge9Validator9Validator17validateConstExprEN5cxx204spanIKN
   br label %41
 
 41:                                               ; preds = %.lr.ph, %239
-  %.0321 = phi ptr [ %2, %.lr.ph ], [ %240, %239 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %.0291 = phi ptr [ %2, %.lr.ph ], [ %240, %239 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   %43 = load i32, ptr %42, align 4
   switch i32 %43, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit157 [
     i32 31, label %44
@@ -3703,7 +3703,7 @@ define void @_ZN8WasmEdge9Validator9Validator17validateConstExprEN5cxx204spanIKN
   br label %175
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr %.0321, align 16
+  %45 = load i32, ptr %.0291, align 16
   %46 = load i32, ptr %38, align 4
   br label %47
 
@@ -3731,9 +3731,9 @@ define void @_ZN8WasmEdge9Validator9Validator17validateConstExprEN5cxx204spanIKN
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %47
   %53 = load i64, ptr %34, align 8
   %54 = and i64 %53, 1024
-  %.not295 = icmp eq i64 %54, 0
+  %.not265 = icmp eq i64 %54, 0
   %55 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #20
-  br i1 %.not295, label %64, label %56
+  br i1 %.not265, label %64, label %56
 
 56:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   %57 = load ptr, ptr %40, align 8
@@ -3751,7 +3751,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %47
   br i1 %.not34, label %95, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %64
-  %65 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   store i32 521, ptr %20, align 4
   %66 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -3769,7 +3769,7 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15InfoForbidIndexEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %69, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %18, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(12) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %70 = load i32, ptr %65, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %.0321, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %72 = load i32, ptr %71, align 16
   %73 = zext i32 %72 to i64
   store i32 %70, ptr %22, align 8
@@ -3837,7 +3837,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br i1 %.not35, label %239, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit59
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit59: ; preds = %95
-  %101 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   store i32 526, ptr %23, align 4
   %102 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3845,7 +3845,7 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %102, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %16, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %103 = load i32, ptr %101, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.0321, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %105 = load i32, ptr %104, align 16
   %106 = zext i32 %105 to i64
   store i32 %103, ptr %24, align 8
@@ -3904,7 +3904,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %243
 
 128:                                              ; preds = %41
-  %129 = load i32, ptr %.0321, align 16
+  %129 = load i32, ptr %.0291, align 16
   %130 = zext i32 %129 to i64
   %131 = load ptr, ptr %36, align 8
   %132 = load ptr, ptr %35, align 8
@@ -3916,7 +3916,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br i1 %.not33, label %174, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit91
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit91: ; preds = %128
-  %137 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   store i32 518, ptr %25, align 4
   %138 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3941,7 +3941,7 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15InfoForbidIndexEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %148, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %13, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(12) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %149 = load i32, ptr %137, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %.0321, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %151 = load i32, ptr %150, align 16
   %152 = zext i32 %151 to i64
   store i32 %149, ptr %27, align 8
@@ -4027,12 +4027,12 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit108: ; preds = %175
   %181 = load i64, ptr %34, align 8
   %182 = and i64 %181, 256
-  %.not294 = icmp eq i64 %182, 0
+  %.not264 = icmp eq i64 %182, 0
   %183 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #20
-  br i1 %.not294, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit125, label %239
+  br i1 %.not264, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit125, label %239
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit125: ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit108
-  %184 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   store i32 526, ptr %28, align 4
   %185 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -4046,7 +4046,7 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo12InfoProposalEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %186, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %10, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %187 = load i32, ptr %184, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.0321, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %189 = load i32, ptr %188, align 16
   %190 = zext i32 %189 to i64
   store i32 %187, ptr %30, align 8
@@ -4105,7 +4105,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %243
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit157: ; preds = %41
-  %212 = getelementptr inbounds nuw i8, ptr %.0321, i64 20
+  %212 = getelementptr inbounds nuw i8, ptr %.0291, i64 20
   store i32 526, ptr %31, align 4
   %213 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4113,7 +4113,7 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %213, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %8, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %214 = load i32, ptr %212, align 4
-  %215 = getelementptr inbounds nuw i8, ptr %.0321, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %216 = load i32, ptr %215, align 16
   %217 = zext i32 %216 to i64
   store i32 %214, ptr %32, align 8
@@ -4172,7 +4172,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %243
 
 239:                                              ; preds = %174, %95, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit108
-  %240 = getelementptr inbounds nuw i8, ptr %.0321, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.0291, i64 32
   %.not = icmp eq ptr %240, %33
   br i1 %.not, label %._crit_edge, label %41
 

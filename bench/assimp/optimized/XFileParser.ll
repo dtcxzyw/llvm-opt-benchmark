@@ -6938,8 +6938,8 @@ define hidden void @_ZN6Assimp11XFileParser26ParseDataObjectMeshNormalsEPNS_5XFi
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
-  %.not87 = icmp eq i32 %5, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  %.not81 = icmp eq i32 %5, 0
+  br i1 %.not81, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit
   %23 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -7037,10 +7037,10 @@ _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %48, %50, %52
   br label %68
 
 68:                                               ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
-  %indvars.iv112 = phi i64 [ 0, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit ], [ %indvars.iv.next113, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit ]
+  %indvars.iv106 = phi i64 [ 0, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit ], [ %indvars.iv.next107, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit ]
   %69 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %70 = load ptr, ptr %39, align 8
-  %71 = getelementptr inbounds nuw %"struct.Assimp::XFile::Face", ptr %70, i64 %indvars.iv112
+  %71 = getelementptr inbounds nuw %"struct.Assimp::XFile::Face", ptr %70, i64 %indvars.iv106
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load ptr, ptr %73, align 8
@@ -7057,21 +7057,21 @@ _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %48, %50, %52
 
 _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %75, %68
   %79 = load ptr, ptr %39, align 8
-  %80 = getelementptr inbounds nuw %"struct.Assimp::XFile::Face", ptr %79, i64 %indvars.iv112
-  %.not88 = icmp eq i32 %69, 0
-  br i1 %.not88, label %._crit_edge85, label %.lr.ph84
+  %80 = getelementptr inbounds nuw %"struct.Assimp::XFile::Face", ptr %79, i64 %indvars.iv106
+  %.not82 = icmp eq i32 %69, 0
+  br i1 %.not82, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph84:                                         ; preds = %_ZN6Assimp5XFile4FaceD2Ev.exit
+.lr.ph78:                                         ; preds = %_ZN6Assimp5XFile4FaceD2Ev.exit
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   br label %117
 
-._crit_edge85:                                    ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %_ZN6Assimp5XFile4FaceD2Ev.exit
+._crit_edge79:                                    ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %_ZN6Assimp5XFile4FaceD2Ev.exit
   %83 = load i8, ptr %62, align 8, !range !5, !noundef !6
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %._crit_edge85
+.preheader.i.i:                                   ; preds = %._crit_edge79
   %85 = load ptr, ptr %64, align 8
   %.promoted12.i.i = load ptr, ptr %63, align 8
   %86 = icmp ult ptr %.promoted12.i.i, %85
@@ -7083,8 +7083,8 @@ _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %75, %68
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
-  %87 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be202, %.lr.ph.i.i.backedge ]
-  %88 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be203, %.lr.ph.i.i.backedge ]
+  %87 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be196, %.lr.ph.i.i.backedge ]
+  %88 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be197, %.lr.ph.i.i.backedge ]
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = call i32 @isspace(i32 noundef %90) #28
@@ -7110,8 +7110,8 @@ _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %75, %68
 
 .lr.ph.i.i.backedge:                              ; preds = %96, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %96 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be202 = phi i32 [ %97, %96 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be203 = phi ptr [ %98, %96 ], [ %107, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be196 = phi i32 [ %97, %96 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be197 = phi ptr [ %98, %96 ], [ %107, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 100:                                              ; preds = %.lr.ph.i.i
@@ -7170,13 +7170,13 @@ _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp1
   store ptr %116, ptr %63, align 8
   br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
-_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %113, %115
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %24
-  br i1 %exitcond116.not, label %.loopexit, label %68, !llvm.loop !25
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge79, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %113, %115
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %24
+  br i1 %exitcond110.not, label %.loopexit, label %68, !llvm.loop !25
 
-117:                                              ; preds = %.lr.ph84, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %.083 = phi i32 [ 0, %.lr.ph84 ], [ %239, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+117:                                              ; preds = %.lr.ph78, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %.077 = phi i32 [ 0, %.lr.ph78 ], [ %239, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %118 = load i8, ptr %62, align 8, !range !5, !noundef !6
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %.preheader.i.i31
@@ -7245,7 +7245,7 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36.backedge, %.lr.ph.lr.ph.i.i34
   %.promoted1116.i.i38 = phi i32 [ %.promoted.i.i35, %.lr.ph.lr.ph.i.i34 ], [ %.promoted1116.i.i38.be, %.lr.ph.i.i36.backedge ]
   %152 = phi i32 [ %.promoted.i.i35, %.lr.ph.lr.ph.i.i34 ], [ %.be, %.lr.ph.i.i36.backedge ]
-  %153 = phi ptr [ %.promoted12.i.i32, %.lr.ph.lr.ph.i.i34 ], [ %.be201, %.lr.ph.i.i36.backedge ]
+  %153 = phi ptr [ %.promoted12.i.i32, %.lr.ph.lr.ph.i.i34 ], [ %.be195, %.lr.ph.i.i36.backedge ]
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = call i32 @isspace(i32 noundef %155) #28
@@ -7272,7 +7272,7 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN
 .lr.ph.i.i36.backedge:                            ; preds = %161, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42
   %.promoted1116.i.i38.be = phi i32 [ %.promoted1114.i.i40, %161 ], [ %.promoted1115.i.i43, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
   %.be = phi i32 [ %162, %161 ], [ %.promoted1115.i.i43, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
-  %.be201 = phi ptr [ %163, %161 ], [ %172, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
+  %.be195 = phi ptr [ %163, %161 ], [ %172, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
   br label %.lr.ph.i.i36, !llvm.loop !14
 
 165:                                              ; preds = %.lr.ph.i.i36
@@ -7481,9 +7481,9 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %216, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %239 = add nuw i32 %.083, 1
-  %exitcond111.not = icmp eq i32 %239, %69
-  br i1 %exitcond111.not, label %._crit_edge85, label %117, !llvm.loop !26
+  %239 = add nuw i32 %.077, 1
+  %exitcond105.not = icmp eq i32 %239, %69
+  br i1 %exitcond105.not, label %._crit_edge79, label %117, !llvm.loop !26
 
 .loopexit:                                        ; preds = %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

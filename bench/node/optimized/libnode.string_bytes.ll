@@ -863,8 +863,8 @@ sw.bb:                                            ; preds = %if.end12
   br i1 %cmp.i.i.not, label %if.then20, label %return
 
 if.then20:                                        ; preds = %sw.bb
-  %call.i109 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i109, ptr %error, align 8
+  %call.i103 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i103, ptr %error, align 8
   br label %return
 
 sw.bb31:                                          ; preds = %if.end12
@@ -879,8 +879,8 @@ if.then36:                                        ; preds = %sw.bb31
   br i1 %cmp38, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %if.then36
-  %call.i110 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i110, ptr %error, align 8
+  %call.i104 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i104, ptr %error, align 8
   br label %return
 
 if.end45:                                         ; preds = %if.then36
@@ -925,13 +925,13 @@ _ZN4node15UncheckedMallocEm.exit:                 ; preds = %if.end.i.i.i
   br i1 %cmp84, label %if.then85, label %if.end91
 
 if.then85:                                        ; preds = %sw.bb81, %_ZN4node15UncheckedMallocEm.exit
-  %call.i111 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i111, ptr %error, align 8
+  %call.i105 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i105, ptr %error, align 8
   br label %return
 
 if.end91:                                         ; preds = %if.end.i.i.i, %_ZN4node15UncheckedMallocEm.exit
-  %retval.0.i.i.i137 = phi ptr [ %malloc1.i.i, %_ZN4node15UncheckedMallocEm.exit ], [ %malloc.i.i, %if.end.i.i.i ]
-  %call92 = tail call noundef i64 @_ZN4node13base64_encodeEPKcmPcmNS_10Base64ModeE(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i137, i64 noundef %mul.i, i32 noundef 0)
+  %retval.0.i.i.i131 = phi ptr [ %malloc1.i.i, %_ZN4node15UncheckedMallocEm.exit ], [ %malloc.i.i, %if.end.i.i.i ]
+  %call92 = tail call noundef i64 @_ZN4node13base64_encodeEPKcmPcmNS_10Base64ModeE(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i131, i64 noundef %mul.i, i32 noundef 0)
   %cmp94.not = icmp eq i64 %call92, %mul.i
   br i1 %cmp94.not, label %do.end102, label %do.body99
 
@@ -941,7 +941,7 @@ do.body99:                                        ; preds = %if.end91
   unreachable
 
 do.end102:                                        ; preds = %if.end91
-  %call103 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i137, i64 noundef %mul.i, ptr noundef %error)
+  %call103 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i131, i64 noundef %mul.i, ptr noundef %error)
   br label %return
 
 sw.bb108:                                         ; preds = %if.end12
@@ -950,28 +950,28 @@ sw.bb108:                                         ; preds = %if.end12
   %div2.i = fdiv double %conv.i, 3.000000e+00
   %3 = tail call double @llvm.ceil.f64(double %div2.i)
   %conv3.i = fptoui double %3 to i64
-  %cmp.i.i.i112 = icmp eq i64 %conv3.i, 0
-  br i1 %cmp.i.i.i112, label %if.then114, label %if.end.i.i.i113
+  %cmp.i.i.i106 = icmp eq i64 %conv3.i, 0
+  br i1 %cmp.i.i.i106, label %if.then114, label %if.end.i.i.i107
 
-if.end.i.i.i113:                                  ; preds = %sw.bb108
-  %malloc.i.i114 = tail call ptr @malloc(i64 %conv3.i)
-  %cmp2.i.i.i115 = icmp eq ptr %malloc.i.i114, null
-  br i1 %cmp2.i.i.i115, label %_ZN4node15UncheckedMallocEm.exit119, label %if.end120
+if.end.i.i.i107:                                  ; preds = %sw.bb108
+  %malloc.i.i108 = tail call ptr @malloc(i64 %conv3.i)
+  %cmp2.i.i.i109 = icmp eq ptr %malloc.i.i108, null
+  br i1 %cmp2.i.i.i109, label %_ZN4node15UncheckedMallocEm.exit113, label %if.end120
 
-_ZN4node15UncheckedMallocEm.exit119:              ; preds = %if.end.i.i.i113
+_ZN4node15UncheckedMallocEm.exit113:              ; preds = %if.end.i.i.i107
   tail call void @_ZN4node21LowMemoryNotificationEv() #18
-  %malloc1.i.i118 = tail call ptr @malloc(i64 %conv3.i)
-  %cmp113 = icmp eq ptr %malloc1.i.i118, null
+  %malloc1.i.i112 = tail call ptr @malloc(i64 %conv3.i)
+  %cmp113 = icmp eq ptr %malloc1.i.i112, null
   br i1 %cmp113, label %if.then114, label %if.end120
 
-if.then114:                                       ; preds = %sw.bb108, %_ZN4node15UncheckedMallocEm.exit119
-  %call.i120 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i120, ptr %error, align 8
+if.then114:                                       ; preds = %sw.bb108, %_ZN4node15UncheckedMallocEm.exit113
+  %call.i114 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i114, ptr %error, align 8
   br label %return
 
-if.end120:                                        ; preds = %if.end.i.i.i113, %_ZN4node15UncheckedMallocEm.exit119
-  %retval.0.i.i.i116143 = phi ptr [ %malloc1.i.i118, %_ZN4node15UncheckedMallocEm.exit119 ], [ %malloc.i.i114, %if.end.i.i.i113 ]
-  %call122 = tail call noundef i64 @_ZN4node13base64_encodeEPKcmPcmNS_10Base64ModeE(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i116143, i64 noundef %conv3.i, i32 noundef 1)
+if.end120:                                        ; preds = %if.end.i.i.i107, %_ZN4node15UncheckedMallocEm.exit113
+  %retval.0.i.i.i110137 = phi ptr [ %malloc1.i.i112, %_ZN4node15UncheckedMallocEm.exit113 ], [ %malloc.i.i108, %if.end.i.i.i107 ]
+  %call122 = tail call noundef i64 @_ZN4node13base64_encodeEPKcmPcmNS_10Base64ModeE(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i110137, i64 noundef %conv3.i, i32 noundef 1)
   %cmp124.not = icmp eq i64 %call122, %conv3.i
   br i1 %cmp124.not, label %do.end133, label %do.body130
 
@@ -981,32 +981,32 @@ do.body130:                                       ; preds = %if.end120
   unreachable
 
 do.end133:                                        ; preds = %if.end120
-  %call134 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i116143, i64 noundef %conv3.i, ptr noundef %error)
+  %call134 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i110137, i64 noundef %conv3.i, ptr noundef %error)
   br label %return
 
 sw.bb139:                                         ; preds = %if.end12
   %mul = shl nuw nsw i64 %buflen, 1
-  br i1 %tobool, label %if.then144, label %if.end.i.i.i122
+  br i1 %tobool, label %if.then144, label %if.end.i.i.i116
 
-if.end.i.i.i122:                                  ; preds = %sw.bb139
-  %malloc.i.i123 = tail call ptr @malloc(i64 %mul)
-  %cmp2.i.i.i124 = icmp eq ptr %malloc.i.i123, null
-  br i1 %cmp2.i.i.i124, label %_ZN4node15UncheckedMallocEm.exit128, label %if.end150
+if.end.i.i.i116:                                  ; preds = %sw.bb139
+  %malloc.i.i117 = tail call ptr @malloc(i64 %mul)
+  %cmp2.i.i.i118 = icmp eq ptr %malloc.i.i117, null
+  br i1 %cmp2.i.i.i118, label %_ZN4node15UncheckedMallocEm.exit122, label %if.end150
 
-_ZN4node15UncheckedMallocEm.exit128:              ; preds = %if.end.i.i.i122
+_ZN4node15UncheckedMallocEm.exit122:              ; preds = %if.end.i.i.i116
   tail call void @_ZN4node21LowMemoryNotificationEv() #18
-  %malloc1.i.i127 = tail call ptr @malloc(i64 %mul)
-  %cmp143 = icmp eq ptr %malloc1.i.i127, null
+  %malloc1.i.i121 = tail call ptr @malloc(i64 %mul)
+  %cmp143 = icmp eq ptr %malloc1.i.i121, null
   br i1 %cmp143, label %if.then144, label %if.end150
 
-if.then144:                                       ; preds = %sw.bb139, %_ZN4node15UncheckedMallocEm.exit128
-  %call.i129 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i129, ptr %error, align 8
+if.then144:                                       ; preds = %sw.bb139, %_ZN4node15UncheckedMallocEm.exit122
+  %call.i123 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i123, ptr %error, align 8
   br label %return
 
-if.end150:                                        ; preds = %if.end.i.i.i122, %_ZN4node15UncheckedMallocEm.exit128
-  %retval.0.i.i.i125149 = phi ptr [ %malloc1.i.i127, %_ZN4node15UncheckedMallocEm.exit128 ], [ %malloc.i.i123, %if.end.i.i.i122 ]
-  %call152 = tail call noundef i64 @_ZN4node11StringBytes10hex_encodeEPKcmPcm(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i125149, i64 noundef %mul)
+if.end150:                                        ; preds = %if.end.i.i.i116, %_ZN4node15UncheckedMallocEm.exit122
+  %retval.0.i.i.i119143 = phi ptr [ %malloc1.i.i121, %_ZN4node15UncheckedMallocEm.exit122 ], [ %malloc.i.i117, %if.end.i.i.i116 ]
+  %call152 = tail call noundef i64 @_ZN4node11StringBytes10hex_encodeEPKcmPcm(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %retval.0.i.i.i119143, i64 noundef %mul)
   %cmp154.not = icmp eq i64 %call152, %mul
   br i1 %cmp154.not, label %do.end163, label %do.body160
 
@@ -1016,11 +1016,11 @@ do.body160:                                       ; preds = %if.end150
   unreachable
 
 do.end163:                                        ; preds = %if.end150
-  %call164 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i125149, i64 noundef %mul, ptr noundef %error)
+  %call164 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i119143, i64 noundef %mul, ptr noundef %error)
   br label %return
 
 if.end199:                                        ; preds = %if.end12
-  %div108 = lshr i64 %buflen, 1
+  %div102 = lshr i64 %buflen, 1
   %4 = ptrtoint ptr %buf to i64
   %rem = and i64 %4, 1
   %cmp200.not = icmp eq i64 %rem, 0
@@ -1032,17 +1032,17 @@ if.then201:                                       ; preds = %if.end199
   br i1 %cmp204, label %if.then205, label %if.end211
 
 if.then205:                                       ; preds = %if.then201
-  %call.i131 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
-  store ptr %call.i131, ptr %error, align 8
+  %call.i125 = tail call ptr @_ZN4node28ERR_MEMORY_ALLOCATION_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull @.str.40)
+  store ptr %call.i125, ptr %error, align 8
   br label %return
 
 if.end211:                                        ; preds = %if.then201
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call203, ptr align 1 %buf, i64 %buflen, i1 false)
-  %call212 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE3NewEPNS2_7IsolateEPtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %call203, i64 noundef %div108, ptr noundef %error)
+  %call212 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE3NewEPNS2_7IsolateEPtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %call203, i64 noundef %div102, ptr noundef %error)
   br label %return
 
 if.end217:                                        ; preds = %if.end199
-  %call218 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE11NewFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %buf, i64 noundef %div108, ptr noundef %error)
+  %call218 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE11NewFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %buf, i64 noundef %div102, ptr noundef %error)
   br label %return
 
 do.body223:                                       ; preds = %if.end12

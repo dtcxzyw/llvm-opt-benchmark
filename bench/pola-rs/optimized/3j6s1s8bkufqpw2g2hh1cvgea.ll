@@ -22699,7 +22699,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to16utf8_to_utf8view17h5ff70e8
   %67 = trunc nuw i8 %.sroa.014.1.i to i1
   br i1 %67, label %.body.thread.i, label %41
 
-.body.thread186.i:                                ; preds = %169
+.body.thread185.i:                                ; preds = %169
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
@@ -23026,7 +23026,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to16utf8_to_utf8view17h5ff70e8
   %170 = ptrtoint ptr %167 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2088
   invoke void @_ZN14polars_compute4cast7utf8_to15truncate_buffer17h8b01beaa8fc3f3aaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-          to label %171 unwind label %.body.thread186.i, !noalias !2088
+          to label %171 unwind label %.body.thread185.i, !noalias !2088
 
 171:                                              ; preds = %169
   %172 = load i64, ptr %62, align 8, !alias.scope !2120, !noalias !2123, !noundef !3
@@ -23073,9 +23073,9 @@ define hidden void @_ZN14polars_compute4cast7utf8_to16utf8_to_utf8view17h5ff70e8
   store i32 %187, ptr %.sroa.6.i.4.i.4.i.4..sroa_idx64, align 4, !noalias !2088
   br label %158
 
-.body.thread.i:                                   ; preds = %176, %.thread.i, %.body.thread186.i, %.body.i
-  %.sroa.020.3101.i = phi i1 [ true, %.thread.i ], [ %.sroa.020.3.i, %.body.i ], [ true, %176 ], [ true, %.body.thread186.i ]
-  %.pn36100.i = phi { ptr, i32 } [ %168, %.thread.i ], [ %.pn36.i, %.body.i ], [ %177, %176 ], [ %lpad.loopexit.i, %.body.thread186.i ]
+.body.thread.i:                                   ; preds = %176, %.thread.i, %.body.thread185.i, %.body.i
+  %.sroa.020.3101.i = phi i1 [ true, %.thread.i ], [ %.sroa.020.3.i, %.body.i ], [ true, %176 ], [ true, %.body.thread185.i ]
+  %.pn36100.i = phi { ptr, i32 } [ %168, %.thread.i ], [ %.pn36.i, %.body.i ], [ %177, %176 ], [ %lpad.loopexit.i, %.body.thread185.i ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$$GT$17h09e877abb8f091cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #33
           to label %41 unwind label %134, !noalias !2088
 

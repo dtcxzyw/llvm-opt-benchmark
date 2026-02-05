@@ -1981,7 +1981,7 @@ _ZN7rocksdbL15NewUniqueObjectINS_18MemTableRepFactoryEEENS_6StatusERKNS_13Config
   %.sroa.13.0 = phi i8 [ 0, %94 ], [ 0, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %104, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %81, %thread-pre-split.i ]
   %.sroa.17.0 = phi i8 [ 0, %94 ], [ 0, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %106, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %83, %thread-pre-split.i ]
   %.sroa.21.0 = phi i8 [ 0, %94 ], [ 0, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %108, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %85, %thread-pre-split.i ]
-  %.sroa.2933.0 = phi ptr [ null, %94 ], [ null, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %112, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %89, %thread-pre-split.i ]
+  %.sroa.2932.0 = phi ptr [ null, %94 ], [ null, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %112, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %89, %thread-pre-split.i ]
   %.sroa.0.0 = phi i8 [ 0, %94 ], [ 0, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %100, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %77, %thread-pre-split.i ]
   %.sroa.25.0 = phi i8 [ 0, %94 ], [ 0, %_ZN7rocksdb6StatusaSEOS0_.exit17.i ], [ %110, %_ZN7rocksdb6StatusD2Ev.exit27.i ], [ %87, %thread-pre-split.i ]
   store i8 %.sroa.0.0, ptr %11, align 8, !tbaa !120
@@ -1997,7 +1997,7 @@ _ZN7rocksdbL15NewUniqueObjectINS_18MemTableRepFactoryEEENS_6StatusERKNS_13Config
   store i8 %.sroa.25.0, ptr %119, align 1, !tbaa !138
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !139
-  store ptr %.sroa.2933.0, ptr %120, align 8, !tbaa !139
+  store ptr %.sroa.2932.0, ptr %120, align 8, !tbaa !139
   %.not.i.i.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZN7rocksdb6StatusaSEOS0_.exit
 

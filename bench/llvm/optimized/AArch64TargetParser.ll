@@ -3608,35 +3608,35 @@ define dso_local { ptr, i64 } @_ZN4llvm7AArch6417getArchExtFeatureENS_9StringRef
   %3 = alloca %"class.std::optional.25", align 8
   %.not.i = icmp ult i64 %1, 2
   %.v.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.v.sroa.gep17 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  %.v.sroa.gep15 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %2
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
   %4 = icmp eq i32 %bcmp.i, 0
-  br i1 %4, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread
+  br i1 %4, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader.i.preheader
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = add i64 %1, -2
-  br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13
+  br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread13: ; preds = %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
-  %.v.sroa.phi = phi ptr [ %.v.sroa.gep, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.v.sroa.gep17, %2 ]
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread11: ; preds = %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+  %.v.sroa.phi = phi ptr [ %.v.sroa.gep, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.v.sroa.gep15, %2 ]
   %.sroa.01.0 = phi ptr [ %5, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %0, %2 ]
   %.sroa.5.0 = phi i64 [ %6, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %1, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp eq i64 %.sroa.5.0, 0
   br i1 %7, label %.loopexit, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13
-  %.sroa.5.024 = phi i64 [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread ], [ %.sroa.5.0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13 ]
-  %.sroa.01.023 = phi ptr [ %0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread ], [ %.sroa.01.0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13 ]
-  %.v.sroa.phi22 = phi ptr [ %.v.sroa.gep17, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13.thread ], [ %.v.sroa.phi, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13 ]
+.preheader.i.preheader:                           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11
+  %.sroa.5.022 = phi i64 [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread ], [ %.sroa.5.0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11 ]
+  %.sroa.01.021 = phi ptr [ %0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread ], [ %.sroa.01.0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11 ]
+  %.v.sroa.phi20 = phi ptr [ %.v.sroa.gep15, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.thread ], [ %.v.sroa.phi, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i
@@ -3644,12 +3644,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread13: ; preds = %2, %_ZNK4llvm9Str
   %.0.ptr17.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 %.0.idx16.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr17.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20, !noalias !86
-  %.not.i.i = icmp eq i64 %.sroa.5.024, %.sroa.2.0.copyload.i
+  %.not.i.i = icmp eq i64 %.sroa.5.022, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.preheader.i
   %.sroa.0.0.copyload.i = load ptr, ptr %.0.ptr17.i, align 16, !tbaa !18, !noalias !86
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %.sroa.01.023, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.024), !noalias !86
+  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %.sroa.01.021, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.022), !noalias !86
   %8 = icmp eq i32 %bcmp.i.i, 0
   br i1 %8, label %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
@@ -3662,13 +3662,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 12:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr17.i, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !noalias !86
-  %.not.i.i.i = icmp eq i64 %.sroa.5.024, %.sroa.2.0.copyload.i.i
+  %.not.i.i.i = icmp eq i64 %.sroa.5.022, %.sroa.2.0.copyload.i.i
   br i1 %.not.i.i.i, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.i, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i
 
 _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.i: ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %.0.ptr17.i, i64 16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %13, align 16, !tbaa !18, !noalias !86
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.01.023, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.5.024), !noalias !86
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %.sroa.01.021, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.5.022), !noalias !86
   %14 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %14, label %15, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i
 
@@ -3679,14 +3679,14 @@ _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7decl
 
 15:                                               ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 16 dereferenceable(112) %.0.ptr17.i, i64 112, i1 false)
-  %.sroa.09.0.copyload = load ptr, ptr %.v.sroa.phi22, align 8, !tbaa !18
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.v.sroa.phi22, i64 8
+  %.sroa.09.0.copyload = load ptr, ptr %.v.sroa.phi20, align 8, !tbaa !18
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.v.sroa.phi20, i64 8
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13, %15
-  %.sroa.410.0 = phi i64 [ %.sroa.410.0.copyload, %15 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13 ], [ 0, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
-  %.sroa.09.0 = phi ptr [ %.sroa.09.0.copyload, %15 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread13 ], [ null, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
+.loopexit:                                        ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11, %15
+  %.sroa.410.0 = phi i64 [ %.sroa.410.0.copyload, %15 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11 ], [ 0, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
+  %.sroa.09.0 = phi ptr [ %.sroa.09.0.copyload, %15 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11 ], [ null, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.09.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.410.0, 1

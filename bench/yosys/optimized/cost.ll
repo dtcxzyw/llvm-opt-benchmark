@@ -636,14 +636,14 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %59
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, %36
-  %.016.lcssa66 = phi i32 [ 1, %36 ], [ %61, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit ]
+  %.016.lcssa64 = phi i32 [ 1, %36 ], [ %61, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit ]
   %53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store i32 %.016.lcssa66, ptr %53, align 4, !tbaa !16
+  store i32 %.016.lcssa64, ptr %53, align 4, !tbaa !16
   br label %66
 
 .lr.ph:                                           ; preds = %59, %.lr.ph.preheader
   %indvars.iv = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %.01650 = phi i32 [ 1, %.lr.ph.preheader ], [ %61, %59 ]
+  %.01648 = phi i32 [ 1, %.lr.ph.preheader ], [ %61, %59 ]
   %54 = load ptr, ptr %37, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Cell *>::entry_t", ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -652,8 +652,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27: ; preds = %_ZN5Yosys5RTLIL
           to label %59 unwind label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit29
 
 59:                                               ; preds = %.lr.ph
-  %60 = add i32 %58, %.01650
-  %.not22 = icmp ult i32 %60, %.01650
+  %60 = add i32 %58, %.01648
+  %.not22 = icmp ult i32 %60, %.01648
   %61 = select i1 %.not22, i32 2147483647, i32 %60
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %62 = icmp eq i64 %indvars.iv, 0
@@ -668,7 +668,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit29: ; preds = %.lr.ph
   resume { ptr, i32 } %63
 
 66:                                               ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27, %33
-  %.0 = phi i32 [ %35, %33 ], [ %.016.lcssa66, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27 ]
+  %.0 = phi i32 [ %35, %33 ], [ %.016.lcssa64, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27 ]
   ret i32 %.0
 }
 

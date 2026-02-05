@@ -789,12 +789,12 @@ _ZN3gmx26AnalysisDataLifetimeModule4Impl11addLifetimeEii.exit: ; preds = %43, %_
   br label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25
-  %.sroa.078.1121 = phi ptr [ %.sroa.078.2, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %137, %.lr.ph123.preheader ]
-  %.sroa.10.1120 = phi ptr [ %.sroa.10.2, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %145, %.lr.ph123.preheader ]
-  %.sroa.13.1119 = phi ptr [ %.sroa.13.2, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %143, %.lr.ph123.preheader ]
-  %.sroa.17.1118 = phi ptr [ %.sroa.17.2, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %141, %.lr.ph123.preheader ]
-  %146 = ptrtoint ptr %.sroa.078.1121 to i64
-  %147 = ptrtoint ptr %.sroa.10.1120 to i64
+  %.sroa.078.0121 = phi ptr [ %.sroa.078.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %137, %.lr.ph123.preheader ]
+  %.sroa.10.0120 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %145, %.lr.ph123.preheader ]
+  %.sroa.13.0119 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %143, %.lr.ph123.preheader ]
+  %.sroa.17.0118 = phi ptr [ %.sroa.17.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25 ], [ %141, %.lr.ph123.preheader ]
+  %146 = ptrtoint ptr %.sroa.078.0121 to i64
+  %147 = ptrtoint ptr %.sroa.10.0120 to i64
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 2
   %150 = add nsw i64 %149, 1
@@ -806,7 +806,7 @@ _ZN3gmx26AnalysisDataLifetimeModule4Impl11addLifetimeEii.exit: ; preds = %43, %_
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.078.1121, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.078.0121, i64 4
   br label %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
 
 156:                                              ; preds = %152
@@ -819,7 +819,7 @@ _ZN3gmx26AnalysisDataLifetimeModule4Impl11addLifetimeEii.exit: ; preds = %43, %_
 
 160:                                              ; preds = %158, %156
   %161 = phi i64 [ %157, %156 ], [ %159, %158 ]
-  %162 = getelementptr inbounds ptr, ptr %.sroa.17.1118, i64 %161
+  %162 = getelementptr inbounds ptr, ptr %.sroa.17.0118, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !92, !noalias !108
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
   %165 = shl nsw i64 %161, 7
@@ -828,61 +828,61 @@ _ZN3gmx26AnalysisDataLifetimeModule4Impl11addLifetimeEii.exit: ; preds = %43, %_
   br label %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
 
 _ZStplRKSt15_Deque_iteratorIiRiPiEl.exit:         ; preds = %154, %160
-  %.sroa.663.0 = phi ptr [ %.sroa.13.1119, %154 ], [ %164, %160 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.17.1118, %154 ], [ %162, %160 ]
+  %.sroa.663.0 = phi ptr [ %.sroa.13.0119, %154 ], [ %164, %160 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.17.0118, %154 ], [ %162, %160 ]
   %storemerge.i.i = phi ptr [ %155, %154 ], [ %167, %160 ]
   %.not95110 = icmp eq ptr %storemerge.i.i, %139
   br i1 %.not95110, label %._crit_edge116, label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
-  %.sroa.078.1.promoted = load i32, ptr %.sroa.078.1121, align 4, !tbaa !57
+  %.sroa.078.0.promoted = load i32, ptr %.sroa.078.0121, align 4, !tbaa !57
   br label %168
 
 168:                                              ; preds = %.lr.ph115, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit
-  %169 = phi i32 [ %.sroa.078.1.promoted, %.lr.ph115 ], [ %172, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
+  %169 = phi i32 [ %.sroa.078.0.promoted, %.lr.ph115 ], [ %172, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
   %.023114 = phi i32 [ 2, %.lr.ph115 ], [ %179, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
-  %.sroa.072.2113 = phi ptr [ %storemerge.i.i, %.lr.ph115 ], [ %.sroa.072.3, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
-  %.sroa.1176.2112 = phi ptr [ %.sroa.663.0, %.lr.ph115 ], [ %.sroa.1176.3, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
-  %.sroa.1477.2111 = phi ptr [ %.sroa.8.0, %.lr.ph115 ], [ %.sroa.1477.3, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
-  %170 = load i32, ptr %.sroa.072.2113, align 4, !tbaa !57
+  %.sroa.072.0113 = phi ptr [ %storemerge.i.i, %.lr.ph115 ], [ %.sroa.072.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
+  %.sroa.1176.0112 = phi ptr [ %.sroa.663.0, %.lr.ph115 ], [ %.sroa.1176.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
+  %.sroa.1477.0111 = phi ptr [ %.sroa.8.0, %.lr.ph115 ], [ %.sroa.1477.1, %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit ]
+  %170 = load i32, ptr %.sroa.072.0113, align 4, !tbaa !57
   %171 = mul nsw i32 %170, %.023114
   %172 = add nsw i32 %169, %171
-  store i32 %172, ptr %.sroa.078.1121, align 4, !tbaa !57
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.072.2113, i64 4
-  %174 = icmp eq ptr %173, %.sroa.1176.2112
+  store i32 %172, ptr %.sroa.078.0121, align 4, !tbaa !57
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.072.0113, i64 4
+  %174 = icmp eq ptr %173, %.sroa.1176.0112
   br i1 %174, label %175, label %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit
 
 175:                                              ; preds = %168
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.1477.2111, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.1477.0111, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !92
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 512
   br label %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit
 
 _ZNSt15_Deque_iteratorIiRiPiEppEv.exit:           ; preds = %168, %175
-  %.sroa.1477.3 = phi ptr [ %176, %175 ], [ %.sroa.1477.2111, %168 ]
-  %.sroa.1176.3 = phi ptr [ %178, %175 ], [ %.sroa.1176.2112, %168 ]
-  %.sroa.072.3 = phi ptr [ %177, %175 ], [ %173, %168 ]
+  %.sroa.1477.1 = phi ptr [ %176, %175 ], [ %.sroa.1477.0111, %168 ]
+  %.sroa.1176.1 = phi ptr [ %178, %175 ], [ %.sroa.1176.0112, %168 ]
+  %.sroa.072.1 = phi ptr [ %177, %175 ], [ %173, %168 ]
   %179 = add nuw nsw i32 %.023114, 1
-  %.not95 = icmp eq ptr %.sroa.072.3, %139
+  %.not95 = icmp eq ptr %.sroa.072.1, %139
   br i1 %.not95, label %._crit_edge116, label %168, !llvm.loop !111
 
 ._crit_edge116:                                   ; preds = %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit, %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.078.1121, i64 4
-  %181 = icmp eq ptr %180, %.sroa.13.1119
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.078.0121, i64 4
+  %181 = icmp eq ptr %180, %.sroa.13.0119
   br i1 %181, label %182, label %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25
 
 182:                                              ; preds = %._crit_edge116
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.17.1118, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.17.0118, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !92
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
   br label %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25
 
 _ZNSt15_Deque_iteratorIiRiPiEppEv.exit25:         ; preds = %._crit_edge116, %182
-  %.sroa.17.2 = phi ptr [ %183, %182 ], [ %.sroa.17.1118, %._crit_edge116 ]
-  %.sroa.13.2 = phi ptr [ %185, %182 ], [ %.sroa.13.1119, %._crit_edge116 ]
-  %.sroa.10.2 = phi ptr [ %184, %182 ], [ %.sroa.10.1120, %._crit_edge116 ]
-  %.sroa.078.2 = phi ptr [ %184, %182 ], [ %180, %._crit_edge116 ]
-  %.not94 = icmp eq ptr %.sroa.078.2, %139
+  %.sroa.17.1 = phi ptr [ %183, %182 ], [ %.sroa.17.0118, %._crit_edge116 ]
+  %.sroa.13.1 = phi ptr [ %185, %182 ], [ %.sroa.13.0119, %._crit_edge116 ]
+  %.sroa.10.1 = phi ptr [ %184, %182 ], [ %.sroa.10.0120, %._crit_edge116 ]
+  %.sroa.078.1 = phi ptr [ %184, %182 ], [ %180, %._crit_edge116 ]
+  %.not94 = icmp eq ptr %.sroa.078.1, %139
   br i1 %.not94, label %._crit_edge124, label %.lr.ph123, !llvm.loop !112
 
 ._crit_edge124:                                   ; preds = %_ZNSt15_Deque_iteratorIiRiPiEppEv.exit25, %.lr.ph128
@@ -1012,10 +1012,10 @@ _ZNSt15_Deque_iteratorIiRiPiEppEv.exit25:         ; preds = %._crit_edge116, %18
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit
   %.021140 = phi i32 [ %287, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ 0, %.lr.ph142.preheader ]
-  %.sroa.14.1139 = phi ptr [ %.sroa.14.2, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %259, %.lr.ph142.preheader ]
-  %.sroa.11.1138 = phi ptr [ %.sroa.11.2, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %261, %.lr.ph142.preheader ]
-  %.sroa.037.1137 = phi ptr [ %.sroa.037.2, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %255, %.lr.ph142.preheader ]
-  %264 = load i32, ptr %.sroa.037.1137, align 4, !tbaa !57
+  %.sroa.14.0139 = phi ptr [ %.sroa.14.1, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %259, %.lr.ph142.preheader ]
+  %.sroa.11.0138 = phi ptr [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %261, %.lr.ph142.preheader ]
+  %.sroa.037.0137 = phi ptr [ %.sroa.037.1, %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit ], [ %255, %.lr.ph142.preheader ]
+  %264 = load i32, ptr %.sroa.037.0137, align 4, !tbaa !57
   %265 = sitofp i32 %264 to float
   %266 = load ptr, ptr %4, align 8, !tbaa !33
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -1034,23 +1034,23 @@ _ZNSt15_Deque_iteratorIiRiPiEppEv.exit25:         ; preds = %._crit_edge116, %18
   %279 = load i64, ptr %278, align 8, !tbaa !77
   %280 = or i64 %279, 5
   store i64 %280, ptr %278, align 8, !tbaa !77
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.037.1137, i64 4
-  %282 = icmp eq ptr %281, %.sroa.11.1138
+  %281 = getelementptr inbounds nuw i8, ptr %.sroa.037.0137, i64 4
+  %282 = icmp eq ptr %281, %.sroa.11.0138
   br i1 %282, label %283, label %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit
 
 283:                                              ; preds = %.lr.ph142
-  %284 = getelementptr inbounds nuw i8, ptr %.sroa.14.1139, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.14.0139, i64 8
   %285 = load ptr, ptr %284, align 8, !tbaa !92
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 512
   br label %_ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit
 
 _ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit:        ; preds = %.lr.ph142, %283
-  %.sroa.037.2 = phi ptr [ %285, %283 ], [ %281, %.lr.ph142 ]
-  %.sroa.11.2 = phi ptr [ %286, %283 ], [ %.sroa.11.1138, %.lr.ph142 ]
-  %.sroa.14.2 = phi ptr [ %284, %283 ], [ %.sroa.14.1139, %.lr.ph142 ]
+  %.sroa.037.1 = phi ptr [ %285, %283 ], [ %281, %.lr.ph142 ]
+  %.sroa.11.1 = phi ptr [ %286, %283 ], [ %.sroa.11.0138, %.lr.ph142 ]
+  %.sroa.14.1 = phi ptr [ %284, %283 ], [ %.sroa.14.0139, %.lr.ph142 ]
   %287 = add nuw nsw i32 %.021140, 1
   %288 = load ptr, ptr %256, align 8, !tbaa !86, !noalias !118
-  %.not93 = icmp eq ptr %.sroa.037.2, %288
+  %.not93 = icmp eq ptr %.sroa.037.1, %288
   br i1 %.not93, label %.preheader, label %.lr.ph142, !llvm.loop !123
 
 .lr.ph145:                                        ; preds = %.preheader, %.lr.ph145

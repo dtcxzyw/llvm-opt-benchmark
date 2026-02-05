@@ -2677,13 +2677,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
 
 .outer.us:                                        ; preds = %68, %.thread.split.us.us
   %.ph.us = phi i32 [ 0, %.thread.split.us.us ], [ -1, %68 ]
-  %.ph34.us = phi i32 [ %84, %.thread.split.us.us ], [ %16, %68 ]
-  %.ph35.us = phi i32 [ %73, %.thread.split.us.us ], [ 0, %68 ]
-  %.ph36.us = phi i32 [ %94, %.thread.split.us.us ], [ 0, %68 ]
+  %.ph28.us = phi i32 [ %84, %.thread.split.us.us ], [ %16, %68 ]
+  %.ph29.us = phi i32 [ %73, %.thread.split.us.us ], [ 0, %68 ]
+  %.ph30.us = phi i32 [ %94, %.thread.split.us.us ], [ 0, %68 ]
   br label %get_orlov_stats.exit.us.us
 
 get_orlov_stats.exit.us.us:                       ; preds = %get_orlov_stats.exit.thread.us.us, %.outer.us
-  %71 = phi i32 [ %92, %get_orlov_stats.exit.thread.us.us ], [ %.ph36.us, %.outer.us ]
+  %71 = phi i32 [ %92, %get_orlov_stats.exit.thread.us.us ], [ %.ph30.us, %.outer.us ]
   %72 = add i32 %71, %69
   %73 = urem i32 %72, %24
   call void @__rcu_read_lock() #10
@@ -2703,7 +2703,7 @@ get_orlov_stats.exit.us.us:                       ; preds = %get_orlov_stats.exi
   br i1 %85, label %get_orlov_stats.exit.thread.us.us, label %86
 
 86:                                               ; preds = %get_orlov_stats.exit.us.us
-  %87 = icmp uge i32 %84, %.ph34.us
+  %87 = icmp uge i32 %84, %.ph28.us
   %88 = icmp ult i32 %81, %30
   %89 = select i1 %87, i1 true, i1 %88
   %90 = icmp ult i64 %82, %35
@@ -2713,22 +2713,22 @@ get_orlov_stats.exit.us.us:                       ; preds = %get_orlov_stats.exi
 get_orlov_stats.exit.thread.us.us:                ; preds = %86, %get_orlov_stats.exit.us.us
   %92 = add nuw i32 %71, 1
   %93 = icmp eq i32 %92, %24
-  br i1 %93, label %.split54.us, label %get_orlov_stats.exit.us.us, !llvm.loop !51
+  br i1 %93, label %.split48.us, label %get_orlov_stats.exit.us.us, !llvm.loop !51
 
 .thread.split.us.us:                              ; preds = %86
   %94 = add nuw i32 %71, 1
   %95 = icmp eq i32 %94, %24
-  br i1 %95, label %.thread27, label %.outer.us, !llvm.loop !51
+  br i1 %95, label %.thread21, label %.outer.us, !llvm.loop !51
 
 .outer:                                           ; preds = %68, %.thread.split
   %.ph = phi i32 [ 0, %.thread.split ], [ -1, %68 ]
-  %.ph34 = phi i32 [ %104, %.thread.split ], [ %16, %68 ]
-  %.ph35 = phi i32 [ %99, %.thread.split ], [ 0, %68 ]
-  %.ph36 = phi i32 [ %115, %.thread.split ], [ 0, %68 ]
+  %.ph28 = phi i32 [ %104, %.thread.split ], [ %16, %68 ]
+  %.ph29 = phi i32 [ %99, %.thread.split ], [ 0, %68 ]
+  %.ph30 = phi i32 [ %115, %.thread.split ], [ 0, %68 ]
   br label %96
 
 96:                                               ; preds = %.outer, %get_orlov_stats.exit.thread
-  %97 = phi i32 [ %113, %get_orlov_stats.exit.thread ], [ %.ph36, %.outer ]
+  %97 = phi i32 [ %113, %get_orlov_stats.exit.thread ], [ %.ph30, %.outer ]
   %98 = add i32 %97, %69
   %99 = urem i32 %98, %24
   %100 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %99, ptr noundef null) #10
@@ -2744,7 +2744,7 @@ get_orlov_stats.exit:                             ; preds = %96
 
 106:                                              ; preds = %get_orlov_stats.exit
   %107 = zext i32 %103 to i64
-  %108 = icmp uge i32 %104, %.ph34
+  %108 = icmp uge i32 %104, %.ph28
   %109 = icmp ult i32 %102, %30
   %110 = select i1 %108, i1 true, i1 %109
   %111 = icmp samesign ugt i64 %35, %107
@@ -2754,25 +2754,25 @@ get_orlov_stats.exit:                             ; preds = %96
 get_orlov_stats.exit.thread:                      ; preds = %96, %106, %get_orlov_stats.exit
   %113 = add nuw i32 %97, 1
   %114 = icmp eq i32 %113, %24
-  br i1 %114, label %.split54.us, label %96, !llvm.loop !51
+  br i1 %114, label %.split48.us, label %96, !llvm.loop !51
 
 .thread.split:                                    ; preds = %106
   %115 = add nuw i32 %97, 1
   %116 = icmp eq i32 %115, %24
-  br i1 %116, label %.thread27, label %.outer, !llvm.loop !51
+  br i1 %116, label %.thread21, label %.outer, !llvm.loop !51
 
-.split54.us:                                      ; preds = %get_orlov_stats.exit.thread, %get_orlov_stats.exit.thread.us.us
-  %.us-phi55 = phi i32 [ %.ph.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph, %get_orlov_stats.exit.thread ]
-  %.us-phi56 = phi i32 [ %.ph35.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph35, %get_orlov_stats.exit.thread ]
-  %117 = icmp eq i32 %.us-phi55, 0
-  br i1 %117, label %.thread27, label %.loopexit32
+.split48.us:                                      ; preds = %get_orlov_stats.exit.thread, %get_orlov_stats.exit.thread.us.us
+  %.us-phi49 = phi i32 [ %.ph.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph, %get_orlov_stats.exit.thread ]
+  %.us-phi50 = phi i32 [ %.ph29.us, %get_orlov_stats.exit.thread.us.us ], [ %.ph29, %get_orlov_stats.exit.thread ]
+  %117 = icmp eq i32 %.us-phi49, 0
+  br i1 %117, label %.thread21, label %.loopexit26
 
-.thread27:                                        ; preds = %get_orlov_stats.exit12, %get_orlov_stats.exit12.us, %.thread.split, %.thread.split.us.us, %.split54.us
-  %118 = phi i32 [ %.us-phi56, %.split54.us ], [ %159, %get_orlov_stats.exit12.us ], [ %73, %.thread.split.us.us ], [ %99, %.thread.split ], [ %180, %get_orlov_stats.exit12 ]
+.thread21:                                        ; preds = %get_orlov_stats.exit12, %get_orlov_stats.exit12.us, %.thread.split, %.thread.split.us.us, %.split48.us
+  %118 = phi i32 [ %.us-phi50, %.split48.us ], [ %159, %get_orlov_stats.exit12.us ], [ %73, %.thread.split.us.us ], [ %99, %.thread.split ], [ %180, %get_orlov_stats.exit12 ]
   %119 = icmp eq i32 %18, 0
   br i1 %119, label %.loopexit, label %120
 
-120:                                              ; preds = %.thread27
+120:                                              ; preds = %.thread21
   %121 = shl i32 %118, %18
   %122 = call i32 @llvm.usub.sat.i32(i32 %12, i32 %121)
   br label %123
@@ -2781,7 +2781,7 @@ get_orlov_stats.exit.thread:                      ; preds = %96, %106, %get_orlo
   %124 = phi i32 [ 0, %120 ], [ %134, %133 ]
   %125 = add nuw i32 %124, %121
   %126 = icmp eq i32 %124, %122
-  br i1 %126, label %.loopexit32, label %127
+  br i1 %126, label %.loopexit26, label %127
 
 127:                                              ; preds = %123
   %128 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %125, ptr noundef null) #10
@@ -2796,7 +2796,7 @@ get_orlov_stats.exit.thread:                      ; preds = %96, %106, %get_orlo
 133:                                              ; preds = %130, %127
   %134 = add nuw i32 %124, 1
   %135 = icmp eq i32 %134, %19
-  br i1 %135, label %.loopexit32, label %123, !llvm.loop !52
+  br i1 %135, label %.loopexit26, label %123, !llvm.loop !52
 
 136:                                              ; preds = %48, %5
   %137 = udiv i32 %39, %24
@@ -2844,12 +2844,12 @@ get_orlov_stats.exit12.us:                        ; preds = %136, %get_orlov_sta
   %173 = select i1 %171, i1 true, i1 %172
   %174 = icmp ult i64 %168, %155
   %175 = select i1 %173, i1 true, i1 %174
-  br i1 %175, label %get_orlov_stats.exit12.thread.us, label %.thread27
+  br i1 %175, label %get_orlov_stats.exit12.thread.us, label %.thread21
 
 get_orlov_stats.exit12.thread.us:                 ; preds = %get_orlov_stats.exit12.us
   %176 = add nuw i32 %157, 1
   %177 = icmp eq i32 %176, %24
-  br i1 %177, label %.loopexit32, label %get_orlov_stats.exit12.us, !llvm.loop !53
+  br i1 %177, label %.loopexit26, label %get_orlov_stats.exit12.us, !llvm.loop !53
 
 .split:                                           ; preds = %136, %get_orlov_stats.exit12.thread
   %178 = phi i32 [ %192, %get_orlov_stats.exit12.thread ], [ 0, %136 ]
@@ -2869,19 +2869,19 @@ get_orlov_stats.exit12:                           ; preds = %.split
   %189 = select i1 %187, i1 true, i1 %188
   %190 = icmp ugt i64 %155, %185
   %191 = select i1 %189, i1 true, i1 %190
-  br i1 %191, label %get_orlov_stats.exit12.thread, label %.thread27
+  br i1 %191, label %get_orlov_stats.exit12.thread, label %.thread21
 
 get_orlov_stats.exit12.thread:                    ; preds = %.split, %get_orlov_stats.exit12
   %192 = add nuw i32 %178, 1
   %193 = icmp eq i32 %192, %24
-  br i1 %193, label %.loopexit32, label %.split, !llvm.loop !53
+  br i1 %193, label %.loopexit26, label %.split, !llvm.loop !53
 
-.loopexit32:                                      ; preds = %get_orlov_stats.exit12.thread, %get_orlov_stats.exit12.thread.us, %133, %123, %.split54.us
+.loopexit26:                                      ; preds = %get_orlov_stats.exit12.thread, %get_orlov_stats.exit12.thread.us, %133, %123, %.split48.us
   %194 = udiv i32 %29, %12
   br label %195
 
-195:                                              ; preds = %212, %.loopexit32
-  %196 = phi i32 [ %194, %.loopexit32 ], [ 0, %212 ]
+195:                                              ; preds = %212, %.loopexit26
+  %196 = phi i32 [ %194, %.loopexit26 ], [ 0, %212 ]
   %197 = load i32, ptr %7, align 8
   br label %198
 
@@ -2907,14 +2907,14 @@ get_orlov_stats.exit12.thread:                    ; preds = %.split, %get_orlov_
 
 212:                                              ; preds = %209
   %213 = icmp eq i32 %196, 0
-  br i1 %213, label %.loopexit31, label %195
+  br i1 %213, label %.loopexit25, label %195
 
-.loopexit:                                        ; preds = %130, %204, %.thread27
-  %214 = phi i32 [ %118, %.thread27 ], [ %201, %204 ], [ %125, %130 ]
+.loopexit:                                        ; preds = %130, %204, %.thread21
+  %214 = phi i32 [ %118, %.thread21 ], [ %201, %204 ], [ %125, %130 ]
   store i32 %214, ptr %2, align 4
-  br label %.loopexit31
+  br label %.loopexit25
 
-.loopexit31:                                      ; preds = %212, %.loopexit
+.loopexit25:                                      ; preds = %212, %.loopexit
   %215 = phi i32 [ 0, %.loopexit ], [ -1, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %215

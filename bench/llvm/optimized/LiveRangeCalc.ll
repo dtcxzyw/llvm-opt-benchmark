@@ -1404,27 +1404,27 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull r
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %15
 
-15:                                               ; preds = %._crit_edge180, %1
+15:                                               ; preds = %._crit_edge176, %1
   %16 = load ptr, ptr %4, align 8, !tbaa !45
   %17 = load i32, ptr %5, align 8, !tbaa !41
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 5
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %.not175 = icmp eq i32 %17, 0
-  br i1 %.not175, label %.critedge, label %.lr.ph179
+  %.not171 = icmp eq i32 %17, 0
+  br i1 %.not171, label %.critedge, label %.lr.ph175
 
-._crit_edge180:                                   ; preds = %293
+._crit_edge176:                                   ; preds = %293
   br i1 %.1, label %15, label %.critedge, !llvm.loop !281
 
-.lr.ph179:                                        ; preds = %15, %293
-  %.0177 = phi i1 [ %.1, %293 ], [ false, %15 ]
-  %.064176 = phi ptr [ %294, %293 ], [ %16, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.064176, i64 8
+.lr.ph175:                                        ; preds = %15, %293
+  %.0173 = phi i1 [ %.1, %293 ], [ false, %15 ]
+  %.064172 = phi ptr [ %294, %293 ], [ %16, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.064172, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !174
   %.not79 = icmp eq ptr %21, null
   br i1 %.not79, label %293, label %22
 
-22:                                               ; preds = %.lr.ph179
+22:                                               ; preds = %.lr.ph175
   %23 = load ptr, ptr %21, align 8, !tbaa !179
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !282
@@ -1433,8 +1433,8 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull r
   br i1 %.not80, label %..thread151_crit_edge, label %26
 
 ..thread151_crit_edge:                            ; preds = %22
-  %.pre184 = load ptr, ptr %7, align 8, !tbaa !45
-  br label %.thread159
+  %.pre180 = load ptr, ptr %7, align 8, !tbaa !45
+  br label %.thread155
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %.fr, align 8, !tbaa !179
@@ -1449,13 +1449,13 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull r
   %36 = getelementptr inbounds nuw i64, ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8, !tbaa !46
   %38 = and i64 %32, %37
-  %.not166 = icmp eq i64 %38, 0
-  %.pre185 = load ptr, ptr %7, align 8, !tbaa !45
-  br i1 %.not166, label %.thread159, label %39
+  %.not162 = icmp eq i64 %38, 0
+  %.pre181 = load ptr, ptr %7, align 8, !tbaa !45
+  br i1 %.not162, label %.thread155, label %39
 
 39:                                               ; preds = %26
   %40 = zext i32 %29 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre185, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre181, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !233
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !234
@@ -1561,16 +1561,16 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
   br label %99
 
 99:                                               ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit, %39
-  %.sroa.9.4 = phi ptr [ %44, %39 ], [ %98, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ]
+  %.sroa.9.1 = phi ptr [ %44, %39 ], [ %98, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ]
   %100 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %101 = load ptr, ptr %100, align 8, !tbaa !45
   %102 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %103 = load i32, ptr %102, align 8, !tbaa !41
   %104 = zext i32 %103 to i64
-  %.idx181 = shl nuw nsw i64 %104, 3
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx181
-  %.not84173 = icmp eq i32 %103, 0
-  br i1 %.not84173, label %._crit_edge, label %.lr.ph
+  %.idx177 = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx177
+  %.not84169 = icmp eq i32 %103, 0
+  br i1 %.not84169, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %99
   %106 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
@@ -1580,8 +1580,8 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
   br label %110
 
 110:                                              ; preds = %.lr.ph, %.thread142
-  %.072174 = phi ptr [ %101, %.lr.ph ], [ %219, %.thread142 ]
-  %111 = load ptr, ptr %.072174, align 8, !tbaa !255
+  %.072170 = phi ptr [ %101, %.lr.ph ], [ %219, %.thread142 ]
+  %111 = load ptr, ptr %.072170, align 8, !tbaa !255
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load i32, ptr %112, align 8, !tbaa !187
   %114 = zext i32 %113 to i64
@@ -1595,7 +1595,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
 
 119:                                              ; preds = %110
   %120 = icmp eq ptr %117, @_ZL8UndefVNI
-  br i1 %120, label %.thread159, label %121
+  br i1 %120, label %.thread155, label %121
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -1702,13 +1702,13 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
   %176 = icmp ne ptr %175, %.fr
   %177 = icmp ne ptr %175, null
   %or.cond.i = and i1 %176, %177
-  br i1 %or.cond.i, label %178, label %.thread159
+  br i1 %or.cond.i, label %178, label %.thread155
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !282
   %181 = icmp eq ptr %180, %.fr
-  br i1 %181, label %.thread159, label %182
+  br i1 %181, label %.thread155, label %182
 
 182:                                              ; preds = %178
   %183 = load ptr, ptr %106, align 8, !tbaa !282
@@ -1755,14 +1755,14 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
   %207 = getelementptr inbounds nuw i8, ptr %175, i64 76
   %208 = load i32, ptr %207, align 4, !tbaa !298
   %209 = load i32, ptr %109, align 4, !tbaa !298
-  %.fr167 = freeze i32 %208
-  %.fr168 = freeze i32 %209
-  %.not169 = icmp ugt i32 %.fr167, %.fr168
-  br i1 %.not169, label %.thread142, label %..thread164_crit_edge
+  %.fr163 = freeze i32 %208
+  %.fr164 = freeze i32 %209
+  %.not165 = icmp ugt i32 %.fr163, %.fr164
+  br i1 %.not165, label %.thread142, label %..thread160_crit_edge
 
-..thread164_crit_edge:                            ; preds = %206
-  %.pre182 = load ptr, ptr %7, align 8, !tbaa !45
-  br label %.thread159
+..thread160_crit_edge:                            ; preds = %206
+  %.pre178 = load ptr, ptr %7, align 8, !tbaa !45
+  br label %.thread155
 
 .preheader.i:                                     ; preds = %197, %212
   %.0.i.i = phi ptr [ %211, %212 ], [ %175, %197 ]
@@ -1780,28 +1780,28 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
 
 _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i: ; preds = %212, %.preheader.i
   %215 = icmp eq ptr %.0.i.i.fr, %.fr
-  br i1 %215, label %.thread159, label %.thread142
+  br i1 %215, label %.thread155, label %.thread142
 
 _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit: ; preds = %193
   %216 = getelementptr inbounds nuw i8, ptr %175, i64 76
   %217 = load i32, ptr %216, align 4, !tbaa !298
   %218 = load i32, ptr %109, align 4, !tbaa !298
-  %.fr170 = freeze i32 %217
-  %.fr171 = freeze i32 %218
-  %.not172 = icmp ugt i32 %.fr170, %.fr171
-  br i1 %.not172, label %.thread142, label %.thread159
+  %.fr166 = freeze i32 %217
+  %.fr167 = freeze i32 %218
+  %.not168 = icmp ugt i32 %.fr166, %.fr167
+  br i1 %.not168, label %.thread142, label %.thread155
 
 .thread142:                                       ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %206, %202, %182, %185, %193, %110
-  %219 = getelementptr inbounds nuw i8, ptr %.072174, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %.072170, i64 8
   %.not84 = icmp eq ptr %219, %105
   br i1 %.not84, label %._crit_edge.loopexit, label %110
 
 ._crit_edge.loopexit:                             ; preds = %.thread142
-  %.pre183 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre179 = load ptr, ptr %7, align 8, !tbaa !45
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %99
-  %220 = phi ptr [ %.pre183, %._crit_edge.loopexit ], [ %.pre185, %99 ]
+  %220 = phi ptr [ %.pre179, %._crit_edge.loopexit ], [ %.pre181, %99 ]
   %221 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %222 = load i32, ptr %221, align 8, !tbaa !187
   %223 = zext i32 %222 to i64
@@ -1811,8 +1811,8 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTr
   %or.cond9 = and i1 %225, %226
   br i1 %or.cond9, label %284, label %293
 
-.thread159:                                       ; preds = %178, %174, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %119, %..thread164_crit_edge, %26, %..thread151_crit_edge
-  %.sink = phi ptr [ %.pre185, %26 ], [ %.pre182, %..thread164_crit_edge ], [ %.pre184, %..thread151_crit_edge ], [ %115, %119 ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i ], [ %115, %174 ], [ %115, %178 ]
+.thread155:                                       ; preds = %178, %174, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %119, %..thread160_crit_edge, %26, %..thread151_crit_edge
+  %.sink = phi ptr [ %.pre181, %26 ], [ %.pre178, %..thread160_crit_edge ], [ %.pre180, %..thread151_crit_edge ], [ %115, %119 ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i ], [ %115, %174 ], [ %115, %178 ]
   %227 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %228 = load i32, ptr %227, align 8, !tbaa !187
   %229 = zext i32 %228 to i64
@@ -1824,7 +1824,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTr
   %235 = load i64, ptr %234, align 8, !tbaa !231
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !231
-  %238 = load ptr, ptr %.064176, align 8, !tbaa !235
+  %238 = load ptr, ptr %.064172, align 8, !tbaa !235
   %239 = load ptr, ptr %10, align 8, !tbaa !173
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 80
   %241 = load i64, ptr %240, align 8, !tbaa !300
@@ -1843,13 +1843,13 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTr
   %252 = and i1 %251, %.not.i.i.i.i
   br i1 %252, label %253, label %256, !prof !260
 
-253:                                              ; preds = %.thread159
+253:                                              ; preds = %.thread155
   %254 = inttoptr i64 %247 to ptr
   store ptr %254, ptr %239, align 8, !tbaa !301
   %255 = inttoptr i64 %246 to ptr
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
 
-256:                                              ; preds = %.thread159
+256:                                              ; preds = %.thread155
   %257 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %239, i64 noundef 16, i64 noundef 16, i8 4)
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
 
@@ -1885,10 +1885,10 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
   %274 = load i32, ptr %259, align 8, !tbaa !41
   %275 = add i32 %274, 1
   store i32 %275, ptr %259, align 8, !tbaa !41
-  %276 = getelementptr inbounds nuw i8, ptr %.064176, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %.064172, i64 24
   store ptr %.0.i.i.i.i, ptr %276, align 8, !tbaa !244
   store ptr null, ptr %20, align 8, !tbaa !174
-  %277 = getelementptr inbounds nuw i8, ptr %.064176, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %.064172, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %277, align 8
   %278 = icmp ugt i64 %.0.copyload.i.i.i.i, 7
   br i1 %278, label %279, label %281
@@ -1911,9 +1911,9 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
   br label %293
 
 284:                                              ; preds = %._crit_edge
-  %285 = getelementptr inbounds nuw i8, ptr %.064176, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %.064172, i64 24
   store ptr %42, ptr %285, align 8, !tbaa !244
-  %286 = getelementptr inbounds nuw i8, ptr %.064176, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %.064172, i64 16
   %.0.copyload.i.i.i.i113 = load i64, ptr %286, align 8
   %287 = icmp ugt i64 %.0.copyload.i.i.i.i113, 7
   br i1 %287, label %293, label %288
@@ -1926,16 +1926,16 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
 291:                                              ; preds = %288
   store ptr %42, ptr %224, align 8, !tbaa !233
   %292 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store ptr %.sroa.9.4, ptr %292, align 8, !tbaa !234
+  store ptr %.sroa.9.1, ptr %292, align 8, !tbaa !234
   br label %293
 
-293:                                              ; preds = %284, %288, %._crit_edge, %291, %279, %281, %.lr.ph179
-  %.1 = phi i1 [ %.0177, %.lr.ph179 ], [ %.0177, %288 ], [ %.0177, %284 ], [ %.0177, %._crit_edge ], [ true, %291 ], [ true, %279 ], [ true, %281 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.064176, i64 32
+293:                                              ; preds = %284, %288, %._crit_edge, %291, %279, %281, %.lr.ph175
+  %.1 = phi i1 [ %.0173, %.lr.ph175 ], [ %.0173, %288 ], [ %.0173, %284 ], [ %.0173, %._crit_edge ], [ true, %291 ], [ true, %279 ], [ true, %281 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.064172, i64 32
   %.not = icmp eq ptr %294, %19
-  br i1 %.not, label %._crit_edge180, label %.lr.ph179
+  br i1 %.not, label %._crit_edge176, label %.lr.ph175
 
-.critedge:                                        ; preds = %15, %._crit_edge180
+.critedge:                                        ; preds = %15, %._crit_edge176
   ret void
 }
 

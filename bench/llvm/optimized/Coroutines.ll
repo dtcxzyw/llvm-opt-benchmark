@@ -2328,8 +2328,8 @@ define dso_local void @_ZN4llvm4coro12AnyRetconABI4initEv(ptr noundef nonnull re
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 255
   %16 = icmp ne i32 %15, 15
-  %.not8.i = icmp eq ptr %12, null
-  %.not.i = or i1 %.not8.i, %16
+  %.not6.i = icmp eq ptr %12, null
+  %.not.i = or i1 %.not6.i, %16
   br i1 %.not.i, label %_ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit, label %17
 
 17:                                               ; preds = %1
@@ -2478,9 +2478,9 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   br label %96
 
 96:                                               ; preds = %85, %.fold.split, %90
-  %.sroa.6.1.us = phi i64 [ 0, %85 ], [ %95, %90 ], [ 1, %.fold.split ]
-  %.sroa.062.1.us = phi ptr [ null, %85 ], [ %92, %90 ], [ %3, %.fold.split ]
-  %.not51.us = icmp eq i64 %.sroa.6.1.us, %37
+  %.sroa.6.0.us = phi i64 [ 0, %85 ], [ %95, %90 ], [ 1, %.fold.split ]
+  %.sroa.062.0.us = phi ptr [ null, %85 ], [ %92, %90 ], [ %3, %.fold.split ]
+  %.not51.us = icmp eq i64 %.sroa.6.0.us, %37
   br i1 %.not51.us, label %.preheader.us, label %.split88.us
 
 97:                                               ; preds = %.preheader.us
@@ -2490,7 +2490,7 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
 
 .preheader.us:                                    ; preds = %96, %97
   %.04278.us = phi i64 [ %98, %97 ], [ 0, %96 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %.sroa.062.1.us, i64 %.04278.us
+  %99 = getelementptr inbounds nuw ptr, ptr %.sroa.062.0.us, i64 %.04278.us
   %100 = load ptr, ptr %99, align 8, !tbaa !111
   %101 = getelementptr inbounds nuw ptr, ptr %38, i64 %.04278.us
   %102 = load ptr, ptr %101, align 8, !tbaa !111
@@ -2642,9 +2642,9 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %138, %142
   br label %164
 
 164:                                              ; preds = %153, %.fold.split158, %158
-  %.sroa.6.1 = phi i64 [ 0, %153 ], [ %163, %158 ], [ 1, %.fold.split158 ]
-  %.sroa.062.1 = phi ptr [ null, %153 ], [ %160, %158 ], [ %3, %.fold.split158 ]
-  %.not51 = icmp eq i64 %.sroa.6.1, %37
+  %.sroa.6.0 = phi i64 [ 0, %153 ], [ %163, %158 ], [ 1, %.fold.split158 ]
+  %.sroa.062.0 = phi ptr [ null, %153 ], [ %160, %158 ], [ %3, %.fold.split158 ]
+  %.not51 = icmp eq i64 %.sroa.6.0, %37
   br i1 %.not51, label %.preheader, label %.split88.us
 
 .preheader:                                       ; preds = %164
@@ -2667,7 +2667,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %138, %142
 
 .lr.ph79:                                         ; preds = %.preheader, %165
   %.04278 = phi i64 [ %166, %165 ], [ 0, %.preheader ]
-  %168 = getelementptr inbounds nuw ptr, ptr %.sroa.062.1, i64 %.04278
+  %168 = getelementptr inbounds nuw ptr, ptr %.sroa.062.0, i64 %.04278
   %169 = load ptr, ptr %168, align 8, !tbaa !111
   %170 = getelementptr inbounds nuw ptr, ptr %38, i64 %.04278
   %171 = load ptr, ptr %170, align 8, !tbaa !111

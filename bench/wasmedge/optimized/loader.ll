@@ -1003,8 +1003,8 @@ define void @_ZN8WasmEdge6Loader6Loader8loadFileERKNSt10filesystem7__cxx114pathE
   store ptr %26, ptr %25, align 8
   %27 = call noundef i64 @_ZNSt10filesystem9file_sizeERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %13) #23
   %28 = load i32, ptr %13, align 8
-  %.not97 = icmp eq i32 %28, 0
-  br i1 %.not97, label %45, label %29
+  %.not91 = icmp eq i32 %28, 0
+  br i1 %.not91, label %45, label %29
 
 29:                                               ; preds = %2
   store i32 256, ptr %14, align 4
@@ -1200,11 +1200,11 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %72
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %136
-  %.019100 = phi i64 [ %137, %136 ], [ 0, %.lr.ph.preheader ]
-  %.099 = phi i64 [ %138, %136 ], [ %27, %.lr.ph.preheader ]
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.099, i64 4294967295)
+  %.01994 = phi i64 [ %137, %136 ], [ 0, %.lr.ph.preheader ]
+  %.093 = phi i64 [ %138, %136 ], [ %27, %.lr.ph.preheader ]
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.093, i64 4294967295)
   %82 = trunc nuw i64 %.sroa.speculated to i32
-  %83 = getelementptr inbounds i8, ptr %76, i64 %.019100
+  %83 = getelementptr inbounds i8, ptr %76, i64 %.01994
   %84 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %83, i64 noundef %.sroa.speculated)
           to label %85 unwind label %.loopexit
 
@@ -1408,28 +1408,28 @@ _ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70:         ; preds = %131, %133
   br label %144
 
 136:                                              ; preds = %87
-  %137 = add i64 %.019100, %.sroa.speculated
-  %138 = sub i64 %.099, %.sroa.speculated
+  %137 = add i64 %.01994, %.sroa.speculated
+  %138 = sub i64 %.093, %.sroa.speculated
   %.not = icmp eq i64 %138, 0
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
 
 .thread:                                          ; preds = %136, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i118 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %136 ]
-  %.sroa.075.1115 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %76, %136 ]
-  %.sroa.10.1112 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %77, %136 ]
+  %.0.i.i.i.i.i112 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %136 ]
+  %.sroa.075.1109 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %76, %136 ]
+  %.sroa.10.1106 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %77, %136 ]
   store i8 1, ptr %0, align 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.075.1115, ptr %139, align 8
+  store ptr %.sroa.075.1109, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i118, ptr %140, align 8
+  store ptr %.0.i.i.i.i.i112, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.10.1112, ptr %141, align 8
+  store ptr %.sroa.10.1106, ptr %141, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 142:                                              ; preds = %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70
-  %.sink121 = phi ptr [ %21, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55 ], [ %24, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70 ]
+  %.sink115 = phi ptr [ %21, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55 ], [ %24, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70 ]
   %.sink = phi i32 [ 258, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55 ], [ 257, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink121) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink115) #23
   store i8 0, ptr %0, align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %143, align 8
@@ -2991,8 +2991,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIhEENS_6SymbolIT_EEPKc.exit: ; preds = %36
-  %.not33 = icmp eq ptr %29, null
-  br i1 %.not33, label %45, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.not30 = icmp eq ptr %29, null
+  br i1 %.not30, label %45, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 45:                                               ; preds = %_ZN8WasmEdge6Loader13SharedLibrary3getIhEENS_6SymbolIT_EEPKc.exit
   store i32 281, ptr %6, align 4

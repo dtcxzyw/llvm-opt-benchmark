@@ -3632,8 +3632,8 @@ _ZN9grpc_core11HPackParser15ParseInputInnerEPNS0_5InputE.exit: ; preds = %50, %5
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %57 = load i8, ptr %56, align 8
   %58 = icmp ne i8 %57, 0
-  %or.cond54 = select i1 %3, i1 %58, i1 false
-  br i1 %or.cond54, label %59, label %147
+  %or.cond51 = select i1 %3, i1 %58, i1 false
+  br i1 %or.cond51, label %59, label %147
 
 59:                                               ; preds = %_ZN9grpc_core11HPackParser15ParseInputInnerEPNS0_5InputE.exit
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -3828,13 +3828,13 @@ _ZN9grpc_core16HpackParseResultD2Ev.exit25:       ; preds = %143, %139, %136
   %152 = load ptr, ptr %151, align 8, !tbaa !25
   %153 = load ptr, ptr %152, align 8, !tbaa !26
   %.not.i.i27 = icmp eq ptr %153, null
-  br i1 %.not.i.i27, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
+  br i1 %.not.i.i27, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
 
 _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28: ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i8, ptr %154, align 1, !tbaa !29
   %156 = icmp ugt i8 %155, 9
-  br i1 %156, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51
+  br i1 %156, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48
 
 _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread: ; preds = %147, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -3846,7 +3846,7 @@ _ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30: ; preds = %_ZNK9grp
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load i8, ptr %159, align 1, !tbaa !29
   %161 = icmp ugt i8 %160, 9
-  br i1 %161, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51, label %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30.thread
+  br i1 %161, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48, label %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30.thread
 
 _ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30.thread: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3903,14 +3903,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %178, %_ZNSt6vectorI
   %182 = phi i64 [ %.pre, %178 ], [ %149, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit ]
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %182, ptr %183, align 8, !tbaa !201
-  br label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51
+  br label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51: ; preds = %150, %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48: ; preds = %150, %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 128
   call void @_ZNK9grpc_core16HpackParseResult11MaterializeEv(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %184)
   br label %185
 
-185:                                              ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51, %_ZN9grpc_core16HpackParseResultD2Ev.exit21
+185:                                              ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread48, %_ZN9grpc_core16HpackParseResultD2Ev.exit21
   ret void
 }
 
@@ -15280,12 +15280,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %39, ptr %36, align 8, !tbaa !231
   %47 = load i64, ptr %40, align 8, !tbaa !54
   store i64 %47, ptr %38, align 8, !tbaa !54
-  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
-  %.pre36 = load i64, ptr %.phi.trans.insert35, align 8, !tbaa !189
+  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
+  %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !189
   br label %48
 
 48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %42
-  %49 = phi i64 [ %.pre36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %44, %42 ]
+  %49 = phi i64 [ %.pre34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %44, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %49, ptr %51, align 8, !tbaa !189
@@ -15327,11 +15327,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17
   %66 = load i64, ptr %7, align 8, !tbaa !54
   %67 = mul i64 %66, 40
   tail call void @_ZdlPvm(ptr noundef %65, i64 noundef %67) #35
-  %.pre37 = load i64, ptr %0, align 8, !tbaa !56
+  %.pre35 = load i64, ptr %0, align 8, !tbaa !56
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit: ; preds = %64, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit
-  %68 = phi i64 [ %.pre37, %64 ], [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit ]
+  %68 = phi i64 [ %.pre35, %64 ], [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit ]
   store ptr %15, ptr %5, align 8, !tbaa !54
   store i64 %10, ptr %7, align 8, !tbaa !54
   %69 = or i64 %68, 1

@@ -13987,7 +13987,7 @@ _ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit82: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %304 = icmp eq ptr %303, null
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.gep85.i = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.sroa.gep79.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   br i1 %304, label %305, label %327
 
 305:                                              ; preds = %302
@@ -14068,20 +14068,20 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit.i: ; preds = %319, %_
 
 333:                                              ; preds = %330
   %.not4.i.i.i.i90 = icmp sgt i64 %331, -1
-  br i1 %.not4.i.i.i.i90, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.i, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i
+  br i1 %.not4.i.i.i.i90, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.i, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i
 
 _ZN9grpc_core23IsServerListenerEnabledEv.exit.i:  ; preds = %333
   %334 = invoke noundef zeroext i1 @_ZN9grpc_core15ExperimentFlags17LoadFlagsAndCheckEm(i64 noundef 25)
           to label %.noexc92 unwind label %1062
 
 .noexc92:                                         ; preds = %_ZN9grpc_core23IsServerListenerEnabledEv.exit.i
-  br i1 %334, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i
+  br i1 %334, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, label %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i
 
 _ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i: ; preds = %.noexc92, %330
   invoke void @_ZN9grpc_core23NewChttp2ServerListener18CreateWithAcceptorEPNS_6ServerEPKcRKNS_11ChannelArgsE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %60, ptr noundef nonnull %86, ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %1024 unwind label %1062
 
-_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i: ; preds = %.noexc92, %333
+_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i: ; preds = %.noexc92, %333
   invoke void @_ZN9grpc_core20Chttp2ServerListener18CreateWithAcceptorEPNS_6ServerEPKcRKNS_11ChannelArgsE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %60, ptr noundef nonnull %86, ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %1024 unwind label %1062
 
@@ -14895,7 +14895,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolve
           to label %647 unwind label %.loopexit325.i.i, !noalias !531
 
 647:                                              ; preds = %646
-  %648 = load ptr, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  %648 = load ptr, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   %649 = load ptr, ptr %346, align 8, !tbaa !553, !noalias !534
   %.not.i.i199.i.i = icmp eq ptr %648, %649
   br i1 %.not.i.i199.i.i, label %652, label %650
@@ -14903,7 +14903,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolve
 650:                                              ; preds = %647
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %648, ptr noundef nonnull align 4 dereferenceable(132) %16, i64 132, i1 false), !tbaa.struct !225, !noalias !531
   %651 = getelementptr inbounds nuw i8, ptr %648, i64 132
-  store ptr %651, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  store ptr %651, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit.i.i
 
 652:                                              ; preds = %647
@@ -14961,7 +14961,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i: ; preds = %670, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i
   store ptr %665, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
-  store ptr %669, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  store ptr %669, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   %671 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %665, i64 %663
   store ptr %671, ptr %346, align 8, !tbaa !553, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit.i.i
@@ -15034,7 +15034,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
           to label %690 unwind label %.loopexit324.i.i, !noalias !531
 
 690:                                              ; preds = %689
-  %691 = load ptr, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  %691 = load ptr, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   %692 = load ptr, ptr %346, align 8, !tbaa !553, !noalias !534
   %.not.i.i208.i.i = icmp eq ptr %691, %692
   br i1 %.not.i.i208.i.i, label %695, label %693
@@ -15042,7 +15042,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 693:                                              ; preds = %690
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %691, ptr noundef nonnull align 4 dereferenceable(132) %17, i64 132, i1 false), !tbaa.struct !225, !noalias !531
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 132
-  store ptr %694, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  store ptr %694, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit223.i.i
 
 695:                                              ; preds = %690
@@ -15100,7 +15100,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i220.i.i: ; preds = %713, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i217.i.i
   store ptr %708, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
-  store ptr %712, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
+  store ptr %712, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
   %714 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %708, i64 %706
   store ptr %714, ptr %346, align 8, !tbaa !553, !noalias !534
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit223.i.i
@@ -15160,7 +15160,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit225.i.i:    ; preds = %724
 
 729:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit225.i.i
   %730 = load ptr, ptr %.sroa.gep.i, align 8, !tbaa !568, !noalias !534
-  %731 = load ptr, ptr %.sroa.gep85.i, align 8, !tbaa !568, !noalias !534
+  %731 = load ptr, ptr %.sroa.gep79.i, align 8, !tbaa !568, !noalias !534
   %.not323342.i.i = icmp eq ptr %730, %731
   br i1 %.not323342.i.i, label %._crit_edge.thread.i.i, label %.lr.ph344.i.preheader.i
 
@@ -15175,8 +15175,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit225.i.i:    ; preds = %724
   br i1 %734, label %._crit_edge.i.._crit_edge.thread.i_crit_edge.i, label %735, !prof !569
 
 ._crit_edge.i.._crit_edge.thread.i_crit_edge.i:   ; preds = %._crit_edge.i.i
-  %.pre.i88 = load ptr, ptr %.sroa.gep85.i, align 8, !tbaa !558, !noalias !534
-  %.pre92.i = load ptr, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
+  %.pre.i88 = load ptr, ptr %.sroa.gep79.i, align 8, !tbaa !558, !noalias !534
+  %.pre86.i = load ptr, ptr %.sroa.gep.i, align 8, !tbaa !550, !noalias !534
   br label %._crit_edge.thread.i.i
 
 735:                                              ; preds = %._crit_edge.i.i
@@ -15499,7 +15499,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE9push_backERKS2_.exit.i.i: ; pr
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.._crit_edge.thread.i_crit_edge.i, %729
   %.5 = phi i32 [ -1, %729 ], [ %.4, %._crit_edge.i.._crit_edge.thread.i_crit_edge.i ]
-  %835 = phi ptr [ %730, %729 ], [ %.pre92.i, %._crit_edge.i.._crit_edge.thread.i_crit_edge.i ]
+  %835 = phi ptr [ %730, %729 ], [ %.pre86.i, %._crit_edge.i.._crit_edge.thread.i_crit_edge.i ]
   %836 = phi ptr [ %730, %729 ], [ %.pre.i88, %._crit_edge.i.._crit_edge.thread.i_crit_edge.i ]
   %.in438.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %837 = load ptr, ptr %.in438.i.i, align 8, !tbaa !128, !noalias !534
@@ -16000,8 +16000,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !528
   br label %1106
 
-1024:                                             ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolved_addressSaIS4_EEED2Ev.exit.i, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i
-  %.6 = phi i32 [ 0, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit.i ], [ %spec.select, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolved_addressSaIS4_EEED2Ev.exit.i ], [ 0, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i ], [ 0, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i ]
+1024:                                             ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolved_addressSaIS4_EEED2Ev.exit.i, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i
+  %.6 = phi i32 [ 0, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit.i ], [ %spec.select, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolved_addressSaIS4_EEED2Ev.exit.i ], [ 0, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i ], [ 0, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %1025 = load i64, ptr %43, align 8, !tbaa !74
   %1026 = load i64, ptr %60, align 8, !tbaa !74
@@ -16103,7 +16103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit109
 
-1062:                                             ; preds = %335, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread88.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.i
+1062:                                             ; preds = %335, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread82.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.thread.i, %_ZN9grpc_core23IsServerListenerEnabledEv.exit.i
   %1063 = landingpad { ptr, i32 }
           cleanup
   br label %1106

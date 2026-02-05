@@ -869,21 +869,21 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
   %.sroa.025.0 = phi ptr [ null, %1 ], [ %6, %.noexc ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %.not2236 = icmp eq i32 %10, 0
-  br i1 %.not2236, label %.critedge24, label %.lr.ph39
+  %.not2233 = icmp eq i32 %10, 0
+  br i1 %.not2233, label %.critedge24, label %.lr.ph36
 
-.lr.ph39:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
+.lr.ph36:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext i32 %10 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph39, %.critedge
-  %indvars.iv41 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next42, %.critedge ]
-  %14 = getelementptr inbounds nuw %struct.aiFace, ptr %12, i64 %indvars.iv41
+13:                                               ; preds = %.lr.ph36, %.critedge
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %.critedge ]
+  %14 = getelementptr inbounds nuw %struct.aiFace, ptr %12, i64 %indvars.iv38
   %15 = load i32, ptr %14, align 8
-  %.not34.not = icmp eq i32 %15, 0
-  br i1 %.not34.not, label %.critedge, label %.lr.ph
+  %.not31.not = icmp eq i32 %15, 0
+  br i1 %.not31.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -909,8 +909,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
   br i1 %26, label %.critedge24.thread, label %18
 
 .critedge:                                        ; preds = %18, %13
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
   br i1 %exitcond.not, label %.critedge24, label %13, !llvm.loop !29
 
 .critedge24:                                      ; preds = %.critedge, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
@@ -918,15 +918,15 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.critedge24.thread
 
 .critedge24.thread:                               ; preds = %19, %.critedge24
-  %.not2232 = phi i1 [ true, %.critedge24 ], [ false, %19 ]
+  %.not2229 = phi i1 [ true, %.critedge24 ], [ false, %19 ]
   %27 = ptrtoint ptr %.sroa.025.0 to i64
   %28 = sub i64 %.sroa.11.0, %27
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0, i64 noundef %28) #13
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge24, %.critedge24.thread
-  %.not2233 = phi i1 [ true, %.critedge24 ], [ %.not2232, %.critedge24.thread ]
-  ret i1 %.not2233
+  %.not2230 = phi i1 [ true, %.critedge24 ], [ %.not2229, %.critedge24.thread ]
+  ret i1 %.not2230
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -967,21 +967,21 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
   %.sroa.025.0.i = phi ptr [ null, %6 ], [ %15, %.noexc.i ]
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load i32, ptr %18, align 8
-  %.not2236.i = icmp eq i32 %19, 0
-  br i1 %.not2236.i, label %.critedge24.i, label %.lr.ph39.i
+  %.not2233.i = icmp eq i32 %19, 0
+  br i1 %.not2233.i, label %.critedge24.i, label %.lr.ph36.i
 
-.lr.ph39.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i
+.lr.ph36.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %21 = load ptr, ptr %20, align 8
   %wide.trip.count.i = zext i32 %19 to i64
   br label %22
 
-22:                                               ; preds = %.critedge.i, %.lr.ph39.i
-  %indvars.iv41.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next42.i, %.critedge.i ]
-  %23 = getelementptr inbounds nuw %struct.aiFace, ptr %21, i64 %indvars.iv41.i
+22:                                               ; preds = %.critedge.i, %.lr.ph36.i
+  %indvars.iv38.i = phi i64 [ 0, %.lr.ph36.i ], [ %indvars.iv.next39.i, %.critedge.i ]
+  %23 = getelementptr inbounds nuw %struct.aiFace, ptr %21, i64 %indvars.iv38.i
   %24 = load i32, ptr %23, align 8
-  %.not34.not.i = icmp eq i32 %24, 0
-  br i1 %.not34.not.i, label %.critedge.i, label %.lr.ph.i
+  %.not31.not.i = icmp eq i32 %24, 0
+  br i1 %.not31.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1007,8 +1007,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
   br i1 %35, label %_Z21IsMeshInVerboseFormatPK6aiMesh.exit, label %27
 
 .critedge.i:                                      ; preds = %27, %22
-  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count.i
+  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge24.i, label %22, !llvm.loop !29
 
 .critedge24.i:                                    ; preds = %.critedge.i, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i

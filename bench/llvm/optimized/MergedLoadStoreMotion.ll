@@ -648,7 +648,7 @@ _ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5Twine
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i, label %279
 
 279:                                              ; preds = %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.thread.i.i.i
-  %.0.i24.i.i.i = phi ptr [ %234, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.thread.i.i.i ], [ %278, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i ]
+  %.0.i22.i.i.i = phi ptr [ %234, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.thread.i.i.i ], [ %278, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i ]
   %280 = getelementptr inbounds i8, ptr %.sroa.093.0116.i.i, i64 -80
   %281 = load ptr, ptr %280, align 8, !tbaa !47
   %282 = getelementptr inbounds i8, ptr %.sroa.093.0116.i.i, i64 -72
@@ -663,13 +663,13 @@ _ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5Twine
   br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i
 
 _ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i:  ; preds = %284, %279, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i
-  %.0.i25.i.i.i = phi ptr [ %.0.i24.i.i.i, %284 ], [ %.0.i24.i.i.i, %279 ], [ %278, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i ]
-  store ptr %.0.i25.i.i.i, ptr %233, align 8, !tbaa !24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.0.i25.i.i.i, null
+  %.0.i23.i.i.i = phi ptr [ %.0.i22.i.i.i, %284 ], [ %.0.i22.i.i.i, %279 ], [ %278, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i.i ]
+  store ptr %.0.i23.i.i.i, ptr %233, align 8, !tbaa !24
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.0.i23.i.i.i, null
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit.i.i.i, label %286
 
 286:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i
-  %287 = getelementptr inbounds nuw i8, ptr %.0.i25.i.i.i, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i.i, i64 16
   %288 = load ptr, ptr %287, align 8, !tbaa !58
   %289 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 -56
   store ptr %288, ptr %289, align 8, !tbaa !47

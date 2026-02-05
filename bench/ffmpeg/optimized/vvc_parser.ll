@@ -330,7 +330,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   br label %33
 
 33:                                               ; preds = %49, %.lr.ph.i.i
-  %.sroa.9.2.i = phi ptr [ null, %.lr.ph.i.i ], [ %.sroa.9.4.i, %49 ]
+  %.sroa.9.0.i = phi ptr [ null, %.lr.ph.i.i ], [ %.sroa.9.2.i, %49 ]
   %34 = phi ptr [ null, %.lr.ph.i.i ], [ %50, %49 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %49 ]
   %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %32, i64 %indvars.iv.i.i
@@ -374,7 +374,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   br i1 %.not49.i.i, label %51, label %.loopexit.i.i
 
 49:                                               ; preds = %41, %38, %33
-  %.sroa.9.4.i = phi ptr [ %.sroa.9.2.i, %33 ], [ %.sroa.9.2.i, %38 ], [ %42, %41 ]
+  %.sroa.9.2.i = phi ptr [ %.sroa.9.0.i, %33 ], [ %.sroa.9.0.i, %38 ], [ %42, %41 ]
   %50 = phi ptr [ %34, %33 ], [ %34, %38 ], [ %42, %41 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -389,7 +389,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   br label %parse_nal_units.exit.thread19
 
 .loopexit.i.i:                                    ; preds = %48, %.thread.i.i
-  %.sroa.9.3.i = phi ptr [ %.sroa.9.2.i, %48 ], [ %47, %.thread.i.i ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.0.i, %48 ], [ %47, %.thread.i.i ]
   %52 = phi ptr [ %34, %48 ], [ %47, %.thread.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 5
@@ -478,7 +478,7 @@ get_pu_info.exit.i:                               ; preds = %72, %._crit_edge.lo
   %.val25.i.i = load i8, ptr %44, align 1, !tbaa !93
   %91 = zext nneg i8 %.val.i.i to i32
   %92 = shl nuw i32 16, %91
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 6
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 6
   %94 = load i16, ptr %93, align 2, !tbaa !94
   %95 = zext i16 %94 to i32
   %.off.i.i.i = add i8 %.val25.i.i, -7
@@ -486,13 +486,13 @@ get_pu_info.exit.i:                               ; preds = %72, %._crit_edge.lo
   br i1 %switch.i.i.i, label %96, label %105
 
 96:                                               ; preds = %84
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 25
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 25
   %98 = load i8, ptr %97, align 1, !tbaa !95
   %.not39.i.i.i = icmp eq i8 %98, 0
   br i1 %.not39.i.i.i, label %get_slice_poc.exit.i.i, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 26
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 26
   %101 = load i8, ptr %100, align 2, !tbaa !96
   %102 = zext i8 %101 to i32
   %103 = add nuw nsw i32 %91, 4
@@ -505,13 +505,13 @@ get_pu_info.exit.i:                               ; preds = %72, %._crit_edge.lo
   %108 = add nsw i32 %92, -1
   %109 = and i32 %107, %108
   %110 = sub nsw i32 %107, %109
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 25
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 25
   %112 = load i8, ptr %111, align 1, !tbaa !95
   %.not.i.i.i = icmp eq i8 %112, 0
   br i1 %.not.i.i.i, label %119, label %113
 
 113:                                              ; preds = %105
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 26
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 26
   %115 = load i8, ptr %114, align 2, !tbaa !96
   %116 = zext i8 %115 to i32
   %117 = add nuw nsw i32 %91, 4
@@ -555,11 +555,11 @@ get_slice_poc.exit.i.i:                           ; preds = %128, %126, %124, %1
 136:                                              ; preds = %get_slice_poc.exit.i.i
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %138 = load i32, ptr %137, align 4, !tbaa !14
-  %.not50.i = icmp eq i32 %133, %138
+  %.not45.i = icmp eq i32 %133, %138
   br label %139
 
 139:                                              ; preds = %136, %get_slice_poc.exit.i.i
-  %.not31.i = phi i1 [ false, %get_slice_poc.exit.i.i ], [ %.not50.i, %136 ]
+  %.not31.i = phi i1 [ false, %get_slice_poc.exit.i.i ], [ %.not45.i, %136 ]
   store i8 %134, ptr %89, align 4, !tbaa !12
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 320
   store i32 %133, ptr %140, align 4, !tbaa !14
@@ -569,7 +569,7 @@ get_slice_poc.exit.i.i:                           ; preds = %128, %126, %124, %1
   br i1 %143, label %144, label %is_au_start.exit.i
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.9.3.i, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.9.1.i, i64 1
   %146 = load i8, ptr %145, align 1, !tbaa !99
   %147 = icmp eq i8 %146, 0
   %148 = add i8 %.val25.i.i, -4

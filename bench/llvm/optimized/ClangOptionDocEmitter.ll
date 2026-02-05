@@ -4916,8 +4916,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cx
   br label %13
 
 13:                                               ; preds = %6, %.critedge34
-  %.0.idx62 = phi i64 [ 0, %6 ], [ %.0.add, %.critedge34 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.0.idx62
+  %.0.idx54 = phi i64 [ 0, %6 ], [ %.0.add, %.critedge34 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.0.idx54
   %.sroa.013.0.copyload = load ptr, ptr %.0.ptr, align 8, !tbaa !169
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !41
@@ -4964,7 +4964,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit:    ; preds = %.lr.ph.i.i
 
 32:                                               ; preds = %29
   %.not.i = icmp eq i64 %.sroa.5.0.copyload, %3
-  br i1 %.not.i, label %33, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread58
+  br i1 %.not.i, label %33, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
 
 33:                                               ; preds = %32
   %34 = icmp eq i64 %3, 0
@@ -4973,7 +4973,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit:    ; preds = %.lr.ph.i.i
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %33
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.013.0.copyload, ptr %2, i64 %3)
   %35 = icmp eq i32 %bcmp.i, 0
-  br i1 %35, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread58
+  br i1 %35, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %33, %_ZN4llvmeqENS_9StringRefES0_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
@@ -5025,16 +5025,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !224
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread58:       ; preds = %32, %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread50:       ; preds = %32, %_ZN4llvmeqENS_9StringRefES0_.exit
   tail call fastcc void @_ZN12_GLOBAL__N_19escapeRSTB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread
 
 .critedge34:                                      ; preds = %21, %25, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit, %13, %29
-  %.0.add = add nuw nsw i64 %.0.idx62, 16
+  %.0.add = add nuw nsw i64 %.0.idx54, 16
   %.not = icmp eq i64 %.0.add, 32
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit, label %13
 
-_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i, %37, %_ZN4llvmeqENS_9StringRefES0_.exit.thread58
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit.thread:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i, %37, %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
@@ -8330,8 +8330,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
 "_ZN4llvm4sortIRSt6vectorIPKNS_6RecordESaIS4_EEZN12_GLOBAL__N_120extractDocumentationERKNS_12RecordKeeperES4_E3$_2EEvOT_T0_.exit.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_120extractDocumentationERKNS2_12RecordKeeperES5_E3$_2EEEvT_T0_.exit.i30.i.i.i.i.i.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_120extractDocumentationERKNS2_12RecordKeeperES5_E3$_2EEEvT_T0_.exit.i14.i.i.i.i.i.i.i.i", %68, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120extractDocumentationERKNS2_12RecordKeeperES5_E3$_2EEEvT_SJ_T0_.exit.i.i.i.i.i.i.i.i", %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit.i.i.i
   %92 = load ptr, ptr %27, align 8, !tbaa !102, !noalias !300
   %93 = load ptr, ptr %28, align 8, !tbaa !102, !noalias !300
-  %.not75.i.i.i = icmp eq ptr %92, %93
-  br i1 %.not75.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not72.i.i.i = icmp eq ptr %92, %93
+  br i1 %.not72.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4llvm4sortIRSt6vectorIPKNS_6RecordESaIS4_EEZN12_GLOBAL__N_120extractDocumentationERKNS_12RecordKeeperES4_E3$_2EEvOT_T0_.exit.i.i.i"
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8408,10 +8408,10 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE
   call fastcc void @"_ZN4llvm4sortIRSt6vectorIPKNS_6RecordESaIS4_EEZN12_GLOBAL__N_120extractDocumentationERKNS_12RecordKeeperES4_E3$_1EEvOT_T0_"(ptr %.val17.i.i.i, ptr %.val18.i.i.i), !noalias !300
   %120 = load ptr, ptr %118, align 8, !tbaa !102, !noalias !300
   %121 = load ptr, ptr %119, align 8, !tbaa !102, !noalias !300
-  %.not7278.i.i.i = icmp eq ptr %120, %121
-  br i1 %.not7278.i.i.i, label %"_ZSt10__invoke_rIN12_GLOBAL__N_113DocumentationERZNS0_20extractDocumentationERKN4llvm12RecordKeeperEPKNS2_6RecordEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %.lr.ph80.i.i.i
+  %.not6975.i.i.i = icmp eq ptr %120, %121
+  br i1 %.not6975.i.i.i, label %"_ZSt10__invoke_rIN12_GLOBAL__N_113DocumentationERZNS0_20extractDocumentationERKN4llvm12RecordKeeperEPKNS2_6RecordEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %.lr.ph77.i.i.i
 
-.lr.ph80.i.i.i:                                   ; preds = %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit38.i.i.i
+.lr.ph77.i.i.i:                                   ; preds = %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit38.i.i.i
   %122 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -8429,8 +8429,8 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE
   %.val.i.i.i.i.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %.val.i.i.i6.i.i, %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i ]
   %131 = phi ptr [ null, %.lr.ph.i.i.i ], [ %175, %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i ]
   %132 = phi ptr [ null, %.lr.ph.i.i.i ], [ %248, %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i ]
-  %.sroa.069.076.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i ], [ %249, %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i ]
-  %133 = load ptr, ptr %.sroa.069.076.i.i.i, align 8, !tbaa !16, !noalias !300
+  %.sroa.066.073.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i ], [ %249, %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i ]
+  %133 = load ptr, ptr %.sroa.066.073.i.i.i, align 8, !tbaa !16, !noalias !300
   %.not.i.i.i.i = icmp eq ptr %132, %131
   br i1 %.not.i.i.i.i, label %135, label %134
 
@@ -8724,19 +8724,19 @@ _ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: 
 
 _ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EE8pop_backEv.exit.i.i.i: ; preds = %244, %_ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_113DocumentationD2Ev.exit.i.i.i
   %248 = phi ptr [ %.pn, %244 ], [ %.pn, %_ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %176, %_ZN12_GLOBAL__N_113DocumentationD2Ev.exit.i.i.i ]
-  %249 = getelementptr inbounds nuw i8, ptr %.sroa.069.076.i.i.i, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.066.073.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %249, %93
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i.loopexit, label %127
 
-250:                                              ; preds = %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i, %.lr.ph80.i.i.i
-  %251 = phi ptr [ %.promoted22, %.lr.ph80.i.i.i ], [ %319, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %252 = phi ptr [ %.promoted19, %.lr.ph80.i.i.i ], [ %320, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %253 = phi ptr [ %.promoted16, %.lr.ph80.i.i.i ], [ %321, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %.val.i.i.i.i.i.i = phi ptr [ null, %.lr.ph80.i.i.i ], [ %.val.i.i.i.i8.i.i, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %254 = phi ptr [ null, %.lr.ph80.i.i.i ], [ %322, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %255 = phi ptr [ null, %.lr.ph80.i.i.i ], [ %323, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %.sroa.065.079.i.i.i = phi ptr [ %120, %.lr.ph80.i.i.i ], [ %324, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
-  %256 = load ptr, ptr %.sroa.065.079.i.i.i, align 8, !tbaa !16, !noalias !300
+250:                                              ; preds = %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i, %.lr.ph77.i.i.i
+  %251 = phi ptr [ %.promoted22, %.lr.ph77.i.i.i ], [ %319, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %252 = phi ptr [ %.promoted19, %.lr.ph77.i.i.i ], [ %320, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %253 = phi ptr [ %.promoted16, %.lr.ph77.i.i.i ], [ %321, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %.val.i.i.i.i.i.i = phi ptr [ null, %.lr.ph77.i.i.i ], [ %.val.i.i.i.i8.i.i, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %254 = phi ptr [ null, %.lr.ph77.i.i.i ], [ %322, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %255 = phi ptr [ null, %.lr.ph77.i.i.i ], [ %323, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %.sroa.062.076.i.i.i = phi ptr [ %120, %.lr.ph77.i.i.i ], [ %324, %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i ]
+  %256 = load ptr, ptr %.sroa.062.076.i.i.i, align 8, !tbaa !16, !noalias !300
   %257 = load ptr, ptr %122, align 8, !tbaa !320, !noalias !300
   %258 = load ptr, ptr %257, align 8, !tbaa !16, !noalias !300
   %259 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115isOptionVisibleEPKN4llvm6RecordES3_(ptr noundef %256, ptr noundef %258), !noalias !300
@@ -8896,9 +8896,9 @@ _ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i: ; preds = %_ZNSt6vectorIN12_
   %.val.i.i.i.i8.i.i = phi ptr [ %299, %_ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %281 ], [ %.val.i.i.i.i.i.i, %250 ]
   %322 = phi ptr [ %318, %_ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i ], [ %254, %281 ], [ %254, %250 ]
   %323 = phi ptr [ %316, %_ZNSt6vectorIN12_GLOBAL__N_116DocumentedOptionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i ], [ %285, %281 ], [ %255, %250 ]
-  %324 = getelementptr inbounds nuw i8, ptr %.sroa.065.079.i.i.i, i64 8
-  %.not72.i.i.i = icmp eq ptr %324, %121
-  br i1 %.not72.i.i.i, label %"_ZSt10__invoke_rIN12_GLOBAL__N_113DocumentationERZNS0_20extractDocumentationERKN4llvm12RecordKeeperEPKNS2_6RecordEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit.loopexit", label %250
+  %324 = getelementptr inbounds nuw i8, ptr %.sroa.062.076.i.i.i, i64 8
+  %.not69.i.i.i = icmp eq ptr %324, %121
+  br i1 %.not69.i.i.i, label %"_ZSt10__invoke_rIN12_GLOBAL__N_113DocumentationERZNS0_20extractDocumentationERKN4llvm12RecordKeeperEPKNS2_6RecordEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit.loopexit", label %250
 
 "_ZSt10__invoke_rIN12_GLOBAL__N_113DocumentationERZNS0_20extractDocumentationERKN4llvm12RecordKeeperEPKNS2_6RecordEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit.loopexit": ; preds = %_ZN12_GLOBAL__N_116DocumentedOptionD2Ev.exit.i.i.i
   store ptr %321, ptr %125, align 8

@@ -833,11 +833,11 @@ sw.bb79:                                          ; preds = %if.else
   %cmp84 = icmp ult i64 %19, 4
   %arrayidx.pn.v = select i1 %cmp84, ptr @_ZN8facebook5velox9functions12_GLOBAL__N_113weekdaysShortE, ptr @_ZN8facebook5velox9functions12_GLOBAL__N_112weekdaysFullE
   %arrayidx.pn = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %arrayidx.pn.v, i64 %idxprom
-  %piece82.sroa.0.1 = load i64, ptr %arrayidx.pn, align 16
-  %piece82.sroa.5.1.in = getelementptr inbounds nuw i8, ptr %arrayidx.pn, i64 8
-  %piece82.sroa.5.1 = load ptr, ptr %piece82.sroa.5.1.in, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0197, ptr align 1 %piece82.sroa.5.1, i64 %piece82.sroa.0.1, i1 false)
-  %add.ptr93 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %piece82.sroa.0.1
+  %piece82.sroa.0.0 = load i64, ptr %arrayidx.pn, align 16
+  %piece82.sroa.5.0.in = getelementptr inbounds nuw i8, ptr %arrayidx.pn, i64 8
+  %piece82.sroa.5.0 = load ptr, ptr %piece82.sroa.5.0.in, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0197, ptr align 1 %piece82.sroa.5.0, i64 %piece82.sroa.0.0, i1 false)
+  %add.ptr93 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %piece82.sroa.0.0
   br label %for.inc
 
 sw.bb94:                                          ; preds = %if.else
@@ -884,11 +884,11 @@ sw.bb151:                                         ; preds = %if.else
   %cmp154 = icmp ult i64 %23, 4
   %arrayidx162.arrayidx170.v = select i1 %cmp154, ptr @_ZN8facebook5velox9functions12_GLOBAL__N_111monthsShortE, ptr @_ZN8facebook5velox9functions12_GLOBAL__N_110monthsFullE
   %arrayidx162.arrayidx170 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %arrayidx162.arrayidx170.v, i64 %idxprom169
-  %piece152.sroa.0.1 = load i64, ptr %arrayidx162.arrayidx170, align 16
-  %piece152.sroa.5.1.in = getelementptr inbounds nuw i8, ptr %arrayidx162.arrayidx170, i64 8
-  %piece152.sroa.5.1 = load ptr, ptr %piece152.sroa.5.1.in, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0197, ptr align 1 %piece152.sroa.5.1, i64 %piece152.sroa.0.1, i1 false)
-  %add.ptr175 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %piece152.sroa.0.1
+  %piece152.sroa.0.0 = load i64, ptr %arrayidx162.arrayidx170, align 16
+  %piece152.sroa.5.0.in = getelementptr inbounds nuw i8, ptr %arrayidx162.arrayidx170, i64 8
+  %piece152.sroa.5.0 = load ptr, ptr %piece152.sroa.5.0.in, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0197, ptr align 1 %piece152.sroa.5.0, i64 %piece152.sroa.0.0, i1 false)
+  %add.ptr175 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %piece152.sroa.0.0
   br label %for.inc
 
 sw.bb176:                                         ; preds = %if.else

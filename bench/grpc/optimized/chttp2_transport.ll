@@ -29440,18 +29440,18 @@ _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i
-  %.sroa.065.0 = phi ptr [ %61, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ]
+  %.sroa.063.0 = phi ptr [ %61, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ]
   %26 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %.05.i
-  %27 = load double, ptr %.sroa.065.0, align 8, !tbaa !1287
+  %27 = load double, ptr %.sroa.063.0, align 8, !tbaa !1287
   store double %27, ptr %26, align 8, !tbaa !1287
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 8
   %30 = load ptr, ptr %28, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %32 = icmp eq ptr %30, %31
   %33 = load ptr, ptr %29, align 8, !tbaa !86
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 24
   %35 = icmp eq ptr %33, %34
   br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i
 
@@ -29462,11 +29462,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %35, label %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i
 
 36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !88
   %39 = icmp ult i64 %38, 16
   tail call void @llvm.assume(i1 %39)
-  %.not22.i.i.i.i = icmp eq ptr %.sroa.065.0, %26
+  %.not22.i.i.i.i = icmp eq ptr %.sroa.063.0, %26
   br i1 %.not22.i.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i, label %40, !prof !34
 
 40:                                               ; preds = %36
@@ -29497,7 +29497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.
 .thread.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %33, ptr %28, align 8, !tbaa !86
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !88
   store i64 %50, ptr %48, align 8, !tbaa !88
   %51 = load i64, ptr %34, align 8, !tbaa !32
@@ -29507,7 +29507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i
   %52 = load i64, ptr %31, align 8, !tbaa !32
   store ptr %33, ptr %28, align 8, !tbaa !86
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !88
   %55 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %54, ptr %55, align 8, !tbaa !88
@@ -29527,46 +29527,46 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
 
 _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i: ; preds = %58, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i, %36
   %59 = phi ptr [ %30, %57 ], [ %34, %58 ], [ %33, %36 ], [ %.pre.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 16
   store i64 0, ptr %60, align 8, !tbaa !88
   store i8 0, ptr %59, align 1, !tbaa !32
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 40
   %62 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %62, %.sroa.747.0
   br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !1295
 
 _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit
-  %.sroa.065.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ], [ %61, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ]
+  %.sroa.063.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ], [ %61, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ]
   %.not.i22 = icmp eq i64 %.sroa.745.0, 0
   br i1 %.not.i22, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit, label %.lr.ph.preheader.i23
 
 .lr.ph.preheader.i23:                             ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit
-  %.sroa.065.1100 = phi ptr [ %.sroa.065.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.7.07698 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.043.07796 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.745.07895 = phi i64 [ %.sroa.745.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.044.07994 = phi ptr [ %.sroa.044.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.10.08092 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
-  %.sroa.048.08190 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.063.198 = phi ptr [ %.sroa.063.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.7.07496 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.043.07594 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.745.07693 = phi i64 [ %.sroa.745.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.044.07792 = phi ptr [ %.sroa.044.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.10.07890 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
+  %.sroa.048.07988 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i ]
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i, %.lr.ph.preheader.i23
-  %.sroa.065.2 = phi ptr [ %.sroa.065.1100, %.lr.ph.preheader.i23 ], [ %80, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
+  %.sroa.063.2 = phi ptr [ %.sroa.063.198, %.lr.ph.preheader.i23 ], [ %80, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %81, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %63 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.044.07994, i64 %.06.i
-  %64 = load double, ptr %.sroa.065.2, align 8, !tbaa !1287
+  %63 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.044.07792, i64 %.06.i
+  %64 = load double, ptr %.sroa.063.2, align 8, !tbaa !1287
   store double %64, ptr %63, align 8, !tbaa !1287
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %67, ptr %65, align 8, !tbaa !83
   %68 = load ptr, ptr %66, align 8, !tbaa !86
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 24
   %70 = icmp eq ptr %68, %69
   br i1 %70, label %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 71:                                               ; preds = %.lr.ph.i25
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 16
   %73 = load i64, ptr %72, align 8, !tbaa !88
   %74 = icmp ult i64 %73, 16
   tail call void @llvm.assume(i1 %74)
@@ -29581,30 +29581,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i
 
 _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %71
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 16
   %78 = load i64, ptr %77, align 8, !tbaa !88
   %79 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 %78, ptr %79, align 8, !tbaa !88
   store ptr %69, ptr %66, align 8, !tbaa !86
   store i64 0, ptr %77, align 8, !tbaa !88
   store i8 0, ptr %69, align 8, !tbaa !32
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 40
   %81 = add nuw i64 %.06.i, 1
-  %exitcond.not.i26 = icmp eq i64 %81, %.sroa.745.07895
+  %exitcond.not.i26 = icmp eq i64 %81, %.sroa.745.07693
   br i1 %exitcond.not.i26, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit, label %.lr.ph.i25, !llvm.loop !1289
 
 _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit
-  %.sroa.7.07699 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.7.07698, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %.sroa.043.07797 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.043.07796, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %.sroa.10.08093 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.10.08092, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %.sroa.048.08191 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.048.08190, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %.not5.i = icmp eq i64 %.sroa.7.07699, 0
+  %.sroa.7.07497 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.7.07496, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
+  %.sroa.043.07595 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.043.07594, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
+  %.sroa.10.07891 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.10.07890, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
+  %.sroa.048.07989 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit ], [ %.sroa.048.07988, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
+  %.not5.i = icmp eq i64 %.sroa.7.07497, 0
   br i1 %.not5.i, label %.loopexit, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
-  %.06.i28 = phi i64 [ %82, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07699, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit ]
+  %.06.i28 = phi i64 [ %82, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit ]
   %82 = add nsw i64 %.06.i28, -1
-  %83 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.043.07797, i64 %82
+  %83 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.043.07595, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !86
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -29622,12 +29622,12 @@ _ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS
   br i1 %.not.i30, label %.loopexit, label %.lr.ph.i27, !llvm.loop !1103
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit
-  %.not = icmp eq ptr %.sroa.048.08191, null
-  %.pre101 = load i64, ptr %0, align 8, !tbaa !79
+  %.not = icmp eq ptr %.sroa.048.07989, null
+  %.pre99 = load i64, ptr %0, align 8, !tbaa !79
   br i1 %.not, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit, label %90
 
 90:                                               ; preds = %.loopexit
-  %91 = trunc i64 %.pre101 to i1
+  %91 = trunc i64 %.pre99 to i1
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %90
@@ -29639,14 +29639,14 @@ _ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS
   br label %96
 
 96:                                               ; preds = %90, %92
-  %97 = phi i64 [ %.pre101, %90 ], [ %.pre, %92 ]
-  store ptr %.sroa.048.08191, ptr %6, align 8, !tbaa !32
-  store i64 %.sroa.10.08093, ptr %8, align 8, !tbaa !32
+  %97 = phi i64 [ %.pre99, %90 ], [ %.pre, %92 ]
+  store ptr %.sroa.048.07989, ptr %6, align 8, !tbaa !32
+  store i64 %.sroa.10.07891, ptr %8, align 8, !tbaa !32
   %98 = or i64 %97, 1
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit: ; preds = %96, %.loopexit
-  %99 = phi i64 [ %98, %96 ], [ %.pre101, %.loopexit ]
+  %99 = phi i64 [ %98, %96 ], [ %.pre99, %.loopexit ]
   %100 = shl i64 %2, 1
   %101 = and i64 %99, 1
   %102 = or disjoint i64 %101, %100
@@ -29796,14 +29796,14 @@ _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i
-  %.sroa.065.0 = phi ptr [ %58, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
+  %.sroa.063.0 = phi ptr [ %58, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %59, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
   %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.05.i
   %27 = load ptr, ptr %26, align 8, !tbaa !86
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
-  %30 = load ptr, ptr %.sroa.065.0, align 8, !tbaa !86
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 16
+  %30 = load ptr, ptr %.sroa.063.0, align 8, !tbaa !86
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 16
   %32 = icmp eq ptr %30, %31
   br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
 
@@ -29814,11 +29814,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %32, label %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i
 
 33:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !88
   %36 = icmp ult i64 %35, 16
   tail call void @llvm.assume(i1 %36)
-  %.not22.i.i.i = icmp eq ptr %.sroa.065.0, %26
+  %.not22.i.i.i = icmp eq ptr %.sroa.063.0, %26
   br i1 %.not22.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i, label %37, !prof !34
 
 37:                                               ; preds = %33
@@ -29843,13 +29843,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
   %43 = load ptr, ptr %26, align 8, !tbaa !86
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
   store i8 0, ptr %44, align 1, !tbaa !32
-  %.pre.i.i.i = load ptr, ptr %.sroa.065.0, align 8, !tbaa !86
+  %.pre.i.i.i = load ptr, ptr %.sroa.063.0, align 8, !tbaa !86
   br label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i
 
 .thread.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %30, ptr %26, align 8, !tbaa !86
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !88
   store i64 %47, ptr %45, align 8, !tbaa !88
   %48 = load i64, ptr %31, align 8, !tbaa !32
@@ -29859,7 +29859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %49 = load i64, ptr %28, align 8, !tbaa !32
   store ptr %30, ptr %26, align 8, !tbaa !86
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !88
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %51, ptr %52, align 8, !tbaa !88
@@ -29869,52 +29869,52 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
   br i1 %.not.i.i.i, label %55, label %54
 
 54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i
-  store ptr %27, ptr %.sroa.065.0, align 8, !tbaa !86
+  store ptr %27, ptr %.sroa.063.0, align 8, !tbaa !86
   store i64 %49, ptr %31, align 8, !tbaa !32
   br label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i
 
 55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i, %.thread.i.i.i
-  store ptr %31, ptr %.sroa.065.0, align 8, !tbaa !86
+  store ptr %31, ptr %.sroa.063.0, align 8, !tbaa !86
   br label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i
 
 _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i: ; preds = %55, %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i, %33
   %56 = phi ptr [ %27, %54 ], [ %31, %55 ], [ %30, %33 ], [ %.pre.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 8
   store i64 0, ptr %57, align 8, !tbaa !88
   store i8 0, ptr %56, align 1, !tbaa !32
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.065.0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 32
   %59 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %59, %.sroa.747.0
   br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !1300
 
 _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
-  %.sroa.065.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ], [ %58, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ]
+  %.sroa.063.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ], [ %58, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ]
   %.not.i22 = icmp eq i64 %.sroa.745.0, 0
   br i1 %.not.i22, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit, label %.lr.ph.preheader.i23
 
 .lr.ph.preheader.i23:                             ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit
-  %.sroa.065.1100 = phi ptr [ %.sroa.065.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.7.07698 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.043.07796 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.745.07895 = phi i64 [ %.sroa.745.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.044.07994 = phi ptr [ %.sroa.044.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.10.08092 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
-  %.sroa.048.08190 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.063.198 = phi ptr [ %.sroa.063.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.7.07496 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.043.07594 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.745.07693 = phi i64 [ %.sroa.745.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.044.07792 = phi ptr [ %.sroa.044.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.10.07890 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
+  %.sroa.048.07988 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i ]
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i, %.lr.ph.preheader.i23
-  %.sroa.065.2 = phi ptr [ %.sroa.065.1100, %.lr.ph.preheader.i23 ], [ %74, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
+  %.sroa.063.2 = phi ptr [ %.sroa.063.198, %.lr.ph.preheader.i23 ], [ %74, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %75, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.044.07994, i64 %.06.i
+  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.044.07792, i64 %.06.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %61, ptr %60, align 8, !tbaa !83
-  %62 = load ptr, ptr %.sroa.065.2, align 8, !tbaa !86
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 16
+  %62 = load ptr, ptr %.sroa.063.2, align 8, !tbaa !86
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 16
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 65:                                               ; preds = %.lr.ph.i25
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !88
   %68 = icmp ult i64 %67, 16
   tail call void @llvm.assume(i1 %68)
@@ -29929,30 +29929,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i
 
 _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %65
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !88
   %73 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 %72, ptr %73, align 8, !tbaa !88
-  store ptr %63, ptr %.sroa.065.2, align 8, !tbaa !86
+  store ptr %63, ptr %.sroa.063.2, align 8, !tbaa !86
   store i64 0, ptr %71, align 8, !tbaa !88
   store i8 0, ptr %63, align 8, !tbaa !32
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.065.2, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.063.2, i64 32
   %75 = add nuw i64 %.06.i, 1
-  %exitcond.not.i26 = icmp eq i64 %75, %.sroa.745.07895
+  %exitcond.not.i26 = icmp eq i64 %75, %.sroa.745.07693
   br i1 %exitcond.not.i26, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit, label %.lr.ph.i25, !llvm.loop !1290
 
 _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit
-  %.sroa.7.07699 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.7.07698, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %.sroa.043.07797 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.043.07796, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %.sroa.10.08093 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.10.08092, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %.sroa.048.08191 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.048.08190, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %.not5.i = icmp eq i64 %.sroa.7.07699, 0
+  %.sroa.7.07497 = phi i64 [ %.sroa.7.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.7.07496, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
+  %.sroa.043.07595 = phi ptr [ %.sroa.043.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.043.07594, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
+  %.sroa.10.07891 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.10.07890, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
+  %.sroa.048.07989 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit ], [ %.sroa.048.07988, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
+  %.not5.i = icmp eq i64 %.sroa.7.07497, 0
   br i1 %.not5.i, label %.loopexit, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
-  %.06.i28 = phi i64 [ %76, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sroa.7.07699, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit ]
+  %.06.i28 = phi i64 [ %76, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sroa.7.07497, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit ]
   %76 = add nsw i64 %.06.i28, -1
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.043.07797, i64 %76
+  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.043.07595, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !86
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = icmp eq ptr %78, %79
@@ -29969,12 +29969,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %.not.i30, label %.loopexit, label %.lr.ph.i27, !llvm.loop !1104
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit
-  %.not = icmp eq ptr %.sroa.048.08191, null
-  %.pre101 = load i64, ptr %0, align 8, !tbaa !79
+  %.not = icmp eq ptr %.sroa.048.07989, null
+  %.pre99 = load i64, ptr %0, align 8, !tbaa !79
   br i1 %.not, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %83
 
 83:                                               ; preds = %.loopexit
-  %84 = trunc i64 %.pre101 to i1
+  %84 = trunc i64 %.pre99 to i1
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %83
@@ -29986,14 +29986,14 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %89
 
 89:                                               ; preds = %83, %85
-  %90 = phi i64 [ %.pre101, %83 ], [ %.pre, %85 ]
-  store ptr %.sroa.048.08191, ptr %6, align 8, !tbaa !32
-  store i64 %.sroa.10.08093, ptr %8, align 8, !tbaa !32
+  %90 = phi i64 [ %.pre99, %83 ], [ %.pre, %85 ]
+  store ptr %.sroa.048.07989, ptr %6, align 8, !tbaa !32
+  store i64 %.sroa.10.07891, ptr %8, align 8, !tbaa !32
   %91 = or i64 %90, 1
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %89, %.loopexit
-  %92 = phi i64 [ %91, %89 ], [ %.pre101, %.loopexit ]
+  %92 = phi i64 [ %91, %89 ], [ %.pre99, %.loopexit ]
   %93 = shl i64 %2, 1
   %94 = and i64 %92, 1
   %95 = or disjoint i64 %94, %93

@@ -16,19 +16,19 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena8variadicERKSt6vectorIPNS
   %3 = load ptr, ptr %1, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not26 = icmp eq ptr %3, %5
-  br i1 %.not26, label %.critedge, label %.lr.ph
+  %.not23 = icmp eq ptr %3, %5
+  br i1 %.not23, label %.critedge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %8, label %10, label %.critedge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01028 = phi i1 [ %8, %.lr.ph ], [ false, %2 ]
-  %.sroa.023.027 = phi ptr [ %9, %.lr.ph ], [ %3, %2 ]
-  %6 = load ptr, ptr %.sroa.023.027, align 8, !tbaa !10
+  %.01025 = phi i1 [ %8, %.lr.ph ], [ false, %2 ]
+  %.sroa.020.024 = phi ptr [ %9, %.lr.ph ], [ %3, %2 ]
+  %6 = load ptr, ptr %.sroa.020.024, align 8, !tbaa !10
   %7 = icmp ne ptr %6, null
-  %8 = or i1 %.01028, %7
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 8
+  %8 = or i1 %.01025, %7
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.020.024, i64 8
   %.not = icmp eq ptr %9, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

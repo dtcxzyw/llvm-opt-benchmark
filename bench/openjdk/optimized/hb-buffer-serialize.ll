@@ -1171,8 +1171,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58, %53
-  %.0201485.i = phi ptr [ %59, %58 ], [ %1, %53 ]
-  %57 = load i8, ptr %.0201485.i, align 1
+  %.0201465.i = phi ptr [ %59, %58 ], [ %1, %53 ]
+  %57 = load i8, ptr %.0201465.i, align 1
   switch i8 %57, label %.critedge.i [
     i8 32, label %58
     i8 13, label %58
@@ -1183,7 +1183,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   ]
 
 58:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %59 = getelementptr inbounds nuw i8, ptr %.0201485.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0201465.i, i64 1
   %60 = icmp ult ptr %59, %55
   br i1 %60, label %.lr.ph.i, label %.critedge232.i, !llvm.loop !28
 
@@ -1197,12 +1197,12 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br i1 %65, label %66, label %.critedge232.i
 
 66:                                               ; preds = %.critedge.i
-  %67 = getelementptr inbounds nuw i8, ptr %.0201485.i, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0201465.i, i64 1
   store ptr %67, ptr %spec.select, align 8
   br label %.critedge232.i
 
 .critedge232.i:                                   ; preds = %58, %66, %.critedge.i
-  %.1.i = phi ptr [ %67, %66 ], [ %.0201485.i, %.critedge.i ], [ %59, %58 ]
+  %.1.i = phi ptr [ %67, %66 ], [ %.0201465.i, %.critedge.i ], [ %59, %58 ]
   %68 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 93) #10
   %.not220.i = icmp eq ptr %68, null
   br i1 %.not220.i, label %69, label %71
@@ -1217,7 +1217,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %.0202.i = phi ptr [ %68, %.critedge232.i ], [ %.1..i, %69 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
   %72 = icmp eq ptr %.1.i, %.0202.i
-  br i1 %72, label %.loopexit453.i, label %.preheader.i
+  br i1 %72, label %.loopexit433.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1670,32 +1670,32 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   %.sroa.26.2.i = phi i32 [ %.sroa.26.1.i, %110 ], [ %.sroa.26.1.i, %113 ], [ %.sroa.26.1.i, %114 ], [ %.sroa.26.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %128, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ 0, %135 ], [ %.sroa.26.1.i, %145 ], [ %.sroa.26.1.i, %157 ], [ %166, %169 ], [ %.sroa.26.1.i, %181 ], [ %.sroa.26.1.i, %193 ], [ %.sroa.26.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.26.1.i, %99 ]
   %.2209.i = phi ptr [ %.1208.i, %110 ], [ %.4.i, %113 ], [ %.1208.i, %114 ], [ %.1208.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ %.4.i, %135 ], [ %.1208.i, %145 ], [ %.1208.i, %157 ], [ %.1208.i, %169 ], [ %.1208.i, %181 ], [ %.1208.i, %193 ], [ %.1208.i, %205 ], [ %.4.i, %211 ], [ %.4.i, %218 ], [ %.1208.i, %99 ]
   %225 = icmp eq i8 %103, 1
-  br i1 %225, label %.loopexit452.i, label %226
+  br i1 %225, label %.loopexit432.i, label %226
 
 226:                                              ; preds = %224
   %227 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.not229.i = icmp eq ptr %227, %.0202.i
-  br i1 %.not229.i, label %.loopexit453.loopexit.i, label %78
+  br i1 %.not229.i, label %.loopexit433.loopexit.i, label %78
 
-.loopexit453.loopexit.i:                          ; preds = %226
+.loopexit433.loopexit.i:                          ; preds = %226
   %228 = sext i8 %106 to i64
-  br label %.loopexit453.i
+  br label %.loopexit433.i
 
-.loopexit453.i:                                   ; preds = %.loopexit453.loopexit.i, %71
-  %.sroa.0.0.i = phi i32 [ 0, %71 ], [ %.sroa.0.2.i, %.loopexit453.loopexit.i ]
-  %.sroa.22.0.i = phi i32 [ 0, %71 ], [ %.sroa.22.2.i, %.loopexit453.loopexit.i ]
-  %.sroa.25.0.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %.loopexit453.loopexit.i ]
-  %.sroa.26.0.i = phi i32 [ 0, %71 ], [ %.sroa.26.2.i, %.loopexit453.loopexit.i ]
-  %.0207.i = phi ptr [ null, %71 ], [ %.2209.i, %.loopexit453.loopexit.i ]
-  %.0205.i = phi i64 [ 14, %71 ], [ %228, %.loopexit453.loopexit.i ]
-  %.2.i = phi ptr [ %.1.i, %71 ], [ %227, %.loopexit453.loopexit.i ]
+.loopexit433.i:                                   ; preds = %.loopexit433.loopexit.i, %71
+  %.sroa.0.0.i = phi i32 [ 0, %71 ], [ %.sroa.0.2.i, %.loopexit433.loopexit.i ]
+  %.sroa.22.0.i = phi i32 [ 0, %71 ], [ %.sroa.22.2.i, %.loopexit433.loopexit.i ]
+  %.sroa.25.0.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %.loopexit433.loopexit.i ]
+  %.sroa.26.0.i = phi i32 [ 0, %71 ], [ %.sroa.26.2.i, %.loopexit433.loopexit.i ]
+  %.0207.i = phi ptr [ null, %71 ], [ %.2209.i, %.loopexit433.loopexit.i ]
+  %.0205.i = phi i64 [ 14, %71 ], [ %228, %.loopexit433.loopexit.i ]
+  %.2.i = phi ptr [ %.1.i, %71 ], [ %227, %.loopexit433.loopexit.i ]
   %229 = icmp eq ptr %.2.i, %.0202.i
-  br i1 %229, label %230, label %.loopexit452.i
+  br i1 %229, label %230, label %.loopexit432.i
 
-230:                                              ; preds = %.loopexit453.i
+230:                                              ; preds = %.loopexit433.i
   %231 = getelementptr inbounds i8, ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 %.0205.i
   %232 = load i8, ptr %231, align 1
-  switch i8 %232, label %.loopexit452.i [
+  switch i8 %232, label %.loopexit432.i [
     i8 6, label %233
     i8 13, label %251
     i8 15, label %267
@@ -1738,7 +1738,7 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx324.i, align 4
   %.sroa.29.0..sroa_idx350.i = getelementptr inbounds nuw i8, ptr %250, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx350.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 251:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1781,7 +1781,7 @@ _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
   store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx326.i, align 4
   %.sroa.29.0..sroa_idx352.i = getelementptr inbounds nuw i8, ptr %266, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx352.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 267:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1822,7 +1822,7 @@ _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
   store i32 %270, ptr %.sroa.26.0..sroa_idx328.i, align 4
   %.sroa.29.0..sroa_idx354.i = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx354.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 282:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1863,7 +1863,7 @@ _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
   store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx330.i, align 4
   %.sroa.29.0..sroa_idx356.i = getelementptr inbounds nuw i8, ptr %296, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx356.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 297:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1904,7 +1904,7 @@ _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
   store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx332.i, align 4
   %.sroa.29.0..sroa_idx358.i = getelementptr inbounds nuw i8, ptr %311, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx358.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 312:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1947,7 +1947,7 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx334.i, align 4
   %.sroa.29.0..sroa_idx360.i = getelementptr inbounds nuw i8, ptr %327, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx360.i, align 4
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
 328:                                              ; preds = %230
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
@@ -1971,18 +1971,18 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   %340 = zext i32 %339 to i64
   %341 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %336, i64 %340
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %341, i8 0, i64 20, i1 false)
-  br label %.loopexit452.sink.split.i
+  br label %.loopexit432.sink.split.i
 
-.loopexit452.sink.split.i:                        ; preds = %334, %320, %304, %289, %274, %259, %243
+.loopexit432.sink.split.i:                        ; preds = %334, %320, %304, %289, %274, %259, %243
   store ptr %.2.i, ptr %spec.select, align 8
-  br label %.loopexit452.i
+  br label %.loopexit432.i
 
-.loopexit452.i:                                   ; preds = %224, %.loopexit452.sink.split.i, %230, %.loopexit453.i
-  %.3.i = phi ptr [ %.2.i, %230 ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.2.i, %.loopexit453.i ], [ %.4.i, %224 ]
+.loopexit432.i:                                   ; preds = %224, %.loopexit432.sink.split.i, %230, %.loopexit433.i
+  %.3.i = phi ptr [ %.2.i, %230 ], [ %.2.i, %.loopexit432.sink.split.i ], [ %.2.i, %.loopexit433.i ], [ %.4.i, %224 ]
   %342 = icmp ult ptr %.0202.i, %55
   br i1 %342, label %343, label %349
 
-343:                                              ; preds = %.loopexit452.i
+343:                                              ; preds = %.loopexit432.i
   %344 = load i8, ptr %.0202.i, align 1
   %345 = icmp eq i8 %344, 93
   br i1 %345, label %346, label %349
@@ -1994,9 +1994,9 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 %spec.select.idx.i
   br label %349
 
-349:                                              ; preds = %346, %343, %.loopexit452.i
-  %.1203.i = phi ptr [ %.0202.i, %.loopexit452.i ], [ %347, %346 ], [ %.0202.i, %343 ]
-  %.5.i = phi ptr [ %.3.i, %.loopexit452.i ], [ %spec.select.i, %346 ], [ %.3.i, %343 ]
+349:                                              ; preds = %346, %343, %.loopexit432.i
+  %.1203.i = phi ptr [ %.0202.i, %.loopexit432.i ], [ %347, %346 ], [ %.0202.i, %343 ]
+  %.5.i = phi ptr [ %.3.i, %.loopexit432.i ], [ %spec.select.i, %346 ], [ %.3.i, %343 ]
   store ptr %.5.i, ptr %spec.select, align 8
   %350 = icmp eq ptr %.5.i, %.1203.i
   %351 = zext i1 %350 to i32
@@ -2059,8 +2059,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.0138298 = phi ptr [ %39, %38 ], [ %1, %.lr.ph.preheader ]
-  %37 = load i8, ptr %.0138298, align 1
+  %.0138293 = phi ptr [ %39, %38 ], [ %1, %.lr.ph.preheader ]
+  %37 = load i8, ptr %.0138293, align 1
   switch i8 %37, label %.critedge [
     i8 32, label %38
     i8 13, label %38
@@ -2071,7 +2071,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   ]
 
 38:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %.0138298, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0138293, i64 1
   %40 = icmp ult ptr %39, %35
   br i1 %40, label %.lr.ph, label %.critedge154, !llvm.loop !29
 
@@ -2085,12 +2085,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   br i1 %45, label %46, label %.critedge154
 
 46:                                               ; preds = %.critedge
-  %47 = getelementptr inbounds nuw i8, ptr %.0138298, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0138293, i64 1
   store ptr %47, ptr %3, align 8
   br label %.critedge154
 
 .critedge154:                                     ; preds = %38, %46, %.critedge
-  %.1 = phi ptr [ %47, %46 ], [ %.0138298, %.critedge ], [ %39, %38 ]
+  %.1 = phi ptr [ %47, %46 ], [ %.0138293, %.critedge ], [ %39, %38 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %33, i8 0, i64 20, i1 false)
   %48 = icmp eq ptr %.1, %35
   br i1 %48, label %.loopexit, label %.preheader

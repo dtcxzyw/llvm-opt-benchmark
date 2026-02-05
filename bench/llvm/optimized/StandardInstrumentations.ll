@@ -4246,8 +4246,8 @@ define dso_local void @_ZN4llvm15IRChangedTester8handleIRERKNSt7__cxx1112basic_s
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 3, ptr %22, align 4, !tbaa !27
   store ptr %17, ptr %20, align 8
-  %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %19, ptr %.sroa.440.0..sroa_idx, align 8
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %19, ptr %.sroa.436.0..sroa_idx, align 8
   store i32 1, ptr %21, align 8, !tbaa !26
   %23 = load atomic i8, ptr @_ZGVZN4llvm15IRChangedTester8handleIRERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefEE8FileNameB5cxx11 acquire, align 8
   %24 = icmp eq i8 %23, 0
@@ -4287,8 +4287,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   %37 = zext i32 %36 to i64
   %38 = call { i32, ptr } @_ZN4llvm16prepareTempFilesERNS_11SmallVectorIiLj12EEENS_8ArrayRefINS_9StringRefEEERNS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj1EEE(ptr noundef nonnull align 8 dereferenceable(64) @_ZZN4llvm15IRChangedTester8handleIRERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefEE2FD, ptr %35, i64 %37, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4llvm15IRChangedTester8handleIRERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefEE8FileNameB5cxx11) #26
   %39 = extractvalue { i32, ptr } %38, 0
-  %.not42 = icmp eq i32 %39, 0
-  br i1 %.not42, label %55, label %40
+  %.not38 = icmp eq i32 %39, 0
+  br i1 %.not38, label %55, label %40
 
 40:                                               ; preds = %34
   %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #26
@@ -4415,8 +4415,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   %116 = zext i32 %115 to i64
   %117 = call { i32, ptr } @_ZN4llvm16cleanUpTempFilesENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %114, i64 %116) #26
   %118 = extractvalue { i32, ptr } %117, 0
-  %.not43 = icmp eq i32 %118, 0
-  br i1 %.not43, label %_ZN4llvm11raw_ostreamlsEPKc.exit15, label %119
+  %.not39 = icmp eq i32 %118, 0
+  br i1 %.not39, label %_ZN4llvm11raw_ostreamlsEPKc.exit15, label %119
 
 119:                                              ; preds = %113
   %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #26
@@ -22634,8 +22634,8 @@ _ZNK4llvm9StringRef6rsplitEc.exit.i:              ; preds = %999, %998
 _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %1008, %1007
   %.sroa.0327.0.i = phi ptr [ %.sroa.0327.0.copyload.i, %1007 ], [ %1010, %1008 ]
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %1007 ], [ %.sroa.speculated.i.i.i210.i, %1008 ]
-  %.sroa.10.1.i = phi i64 [ 0, %1007 ], [ %1013, %1008 ]
-  %.sroa.7.1.i = phi ptr [ null, %1007 ], [ %1012, %1008 ]
+  %.sroa.10.0.i = phi i64 [ 0, %1007 ], [ %1013, %1008 ]
+  %.sroa.7.0396.i = phi ptr [ null, %1007 ], [ %1012, %1008 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   %.sroa.0322.0.copyload.i = load ptr, ptr %735, align 8, !tbaa !54
   %.sroa.6324.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i26, align 8, !tbaa !55
@@ -22648,8 +22648,8 @@ _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %1008, %1007
   %1019 = zext i32 %1018 to i64
   %.val77.i = load ptr, ptr %160, align 8, !tbaa !868
   %1020 = getelementptr inbounds nuw %"class.(anonymous namespace)::DotCfgDiffNode", ptr %.val77.i, i64 %1019
-  %1021 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.7.1.i, i64 %.sroa.10.1.i) #26
-  %1022 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %477, ptr %.sroa.7.1.i, i64 %.sroa.10.1.i, i32 noundef %1021)
+  %1021 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.7.0396.i, i64 %.sroa.10.0.i) #26
+  %1022 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %477, ptr %.sroa.7.0396.i, i64 %.sroa.10.0.i, i32 noundef %1021)
   %.fca.0.extract.i215.i = extractvalue { ptr, i8 } %1022, 0
   %1023 = load ptr, ptr %.fca.0.extract.i215.i, align 8, !tbaa !541
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 8

@@ -8625,12 +8625,12 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %51, %54
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %51 ], [ %56, %54 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
-  %.not5178 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not5178, label %._crit_edge, label %.lr.ph
+  %.not5176 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not5176, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread
-  %.04479 = phi ptr [ %65, %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread ], [ %59, %_ZN4llvm4User8operandsEv.exit ]
-  %61 = load ptr, ptr %.04479, align 8, !tbaa !428
+  %.04477 = phi ptr [ %65, %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread ], [ %59, %_ZN4llvm4User8operandsEv.exit ]
+  %61 = load ptr, ptr %.04477, align 8, !tbaa !428
   %62 = load i8, ptr %61, align 8, !tbaa !52
   %63 = icmp ugt i8 %62, 28
   br i1 %63, label %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit, label %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread
@@ -8640,7 +8640,7 @@ _ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSA
   br i1 %64, label %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit.thread: ; preds = %.lr.ph, %_ZNK4llvm4Loop17makeLoopInvariantEPNS_5ValueERbPNS_11InstructionEPNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE.exit
-  %65 = getelementptr inbounds nuw i8, ptr %.04479, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.04477, i64 32
   %.not51 = icmp eq ptr %65, %60
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 

@@ -769,7 +769,7 @@ call2.i.noexc180:                                 ; preds = %_ZNSt10lock_guardIS
   %add.i60 = or disjoint i64 %mul.i, 1
   %chunkMask_.i198 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %chunkMask_.i198, align 8
-  %conv.i199188 = zext i32 %0 to i64
+  %conv.i199186 = zext i32 %0 to i64
   %chunks_.i203 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv.i61 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i61, i64 0
@@ -778,36 +778,36 @@ call2.i.noexc180:                                 ; preds = %_ZNSt10lock_guardIS
   br i1 %cmp.i8.i.i.i.i, label %call6.i.noexc227.us, label %call6.i.noexc227
 
 call6.i.noexc227.us:                              ; preds = %call2.i.noexc180, %if.end20.i216.us
-  %conv.i199191.us = phi i64 [ %conv.i199.us, %if.end20.i216.us ], [ %conv.i199188, %call2.i.noexc180 ]
-  %index.i188.0190.us = phi i64 [ %add.i217.us, %if.end20.i216.us ], [ %call.i.i.i.i59, %call2.i.noexc180 ]
-  %tries.i191.0189.us = phi i64 [ %inc.i218.us, %if.end20.i216.us ], [ 0, %call2.i.noexc180 ]
+  %conv.i199189.us = phi i64 [ %conv.i199.us, %if.end20.i216.us ], [ %conv.i199186, %call2.i.noexc180 ]
+  %index.i188.0188.us = phi i64 [ %add.i217.us, %if.end20.i216.us ], [ %call.i.i.i.i59, %call2.i.noexc180 ]
+  %tries.i191.0187.us = phi i64 [ %inc.i218.us, %if.end20.i216.us ], [ 0, %call2.i.noexc180 ]
   %1 = load ptr, ptr %chunks_.i203, align 8
-  %and.i206.us = and i64 %conv.i199191.us, %index.i188.0190.us
+  %and.i206.us = and i64 %conv.i199189.us, %index.i188.0188.us
   %add.ptr.i207.us = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %1, i64 %and.i206.us
   %2 = load <16 x i8>, ptr %add.ptr.i207.us, align 16
   %cmp.i.i.us = icmp eq <16 x i8> %2, %vecinit15.i.i
   %3 = bitcast <16 x i1> %cmp.i.i.us to i16
   %4 = and i16 %3, 4095
-  %cmp.i.not181182.us = icmp eq i16 %4, 0
+  %cmp.i.not179180.us = icmp eq i16 %4, 0
   %5 = extractelement <16 x i8> %2, i64 15
-  br i1 %cmp.i.not181182.us, label %while.end.i213.us, label %call8.i.noexc229.lr.ph.us
+  br i1 %cmp.i.not179180.us, label %while.end.i213.us, label %call8.i.noexc229.lr.ph.us
 
 while.end.i213.us.loopexit:                       ; preds = %call11.i.noexc231.us.us
   %outboundOverflowCount_.i.us.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i207.us, i64 15
-  %.pre206 = load i8, ptr %outboundOverflowCount_.i.us.phi.trans.insert, align 1
+  %.pre204 = load i8, ptr %outboundOverflowCount_.i.us.phi.trans.insert, align 1
   br label %while.end.i213.us
 
 while.end.i213.us:                                ; preds = %while.end.i213.us.loopexit, %call6.i.noexc227.us
-  %6 = phi i8 [ %.pre206, %while.end.i213.us.loopexit ], [ %5, %call6.i.noexc227.us ]
+  %6 = phi i8 [ %.pre204, %while.end.i213.us.loopexit ], [ %5, %call6.i.noexc227.us ]
   %cmp17.i215.us = icmp eq i8 %6, 0
   br i1 %cmp17.i215.us, label %if.end32, label %if.end20.i216.us
 
 if.end20.i216.us:                                 ; preds = %while.end.i213.us
-  %add.i217.us = add i64 %add.i60, %index.i188.0190.us
-  %inc.i218.us = add nuw nsw i64 %tries.i191.0189.us, 1
+  %add.i217.us = add i64 %add.i60, %index.i188.0188.us
+  %inc.i218.us = add nuw nsw i64 %tries.i191.0187.us, 1
   %7 = load i32, ptr %chunkMask_.i198, align 8
   %conv.i199.us = zext i32 %7 to i64
-  %cmp.i200.not.us.not = icmp samesign ult i64 %tries.i191.0189.us, %conv.i199.us
+  %cmp.i200.not.us.not = icmp samesign ult i64 %tries.i191.0187.us, %conv.i199.us
   br i1 %cmp.i200.not.us.not, label %call6.i.noexc227.us, label %if.end32, !llvm.loop !4
 
 call8.i.noexc229.lr.ph.us:                        ; preds = %call6.i.noexc227.us
@@ -816,8 +816,8 @@ call8.i.noexc229.lr.ph.us:                        ; preds = %call6.i.noexc227.us
   br label %call8.i.noexc229.us.us
 
 call8.i.noexc229.us.us:                           ; preds = %call11.i.noexc231.us.us, %call8.i.noexc229.lr.ph.us
-  %hits.i193.sroa.0.0183.us.us = phi i32 [ %and.i62.us, %call8.i.noexc229.lr.ph.us ], [ %and.i64.us.us, %call11.i.noexc231.us.us ]
-  %8 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i193.sroa.0.0183.us.us, i1 true)
+  %hits.i193.sroa.0.0181.us.us = phi i32 [ %and.i62.us, %call8.i.noexc229.lr.ph.us ], [ %and.i64.us.us, %call11.i.noexc231.us.us ]
+  %8 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i193.sroa.0.0181.us.us, i1 true)
   %conv9.i221.us.us = zext nneg i32 %8 to i64
   %arrayidx.i.i.i.i.us.us = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.us, i64 %conv9.i221.us.us
   %9 = load ptr, ptr %stringToId_, align 8
@@ -830,25 +830,25 @@ call8.i.noexc229.us.us:                           ; preds = %call11.i.noexc231.u
   br i1 %cmp.i.i.i.us.us, label %call2.i.noexc, label %call11.i.noexc231.us.us
 
 call11.i.noexc231.us.us:                          ; preds = %call8.i.noexc229.us.us
-  %sub.i.us.us = add nsw i32 %hits.i193.sroa.0.0183.us.us, -1
-  %and.i64.us.us = and i32 %sub.i.us.us, %hits.i193.sroa.0.0183.us.us
-  %cmp.i.not181.us.us = icmp eq i32 %and.i64.us.us, 0
-  br i1 %cmp.i.not181.us.us, label %while.end.i213.us.loopexit, label %call8.i.noexc229.us.us, !llvm.loop !6
+  %sub.i.us.us = add nsw i32 %hits.i193.sroa.0.0181.us.us, -1
+  %and.i64.us.us = and i32 %sub.i.us.us, %hits.i193.sroa.0.0181.us.us
+  %cmp.i.not179.us.us = icmp eq i32 %and.i64.us.us, 0
+  br i1 %cmp.i.not179.us.us, label %while.end.i213.us.loopexit, label %call8.i.noexc229.us.us, !llvm.loop !6
 
 call6.i.noexc227:                                 ; preds = %call2.i.noexc180, %if.end20.i216
-  %conv.i199191 = phi i64 [ %conv.i199, %if.end20.i216 ], [ %conv.i199188, %call2.i.noexc180 ]
-  %index.i188.0190 = phi i64 [ %add.i217, %if.end20.i216 ], [ %call.i.i.i.i59, %call2.i.noexc180 ]
-  %tries.i191.0189 = phi i64 [ %inc.i218, %if.end20.i216 ], [ 0, %call2.i.noexc180 ]
+  %conv.i199189 = phi i64 [ %conv.i199, %if.end20.i216 ], [ %conv.i199186, %call2.i.noexc180 ]
+  %index.i188.0188 = phi i64 [ %add.i217, %if.end20.i216 ], [ %call.i.i.i.i59, %call2.i.noexc180 ]
+  %tries.i191.0187 = phi i64 [ %inc.i218, %if.end20.i216 ], [ 0, %call2.i.noexc180 ]
   %11 = load ptr, ptr %chunks_.i203, align 8
-  %and.i206 = and i64 %conv.i199191, %index.i188.0190
+  %and.i206 = and i64 %conv.i199189, %index.i188.0188
   %add.ptr.i207 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %11, i64 %and.i206
   %12 = load <16 x i8>, ptr %add.ptr.i207, align 16
   %cmp.i.i = icmp eq <16 x i8> %12, %vecinit15.i.i
   %13 = bitcast <16 x i1> %cmp.i.i to i16
   %14 = and i16 %13, 4095
-  %cmp.i.not181182 = icmp eq i16 %14, 0
+  %cmp.i.not179180 = icmp eq i16 %14, 0
   %15 = extractelement <16 x i8> %12, i64 15
-  br i1 %cmp.i.not181182, label %while.end.i213, label %call8.i.noexc229.lr.ph
+  br i1 %cmp.i.not179180, label %while.end.i213, label %call8.i.noexc229.lr.ph
 
 call8.i.noexc229.lr.ph:                           ; preds = %call6.i.noexc227
   %and.i62 = zext nneg i16 %14 to i32
@@ -856,10 +856,10 @@ call8.i.noexc229.lr.ph:                           ; preds = %call6.i.noexc227
   br label %call8.i.noexc229
 
 call8.i.noexc229:                                 ; preds = %call8.i.noexc229.lr.ph, %call11.i.noexc231
-  %hits.i193.sroa.0.0183 = phi i32 [ %and.i62, %call8.i.noexc229.lr.ph ], [ %and.i64, %call11.i.noexc231 ]
-  %16 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i193.sroa.0.0183, i1 true)
-  %sub.i = add nsw i32 %hits.i193.sroa.0.0183, -1
-  %and.i64 = and i32 %sub.i, %hits.i193.sroa.0.0183
+  %hits.i193.sroa.0.0181 = phi i32 [ %and.i62, %call8.i.noexc229.lr.ph ], [ %and.i64, %call11.i.noexc231 ]
+  %16 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i193.sroa.0.0181, i1 true)
+  %sub.i = add nsw i32 %hits.i193.sroa.0.0181, -1
+  %and.i64 = and i32 %sub.i, %hits.i193.sroa.0.0181
   %conv9.i221 = zext nneg i32 %16 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i221
   %17 = load ptr, ptr %stringToId_, align 8
@@ -877,8 +877,8 @@ land.rhs.i.i.i:                                   ; preds = %call8.i.noexc229
   br i1 %cmp.i.i.i.i, label %call2.i.noexc, label %call11.i.noexc231
 
 call11.i.noexc231:                                ; preds = %land.rhs.i.i.i, %call8.i.noexc229
-  %cmp.i.not181 = icmp eq i32 %and.i64, 0
-  br i1 %cmp.i.not181, label %while.end.i213.loopexit, label %call8.i.noexc229, !llvm.loop !6
+  %cmp.i.not179 = icmp eq i32 %and.i64, 0
+  br i1 %cmp.i.not179, label %while.end.i213.loopexit, label %call8.i.noexc229, !llvm.loop !6
 
 while.end.i213.loopexit:                          ; preds = %call11.i.noexc231
   %outboundOverflowCount_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i207, i64 15
@@ -891,11 +891,11 @@ while.end.i213:                                   ; preds = %while.end.i213.loop
   br i1 %cmp17.i215, label %if.end32, label %if.end20.i216
 
 if.end20.i216:                                    ; preds = %while.end.i213
-  %add.i217 = add i64 %add.i60, %index.i188.0190
-  %inc.i218 = add nuw nsw i64 %tries.i191.0189, 1
+  %add.i217 = add i64 %add.i60, %index.i188.0188
+  %inc.i218 = add nuw nsw i64 %tries.i191.0187, 1
   %20 = load i32, ptr %chunkMask_.i198, align 8
   %conv.i199 = zext i32 %20 to i64
-  %cmp.i200.not.not = icmp samesign ult i64 %tries.i191.0189, %conv.i199
+  %cmp.i200.not.not = icmp samesign ult i64 %tries.i191.0187, %conv.i199
   br i1 %cmp.i200.not.not, label %call6.i.noexc227, label %if.end32, !llvm.loop !4
 
 call2.i.noexc:                                    ; preds = %land.rhs.i.i.i, %call8.i.noexc229.us.us
@@ -928,9 +928,9 @@ call2.i.noexc:                                    ; preds = %land.rhs.i.i.i, %ca
   br label %call6.i.noexc164
 
 call6.i.noexc164:                                 ; preds = %call2.i.noexc, %if.end20.i153
-  %index.i125.0195 = phi i64 [ %add.i71, %call2.i.noexc ], [ %add.i154, %if.end20.i153 ]
-  %tries.i128.0194 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i155, %if.end20.i153 ]
-  %and.i143 = and i64 %index.i125.0195, %conv.i136
+  %index.i125.0193 = phi i64 [ %add.i71, %call2.i.noexc ], [ %add.i154, %if.end20.i153 ]
+  %tries.i128.0192 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i155, %if.end20.i153 ]
+  %and.i143 = and i64 %index.i125.0193, %conv.i136
   %add.ptr.i144 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %28, i64 %and.i143
   %30 = load <16 x i8>, ptr %add.ptr.i144, align 16
   %cmp.i.i79 = icmp eq <16 x i8> %30, %vecinit15.i.i78
@@ -964,9 +964,9 @@ while.end.i150:                                   ; preds = %while.cond.i148
   br i1 %cmp17.i152, label %if.then18, label %if.end20.i153
 
 if.end20.i153:                                    ; preds = %while.end.i150
-  %add.i154 = add i64 %add.i75, %index.i125.0195
-  %inc.i155 = add nuw nsw i64 %tries.i128.0194, 1
-  %exitcond.not = icmp eq i64 %tries.i128.0194, %conv.i136
+  %add.i154 = add i64 %add.i75, %index.i125.0193
+  %inc.i155 = add nuw nsw i64 %tries.i128.0192, 1
+  %exitcond.not = icmp eq i64 %tries.i128.0192, %conv.i136
   br i1 %exitcond.not, label %if.then18, label %call6.i.noexc164, !llvm.loop !9
 
 if.then18:                                        ; preds = %if.end20.i153, %while.end.i150
@@ -1049,9 +1049,9 @@ call2.i.noexc107:                                 ; preds = %invoke.cont51, %inv
   br label %call6.i.noexc
 
 call6.i.noexc:                                    ; preds = %call2.i.noexc107, %if.end20.i
-  %index.i.0197 = phi i64 [ %add.i107, %call2.i.noexc107 ], [ %add.i, %if.end20.i ]
-  %tries.i.0196 = phi i64 [ 0, %call2.i.noexc107 ], [ %inc.i, %if.end20.i ]
-  %and.i = and i64 %index.i.0197, %conv.i
+  %index.i.0195 = phi i64 [ %add.i107, %call2.i.noexc107 ], [ %add.i, %if.end20.i ]
+  %tries.i.0194 = phi i64 [ 0, %call2.i.noexc107 ], [ %inc.i, %if.end20.i ]
+  %and.i = and i64 %index.i.0195, %conv.i
   %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %47, i64 %and.i
   %51 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i115 = icmp eq <16 x i8> %51, %vecinit15.i.i114
@@ -1085,10 +1085,10 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp17.i, label %do.end, label %if.end20.i
 
 if.end20.i:                                       ; preds = %while.end.i
-  %add.i = add i64 %add.i111, %index.i.0197
-  %inc.i = add nuw nsw i64 %tries.i.0196, 1
-  %exitcond205.not = icmp eq i64 %tries.i.0196, %conv.i
-  br i1 %exitcond205.not, label %do.end, label %call6.i.noexc, !llvm.loop !9
+  %add.i = add i64 %add.i111, %index.i.0195
+  %inc.i = add nuw nsw i64 %tries.i.0194, 1
+  %exitcond203.not = icmp eq i64 %tries.i.0194, %conv.i
+  br i1 %exitcond203.not, label %do.end, label %call6.i.noexc, !llvm.loop !9
 
 invoke.cont51:                                    ; preds = %call11.i.noexc
   br label %call2.i.noexc107, !llvm.loop !16

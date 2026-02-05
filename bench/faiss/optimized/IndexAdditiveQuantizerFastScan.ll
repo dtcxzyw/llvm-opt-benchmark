@@ -534,8 +534,8 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
   %52 = icmp slt i32 %51, 2
   %53 = load i32, ptr %6, align 4
   %54 = icmp ne i32 %53, 1
-  %or.cond.not85 = select i1 %52, i1 true, i1 %54
-  %brmerge = or i1 %or.cond.not85, %.not.i.i.i.i42
+  %or.cond.not82 = select i1 %52, i1 true, i1 %54
+  %brmerge = or i1 %or.cond.not82, %.not.i.i.i.i42
   br i1 %brmerge, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
@@ -554,12 +554,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 61:                                               ; preds = %.lr.ph, %61
-  %.03070 = phi i64 [ 0, %.lr.ph ], [ %65, %61 ]
-  %62 = getelementptr inbounds nuw float, ptr %45, i64 %.03070
+  %.03067 = phi i64 [ 0, %.lr.ph ], [ %65, %61 ]
+  %62 = getelementptr inbounds nuw float, ptr %45, i64 %.03067
   %63 = load float, ptr %62, align 4, !tbaa !72
   %64 = fdiv float %63, %56
   store float %64, ptr %62, align 4, !tbaa !72
-  %65 = add nuw i64 %.03070, 1
+  %65 = add nuw i64 %.03067, 1
   %exitcond.not = icmp eq i64 %65, %55
   br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !77
 
@@ -570,9 +570,9 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
 
 .preheader:                                       ; preds = %.loopexit
   %68 = icmp sgt i64 %2, 0
-  br i1 %68, label %.lr.ph73, label %._crit_edge
+  br i1 %68, label %.lr.ph70, label %._crit_edge
 
-.lr.ph73:                                         ; preds = %.preheader
+.lr.ph70:                                         ; preds = %.preheader
   %69 = shl i64 %20, 2
   %70 = shl i64 %19, 3
   br label %97
@@ -653,18 +653,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit47:                  ; preds = %._crit_edge, %92
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0, i64 noundef %96) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit49
 
-97:                                               ; preds = %.lr.ph73, %97
-  %.072 = phi i64 [ 0, %.lr.ph73 ], [ %102, %97 ]
-  %.02871 = phi ptr [ %1, %.lr.ph73 ], [ %101, %97 ]
-  %98 = mul i64 %.072, %20
+97:                                               ; preds = %.lr.ph70, %97
+  %.069 = phi i64 [ 0, %.lr.ph70 ], [ %102, %97 ]
+  %.02868 = phi ptr [ %1, %.lr.ph70 ], [ %101, %97 ]
+  %98 = mul i64 %.069, %20
   %99 = getelementptr inbounds nuw float, ptr %.sroa.060.0, i64 %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02871, ptr align 4 %99, i64 %69, i1 false)
-  %100 = getelementptr inbounds nuw float, ptr %.02871, i64 %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02868, ptr align 4 %99, i64 %69, i1 false)
+  %100 = getelementptr inbounds nuw float, ptr %.02868, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %100, ptr align 4 %45, i64 %70, i1 false)
   %101 = getelementptr inbounds nuw float, ptr %100, i64 %21
-  %102 = add nuw nsw i64 %.072, 1
-  %exitcond74.not = icmp eq i64 %102, %2
-  br i1 %exitcond74.not, label %._crit_edge, label %97, !llvm.loop !78
+  %102 = add nuw nsw i64 %.069, 1
+  %exitcond71.not = icmp eq i64 %102, %2
+  br i1 %exitcond71.not, label %._crit_edge, label %97, !llvm.loop !78
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %91, %57
   %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %91 ]

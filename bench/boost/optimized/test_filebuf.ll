@@ -13115,8 +13115,8 @@ _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
   br label %70
 
 ._crit_edge:                                      ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41, %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.sink.i95 = phi i64 [ 0, %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %38, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
-  %.sroa.060.093 = phi ptr [ null, %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %36, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
+  %.sink.i93 = phi i64 [ 0, %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %38, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
+  %.sroa.060.091 = phi ptr [ null, %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %36, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
   %41 = load ptr, ptr %4, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -13125,10 +13125,10 @@ _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
 
 _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit.preheader: ; preds = %._crit_edge
   %45 = load i64, ptr %31, align 8, !tbaa !17
-  %.not79 = icmp eq i64 %45, 0
-  br i1 %.not79, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge, label %.lr.ph78
+  %.not77 = icmp eq i64 %45, 0
+  br i1 %.not77, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit.preheader
+.lr.ph76:                                         ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit.preheader
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13160,7 +13160,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
 
 70:                                               ; preds = %.lr.ph, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41
   %71 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
-  %.02376 = phi i32 [ 0, %.lr.ph ], [ %94, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
+  %.02374 = phi i32 [ 0, %.lr.ph ], [ %94, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41 ]
   %72 = load ptr, ptr %2, align 8, !tbaa !14
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %71
   %74 = load i8, ptr %73, align 1, !tbaa !16
@@ -13198,7 +13198,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
   store i64 %91, ptr %93, align 8, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %92, ptr %.sroa.5.0..sroa_idx, align 8
-  %94 = add i32 %.02376, 1
+  %94 = add i32 %.02374, 1
   %95 = zext i32 %94 to i64
   %96 = load i64, ptr %31, align 8, !tbaa !17
   %97 = icmp ugt i64 %96, %95
@@ -13215,13 +13215,13 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
   br label %.thread
 
 _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge: ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit.preheader
-  %.not.i.i.i = icmp eq ptr %.sroa.060.093, null
+  %.not.i.i.i = icmp eq ptr %.sroa.060.091, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge.thread
 
 _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge.thread: ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge
-  %102 = ptrtoint ptr %.sroa.060.093 to i64
-  %103 = sub i64 %.sink.i95, %102
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.093, i64 noundef %103) #28
+  %102 = ptrtoint ptr %.sroa.060.091 to i64
+  %103 = sub i64 %.sink.i93, %102
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.091, i64 noundef %103) #28
   br label %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit
 
 _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit: ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit._crit_edge.thread
@@ -13235,9 +13235,9 @@ _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit: ; preds = %_ZNSt15basic_st
           cleanup
   br label %200
 
-106:                                              ; preds = %.lr.ph78, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit
-  %107 = phi i64 [ 0, %.lr.ph78 ], [ %193, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit ]
-  %storemerge77 = phi i32 [ 0, %.lr.ph78 ], [ %192, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit ]
+106:                                              ; preds = %.lr.ph76, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit
+  %107 = phi i64 [ 0, %.lr.ph76 ], [ %193, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit ]
+  %storemerge75 = phi i32 [ 0, %.lr.ph76 ], [ %192, %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8)
@@ -13465,7 +13465,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
   store i64 %189, ptr %11, align 8
   %190 = extractvalue { i64, i64 } %188, 1
   store i64 %190, ptr %67, align 8
-  %191 = getelementptr inbounds nuw %"class.std::fpos", ptr %.sroa.060.093, i64 %107
+  %191 = getelementptr inbounds nuw %"class.std::fpos", ptr %.sroa.060.091, i64 %107
   invoke void @_ZN5boost6nowide4test15test_equal_implISt4fposI11__mbstate_tES5_EEvRKT_RKT0_PKciSD_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull @.str.4, i32 noundef 494, ptr noundef nonnull @__FUNCTION__._Z30subtest_singlechar_positioningRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_)
           to label %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit unwind label %196
 
@@ -13473,7 +13473,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5boost6nowide4test7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %192 = add i32 %storemerge77, 1
+  %192 = add i32 %storemerge75, 1
   %193 = zext i32 %192 to i64
   %194 = load i64, ptr %31, align 8, !tbaa !17
   %195 = icmp ugt i64 %194, %193
@@ -13497,20 +13497,20 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
 
 200:                                              ; preds = %199, %104
   %.pn32.pn = phi { ptr, i32 } [ %105, %104 ], [ %.pn29.pn, %199 ]
-  %.not.i.i.i55 = icmp eq ptr %.sroa.060.093, null
+  %.not.i.i.i55 = icmp eq ptr %.sroa.060.091, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit56, label %.thread
 
 .thread:                                          ; preds = %98, %100, %200
-  %.pn32.pn103 = phi { ptr, i32 } [ %.pn32.pn, %200 ], [ %99, %98 ], [ %101, %100 ]
-  %.sroa.060.092102 = phi ptr [ %.sroa.060.093, %200 ], [ %36, %98 ], [ %36, %100 ]
-  %.sink.i94101 = phi i64 [ %.sink.i95, %200 ], [ %38, %98 ], [ %38, %100 ]
-  %201 = ptrtoint ptr %.sroa.060.092102 to i64
-  %202 = sub i64 %.sink.i94101, %201
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.092102, i64 noundef %202) #28
+  %.pn32.pn101 = phi { ptr, i32 } [ %.pn32.pn, %200 ], [ %99, %98 ], [ %101, %100 ]
+  %.sroa.060.090100 = phi ptr [ %.sroa.060.091, %200 ], [ %36, %98 ], [ %36, %100 ]
+  %.sink.i9299 = phi i64 [ %.sink.i93, %200 ], [ %38, %98 ], [ %38, %100 ]
+  %201 = ptrtoint ptr %.sroa.060.090100 to i64
+  %202 = sub i64 %.sink.i9299, %201
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.090100, i64 noundef %202) #28
   br label %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit56
 
 _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EED2Ev.exit56: ; preds = %68, %200, %.thread, %27
-  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %69, %68 ], [ %.pn32.pn, %200 ], [ %.pn32.pn103, %.thread ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %69, %68 ], [ %.pn32.pn, %200 ], [ %.pn32.pn101, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -2172,8 +2172,8 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit.i:     ; preds = %19
   %27 = and i64 %26, 7
   %28 = icmp ne i64 %27, 0
   %29 = and i64 %26, -8
-  %.not615.i = icmp eq i64 %29, 0
-  %.not6.i = or i1 %28, %.not615.i
+  %.not69.i = icmp eq i64 %29, 0
+  %.not6.i = or i1 %28, %.not69.i
   br i1 %.not6.i, label %_ZL13getCalleeNamePN5clang8CallExprE.exit.thread, label %_ZL13getCalleeNamePN5clang8CallExprE.exit
 
 _ZL13getCalleeNamePN5clang8CallExprE.exit:        ; preds = %_ZN5clang8CallExpr15getDirectCalleeEv.exit.i

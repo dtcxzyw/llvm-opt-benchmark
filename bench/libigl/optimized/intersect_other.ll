@@ -40358,17 +40358,17 @@ define linkonce_odr dso_local void @_ZN4CGAL13Intersections8internal31intersecti
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %18, align 8, !tbaa !40
   %.0.i.i.i121.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.0.i.i.i121.sroa.gep296 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.i.i.i121.sroa.gep297 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.0.i.i.i121.sroa.gep299 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.0.i.i.i121.sroa.gep300 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.0.i.i.i121.sroa.gep301 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.0.i.i.i121.sroa.gep287 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.i.i.i121.sroa.gep288 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.0.i.i.i121.sroa.gep290 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.0.i.i.i121.sroa.gep291 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.0.i.i.i121.sroa.gep292 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.0.i15.i.i119.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.0.i15.i.i119.sroa.gep332 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.0.i15.i.i119.sroa.gep333 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.0.i15.i.i119.sroa.gep335 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.0.i15.i.i119.sroa.gep336 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.0.i15.i.i119.sroa.gep337 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.0.i15.i.i119.sroa.gep323 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.0.i15.i.i119.sroa.gep324 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.i15.i.i119.sroa.gep326 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.0.i15.i.i119.sroa.gep327 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.0.i15.i.i119.sroa.gep328 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #48
           to label %20 unwind label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEED2Ev.exit58
 
@@ -40470,12 +40470,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEED2Ev.exit62: ; pr
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i: ; preds = %54, %53, %52
-  %.0.i.i.i.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %54 ], [ %.0.i.i.i121.sroa.gep296, %53 ], [ %.0.i.i.i121.sroa.gep297, %52 ]
-  %.0.i.i.i.sroa.phi328 = phi ptr [ %.0.i.i.i121.sroa.gep299, %54 ], [ %.0.i.i.i121.sroa.gep300, %53 ], [ %.0.i.i.i121.sroa.gep301, %52 ]
+  %.0.i.i.i.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %54 ], [ %.0.i.i.i121.sroa.gep287, %53 ], [ %.0.i.i.i121.sroa.gep288, %52 ]
+  %.0.i.i.i.sroa.phi319 = phi ptr [ %.0.i.i.i121.sroa.gep290, %54 ], [ %.0.i.i.i121.sroa.gep291, %53 ], [ %.0.i.i.i121.sroa.gep292, %52 ]
   %.0.i.i.i = phi ptr [ %10, %54 ], [ %9, %53 ], [ %2, %52 ]
   %.sroa.0183.0.copyload184 = load double, ptr %.0.i.i.i, align 8
   %.sroa.7186.0.copyload187 = load double, ptr %.0.i.i.i.sroa.phi, align 8
-  %.sroa.8189.0.copyload190 = load double, ptr %.0.i.i.i.sroa.phi328, align 8
+  %.sroa.8189.0.copyload190 = load double, ptr %.0.i.i.i.sroa.phi319, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit
 
 55:                                               ; preds = %47
@@ -40497,12 +40497,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i: ; preds = %61, %60, %59
-  %.0.i15.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %61 ], [ %.0.i15.i.i119.sroa.gep332, %60 ], [ %.0.i15.i.i119.sroa.gep333, %59 ]
-  %.0.i15.i.i.sroa.phi424 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %61 ], [ %.0.i15.i.i119.sroa.gep336, %60 ], [ %.0.i15.i.i119.sroa.gep337, %59 ]
+  %.0.i15.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %61 ], [ %.0.i15.i.i119.sroa.gep323, %60 ], [ %.0.i15.i.i119.sroa.gep324, %59 ]
+  %.0.i15.i.i.sroa.phi415 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %61 ], [ %.0.i15.i.i119.sroa.gep327, %60 ], [ %.0.i15.i.i119.sroa.gep328, %59 ]
   %.0.i15.i.i = phi ptr [ %8, %61 ], [ %7, %60 ], [ %1, %59 ]
   %.sroa.0183.0.copyload = load double, ptr %.0.i15.i.i, align 8
   %.sroa.7186.0.copyload = load double, ptr %.0.i15.i.i.sroa.phi, align 8
-  %.sroa.8189.0.copyload = load double, ptr %.0.i15.i.i.sroa.phi424, align 8
+  %.sroa.8189.0.copyload = load double, ptr %.0.i15.i.i.sroa.phi415, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit
 
 62:                                               ; preds = %55
@@ -40519,8 +40519,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i: ; preds = %65, %64, %62
-  %.0.i17.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %65 ], [ %.0.i15.i.i119.sroa.gep332, %64 ], [ %.0.i15.i.i119.sroa.gep333, %62 ]
-  %.0.i17.i.i.sroa.phi430 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %65 ], [ %.0.i15.i.i119.sroa.gep336, %64 ], [ %.0.i15.i.i119.sroa.gep337, %62 ]
+  %.0.i17.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %65 ], [ %.0.i15.i.i119.sroa.gep323, %64 ], [ %.0.i15.i.i119.sroa.gep324, %62 ]
+  %.0.i17.i.i.sroa.phi421 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %65 ], [ %.0.i15.i.i119.sroa.gep327, %64 ], [ %.0.i15.i.i119.sroa.gep328, %62 ]
   %.0.i17.i.i = phi ptr [ %8, %65 ], [ %7, %64 ], [ %1, %62 ]
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 48
   switch i32 %57, label %68 [
@@ -40535,8 +40535,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i: ; preds = %68, %67, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i
-  %.0.i19.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %68 ], [ %.0.i15.i.i119.sroa.gep332, %67 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i ]
-  %.0.i19.i.i.sroa.phi436 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %68 ], [ %.0.i15.i.i119.sroa.gep336, %67 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i ]
+  %.0.i19.i.i.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %68 ], [ %.0.i15.i.i119.sroa.gep323, %67 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i ]
+  %.0.i19.i.i.sroa.phi427 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %68 ], [ %.0.i15.i.i119.sroa.gep327, %67 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i ]
   %.0.i19.i.i = phi ptr [ %8, %68 ], [ %7, %67 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i ]
   %69 = load double, ptr %66, align 8, !tbaa !238, !noalias !766
   %70 = fsub double 1.000000e+00, %69
@@ -40548,8 +40548,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %76 = load double, ptr %.0.i19.i.i.sroa.phi, align 8, !tbaa !238, !noalias !766
   %77 = fmul double %70, %76
   %78 = call double @llvm.fmuladd.f64(double %69, double %75, double %77)
-  %79 = load double, ptr %.0.i17.i.i.sroa.phi430, align 8, !tbaa !238, !noalias !766
-  %80 = load double, ptr %.0.i19.i.i.sroa.phi436, align 8, !tbaa !238, !noalias !766
+  %79 = load double, ptr %.0.i17.i.i.sroa.phi421, align 8, !tbaa !238, !noalias !766
+  %80 = load double, ptr %.0.i19.i.i.sroa.phi427, align 8, !tbaa !238, !noalias !766
   %81 = fmul double %70, %80
   %82 = call double @llvm.fmuladd.f64(double %69, double %79, double %81)
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit
@@ -40589,12 +40589,12 @@ _ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEEN
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i71
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i71: ; preds = %92, %91, %90
-  %.0.i.i.i72.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %92 ], [ %.0.i.i.i121.sroa.gep296, %91 ], [ %.0.i.i.i121.sroa.gep297, %90 ]
-  %.0.i.i.i72.sroa.phi322 = phi ptr [ %.0.i.i.i121.sroa.gep299, %92 ], [ %.0.i.i.i121.sroa.gep300, %91 ], [ %.0.i.i.i121.sroa.gep301, %90 ]
+  %.0.i.i.i72.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %92 ], [ %.0.i.i.i121.sroa.gep287, %91 ], [ %.0.i.i.i121.sroa.gep288, %90 ]
+  %.0.i.i.i72.sroa.phi313 = phi ptr [ %.0.i.i.i121.sroa.gep290, %92 ], [ %.0.i.i.i121.sroa.gep291, %91 ], [ %.0.i.i.i121.sroa.gep292, %90 ]
   %.0.i.i.i72 = phi ptr [ %10, %92 ], [ %9, %91 ], [ %2, %90 ]
   %.sroa.0171.0.copyload172 = load double, ptr %.0.i.i.i72, align 8
   %.sroa.7174.0.copyload175 = load double, ptr %.0.i.i.i72.sroa.phi, align 8
-  %.sroa.8177.0.copyload178 = load double, ptr %.0.i.i.i72.sroa.phi322, align 8
+  %.sroa.8177.0.copyload178 = load double, ptr %.0.i.i.i72.sroa.phi313, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit73
 
 93:                                               ; preds = %85
@@ -40616,12 +40616,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i69
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i69: ; preds = %99, %98, %97
-  %.0.i15.i.i70.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %99 ], [ %.0.i15.i.i119.sroa.gep332, %98 ], [ %.0.i15.i.i119.sroa.gep333, %97 ]
-  %.0.i15.i.i70.sroa.phi406 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %99 ], [ %.0.i15.i.i119.sroa.gep336, %98 ], [ %.0.i15.i.i119.sroa.gep337, %97 ]
+  %.0.i15.i.i70.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %99 ], [ %.0.i15.i.i119.sroa.gep323, %98 ], [ %.0.i15.i.i119.sroa.gep324, %97 ]
+  %.0.i15.i.i70.sroa.phi397 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %99 ], [ %.0.i15.i.i119.sroa.gep327, %98 ], [ %.0.i15.i.i119.sroa.gep328, %97 ]
   %.0.i15.i.i70 = phi ptr [ %8, %99 ], [ %7, %98 ], [ %1, %97 ]
   %.sroa.0171.0.copyload = load double, ptr %.0.i15.i.i70, align 8
   %.sroa.7174.0.copyload = load double, ptr %.0.i15.i.i70.sroa.phi, align 8
-  %.sroa.8177.0.copyload = load double, ptr %.0.i15.i.i70.sroa.phi406, align 8
+  %.sroa.8177.0.copyload = load double, ptr %.0.i15.i.i70.sroa.phi397, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit73
 
 100:                                              ; preds = %93
@@ -40638,8 +40638,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63: ; preds = %103, %102, %100
-  %.0.i17.i.i64.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %103 ], [ %.0.i15.i.i119.sroa.gep332, %102 ], [ %.0.i15.i.i119.sroa.gep333, %100 ]
-  %.0.i17.i.i64.sroa.phi412 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %103 ], [ %.0.i15.i.i119.sroa.gep336, %102 ], [ %.0.i15.i.i119.sroa.gep337, %100 ]
+  %.0.i17.i.i64.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %103 ], [ %.0.i15.i.i119.sroa.gep323, %102 ], [ %.0.i15.i.i119.sroa.gep324, %100 ]
+  %.0.i17.i.i64.sroa.phi403 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %103 ], [ %.0.i15.i.i119.sroa.gep327, %102 ], [ %.0.i15.i.i119.sroa.gep328, %100 ]
   %.0.i17.i.i64 = phi ptr [ %8, %103 ], [ %7, %102 ], [ %1, %100 ]
   %104 = getelementptr inbounds nuw i8, ptr %86, i64 48
   switch i32 %95, label %106 [
@@ -40654,8 +40654,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i65
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i65: ; preds = %106, %105, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63
-  %.0.i19.i.i66.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %106 ], [ %.0.i15.i.i119.sroa.gep332, %105 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63 ]
-  %.0.i19.i.i66.sroa.phi418 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %106 ], [ %.0.i15.i.i119.sroa.gep336, %105 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63 ]
+  %.0.i19.i.i66.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %106 ], [ %.0.i15.i.i119.sroa.gep323, %105 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63 ]
+  %.0.i19.i.i66.sroa.phi409 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %106 ], [ %.0.i15.i.i119.sroa.gep327, %105 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63 ]
   %.0.i19.i.i66 = phi ptr [ %8, %106 ], [ %7, %105 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i63 ]
   %107 = load double, ptr %104, align 8, !tbaa !238, !noalias !779
   %108 = fsub double 1.000000e+00, %107
@@ -40667,8 +40667,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %114 = load double, ptr %.0.i19.i.i66.sroa.phi, align 8, !tbaa !238, !noalias !779
   %115 = fmul double %108, %114
   %116 = call double @llvm.fmuladd.f64(double %107, double %113, double %115)
-  %117 = load double, ptr %.0.i17.i.i64.sroa.phi412, align 8, !tbaa !238, !noalias !779
-  %118 = load double, ptr %.0.i19.i.i66.sroa.phi418, align 8, !tbaa !238, !noalias !779
+  %117 = load double, ptr %.0.i17.i.i64.sroa.phi403, align 8, !tbaa !238, !noalias !779
+  %118 = load double, ptr %.0.i19.i.i66.sroa.phi409, align 8, !tbaa !238, !noalias !779
   %119 = fmul double %108, %118
   %120 = call double @llvm.fmuladd.f64(double %107, double %117, double %119)
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit73
@@ -40696,12 +40696,12 @@ _ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEEN
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i82
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i82: ; preds = %127, %126, %125
-  %.0.i.i.i83.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %127 ], [ %.0.i.i.i121.sroa.gep296, %126 ], [ %.0.i.i.i121.sroa.gep297, %125 ]
-  %.0.i.i.i83.sroa.phi316 = phi ptr [ %.0.i.i.i121.sroa.gep299, %127 ], [ %.0.i.i.i121.sroa.gep300, %126 ], [ %.0.i.i.i121.sroa.gep301, %125 ]
+  %.0.i.i.i83.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %127 ], [ %.0.i.i.i121.sroa.gep287, %126 ], [ %.0.i.i.i121.sroa.gep288, %125 ]
+  %.0.i.i.i83.sroa.phi307 = phi ptr [ %.0.i.i.i121.sroa.gep290, %127 ], [ %.0.i.i.i121.sroa.gep291, %126 ], [ %.0.i.i.i121.sroa.gep292, %125 ]
   %.0.i.i.i83 = phi ptr [ %10, %127 ], [ %9, %126 ], [ %2, %125 ]
   %.sroa.0161.0.copyload162 = load double, ptr %.0.i.i.i83, align 8
   %.sroa.7164.0.copyload165 = load double, ptr %.0.i.i.i83.sroa.phi, align 8
-  %.sroa.8167.0.copyload168 = load double, ptr %.0.i.i.i83.sroa.phi316, align 8
+  %.sroa.8167.0.copyload168 = load double, ptr %.0.i.i.i83.sroa.phi307, align 8
   br label %156
 
 128:                                              ; preds = %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit73
@@ -40723,12 +40723,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i80
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i80: ; preds = %134, %133, %132
-  %.0.i15.i.i81.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %134 ], [ %.0.i15.i.i119.sroa.gep332, %133 ], [ %.0.i15.i.i119.sroa.gep333, %132 ]
-  %.0.i15.i.i81.sroa.phi388 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %134 ], [ %.0.i15.i.i119.sroa.gep336, %133 ], [ %.0.i15.i.i119.sroa.gep337, %132 ]
+  %.0.i15.i.i81.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %134 ], [ %.0.i15.i.i119.sroa.gep323, %133 ], [ %.0.i15.i.i119.sroa.gep324, %132 ]
+  %.0.i15.i.i81.sroa.phi379 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %134 ], [ %.0.i15.i.i119.sroa.gep327, %133 ], [ %.0.i15.i.i119.sroa.gep328, %132 ]
   %.0.i15.i.i81 = phi ptr [ %8, %134 ], [ %7, %133 ], [ %1, %132 ]
   %.sroa.0161.0.copyload = load double, ptr %.0.i15.i.i81, align 8
   %.sroa.7164.0.copyload = load double, ptr %.0.i15.i.i81.sroa.phi, align 8
-  %.sroa.8167.0.copyload = load double, ptr %.0.i15.i.i81.sroa.phi388, align 8
+  %.sroa.8167.0.copyload = load double, ptr %.0.i15.i.i81.sroa.phi379, align 8
   br label %156
 
 135:                                              ; preds = %128
@@ -40745,8 +40745,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74: ; preds = %138, %137, %135
-  %.0.i17.i.i75.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %138 ], [ %.0.i15.i.i119.sroa.gep332, %137 ], [ %.0.i15.i.i119.sroa.gep333, %135 ]
-  %.0.i17.i.i75.sroa.phi394 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %138 ], [ %.0.i15.i.i119.sroa.gep336, %137 ], [ %.0.i15.i.i119.sroa.gep337, %135 ]
+  %.0.i17.i.i75.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %138 ], [ %.0.i15.i.i119.sroa.gep323, %137 ], [ %.0.i15.i.i119.sroa.gep324, %135 ]
+  %.0.i17.i.i75.sroa.phi385 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %138 ], [ %.0.i15.i.i119.sroa.gep327, %137 ], [ %.0.i15.i.i119.sroa.gep328, %135 ]
   %.0.i17.i.i75 = phi ptr [ %8, %138 ], [ %7, %137 ], [ %1, %135 ]
   %139 = getelementptr inbounds nuw i8, ptr %121, i64 48
   switch i32 %130, label %141 [
@@ -40761,8 +40761,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i76
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i76: ; preds = %141, %140, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74
-  %.0.i19.i.i77.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %141 ], [ %.0.i15.i.i119.sroa.gep332, %140 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74 ]
-  %.0.i19.i.i77.sroa.phi400 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %141 ], [ %.0.i15.i.i119.sroa.gep336, %140 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74 ]
+  %.0.i19.i.i77.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %141 ], [ %.0.i15.i.i119.sroa.gep323, %140 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74 ]
+  %.0.i19.i.i77.sroa.phi391 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %141 ], [ %.0.i15.i.i119.sroa.gep327, %140 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74 ]
   %.0.i19.i.i77 = phi ptr [ %8, %141 ], [ %7, %140 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i74 ]
   %142 = load double, ptr %139, align 8, !tbaa !238, !noalias !787
   %143 = fsub double 1.000000e+00, %142
@@ -40774,8 +40774,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %149 = load double, ptr %.0.i19.i.i77.sroa.phi, align 8, !tbaa !238, !noalias !787
   %150 = fmul double %143, %149
   %151 = call double @llvm.fmuladd.f64(double %142, double %148, double %150)
-  %152 = load double, ptr %.0.i17.i.i75.sroa.phi394, align 8, !tbaa !238, !noalias !787
-  %153 = load double, ptr %.0.i19.i.i77.sroa.phi400, align 8, !tbaa !238, !noalias !787
+  %152 = load double, ptr %.0.i17.i.i75.sroa.phi385, align 8, !tbaa !238, !noalias !787
+  %153 = load double, ptr %.0.i19.i.i77.sroa.phi391, align 8, !tbaa !238, !noalias !787
   %154 = fmul double %143, %153
   %155 = call double @llvm.fmuladd.f64(double %142, double %152, double %154)
   br label %156
@@ -40821,12 +40821,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i93
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i93: ; preds = %166, %165, %164
-  %.0.i.i.i94.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %166 ], [ %.0.i.i.i121.sroa.gep296, %165 ], [ %.0.i.i.i121.sroa.gep297, %164 ]
-  %.0.i.i.i94.sroa.phi310 = phi ptr [ %.0.i.i.i121.sroa.gep299, %166 ], [ %.0.i.i.i121.sroa.gep300, %165 ], [ %.0.i.i.i121.sroa.gep301, %164 ]
+  %.0.i.i.i94.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %166 ], [ %.0.i.i.i121.sroa.gep287, %165 ], [ %.0.i.i.i121.sroa.gep288, %164 ]
+  %.0.i.i.i94.sroa.phi301 = phi ptr [ %.0.i.i.i121.sroa.gep290, %166 ], [ %.0.i.i.i121.sroa.gep291, %165 ], [ %.0.i.i.i121.sroa.gep292, %164 ]
   %.0.i.i.i94 = phi ptr [ %10, %166 ], [ %9, %165 ], [ %2, %164 ]
   %.sroa.0149.0.copyload150 = load double, ptr %.0.i.i.i94, align 8
   %.sroa.7152.0.copyload153 = load double, ptr %.0.i.i.i94.sroa.phi, align 8
-  %.sroa.8155.0.copyload156 = load double, ptr %.0.i.i.i94.sroa.phi310, align 8
+  %.sroa.8155.0.copyload156 = load double, ptr %.0.i.i.i94.sroa.phi301, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit95
 
 167:                                              ; preds = %159
@@ -40848,12 +40848,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i91
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i91: ; preds = %173, %172, %171
-  %.0.i15.i.i92.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %173 ], [ %.0.i15.i.i119.sroa.gep332, %172 ], [ %.0.i15.i.i119.sroa.gep333, %171 ]
-  %.0.i15.i.i92.sroa.phi370 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %173 ], [ %.0.i15.i.i119.sroa.gep336, %172 ], [ %.0.i15.i.i119.sroa.gep337, %171 ]
+  %.0.i15.i.i92.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %173 ], [ %.0.i15.i.i119.sroa.gep323, %172 ], [ %.0.i15.i.i119.sroa.gep324, %171 ]
+  %.0.i15.i.i92.sroa.phi361 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %173 ], [ %.0.i15.i.i119.sroa.gep327, %172 ], [ %.0.i15.i.i119.sroa.gep328, %171 ]
   %.0.i15.i.i92 = phi ptr [ %8, %173 ], [ %7, %172 ], [ %1, %171 ]
   %.sroa.0149.0.copyload = load double, ptr %.0.i15.i.i92, align 8
   %.sroa.7152.0.copyload = load double, ptr %.0.i15.i.i92.sroa.phi, align 8
-  %.sroa.8155.0.copyload = load double, ptr %.0.i15.i.i92.sroa.phi370, align 8
+  %.sroa.8155.0.copyload = load double, ptr %.0.i15.i.i92.sroa.phi361, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit95
 
 174:                                              ; preds = %167
@@ -40870,8 +40870,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85: ; preds = %177, %176, %174
-  %.0.i17.i.i86.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %177 ], [ %.0.i15.i.i119.sroa.gep332, %176 ], [ %.0.i15.i.i119.sroa.gep333, %174 ]
-  %.0.i17.i.i86.sroa.phi376 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %177 ], [ %.0.i15.i.i119.sroa.gep336, %176 ], [ %.0.i15.i.i119.sroa.gep337, %174 ]
+  %.0.i17.i.i86.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %177 ], [ %.0.i15.i.i119.sroa.gep323, %176 ], [ %.0.i15.i.i119.sroa.gep324, %174 ]
+  %.0.i17.i.i86.sroa.phi367 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %177 ], [ %.0.i15.i.i119.sroa.gep327, %176 ], [ %.0.i15.i.i119.sroa.gep328, %174 ]
   %.0.i17.i.i86 = phi ptr [ %8, %177 ], [ %7, %176 ], [ %1, %174 ]
   %178 = getelementptr inbounds nuw i8, ptr %160, i64 48
   switch i32 %169, label %180 [
@@ -40886,8 +40886,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i87
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i87: ; preds = %180, %179, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85
-  %.0.i19.i.i88.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %180 ], [ %.0.i15.i.i119.sroa.gep332, %179 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85 ]
-  %.0.i19.i.i88.sroa.phi382 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %180 ], [ %.0.i15.i.i119.sroa.gep336, %179 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85 ]
+  %.0.i19.i.i88.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %180 ], [ %.0.i15.i.i119.sroa.gep323, %179 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85 ]
+  %.0.i19.i.i88.sroa.phi373 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %180 ], [ %.0.i15.i.i119.sroa.gep327, %179 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85 ]
   %.0.i19.i.i88 = phi ptr [ %8, %180 ], [ %7, %179 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i85 ]
   %181 = load double, ptr %178, align 8, !tbaa !238, !noalias !798
   %182 = fsub double 1.000000e+00, %181
@@ -40899,8 +40899,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %188 = load double, ptr %.0.i19.i.i88.sroa.phi, align 8, !tbaa !238, !noalias !798
   %189 = fmul double %182, %188
   %190 = call double @llvm.fmuladd.f64(double %181, double %187, double %189)
-  %191 = load double, ptr %.0.i17.i.i86.sroa.phi376, align 8, !tbaa !238, !noalias !798
-  %192 = load double, ptr %.0.i19.i.i88.sroa.phi382, align 8, !tbaa !238, !noalias !798
+  %191 = load double, ptr %.0.i17.i.i86.sroa.phi367, align 8, !tbaa !238, !noalias !798
+  %192 = load double, ptr %.0.i19.i.i88.sroa.phi373, align 8, !tbaa !238, !noalias !798
   %193 = fmul double %182, %192
   %194 = call double @llvm.fmuladd.f64(double %181, double %191, double %193)
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit95
@@ -40928,12 +40928,12 @@ _ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEEN
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i108
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i108: ; preds = %201, %200, %199
-  %.0.i.i.i109.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %201 ], [ %.0.i.i.i121.sroa.gep296, %200 ], [ %.0.i.i.i121.sroa.gep297, %199 ]
-  %.0.i.i.i109.sroa.phi304 = phi ptr [ %.0.i.i.i121.sroa.gep299, %201 ], [ %.0.i.i.i121.sroa.gep300, %200 ], [ %.0.i.i.i121.sroa.gep301, %199 ]
+  %.0.i.i.i109.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %201 ], [ %.0.i.i.i121.sroa.gep287, %200 ], [ %.0.i.i.i121.sroa.gep288, %199 ]
+  %.0.i.i.i109.sroa.phi295 = phi ptr [ %.0.i.i.i121.sroa.gep290, %201 ], [ %.0.i.i.i121.sroa.gep291, %200 ], [ %.0.i.i.i121.sroa.gep292, %199 ]
   %.0.i.i.i109 = phi ptr [ %10, %201 ], [ %9, %200 ], [ %2, %199 ]
   %.sroa.0139.0.copyload140 = load double, ptr %.0.i.i.i109, align 8
   %.sroa.7142.0.copyload143 = load double, ptr %.0.i.i.i109.sroa.phi, align 8
-  %.sroa.8145.0.copyload146 = load double, ptr %.0.i.i.i109.sroa.phi304, align 8
+  %.sroa.8145.0.copyload146 = load double, ptr %.0.i.i.i109.sroa.phi295, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit110
 
 202:                                              ; preds = %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit95
@@ -40955,12 +40955,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i106
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i106: ; preds = %208, %207, %206
-  %.0.i15.i.i107.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %208 ], [ %.0.i15.i.i119.sroa.gep332, %207 ], [ %.0.i15.i.i119.sroa.gep333, %206 ]
-  %.0.i15.i.i107.sroa.phi352 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %208 ], [ %.0.i15.i.i119.sroa.gep336, %207 ], [ %.0.i15.i.i119.sroa.gep337, %206 ]
+  %.0.i15.i.i107.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %208 ], [ %.0.i15.i.i119.sroa.gep323, %207 ], [ %.0.i15.i.i119.sroa.gep324, %206 ]
+  %.0.i15.i.i107.sroa.phi343 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %208 ], [ %.0.i15.i.i119.sroa.gep327, %207 ], [ %.0.i15.i.i119.sroa.gep328, %206 ]
   %.0.i15.i.i107 = phi ptr [ %8, %208 ], [ %7, %207 ], [ %1, %206 ]
   %.sroa.0139.0.copyload = load double, ptr %.0.i15.i.i107, align 8
   %.sroa.7142.0.copyload = load double, ptr %.0.i15.i.i107.sroa.phi, align 8
-  %.sroa.8145.0.copyload = load double, ptr %.0.i15.i.i107.sroa.phi352, align 8
+  %.sroa.8145.0.copyload = load double, ptr %.0.i15.i.i107.sroa.phi343, align 8
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit110
 
 209:                                              ; preds = %202
@@ -40977,8 +40977,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100: ; preds = %212, %211, %209
-  %.0.i17.i.i101.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %212 ], [ %.0.i15.i.i119.sroa.gep332, %211 ], [ %.0.i15.i.i119.sroa.gep333, %209 ]
-  %.0.i17.i.i101.sroa.phi358 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %212 ], [ %.0.i15.i.i119.sroa.gep336, %211 ], [ %.0.i15.i.i119.sroa.gep337, %209 ]
+  %.0.i17.i.i101.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %212 ], [ %.0.i15.i.i119.sroa.gep323, %211 ], [ %.0.i15.i.i119.sroa.gep324, %209 ]
+  %.0.i17.i.i101.sroa.phi349 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %212 ], [ %.0.i15.i.i119.sroa.gep327, %211 ], [ %.0.i15.i.i119.sroa.gep328, %209 ]
   %.0.i17.i.i101 = phi ptr [ %8, %212 ], [ %7, %211 ], [ %1, %209 ]
   %213 = getelementptr inbounds nuw i8, ptr %195, i64 48
   switch i32 %204, label %215 [
@@ -40993,8 +40993,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i102
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i102: ; preds = %215, %214, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100
-  %.0.i19.i.i103.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %215 ], [ %.0.i15.i.i119.sroa.gep332, %214 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100 ]
-  %.0.i19.i.i103.sroa.phi364 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %215 ], [ %.0.i15.i.i119.sroa.gep336, %214 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100 ]
+  %.0.i19.i.i103.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %215 ], [ %.0.i15.i.i119.sroa.gep323, %214 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100 ]
+  %.0.i19.i.i103.sroa.phi355 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %215 ], [ %.0.i15.i.i119.sroa.gep327, %214 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100 ]
   %.0.i19.i.i103 = phi ptr [ %8, %215 ], [ %7, %214 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i100 ]
   %216 = load double, ptr %213, align 8, !tbaa !238, !noalias !806
   %217 = fsub double 1.000000e+00, %216
@@ -41006,8 +41006,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %223 = load double, ptr %.0.i19.i.i103.sroa.phi, align 8, !tbaa !238, !noalias !806
   %224 = fmul double %217, %223
   %225 = call double @llvm.fmuladd.f64(double %216, double %222, double %224)
-  %226 = load double, ptr %.0.i17.i.i101.sroa.phi358, align 8, !tbaa !238, !noalias !806
-  %227 = load double, ptr %.0.i19.i.i103.sroa.phi364, align 8, !tbaa !238, !noalias !806
+  %226 = load double, ptr %.0.i17.i.i101.sroa.phi349, align 8, !tbaa !238, !noalias !806
+  %227 = load double, ptr %.0.i19.i.i103.sroa.phi355, align 8, !tbaa !238, !noalias !806
   %228 = fmul double %217, %227
   %229 = call double @llvm.fmuladd.f64(double %216, double %226, double %228)
   br label %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit110
@@ -41035,12 +41035,12 @@ _ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEEN
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i120
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit.i.i120: ; preds = %236, %235, %234
-  %.0.i.i.i121.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %236 ], [ %.0.i.i.i121.sroa.gep296, %235 ], [ %.0.i.i.i121.sroa.gep297, %234 ]
-  %.0.i.i.i121.sroa.phi298 = phi ptr [ %.0.i.i.i121.sroa.gep299, %236 ], [ %.0.i.i.i121.sroa.gep300, %235 ], [ %.0.i.i.i121.sroa.gep301, %234 ]
+  %.0.i.i.i121.sroa.phi = phi ptr [ %.0.i.i.i121.sroa.gep, %236 ], [ %.0.i.i.i121.sroa.gep287, %235 ], [ %.0.i.i.i121.sroa.gep288, %234 ]
+  %.0.i.i.i121.sroa.phi289 = phi ptr [ %.0.i.i.i121.sroa.gep290, %236 ], [ %.0.i.i.i121.sroa.gep291, %235 ], [ %.0.i.i.i121.sroa.gep292, %234 ]
   %.0.i.i.i121 = phi ptr [ %10, %236 ], [ %9, %235 ], [ %2, %234 ]
   %.sroa.0131.0.copyload132 = load double, ptr %.0.i.i.i121, align 8
   %.sroa.7.0.copyload134 = load double, ptr %.0.i.i.i121.sroa.phi, align 8
-  %.sroa.8.0.copyload136 = load double, ptr %.0.i.i.i121.sroa.phi298, align 8
+  %.sroa.8.0.copyload136 = load double, ptr %.0.i.i.i121.sroa.phi289, align 8
   br label %265
 
 237:                                              ; preds = %_ZZN4CGAL13Intersections8internal31intersection_coplanar_trianglesINS_5EpickEEENS_19Intersection_traitsIT_NS5_10Triangle_3ES6_E11result_typeERKS6_SA_RKS5_ENKUlRKNS1_17Point_on_triangleIS3_EEE_clESG_.exit110
@@ -41062,12 +41062,12 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i118
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit16.i.i118: ; preds = %243, %242, %241
-  %.0.i15.i.i119.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %243 ], [ %.0.i15.i.i119.sroa.gep332, %242 ], [ %.0.i15.i.i119.sroa.gep333, %241 ]
-  %.0.i15.i.i119.sroa.phi334 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %243 ], [ %.0.i15.i.i119.sroa.gep336, %242 ], [ %.0.i15.i.i119.sroa.gep337, %241 ]
+  %.0.i15.i.i119.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %243 ], [ %.0.i15.i.i119.sroa.gep323, %242 ], [ %.0.i15.i.i119.sroa.gep324, %241 ]
+  %.0.i15.i.i119.sroa.phi325 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %243 ], [ %.0.i15.i.i119.sroa.gep327, %242 ], [ %.0.i15.i.i119.sroa.gep328, %241 ]
   %.0.i15.i.i119 = phi ptr [ %8, %243 ], [ %7, %242 ], [ %1, %241 ]
   %.sroa.0131.0.copyload = load double, ptr %.0.i15.i.i119, align 8
   %.sroa.7.0.copyload = load double, ptr %.0.i15.i.i119.sroa.phi, align 8
-  %.sroa.8.0.copyload = load double, ptr %.0.i15.i.i119.sroa.phi334, align 8
+  %.sroa.8.0.copyload = load double, ptr %.0.i15.i.i119.sroa.phi325, align 8
   br label %265
 
 244:                                              ; preds = %237
@@ -41084,8 +41084,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112: ; preds = %247, %246, %244
-  %.0.i17.i.i113.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %247 ], [ %.0.i15.i.i119.sroa.gep332, %246 ], [ %.0.i15.i.i119.sroa.gep333, %244 ]
-  %.0.i17.i.i113.sroa.phi340 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %247 ], [ %.0.i15.i.i119.sroa.gep336, %246 ], [ %.0.i15.i.i119.sroa.gep337, %244 ]
+  %.0.i17.i.i113.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %247 ], [ %.0.i15.i.i119.sroa.gep323, %246 ], [ %.0.i15.i.i119.sroa.gep324, %244 ]
+  %.0.i17.i.i113.sroa.phi331 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %247 ], [ %.0.i15.i.i119.sroa.gep327, %246 ], [ %.0.i15.i.i119.sroa.gep328, %244 ]
   %.0.i17.i.i113 = phi ptr [ %8, %247 ], [ %7, %246 ], [ %1, %244 ]
   %248 = getelementptr inbounds nuw i8, ptr %230, i64 48
   switch i32 %239, label %250 [
@@ -41100,8 +41100,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   br label %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i114
 
 _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit20.i.i114: ; preds = %250, %249, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112
-  %.0.i19.i.i115.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %250 ], [ %.0.i15.i.i119.sroa.gep332, %249 ], [ %.0.i15.i.i119.sroa.gep333, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112 ]
-  %.0.i19.i.i115.sroa.phi346 = phi ptr [ %.0.i15.i.i119.sroa.gep335, %250 ], [ %.0.i15.i.i119.sroa.gep336, %249 ], [ %.0.i15.i.i119.sroa.gep337, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112 ]
+  %.0.i19.i.i115.sroa.phi = phi ptr [ %.0.i15.i.i119.sroa.gep, %250 ], [ %.0.i15.i.i119.sroa.gep323, %249 ], [ %.0.i15.i.i119.sroa.gep324, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112 ]
+  %.0.i19.i.i115.sroa.phi337 = phi ptr [ %.0.i15.i.i119.sroa.gep326, %250 ], [ %.0.i15.i.i119.sroa.gep327, %249 ], [ %.0.i15.i.i119.sroa.gep328, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112 ]
   %.0.i19.i.i115 = phi ptr [ %8, %250 ], [ %7, %249 ], [ %1, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idERKNS_7Point_3IS3_EES8_S8_i.exit18.i.i112 ]
   %251 = load double, ptr %248, align 8, !tbaa !238, !noalias !814
   %252 = fsub double 1.000000e+00, %251
@@ -41113,8 +41113,8 @@ _ZN4CGAL13Intersections8internal17Point_on_triangleINS_5EpickEE13point_from_idER
   %258 = load double, ptr %.0.i19.i.i115.sroa.phi, align 8, !tbaa !238, !noalias !814
   %259 = fmul double %252, %258
   %260 = call double @llvm.fmuladd.f64(double %251, double %257, double %259)
-  %261 = load double, ptr %.0.i17.i.i113.sroa.phi340, align 8, !tbaa !238, !noalias !814
-  %262 = load double, ptr %.0.i19.i.i115.sroa.phi346, align 8, !tbaa !238, !noalias !814
+  %261 = load double, ptr %.0.i17.i.i113.sroa.phi331, align 8, !tbaa !238, !noalias !814
+  %262 = load double, ptr %.0.i19.i.i115.sroa.phi337, align 8, !tbaa !238, !noalias !814
   %263 = fmul double %252, %262
   %264 = call double @llvm.fmuladd.f64(double %251, double %261, double %263)
   br label %265

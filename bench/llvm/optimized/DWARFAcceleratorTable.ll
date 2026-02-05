@@ -5527,9 +5527,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loop
 
 10:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit
   %11 = phi i8 [ %6, %.lr.ph ], [ %44, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
-  %.sroa.010.031 = phi ptr [ null, %.lr.ph ], [ %.sroa.010.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
-  %.sroa.13.030 = phi ptr [ null, %.lr.ph ], [ %.sroa.13.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
-  %.sroa.8.029 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
+  %.sroa.010.028 = phi ptr [ null, %.lr.ph ], [ %.sroa.010.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
+  %.sroa.13.027 = phi ptr [ null, %.lr.ph ], [ %.sroa.13.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
+  %.sroa.8.026 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
   %.val = load i32, ptr %4, align 8, !tbaa !530
   %.val2 = load i16, ptr %8, align 4
   %12 = icmp eq i32 %.val, 0
@@ -5538,18 +5538,18 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loop
   br i1 %14, label %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7.thread, label %15
 
 15:                                               ; preds = %10
-  %.not.i = icmp eq ptr %.sroa.8.029, %.sroa.13.030
+  %.not.i = icmp eq ptr %.sroa.8.026, %.sroa.13.027
   br i1 %.not.i, label %18, label %16
 
 16:                                               ; preds = %15
   %17 = load i64, ptr %4, align 8
-  store i64 %17, ptr %.sroa.8.029, align 4
+  store i64 %17, ptr %.sroa.8.026, align 4
   %.pre = load i8, ptr %5, align 8
   br label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
 18:                                               ; preds = %15
-  %19 = ptrtoint ptr %.sroa.13.030 to i64
-  %20 = ptrtoint ptr %.sroa.010.031 to i64
+  %19 = ptrtoint ptr %.sroa.13.027 to i64
+  %20 = ptrtoint ptr %.sroa.010.028 to i64
   %21 = sub i64 %19, %20
   %22 = icmp eq i64 %21, 9223372036854775800
   br i1 %22, label %23, label %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -5572,28 +5572,28 @@ _ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenE
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %21
   %32 = load i64, ptr %4, align 8
   store i64 %32, ptr %31, align 4
-  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.010.031, %.sroa.13.030
+  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.010.028, %.sroa.13.027
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %30, %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %.sroa.010.031, %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %.sroa.010.028, %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
   %33 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !536, !noalias !533
   store i64 %33, ptr %.012.i.i.i.i.i, align 4, !alias.scope !533, !noalias !536
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %34, %.sroa.13.030
+  %.not.i.i.i.i.i = icmp eq ptr %34, %.sroa.13.027
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !538
 
 _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %30, %_ZNKSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %.lr.ph.i.i.i.i.i ]
-  %.not.i23.i.i = icmp eq ptr %.sroa.010.031, null
+  %.not.i23.i.i = icmp eq ptr %.sroa.010.028, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.010.031, i64 noundef %21) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.010.028, i64 noundef %21) #32
   br label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
@@ -5603,9 +5603,9 @@ _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_ins
 _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit: ; preds = %16, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %.in = phi i64 [ %32, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %17, %16 ]
   %38 = phi i8 [ %11, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre, %16 ]
-  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.8.029, %16 ]
-  %.sroa.13.2 = phi ptr [ %37, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.030, %16 ]
-  %.sroa.010.2 = phi ptr [ %30, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.010.031, %16 ]
+  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.8.026, %16 ]
+  %.sroa.13.2 = phi ptr [ %37, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.027, %16 ]
+  %.sroa.010.2 = phi ptr [ %30, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.010.028, %16 ]
   %.sroa.8.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
   %39 = trunc i8 %38 to i1
   %.not.i.i = icmp ne i64 %.in, 0
@@ -5633,11 +5633,11 @@ _ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7.thread: ; 
   %47 = load i8, ptr %46, align 8
   %48 = and i8 %47, -2
   store i8 %48, ptr %46, align 8
-  store ptr %.sroa.010.031, ptr %0, align 8, !tbaa !540
+  store ptr %.sroa.010.028, ptr %0, align 8, !tbaa !540
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.029, ptr %49, align 8, !tbaa !541
+  store ptr %.sroa.8.026, ptr %49, align 8, !tbaa !541
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.13.030, ptr %50, align 8, !tbaa !542
+  store ptr %.sroa.13.027, ptr %50, align 8, !tbaa !542
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit
 

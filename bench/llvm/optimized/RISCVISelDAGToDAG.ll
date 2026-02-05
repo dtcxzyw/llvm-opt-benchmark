@@ -2357,8 +2357,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel19doPeepholeMask
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %.sroa.0.0.copyload.i8.i.i.i = load i32, ptr %39, align 8, !tbaa !270
-  %.not27.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i8.i.i.i, 11
-  br i1 %.not27.i.i.i, label %40, label %_ZL15usesAllOnesMaskPN4llvm6SDNodeEj.exit.thread
+  %.not21.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i8.i.i.i, 11
+  br i1 %.not21.i.i.i, label %40, label %_ZL15usesAllOnesMaskPN4llvm6SDNodeEj.exit.thread
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 80
@@ -17464,8 +17464,8 @@ define internal fastcc noundef zeroext i1 @_ZL15usesAllOnesMaskN4llvm7SDValueES0
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %.sroa.0.0.copyload.i8.i = load i32, ptr %21, align 8, !tbaa !270
-  %.not27.i = icmp eq i32 %.sroa.0.0.copyload.i8.i, 11
-  br i1 %.not27.i, label %22, label %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread
+  %.not21.i = icmp eq i32 %.sroa.0.0.copyload.i8.i, 11
+  br i1 %.not21.i, label %22, label %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 80

@@ -6247,51 +6247,51 @@ entry:
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
   %ArgName.coerce1.fr = freeze i64 %ArgName.coerce1
   %Arg.coerce1.fr = freeze i64 %Arg.coerce1
-  %spec.select20 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
+  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ArgVal, i64 8
-  store i64 %spec.select20, ptr %2, align 8
+  store i64 %spec.select18, ptr %2, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not9 = icmp eq i32 %3, 0
-  br i1 %cmp.not9, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
+  %cmp.not7 = icmp eq i32 %3, 0
+  br i1 %cmp.not7, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
-  %cmp.i28 = icmp eq i64 %spec.select20, 0
+  %cmp.i28 = icmp eq i64 %spec.select18, 0
   br i1 %cmp.i28, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.010.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23.us = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.010.us
+  %i.08.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i23.us = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.08.us
   %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i23.us, i64 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %inc.us = add nuw nsw i64 %i.010.us, 1
+  %inc.us = add nuw nsw i64 %i.08.us, 1
   %cmp.not.us = icmp eq i64 %inc.us, %conv.i
   br i1 %cmp.not.us, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.us, !llvm.loop !30
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.010
+  %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select20
+  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select18
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i23, align 8
-  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select20)
+  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select18)
   %5 = icmp eq i32 %bcmp, 0
   br i1 %5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
-  %6 = phi i64 [ %i.010.us, %for.body.us ], [ %i.010, %land.rhs.i ]
+  %6 = phi i64 [ %i.08.us, %for.body.us ], [ %i.08, %land.rhs.i ]
   %7 = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %6
   %Value.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i32, ptr %Value.i, align 4
@@ -6299,7 +6299,7 @@ if.then7:                                         ; preds = %land.rhs.i, %for.bo
   br label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
-  %inc = add nuw nsw i64 %i.010, 1
+  %inc = add nuw nsw i64 %i.08, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
   br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !30
 
@@ -6657,51 +6657,51 @@ entry:
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
   %ArgName.coerce1.fr = freeze i64 %ArgName.coerce1
   %Arg.coerce1.fr = freeze i64 %Arg.coerce1
-  %spec.select20 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
+  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ArgVal, i64 8
-  store i64 %spec.select20, ptr %2, align 8
+  store i64 %spec.select18, ptr %2, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not9 = icmp eq i32 %3, 0
-  br i1 %cmp.not9, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
+  %cmp.not7 = icmp eq i32 %3, 0
+  br i1 %cmp.not7, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
-  %cmp.i20 = icmp eq i64 %spec.select20, 0
+  %cmp.i20 = icmp eq i64 %spec.select18, 0
   br i1 %cmp.i20, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.010.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i28.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.010.us
+  %i.08.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i28.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.08.us
   %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i28.us, i64 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %inc.us = add nuw nsw i64 %i.010.us, 1
+  %inc.us = add nuw nsw i64 %i.08.us, 1
   %cmp.not.us = icmp eq i64 %inc.us, %conv.i
   br i1 %cmp.not.us, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.us, !llvm.loop !39
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i28 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.010
+  %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i28 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i28, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select20
+  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select18
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i28, align 8
-  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select20)
+  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select18)
   %5 = icmp eq i32 %bcmp, 0
   br i1 %5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
-  %6 = phi i64 [ %i.010.us, %for.body.us ], [ %i.010, %land.rhs.i ]
+  %6 = phi i64 [ %i.08.us, %for.body.us ], [ %i.08, %land.rhs.i ]
   %7 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %6
   %Value.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i32, ptr %Value.i, align 4
@@ -6709,7 +6709,7 @@ if.then7:                                         ; preds = %land.rhs.i, %for.bo
   br label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
-  %inc = add nuw nsw i64 %i.010, 1
+  %inc = add nuw nsw i64 %i.08, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
   br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !39
 

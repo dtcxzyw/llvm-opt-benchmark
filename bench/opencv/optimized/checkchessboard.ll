@@ -877,58 +877,58 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6ve
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %93, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, %2
   %94 = load ptr, ptr %10, align 8, !tbaa !68
   %95 = load ptr, ptr %0, align 8, !tbaa !41
-  %.not78.not = icmp eq ptr %94, %95
-  br i1 %.not78.not, label %.critedge, label %.lr.ph81.preheader
+  %.not72.not = icmp eq ptr %94, %95
+  br i1 %.not72.not, label %.critedge, label %.lr.ph75.preheader
 
-.lr.ph81.preheader:                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
+.lr.ph75.preheader:                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
   %96 = ptrtoint ptr %94 to i64
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = ashr exact i64 %98, 3
-  br label %.lr.ph81
+  br label %.lr.ph75
 
-.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.thread
-  %100 = phi ptr [ %155, %.thread ], [ %95, %.lr.ph81.preheader ]
-  %101 = phi ptr [ %156, %.thread ], [ %94, %.lr.ph81.preheader ]
-  %102 = phi i64 [ %160, %.thread ], [ %99, %.lr.ph81.preheader ]
-  %.03279 = phi i64 [ %103, %.thread ], [ 0, %.lr.ph81.preheader ]
-  %103 = add nuw i64 %.03279, 1
+.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.thread
+  %100 = phi ptr [ %155, %.thread ], [ %95, %.lr.ph75.preheader ]
+  %101 = phi ptr [ %156, %.thread ], [ %94, %.lr.ph75.preheader ]
+  %102 = phi i64 [ %160, %.thread ], [ %99, %.lr.ph75.preheader ]
+  %.03273 = phi i64 [ %103, %.thread ], [ 0, %.lr.ph75.preheader ]
+  %103 = add nuw i64 %.03273, 1
   %104 = icmp ult i64 %103, %102
   br i1 %104, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph81
-  %105 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %.03279
+.lr.ph:                                           ; preds = %.lr.ph75
+  %105 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %.03273
   %106 = load float, ptr %105, align 4, !tbaa !58
   br label %107
 
 107:                                              ; preds = %.lr.ph, %112
-  %.03775 = phi i64 [ %103, %.lr.ph ], [ %113, %112 ]
-  %108 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %.03775
+  %.03769 = phi i64 [ %103, %.lr.ph ], [ %113, %112 ]
+  %108 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %.03769
   %109 = load float, ptr %108, align 4, !tbaa !58
   %110 = fdiv float %109, %106
   %111 = fcmp ogt float %110, 0x3FF6666660000000
   br i1 %111, label %._crit_edge, label %112
 
 112:                                              ; preds = %107
-  %113 = add i64 %.03775, 1
+  %113 = add i64 %.03769, 1
   %exitcond.not = icmp eq i64 %113, %102
   br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %112, %107, %.lr.ph81
-  %.037.lcssa = phi i64 [ %103, %.lr.ph81 ], [ %.03775, %107 ], [ %102, %112 ]
+._crit_edge:                                      ; preds = %112, %107, %.lr.ph75
+  %.037.lcssa = phi i64 [ %103, %.lr.ph75 ], [ %.03769, %107 ], [ %102, %112 ]
   %114 = add i64 %.037.lcssa, 1
-  %115 = add i64 %.03279, %8
+  %115 = add i64 %.03273, %8
   %116 = icmp ugt i64 %114, %115
   br i1 %116, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i, label %.thread
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
   %117 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   store i64 0, ptr %117, align 4
-  %.not10.i = icmp eq i64 %.03279, %.037.lcssa
+  %.not10.i = icmp eq i64 %.03273, %.037.lcssa
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i, %.lr.ph.i
-  %.011.i = phi i64 [ %125, %.lr.ph.i ], [ %.03279, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
+  %.011.i = phi i64 [ %125, %.lr.ph.i ], [ %.03273, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
   %118 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %.011.i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4, !tbaa !63
@@ -962,7 +962,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
   %139 = sitofp i32 %138 to double
   %140 = fmul double %139, 7.500000e-01
   %141 = fcmp ogt double %140, %127
-  br i1 %141, label %.thread70, label %142
+  br i1 %141, label %.thread64, label %142
 
 142:                                              ; preds = %.loopexit
   %143 = tail call double @llvm.floor.f64(double %130)
@@ -976,31 +976,31 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
   %151 = sitofp i32 %147 to double
   %152 = fmul double %151, 7.500000e-01
   %153 = fcmp ogt double %152, %150
-  br i1 %153, label %.thread70, label %154
+  br i1 %153, label %.thread64, label %154
 
-.thread70:                                        ; preds = %142, %.loopexit
+.thread64:                                        ; preds = %142, %.loopexit
   tail call void @_ZdlPv(ptr noundef nonnull %117) #20
-  %.pre84 = load ptr, ptr %10, align 8, !tbaa !68
-  %.pre85 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre78 = load ptr, ptr %10, align 8, !tbaa !68
+  %.pre79 = load ptr, ptr %0, align 8, !tbaa !41
   br label %.thread
 
 154:                                              ; preds = %142
   tail call void @_ZdlPv(ptr noundef nonnull %117) #20
   br label %.critedge
 
-.thread:                                          ; preds = %._crit_edge, %.thread70
-  %155 = phi ptr [ %100, %._crit_edge ], [ %.pre85, %.thread70 ]
-  %156 = phi ptr [ %101, %._crit_edge ], [ %.pre84, %.thread70 ]
+.thread:                                          ; preds = %._crit_edge, %.thread64
+  %155 = phi ptr [ %100, %._crit_edge ], [ %.pre79, %.thread64 ]
+  %156 = phi ptr [ %101, %._crit_edge ], [ %.pre78, %.thread64 ]
   %157 = ptrtoint ptr %156 to i64
   %158 = ptrtoint ptr %155 to i64
   %159 = sub i64 %157, %158
   %160 = ashr exact i64 %159, 3
   %.not = icmp ult i64 %103, %160
-  br i1 %.not, label %.lr.ph81, label %.critedge, !llvm.loop !71
+  br i1 %.not, label %.lr.ph75, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit, %154
-  %.not74 = phi i1 [ true, %154 ], [ false, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ false, %.thread ]
-  ret i1 %.not74
+  %.not68 = phi i1 [ true, %154 ], [ false, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ false, %.thread ]
+  ret i1 %.not68
 }
 
 ; Function Attrs: mustprogress uwtable

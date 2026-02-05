@@ -4053,8 +4053,8 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
   store i32 %storemerge6.i.i, ptr %10, align 8, !tbaa !159
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, i32 noundef 6)
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %7, i32 noundef 6)
-  %.not1219 = icmp eq i32 %7, 0
-  br i1 %.not1219, label %.loopexit, label %.lr.ph.preheader
+  %.not1217 = icmp eq i32 %7, 0
+  br i1 %.not1217, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit
   %37 = zext i32 %7 to i64
@@ -5884,8 +5884,8 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
   store i32 %storemerge6.i.i, ptr %10, align 8, !tbaa !159
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, i32 noundef 6)
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %7, i32 noundef 6)
-  %.not1219 = icmp eq i32 %7, 0
-  br i1 %.not1219, label %.loopexit, label %.lr.ph.preheader
+  %.not1217 = icmp eq i32 %7, 0
+  br i1 %.not1217, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit
   %37 = zext i32 %7 to i64

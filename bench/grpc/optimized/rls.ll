@@ -32874,7 +32874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %18
           to label %._ZN4absl12lts_202407226StatusaSEOS1_.exit137_crit_edge unwind label %210
 
 ._ZN4absl12lts_202407226StatusaSEOS1_.exit137_crit_edge: ; preds = %208
-  %.pre448 = load i64, ptr %39, align 8, !tbaa !91
+  %.pre439 = load i64, ptr %39, align 8, !tbaa !91
   br label %_ZN4absl12lts_202407226StatusaSEOS1_.exit137
 
 210:                                              ; preds = %208
@@ -32885,7 +32885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %18
   unreachable
 
 _ZN4absl12lts_202407226StatusaSEOS1_.exit137:     ; preds = %._ZN4absl12lts_202407226StatusaSEOS1_.exit137_crit_edge, %203
-  %213 = phi i64 [ %.pre448, %._ZN4absl12lts_202407226StatusaSEOS1_.exit137_crit_edge ], [ %204, %203 ]
+  %213 = phi i64 [ %.pre439, %._ZN4absl12lts_202407226StatusaSEOS1_.exit137_crit_edge ], [ %204, %203 ]
   %214 = trunc i64 %213 to i1
   br i1 %214, label %_ZN4absl12lts_202407226StatusD2Ev.exit138, label %215
 
@@ -35674,9 +35674,9 @@ _ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_r
 
 _ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE9push_backEOS4_.exit.i: ; preds = %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, %1204
   %.sroa.0296.7 = phi ptr [ %1218, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i ], [ %.sroa.0296.2, %1204 ]
-  %.pn328 = phi ptr [ %1219, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i ], [ %.sroa.12.0, %1204 ]
+  %.pn319 = phi ptr [ %1219, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i ], [ %.sroa.12.0, %1204 ]
   %.sroa.16.7 = phi ptr [ %1223, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i ], [ %.sroa.16.2, %1204 ]
-  %.sroa.12.3 = getelementptr inbounds nuw i8, ptr %.pn328, i64 8
+  %.sroa.12.3 = getelementptr inbounds nuw i8, ptr %.pn319, i64 8
   %1224 = load ptr, ptr %1129, align 8, !tbaa !564, !noalias !860
   %1225 = load ptr, ptr %1117, align 8, !tbaa !566, !noalias !860
   %.not.i138.i = icmp eq ptr %1224, %1225
@@ -36108,9 +36108,9 @@ _ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i: ; preds = %_ZNSt6vec
   br label %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i
-  %.sroa.16.8323 = phi ptr [ %.sroa.16.8, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.16.8, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
-  %.sroa.12.4322 = phi ptr [ %.sroa.12.4, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.12.4, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
-  %.sroa.0296.8321 = phi ptr [ %.sroa.0296.8, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.0296.8, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
+  %.sroa.16.8314 = phi ptr [ %.sroa.16.8, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.16.8, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
+  %.sroa.12.4313 = phi ptr [ %.sroa.12.4, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.12.4, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
+  %.sroa.0296.8312 = phi ptr [ %.sroa.0296.8, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i ], [ %.sroa.0296.8, %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev.exit.i ]
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %883) #39
   %1341 = load ptr, ptr %875, align 8, !tbaa !149
   %1342 = load ptr, ptr %877, align 8, !tbaa !152
@@ -36369,8 +36369,8 @@ _ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrI
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader unwind label %1432
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader: ; preds = %_ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrINS2_10RlsRequestENS0_16OrphanableDeleteEEN4absl12lts_2024072213hash_internal4HashIS3_EESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5eraseERSG_.exit
-  %.not329392 = icmp eq ptr %.sroa.0296.8321, %.sroa.12.4322
-  br i1 %.not329392, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit253, label %.lr.ph
+  %.not320383 = icmp eq ptr %.sroa.0296.8312, %.sroa.12.4313
+  br i1 %.not320383, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit253, label %.lr.ph
 
 1432:                                             ; preds = %_ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrINS2_10RlsRequestENS0_16OrphanableDeleteEEN4absl12lts_2024072213hash_internal4HashIS3_EESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5eraseERSG_.exit
   %1433 = landingpad { ptr, i32 }
@@ -36390,24 +36390,24 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader: ; preds = %_ZNSt13unordered
   br label %.body184
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4pairIKS4_St10unique_ptrINS3_10RlsRequestENS1_16OrphanableDeleteEEENS_10_Select1stESt8equal_toIS4_EN4absl12lts_2024072213hash_internal4HashIS4_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i
-  %lpad.loopexit330 = landingpad { ptr, i32 }
+  %lpad.loopexit321 = landingpad { ptr, i32 }
           cleanup
   br label %.body184
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %563
-  %lpad.loopexit334 = landingpad { ptr, i32 }
+  %lpad.loopexit325 = landingpad { ptr, i32 }
           cleanup
   br label %.body184
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4pairIKS4_St10unique_ptrINS3_5Cache5EntryENS1_16OrphanableDeleteEEENS_10_Select1stESt8equal_toIS4_EN4absl12lts_2024072213hash_internal4HashIS4_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i
-  %lpad.loopexit336 = landingpad { ptr, i32 }
+  %lpad.loopexit327 = landingpad { ptr, i32 }
           cleanup
   br label %.body184
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.preheader.i.preheader.i.i.i, %.critedge62.i, %830, %802, %.noexc179, %597
-  %.sroa.11.1.ph.ph.ph.ph = phi ptr [ %.sroa.16.8323, %.preheader.i.preheader.i.i.i ], [ null, %802 ], [ null, %.noexc179 ], [ null, %597 ], [ null, %.critedge62.i ], [ null, %830 ]
-  %.sroa.0311.1.ph.ph.ph.ph = phi ptr [ %.sroa.0296.8321, %.preheader.i.preheader.i.i.i ], [ null, %802 ], [ null, %.noexc179 ], [ null, %597 ], [ null, %.critedge62.i ], [ null, %830 ]
-  %lpad.loopexit.split-lp337 = landingpad { ptr, i32 }
+  %.sroa.11.1.ph.ph.ph.ph = phi ptr [ %.sroa.16.8314, %.preheader.i.preheader.i.i.i ], [ null, %802 ], [ null, %.noexc179 ], [ null, %597 ], [ null, %.critedge62.i ], [ null, %830 ]
+  %.sroa.0302.1.ph.ph.ph.ph = phi ptr [ %.sroa.0296.8312, %.preheader.i.preheader.i.i.i ], [ null, %802 ], [ null, %.noexc179 ], [ null, %597 ], [ null, %.critedge62.i ], [ null, %830 ]
+  %lpad.loopexit.split-lp328 = landingpad { ptr, i32 }
           cleanup
   br label %.body184
 
@@ -36428,14 +36428,14 @@ _ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i249: ; preds = %.body2
   br label %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250
 
 _ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250: ; preds = %924, %1024, %1028, %.body.thread.i, %.body213, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i249
-  %eh.lpad-body214327 = phi { ptr, i32 } [ %eh.lpad-body214, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i249 ], [ %eh.lpad-body214, %.body213 ], [ %1025, %1024 ], [ %1025, %1028 ], [ %.pn.pn.pn.i.i.i, %.body.thread.i ], [ %925, %924 ]
+  %eh.lpad-body214318 = phi { ptr, i32 } [ %eh.lpad-body214, %_ZNKSt14default_deleteIN9grpc_core7BackOffEEclEPS1_.exit.i249 ], [ %eh.lpad-body214, %.body213 ], [ %1025, %1024 ], [ %1025, %1028 ], [ %.pn.pn.pn.i.i.i, %.body.thread.i ], [ %925, %924 ]
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_15RlsLb12ResponseInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #39
   br label %.body184
 
 .body184:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %873, %827, %.body77.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250, %1435
-  %.sroa.11.3 = phi ptr [ null, %1435 ], [ null, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ null, %873 ], [ null, %827 ], [ null, %.body77.i ], [ %.sroa.16.8323, %.loopexit ], [ %.sroa.16.8323, %.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.11.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0311.3 = phi ptr [ null, %1435 ], [ null, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ null, %873 ], [ null, %827 ], [ null, %.body77.i ], [ %.sroa.0296.8321, %.loopexit ], [ %.sroa.0296.8321, %.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0311.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn70.pn = phi { ptr, i32 } [ %1436, %1435 ], [ %eh.lpad-body214327, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ %.pn.pn.pn.pn.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ %.pn.pn.pn.i, %873 ], [ %.pn49.pn.i, %827 ], [ %eh.lpad-body78.i, %.body77.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit330, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit334, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit336, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp337, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.11.3 = phi ptr [ null, %1435 ], [ null, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ null, %873 ], [ null, %827 ], [ null, %.body77.i ], [ %.sroa.16.8314, %.loopexit ], [ %.sroa.16.8314, %.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.11.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0302.3 = phi ptr [ null, %1435 ], [ null, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ null, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ null, %873 ], [ null, %827 ], [ null, %.body77.i ], [ %.sroa.0296.8312, %.loopexit ], [ %.sroa.0296.8312, %.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0302.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn70.pn = phi { ptr, i32 } [ %1436, %1435 ], [ %eh.lpad-body214318, %_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250 ], [ %.pn.pn.pn.pn.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEED2Ev.exit84.i ], [ %.pn.pn.pn.i, %873 ], [ %.pn49.pn.i, %827 ], [ %eh.lpad-body78.i, %.body77.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit321, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit325, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit327, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp328, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %488)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit251 unwind label %1439
 
@@ -36447,8 +36447,8 @@ _ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250: ; pr
   unreachable
 
 .lr.ph:                                           ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader, %_ZN4absl12lts_202407226StatusD2Ev.exit252
-  %.sroa.0292.0393 = phi ptr [ %1463, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ], [ %.sroa.0296.8321, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ]
-  %1442 = load ptr, ptr %.sroa.0292.0393, align 8, !tbaa !437
+  %.sroa.0292.0384 = phi ptr [ %1463, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ], [ %.sroa.0296.8312, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ]
+  %1442 = load ptr, ptr %.sroa.0292.0384, align 8, !tbaa !437
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapper17MaybeFinishUpdateEv(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(96) %1442)
           to label %1443 unwind label %1452
@@ -36480,12 +36480,12 @@ _ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250: ; pr
   br label %1464
 
 1456:                                             ; preds = %1446
-  %.pre449 = load i64, ptr %48, align 8, !tbaa !91
-  %1457 = trunc i64 %.pre449 to i1
+  %.pre440 = load i64, ptr %48, align 8, !tbaa !91
+  %1457 = trunc i64 %.pre440 to i1
   br i1 %1457, label %_ZN4absl12lts_202407226StatusD2Ev.exit252, label %1458
 
 1458:                                             ; preds = %1456
-  %1459 = inttoptr i64 %.pre449 to ptr
+  %1459 = inttoptr i64 %.pre440 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %1459)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit252 unwind label %1460
 
@@ -36498,9 +36498,9 @@ _ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EED2Ev.exit250: ; pr
 
 _ZN4absl12lts_202407226StatusD2Ev.exit252:        ; preds = %1443, %1456, %1458
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0292.0393, i64 8
-  %.not329 = icmp eq ptr %1463, %.sroa.12.4322
-  br i1 %.not329, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit253, label %.lr.ph
+  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0292.0384, i64 8
+  %.not320 = icmp eq ptr %1463, %.sroa.12.4313
+  br i1 %.not320, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit253, label %.lr.ph
 
 1464:                                             ; preds = %1454, %1452
   %.pn74 = phi { ptr, i32 } [ %1455, %1454 ], [ %1453, %1452 ]
@@ -36519,8 +36519,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit252:        ; preds = %1443, %1456, %1458
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit253:     ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit252, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader, %.critedge86
-  %.sroa.11.2 = phi ptr [ null, %.critedge86 ], [ %.sroa.16.8323, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ], [ %.sroa.16.8323, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ]
-  %.sroa.0311.2 = phi ptr [ null, %.critedge86 ], [ %.sroa.0296.8321, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ], [ %.sroa.0296.8321, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ]
+  %.sroa.11.2 = phi ptr [ null, %.critedge86 ], [ %.sroa.16.8314, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ], [ %.sroa.16.8314, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ]
+  %.sroa.0302.2 = phi ptr [ null, %.critedge86 ], [ %.sroa.0296.8312, %_ZN4absl12lts_202407229MutexLockD2Ev.exit.preheader ], [ %.sroa.0296.8312, %_ZN4absl12lts_202407226StatusD2Ev.exit252 ]
   %1468 = load ptr, ptr %46, align 8, !tbaa !560
   %.not.i254 = icmp eq ptr %1468, null
   br i1 %.not.i254, label %_ZNSt10unique_ptrIN9grpc_core18ChildPolicyHandlerENS0_16OrphanableDeleteEED2Ev.exit, label %1469
@@ -36608,14 +36608,14 @@ _ZSt8_DestroyIPN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyW
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEES5_EvT_S7_RSaIT0_E.exit.i, %1493
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %.not.i.i.i262 = icmp eq ptr %.sroa.0311.2, null
+  %.not.i.i.i262 = icmp eq ptr %.sroa.0302.2, null
   br i1 %.not.i.i.i262, label %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit263, label %1498
 
 1498:                                             ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EED2Ev.exit
   %1499 = ptrtoint ptr %.sroa.11.2 to i64
-  %1500 = ptrtoint ptr %.sroa.0311.2 to i64
+  %1500 = ptrtoint ptr %.sroa.0302.2 to i64
   %1501 = sub i64 %1499, %1500
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0311.2, i64 noundef %1501) #42
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0302.2, i64 noundef %1501) #42
   br label %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit263
 
 _ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit263: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EED2Ev.exit, %1498
@@ -36685,8 +36685,8 @@ _ZN9grpc_core12_GLOBAL__N_15RlsLb12ResponseInfoD2Ev.exit277: ; preds = %_ZNSt6ve
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit251:     ; preds = %522, %.body184, %1464
-  %.sroa.11.4 = phi ptr [ %.sroa.16.8323, %1464 ], [ null, %522 ], [ %.sroa.11.3, %.body184 ]
-  %.sroa.0311.4 = phi ptr [ %.sroa.0296.8321, %1464 ], [ null, %522 ], [ %.sroa.0311.3, %.body184 ]
+  %.sroa.11.4 = phi ptr [ %.sroa.16.8314, %1464 ], [ null, %522 ], [ %.sroa.11.3, %.body184 ]
+  %.sroa.0302.4 = phi ptr [ %.sroa.0296.8312, %1464 ], [ null, %522 ], [ %.sroa.0302.3, %.body184 ]
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %1464 ], [ %523, %522 ], [ %.pn70.pn, %.body184 ]
   %1526 = load ptr, ptr %46, align 8, !tbaa !560
   %.not.i278 = icmp eq ptr %1526, null
@@ -36709,14 +36709,14 @@ _ZNSt10unique_ptrIN9grpc_core18ChildPolicyHandlerENS0_16OrphanableDeleteEED2Ev.e
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call fastcc void @_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %.not.i.i.i280 = icmp eq ptr %.sroa.0311.4, null
+  %.not.i.i.i280 = icmp eq ptr %.sroa.0302.4, null
   br i1 %.not.i.i.i280, label %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit281, label %1533
 
 1533:                                             ; preds = %_ZNSt10unique_ptrIN9grpc_core18ChildPolicyHandlerENS0_16OrphanableDeleteEED2Ev.exit279
   %1534 = ptrtoint ptr %.sroa.11.4 to i64
-  %1535 = ptrtoint ptr %.sroa.0311.4 to i64
+  %1535 = ptrtoint ptr %.sroa.0302.4 to i64
   %1536 = sub i64 %1534, %1535
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0311.4, i64 noundef %1536) #42
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0302.4, i64 noundef %1536) #42
   br label %_ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit281
 
 _ZNSt6vectorIPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESaIS4_EED2Ev.exit281: ; preds = %1533, %_ZNSt10unique_ptrIN9grpc_core18ChildPolicyHandlerENS0_16OrphanableDeleteEED2Ev.exit279, %521, %_ZN3upb5ArenaD2Ev.exit39.i, %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %178

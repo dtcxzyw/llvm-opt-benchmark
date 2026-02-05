@@ -103890,9 +103890,9 @@ define internal fastcc noundef ptr @_ZN5x11rb15rust_connection12write_buffer11Wr
   %7 = load i64, ptr %5, align 8, !noundef !16
   %8 = icmp eq i64 %7, 0
   %9 = load i64, ptr %6, align 8
-  %.not15 = icmp eq i64 %9, 0
-  %or.cond16 = select i1 %8, i1 %.not15, i1 false
-  br i1 %or.cond16, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq i64 %9, 0
+  %or.cond14 = select i1 %8, i1 %.not13, i1 false
+  br i1 %or.cond14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -103937,26 +103937,26 @@ define internal fastcc noundef ptr @_ZN5x11rb15rust_connection12write_buffer11Wr
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit": ; preds = %20, %33, %35
-  %.sroa.0.16 = phi i64 [ %.sroa.0.0.i, %35 ], [ %.sroa.0.0.i, %33 ], [ 0, %20 ]
-  %.sroa.5.1 = phi i64 [ %36, %35 ], [ %30, %33 ], [ 0, %20 ]
-  %.sroa.11.1 = phi i64 [ 0, %35 ], [ %34, %33 ], [ 0, %20 ]
+  %.sroa.0.04 = phi i64 [ %.sroa.0.0.i, %35 ], [ %.sroa.0.0.i, %33 ], [ 0, %20 ]
+  %.sroa.5.0 = phi i64 [ %36, %35 ], [ %30, %33 ], [ 0, %20 ]
+  %.sroa.11.0 = phi i64 [ 0, %35 ], [ %34, %33 ], [ 0, %20 ]
   %37 = load ptr, ptr %11, align 8, !nonnull !16, !noundef !16
-  %38 = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.16
-  %39 = sub i64 %.sroa.5.1, %.sroa.0.16
+  %38 = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.04
+  %39 = sub i64 %.sroa.5.0, %.sroa.0.04
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8
   store i64 %39, ptr %12, align 8
   store ptr %37, ptr %13, align 8
-  store i64 %.sroa.11.1, ptr %14, align 8
+  store i64 %.sroa.11.0, ptr %14, align 8
   %40 = call { i64, ptr } @"_ZN104_$LT$x11rb..rust_connection..stream..DefaultStream$u20$as$u20$x11rb..rust_connection..stream..Stream$GT$14write_vectored17h3989b34aae145162E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 2, ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
   %41 = extractvalue { i64, ptr } %40, 0
   %42 = extractvalue { i64, ptr } %40, 1
   %43 = ptrtoint ptr %42 to i64
   %44 = icmp eq i64 %41, 0
-  br i1 %44, label %45, label %.loopexit7
+  br i1 %44, label %45, label %.loopexit5
 
-.loopexit:                                        ; preds = %50, %2, %.loopexit7
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %.loopexit7 ], [ null, %2 ], [ null, %50 ]
+.loopexit:                                        ; preds = %50, %2, %.loopexit5
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %.loopexit5 ], [ null, %2 ], [ null, %50 ]
   ret ptr %.sroa.0.0
 
 45:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit"
@@ -104000,7 +104000,7 @@ define internal fastcc noundef ptr @_ZN5x11rb15rust_connection12write_buffer11Wr
 
 64:                                               ; preds = %47
   %65 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5b2a16a1885d0502E(i8 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.a4dace35283e50e3919c20fd89d5e060.607, i64 noundef 33)
-  br label %.loopexit7
+  br label %.loopexit5
 
 66:                                               ; preds = %61
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.a4dace35283e50e3919c20fd89d5e060.603, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4dace35283e50e3919c20fd89d5e060.605) #57
@@ -104008,9 +104008,9 @@ define internal fastcc noundef ptr @_ZN5x11rb15rust_connection12write_buffer11Wr
 
 67:                                               ; preds = %61
   %68 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5b2a16a1885d0502E(i8 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.a4dace35283e50e3919c20fd89d5e060.606, i64 noundef 32)
-  br label %.loopexit7
+  br label %.loopexit5
 
-.loopexit7:                                       ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit", %64, %67
+.loopexit5:                                       ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit", %64, %67
   %.sroa.0.1 = phi ptr [ %68, %67 ], [ %65, %64 ], [ %42, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h129a527b7e4daa42E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit

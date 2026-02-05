@@ -33912,17 +33912,17 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_
   br label %321
 
 321:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %.sroa.19.5 = phi ptr [ %.sroa.19.7, %.loopexit ], [ %.sroa.19.6, %.loopexit.split-lp ]
+  %.sroa.19.0 = phi ptr [ %.sroa.19.2, %.loopexit ], [ %.sroa.19.1, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not.i133 = icmp eq ptr %.sroa.19.5, null
+  %.not.i133 = icmp eq ptr %.sroa.19.0, null
   br i1 %.not.i133, label %_ZN8ImVectorIjED2Ev.exit, label %322
 
 322:                                              ; preds = %.thread176, %321
   %323 = phi { ptr, i32 } [ %344, %.thread176 ], [ %lpad.phi, %321 ]
-  %.sroa.19.5179 = phi ptr [ %.sroa.19.7, %.thread176 ], [ %.sroa.19.5, %321 ]
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.5179)
+  %.sroa.19.0179 = phi ptr [ %.sroa.19.2, %.thread176 ], [ %.sroa.19.0, %321 ]
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.0179)
           to label %_ZN8ImVectorIjED2Ev.exit unwind label %324
 
 324:                                              ; preds = %322
@@ -33934,8 +33934,8 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_
 
 .preheader:                                       ; preds = %317, %_ZN8ImVectorIjE9push_backERKj.exit143
   %indvars.iv = phi i64 [ %332, %_ZN8ImVectorIjE9push_backERKj.exit143 ], [ 0, %317 ]
-  %.sroa.15.6 = phi i32 [ %.sroa.15.8, %_ZN8ImVectorIjE9push_backERKj.exit143 ], [ 0, %317 ]
-  %.sroa.19.7 = phi ptr [ %.sroa.19.9, %_ZN8ImVectorIjE9push_backERKj.exit143 ], [ null, %317 ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.1, %_ZN8ImVectorIjE9push_backERKj.exit143 ], [ 0, %317 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.4, %_ZN8ImVectorIjE9push_backERKj.exit143 ], [ null, %317 ]
   %327 = invoke noundef zeroext i1 @_ZN26ImGuiSelectionBasicStorage19GetNextSelectedItemEPPvPj(ptr noundef nonnull align 8 dereferenceable(48) %188, ptr noundef nonnull %13, ptr noundef nonnull %14)
           to label %328 unwind label %.loopexit
 
@@ -33943,7 +33943,7 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_
   br i1 %327, label %329, label %.loopexit180.loopexit
 
 329:                                              ; preds = %328
-  %330 = zext i32 %.sroa.15.6 to i64
+  %330 = zext i32 %.sroa.15.0 to i64
   %331 = icmp eq i64 %indvars.iv, %330
   %332 = add nuw nsw i64 %indvars.iv, 1
   br i1 %331, label %_ZNK8ImVectorIjE14_grow_capacityEi.exit.i138, label %_ZN8ImVectorIjE9push_backERKj.exit143
@@ -33962,13 +33962,13 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit.i138:     ; preds = %329
           to label %.noexc141 unwind label %.loopexit
 
 .noexc141:                                        ; preds = %_ZNK8ImVectorIjE14_grow_capacityEi.exit.i138
-  %.not6.i.i139 = icmp eq ptr %.sroa.19.7, null
+  %.not6.i.i139 = icmp eq ptr %.sroa.19.2, null
   br i1 %.not6.i.i139, label %_ZN8ImVectorIjE9push_backERKj.exit143, label %342
 
 342:                                              ; preds = %.noexc141
   %343 = shl nuw nsw i64 %indvars.iv, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %341, ptr nonnull align 4 %.sroa.19.7, i64 %343, i1 false)
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.7)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %341, ptr nonnull align 4 %.sroa.19.2, i64 %343, i1 false)
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.2)
           to label %_ZN8ImVectorIjE9push_backERKj.exit143 unwind label %.thread176
 
 .thread176:                                       ; preds = %342
@@ -33979,9 +33979,9 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit.i138:     ; preds = %329
   br label %322
 
 _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %329, %.noexc141, %342
-  %.sroa.15.8 = phi i32 [ %338, %342 ], [ %338, %.noexc141 ], [ %.sroa.15.6, %329 ]
-  %.sroa.19.9 = phi ptr [ %341, %342 ], [ %341, %.noexc141 ], [ %.sroa.19.7, %329 ]
-  %345 = getelementptr inbounds nuw i32, ptr %.sroa.19.9, i64 %indvars.iv
+  %.sroa.15.1 = phi i32 [ %338, %342 ], [ %338, %.noexc141 ], [ %.sroa.15.0, %329 ]
+  %.sroa.19.4 = phi ptr [ %341, %342 ], [ %341, %.noexc141 ], [ %.sroa.19.2, %329 ]
+  %345 = getelementptr inbounds nuw i32, ptr %.sroa.19.4, i64 %indvars.iv
   %346 = load i32, ptr %14, align 4
   store i32 %346, ptr %345, align 4
   br label %.preheader
@@ -33992,19 +33992,19 @@ _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %329, %.noexc141, %3
   br label %.loopexit180
 
 .loopexit180:                                     ; preds = %.loopexit180.loopexit, %_ZN8ImVectorIjE9push_backERKj.exit
-  %.sroa.0.5 = phi i64 [ 4, %_ZN8ImVectorIjE9push_backERKj.exit ], [ %348, %.loopexit180.loopexit ]
-  %.sroa.19.6 = phi ptr [ %318, %_ZN8ImVectorIjE9push_backERKj.exit ], [ %.sroa.19.7, %.loopexit180.loopexit ]
-  %349 = invoke noundef zeroext i1 @_ZN5ImGui18SetDragDropPayloadEPKcPKvmi(ptr noundef nonnull @.str.2174, ptr noundef %.sroa.19.6, i64 noundef %.sroa.0.5, i32 noundef 0)
+  %.sroa.0.0 = phi i64 [ 4, %_ZN8ImVectorIjE9push_backERKj.exit ], [ %348, %.loopexit180.loopexit ]
+  %.sroa.19.1 = phi ptr [ %318, %_ZN8ImVectorIjE9push_backERKj.exit ], [ %.sroa.19.2, %.loopexit180.loopexit ]
+  %349 = invoke noundef zeroext i1 @_ZN5ImGui18SetDragDropPayloadEPKcPKvmi(ptr noundef nonnull @.str.2174, ptr noundef %.sroa.19.1, i64 noundef %.sroa.0.0, i32 noundef 0)
           to label %350 unwind label %.loopexit.split-lp
 
 350:                                              ; preds = %.loopexit180
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not.i144 = icmp eq ptr %.sroa.19.6, null
+  %.not.i144 = icmp eq ptr %.sroa.19.1, null
   br i1 %.not.i144, label %_ZN8ImVectorIjED2Ev.exit145, label %351
 
 351:                                              ; preds = %350
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.6)
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.sroa.19.1)
           to label %_ZN8ImVectorIjED2Ev.exit145 unwind label %352
 
 352:                                              ; preds = %351

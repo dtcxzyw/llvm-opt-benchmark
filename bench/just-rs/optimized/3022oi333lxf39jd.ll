@@ -2306,8 +2306,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb0043450fbe6922E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb0043450fbe6922E.exit.i.i": ; preds = %63, %57, %56, %55
-  %.sroa.0.2.i.i = phi i64 [ %68, %63 ], [ %62, %57 ], [ 0, %55 ], [ 0, %56 ]
-  %69 = add nuw nsw i64 %.sroa.0.2.i.i, 1
+  %.sroa.0.0.i.i = phi i64 [ %68, %63 ], [ %62, %57 ], [ 0, %55 ], [ 0, %56 ]
+  %69 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17ha0b90f94b0853c59E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %47, i64 noundef %69)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7994be9c01920c0eE.exit.i.i" unwind label %.loopexit
 

@@ -1014,8 +1014,8 @@ _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i.i.i.i: ; pr
   br i1 %tobool.not.i.i.not.i8.i.i.i.i.i, label %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i, label %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i
 
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i.i.i.i
-  %ShouldRecordStats_.i205.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 48
-  %9 = load i8, ptr %ShouldRecordStats_.i205.i.i.i, align 8
+  %ShouldRecordStats_.i203.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 48
+  %9 = load i8, ptr %ShouldRecordStats_.i203.i.i.i, align 8
   br label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i.i.i.i
 
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i.i.i.i
@@ -1038,8 +1038,8 @@ if.then.i.i.i16.i.i.i:                            ; preds = %_ZNK6hermes2vm13Run
   br label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i.i.i.i
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i16.i.i.i, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i
-  %tobool.i208.in.i.i.i = phi i8 [ %9, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i ], [ %12, %if.then.i.i.i16.i.i.i ], [ %12, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i ]
-  %tobool.i208.i.i.i = trunc i8 %tobool.i208.in.i.i.i to i1
+  %tobool.i206.in.i.i.i = phi i8 [ %9, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i ], [ %12, %if.then.i.i.i16.i.i.i ], [ %12, %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i ]
+  %tobool.i206.i.i.i = trunc i8 %tobool.i206.in.i.i.i to i1
   %_M_manager.i.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 152
   %13 = load ptr, ptr %_M_manager.i.i1.i.i.i.i, align 8
   %tobool.not.i.i2.i.i.i.i = icmp eq ptr %13, null
@@ -1061,7 +1061,7 @@ if.then.i.i.i.i18.i.i.i:                          ; preds = %_ZNSt8functionIFvRK
 
 _ZN6hermes2vm8GCConfigD2Ev.exit.i.i.i:            ; preds = %if.then.i.i.i.i18.i.i.i, %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i.i.i.i.i) #17
-  br i1 %tobool.i208.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
+  br i1 %tobool.i206.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit.i.i.i
   %call1.i.i.i = call noundef zeroext i1 @_ZN6hermes2vm15instrumentation10PerfEvents5beginEv() #17
@@ -1240,7 +1240,7 @@ _ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEED2Ev.exit.i.i.i: ; preds = %if.
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEED2Ev.exit.i.i.i, %if.end.i.i.i
-  br i1 %tobool.i208.i.i.i, label %_ZNSt10unique_ptrIN6hermes2vm18StatSamplingThreadESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %if.end19.i.i.i
+  br i1 %tobool.i206.i.i.i, label %_ZNSt10unique_ptrIN6hermes2vm18StatSamplingThreadESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %if.end19.i.i.i
 
 _ZNSt10unique_ptrIN6hermes2vm18StatSamplingThreadESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %if.end12.i.i.i
   %call.i25.i.i.i = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19, !noalias !40
@@ -1539,8 +1539,8 @@ if.end.i.i.i.i.i.i65.i.i.i:                       ; preds = %if.then104.i.i.i
 _ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i65.i.i.i, %if.then.i.i.i.i.i.i68.i.i.i
   %retval.0.i.i.i.i.i.i67.i.i.i = phi ptr [ %83, %if.then.i.i.i.i.i.i68.i.i.i ], [ %call7.i.i.i.i.i.i66.i.i.i, %if.end.i.i.i.i.i.i65.i.i.i ]
   %85 = load ptr, ptr %ctx.i.i.i, align 8, !noalias !43
-  %cmp.i.i70186.i.i.i = icmp eq ptr %85, %ctx.i.i.i
-  br i1 %cmp.i.i70186.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
+  %cmp.i.i70184.i.i.i = icmp eq ptr %85, %ctx.i.i.i
+  br i1 %cmp.i.i70184.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i
   %86 = phi ptr [ %100, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i ], [ %85, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i ]
@@ -1609,7 +1609,7 @@ _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i: ; 
   br i1 %cmp.i.i70.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.end.i.i.i:                                  ; preds = %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i
-  %threwException.2178.ph.i.i.i = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i ], [ %cmp.i49.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i ], [ %cmp.i49.i.i.i, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i ]
+  %threwException.2176.ph.i.i.i = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i ], [ %cmp.i49.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i ], [ %cmp.i49.i.i.i, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i ]
   %conv.i.i.i.i.i.i = zext i32 %80 to i64
   %101 = load ptr, ptr %chunks_.i.i.i.i, align 8
   %arrayidx.i17.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %101, i64 %conv.i.i.i.i.i.i
@@ -1621,8 +1621,8 @@ while.end.i.i.i:                                  ; preds = %_ZN4llvh8OptionalIN
   br label %if.end140.i.i.i
 
 if.end140.i.i.i:                                  ; preds = %while.end.i.i.i, %if.end101.i.i.i
-  %threwException.0.i.i.i = phi i1 [ %cmp.i49.i.i.i, %if.end101.i.i.i ], [ %threwException.2178.ph.i.i.i, %while.end.i.i.i ]
-  br i1 %tobool.i208.i.i.i, label %if.then142.i.i.i, label %if.end157.i.i.i
+  %threwException.0.i.i.i = phi i1 [ %cmp.i49.i.i.i, %if.end101.i.i.i ], [ %threwException.2176.ph.i.i.i, %while.end.i.i.i ]
+  br i1 %tobool.i206.i.i.i, label %if.then142.i.i.i, label %if.end157.i.i.i
 
 if.then142.i.i.i:                                 ; preds = %if.end140.i.i.i
   %call143.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #17

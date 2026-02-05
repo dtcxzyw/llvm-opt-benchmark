@@ -3487,8 +3487,8 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   br label %221
 
 208:                                              ; preds = %.lr.ph, %208
-  %.sroa.078.1181 = phi ptr [ %198, %.lr.ph ], [ %219, %208 ]
-  %209 = load i16, ptr %.sroa.078.1181, align 2, !tbaa !280
+  %.sroa.078.0181 = phi ptr [ %198, %.lr.ph ], [ %219, %208 ]
+  %209 = load i16, ptr %.sroa.078.0181, align 2, !tbaa !280
   %210 = zext i16 %209 to i32
   %211 = and i32 %210, 63
   %212 = zext nneg i32 %211 to i64
@@ -3499,7 +3499,7 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   %217 = load i64, ptr %216, align 8, !tbaa !264
   %218 = or i64 %213, %217
   store i64 %218, ptr %216, align 8, !tbaa !264
-  %219 = getelementptr inbounds nuw i8, ptr %.sroa.078.1181, i64 2
+  %219 = getelementptr inbounds nuw i8, ptr %.sroa.078.0181, i64 2
   %.not158 = icmp eq ptr %219, %200
   br i1 %.not158, label %._crit_edge183, label %208, !llvm.loop !454
 
@@ -3509,8 +3509,8 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   br i1 %.not38, label %.loopexit164, label %195, !llvm.loop !455
 
 221:                                              ; preds = %.lr.ph187, %221
-  %.sroa.072.1185 = phi ptr [ %204, %.lr.ph187 ], [ %232, %221 ]
-  %222 = load i16, ptr %.sroa.072.1185, align 2, !tbaa !280
+  %.sroa.072.0185 = phi ptr [ %204, %.lr.ph187 ], [ %232, %221 ]
+  %222 = load i16, ptr %.sroa.072.0185, align 2, !tbaa !280
   %223 = zext i16 %222 to i32
   %224 = and i32 %223, 63
   %225 = zext nneg i32 %224 to i64
@@ -3521,7 +3521,7 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   %230 = load i64, ptr %229, align 8, !tbaa !264
   %231 = or i64 %226, %230
   store i64 %231, ptr %229, align 8, !tbaa !264
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.072.1185, i64 2
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.072.0185, i64 2
   %.not159 = icmp eq ptr %232, %206
   br i1 %.not159, label %._crit_edge188, label %221, !llvm.loop !456
 
@@ -3561,8 +3561,8 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   br i1 %.not39, label %.loopexit163, label %238, !llvm.loop !457
 
 246:                                              ; preds = %.lr.ph193, %246
-  %.sroa.066.1191 = phi ptr [ %241, %.lr.ph193 ], [ %257, %246 ]
-  %247 = load i16, ptr %.sroa.066.1191, align 2, !tbaa !280
+  %.sroa.066.0191 = phi ptr [ %241, %.lr.ph193 ], [ %257, %246 ]
+  %247 = load i16, ptr %.sroa.066.0191, align 2, !tbaa !280
   %248 = zext i16 %247 to i32
   %249 = and i32 %248, 63
   %250 = zext nneg i32 %249 to i64
@@ -3573,7 +3573,7 @@ _ZNK4llvm15X86RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread: 
   %255 = load i64, ptr %254, align 8, !tbaa !264
   %256 = or i64 %251, %255
   store i64 %256, ptr %254, align 8, !tbaa !264
-  %257 = getelementptr inbounds nuw i8, ptr %.sroa.066.1191, i64 2
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.066.0191, i64 2
   %.not160 = icmp eq ptr %257, %243
   br i1 %.not160, label %._crit_edge194, label %246, !llvm.loop !458
 
@@ -5662,13 +5662,13 @@ switch.early.test56.us98:                         ; preds = %74, %switch.early.t
   br i1 %.not7882, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %82, %.lr.ph
-  %.sroa.059.383 = phi ptr [ %88, %.lr.ph ], [ %84, %82 ]
+  %.sroa.059.083 = phi ptr [ %88, %.lr.ph ], [ %84, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %87 = load i16, ptr %.sroa.059.383, align 2, !tbaa !280
+  %87 = load i16, ptr %.sroa.059.083, align 2, !tbaa !280
   store i16 %87, ptr %6, align 2, !tbaa !280
   call void @_ZN4llvm8SmallSetItLj8ESt4lessItEE10insertImplItEESt4pairINS_16SmallSetIteratorItLj8ES2_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.461") align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 2 dereferenceable(2) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.059.383, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.059.083, i64 2
   %.not78 = icmp eq ptr %88, %86
   br i1 %.not78, label %.loopexit, label %.lr.ph, !llvm.loop !838
 

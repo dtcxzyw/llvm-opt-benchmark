@@ -1496,9 +1496,9 @@ define hidden void @"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E
 33:                                               ; preds = %30
   %34 = load i8, ptr %10, align 1, !range !87, !noalias !255, !noundef !4
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %.thread16
+  br i1 %35, label %36, label %.thread14
 
-.thread16:                                        ; preds = %33
+.thread14:                                        ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !255
   br label %._crit_edge
 
@@ -1570,8 +1570,8 @@ define hidden void @"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E
   %63 = call noundef zeroext i1 @_ZN11signal_hook8iterator7backend6Handle9is_closed17h222d00e172eb7b60E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %62)
   br i1 %63, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %.loopexit, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit", %46, %.thread16, %3, %26
-  %.sink = phi i32 [ 0, %26 ], [ 2, %3 ], [ 1, %.thread16 ], [ 3, %46 ], [ 2, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit" ], [ 1, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit", %46, %.thread14, %3, %26
+  %.sink = phi i32 [ 0, %26 ], [ 2, %3 ], [ 1, %.thread14 ], [ 3, %46 ], [ 2, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit" ], [ 1, %.loopexit ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }

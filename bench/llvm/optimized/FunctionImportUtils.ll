@@ -976,8 +976,8 @@ define dso_local void @_ZN4llvm30FunctionImportGlobalProcessing23processGlobalFo
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 268435456
-  %.not102 = icmp eq i32 %16, 0
-  br i1 %.not102, label %.thread, label %17
+  %.not100 = icmp eq i32 %16, 0
+  br i1 %.not100, label %.thread, label %17
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1059,8 +1059,8 @@ _ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS
   %56 = trunc nuw i8 %55 to i1
   %57 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %57, 3
-  %or.cond131 = select i1 %56, i1 %.not, i1 false
-  br i1 %or.cond131, label %58, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
+  %or.cond129 = select i1 %56, i1 %.not, i1 false
+  br i1 %or.cond129, label %58, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %0, align 8, !tbaa !163
@@ -1113,8 +1113,8 @@ _ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit: ; preds
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 64
   %87 = load i8, ptr %86, align 8
   %88 = and i8 %87, 3
-  %or.cond133 = icmp eq i8 %88, 0
-  br i1 %or.cond133, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %89
+  %or.cond131 = icmp eq i8 %88, 0
+  br i1 %or.cond131, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %89
 
 89:                                               ; preds = %_ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1130,8 +1130,8 @@ _ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit: ; preds
 _ZNK4llvm18ModuleSummaryIndex11isWriteOnlyEPKNS_16GlobalVarSummaryE.exit49: ; preds = %89
   %97 = load i8, ptr %86, align 8
   %98 = and i8 %97, 2
-  %.not104 = icmp eq i8 %98, 0
-  br i1 %.not104, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %99
+  %.not102 = icmp eq i8 %98, 0
+  br i1 %.not102, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %99
 
 99:                                               ; preds = %_ZNK4llvm18ModuleSummaryIndex11isWriteOnlyEPKNS_16GlobalVarSummaryE.exit49
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1166,7 +1166,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !50
   %.not.i = icmp eq ptr %114, null
-  br i1 %.not.i, label %115, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread92
+  br i1 %.not.i, label %115, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread90
 
 115:                                              ; preds = %.critedge2.i
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1205,9 +1205,9 @@ _ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11Glob
   %141 = and i16 %140, 15
   %142 = add nsw i16 %141, -9
   %spec.select.i.i52 = icmp ult i16 %142, -2
-  br i1 %spec.select.i.i52, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread92, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread
+  br i1 %spec.select.i.i52, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread90, label %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread
 
-_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread92: ; preds = %.critedge2.i, %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit
+_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread90: ; preds = %.critedge2.i, %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %143 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
   %144 = extractvalue { ptr, i64 } %143, 0
@@ -1218,13 +1218,13 @@ _ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11Glob
   store ptr %146, ptr %8, align 8, !tbaa !102, !alias.scope !175
   br i1 %.not.i53, label %147, label %149
 
-147:                                              ; preds = %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread92
+147:                                              ; preds = %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread90
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %148, align 8, !tbaa !82, !alias.scope !175
   store i8 0, ptr %146, align 8, !tbaa !93, !alias.scope !175
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
-149:                                              ; preds = %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread92
+149:                                              ; preds = %_ZN4llvm30FunctionImportGlobalProcessing26shouldPromoteLocalToGlobalEPKNS_11GlobalValueENS_9ValueInfoE.exit.thread90
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !175
   store i64 %145, ptr %3, align 8, !tbaa !47, !noalias !175
   %150 = icmp ugt i64 %145, 15
@@ -1291,8 +1291,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK4
   %170 = add nsw i32 %169, -7
   %spec.select.i.i54 = icmp ult i32 %170, 2
   %171 = load i32, ptr %103, align 8
-  %.v135 = select i1 %spec.select.i.i54, i32 -832, i32 -16
-  %172 = and i32 %171, %.v135
+  %.v133 = select i1 %spec.select.i.i54, i32 -832, i32 -16
+  %172 = and i32 %171, %.v133
   %173 = or disjoint i32 %172, %169
   br i1 %spec.select.i.i54, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i
 
@@ -1311,15 +1311,15 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm
   %178 = phi i32 [ %173, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i ], [ %177, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i ]
   %179 = and i32 %178, -49
   %180 = and i32 %178, 15
-  %.not105 = icmp eq i32 %180, 9
-  %spec.select.v = select i1 %.not105, i32 16, i32 16400
+  %.not103 = icmp eq i32 %180, 9
+  %spec.select.v = select i1 %.not103, i32 16, i32 16400
   %spec.select = or i32 %179, %spec.select.v
   store i32 %spec.select, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %181 = call noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #17
   store ptr %181, ptr %11, align 8, !tbaa !182
   %.not46 = icmp eq ptr %181, null
-  br i1 %.not46, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread95, label %182
+  br i1 %.not46, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread93, label %182
 
 182:                                              ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
   %183 = call { ptr, i64 } @_ZNK4llvm6Comdat7getNameEv(ptr noundef nonnull align 8 dereferenceable(56) %181) #17
@@ -1329,7 +1329,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %188 = load i64, ptr %187, align 8, !tbaa !82
   %.not.i59 = icmp eq i64 %185, %188
-  br i1 %.not.i59, label %189, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread95
+  br i1 %.not.i59, label %189, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread93
 
 189:                                              ; preds = %182
   %190 = icmp eq i64 %185, 0
@@ -1338,7 +1338,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %189
   %bcmp.i = call i32 @bcmp(ptr %184, ptr %186, i64 %185)
   %191 = icmp eq i32 %bcmp.i, 0
-  br i1 %191, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread95
+  br i1 %191, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %189, %_ZN4llvmeqENS_9StringRefES0_.exit
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1353,22 +1353,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %189, %_ZN4llvmeqENS
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatEPS2_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS4_S5_S7_SA_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %192, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread95
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread93
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread95:       ; preds = %182, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread93:       ; preds = %182, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %198 = load ptr, ptr %8, align 8, !tbaa !79
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %200 = icmp eq ptr %198, %199
   br i1 %200, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread95
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread93
   %201 = load i64, ptr %199, align 8, !tbaa !93
   %202 = add i64 %201, 1
   call void @_ZdlPvm(ptr noundef %198, i64 noundef %202) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit69
 
@@ -1414,8 +1414,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %215
 220:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %222 = load ptr, ptr %221, align 8, !tbaa !50
-  %.not106 = icmp eq ptr %222, null
-  br i1 %.not106, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit.thread, label %223
+  %.not104 = icmp eq ptr %222, null
+  br i1 %.not104, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit.thread, label %223
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %222, align 8, !tbaa !59
@@ -1525,8 +1525,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77: ; preds = %_ZN4llvm8dyn
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77.thread: ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %277 = load ptr, ptr %276, align 8, !tbaa !186
-  %.not107 = icmp eq ptr %277, null
-  br i1 %.not107, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %278
+  %.not105 = icmp eq ptr %277, null
+  br i1 %.not105, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %278
 
 278:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77.thread
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef null) #17

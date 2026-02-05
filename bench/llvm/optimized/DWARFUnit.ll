@@ -2321,8 +2321,8 @@ _ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit: ; preds = %5
   br i1 %.not.i.i.i.i.i5, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.critedge.critedge, %_ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit
-  %.sink35 = phi ptr [ %12, %_ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit ], [ %15, %.critedge.critedge ]
-  %16 = ptrtoint ptr %.sink35 to i64
+  %.sink23 = phi ptr [ %12, %_ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit ], [ %15, %.critedge.critedge ]
+  %16 = ptrtoint ptr %.sink23 to i64
   %17 = ptrtoint ptr %4 to i64
   %18 = sub i64 %16, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %18) #27
@@ -2402,10 +2402,10 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %1, %26, %28
   %35 = load ptr, ptr %34, align 8, !tbaa !130
   %36 = icmp eq ptr %33, %35
   %spec.select.i = select i1 %36, ptr null, ptr %0
-  %spec.select3.i = select i1 %36, ptr null, ptr %33
+  %spec.select1.i = select i1 %36, ptr null, ptr %33
   store ptr %spec.select.i, ptr %9, align 8
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select3.i, ptr %37, align 8
+  store ptr %spec.select1.i, ptr %37, align 8
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.71") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i16 noundef zeroext 27) #24
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %39 = load i8, ptr %38, align 8, !tbaa !316, !range !127, !noundef !128
@@ -3921,8 +3921,8 @@ _ZN4llvm9DWARFUnit19extractDIEsIfNeededEb.exit:   ; preds = %3, %25, %27
   %34 = load ptr, ptr %33, align 8, !tbaa !130
   %35 = icmp eq ptr %32, %34
   %spec.select = select i1 %35, ptr null, ptr %32
-  %spec.select19 = select i1 %35, ptr null, ptr %1
-  store ptr %spec.select19, ptr %7, align 8
+  %spec.select17 = select i1 %35, ptr null, ptr %1
+  store ptr %spec.select17, ptr %7, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %spec.select, ptr %36, align 8
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.71") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i16 noundef zeroext 114) #24
@@ -4194,11 +4194,11 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %43, %60, %62
   %69 = load ptr, ptr %68, align 8, !tbaa !130
   %.not72 = icmp eq ptr %67, %69
   %spec.select.i = select i1 %.not72, ptr null, ptr %0
-  %spec.select3.i = select i1 %.not72, ptr null, ptr %67
+  %spec.select1.i = select i1 %.not72, ptr null, ptr %67
   store ptr %spec.select.i, ptr %20, align 8
   %70 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %spec.select3.i, ptr %70, align 8
-  %.not73 = icmp eq ptr %spec.select3.i, null
+  store ptr %spec.select1.i, ptr %70, align 8
+  %.not73 = icmp eq ptr %spec.select1.i, null
   br i1 %.not73, label %283, label %71
 
 71:                                               ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
@@ -5284,10 +5284,10 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %14, %33, %35
   %42 = load ptr, ptr %41, align 8, !tbaa !130
   %43 = icmp eq ptr %40, %42
   %spec.select.i = select i1 %43, ptr null, ptr %spec.select
-  %spec.select3.i = select i1 %43, ptr null, ptr %40
+  %spec.select1.i = select i1 %43, ptr null, ptr %40
   store ptr %spec.select.i, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %spec.select3.i, ptr %44, align 8
+  store ptr %spec.select1.i, ptr %44, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 17, ptr %7, align 2, !tbaa !441
@@ -5578,11 +5578,11 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %2, %31, %33
   %40 = load ptr, ptr %39, align 8, !tbaa !130
   %.not = icmp eq ptr %38, %40
   %spec.select.i = select i1 %.not, ptr null, ptr %1
-  %spec.select3.i = select i1 %.not, ptr null, ptr %38
+  %spec.select1.i = select i1 %.not, ptr null, ptr %38
   store ptr %spec.select.i, ptr %10, align 8
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select3.i, ptr %41, align 8
-  %.not14 = icmp eq ptr %spec.select3.i, null
+  store ptr %spec.select1.i, ptr %41, align 8
+  %.not14 = icmp eq ptr %spec.select1.i, null
   br i1 %.not14, label %._crit_edge.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
@@ -6411,8 +6411,8 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %32, %49, %51
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   %59 = icmp eq ptr %56, %58
   %spec.select.i = select i1 %59, ptr null, ptr %0
-  %spec.select3.i = select i1 %59, ptr null, ptr %56
-  call void @_ZN4llvm9DWARFUnit19updateAddressDieMapENS_8DWARFDieE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr %spec.select.i, ptr %spec.select3.i)
+  %spec.select1.i = select i1 %59, ptr null, ptr %56
+  call void @_ZN4llvm9DWARFUnit19updateAddressDieMapENS_8DWARFDieE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr %spec.select.i, ptr %spec.select1.i)
   br label %60
 
 60:                                               ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit, %_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb.exit
@@ -7289,11 +7289,11 @@ define dso_local void @_ZN4llvm9DWARFUnit25getInlinedChainForAddressEmRNS_15Smal
   %9 = extractvalue { ptr, ptr } %8, 0
   store ptr %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %storemerge13 = extractvalue { ptr, ptr } %8, 1
-  store ptr %storemerge13, ptr %10, align 8
-  %.not.i.i14 = icmp ne ptr %9, null
-  %11 = icmp ne ptr %storemerge13, null
-  %12 = select i1 %.not.i.i14, i1 %11, i1 false
+  %storemerge11 = extractvalue { ptr, ptr } %8, 1
+  store ptr %storemerge11, ptr %10, align 8
+  %.not.i.i12 = icmp ne ptr %9, null
+  %11 = icmp ne ptr %storemerge11, null
+  %12 = select i1 %.not.i.i12, i1 %11, i1 false
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
@@ -7728,13 +7728,13 @@ _ZNK4llvm19DWARFDebugInfoEntry11hasChildrenEv.exit.i: ; preds = %3
   %30 = getelementptr inbounds i8, ptr %23, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !326
   %.not.i9.i = icmp eq ptr %31, null
-  br i1 %.not.i9.i, label %.thread18, label %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i
+  br i1 %.not.i9.i, label %.thread16, label %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i
 
 _ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i:   ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4, !tbaa !513
   %34 = icmp eq i16 %33, 0
-  br i1 %34, label %.thread18, label %.thread
+  br i1 %34, label %.thread16, label %.thread
 
 _ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit: ; preds = %9
   %35 = add i32 %11, -1
@@ -7742,12 +7742,12 @@ _ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit: ; preds
   %37 = load ptr, ptr %12, align 8, !tbaa !141
   %38 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %37, i64 %36
   %.not.not = icmp eq ptr %37, null
-  br i1 %.not.not, label %.thread, label %.thread18
+  br i1 %.not.not, label %.thread, label %.thread16
 
 .thread:                                          ; preds = %_ZNK4llvm19DWARFDebugInfoEntry11hasChildrenEv.exit.i, %2, %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i, %21, %13, %3, %_ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit
-  br label %.thread18
+  br label %.thread16
 
-.thread18:                                        ; preds = %28, %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i, %_ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit, %.thread
+.thread16:                                        ; preds = %28, %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i, %_ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit, %.thread
   %.sroa.0.1 = phi ptr [ null, %.thread ], [ %0, %_ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit ], [ %0, %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i ], [ %0, %28 ]
   %.sroa.4.1 = phi ptr [ null, %.thread ], [ %38, %_ZNK4llvm9DWARFUnit17getLastChildEntryEPKNS_19DWARFDebugInfoEntryE.exit ], [ %29, %_ZNK4llvm19DWARFDebugInfoEntry6getTagEv.exit.i ], [ %29, %28 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0

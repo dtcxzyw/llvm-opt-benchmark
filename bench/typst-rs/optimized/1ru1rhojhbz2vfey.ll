@@ -115631,14 +115631,14 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i: ; preds = %"_ZN71_$LT$co
   br label %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit"
 
 "_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit": ; preds = %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80", %.thread, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i
-  %285 = phi i64 [ %265, %.thread ], [ %265, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %263, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
-  %.sroa.0122.2 = phi i64 [ %284, %.thread ], [ %.sroa.0122.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %.sroa.0122.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
-  %.sroa.12.2 = phi i64 [ %283, %.thread ], [ %.sroa.12.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %.sroa.12.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
-  %.sroa.22.2 = phi i64 [ %282, %.thread ], [ %.sroa.22.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %.sroa.22.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
-  %.sroa.32.2 = phi i64 [ %279, %.thread ], [ %.sroa.32.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %.sroa.32.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
-  %.sroa.50.2 = phi i64 [ 0, %.thread ], [ %268, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ 255, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %285 = phi i64 [ %265, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %265, %.thread ], [ %263, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %.sroa.0122.2 = phi i64 [ %.sroa.0122.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %284, %.thread ], [ %.sroa.0122.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %.sroa.12.2 = phi i64 [ %.sroa.12.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %283, %.thread ], [ %.sroa.12.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %.sroa.22.2 = phi i64 [ %.sroa.22.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %282, %.thread ], [ %.sroa.22.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %.sroa.32.2 = phi i64 [ %.sroa.32.4, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ %279, %.thread ], [ %.sroa.32.4, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
+  %.sroa.50.0 = phi i64 [ %268, %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i ], [ 0, %.thread ], [ 255, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260.exit80" ]
   %286 = shl i64 %285, 56
-  %287 = or i64 %.sroa.50.2, %286
+  %287 = or i64 %.sroa.50.0, %286
   %288 = xor i64 %287, %.sroa.32.2
   %289 = add i64 %.sroa.22.2, %.sroa.0122.2
   %290 = call i64 @llvm.fshl.i64(i64 %.sroa.22.2, i64 %.sroa.22.2, i64 13)

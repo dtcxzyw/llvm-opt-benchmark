@@ -770,63 +770,63 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_12function_ref
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !93
   %.fr15 = freeze i64 %13
-  %.not25.i = icmp eq i64 %.fr15, 0
-  %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
+  %.not23.i = icmp eq i64 %.fr15, 0
   %.fr16 = freeze i64 %3
   %.fr17 = freeze i64 %5
-  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
+  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = zext i32 %15 to i64
-  %.not26.i = icmp eq i32 %15, 0
-  br i1 %.not26.i, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %15, 0
+  br i1 %.not24.i, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq i64 %spec.select24.i, 0
+  %19 = icmp eq i64 %spec.select.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
-  %.01527.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %18, i64 %.01527.i.us
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
+  %.01525.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %18, i64 %.01525.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !7
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
+  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
-  %21 = add nuw nsw i64 %.01527.i.us, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
+  %21 = add nuw nsw i64 %.01525.i.us, 1
   %.not.i.us = icmp eq i64 %21, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit, label %.lr.ph.i.split.us, !llvm.loop !94
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
-  %.01527.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %18, i64 %.01527.i
+.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
+  %.01525.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !7
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
-  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !14
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
   %23 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %23, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  br i1 %23, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %24 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %24 = phi i64 [ %.01525.i.us, %.lr.ph.i.split.us ], [ %.01525.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !95
   br label %37
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %27 = add nuw nsw i64 %.01527.i, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
+  %27 = add nuw nsw i64 %.01525.i, 1
   %.not.i = icmp eq i64 %27, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit, label %.lr.ph.i.split, !llvm.loop !94
 
-_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us, %6
+_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE5parseERNS0_6OptionENS_9StringRefESD_RS9_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -835,9 +835,9 @@ _ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEE
   store i8 5, ptr %29, align 1, !tbaa !29, !alias.scope !96
   store ptr @.str.10, ptr %8, align 8, !tbaa !32, !alias.scope !96
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %30, align 8, !tbaa !32, !alias.scope !96
+  store ptr %spec.select22.i, ptr %30, align 8, !tbaa !32, !alias.scope !96
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i, ptr %31, align 8, !tbaa !32, !alias.scope !96
+  store i64 %spec.select.i, ptr %31, align 8, !tbaa !32, !alias.scope !96
   store ptr %8, ptr %7, align 8, !alias.scope !99
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.11, ptr %32, align 8, !alias.scope !99

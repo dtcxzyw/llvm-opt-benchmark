@@ -1053,7 +1053,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   store ptr null, ptr %33, align 8, !tbaa !127, !alias.scope !120
   %34 = call noundef zeroext i1 @_ZNK5arrow6Scalar6EqualsERKS0_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %26, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre33 = load i64, ptr %11, align 8, !tbaa !70
+  %.pre31 = load i64, ptr %11, align 8, !tbaa !70
   br i1 %34, label %._crit_edge, label %_ZN5arrow6StatusD2Ev.exit
 
 .critedge:                                        ; preds = %24
@@ -1061,7 +1061,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %.critedge
-  %35 = phi i64 [ %12, %.critedge ], [ %.pre33, %31 ]
+  %35 = phi i64 [ %12, %.critedge ], [ %.pre31, %31 ]
   %36 = add nsw i64 %35, %3
   br label %_ZNSt12__shared_ptrIKN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -1070,7 +1070,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.critedge2, %31
-  %37 = phi i64 [ %12, %.critedge2 ], [ %.pre33, %31 ]
+  %37 = phi i64 [ %12, %.critedge2 ], [ %.pre31, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = load ptr, ptr %1, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
@@ -1086,11 +1086,11 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.critedge2, %31
 43:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %44 = load ptr, ptr %25, align 8, !tbaa !89
-  %.not32 = icmp eq ptr %44, null
+  %.not30 = icmp eq ptr %44, null
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = load ptr, ptr %46, align 8, !tbaa !53
-  br i1 %.not32, label %51, label %48
+  br i1 %.not30, label %51, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 72

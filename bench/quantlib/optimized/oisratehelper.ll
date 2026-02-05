@@ -1415,11 +1415,11 @@ _ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_E
   %112 = load i64, ptr %_M_node_count.i.i240, align 8, !tbaa !16
   %inc.i.i241 = add i64 %112, 1
   store i64 %inc.i.i241, ptr %_M_node_count.i.i240, align 8, !tbaa !16
-  %.pre272 = load ptr, ptr %pn.i.i126, align 8, !tbaa !37
+  %.pre270 = load ptr, ptr %pn.i.i126, align 8, !tbaa !37
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %_ZNK8QuantLib6HandleINS_18YieldTermStructureEEcvN5boost10shared_ptrINS_10ObservableEEEEv.exit131, %if.end12.i.i218, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i239
-  %113 = phi ptr [ %93, %_ZNK8QuantLib6HandleINS_18YieldTermStructureEEcvN5boost10shared_ptrINS_10ObservableEEEEv.exit131 ], [ %104, %if.end12.i.i218 ], [ %.pre272, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i239 ]
+  %113 = phi ptr [ %93, %_ZNK8QuantLib6HandleINS_18YieldTermStructureEEcvN5boost10shared_ptrINS_10ObservableEEEEv.exit131 ], [ %104, %if.end12.i.i218 ], [ %.pre270, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i239 ]
   %cmp.not.i.i181 = icmp eq ptr %113, null
   br i1 %cmp.not.i.i181, label %_ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit195, label %if.then.i.i182
 

@@ -6186,18 +6186,18 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
 .lr.ph:                                           ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit
   %13 = add i64 %spec.select, -1
   %14 = zext i32 %.sroa.20.24.copyload to i64
-  %.pre33 = load ptr, ptr %0, align 8, !tbaa !33
+  %.pre29 = load ptr, ptr %0, align 8, !tbaa !33
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit
-  %.pre32 = load ptr, ptr %0, align 8, !tbaa !110
+  %.pre28 = load ptr, ptr %0, align 8, !tbaa !110
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !110
   store i64 %spec.select, ptr %2, align 8, !tbaa !23
-  %.not.i11 = icmp eq ptr %.pre32, null
+  %.not.i11 = icmp eq ptr %.pre28, null
   br i1 %.not.i11, label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EED2Ev.exit, label %15
 
 15:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %16 = phi ptr [ %.pre33, %._crit_edge.thread ], [ %.pre32, %._crit_edge ]
+  %16 = phi ptr [ %.pre29, %._crit_edge.thread ], [ %.pre28, %._crit_edge ]
   tail call void @_ZdlPv(ptr noundef nonnull %16) #25
   br label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EED2Ev.exit
 
@@ -6205,8 +6205,8 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
   ret void
 
 17:                                               ; preds = %.lr.ph, %45
-  %.029 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
-  %18 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %.pre33, i64 %.029
+  %.025 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
+  %18 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %.pre29, i64 %.025
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !26
   %21 = load i32, ptr %.sroa.20.24..sroa_idx, align 8, !tbaa !26
@@ -6215,7 +6215,7 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
   br i1 %22, label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit, label %._ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread_crit_edge
 
 ._ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread_crit_edge: ; preds = %17
-  %.pre34 = zext i32 %20 to i64
+  %.pre30 = zext i32 %20 to i64
   br label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread
 
 _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit: ; preds = %17
@@ -6226,7 +6226,7 @@ _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit: ; preds = %17
   br i1 %25, label %45, label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread
 
 _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread: ; preds = %._ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread_crit_edge, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit
-  %.pre-phi = phi i64 [ %.pre34, %._ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread_crit_edge ], [ %24, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit ]
+  %.pre-phi = phi i64 [ %.pre30, %._ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread_crit_edge ], [ %24, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit ]
   %.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i, label %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader, label %.lr.ph.i.i12
 
@@ -6292,7 +6292,7 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
   br label %45
 
 45:                                               ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EE13insert_unsafeERKS3_.exit, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit
-  %46 = add nuw i64 %.029, 1
+  %46 = add nuw i64 %.025, 1
   %47 = icmp ult i64 %46, %12
   br i1 %47, label %17, label %._crit_edge.thread, !llvm.loop !111
 

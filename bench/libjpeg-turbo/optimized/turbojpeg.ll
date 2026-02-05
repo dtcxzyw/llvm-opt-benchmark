@@ -14024,7 +14024,7 @@ split:                                            ; preds = %188, %getDstSubsamp
 
 278:                                              ; preds = %.lr.ph389, %._crit_edge384
   %279 = phi i32 [ %.pre423, %.lr.ph389 ], [ %295, %._crit_edge384 ]
-  %.sroa.011.sroa.4.3387 = phi i32 [ 0, %.lr.ph389 ], [ %.sroa.011.sroa.4.4.lcssa, %._crit_edge384 ]
+  %.sroa.011.sroa.4.0387 = phi i32 [ 0, %.lr.ph389 ], [ %.sroa.011.sroa.4.1.lcssa, %._crit_edge384 ]
   %.0282386 = phi i32 [ 0, %.lr.ph389 ], [ %296, %._crit_edge384 ]
   %280 = load ptr, ptr %48, align 8, !tbaa !127
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 64
@@ -14037,18 +14037,18 @@ split:                                            ; preds = %188, %getDstSubsamp
 
 .lr.ph383:                                        ; preds = %278, %291
   %indvars.iv409 = phi i64 [ %indvars.iv.next410, %291 ], [ 0, %278 ]
-  %.sroa.011.sroa.4.4381 = phi i32 [ %292, %291 ], [ %.sroa.011.sroa.4.3387, %278 ]
+  %.sroa.011.sroa.4.1381 = phi i32 [ %292, %291 ], [ %.sroa.011.sroa.4.0387, %278 ]
   %286 = load ptr, ptr %261, align 8, !tbaa !349
   %287 = getelementptr inbounds nuw ptr, ptr %284, i64 %indvars.iv409
   %288 = load ptr, ptr %287, align 8, !tbaa !196
-  %.sroa.011.sroa.4.0.insert.ext = zext i32 %.sroa.011.sroa.4.4381 to i64
+  %.sroa.011.sroa.4.0.insert.ext = zext i32 %.sroa.011.sroa.4.1381 to i64
   %.sroa.011.sroa.4.0.insert.shift = shl nuw i64 %.sroa.011.sroa.4.0.insert.ext, 32
   %289 = call i32 %286(ptr noundef %288, i64 %.sroa.011.sroa.4.0.insert.shift, i64 %.sroa.6.12.insert.insert, i64 0, i64 %.sroa.4.12.insert.insert, i32 noundef %277, i32 noundef %265, ptr noundef %218) #26
   %290 = icmp eq i32 %289, -1
   br i1 %290, label %302, label %291
 
 291:                                              ; preds = %.lr.ph383
-  %292 = add nsw i32 %.sroa.011.sroa.4.4381, 8
+  %292 = add nsw i32 %.sroa.011.sroa.4.1381, 8
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %293 = load i32, ptr %276, align 4, !tbaa !120
   %294 = sext i32 %293 to i64
@@ -14057,7 +14057,7 @@ split:                                            ; preds = %188, %getDstSubsamp
 
 ._crit_edge384:                                   ; preds = %291, %278
   %295 = phi i32 [ %285, %278 ], [ %293, %291 ]
-  %.sroa.011.sroa.4.4.lcssa = phi i32 [ %.sroa.011.sroa.4.3387, %278 ], [ %292, %291 ]
+  %.sroa.011.sroa.4.1.lcssa = phi i32 [ %.sroa.011.sroa.4.0387, %278 ], [ %292, %291 ]
   %296 = add i32 %295, %.0282386
   %297 = load i32, ptr %272, align 8, !tbaa !224
   %298 = icmp ult i32 %296, %297

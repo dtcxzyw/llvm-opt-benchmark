@@ -1139,7 +1139,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.i.i:            ; preds = %if.else14.i.i.i, %i
   br i1 %cmp3.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %land.rhs.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i, %cond.false.i.i.us.i.i, %land.rhs.us.i.i
-  %insertValue.sroa.0.143.i.i = phi i32 [ %2, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %2, %land.rhs.us.i.i ], [ %2, %cond.false.i.i.us.i.i ], [ 0, %land.rhs.i.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
+  %insertValue.sroa.0.043.i.i = phi i32 [ %2, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %2, %land.rhs.us.i.i ], [ %2, %cond.false.i.i.us.i.i ], [ 0, %land.rhs.i.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
   %.us-phi.i.i = phi ptr [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %movePosition.035.us.i.i, %cond.false.i.i.us.i.i ], [ %movePosition.035.us.i.i, %land.rhs.us.i.i ], [ %movePosition.035.i.i, %land.rhs.i.i ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
   %engaged.i16.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 4
   %12 = load i8, ptr %engaged.i16.i.i, align 4
@@ -1153,7 +1153,7 @@ if.then.i23.i.i:                                  ; preds = %for.end.i.i
   br i1 %tobool.i17.i.i, label %if.then7.i24.i.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
 if.then7.i24.i.i:                                 ; preds = %if.then.i23.i.i
-  store i32 %insertValue.sroa.0.143.i.i, ptr %.us-phi.i.i, align 4
+  store i32 %insertValue.sroa.0.043.i.i, ptr %.us-phi.i.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
 if.else.i20.i.i:                                  ; preds = %for.end.i.i
@@ -1164,7 +1164,7 @@ if.then12.i22.i.i:                                ; preds = %if.else.i20.i.i
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
 if.else14.i21.i.i:                                ; preds = %if.else.i20.i.i
-  store i32 %insertValue.sroa.0.143.i.i, ptr %.us-phi.i.i, align 4
+  store i32 %insertValue.sroa.0.043.i.i, ptr %.us-phi.i.i, align 4
   store i8 1, ptr %engaged.i16.i.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
@@ -1276,7 +1276,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.i:              ; preds = %if.else14.i.i, %if.
   br i1 %tobool.i.i.i14, label %cond.false.i.i, label %for.end.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i, %cond.false.i.us.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i
-  %value.sroa.0.147.i = phi i32 [ 0, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ %16, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %16, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %16, %cond.false.i.us.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
+  %value.sroa.0.047.i = phi i32 [ 0, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ %16, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %16, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %16, %cond.false.i.us.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
   %end.0.lcssa.i = phi ptr [ %current.041.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ %current.041.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %prev.037.us.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %prev.037.us.pn.i, %cond.false.i.us.i ], [ %prev.037.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
   %engaged.i15.i = getelementptr inbounds nuw i8, ptr %end.0.lcssa.i, i64 4
   %28 = load i8, ptr %engaged.i15.i, align 4
@@ -1290,7 +1290,7 @@ if.then.i22.i:                                    ; preds = %for.end.i
   br i1 %tobool.i16.i, label %if.then7.i23.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
 if.then7.i23.i:                                   ; preds = %if.then.i22.i
-  store i32 %value.sroa.0.147.i, ptr %end.0.lcssa.i, align 4
+  store i32 %value.sroa.0.047.i, ptr %end.0.lcssa.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
 if.else.i19.i:                                    ; preds = %for.end.i
@@ -1301,7 +1301,7 @@ if.then12.i21.i:                                  ; preds = %if.else.i19.i
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
 if.else14.i20.i:                                  ; preds = %if.else.i19.i
-  store i32 %value.sroa.0.147.i, ptr %end.0.lcssa.i, align 4
+  store i32 %value.sroa.0.047.i, ptr %end.0.lcssa.i, align 4
   store i8 1, ptr %engaged.i15.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
@@ -1414,7 +1414,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.i.i46:          ; preds = %if.else14.i.i.i50, 
   br i1 %cmp3.not.i.i47, label %for.end.i.i27, label %land.rhs.i.i22, !llvm.loop !16
 
 for.end.i.i27:                                    ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46, %land.rhs.i.i22, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65, %cond.false.i.i.us.i.i58, %land.rhs.us.i.i53
-  %insertValue.sroa.0.143.i.i28 = phi i32 [ %32, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65 ], [ %32, %land.rhs.us.i.i53 ], [ %32, %cond.false.i.i.us.i.i58 ], [ 0, %land.rhs.i.i22 ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ]
+  %insertValue.sroa.0.043.i.i28 = phi i32 [ %32, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65 ], [ %32, %land.rhs.us.i.i53 ], [ %32, %cond.false.i.i.us.i.i58 ], [ 0, %land.rhs.i.i22 ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ]
   %.us-phi.i.i29 = phi ptr [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i65 ], [ %movePosition.035.us.i.i54, %cond.false.i.i.us.i.i58 ], [ %movePosition.035.us.i.i54, %land.rhs.us.i.i53 ], [ %movePosition.035.i.i23, %land.rhs.i.i22 ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ]
   %engaged.i16.i.i30 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i29, i64 4
   %42 = load i8, ptr %engaged.i16.i.i30, align 4
@@ -1428,7 +1428,7 @@ if.then.i23.i.i39:                                ; preds = %for.end.i.i27
   br i1 %tobool.i17.i.i31, label %if.then7.i24.i.i40, label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35
 
 if.then7.i24.i.i40:                               ; preds = %if.then.i23.i.i39
-  store i32 %insertValue.sroa.0.143.i.i28, ptr %.us-phi.i.i29, align 4
+  store i32 %insertValue.sroa.0.043.i.i28, ptr %.us-phi.i.i29, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35
 
 if.else.i20.i.i33:                                ; preds = %for.end.i.i27
@@ -1439,7 +1439,7 @@ if.then12.i22.i.i38:                              ; preds = %if.else.i20.i.i33
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35
 
 if.else14.i21.i.i34:                              ; preds = %if.else.i20.i.i33
-  store i32 %insertValue.sroa.0.143.i.i28, ptr %.us-phi.i.i29, align 4
+  store i32 %insertValue.sroa.0.043.i.i28, ptr %.us-phi.i.i29, align 4
   store i8 1, ptr %engaged.i16.i.i30, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i35
 

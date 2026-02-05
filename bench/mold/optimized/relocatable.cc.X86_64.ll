@@ -4930,9 +4930,9 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 496
   %19 = load ptr, ptr %18, align 8, !tbaa !522
   %20 = icmp eq ptr %17, %19
-  br i1 %20, label %_ZN3tbb6detail2d06invokeIRKZN4moldL28create_comdat_group_sectionsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUllE_JRlEEENSt13invoke_resultIS7_JDpT0_EE4typeEOS7_DpOSF_.exit.i.i.i.i.i, label %.lr.ph82.i.i.i.i.i.i.i.i.i.i
+  br i1 %20, label %_ZN3tbb6detail2d06invokeIRKZN4moldL28create_comdat_group_sectionsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUllE_JRlEEENSt13invoke_resultIS7_JDpT0_EE4typeEOS7_DpOSF_.exit.i.i.i.i.i, label %.lr.ph79.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph82.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph79.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4940,9 +4940,9 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %26
 
-26:                                               ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i, %.lr.ph82.i.i.i.i.i.i.i.i.i.i
-  %.sroa.065.080.i.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph82.i.i.i.i.i.i.i.i.i.i ], [ %164, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i ]
-  %27 = load ptr, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !524
+26:                                               ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i, %.lr.ph79.i.i.i.i.i.i.i.i.i.i
+  %.sroa.062.077.i.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph79.i.i.i.i.i.i.i.i.i.i ], [ %164, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i ]
+  %27 = load ptr, ptr %.sroa.062.077.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !524
   %28 = load atomic i32, ptr %27 monotonic, align 4
   %29 = zext i32 %28 to i64
   %30 = load i64, ptr %21, align 8, !tbaa !495
@@ -4950,7 +4950,7 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %31, label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.062.077.i.i.i.i.i.i.i.i.i.i, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !529
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %23, align 8, !tbaa !530
@@ -4961,9 +4961,9 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   %40 = load ptr, ptr %22, align 8, !tbaa !486
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8, !tbaa !487
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.062.077.i.i.i.i.i.i.i.i.i.i, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !531
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.062.077.i.i.i.i.i.i.i.i.i.i, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !484
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %46, 2
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -4971,9 +4971,9 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   br i1 %48, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i, %31
-  %.sroa.17.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.17.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.10.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.10.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.052.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.052.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.17.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.17.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.10.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.10.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.052.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %31 ], [ %.sroa.052.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ]
   %49 = load ptr, ptr %25, align 8, !tbaa !532
   %50 = load ptr, ptr %49, align 8, !tbaa !354
   %51 = getelementptr inbounds nuw %"class.std::vector.202", ptr %50, i64 %storemerge2.i.i.i.i.i
@@ -4991,11 +4991,11 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 200
   store ptr %42, ptr %59, align 8, !tbaa !487
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 208
-  store ptr %.sroa.052.2.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %60, align 8, !tbaa !23
+  store ptr %.sroa.052.0.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %60, align 8, !tbaa !23
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 216
-  store ptr %.sroa.10.2.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %61, align 8, !tbaa !17
+  store ptr %.sroa.10.0.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %61, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 224
-  store ptr %.sroa.17.2.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !tbaa !20
+  store ptr %.sroa.17.0.lcssa.i.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !tbaa !20
   store i64 6, ptr %53, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr @.str.15, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !15
@@ -5003,8 +5003,8 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   store i32 17, ptr %63, align 4
   store i64 4, ptr %56, align 8
   store i64 4, ptr %54, align 8
-  %64 = ptrtoint ptr %.sroa.10.2.lcssa.i.i.i.i.i.i.i.i.i.i to i64
-  %65 = ptrtoint ptr %.sroa.052.2.lcssa.i.i.i.i.i.i.i.i.i.i to i64
+  %64 = ptrtoint ptr %.sroa.10.0.lcssa.i.i.i.i.i.i.i.i.i.i to i64
+  %65 = ptrtoint ptr %.sroa.052.0.lcssa.i.i.i.i.i.i.i.i.i.i to i64
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 1
   %68 = add nsw i64 %67, 4
@@ -5072,11 +5072,11 @@ _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9_
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %31, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i
-  %.sroa.052.277.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.052.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
-  %.sroa.10.276.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.10.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
-  %.sroa.17.275.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.3.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
-  %.sroa.049.074.i.i.i.i.i.i.i.i.i.i = phi ptr [ %162, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ %44, %31 ]
-  %96 = load i32, ptr %.sroa.049.074.i.i.i.i.i.i.i.i.i.i, align 1
+  %.sroa.052.074.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.052.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
+  %.sroa.10.073.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.10.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
+  %.sroa.17.072.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.1.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ null, %31 ]
+  %.sroa.049.071.i.i.i.i.i.i.i.i.i.i = phi ptr [ %162, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i ], [ %44, %31 ]
+  %96 = load i32, ptr %.sroa.049.071.i.i.i.i.i.i.i.i.i.i, align 1
   %97 = zext i32 %96 to i64
   %98 = load ptr, ptr %23, align 8, !tbaa !530
   %99 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %98, i64 %97
@@ -5096,17 +5096,17 @@ _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9_
   %111 = load ptr, ptr %110, align 8, !tbaa !538
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 248
   %113 = load ptr, ptr %112, align 8, !tbaa !541
-  %.not.i.i25.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, %.sroa.17.275.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i25.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, %.sroa.17.072.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i25.i.i.i.i.i.i.i.i.i.i, label %116, label %114
 
 114:                                              ; preds = %103
-  store ptr %113, ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, i64 8
+  store ptr %113, ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, i64 8
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i
 
 116:                                              ; preds = %103
-  %117 = ptrtoint ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i to i64
-  %118 = ptrtoint ptr %.sroa.052.277.i.i.i.i.i.i.i.i.i.i to i64
+  %117 = ptrtoint ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i to i64
+  %118 = ptrtoint ptr %.sroa.052.074.i.i.i.i.i.i.i.i.i.i to i64
   %119 = sub i64 %117, %118
   %120 = icmp eq i64 %119, 9223372036854775800
   br i1 %120, label %121, label %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i26.i.i.i.i.i.i.i.i.i.i
@@ -5132,16 +5132,16 @@ _ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   br i1 %130, label %131, label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i29.i.i.i.i.i.i.i.i.i.i
 
 131:                                              ; preds = %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i26.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr align 8 %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, i64 %119, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr align 8 %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, i64 %119, i1 false)
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i29.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i29.i.i.i.i.i.i.i.i.i.i: ; preds = %131, %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i26.i.i.i.i.i.i.i.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %.not.i17.i.i.i30.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, null
+  %.not.i17.i.i.i30.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i17.i.i.i30.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i, label %133
 
 133:                                              ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i29.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, i64 noundef %119) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, i64 noundef %119) #17
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i: ; preds = %133, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i29.i.i.i.i.i.i.i.i.i.i
@@ -5154,17 +5154,17 @@ _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9_
   %138 = load ptr, ptr %137, align 8, !tbaa !536
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !538
-  %.not.i.i33.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, %.sroa.17.275.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i33.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, %.sroa.17.072.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i33.i.i.i.i.i.i.i.i.i.i, label %143, label %141
 
 141:                                              ; preds = %135
-  store ptr %140, ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i, i64 8
+  store ptr %140, ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i, i64 8
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i
 
 143:                                              ; preds = %135
-  %144 = ptrtoint ptr %.sroa.10.276.i.i.i.i.i.i.i.i.i.i to i64
-  %145 = ptrtoint ptr %.sroa.052.277.i.i.i.i.i.i.i.i.i.i to i64
+  %144 = ptrtoint ptr %.sroa.10.073.i.i.i.i.i.i.i.i.i.i to i64
+  %145 = ptrtoint ptr %.sroa.052.074.i.i.i.i.i.i.i.i.i.i to i64
   %146 = sub i64 %144, %145
   %147 = icmp eq i64 %146, 9223372036854775800
   br i1 %147, label %148, label %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i34.i.i.i.i.i.i.i.i.i.i
@@ -5190,16 +5190,16 @@ _ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   br i1 %157, label %158, label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i37.i.i.i.i.i.i.i.i.i.i
 
 158:                                              ; preds = %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i34.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr align 8 %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, i64 %146, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr align 8 %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, i64 %146, i1 false)
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i37.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i37.i.i.i.i.i.i.i.i.i.i: ; preds = %158, %_ZNKSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i34.i.i.i.i.i.i.i.i.i.i
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %.not.i17.i.i.i38.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, null
+  %.not.i17.i.i.i38.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i17.i.i.i38.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i, label %160
 
 160:                                              ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i37.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, i64 noundef %146) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, i64 noundef %146) #17
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i: ; preds = %160, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i37.i.i.i.i.i.i.i.i.i.i
@@ -5207,15 +5207,15 @@ _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9_
   br label %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE9push_backEOS4_.exit32.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i, %141, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i, %114
-  %.sroa.17.3.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.275.i.i.i.i.i.i.i.i.i.i, %114 ], [ %134, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %161, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.17.275.i.i.i.i.i.i.i.i.i.i, %141 ]
-  %.sroa.10.3.i.i.i.i.i.i.i.i.i.i = phi ptr [ %115, %114 ], [ %132, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %159, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %142, %141 ]
-  %.sroa.052.3.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, %114 ], [ %128, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %155, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.052.277.i.i.i.i.i.i.i.i.i.i, %141 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.049.074.i.i.i.i.i.i.i.i.i.i, i64 4
+  %.sroa.17.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.072.i.i.i.i.i.i.i.i.i.i, %114 ], [ %134, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %161, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.17.072.i.i.i.i.i.i.i.i.i.i, %141 ]
+  %.sroa.10.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %115, %114 ], [ %132, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %159, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %142, %141 ]
+  %.sroa.052.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, %114 ], [ %128, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i31.i.i.i.i.i.i.i.i.i.i ], [ %155, %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i39.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.052.074.i.i.i.i.i.i.i.i.i.i, %141 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.049.071.i.i.i.i.i.i.i.i.i.i, i64 4
   %163 = icmp eq ptr %162, %47
   br i1 %163, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EED2Ev.exit24.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %74, %26
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.062.077.i.i.i.i.i.i.i.i.i.i, i64 32
   %165 = icmp eq ptr %164, %19
   br i1 %165, label %_ZN3tbb6detail2d06invokeIRKZN4moldL28create_comdat_group_sectionsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUllE_JRlEEENSt13invoke_resultIS7_JDpT0_EE4typeEOS7_DpOSF_.exit.i.i.i.i.i, label %26
 

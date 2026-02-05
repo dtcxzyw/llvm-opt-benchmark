@@ -64010,8 +64010,8 @@ if.then3.i.loopexit:                              ; preds = %if.end13.i
 
 if.then3.i:                                       ; preds = %if.then3.i.loopexit, %for.cond.preheader.i
   %start_pos.sroa.16.3 = phi ptr [ %spec.select112.idx.sroa.sel, %for.cond.preheader.i ], [ %incdec.ptr.i, %if.then3.i.loopexit ]
-  %start_pos.sroa.5.4 = phi i64 [ %sub.ptr.sub.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.5.0.copyload84, %if.then3.i.loopexit ]
-  %start_pos.sroa.0.4 = phi ptr [ %call.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.0.0.copyload82.le, %if.then3.i.loopexit ]
+  %start_pos.sroa.5.3 = phi i64 [ %sub.ptr.sub.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.5.0.copyload84, %if.then3.i.loopexit ]
+  %start_pos.sroa.0.3 = phi ptr [ %call.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.0.0.copyload82.le, %if.then3.i.loopexit ]
   %5 = phi i64 [ 0, %for.cond.preheader.i ], [ %add8.i, %if.then3.i.loopexit ]
   %n.addr.0.lcssa.i = phi i64 [ %4, %for.cond.preheader.i ], [ %sub6.i, %if.then3.i.loopexit ]
   %add.i = add i64 %n.addr.0.lcssa.i, %5
@@ -64088,9 +64088,9 @@ while.end.i:                                      ; preds = %while.cond.i, %if.t
 _ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit: ; preds = %if.end28.i, %if.end.i70, %if.then3.i, %if.else.i, %if.then23.i
   %start_pos.sroa.16.4 = phi ptr [ %start_pos.sroa.16.3, %if.then3.i ], [ %spec.select112.idx.sroa.sel, %if.else.i ], [ %.sroa.gep, %if.end.i70 ], [ %start_pos.sroa.16.2, %if.then23.i ], [ %start_pos.sroa.16.1, %if.end28.i ]
   %start_pos.sroa.21.0 = phi i64 [ %add.i, %if.then3.i ], [ 0, %if.else.i ], [ %add8.i, %if.end.i70 ], [ %sub25.i, %if.then23.i ], [ %sub33.i, %if.end28.i ]
-  %start_pos.sroa.8.1 = phi i64 [ %n.addr.0.lcssa.i, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.end.i70 ], [ %sub27.i, %if.then23.i ], [ 0, %if.end28.i ]
-  %start_pos.sroa.5.5 = phi i64 [ %start_pos.sroa.5.4, %if.then3.i ], [ %sub.ptr.sub.i.i, %if.else.i ], [ 0, %if.end.i70 ], [ %start_pos.sroa.5.2, %if.then23.i ], [ %start_pos.sroa.5.1, %if.end28.i ]
-  %start_pos.sroa.0.5 = phi ptr [ %start_pos.sroa.0.4, %if.then3.i ], [ %call.i.i, %if.else.i ], [ null, %if.end.i70 ], [ %start_pos.sroa.0.2, %if.then23.i ], [ %start_pos.sroa.0.1, %if.end28.i ]
+  %start_pos.sroa.8.0 = phi i64 [ %n.addr.0.lcssa.i, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.end.i70 ], [ %sub27.i, %if.then23.i ], [ 0, %if.end28.i ]
+  %start_pos.sroa.5.4 = phi i64 [ %start_pos.sroa.5.3, %if.then3.i ], [ %sub.ptr.sub.i.i, %if.else.i ], [ 0, %if.end.i70 ], [ %start_pos.sroa.5.2, %if.then23.i ], [ %start_pos.sroa.5.1, %if.end28.i ]
+  %start_pos.sroa.0.4 = phi ptr [ %start_pos.sroa.0.3, %if.then3.i ], [ %call.i.i, %if.else.i ], [ null, %if.end.i70 ], [ %start_pos.sroa.0.2, %if.then23.i ], [ %start_pos.sroa.0.1, %if.end28.i ]
   %delim_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load ptr, ptr %delim_, align 8
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -64106,9 +64106,9 @@ for.cond2.preheader.lr.ph.i:                      ; preds = %_ZN4asio16buffers_i
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.lr.ph.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i
   %iter1.sroa.19.095.i = phi i64 [ %inc.i.i10.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.21.0, %for.cond2.preheader.lr.ph.i ]
   %iter1.sroa.13.094.i = phi ptr [ %iter1.sroa.13.2.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.16.4, %for.cond2.preheader.lr.ph.i ]
-  %iter1.sroa.8.093.i = phi i64 [ %iter1.sroa.8.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.8.1, %for.cond2.preheader.lr.ph.i ]
-  %iter1.sroa.5.092.i = phi i64 [ %iter1.sroa.5.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.5.5, %for.cond2.preheader.lr.ph.i ]
-  %iter1.sroa.0.091.i = phi ptr [ %iter1.sroa.0.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.0.5, %for.cond2.preheader.lr.ph.i ]
+  %iter1.sroa.8.093.i = phi i64 [ %iter1.sroa.8.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.8.0, %for.cond2.preheader.lr.ph.i ]
+  %iter1.sroa.5.092.i = phi i64 [ %iter1.sroa.5.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.5.4, %for.cond2.preheader.lr.ph.i ]
+  %iter1.sroa.0.091.i = phi ptr [ %iter1.sroa.0.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.0.4, %for.cond2.preheader.lr.ph.i ]
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i, %for.cond2.preheader.i
@@ -95578,11 +95578,11 @@ invoke.cont19:                                    ; preds = %call.i.noexc
 _ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont19
   call void @_ZN7cinatra16coro_http_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %17) #35
   call void @_ZdlPv(ptr noundef nonnull %17) #43
-  %.pre1319 = load ptr, ptr %client.reload.addr, align 8
+  %.pre1315 = load ptr, ptr %client.reload.addr, align 8
   br label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i.i.i.i, %invoke.cont19
-  %18 = phi ptr [ %.pre1319, %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i.i.i.i ], [ %call.i37, %invoke.cont19 ]
+  %18 = phi ptr [ %.pre1315, %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i.i.i.i ], [ %call.i37, %invoke.cont19 ]
   %19 = load ptr, ptr %client_config2.reload.addr, align 8
   %call23 = invoke noundef zeroext i1 @_ZN7cinatra16coro_http_client11init_configERKNS0_6configE(ptr noundef nonnull align 8 dereferenceable(4152) %18, ptr noundef nonnull align 8 dereferenceable(233) %19)
           to label %invoke.cont22 unwind label %lpad
@@ -97570,8 +97570,8 @@ invoke.cont308:                                   ; preds = %invoke.cont301
   store i3 0, ptr %index.addr173.i594, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1269)
   call void @llvm.experimental.noalias.scope.decl(metadata !1272)
-  %.cast1318 = ptrtoint ptr %call.i596 to i64
-  store i64 %.cast1318, ptr %ref.tmp296.reload.addr, align 8, !alias.scope !1275
+  %.cast1314 = ptrtoint ptr %call.i596 to i64
+  store i64 %.cast1314, ptr %ref.tmp296.reload.addr, align 8, !alias.scope !1275
   store ptr null, ptr %agg.tmp302.reload.addr, align 8, !noalias !1275
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %266 = load i64, ptr %agg.tmp297.reload.addr, align 8, !noalias !1275
@@ -97585,7 +97585,7 @@ invoke.cont308:                                   ; preds = %invoke.cont301
           to label %invoke.cont310 unwind label %lpad309
 
 invoke.cont310:                                   ; preds = %invoke.cont308
-  store i64 %.cast1318, ptr %call.i.i.i.i.i600, align 8, !noalias !1288
+  store i64 %.cast1314, ptr %call.i.i.i.i.i600, align 8, !noalias !1288
   store ptr null, ptr %ref.tmp296.reload.addr, align 8, !noalias !1288
   %267 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i600, i64 8
   store i64 %266, ptr %267, align 8, !noalias !1288
@@ -98861,13 +98861,13 @@ ehcleanup487:                                     ; preds = %lpad238, %lpad.i576
 
 cleanup492:                                       ; preds = %_ZNKSt14default_deleteIN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientES_IS4_EEEEEclEPS7_.exit.i1044, %_ZNSt7variantIJN12async_simple3TryISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS4_EEEENS1_IvEEEED2Ev.exit
   store ptr null, ptr %promise.reload.addr, align 8
-  %.pr1314 = load ptr, ptr %cli.reload.addr, align 8
-  %cmp.not.i1046 = icmp eq ptr %.pr1314, null
+  %.pr1310 = load ptr, ptr %cli.reload.addr, align 8
+  %cmp.not.i1046 = icmp eq ptr %.pr1310, null
   br i1 %cmp.not.i1046, label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1048, label %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1047
 
 _ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1047: ; preds = %cleanup492
-  call void @_ZN7cinatra16coro_http_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %.pr1314) #35
-  call void @_ZdlPv(ptr noundef nonnull %.pr1314) #43
+  call void @_ZN7cinatra16coro_http_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %.pr1310) #35
+  call void @_ZdlPv(ptr noundef nonnull %.pr1310) #43
   br label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1048
 
 _ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1048: ; preds = %cleanup492.thread, %cleanup492, %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1047
@@ -99535,13 +99535,13 @@ cleanup583.thread:                                ; preds = %_ZSt10__do_visitIvZ
   br label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1298
 
 cleanup583:                                       ; preds = %if.end8.sink.split.i.i.i.i1183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1180, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1170, %_ZNSt7variantIJN12async_simple3TryIN7coro_io11client_poolIN7cinatra16coro_http_clientENS2_15io_context_poolEE21client_connect_helperEEENS1_IvEEEED2Ev.exit, %_ZN12async_simple4coro6detail11LazyPromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEE12return_valueIDnEEvOT_Qsr3stdE16is_convertible_vIOTL0__SB_E.exit
-  %.pr1316 = load ptr, ptr %client.reload.addr, align 8
-  %cmp.not.i1296 = icmp eq ptr %.pr1316, null
+  %.pr1312 = load ptr, ptr %client.reload.addr, align 8
+  %cmp.not.i1296 = icmp eq ptr %.pr1312, null
   br i1 %cmp.not.i1296, label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1298, label %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1297
 
 _ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1297: ; preds = %cleanup583
-  call void @_ZN7cinatra16coro_http_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %.pr1316) #35
-  call void @_ZdlPv(ptr noundef nonnull %.pr1316) #43
+  call void @_ZN7cinatra16coro_http_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %.pr1312) #35
+  call void @_ZdlPv(ptr noundef nonnull %.pr1312) #43
   br label %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1298
 
 _ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit1298: ; preds = %cleanup583.thread, %cleanup583, %_ZNKSt14default_deleteIN7cinatra16coro_http_clientEEclEPS1_.exit.i1297

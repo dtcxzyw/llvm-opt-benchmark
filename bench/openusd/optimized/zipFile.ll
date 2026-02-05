@@ -1029,15 +1029,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorneERKS1_.exit: ; pred
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator11GetFileInfoEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator11GetFileInfoEv.exit: ; preds = %26, %.thread
-  %.sroa.0.1 = phi i64 [ 0, %26 ], [ %34, %.thread ]
-  %.sroa.3.1 = phi i64 [ 0, %26 ], [ %37, %.thread ]
-  %.sroa.5.1 = phi i64 [ 0, %26 ], [ %40, %.thread ]
+  %.sroa.0.0 = phi i64 [ 0, %26 ], [ %34, %.thread ]
+  %.sroa.3.0 = phi i64 [ 0, %26 ], [ %37, %.thread ]
+  %.sroa.5.0 = phi i64 [ 0, %26 ], [ %40, %.thread ]
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorptEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator::_ArrowProxy") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %41 unwind label %24
 
 41:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator11GetFileInfoEv.exit
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %.sroa.0.1, i64 noundef %.sroa.3.1, i64 noundef %.sroa.5.1, ptr noundef %42)
+  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %.sroa.0.0, i64 noundef %.sroa.3.0, i64 noundef %.sroa.5.0, ptr noundef %42)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %45 unwind label %24

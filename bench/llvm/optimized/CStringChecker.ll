@@ -13310,8 +13310,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 33:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !321
-  %.not20 = icmp eq ptr %35, null
-  br i1 %.not20, label %36, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
+  %.not18 = icmp eq ptr %35, null
+  br i1 %.not18, label %36, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
 
 36:                                               ; preds = %33
   %37 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22

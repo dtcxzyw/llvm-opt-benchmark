@@ -89,8 +89,8 @@ define dso_local void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTCo
   %36 = icmp ne i64 %35, 0
   %37 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %38 = inttoptr i64 %37 to ptr
-  %.not120 = icmp eq i64 %37, 0
-  %.not1 = or i1 %36, %.not120
+  %.not112 = icmp eq i64 %37, 0
+  %.not1 = or i1 %36, %.not112
   br i1 %.not1, label %48, label %39
 
 39:                                               ; preds = %33

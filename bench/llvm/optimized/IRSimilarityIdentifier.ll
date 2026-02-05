@@ -1249,14 +1249,14 @@ define dso_local { ptr, i64 } @_ZN4llvm12IRSimilarity17IRInstructionData16getBlo
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 134217727
   %11 = icmp eq i32 %10, 3
-  %.idx25 = select i1 %11, i64 8, i64 0
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx25
+  %.idx23 = select i1 %11, i64 8, i64 0
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !26
   %15 = zext i32 %14 to i64
-  %.idx24 = shl nuw nsw i64 %15, 3
-  %gepdiff26 = sub nsw i64 %.idx24, %.idx25
-  %16 = ashr exact i64 %gepdiff26, 3
+  %.idx22 = shl nuw nsw i64 %15, 3
+  %gepdiff24 = sub nsw i64 %.idx22, %.idx23
+  %16 = ashr exact i64 %gepdiff24, 3
   br label %29
 
 17:                                               ; preds = %1
@@ -1266,13 +1266,13 @@ define dso_local { ptr, i64 } @_ZN4llvm12IRSimilarity17IRInstructionData16getBlo
   %21 = load i32, ptr %20, align 4
   %22 = shl i32 %21, 3
   %23 = and i32 %22, 1073741816
-  %.idx23 = zext nneg i32 %23 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx23
+  %.idx21 = zext nneg i32 %23 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !26
   %27 = zext i32 %26 to i64
   %.idx = shl nuw nsw i64 %27, 3
-  %gepdiff = sub nsw i64 %.idx, %.idx23
+  %gepdiff = sub nsw i64 %.idx, %.idx21
   %28 = ashr exact i64 %gepdiff, 3
   br label %29
 

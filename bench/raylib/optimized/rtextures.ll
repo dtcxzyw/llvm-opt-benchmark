@@ -23827,7 +23827,7 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   %spec.select = tail call i32 @llvm.smin.i32(i32 %25, i32 %19)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
-  %.0215 = tail call i32 @llvm.smin.i32(i32 %27, i32 %23)
+  %.0210 = tail call i32 @llvm.smin.i32(i32 %27, i32 %23)
   %foldExtExtBinop = fsub <2 x float> %2, %1
   %28 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %29 = fsub float %.sroa.087.4.vec.extract121, %.sroa.0169.4.vec.extract
@@ -23862,43 +23862,43 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   br label %52
 
 52:                                               ; preds = %45, %7
-  %.0224 = phi i32 [ %46, %45 ], [ %36, %7 ]
-  %.0223 = phi i32 [ %47, %45 ], [ %38, %7 ]
-  %.0222 = phi i32 [ %48, %45 ], [ %40, %7 ]
-  %.0221 = phi i32 [ %49, %45 ], [ %41, %7 ]
-  %.0220 = phi i32 [ %50, %45 ], [ %42, %7 ]
-  %.0219 = phi i32 [ %51, %45 ], [ %44, %7 ]
+  %.0224 = phi i32 [ %50, %45 ], [ %42, %7 ]
+  %.0223 = phi i32 [ %51, %45 ], [ %44, %7 ]
+  %.0219 = phi i32 [ %49, %45 ], [ %41, %7 ]
+  %.0213 = phi i32 [ %48, %45 ], [ %40, %7 ]
+  %.0212 = phi i32 [ %47, %45 ], [ %38, %7 ]
+  %.0211 = phi i32 [ %46, %45 ], [ %36, %7 ]
   %53 = uitofp nneg i32 %spec.store.select to float
   %54 = fsub float %53, %.sroa.0132.0.vec.extract
-  %55 = sitofp i32 %.0224 to float
+  %55 = sitofp i32 %.0211 to float
   %56 = fmul float %54, %55
-  %57 = sitofp i32 %.0223 to float
+  %57 = sitofp i32 %.0212 to float
   %58 = uitofp nneg i32 %spec.store.select1 to float
   %59 = fsub float %58, %.sroa.0132.4.vec.extract
   %60 = fmul float %59, %57
-  %61 = fadd float %56, %60
+  %61 = fadd float %60, %56
   %62 = fptosi float %61 to i32
   %63 = fsub float %53, %.sroa.087.0.vec.extract103
-  %64 = sitofp i32 %.0222 to float
+  %64 = sitofp i32 %.0213 to float
   %65 = fmul float %63, %64
-  %66 = sitofp i32 %.0221 to float
+  %66 = sitofp i32 %.0219 to float
   %67 = fsub float %58, %.sroa.087.4.vec.extract121
   %68 = fmul float %67, %66
-  %69 = fadd float %65, %68
+  %69 = fadd float %68, %65
   %70 = fptosi float %69 to i32
   %71 = fsub float %53, %.sroa.0169.0.vec.extract
-  %72 = sitofp i32 %.0220 to float
+  %72 = sitofp i32 %.0224 to float
   %73 = fmul float %71, %72
-  %74 = sitofp i32 %.0219 to float
+  %74 = sitofp i32 %.0223 to float
   %75 = fsub float %58, %.sroa.0169.4.vec.extract
   %76 = fmul float %75, %74
   %77 = fadd float %73, %76
   %78 = fptosi float %77 to i32
-  %79 = add nsw i32 %70, %62
-  %80 = add nsw i32 %79, %78
+  %79 = add i32 %70, %78
+  %80 = add i32 %79, %62
   %81 = sitofp i32 %80 to float
   %82 = fdiv float 2.550000e+02, %81
-  %.not235 = icmp sgt i32 %spec.store.select1, %.0215
+  %.not235 = icmp sgt i32 %spec.store.select1, %.0210
   br i1 %.not235, label %._crit_edge240, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %52
@@ -23915,41 +23915,41 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   br i1 %.not229230, label %._crit_edge240, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0214239 = phi i32 [ %95, %._crit_edge ], [ %spec.store.select1, %.preheader.lr.ph ]
-  %.0216238 = phi i32 [ %94, %._crit_edge ], [ %78, %.preheader.lr.ph ]
-  %.0217237 = phi i32 [ %93, %._crit_edge ], [ %70, %.preheader.lr.ph ]
-  %.0218236 = phi i32 [ %92, %._crit_edge ], [ %62, %.preheader.lr.ph ]
+  %.0218239 = phi i32 [ %95, %._crit_edge ], [ %spec.store.select1, %.preheader.lr.ph ]
+  %.0220238 = phi i32 [ %94, %._crit_edge ], [ %78, %.preheader.lr.ph ]
+  %.0221237 = phi i32 [ %93, %._crit_edge ], [ %70, %.preheader.lr.ph ]
+  %.0222236 = phi i32 [ %92, %._crit_edge ], [ %62, %.preheader.lr.ph ]
   br label %96
 
 ._crit_edge240:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %52
   ret void
 
 ._crit_edge:                                      ; preds = %137
-  %92 = add nsw i32 %.0218236, %.0223
-  %93 = add nsw i32 %.0217237, %.0221
-  %94 = add nsw i32 %.0216238, %.0219
-  %95 = add nuw i32 %.0214239, 1
-  %exitcond242.not = icmp eq i32 %.0214239, %.0215
+  %92 = add nsw i32 %.0222236, %.0212
+  %93 = add nsw i32 %.0221237, %.0219
+  %94 = add nsw i32 %.0220238, %.0223
+  %95 = add nuw i32 %.0218239, 1
+  %exitcond242.not = icmp eq i32 %.0218239, %.0210
   br i1 %exitcond242.not, label %._crit_edge240, label %.preheader
 
 96:                                               ; preds = %.preheader, %137
-  %.0210234 = phi i32 [ %spec.store.select, %.preheader ], [ %141, %137 ]
-  %.0211233 = phi i32 [ %.0216238, %.preheader ], [ %140, %137 ]
-  %.0212232 = phi i32 [ %.0217237, %.preheader ], [ %139, %137 ]
-  %.0213231 = phi i32 [ %.0218236, %.preheader ], [ %138, %137 ]
-  %97 = or i32 %.0212232, %.0213231
-  %98 = or i32 %97, %.0211233
+  %.0214234 = phi i32 [ %spec.store.select, %.preheader ], [ %141, %137 ]
+  %.0215233 = phi i32 [ %.0220238, %.preheader ], [ %140, %137 ]
+  %.0216232 = phi i32 [ %.0221237, %.preheader ], [ %139, %137 ]
+  %.0217231 = phi i32 [ %.0222236, %.preheader ], [ %138, %137 ]
+  %97 = or i32 %.0216232, %.0217231
+  %98 = or i32 %97, %.0215233
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %137
 
 100:                                              ; preds = %96
-  %101 = sitofp i32 %.0213231 to float
+  %101 = sitofp i32 %.0217231 to float
   %102 = fmul float %82, %101
   %103 = fptoui float %102 to i8
-  %104 = sitofp i32 %.0212232 to float
+  %104 = sitofp i32 %.0216232 to float
   %105 = fmul float %82, %104
   %106 = fptoui float %105 to i8
-  %107 = sitofp i32 %.0211233 to float
+  %107 = sitofp i32 %.0215233 to float
   %108 = fmul float %82, %107
   %109 = fptoui float %108 to i8
   %110 = zext i8 %103 to i32
@@ -23988,15 +23988,15 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   %.sroa.5.0.insert.insert = or disjoint i32 %.sroa.6.0.insert.insert, %.sroa.5.0.insert.shift
   %.sroa.0.0.insert.ext = and i32 %118, 255
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, %.sroa.0.0.insert.ext
-  tail call void @ImageDrawPixel(ptr noundef %0, i32 noundef %.0210234, i32 noundef %.0214239, i32 %.sroa.0.0.insert.insert)
+  tail call void @ImageDrawPixel(ptr noundef %0, i32 noundef %.0214234, i32 noundef %.0218239, i32 %.sroa.0.0.insert.insert)
   br label %137
 
 137:                                              ; preds = %100, %96
-  %138 = add nsw i32 %.0213231, %.0224
-  %139 = add nsw i32 %.0212232, %.0222
-  %140 = add nsw i32 %.0211233, %.0220
-  %141 = add nuw i32 %.0210234, 1
-  %exitcond.not = icmp eq i32 %.0210234, %spec.select
+  %138 = add nsw i32 %.0217231, %.0211
+  %139 = add nsw i32 %.0216232, %.0213
+  %140 = add nsw i32 %.0215233, %.0224
+  %141 = add nuw i32 %.0214234, 1
+  %exitcond.not = icmp eq i32 %.0214234, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %96
 }
 

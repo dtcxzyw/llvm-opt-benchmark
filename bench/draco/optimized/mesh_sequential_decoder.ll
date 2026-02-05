@@ -734,8 +734,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
           to label %15 unwind label %69
 
 15:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %.not52.not82 = icmp ne i32 %1, 0
-  %or.cond = and i1 %14, %.not52.not82
+  %.not52.not79 = icmp ne i32 %1, 0
+  %or.cond = and i1 %14, %.not52.not79
   br i1 %or.cond, label %.lr.ph, label %.critedge54
 
 .lr.ph:                                           ; preds = %15
@@ -743,12 +743,12 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   br label %17
 
 17:                                               ; preds = %.lr.ph, %64
-  %.03485 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
-  %.03584 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next89, %64 ]
-  %.03883 = phi i32 [ 0, %.lr.ph ], [ %32, %64 ]
+  %.03482 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
+  %.03581 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %64 ]
+  %.03880 = phi i32 [ 0, %.lr.ph ], [ %32, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !tbaa !36
-  %sext = shl i64 %.03584, 32
+  %sext = shl i64 %.03581, 32
   %18 = ashr exact i64 %sext, 32
   br label %19
 
@@ -768,11 +768,11 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   br label %71
 
 19:                                               ; preds = %17, %31
-  %indvars.iv88 = phi i64 [ %18, %17 ], [ %indvars.iv.next89, %31 ]
+  %indvars.iv85 = phi i64 [ %18, %17 ], [ %indvars.iv.next86, %31 ]
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %31 ]
-  %.13979 = phi i32 [ %.03883, %17 ], [ %32, %31 ]
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
-  %20 = getelementptr inbounds nuw i32, ptr %.sroa.060.0, i64 %indvars.iv88
+  %.13976 = phi i32 [ %.03880, %17 ], [ %32, %31 ]
+  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
+  %20 = getelementptr inbounds nuw i32, ptr %.sroa.060.0, i64 %indvars.iv85
   %21 = load i32, ptr %20, align 4, !tbaa !34
   %22 = lshr i32 %21, 1
   %23 = and i32 %21, 1
@@ -780,7 +780,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %19
-  %25 = icmp sgt i32 %22, %.13979
+  %25 = icmp sgt i32 %22, %.13976
   br i1 %25, label %.critedge54.thread, label %26
 
 26:                                               ; preds = %24
@@ -788,13 +788,13 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   br label %31
 
 28:                                               ; preds = %19
-  %29 = sub nsw i32 2147483647, %.13979
+  %29 = sub nsw i32 2147483647, %.13976
   %30 = icmp samesign ugt i32 %22, %29
   br i1 %30, label %.critedge54.thread, label %31
 
 31:                                               ; preds = %28, %26
   %.030 = phi i32 [ %27, %26 ], [ %22, %28 ]
-  %32 = add nsw i32 %.030, %.13979
+  %32 = add nsw i32 %.030, %.13976
   %33 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %3, i64 %indvars.iv
   store i32 %32, ptr %33, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -880,29 +880,29 @@ _ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5
 
 64:                                               ; preds = %41, %_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %65 = add nuw i32 %.03485, 1
-  %exitcond93.not = icmp eq i32 %65, %1
-  br i1 %exitcond93.not, label %.critedge54.thread101, label %17, !llvm.loop !94
+  %65 = add nuw i32 %.03482, 1
+  %exitcond90.not = icmp eq i32 %65, %1
+  br i1 %exitcond90.not, label %.critedge54.thread98, label %17, !llvm.loop !94
 
 .critedge54.thread:                               ; preds = %24, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge54.thread101
+  br label %.critedge54.thread98
 
 .critedge54:                                      ; preds = %15
   %.not.i.i.i57 = icmp eq ptr %.sroa.060.0, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.critedge54.thread101
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.critedge54.thread98
 
-.critedge54.thread101:                            ; preds = %64, %.critedge54.thread, %.critedge54
-  %.075 = phi i1 [ false, %.critedge54.thread ], [ %14, %.critedge54 ], [ %14, %64 ]
+.critedge54.thread98:                             ; preds = %64, %.critedge54.thread, %.critedge54
+  %.072 = phi i1 [ false, %.critedge54.thread ], [ %14, %.critedge54 ], [ %14, %64 ]
   %66 = ptrtoint ptr %.sroa.11.0 to i64
   %67 = ptrtoint ptr %.sroa.060.0 to i64
   %68 = sub i64 %66, %67
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0, i64 noundef %68) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.critedge54.thread101
-  %.076 = phi i1 [ %14, %.critedge54 ], [ %.075, %.critedge54.thread101 ]
-  ret i1 %.076
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.critedge54.thread98
+  %.073 = phi i1 [ %14, %.critedge54 ], [ %.072, %.critedge54.thread98 ]
+  ret i1 %.073
 
 69:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
   %70 = landingpad { ptr, i32 }
@@ -911,7 +911,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.crit
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIjSaIjEED2Ev.exit59, label %71
 
 71:                                               ; preds = %.thread, %69
-  %.pn105 = phi { ptr, i32 } [ %lpad.phi, %.thread ], [ %70, %69 ]
+  %.pn102 = phi { ptr, i32 } [ %lpad.phi, %.thread ], [ %70, %69 ]
   %72 = ptrtoint ptr %.sroa.11.0 to i64
   %73 = ptrtoint ptr %.sroa.060.0 to i64
   %74 = sub i64 %72, %73
@@ -919,8 +919,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge54, %.crit
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit59
 
 _ZNSt6vectorIjSaIjEED2Ev.exit59:                  ; preds = %71, %69
-  %.pn106 = phi { ptr, i32 } [ %.pn105, %71 ], [ %70, %69 ]
-  resume { ptr, i32 } %.pn106
+  %.pn103 = phi { ptr, i32 } [ %.pn102, %71 ], [ %70, %69 ]
+  resume { ptr, i32 } %.pn103
 }
 
 ; Function Attrs: mustprogress uwtable

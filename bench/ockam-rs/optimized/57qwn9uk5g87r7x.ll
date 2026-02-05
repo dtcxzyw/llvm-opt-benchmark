@@ -5884,8 +5884,8 @@ common.ret:                                       ; preds = %660, %519, %280
           to label %494 unwind label %491, !noalias !717
 
 494:                                              ; preds = %493
-  %.sroa.12.sroa.10.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.0..sroa_idx18.i, i64 224, i1 false), !noalias !724
+  %.sroa.12.sroa.10.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %26, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.0..sroa_idx16.i, i64 224, i1 false), !noalias !724
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !717
   br label %.noexc10.i.i.i.i
 
@@ -5930,8 +5930,8 @@ common.ret:                                       ; preds = %660, %519, %280
           to label %506 unwind label %503, !noalias !717
 
 506:                                              ; preds = %505
-  %.sroa.12.sroa.10.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.0..sroa_idx19.i, i64 224, i1 false), !noalias !724
+  %.sroa.12.sroa.10.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %28, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12.sroa.10.0..sroa_idx17.i, i64 224, i1 false), !noalias !724
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !717
   br label %.noexc13.i.i.i.i
 

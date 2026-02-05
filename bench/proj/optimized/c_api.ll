@@ -37918,8 +37918,8 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2INS1_4util10BaseObjectEEERKS_IT_EPS3_.
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit67thread-pre-split: ; preds = %65
   %71 = atomicrmw volatile add ptr %66, i32 1 acq_rel, align 4, !noalias !527
-  %.pr139.pre = load ptr, ptr %15, align 8, !tbaa !189
-  %72 = icmp eq ptr %.pr139.pre, null
+  %.pr137.pre = load ptr, ptr %15, align 8, !tbaa !189
+  %72 = icmp eq ptr %.pr137.pre, null
   br i1 %72, label %73, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit67thread-pre-split.thread
 
 73:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2INS1_4util10BaseObjectEEERKS_IT_EPS3_.exit.i66, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit67thread-pre-split
@@ -38029,13 +38029,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %111, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split: ; preds = %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %114
-  %.pr140 = load ptr, ptr %16, align 8, !tbaa !189
+  %.pr138 = load ptr, ptr %16, align 8, !tbaa !189
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit72.thread, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
-  %115 = phi ptr [ %.pr140, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.0.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit72.thread ]
-  %.not143 = icmp eq ptr %115, null
-  br i1 %.not143, label %116, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
+  %115 = phi ptr [ %.pr138, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.0.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit72.thread ]
+  %.not141 = icmp eq ptr %115, null
+  br i1 %.not141, label %116, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
 
 116:                                              ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   invoke fastcc void @_ZL14proj_log_errorP6pj_ctxPKcS2_(ptr noundef %.045, ptr noundef nonnull @__FUNCTION__.proj_create_transformation, ptr noundef nonnull @.str.59)
@@ -73009,25 +73009,25 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread: ; preds = %57, %51, %49, %46
-  %.sroa.6297.0.ph = phi ptr [ null, %46 ], [ null, %49 ], [ null, %51 ], [ %53, %57 ]
-  %.sroa.0296.0.ph = phi ptr [ null, %46 ], [ null, %49 ], [ %50, %51 ], [ %50, %57 ]
-  store ptr %.sroa.0296.0.ph, ptr %6, align 8, !tbaa !630
+  %.sroa.6295.0.ph = phi ptr [ null, %46 ], [ null, %49 ], [ null, %51 ], [ %53, %57 ]
+  %.sroa.0294.0.ph = phi ptr [ null, %46 ], [ null, %49 ], [ %50, %51 ], [ %50, %57 ]
+  store ptr %.sroa.0294.0.ph, ptr %6, align 8, !tbaa !630
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sroa.6297.0.ph, ptr %60, align 8, !tbaa !19
+  store ptr %.sroa.6295.0.ph, ptr %60, align 8, !tbaa !19
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %54
   %61 = atomicrmw volatile add ptr %55, i32 1 acq_rel, align 4, !noalias !627
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre346 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
+  %.pre342 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
   store ptr %50, ptr %6, align 8, !tbaa !630
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %53, ptr %62, align 8, !tbaa !19
-  %.not.i.i.i.i149 = icmp eq ptr %.pre346, null
+  %.not.i.i.i.i149 = icmp eq ptr %.pre342, null
   br i1 %.not.i.i.i.i149, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread, label %63
 
 63:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit
-  %64 = getelementptr inbounds nuw i8, ptr %.pre346, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pre342, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -73035,16 +73035,16 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4ut
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8, !tbaa !22
-  %69 = getelementptr inbounds nuw i8, ptr %.pre346, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pre342, i64 12
   store i32 0, ptr %69, align 4, !tbaa !25
-  %70 = load ptr, ptr %.pre346, align 8, !tbaa !26
+  %70 = load ptr, ptr %.pre342, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
-  %73 = load ptr, ptr %.pre346, align 8, !tbaa !26
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pre342) #35
+  %73 = load ptr, ptr %.pre342, align 8, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(16) %.pre342) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
 
 76:                                               ; preds = %63
@@ -73067,18 +73067,18 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %80, %7
   br i1 %82, label %83, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split, !prof !29
 
 83:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre342) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
 
 _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split: ; preds = %68, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %83
-  %.pr301 = load ptr, ptr %6, align 8, !tbaa !487
+  %.pr297 = load ptr, ptr %6, align 8, !tbaa !487
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
   %84 = phi ptr [ %62, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %60, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread ]
-  %85 = phi ptr [ %.pr301, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.0296.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread ]
-  %.not334 = icmp eq ptr %85, null
-  br i1 %.not334, label %86, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
+  %85 = phi ptr [ %.pr297, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.0294.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.thread ]
+  %.not330 = icmp eq ptr %85, null
+  br i1 %.not330, label %86, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
 
 86:                                               ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   invoke fastcc void @_ZL14proj_log_errorP6pj_ctxPKcS2_(ptr noundef %.063, ptr noundef nonnull @__FUNCTION__.proj_create_operations, ptr noundef nonnull @.str.72)
@@ -73280,18 +73280,18 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split: ; preds = %163
   %169 = atomicrmw volatile add ptr %164, i32 1 acq_rel, align 4, !noalias !631
-  %.pr302.pre = load ptr, ptr %7, align 8, !tbaa !189
-  %170 = icmp eq ptr %.pr302.pre, null
+  %.pr298.pre = load ptr, ptr %7, align 8, !tbaa !189
+  %170 = icmp eq ptr %.pr298.pre, null
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br i1 %170, label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split._crit_edge, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit192
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split._crit_edge: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split
-  %.pre348 = load ptr, ptr %154, align 8, !tbaa !45, !noalias !634
+  %.pre344 = load ptr, ptr %154, align 8, !tbaa !45, !noalias !634
   br label %171
 
 171:                                              ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split._crit_edge, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2INS1_4util10BaseObjectEEERKS_IT_EPS3_.exit.i160
-  %172 = phi ptr [ %.pre348, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split._crit_edge ], [ %155, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2INS1_4util10BaseObjectEEERKS_IT_EPS3_.exit.i160 ]
+  %172 = phi ptr [ %.pre344, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit161thread-pre-split._crit_edge ], [ %155, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2INS1_4util10BaseObjectEEERKS_IT_EPS3_.exit.i160 ]
   %173 = icmp eq ptr %172, null
   br i1 %173, label %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166.thread, label %174
 
@@ -73328,16 +73328,16 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4ut
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166: ; preds = %179
   %186 = atomicrmw volatile add ptr %180, i32 1 acq_rel, align 4, !noalias !634
-  %.phi.trans.insert349 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre350 = load ptr, ptr %.phi.trans.insert349, align 8, !tbaa !19
+  %.phi.trans.insert345 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.pre346 = load ptr, ptr %.phi.trans.insert345, align 8, !tbaa !19
   store ptr %175, ptr %8, align 8, !tbaa !630
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %178, ptr %187, align 8, !tbaa !19
-  %.not.i.i.i.i167 = icmp eq ptr %.pre350, null
+  %.not.i.i.i.i167 = icmp eq ptr %.pre346, null
   br i1 %.not.i.i.i.i167, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176.thread, label %188
 
 188:                                              ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166
-  %189 = getelementptr inbounds nuw i8, ptr %.pre350, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %.pre346, i64 8
   %190 = load atomic i64, ptr %189 acquire, align 8
   %191 = icmp eq i64 %190, 4294967297
   %192 = trunc i64 %190 to i32
@@ -73345,16 +73345,16 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4ut
 
 193:                                              ; preds = %188
   store i32 0, ptr %189, align 8, !tbaa !22
-  %194 = getelementptr inbounds nuw i8, ptr %.pre350, i64 12
+  %194 = getelementptr inbounds nuw i8, ptr %.pre346, i64 12
   store i32 0, ptr %194, align 4, !tbaa !25
-  %195 = load ptr, ptr %.pre350, align 8, !tbaa !26
+  %195 = load ptr, ptr %.pre346, align 8, !tbaa !26
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load ptr, ptr %196, align 8
-  tail call void %197(ptr noundef nonnull align 8 dereferenceable(16) %.pre350) #35
-  %198 = load ptr, ptr %.pre350, align 8, !tbaa !26
+  tail call void %197(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
+  %198 = load ptr, ptr %.pre346, align 8, !tbaa !26
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull align 8 dereferenceable(16) %.pre350) #35
+  tail call void %200(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split
 
 201:                                              ; preds = %188
@@ -73377,18 +73377,18 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i169: ; preds = %205
   br i1 %207, label %208, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split, !prof !29
 
 208:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i169
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre350) #35
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre346) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split
 
 _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split: ; preds = %193, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i169, %208
-  %.pr303 = load ptr, ptr %8, align 8, !tbaa !487
+  %.pr299 = load ptr, ptr %8, align 8, !tbaa !487
   br label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176
 
 _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166.thread, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split
   %209 = phi ptr [ %187, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split ], [ %185, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166.thread ]
-  %210 = phi ptr [ %.pr303, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split ], [ %.sroa.0292.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166.thread ]
-  %.not336 = icmp eq ptr %210, null
-  br i1 %.not336, label %211, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176.thread
+  %210 = phi ptr [ %.pr299, %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176thread-pre-split ], [ %.sroa.0292.0.ph, %_ZSt20dynamic_pointer_castIN5osgeo4proj11coordinates18CoordinateMetadataENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit166.thread ]
+  %.not332 = icmp eq ptr %210, null
+  br i1 %.not332, label %211, label %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176.thread
 
 211:                                              ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit176
   invoke fastcc void @_ZL14proj_log_errorP6pj_ctxPKcS2_(ptr noundef %.063, ptr noundef nonnull @__FUNCTION__.proj_create_operations, ptr noundef nonnull @.str.73)
@@ -73553,15 +73553,15 @@ _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %280 = load ptr, ptr %6, align 8, !tbaa !487
-  %.not337 = icmp eq ptr %280, null
+  %.not333 = icmp eq ptr %280, null
   %281 = load ptr, ptr %8, align 8, !tbaa !487
-  %.not338 = icmp eq ptr %281, null
+  %.not334 = icmp eq ptr %281, null
   %282 = load ptr, ptr %9, align 8, !tbaa !603
-  br i1 %.not337, label %331, label %283
+  br i1 %.not333, label %331, label %283
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not338, label %308, label %285
+  br i1 %.not334, label %308, label %285
 
 285:                                              ; preds = %283
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -73586,11 +73586,11 @@ _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12
 
 294:                                              ; preds = %288
   %295 = atomicrmw volatile add ptr %289, i32 1 acq_rel, align 4
-  %.pre351 = load ptr, ptr %8, align 8, !tbaa !487
+  %.pre347 = load ptr, ptr %8, align 8, !tbaa !487
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit: ; preds = %285, %291, %294
-  %296 = phi ptr [ %281, %285 ], [ %281, %291 ], [ %.pre351, %294 ]
+  %296 = phi ptr [ %281, %285 ], [ %281, %291 ], [ %.pre347, %294 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %296, ptr %13, align 8, !tbaa !487
   %297 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -73678,7 +73678,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 331:                                              ; preds = %279
   %332 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not338, label %357, label %333
+  br i1 %.not334, label %357, label %333
 
 333:                                              ; preds = %331
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -73704,11 +73704,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 343:                                              ; preds = %337
   %344 = atomicrmw volatile add ptr %338, i32 1 acq_rel, align 4
-  %.pre352 = load ptr, ptr %8, align 8, !tbaa !487
+  %.pre348 = load ptr, ptr %8, align 8, !tbaa !487
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit205
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit205: ; preds = %333, %340, %343
-  %345 = phi ptr [ %281, %333 ], [ %281, %340 ], [ %.pre352, %343 ]
+  %345 = phi ptr [ %281, %333 ], [ %281, %340 ], [ %.pre348, %343 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %345, ptr %17, align 8, !tbaa !487
   %346 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -74211,8 +74211,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetada
   %557 = load ptr, ptr %11, align 8, !tbaa !637
   %558 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %559 = load ptr, ptr %558, align 8, !tbaa !637
-  %.not340343 = icmp eq ptr %557, %559
-  br i1 %.not340343, label %._crit_edge, label %.lr.ph
+  %.not336339 = icmp eq ptr %557, %559
+  br i1 %.not336339, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge133
   %560 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -74270,17 +74270,17 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetada
   br label %.critedge145
 
 570:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit
-  %.sroa.0289.0344 = phi ptr [ %557, %.lr.ph ], [ %589, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit ]
+  %.sroa.0289.0340 = phi ptr [ %557, %.lr.ph ], [ %589, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit ]
   %571 = load ptr, ptr %560, align 8, !tbaa !121
   %572 = load ptr, ptr %561, align 8, !tbaa !123
   %.not.i = icmp eq ptr %571, %572
   br i1 %.not.i, label %588, label %573
 
 573:                                              ; preds = %570
-  %574 = load ptr, ptr %.sroa.0289.0344, align 8, !tbaa !192
+  %574 = load ptr, ptr %.sroa.0289.0340, align 8, !tbaa !192
   store ptr %574, ptr %571, align 8, !tbaa !198
   %575 = getelementptr inbounds nuw i8, ptr %571, i64 8
-  %576 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0344, i64 8
+  %576 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0340, i64 8
   %577 = load ptr, ptr %576, align 8, !tbaa !19
   store ptr %577, ptr %575, align 8, !tbaa !19
   %.not.i.i.i.i.i.i.i = icmp eq ptr %577, null
@@ -74310,13 +74310,13 @@ _ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6commo
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit
 
 588:                                              ; preds = %570
-  invoke void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE17_M_realloc_insertIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %571, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0289.0344)
+  invoke void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE17_M_realloc_insertIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %571, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0289.0340)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit unwind label %590
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EE12emplace_backIJRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEERS9_DpOT_.exit: ; preds = %588, %_ZNSt16allocator_traitsISaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEEEE9constructIS9_JRKNS2_IS3_INS5_9operation19CoordinateOperationEEEEEEEvRSA_PT_DpOT0_.exit.i
-  %589 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0344, i64 16
-  %.not340 = icmp eq ptr %589, %559
-  br i1 %.not340, label %._crit_edge, label %570
+  %589 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0340, i64 16
+  %.not336 = icmp eq ptr %589, %559
+  br i1 %.not336, label %._crit_edge, label %570
 
 590:                                              ; preds = %588
   %591 = landingpad { ptr, i32 }

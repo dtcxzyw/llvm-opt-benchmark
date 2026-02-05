@@ -541,8 +541,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5b511fb5144d2722E.exit"
   %18 = extractvalue { ptr, i64 } %17, 0
-  %.not10.i.i = icmp eq ptr %18, null
-  br i1 %.not10.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf8bca381d2b5f7a5E.exit", label %.lr.ph.i.i
+  %.not6.i.i = icmp eq ptr %18, null
+  br i1 %.not6.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf8bca381d2b5f7a5E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc7
   %.pn.i.i = phi { ptr, i64 } [ %28, %.noexc7 ], [ %17, %.noexc ]

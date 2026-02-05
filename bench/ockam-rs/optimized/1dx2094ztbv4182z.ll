@@ -332,9 +332,9 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
           to label %15 unwind label %47
 
 29:                                               ; preds = %24, %25
-  %.sroa.8.1 = phi ptr [ %17, %24 ], [ %23, %25 ]
+  %.sroa.8.0 = phi ptr [ %17, %24 ], [ %23, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %30, align 8
+  store ptr %.sroa.8.0, ptr %30, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address..Address$GT$$GT$17h105697805a9062c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   br label %46
@@ -665,9 +665,9 @@ common.resume:                                    ; preds = %32, %.body
           to label %common.resume unwind label %66
 
 30:                                               ; preds = %25, %26
-  %.sroa.8.1 = phi ptr [ %18, %25 ], [ %24, %26 ]
+  %.sroa.8.0 = phi ptr [ %18, %25 ], [ %24, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %31, align 8
+  store ptr %.sroa.8.0, ptr %31, align 8
   store ptr null, ptr %0, align 8
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h744361a7dc874bf8E.llvm.14780125840797112574"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %34 unwind label %32
@@ -1886,9 +1886,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br i1 %.not.i, label %.loopexit70.i, label %110
 
 98:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i", %76
-  %.sroa.9.1.i = phi ptr [ %82, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i" ], [ %75, %76 ]
+  %.sroa.9.0.i = phi ptr [ %82, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i" ], [ %75, %76 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.1.i, ptr %99, align 8, !alias.scope !394, !noalias !443
+  store ptr %.sroa.9.0.i, ptr %99, align 8, !alias.scope !394, !noalias !443
   store ptr null, ptr %0, align 8, !alias.scope !394, !noalias !443
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !444)

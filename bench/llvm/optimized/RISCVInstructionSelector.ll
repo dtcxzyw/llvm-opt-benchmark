@@ -323,9 +323,9 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 333
   %95 = load i8, ptr %94, align 1, !tbaa !210, !range !189, !noundef !190
   %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %.thread255.i.i, label %99
+  br i1 %96, label %.thread253.i.i, label %99
 
-.thread255.i.i:                                   ; preds = %3
+.thread253.i.i:                                   ; preds = %3
   %97 = or i64 %.sroa.0.21.i.i, 262144
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 402
   br label %103
@@ -336,10 +336,10 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %106
 
-103:                                              ; preds = %99, %.thread255.i.i
-  %104 = phi ptr [ %98, %.thread255.i.i ], [ %100, %99 ]
-  %.sroa.0.22257.i.i = phi i64 [ %97, %.thread255.i.i ], [ %.sroa.0.21.i.i, %99 ]
-  %105 = or i64 %.sroa.0.22257.i.i, 1048576
+103:                                              ; preds = %99, %.thread253.i.i
+  %104 = phi ptr [ %98, %.thread253.i.i ], [ %100, %99 ]
+  %.sroa.0.22255.i.i = phi i64 [ %97, %.thread253.i.i ], [ %.sroa.0.21.i.i, %99 ]
+  %105 = or i64 %.sroa.0.22255.i.i, 1048576
   br label %106
 
 106:                                              ; preds = %103, %99
@@ -369,12 +369,12 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %123 = load i8, ptr %122, align 2, !tbaa !215, !range !189, !noundef !190
   %124 = trunc nuw i8 %123 to i1
   %125 = or i64 %.sroa.0.29.i.i, 68719476736
-  %.sroa.0.30264.i.i = select i1 %124, i64 %125, i64 %.sroa.0.29.i.i
+  %.sroa.0.30262.i.i = select i1 %124, i64 %125, i64 %.sroa.0.29.i.i
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %127 = load i8, ptr %126, align 8, !tbaa !216, !range !189, !noundef !190
   %128 = zext nneg i8 %127 to i64
   %129 = shl nuw nsw i64 %128, 41
-  %.sroa.0.31.i.i = or i64 %.sroa.0.30264.i.i, %129
+  %.sroa.0.31.i.i = or i64 %.sroa.0.30262.i.i, %129
   %130 = or i8 %123, %112
   %brmerge.not.i.i = icmp eq i8 %130, 0
   %131 = or i64 %.sroa.0.31.i.i, 8589934592
@@ -391,33 +391,33 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 439
   %140 = load i8, ptr %139, align 1, !tbaa !218, !range !189, !noundef !190
   %141 = trunc nuw i8 %140 to i1
-  br i1 %138, label %142, label %.thread278.i.i
+  br i1 %138, label %142, label %.thread276.i.i
 
 142:                                              ; preds = %106
-  %spec.select286.v.i.i = select i1 %141, i64 21990232555520, i64 4398046511104
-  br label %.thread265.i.i
+  %spec.select284.v.i.i = select i1 %141, i64 21990232555520, i64 4398046511104
+  br label %.thread263.i.i
 
-.thread278.i.i:                                   ; preds = %106
-  br i1 %141, label %.thread265.i.i, label %.thread269.i.i
+.thread276.i.i:                                   ; preds = %106
+  br i1 %141, label %.thread263.i.i, label %.thread267.i.i
 
-.thread265.i.i:                                   ; preds = %.thread278.i.i, %142
-  %spec.select286.v.pn.i.i = phi i64 [ %spec.select286.v.i.i, %142 ], [ 17592186044416, %.thread278.i.i ]
-  %.sroa.0.35268.i.i = or i64 %.sroa.0.33.i.i, %spec.select286.v.pn.i.i
-  %143 = or i64 %.sroa.0.35268.i.i, 8796093022208
-  br label %.thread269.i.i
+.thread263.i.i:                                   ; preds = %.thread276.i.i, %142
+  %spec.select284.v.pn.i.i = phi i64 [ %spec.select284.v.i.i, %142 ], [ 17592186044416, %.thread276.i.i ]
+  %.sroa.0.35266.i.i = or i64 %.sroa.0.33.i.i, %spec.select284.v.pn.i.i
+  %143 = or i64 %.sroa.0.35266.i.i, 8796093022208
+  br label %.thread267.i.i
 
-.thread269.i.i:                                   ; preds = %.thread265.i.i, %.thread278.i.i
-  %.sroa.0.36.i.i = phi i64 [ %143, %.thread265.i.i ], [ %.sroa.0.33.i.i, %.thread278.i.i ]
+.thread267.i.i:                                   ; preds = %.thread263.i.i, %.thread276.i.i
+  %.sroa.0.36.i.i = phi i64 [ %143, %.thread263.i.i ], [ %.sroa.0.33.i.i, %.thread276.i.i ]
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %145 = load i8, ptr %144, align 8, !tbaa !219, !range !189, !noundef !190
   %146 = zext nneg i8 %145 to i64
   %147 = shl nuw nsw i64 %146, 45
-  %spec.select287.i.i = or i64 %147, %.sroa.0.36.i.i
+  %spec.select285.i.i = or i64 %147, %.sroa.0.36.i.i
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 443
   %149 = load i8, ptr %148, align 1, !tbaa !220, !range !189, !noundef !190
   %150 = zext nneg i8 %149 to i64
   %151 = shl nuw nsw i64 %150, 46
-  %.sroa.0.38.i.i = or i64 %spec.select287.i.i, %151
+  %.sroa.0.38.i.i = or i64 %spec.select285.i.i, %151
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 444
   %153 = load i8, ptr %152, align 4, !tbaa !221, !range !189, !noundef !190
   %154 = zext nneg i8 %153 to i64
@@ -557,31 +557,31 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %267 = trunc nuw i8 %266 to i1
   br i1 %267, label %.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i
 
-.thread.i.i:                                      ; preds = %.thread269.i.i
+.thread.i.i:                                      ; preds = %.thread267.i.i
   %268 = load i8, ptr %94, align 1, !tbaa !210, !range !189, !noundef !190
   %269 = trunc nuw i8 %268 to i1
   %270 = load i8, ptr %107, align 2, !range !189
   %271 = trunc nuw i8 %270 to i1
   %272 = select i1 %269, i1 true, i1 %271
-  %brmerge288.i.i = select i1 %272, i1 true, i1 %264
+  %brmerge286.i.i = select i1 %272, i1 true, i1 %264
   %273 = or i64 %.sroa.0.59.i.i, 65536
-  %spec.select.i.i = select i1 %brmerge288.i.i, i64 %273, i64 %.sroa.0.59.i.i
+  %spec.select.i.i = select i1 %brmerge286.i.i, i64 %273, i64 %.sroa.0.59.i.i
   br i1 %272, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i, label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i
 
-_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i: ; preds = %.thread269.i.i
+_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i: ; preds = %.thread267.i.i
   %274 = or i64 %.sroa.0.59.i.i, 65536
-  %spec.select299.i.i = select i1 %264, i64 %274, i64 %.sroa.0.59.i.i
+  %spec.select297.i.i = select i1 %264, i64 %274, i64 %.sroa.0.59.i.i
   br label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i
 
 _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i: ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i, %.thread.i.i
-  %.sroa.0.60295.i.i = phi i64 [ %spec.select299.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i ], [ %spec.select.i.i, %.thread.i.i ]
+  %.sroa.0.60293.i.i = phi i64 [ %spec.select297.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit.i.i ], [ %spec.select.i.i, %.thread.i.i ]
   %not..i.i = xor i1 %264, true
   %275 = zext i1 %not..i.i to i64
-  %spec.select289.i.i = or i64 %.sroa.0.60295.i.i, %275
+  %spec.select287.i.i = or i64 %.sroa.0.60293.i.i, %275
   br label %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
 
 _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i: ; preds = %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i, %.thread.i.i
-  %.sroa.0.61.i.i = phi i64 [ %spec.select289.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i ], [ %spec.select.i.i, %.thread.i.i ]
+  %.sroa.0.61.i.i = phi i64 [ %spec.select287.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.i.i ], [ %spec.select.i.i, %.thread.i.i ]
   %276 = load i8, ptr %41, align 1, !tbaa !196, !range !189, !noundef !190
   %277 = trunc nuw i8 %276 to i1
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 318
@@ -599,17 +599,17 @@ _ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i: ; preds
   %285 = load ptr, ptr %283, align 8, !tbaa !261
   %286 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %285, i32 noundef 18) #25
   %287 = or i64 %.sroa.0.62.i.i, 524288
-  %spec.select290.i.i = select i1 %286, i64 %287, i64 %.sroa.0.62.i.i
+  %spec.select288.i.i = select i1 %286, i64 %287, i64 %.sroa.0.62.i.i
   %.pre.i.i = load i8, ptr %259, align 1, !tbaa !257, !range !189
-  %.pre292.i.i = trunc nuw i8 %.pre.i.i to i1
+  %.pre290.i.i = trunc nuw i8 %.pre.i.i to i1
   br label %_ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i
 
 _ZNK12_GLOBAL__N_124RISCVInstructionSelector30computeAvailableModuleFeaturesEPKN4llvm14RISCVSubtargetE.exit.i: ; preds = %284, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i
-  %.pre-phi.i.i = phi i1 [ %.pre292.i.i, %284 ], [ %261, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i ]
-  %.sroa.0.63.i.i = phi i64 [ %spec.select290.i.i, %284 ], [ %.sroa.0.62.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i ]
+  %.pre-phi.i.i = phi i1 [ %.pre290.i.i, %284 ], [ %261, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i ]
+  %.sroa.0.63.i.i = phi i64 [ %spec.select288.i.i, %284 ], [ %.sroa.0.62.i.i, %_ZNK4llvm14RISCVSubtarget24hasConditionalMoveFusionEv.exit93.thread.i.i ]
   %288 = shl nuw nsw i8 %26, 1
-  %.sroa.131.1291.i.i = or disjoint i8 %288, %24
-  %.sroa.131.1.i.i = zext nneg i8 %.sroa.131.1291.i.i to i64
+  %.sroa.131.1289.i.i = or disjoint i8 %288, %24
+  %.sroa.131.1.i.i = zext nneg i8 %.sroa.131.1289.i.i to i64
   %289 = or disjoint i64 %.sroa.131.1.i.i, 4194304
   %.sroa.131.2.i.i = select i1 %124, i64 %.sroa.131.1.i.i, i64 %289
   %290 = shl nuw nsw i8 %221, 2
@@ -1829,8 +1829,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %122, %130,
   %146 = icmp ne i64 %145, 0
   %147 = and i64 %.sroa.0.0.copyload.i.i, -8
   %148 = inttoptr i64 %147 to ptr
-  %.not115176 = icmp eq i64 %147, 0
-  %.not115 = or i1 %146, %.not115176
+  %.not115174 = icmp eq i64 %147, 0
+  %.not115 = or i1 %146, %.not115174
   br i1 %.not115, label %149, label %153
 
 149:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -11087,8 +11087,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   call void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtargetInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.536") align 8 %9, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(304) %27) #25
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !480
-  %.not106 = icmp eq i32 %29, 0
-  br i1 %.not106, label %.critedge, label %.lr.ph
+  %.not104 = icmp eq i32 %29, 0
+  br i1 %.not104, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %30 = add i32 %29, -1
@@ -11117,8 +11117,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
 
 51:                                               ; preds = %96, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %.059108 = phi ptr [ undef, %.lr.ph ], [ %.160, %96 ]
-  %.sroa.0101.0107 = phi i32 [ 43, %.lr.ph ], [ %.sroa.029.0, %96 ]
+  %.059106 = phi ptr [ undef, %.lr.ph ], [ %.160, %96 ]
+  %.sroa.099.0105 = phi i32 [ 43, %.lr.ph ], [ %.sroa.029.0, %96 ]
   %52 = icmp samesign ult i64 %indvars.iv, %50
   br i1 %52, label %53, label %56
 
@@ -11168,7 +11168,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   store i32 %.sroa.029.0, ptr %11, align 8, !tbaa !379
   store i32 1, ptr %40, align 8, !tbaa !488
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i32 %.sroa.0101.0107, ptr %12, align 8, !tbaa !379
+  store i32 %.sroa.099.0105, ptr %12, align 8, !tbaa !379
   store i32 0, ptr %41, align 8, !tbaa !490
   store i32 43, ptr %42, align 8, !tbaa !379
   store i32 0, ptr %43, align 8, !tbaa !490
@@ -11187,9 +11187,9 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   store i32 %.sroa.029.0, ptr %13, align 8, !tbaa !379
   store i32 1, ptr %36, align 8, !tbaa !488
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i32 %.sroa.0101.0107, ptr %14, align 8, !tbaa !379
+  store i32 %.sroa.099.0105, ptr %14, align 8, !tbaa !379
   store i32 0, ptr %37, align 8, !tbaa !490
-  store i32 %.sroa.0101.0107, ptr %38, align 8, !tbaa !379
+  store i32 %.sroa.099.0105, ptr %38, align 8, !tbaa !379
   store i32 0, ptr %39, align 8, !tbaa !490
   %80 = load ptr, ptr %3, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
@@ -11206,7 +11206,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   store i32 %.sroa.029.0, ptr %15, align 8, !tbaa !379
   store i32 1, ptr %32, align 8, !tbaa !488
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i32 %.sroa.0101.0107, ptr %16, align 8, !tbaa !379
+  store i32 %.sroa.099.0105, ptr %16, align 8, !tbaa !379
   store i32 0, ptr %33, align 8, !tbaa !490
   %87 = load ptr, ptr %3, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
@@ -11228,7 +11228,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   br label %96
 
 96:                                               ; preds = %85, %78, %71, %60, %56
-  %.160 = phi ptr [ %.059108, %56 ], [ %67, %60 ], [ %77, %71 ], [ %84, %78 ], [ %92, %85 ]
+  %.160 = phi ptr [ %.059106, %56 ], [ %67, %60 ], [ %77, %71 ], [ %84, %78 ], [ %92, %85 ]
   %97 = load ptr, ptr %47, align 8, !tbaa !475
   %98 = load ptr, ptr %48, align 8, !tbaa !482
   %99 = load ptr, ptr %49, align 8, !tbaa !459
@@ -11483,7 +11483,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %78, %80
   %104 = load ptr, ptr %103, align 8, !tbaa !521
   %105 = load ptr, ptr %102, align 8, !tbaa !519
   call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %104, ptr noundef nonnull align 8 dereferenceable(1065) %105, ptr noundef %93) #25
-  %.sroa.3112.0.copyload = load ptr, ptr %103, align 8, !tbaa !505
+  %.sroa.3106.0.copyload = load ptr, ptr %103, align 8, !tbaa !505
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11492,7 +11492,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %78, %80
   %109 = load ptr, ptr %108, align 8, !tbaa !482
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %111 = load ptr, ptr %110, align 8, !tbaa !459
-  %112 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.3112.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 8 dereferenceable(308) %109, ptr noundef nonnull align 8 dereferenceable(160) %111) #25
+  %112 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.3106.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 8 dereferenceable(308) %109, ptr noundef nonnull align 8 dereferenceable(160) %111) #25
   br i1 %112, label %113, label %221
 
 113:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
@@ -11569,15 +11569,15 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %78, %80
   %155 = extractvalue { ptr, ptr } %152, 1
   store ptr %155, ptr %154, align 8
   %156 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm19MachineInstrBuilder7addDispERKNS_14MachineOperandElh(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0, i8 noundef zeroext 3)
-  %.sroa.388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %.sroa.388.0.copyload = load ptr, ptr %.sroa.388.0..sroa_idx, align 8, !tbaa !505
+  %.sroa.386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %.sroa.386.0.copyload = load ptr, ptr %.sroa.386.0..sroa_idx, align 8, !tbaa !505
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %157 = load ptr, ptr %139, align 8, !tbaa !475
   %158 = load ptr, ptr %141, align 8, !tbaa !482
   %159 = load ptr, ptr %143, align 8, !tbaa !459
-  %160 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.388.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %157, ptr noundef nonnull align 8 dereferenceable(308) %158, ptr noundef nonnull align 8 dereferenceable(160) %159) #25
+  %160 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.386.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %157, ptr noundef nonnull align 8 dereferenceable(308) %158, ptr noundef nonnull align 8 dereferenceable(160) %159) #25
   br i1 %160, label %161, label %221
 
 161:                                              ; preds = %146
@@ -11660,7 +11660,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit72:            ; preds = %173, %175
   %199 = load ptr, ptr %198, align 8, !tbaa !521
   %200 = load ptr, ptr %197, align 8, !tbaa !519
   call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %199, ptr noundef nonnull align 8 dereferenceable(1065) %200, ptr noundef %188) #25
-  %.sroa.378.0.copyload = load ptr, ptr %198, align 8, !tbaa !505
+  %.sroa.376.0.copyload = load ptr, ptr %198, align 8, !tbaa !505
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11669,7 +11669,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit72:            ; preds = %173, %175
   %204 = load ptr, ptr %203, align 8, !tbaa !482
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %206 = load ptr, ptr %205, align 8, !tbaa !459
-  %207 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.378.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %202, ptr noundef nonnull align 8 dereferenceable(308) %204, ptr noundef nonnull align 8 dereferenceable(160) %206) #25
+  %207 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.376.0.copyload, ptr noundef nonnull align 8 dereferenceable(80) %202, ptr noundef nonnull align 8 dereferenceable(308) %204, ptr noundef nonnull align 8 dereferenceable(160) %206) #25
   br i1 %207, label %208, label %221
 
 208:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit72

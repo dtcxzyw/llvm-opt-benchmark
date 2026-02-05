@@ -667,10 +667,10 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.20, i64 %2
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.20, i64 %2
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load4, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load2, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

@@ -9201,22 +9201,22 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr noundef nonnull r
 
 .loopexit:                                        ; preds = %.thread.i.i, %.lr.ph.i.i
   %.sroa.4.1.ph = phi i32 [ %36, %.lr.ph.i.i ], [ %44, %.thread.i.i ]
-  %.sroa.10.4.ph = phi ptr [ %40, %.lr.ph.i.i ], [ %47, %.thread.i.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.10.4.ph, i64 44
+  %.sroa.10.2.ph = phi ptr [ %40, %.lr.ph.i.i ], [ %47, %.thread.i.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.10.2.ph, i64 44
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 15
   %55 = icmp eq i32 %54, 12
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %.loopexit
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.10.4.ph, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.10.2.ph, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %11
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %56
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.10.4.ph, ptr noundef null) #14
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.10.2.ph, ptr noundef null) #14
   br label %62
 
 62:                                               ; preds = %61, %56, %.loopexit

@@ -769,9 +769,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i: ; preds = %_ZNK4llvm9Stri
 255:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i
   %256 = load i8, ptr %42, align 8, !tbaa !17, !range !271, !noundef !272
   %257 = trunc nuw i8 %256 to i1
-  br i1 %257, label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i
+  br i1 %257, label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i: ; preds = %255
+_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i: ; preds = %255
   %258 = getelementptr inbounds nuw i8, ptr %40, i64 2480
   %259 = load ptr, ptr %258, align 8, !tbaa !510
   %260 = load ptr, ptr %259, align 8, !tbaa !511
@@ -876,8 +876,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i: ; preds = %255
   %.not10.i.i.i.i.i.i.i = icmp eq i32 %306, 0
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi ptr [ %312, %.lr.ph.i.i.i.i.i.i.i ], [ %305, %_ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi ptr [ %312, %.lr.ph.i.i.i.i.i.i.i ], [ %305, %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i ]
   %309 = load i32, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !621
   %310 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %311 = load ptr, ptr %310, align 8, !tbaa !623
@@ -886,7 +886,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i: ; preds = %255
   %.not.i.i.i.i.i.i12.i = icmp eq ptr %312, %308
   br i1 %.not.i.i.i.i.i.i12.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i
+_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %313 = call noundef nonnull align 8 dereferenceable(1065) ptr @_ZN4llvm17MachineModuleInfo26getOrCreateMachineFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %41, ptr noundef nonnull align 8 dereferenceable(136) %266) #18
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 344
@@ -1178,13 +1178,13 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit:
   %26 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %5, i32 noundef 41) #18
   %27 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %5, i32 noundef 20) #18
   %.not.i.i = icmp eq i64 %.8.val, 0
-  br i1 %.not.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread10, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  br i1 %.not.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread8, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
   %28 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr nonnull @.str.2, i64 15, ptr %.0.val, i64 %.8.val) #18
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread10
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread8
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread
+_ZN4llvmneENS_9StringRefES0_.exit.thread8:        ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread
   call void @_ZN4llvm8Function10addFnAttrsERKNS_11AttrBuilderE(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull align 8 dereferenceable(88) %5) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1252,8 +1252,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %_ZN4llvm11GlobalVal
   %.not10.i.i.i = icmp eq i32 %57, 0
   br i1 %.not10.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread10, %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %56, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread8, %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %56, %_ZN4llvmneENS_9StringRefES0_.exit.thread8 ]
   %60 = load i32, ptr %.011.i.i.i, align 8, !tbaa !621
   %61 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !623
@@ -1262,7 +1262,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %_ZN4llvm11GlobalVal
   %.not.i.i.i = icmp eq ptr %63, %59
   br i1 %.not.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit, label %.lr.ph.i.i.i
 
-_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit:    ; preds = %.lr.ph.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread10
+_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit:    ; preds = %.lr.ph.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = call noundef nonnull align 8 dereferenceable(1065) ptr @_ZN4llvm17MachineModuleInfo26getOrCreateMachineFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 8 dereferenceable(136) %16) #18
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 344

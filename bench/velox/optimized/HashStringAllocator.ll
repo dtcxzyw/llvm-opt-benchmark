@@ -948,17 +948,17 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorIN8face
   br i1 %cmp.i.not, label %for.end, label %if.end
 
 lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit25 = landingpad { ptr, i32 }
+  %lpad.loopexit22 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i
-  %lpad.loopexit.split-lp26 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit25, %lpad.loopexit ], [ %lpad.loopexit.split-lp26, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit22, %lpad.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %ranges.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
@@ -1386,9 +1386,9 @@ land.rhs:                                         ; preds = %land.lhs.true
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs, %if.end18.i.i
-  %index.i.i.0173 = phi i64 [ %add.i, %land.rhs ], [ %add.i.i, %if.end18.i.i ]
-  %tries.i.i.0172 = phi i64 [ 0, %land.rhs ], [ %inc.i.i, %if.end18.i.i ]
-  %and.i.i = and i64 %8, %index.i.i.0173
+  %index.i.i.0172 = phi i64 [ %add.i, %land.rhs ], [ %add.i.i, %if.end18.i.i ]
+  %tries.i.i.0171 = phi i64 [ 0, %land.rhs ], [ %inc.i.i, %if.end18.i.i ]
+  %and.i.i = and i64 %8, %index.i.i.0172
   %add.ptr.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %9, i64 %and.i.i
   %rawItems_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 144
@@ -1421,8 +1421,8 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br i1 %cmp15.i.i, label %if.else, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %while.end.i.i
-  %add.i.i = add i64 %add.i60, %index.i.i.0173
-  %inc.i.i = add i64 %tries.i.i.0172, 1
+  %add.i.i = add i64 %add.i60, %index.i.i.0172
+  %inc.i.i = add i64 %tries.i.i.0171, 1
   %cmp.i.i.not = icmp ugt i64 %inc.i.i, %8
   br i1 %cmp.i.i.not, label %if.else, label %for.body.i.i, !llvm.loop !21
 
@@ -1441,8 +1441,8 @@ if.then17:                                        ; preds = %if.else
   unreachable
 
 if.end18:                                         ; preds = %if.else
-  %narrow171 = add nuw nsw i32 %and.i58, 4
-  %add21 = zext nneg i32 %narrow171 to i64
+  %narrow170 = add nuw nsw i32 %and.i58, 4
+  %add21 = zext nneg i32 %narrow170 to i64
   %16 = load i64, ptr %freeBytes_, align 8
   %add22 = add i64 %16, %add21
   store i64 %add22, ptr %freeBytes_, align 8

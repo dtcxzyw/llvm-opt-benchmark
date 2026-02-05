@@ -3799,8 +3799,8 @@ _ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_c
   br i1 %.not.i231.i, label %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i, label %.lr.ph.i200.i
 
 _ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i: ; preds = %1274, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i229.i, %1190
-  %.sroa.727.5.i = phi ptr [ null, %1190 ], [ %.val19.i203.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i229.i ], [ null, %1274 ]
-  %.sroa.026.5.i = phi ptr [ null, %1190 ], [ %.val18.i202.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i229.i ], [ null, %1274 ]
+  %.sroa.727.0.i = phi ptr [ null, %1190 ], [ %.val19.i203.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i229.i ], [ null, %1274 ]
+  %.sroa.026.0.i = phi ptr [ null, %1190 ], [ %.val18.i202.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i229.i ], [ null, %1274 ]
   %.val50.i.i.i.i = load ptr, ptr %845, align 8, !tbaa !84, !noalias !89
   %1275 = getelementptr i8, ptr %.val50.i.i.i.i, i64 40
   %.val50.val.i.i.i.i = load ptr, ptr %1275, align 8, !tbaa !221, !noalias !89
@@ -3999,13 +3999,13 @@ _ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_c
   br i1 %.not.i198.i, label %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit.i, label %.lr.ph.i195.i
 
 _ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit.i: ; preds = %1358, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i.i, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i
-  %.sroa.7.5.i = phi ptr [ null, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i ], [ %.val19.i.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i.i ], [ null, %1358 ]
-  %.sroa.025.5.i = phi ptr [ null, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i ], [ %.val18.i.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i.i ], [ null, %1358 ]
-  %.not.i.i.i119.i = icmp eq ptr %.sroa.026.5.i, null
+  %.sroa.7.0.i = phi ptr [ null, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i ], [ %.val19.i.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i.i ], [ null, %1358 ]
+  %.sroa.025.0.i = phi ptr [ null, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit233.i ], [ %.val18.i.i, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit40.i.i ], [ null, %1358 ]
+  %.not.i.i.i119.i = icmp eq ptr %.sroa.026.0.i, null
   br i1 %.not.i.i.i119.i, label %1382, label %1359
 
 1359:                                             ; preds = %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit.i
-  %1360 = getelementptr inbounds nuw i8, ptr %.sroa.026.5.i, i64 48
+  %1360 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.i, i64 48
   %1361 = load i32, ptr %1360, align 8, !tbaa !155, !noalias !89
   %1362 = icmp eq i32 %1361, 2
   br i1 %1362, label %1363, label %1382
@@ -4077,11 +4077,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i183.i: ; preds 
   br label %.body192.i
 
 1382:                                             ; preds = %1359, %_ZN6open3d8geometry12_GLOBAL__N_112BallPivoting14GetLinkingEdgeERKPNS1_18BallPivotingVertexES6_.exit.i
-  %.not64.i.i.i.i = icmp eq ptr %.sroa.025.5.i, null
+  %.not64.i.i.i.i = icmp eq ptr %.sroa.025.0.i, null
   br i1 %.not64.i.i.i.i, label %1406, label %1383
 
 1383:                                             ; preds = %1382
-  %1384 = getelementptr inbounds nuw i8, ptr %.sroa.025.5.i, i64 48
+  %1384 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i, i64 48
   %1385 = load i32, ptr %1384, align 8, !tbaa !155, !noalias !89
   %1386 = icmp eq i32 %1385, 2
   br i1 %1386, label %1387, label %1406
@@ -4547,11 +4547,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i127.i: ; preds 
 
 _ZN6open3d7utility6Logger9LogDebug_IJbEEEvPKciS4_S4_DpOT_.exit194.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i130.i, %.noexc133.i, %1616, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i143.i, %.noexc146.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i172.i, %.noexc175.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i186.i, %.noexc189.i
   %.1.i.i.i.i = phi i1 [ false, %.noexc175.i ], [ false, %.noexc189.i ], [ false, %.noexc146.i ], [ false, %1616 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i186.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i172.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i143.i ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i130.i ], [ true, %.noexc133.i ]
-  %.not.i.i.i.i.i120.i = icmp eq ptr %.sroa.7.5.i, null
+  %.not.i.i.i.i.i120.i = icmp eq ptr %.sroa.7.0.i, null
   br i1 %.not.i.i.i.i.i120.i, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, label %1635
 
 1635:                                             ; preds = %_ZN6open3d7utility6Logger9LogDebug_IJbEEEvPKciS4_S4_DpOT_.exit194.i
-  %1636 = getelementptr inbounds nuw i8, ptr %.sroa.7.5.i, i64 8
+  %1636 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.i, i64 8
   %1637 = load atomic i64, ptr %1636 acquire, align 8, !noalias !89
   %1638 = icmp eq i64 %1637, 4294967297
   %1639 = trunc i64 %1637 to i32
@@ -4559,16 +4559,16 @@ _ZN6open3d7utility6Logger9LogDebug_IJbEEEvPKciS4_S4_DpOT_.exit194.i: ; preds = %
 
 1640:                                             ; preds = %1635
   store i32 0, ptr %1636, align 8, !tbaa !49, !noalias !89
-  %1641 = getelementptr inbounds nuw i8, ptr %.sroa.7.5.i, i64 12
+  %1641 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.i, i64 12
   store i32 0, ptr %1641, align 4, !tbaa !55, !noalias !89
-  %1642 = load ptr, ptr %.sroa.7.5.i, align 8, !tbaa !4, !noalias !89
+  %1642 = load ptr, ptr %.sroa.7.0.i, align 8, !tbaa !4, !noalias !89
   %1643 = getelementptr inbounds nuw i8, ptr %1642, i64 16
   %1644 = load ptr, ptr %1643, align 8, !noalias !89
-  call void %1644(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.5.i) #38, !noalias !89
-  %1645 = load ptr, ptr %.sroa.7.5.i, align 8, !tbaa !4, !noalias !89
+  call void %1644(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.i) #38, !noalias !89
+  %1645 = load ptr, ptr %.sroa.7.0.i, align 8, !tbaa !4, !noalias !89
   %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 24
   %1647 = load ptr, ptr %1646, align 8, !noalias !89
-  call void %1647(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.5.i) #38, !noalias !89
+  call void %1647(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.i) #38, !noalias !89
   br label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i
 
 1648:                                             ; preds = %1635
@@ -4591,15 +4591,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %16
   br i1 %1654, label %1655, label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, !prof !156
 
 1655:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.5.i) #38, !noalias !89
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.i) #38, !noalias !89
   br label %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i
 
 _ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i: ; preds = %1655, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %1640, %_ZN6open3d7utility6Logger9LogDebug_IJbEEEvPKciS4_S4_DpOT_.exit194.i
-  %.not.i.i54.i.i.i.i = icmp eq ptr %.sroa.727.5.i, null
+  %.not.i.i54.i.i.i.i = icmp eq ptr %.sroa.727.0.i, null
   br i1 %.not.i.i54.i.i.i.i, label %1677, label %1656
 
 1656:                                             ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i
-  %1657 = getelementptr inbounds nuw i8, ptr %.sroa.727.5.i, i64 8
+  %1657 = getelementptr inbounds nuw i8, ptr %.sroa.727.0.i, i64 8
   %1658 = load atomic i64, ptr %1657 acquire, align 8, !noalias !89
   %1659 = icmp eq i64 %1658, 4294967297
   %1660 = trunc i64 %1658 to i32
@@ -4607,16 +4607,16 @@ _ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_c
 
 1661:                                             ; preds = %1656
   store i32 0, ptr %1657, align 8, !tbaa !49, !noalias !89
-  %1662 = getelementptr inbounds nuw i8, ptr %.sroa.727.5.i, i64 12
+  %1662 = getelementptr inbounds nuw i8, ptr %.sroa.727.0.i, i64 12
   store i32 0, ptr %1662, align 4, !tbaa !55, !noalias !89
-  %1663 = load ptr, ptr %.sroa.727.5.i, align 8, !tbaa !4, !noalias !89
+  %1663 = load ptr, ptr %.sroa.727.0.i, align 8, !tbaa !4, !noalias !89
   %1664 = getelementptr inbounds nuw i8, ptr %1663, i64 16
   %1665 = load ptr, ptr %1664, align 8, !noalias !89
-  call void %1665(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.5.i) #38, !noalias !89
-  %1666 = load ptr, ptr %.sroa.727.5.i, align 8, !tbaa !4, !noalias !89
+  call void %1665(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.0.i) #38, !noalias !89
+  %1666 = load ptr, ptr %.sroa.727.0.i, align 8, !tbaa !4, !noalias !89
   %1667 = getelementptr inbounds nuw i8, ptr %1666, i64 24
   %1668 = load ptr, ptr %1667, align 8, !noalias !89
-  call void %1668(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.5.i) #38, !noalias !89
+  call void %1668(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.0.i) #38, !noalias !89
   br label %1677
 
 1669:                                             ; preds = %1656
@@ -4639,13 +4639,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i56.i.i.i.i: ; preds = %
   br i1 %1675, label %1676, label %1677, !prof !156
 
 1676:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i56.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.5.i) #38, !noalias !89
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.727.0.i) #38, !noalias !89
   br label %1677
 
 .body192.i:                                       ; preds = %1633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i127.i, %1612, %1501, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i140.i, %1404, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i169.i, %1380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i183.i
   %.pn41.i.i.i.i = phi { ptr, i32 } [ %1399, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i169.i ], [ %1375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i183.i ], [ %1496, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i140.i ], [ %1613, %1612 ], [ %1381, %1380 ], [ %1405, %1404 ], [ %1502, %1501 ], [ %1634, %1633 ], [ %1628, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i127.i ]
-  call fastcc void @_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.sroa.7.5.i) #38, !noalias !89
-  call fastcc void @_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.sroa.727.5.i) #38, !noalias !89
+  call fastcc void @_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.sroa.7.0.i) #38, !noalias !89
+  call fastcc void @_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.sroa.727.0.i) #38, !noalias !89
   br label %.body.i.i.i
 
 1677:                                             ; preds = %1676, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i56.i.i.i.i, %1661, %_ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_116BallPivotingEdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i

@@ -3410,33 +3410,33 @@ _ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i: ;
 862:                                              ; preds = %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i
   %.pre-phi300.i.i = phi i64 [ %.pre299.i.i, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ 0, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
   %.sroa.20.0100.i.i.i = phi i64 [ %848, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ %857, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
-  %.sroa.11.195.i.i.i = phi ptr [ %860, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ %858, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
-  %.sroa.05.192.i.i.i = phi ptr [ %856, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ null, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
+  %.sroa.11.095.i.i.i = phi ptr [ %860, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ %858, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
+  %.sroa.05.092.i.i.i = phi ptr [ %856, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ null, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
   %.pr.pre91.i.i.i = phi ptr [ %.pr.pre.pre.i.i.i, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i._crit_edge.i.i ], [ %841, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.thread.i.i.i ]
-  %863 = ptrtoint ptr %.sroa.11.195.i.i.i to i64
-  %864 = ptrtoint ptr %.sroa.05.192.i.i.i to i64
+  %863 = ptrtoint ptr %.sroa.11.095.i.i.i to i64
+  %864 = ptrtoint ptr %.sroa.05.092.i.i.i to i64
   %865 = sub i64 %863, %864
   %866 = icmp eq i64 %865, %.pre-phi300.i.i
   br i1 %866, label %867, label %_ZN5boostneImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.i.i.i
 
 867:                                              ; preds = %862
-  %.not.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.11.195.i.i.i, %.sroa.05.192.i.i.i
+  %.not.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.11.095.i.i.i, %.sroa.05.092.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5boostneImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.i.i.i, label %868
 
 868:                                              ; preds = %867
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.05.192.i.i.i, ptr %.pr.pre91.i.i.i, i64 %.pre-phi300.i.i)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.05.092.i.i.i, ptr %.pr.pre91.i.i.i, i64 %.pre-phi300.i.i)
   %.not9.i.i.i.i.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br label %_ZN5boostneImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.i.i.i
 
 _ZN5boostneImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.i.i.i: ; preds = %868, %867, %862, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i
   %.sroa.20.098.i.i.i = phi i64 [ %.sroa.20.0100.i.i.i, %862 ], [ %.sroa.20.0100.i.i.i, %867 ], [ %.sroa.20.0100.i.i.i, %868 ], [ %848, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
-  %.sroa.11.196.i.i.i = phi ptr [ %.sroa.11.195.i.i.i, %862 ], [ %.sroa.11.195.i.i.i, %867 ], [ %.sroa.11.195.i.i.i, %868 ], [ %860, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
-  %.sroa.05.193.i.i.i = phi ptr [ %.sroa.05.192.i.i.i, %862 ], [ %.sroa.05.192.i.i.i, %867 ], [ %.sroa.05.192.i.i.i, %868 ], [ %856, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
+  %.sroa.11.096.i.i.i = phi ptr [ %.sroa.11.095.i.i.i, %862 ], [ %.sroa.11.095.i.i.i, %867 ], [ %.sroa.11.095.i.i.i, %868 ], [ %860, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
+  %.sroa.05.093.i.i.i = phi ptr [ %.sroa.05.092.i.i.i, %862 ], [ %.sroa.05.092.i.i.i, %867 ], [ %.sroa.05.092.i.i.i, %868 ], [ %856, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
   %.pr.pre89.i.i.i = phi ptr [ %.pr.pre91.i.i.i, %862 ], [ %.pr.pre91.i.i.i, %867 ], [ %.pr.pre91.i.i.i, %868 ], [ %.pr.pre.pre.i.i.i, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
   %869 = phi i1 [ true, %862 ], [ false, %867 ], [ %.not9.i.i.i.i.i.i.i.i.i.i, %868 ], [ true, %_ZN5boostorImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit.i.i.i ]
-  store ptr %.sroa.05.193.i.i.i, ptr %21, align 8
-  store ptr %.sroa.11.196.i.i.i, ptr %204, align 8
-  store ptr %.sroa.11.196.i.i.i, ptr %205, align 8
+  store ptr %.sroa.05.093.i.i.i, ptr %21, align 8
+  store ptr %.sroa.11.096.i.i.i, ptr %204, align 8
+  store ptr %.sroa.11.096.i.i.i, ptr %205, align 8
   store i64 %.sroa.20.098.i.i.i, ptr %206, align 8
   %.not.i.i.i.i98.i.i.i = icmp eq ptr %.pr.pre89.i.i.i, null
   br i1 %.not.i.i.i.i98.i.i.i, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i.i, label %870

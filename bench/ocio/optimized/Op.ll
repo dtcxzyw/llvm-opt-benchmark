@@ -8933,9 +8933,9 @@ switch.lookup:                                    ; preds = %12
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   %81 = zext nneg i32 %2 to i64
-  %switch.gep37 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE.9, i64 %81
-  %switch.load38 = load i64, ptr %switch.gep37, align 8
-  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %switch.load, i64 noundef %switch.load38)
+  %switch.gep35 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE.9, i64 %81
+  %switch.load36 = load i64, ptr %switch.gep35, align 8
+  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %switch.load, i64 noundef %switch.load36)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %83
 
 83:                                               ; preds = %switch.lookup, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit

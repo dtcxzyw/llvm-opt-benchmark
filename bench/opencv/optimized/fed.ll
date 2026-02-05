@@ -142,7 +142,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50: ; preds = %.noexc55
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48, %.noexc55, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.sroa.086.1 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %26, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50 ], [ %26, %.noexc55 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48 ]
+  %.sroa.074.1 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %26, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50 ], [ %26, %.noexc55 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48 ]
   %30 = sitofp i32 %.pre to float
   %31 = tail call float @llvm.fmuladd.f32(float %30, float 4.000000e+00, float 2.000000e+00)
   %32 = fdiv float 1.000000e+00, %31
@@ -158,8 +158,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %21, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %39 = trunc nuw nsw i64 %indvars.iv110 to i32
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %39 = trunc nuw nsw i64 %indvars.iv98 to i32
   %40 = uitofp nneg i32 %39 to float
   %41 = tail call float @llvm.fmuladd.f32(float %40, float 2.000000e+00, float 1.000000e+00)
   %42 = fmul float %41, 0x400921FB60000000
@@ -167,12 +167,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   %44 = tail call float @cosf(float noundef %43) #10, !tbaa !7
   %45 = fmul float %44, %44
   %46 = fdiv float %36, %45
-  %47 = getelementptr inbounds nuw float, ptr %.sroa.086.1, i64 %indvars.iv110
+  %47 = getelementptr inbounds nuw float, ptr %.sroa.074.1, i64 %indvars.iv98
   store float %46, ptr %47, align 4, !tbaa !3
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %48 = load i32, ptr %0, align 4, !tbaa !7
   %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next111, %49
+  %50 = icmp slt i64 %indvars.iv.next99, %49
   br i1 %50, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit60
@@ -197,12 +197,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
-  %.lcssa101124 = phi i32 [ %.pre, %._crit_edge ], [ %48, %.lr.ph.split.us ]
-  %63 = sdiv i32 %.lcssa101124, 2
+  %.lcssa89112 = phi i32 [ %.pre, %._crit_edge ], [ %48, %.lr.ph.split.us ]
+  %63 = sdiv i32 %.lcssa89112, 2
   br label %_Z21fed_is_prime_internalRKi.exit.thread
 
 _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_internalRKi.exit.thread.backedge, %._crit_edge.thread
-  %storemerge.in = phi i32 [ %.lcssa101124, %._crit_edge.thread ], [ %storemerge, %_Z21fed_is_prime_internalRKi.exit.thread.backedge ]
+  %storemerge.in = phi i32 [ %.lcssa89112, %._crit_edge.thread ], [ %storemerge, %_Z21fed_is_prime_internalRKi.exit.thread.backedge ]
   %storemerge = add nsw i32 %storemerge.in, 1
   %64 = icmp slt i32 %storemerge.in, 1
   br i1 %64, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %65
@@ -212,10 +212,10 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
 
 65:                                               ; preds = %_Z21fed_is_prime_internalRKi.exit.thread
   switch i32 %storemerge, label %66 [
-    i32 2, label %.preheader97
-    i32 3, label %.preheader97
-    i32 5, label %.preheader97
-    i32 7, label %.preheader97
+    i32 2, label %.preheader85
+    i32 3, label %.preheader85
+    i32 5, label %.preheader85
+    i32 7, label %.preheader85
   ]
 
 66:                                               ; preds = %65
@@ -237,7 +237,7 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
   %sqrt.i = tail call float @llvm.sqrt.f32(float %76)
   %77 = fptosi float %sqrt.i to i32
   %.not25.i = icmp slt i32 %77, 11
-  br i1 %.not25.i, label %.preheader97, label %.lr.ph.i
+  br i1 %.not25.i, label %.preheader85, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
   %.027.i = phi i32 [ %80, %.lr.ph.i ], [ 11, %74 ]
@@ -250,54 +250,54 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
   br i1 %.not.i, label %_Z21fed_is_prime_internalRKi.exit, label %.lr.ph.i, !llvm.loop !22
 
 _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
-  br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
+  br i1 %spec.select.i, label %.preheader85, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
-.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %74, %65, %65, %65, %65
-  %81 = icmp sgt i32 %.lcssa101124, 0
+.preheader85:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %74, %65, %65, %65, %65
+  %81 = icmp sgt i32 %.lcssa89112, 0
   br i1 %81, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %.preheader97
+.preheader.lr.ph:                                 ; preds = %.preheader85
   %82 = load ptr, ptr %4, align 8, !tbaa !9
-  %wide.trip.count = zext nneg i32 %.lcssa101124 to i64
+  %wide.trip.count = zext nneg i32 %.lcssa89112 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %87
-  %indvars.iv113 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next114, %87 ]
-  %.040103 = phi i32 [ 0, %.preheader.lr.ph ], [ %84, %87 ]
+  %indvars.iv101 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next102, %87 ]
+  %.04091 = phi i32 [ 0, %.preheader.lr.ph ], [ %84, %87 ]
   br label %83
 
 83:                                               ; preds = %.preheader, %83
-  %.1 = phi i32 [ %84, %83 ], [ %.040103, %.preheader ]
+  %.1 = phi i32 [ %84, %83 ], [ %.04091, %.preheader ]
   %84 = add nsw i32 %.1, 1
   %85 = mul nsw i32 %84, %63
   %86 = srem i32 %85, %storemerge
-  %.not.not = icmp sgt i32 %86, %.lcssa101124
+  %.not.not = icmp sgt i32 %86, %.lcssa89112
   br i1 %.not.not, label %83, label %87, !llvm.loop !23
 
 87:                                               ; preds = %83
   %88 = sext i32 %86 to i64
-  %89 = getelementptr float, ptr %.sroa.086.1, i64 %88
+  %89 = getelementptr float, ptr %.sroa.074.1, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -4
   %91 = load float, ptr %90, align 4, !tbaa !3
-  %92 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv113
+  %92 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv101
   store float %91, ptr %92, align 4, !tbaa !3
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.preheader97, %._crit_edge
-  %.lcssa101123 = phi i32 [ %.pre, %._crit_edge ], [ %.lcssa101124, %.preheader97 ], [ %60, %.lr.ph.split ]
-  %.not.i.i.i61 = icmp eq ptr %.sroa.086.1, null
+.loopexit:                                        ; preds = %.lr.ph.split, %.preheader85, %._crit_edge
+  %.lcssa89111 = phi i32 [ %.pre, %._crit_edge ], [ %.lcssa89112, %.preheader85 ], [ %60, %.lr.ph.split ]
+  %.not.i.i.i61 = icmp eq ptr %.sroa.074.1, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIfSaIfEED2Ev.exit62, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %87, %.loopexit
-  %.lcssa101123129 = phi i32 [ %.lcssa101123, %.loopexit ], [ %.lcssa101124, %87 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.086.1) #12
+  %.lcssa89111117 = phi i32 [ %.lcssa89111, %.loopexit ], [ %.lcssa89112, %87 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.074.1) #12
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit62
 
 _ZNSt6vectorIfSaIfEED2Ev.exit62:                  ; preds = %5, %.loopexit, %.loopexit.thread
-  %.04196 = phi i32 [ %.lcssa101123129, %.loopexit.thread ], [ %.lcssa101123, %.loopexit ], [ 0, %5 ]
-  ret i32 %.04196
+  %.04184 = phi i32 [ %.lcssa89111117, %.loopexit.thread ], [ %.lcssa89111, %.loopexit ], [ 0, %5 ]
+  ret i32 %.04184
 }
 
 declare i32 @__gxx_personality_v0(...)

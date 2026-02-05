@@ -1362,11 +1362,11 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %57 = call i32 @acpi_evaluate_object(ptr noundef %56, ptr noundef nonnull @.str.15, ptr noundef nonnull %4, ptr noundef null) #8
   call void @swap_buf_le16(ptr noundef nonnull %41, i32 noundef 256) #8
   switch i32 %57, label %58 [
-    i32 5, label %.thread16
-    i32 0, label %.thread16
+    i32 5, label %.thread7
+    i32 0, label %.thread7
   ]
 
-.thread16:                                        ; preds = %55, %55
+.thread7:                                         ; preds = %55, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %69
@@ -1384,9 +1384,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %68 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %62, i32 noundef %67, i32 noundef %57) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread30
+  br label %.thread21
 
-69:                                               ; preds = %.thread16, %37
+69:                                               ; preds = %.thread7, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %70 = call fastcc i32 @ata_dev_get_GTF(ptr noundef %0, ptr noundef nonnull %3), !range !11
@@ -1524,13 +1524,13 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   br i1 %156, label %158, label %159
 
 157:                                              ; preds = %151
-  switch i8 %132, label %.thread17 [
+  switch i8 %132, label %.thread8 [
     i8 -7, label %158
     i8 -17, label %162
   ]
 
 158:                                              ; preds = %157, %152
-  switch i8 %93, label %.thread17 [
+  switch i8 %93, label %.thread8 [
     i8 2, label %200
     i8 4, label %200
   ]
@@ -1538,11 +1538,11 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
 159:                                              ; preds = %152, %145
   %160 = icmp eq i8 %93, 16
   %161 = and i1 %160, %141
-  br i1 %161, label %164, label %.thread17
+  br i1 %161, label %164, label %.thread8
 
 162:                                              ; preds = %157
   %163 = icmp eq i8 %93, 16
-  br i1 %163, label %164, label %.thread17
+  br i1 %163, label %164, label %.thread8
 
 164:                                              ; preds = %162, %159
   %165 = and i32 %139, 4
@@ -1567,9 +1567,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %175 = icmp ne i32 %174, 0
   %176 = icmp eq i8 %118, 2
   %177 = select i1 %175, i1 %176, i1 false
-  br i1 %177, label %200, label %.thread17
+  br i1 %177, label %200, label %.thread8
 
-.thread17:                                        ; preds = %158, %173, %162, %159, %157
+.thread8:                                         ; preds = %158, %173, %162, %159, %157
   store i64 6, ptr %2, align 8
   store i8 0, ptr %77, align 8
   store i8 %122, ptr %78, align 1
@@ -1588,7 +1588,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
     i32 1, label %179
   ]
 
-179:                                              ; preds = %.thread17
+179:                                              ; preds = %.thread8
   %180 = load ptr, ptr %0, align 64
   %181 = load ptr, ptr %180, align 64
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 36
@@ -1609,7 +1609,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %197 = load i8, ptr %80, align 1
   %198 = zext i8 %197 to i32
   %199 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %183, i32 noundef %187, i32 noundef %188, i32 noundef %189, i32 noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, i32 noundef %194, ptr noundef %138, i32 noundef %196, i32 noundef %198) #10
-  %.pre56 = load ptr, ptr %3, align 8
+  %.pre47 = load ptr, ptr %3, align 8
   br label %220
 
 200:                                              ; preds = %173, %172, %172, %164, %158, %158, %149, %148, %137
@@ -1631,7 +1631,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %216 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %204, i32 noundef %208, i32 noundef %209, i32 noundef %210, i32 noundef %211, i32 noundef %212, i32 noundef %213, i32 noundef %214, i32 noundef %215, ptr noundef %138) #10
   br label %220
 
-217:                                              ; preds = %.thread17
+217:                                              ; preds = %.thread8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %218 = load ptr, ptr %3, align 8
@@ -1639,7 +1639,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   br label %222
 
 220:                                              ; preds = %179, %200, %114
-  %221 = phi ptr [ %.pre56, %179 ], [ %89, %200 ], [ %89, %114 ]
+  %221 = phi ptr [ %.pre47, %179 ], [ %89, %200 ], [ %89, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   br label %222
@@ -1652,9 +1652,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %227 = getelementptr i8, ptr %224, i64 7
   store ptr %227, ptr %3, align 8
   %228 = icmp eq i32 %226, %70
-  br i1 %228, label %.loopexit61.loopexit, label %88, !llvm.loop !16
+  br i1 %228, label %.loopexit52.loopexit, label %88, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.thread17
+.loopexit:                                        ; preds = %.thread8
   %229 = load ptr, ptr %0, align 64
   %230 = load ptr, ptr %229, align 64
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 36
@@ -1683,9 +1683,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   store ptr null, ptr %249, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %251 = icmp eq i32 %90, 0
-  br label %.thread30
+  br label %.thread21
 
-.loopexit61.loopexit:                             ; preds = %222
+.loopexit52.loopexit:                             ; preds = %222
   %252 = icmp eq i32 %223, 0
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %254 = load ptr, ptr %253, align 8
@@ -1697,7 +1697,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   store i64 %256, ptr %10, align 16
   br i1 %252, label %306, label %257
 
-257:                                              ; preds = %.loopexit61.loopexit
+257:                                              ; preds = %.loopexit52.loopexit
   %258 = call i32 @ata_dev_reread_id(ptr noundef %0, i32 noundef 0) #8
   %259 = icmp slt i32 %258, 0
   br i1 %259, label %260, label %306
@@ -1718,16 +1718,16 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
 271:                                              ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %70, -22
-  br i1 %.not, label %272, label %.thread30
+  br i1 %.not, label %272, label %.thread21
 
 272:                                              ; preds = %271
   %273 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %274 = load i32, ptr %273, align 32
   %275 = and i32 %274, 4
   %276 = icmp eq i32 %275, 0
-  br i1 %276, label %306, label %.thread30
+  br i1 %276, label %306, label %.thread21
 
-.thread30:                                        ; preds = %.loopexit, %58, %272, %271
+.thread21:                                        ; preds = %.loopexit, %58, %272, %271
   %277 = phi i32 [ %70, %271 ], [ -22, %272 ], [ -5, %58 ], [ -5, %.loopexit ]
   %278 = phi i1 [ true, %271 ], [ true, %272 ], [ true, %58 ], [ %251, %.loopexit ]
   %279 = load i64, ptr %10, align 16
@@ -1735,12 +1735,12 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %281 = icmp eq i64 %280, 0
   br i1 %281, label %282, label %284
 
-282:                                              ; preds = %.thread30
+282:                                              ; preds = %.thread21
   %283 = or disjoint i64 %279, 64
   store i64 %283, ptr %10, align 16
   br label %306
 
-284:                                              ; preds = %.thread30
+284:                                              ; preds = %.thread21
   %285 = or i64 %279, 268435456
   store i64 %285, ptr %10, align 16
   %286 = load ptr, ptr %0, align 64
@@ -1776,8 +1776,8 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   store i64 %305, ptr %10, align 16
   br label %306
 
-306:                                              ; preds = %.critedge, %301, %296, %282, %272, %260, %257, %.loopexit61.loopexit, %32, %31, %21, %14, %1
-  %307 = phi i32 [ %277, %301 ], [ %277, %282 ], [ %258, %260 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %257 ], [ 0, %.loopexit61.loopexit ], [ 0, %272 ], [ 0, %296 ], [ 0, %14 ], [ 0, %1 ], [ 0, %.critedge ]
+306:                                              ; preds = %.critedge, %301, %296, %282, %272, %260, %257, %.loopexit52.loopexit, %32, %31, %21, %14, %1
+  %307 = phi i32 [ %277, %301 ], [ %277, %282 ], [ %258, %260 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %257 ], [ 0, %.loopexit52.loopexit ], [ 0, %272 ], [ 0, %296 ], [ 0, %14 ], [ 0, %1 ], [ 0, %.critedge ]
   ret i32 %307
 }
 

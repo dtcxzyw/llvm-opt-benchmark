@@ -767,7 +767,7 @@ define void @_ZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_
           to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly16ManualTimekeeper14TimeoutHandlerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !79
 
 common.resume:                                    ; preds = %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit14", %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly16ManualTimekeeper14TimeoutHandlerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %10, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly16ManualTimekeeper14TimeoutHandlerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %eh.lpad-body24, %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit14" ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly16ManualTimekeeper14TimeoutHandlerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %eh.lpad-body22, %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit14" ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly16ManualTimekeeper14TimeoutHandlerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %2
@@ -1138,7 +1138,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12: ; preds = %132, %
   br label %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit14"
 
 "_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit14": ; preds = %53, %56, %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit29.i.i", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12, %135
-  %eh.lpad-body24 = phi { ptr, i32 } [ %127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12 ], [ %127, %135 ], [ %54, %53 ], [ %54, %56 ], [ %91, %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit29.i.i" ]
+  %eh.lpad-body22 = phi { ptr, i32 } [ %127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12 ], [ %127, %135 ], [ %54, %53 ], [ %54, %56 ], [ %91, %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit29.i.i" ]
   call void @_ZNSt12__shared_ptrIN5folly16ManualTimekeeper14TimeoutHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %common.resume
 }

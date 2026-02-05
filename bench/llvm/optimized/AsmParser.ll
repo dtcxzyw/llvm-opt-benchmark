@@ -16504,8 +16504,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %20
   %58 = load i64, ptr %7, align 8, !tbaa !472
   %59 = add nsw i64 %58, -1
   store i64 %59, ptr %7, align 8, !tbaa !472
-  %.not1117 = icmp eq i64 %58, 0
-  br i1 %.not1117, label %._crit_edge, label %.lr.ph
+  %.not1115 = icmp eq i64 %58, 0
+  br i1 %.not1115, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
@@ -26036,8 +26036,8 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %_ZN4llvm8AsmTokenC2
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %71, %73
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !163
-  %.not61 = icmp eq i32 %77, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq i32 %77, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit45, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %78 = load ptr, ptr %63, align 8, !tbaa !536
@@ -26095,8 +26095,8 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm11raw_ostre
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit45
   %97 = phi i64 [ %117, %_ZN4llvm11raw_ostreamlsEPKc.exit45 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.02862 = phi i32 [ %116, %_ZN4llvm11raw_ostreamlsEPKc.exit45 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.not35 = icmp eq i32 %.02862, 0
+  %.02860 = phi i32 [ %116, %_ZN4llvm11raw_ostreamlsEPKc.exit45 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.not35 = icmp eq i32 %.02860, 0
   br i1 %.not35, label %_ZN4llvm11raw_ostreamlsEPKc.exit45, label %98
 
 98:                                               ; preds = %.lr.ph
@@ -26127,7 +26127,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %107, %105, %.lr.ph
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 120
   %115 = load ptr, ptr %114, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull align 8 dereferenceable(48) %18) #29
-  %116 = add i32 %.02862, 1
+  %116 = add i32 %.02860, 1
   %117 = zext i32 %116 to i64
   %118 = load i32, ptr %76, align 8, !tbaa !163
   %.not = icmp eq i32 %118, %116

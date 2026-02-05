@@ -20567,8 +20567,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %185, %187
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %209
   %.04525 = phi ptr [ %210, %209 ], [ %178, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.sroa.04.124 = phi ptr [ %.sroa.04.2, %209 ], [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.sroa.55.123 = phi i64 [ %.sroa.55.2, %209 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sroa.04.024 = phi ptr [ %.sroa.04.1, %209 ], [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sroa.55.023 = phi i64 [ %.sroa.55.1, %209 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %189 = load ptr, ptr %.04525, align 8, !tbaa !1086
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i8, ptr %190, align 8, !tbaa !461
@@ -20583,21 +20583,21 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %185, %187
   %196 = ptrtoint ptr %194 to i64
   %197 = ptrtoint ptr %195 to i64
   %198 = sub i64 %196, %197
-  %199 = icmp ugt i64 %.sroa.55.123, %198
+  %199 = icmp ugt i64 %.sroa.55.023, %198
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %193
-  %201 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %.sroa.04.124, i64 noundef %.sroa.55.123) #28
+  %201 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %.sroa.04.024, i64 noundef %.sroa.55.023) #28
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 202:                                              ; preds = %193
-  %.not.i82 = icmp eq i64 %.sroa.55.123, 0
+  %.not.i82 = icmp eq i64 %.sroa.55.023, 0
   br i1 %.not.i82, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %203
 
 203:                                              ; preds = %202
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr align 1 %.sroa.04.124, i64 %.sroa.55.123, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr align 1 %.sroa.04.024, i64 %.sroa.55.023, i1 false)
   %204 = load ptr, ptr %38, align 8, !tbaa !783
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %.sroa.55.123
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %.sroa.55.023
   store ptr %205, ptr %38, align 8, !tbaa !783
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -20609,8 +20609,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %200, %202, %203
   br label %209
 
 209:                                              ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %.sroa.55.2 = phi i64 [ %.sroa.55.123, %.lr.ph ], [ 2, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
-  %.sroa.04.2 = phi ptr [ %.sroa.04.124, %.lr.ph ], [ @.str.131, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
+  %.sroa.55.1 = phi i64 [ %.sroa.55.023, %.lr.ph ], [ 2, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
+  %.sroa.04.1 = phi ptr [ %.sroa.04.024, %.lr.ph ], [ @.str.131, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ]
   %210 = getelementptr inbounds nuw i8, ptr %.04525, i64 8
   %.not53 = icmp eq ptr %210, %182
   br i1 %.not53, label %._crit_edge, label %.lr.ph

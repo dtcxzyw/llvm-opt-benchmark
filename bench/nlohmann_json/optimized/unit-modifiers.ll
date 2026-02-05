@@ -4502,7 +4502,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %107) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  br label %.loopexit9074
+  br label %.loopexit9041
 
 2081:                                             ; preds = %2079
   %2082 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -4529,7 +4529,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %2090 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %108) #27
-  br label %.loopexit9075
+  br label %.loopexit9042
 
 2091:                                             ; preds = %2086
   %2092 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -4556,7 +4556,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %2100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #27
-  br label %.loopexit9076
+  br label %.loopexit9043
 
 2101:                                             ; preds = %2096
   %2102 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -4982,7 +4982,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 2246:                                             ; preds = %2101
   %2247 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9077
+  br label %.loopexit9044
 
 2248:                                             ; preds = %2106
   %2249 = landingpad { ptr, i32 }
@@ -4995,31 +4995,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %2253 = getelementptr inbounds i8, ptr %2252, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2253) #27
   %2254 = icmp eq ptr %2253, %106
-  br i1 %2254, label %.loopexit9077, label %2251
+  br i1 %2254, label %.loopexit9044, label %2251
 
-.loopexit9077:                                    ; preds = %2251, %2246
+.loopexit9044:                                    ; preds = %2251, %2246
   %2255 = phi i1 [ false, %2246 ], [ true, %2251 ]
   %.pn3588 = phi { ptr, i32 } [ %2247, %2246 ], [ %2249, %2251 ]
   %2256 = getelementptr inbounds nuw i8, ptr %109, i64 48
   br label %2257
 
-2257:                                             ; preds = %2257, %.loopexit9077
-  %2258 = phi ptr [ %2256, %.loopexit9077 ], [ %2259, %2257 ]
+2257:                                             ; preds = %2257, %.loopexit9044
+  %2258 = phi ptr [ %2256, %.loopexit9044 ], [ %2259, %2257 ]
   %2259 = getelementptr inbounds i8, ptr %2258, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2259) #27
   %2260 = icmp eq ptr %2259, %109
-  br i1 %2260, label %.loopexit9076, label %2257
+  br i1 %2260, label %.loopexit9043, label %2257
 
-.loopexit9076:                                    ; preds = %2257, %2099
+.loopexit9043:                                    ; preds = %2257, %2099
   %.43153 = phi i1 [ false, %2099 ], [ %2255, %2257 ]
   %.pn3588.pn = phi { ptr, i32 } [ %2100, %2099 ], [ %.pn3588, %2257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %2261
 
-2261:                                             ; preds = %.loopexit9076, %2244
-  %.33152 = phi i1 [ %.43153, %.loopexit9076 ], [ false, %2244 ]
-  %.33142 = phi ptr [ %2098, %.loopexit9076 ], [ %2088, %2244 ]
-  %.pn3588.pn.pn = phi { ptr, i32 } [ %.pn3588.pn, %.loopexit9076 ], [ %2245, %2244 ]
+2261:                                             ; preds = %.loopexit9043, %2244
+  %.33152 = phi i1 [ %.43153, %.loopexit9043 ], [ false, %2244 ]
+  %.33142 = phi ptr [ %2098, %.loopexit9043 ], [ %2088, %2244 ]
+  %.pn3588.pn.pn = phi { ptr, i32 } [ %.pn3588.pn, %.loopexit9043 ], [ %2245, %2244 ]
   %2262 = getelementptr inbounds nuw i8, ptr %108, i64 48
   br label %2263
 
@@ -5028,19 +5028,19 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %2265 = getelementptr inbounds i8, ptr %2264, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2265) #27
   %2266 = icmp eq ptr %2265, %108
-  br i1 %2266, label %.loopexit9075, label %2263
+  br i1 %2266, label %.loopexit9042, label %2263
 
-.loopexit9075:                                    ; preds = %2263, %2089
+.loopexit9042:                                    ; preds = %2263, %2089
   %.23151 = phi i1 [ false, %2089 ], [ %.33152, %2263 ]
   %.23141 = phi ptr [ %2088, %2089 ], [ %.33142, %2263 ]
   %.pn3588.pn.pn.pn = phi { ptr, i32 } [ %2090, %2089 ], [ %.pn3588.pn.pn, %2263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %2267
 
-2267:                                             ; preds = %.loopexit9075, %2242
-  %.13150 = phi i1 [ %.23151, %.loopexit9075 ], [ false, %2242 ]
-  %.13140 = phi ptr [ %.23141, %.loopexit9075 ], [ %106, %2242 ]
-  %.pn3588.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3588.pn.pn.pn, %.loopexit9075 ], [ %2243, %2242 ]
+2267:                                             ; preds = %.loopexit9042, %2242
+  %.13150 = phi i1 [ %.23151, %.loopexit9042 ], [ false, %2242 ]
+  %.13140 = phi ptr [ %.23141, %.loopexit9042 ], [ %106, %2242 ]
+  %.pn3588.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3588.pn.pn.pn, %.loopexit9042 ], [ %2243, %2242 ]
   %2268 = getelementptr inbounds nuw i8, ptr %107, i64 48
   br label %2269
 
@@ -5055,17 +5055,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %2274 = icmp eq ptr %106, %.13140
   %or.cond13 = select i1 %.13150, i1 true, i1 %2274
-  br i1 %or.cond13, label %.loopexit9074, label %.preheader9073
+  br i1 %or.cond13, label %.loopexit9041, label %.preheader9040
 
-.preheader9073:                                   ; preds = %2273, %.preheader9073
-  %2275 = phi ptr [ %2276, %.preheader9073 ], [ %.13140, %2273 ]
+.preheader9040:                                   ; preds = %2273, %.preheader9040
+  %2275 = phi ptr [ %2276, %.preheader9040 ], [ %.13140, %2273 ]
   %2276 = getelementptr inbounds i8, ptr %2275, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2276) #27
   %2277 = icmp eq ptr %2276, %106
-  br i1 %2277, label %.loopexit9074, label %.preheader9073
+  br i1 %2277, label %.loopexit9041, label %.preheader9040
 
-.loopexit9074:                                    ; preds = %.preheader9073, %.thread, %2273
-  %.pn3588.pn.pn.pn.pn.pn8297 = phi { ptr, i32 } [ %2080, %.thread ], [ %.pn3588.pn.pn.pn.pn, %2273 ], [ %.pn3588.pn.pn.pn.pn, %.preheader9073 ]
+.loopexit9041:                                    ; preds = %.preheader9040, %.thread, %2273
+  %.pn3588.pn.pn.pn.pn.pn8264 = phi { ptr, i32 } [ %2080, %.thread ], [ %.pn3588.pn.pn.pn.pn, %2273 ], [ %.pn3588.pn.pn.pn.pn, %.preheader9040 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %2314
 
@@ -5187,8 +5187,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #27
   br label %2314
 
-2314:                                             ; preds = %2313, %.loopexit9074
-  %.pn3602.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3602.pn.pn.pn.pn, %2313 ], [ %.pn3588.pn.pn.pn.pn.pn8297, %.loopexit9074 ]
+2314:                                             ; preds = %2313, %.loopexit9041
+  %.pn3602.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3602.pn.pn.pn.pn, %2313 ], [ %.pn3588.pn.pn.pn.pn.pn8264, %.loopexit9041 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %2316
 
@@ -5725,14 +5725,14 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %2464
 
 2467:                                             ; preds = %2464
   store i8 1, ptr %2465, align 1
-  %.sroa.58251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 1
-  store i8 2, ptr %.sroa.58251.0..sroa_idx, align 1
-  %.sroa.68252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 2
-  store i8 3, ptr %.sroa.68252.0..sroa_idx, align 1
-  %.sroa.78253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 3
-  store i8 4, ptr %.sroa.78253.0..sroa_idx, align 1
-  %.sroa.88254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 4
-  store i8 5, ptr %.sroa.88254.0..sroa_idx, align 1
+  %.sroa.58227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 1
+  store i8 2, ptr %.sroa.58227.0..sroa_idx, align 1
+  %.sroa.68228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 2
+  store i8 3, ptr %.sroa.68228.0..sroa_idx, align 1
+  %.sroa.78229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 3
+  store i8 4, ptr %.sroa.78229.0..sroa_idx, align 1
+  %.sroa.88230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2465, i64 4
+  store i8 5, ptr %.sroa.88230.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %2468 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr null, ptr %2468, align 8, !tbaa !10, !alias.scope !36
@@ -8361,13 +8361,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %3221, label %.body5440.thread, label %3218
 
 .body5440.thread:                                 ; preds = %3218, %3214
-  %.pn3738.pn.pn8300 = phi { ptr, i32 } [ %.pn3738.pn, %3214 ], [ %3146, %3218 ]
+  %.pn3738.pn.pn8267 = phi { ptr, i32 } [ %.pn3738.pn, %3214 ], [ %3146, %3218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %3222
 
 3222:                                             ; preds = %.body5440.thread, %3202
-  %.pn3738.pn.pn.pn = phi { ptr, i32 } [ %.pn3738.pn.pn8300, %.body5440.thread ], [ %3203, %3202 ]
+  %.pn3738.pn.pn.pn = phi { ptr, i32 } [ %.pn3738.pn.pn8267, %.body5440.thread ], [ %3203, %3202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %233)
   call void @llvm.lifetime.end.p0(ptr nonnull %232)
   call void @llvm.lifetime.end.p0(ptr nonnull %231)
@@ -9345,13 +9345,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %3528, label %.body5473.thread, label %3525
 
 .body5473.thread:                                 ; preds = %3525, %3521
-  %.pn3784.pn.pn8303 = phi { ptr, i32 } [ %.pn3784.pn, %3521 ], [ %3448, %3525 ]
+  %.pn3784.pn.pn8270 = phi { ptr, i32 } [ %.pn3784.pn, %3521 ], [ %3448, %3525 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %270)
   call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %3529
 
 3529:                                             ; preds = %.body5473.thread, %3509
-  %.pn3784.pn.pn.pn = phi { ptr, i32 } [ %.pn3784.pn.pn8303, %.body5473.thread ], [ %3510, %3509 ]
+  %.pn3784.pn.pn.pn = phi { ptr, i32 } [ %.pn3784.pn.pn8270, %.body5473.thread ], [ %3510, %3509 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
   call void @llvm.lifetime.end.p0(ptr nonnull %266)
@@ -10906,7 +10906,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %3982 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #27
-  br label %.loopexit9069
+  br label %.loopexit9036
 
 3983:                                             ; preds = %3980
   %3984 = getelementptr inbounds nuw i8, ptr %329, i64 16
@@ -10920,7 +10920,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3985) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #27
-  br label %.loopexit9069
+  br label %.loopexit9036
 
 3987:                                             ; preds = %3983
   %3988 = getelementptr inbounds nuw i8, ptr %329, i64 40
@@ -10975,7 +10975,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4003 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #27
-  br label %.loopexit9066
+  br label %.loopexit9033
 
 4004:                                             ; preds = %4001
   %4005 = getelementptr inbounds nuw i8, ptr %335, i64 16
@@ -10989,7 +10989,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4006) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #27
-  br label %.loopexit9066
+  br label %.loopexit9033
 
 4008:                                             ; preds = %4004
   %4009 = getelementptr inbounds nuw i8, ptr %335, i64 40
@@ -11426,9 +11426,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4157 = getelementptr inbounds i8, ptr %4156, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4157) #27
   %4158 = icmp eq ptr %4157, %329
-  br i1 %4158, label %.loopexit9069, label %4155
+  br i1 %4158, label %.loopexit9036, label %4155
 
-.loopexit9069:                                    ; preds = %4155, %.body5555, %.body5555.thread
+.loopexit9036:                                    ; preds = %4155, %.body5555, %.body5555.thread
   %.pn3877 = phi { ptr, i32 } [ %3986, %.body5555 ], [ %3982, %.body5555.thread ], [ %4153, %4155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %329)
   br label %4201
@@ -11441,7 +11441,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 4161:                                             ; preds = %4008
   %4162 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9067
+  br label %.loopexit9034
 
 4163:                                             ; preds = %4025
   %4164 = landingpad { ptr, i32 }
@@ -11463,29 +11463,29 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body7436:                                        ; preds = %.body.i, %4168
   %.pn3879.pn = phi { ptr, i32 } [ %.pn3879, %4168 ], [ %.pn25.pn.i, %.body.i ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %334) #27
-  br label %.loopexit9067
+  br label %.loopexit9034
 
-.loopexit9067:                                    ; preds = %.body7436, %4161
+.loopexit9034:                                    ; preds = %.body7436, %4161
   %.pn3879.pn.pn = phi { ptr, i32 } [ %4162, %4161 ], [ %.pn3879.pn, %.body7436 ]
   %4169 = getelementptr inbounds nuw i8, ptr %335, i64 48
   br label %4170
 
-4170:                                             ; preds = %4170, %.loopexit9067
-  %4171 = phi ptr [ %4169, %.loopexit9067 ], [ %4172, %4170 ]
+4170:                                             ; preds = %4170, %.loopexit9034
+  %4171 = phi ptr [ %4169, %.loopexit9034 ], [ %4172, %4170 ]
   %4172 = getelementptr inbounds i8, ptr %4171, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4172) #27
   %4173 = icmp eq ptr %4172, %335
-  br i1 %4173, label %.loopexit9066, label %4170
+  br i1 %4173, label %.loopexit9033, label %4170
 
-.loopexit9066:                                    ; preds = %4170, %.body5565, %.body5565.thread
+.loopexit9033:                                    ; preds = %4170, %.body5565, %.body5565.thread
   %.pn3879.pn.pn.pn = phi { ptr, i32 } [ %4007, %.body5565 ], [ %4003, %.body5565.thread ], [ %.pn3879.pn.pn, %4170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %335)
   call void @llvm.lifetime.end.p0(ptr nonnull %334)
   call void @llvm.lifetime.end.p0(ptr nonnull %333)
   br label %4174
 
-4174:                                             ; preds = %.loopexit9066, %4159
-  %.pn3879.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3879.pn.pn.pn, %.loopexit9066 ], [ %4160, %4159 ]
+4174:                                             ; preds = %.loopexit9033, %4159
+  %.pn3879.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3879.pn.pn.pn, %.loopexit9033 ], [ %4160, %4159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %332)
   call void @llvm.lifetime.end.p0(ptr nonnull %331)
   call void @llvm.lifetime.end.p0(ptr nonnull %330)
@@ -11520,7 +11520,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 4185:                                             ; preds = %4079
   %4186 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9065
+  br label %.loopexit9032
 
 4187:                                             ; preds = %4104
   %4188 = landingpad { ptr, i32 }
@@ -11542,15 +11542,15 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body7447:                                        ; preds = %.body.i7438, %4192
   %.pn3885.pn = phi { ptr, i32 } [ %.pn3885, %4192 ], [ %.pn25.pn.i7439, %.body.i7438 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %342) #27
-  br label %.loopexit9065
+  br label %.loopexit9032
 
-.loopexit9065:                                    ; preds = %.body7447, %4185
+.loopexit9032:                                    ; preds = %.body7447, %4185
   %.pn3885.pn.pn = phi { ptr, i32 } [ %4186, %4185 ], [ %.pn3885.pn, %.body7447 ]
   %4193 = getelementptr inbounds nuw i8, ptr %343, i64 72
   br label %4194
 
-4194:                                             ; preds = %4194, %.loopexit9065
-  %4195 = phi ptr [ %4193, %.loopexit9065 ], [ %4196, %4194 ]
+4194:                                             ; preds = %4194, %.loopexit9032
+  %4195 = phi ptr [ %4193, %.loopexit9032 ], [ %4196, %4194 ]
   %4196 = getelementptr inbounds i8, ptr %4195, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4196) #27
   %4197 = icmp eq ptr %4196, %343
@@ -11575,8 +11575,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %336)
   br label %4201
 
-4201:                                             ; preds = %4200, %4174, %.loopexit9069
-  %.pn3885.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3885.pn.pn.pn.pn, %4200 ], [ %.pn3879.pn.pn.pn.pn, %4174 ], [ %.pn3877, %.loopexit9069 ]
+4201:                                             ; preds = %4200, %4174, %.loopexit9036
+  %.pn3885.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3885.pn.pn.pn.pn, %4200 ], [ %.pn3879.pn.pn.pn.pn, %4174 ], [ %.pn3877, %.loopexit9036 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %328) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %328)
   br label %4410
@@ -11660,7 +11660,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %348) #27
-  br label %.loopexit9063
+  br label %.loopexit9030
 
 4229:                                             ; preds = %4227
   %4230 = getelementptr inbounds nuw i8, ptr %348, i64 16
@@ -11674,7 +11674,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4231) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %348) #27
-  br label %.loopexit9063
+  br label %.loopexit9030
 
 4233:                                             ; preds = %4229
   %4234 = getelementptr inbounds nuw i8, ptr %348, i64 40
@@ -11748,21 +11748,21 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4258 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #27
-  br label %.preheader9058.sink.split
+  br label %.preheader9025.sink.split
 
 4259:                                             ; preds = %4247
   %4260 = getelementptr inbounds nuw i8, ptr %354, i64 16
   %4261 = getelementptr inbounds nuw i8, ptr %354, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4260, i8 0, i64 24, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %4261, ptr noundef nonnull align 1 dereferenceable(4) @.str.57)
-          to label %4263 unwind label %.loopexit9060.thread
+          to label %4263 unwind label %.loopexit9027.thread
 
-.loopexit9060.thread:                             ; preds = %4259
+.loopexit9027.thread:                             ; preds = %4259
   %4262 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4261) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #27
-  br label %.preheader9058.sink.split
+  br label %.preheader9025.sink.split
 
 4263:                                             ; preds = %4259
   %4264 = getelementptr inbounds nuw i8, ptr %354, i64 40
@@ -12194,9 +12194,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4431 = getelementptr inbounds i8, ptr %4430, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4431) #27
   %4432 = icmp eq ptr %4431, %348
-  br i1 %4432, label %.loopexit9063, label %4429
+  br i1 %4432, label %.loopexit9030, label %4429
 
-.loopexit9063:                                    ; preds = %4429, %.body5603, %.body5603.thread
+.loopexit9030:                                    ; preds = %4429, %.body5603, %.body5603.thread
   %.pn3896 = phi { ptr, i32 } [ %4232, %.body5603 ], [ %4228, %.body5603.thread ], [ %4427, %4429 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %348)
   br label %4507
@@ -12209,7 +12209,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 4435:                                             ; preds = %4263
   %4436 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9061
+  br label %.loopexit9028
 
 4437:                                             ; preds = %4265
   %4438 = landingpad { ptr, i32 }
@@ -12243,49 +12243,49 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4449 = getelementptr inbounds i8, ptr %4448, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4449) #27
   %4450 = icmp eq ptr %4449, %353
-  br i1 %4450, label %.loopexit9061, label %4447
+  br i1 %4450, label %.loopexit9028, label %4447
 
-.loopexit9061:                                    ; preds = %4447, %4435
+.loopexit9028:                                    ; preds = %4447, %4435
   %.13165 = phi i1 [ true, %4435 ], [ false, %4447 ]
   %.pn3898.pn.pn = phi { ptr, i32 } [ %4436, %4435 ], [ %.pn3898.pn, %4447 ]
   %4451 = getelementptr inbounds nuw i8, ptr %354, i64 48
   br label %4452
 
-4452:                                             ; preds = %4452, %.loopexit9061
-  %4453 = phi ptr [ %4451, %.loopexit9061 ], [ %4454, %4452 ]
+4452:                                             ; preds = %4452, %.loopexit9028
+  %4453 = phi ptr [ %4451, %.loopexit9028 ], [ %4454, %4452 ]
   %4454 = getelementptr inbounds i8, ptr %4453, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4454) #27
   %4455 = icmp eq ptr %4454, %354
-  br i1 %4455, label %.loopexit9060, label %4452
+  br i1 %4455, label %.loopexit9027, label %4452
 
-.loopexit9060:                                    ; preds = %4452
+.loopexit9027:                                    ; preds = %4452
   call void @llvm.lifetime.end.p0(ptr nonnull %354)
-  br i1 %.13165, label %.preheader9058, label %.loopexit9059
+  br i1 %.13165, label %.preheader9025, label %.loopexit9026
 
-.preheader9058.sink.split:                        ; preds = %.body5613.thread, %.loopexit9060.thread
-  %.pn3898.pn.pn.pn8313.ph.ph = phi { ptr, i32 } [ %4262, %.loopexit9060.thread ], [ %4258, %.body5613.thread ]
+.preheader9025.sink.split:                        ; preds = %.body5613.thread, %.loopexit9027.thread
+  %.pn3898.pn.pn.pn8280.ph.ph = phi { ptr, i32 } [ %4262, %.loopexit9027.thread ], [ %4258, %.body5613.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %354)
-  br label %.preheader9058
+  br label %.preheader9025
 
-.preheader9058:                                   ; preds = %.preheader9058.sink.split, %.loopexit9060
-  %.pn3898.pn.pn.pn8313.ph = phi { ptr, i32 } [ %.pn3898.pn.pn, %.loopexit9060 ], [ %.pn3898.pn.pn.pn8313.ph.ph, %.preheader9058.sink.split ]
+.preheader9025:                                   ; preds = %.preheader9025.sink.split, %.loopexit9027
+  %.pn3898.pn.pn.pn8280.ph = phi { ptr, i32 } [ %.pn3898.pn.pn, %.loopexit9027 ], [ %.pn3898.pn.pn.pn8280.ph.ph, %.preheader9025.sink.split ]
   br label %4456
 
-4456:                                             ; preds = %.preheader9058, %4456
-  %4457 = phi ptr [ %4458, %4456 ], [ %4257, %.preheader9058 ]
+4456:                                             ; preds = %.preheader9025, %4456
+  %4457 = phi ptr [ %4458, %4456 ], [ %4257, %.preheader9025 ]
   %4458 = getelementptr inbounds i8, ptr %4457, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4458) #27
   %4459 = icmp eq ptr %4458, %353
-  br i1 %4459, label %.loopexit9059, label %4456
+  br i1 %4459, label %.loopexit9026, label %4456
 
-.loopexit9059:                                    ; preds = %4456, %.loopexit9060
-  %.pn3898.pn.pn.pn8312 = phi { ptr, i32 } [ %.pn3898.pn.pn, %.loopexit9060 ], [ %.pn3898.pn.pn.pn8313.ph, %4456 ]
+.loopexit9026:                                    ; preds = %4456, %.loopexit9027
+  %.pn3898.pn.pn.pn8279 = phi { ptr, i32 } [ %.pn3898.pn.pn, %.loopexit9027 ], [ %.pn3898.pn.pn.pn8280.ph, %4456 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %353)
   call void @llvm.lifetime.end.p0(ptr nonnull %352)
   br label %4460
 
-4460:                                             ; preds = %.loopexit9059, %4433
-  %.pn3898.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3898.pn.pn.pn8312, %.loopexit9059 ], [ %4434, %4433 ]
+4460:                                             ; preds = %.loopexit9026, %4433
+  %.pn3898.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3898.pn.pn.pn8279, %.loopexit9026 ], [ %4434, %4433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %351)
   call void @llvm.lifetime.end.p0(ptr nonnull %350)
   call void @llvm.lifetime.end.p0(ptr nonnull %349)
@@ -12337,7 +12337,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 4479:                                             ; preds = %4347
   %4480 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9057
+  br label %.loopexit9024
 
 4481:                                             ; preds = %4366
   %4482 = landingpad { ptr, i32 }
@@ -12371,16 +12371,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4493 = getelementptr inbounds i8, ptr %4492, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4493) #27
   %4494 = icmp eq ptr %4493, %362
-  br i1 %4494, label %.loopexit9057, label %4491
+  br i1 %4494, label %.loopexit9024, label %4491
 
-.loopexit9057:                                    ; preds = %4491, %4479
+.loopexit9024:                                    ; preds = %4491, %4479
   %.not59 = phi i1 [ false, %4479 ], [ true, %4491 ]
   %.pn3904.pn.pn = phi { ptr, i32 } [ %4480, %4479 ], [ %.pn3904.pn, %4491 ]
   %4495 = getelementptr inbounds nuw i8, ptr %363, i64 72
   br label %4496
 
-4496:                                             ; preds = %4496, %.loopexit9057
-  %4497 = phi ptr [ %4495, %.loopexit9057 ], [ %4498, %4496 ]
+4496:                                             ; preds = %4496, %.loopexit9024
+  %4497 = phi ptr [ %4495, %.loopexit9024 ], [ %4498, %4496 ]
   %4498 = getelementptr inbounds i8, ptr %4497, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4498) #27
   %4499 = icmp eq ptr %4498, %363
@@ -12388,22 +12388,22 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 4500:                                             ; preds = %4496
   call void @llvm.lifetime.end.p0(ptr nonnull %363)
-  br i1 %.not59, label %.loopexit9056, label %.preheader9055
+  br i1 %.not59, label %.loopexit9023, label %.preheader9022
 
-.preheader9055:                                   ; preds = %4500, %.preheader9055
-  %4501 = phi ptr [ %4502, %.preheader9055 ], [ %4357, %4500 ]
+.preheader9022:                                   ; preds = %4500, %.preheader9022
+  %4501 = phi ptr [ %4502, %.preheader9022 ], [ %4357, %4500 ]
   %4502 = getelementptr inbounds i8, ptr %4501, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4502) #27
   %4503 = icmp eq ptr %4502, %362
-  br i1 %4503, label %.loopexit9056, label %.preheader9055
+  br i1 %4503, label %.loopexit9023, label %.preheader9022
 
-.loopexit9056:                                    ; preds = %.preheader9055, %4500
+.loopexit9023:                                    ; preds = %.preheader9022, %4500
   call void @llvm.lifetime.end.p0(ptr nonnull %362)
   call void @llvm.lifetime.end.p0(ptr nonnull %361)
   br label %4504
 
-4504:                                             ; preds = %.loopexit9056, %4477
-  %.pn3904.pn.pn.pn = phi { ptr, i32 } [ %.pn3904.pn.pn, %.loopexit9056 ], [ %4478, %4477 ]
+4504:                                             ; preds = %.loopexit9023, %4477
+  %.pn3904.pn.pn.pn = phi { ptr, i32 } [ %.pn3904.pn.pn, %.loopexit9023 ], [ %4478, %4477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %360)
   call void @llvm.lifetime.end.p0(ptr nonnull %359)
   call void @llvm.lifetime.end.p0(ptr nonnull %358)
@@ -12419,8 +12419,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %355)
   br label %4507
 
-4507:                                             ; preds = %4506, %4460, %.loopexit9063
-  %.pn3904.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3904.pn.pn.pn.pn.pn, %4506 ], [ %.pn3898.pn.pn.pn.pn, %4460 ], [ %.pn3896, %.loopexit9063 ]
+4507:                                             ; preds = %4506, %4460, %.loopexit9030
+  %.pn3904.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3904.pn.pn.pn.pn.pn, %4506 ], [ %.pn3898.pn.pn.pn.pn, %4460 ], [ %.pn3896, %.loopexit9030 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %346) #27
   br label %4508
 
@@ -12462,7 +12462,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4516 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %368) #27
-  br label %.loopexit9053
+  br label %.loopexit9020
 
 4517:                                             ; preds = %4514
   %4518 = getelementptr inbounds nuw i8, ptr %368, i64 16
@@ -12480,7 +12480,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %4523 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store ptr null, ptr %4523, align 8, !tbaa !31
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ESt16initializer_listINS0_6detail8json_refISD_EEEbNSF_7value_tE(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr nonnull %367, i64 1, i1 noundef zeroext true, i8 noundef zeroext 2)
-          to label %4524 unwind label %.loopexit9054.loopexit
+          to label %4524 unwind label %.loopexit9021.loopexit
 
 4524:                                             ; preds = %4522
   %4525 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -12530,7 +12530,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4541 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %369) #27
-  br label %.loopexit9051
+  br label %.loopexit9018
 
 4542:                                             ; preds = %4540
   %4543 = getelementptr inbounds nuw i8, ptr %369, i64 16
@@ -12544,7 +12544,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4544) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %369) #27
-  br label %.loopexit9051
+  br label %.loopexit9018
 
 4546:                                             ; preds = %4542
   %4547 = getelementptr inbounds nuw i8, ptr %369, i64 40
@@ -12593,14 +12593,14 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.start.p0(ptr nonnull %375)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %375, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA5_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %375, ptr noundef nonnull align 1 dereferenceable(5) @.str.62)
-          to label %4563 unwind label %.thread8319
+          to label %4563 unwind label %.thread8286
 
-.thread8319:                                      ; preds = %4560
+.thread8286:                                      ; preds = %4560
   %4562 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %375) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %375)
-  br label %.loopexit9047
+  br label %.loopexit9014
 
 4563:                                             ; preds = %4560
   %4564 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -12627,7 +12627,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4571 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %376) #27
-  br label %.loopexit9048
+  br label %.loopexit9015
 
 4572:                                             ; preds = %4568
   %4573 = getelementptr inbounds nuw i8, ptr %376, i64 16
@@ -12641,7 +12641,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4574) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %376) #27
-  br label %.loopexit9048
+  br label %.loopexit9015
 
 4576:                                             ; preds = %4572
   %4577 = getelementptr inbounds nuw i8, ptr %376, i64 40
@@ -12861,27 +12861,27 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 4655:                                             ; preds = %4517
   %4656 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9054
+  br label %.loopexit9021
 
-.loopexit9054.loopexit:                           ; preds = %4522
+.loopexit9021.loopexit:                           ; preds = %4522
   %4657 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %367) #27
-  br label %.loopexit9054
+  br label %.loopexit9021
 
-.loopexit9054:                                    ; preds = %.loopexit9054.loopexit, %4655
-  %.pn3917 = phi { ptr, i32 } [ %4656, %4655 ], [ %4657, %.loopexit9054.loopexit ]
+.loopexit9021:                                    ; preds = %.loopexit9021.loopexit, %4655
+  %.pn3917 = phi { ptr, i32 } [ %4656, %4655 ], [ %4657, %.loopexit9021.loopexit ]
   %4658 = getelementptr inbounds nuw i8, ptr %368, i64 48
   br label %4659
 
-4659:                                             ; preds = %4659, %.loopexit9054
-  %4660 = phi ptr [ %4658, %.loopexit9054 ], [ %4661, %4659 ]
+4659:                                             ; preds = %4659, %.loopexit9021
+  %4660 = phi ptr [ %4658, %.loopexit9021 ], [ %4661, %4659 ]
   %4661 = getelementptr inbounds i8, ptr %4660, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4661) #27
   %4662 = icmp eq ptr %4661, %368
-  br i1 %4662, label %.loopexit9053, label %4659
+  br i1 %4662, label %.loopexit9020, label %4659
 
-.loopexit9053:                                    ; preds = %4659, %4515
+.loopexit9020:                                    ; preds = %4659, %4515
   %.pn3917.pn = phi { ptr, i32 } [ %4516, %4515 ], [ %.pn3917, %4659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %368)
   call void @llvm.lifetime.end.p0(ptr nonnull %367)
@@ -12898,9 +12898,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4668 = getelementptr inbounds i8, ptr %4667, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4668) #27
   %4669 = icmp eq ptr %4668, %369
-  br i1 %4669, label %.loopexit9051, label %4666
+  br i1 %4669, label %.loopexit9018, label %4666
 
-.loopexit9051:                                    ; preds = %4666, %.body5656, %.body5656.thread
+.loopexit9018:                                    ; preds = %4666, %.body5656, %.body5656.thread
   %.pn3920 = phi { ptr, i32 } [ %4545, %.body5656 ], [ %4541, %.body5656.thread ], [ %4664, %4666 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %369)
   br label %4902
@@ -12918,7 +12918,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 4674:                                             ; preds = %4576
   %4675 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9049
+  br label %.loopexit9016
 
 4676:                                             ; preds = %4578
   %4677 = landingpad { ptr, i32 }
@@ -12952,31 +12952,31 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4688 = getelementptr inbounds i8, ptr %4687, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4688) #27
   %4689 = icmp eq ptr %4688, %374
-  br i1 %4689, label %.loopexit9049, label %4686
+  br i1 %4689, label %.loopexit9016, label %4686
 
-.loopexit9049:                                    ; preds = %4686, %4674
+.loopexit9016:                                    ; preds = %4686, %4674
   %4690 = phi i1 [ false, %4674 ], [ true, %4686 ]
   %.pn3922.pn.pn = phi { ptr, i32 } [ %4675, %4674 ], [ %.pn3922.pn, %4686 ]
   %4691 = getelementptr inbounds nuw i8, ptr %376, i64 48
   br label %4692
 
-4692:                                             ; preds = %4692, %.loopexit9049
-  %4693 = phi ptr [ %4691, %.loopexit9049 ], [ %4694, %4692 ]
+4692:                                             ; preds = %4692, %.loopexit9016
+  %4693 = phi ptr [ %4691, %.loopexit9016 ], [ %4694, %4692 ]
   %4694 = getelementptr inbounds i8, ptr %4693, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4694) #27
   %4695 = icmp eq ptr %4694, %376
-  br i1 %4695, label %.loopexit9048, label %4692
+  br i1 %4695, label %.loopexit9015, label %4692
 
-.loopexit9048:                                    ; preds = %4692, %.body5671, %.body5671.thread
+.loopexit9015:                                    ; preds = %4692, %.body5671, %.body5671.thread
   %.23195 = phi i1 [ false, %.body5671 ], [ false, %.body5671.thread ], [ %4690, %4692 ]
   %.pn3922.pn.pn.pn = phi { ptr, i32 } [ %4575, %.body5671 ], [ %4571, %.body5671.thread ], [ %.pn3922.pn.pn, %4692 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %376)
   br label %4696
 
-4696:                                             ; preds = %.loopexit9048, %4672
-  %.13194 = phi i1 [ %.23195, %.loopexit9048 ], [ false, %4672 ]
-  %.13184 = phi ptr [ %4570, %.loopexit9048 ], [ %374, %4672 ]
-  %.pn3922.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3922.pn.pn.pn, %.loopexit9048 ], [ %4673, %4672 ]
+4696:                                             ; preds = %.loopexit9015, %4672
+  %.13194 = phi i1 [ %.23195, %.loopexit9015 ], [ false, %4672 ]
+  %.13184 = phi ptr [ %4570, %.loopexit9015 ], [ %374, %4672 ]
+  %.pn3922.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3922.pn.pn.pn, %.loopexit9015 ], [ %4673, %4672 ]
   %4697 = getelementptr inbounds nuw i8, ptr %375, i64 48
   br label %4698
 
@@ -12991,23 +12991,23 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.end.p0(ptr nonnull %375)
   %4703 = icmp eq ptr %374, %.13184
   %or.cond73 = select i1 %.13194, i1 true, i1 %4703
-  br i1 %or.cond73, label %.loopexit9047, label %.preheader9046
+  br i1 %or.cond73, label %.loopexit9014, label %.preheader9013
 
-.preheader9046:                                   ; preds = %4702, %.preheader9046
-  %4704 = phi ptr [ %4705, %.preheader9046 ], [ %.13184, %4702 ]
+.preheader9013:                                   ; preds = %4702, %.preheader9013
+  %4704 = phi ptr [ %4705, %.preheader9013 ], [ %.13184, %4702 ]
   %4705 = getelementptr inbounds i8, ptr %4704, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4705) #27
   %4706 = icmp eq ptr %4705, %374
-  br i1 %4706, label %.loopexit9047, label %.preheader9046
+  br i1 %4706, label %.loopexit9014, label %.preheader9013
 
-.loopexit9047:                                    ; preds = %.preheader9046, %.thread8319, %4702
-  %.pn3922.pn.pn.pn.pn.pn8326 = phi { ptr, i32 } [ %4562, %.thread8319 ], [ %.pn3922.pn.pn.pn.pn, %4702 ], [ %.pn3922.pn.pn.pn.pn, %.preheader9046 ]
+.loopexit9014:                                    ; preds = %.preheader9013, %.thread8286, %4702
+  %.pn3922.pn.pn.pn.pn.pn8293 = phi { ptr, i32 } [ %4562, %.thread8286 ], [ %.pn3922.pn.pn.pn.pn, %4702 ], [ %.pn3922.pn.pn.pn.pn, %.preheader9013 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %374)
   call void @llvm.lifetime.end.p0(ptr nonnull %373)
   br label %4707
 
-4707:                                             ; preds = %.loopexit9047, %4670
-  %.pn3922.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3922.pn.pn.pn.pn.pn8326, %.loopexit9047 ], [ %4671, %4670 ]
+4707:                                             ; preds = %.loopexit9014, %4670
+  %.pn3922.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3922.pn.pn.pn.pn.pn8293, %.loopexit9014 ], [ %4671, %4670 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %372)
   call void @llvm.lifetime.end.p0(ptr nonnull %371)
   call void @llvm.lifetime.end.p0(ptr nonnull %370)
@@ -13546,13 +13546,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %366)
   br label %4904
 
-4902:                                             ; preds = %4895, %4813, %4745, %4708, %4707, %.loopexit9051
-  %.pn3948.pn.pn = phi { ptr, i32 } [ %.pn3948.pn, %4895 ], [ %4709, %4708 ], [ %.pn3941.pn, %4813 ], [ %.pn3934.pn, %4745 ], [ %.pn3922.pn.pn.pn.pn.pn.pn, %4707 ], [ %.pn3920, %.loopexit9051 ]
+4902:                                             ; preds = %4895, %4813, %4745, %4708, %4707, %.loopexit9018
+  %.pn3948.pn.pn = phi { ptr, i32 } [ %.pn3948.pn, %4895 ], [ %4709, %4708 ], [ %.pn3941.pn, %4813 ], [ %.pn3934.pn, %4745 ], [ %.pn3922.pn.pn.pn.pn.pn.pn, %4707 ], [ %.pn3920, %.loopexit9018 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %366) #27
   br label %4903
 
-4903:                                             ; preds = %4902, %.loopexit9053
-  %.pn3948.pn.pn.pn = phi { ptr, i32 } [ %.pn3948.pn.pn, %4902 ], [ %.pn3917.pn, %.loopexit9053 ]
+4903:                                             ; preds = %4902, %.loopexit9020
+  %.pn3948.pn.pn.pn = phi { ptr, i32 } [ %.pn3948.pn.pn, %4902 ], [ %.pn3917.pn, %.loopexit9020 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %366)
   br label %4905
 
@@ -14435,13 +14435,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %5181, label %.body5731.thread, label %5178
 
 .body5731.thread:                                 ; preds = %5178, %5174
-  %.pn3989.pn.pn8329 = phi { ptr, i32 } [ %.pn3989.pn, %5174 ], [ %5100, %5178 ]
+  %.pn3989.pn.pn8296 = phi { ptr, i32 } [ %.pn3989.pn, %5174 ], [ %5100, %5178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %427)
   call void @llvm.lifetime.end.p0(ptr nonnull %426)
   br label %5182
 
 5182:                                             ; preds = %.body5731.thread, %5162
-  %.pn3989.pn.pn.pn = phi { ptr, i32 } [ %.pn3989.pn.pn8329, %.body5731.thread ], [ %5163, %5162 ]
+  %.pn3989.pn.pn.pn = phi { ptr, i32 } [ %.pn3989.pn.pn8296, %.body5731.thread ], [ %5163, %5162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %425)
   call void @llvm.lifetime.end.p0(ptr nonnull %424)
   call void @llvm.lifetime.end.p0(ptr nonnull %423)
@@ -14511,7 +14511,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5196 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %436) #27
-  br label %.loopexit9043
+  br label %.loopexit9010
 
 5197:                                             ; preds = %5194
   %5198 = getelementptr inbounds nuw i8, ptr %436, i64 16
@@ -14647,7 +14647,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %5239 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %446) #27
-  br label %.loopexit9040
+  br label %.loopexit9007
 
 5240:                                             ; preds = %5237
   %5241 = getelementptr inbounds nuw i8, ptr %446, i64 16
@@ -14815,7 +14815,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5298 = getelementptr inbounds i8, ptr %5297, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5298) #27
   %5299 = icmp eq ptr %5298, %436
-  br i1 %5299, label %.loopexit9043, label %5296
+  br i1 %5299, label %.loopexit9010, label %5296
 
 5300:                                             ; preds = %5207
   %5301 = landingpad { ptr, i32 }
@@ -14849,16 +14849,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5312 = getelementptr inbounds i8, ptr %5311, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5312) #27
   %5313 = icmp eq ptr %5312, %436
-  br i1 %5313, label %.loopexit9043, label %5310
+  br i1 %5313, label %.loopexit9010, label %5310
 
-.loopexit9043:                                    ; preds = %5296, %5310, %.body5740.thread
+.loopexit9010:                                    ; preds = %5296, %5310, %.body5740.thread
   %.pn4000.pn.pn = phi { ptr, i32 } [ %.pn4000.pn, %5310 ], [ %5196, %.body5740.thread ], [ %eh.lpad-body5741, %5296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %436)
   call void @llvm.lifetime.end.p0(ptr nonnull %435)
   br label %5314
 
-5314:                                             ; preds = %.loopexit9043, %5294
-  %.pn4000.pn.pn.pn = phi { ptr, i32 } [ %.pn4000.pn.pn, %.loopexit9043 ], [ %5295, %5294 ]
+5314:                                             ; preds = %.loopexit9010, %5294
+  %.pn4000.pn.pn.pn = phi { ptr, i32 } [ %.pn4000.pn.pn, %.loopexit9010 ], [ %5295, %5294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %434)
   call void @llvm.lifetime.end.p0(ptr nonnull %433)
   call void @llvm.lifetime.end.p0(ptr nonnull %432)
@@ -14899,27 +14899,27 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %5345
 
 .body5759:                                        ; preds = %5243, %5248
-  %.sink9396 = phi ptr [ %5242, %5243 ], [ %5247, %5248 ]
+  %.sink9363 = phi ptr [ %5242, %5243 ], [ %5247, %5248 ]
   %eh.lpad-body5760 = phi { ptr, i32 } [ %5244, %5243 ], [ %5249, %5248 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9396) #27
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9363) #27
   br label %5326
 
 5326:                                             ; preds = %.body5759, %5326
-  %5327 = phi ptr [ %.sink9396, %.body5759 ], [ %5328, %5326 ]
+  %5327 = phi ptr [ %.sink9363, %.body5759 ], [ %5328, %5326 ]
   %5328 = getelementptr inbounds i8, ptr %5327, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5328) #27
   %5329 = icmp eq ptr %5328, %446
-  br i1 %5329, label %.loopexit9040, label %5326
+  br i1 %5329, label %.loopexit9007, label %5326
 
 5330:                                             ; preds = %5250
   %5331 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9041
+  br label %.loopexit9008
 
 5332:                                             ; preds = %5252
   %5333 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9041.loopexit
+  br label %.loopexit9008.loopexit
 
 5334:                                             ; preds = %5254
   %5335 = landingpad { ptr, i32 }
@@ -14936,34 +14936,34 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 5339:                                             ; preds = %5336, %5334
   %.pn4009 = phi { ptr, i32 } [ %5337, %5336 ], [ %5335, %5334 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %444) #27
-  br label %.loopexit9041.loopexit
+  br label %.loopexit9008.loopexit
 
-.loopexit9041.loopexit:                           ; preds = %5339, %5332
+.loopexit9008.loopexit:                           ; preds = %5339, %5332
   %.pn4009.pn = phi { ptr, i32 } [ %.pn4009, %5339 ], [ %5333, %5332 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %445) #27
-  br label %.loopexit9041
+  br label %.loopexit9008
 
-.loopexit9041:                                    ; preds = %.loopexit9041.loopexit, %5330
-  %.pn4009.pn.pn = phi { ptr, i32 } [ %5331, %5330 ], [ %.pn4009.pn, %.loopexit9041.loopexit ]
+.loopexit9008:                                    ; preds = %.loopexit9008.loopexit, %5330
+  %.pn4009.pn.pn = phi { ptr, i32 } [ %5331, %5330 ], [ %.pn4009.pn, %.loopexit9008.loopexit ]
   %5340 = getelementptr inbounds nuw i8, ptr %446, i64 72
   br label %5341
 
-5341:                                             ; preds = %5341, %.loopexit9041
-  %5342 = phi ptr [ %5340, %.loopexit9041 ], [ %5343, %5341 ]
+5341:                                             ; preds = %5341, %.loopexit9008
+  %5342 = phi ptr [ %5340, %.loopexit9008 ], [ %5343, %5341 ]
   %5343 = getelementptr inbounds i8, ptr %5342, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5343) #27
   %5344 = icmp eq ptr %5343, %446
-  br i1 %5344, label %.loopexit9040, label %5341
+  br i1 %5344, label %.loopexit9007, label %5341
 
-.loopexit9040:                                    ; preds = %5326, %5341, %.body5759.thread
+.loopexit9007:                                    ; preds = %5326, %5341, %.body5759.thread
   %.pn4009.pn.pn.pn = phi { ptr, i32 } [ %.pn4009.pn.pn, %5341 ], [ %5239, %.body5759.thread ], [ %eh.lpad-body5760, %5326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %446)
   call void @llvm.lifetime.end.p0(ptr nonnull %445)
   call void @llvm.lifetime.end.p0(ptr nonnull %444)
   br label %5345
 
-5345:                                             ; preds = %.loopexit9040, %5324
-  %.pn4009.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4009.pn.pn.pn, %.loopexit9040 ], [ %5325, %5324 ]
+5345:                                             ; preds = %.loopexit9007, %5324
+  %.pn4009.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4009.pn.pn.pn, %.loopexit9007 ], [ %5325, %5324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %443)
   call void @llvm.lifetime.end.p0(ptr nonnull %442)
   call void @llvm.lifetime.end.p0(ptr nonnull %441)
@@ -15501,7 +15501,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5491 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %492) #27
-  br label %.thread8339
+  br label %.thread8306
 
 5492:                                             ; preds = %5489
   %5493 = getelementptr inbounds nuw i8, ptr %492, i64 16
@@ -15515,7 +15515,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5494) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %492) #27
-  br label %.thread8339
+  br label %.thread8306
 
 5496:                                             ; preds = %5492
   %5497 = getelementptr inbounds nuw i8, ptr %492, i64 40
@@ -15536,7 +15536,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5501 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %493) #27
-  br label %.loopexit9037
+  br label %.loopexit9004
 
 5502:                                             ; preds = %5498
   %5503 = getelementptr inbounds nuw i8, ptr %493, i64 16
@@ -15550,7 +15550,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5504) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %493) #27
-  br label %.loopexit9037
+  br label %.loopexit9004
 
 5506:                                             ; preds = %5502
   %5507 = getelementptr inbounds nuw i8, ptr %493, i64 40
@@ -15943,7 +15943,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 5640:                                             ; preds = %5506
   %5641 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9038
+  br label %.loopexit9005
 
 5642:                                             ; preds = %5508
   %5643 = landingpad { ptr, i32 }
@@ -15977,31 +15977,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5654 = getelementptr inbounds i8, ptr %5653, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5654) #27
   %5655 = icmp eq ptr %5654, %491
-  br i1 %5655, label %.loopexit9038, label %5652
+  br i1 %5655, label %.loopexit9005, label %5652
 
-.loopexit9038:                                    ; preds = %5652, %5640
+.loopexit9005:                                    ; preds = %5652, %5640
   %.33223 = phi i1 [ true, %5640 ], [ false, %5652 ]
   %.pn4057.pn.pn = phi { ptr, i32 } [ %5641, %5640 ], [ %.pn4057.pn, %5652 ]
   %5656 = getelementptr inbounds nuw i8, ptr %493, i64 48
   br label %5657
 
-5657:                                             ; preds = %5657, %.loopexit9038
-  %5658 = phi ptr [ %5656, %.loopexit9038 ], [ %5659, %5657 ]
+5657:                                             ; preds = %5657, %.loopexit9005
+  %5658 = phi ptr [ %5656, %.loopexit9005 ], [ %5659, %5657 ]
   %5659 = getelementptr inbounds i8, ptr %5658, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5659) #27
   %5660 = icmp eq ptr %5659, %493
-  br i1 %5660, label %.loopexit9037, label %5657
+  br i1 %5660, label %.loopexit9004, label %5657
 
-.loopexit9037:                                    ; preds = %5657, %.body5805, %.body5805.thread
+.loopexit9004:                                    ; preds = %5657, %.body5805, %.body5805.thread
   %.23222 = phi i1 [ true, %.body5805 ], [ true, %.body5805.thread ], [ %.33223, %5657 ]
   %.pn4057.pn.pn.pn = phi { ptr, i32 } [ %5505, %.body5805 ], [ %5501, %.body5805.thread ], [ %.pn4057.pn.pn, %5657 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %493)
   br label %5661
 
-5661:                                             ; preds = %.loopexit9037, %5638
-  %.13221 = phi i1 [ %.23222, %.loopexit9037 ], [ true, %5638 ]
-  %.13217 = phi ptr [ %5500, %.loopexit9037 ], [ %491, %5638 ]
-  %.pn4057.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4057.pn.pn.pn, %.loopexit9037 ], [ %5639, %5638 ]
+5661:                                             ; preds = %.loopexit9004, %5638
+  %.13221 = phi i1 [ %.23222, %.loopexit9004 ], [ true, %5638 ]
+  %.13217 = phi ptr [ %5500, %.loopexit9004 ], [ %491, %5638 ]
+  %.pn4057.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4057.pn.pn.pn, %.loopexit9004 ], [ %5639, %5638 ]
   %5662 = getelementptr inbounds nuw i8, ptr %492, i64 48
   br label %5663
 
@@ -16012,32 +16012,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5666 = icmp eq ptr %5665, %492
   br i1 %5666, label %5667, label %5663
 
-.thread8339:                                      ; preds = %.body5797, %.body5797.thread
+.thread8306:                                      ; preds = %.body5797, %.body5797.thread
   %.pn4057.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %5491, %.body5797.thread ], [ %5495, %.body5797 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %492)
-  br label %.loopexit9036
+  br label %.loopexit9003
 
 5667:                                             ; preds = %5663
   call void @llvm.lifetime.end.p0(ptr nonnull %492)
   %5668 = icmp ne ptr %491, %.13217
   %or.cond97.not = select i1 %.13221, i1 %5668, i1 false
-  br i1 %or.cond97.not, label %.preheader9035, label %.loopexit9036
+  br i1 %or.cond97.not, label %.preheader9002, label %.loopexit9003
 
-.preheader9035:                                   ; preds = %5667, %.preheader9035
-  %5669 = phi ptr [ %5670, %.preheader9035 ], [ %.13217, %5667 ]
+.preheader9002:                                   ; preds = %5667, %.preheader9002
+  %5669 = phi ptr [ %5670, %.preheader9002 ], [ %.13217, %5667 ]
   %5670 = getelementptr inbounds i8, ptr %5669, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5670) #27
   %5671 = icmp eq ptr %5670, %491
-  br i1 %5671, label %.loopexit9036, label %.preheader9035
+  br i1 %5671, label %.loopexit9003, label %.preheader9002
 
-.loopexit9036:                                    ; preds = %.preheader9035, %.thread8339, %5667
-  %.pn4057.pn.pn.pn.pn.pn8344 = phi { ptr, i32 } [ %.pn4057.pn.pn.pn.pn.pn.ph, %.thread8339 ], [ %.pn4057.pn.pn.pn.pn, %5667 ], [ %.pn4057.pn.pn.pn.pn, %.preheader9035 ]
+.loopexit9003:                                    ; preds = %.preheader9002, %.thread8306, %5667
+  %.pn4057.pn.pn.pn.pn.pn8311 = phi { ptr, i32 } [ %.pn4057.pn.pn.pn.pn.pn.ph, %.thread8306 ], [ %.pn4057.pn.pn.pn.pn, %5667 ], [ %.pn4057.pn.pn.pn.pn, %.preheader9002 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %491)
   call void @llvm.lifetime.end.p0(ptr nonnull %490)
   br label %5672
 
-5672:                                             ; preds = %.loopexit9036, %5636
-  %.pn4057.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4057.pn.pn.pn.pn.pn8344, %.loopexit9036 ], [ %5637, %5636 ]
+5672:                                             ; preds = %.loopexit9003, %5636
+  %.pn4057.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4057.pn.pn.pn.pn.pn8311, %.loopexit9003 ], [ %5637, %5636 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %489)
   call void @llvm.lifetime.end.p0(ptr nonnull %488)
   call void @llvm.lifetime.end.p0(ptr nonnull %487)
@@ -16093,7 +16093,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5682 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %498) #27
-  br label %.loopexit9032
+  br label %.loopexit8999
 
 5683:                                             ; preds = %5681
   %5684 = getelementptr inbounds nuw i8, ptr %498, i64 16
@@ -16107,7 +16107,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5685) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %498) #27
-  br label %.loopexit9032
+  br label %.loopexit8999
 
 5687:                                             ; preds = %5683
   %5688 = getelementptr inbounds nuw i8, ptr %498, i64 40
@@ -16119,7 +16119,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5690 = getelementptr inbounds nuw i8, ptr %497, i64 16
   store ptr null, ptr %5690, align 8, !tbaa !31
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ESt16initializer_listINS0_6detail8json_refISD_EEEbNSF_7value_tE(ptr noundef nonnull align 8 dereferenceable(16) %496, ptr nonnull %497, i64 1, i1 noundef zeroext true, i8 noundef zeroext 2)
-          to label %5691 unwind label %.loopexit9033.loopexit
+          to label %5691 unwind label %.loopexit9000.loopexit
 
 5691:                                             ; preds = %5689
   %5692 = getelementptr inbounds nuw i8, ptr %497, i64 8
@@ -16304,7 +16304,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %5742 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %520) #27
-  br label %.thread8352
+  br label %.thread8319
 
 5743:                                             ; preds = %5740
   %5744 = getelementptr inbounds nuw i8, ptr %520, i64 16
@@ -16318,7 +16318,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5745) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %520) #27
-  br label %.thread8352
+  br label %.thread8319
 
 5747:                                             ; preds = %5743
   %5748 = getelementptr inbounds nuw i8, ptr %520, i64 40
@@ -16339,7 +16339,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %5752 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %521) #27
-  br label %.loopexit9029
+  br label %.loopexit8996
 
 5753:                                             ; preds = %5749
   %5754 = getelementptr inbounds nuw i8, ptr %521, i64 16
@@ -16353,7 +16353,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5755) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %521) #27
-  br label %.loopexit9029
+  br label %.loopexit8996
 
 5757:                                             ; preds = %5753
   %5758 = getelementptr inbounds nuw i8, ptr %521, i64 40
@@ -16515,27 +16515,27 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 5817:                                             ; preds = %5687
   %5818 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9033
+  br label %.loopexit9000
 
-.loopexit9033.loopexit:                           ; preds = %5689
+.loopexit9000.loopexit:                           ; preds = %5689
   %5819 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %497) #27
-  br label %.loopexit9033
+  br label %.loopexit9000
 
-.loopexit9033:                                    ; preds = %.loopexit9033.loopexit, %5817
-  %.pn4072 = phi { ptr, i32 } [ %5818, %5817 ], [ %5819, %.loopexit9033.loopexit ]
+.loopexit9000:                                    ; preds = %.loopexit9000.loopexit, %5817
+  %.pn4072 = phi { ptr, i32 } [ %5818, %5817 ], [ %5819, %.loopexit9000.loopexit ]
   %5820 = getelementptr inbounds nuw i8, ptr %498, i64 48
   br label %5821
 
-5821:                                             ; preds = %5821, %.loopexit9033
-  %5822 = phi ptr [ %5820, %.loopexit9033 ], [ %5823, %5821 ]
+5821:                                             ; preds = %5821, %.loopexit9000
+  %5822 = phi ptr [ %5820, %.loopexit9000 ], [ %5823, %5821 ]
   %5823 = getelementptr inbounds i8, ptr %5822, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5823) #27
   %5824 = icmp eq ptr %5823, %498
-  br i1 %5824, label %.loopexit9032, label %5821
+  br i1 %5824, label %.loopexit8999, label %5821
 
-.loopexit9032:                                    ; preds = %5821, %.body5821, %.body5821.thread
+.loopexit8999:                                    ; preds = %5821, %.body5821, %.body5821.thread
   %.pn4072.pn = phi { ptr, i32 } [ %5686, %.body5821 ], [ %5682, %.body5821.thread ], [ %.pn4072, %5821 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %498)
   call void @llvm.lifetime.end.p0(ptr nonnull %497)
@@ -16660,7 +16660,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 5863:                                             ; preds = %5757
   %5864 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9030
+  br label %.loopexit8997
 
 5865:                                             ; preds = %5759
   %5866 = landingpad { ptr, i32 }
@@ -16694,31 +16694,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5877 = getelementptr inbounds i8, ptr %5876, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5877) #27
   %5878 = icmp eq ptr %5877, %519
-  br i1 %5878, label %.loopexit9030, label %5875
+  br i1 %5878, label %.loopexit8997, label %5875
 
-.loopexit9030:                                    ; preds = %5875, %5863
+.loopexit8997:                                    ; preds = %5875, %5863
   %.33235 = phi i1 [ true, %5863 ], [ false, %5875 ]
   %.pn4085.pn.pn = phi { ptr, i32 } [ %5864, %5863 ], [ %.pn4085.pn, %5875 ]
   %5879 = getelementptr inbounds nuw i8, ptr %521, i64 48
   br label %5880
 
-5880:                                             ; preds = %5880, %.loopexit9030
-  %5881 = phi ptr [ %5879, %.loopexit9030 ], [ %5882, %5880 ]
+5880:                                             ; preds = %5880, %.loopexit8997
+  %5881 = phi ptr [ %5879, %.loopexit8997 ], [ %5882, %5880 ]
   %5882 = getelementptr inbounds i8, ptr %5881, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5882) #27
   %5883 = icmp eq ptr %5882, %521
-  br i1 %5883, label %.loopexit9029, label %5880
+  br i1 %5883, label %.loopexit8996, label %5880
 
-.loopexit9029:                                    ; preds = %5880, %.body5851, %.body5851.thread
+.loopexit8996:                                    ; preds = %5880, %.body5851, %.body5851.thread
   %.23234 = phi i1 [ true, %.body5851 ], [ true, %.body5851.thread ], [ %.33235, %5880 ]
   %.pn4085.pn.pn.pn = phi { ptr, i32 } [ %5756, %.body5851 ], [ %5752, %.body5851.thread ], [ %.pn4085.pn.pn, %5880 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %521)
   br label %5884
 
-5884:                                             ; preds = %.loopexit9029, %5861
-  %.13233 = phi i1 [ %.23234, %.loopexit9029 ], [ true, %5861 ]
-  %.13229 = phi ptr [ %5751, %.loopexit9029 ], [ %519, %5861 ]
-  %.pn4085.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn, %.loopexit9029 ], [ %5862, %5861 ]
+5884:                                             ; preds = %.loopexit8996, %5861
+  %.13233 = phi i1 [ %.23234, %.loopexit8996 ], [ true, %5861 ]
+  %.13229 = phi ptr [ %5751, %.loopexit8996 ], [ %519, %5861 ]
+  %.pn4085.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn, %.loopexit8996 ], [ %5862, %5861 ]
   %5885 = getelementptr inbounds nuw i8, ptr %520, i64 48
   br label %5886
 
@@ -16729,32 +16729,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %5889 = icmp eq ptr %5888, %520
   br i1 %5889, label %5890, label %5886
 
-.thread8352:                                      ; preds = %.body5843, %.body5843.thread
+.thread8319:                                      ; preds = %.body5843, %.body5843.thread
   %.pn4085.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %5742, %.body5843.thread ], [ %5746, %.body5843 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %520)
-  br label %.loopexit9028
+  br label %.loopexit8995
 
 5890:                                             ; preds = %5886
   call void @llvm.lifetime.end.p0(ptr nonnull %520)
   %5891 = icmp ne ptr %519, %.13229
   %or.cond103.not = select i1 %.13233, i1 %5891, i1 false
-  br i1 %or.cond103.not, label %.preheader9027, label %.loopexit9028
+  br i1 %or.cond103.not, label %.preheader8994, label %.loopexit8995
 
-.preheader9027:                                   ; preds = %5890, %.preheader9027
-  %5892 = phi ptr [ %5893, %.preheader9027 ], [ %.13229, %5890 ]
+.preheader8994:                                   ; preds = %5890, %.preheader8994
+  %5892 = phi ptr [ %5893, %.preheader8994 ], [ %.13229, %5890 ]
   %5893 = getelementptr inbounds i8, ptr %5892, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5893) #27
   %5894 = icmp eq ptr %5893, %519
-  br i1 %5894, label %.loopexit9028, label %.preheader9027
+  br i1 %5894, label %.loopexit8995, label %.preheader8994
 
-.loopexit9028:                                    ; preds = %.preheader9027, %.thread8352, %5890
-  %.pn4085.pn.pn.pn.pn.pn8357 = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn.ph, %.thread8352 ], [ %.pn4085.pn.pn.pn.pn, %5890 ], [ %.pn4085.pn.pn.pn.pn, %.preheader9027 ]
+.loopexit8995:                                    ; preds = %.preheader8994, %.thread8319, %5890
+  %.pn4085.pn.pn.pn.pn.pn8324 = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn.ph, %.thread8319 ], [ %.pn4085.pn.pn.pn.pn, %5890 ], [ %.pn4085.pn.pn.pn.pn, %.preheader8994 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %519)
   call void @llvm.lifetime.end.p0(ptr nonnull %518)
   br label %5895
 
-5895:                                             ; preds = %.loopexit9028, %5859
-  %.pn4085.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn8357, %.loopexit9028 ], [ %5860, %5859 ]
+5895:                                             ; preds = %.loopexit8995, %5859
+  %.pn4085.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn8324, %.loopexit8995 ], [ %5860, %5859 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %517)
   call void @llvm.lifetime.end.p0(ptr nonnull %516)
   call void @llvm.lifetime.end.p0(ptr nonnull %515)
@@ -16771,8 +16771,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %496) #27
   br label %5898
 
-5898:                                             ; preds = %5897, %.loopexit9032
-  %.pn4085.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn.pn.pn.pn, %5897 ], [ %.pn4072.pn, %.loopexit9032 ]
+5898:                                             ; preds = %5897, %.loopexit8999
+  %.pn4085.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4085.pn.pn.pn.pn.pn.pn.pn.pn, %5897 ], [ %.pn4072.pn, %.loopexit8999 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %496)
   br label %5900
 
@@ -17818,13 +17818,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %6223, label %.body5900.thread, label %6220
 
 .body5900.thread:                                 ; preds = %6220, %6216
-  %.pn4139.pn.pn8360 = phi { ptr, i32 } [ %.pn4139.pn, %6216 ], [ %6148, %6220 ]
+  %.pn4139.pn.pn8327 = phi { ptr, i32 } [ %.pn4139.pn, %6216 ], [ %6148, %6220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %561)
   call void @llvm.lifetime.end.p0(ptr nonnull %560)
   br label %6224
 
 6224:                                             ; preds = %.body5900.thread, %6204
-  %.pn4139.pn.pn.pn = phi { ptr, i32 } [ %.pn4139.pn.pn8360, %.body5900.thread ], [ %6205, %6204 ]
+  %.pn4139.pn.pn.pn = phi { ptr, i32 } [ %.pn4139.pn.pn8327, %.body5900.thread ], [ %6205, %6204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %559)
   call void @llvm.lifetime.end.p0(ptr nonnull %558)
   call void @llvm.lifetime.end.p0(ptr nonnull %557)
@@ -18802,13 +18802,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %6526, label %.body5943.thread, label %6523
 
 .body5943.thread:                                 ; preds = %6523, %6519
-  %.pn4185.pn.pn8363 = phi { ptr, i32 } [ %.pn4185.pn, %6519 ], [ %6446, %6523 ]
+  %.pn4185.pn.pn8330 = phi { ptr, i32 } [ %.pn4185.pn, %6519 ], [ %6446, %6523 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %596)
   call void @llvm.lifetime.end.p0(ptr nonnull %595)
   br label %6527
 
 6527:                                             ; preds = %.body5943.thread, %6507
-  %.pn4185.pn.pn.pn = phi { ptr, i32 } [ %.pn4185.pn.pn8363, %.body5943.thread ], [ %6508, %6507 ]
+  %.pn4185.pn.pn.pn = phi { ptr, i32 } [ %.pn4185.pn.pn8330, %.body5943.thread ], [ %6508, %6507 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %594)
   call void @llvm.lifetime.end.p0(ptr nonnull %593)
   call void @llvm.lifetime.end.p0(ptr nonnull %592)
@@ -20363,7 +20363,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %6974 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %655) #27
-  br label %.loopexit9023
+  br label %.loopexit8990
 
 6975:                                             ; preds = %6972
   %6976 = getelementptr inbounds nuw i8, ptr %655, i64 16
@@ -20377,7 +20377,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6977) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %655) #27
-  br label %.loopexit9023
+  br label %.loopexit8990
 
 6979:                                             ; preds = %6975
   %6980 = getelementptr inbounds nuw i8, ptr %655, i64 40
@@ -20432,7 +20432,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %6994 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %661) #27
-  br label %.loopexit9020
+  br label %.loopexit8987
 
 6995:                                             ; preds = %6992
   %6996 = getelementptr inbounds nuw i8, ptr %661, i64 16
@@ -20446,7 +20446,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6997) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %661) #27
-  br label %.loopexit9020
+  br label %.loopexit8987
 
 6999:                                             ; preds = %6995
   %7000 = getelementptr inbounds nuw i8, ptr %661, i64 40
@@ -20883,9 +20883,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7148 = getelementptr inbounds i8, ptr %7147, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7148) #27
   %7149 = icmp eq ptr %7148, %655
-  br i1 %7149, label %.loopexit9023, label %7146
+  br i1 %7149, label %.loopexit8990, label %7146
 
-.loopexit9023:                                    ; preds = %7146, %.body6046, %.body6046.thread
+.loopexit8990:                                    ; preds = %7146, %.body6046, %.body6046.thread
   %.pn4278 = phi { ptr, i32 } [ %6978, %.body6046 ], [ %6974, %.body6046.thread ], [ %7144, %7146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %655)
   br label %7192
@@ -20898,7 +20898,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 7152:                                             ; preds = %6999
   %7153 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9021
+  br label %.loopexit8988
 
 7154:                                             ; preds = %7016
   %7155 = landingpad { ptr, i32 }
@@ -20920,29 +20920,29 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body7461:                                        ; preds = %.body.i7452, %7159
   %.pn4280.pn = phi { ptr, i32 } [ %.pn4280, %7159 ], [ %.pn25.pn.i7453, %.body.i7452 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %660) #27
-  br label %.loopexit9021
+  br label %.loopexit8988
 
-.loopexit9021:                                    ; preds = %.body7461, %7152
+.loopexit8988:                                    ; preds = %.body7461, %7152
   %.pn4280.pn.pn = phi { ptr, i32 } [ %7153, %7152 ], [ %.pn4280.pn, %.body7461 ]
   %7160 = getelementptr inbounds nuw i8, ptr %661, i64 48
   br label %7161
 
-7161:                                             ; preds = %7161, %.loopexit9021
-  %7162 = phi ptr [ %7160, %.loopexit9021 ], [ %7163, %7161 ]
+7161:                                             ; preds = %7161, %.loopexit8988
+  %7162 = phi ptr [ %7160, %.loopexit8988 ], [ %7163, %7161 ]
   %7163 = getelementptr inbounds i8, ptr %7162, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7163) #27
   %7164 = icmp eq ptr %7163, %661
-  br i1 %7164, label %.loopexit9020, label %7161
+  br i1 %7164, label %.loopexit8987, label %7161
 
-.loopexit9020:                                    ; preds = %7161, %.body6057, %.body6057.thread
+.loopexit8987:                                    ; preds = %7161, %.body6057, %.body6057.thread
   %.pn4280.pn.pn.pn = phi { ptr, i32 } [ %6998, %.body6057 ], [ %6994, %.body6057.thread ], [ %.pn4280.pn.pn, %7161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %661)
   call void @llvm.lifetime.end.p0(ptr nonnull %660)
   call void @llvm.lifetime.end.p0(ptr nonnull %659)
   br label %7165
 
-7165:                                             ; preds = %.loopexit9020, %7150
-  %.pn4280.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4280.pn.pn.pn, %.loopexit9020 ], [ %7151, %7150 ]
+7165:                                             ; preds = %.loopexit8987, %7150
+  %.pn4280.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4280.pn.pn.pn, %.loopexit8987 ], [ %7151, %7150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %658)
   call void @llvm.lifetime.end.p0(ptr nonnull %657)
   call void @llvm.lifetime.end.p0(ptr nonnull %656)
@@ -20977,7 +20977,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 7176:                                             ; preds = %7070
   %7177 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9019
+  br label %.loopexit8986
 
 7178:                                             ; preds = %7095
   %7179 = landingpad { ptr, i32 }
@@ -20999,15 +20999,15 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body7481:                                        ; preds = %.body.i7472, %7183
   %.pn4286.pn = phi { ptr, i32 } [ %.pn4286, %7183 ], [ %.pn25.pn.i7473, %.body.i7472 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %668) #27
-  br label %.loopexit9019
+  br label %.loopexit8986
 
-.loopexit9019:                                    ; preds = %.body7481, %7176
+.loopexit8986:                                    ; preds = %.body7481, %7176
   %.pn4286.pn.pn = phi { ptr, i32 } [ %7177, %7176 ], [ %.pn4286.pn, %.body7481 ]
   %7184 = getelementptr inbounds nuw i8, ptr %669, i64 72
   br label %7185
 
-7185:                                             ; preds = %7185, %.loopexit9019
-  %7186 = phi ptr [ %7184, %.loopexit9019 ], [ %7187, %7185 ]
+7185:                                             ; preds = %7185, %.loopexit8986
+  %7186 = phi ptr [ %7184, %.loopexit8986 ], [ %7187, %7185 ]
   %7187 = getelementptr inbounds i8, ptr %7186, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7187) #27
   %7188 = icmp eq ptr %7187, %669
@@ -21032,8 +21032,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %662)
   br label %7192
 
-7192:                                             ; preds = %7191, %7165, %.loopexit9023
-  %.pn4286.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4286.pn.pn.pn.pn, %7191 ], [ %.pn4280.pn.pn.pn.pn, %7165 ], [ %.pn4278, %.loopexit9023 ]
+7192:                                             ; preds = %7191, %7165, %.loopexit8990
+  %.pn4286.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4286.pn.pn.pn.pn, %7191 ], [ %.pn4280.pn.pn.pn.pn, %7165 ], [ %.pn4278, %.loopexit8990 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %654) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %654)
   br label %7400
@@ -21117,7 +21117,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7219 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %674) #27
-  br label %.loopexit9017
+  br label %.loopexit8984
 
 7220:                                             ; preds = %7218
   %7221 = getelementptr inbounds nuw i8, ptr %674, i64 16
@@ -21131,7 +21131,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7222) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %674) #27
-  br label %.loopexit9017
+  br label %.loopexit8984
 
 7224:                                             ; preds = %7220
   %7225 = getelementptr inbounds nuw i8, ptr %674, i64 40
@@ -21205,21 +21205,21 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7248 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %680) #27
-  br label %.preheader9012.sink.split
+  br label %.preheader8979.sink.split
 
 7249:                                             ; preds = %7237
   %7250 = getelementptr inbounds nuw i8, ptr %680, i64 16
   %7251 = getelementptr inbounds nuw i8, ptr %680, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7250, i8 0, i64 24, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %7251, ptr noundef nonnull align 1 dereferenceable(4) @.str.57)
-          to label %7253 unwind label %.loopexit9014.thread
+          to label %7253 unwind label %.loopexit8981.thread
 
-.loopexit9014.thread:                             ; preds = %7249
+.loopexit8981.thread:                             ; preds = %7249
   %7252 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7251) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %680) #27
-  br label %.preheader9012.sink.split
+  br label %.preheader8979.sink.split
 
 7253:                                             ; preds = %7249
   %7254 = getelementptr inbounds nuw i8, ptr %680, i64 40
@@ -21651,9 +21651,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7421 = getelementptr inbounds i8, ptr %7420, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7421) #27
   %7422 = icmp eq ptr %7421, %674
-  br i1 %7422, label %.loopexit9017, label %7419
+  br i1 %7422, label %.loopexit8984, label %7419
 
-.loopexit9017:                                    ; preds = %7419, %.body6091, %.body6091.thread
+.loopexit8984:                                    ; preds = %7419, %.body6091, %.body6091.thread
   %.pn4297 = phi { ptr, i32 } [ %7223, %.body6091 ], [ %7219, %.body6091.thread ], [ %7417, %7419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %674)
   br label %7497
@@ -21666,7 +21666,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 7425:                                             ; preds = %7253
   %7426 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9015
+  br label %.loopexit8982
 
 7427:                                             ; preds = %7255
   %7428 = landingpad { ptr, i32 }
@@ -21700,49 +21700,49 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7439 = getelementptr inbounds i8, ptr %7438, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7439) #27
   %7440 = icmp eq ptr %7439, %679
-  br i1 %7440, label %.loopexit9015, label %7437
+  br i1 %7440, label %.loopexit8982, label %7437
 
-.loopexit9015:                                    ; preds = %7437, %7425
+.loopexit8982:                                    ; preds = %7437, %7425
   %.13255 = phi i1 [ true, %7425 ], [ false, %7437 ]
   %.pn4299.pn.pn = phi { ptr, i32 } [ %7426, %7425 ], [ %.pn4299.pn, %7437 ]
   %7441 = getelementptr inbounds nuw i8, ptr %680, i64 48
   br label %7442
 
-7442:                                             ; preds = %7442, %.loopexit9015
-  %7443 = phi ptr [ %7441, %.loopexit9015 ], [ %7444, %7442 ]
+7442:                                             ; preds = %7442, %.loopexit8982
+  %7443 = phi ptr [ %7441, %.loopexit8982 ], [ %7444, %7442 ]
   %7444 = getelementptr inbounds i8, ptr %7443, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7444) #27
   %7445 = icmp eq ptr %7444, %680
-  br i1 %7445, label %.loopexit9014, label %7442
+  br i1 %7445, label %.loopexit8981, label %7442
 
-.loopexit9014:                                    ; preds = %7442
+.loopexit8981:                                    ; preds = %7442
   call void @llvm.lifetime.end.p0(ptr nonnull %680)
-  br i1 %.13255, label %.preheader9012, label %.loopexit9013
+  br i1 %.13255, label %.preheader8979, label %.loopexit8980
 
-.preheader9012.sink.split:                        ; preds = %.body6103.thread, %.loopexit9014.thread
-  %.pn4299.pn.pn.pn8373.ph.ph = phi { ptr, i32 } [ %7252, %.loopexit9014.thread ], [ %7248, %.body6103.thread ]
+.preheader8979.sink.split:                        ; preds = %.body6103.thread, %.loopexit8981.thread
+  %.pn4299.pn.pn.pn8340.ph.ph = phi { ptr, i32 } [ %7252, %.loopexit8981.thread ], [ %7248, %.body6103.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %680)
-  br label %.preheader9012
+  br label %.preheader8979
 
-.preheader9012:                                   ; preds = %.preheader9012.sink.split, %.loopexit9014
-  %.pn4299.pn.pn.pn8373.ph = phi { ptr, i32 } [ %.pn4299.pn.pn, %.loopexit9014 ], [ %.pn4299.pn.pn.pn8373.ph.ph, %.preheader9012.sink.split ]
+.preheader8979:                                   ; preds = %.preheader8979.sink.split, %.loopexit8981
+  %.pn4299.pn.pn.pn8340.ph = phi { ptr, i32 } [ %.pn4299.pn.pn, %.loopexit8981 ], [ %.pn4299.pn.pn.pn8340.ph.ph, %.preheader8979.sink.split ]
   br label %7446
 
-7446:                                             ; preds = %.preheader9012, %7446
-  %7447 = phi ptr [ %7448, %7446 ], [ %7247, %.preheader9012 ]
+7446:                                             ; preds = %.preheader8979, %7446
+  %7447 = phi ptr [ %7448, %7446 ], [ %7247, %.preheader8979 ]
   %7448 = getelementptr inbounds i8, ptr %7447, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7448) #27
   %7449 = icmp eq ptr %7448, %679
-  br i1 %7449, label %.loopexit9013, label %7446
+  br i1 %7449, label %.loopexit8980, label %7446
 
-.loopexit9013:                                    ; preds = %7446, %.loopexit9014
-  %.pn4299.pn.pn.pn8372 = phi { ptr, i32 } [ %.pn4299.pn.pn, %.loopexit9014 ], [ %.pn4299.pn.pn.pn8373.ph, %7446 ]
+.loopexit8980:                                    ; preds = %7446, %.loopexit8981
+  %.pn4299.pn.pn.pn8339 = phi { ptr, i32 } [ %.pn4299.pn.pn, %.loopexit8981 ], [ %.pn4299.pn.pn.pn8340.ph, %7446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %679)
   call void @llvm.lifetime.end.p0(ptr nonnull %678)
   br label %7450
 
-7450:                                             ; preds = %.loopexit9013, %7423
-  %.pn4299.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4299.pn.pn.pn8372, %.loopexit9013 ], [ %7424, %7423 ]
+7450:                                             ; preds = %.loopexit8980, %7423
+  %.pn4299.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4299.pn.pn.pn8339, %.loopexit8980 ], [ %7424, %7423 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %677)
   call void @llvm.lifetime.end.p0(ptr nonnull %676)
   call void @llvm.lifetime.end.p0(ptr nonnull %675)
@@ -21794,7 +21794,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 7469:                                             ; preds = %7337
   %7470 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9011
+  br label %.loopexit8978
 
 7471:                                             ; preds = %7356
   %7472 = landingpad { ptr, i32 }
@@ -21828,16 +21828,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7483 = getelementptr inbounds i8, ptr %7482, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7483) #27
   %7484 = icmp eq ptr %7483, %688
-  br i1 %7484, label %.loopexit9011, label %7481
+  br i1 %7484, label %.loopexit8978, label %7481
 
-.loopexit9011:                                    ; preds = %7481, %7469
+.loopexit8978:                                    ; preds = %7481, %7469
   %.not149 = phi i1 [ false, %7469 ], [ true, %7481 ]
   %.pn4305.pn.pn = phi { ptr, i32 } [ %7470, %7469 ], [ %.pn4305.pn, %7481 ]
   %7485 = getelementptr inbounds nuw i8, ptr %689, i64 72
   br label %7486
 
-7486:                                             ; preds = %7486, %.loopexit9011
-  %7487 = phi ptr [ %7485, %.loopexit9011 ], [ %7488, %7486 ]
+7486:                                             ; preds = %7486, %.loopexit8978
+  %7487 = phi ptr [ %7485, %.loopexit8978 ], [ %7488, %7486 ]
   %7488 = getelementptr inbounds i8, ptr %7487, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7488) #27
   %7489 = icmp eq ptr %7488, %689
@@ -21845,22 +21845,22 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 7490:                                             ; preds = %7486
   call void @llvm.lifetime.end.p0(ptr nonnull %689)
-  br i1 %.not149, label %.loopexit9010, label %.preheader9009
+  br i1 %.not149, label %.loopexit8977, label %.preheader8976
 
-.preheader9009:                                   ; preds = %7490, %.preheader9009
-  %7491 = phi ptr [ %7492, %.preheader9009 ], [ %7347, %7490 ]
+.preheader8976:                                   ; preds = %7490, %.preheader8976
+  %7491 = phi ptr [ %7492, %.preheader8976 ], [ %7347, %7490 ]
   %7492 = getelementptr inbounds i8, ptr %7491, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7492) #27
   %7493 = icmp eq ptr %7492, %688
-  br i1 %7493, label %.loopexit9010, label %.preheader9009
+  br i1 %7493, label %.loopexit8977, label %.preheader8976
 
-.loopexit9010:                                    ; preds = %.preheader9009, %7490
+.loopexit8977:                                    ; preds = %.preheader8976, %7490
   call void @llvm.lifetime.end.p0(ptr nonnull %688)
   call void @llvm.lifetime.end.p0(ptr nonnull %687)
   br label %7494
 
-7494:                                             ; preds = %.loopexit9010, %7467
-  %.pn4305.pn.pn.pn = phi { ptr, i32 } [ %.pn4305.pn.pn, %.loopexit9010 ], [ %7468, %7467 ]
+7494:                                             ; preds = %.loopexit8977, %7467
+  %.pn4305.pn.pn.pn = phi { ptr, i32 } [ %.pn4305.pn.pn, %.loopexit8977 ], [ %7468, %7467 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %686)
   call void @llvm.lifetime.end.p0(ptr nonnull %685)
   call void @llvm.lifetime.end.p0(ptr nonnull %684)
@@ -21876,8 +21876,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %681)
   br label %7497
 
-7497:                                             ; preds = %7496, %7450, %.loopexit9017
-  %.pn4305.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4305.pn.pn.pn.pn.pn, %7496 ], [ %.pn4299.pn.pn.pn.pn, %7450 ], [ %.pn4297, %.loopexit9017 ]
+7497:                                             ; preds = %7496, %7450, %.loopexit8984
+  %.pn4305.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4305.pn.pn.pn.pn.pn, %7496 ], [ %.pn4299.pn.pn.pn.pn, %7450 ], [ %.pn4297, %.loopexit8984 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %672) #27
   br label %7498
 
@@ -21919,7 +21919,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7506 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %694) #27
-  br label %.loopexit9007
+  br label %.loopexit8974
 
 7507:                                             ; preds = %7504
   %7508 = getelementptr inbounds nuw i8, ptr %694, i64 16
@@ -21937,7 +21937,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %7513 = getelementptr inbounds nuw i8, ptr %693, i64 16
   store ptr null, ptr %7513, align 8, !tbaa !31
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ESt16initializer_listINS0_6detail8json_refISD_EEEbNSF_7value_tE(ptr noundef nonnull align 8 dereferenceable(16) %692, ptr nonnull %693, i64 1, i1 noundef zeroext true, i8 noundef zeroext 2)
-          to label %7514 unwind label %.loopexit9008.loopexit
+          to label %7514 unwind label %.loopexit8975.loopexit
 
 7514:                                             ; preds = %7512
   %7515 = getelementptr inbounds nuw i8, ptr %693, i64 8
@@ -21987,7 +21987,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7531 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %695) #27
-  br label %.loopexit9005
+  br label %.loopexit8972
 
 7532:                                             ; preds = %7530
   %7533 = getelementptr inbounds nuw i8, ptr %695, i64 16
@@ -22001,7 +22001,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7534) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %695) #27
-  br label %.loopexit9005
+  br label %.loopexit8972
 
 7536:                                             ; preds = %7532
   %7537 = getelementptr inbounds nuw i8, ptr %695, i64 40
@@ -22050,14 +22050,14 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.start.p0(ptr nonnull %701)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %701, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA5_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %701, ptr noundef nonnull align 1 dereferenceable(5) @.str.62)
-          to label %7552 unwind label %.thread8379
+          to label %7552 unwind label %.thread8346
 
-.thread8379:                                      ; preds = %7549
+.thread8346:                                      ; preds = %7549
   %7551 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %701) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %701)
-  br label %.loopexit9001
+  br label %.loopexit8968
 
 7552:                                             ; preds = %7549
   %7553 = getelementptr inbounds nuw i8, ptr %701, i64 16
@@ -22084,7 +22084,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7560 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %702) #27
-  br label %.loopexit9002
+  br label %.loopexit8969
 
 7561:                                             ; preds = %7557
   %7562 = getelementptr inbounds nuw i8, ptr %702, i64 16
@@ -22098,7 +22098,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7563) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %702) #27
-  br label %.loopexit9002
+  br label %.loopexit8969
 
 7565:                                             ; preds = %7561
   %7566 = getelementptr inbounds nuw i8, ptr %702, i64 40
@@ -22223,7 +22223,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7613 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %705) #27
-  br label %.loopexit8998
+  br label %.loopexit8965
 
 7614:                                             ; preds = %7611
   %7615 = getelementptr inbounds nuw i8, ptr %705, i64 16
@@ -22241,7 +22241,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7620 = getelementptr inbounds nuw i8, ptr %704, i64 16
   store ptr null, ptr %7620, align 8, !tbaa !31
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ESt16initializer_listINS0_6detail8json_refISD_EEEbNSF_7value_tE(ptr noundef nonnull align 8 dereferenceable(16) %703, ptr nonnull %704, i64 1, i1 noundef zeroext true, i8 noundef zeroext 2)
-          to label %7621 unwind label %.loopexit8999.loopexit
+          to label %7621 unwind label %.loopexit8966.loopexit
 
 7621:                                             ; preds = %7619
   %7622 = getelementptr inbounds nuw i8, ptr %704, i64 8
@@ -22416,27 +22416,27 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 7685:                                             ; preds = %7507
   %7686 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9008
+  br label %.loopexit8975
 
-.loopexit9008.loopexit:                           ; preds = %7512
+.loopexit8975.loopexit:                           ; preds = %7512
   %7687 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %693) #27
-  br label %.loopexit9008
+  br label %.loopexit8975
 
-.loopexit9008:                                    ; preds = %.loopexit9008.loopexit, %7685
-  %.pn4318 = phi { ptr, i32 } [ %7686, %7685 ], [ %7687, %.loopexit9008.loopexit ]
+.loopexit8975:                                    ; preds = %.loopexit8975.loopexit, %7685
+  %.pn4318 = phi { ptr, i32 } [ %7686, %7685 ], [ %7687, %.loopexit8975.loopexit ]
   %7688 = getelementptr inbounds nuw i8, ptr %694, i64 48
   br label %7689
 
-7689:                                             ; preds = %7689, %.loopexit9008
-  %7690 = phi ptr [ %7688, %.loopexit9008 ], [ %7691, %7689 ]
+7689:                                             ; preds = %7689, %.loopexit8975
+  %7690 = phi ptr [ %7688, %.loopexit8975 ], [ %7691, %7689 ]
   %7691 = getelementptr inbounds i8, ptr %7690, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7691) #27
   %7692 = icmp eq ptr %7691, %694
-  br i1 %7692, label %.loopexit9007, label %7689
+  br i1 %7692, label %.loopexit8974, label %7689
 
-.loopexit9007:                                    ; preds = %7689, %7505
+.loopexit8974:                                    ; preds = %7689, %7505
   %.pn4318.pn = phi { ptr, i32 } [ %7506, %7505 ], [ %.pn4318, %7689 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %694)
   call void @llvm.lifetime.end.p0(ptr nonnull %693)
@@ -22453,9 +22453,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7698 = getelementptr inbounds i8, ptr %7697, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7698) #27
   %7699 = icmp eq ptr %7698, %695
-  br i1 %7699, label %.loopexit9005, label %7696
+  br i1 %7699, label %.loopexit8972, label %7696
 
-.loopexit9005:                                    ; preds = %7696, %.body6142, %.body6142.thread
+.loopexit8972:                                    ; preds = %7696, %.body6142, %.body6142.thread
   %.pn4321 = phi { ptr, i32 } [ %7535, %.body6142 ], [ %7531, %.body6142.thread ], [ %7694, %7696 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %695)
   br label %7803
@@ -22473,7 +22473,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 7704:                                             ; preds = %7565
   %7705 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit9003
+  br label %.loopexit8970
 
 7706:                                             ; preds = %7567
   %7707 = landingpad { ptr, i32 }
@@ -22507,31 +22507,31 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %7718 = getelementptr inbounds i8, ptr %7717, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7718) #27
   %7719 = icmp eq ptr %7718, %700
-  br i1 %7719, label %.loopexit9003, label %7716
+  br i1 %7719, label %.loopexit8970, label %7716
 
-.loopexit9003:                                    ; preds = %7716, %7704
+.loopexit8970:                                    ; preds = %7716, %7704
   %7720 = phi i1 [ false, %7704 ], [ true, %7716 ]
   %.pn4323.pn.pn = phi { ptr, i32 } [ %7705, %7704 ], [ %.pn4323.pn, %7716 ]
   %7721 = getelementptr inbounds nuw i8, ptr %702, i64 48
   br label %7722
 
-7722:                                             ; preds = %7722, %.loopexit9003
-  %7723 = phi ptr [ %7721, %.loopexit9003 ], [ %7724, %7722 ]
+7722:                                             ; preds = %7722, %.loopexit8970
+  %7723 = phi ptr [ %7721, %.loopexit8970 ], [ %7724, %7722 ]
   %7724 = getelementptr inbounds i8, ptr %7723, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7724) #27
   %7725 = icmp eq ptr %7724, %702
-  br i1 %7725, label %.loopexit9002, label %7722
+  br i1 %7725, label %.loopexit8969, label %7722
 
-.loopexit9002:                                    ; preds = %7722, %.body6159, %.body6159.thread
+.loopexit8969:                                    ; preds = %7722, %.body6159, %.body6159.thread
   %.23296 = phi i1 [ false, %.body6159 ], [ false, %.body6159.thread ], [ %7720, %7722 ]
   %.pn4323.pn.pn.pn = phi { ptr, i32 } [ %7564, %.body6159 ], [ %7560, %.body6159.thread ], [ %.pn4323.pn.pn, %7722 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %702)
   br label %7726
 
-7726:                                             ; preds = %.loopexit9002, %7702
-  %.13295 = phi i1 [ %.23296, %.loopexit9002 ], [ false, %7702 ]
-  %.13289 = phi ptr [ %7559, %.loopexit9002 ], [ %700, %7702 ]
-  %.pn4323.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4323.pn.pn.pn, %.loopexit9002 ], [ %7703, %7702 ]
+7726:                                             ; preds = %.loopexit8969, %7702
+  %.13295 = phi i1 [ %.23296, %.loopexit8969 ], [ false, %7702 ]
+  %.13289 = phi ptr [ %7559, %.loopexit8969 ], [ %700, %7702 ]
+  %.pn4323.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4323.pn.pn.pn, %.loopexit8969 ], [ %7703, %7702 ]
   %7727 = getelementptr inbounds nuw i8, ptr %701, i64 48
   br label %7728
 
@@ -22546,23 +22546,23 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.end.p0(ptr nonnull %701)
   %7733 = icmp eq ptr %700, %.13289
   %or.cond163 = select i1 %.13295, i1 true, i1 %7733
-  br i1 %or.cond163, label %.loopexit9001, label %.preheader9000
+  br i1 %or.cond163, label %.loopexit8968, label %.preheader8967
 
-.preheader9000:                                   ; preds = %7732, %.preheader9000
-  %7734 = phi ptr [ %7735, %.preheader9000 ], [ %.13289, %7732 ]
+.preheader8967:                                   ; preds = %7732, %.preheader8967
+  %7734 = phi ptr [ %7735, %.preheader8967 ], [ %.13289, %7732 ]
   %7735 = getelementptr inbounds i8, ptr %7734, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7735) #27
   %7736 = icmp eq ptr %7735, %700
-  br i1 %7736, label %.loopexit9001, label %.preheader9000
+  br i1 %7736, label %.loopexit8968, label %.preheader8967
 
-.loopexit9001:                                    ; preds = %.preheader9000, %.thread8379, %7732
-  %.pn4323.pn.pn.pn.pn.pn8386 = phi { ptr, i32 } [ %7551, %.thread8379 ], [ %.pn4323.pn.pn.pn.pn, %7732 ], [ %.pn4323.pn.pn.pn.pn, %.preheader9000 ]
+.loopexit8968:                                    ; preds = %.preheader8967, %.thread8346, %7732
+  %.pn4323.pn.pn.pn.pn.pn8353 = phi { ptr, i32 } [ %7551, %.thread8346 ], [ %.pn4323.pn.pn.pn.pn, %7732 ], [ %.pn4323.pn.pn.pn.pn, %.preheader8967 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %700)
   call void @llvm.lifetime.end.p0(ptr nonnull %699)
   br label %7737
 
-7737:                                             ; preds = %.loopexit9001, %7700
-  %.pn4323.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4323.pn.pn.pn.pn.pn8386, %.loopexit9001 ], [ %7701, %7700 ]
+7737:                                             ; preds = %.loopexit8968, %7700
+  %.pn4323.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4323.pn.pn.pn.pn.pn8353, %.loopexit8968 ], [ %7701, %7700 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %698)
   call void @llvm.lifetime.end.p0(ptr nonnull %697)
   call void @llvm.lifetime.end.p0(ptr nonnull %696)
@@ -22571,27 +22571,27 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 7738:                                             ; preds = %7614
   %7739 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8999
+  br label %.loopexit8966
 
-.loopexit8999.loopexit:                           ; preds = %7619
+.loopexit8966.loopexit:                           ; preds = %7619
   %7740 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %704) #27
-  br label %.loopexit8999
+  br label %.loopexit8966
 
-.loopexit8999:                                    ; preds = %.loopexit8999.loopexit, %7738
-  %.pn4331 = phi { ptr, i32 } [ %7739, %7738 ], [ %7740, %.loopexit8999.loopexit ]
+.loopexit8966:                                    ; preds = %.loopexit8966.loopexit, %7738
+  %.pn4331 = phi { ptr, i32 } [ %7739, %7738 ], [ %7740, %.loopexit8966.loopexit ]
   %7741 = getelementptr inbounds nuw i8, ptr %705, i64 48
   br label %7742
 
-7742:                                             ; preds = %7742, %.loopexit8999
-  %7743 = phi ptr [ %7741, %.loopexit8999 ], [ %7744, %7742 ]
+7742:                                             ; preds = %7742, %.loopexit8966
+  %7743 = phi ptr [ %7741, %.loopexit8966 ], [ %7744, %7742 ]
   %7744 = getelementptr inbounds i8, ptr %7743, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7744) #27
   %7745 = icmp eq ptr %7744, %705
-  br i1 %7745, label %.loopexit8998, label %7742
+  br i1 %7745, label %.loopexit8965, label %7742
 
-.loopexit8998:                                    ; preds = %7742, %7612
+.loopexit8965:                                    ; preds = %7742, %7612
   %.pn4331.pn = phi { ptr, i32 } [ %7613, %7612 ], [ %.pn4331, %7742 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %705)
   call void @llvm.lifetime.end.p0(ptr nonnull %704)
@@ -22756,18 +22756,18 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %703) #27
   br label %7802
 
-7802:                                             ; preds = %7801, %.loopexit8998
-  %.pn4338.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn, %7801 ], [ %.pn4331.pn, %.loopexit8998 ]
+7802:                                             ; preds = %7801, %.loopexit8965
+  %.pn4338.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn, %7801 ], [ %.pn4331.pn, %.loopexit8965 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %703)
   br label %7803
 
-7803:                                             ; preds = %7802, %7737, %.loopexit9005
-  %.pn4338.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn.pn, %7802 ], [ %.pn4323.pn.pn.pn.pn.pn.pn, %7737 ], [ %.pn4321, %.loopexit9005 ]
+7803:                                             ; preds = %7802, %7737, %.loopexit8972
+  %.pn4338.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn.pn, %7802 ], [ %.pn4323.pn.pn.pn.pn.pn.pn, %7737 ], [ %.pn4321, %.loopexit8972 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %692) #27
   br label %7804
 
-7804:                                             ; preds = %7803, %.loopexit9007
-  %.pn4338.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn.pn.pn, %7803 ], [ %.pn4318.pn, %.loopexit9007 ]
+7804:                                             ; preds = %7803, %.loopexit8974
+  %.pn4338.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4338.pn.pn.pn.pn, %7803 ], [ %.pn4318.pn, %.loopexit8974 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %692)
   br label %7806
 
@@ -22934,16 +22934,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit: ; preds = %7846, %7848, %7853, %7857
-  %.sroa.98085.0 = phi i64 [ 0, %7857 ], [ -9223372036854775808, %7848 ], [ -9223372036854775808, %7853 ], [ 1, %7846 ]
-  %.sroa.88084.0 = phi ptr [ null, %7857 ], [ null, %7848 ], [ %7856, %7853 ], [ null, %7846 ]
-  %.sroa.58083.0 = phi ptr [ null, %7857 ], [ %7852, %7848 ], [ null, %7853 ], [ null, %7846 ]
+  %.sroa.98061.0 = phi i64 [ 0, %7857 ], [ -9223372036854775808, %7848 ], [ -9223372036854775808, %7853 ], [ 1, %7846 ]
+  %.sroa.88060.0 = phi ptr [ null, %7857 ], [ null, %7848 ], [ %7856, %7853 ], [ null, %7846 ]
+  %.sroa.58059.0 = phi ptr [ null, %7857 ], [ %7852, %7848 ], [ null, %7853 ], [ null, %7846 ]
   store ptr %711, ptr %719, align 8, !tbaa !85
   %7858 = getelementptr inbounds nuw i8, ptr %719, i64 8
-  store ptr %.sroa.58083.0, ptr %7858, align 8, !tbaa !91
-  %.sroa.88084.8..sroa_idx = getelementptr inbounds nuw i8, ptr %719, i64 16
-  store ptr %.sroa.88084.0, ptr %.sroa.88084.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.98085.8..sroa_idx = getelementptr inbounds nuw i8, ptr %719, i64 24
-  store i64 %.sroa.98085.0, ptr %.sroa.98085.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.58059.0, ptr %7858, align 8, !tbaa !91
+  %.sroa.88060.8..sroa_idx = getelementptr inbounds nuw i8, ptr %719, i64 16
+  store ptr %.sroa.88060.0, ptr %.sroa.88060.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.98061.8..sroa_idx = getelementptr inbounds nuw i8, ptr %719, i64 24
+  store i64 %.sroa.98061.0, ptr %.sroa.98061.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %718, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %719, ptr noundef nonnull align 8 dereferenceable(16) %713)
           to label %7859 unwind label %7975
 
@@ -23065,18 +23065,18 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %7904
 
 7904:                                             ; preds = %7903, %7899, %7894, %7892
-  %.sroa.88080.0 = phi i64 [ 0, %7903 ], [ -9223372036854775808, %7894 ], [ -9223372036854775808, %7899 ], [ 1, %7892 ]
-  %.sroa.78079.0 = phi ptr [ null, %7903 ], [ null, %7894 ], [ %7902, %7899 ], [ null, %7892 ]
-  %.sroa.58078.0 = phi ptr [ null, %7903 ], [ %7898, %7894 ], [ null, %7899 ], [ null, %7892 ]
+  %.sroa.88056.0 = phi i64 [ 0, %7903 ], [ -9223372036854775808, %7894 ], [ -9223372036854775808, %7899 ], [ 1, %7892 ]
+  %.sroa.78055.0 = phi ptr [ null, %7903 ], [ null, %7894 ], [ %7902, %7899 ], [ null, %7892 ]
+  %.sroa.58054.0 = phi ptr [ null, %7903 ], [ %7898, %7894 ], [ null, %7899 ], [ null, %7892 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %7905 = load i32, ptr %729, align 4, !tbaa !11, !noalias !96
   store ptr %711, ptr %728, align 8, !tbaa !29
-  %.sroa.58078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 8
-  store ptr %.sroa.58078.0, ptr %.sroa.58078.0..sroa_idx, align 8, !tbaa !91
-  %.sroa.78079.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 16
-  store ptr %.sroa.78079.0, ptr %.sroa.78079.0..sroa_idx, align 8, !tbaa !29
-  %.sroa.88080.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 24
-  store i64 %.sroa.88080.0, ptr %.sroa.88080.0..sroa_idx, align 8, !tbaa !92
+  %.sroa.58054.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 8
+  store ptr %.sroa.58054.0, ptr %.sroa.58054.0..sroa_idx, align 8, !tbaa !91
+  %.sroa.78055.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 16
+  store ptr %.sroa.78055.0, ptr %.sroa.78055.0..sroa_idx, align 8, !tbaa !29
+  %.sroa.88056.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 24
+  store i64 %.sroa.88056.0, ptr %.sroa.88056.0..sroa_idx, align 8, !tbaa !92
   %7906 = getelementptr inbounds nuw i8, ptr %728, i64 32
   store i32 %7905, ptr %7906, align 8, !tbaa !99, !alias.scope !96
   invoke void @_ZN7doctest6detail14Expression_lhsIN8nlohmann16json_abi_v3_11_36detail9iter_implINS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEEEeqIRSJ_EEDTcmcvveqclL_ZNS0_7declvalISJ_EEOT_vEEclsr7doctest6detailE7declvalISO_EEtlNS0_6ResultEEESP_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %727, ptr noundef nonnull align 8 dereferenceable(36) %728, ptr noundef nonnull align 8 dereferenceable(32) %718)
@@ -23451,16 +23451,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6204
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6204: ; preds = %8024, %8026, %8031, %8035
-  %.sroa.98071.0 = phi i64 [ 0, %8035 ], [ -9223372036854775808, %8026 ], [ -9223372036854775808, %8031 ], [ 1, %8024 ]
-  %.sroa.88070.0 = phi ptr [ null, %8035 ], [ null, %8026 ], [ %8034, %8031 ], [ null, %8024 ]
-  %.sroa.58069.0 = phi ptr [ null, %8035 ], [ %8030, %8026 ], [ null, %8031 ], [ null, %8024 ]
+  %.sroa.98047.0 = phi i64 [ 0, %8035 ], [ -9223372036854775808, %8026 ], [ -9223372036854775808, %8031 ], [ 1, %8024 ]
+  %.sroa.88046.0 = phi ptr [ null, %8035 ], [ null, %8026 ], [ %8034, %8031 ], [ null, %8024 ]
+  %.sroa.58045.0 = phi ptr [ null, %8035 ], [ %8030, %8026 ], [ null, %8031 ], [ null, %8024 ]
   store ptr %711, ptr %739, align 8, !tbaa !105, !alias.scope !106
   %8036 = getelementptr inbounds nuw i8, ptr %739, i64 8
-  store ptr %.sroa.58069.0, ptr %8036, align 8, !tbaa !91
-  %.sroa.88070.8..sroa_idx = getelementptr inbounds nuw i8, ptr %739, i64 16
-  store ptr %.sroa.88070.0, ptr %.sroa.88070.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.98071.8..sroa_idx = getelementptr inbounds nuw i8, ptr %739, i64 24
-  store i64 %.sroa.98071.0, ptr %.sroa.98071.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.58045.0, ptr %8036, align 8, !tbaa !91
+  %.sroa.88046.8..sroa_idx = getelementptr inbounds nuw i8, ptr %739, i64 16
+  store ptr %.sroa.88046.0, ptr %.sroa.88046.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.98047.8..sroa_idx = getelementptr inbounds nuw i8, ptr %739, i64 24
+  store i64 %.sroa.98047.0, ptr %.sroa.98047.8..sroa_idx, align 8, !tbaa !92
   %8037 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %739, i64 noundef 2)
           to label %_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEplEl.exit unwind label %8141
 
@@ -23951,16 +23951,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit: ; preds = %8194, %8196, %8200
-  %.sroa.98060.0 = phi i64 [ -9223372036854775808, %8200 ], [ -9223372036854775808, %8196 ], [ 1, %8194 ]
-  %.sroa.88059.0 = phi ptr [ %8204, %8200 ], [ null, %8196 ], [ null, %8194 ]
-  %.sroa.58058.0 = phi ptr [ null, %8200 ], [ %8199, %8196 ], [ null, %8194 ]
+  %.sroa.98036.0 = phi i64 [ -9223372036854775808, %8200 ], [ -9223372036854775808, %8196 ], [ 1, %8194 ]
+  %.sroa.88035.0 = phi ptr [ %8204, %8200 ], [ null, %8196 ], [ null, %8194 ]
+  %.sroa.58034.0 = phi ptr [ null, %8200 ], [ %8199, %8196 ], [ null, %8194 ]
   store ptr %711, ptr %760, align 8, !tbaa !85
   %8205 = getelementptr inbounds nuw i8, ptr %760, i64 8
-  store ptr %.sroa.58058.0, ptr %8205, align 8, !tbaa !91
-  %.sroa.88059.8..sroa_idx = getelementptr inbounds nuw i8, ptr %760, i64 16
-  store ptr %.sroa.88059.0, ptr %.sroa.88059.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.98060.8..sroa_idx = getelementptr inbounds nuw i8, ptr %760, i64 24
-  store i64 %.sroa.98060.0, ptr %.sroa.98060.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.58034.0, ptr %8205, align 8, !tbaa !91
+  %.sroa.88035.8..sroa_idx = getelementptr inbounds nuw i8, ptr %760, i64 16
+  store ptr %.sroa.88035.0, ptr %.sroa.88035.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.98036.8..sroa_idx = getelementptr inbounds nuw i8, ptr %760, i64 24
+  store i64 %.sroa.98036.0, ptr %.sroa.98036.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %759, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %760, ptr noundef nonnull align 8 dereferenceable(16) %713)
           to label %8206 unwind label %8306
 
@@ -24470,9 +24470,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6235
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6235: ; preds = %8377, %8373, %8368, %8366
-  %.sroa.98045.0 = phi i64 [ 0, %8377 ], [ -9223372036854775808, %8368 ], [ -9223372036854775808, %8373 ], [ 1, %8366 ]
-  %.sroa.88044.0 = phi ptr [ null, %8377 ], [ null, %8368 ], [ %8376, %8373 ], [ null, %8366 ]
-  %.sroa.58043.0 = phi ptr [ null, %8377 ], [ %8372, %8368 ], [ null, %8373 ], [ null, %8366 ]
+  %.sroa.98021.0 = phi i64 [ 0, %8377 ], [ -9223372036854775808, %8368 ], [ -9223372036854775808, %8373 ], [ 1, %8366 ]
+  %.sroa.88020.0 = phi ptr [ null, %8377 ], [ null, %8368 ], [ %8376, %8373 ], [ null, %8366 ]
+  %.sroa.58019.0 = phi ptr [ null, %8377 ], [ %8372, %8368 ], [ null, %8373 ], [ null, %8366 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %783)
   %8378 = getelementptr inbounds nuw i8, ptr %783, i64 8
   store i64 0, ptr %783, align 8
@@ -24481,11 +24481,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %711, ptr %22, align 8, !tbaa !85, !noalias !123
   %8379 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %.sroa.58043.0, ptr %8379, align 8, !tbaa !91, !noalias !123
-  %.sroa.48048.8..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %.sroa.88044.0, ptr %.sroa.48048.8..sroa_idx, align 8, !tbaa !29, !noalias !123
-  %.sroa.58049.8..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.sroa.98045.0, ptr %.sroa.58049.8..sroa_idx, align 8, !tbaa !92, !noalias !123
+  store ptr %.sroa.58019.0, ptr %8379, align 8, !tbaa !91, !noalias !123
+  %.sroa.48024.8..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %.sroa.88020.0, ptr %.sroa.48024.8..sroa_idx, align 8, !tbaa !29, !noalias !123
+  %.sroa.58025.8..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store i64 %.sroa.98021.0, ptr %.sroa.58025.8..sroa_idx, align 8, !tbaa !92, !noalias !123
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %782, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(16) %783)
           to label %8380 unwind label %8488
 
@@ -24621,18 +24621,18 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %8429
 
 8429:                                             ; preds = %8428, %8424, %8419, %8417
-  %.sroa.88039.0 = phi i64 [ 0, %8428 ], [ -9223372036854775808, %8419 ], [ -9223372036854775808, %8424 ], [ 1, %8417 ]
-  %.sroa.78038.0 = phi ptr [ null, %8428 ], [ null, %8419 ], [ %8427, %8424 ], [ null, %8417 ]
-  %.sroa.58037.0 = phi ptr [ null, %8428 ], [ %8423, %8419 ], [ null, %8424 ], [ null, %8417 ]
+  %.sroa.88015.0 = phi i64 [ 0, %8428 ], [ -9223372036854775808, %8419 ], [ -9223372036854775808, %8424 ], [ 1, %8417 ]
+  %.sroa.78014.0 = phi ptr [ null, %8428 ], [ null, %8419 ], [ %8427, %8424 ], [ null, %8417 ]
+  %.sroa.58013.0 = phi ptr [ null, %8428 ], [ %8423, %8419 ], [ null, %8424 ], [ null, %8417 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %8430 = load i32, ptr %793, align 4, !tbaa !11, !noalias !129
   store ptr %711, ptr %792, align 8, !tbaa !29
-  %.sroa.58037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 8
-  store ptr %.sroa.58037.0, ptr %.sroa.58037.0..sroa_idx, align 8, !tbaa !91
-  %.sroa.78038.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 16
-  store ptr %.sroa.78038.0, ptr %.sroa.78038.0..sroa_idx, align 8, !tbaa !29
-  %.sroa.88039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 24
-  store i64 %.sroa.88039.0, ptr %.sroa.88039.0..sroa_idx, align 8, !tbaa !92
+  %.sroa.58013.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 8
+  store ptr %.sroa.58013.0, ptr %.sroa.58013.0..sroa_idx, align 8, !tbaa !91
+  %.sroa.78014.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 16
+  store ptr %.sroa.78014.0, ptr %.sroa.78014.0..sroa_idx, align 8, !tbaa !29
+  %.sroa.88015.0..sroa_idx = getelementptr inbounds nuw i8, ptr %792, i64 24
+  store i64 %.sroa.88015.0, ptr %.sroa.88015.0..sroa_idx, align 8, !tbaa !92
   %8431 = getelementptr inbounds nuw i8, ptr %792, i64 32
   store i32 %8430, ptr %8431, align 8, !tbaa !99, !alias.scope !129
   invoke void @_ZN7doctest6detail14Expression_lhsIN8nlohmann16json_abi_v3_11_36detail9iter_implINS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEEEeqIRSJ_EEDTcmcvveqclL_ZNS0_7declvalISJ_EEOT_vEEclsr7doctest6detailE7declvalISO_EEtlNS0_6ResultEEESP_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %791, ptr noundef nonnull align 8 dereferenceable(36) %792, ptr noundef nonnull align 8 dereferenceable(32) %782)
@@ -24980,16 +24980,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6250
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6250: ; preds = %8537, %8539, %8544, %8548
-  %.sroa.98028.0 = phi i64 [ 0, %8548 ], [ -9223372036854775808, %8539 ], [ -9223372036854775808, %8544 ], [ 1, %8537 ]
-  %.sroa.88027.0 = phi ptr [ null, %8548 ], [ null, %8539 ], [ %8547, %8544 ], [ null, %8537 ]
-  %.sroa.58026.0 = phi ptr [ null, %8548 ], [ %8543, %8539 ], [ null, %8544 ], [ null, %8537 ]
+  %.sroa.98004.0 = phi i64 [ 0, %8548 ], [ -9223372036854775808, %8539 ], [ -9223372036854775808, %8544 ], [ 1, %8537 ]
+  %.sroa.88003.0 = phi ptr [ null, %8548 ], [ null, %8539 ], [ %8547, %8544 ], [ null, %8537 ]
+  %.sroa.58002.0 = phi ptr [ null, %8548 ], [ %8543, %8539 ], [ null, %8544 ], [ null, %8537 ]
   store ptr %711, ptr %802, align 8, !tbaa !105, !alias.scope !135
   %8549 = getelementptr inbounds nuw i8, ptr %802, i64 8
-  store ptr %.sroa.58026.0, ptr %8549, align 8, !tbaa !91
-  %.sroa.88027.8..sroa_idx = getelementptr inbounds nuw i8, ptr %802, i64 16
-  store ptr %.sroa.88027.0, ptr %.sroa.88027.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.98028.8..sroa_idx = getelementptr inbounds nuw i8, ptr %802, i64 24
-  store i64 %.sroa.98028.0, ptr %.sroa.98028.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.58002.0, ptr %8549, align 8, !tbaa !91
+  %.sroa.88003.8..sroa_idx = getelementptr inbounds nuw i8, ptr %802, i64 16
+  store ptr %.sroa.88003.0, ptr %.sroa.88003.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.98004.8..sroa_idx = getelementptr inbounds nuw i8, ptr %802, i64 24
+  store i64 %.sroa.98004.0, ptr %.sroa.98004.8..sroa_idx, align 8, !tbaa !92
   %8550 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %802, i64 noundef 2)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6253 unwind label %8659
 
@@ -25511,9 +25511,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6272
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6272: ; preds = %8721, %8717, %8715
-  %.sroa.98012.0 = phi i64 [ -9223372036854775808, %8721 ], [ -9223372036854775808, %8717 ], [ 1, %8715 ]
-  %.sroa.88011.0 = phi ptr [ %8725, %8721 ], [ null, %8717 ], [ null, %8715 ]
-  %.sroa.58010.0 = phi ptr [ null, %8721 ], [ %8720, %8717 ], [ null, %8715 ]
+  %.sroa.97988.0 = phi i64 [ -9223372036854775808, %8721 ], [ -9223372036854775808, %8717 ], [ 1, %8715 ]
+  %.sroa.87987.0 = phi ptr [ %8725, %8721 ], [ null, %8717 ], [ null, %8715 ]
+  %.sroa.57986.0 = phi ptr [ null, %8721 ], [ %8720, %8717 ], [ null, %8715 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %824)
   %8726 = getelementptr inbounds nuw i8, ptr %824, i64 8
   store i64 0, ptr %824, align 8
@@ -25522,11 +25522,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %711, ptr %20, align 8, !tbaa !85, !noalias !147
   %8727 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %.sroa.58010.0, ptr %8727, align 8, !tbaa !91, !noalias !147
-  %.sroa.48015.8..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %.sroa.88011.0, ptr %.sroa.48015.8..sroa_idx, align 8, !tbaa !29, !noalias !147
-  %.sroa.58016.8..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 %.sroa.98012.0, ptr %.sroa.58016.8..sroa_idx, align 8, !tbaa !92, !noalias !147
+  store ptr %.sroa.57986.0, ptr %8727, align 8, !tbaa !91, !noalias !147
+  %.sroa.47991.8..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %.sroa.87987.0, ptr %.sroa.47991.8..sroa_idx, align 8, !tbaa !29, !noalias !147
+  %.sroa.57992.8..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 %.sroa.97988.0, ptr %.sroa.57992.8..sroa_idx, align 8, !tbaa !92, !noalias !147
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %823, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %824)
           to label %8728 unwind label %8832
 
@@ -26052,16 +26052,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6291
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6291: ; preds = %8903, %8899, %8894, %8892
-  %.sroa.98000.0 = phi i64 [ 0, %8903 ], [ -9223372036854775808, %8894 ], [ -9223372036854775808, %8899 ], [ 1, %8892 ]
-  %.sroa.87999.0 = phi ptr [ null, %8903 ], [ null, %8894 ], [ %8902, %8899 ], [ null, %8892 ]
-  %.sroa.57998.0 = phi ptr [ null, %8903 ], [ %8898, %8894 ], [ null, %8899 ], [ null, %8892 ]
+  %.sroa.97976.0 = phi i64 [ 0, %8903 ], [ -9223372036854775808, %8894 ], [ -9223372036854775808, %8899 ], [ 1, %8892 ]
+  %.sroa.87975.0 = phi ptr [ null, %8903 ], [ null, %8894 ], [ %8902, %8899 ], [ null, %8892 ]
+  %.sroa.57974.0 = phi ptr [ null, %8903 ], [ %8898, %8894 ], [ null, %8899 ], [ null, %8892 ]
   store ptr %711, ptr %847, align 8, !tbaa !85
   %8904 = getelementptr inbounds nuw i8, ptr %847, i64 8
-  store ptr %.sroa.57998.0, ptr %8904, align 8, !tbaa !91
-  %.sroa.87999.8..sroa_idx = getelementptr inbounds nuw i8, ptr %847, i64 16
-  store ptr %.sroa.87999.0, ptr %.sroa.87999.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.98000.8..sroa_idx = getelementptr inbounds nuw i8, ptr %847, i64 24
-  store i64 %.sroa.98000.0, ptr %.sroa.98000.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57974.0, ptr %8904, align 8, !tbaa !91
+  %.sroa.87975.8..sroa_idx = getelementptr inbounds nuw i8, ptr %847, i64 16
+  store ptr %.sroa.87975.0, ptr %.sroa.87975.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97976.8..sroa_idx = getelementptr inbounds nuw i8, ptr %847, i64 24
+  store i64 %.sroa.97976.0, ptr %.sroa.97976.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %848)
   %8905 = getelementptr inbounds nuw i8, ptr %848, i64 8
   store i64 0, ptr %848, align 8
@@ -26201,18 +26201,18 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %8955
 
 8955:                                             ; preds = %8954, %8950, %8945, %8943
-  %.sroa.87994.0 = phi i64 [ 0, %8954 ], [ -9223372036854775808, %8945 ], [ -9223372036854775808, %8950 ], [ 1, %8943 ]
-  %.sroa.77993.0 = phi ptr [ null, %8954 ], [ null, %8945 ], [ %8953, %8950 ], [ null, %8943 ]
-  %.sroa.57992.0 = phi ptr [ null, %8954 ], [ %8949, %8945 ], [ null, %8950 ], [ null, %8943 ]
+  %.sroa.87970.0 = phi i64 [ 0, %8954 ], [ -9223372036854775808, %8945 ], [ -9223372036854775808, %8950 ], [ 1, %8943 ]
+  %.sroa.77969.0 = phi ptr [ null, %8954 ], [ null, %8945 ], [ %8953, %8950 ], [ null, %8943 ]
+  %.sroa.57968.0 = phi ptr [ null, %8954 ], [ %8949, %8945 ], [ null, %8950 ], [ null, %8943 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
   %8956 = load i32, ptr %858, align 4, !tbaa !11, !noalias !159
   store ptr %711, ptr %857, align 8, !tbaa !29
-  %.sroa.57992.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 8
-  store ptr %.sroa.57992.0, ptr %.sroa.57992.0..sroa_idx, align 8, !tbaa !91
-  %.sroa.77993.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 16
-  store ptr %.sroa.77993.0, ptr %.sroa.77993.0..sroa_idx, align 8, !tbaa !29
-  %.sroa.87994.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 24
-  store i64 %.sroa.87994.0, ptr %.sroa.87994.0..sroa_idx, align 8, !tbaa !92
+  %.sroa.57968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 8
+  store ptr %.sroa.57968.0, ptr %.sroa.57968.0..sroa_idx, align 8, !tbaa !91
+  %.sroa.77969.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 16
+  store ptr %.sroa.77969.0, ptr %.sroa.77969.0..sroa_idx, align 8, !tbaa !29
+  %.sroa.87970.0..sroa_idx = getelementptr inbounds nuw i8, ptr %857, i64 24
+  store i64 %.sroa.87970.0, ptr %.sroa.87970.0..sroa_idx, align 8, !tbaa !92
   %8957 = getelementptr inbounds nuw i8, ptr %857, i64 32
   store i32 %8956, ptr %8957, align 8, !tbaa !99, !alias.scope !159
   invoke void @_ZN7doctest6detail14Expression_lhsIN8nlohmann16json_abi_v3_11_36detail9iter_implINS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEEEeqIRSJ_EEDTcmcvveqclL_ZNS0_7declvalISJ_EEOT_vEEclsr7doctest6detailE7declvalISO_EEtlNS0_6ResultEEESP_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %856, ptr noundef nonnull align 8 dereferenceable(36) %857, ptr noundef nonnull align 8 dereferenceable(32) %846)
@@ -26572,16 +26572,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6305
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6305: ; preds = %9069, %9071, %9076, %9080
-  %.sroa.97983.0 = phi i64 [ 0, %9080 ], [ -9223372036854775808, %9071 ], [ -9223372036854775808, %9076 ], [ 1, %9069 ]
-  %.sroa.87982.0 = phi ptr [ null, %9080 ], [ null, %9071 ], [ %9079, %9076 ], [ null, %9069 ]
-  %.sroa.57981.0 = phi ptr [ null, %9080 ], [ %9075, %9071 ], [ null, %9076 ], [ null, %9069 ]
+  %.sroa.97959.0 = phi i64 [ 0, %9080 ], [ -9223372036854775808, %9071 ], [ -9223372036854775808, %9076 ], [ 1, %9069 ]
+  %.sroa.87958.0 = phi ptr [ null, %9080 ], [ null, %9071 ], [ %9079, %9076 ], [ null, %9069 ]
+  %.sroa.57957.0 = phi ptr [ null, %9080 ], [ %9075, %9071 ], [ null, %9076 ], [ null, %9069 ]
   store ptr %711, ptr %868, align 8, !tbaa !105, !alias.scope !165
   %9081 = getelementptr inbounds nuw i8, ptr %868, i64 8
-  store ptr %.sroa.57981.0, ptr %9081, align 8, !tbaa !91
-  %.sroa.87982.8..sroa_idx = getelementptr inbounds nuw i8, ptr %868, i64 16
-  store ptr %.sroa.87982.0, ptr %.sroa.87982.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97983.8..sroa_idx = getelementptr inbounds nuw i8, ptr %868, i64 24
-  store i64 %.sroa.97983.0, ptr %.sroa.97983.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57957.0, ptr %9081, align 8, !tbaa !91
+  %.sroa.87958.8..sroa_idx = getelementptr inbounds nuw i8, ptr %868, i64 16
+  store ptr %.sroa.87958.0, ptr %.sroa.87958.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97959.8..sroa_idx = getelementptr inbounds nuw i8, ptr %868, i64 24
+  store i64 %.sroa.97959.0, ptr %.sroa.97959.8..sroa_idx, align 8, !tbaa !92
   %9082 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %868, i64 noundef 2)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6308 unwind label %9197
 
@@ -27113,16 +27113,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6325
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6325: ; preds = %9259, %9255, %9253
-  %.sroa.97969.0 = phi i64 [ -9223372036854775808, %9259 ], [ -9223372036854775808, %9255 ], [ 1, %9253 ]
-  %.sroa.87968.0 = phi ptr [ %9263, %9259 ], [ null, %9255 ], [ null, %9253 ]
-  %.sroa.57967.0 = phi ptr [ null, %9259 ], [ %9258, %9255 ], [ null, %9253 ]
+  %.sroa.97945.0 = phi i64 [ -9223372036854775808, %9259 ], [ -9223372036854775808, %9255 ], [ 1, %9253 ]
+  %.sroa.87944.0 = phi ptr [ %9263, %9259 ], [ null, %9255 ], [ null, %9253 ]
+  %.sroa.57943.0 = phi ptr [ null, %9259 ], [ %9258, %9255 ], [ null, %9253 ]
   store ptr %711, ptr %890, align 8, !tbaa !85
   %9264 = getelementptr inbounds nuw i8, ptr %890, i64 8
-  store ptr %.sroa.57967.0, ptr %9264, align 8, !tbaa !91
-  %.sroa.87968.8..sroa_idx = getelementptr inbounds nuw i8, ptr %890, i64 16
-  store ptr %.sroa.87968.0, ptr %.sroa.87968.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97969.8..sroa_idx = getelementptr inbounds nuw i8, ptr %890, i64 24
-  store i64 %.sroa.97969.0, ptr %.sroa.97969.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57943.0, ptr %9264, align 8, !tbaa !91
+  %.sroa.87944.8..sroa_idx = getelementptr inbounds nuw i8, ptr %890, i64 16
+  store ptr %.sroa.87944.0, ptr %.sroa.87944.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97945.8..sroa_idx = getelementptr inbounds nuw i8, ptr %890, i64 24
+  store i64 %.sroa.97945.0, ptr %.sroa.97945.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %891)
   %9265 = getelementptr inbounds nuw i8, ptr %891, i64 8
   store i64 0, ptr %891, align 8
@@ -27630,16 +27630,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6342
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6342: ; preds = %9435, %9431, %9429
-  %.sroa.97955.0 = phi i64 [ -9223372036854775808, %9435 ], [ -9223372036854775808, %9431 ], [ 1, %9429 ]
-  %.sroa.87954.0 = phi ptr [ %9439, %9435 ], [ null, %9431 ], [ null, %9429 ]
-  %.sroa.57953.0 = phi ptr [ null, %9435 ], [ %9434, %9431 ], [ null, %9429 ]
+  %.sroa.97931.0 = phi i64 [ -9223372036854775808, %9435 ], [ -9223372036854775808, %9431 ], [ 1, %9429 ]
+  %.sroa.87930.0 = phi ptr [ %9439, %9435 ], [ null, %9431 ], [ null, %9429 ]
+  %.sroa.57929.0 = phi ptr [ null, %9435 ], [ %9434, %9431 ], [ null, %9429 ]
   store ptr %711, ptr %912, align 8, !tbaa !85
   %9440 = getelementptr inbounds nuw i8, ptr %912, i64 8
-  store ptr %.sroa.57953.0, ptr %9440, align 8, !tbaa !91
-  %.sroa.87954.8..sroa_idx = getelementptr inbounds nuw i8, ptr %912, i64 16
-  store ptr %.sroa.87954.0, ptr %.sroa.87954.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97955.8..sroa_idx = getelementptr inbounds nuw i8, ptr %912, i64 24
-  store i64 %.sroa.97955.0, ptr %.sroa.97955.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57929.0, ptr %9440, align 8, !tbaa !91
+  %.sroa.87930.8..sroa_idx = getelementptr inbounds nuw i8, ptr %912, i64 16
+  store ptr %.sroa.87930.0, ptr %.sroa.87930.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97931.8..sroa_idx = getelementptr inbounds nuw i8, ptr %912, i64 24
+  store i64 %.sroa.97931.0, ptr %.sroa.97931.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %913)
   %9441 = getelementptr inbounds nuw i8, ptr %913, i64 8
   store i64 0, ptr %913, align 8
@@ -27756,16 +27756,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6350
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6350: ; preds = %9471, %9474, %9479, %9483
-  %.sroa.97949.0 = phi i64 [ 0, %9483 ], [ -9223372036854775808, %9474 ], [ -9223372036854775808, %9479 ], [ 1, %9471 ]
-  %.sroa.87948.0 = phi ptr [ null, %9483 ], [ null, %9474 ], [ %9482, %9479 ], [ null, %9471 ]
-  %.sroa.57947.0 = phi ptr [ null, %9483 ], [ %9478, %9474 ], [ null, %9479 ], [ null, %9471 ]
+  %.sroa.97925.0 = phi i64 [ 0, %9483 ], [ -9223372036854775808, %9474 ], [ -9223372036854775808, %9479 ], [ 1, %9471 ]
+  %.sroa.87924.0 = phi ptr [ null, %9483 ], [ null, %9474 ], [ %9482, %9479 ], [ null, %9471 ]
+  %.sroa.57923.0 = phi ptr [ null, %9483 ], [ %9478, %9474 ], [ null, %9479 ], [ null, %9471 ]
   store ptr %711, ptr %921, align 8, !tbaa !105, !alias.scope !183
   %9484 = getelementptr inbounds nuw i8, ptr %921, i64 8
-  store ptr %.sroa.57947.0, ptr %9484, align 8, !tbaa !91
-  %.sroa.87948.8..sroa_idx = getelementptr inbounds nuw i8, ptr %921, i64 16
-  store ptr %.sroa.87948.0, ptr %.sroa.87948.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97949.8..sroa_idx = getelementptr inbounds nuw i8, ptr %921, i64 24
-  store i64 %.sroa.97949.0, ptr %.sroa.97949.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57923.0, ptr %9484, align 8, !tbaa !91
+  %.sroa.87924.8..sroa_idx = getelementptr inbounds nuw i8, ptr %921, i64 16
+  store ptr %.sroa.87924.0, ptr %.sroa.87924.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97925.8..sroa_idx = getelementptr inbounds nuw i8, ptr %921, i64 24
+  store i64 %.sroa.97925.0, ptr %.sroa.97925.8..sroa_idx, align 8, !tbaa !92
   %9485 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %921, i64 noundef 4)
           to label %_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEplEl.exit6352 unwind label %9545
 
@@ -28070,7 +28070,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %9579 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %930) #27
-  br label %.loopexit8996
+  br label %.loopexit8963
 
 9580:                                             ; preds = %9578
   %9581 = getelementptr inbounds nuw i8, ptr %930, i64 16
@@ -28084,7 +28084,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9582) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %930) #27
-  br label %.loopexit8996
+  br label %.loopexit8963
 
 9584:                                             ; preds = %9580
   %9585 = getelementptr inbounds nuw i8, ptr %930, i64 40
@@ -28157,32 +28157,32 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365: ; preds = %9602, %9604, %9608
-  %.sroa.97941.0 = phi i64 [ -9223372036854775808, %9608 ], [ -9223372036854775808, %9604 ], [ 1, %9602 ]
-  %.sroa.87940.0 = phi ptr [ %9612, %9608 ], [ null, %9604 ], [ null, %9602 ]
-  %.sroa.57939.0 = phi ptr [ null, %9608 ], [ %9607, %9604 ], [ null, %9602 ]
+  %.sroa.97917.0 = phi i64 [ -9223372036854775808, %9608 ], [ -9223372036854775808, %9604 ], [ 1, %9602 ]
+  %.sroa.87916.0 = phi ptr [ %9612, %9608 ], [ null, %9604 ], [ null, %9602 ]
+  %.sroa.57915.0 = phi ptr [ null, %9608 ], [ %9607, %9604 ], [ null, %9602 ]
   store ptr %711, ptr %934, align 8, !tbaa !85
   %9613 = getelementptr inbounds nuw i8, ptr %934, i64 8
-  store ptr %.sroa.57939.0, ptr %9613, align 8, !tbaa !91
-  %.sroa.87940.8..sroa_idx = getelementptr inbounds nuw i8, ptr %934, i64 16
-  store ptr %.sroa.87940.0, ptr %.sroa.87940.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97941.8..sroa_idx = getelementptr inbounds nuw i8, ptr %934, i64 24
-  store i64 %.sroa.97941.0, ptr %.sroa.97941.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57915.0, ptr %9613, align 8, !tbaa !91
+  %.sroa.87916.8..sroa_idx = getelementptr inbounds nuw i8, ptr %934, i64 16
+  store ptr %.sroa.87916.0, ptr %.sroa.87916.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97917.8..sroa_idx = getelementptr inbounds nuw i8, ptr %934, i64 24
+  store i64 %.sroa.97917.0, ptr %.sroa.97917.8..sroa_idx, align 8, !tbaa !92
   %9614 = load i8, ptr %929, align 8, !tbaa !4, !noalias !189
   switch i8 %9614, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
   store ptr %929, ptr %935, align 8, !tbaa !85
   %9615 = getelementptr inbounds nuw i8, ptr %935, i64 8
-  %.sroa.97937.8..sroa_idx8391 = getelementptr inbounds nuw i8, ptr %935, i64 24
+  %.sroa.97913.8..sroa_idx8358 = getelementptr inbounds nuw i8, ptr %935, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9615, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97937.8..sroa_idx8391, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97913.8..sroa_idx8358, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
   %9616 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %9617 = load ptr, ptr %9616, align 8, !tbaa !10, !noalias !189
   %9618 = getelementptr inbounds nuw i8, ptr %9617, i64 24
@@ -28190,24 +28190,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %929, ptr %935, align 8, !tbaa !85
   %9620 = getelementptr inbounds nuw i8, ptr %935, i64 8
   store ptr %9619, ptr %9620, align 8, !tbaa !91
-  %.sroa.87936.8..sroa_idx8396 = getelementptr inbounds nuw i8, ptr %935, i64 16
-  store ptr null, ptr %.sroa.87936.8..sroa_idx8396, align 8, !tbaa !29
-  %.sroa.97937.8..sroa_idx8397 = getelementptr inbounds nuw i8, ptr %935, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97937.8..sroa_idx8397, align 8, !tbaa !92
+  %.sroa.87912.8..sroa_idx8363 = getelementptr inbounds nuw i8, ptr %935, i64 16
+  store ptr null, ptr %.sroa.87912.8..sroa_idx8363, align 8, !tbaa !29
+  %.sroa.97913.8..sroa_idx8364 = getelementptr inbounds nuw i8, ptr %935, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97913.8..sroa_idx8364, align 8, !tbaa !92
   %9621 = getelementptr inbounds nuw i8, ptr %9617, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6365
   %9622 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %9623 = load ptr, ptr %9622, align 8, !tbaa !10, !noalias !189
   %9624 = load ptr, ptr %9623, align 8, !tbaa !29, !noalias !189
   store ptr %929, ptr %935, align 8, !tbaa !85
   %9625 = getelementptr inbounds nuw i8, ptr %935, i64 8
   store ptr null, ptr %9625, align 8, !tbaa !91
-  %.sroa.87936.8..sroa_idx8402 = getelementptr inbounds nuw i8, ptr %935, i64 16
-  store ptr %9624, ptr %.sroa.87936.8..sroa_idx8402, align 8, !tbaa !29
-  %.sroa.97937.8..sroa_idx8403 = getelementptr inbounds nuw i8, ptr %935, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97937.8..sroa_idx8403, align 8, !tbaa !92
+  %.sroa.87912.8..sroa_idx8369 = getelementptr inbounds nuw i8, ptr %935, i64 16
+  store ptr %9624, ptr %.sroa.87912.8..sroa_idx8369, align 8, !tbaa !29
+  %.sroa.97913.8..sroa_idx8370 = getelementptr inbounds nuw i8, ptr %935, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97913.8..sroa_idx8370, align 8, !tbaa !92
   %9626 = getelementptr inbounds nuw i8, ptr %9623, i64 8
   %9627 = load ptr, ptr %9626, align 8, !tbaa !29, !noalias !192
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367
@@ -28218,17 +28218,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9628, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398
-  %.sroa.97933.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
-  %.sroa.87932.0 = phi ptr [ %9627, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
-  %.sroa.57931.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8398 ], [ %9621, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8392 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6367: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365
+  %.sroa.97909.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
+  %.sroa.87908.0 = phi ptr [ %9627, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
+  %.sroa.57907.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8365 ], [ %9621, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread8359 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6366 ]
   store ptr %929, ptr %936, align 8, !tbaa !85
   %9629 = getelementptr inbounds nuw i8, ptr %936, i64 8
-  store ptr %.sroa.57931.0, ptr %9629, align 8, !tbaa !91
-  %.sroa.87932.8..sroa_idx = getelementptr inbounds nuw i8, ptr %936, i64 16
-  store ptr %.sroa.87932.0, ptr %.sroa.87932.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97933.8..sroa_idx = getelementptr inbounds nuw i8, ptr %936, i64 24
-  store i64 %.sroa.97933.0, ptr %.sroa.97933.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57907.0, ptr %9629, align 8, !tbaa !91
+  %.sroa.87908.8..sroa_idx = getelementptr inbounds nuw i8, ptr %936, i64 16
+  store ptr %.sroa.87908.0, ptr %.sroa.87908.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97909.8..sroa_idx = getelementptr inbounds nuw i8, ptr %936, i64 24
+  store i64 %.sroa.97909.0, ptr %.sroa.97909.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %933, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %934, ptr noundef nonnull %935, ptr noundef nonnull %936)
           to label %9630 unwind label %9768
 
@@ -28586,9 +28586,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %9759 = getelementptr inbounds i8, ptr %9758, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9759) #27
   %9760 = icmp eq ptr %9759, %930
-  br i1 %9760, label %.loopexit8996, label %9757
+  br i1 %9760, label %.loopexit8963, label %9757
 
-.loopexit8996:                                    ; preds = %9757, %.body6358, %.body6358.thread
+.loopexit8963:                                    ; preds = %9757, %.body6358, %.body6358.thread
   %.pn4553 = phi { ptr, i32 } [ %9583, %.body6358 ], [ %9579, %.body6358.thread ], [ %9755, %9757 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %930)
   br label %10181
@@ -28756,26 +28756,26 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br i1 %9815, label %.body6380.thread, label %9812
 
 .body6380:                                        ; preds = %9716, %9721
-  %.sink9397 = phi ptr [ %9715, %9716 ], [ %9720, %9721 ]
+  %.sink9364 = phi ptr [ %9715, %9716 ], [ %9720, %9721 ]
   %.pn4568.pn.pn = phi { ptr, i32 } [ %9717, %9716 ], [ %9722, %9721 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9397) #27
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9364) #27
   br label %9816
 
 9816:                                             ; preds = %.body6380, %9816
-  %9817 = phi ptr [ %.sink9397, %.body6380 ], [ %9818, %9816 ]
+  %9817 = phi ptr [ %.sink9364, %.body6380 ], [ %9818, %9816 ]
   %9818 = getelementptr inbounds i8, ptr %9817, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9818) #27
   %9819 = icmp eq ptr %9818, %954
   br i1 %9819, label %.body6380.thread, label %9816
 
 .body6380.thread:                                 ; preds = %9816, %9812
-  %.pn4568.pn.pn8409 = phi { ptr, i32 } [ %.pn4568.pn, %9812 ], [ %.pn4568.pn.pn, %9816 ]
+  %.pn4568.pn.pn8376 = phi { ptr, i32 } [ %.pn4568.pn, %9812 ], [ %.pn4568.pn.pn, %9816 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %954)
   call void @llvm.lifetime.end.p0(ptr nonnull %953)
   br label %9820
 
 9820:                                             ; preds = %.body6380.thread, %9800
-  %.pn4568.pn.pn.pn = phi { ptr, i32 } [ %.pn4568.pn.pn8409, %.body6380.thread ], [ %9801, %9800 ]
+  %.pn4568.pn.pn.pn = phi { ptr, i32 } [ %.pn4568.pn.pn8376, %.body6380.thread ], [ %9801, %9800 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %952)
   call void @llvm.lifetime.end.p0(ptr nonnull %951)
   call void @llvm.lifetime.end.p0(ptr nonnull %950)
@@ -28829,29 +28829,29 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389: ; preds = %9827, %9829, %9833
-  %.sroa.97923.0 = phi i64 [ -9223372036854775808, %9833 ], [ -9223372036854775808, %9829 ], [ 1, %9827 ]
-  %.sroa.87922.0 = phi ptr [ %9837, %9833 ], [ null, %9829 ], [ null, %9827 ]
-  %.sroa.57921.0 = phi ptr [ null, %9833 ], [ %9832, %9829 ], [ null, %9827 ]
+  %.sroa.97899.0 = phi i64 [ -9223372036854775808, %9833 ], [ -9223372036854775808, %9829 ], [ 1, %9827 ]
+  %.sroa.87898.0 = phi ptr [ %9837, %9833 ], [ null, %9829 ], [ null, %9827 ]
+  %.sroa.57897.0 = phi ptr [ null, %9833 ], [ %9832, %9829 ], [ null, %9827 ]
   store ptr %711, ptr %958, align 8, !tbaa !85
   %9838 = getelementptr inbounds nuw i8, ptr %958, i64 8
-  store ptr %.sroa.57921.0, ptr %9838, align 8, !tbaa !91
-  %.sroa.87922.8..sroa_idx = getelementptr inbounds nuw i8, ptr %958, i64 16
-  store ptr %.sroa.87922.0, ptr %.sroa.87922.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97923.8..sroa_idx = getelementptr inbounds nuw i8, ptr %958, i64 24
-  store i64 %.sroa.97923.0, ptr %.sroa.97923.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57897.0, ptr %9838, align 8, !tbaa !91
+  %.sroa.87898.8..sroa_idx = getelementptr inbounds nuw i8, ptr %958, i64 16
+  store ptr %.sroa.87898.0, ptr %.sroa.87898.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97899.8..sroa_idx = getelementptr inbounds nuw i8, ptr %958, i64 24
+  store i64 %.sroa.97899.0, ptr %.sroa.97899.8..sroa_idx, align 8, !tbaa !92
   %9839 = load i8, ptr %929, align 8, !tbaa !4, !noalias !204
   switch i8 %9839, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 [
     i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415
-    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382
+    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388
   ]
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
   store ptr %929, ptr %959, align 8, !tbaa !85
   %9840 = getelementptr inbounds nuw i8, ptr %959, i64 8
-  %.sroa.97919.8..sroa_idx8426 = getelementptr inbounds nuw i8, ptr %959, i64 24
+  %.sroa.97895.8..sroa_idx8393 = getelementptr inbounds nuw i8, ptr %959, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9840, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97919.8..sroa_idx8426, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97895.8..sroa_idx8393, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
@@ -28862,23 +28862,23 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %929, ptr %959, align 8, !tbaa !85
   %9845 = getelementptr inbounds nuw i8, ptr %959, i64 8
   store ptr %9844, ptr %9845, align 8, !tbaa !91
-  %.sroa.87918.8..sroa_idx8413 = getelementptr inbounds nuw i8, ptr %959, i64 16
-  store ptr null, ptr %.sroa.87918.8..sroa_idx8413, align 8, !tbaa !29
-  %.sroa.97919.8..sroa_idx8414 = getelementptr inbounds nuw i8, ptr %959, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97919.8..sroa_idx8414, align 8, !tbaa !92
+  %.sroa.87894.8..sroa_idx8380 = getelementptr inbounds nuw i8, ptr %959, i64 16
+  store ptr null, ptr %.sroa.87894.8..sroa_idx8380, align 8, !tbaa !29
+  %.sroa.97895.8..sroa_idx8381 = getelementptr inbounds nuw i8, ptr %959, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97895.8..sroa_idx8381, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6389
   %9846 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %9847 = load ptr, ptr %9846, align 8, !tbaa !10, !noalias !204
   %9848 = load ptr, ptr %9847, align 8, !tbaa !29, !noalias !204
   store ptr %929, ptr %959, align 8, !tbaa !85
   %9849 = getelementptr inbounds nuw i8, ptr %959, i64 8
   store ptr null, ptr %9849, align 8, !tbaa !91
-  %.sroa.87918.8..sroa_idx8419 = getelementptr inbounds nuw i8, ptr %959, i64 16
-  store ptr %9848, ptr %.sroa.87918.8..sroa_idx8419, align 8, !tbaa !29
-  %.sroa.97919.8..sroa_idx8420 = getelementptr inbounds nuw i8, ptr %959, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97919.8..sroa_idx8420, align 8, !tbaa !92
+  %.sroa.87894.8..sroa_idx8386 = getelementptr inbounds nuw i8, ptr %959, i64 16
+  store ptr %9848, ptr %.sroa.87894.8..sroa_idx8386, align 8, !tbaa !29
+  %.sroa.97895.8..sroa_idx8387 = getelementptr inbounds nuw i8, ptr %959, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97895.8..sroa_idx8387, align 8, !tbaa !92
   %9850 = load ptr, ptr %9847, align 8, !tbaa !29, !noalias !207
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391
 
@@ -28888,17 +28888,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9851, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390
-  %.sroa.97915.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421 ]
-  %.sroa.87914.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ %9850, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421 ]
-  %.sroa.57913.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ %9844, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8415 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8421 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6391: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390
+  %.sroa.97891.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388 ]
+  %.sroa.87890.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ %9850, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388 ]
+  %.sroa.57889.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390 ], [ %9844, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8382 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6390.thread8388 ]
   store ptr %929, ptr %960, align 8, !tbaa !85
   %9852 = getelementptr inbounds nuw i8, ptr %960, i64 8
-  store ptr %.sroa.57913.0, ptr %9852, align 8, !tbaa !91
-  %.sroa.87914.8..sroa_idx = getelementptr inbounds nuw i8, ptr %960, i64 16
-  store ptr %.sroa.87914.0, ptr %.sroa.87914.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97915.8..sroa_idx = getelementptr inbounds nuw i8, ptr %960, i64 24
-  store i64 %.sroa.97915.0, ptr %.sroa.97915.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57889.0, ptr %9852, align 8, !tbaa !91
+  %.sroa.87890.8..sroa_idx = getelementptr inbounds nuw i8, ptr %960, i64 16
+  store ptr %.sroa.87890.0, ptr %.sroa.87890.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97891.8..sroa_idx = getelementptr inbounds nuw i8, ptr %960, i64 24
+  store i64 %.sroa.97891.0, ptr %.sroa.97891.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %957, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %958, ptr noundef nonnull %959, ptr noundef nonnull %960)
           to label %9853 unwind label %9940
 
@@ -29293,7 +29293,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %9985 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %977) #27
-  br label %.loopexit8993
+  br label %.loopexit8960
 
 9986:                                             ; preds = %9984
   %9987 = getelementptr inbounds nuw i8, ptr %977, i64 16
@@ -29307,7 +29307,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9988) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %977) #27
-  br label %.loopexit8993
+  br label %.loopexit8960
 
 9990:                                             ; preds = %9986
   %9991 = getelementptr inbounds nuw i8, ptr %977, i64 40
@@ -29365,7 +29365,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %10012 = load i8, ptr %711, align 8, !tbaa !4, !noalias !213
   switch i8 %10012, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412 [
     i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread: ; preds = %10011
@@ -29375,22 +29375,22 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %711, ptr %980, align 8, !tbaa !85
   %10016 = getelementptr inbounds nuw i8, ptr %980, i64 8
   store ptr %10015, ptr %10016, align 8, !tbaa !91
-  %.sroa.87905.8..sroa_idx8430 = getelementptr inbounds nuw i8, ptr %980, i64 16
-  store ptr null, ptr %.sroa.87905.8..sroa_idx8430, align 8, !tbaa !29
-  %.sroa.97906.8..sroa_idx8431 = getelementptr inbounds nuw i8, ptr %980, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97906.8..sroa_idx8431, align 8, !tbaa !92
+  %.sroa.87881.8..sroa_idx8397 = getelementptr inbounds nuw i8, ptr %980, i64 16
+  store ptr null, ptr %.sroa.87881.8..sroa_idx8397, align 8, !tbaa !29
+  %.sroa.97882.8..sroa_idx8398 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97882.8..sroa_idx8398, align 8, !tbaa !92
   %10017 = getelementptr inbounds nuw i8, ptr %10014, i64 24
   %10018 = load ptr, ptr %10017, align 8, !tbaa !15, !noalias !216
   store ptr %711, ptr %981, align 8, !tbaa !85
   %10019 = getelementptr inbounds nuw i8, ptr %981, i64 8
   store ptr %10018, ptr %10019, align 8, !tbaa !91
-  %.sroa.87901.8..sroa_idx8447 = getelementptr inbounds nuw i8, ptr %981, i64 16
-  store ptr null, ptr %.sroa.87901.8..sroa_idx8447, align 8, !tbaa !29
-  %.sroa.97902.8..sroa_idx8448 = getelementptr inbounds nuw i8, ptr %981, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97902.8..sroa_idx8448, align 8, !tbaa !92
+  %.sroa.87877.8..sroa_idx8414 = getelementptr inbounds nuw i8, ptr %981, i64 16
+  store ptr null, ptr %.sroa.87877.8..sroa_idx8414, align 8, !tbaa !29
+  %.sroa.97878.8..sroa_idx8415 = getelementptr inbounds nuw i8, ptr %981, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97878.8..sroa_idx8415, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432: ; preds = %10011
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399: ; preds = %10011
   %10020 = getelementptr inbounds nuw i8, ptr %711, i64 8
   %10021 = load ptr, ptr %10020, align 8, !tbaa !10, !noalias !213
   %10022 = getelementptr inbounds nuw i8, ptr %10021, i64 8
@@ -29398,53 +29398,53 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %711, ptr %980, align 8, !tbaa !85
   %10024 = getelementptr inbounds nuw i8, ptr %980, i64 8
   store ptr null, ptr %10024, align 8, !tbaa !91
-  %.sroa.87905.8..sroa_idx8436 = getelementptr inbounds nuw i8, ptr %980, i64 16
-  store ptr %10023, ptr %.sroa.87905.8..sroa_idx8436, align 8, !tbaa !29
-  %.sroa.97906.8..sroa_idx8437 = getelementptr inbounds nuw i8, ptr %980, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97906.8..sroa_idx8437, align 8, !tbaa !92
+  %.sroa.87881.8..sroa_idx8403 = getelementptr inbounds nuw i8, ptr %980, i64 16
+  store ptr %10023, ptr %.sroa.87881.8..sroa_idx8403, align 8, !tbaa !29
+  %.sroa.97882.8..sroa_idx8404 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97882.8..sroa_idx8404, align 8, !tbaa !92
   %10025 = load ptr, ptr %10021, align 8, !tbaa !29, !noalias !216
   store ptr %711, ptr %981, align 8, !tbaa !85
   %10026 = getelementptr inbounds nuw i8, ptr %981, i64 8
   store ptr null, ptr %10026, align 8, !tbaa !91
-  %.sroa.87901.8..sroa_idx8453 = getelementptr inbounds nuw i8, ptr %981, i64 16
-  store ptr %10025, ptr %.sroa.87901.8..sroa_idx8453, align 8, !tbaa !29
-  %.sroa.97902.8..sroa_idx8454 = getelementptr inbounds nuw i8, ptr %981, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97902.8..sroa_idx8454, align 8, !tbaa !92
+  %.sroa.87877.8..sroa_idx8420 = getelementptr inbounds nuw i8, ptr %981, i64 16
+  store ptr %10025, ptr %.sroa.87877.8..sroa_idx8420, align 8, !tbaa !29
+  %.sroa.97878.8..sroa_idx8421 = getelementptr inbounds nuw i8, ptr %981, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97878.8..sroa_idx8421, align 8, !tbaa !92
   %10027 = load ptr, ptr %10022, align 8, !tbaa !29, !noalias !219
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412: ; preds = %10011
   store ptr %711, ptr %980, align 8, !tbaa !85
   %10028 = getelementptr inbounds nuw i8, ptr %980, i64 8
-  %.sroa.97906.8..sroa_idx = getelementptr inbounds nuw i8, ptr %980, i64 24
+  %.sroa.97882.8..sroa_idx = getelementptr inbounds nuw i8, ptr %980, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10028, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97906.8..sroa_idx, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97882.8..sroa_idx, align 8, !tbaa !92
   %cond = icmp eq i8 %10012, 0
   store ptr %711, ptr %981, align 8, !tbaa !85
   %10029 = getelementptr inbounds nuw i8, ptr %981, i64 8
   br i1 %cond, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412
-  %.sroa.97902.8..sroa_idx8442 = getelementptr inbounds nuw i8, ptr %981, i64 24
+  %.sroa.97878.8..sroa_idx8409 = getelementptr inbounds nuw i8, ptr %981, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10029, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97902.8..sroa_idx8442, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97878.8..sroa_idx8409, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10029, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432
-  %.sroa.97898.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
-  %.sroa.87897.0 = phi ptr [ %10027, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
-  %.sroa.57896.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8432 ], [ %10015, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6414: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399
+  %.sroa.97874.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
+  %.sroa.87873.0 = phi ptr [ %10027, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
+  %.sroa.57872.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread8399 ], [ %10015, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6412.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6413 ]
   store ptr %711, ptr %982, align 8, !tbaa !85
   %10030 = getelementptr inbounds nuw i8, ptr %982, i64 8
-  store ptr %.sroa.57896.0, ptr %10030, align 8, !tbaa !91
-  %.sroa.87897.8..sroa_idx = getelementptr inbounds nuw i8, ptr %982, i64 16
-  store ptr %.sroa.87897.0, ptr %.sroa.87897.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97898.8..sroa_idx = getelementptr inbounds nuw i8, ptr %982, i64 24
-  store i64 %.sroa.97898.0, ptr %.sroa.97898.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57872.0, ptr %10030, align 8, !tbaa !91
+  %.sroa.87873.8..sroa_idx = getelementptr inbounds nuw i8, ptr %982, i64 16
+  store ptr %.sroa.87873.0, ptr %.sroa.87873.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97874.8..sroa_idx = getelementptr inbounds nuw i8, ptr %982, i64 24
+  store i64 %.sroa.97874.0, ptr %.sroa.97874.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %983)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %983, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %980, ptr noundef nonnull %981, ptr noundef nonnull %982)
           to label %10031 unwind label %10054
@@ -29491,9 +29491,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10045 = getelementptr inbounds i8, ptr %10044, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10045) #27
   %10046 = icmp eq ptr %10045, %977
-  br i1 %10046, label %.loopexit8993, label %10043
+  br i1 %10046, label %.loopexit8960, label %10043
 
-.loopexit8993:                                    ; preds = %10043, %.body6404, %.body6404.thread
+.loopexit8960:                                    ; preds = %10043, %.body6404, %.body6404.thread
   %.pn4594 = phi { ptr, i32 } [ %9989, %.body6404 ], [ %9985, %.body6404.thread ], [ %10041, %10043 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %977)
   br label %10172
@@ -29649,16 +29649,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415: ; preds = %10093, %10095, %10099
-  %.sroa.97894.0 = phi i64 [ -9223372036854775808, %10099 ], [ -9223372036854775808, %10095 ], [ 1, %10093 ]
-  %.sroa.87893.0 = phi ptr [ %10103, %10099 ], [ null, %10095 ], [ null, %10093 ]
-  %.sroa.57892.0 = phi ptr [ null, %10099 ], [ %10098, %10095 ], [ null, %10093 ]
+  %.sroa.97870.0 = phi i64 [ -9223372036854775808, %10099 ], [ -9223372036854775808, %10095 ], [ 1, %10093 ]
+  %.sroa.87869.0 = phi ptr [ %10103, %10099 ], [ null, %10095 ], [ null, %10093 ]
+  %.sroa.57868.0 = phi ptr [ null, %10099 ], [ %10098, %10095 ], [ null, %10093 ]
   store ptr %711, ptr %986, align 8, !tbaa !85
   %10104 = getelementptr inbounds nuw i8, ptr %986, i64 8
-  store ptr %.sroa.57892.0, ptr %10104, align 8, !tbaa !91
-  %.sroa.87893.8..sroa_idx = getelementptr inbounds nuw i8, ptr %986, i64 16
-  store ptr %.sroa.87893.0, ptr %.sroa.87893.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97894.8..sroa_idx = getelementptr inbounds nuw i8, ptr %986, i64 24
-  store i64 %.sroa.97894.0, ptr %.sroa.97894.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57868.0, ptr %10104, align 8, !tbaa !91
+  %.sroa.87869.8..sroa_idx = getelementptr inbounds nuw i8, ptr %986, i64 16
+  store ptr %.sroa.87869.0, ptr %.sroa.87869.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97870.8..sroa_idx = getelementptr inbounds nuw i8, ptr %986, i64 24
+  store i64 %.sroa.97870.0, ptr %.sroa.97870.8..sroa_idx, align 8, !tbaa !92
   %10105 = load i8, ptr %929, align 8, !tbaa !4, !noalias !226
   switch i8 %10105, label %10115 [
     i8 1, label %10106
@@ -29683,16 +29683,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415, %10106, %10111, %10115
-  %.sroa.97890.0 = phi i64 [ 0, %10115 ], [ -9223372036854775808, %10106 ], [ -9223372036854775808, %10111 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
-  %.sroa.87889.0 = phi ptr [ null, %10115 ], [ null, %10106 ], [ %10114, %10111 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
-  %.sroa.57888.0 = phi ptr [ null, %10115 ], [ %10110, %10106 ], [ null, %10111 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
+  %.sroa.97866.0 = phi i64 [ 0, %10115 ], [ -9223372036854775808, %10106 ], [ -9223372036854775808, %10111 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
+  %.sroa.87865.0 = phi ptr [ null, %10115 ], [ null, %10106 ], [ %10114, %10111 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
+  %.sroa.57864.0 = phi ptr [ null, %10115 ], [ %10110, %10106 ], [ null, %10111 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6415 ]
   store ptr %929, ptr %987, align 8, !tbaa !85
   %10116 = getelementptr inbounds nuw i8, ptr %987, i64 8
-  store ptr %.sroa.57888.0, ptr %10116, align 8, !tbaa !91
-  %.sroa.87889.8..sroa_idx = getelementptr inbounds nuw i8, ptr %987, i64 16
-  store ptr %.sroa.87889.0, ptr %.sroa.87889.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97890.8..sroa_idx = getelementptr inbounds nuw i8, ptr %987, i64 24
-  store i64 %.sroa.97890.0, ptr %.sroa.97890.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57864.0, ptr %10116, align 8, !tbaa !91
+  %.sroa.87865.8..sroa_idx = getelementptr inbounds nuw i8, ptr %987, i64 16
+  store ptr %.sroa.87865.0, ptr %.sroa.87865.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97866.8..sroa_idx = getelementptr inbounds nuw i8, ptr %987, i64 24
+  store i64 %.sroa.97866.0, ptr %.sroa.97866.8..sroa_idx, align 8, !tbaa !92
   %10117 = load i8, ptr %976, align 8, !tbaa !4, !noalias !229
   switch i8 %10117, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6417 [
     i8 1, label %10118
@@ -29713,16 +29713,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6417
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6417: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416, %10118, %10122
-  %.sroa.97886.0 = phi i64 [ -9223372036854775808, %10122 ], [ -9223372036854775808, %10118 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
-  %.sroa.87885.0 = phi ptr [ %10126, %10122 ], [ null, %10118 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
-  %.sroa.57884.0 = phi ptr [ null, %10122 ], [ %10121, %10118 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
+  %.sroa.97862.0 = phi i64 [ -9223372036854775808, %10122 ], [ -9223372036854775808, %10118 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
+  %.sroa.87861.0 = phi ptr [ %10126, %10122 ], [ null, %10118 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
+  %.sroa.57860.0 = phi ptr [ null, %10122 ], [ %10121, %10118 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6416 ]
   store ptr %976, ptr %988, align 8, !tbaa !85
   %10127 = getelementptr inbounds nuw i8, ptr %988, i64 8
-  store ptr %.sroa.57884.0, ptr %10127, align 8, !tbaa !91
-  %.sroa.87885.8..sroa_idx = getelementptr inbounds nuw i8, ptr %988, i64 16
-  store ptr %.sroa.87885.0, ptr %.sroa.87885.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97886.8..sroa_idx = getelementptr inbounds nuw i8, ptr %988, i64 24
-  store i64 %.sroa.97886.0, ptr %.sroa.97886.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57860.0, ptr %10127, align 8, !tbaa !91
+  %.sroa.87861.8..sroa_idx = getelementptr inbounds nuw i8, ptr %988, i64 16
+  store ptr %.sroa.87861.0, ptr %.sroa.87861.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97862.8..sroa_idx = getelementptr inbounds nuw i8, ptr %988, i64 24
+  store i64 %.sroa.97862.0, ptr %.sroa.97862.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %989)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %989, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %986, ptr noundef nonnull %987, ptr noundef nonnull %988)
           to label %10128 unwind label %10134
@@ -29856,8 +29856,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %976) #27
   br label %10172
 
-10172:                                            ; preds = %10171, %.loopexit8993
-  %.pn4607.pn.pn.pn = phi { ptr, i32 } [ %.pn4607.pn.pn, %10171 ], [ %.pn4594, %.loopexit8993 ]
+10172:                                            ; preds = %10171, %.loopexit8960
+  %.pn4607.pn.pn.pn = phi { ptr, i32 } [ %.pn4607.pn.pn, %10171 ], [ %.pn4594, %.loopexit8960 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %976)
   br label %10179
 
@@ -29891,8 +29891,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %929) #27
   br label %10181
 
-10181:                                            ; preds = %10180, %.loopexit8996
-  %.pn4607.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4607.pn.pn.pn.pn.pn.pn, %10180 ], [ %.pn4553, %.loopexit8996 ]
+10181:                                            ; preds = %10180, %.loopexit8963
+  %.pn4607.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4607.pn.pn.pn.pn.pn.pn, %10180 ], [ %.pn4553, %.loopexit8963 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %929)
   br label %10340
 
@@ -29929,7 +29929,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10188 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %994) #27
-  br label %.thread8479
+  br label %.thread8446
 
 10189:                                            ; preds = %10187
   %10190 = getelementptr inbounds nuw i8, ptr %994, i64 16
@@ -29943,7 +29943,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10191) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %994) #27
-  br label %.thread8479
+  br label %.thread8446
 
 10193:                                            ; preds = %10189
   %10194 = getelementptr inbounds nuw i8, ptr %994, i64 40
@@ -29964,7 +29964,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10198 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %995) #27
-  br label %.loopexit8990
+  br label %.loopexit8957
 
 10199:                                            ; preds = %10195
   %10200 = getelementptr inbounds nuw i8, ptr %995, i64 16
@@ -29978,7 +29978,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10201) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %995) #27
-  br label %.loopexit8990
+  br label %.loopexit8957
 
 10203:                                            ; preds = %10199
   %10204 = getelementptr inbounds nuw i8, ptr %995, i64 40
@@ -30076,7 +30076,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %10241 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %998) #27
-  br label %.thread8490
+  br label %.thread8457
 
 10242:                                            ; preds = %10240
   %10243 = getelementptr inbounds nuw i8, ptr %998, i64 16
@@ -30090,7 +30090,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10244) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %998) #27
-  br label %.thread8490
+  br label %.thread8457
 
 10246:                                            ; preds = %10242
   %10247 = getelementptr inbounds nuw i8, ptr %998, i64 40
@@ -30111,7 +30111,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %10251 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %999) #27
-  br label %.loopexit8985
+  br label %.loopexit8952
 
 10252:                                            ; preds = %10248
   %10253 = getelementptr inbounds nuw i8, ptr %999, i64 16
@@ -30125,7 +30125,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10254) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %999) #27
-  br label %.loopexit8985
+  br label %.loopexit8952
 
 10256:                                            ; preds = %10252
   %10257 = getelementptr inbounds nuw i8, ptr %999, i64 40
@@ -30233,20 +30233,20 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 10298:                                            ; preds = %10297
   %10299 = load i8, ptr %996, align 8, !tbaa !4, !noalias !233
   switch i8 %10299, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread: ; preds = %10298
   store ptr %996, ptr %1002, align 8, !tbaa !85
   %10300 = getelementptr inbounds nuw i8, ptr %1002, i64 8
-  %.sroa.97882.8..sroa_idx8461 = getelementptr inbounds nuw i8, ptr %1002, i64 24
+  %.sroa.97858.8..sroa_idx8428 = getelementptr inbounds nuw i8, ptr %1002, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10300, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97882.8..sroa_idx8461, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97858.8..sroa_idx8428, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462: ; preds = %10298
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429: ; preds = %10298
   %10301 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %10302 = load ptr, ptr %10301, align 8, !tbaa !10, !noalias !233
   %10303 = getelementptr inbounds nuw i8, ptr %10302, i64 24
@@ -30254,24 +30254,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %996, ptr %1002, align 8, !tbaa !85
   %10305 = getelementptr inbounds nuw i8, ptr %1002, i64 8
   store ptr %10304, ptr %10305, align 8, !tbaa !91
-  %.sroa.87881.8..sroa_idx8466 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  store ptr null, ptr %.sroa.87881.8..sroa_idx8466, align 8, !tbaa !29
-  %.sroa.97882.8..sroa_idx8467 = getelementptr inbounds nuw i8, ptr %1002, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97882.8..sroa_idx8467, align 8, !tbaa !92
+  %.sroa.87857.8..sroa_idx8433 = getelementptr inbounds nuw i8, ptr %1002, i64 16
+  store ptr null, ptr %.sroa.87857.8..sroa_idx8433, align 8, !tbaa !29
+  %.sroa.97858.8..sroa_idx8434 = getelementptr inbounds nuw i8, ptr %1002, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97858.8..sroa_idx8434, align 8, !tbaa !92
   %10306 = getelementptr inbounds nuw i8, ptr %10302, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468: ; preds = %10298
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435: ; preds = %10298
   %10307 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %10308 = load ptr, ptr %10307, align 8, !tbaa !10, !noalias !233
   %10309 = load ptr, ptr %10308, align 8, !tbaa !29, !noalias !233
   store ptr %996, ptr %1002, align 8, !tbaa !85
   %10310 = getelementptr inbounds nuw i8, ptr %1002, i64 8
   store ptr null, ptr %10310, align 8, !tbaa !91
-  %.sroa.87881.8..sroa_idx8472 = getelementptr inbounds nuw i8, ptr %1002, i64 16
-  store ptr %10309, ptr %.sroa.87881.8..sroa_idx8472, align 8, !tbaa !29
-  %.sroa.97882.8..sroa_idx8473 = getelementptr inbounds nuw i8, ptr %1002, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97882.8..sroa_idx8473, align 8, !tbaa !92
+  %.sroa.87857.8..sroa_idx8439 = getelementptr inbounds nuw i8, ptr %1002, i64 16
+  store ptr %10309, ptr %.sroa.87857.8..sroa_idx8439, align 8, !tbaa !29
+  %.sroa.97858.8..sroa_idx8440 = getelementptr inbounds nuw i8, ptr %1002, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97858.8..sroa_idx8440, align 8, !tbaa !92
   %10311 = getelementptr inbounds nuw i8, ptr %10308, i64 8
   %10312 = load ptr, ptr %10311, align 8, !tbaa !29, !noalias !236
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463
@@ -30282,17 +30282,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10313, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468
-  %.sroa.97878.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
-  %.sroa.87877.0 = phi ptr [ %10312, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
-  %.sroa.57876.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8468 ], [ %10306, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8462 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6463: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435
+  %.sroa.97854.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
+  %.sroa.87853.0 = phi ptr [ %10312, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
+  %.sroa.57852.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8435 ], [ %10306, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread8429 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6462 ]
   store ptr %996, ptr %1003, align 8, !tbaa !85
   %10314 = getelementptr inbounds nuw i8, ptr %1003, i64 8
-  store ptr %.sroa.57876.0, ptr %10314, align 8, !tbaa !91
-  %.sroa.87877.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1003, i64 16
-  store ptr %.sroa.87877.0, ptr %.sroa.87877.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97878.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1003, i64 24
-  store i64 %.sroa.97878.0, ptr %.sroa.97878.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57852.0, ptr %10314, align 8, !tbaa !91
+  %.sroa.87853.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1003, i64 16
+  store ptr %.sroa.87853.0, ptr %.sroa.87853.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97854.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1003, i64 24
+  store i64 %.sroa.97854.0, ptr %.sroa.97854.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_(ptr noundef nonnull align 8 dereferenceable(16) %992, ptr noundef nonnull %1002, ptr noundef nonnull %1003)
           to label %10315 unwind label %10409
 
@@ -30392,7 +30392,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 10350:                                            ; preds = %10203
   %10351 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8991
+  br label %.loopexit8958
 
 10352:                                            ; preds = %10205
   %10353 = landingpad { ptr, i32 }
@@ -30405,31 +30405,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10357 = getelementptr inbounds i8, ptr %10356, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10357) #27
   %10358 = icmp eq ptr %10357, %993
-  br i1 %10358, label %.loopexit8991, label %10355
+  br i1 %10358, label %.loopexit8958, label %10355
 
-.loopexit8991:                                    ; preds = %10355, %10350
+.loopexit8958:                                    ; preds = %10355, %10350
   %.33381 = phi i1 [ true, %10350 ], [ false, %10355 ]
   %.pn4620 = phi { ptr, i32 } [ %10351, %10350 ], [ %10353, %10355 ]
   %10359 = getelementptr inbounds nuw i8, ptr %995, i64 48
   br label %10360
 
-10360:                                            ; preds = %10360, %.loopexit8991
-  %10361 = phi ptr [ %10359, %.loopexit8991 ], [ %10362, %10360 ]
+10360:                                            ; preds = %10360, %.loopexit8958
+  %10361 = phi ptr [ %10359, %.loopexit8958 ], [ %10362, %10360 ]
   %10362 = getelementptr inbounds i8, ptr %10361, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10362) #27
   %10363 = icmp eq ptr %10362, %995
-  br i1 %10363, label %.loopexit8990, label %10360
+  br i1 %10363, label %.loopexit8957, label %10360
 
-.loopexit8990:                                    ; preds = %10360, %.body6428, %.body6428.thread
+.loopexit8957:                                    ; preds = %10360, %.body6428, %.body6428.thread
   %.23380 = phi i1 [ true, %.body6428 ], [ true, %.body6428.thread ], [ %.33381, %10360 ]
   %.pn4620.pn = phi { ptr, i32 } [ %10202, %.body6428 ], [ %10198, %.body6428.thread ], [ %.pn4620, %10360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %995)
   br label %10364
 
-10364:                                            ; preds = %.loopexit8990, %10348
-  %.13379 = phi i1 [ %.23380, %.loopexit8990 ], [ true, %10348 ]
-  %.13374 = phi ptr [ %10197, %.loopexit8990 ], [ %993, %10348 ]
-  %.pn4620.pn.pn = phi { ptr, i32 } [ %.pn4620.pn, %.loopexit8990 ], [ %10349, %10348 ]
+10364:                                            ; preds = %.loopexit8957, %10348
+  %.13379 = phi i1 [ %.23380, %.loopexit8957 ], [ true, %10348 ]
+  %.13374 = phi ptr [ %10197, %.loopexit8957 ], [ %993, %10348 ]
+  %.pn4620.pn.pn = phi { ptr, i32 } [ %.pn4620.pn, %.loopexit8957 ], [ %10349, %10348 ]
   %10365 = getelementptr inbounds nuw i8, ptr %994, i64 48
   br label %10366
 
@@ -30440,26 +30440,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10369 = icmp eq ptr %10368, %994
   br i1 %10369, label %10370, label %10366
 
-.thread8479:                                      ; preds = %.body6420, %.body6420.thread
+.thread8446:                                      ; preds = %.body6420, %.body6420.thread
   %.pn4620.pn.pn.pn.ph = phi { ptr, i32 } [ %10188, %.body6420.thread ], [ %10192, %.body6420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %994)
-  br label %.loopexit8989
+  br label %.loopexit8956
 
 10370:                                            ; preds = %10366
   call void @llvm.lifetime.end.p0(ptr nonnull %994)
   %10371 = icmp ne ptr %993, %.13374
   %or.cond214.not = select i1 %.13379, i1 %10371, i1 false
-  br i1 %or.cond214.not, label %.preheader8988, label %.loopexit8989
+  br i1 %or.cond214.not, label %.preheader8955, label %.loopexit8956
 
-.preheader8988:                                   ; preds = %10370, %.preheader8988
-  %10372 = phi ptr [ %10373, %.preheader8988 ], [ %.13374, %10370 ]
+.preheader8955:                                   ; preds = %10370, %.preheader8955
+  %10372 = phi ptr [ %10373, %.preheader8955 ], [ %.13374, %10370 ]
   %10373 = getelementptr inbounds i8, ptr %10372, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10373) #27
   %10374 = icmp eq ptr %10373, %993
-  br i1 %10374, label %.loopexit8989, label %.preheader8988
+  br i1 %10374, label %.loopexit8956, label %.preheader8955
 
-.loopexit8989:                                    ; preds = %.preheader8988, %.thread8479, %10370
-  %.pn4620.pn.pn.pn8484 = phi { ptr, i32 } [ %.pn4620.pn.pn.pn.ph, %.thread8479 ], [ %.pn4620.pn.pn, %10370 ], [ %.pn4620.pn.pn, %.preheader8988 ]
+.loopexit8956:                                    ; preds = %.preheader8955, %.thread8446, %10370
+  %.pn4620.pn.pn.pn8451 = phi { ptr, i32 } [ %.pn4620.pn.pn.pn.ph, %.thread8446 ], [ %.pn4620.pn.pn, %10370 ], [ %.pn4620.pn.pn, %.preheader8955 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %993)
   br label %10737
 
@@ -30471,7 +30471,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 10377:                                            ; preds = %10256
   %10378 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8986
+  br label %.loopexit8953
 
 10379:                                            ; preds = %10258
   %10380 = landingpad { ptr, i32 }
@@ -30484,31 +30484,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10384 = getelementptr inbounds i8, ptr %10383, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10384) #27
   %10385 = icmp eq ptr %10384, %997
-  br i1 %10385, label %.loopexit8986, label %10382
+  br i1 %10385, label %.loopexit8953, label %10382
 
-.loopexit8986:                                    ; preds = %10382, %10377
+.loopexit8953:                                    ; preds = %10382, %10377
   %.33392 = phi i1 [ true, %10377 ], [ false, %10382 ]
   %.pn4625 = phi { ptr, i32 } [ %10378, %10377 ], [ %10380, %10382 ]
   %10386 = getelementptr inbounds nuw i8, ptr %999, i64 48
   br label %10387
 
-10387:                                            ; preds = %10387, %.loopexit8986
-  %10388 = phi ptr [ %10386, %.loopexit8986 ], [ %10389, %10387 ]
+10387:                                            ; preds = %10387, %.loopexit8953
+  %10388 = phi ptr [ %10386, %.loopexit8953 ], [ %10389, %10387 ]
   %10389 = getelementptr inbounds i8, ptr %10388, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10389) #27
   %10390 = icmp eq ptr %10389, %999
-  br i1 %10390, label %.loopexit8985, label %10387
+  br i1 %10390, label %.loopexit8952, label %10387
 
-.loopexit8985:                                    ; preds = %10387, %.body6450, %.body6450.thread
+.loopexit8952:                                    ; preds = %10387, %.body6450, %.body6450.thread
   %.23391 = phi i1 [ true, %.body6450 ], [ true, %.body6450.thread ], [ %.33392, %10387 ]
   %.pn4625.pn = phi { ptr, i32 } [ %10255, %.body6450 ], [ %10251, %.body6450.thread ], [ %.pn4625, %10387 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %999)
   br label %10391
 
-10391:                                            ; preds = %.loopexit8985, %10375
-  %.13390 = phi i1 [ %.23391, %.loopexit8985 ], [ true, %10375 ]
-  %.13383 = phi ptr [ %10250, %.loopexit8985 ], [ %997, %10375 ]
-  %.pn4625.pn.pn = phi { ptr, i32 } [ %.pn4625.pn, %.loopexit8985 ], [ %10376, %10375 ]
+10391:                                            ; preds = %.loopexit8952, %10375
+  %.13390 = phi i1 [ %.23391, %.loopexit8952 ], [ true, %10375 ]
+  %.13383 = phi ptr [ %10250, %.loopexit8952 ], [ %997, %10375 ]
+  %.pn4625.pn.pn = phi { ptr, i32 } [ %.pn4625.pn, %.loopexit8952 ], [ %10376, %10375 ]
   %10392 = getelementptr inbounds nuw i8, ptr %998, i64 48
   br label %10393
 
@@ -30519,26 +30519,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10396 = icmp eq ptr %10395, %998
   br i1 %10396, label %10397, label %10393
 
-.thread8490:                                      ; preds = %.body6442, %.body6442.thread
+.thread8457:                                      ; preds = %.body6442, %.body6442.thread
   %.pn4625.pn.pn.pn.ph = phi { ptr, i32 } [ %10241, %.body6442.thread ], [ %10245, %.body6442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %998)
-  br label %.loopexit8984
+  br label %.loopexit8951
 
 10397:                                            ; preds = %10393
   call void @llvm.lifetime.end.p0(ptr nonnull %998)
   %10398 = icmp ne ptr %997, %.13383
   %or.cond217.not = select i1 %.13390, i1 %10398, i1 false
-  br i1 %or.cond217.not, label %.preheader8983, label %.loopexit8984
+  br i1 %or.cond217.not, label %.preheader8950, label %.loopexit8951
 
-.preheader8983:                                   ; preds = %10397, %.preheader8983
-  %10399 = phi ptr [ %10400, %.preheader8983 ], [ %.13383, %10397 ]
+.preheader8950:                                   ; preds = %10397, %.preheader8950
+  %10399 = phi ptr [ %10400, %.preheader8950 ], [ %.13383, %10397 ]
   %10400 = getelementptr inbounds i8, ptr %10399, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10400) #27
   %10401 = icmp eq ptr %10400, %997
-  br i1 %10401, label %.loopexit8984, label %.preheader8983
+  br i1 %10401, label %.loopexit8951, label %.preheader8950
 
-.loopexit8984:                                    ; preds = %.preheader8983, %.thread8490, %10397
-  %.pn4625.pn.pn.pn8495 = phi { ptr, i32 } [ %.pn4625.pn.pn.pn.ph, %.thread8490 ], [ %.pn4625.pn.pn, %10397 ], [ %.pn4625.pn.pn, %.preheader8983 ]
+.loopexit8951:                                    ; preds = %.preheader8950, %.thread8457, %10397
+  %.pn4625.pn.pn.pn8462 = phi { ptr, i32 } [ %.pn4625.pn.pn.pn.ph, %.thread8457 ], [ %.pn4625.pn.pn, %10397 ], [ %.pn4625.pn.pn, %.preheader8950 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %997)
   br label %10736
 
@@ -30622,16 +30622,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10426 = load i8, ptr %996, align 8, !tbaa !4, !noalias !239
   switch i8 %10426, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 [
     i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501
-    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468
+    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474
   ]
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507: ; preds = %10425
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474: ; preds = %10425
   store ptr %996, ptr %1010, align 8, !tbaa !85
   %10427 = getelementptr inbounds nuw i8, ptr %1010, i64 8
-  %.sroa.97873.8..sroa_idx8512 = getelementptr inbounds nuw i8, ptr %1010, i64 24
+  %.sroa.97849.8..sroa_idx8479 = getelementptr inbounds nuw i8, ptr %1010, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10427, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97873.8..sroa_idx8512, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97849.8..sroa_idx8479, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread: ; preds = %10425
@@ -30642,23 +30642,23 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %996, ptr %1010, align 8, !tbaa !85
   %10432 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   store ptr %10431, ptr %10432, align 8, !tbaa !91
-  %.sroa.87872.8..sroa_idx8499 = getelementptr inbounds nuw i8, ptr %1010, i64 16
-  store ptr null, ptr %.sroa.87872.8..sroa_idx8499, align 8, !tbaa !29
-  %.sroa.97873.8..sroa_idx8500 = getelementptr inbounds nuw i8, ptr %1010, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97873.8..sroa_idx8500, align 8, !tbaa !92
+  %.sroa.87848.8..sroa_idx8466 = getelementptr inbounds nuw i8, ptr %1010, i64 16
+  store ptr null, ptr %.sroa.87848.8..sroa_idx8466, align 8, !tbaa !29
+  %.sroa.97849.8..sroa_idx8467 = getelementptr inbounds nuw i8, ptr %1010, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97849.8..sroa_idx8467, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501: ; preds = %10425
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468: ; preds = %10425
   %10433 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %10434 = load ptr, ptr %10433, align 8, !tbaa !10, !noalias !239
   %10435 = load ptr, ptr %10434, align 8, !tbaa !29, !noalias !239
   store ptr %996, ptr %1010, align 8, !tbaa !85
   %10436 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   store ptr null, ptr %10436, align 8, !tbaa !91
-  %.sroa.87872.8..sroa_idx8505 = getelementptr inbounds nuw i8, ptr %1010, i64 16
-  store ptr %10435, ptr %.sroa.87872.8..sroa_idx8505, align 8, !tbaa !29
-  %.sroa.97873.8..sroa_idx8506 = getelementptr inbounds nuw i8, ptr %1010, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97873.8..sroa_idx8506, align 8, !tbaa !92
+  %.sroa.87848.8..sroa_idx8472 = getelementptr inbounds nuw i8, ptr %1010, i64 16
+  store ptr %10435, ptr %.sroa.87848.8..sroa_idx8472, align 8, !tbaa !29
+  %.sroa.97849.8..sroa_idx8473 = getelementptr inbounds nuw i8, ptr %1010, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97849.8..sroa_idx8473, align 8, !tbaa !92
   %10437 = load ptr, ptr %10434, align 8, !tbaa !29, !noalias !242
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469
 
@@ -30668,17 +30668,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10438, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468
-  %.sroa.97869.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507 ]
-  %.sroa.87868.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ %10437, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507 ]
-  %.sroa.57867.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ %10431, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8501 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8507 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6469: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468
+  %.sroa.97845.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474 ]
+  %.sroa.87844.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ %10437, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474 ]
+  %.sroa.57843.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468 ], [ %10431, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8468 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6468.thread8474 ]
   store ptr %996, ptr %1011, align 8, !tbaa !85
   %10439 = getelementptr inbounds nuw i8, ptr %1011, i64 8
-  store ptr %.sroa.57867.0, ptr %10439, align 8, !tbaa !91
-  %.sroa.87868.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1011, i64 16
-  store ptr %.sroa.87868.0, ptr %.sroa.87868.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97869.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1011, i64 24
-  store i64 %.sroa.97869.0, ptr %.sroa.97869.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57843.0, ptr %10439, align 8, !tbaa !91
+  %.sroa.87844.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1011, i64 16
+  store ptr %.sroa.87844.0, ptr %.sroa.87844.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97845.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1011, i64 24
+  store i64 %.sroa.97845.0, ptr %.sroa.97845.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_(ptr noundef nonnull align 8 dereferenceable(16) %992, ptr noundef nonnull %1010, ptr noundef nonnull %1011)
           to label %10440 unwind label %10473
 
@@ -30836,7 +30836,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10490 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1019) #27
-  br label %.loopexit8981
+  br label %.loopexit8948
 
 10491:                                            ; preds = %10489
   %10492 = getelementptr inbounds nuw i8, ptr %1019, i64 16
@@ -30850,7 +30850,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10493) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1019) #27
-  br label %.loopexit8981
+  br label %.loopexit8948
 
 10495:                                            ; preds = %10491
   %10496 = getelementptr inbounds nuw i8, ptr %1019, i64 40
@@ -30907,20 +30907,20 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.end.p0(ptr nonnull %1021)
   %10517 = load i8, ptr %996, align 8, !tbaa !4, !noalias !245
   switch i8 %10517, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread: ; preds = %10516
   store ptr %996, ptr %1022, align 8, !tbaa !85
   %10518 = getelementptr inbounds nuw i8, ptr %1022, i64 8
-  %.sroa.97864.8..sroa_idx8517 = getelementptr inbounds nuw i8, ptr %1022, i64 24
+  %.sroa.97840.8..sroa_idx8484 = getelementptr inbounds nuw i8, ptr %1022, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10518, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97864.8..sroa_idx8517, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97840.8..sroa_idx8484, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518: ; preds = %10516
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485: ; preds = %10516
   %10519 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %10520 = load ptr, ptr %10519, align 8, !tbaa !10, !noalias !245
   %10521 = getelementptr inbounds nuw i8, ptr %10520, i64 24
@@ -30928,24 +30928,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %996, ptr %1022, align 8, !tbaa !85
   %10523 = getelementptr inbounds nuw i8, ptr %1022, i64 8
   store ptr %10522, ptr %10523, align 8, !tbaa !91
-  %.sroa.87863.8..sroa_idx8522 = getelementptr inbounds nuw i8, ptr %1022, i64 16
-  store ptr null, ptr %.sroa.87863.8..sroa_idx8522, align 8, !tbaa !29
-  %.sroa.97864.8..sroa_idx8523 = getelementptr inbounds nuw i8, ptr %1022, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97864.8..sroa_idx8523, align 8, !tbaa !92
+  %.sroa.87839.8..sroa_idx8489 = getelementptr inbounds nuw i8, ptr %1022, i64 16
+  store ptr null, ptr %.sroa.87839.8..sroa_idx8489, align 8, !tbaa !29
+  %.sroa.97840.8..sroa_idx8490 = getelementptr inbounds nuw i8, ptr %1022, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97840.8..sroa_idx8490, align 8, !tbaa !92
   %10524 = getelementptr inbounds nuw i8, ptr %10520, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524: ; preds = %10516
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491: ; preds = %10516
   %10525 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %10526 = load ptr, ptr %10525, align 8, !tbaa !10, !noalias !245
   %10527 = load ptr, ptr %10526, align 8, !tbaa !29, !noalias !245
   store ptr %996, ptr %1022, align 8, !tbaa !85
   %10528 = getelementptr inbounds nuw i8, ptr %1022, i64 8
   store ptr null, ptr %10528, align 8, !tbaa !91
-  %.sroa.87863.8..sroa_idx8528 = getelementptr inbounds nuw i8, ptr %1022, i64 16
-  store ptr %10527, ptr %.sroa.87863.8..sroa_idx8528, align 8, !tbaa !29
-  %.sroa.97864.8..sroa_idx8529 = getelementptr inbounds nuw i8, ptr %1022, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97864.8..sroa_idx8529, align 8, !tbaa !92
+  %.sroa.87839.8..sroa_idx8495 = getelementptr inbounds nuw i8, ptr %1022, i64 16
+  store ptr %10527, ptr %.sroa.87839.8..sroa_idx8495, align 8, !tbaa !29
+  %.sroa.97840.8..sroa_idx8496 = getelementptr inbounds nuw i8, ptr %1022, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97840.8..sroa_idx8496, align 8, !tbaa !92
   %10529 = getelementptr inbounds nuw i8, ptr %10526, i64 8
   %10530 = load ptr, ptr %10529, align 8, !tbaa !29, !noalias !248
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483
@@ -30956,17 +30956,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10531, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524
-  %.sroa.97860.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
-  %.sroa.87859.0 = phi ptr [ %10530, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
-  %.sroa.57858.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8524 ], [ %10524, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8518 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6483: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491
+  %.sroa.97836.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
+  %.sroa.87835.0 = phi ptr [ %10530, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
+  %.sroa.57834.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8491 ], [ %10524, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread8485 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6482 ]
   store ptr %996, ptr %1023, align 8, !tbaa !85
   %10532 = getelementptr inbounds nuw i8, ptr %1023, i64 8
-  store ptr %.sroa.57858.0, ptr %10532, align 8, !tbaa !91
-  %.sroa.87859.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1023, i64 16
-  store ptr %.sroa.87859.0, ptr %.sroa.87859.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97860.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1023, i64 24
-  store i64 %.sroa.97860.0, ptr %.sroa.97860.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57834.0, ptr %10532, align 8, !tbaa !91
+  %.sroa.87835.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1023, i64 16
+  store ptr %.sroa.87835.0, ptr %.sroa.87835.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97836.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1023, i64 24
+  store i64 %.sroa.97836.0, ptr %.sroa.97836.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_(ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %1022, ptr noundef nonnull %1023)
           to label %10565 unwind label %10555
 
@@ -31008,9 +31008,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %10546 = getelementptr inbounds i8, ptr %10545, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10546) #27
   %10547 = icmp eq ptr %10546, %1019
-  br i1 %10547, label %.loopexit8981, label %10544
+  br i1 %10547, label %.loopexit8948, label %10544
 
-.loopexit8981:                                    ; preds = %10544, %.body6474, %.body6474.thread
+.loopexit8948:                                    ; preds = %10544, %.body6474, %.body6474.thread
   %.pn4648 = phi { ptr, i32 } [ %10494, %.body6474 ], [ %10490, %.body6474.thread ], [ %10542, %10544 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1019)
   br label %10722
@@ -31169,16 +31169,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484: ; preds = %10594, %10596, %10601, %10605
-  %.sroa.97856.0 = phi i64 [ 0, %10605 ], [ -9223372036854775808, %10596 ], [ -9223372036854775808, %10601 ], [ 1, %10594 ]
-  %.sroa.87855.0 = phi ptr [ null, %10605 ], [ null, %10596 ], [ %10604, %10601 ], [ null, %10594 ]
-  %.sroa.57854.0 = phi ptr [ null, %10605 ], [ %10600, %10596 ], [ null, %10601 ], [ null, %10594 ]
+  %.sroa.97832.0 = phi i64 [ 0, %10605 ], [ -9223372036854775808, %10596 ], [ -9223372036854775808, %10601 ], [ 1, %10594 ]
+  %.sroa.87831.0 = phi ptr [ null, %10605 ], [ null, %10596 ], [ %10604, %10601 ], [ null, %10594 ]
+  %.sroa.57830.0 = phi ptr [ null, %10605 ], [ %10600, %10596 ], [ null, %10601 ], [ null, %10594 ]
   store ptr %992, ptr %1026, align 8, !tbaa !85
   %10606 = getelementptr inbounds nuw i8, ptr %1026, i64 8
-  store ptr %.sroa.57854.0, ptr %10606, align 8, !tbaa !91
-  %.sroa.87855.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1026, i64 16
-  store ptr %.sroa.87855.0, ptr %.sroa.87855.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97856.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1026, i64 24
-  store i64 %.sroa.97856.0, ptr %.sroa.97856.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57830.0, ptr %10606, align 8, !tbaa !91
+  %.sroa.87831.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1026, i64 16
+  store ptr %.sroa.87831.0, ptr %.sroa.87831.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97832.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1026, i64 24
+  store i64 %.sroa.97832.0, ptr %.sroa.97832.8..sroa_idx, align 8, !tbaa !92
   %10607 = load i8, ptr %996, align 8, !tbaa !4, !noalias !255
   switch i8 %10607, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6485 [
     i8 1, label %10608
@@ -31199,16 +31199,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6485
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6485: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484, %10608, %10612
-  %.sroa.97852.0 = phi i64 [ -9223372036854775808, %10612 ], [ -9223372036854775808, %10608 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
-  %.sroa.87851.0 = phi ptr [ %10616, %10612 ], [ null, %10608 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
-  %.sroa.57850.0 = phi ptr [ null, %10612 ], [ %10611, %10608 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
+  %.sroa.97828.0 = phi i64 [ -9223372036854775808, %10612 ], [ -9223372036854775808, %10608 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
+  %.sroa.87827.0 = phi ptr [ %10616, %10612 ], [ null, %10608 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
+  %.sroa.57826.0 = phi ptr [ null, %10612 ], [ %10611, %10608 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6484 ]
   store ptr %996, ptr %1027, align 8, !tbaa !85
   %10617 = getelementptr inbounds nuw i8, ptr %1027, i64 8
-  store ptr %.sroa.57850.0, ptr %10617, align 8, !tbaa !91
-  %.sroa.87851.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1027, i64 16
-  store ptr %.sroa.87851.0, ptr %.sroa.87851.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97852.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1027, i64 24
-  store i64 %.sroa.97852.0, ptr %.sroa.97852.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57826.0, ptr %10617, align 8, !tbaa !91
+  %.sroa.87827.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1027, i64 16
+  store ptr %.sroa.87827.0, ptr %.sroa.87827.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97828.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1027, i64 24
+  store i64 %.sroa.97828.0, ptr %.sroa.97828.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_(ptr noundef nonnull align 8 dereferenceable(16) %992, ptr noundef nonnull %1026, ptr noundef nonnull %1027)
           to label %10633 unwind label %10623
 
@@ -31339,20 +31339,20 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1029)
   %10663 = load i8, ptr %711, align 8, !tbaa !4, !noalias !259
   switch i8 %10663, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread: ; preds = %10662
   store ptr %711, ptr %1030, align 8, !tbaa !85
   %10664 = getelementptr inbounds nuw i8, ptr %1030, i64 8
-  %.sroa.97848.8..sroa_idx8536 = getelementptr inbounds nuw i8, ptr %1030, i64 24
+  %.sroa.97824.8..sroa_idx8503 = getelementptr inbounds nuw i8, ptr %1030, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10664, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97848.8..sroa_idx8536, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97824.8..sroa_idx8503, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537: ; preds = %10662
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504: ; preds = %10662
   %10665 = getelementptr inbounds nuw i8, ptr %711, i64 8
   %10666 = load ptr, ptr %10665, align 8, !tbaa !10, !noalias !259
   %10667 = getelementptr inbounds nuw i8, ptr %10666, i64 24
@@ -31360,24 +31360,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %711, ptr %1030, align 8, !tbaa !85
   %10669 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   store ptr %10668, ptr %10669, align 8, !tbaa !91
-  %.sroa.87847.8..sroa_idx8541 = getelementptr inbounds nuw i8, ptr %1030, i64 16
-  store ptr null, ptr %.sroa.87847.8..sroa_idx8541, align 8, !tbaa !29
-  %.sroa.97848.8..sroa_idx8542 = getelementptr inbounds nuw i8, ptr %1030, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97848.8..sroa_idx8542, align 8, !tbaa !92
+  %.sroa.87823.8..sroa_idx8508 = getelementptr inbounds nuw i8, ptr %1030, i64 16
+  store ptr null, ptr %.sroa.87823.8..sroa_idx8508, align 8, !tbaa !29
+  %.sroa.97824.8..sroa_idx8509 = getelementptr inbounds nuw i8, ptr %1030, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97824.8..sroa_idx8509, align 8, !tbaa !92
   %10670 = getelementptr inbounds nuw i8, ptr %10666, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543: ; preds = %10662
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510: ; preds = %10662
   %10671 = getelementptr inbounds nuw i8, ptr %711, i64 8
   %10672 = load ptr, ptr %10671, align 8, !tbaa !10, !noalias !259
   %10673 = load ptr, ptr %10672, align 8, !tbaa !29, !noalias !259
   store ptr %711, ptr %1030, align 8, !tbaa !85
   %10674 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   store ptr null, ptr %10674, align 8, !tbaa !91
-  %.sroa.87847.8..sroa_idx8547 = getelementptr inbounds nuw i8, ptr %1030, i64 16
-  store ptr %10673, ptr %.sroa.87847.8..sroa_idx8547, align 8, !tbaa !29
-  %.sroa.97848.8..sroa_idx8548 = getelementptr inbounds nuw i8, ptr %1030, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97848.8..sroa_idx8548, align 8, !tbaa !92
+  %.sroa.87823.8..sroa_idx8514 = getelementptr inbounds nuw i8, ptr %1030, i64 16
+  store ptr %10673, ptr %.sroa.87823.8..sroa_idx8514, align 8, !tbaa !29
+  %.sroa.97824.8..sroa_idx8515 = getelementptr inbounds nuw i8, ptr %1030, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97824.8..sroa_idx8515, align 8, !tbaa !92
   %10675 = getelementptr inbounds nuw i8, ptr %10672, i64 8
   %10676 = load ptr, ptr %10675, align 8, !tbaa !29, !noalias !262
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487
@@ -31388,17 +31388,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10677, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543
-  %.sroa.97844.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
-  %.sroa.87843.0 = phi ptr [ %10676, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
-  %.sroa.57842.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8543 ], [ %10670, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8537 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6487: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510
+  %.sroa.97820.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
+  %.sroa.87819.0 = phi ptr [ %10676, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
+  %.sroa.57818.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8510 ], [ %10670, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread8504 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6486 ]
   store ptr %711, ptr %1031, align 8, !tbaa !85
   %10678 = getelementptr inbounds nuw i8, ptr %1031, i64 8
-  store ptr %.sroa.57842.0, ptr %10678, align 8, !tbaa !91
-  %.sroa.87843.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1031, i64 16
-  store ptr %.sroa.87843.0, ptr %.sroa.87843.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97844.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1031, i64 24
-  store i64 %.sroa.97844.0, ptr %.sroa.97844.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57818.0, ptr %10678, align 8, !tbaa !91
+  %.sroa.87819.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1031, i64 16
+  store ptr %.sroa.87819.0, ptr %.sroa.87819.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97820.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1031, i64 24
+  store i64 %.sroa.97820.0, ptr %.sroa.97820.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_(ptr noundef nonnull align 8 dereferenceable(16) %992, ptr noundef nonnull %1030, ptr noundef nonnull %1031)
           to label %10694 unwind label %10684
 
@@ -31526,8 +31526,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1018) #27
   br label %10722
 
-10722:                                            ; preds = %10721, %.loopexit8981
-  %.pn4668.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn, %10721 ], [ %.pn4648, %.loopexit8981 ]
+10722:                                            ; preds = %10721, %.loopexit8948
+  %.pn4668.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn, %10721 ], [ %.pn4648, %.loopexit8948 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1018)
   br label %10734
 
@@ -31575,14 +31575,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %996) #27
   br label %10736
 
-10736:                                            ; preds = %10735, %.loopexit8984
-  %.pn4668.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn.pn.pn.pn.pn, %10735 ], [ %.pn4625.pn.pn.pn8495, %.loopexit8984 ]
+10736:                                            ; preds = %10735, %.loopexit8951
+  %.pn4668.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn.pn.pn.pn.pn, %10735 ], [ %.pn4625.pn.pn.pn8462, %.loopexit8951 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %996)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %992) #27
   br label %10737
 
-10737:                                            ; preds = %10736, %.loopexit8989
-  %.pn4668.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn.pn.pn.pn.pn.pn, %10736 ], [ %.pn4620.pn.pn.pn8484, %.loopexit8989 ]
+10737:                                            ; preds = %10736, %.loopexit8956
+  %.pn4668.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4668.pn.pn.pn.pn.pn.pn.pn, %10736 ], [ %.pn4620.pn.pn.pn8451, %.loopexit8956 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %992)
   br label %10879
 
@@ -31652,16 +31652,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6491
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6491: ; preds = %10748, %10750, %10755, %10759
-  %.sroa.97840.0 = phi i64 [ 0, %10759 ], [ -9223372036854775808, %10750 ], [ -9223372036854775808, %10755 ], [ 1, %10748 ]
-  %.sroa.87839.0 = phi ptr [ null, %10759 ], [ null, %10750 ], [ %10758, %10755 ], [ null, %10748 ]
-  %.sroa.57838.0 = phi ptr [ null, %10759 ], [ %10754, %10750 ], [ null, %10755 ], [ null, %10748 ]
+  %.sroa.97816.0 = phi i64 [ 0, %10759 ], [ -9223372036854775808, %10750 ], [ -9223372036854775808, %10755 ], [ 1, %10748 ]
+  %.sroa.87815.0 = phi ptr [ null, %10759 ], [ null, %10750 ], [ %10758, %10755 ], [ null, %10748 ]
+  %.sroa.57814.0 = phi ptr [ null, %10759 ], [ %10754, %10750 ], [ null, %10755 ], [ null, %10748 ]
   store ptr %711, ptr %1037, align 8, !tbaa !85
   %10760 = getelementptr inbounds nuw i8, ptr %1037, i64 8
-  store ptr %.sroa.57838.0, ptr %10760, align 8, !tbaa !91
-  %.sroa.87839.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1037, i64 16
-  store ptr %.sroa.87839.0, ptr %.sroa.87839.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97840.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1037, i64 24
-  store i64 %.sroa.97840.0, ptr %.sroa.97840.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57814.0, ptr %10760, align 8, !tbaa !91
+  %.sroa.87815.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1037, i64 16
+  store ptr %.sroa.87815.0, ptr %.sroa.87815.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97816.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1037, i64 24
+  store i64 %.sroa.97816.0, ptr %.sroa.97816.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1038)
   %10761 = getelementptr inbounds nuw i8, ptr %1038, i64 8
   store i64 0, ptr %1038, align 8
@@ -31844,18 +31844,18 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %10829
 
 10829:                                            ; preds = %10828, %10824, %10819, %10817
-  %.sroa.87831.0 = phi i64 [ 0, %10828 ], [ -9223372036854775808, %10819 ], [ -9223372036854775808, %10824 ], [ 1, %10817 ]
-  %.sroa.77830.0 = phi ptr [ null, %10828 ], [ null, %10819 ], [ %10827, %10824 ], [ null, %10817 ]
-  %.sroa.57829.0 = phi ptr [ null, %10828 ], [ %10823, %10819 ], [ null, %10824 ], [ null, %10817 ]
+  %.sroa.87807.0 = phi i64 [ 0, %10828 ], [ -9223372036854775808, %10819 ], [ -9223372036854775808, %10824 ], [ 1, %10817 ]
+  %.sroa.77806.0 = phi ptr [ null, %10828 ], [ null, %10819 ], [ %10827, %10824 ], [ null, %10817 ]
+  %.sroa.57805.0 = phi ptr [ null, %10828 ], [ %10823, %10819 ], [ null, %10824 ], [ null, %10817 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %10830 = load i32, ptr %1049, align 4, !tbaa !11, !noalias !272
   store ptr %711, ptr %1048, align 8, !tbaa !29
-  %.sroa.57829.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 8
-  store ptr %.sroa.57829.0, ptr %.sroa.57829.0..sroa_idx, align 8, !tbaa !91
-  %.sroa.77830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 16
-  store ptr %.sroa.77830.0, ptr %.sroa.77830.0..sroa_idx, align 8, !tbaa !29
-  %.sroa.87831.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 24
-  store i64 %.sroa.87831.0, ptr %.sroa.87831.0..sroa_idx, align 8, !tbaa !92
+  %.sroa.57805.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 8
+  store ptr %.sroa.57805.0, ptr %.sroa.57805.0..sroa_idx, align 8, !tbaa !91
+  %.sroa.77806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 16
+  store ptr %.sroa.77806.0, ptr %.sroa.77806.0..sroa_idx, align 8, !tbaa !29
+  %.sroa.87807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1048, i64 24
+  store i64 %.sroa.87807.0, ptr %.sroa.87807.0..sroa_idx, align 8, !tbaa !92
   %10831 = getelementptr inbounds nuw i8, ptr %1048, i64 32
   store i32 %10830, ptr %10831, align 8, !tbaa !99, !alias.scope !272
   invoke void @_ZN7doctest6detail14Expression_lhsIN8nlohmann16json_abi_v3_11_36detail9iter_implINS3_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES8_IhSaIhEEvEEEEEeqIRSJ_EEDTcmcvveqclL_ZNS0_7declvalISJ_EEOT_vEEclsr7doctest6detailE7declvalISO_EEtlNS0_6ResultEEESP_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %1047, ptr noundef nonnull align 8 dereferenceable(36) %1048, ptr noundef nonnull align 8 dereferenceable(32) %1036)
@@ -32236,16 +32236,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6508
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6508: ; preds = %10952, %10954, %10959, %10963
-  %.sroa.97820.0 = phi i64 [ 0, %10963 ], [ -9223372036854775808, %10954 ], [ -9223372036854775808, %10959 ], [ 1, %10952 ]
-  %.sroa.87819.0 = phi ptr [ null, %10963 ], [ null, %10954 ], [ %10962, %10959 ], [ null, %10952 ]
-  %.sroa.57818.0 = phi ptr [ null, %10963 ], [ %10958, %10954 ], [ null, %10959 ], [ null, %10952 ]
+  %.sroa.97796.0 = phi i64 [ 0, %10963 ], [ -9223372036854775808, %10954 ], [ -9223372036854775808, %10959 ], [ 1, %10952 ]
+  %.sroa.87795.0 = phi ptr [ null, %10963 ], [ null, %10954 ], [ %10962, %10959 ], [ null, %10952 ]
+  %.sroa.57794.0 = phi ptr [ null, %10963 ], [ %10958, %10954 ], [ null, %10959 ], [ null, %10952 ]
   store ptr %711, ptr %1059, align 8, !tbaa !105, !alias.scope !278
   %10964 = getelementptr inbounds nuw i8, ptr %1059, i64 8
-  store ptr %.sroa.57818.0, ptr %10964, align 8, !tbaa !91
-  %.sroa.87819.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1059, i64 16
-  store ptr %.sroa.87819.0, ptr %.sroa.87819.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97820.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1059, i64 24
-  store i64 %.sroa.97820.0, ptr %.sroa.97820.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57794.0, ptr %10964, align 8, !tbaa !91
+  %.sroa.87795.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1059, i64 16
+  store ptr %.sroa.87795.0, ptr %.sroa.87795.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97796.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1059, i64 24
+  store i64 %.sroa.97796.0, ptr %.sroa.97796.8..sroa_idx, align 8, !tbaa !92
   %10965 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %1059, i64 noundef 2)
           to label %_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEplEl.exit6510 unwind label %11098
 
@@ -32841,16 +32841,16 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6529
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6529: ; preds = %11163, %11165, %11169
-  %.sroa.97803.0 = phi i64 [ -9223372036854775808, %11169 ], [ -9223372036854775808, %11165 ], [ 1, %11163 ]
-  %.sroa.87802.0 = phi ptr [ %11173, %11169 ], [ null, %11165 ], [ null, %11163 ]
-  %.sroa.57801.0 = phi ptr [ null, %11169 ], [ %11168, %11165 ], [ null, %11163 ]
+  %.sroa.97779.0 = phi i64 [ -9223372036854775808, %11169 ], [ -9223372036854775808, %11165 ], [ 1, %11163 ]
+  %.sroa.87778.0 = phi ptr [ %11173, %11169 ], [ null, %11165 ], [ null, %11163 ]
+  %.sroa.57777.0 = phi ptr [ null, %11169 ], [ %11168, %11165 ], [ null, %11163 ]
   store ptr %711, ptr %1082, align 8, !tbaa !85
   %11174 = getelementptr inbounds nuw i8, ptr %1082, i64 8
-  store ptr %.sroa.57801.0, ptr %11174, align 8, !tbaa !91
-  %.sroa.87802.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1082, i64 16
-  store ptr %.sroa.87802.0, ptr %.sroa.87802.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97803.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1082, i64 24
-  store i64 %.sroa.97803.0, ptr %.sroa.97803.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57777.0, ptr %11174, align 8, !tbaa !91
+  %.sroa.87778.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1082, i64 16
+  store ptr %.sroa.87778.0, ptr %.sroa.87778.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97779.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1082, i64 24
+  store i64 %.sroa.97779.0, ptr %.sroa.97779.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1083)
   %11175 = getelementptr inbounds nuw i8, ptr %1083, i64 8
   store i64 0, ptr %1083, align 8
@@ -33464,7 +33464,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %11386 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1107) #27
-  br label %.loopexit8979
+  br label %.loopexit8946
 
 11387:                                            ; preds = %11385
   %11388 = getelementptr inbounds nuw i8, ptr %1107, i64 16
@@ -33478,7 +33478,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11389) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1107) #27
-  br label %.loopexit8979
+  br label %.loopexit8946
 
 11391:                                            ; preds = %11387
   %11392 = getelementptr inbounds nuw i8, ptr %1107, i64 40
@@ -33553,9 +33553,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6559
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6559: ; preds = %11418, %11414, %11412
-  %.sroa.97780.0 = phi i64 [ -9223372036854775808, %11418 ], [ -9223372036854775808, %11414 ], [ 1, %11412 ]
-  %.sroa.87779.0 = phi ptr [ %11422, %11418 ], [ null, %11414 ], [ null, %11412 ]
-  %.sroa.57778.0 = phi ptr [ null, %11418 ], [ %11417, %11414 ], [ null, %11412 ]
+  %.sroa.97756.0 = phi i64 [ -9223372036854775808, %11418 ], [ -9223372036854775808, %11414 ], [ 1, %11412 ]
+  %.sroa.87755.0 = phi ptr [ %11422, %11418 ], [ null, %11414 ], [ null, %11412 ]
+  %.sroa.57754.0 = phi ptr [ null, %11418 ], [ %11417, %11414 ], [ null, %11412 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1110)
   %11423 = getelementptr inbounds nuw i8, ptr %1110, i64 8
   store i64 0, ptr %1110, align 8
@@ -33565,11 +33565,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %1104, ptr %19, align 8, !tbaa !85, !noalias !293
   %11424 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %.sroa.57778.0, ptr %11424, align 8, !tbaa !91, !noalias !293
-  %.sroa.47783.8..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.sroa.87779.0, ptr %.sroa.47783.8..sroa_idx, align 8, !tbaa !29, !noalias !293
-  %.sroa.57784.8..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 %.sroa.97780.0, ptr %.sroa.57784.8..sroa_idx, align 8, !tbaa !92, !noalias !293
+  store ptr %.sroa.57754.0, ptr %11424, align 8, !tbaa !91, !noalias !293
+  %.sroa.47759.8..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %.sroa.87755.0, ptr %.sroa.47759.8..sroa_idx, align 8, !tbaa !29, !noalias !293
+  %.sroa.57760.8..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 %.sroa.97756.0, ptr %.sroa.57760.8..sroa_idx, align 8, !tbaa !92, !noalias !293
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1111, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(16) %1110)
           to label %11425 unwind label %11460
 
@@ -33646,9 +33646,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %11451 = getelementptr inbounds i8, ptr %11450, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11451) #27
   %11452 = icmp eq ptr %11451, %1107
-  br i1 %11452, label %.loopexit8979, label %11449
+  br i1 %11452, label %.loopexit8946, label %11449
 
-.loopexit8979:                                    ; preds = %11449, %.body6550, %.body6550.thread
+.loopexit8946:                                    ; preds = %11449, %.body6550, %.body6550.thread
   %.pn4747 = phi { ptr, i32 } [ %11390, %.body6550 ], [ %11386, %.body6550.thread ], [ %11447, %11449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1107)
   br label %11780
@@ -33806,16 +33806,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6563
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6563: ; preds = %11499, %11501, %11505
-  %.sroa.87774.0 = phi ptr [ %11509, %11505 ], [ null, %11501 ], [ null, %11499 ]
-  %.sroa.97775.0 = phi i64 [ -9223372036854775808, %11505 ], [ -9223372036854775808, %11501 ], [ 1, %11499 ]
-  %.sroa.57773.0 = phi ptr [ null, %11505 ], [ %11504, %11501 ], [ null, %11499 ]
+  %.sroa.87750.0 = phi ptr [ %11509, %11505 ], [ null, %11501 ], [ null, %11499 ]
+  %.sroa.97751.0 = phi i64 [ -9223372036854775808, %11505 ], [ -9223372036854775808, %11501 ], [ 1, %11499 ]
+  %.sroa.57749.0 = phi ptr [ null, %11505 ], [ %11504, %11501 ], [ null, %11499 ]
   store ptr %1104, ptr %1114, align 8, !tbaa !85
   %11510 = getelementptr inbounds nuw i8, ptr %1114, i64 8
-  store ptr %.sroa.57773.0, ptr %11510, align 8, !tbaa !91
-  %.sroa.87774.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1114, i64 16
-  store ptr %.sroa.87774.0, ptr %.sroa.87774.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97775.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1114, i64 24
-  store i64 %.sroa.97775.0, ptr %.sroa.97775.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57749.0, ptr %11510, align 8, !tbaa !91
+  %.sroa.87750.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1114, i64 16
+  store ptr %.sroa.87750.0, ptr %.sroa.87750.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97751.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1114, i64 24
+  store i64 %.sroa.97751.0, ptr %.sroa.97751.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1115)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1115, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %1114, ptr noundef nonnull align 8 dereferenceable(16) %713)
           to label %11511 unwind label %11517
@@ -33970,16 +33970,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6565
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6565: ; preds = %11562, %11558, %11556
-  %.sroa.57769.0 = phi ptr [ null, %11562 ], [ %11561, %11558 ], [ null, %11556 ]
-  %.sroa.87770.0 = phi ptr [ %11566, %11562 ], [ null, %11558 ], [ null, %11556 ]
-  %.sroa.97771.0 = phi i64 [ -9223372036854775808, %11562 ], [ -9223372036854775808, %11558 ], [ 1, %11556 ]
+  %.sroa.57745.0 = phi ptr [ null, %11562 ], [ %11561, %11558 ], [ null, %11556 ]
+  %.sroa.87746.0 = phi ptr [ %11566, %11562 ], [ null, %11558 ], [ null, %11556 ]
+  %.sroa.97747.0 = phi i64 [ -9223372036854775808, %11562 ], [ -9223372036854775808, %11558 ], [ 1, %11556 ]
   store ptr %1104, ptr %1118, align 8, !tbaa !85
   %11567 = getelementptr inbounds nuw i8, ptr %1118, i64 8
-  store ptr %.sroa.57769.0, ptr %11567, align 8, !tbaa !91
-  %.sroa.87770.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1118, i64 16
-  store ptr %.sroa.87770.0, ptr %.sroa.87770.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97771.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1118, i64 24
-  store i64 %.sroa.97771.0, ptr %.sroa.97771.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57745.0, ptr %11567, align 8, !tbaa !91
+  %.sroa.87746.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1118, i64 16
+  store ptr %.sroa.87746.0, ptr %.sroa.87746.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97747.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1118, i64 24
+  store i64 %.sroa.97747.0, ptr %.sroa.97747.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1119)
   %11568 = getelementptr inbounds nuw i8, ptr %1119, i64 8
   store i64 0, ptr %1119, align 8
@@ -34154,32 +34154,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567: ; preds = %11618, %11620, %11624
-  %.sroa.57764.0 = phi ptr [ null, %11624 ], [ %11623, %11620 ], [ null, %11618 ]
-  %.sroa.87765.0 = phi ptr [ %11628, %11624 ], [ null, %11620 ], [ null, %11618 ]
-  %.sroa.97766.0 = phi i64 [ -9223372036854775808, %11624 ], [ -9223372036854775808, %11620 ], [ 1, %11618 ]
+  %.sroa.57740.0 = phi ptr [ null, %11624 ], [ %11623, %11620 ], [ null, %11618 ]
+  %.sroa.87741.0 = phi ptr [ %11628, %11624 ], [ null, %11620 ], [ null, %11618 ]
+  %.sroa.97742.0 = phi i64 [ -9223372036854775808, %11624 ], [ -9223372036854775808, %11620 ], [ 1, %11618 ]
   store ptr %1104, ptr %1123, align 8, !tbaa !85
   %11629 = getelementptr inbounds nuw i8, ptr %1123, i64 8
-  store ptr %.sroa.57764.0, ptr %11629, align 8, !tbaa !91
-  %.sroa.87765.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1123, i64 16
-  store ptr %.sroa.87765.0, ptr %.sroa.87765.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97766.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1123, i64 24
-  store i64 %.sroa.97766.0, ptr %.sroa.97766.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57740.0, ptr %11629, align 8, !tbaa !91
+  %.sroa.87741.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1123, i64 16
+  store ptr %.sroa.87741.0, ptr %.sroa.87741.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97742.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1123, i64 24
+  store i64 %.sroa.97742.0, ptr %.sroa.97742.8..sroa_idx, align 8, !tbaa !92
   %11630 = load i8, ptr %1106, align 8, !tbaa !4, !noalias !308
   switch i8 %11630, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
   store ptr %1106, ptr %1124, align 8, !tbaa !85
   %11631 = getelementptr inbounds nuw i8, ptr %1124, i64 8
-  %.sroa.97762.8..sroa_idx8555 = getelementptr inbounds nuw i8, ptr %1124, i64 24
+  %.sroa.97738.8..sroa_idx8522 = getelementptr inbounds nuw i8, ptr %1124, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11631, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97762.8..sroa_idx8555, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97738.8..sroa_idx8522, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
   %11632 = getelementptr inbounds nuw i8, ptr %1106, i64 8
   %11633 = load ptr, ptr %11632, align 8, !tbaa !10, !noalias !308
   %11634 = getelementptr inbounds nuw i8, ptr %11633, i64 24
@@ -34187,24 +34187,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1106, ptr %1124, align 8, !tbaa !85
   %11636 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   store ptr %11635, ptr %11636, align 8, !tbaa !91
-  %.sroa.87761.8..sroa_idx8560 = getelementptr inbounds nuw i8, ptr %1124, i64 16
-  store ptr null, ptr %.sroa.87761.8..sroa_idx8560, align 8, !tbaa !29
-  %.sroa.97762.8..sroa_idx8561 = getelementptr inbounds nuw i8, ptr %1124, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97762.8..sroa_idx8561, align 8, !tbaa !92
+  %.sroa.87737.8..sroa_idx8527 = getelementptr inbounds nuw i8, ptr %1124, i64 16
+  store ptr null, ptr %.sroa.87737.8..sroa_idx8527, align 8, !tbaa !29
+  %.sroa.97738.8..sroa_idx8528 = getelementptr inbounds nuw i8, ptr %1124, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97738.8..sroa_idx8528, align 8, !tbaa !92
   %11637 = getelementptr inbounds nuw i8, ptr %11633, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6567
   %11638 = getelementptr inbounds nuw i8, ptr %1106, i64 8
   %11639 = load ptr, ptr %11638, align 8, !tbaa !10, !noalias !308
   %11640 = load ptr, ptr %11639, align 8, !tbaa !29, !noalias !308
   store ptr %1106, ptr %1124, align 8, !tbaa !85
   %11641 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   store ptr null, ptr %11641, align 8, !tbaa !91
-  %.sroa.87761.8..sroa_idx8566 = getelementptr inbounds nuw i8, ptr %1124, i64 16
-  store ptr %11640, ptr %.sroa.87761.8..sroa_idx8566, align 8, !tbaa !29
-  %.sroa.97762.8..sroa_idx8567 = getelementptr inbounds nuw i8, ptr %1124, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97762.8..sroa_idx8567, align 8, !tbaa !92
+  %.sroa.87737.8..sroa_idx8533 = getelementptr inbounds nuw i8, ptr %1124, i64 16
+  store ptr %11640, ptr %.sroa.87737.8..sroa_idx8533, align 8, !tbaa !29
+  %.sroa.97738.8..sroa_idx8534 = getelementptr inbounds nuw i8, ptr %1124, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97738.8..sroa_idx8534, align 8, !tbaa !92
   %11642 = getelementptr inbounds nuw i8, ptr %11639, i64 8
   %11643 = load ptr, ptr %11642, align 8, !tbaa !29, !noalias !311
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569
@@ -34215,17 +34215,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11644, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562
-  %.sroa.57756.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562 ], [ %11637, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
-  %.sroa.87757.0 = phi ptr [ %11643, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
-  %.sroa.97758.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8562 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8556 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6569: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529
+  %.sroa.57732.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529 ], [ %11637, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
+  %.sroa.87733.0 = phi ptr [ %11643, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
+  %.sroa.97734.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8529 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread8523 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6568 ]
   store ptr %1106, ptr %1125, align 8, !tbaa !85
   %11645 = getelementptr inbounds nuw i8, ptr %1125, i64 8
-  store ptr %.sroa.57756.0, ptr %11645, align 8, !tbaa !91
-  %.sroa.87757.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1125, i64 16
-  store ptr %.sroa.87757.0, ptr %.sroa.87757.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97758.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1125, i64 24
-  store i64 %.sroa.97758.0, ptr %.sroa.97758.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57732.0, ptr %11645, align 8, !tbaa !91
+  %.sroa.87733.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1125, i64 16
+  store ptr %.sroa.87733.0, ptr %.sroa.87733.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97734.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1125, i64 24
+  store i64 %.sroa.97734.0, ptr %.sroa.97734.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1126)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1126, ptr noundef nonnull align 8 dereferenceable(16) %711, ptr noundef nonnull %1123, ptr noundef nonnull %1124, ptr noundef nonnull %1125)
           to label %11646 unwind label %11652
@@ -34380,16 +34380,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6570
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6570: ; preds = %11691, %11693, %11697
-  %.sroa.57752.0 = phi ptr [ null, %11697 ], [ %11696, %11693 ], [ null, %11691 ]
-  %.sroa.87753.0 = phi ptr [ %11701, %11697 ], [ null, %11693 ], [ null, %11691 ]
-  %.sroa.97754.0 = phi i64 [ -9223372036854775808, %11697 ], [ -9223372036854775808, %11693 ], [ 1, %11691 ]
+  %.sroa.57728.0 = phi ptr [ null, %11697 ], [ %11696, %11693 ], [ null, %11691 ]
+  %.sroa.87729.0 = phi ptr [ %11701, %11697 ], [ null, %11693 ], [ null, %11691 ]
+  %.sroa.97730.0 = phi i64 [ -9223372036854775808, %11697 ], [ -9223372036854775808, %11693 ], [ 1, %11691 ]
   store ptr %1104, ptr %1129, align 8, !tbaa !85
   %11702 = getelementptr inbounds nuw i8, ptr %1129, i64 8
-  store ptr %.sroa.57752.0, ptr %11702, align 8, !tbaa !91
-  %.sroa.87753.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1129, i64 16
-  store ptr %.sroa.87753.0, ptr %.sroa.87753.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97754.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1129, i64 24
-  store i64 %.sroa.97754.0, ptr %.sroa.97754.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57728.0, ptr %11702, align 8, !tbaa !91
+  %.sroa.87729.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1129, i64 16
+  store ptr %.sroa.87729.0, ptr %.sroa.87729.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97730.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1129, i64 24
+  store i64 %.sroa.97730.0, ptr %.sroa.97730.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1130)
   %11703 = getelementptr inbounds nuw i8, ptr %1130, i64 8
   store i64 0, ptr %1130, align 8
@@ -34598,8 +34598,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1106) #27
   br label %11780
 
-11780:                                            ; preds = %11779, %.loopexit8979
-  %.pn4781.pn.pn.pn = phi { ptr, i32 } [ %.pn4781.pn.pn, %11779 ], [ %.pn4747, %.loopexit8979 ]
+11780:                                            ; preds = %11779, %.loopexit8946
+  %.pn4781.pn.pn.pn = phi { ptr, i32 } [ %.pn4781.pn.pn, %11779 ], [ %.pn4747, %.loopexit8946 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1106)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1104) #27
   br label %11781
@@ -34646,7 +34646,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %11788 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1136) #27
-  br label %.loopexit8977
+  br label %.loopexit8944
 
 11789:                                            ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6575
   %11790 = getelementptr inbounds nuw i8, ptr %1136, i64 16
@@ -34660,7 +34660,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11791) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1136) #27
-  br label %.loopexit8977
+  br label %.loopexit8944
 
 11793:                                            ; preds = %11789
   %11794 = getelementptr inbounds nuw i8, ptr %1136, i64 40
@@ -34733,9 +34733,9 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6585
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6585: ; preds = %11819, %11816, %11814
-  %.sroa.57741.0 = phi ptr [ null, %11819 ], [ %11818, %11816 ], [ null, %11814 ]
-  %.sroa.87742.0 = phi ptr [ %11822, %11819 ], [ null, %11816 ], [ null, %11814 ]
-  %.sroa.97743.0 = phi i64 [ -9223372036854775808, %11819 ], [ -9223372036854775808, %11816 ], [ 1, %11814 ]
+  %.sroa.57717.0 = phi ptr [ null, %11819 ], [ %11818, %11816 ], [ null, %11814 ]
+  %.sroa.87718.0 = phi ptr [ %11822, %11819 ], [ null, %11816 ], [ null, %11814 ]
+  %.sroa.97719.0 = phi i64 [ -9223372036854775808, %11819 ], [ -9223372036854775808, %11816 ], [ 1, %11814 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1139)
   %11823 = getelementptr inbounds nuw i8, ptr %1139, i64 8
   store i64 0, ptr %1139, align 8
@@ -34745,11 +34745,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1134, ptr %18, align 8, !tbaa !85, !noalias !322
   %11824 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.sroa.57741.0, ptr %11824, align 8, !tbaa !91, !noalias !322
+  store ptr %.sroa.57717.0, ptr %11824, align 8, !tbaa !91, !noalias !322
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.sroa.87742.0, ptr %.sroa.4.8..sroa_idx, align 8, !tbaa !29, !noalias !322
-  %.sroa.57745.8..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 %.sroa.97743.0, ptr %.sroa.57745.8..sroa_idx, align 8, !tbaa !92, !noalias !322
+  store ptr %.sroa.87718.0, ptr %.sroa.4.8..sroa_idx, align 8, !tbaa !29, !noalias !322
+  %.sroa.57721.8..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 %.sroa.97719.0, ptr %.sroa.57721.8..sroa_idx, align 8, !tbaa !92, !noalias !322
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1140, ptr noundef nonnull align 8 dereferenceable(16) %1134, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(16) %1139)
           to label %11825 unwind label %11852
 
@@ -34809,9 +34809,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %11843 = getelementptr inbounds i8, ptr %11842, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11843) #27
   %11844 = icmp eq ptr %11843, %1136
-  br i1 %11844, label %.loopexit8977, label %11841
+  br i1 %11844, label %.loopexit8944, label %11841
 
-.loopexit8977:                                    ; preds = %11841, %.body6576, %.body6576.thread
+.loopexit8944:                                    ; preds = %11841, %.body6576, %.body6576.thread
   %.pn4791 = phi { ptr, i32 } [ %11792, %.body6576 ], [ %11788, %.body6576.thread ], [ %11839, %11841 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1136)
   br label %12163
@@ -34967,16 +34967,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6589
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6589: ; preds = %11891, %11893, %11896
-  %.sroa.57736.0 = phi ptr [ null, %11896 ], [ %11895, %11893 ], [ null, %11891 ]
-  %.sroa.87737.0 = phi ptr [ %11899, %11896 ], [ null, %11893 ], [ null, %11891 ]
-  %.sroa.97738.0 = phi i64 [ -9223372036854775808, %11896 ], [ -9223372036854775808, %11893 ], [ 1, %11891 ]
+  %.sroa.57712.0 = phi ptr [ null, %11896 ], [ %11895, %11893 ], [ null, %11891 ]
+  %.sroa.87713.0 = phi ptr [ %11899, %11896 ], [ null, %11893 ], [ null, %11891 ]
+  %.sroa.97714.0 = phi i64 [ -9223372036854775808, %11896 ], [ -9223372036854775808, %11893 ], [ 1, %11891 ]
   store ptr %1134, ptr %1143, align 8, !tbaa !85
   %11900 = getelementptr inbounds nuw i8, ptr %1143, i64 8
-  store ptr %.sroa.57736.0, ptr %11900, align 8, !tbaa !91
-  %.sroa.87737.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 16
-  store ptr %.sroa.87737.0, ptr %.sroa.87737.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97738.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 24
-  store i64 %.sroa.97738.0, ptr %.sroa.97738.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57712.0, ptr %11900, align 8, !tbaa !91
+  %.sroa.87713.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 16
+  store ptr %.sroa.87713.0, ptr %.sroa.87713.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97714.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1143, i64 24
+  store i64 %.sroa.97714.0, ptr %.sroa.97714.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1144)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EERSG_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1144, ptr noundef nonnull align 8 dereferenceable(16) %1134, ptr noundef nonnull %1143, ptr noundef nonnull align 8 dereferenceable(16) %713)
           to label %11901 unwind label %11907
@@ -35129,16 +35129,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6591
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6591: ; preds = %11951, %11948, %11946
-  %.sroa.57732.0 = phi ptr [ null, %11951 ], [ %11950, %11948 ], [ null, %11946 ]
-  %.sroa.87733.0 = phi ptr [ %11954, %11951 ], [ null, %11948 ], [ null, %11946 ]
-  %.sroa.97734.0 = phi i64 [ -9223372036854775808, %11951 ], [ -9223372036854775808, %11948 ], [ 1, %11946 ]
+  %.sroa.57708.0 = phi ptr [ null, %11951 ], [ %11950, %11948 ], [ null, %11946 ]
+  %.sroa.87709.0 = phi ptr [ %11954, %11951 ], [ null, %11948 ], [ null, %11946 ]
+  %.sroa.97710.0 = phi i64 [ -9223372036854775808, %11951 ], [ -9223372036854775808, %11948 ], [ 1, %11946 ]
   store ptr %1134, ptr %1147, align 8, !tbaa !85
   %11955 = getelementptr inbounds nuw i8, ptr %1147, i64 8
-  store ptr %.sroa.57732.0, ptr %11955, align 8, !tbaa !91
-  %.sroa.87733.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1147, i64 16
-  store ptr %.sroa.87733.0, ptr %.sroa.87733.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97734.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1147, i64 24
-  store i64 %.sroa.97734.0, ptr %.sroa.97734.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57708.0, ptr %11955, align 8, !tbaa !91
+  %.sroa.87709.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1147, i64 16
+  store ptr %.sroa.87709.0, ptr %.sroa.87709.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97710.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1147, i64 24
+  store i64 %.sroa.97710.0, ptr %.sroa.97710.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1148)
   %11956 = getelementptr inbounds nuw i8, ptr %1148, i64 8
   store i64 0, ptr %1148, align 8
@@ -35311,32 +35311,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593: ; preds = %12006, %12008, %12011
-  %.sroa.57727.0 = phi ptr [ null, %12011 ], [ %12010, %12008 ], [ null, %12006 ]
-  %.sroa.87728.0 = phi ptr [ %12014, %12011 ], [ null, %12008 ], [ null, %12006 ]
-  %.sroa.97729.0 = phi i64 [ -9223372036854775808, %12011 ], [ -9223372036854775808, %12008 ], [ 1, %12006 ]
+  %.sroa.57703.0 = phi ptr [ null, %12011 ], [ %12010, %12008 ], [ null, %12006 ]
+  %.sroa.87704.0 = phi ptr [ %12014, %12011 ], [ null, %12008 ], [ null, %12006 ]
+  %.sroa.97705.0 = phi i64 [ -9223372036854775808, %12011 ], [ -9223372036854775808, %12008 ], [ 1, %12006 ]
   store ptr %1134, ptr %1152, align 8, !tbaa !85
   %12015 = getelementptr inbounds nuw i8, ptr %1152, i64 8
-  store ptr %.sroa.57727.0, ptr %12015, align 8, !tbaa !91
-  %.sroa.87728.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1152, i64 16
-  store ptr %.sroa.87728.0, ptr %.sroa.87728.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97729.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1152, i64 24
-  store i64 %.sroa.97729.0, ptr %.sroa.97729.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57703.0, ptr %12015, align 8, !tbaa !91
+  %.sroa.87704.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1152, i64 16
+  store ptr %.sroa.87704.0, ptr %.sroa.87704.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97705.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1152, i64 24
+  store i64 %.sroa.97705.0, ptr %.sroa.97705.8..sroa_idx, align 8, !tbaa !92
   %12016 = load i8, ptr %1135, align 8, !tbaa !4, !noalias !337
   switch i8 %12016, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
   store ptr %1135, ptr %1153, align 8, !tbaa !85
   %12017 = getelementptr inbounds nuw i8, ptr %1153, i64 8
-  %.sroa.97725.8..sroa_idx8574 = getelementptr inbounds nuw i8, ptr %1153, i64 24
+  %.sroa.97701.8..sroa_idx8541 = getelementptr inbounds nuw i8, ptr %1153, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12017, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97725.8..sroa_idx8574, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97701.8..sroa_idx8541, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
   %12018 = getelementptr inbounds nuw i8, ptr %1135, i64 8
   %12019 = load ptr, ptr %12018, align 8, !tbaa !10, !noalias !337
   %12020 = getelementptr inbounds nuw i8, ptr %12019, i64 24
@@ -35344,24 +35344,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1135, ptr %1153, align 8, !tbaa !85
   %12022 = getelementptr inbounds nuw i8, ptr %1153, i64 8
   store ptr %12021, ptr %12022, align 8, !tbaa !91
-  %.sroa.87724.8..sroa_idx8579 = getelementptr inbounds nuw i8, ptr %1153, i64 16
-  store ptr null, ptr %.sroa.87724.8..sroa_idx8579, align 8, !tbaa !29
-  %.sroa.97725.8..sroa_idx8580 = getelementptr inbounds nuw i8, ptr %1153, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97725.8..sroa_idx8580, align 8, !tbaa !92
+  %.sroa.87700.8..sroa_idx8546 = getelementptr inbounds nuw i8, ptr %1153, i64 16
+  store ptr null, ptr %.sroa.87700.8..sroa_idx8546, align 8, !tbaa !29
+  %.sroa.97701.8..sroa_idx8547 = getelementptr inbounds nuw i8, ptr %1153, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97701.8..sroa_idx8547, align 8, !tbaa !92
   %12023 = getelementptr inbounds nuw i8, ptr %12019, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6593
   %12024 = getelementptr inbounds nuw i8, ptr %1135, i64 8
   %12025 = load ptr, ptr %12024, align 8, !tbaa !10, !noalias !337
   %12026 = load ptr, ptr %12025, align 8, !tbaa !29, !noalias !337
   store ptr %1135, ptr %1153, align 8, !tbaa !85
   %12027 = getelementptr inbounds nuw i8, ptr %1153, i64 8
   store ptr null, ptr %12027, align 8, !tbaa !91
-  %.sroa.87724.8..sroa_idx8585 = getelementptr inbounds nuw i8, ptr %1153, i64 16
-  store ptr %12026, ptr %.sroa.87724.8..sroa_idx8585, align 8, !tbaa !29
-  %.sroa.97725.8..sroa_idx8586 = getelementptr inbounds nuw i8, ptr %1153, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97725.8..sroa_idx8586, align 8, !tbaa !92
+  %.sroa.87700.8..sroa_idx8552 = getelementptr inbounds nuw i8, ptr %1153, i64 16
+  store ptr %12026, ptr %.sroa.87700.8..sroa_idx8552, align 8, !tbaa !29
+  %.sroa.97701.8..sroa_idx8553 = getelementptr inbounds nuw i8, ptr %1153, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97701.8..sroa_idx8553, align 8, !tbaa !92
   %12028 = getelementptr inbounds nuw i8, ptr %12025, i64 8
   %12029 = load ptr, ptr %12028, align 8, !tbaa !29, !noalias !340
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595
@@ -35372,17 +35372,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12030, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581
-  %.sroa.57719.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581 ], [ %12023, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
-  %.sroa.87720.0 = phi ptr [ %12029, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
-  %.sroa.97721.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8581 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8575 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6595: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548
+  %.sroa.57695.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548 ], [ %12023, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
+  %.sroa.87696.0 = phi ptr [ %12029, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
+  %.sroa.97697.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8548 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread8542 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6594 ]
   store ptr %1135, ptr %1154, align 8, !tbaa !85
   %12031 = getelementptr inbounds nuw i8, ptr %1154, i64 8
-  store ptr %.sroa.57719.0, ptr %12031, align 8, !tbaa !91
-  %.sroa.87720.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1154, i64 16
-  store ptr %.sroa.87720.0, ptr %.sroa.87720.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97721.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1154, i64 24
-  store i64 %.sroa.97721.0, ptr %.sroa.97721.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57695.0, ptr %12031, align 8, !tbaa !91
+  %.sroa.87696.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1154, i64 16
+  store ptr %.sroa.87696.0, ptr %.sroa.87696.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97697.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1154, i64 24
+  store i64 %.sroa.97697.0, ptr %.sroa.97697.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1155)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6insertENS0_6detail9iter_implIKSD_EESH_SH_(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::json_abi_v3_11_3::detail::iter_impl") align 8 %1155, ptr noundef nonnull align 8 dereferenceable(16) %1134, ptr noundef nonnull %1152, ptr noundef nonnull %1153, ptr noundef nonnull %1154)
           to label %12032 unwind label %12038
@@ -35535,16 +35535,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6596
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6596: ; preds = %12077, %12079, %12082
-  %.sroa.57715.0 = phi ptr [ null, %12082 ], [ %12081, %12079 ], [ null, %12077 ]
-  %.sroa.87716.0 = phi ptr [ %12085, %12082 ], [ null, %12079 ], [ null, %12077 ]
-  %.sroa.97717.0 = phi i64 [ -9223372036854775808, %12082 ], [ -9223372036854775808, %12079 ], [ 1, %12077 ]
+  %.sroa.57691.0 = phi ptr [ null, %12082 ], [ %12081, %12079 ], [ null, %12077 ]
+  %.sroa.87692.0 = phi ptr [ %12085, %12082 ], [ null, %12079 ], [ null, %12077 ]
+  %.sroa.97693.0 = phi i64 [ -9223372036854775808, %12082 ], [ -9223372036854775808, %12079 ], [ 1, %12077 ]
   store ptr %1134, ptr %1158, align 8, !tbaa !85
   %12086 = getelementptr inbounds nuw i8, ptr %1158, i64 8
-  store ptr %.sroa.57715.0, ptr %12086, align 8, !tbaa !91
-  %.sroa.87716.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1158, i64 16
-  store ptr %.sroa.87716.0, ptr %.sroa.87716.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97717.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1158, i64 24
-  store i64 %.sroa.97717.0, ptr %.sroa.97717.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57691.0, ptr %12086, align 8, !tbaa !91
+  %.sroa.87692.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1158, i64 16
+  store ptr %.sroa.87692.0, ptr %.sroa.87692.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97693.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1158, i64 24
+  store i64 %.sroa.97693.0, ptr %.sroa.97693.8..sroa_idx, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %1159)
   %12087 = getelementptr inbounds nuw i8, ptr %1159, i64 8
   store i64 0, ptr %1159, align 8
@@ -35752,8 +35752,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1135) #27
   br label %12163
 
-12163:                                            ; preds = %12162, %.loopexit8977
-  %.pn4825.pn.pn.pn = phi { ptr, i32 } [ %.pn4825.pn.pn, %12162 ], [ %.pn4791, %.loopexit8977 ]
+12163:                                            ; preds = %12162, %.loopexit8944
+  %.pn4825.pn.pn.pn = phi { ptr, i32 } [ %.pn4825.pn.pn, %12162 ], [ %.pn4791, %.loopexit8944 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1135)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1134) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1134)
@@ -35858,7 +35858,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12187 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1167) #27
-  br label %.thread8592
+  br label %.thread8559
 
 12188:                                            ; preds = %12186
   %12189 = getelementptr inbounds nuw i8, ptr %1167, i64 16
@@ -35872,7 +35872,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12190) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1167) #27
-  br label %.thread8592
+  br label %.thread8559
 
 12192:                                            ; preds = %12188
   %12193 = getelementptr inbounds nuw i8, ptr %1167, i64 40
@@ -35893,7 +35893,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12197 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1168) #27
-  br label %.loopexit8974
+  br label %.loopexit8941
 
 12198:                                            ; preds = %12194
   %12199 = getelementptr inbounds nuw i8, ptr %1168, i64 16
@@ -35907,7 +35907,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12200) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1168) #27
-  br label %.loopexit8974
+  br label %.loopexit8941
 
 12202:                                            ; preds = %12198
   %12203 = getelementptr inbounds nuw i8, ptr %1168, i64 40
@@ -36005,7 +36005,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %12240 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1171) #27
-  br label %.thread8603
+  br label %.thread8570
 
 12241:                                            ; preds = %12239
   %12242 = getelementptr inbounds nuw i8, ptr %1171, i64 16
@@ -36019,7 +36019,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12243) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1171) #27
-  br label %.thread8603
+  br label %.thread8570
 
 12245:                                            ; preds = %12241
   %12246 = getelementptr inbounds nuw i8, ptr %1171, i64 40
@@ -36040,7 +36040,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %12250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1172) #27
-  br label %.loopexit8969
+  br label %.loopexit8936
 
 12251:                                            ; preds = %12247
   %12252 = getelementptr inbounds nuw i8, ptr %1172, i64 16
@@ -36054,7 +36054,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12253) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1172) #27
-  br label %.loopexit8969
+  br label %.loopexit8936
 
 12255:                                            ; preds = %12251
   %12256 = getelementptr inbounds nuw i8, ptr %1172, i64 40
@@ -36329,7 +36329,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %12352 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1184) #27
-  br label %.thread8616
+  br label %.thread8583
 
 12353:                                            ; preds = %12350
   %12354 = getelementptr inbounds nuw i8, ptr %1184, i64 16
@@ -36343,7 +36343,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12355) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1184) #27
-  br label %.thread8616
+  br label %.thread8583
 
 12357:                                            ; preds = %12353
   %12358 = getelementptr inbounds nuw i8, ptr %1184, i64 40
@@ -36364,7 +36364,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %12362 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1185) #27
-  br label %.loopexit8962
+  br label %.loopexit8929
 
 12363:                                            ; preds = %12359
   %12364 = getelementptr inbounds nuw i8, ptr %1185, i64 16
@@ -36378,7 +36378,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12365) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1185) #27
-  br label %.loopexit8962
+  br label %.loopexit8929
 
 12367:                                            ; preds = %12363
   %12368 = getelementptr inbounds nuw i8, ptr %1185, i64 40
@@ -36399,7 +36399,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %12372 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1186) #27
-  br label %.loopexit8963
+  br label %.loopexit8930
 
 12373:                                            ; preds = %12369
   %12374 = getelementptr inbounds nuw i8, ptr %1186, i64 16
@@ -36413,7 +36413,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12375) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1186) #27
-  br label %.loopexit8963
+  br label %.loopexit8930
 
 12377:                                            ; preds = %12373
   %12378 = getelementptr inbounds nuw i8, ptr %1186, i64 40
@@ -36715,7 +36715,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 12484:                                            ; preds = %12202
   %12485 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8975
+  br label %.loopexit8942
 
 12486:                                            ; preds = %12204
   %12487 = landingpad { ptr, i32 }
@@ -36728,31 +36728,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12491 = getelementptr inbounds i8, ptr %12490, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12491) #27
   %12492 = icmp eq ptr %12491, %1166
-  br i1 %12492, label %.loopexit8975, label %12489
+  br i1 %12492, label %.loopexit8942, label %12489
 
-.loopexit8975:                                    ; preds = %12489, %12484
+.loopexit8942:                                    ; preds = %12489, %12484
   %.33420 = phi i1 [ true, %12484 ], [ false, %12489 ]
   %.pn4838 = phi { ptr, i32 } [ %12485, %12484 ], [ %12487, %12489 ]
   %12493 = getelementptr inbounds nuw i8, ptr %1168, i64 48
   br label %12494
 
-12494:                                            ; preds = %12494, %.loopexit8975
-  %12495 = phi ptr [ %12493, %.loopexit8975 ], [ %12496, %12494 ]
+12494:                                            ; preds = %12494, %.loopexit8942
+  %12495 = phi ptr [ %12493, %.loopexit8942 ], [ %12496, %12494 ]
   %12496 = getelementptr inbounds i8, ptr %12495, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12496) #27
   %12497 = icmp eq ptr %12496, %1168
-  br i1 %12497, label %.loopexit8974, label %12494
+  br i1 %12497, label %.loopexit8941, label %12494
 
-.loopexit8974:                                    ; preds = %12494, %.body6611, %.body6611.thread
+.loopexit8941:                                    ; preds = %12494, %.body6611, %.body6611.thread
   %.23419 = phi i1 [ true, %.body6611 ], [ true, %.body6611.thread ], [ %.33420, %12494 ]
   %.pn4838.pn = phi { ptr, i32 } [ %12201, %.body6611 ], [ %12197, %.body6611.thread ], [ %.pn4838, %12494 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1168)
   br label %12498
 
-12498:                                            ; preds = %.loopexit8974, %12482
-  %.13418 = phi i1 [ %.23419, %.loopexit8974 ], [ true, %12482 ]
-  %.13413 = phi ptr [ %12196, %.loopexit8974 ], [ %1166, %12482 ]
-  %.pn4838.pn.pn = phi { ptr, i32 } [ %.pn4838.pn, %.loopexit8974 ], [ %12483, %12482 ]
+12498:                                            ; preds = %.loopexit8941, %12482
+  %.13418 = phi i1 [ %.23419, %.loopexit8941 ], [ true, %12482 ]
+  %.13413 = phi ptr [ %12196, %.loopexit8941 ], [ %1166, %12482 ]
+  %.pn4838.pn.pn = phi { ptr, i32 } [ %.pn4838.pn, %.loopexit8941 ], [ %12483, %12482 ]
   %12499 = getelementptr inbounds nuw i8, ptr %1167, i64 48
   br label %12500
 
@@ -36763,26 +36763,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12503 = icmp eq ptr %12502, %1167
   br i1 %12503, label %12504, label %12500
 
-.thread8592:                                      ; preds = %.body6603, %.body6603.thread
+.thread8559:                                      ; preds = %.body6603, %.body6603.thread
   %.pn4838.pn.pn.pn.ph = phi { ptr, i32 } [ %12187, %.body6603.thread ], [ %12191, %.body6603 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1167)
-  br label %.loopexit8973
+  br label %.loopexit8940
 
 12504:                                            ; preds = %12500
   call void @llvm.lifetime.end.p0(ptr nonnull %1167)
   %12505 = icmp ne ptr %1166, %.13413
   %or.cond247.not = select i1 %.13418, i1 %12505, i1 false
-  br i1 %or.cond247.not, label %.preheader8972, label %.loopexit8973
+  br i1 %or.cond247.not, label %.preheader8939, label %.loopexit8940
 
-.preheader8972:                                   ; preds = %12504, %.preheader8972
-  %12506 = phi ptr [ %12507, %.preheader8972 ], [ %.13413, %12504 ]
+.preheader8939:                                   ; preds = %12504, %.preheader8939
+  %12506 = phi ptr [ %12507, %.preheader8939 ], [ %.13413, %12504 ]
   %12507 = getelementptr inbounds i8, ptr %12506, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12507) #27
   %12508 = icmp eq ptr %12507, %1166
-  br i1 %12508, label %.loopexit8973, label %.preheader8972
+  br i1 %12508, label %.loopexit8940, label %.preheader8939
 
-.loopexit8973:                                    ; preds = %.preheader8972, %.thread8592, %12504
-  %.pn4838.pn.pn.pn8597 = phi { ptr, i32 } [ %.pn4838.pn.pn.pn.ph, %.thread8592 ], [ %.pn4838.pn.pn, %12504 ], [ %.pn4838.pn.pn, %.preheader8972 ]
+.loopexit8940:                                    ; preds = %.preheader8939, %.thread8559, %12504
+  %.pn4838.pn.pn.pn8564 = phi { ptr, i32 } [ %.pn4838.pn.pn.pn.ph, %.thread8559 ], [ %.pn4838.pn.pn, %12504 ], [ %.pn4838.pn.pn, %.preheader8939 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1166)
   br label %13368
 
@@ -36794,7 +36794,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 12511:                                            ; preds = %12255
   %12512 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8970
+  br label %.loopexit8937
 
 12513:                                            ; preds = %12257
   %12514 = landingpad { ptr, i32 }
@@ -36807,31 +36807,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12518 = getelementptr inbounds i8, ptr %12517, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12518) #27
   %12519 = icmp eq ptr %12518, %1170
-  br i1 %12519, label %.loopexit8970, label %12516
+  br i1 %12519, label %.loopexit8937, label %12516
 
-.loopexit8970:                                    ; preds = %12516, %12511
+.loopexit8937:                                    ; preds = %12516, %12511
   %.33433 = phi i1 [ true, %12511 ], [ false, %12516 ]
   %.pn4843 = phi { ptr, i32 } [ %12512, %12511 ], [ %12514, %12516 ]
   %12520 = getelementptr inbounds nuw i8, ptr %1172, i64 48
   br label %12521
 
-12521:                                            ; preds = %12521, %.loopexit8970
-  %12522 = phi ptr [ %12520, %.loopexit8970 ], [ %12523, %12521 ]
+12521:                                            ; preds = %12521, %.loopexit8937
+  %12522 = phi ptr [ %12520, %.loopexit8937 ], [ %12523, %12521 ]
   %12523 = getelementptr inbounds i8, ptr %12522, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12523) #27
   %12524 = icmp eq ptr %12523, %1172
-  br i1 %12524, label %.loopexit8969, label %12521
+  br i1 %12524, label %.loopexit8936, label %12521
 
-.loopexit8969:                                    ; preds = %12521, %.body6633, %.body6633.thread
+.loopexit8936:                                    ; preds = %12521, %.body6633, %.body6633.thread
   %.23432 = phi i1 [ true, %.body6633 ], [ true, %.body6633.thread ], [ %.33433, %12521 ]
   %.pn4843.pn = phi { ptr, i32 } [ %12254, %.body6633 ], [ %12250, %.body6633.thread ], [ %.pn4843, %12521 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1172)
   br label %12525
 
-12525:                                            ; preds = %.loopexit8969, %12509
-  %.13431 = phi i1 [ %.23432, %.loopexit8969 ], [ true, %12509 ]
-  %.13423 = phi ptr [ %12249, %.loopexit8969 ], [ %1170, %12509 ]
-  %.pn4843.pn.pn = phi { ptr, i32 } [ %.pn4843.pn, %.loopexit8969 ], [ %12510, %12509 ]
+12525:                                            ; preds = %.loopexit8936, %12509
+  %.13431 = phi i1 [ %.23432, %.loopexit8936 ], [ true, %12509 ]
+  %.13423 = phi ptr [ %12249, %.loopexit8936 ], [ %1170, %12509 ]
+  %.pn4843.pn.pn = phi { ptr, i32 } [ %.pn4843.pn, %.loopexit8936 ], [ %12510, %12509 ]
   %12526 = getelementptr inbounds nuw i8, ptr %1171, i64 48
   br label %12527
 
@@ -36842,26 +36842,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12530 = icmp eq ptr %12529, %1171
   br i1 %12530, label %12531, label %12527
 
-.thread8603:                                      ; preds = %.body6625, %.body6625.thread
+.thread8570:                                      ; preds = %.body6625, %.body6625.thread
   %.pn4843.pn.pn.pn.ph = phi { ptr, i32 } [ %12240, %.body6625.thread ], [ %12244, %.body6625 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1171)
-  br label %.loopexit8968
+  br label %.loopexit8935
 
 12531:                                            ; preds = %12527
   call void @llvm.lifetime.end.p0(ptr nonnull %1171)
   %12532 = icmp ne ptr %1170, %.13423
   %or.cond250.not = select i1 %.13431, i1 %12532, i1 false
-  br i1 %or.cond250.not, label %.preheader8967, label %.loopexit8968
+  br i1 %or.cond250.not, label %.preheader8934, label %.loopexit8935
 
-.preheader8967:                                   ; preds = %12531, %.preheader8967
-  %12533 = phi ptr [ %12534, %.preheader8967 ], [ %.13423, %12531 ]
+.preheader8934:                                   ; preds = %12531, %.preheader8934
+  %12533 = phi ptr [ %12534, %.preheader8934 ], [ %.13423, %12531 ]
   %12534 = getelementptr inbounds i8, ptr %12533, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12534) #27
   %12535 = icmp eq ptr %12534, %1170
-  br i1 %12535, label %.loopexit8968, label %.preheader8967
+  br i1 %12535, label %.loopexit8935, label %.preheader8934
 
-.loopexit8968:                                    ; preds = %.preheader8967, %.thread8603, %12531
-  %.pn4843.pn.pn.pn8608 = phi { ptr, i32 } [ %.pn4843.pn.pn.pn.ph, %.thread8603 ], [ %.pn4843.pn.pn, %12531 ], [ %.pn4843.pn.pn, %.preheader8967 ]
+.loopexit8935:                                    ; preds = %.preheader8934, %.thread8570, %12531
+  %.pn4843.pn.pn.pn8575 = phi { ptr, i32 } [ %.pn4843.pn.pn.pn.ph, %.thread8570 ], [ %.pn4843.pn.pn, %12531 ], [ %.pn4843.pn.pn, %.preheader8934 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1170)
   br label %13367
 
@@ -36942,7 +36942,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 12564:                                            ; preds = %12377
   %12565 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8964
+  br label %.loopexit8931
 
 12566:                                            ; preds = %12379
   %12567 = landingpad { ptr, i32 }
@@ -36976,31 +36976,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12578 = getelementptr inbounds i8, ptr %12577, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12578) #27
   %12579 = icmp eq ptr %12578, %1183
-  br i1 %12579, label %.loopexit8964, label %12576
+  br i1 %12579, label %.loopexit8931, label %12576
 
-.loopexit8964:                                    ; preds = %12576, %12564
+.loopexit8931:                                    ; preds = %12576, %12564
   %.53446 = phi i1 [ true, %12564 ], [ false, %12576 ]
   %.pn4852.pn.pn = phi { ptr, i32 } [ %12565, %12564 ], [ %.pn4852.pn, %12576 ]
   %12580 = getelementptr inbounds nuw i8, ptr %1186, i64 48
   br label %12581
 
-12581:                                            ; preds = %12581, %.loopexit8964
-  %12582 = phi ptr [ %12580, %.loopexit8964 ], [ %12583, %12581 ]
+12581:                                            ; preds = %12581, %.loopexit8931
+  %12582 = phi ptr [ %12580, %.loopexit8931 ], [ %12583, %12581 ]
   %12583 = getelementptr inbounds i8, ptr %12582, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12583) #27
   %12584 = icmp eq ptr %12583, %1186
-  br i1 %12584, label %.loopexit8963, label %12581
+  br i1 %12584, label %.loopexit8930, label %12581
 
-.loopexit8963:                                    ; preds = %12581, %.body6668, %.body6668.thread
+.loopexit8930:                                    ; preds = %12581, %.body6668, %.body6668.thread
   %.43445 = phi i1 [ true, %.body6668 ], [ true, %.body6668.thread ], [ %.53446, %12581 ]
   %.pn4852.pn.pn.pn = phi { ptr, i32 } [ %12376, %.body6668 ], [ %12372, %.body6668.thread ], [ %.pn4852.pn.pn, %12581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1186)
   br label %12585
 
-12585:                                            ; preds = %.loopexit8963, %12562
-  %.33444 = phi i1 [ %.43445, %.loopexit8963 ], [ true, %12562 ]
-  %.33437 = phi ptr [ %12371, %.loopexit8963 ], [ %12361, %12562 ]
-  %.pn4852.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn, %.loopexit8963 ], [ %12563, %12562 ]
+12585:                                            ; preds = %.loopexit8930, %12562
+  %.33444 = phi i1 [ %.43445, %.loopexit8930 ], [ true, %12562 ]
+  %.33437 = phi ptr [ %12371, %.loopexit8930 ], [ %12361, %12562 ]
+  %.pn4852.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn, %.loopexit8930 ], [ %12563, %12562 ]
   %12586 = getelementptr inbounds nuw i8, ptr %1185, i64 48
   br label %12587
 
@@ -37009,19 +37009,19 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12589 = getelementptr inbounds i8, ptr %12588, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12589) #27
   %12590 = icmp eq ptr %12589, %1185
-  br i1 %12590, label %.loopexit8962, label %12587
+  br i1 %12590, label %.loopexit8929, label %12587
 
-.loopexit8962:                                    ; preds = %12587, %.body6660, %.body6660.thread
+.loopexit8929:                                    ; preds = %12587, %.body6660, %.body6660.thread
   %.23443 = phi i1 [ true, %.body6660 ], [ true, %.body6660.thread ], [ %.33444, %12587 ]
   %.23436 = phi ptr [ %12361, %.body6660 ], [ %12361, %.body6660.thread ], [ %.33437, %12587 ]
   %.pn4852.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12366, %.body6660 ], [ %12362, %.body6660.thread ], [ %.pn4852.pn.pn.pn.pn, %12587 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1185)
   br label %12591
 
-12591:                                            ; preds = %.loopexit8962, %12560
-  %.13442 = phi i1 [ %.23443, %.loopexit8962 ], [ true, %12560 ]
-  %.13435 = phi ptr [ %.23436, %.loopexit8962 ], [ %1183, %12560 ]
-  %.pn4852.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn, %.loopexit8962 ], [ %12561, %12560 ]
+12591:                                            ; preds = %.loopexit8929, %12560
+  %.13442 = phi i1 [ %.23443, %.loopexit8929 ], [ true, %12560 ]
+  %.13435 = phi ptr [ %.23436, %.loopexit8929 ], [ %1183, %12560 ]
+  %.pn4852.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn, %.loopexit8929 ], [ %12561, %12560 ]
   %12592 = getelementptr inbounds nuw i8, ptr %1184, i64 48
   br label %12593
 
@@ -37032,32 +37032,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12596 = icmp eq ptr %12595, %1184
   br i1 %12596, label %12597, label %12593
 
-.thread8616:                                      ; preds = %.body6652, %.body6652.thread
+.thread8583:                                      ; preds = %.body6652, %.body6652.thread
   %.pn4852.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12352, %.body6652.thread ], [ %12356, %.body6652 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1184)
-  br label %.loopexit8961
+  br label %.loopexit8928
 
 12597:                                            ; preds = %12593
   call void @llvm.lifetime.end.p0(ptr nonnull %1184)
   %12598 = icmp ne ptr %1183, %.13435
   %or.cond256.not = select i1 %.13442, i1 %12598, i1 false
-  br i1 %or.cond256.not, label %.preheader8960, label %.loopexit8961
+  br i1 %or.cond256.not, label %.preheader8927, label %.loopexit8928
 
-.preheader8960:                                   ; preds = %12597, %.preheader8960
-  %12599 = phi ptr [ %12600, %.preheader8960 ], [ %.13435, %12597 ]
+.preheader8927:                                   ; preds = %12597, %.preheader8927
+  %12599 = phi ptr [ %12600, %.preheader8927 ], [ %.13435, %12597 ]
   %12600 = getelementptr inbounds i8, ptr %12599, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12600) #27
   %12601 = icmp eq ptr %12600, %1183
-  br i1 %12601, label %.loopexit8961, label %.preheader8960
+  br i1 %12601, label %.loopexit8928, label %.preheader8927
 
-.loopexit8961:                                    ; preds = %.preheader8960, %.thread8616, %12597
-  %.pn4852.pn.pn.pn.pn.pn.pn.pn8621 = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8616 ], [ %.pn4852.pn.pn.pn.pn.pn.pn, %12597 ], [ %.pn4852.pn.pn.pn.pn.pn.pn, %.preheader8960 ]
+.loopexit8928:                                    ; preds = %.preheader8927, %.thread8583, %12597
+  %.pn4852.pn.pn.pn.pn.pn.pn.pn8588 = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8583 ], [ %.pn4852.pn.pn.pn.pn.pn.pn, %12597 ], [ %.pn4852.pn.pn.pn.pn.pn.pn, %.preheader8927 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1183)
   call void @llvm.lifetime.end.p0(ptr nonnull %1182)
   br label %12602
 
-12602:                                            ; preds = %.loopexit8961, %12558
-  %.pn4852.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn.pn.pn8621, %.loopexit8961 ], [ %12559, %12558 ]
+12602:                                            ; preds = %.loopexit8928, %12558
+  %.pn4852.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4852.pn.pn.pn.pn.pn.pn.pn8588, %.loopexit8928 ], [ %12559, %12558 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1181)
   call void @llvm.lifetime.end.p0(ptr nonnull %1180)
   call void @llvm.lifetime.end.p0(ptr nonnull %1179)
@@ -37597,20 +37597,20 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 12773:                                            ; preds = %12772
   %12774 = load i8, ptr %1169, align 8, !tbaa !4, !noalias !442
   switch i8 %12774, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread: ; preds = %12773
   store ptr %1169, ptr %1201, align 8, !tbaa !85
   %12775 = getelementptr inbounds nuw i8, ptr %1201, i64 8
-  %.sroa.97705.8..sroa_idx8626 = getelementptr inbounds nuw i8, ptr %1201, i64 24
+  %.sroa.97681.8..sroa_idx8593 = getelementptr inbounds nuw i8, ptr %1201, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12775, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97705.8..sroa_idx8626, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97681.8..sroa_idx8593, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627: ; preds = %12773
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594: ; preds = %12773
   %12776 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %12777 = load ptr, ptr %12776, align 8, !tbaa !10, !noalias !442
   %12778 = getelementptr inbounds nuw i8, ptr %12777, i64 24
@@ -37618,24 +37618,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1169, ptr %1201, align 8, !tbaa !85
   %12780 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   store ptr %12779, ptr %12780, align 8, !tbaa !91
-  %.sroa.87704.8..sroa_idx8631 = getelementptr inbounds nuw i8, ptr %1201, i64 16
-  store ptr null, ptr %.sroa.87704.8..sroa_idx8631, align 8, !tbaa !29
-  %.sroa.97705.8..sroa_idx8632 = getelementptr inbounds nuw i8, ptr %1201, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97705.8..sroa_idx8632, align 8, !tbaa !92
+  %.sroa.87680.8..sroa_idx8598 = getelementptr inbounds nuw i8, ptr %1201, i64 16
+  store ptr null, ptr %.sroa.87680.8..sroa_idx8598, align 8, !tbaa !29
+  %.sroa.97681.8..sroa_idx8599 = getelementptr inbounds nuw i8, ptr %1201, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97681.8..sroa_idx8599, align 8, !tbaa !92
   %12781 = getelementptr inbounds nuw i8, ptr %12777, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633: ; preds = %12773
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600: ; preds = %12773
   %12782 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %12783 = load ptr, ptr %12782, align 8, !tbaa !10, !noalias !442
   %12784 = load ptr, ptr %12783, align 8, !tbaa !29, !noalias !442
   store ptr %1169, ptr %1201, align 8, !tbaa !85
   %12785 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   store ptr null, ptr %12785, align 8, !tbaa !91
-  %.sroa.87704.8..sroa_idx8637 = getelementptr inbounds nuw i8, ptr %1201, i64 16
-  store ptr %12784, ptr %.sroa.87704.8..sroa_idx8637, align 8, !tbaa !29
-  %.sroa.97705.8..sroa_idx8638 = getelementptr inbounds nuw i8, ptr %1201, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97705.8..sroa_idx8638, align 8, !tbaa !92
+  %.sroa.87680.8..sroa_idx8604 = getelementptr inbounds nuw i8, ptr %1201, i64 16
+  store ptr %12784, ptr %.sroa.87680.8..sroa_idx8604, align 8, !tbaa !29
+  %.sroa.97681.8..sroa_idx8605 = getelementptr inbounds nuw i8, ptr %1201, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97681.8..sroa_idx8605, align 8, !tbaa !92
   %12786 = getelementptr inbounds nuw i8, ptr %12783, i64 8
   %12787 = load ptr, ptr %12786, align 8, !tbaa !29, !noalias !445
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710
@@ -37646,17 +37646,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12788, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633
-  %.sroa.57699.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633 ], [ %12781, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
-  %.sroa.87700.0 = phi ptr [ %12787, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
-  %.sroa.97701.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8633 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8627 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6710: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600
+  %.sroa.57675.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600 ], [ %12781, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
+  %.sroa.87676.0 = phi ptr [ %12787, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
+  %.sroa.97677.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8600 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread8594 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6709 ]
   store ptr %1169, ptr %1202, align 8, !tbaa !85
   %12789 = getelementptr inbounds nuw i8, ptr %1202, i64 8
-  store ptr %.sroa.57699.0, ptr %12789, align 8, !tbaa !91
-  %.sroa.87700.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1202, i64 16
-  store ptr %.sroa.87700.0, ptr %.sroa.87700.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97701.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1202, i64 24
-  store i64 %.sroa.97701.0, ptr %.sroa.97701.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57675.0, ptr %12789, align 8, !tbaa !91
+  %.sroa.87676.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1202, i64 16
+  store ptr %.sroa.87676.0, ptr %.sroa.87676.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97677.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1202, i64 24
+  store i64 %.sroa.97677.0, ptr %.sroa.97677.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1165, ptr noundef nonnull %1201, ptr noundef nonnull %1202, i1 noundef zeroext false)
           to label %12790 unwind label %12919
 
@@ -37683,7 +37683,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12793 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1208) #27
-  br label %.thread8663
+  br label %.thread8630
 
 12794:                                            ; preds = %12791
   %12795 = getelementptr inbounds nuw i8, ptr %1208, i64 16
@@ -37697,7 +37697,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12796) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1208) #27
-  br label %.thread8663
+  br label %.thread8630
 
 12798:                                            ; preds = %12794
   %12799 = getelementptr inbounds nuw i8, ptr %1208, i64 40
@@ -37718,7 +37718,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12803 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1209) #27
-  br label %.loopexit8955
+  br label %.loopexit8922
 
 12804:                                            ; preds = %12800
   %12805 = getelementptr inbounds nuw i8, ptr %1209, i64 16
@@ -37732,7 +37732,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12806) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1209) #27
-  br label %.loopexit8955
+  br label %.loopexit8922
 
 12808:                                            ; preds = %12804
   %12809 = getelementptr inbounds nuw i8, ptr %1209, i64 40
@@ -37753,7 +37753,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12813 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1210) #27
-  br label %.loopexit8956
+  br label %.loopexit8923
 
 12814:                                            ; preds = %12810
   %12815 = getelementptr inbounds nuw i8, ptr %1210, i64 16
@@ -37767,7 +37767,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12816) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1210) #27
-  br label %.loopexit8956
+  br label %.loopexit8923
 
 12818:                                            ; preds = %12814
   %12819 = getelementptr inbounds nuw i8, ptr %1210, i64 40
@@ -37911,20 +37911,20 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   store ptr null, ptr %12876, align 8, !tbaa !10
   %12877 = load i8, ptr %1169, align 8, !tbaa !4, !noalias !448
   switch i8 %12877, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread: ; preds = %12875
   store ptr %1169, ptr %1212, align 8, !tbaa !85
   %12878 = getelementptr inbounds nuw i8, ptr %1212, i64 8
-  %.sroa.97697.8..sroa_idx8643 = getelementptr inbounds nuw i8, ptr %1212, i64 24
+  %.sroa.97673.8..sroa_idx8610 = getelementptr inbounds nuw i8, ptr %1212, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12878, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97697.8..sroa_idx8643, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97673.8..sroa_idx8610, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644: ; preds = %12875
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611: ; preds = %12875
   %12879 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %12880 = load ptr, ptr %12879, align 8, !tbaa !10, !noalias !448
   %12881 = getelementptr inbounds nuw i8, ptr %12880, i64 24
@@ -37932,24 +37932,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1169, ptr %1212, align 8, !tbaa !85
   %12883 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   store ptr %12882, ptr %12883, align 8, !tbaa !91
-  %.sroa.87696.8..sroa_idx8648 = getelementptr inbounds nuw i8, ptr %1212, i64 16
-  store ptr null, ptr %.sroa.87696.8..sroa_idx8648, align 8, !tbaa !29
-  %.sroa.97697.8..sroa_idx8649 = getelementptr inbounds nuw i8, ptr %1212, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97697.8..sroa_idx8649, align 8, !tbaa !92
+  %.sroa.87672.8..sroa_idx8615 = getelementptr inbounds nuw i8, ptr %1212, i64 16
+  store ptr null, ptr %.sroa.87672.8..sroa_idx8615, align 8, !tbaa !29
+  %.sroa.97673.8..sroa_idx8616 = getelementptr inbounds nuw i8, ptr %1212, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97673.8..sroa_idx8616, align 8, !tbaa !92
   %12884 = getelementptr inbounds nuw i8, ptr %12880, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650: ; preds = %12875
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617: ; preds = %12875
   %12885 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %12886 = load ptr, ptr %12885, align 8, !tbaa !10, !noalias !448
   %12887 = load ptr, ptr %12886, align 8, !tbaa !29, !noalias !448
   store ptr %1169, ptr %1212, align 8, !tbaa !85
   %12888 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   store ptr null, ptr %12888, align 8, !tbaa !91
-  %.sroa.87696.8..sroa_idx8654 = getelementptr inbounds nuw i8, ptr %1212, i64 16
-  store ptr %12887, ptr %.sroa.87696.8..sroa_idx8654, align 8, !tbaa !29
-  %.sroa.97697.8..sroa_idx8655 = getelementptr inbounds nuw i8, ptr %1212, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97697.8..sroa_idx8655, align 8, !tbaa !92
+  %.sroa.87672.8..sroa_idx8621 = getelementptr inbounds nuw i8, ptr %1212, i64 16
+  store ptr %12887, ptr %.sroa.87672.8..sroa_idx8621, align 8, !tbaa !29
+  %.sroa.97673.8..sroa_idx8622 = getelementptr inbounds nuw i8, ptr %1212, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97673.8..sroa_idx8622, align 8, !tbaa !92
   %12889 = getelementptr inbounds nuw i8, ptr %12886, i64 8
   %12890 = load ptr, ptr %12889, align 8, !tbaa !29, !noalias !451
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747
@@ -37960,17 +37960,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12891, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650
-  %.sroa.57691.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650 ], [ %12884, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
-  %.sroa.87692.0 = phi ptr [ %12890, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
-  %.sroa.97693.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8650 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8644 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6747: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617
+  %.sroa.57667.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617 ], [ %12884, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
+  %.sroa.87668.0 = phi ptr [ %12890, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
+  %.sroa.97669.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8617 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread8611 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6746 ]
   store ptr %1169, ptr %1213, align 8, !tbaa !85
   %12892 = getelementptr inbounds nuw i8, ptr %1213, i64 8
-  store ptr %.sroa.57691.0, ptr %12892, align 8, !tbaa !91
-  %.sroa.87692.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1213, i64 16
-  store ptr %.sroa.87692.0, ptr %.sroa.87692.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97693.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1213, i64 24
-  store i64 %.sroa.97693.0, ptr %.sroa.97693.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57667.0, ptr %12892, align 8, !tbaa !91
+  %.sroa.87668.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1213, i64 16
+  store ptr %.sroa.87668.0, ptr %.sroa.87668.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97669.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1213, i64 24
+  store i64 %.sroa.97669.0, ptr %.sroa.97669.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1211, ptr noundef nonnull %1212, ptr noundef nonnull %1213, i1 noundef zeroext false)
           to label %12893 unwind label %12966
 
@@ -38085,7 +38085,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 12927:                                            ; preds = %12818
   %12928 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8957
+  br label %.loopexit8924
 
 12929:                                            ; preds = %12820
   %12930 = landingpad { ptr, i32 }
@@ -38119,31 +38119,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12941 = getelementptr inbounds i8, ptr %12940, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12941) #27
   %12942 = icmp eq ptr %12941, %1207
-  br i1 %12942, label %.loopexit8957, label %12939
+  br i1 %12942, label %.loopexit8924, label %12939
 
-.loopexit8957:                                    ; preds = %12939, %12927
+.loopexit8924:                                    ; preds = %12939, %12927
   %.53410 = phi i1 [ true, %12927 ], [ false, %12939 ]
   %.pn4891.pn.pn = phi { ptr, i32 } [ %12928, %12927 ], [ %.pn4891.pn, %12939 ]
   %12943 = getelementptr inbounds nuw i8, ptr %1210, i64 48
   br label %12944
 
-12944:                                            ; preds = %12944, %.loopexit8957
-  %12945 = phi ptr [ %12943, %.loopexit8957 ], [ %12946, %12944 ]
+12944:                                            ; preds = %12944, %.loopexit8924
+  %12945 = phi ptr [ %12943, %.loopexit8924 ], [ %12946, %12944 ]
   %12946 = getelementptr inbounds i8, ptr %12945, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12946) #27
   %12947 = icmp eq ptr %12946, %1210
-  br i1 %12947, label %.loopexit8956, label %12944
+  br i1 %12947, label %.loopexit8923, label %12944
 
-.loopexit8956:                                    ; preds = %12944, %.body6729, %.body6729.thread
+.loopexit8923:                                    ; preds = %12944, %.body6729, %.body6729.thread
   %.43409 = phi i1 [ true, %.body6729 ], [ true, %.body6729.thread ], [ %.53410, %12944 ]
   %.pn4891.pn.pn.pn = phi { ptr, i32 } [ %12817, %.body6729 ], [ %12813, %.body6729.thread ], [ %.pn4891.pn.pn, %12944 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1210)
   br label %12948
 
-12948:                                            ; preds = %.loopexit8956, %12925
-  %.33428 = phi ptr [ %12812, %.loopexit8956 ], [ %12802, %12925 ]
-  %.33408 = phi i1 [ %.43409, %.loopexit8956 ], [ true, %12925 ]
-  %.pn4891.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn, %.loopexit8956 ], [ %12926, %12925 ]
+12948:                                            ; preds = %.loopexit8923, %12925
+  %.33428 = phi ptr [ %12812, %.loopexit8923 ], [ %12802, %12925 ]
+  %.33408 = phi i1 [ %.43409, %.loopexit8923 ], [ true, %12925 ]
+  %.pn4891.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn, %.loopexit8923 ], [ %12926, %12925 ]
   %12949 = getelementptr inbounds nuw i8, ptr %1209, i64 48
   br label %12950
 
@@ -38152,19 +38152,19 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12952 = getelementptr inbounds i8, ptr %12951, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12952) #27
   %12953 = icmp eq ptr %12952, %1209
-  br i1 %12953, label %.loopexit8955, label %12950
+  br i1 %12953, label %.loopexit8922, label %12950
 
-.loopexit8955:                                    ; preds = %12950, %.body6721, %.body6721.thread
+.loopexit8922:                                    ; preds = %12950, %.body6721, %.body6721.thread
   %.23427 = phi ptr [ %12802, %.body6721 ], [ %12802, %.body6721.thread ], [ %.33428, %12950 ]
   %.23407 = phi i1 [ true, %.body6721 ], [ true, %.body6721.thread ], [ %.33408, %12950 ]
   %.pn4891.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12807, %.body6721 ], [ %12803, %.body6721.thread ], [ %.pn4891.pn.pn.pn.pn, %12950 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1209)
   br label %12954
 
-12954:                                            ; preds = %.loopexit8955, %12923
-  %.13426 = phi ptr [ %.23427, %.loopexit8955 ], [ %1207, %12923 ]
-  %.13406 = phi i1 [ %.23407, %.loopexit8955 ], [ true, %12923 ]
-  %.pn4891.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn, %.loopexit8955 ], [ %12924, %12923 ]
+12954:                                            ; preds = %.loopexit8922, %12923
+  %.13426 = phi ptr [ %.23427, %.loopexit8922 ], [ %1207, %12923 ]
+  %.13406 = phi i1 [ %.23407, %.loopexit8922 ], [ true, %12923 ]
+  %.pn4891.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn, %.loopexit8922 ], [ %12924, %12923 ]
   %12955 = getelementptr inbounds nuw i8, ptr %1208, i64 48
   br label %12956
 
@@ -38175,32 +38175,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12959 = icmp eq ptr %12958, %1208
   br i1 %12959, label %12960, label %12956
 
-.thread8663:                                      ; preds = %.body6713, %.body6713.thread
+.thread8630:                                      ; preds = %.body6713, %.body6713.thread
   %.pn4891.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12793, %.body6713.thread ], [ %12797, %.body6713 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1208)
-  br label %.loopexit8954
+  br label %.loopexit8921
 
 12960:                                            ; preds = %12956
   call void @llvm.lifetime.end.p0(ptr nonnull %1208)
   %12961 = icmp ne ptr %1207, %.13426
   %or.cond259.not = select i1 %.13406, i1 %12961, i1 false
-  br i1 %or.cond259.not, label %.preheader8953, label %.loopexit8954
+  br i1 %or.cond259.not, label %.preheader8920, label %.loopexit8921
 
-.preheader8953:                                   ; preds = %12960, %.preheader8953
-  %12962 = phi ptr [ %12963, %.preheader8953 ], [ %.13426, %12960 ]
+.preheader8920:                                   ; preds = %12960, %.preheader8920
+  %12962 = phi ptr [ %12963, %.preheader8920 ], [ %.13426, %12960 ]
   %12963 = getelementptr inbounds i8, ptr %12962, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12963) #27
   %12964 = icmp eq ptr %12963, %1207
-  br i1 %12964, label %.loopexit8954, label %.preheader8953
+  br i1 %12964, label %.loopexit8921, label %.preheader8920
 
-.loopexit8954:                                    ; preds = %.preheader8953, %.thread8663, %12960
-  %.pn4891.pn.pn.pn.pn.pn.pn.pn8668 = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8663 ], [ %.pn4891.pn.pn.pn.pn.pn.pn, %12960 ], [ %.pn4891.pn.pn.pn.pn.pn.pn, %.preheader8953 ]
+.loopexit8921:                                    ; preds = %.preheader8920, %.thread8630, %12960
+  %.pn4891.pn.pn.pn.pn.pn.pn.pn8635 = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8630 ], [ %.pn4891.pn.pn.pn.pn.pn.pn, %12960 ], [ %.pn4891.pn.pn.pn.pn.pn.pn, %.preheader8920 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1207)
   call void @llvm.lifetime.end.p0(ptr nonnull %1206)
   br label %12965
 
-12965:                                            ; preds = %.loopexit8954, %12921
-  %.pn4891.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn.pn.pn8668, %.loopexit8954 ], [ %12922, %12921 ]
+12965:                                            ; preds = %.loopexit8921, %12921
+  %.pn4891.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4891.pn.pn.pn.pn.pn.pn.pn8635, %.loopexit8921 ], [ %12922, %12921 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1205)
   call void @llvm.lifetime.end.p0(ptr nonnull %1204)
   call void @llvm.lifetime.end.p0(ptr nonnull %1203)
@@ -38261,16 +38261,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12981 = load i8, ptr %1169, align 8, !tbaa !4, !noalias !454
   switch i8 %12981, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 [
     i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674
-    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641
+    i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647
   ]
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680: ; preds = %12980
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647: ; preds = %12980
   store ptr %1169, ptr %1219, align 8, !tbaa !85
   %12982 = getelementptr inbounds nuw i8, ptr %1219, i64 8
-  %.sroa.97689.8..sroa_idx8685 = getelementptr inbounds nuw i8, ptr %1219, i64 24
+  %.sroa.97665.8..sroa_idx8652 = getelementptr inbounds nuw i8, ptr %1219, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12982, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97689.8..sroa_idx8685, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97665.8..sroa_idx8652, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread: ; preds = %12980
@@ -38281,23 +38281,23 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1169, ptr %1219, align 8, !tbaa !85
   %12987 = getelementptr inbounds nuw i8, ptr %1219, i64 8
   store ptr %12986, ptr %12987, align 8, !tbaa !91
-  %.sroa.87688.8..sroa_idx8672 = getelementptr inbounds nuw i8, ptr %1219, i64 16
-  store ptr null, ptr %.sroa.87688.8..sroa_idx8672, align 8, !tbaa !29
-  %.sroa.97689.8..sroa_idx8673 = getelementptr inbounds nuw i8, ptr %1219, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97689.8..sroa_idx8673, align 8, !tbaa !92
+  %.sroa.87664.8..sroa_idx8639 = getelementptr inbounds nuw i8, ptr %1219, i64 16
+  store ptr null, ptr %.sroa.87664.8..sroa_idx8639, align 8, !tbaa !29
+  %.sroa.97665.8..sroa_idx8640 = getelementptr inbounds nuw i8, ptr %1219, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97665.8..sroa_idx8640, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674: ; preds = %12980
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641: ; preds = %12980
   %12988 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %12989 = load ptr, ptr %12988, align 8, !tbaa !10, !noalias !454
   %12990 = load ptr, ptr %12989, align 8, !tbaa !29, !noalias !454
   store ptr %1169, ptr %1219, align 8, !tbaa !85
   %12991 = getelementptr inbounds nuw i8, ptr %1219, i64 8
   store ptr null, ptr %12991, align 8, !tbaa !91
-  %.sroa.87688.8..sroa_idx8678 = getelementptr inbounds nuw i8, ptr %1219, i64 16
-  store ptr %12990, ptr %.sroa.87688.8..sroa_idx8678, align 8, !tbaa !29
-  %.sroa.97689.8..sroa_idx8679 = getelementptr inbounds nuw i8, ptr %1219, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97689.8..sroa_idx8679, align 8, !tbaa !92
+  %.sroa.87664.8..sroa_idx8645 = getelementptr inbounds nuw i8, ptr %1219, i64 16
+  store ptr %12990, ptr %.sroa.87664.8..sroa_idx8645, align 8, !tbaa !29
+  %.sroa.97665.8..sroa_idx8646 = getelementptr inbounds nuw i8, ptr %1219, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97665.8..sroa_idx8646, align 8, !tbaa !92
   %12992 = load ptr, ptr %12989, align 8, !tbaa !29, !noalias !457
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752
 
@@ -38307,17 +38307,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12993, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751
-  %.sroa.57683.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ %12986, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680 ]
-  %.sroa.87684.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ %12992, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680 ]
-  %.sroa.97685.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8674 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8680 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6752: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751
+  %.sroa.57659.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ %12986, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647 ]
+  %.sroa.87660.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ %12992, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647 ]
+  %.sroa.97661.0 = phi i64 [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8641 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6751.thread8647 ]
   store ptr %1169, ptr %1220, align 8, !tbaa !85
   %12994 = getelementptr inbounds nuw i8, ptr %1220, i64 8
-  store ptr %.sroa.57683.0, ptr %12994, align 8, !tbaa !91
-  %.sroa.87684.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1220, i64 16
-  store ptr %.sroa.87684.0, ptr %.sroa.87684.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97685.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1220, i64 24
-  store i64 %.sroa.97685.0, ptr %.sroa.97685.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57659.0, ptr %12994, align 8, !tbaa !91
+  %.sroa.87660.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1220, i64 16
+  store ptr %.sroa.87660.0, ptr %.sroa.87660.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97661.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1220, i64 24
+  store i64 %.sroa.97661.0, ptr %.sroa.97661.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1165, ptr noundef nonnull %1219, ptr noundef nonnull %1220, i1 noundef zeroext false)
           to label %12995 unwind label %13068
 
@@ -38344,7 +38344,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %12998 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1226) #27
-  br label %.thread8691
+  br label %.thread8658
 
 12999:                                            ; preds = %12996
   %13000 = getelementptr inbounds nuw i8, ptr %1226, i64 16
@@ -38358,7 +38358,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13001) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1226) #27
-  br label %.thread8691
+  br label %.thread8658
 
 13003:                                            ; preds = %12999
   %13004 = getelementptr inbounds nuw i8, ptr %1226, i64 40
@@ -38379,7 +38379,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13008 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1227) #27
-  br label %.loopexit8950
+  br label %.loopexit8917
 
 13009:                                            ; preds = %13005
   %13010 = getelementptr inbounds nuw i8, ptr %1227, i64 16
@@ -38393,7 +38393,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13011) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1227) #27
-  br label %.loopexit8950
+  br label %.loopexit8917
 
 13013:                                            ; preds = %13009
   %13014 = getelementptr inbounds nuw i8, ptr %1227, i64 40
@@ -38554,7 +38554,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 13074:                                            ; preds = %13013
   %13075 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8951
+  br label %.loopexit8918
 
 13076:                                            ; preds = %13015
   %13077 = landingpad { ptr, i32 }
@@ -38588,31 +38588,31 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13088 = getelementptr inbounds i8, ptr %13087, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13088) #27
   %13089 = icmp eq ptr %13088, %1225
-  br i1 %13089, label %.loopexit8951, label %13086
+  br i1 %13089, label %.loopexit8918, label %13086
 
-.loopexit8951:                                    ; preds = %13086, %13074
+.loopexit8918:                                    ; preds = %13086, %13074
   %.33398 = phi i1 [ true, %13074 ], [ false, %13086 ]
   %.pn4908.pn.pn = phi { ptr, i32 } [ %13075, %13074 ], [ %.pn4908.pn, %13086 ]
   %13090 = getelementptr inbounds nuw i8, ptr %1227, i64 48
   br label %13091
 
-13091:                                            ; preds = %13091, %.loopexit8951
-  %13092 = phi ptr [ %13090, %.loopexit8951 ], [ %13093, %13091 ]
+13091:                                            ; preds = %13091, %.loopexit8918
+  %13092 = phi ptr [ %13090, %.loopexit8918 ], [ %13093, %13091 ]
   %13093 = getelementptr inbounds i8, ptr %13092, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13093) #27
   %13094 = icmp eq ptr %13093, %1227
-  br i1 %13094, label %.loopexit8950, label %13091
+  br i1 %13094, label %.loopexit8917, label %13091
 
-.loopexit8950:                                    ; preds = %13091, %.body6763, %.body6763.thread
+.loopexit8917:                                    ; preds = %13091, %.body6763, %.body6763.thread
   %.23397 = phi i1 [ true, %.body6763 ], [ true, %.body6763.thread ], [ %.33398, %13091 ]
   %.pn4908.pn.pn.pn = phi { ptr, i32 } [ %13012, %.body6763 ], [ %13008, %.body6763.thread ], [ %.pn4908.pn.pn, %13091 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1227)
   br label %13095
 
-13095:                                            ; preds = %.loopexit8950, %13072
-  %.13402 = phi ptr [ %13007, %.loopexit8950 ], [ %1225, %13072 ]
-  %.13396 = phi i1 [ %.23397, %.loopexit8950 ], [ true, %13072 ]
-  %.pn4908.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4908.pn.pn.pn, %.loopexit8950 ], [ %13073, %13072 ]
+13095:                                            ; preds = %.loopexit8917, %13072
+  %.13402 = phi ptr [ %13007, %.loopexit8917 ], [ %1225, %13072 ]
+  %.13396 = phi i1 [ %.23397, %.loopexit8917 ], [ true, %13072 ]
+  %.pn4908.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4908.pn.pn.pn, %.loopexit8917 ], [ %13073, %13072 ]
   %13096 = getelementptr inbounds nuw i8, ptr %1226, i64 48
   br label %13097
 
@@ -38623,32 +38623,32 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13100 = icmp eq ptr %13099, %1226
   br i1 %13100, label %13101, label %13097
 
-.thread8691:                                      ; preds = %.body6755, %.body6755.thread
+.thread8658:                                      ; preds = %.body6755, %.body6755.thread
   %.pn4908.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12998, %.body6755.thread ], [ %13002, %.body6755 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1226)
-  br label %.loopexit8949
+  br label %.loopexit8916
 
 13101:                                            ; preds = %13097
   call void @llvm.lifetime.end.p0(ptr nonnull %1226)
   %13102 = icmp ne ptr %1225, %.13402
   %or.cond262.not = select i1 %.13396, i1 %13102, i1 false
-  br i1 %or.cond262.not, label %.preheader8948, label %.loopexit8949
+  br i1 %or.cond262.not, label %.preheader8915, label %.loopexit8916
 
-.preheader8948:                                   ; preds = %13101, %.preheader8948
-  %13103 = phi ptr [ %13104, %.preheader8948 ], [ %.13402, %13101 ]
+.preheader8915:                                   ; preds = %13101, %.preheader8915
+  %13103 = phi ptr [ %13104, %.preheader8915 ], [ %.13402, %13101 ]
   %13104 = getelementptr inbounds i8, ptr %13103, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13104) #27
   %13105 = icmp eq ptr %13104, %1225
-  br i1 %13105, label %.loopexit8949, label %.preheader8948
+  br i1 %13105, label %.loopexit8916, label %.preheader8915
 
-.loopexit8949:                                    ; preds = %.preheader8948, %.thread8691, %13101
-  %.pn4908.pn.pn.pn.pn.pn8696 = phi { ptr, i32 } [ %.pn4908.pn.pn.pn.pn.pn.ph, %.thread8691 ], [ %.pn4908.pn.pn.pn.pn, %13101 ], [ %.pn4908.pn.pn.pn.pn, %.preheader8948 ]
+.loopexit8916:                                    ; preds = %.preheader8915, %.thread8658, %13101
+  %.pn4908.pn.pn.pn.pn.pn8663 = phi { ptr, i32 } [ %.pn4908.pn.pn.pn.pn.pn.ph, %.thread8658 ], [ %.pn4908.pn.pn.pn.pn, %13101 ], [ %.pn4908.pn.pn.pn.pn, %.preheader8915 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1225)
   call void @llvm.lifetime.end.p0(ptr nonnull %1224)
   br label %13106
 
-13106:                                            ; preds = %.loopexit8949, %13070
-  %.pn4908.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4908.pn.pn.pn.pn.pn8696, %.loopexit8949 ], [ %13071, %13070 ]
+13106:                                            ; preds = %.loopexit8916, %13070
+  %.pn4908.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4908.pn.pn.pn.pn.pn8663, %.loopexit8916 ], [ %13071, %13070 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1223)
   call void @llvm.lifetime.end.p0(ptr nonnull %1222)
   call void @llvm.lifetime.end.p0(ptr nonnull %1221)
@@ -38686,7 +38686,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1231) #27
-  br label %.loopexit8946
+  br label %.loopexit8913
 
 13114:                                            ; preds = %13112
   %13115 = getelementptr inbounds nuw i8, ptr %1231, i64 16
@@ -38700,7 +38700,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13116) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1231) #27
-  br label %.loopexit8946
+  br label %.loopexit8913
 
 13118:                                            ; preds = %13114
   %13119 = getelementptr inbounds nuw i8, ptr %1231, i64 40
@@ -38757,20 +38757,20 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.end.p0(ptr nonnull %1233)
   %13140 = load i8, ptr %1169, align 8, !tbaa !4, !noalias !460
   switch i8 %13140, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread: ; preds = %13139
   store ptr %1169, ptr %1234, align 8, !tbaa !85
   %13141 = getelementptr inbounds nuw i8, ptr %1234, i64 8
-  %.sroa.97681.8..sroa_idx8701 = getelementptr inbounds nuw i8, ptr %1234, i64 24
+  %.sroa.97657.8..sroa_idx8668 = getelementptr inbounds nuw i8, ptr %1234, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13141, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97681.8..sroa_idx8701, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97657.8..sroa_idx8668, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702: ; preds = %13139
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669: ; preds = %13139
   %13142 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %13143 = load ptr, ptr %13142, align 8, !tbaa !10, !noalias !460
   %13144 = getelementptr inbounds nuw i8, ptr %13143, i64 24
@@ -38778,24 +38778,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1169, ptr %1234, align 8, !tbaa !85
   %13146 = getelementptr inbounds nuw i8, ptr %1234, i64 8
   store ptr %13145, ptr %13146, align 8, !tbaa !91
-  %.sroa.87680.8..sroa_idx8706 = getelementptr inbounds nuw i8, ptr %1234, i64 16
-  store ptr null, ptr %.sroa.87680.8..sroa_idx8706, align 8, !tbaa !29
-  %.sroa.97681.8..sroa_idx8707 = getelementptr inbounds nuw i8, ptr %1234, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97681.8..sroa_idx8707, align 8, !tbaa !92
+  %.sroa.87656.8..sroa_idx8673 = getelementptr inbounds nuw i8, ptr %1234, i64 16
+  store ptr null, ptr %.sroa.87656.8..sroa_idx8673, align 8, !tbaa !29
+  %.sroa.97657.8..sroa_idx8674 = getelementptr inbounds nuw i8, ptr %1234, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97657.8..sroa_idx8674, align 8, !tbaa !92
   %13147 = getelementptr inbounds nuw i8, ptr %13143, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708: ; preds = %13139
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675: ; preds = %13139
   %13148 = getelementptr inbounds nuw i8, ptr %1169, i64 8
   %13149 = load ptr, ptr %13148, align 8, !tbaa !10, !noalias !460
   %13150 = load ptr, ptr %13149, align 8, !tbaa !29, !noalias !460
   store ptr %1169, ptr %1234, align 8, !tbaa !85
   %13151 = getelementptr inbounds nuw i8, ptr %1234, i64 8
   store ptr null, ptr %13151, align 8, !tbaa !91
-  %.sroa.87680.8..sroa_idx8712 = getelementptr inbounds nuw i8, ptr %1234, i64 16
-  store ptr %13150, ptr %.sroa.87680.8..sroa_idx8712, align 8, !tbaa !29
-  %.sroa.97681.8..sroa_idx8713 = getelementptr inbounds nuw i8, ptr %1234, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97681.8..sroa_idx8713, align 8, !tbaa !92
+  %.sroa.87656.8..sroa_idx8679 = getelementptr inbounds nuw i8, ptr %1234, i64 16
+  store ptr %13150, ptr %.sroa.87656.8..sroa_idx8679, align 8, !tbaa !29
+  %.sroa.97657.8..sroa_idx8680 = getelementptr inbounds nuw i8, ptr %1234, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97657.8..sroa_idx8680, align 8, !tbaa !92
   %13152 = getelementptr inbounds nuw i8, ptr %13149, i64 8
   %13153 = load ptr, ptr %13152, align 8, !tbaa !29, !noalias !463
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787
@@ -38806,17 +38806,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13154, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708
-  %.sroa.57675.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708 ], [ %13147, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
-  %.sroa.87676.0 = phi ptr [ %13153, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
-  %.sroa.97677.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8708 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8702 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6787: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675
+  %.sroa.57651.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675 ], [ %13147, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
+  %.sroa.87652.0 = phi ptr [ %13153, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
+  %.sroa.97653.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8675 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread8669 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6786 ]
   store ptr %1169, ptr %1235, align 8, !tbaa !85
   %13155 = getelementptr inbounds nuw i8, ptr %1235, i64 8
-  store ptr %.sroa.57675.0, ptr %13155, align 8, !tbaa !91
-  %.sroa.87676.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1235, i64 16
-  store ptr %.sroa.87676.0, ptr %.sroa.87676.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97677.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1235, i64 24
-  store i64 %.sroa.97677.0, ptr %.sroa.97677.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57651.0, ptr %13155, align 8, !tbaa !91
+  %.sroa.87652.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1235, i64 16
+  store ptr %.sroa.87652.0, ptr %.sroa.87652.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97653.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1235, i64 24
+  store i64 %.sroa.97653.0, ptr %.sroa.97653.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1173, ptr noundef nonnull %1234, ptr noundef nonnull %1235, i1 noundef zeroext false)
           to label %13188 unwind label %13178
 
@@ -38858,9 +38858,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13169 = getelementptr inbounds i8, ptr %13168, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13169) #27
   %13170 = icmp eq ptr %13169, %1231
-  br i1 %13170, label %.loopexit8946, label %13167
+  br i1 %13170, label %.loopexit8913, label %13167
 
-.loopexit8946:                                    ; preds = %13167, %.body6778, %.body6778.thread
+.loopexit8913:                                    ; preds = %13167, %.body6778, %.body6778.thread
   %.pn4920 = phi { ptr, i32 } [ %13117, %.body6778 ], [ %13113, %.body6778.thread ], [ %13165, %13167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1231)
   br label %13345
@@ -39019,16 +39019,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788: ; preds = %13217, %13219, %13224, %13228
-  %.sroa.57671.0 = phi ptr [ null, %13228 ], [ %13223, %13219 ], [ null, %13224 ], [ null, %13217 ]
-  %.sroa.87672.0 = phi ptr [ null, %13228 ], [ null, %13219 ], [ %13227, %13224 ], [ null, %13217 ]
-  %.sroa.97673.0 = phi i64 [ 0, %13228 ], [ -9223372036854775808, %13219 ], [ -9223372036854775808, %13224 ], [ 1, %13217 ]
+  %.sroa.57647.0 = phi ptr [ null, %13228 ], [ %13223, %13219 ], [ null, %13224 ], [ null, %13217 ]
+  %.sroa.87648.0 = phi ptr [ null, %13228 ], [ null, %13219 ], [ %13227, %13224 ], [ null, %13217 ]
+  %.sroa.97649.0 = phi i64 [ 0, %13228 ], [ -9223372036854775808, %13219 ], [ -9223372036854775808, %13224 ], [ 1, %13217 ]
   store ptr %1165, ptr %1238, align 8, !tbaa !85
   %13229 = getelementptr inbounds nuw i8, ptr %1238, i64 8
-  store ptr %.sroa.57671.0, ptr %13229, align 8, !tbaa !91
-  %.sroa.87672.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1238, i64 16
-  store ptr %.sroa.87672.0, ptr %.sroa.87672.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97673.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1238, i64 24
-  store i64 %.sroa.97673.0, ptr %.sroa.97673.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57647.0, ptr %13229, align 8, !tbaa !91
+  %.sroa.87648.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1238, i64 16
+  store ptr %.sroa.87648.0, ptr %.sroa.87648.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97649.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1238, i64 24
+  store i64 %.sroa.97649.0, ptr %.sroa.97649.8..sroa_idx, align 8, !tbaa !92
   %13230 = load i8, ptr %1169, align 8, !tbaa !4, !noalias !470
   switch i8 %13230, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6789 [
     i8 1, label %13231
@@ -39049,16 +39049,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6789
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6789: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788, %13231, %13235
-  %.sroa.57667.0 = phi ptr [ null, %13235 ], [ %13234, %13231 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
-  %.sroa.87668.0 = phi ptr [ %13239, %13235 ], [ null, %13231 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
-  %.sroa.97669.0 = phi i64 [ -9223372036854775808, %13235 ], [ -9223372036854775808, %13231 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
+  %.sroa.57643.0 = phi ptr [ null, %13235 ], [ %13234, %13231 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
+  %.sroa.87644.0 = phi ptr [ %13239, %13235 ], [ null, %13231 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
+  %.sroa.97645.0 = phi i64 [ -9223372036854775808, %13235 ], [ -9223372036854775808, %13231 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6788 ]
   store ptr %1169, ptr %1239, align 8, !tbaa !85
   %13240 = getelementptr inbounds nuw i8, ptr %1239, i64 8
-  store ptr %.sroa.57667.0, ptr %13240, align 8, !tbaa !91
-  %.sroa.87668.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1239, i64 16
-  store ptr %.sroa.87668.0, ptr %.sroa.87668.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97669.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1239, i64 24
-  store i64 %.sroa.97669.0, ptr %.sroa.97669.8..sroa_idx, align 8, !tbaa !92
+  store ptr %.sroa.57643.0, ptr %13240, align 8, !tbaa !91
+  %.sroa.87644.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1239, i64 16
+  store ptr %.sroa.87644.0, ptr %.sroa.87644.8..sroa_idx, align 8, !tbaa !29
+  %.sroa.97645.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1239, i64 24
+  store i64 %.sroa.97645.0, ptr %.sroa.97645.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1165, ptr noundef nonnull %1238, ptr noundef nonnull %1239, i1 noundef zeroext false)
           to label %13256 unwind label %13246
 
@@ -39189,20 +39189,20 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1241)
   %13286 = load i8, ptr %1173, align 8, !tbaa !4, !noalias !474
   switch i8 %13286, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 [
-    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721
-    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727
+    i8 1, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688
+    i8 2, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694
     i8 0, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread
   ]
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread: ; preds = %13285
   store ptr %1173, ptr %1242, align 8, !tbaa !85
   %13287 = getelementptr inbounds nuw i8, ptr %1242, i64 8
-  %.sroa.97665.8..sroa_idx8720 = getelementptr inbounds nuw i8, ptr %1242, i64 24
+  %.sroa.97641.8..sroa_idx8687 = getelementptr inbounds nuw i8, ptr %1242, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13287, i8 0, i64 16, i1 false)
-  store i64 1, ptr %.sroa.97665.8..sroa_idx8720, align 8, !tbaa !92
+  store i64 1, ptr %.sroa.97641.8..sroa_idx8687, align 8, !tbaa !92
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721: ; preds = %13285
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688: ; preds = %13285
   %13288 = getelementptr inbounds nuw i8, ptr %1173, i64 8
   %13289 = load ptr, ptr %13288, align 8, !tbaa !10, !noalias !474
   %13290 = getelementptr inbounds nuw i8, ptr %13289, i64 24
@@ -39210,24 +39210,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr %1173, ptr %1242, align 8, !tbaa !85
   %13292 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   store ptr %13291, ptr %13292, align 8, !tbaa !91
-  %.sroa.87664.8..sroa_idx8725 = getelementptr inbounds nuw i8, ptr %1242, i64 16
-  store ptr null, ptr %.sroa.87664.8..sroa_idx8725, align 8, !tbaa !29
-  %.sroa.97665.8..sroa_idx8726 = getelementptr inbounds nuw i8, ptr %1242, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97665.8..sroa_idx8726, align 8, !tbaa !92
+  %.sroa.87640.8..sroa_idx8692 = getelementptr inbounds nuw i8, ptr %1242, i64 16
+  store ptr null, ptr %.sroa.87640.8..sroa_idx8692, align 8, !tbaa !29
+  %.sroa.97641.8..sroa_idx8693 = getelementptr inbounds nuw i8, ptr %1242, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97641.8..sroa_idx8693, align 8, !tbaa !92
   %13293 = getelementptr inbounds nuw i8, ptr %13289, i64 8
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727: ; preds = %13285
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694: ; preds = %13285
   %13294 = getelementptr inbounds nuw i8, ptr %1173, i64 8
   %13295 = load ptr, ptr %13294, align 8, !tbaa !10, !noalias !474
   %13296 = load ptr, ptr %13295, align 8, !tbaa !29, !noalias !474
   store ptr %1173, ptr %1242, align 8, !tbaa !85
   %13297 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   store ptr null, ptr %13297, align 8, !tbaa !91
-  %.sroa.87664.8..sroa_idx8731 = getelementptr inbounds nuw i8, ptr %1242, i64 16
-  store ptr %13296, ptr %.sroa.87664.8..sroa_idx8731, align 8, !tbaa !29
-  %.sroa.97665.8..sroa_idx8732 = getelementptr inbounds nuw i8, ptr %1242, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.97665.8..sroa_idx8732, align 8, !tbaa !92
+  %.sroa.87640.8..sroa_idx8698 = getelementptr inbounds nuw i8, ptr %1242, i64 16
+  store ptr %13296, ptr %.sroa.87640.8..sroa_idx8698, align 8, !tbaa !29
+  %.sroa.97641.8..sroa_idx8699 = getelementptr inbounds nuw i8, ptr %1242, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.97641.8..sroa_idx8699, align 8, !tbaa !92
   %13298 = getelementptr inbounds nuw i8, ptr %13295, i64 8
   %13299 = load ptr, ptr %13298, align 8, !tbaa !29, !noalias !477
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791
@@ -39238,17 +39238,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13300, i8 0, i64 24, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791
 
-_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727
-  %.sroa.57660.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727 ], [ %13293, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
-  %.sroa.8.0 = phi ptr [ %13299, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
-  %.sroa.97661.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8727 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8721 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
+_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit6791: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694
+  %.sroa.57636.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694 ], [ %13293, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
+  %.sroa.8.0 = phi ptr [ %13299, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
+  %.sroa.97637.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8694 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread8688 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790.thread ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit6790 ]
   store ptr %1173, ptr %1243, align 8, !tbaa !85
   %13301 = getelementptr inbounds nuw i8, ptr %1243, i64 8
-  store ptr %.sroa.57660.0, ptr %13301, align 8, !tbaa !91
+  store ptr %.sroa.57636.0, ptr %13301, align 8, !tbaa !91
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1243, i64 16
   store ptr %.sroa.8.0, ptr %.sroa.8.8..sroa_idx, align 8, !tbaa !29
-  %.sroa.97661.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1243, i64 24
-  store i64 %.sroa.97661.0, ptr %.sroa.97661.8..sroa_idx, align 8, !tbaa !92
+  %.sroa.97637.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1243, i64 24
+  store i64 %.sroa.97637.0, ptr %.sroa.97637.8..sroa_idx, align 8, !tbaa !92
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6updateENS0_6detail9iter_implIKSD_EESH_b(ptr noundef nonnull align 8 dereferenceable(16) %1165, ptr noundef nonnull %1242, ptr noundef nonnull %1243, i1 noundef zeroext false)
           to label %13317 unwind label %13307
 
@@ -39376,8 +39376,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1230) #27
   br label %13345
 
-13345:                                            ; preds = %13344, %.loopexit8946
-  %.pn4940.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn, %13344 ], [ %.pn4920, %.loopexit8946 ]
+13345:                                            ; preds = %13344, %.loopexit8913
+  %.pn4940.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn, %13344 ], [ %.pn4920, %.loopexit8913 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1230)
   br label %13347
 
@@ -39456,14 +39456,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1169) #27
   br label %13367
 
-13367:                                            ; preds = %13366, %.loopexit8968
-  %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13366 ], [ %.pn4843.pn.pn.pn8608, %.loopexit8968 ]
+13367:                                            ; preds = %13366, %.loopexit8935
+  %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13366 ], [ %.pn4843.pn.pn.pn8575, %.loopexit8935 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1169)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1165) #27
   br label %13368
 
-13368:                                            ; preds = %13367, %.loopexit8973
-  %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13367 ], [ %.pn4838.pn.pn.pn8597, %.loopexit8973 ]
+13368:                                            ; preds = %13367, %.loopexit8940
+  %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4940.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13367 ], [ %.pn4838.pn.pn.pn8564, %.loopexit8940 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1165)
   br label %13688
 
@@ -39538,7 +39538,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13385 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1252) #27
-  br label %.thread8743
+  br label %.thread8710
 
 13386:                                            ; preds = %13384
   %13387 = getelementptr inbounds nuw i8, ptr %1252, i64 16
@@ -39552,7 +39552,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13388) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1252) #27
-  br label %.thread8743
+  br label %.thread8710
 
 13390:                                            ; preds = %13386
   %13391 = getelementptr inbounds nuw i8, ptr %1252, i64 40
@@ -39583,15 +39583,15 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %1255)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1255, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1255, ptr noundef nonnull align 1 dereferenceable(4) @.str.20)
-          to label %13401 unwind label %.body6803.thread9351
+          to label %13401 unwind label %.body6803.thread9318
 
-.body6803.thread9351:                             ; preds = %13397
+.body6803.thread9318:                             ; preds = %13397
   %13400 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1255) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1255)
   call void @llvm.lifetime.end.p0(ptr nonnull %1254)
-  br label %.preheader8942.preheader
+  br label %.preheader8909.preheader
 
 13401:                                            ; preds = %13397
   %13402 = getelementptr inbounds nuw i8, ptr %1255, i64 16
@@ -39745,7 +39745,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13462 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1258) #27
-  br label %.thread8759
+  br label %.thread8726
 
 13463:                                            ; preds = %13461
   %13464 = getelementptr inbounds nuw i8, ptr %1258, i64 16
@@ -39759,7 +39759,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13465) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1258) #27
-  br label %.thread8759
+  br label %.thread8726
 
 13467:                                            ; preds = %13463
   %13468 = getelementptr inbounds nuw i8, ptr %1258, i64 40
@@ -39790,15 +39790,15 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.start.p0(ptr nonnull %1261)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1261, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1261, ptr noundef nonnull align 1 dereferenceable(4) @.str.21)
-          to label %13478 unwind label %.body6832.thread9357
+          to label %13478 unwind label %.body6832.thread9324
 
-.body6832.thread9357:                             ; preds = %13474
+.body6832.thread9324:                             ; preds = %13474
   %13477 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1261) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1261)
   call void @llvm.lifetime.end.p0(ptr nonnull %1260)
-  br label %.preheader8936.preheader
+  br label %.preheader8903.preheader
 
 13478:                                            ; preds = %13474
   %13479 = getelementptr inbounds nuw i8, ptr %1261, i64 16
@@ -40037,7 +40037,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %13565 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1267) #27
-  br label %.thread8788
+  br label %.thread8755
 
 13566:                                            ; preds = %13563
   %13567 = getelementptr inbounds nuw i8, ptr %1267, i64 16
@@ -40051,7 +40051,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13568) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1267) #27
-  br label %.thread8788
+  br label %.thread8755
 
 13570:                                            ; preds = %13566
   %13571 = getelementptr inbounds nuw i8, ptr %1267, i64 40
@@ -40082,15 +40082,15 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   call void @llvm.lifetime.start.p0(ptr nonnull %1270)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1270, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1270, ptr noundef nonnull align 1 dereferenceable(4) @.str.20)
-          to label %13581 unwind label %.body6871.thread9363
+          to label %13581 unwind label %.body6871.thread9330
 
-.body6871.thread9363:                             ; preds = %13577
+.body6871.thread9330:                             ; preds = %13577
   %13580 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1270) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1270)
   call void @llvm.lifetime.end.p0(ptr nonnull %1269)
-  br label %.preheader8929.preheader
+  br label %.preheader8896.preheader
 
 13581:                                            ; preds = %13577
   %13582 = getelementptr inbounds nuw i8, ptr %1270, i64 16
@@ -40117,7 +40117,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %13590 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1271) #27
-  br label %.loopexit9384
+  br label %.loopexit9351
 
 13591:                                            ; preds = %13586
   %13592 = getelementptr inbounds nuw i8, ptr %1271, i64 16
@@ -40428,17 +40428,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 13712:                                            ; preds = %13401
   %13713 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8943
+  br label %.loopexit8910
 
 13714:                                            ; preds = %13406
   %13715 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8944
+  br label %.loopexit8911
 
 13716:                                            ; preds = %13408
   %13717 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8945
+  br label %.loopexit8912
 
 13718:                                            ; preds = %13410
   %13719 = landingpad { ptr, i32 }
@@ -40451,37 +40451,37 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13723 = getelementptr inbounds i8, ptr %13722, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13723) #27
   %13724 = icmp eq ptr %13723, %1251
-  br i1 %13724, label %.loopexit8945, label %13721
+  br i1 %13724, label %.loopexit8912, label %13721
 
-.loopexit8945:                                    ; preds = %13721, %13716
+.loopexit8912:                                    ; preds = %13721, %13716
   %.63363 = phi i1 [ true, %13716 ], [ false, %13721 ]
   %.pn4961 = phi { ptr, i32 } [ %13717, %13716 ], [ %13719, %13721 ]
   %13725 = getelementptr inbounds nuw i8, ptr %1253, i64 48
   br label %13726
 
-13726:                                            ; preds = %13726, %.loopexit8945
-  %13727 = phi ptr [ %13725, %.loopexit8945 ], [ %13728, %13726 ]
+13726:                                            ; preds = %13726, %.loopexit8912
+  %13727 = phi ptr [ %13725, %.loopexit8912 ], [ %13728, %13726 ]
   %13728 = getelementptr inbounds i8, ptr %13727, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13728) #27
   %13729 = icmp eq ptr %13728, %1253
-  br i1 %13729, label %.loopexit8944, label %13726
+  br i1 %13729, label %.loopexit8911, label %13726
 
-.loopexit8944:                                    ; preds = %13726, %13714
+.loopexit8911:                                    ; preds = %13726, %13714
   %13730 = phi i1 [ false, %13714 ], [ true, %13726 ]
   %.53362 = phi i1 [ true, %13714 ], [ %.63363, %13726 ]
   %.pn4961.pn = phi { ptr, i32 } [ %13715, %13714 ], [ %.pn4961, %13726 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1254) #27
-  br label %.loopexit8943
+  br label %.loopexit8910
 
-.loopexit8943:                                    ; preds = %.loopexit8944, %13712
-  %.23366 = phi i1 [ false, %13712 ], [ %13730, %.loopexit8944 ]
-  %.43361 = phi i1 [ true, %13712 ], [ %.53362, %.loopexit8944 ]
-  %.pn4961.pn.pn = phi { ptr, i32 } [ %13713, %13712 ], [ %.pn4961.pn, %.loopexit8944 ]
+.loopexit8910:                                    ; preds = %.loopexit8911, %13712
+  %.23366 = phi i1 [ false, %13712 ], [ %13730, %.loopexit8911 ]
+  %.43361 = phi i1 [ true, %13712 ], [ %.53362, %.loopexit8911 ]
+  %.pn4961.pn.pn = phi { ptr, i32 } [ %13713, %13712 ], [ %.pn4961.pn, %.loopexit8911 ]
   %13731 = getelementptr inbounds nuw i8, ptr %1255, i64 48
   br label %13732
 
-13732:                                            ; preds = %13732, %.loopexit8943
-  %13733 = phi ptr [ %13731, %.loopexit8943 ], [ %13734, %13732 ]
+13732:                                            ; preds = %13732, %.loopexit8910
+  %13733 = phi ptr [ %13731, %.loopexit8910 ], [ %13734, %13732 ]
   %13734 = getelementptr inbounds i8, ptr %13733, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13734) #27
   %13735 = icmp eq ptr %13734, %1255
@@ -40490,24 +40490,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body6803:                                        ; preds = %13732
   call void @llvm.lifetime.end.p0(ptr nonnull %1255)
   call void @llvm.lifetime.end.p0(ptr nonnull %1254)
-  br i1 %.23366, label %.body6803.thread, label %.preheader8942.preheader
+  br i1 %.23366, label %.body6803.thread, label %.preheader8909.preheader
 
-.preheader8942.preheader:                         ; preds = %.body6803.thread9351, %.body6803
-  %.pn4961.pn.pn.pn9356 = phi { ptr, i32 } [ %13400, %.body6803.thread9351 ], [ %.pn4961.pn.pn, %.body6803 ]
-  %.333609355 = phi i1 [ true, %.body6803.thread9351 ], [ %.43361, %.body6803 ]
+.preheader8909.preheader:                         ; preds = %.body6803.thread9318, %.body6803
+  %.pn4961.pn.pn.pn9323 = phi { ptr, i32 } [ %13400, %.body6803.thread9318 ], [ %.pn4961.pn.pn, %.body6803 ]
+  %.333609322 = phi i1 [ true, %.body6803.thread9318 ], [ %.43361, %.body6803 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1253) #27
   br label %.body6803.thread
 
-.body6803.thread:                                 ; preds = %.preheader8942.preheader, %13395, %.body6803
-  %.pn4961.pn.pn.pn.pn8741 = phi { ptr, i32 } [ %.pn4961.pn.pn, %.body6803 ], [ %13396, %13395 ], [ %.pn4961.pn.pn.pn9356, %.preheader8942.preheader ]
-  %.233598740 = phi i1 [ %.43361, %.body6803 ], [ true, %13395 ], [ %.333609355, %.preheader8942.preheader ]
+.body6803.thread:                                 ; preds = %.preheader8909.preheader, %13395, %.body6803
+  %.pn4961.pn.pn.pn.pn8708 = phi { ptr, i32 } [ %.pn4961.pn.pn, %.body6803 ], [ %13396, %13395 ], [ %.pn4961.pn.pn.pn9323, %.preheader8909.preheader ]
+  %.233598707 = phi i1 [ %.43361, %.body6803 ], [ true, %13395 ], [ %.333609322, %.preheader8909.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1253)
   br label %13736
 
 13736:                                            ; preds = %.body6803.thread, %13710
   %.13388 = phi ptr [ %13394, %.body6803.thread ], [ %1251, %13710 ]
-  %.13358 = phi i1 [ %.233598740, %.body6803.thread ], [ true, %13710 ]
-  %.pn4961.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4961.pn.pn.pn.pn8741, %.body6803.thread ], [ %13711, %13710 ]
+  %.13358 = phi i1 [ %.233598707, %.body6803.thread ], [ true, %13710 ]
+  %.pn4961.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4961.pn.pn.pn.pn8708, %.body6803.thread ], [ %13711, %13710 ]
   %13737 = getelementptr inbounds nuw i8, ptr %1252, i64 48
   br label %13738
 
@@ -40518,26 +40518,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13741 = icmp eq ptr %13740, %1252
   br i1 %13741, label %13742, label %13738
 
-.thread8743:                                      ; preds = %.body6796, %.body6796.thread
+.thread8710:                                      ; preds = %.body6796, %.body6796.thread
   %.pn4961.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %13385, %.body6796.thread ], [ %13389, %.body6796 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1252)
-  br label %.loopexit8941
+  br label %.loopexit8908
 
 13742:                                            ; preds = %13738
   call void @llvm.lifetime.end.p0(ptr nonnull %1252)
   %13743 = icmp ne ptr %1251, %.13388
   %or.cond274.not = select i1 %.13358, i1 %13743, i1 false
-  br i1 %or.cond274.not, label %.preheader8940, label %.loopexit8941
+  br i1 %or.cond274.not, label %.preheader8907, label %.loopexit8908
 
-.preheader8940:                                   ; preds = %13742, %.preheader8940
-  %13744 = phi ptr [ %13745, %.preheader8940 ], [ %.13388, %13742 ]
+.preheader8907:                                   ; preds = %13742, %.preheader8907
+  %13744 = phi ptr [ %13745, %.preheader8907 ], [ %.13388, %13742 ]
   %13745 = getelementptr inbounds i8, ptr %13744, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13745) #27
   %13746 = icmp eq ptr %13745, %1251
-  br i1 %13746, label %.loopexit8941, label %.preheader8940
+  br i1 %13746, label %.loopexit8908, label %.preheader8907
 
-.loopexit8941:                                    ; preds = %.preheader8940, %.thread8743, %13742
-  %.pn4961.pn.pn.pn.pn.pn.pn8748 = phi { ptr, i32 } [ %.pn4961.pn.pn.pn.pn.pn.pn.ph, %.thread8743 ], [ %.pn4961.pn.pn.pn.pn.pn, %13742 ], [ %.pn4961.pn.pn.pn.pn.pn, %.preheader8940 ]
+.loopexit8908:                                    ; preds = %.preheader8907, %.thread8710, %13742
+  %.pn4961.pn.pn.pn.pn.pn.pn8715 = phi { ptr, i32 } [ %.pn4961.pn.pn.pn.pn.pn.pn.ph, %.thread8710 ], [ %.pn4961.pn.pn.pn.pn.pn, %13742 ], [ %.pn4961.pn.pn.pn.pn.pn, %.preheader8907 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1251)
   br label %13854
 
@@ -40549,17 +40549,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 13749:                                            ; preds = %13478
   %13750 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8937
+  br label %.loopexit8904
 
 13751:                                            ; preds = %13483
   %13752 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8938
+  br label %.loopexit8905
 
 13753:                                            ; preds = %13485
   %13754 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8939
+  br label %.loopexit8906
 
 13755:                                            ; preds = %13487
   %13756 = landingpad { ptr, i32 }
@@ -40572,37 +40572,37 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13760 = getelementptr inbounds i8, ptr %13759, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13760) #27
   %13761 = icmp eq ptr %13760, %1257
-  br i1 %13761, label %.loopexit8939, label %13758
+  br i1 %13761, label %.loopexit8906, label %13758
 
-.loopexit8939:                                    ; preds = %13758, %13753
+.loopexit8906:                                    ; preds = %13758, %13753
   %.63340 = phi i1 [ true, %13753 ], [ false, %13758 ]
   %.pn4969 = phi { ptr, i32 } [ %13754, %13753 ], [ %13756, %13758 ]
   %13762 = getelementptr inbounds nuw i8, ptr %1259, i64 48
   br label %13763
 
-13763:                                            ; preds = %13763, %.loopexit8939
-  %13764 = phi ptr [ %13762, %.loopexit8939 ], [ %13765, %13763 ]
+13763:                                            ; preds = %13763, %.loopexit8906
+  %13764 = phi ptr [ %13762, %.loopexit8906 ], [ %13765, %13763 ]
   %13765 = getelementptr inbounds i8, ptr %13764, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13765) #27
   %13766 = icmp eq ptr %13765, %1259
-  br i1 %13766, label %.loopexit8938, label %13763
+  br i1 %13766, label %.loopexit8905, label %13763
 
-.loopexit8938:                                    ; preds = %13763, %13751
+.loopexit8905:                                    ; preds = %13763, %13751
   %13767 = phi i1 [ false, %13751 ], [ true, %13763 ]
   %.53339 = phi i1 [ true, %13751 ], [ %.63340, %13763 ]
   %.pn4969.pn = phi { ptr, i32 } [ %13752, %13751 ], [ %.pn4969, %13763 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1260) #27
-  br label %.loopexit8937
+  br label %.loopexit8904
 
-.loopexit8937:                                    ; preds = %.loopexit8938, %13749
-  %.23343 = phi i1 [ false, %13749 ], [ %13767, %.loopexit8938 ]
-  %.43338 = phi i1 [ true, %13749 ], [ %.53339, %.loopexit8938 ]
-  %.pn4969.pn.pn = phi { ptr, i32 } [ %13750, %13749 ], [ %.pn4969.pn, %.loopexit8938 ]
+.loopexit8904:                                    ; preds = %.loopexit8905, %13749
+  %.23343 = phi i1 [ false, %13749 ], [ %13767, %.loopexit8905 ]
+  %.43338 = phi i1 [ true, %13749 ], [ %.53339, %.loopexit8905 ]
+  %.pn4969.pn.pn = phi { ptr, i32 } [ %13750, %13749 ], [ %.pn4969.pn, %.loopexit8905 ]
   %13768 = getelementptr inbounds nuw i8, ptr %1261, i64 48
   br label %13769
 
-13769:                                            ; preds = %13769, %.loopexit8937
-  %13770 = phi ptr [ %13768, %.loopexit8937 ], [ %13771, %13769 ]
+13769:                                            ; preds = %13769, %.loopexit8904
+  %13770 = phi ptr [ %13768, %.loopexit8904 ], [ %13771, %13769 ]
   %13771 = getelementptr inbounds i8, ptr %13770, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13771) #27
   %13772 = icmp eq ptr %13771, %1261
@@ -40611,24 +40611,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body6832:                                        ; preds = %13769
   call void @llvm.lifetime.end.p0(ptr nonnull %1261)
   call void @llvm.lifetime.end.p0(ptr nonnull %1260)
-  br i1 %.23343, label %.body6832.thread, label %.preheader8936.preheader
+  br i1 %.23343, label %.body6832.thread, label %.preheader8903.preheader
 
-.preheader8936.preheader:                         ; preds = %.body6832.thread9357, %.body6832
-  %.pn4969.pn.pn.pn9362 = phi { ptr, i32 } [ %13477, %.body6832.thread9357 ], [ %.pn4969.pn.pn, %.body6832 ]
-  %.333379361 = phi i1 [ true, %.body6832.thread9357 ], [ %.43338, %.body6832 ]
+.preheader8903.preheader:                         ; preds = %.body6832.thread9324, %.body6832
+  %.pn4969.pn.pn.pn9329 = phi { ptr, i32 } [ %13477, %.body6832.thread9324 ], [ %.pn4969.pn.pn, %.body6832 ]
+  %.333379328 = phi i1 [ true, %.body6832.thread9324 ], [ %.43338, %.body6832 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1259) #27
   br label %.body6832.thread
 
-.body6832.thread:                                 ; preds = %.preheader8936.preheader, %13472, %.body6832
-  %.pn4969.pn.pn.pn.pn8757 = phi { ptr, i32 } [ %.pn4969.pn.pn, %.body6832 ], [ %13473, %13472 ], [ %.pn4969.pn.pn.pn9362, %.preheader8936.preheader ]
-  %.233368756 = phi i1 [ %.43338, %.body6832 ], [ true, %13472 ], [ %.333379361, %.preheader8936.preheader ]
+.body6832.thread:                                 ; preds = %.preheader8903.preheader, %13472, %.body6832
+  %.pn4969.pn.pn.pn.pn8724 = phi { ptr, i32 } [ %.pn4969.pn.pn, %.body6832 ], [ %13473, %13472 ], [ %.pn4969.pn.pn.pn9329, %.preheader8903.preheader ]
+  %.233368723 = phi i1 [ %.43338, %.body6832 ], [ true, %13472 ], [ %.333379328, %.preheader8903.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1259)
   br label %13773
 
 13773:                                            ; preds = %.body6832.thread, %13747
   %.13355 = phi ptr [ %13471, %.body6832.thread ], [ %1257, %13747 ]
-  %.13335 = phi i1 [ %.233368756, %.body6832.thread ], [ true, %13747 ]
-  %.pn4969.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4969.pn.pn.pn.pn8757, %.body6832.thread ], [ %13748, %13747 ]
+  %.13335 = phi i1 [ %.233368723, %.body6832.thread ], [ true, %13747 ]
+  %.pn4969.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4969.pn.pn.pn.pn8724, %.body6832.thread ], [ %13748, %13747 ]
   %13774 = getelementptr inbounds nuw i8, ptr %1258, i64 48
   br label %13775
 
@@ -40639,26 +40639,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13778 = icmp eq ptr %13777, %1258
   br i1 %13778, label %13779, label %13775
 
-.thread8759:                                      ; preds = %.body6824, %.body6824.thread
+.thread8726:                                      ; preds = %.body6824, %.body6824.thread
   %.pn4969.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %13462, %.body6824.thread ], [ %13466, %.body6824 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1258)
-  br label %.loopexit8935
+  br label %.loopexit8902
 
 13779:                                            ; preds = %13775
   call void @llvm.lifetime.end.p0(ptr nonnull %1258)
   %13780 = icmp ne ptr %1257, %.13355
   %or.cond286.not = select i1 %.13335, i1 %13780, i1 false
-  br i1 %or.cond286.not, label %.preheader8934, label %.loopexit8935
+  br i1 %or.cond286.not, label %.preheader8901, label %.loopexit8902
 
-.preheader8934:                                   ; preds = %13779, %.preheader8934
-  %13781 = phi ptr [ %13782, %.preheader8934 ], [ %.13355, %13779 ]
+.preheader8901:                                   ; preds = %13779, %.preheader8901
+  %13781 = phi ptr [ %13782, %.preheader8901 ], [ %.13355, %13779 ]
   %13782 = getelementptr inbounds i8, ptr %13781, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13782) #27
   %13783 = icmp eq ptr %13782, %1257
-  br i1 %13783, label %.loopexit8935, label %.preheader8934
+  br i1 %13783, label %.loopexit8902, label %.preheader8901
 
-.loopexit8935:                                    ; preds = %.preheader8934, %.thread8759, %13779
-  %.pn4969.pn.pn.pn.pn.pn.pn8764 = phi { ptr, i32 } [ %.pn4969.pn.pn.pn.pn.pn.pn.ph, %.thread8759 ], [ %.pn4969.pn.pn.pn.pn.pn, %13779 ], [ %.pn4969.pn.pn.pn.pn.pn, %.preheader8934 ]
+.loopexit8902:                                    ; preds = %.preheader8901, %.thread8726, %13779
+  %.pn4969.pn.pn.pn.pn.pn.pn8731 = phi { ptr, i32 } [ %.pn4969.pn.pn.pn.pn.pn.pn.ph, %.thread8726 ], [ %.pn4969.pn.pn.pn.pn.pn, %13779 ], [ %.pn4969.pn.pn.pn.pn.pn, %.preheader8901 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1257)
   br label %13853
 
@@ -40685,17 +40685,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 13792:                                            ; preds = %13591
   %13793 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8931
+  br label %.loopexit8898
 
 13794:                                            ; preds = %13596
   %13795 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8932
+  br label %.loopexit8899
 
 13796:                                            ; preds = %13598
   %13797 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8933
+  br label %.loopexit8900
 
 13798:                                            ; preds = %13600
   %13799 = landingpad { ptr, i32 }
@@ -40729,36 +40729,36 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13810 = getelementptr inbounds i8, ptr %13809, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13810) #27
   %13811 = icmp eq ptr %13810, %1266
-  br i1 %13811, label %.loopexit8933, label %13808
+  br i1 %13811, label %.loopexit8900, label %13808
 
-.loopexit8933:                                    ; preds = %13808, %13796
+.loopexit8900:                                    ; preds = %13808, %13796
   %.83313 = phi i1 [ true, %13796 ], [ false, %13808 ]
   %.pn4977.pn.pn = phi { ptr, i32 } [ %13797, %13796 ], [ %.pn4977.pn, %13808 ]
   %13812 = getelementptr inbounds nuw i8, ptr %1268, i64 48
   br label %13813
 
-13813:                                            ; preds = %13813, %.loopexit8933
-  %13814 = phi ptr [ %13812, %.loopexit8933 ], [ %13815, %13813 ]
+13813:                                            ; preds = %13813, %.loopexit8900
+  %13814 = phi ptr [ %13812, %.loopexit8900 ], [ %13815, %13813 ]
   %13815 = getelementptr inbounds i8, ptr %13814, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13815) #27
   %13816 = icmp eq ptr %13815, %1268
-  br i1 %13816, label %.loopexit8932, label %13813
+  br i1 %13816, label %.loopexit8899, label %13813
 
-.loopexit8932:                                    ; preds = %13813, %13794
+.loopexit8899:                                    ; preds = %13813, %13794
   %13817 = phi i1 [ false, %13794 ], [ true, %13813 ]
   %.73312 = phi i1 [ true, %13794 ], [ %.83313, %13813 ]
   %.pn4977.pn.pn.pn = phi { ptr, i32 } [ %13795, %13794 ], [ %.pn4977.pn.pn, %13813 ]
   %13818 = getelementptr inbounds nuw i8, ptr %1269, i64 48
   br label %13819
 
-13819:                                            ; preds = %13819, %.loopexit8932
-  %13820 = phi ptr [ %13818, %.loopexit8932 ], [ %13821, %13819 ]
+13819:                                            ; preds = %13819, %.loopexit8899
+  %13820 = phi ptr [ %13818, %.loopexit8899 ], [ %13821, %13819 ]
   %13821 = getelementptr inbounds i8, ptr %13820, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13821) #27
   %13822 = icmp eq ptr %13821, %1269
-  br i1 %13822, label %.loopexit8931, label %13819
+  br i1 %13822, label %.loopexit8898, label %13819
 
-.loopexit8931:                                    ; preds = %13819, %13792
+.loopexit8898:                                    ; preds = %13819, %13792
   %13823 = phi i1 [ false, %13792 ], [ true, %13819 ]
   %.43318 = phi i1 [ false, %13792 ], [ %13817, %13819 ]
   %.63311 = phi i1 [ true, %13792 ], [ %.73312, %13819 ]
@@ -40766,14 +40766,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13824 = getelementptr inbounds nuw i8, ptr %1271, i64 48
   br label %13825
 
-13825:                                            ; preds = %13825, %.loopexit8931
-  %13826 = phi ptr [ %13824, %.loopexit8931 ], [ %13827, %13825 ]
+13825:                                            ; preds = %13825, %.loopexit8898
+  %13826 = phi ptr [ %13824, %.loopexit8898 ], [ %13827, %13825 ]
   %13827 = getelementptr inbounds i8, ptr %13826, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13827) #27
   %13828 = icmp eq ptr %13827, %1271
-  br i1 %13828, label %.loopexit9384, label %13825
+  br i1 %13828, label %.loopexit9351, label %13825
 
-.loopexit9384:                                    ; preds = %13825, %13589
+.loopexit9351:                                    ; preds = %13825, %13589
   %.23322 = phi i1 [ false, %13589 ], [ %13823, %13825 ]
   %.33317 = phi i1 [ false, %13589 ], [ %.43318, %13825 ]
   %.53310 = phi i1 [ true, %13589 ], [ %.63311, %13825 ]
@@ -40781,12 +40781,12 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1271)
   br label %13829
 
-13829:                                            ; preds = %.loopexit9384, %13790
-  %.13329 = phi ptr [ %13588, %.loopexit9384 ], [ %1269, %13790 ]
-  %.13321 = phi i1 [ %.23322, %.loopexit9384 ], [ false, %13790 ]
-  %.23316 = phi i1 [ %.33317, %.loopexit9384 ], [ false, %13790 ]
-  %.43309 = phi i1 [ %.53310, %.loopexit9384 ], [ true, %13790 ]
-  %.pn4977.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn, %.loopexit9384 ], [ %13791, %13790 ]
+13829:                                            ; preds = %.loopexit9351, %13790
+  %.13329 = phi ptr [ %13588, %.loopexit9351 ], [ %1269, %13790 ]
+  %.13321 = phi i1 [ %.23322, %.loopexit9351 ], [ false, %13790 ]
+  %.23316 = phi i1 [ %.33317, %.loopexit9351 ], [ false, %13790 ]
+  %.43309 = phi i1 [ %.53310, %.loopexit9351 ], [ true, %13790 ]
+  %.pn4977.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn, %.loopexit9351 ], [ %13791, %13790 ]
   %13830 = getelementptr inbounds nuw i8, ptr %1270, i64 48
   br label %13831
 
@@ -40801,35 +40801,35 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1270)
   %13836 = icmp eq ptr %1269, %.13329
   %or.cond295 = select i1 %.13321, i1 true, i1 %13836
-  br i1 %or.cond295, label %.body6871, label %.preheader8930
+  br i1 %or.cond295, label %.body6871, label %.preheader8897
 
-.preheader8930:                                   ; preds = %13835, %.preheader8930
-  %13837 = phi ptr [ %13838, %.preheader8930 ], [ %.13329, %13835 ]
+.preheader8897:                                   ; preds = %13835, %.preheader8897
+  %13837 = phi ptr [ %13838, %.preheader8897 ], [ %.13329, %13835 ]
   %13838 = getelementptr inbounds i8, ptr %13837, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13838) #27
   %13839 = icmp eq ptr %13838, %1269
-  br i1 %13839, label %.body6871, label %.preheader8930
+  br i1 %13839, label %.body6871, label %.preheader8897
 
-.body6871:                                        ; preds = %.preheader8930, %13835
+.body6871:                                        ; preds = %.preheader8897, %13835
   call void @llvm.lifetime.end.p0(ptr nonnull %1269)
-  br i1 %.23316, label %.body6871.thread, label %.preheader8929.preheader
+  br i1 %.23316, label %.body6871.thread, label %.preheader8896.preheader
 
-.preheader8929.preheader:                         ; preds = %.body6871.thread9363, %.body6871
-  %.3330887789368 = phi i1 [ true, %.body6871.thread9363 ], [ %.43309, %.body6871 ]
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn87799367 = phi { ptr, i32 } [ %13580, %.body6871.thread9363 ], [ %.pn4977.pn.pn.pn.pn.pn.pn, %.body6871 ]
+.preheader8896.preheader:                         ; preds = %.body6871.thread9330, %.body6871
+  %.3330887459335 = phi i1 [ true, %.body6871.thread9330 ], [ %.43309, %.body6871 ]
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn87469334 = phi { ptr, i32 } [ %13580, %.body6871.thread9330 ], [ %.pn4977.pn.pn.pn.pn.pn.pn, %.body6871 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1268) #27
   br label %.body6871.thread
 
-.body6871.thread:                                 ; preds = %.preheader8929.preheader, %13575, %.body6871
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn8786 = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn, %.body6871 ], [ %13576, %13575 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn87799367, %.preheader8929.preheader ]
-  %.233078785 = phi i1 [ %.43309, %.body6871 ], [ true, %13575 ], [ %.3330887789368, %.preheader8929.preheader ]
+.body6871.thread:                                 ; preds = %.preheader8896.preheader, %13575, %.body6871
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn8753 = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn, %.body6871 ], [ %13576, %13575 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn87469334, %.preheader8896.preheader ]
+  %.233078752 = phi i1 [ %.43309, %.body6871 ], [ true, %13575 ], [ %.3330887459335, %.preheader8896.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1268)
   br label %13840
 
 13840:                                            ; preds = %.body6871.thread, %13788
   %.13333 = phi ptr [ %13574, %.body6871.thread ], [ %1266, %13788 ]
-  %.13306 = phi i1 [ %.233078785, %.body6871.thread ], [ true, %13788 ]
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn8786, %.body6871.thread ], [ %13789, %13788 ]
+  %.13306 = phi i1 [ %.233078752, %.body6871.thread ], [ true, %13788 ]
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn8753, %.body6871.thread ], [ %13789, %13788 ]
   %13841 = getelementptr inbounds nuw i8, ptr %1267, i64 48
   br label %13842
 
@@ -40840,32 +40840,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13845 = icmp eq ptr %13844, %1267
   br i1 %13845, label %13846, label %13842
 
-.thread8788:                                      ; preds = %.body6863, %.body6863.thread
+.thread8755:                                      ; preds = %.body6863, %.body6863.thread
   %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %13565, %.body6863.thread ], [ %13569, %.body6863 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1267)
-  br label %.loopexit8928
+  br label %.loopexit8895
 
 13846:                                            ; preds = %13842
   call void @llvm.lifetime.end.p0(ptr nonnull %1267)
   %13847 = icmp ne ptr %1266, %.13333
   %or.cond301.not = select i1 %.13306, i1 %13847, i1 false
-  br i1 %or.cond301.not, label %.preheader8927, label %.loopexit8928
+  br i1 %or.cond301.not, label %.preheader8894, label %.loopexit8895
 
-.preheader8927:                                   ; preds = %13846, %.preheader8927
-  %13848 = phi ptr [ %13849, %.preheader8927 ], [ %.13333, %13846 ]
+.preheader8894:                                   ; preds = %13846, %.preheader8894
+  %13848 = phi ptr [ %13849, %.preheader8894 ], [ %.13333, %13846 ]
   %13849 = getelementptr inbounds i8, ptr %13848, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13849) #27
   %13850 = icmp eq ptr %13849, %1266
-  br i1 %13850, label %.loopexit8928, label %.preheader8927
+  br i1 %13850, label %.loopexit8895, label %.preheader8894
 
-.loopexit8928:                                    ; preds = %.preheader8927, %.thread8788, %13846
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn8793 = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8788 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13846 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader8927 ]
+.loopexit8895:                                    ; preds = %.preheader8894, %.thread8755, %13846
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn8760 = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.thread8755 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13846 ], [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader8894 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1266)
   call void @llvm.lifetime.end.p0(ptr nonnull %1265)
   br label %13851
 
-13851:                                            ; preds = %.loopexit8928, %13786
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn8793, %.loopexit8928 ], [ %13787, %13786 ]
+13851:                                            ; preds = %.loopexit8895, %13786
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn8760, %.loopexit8895 ], [ %13787, %13786 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1264)
   call void @llvm.lifetime.end.p0(ptr nonnull %1263)
   call void @llvm.lifetime.end.p0(ptr nonnull %1262)
@@ -40876,14 +40876,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1256) #27
   br label %13853
 
-13853:                                            ; preds = %13852, %.loopexit8935
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13852 ], [ %.pn4969.pn.pn.pn.pn.pn.pn8764, %.loopexit8935 ]
+13853:                                            ; preds = %13852, %.loopexit8902
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13852 ], [ %.pn4969.pn.pn.pn.pn.pn.pn8731, %.loopexit8902 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1256)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1250) #27
   br label %13854
 
-13854:                                            ; preds = %13853, %.loopexit8941
-  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13853 ], [ %.pn4961.pn.pn.pn.pn.pn.pn8748, %.loopexit8941 ]
+13854:                                            ; preds = %13853, %.loopexit8908
+  %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4977.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13853 ], [ %.pn4961.pn.pn.pn.pn.pn.pn8715, %.loopexit8908 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1250)
   br label %14089
 
@@ -40920,7 +40920,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %13861 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1276) #27
-  br label %.thread8804
+  br label %.thread8771
 
 13862:                                            ; preds = %13860
   %13863 = getelementptr inbounds nuw i8, ptr %1276, i64 16
@@ -40934,7 +40934,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13864) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1276) #27
-  br label %.thread8804
+  br label %.thread8771
 
 13866:                                            ; preds = %13862
   %13867 = getelementptr inbounds nuw i8, ptr %1276, i64 40
@@ -40965,15 +40965,15 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %1279)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1279, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1279, ptr noundef nonnull align 1 dereferenceable(4) @.str.20)
-          to label %13877 unwind label %.body6911.thread9369
+          to label %13877 unwind label %.body6911.thread9336
 
-.body6911.thread9369:                             ; preds = %13873
+.body6911.thread9336:                             ; preds = %13873
   %13876 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1279) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1279)
   call void @llvm.lifetime.end.p0(ptr nonnull %1278)
-  br label %.preheader8923.preheader
+  br label %.preheader8890.preheader
 
 13877:                                            ; preds = %13873
   %13878 = getelementptr inbounds nuw i8, ptr %1279, i64 16
@@ -41127,7 +41127,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13938 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1282) #27
-  br label %.thread8813
+  br label %.thread8780
 
 13939:                                            ; preds = %13937
   %13940 = getelementptr inbounds nuw i8, ptr %1282, i64 16
@@ -41141,7 +41141,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13941) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1282) #27
-  br label %.thread8813
+  br label %.thread8780
 
 13943:                                            ; preds = %13939
   %13944 = getelementptr inbounds nuw i8, ptr %1282, i64 40
@@ -41162,7 +41162,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %13949 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1283) #27
-  br label %.loopexit8919
+  br label %.loopexit8886
 
 13950:                                            ; preds = %13945
   %13951 = getelementptr inbounds nuw i8, ptr %1283, i64 16
@@ -41351,7 +41351,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %14017 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1289) #27
-  br label %.thread8822
+  br label %.thread8789
 
 14018:                                            ; preds = %14015
   %14019 = getelementptr inbounds nuw i8, ptr %1289, i64 16
@@ -41365,7 +41365,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14020) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1289) #27
-  br label %.thread8822
+  br label %.thread8789
 
 14022:                                            ; preds = %14018
   %14023 = getelementptr inbounds nuw i8, ptr %1289, i64 40
@@ -41386,7 +41386,7 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   %14028 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1290) #27
-  br label %.loopexit8915
+  br label %.loopexit8882
 
 14029:                                            ; preds = %14024
   %14030 = getelementptr inbounds nuw i8, ptr %1290, i64 16
@@ -41571,17 +41571,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 14099:                                            ; preds = %13877
   %14100 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8924
+  br label %.loopexit8891
 
 14101:                                            ; preds = %13882
   %14102 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8925
+  br label %.loopexit8892
 
 14103:                                            ; preds = %13884
   %14104 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8926
+  br label %.loopexit8893
 
 14105:                                            ; preds = %13886
   %14106 = landingpad { ptr, i32 }
@@ -41594,37 +41594,37 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14110 = getelementptr inbounds i8, ptr %14109, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14110) #27
   %14111 = icmp eq ptr %14110, %1275
-  br i1 %14111, label %.loopexit8926, label %14108
+  br i1 %14111, label %.loopexit8893, label %14108
 
-.loopexit8926:                                    ; preds = %14108, %14103
+.loopexit8893:                                    ; preds = %14108, %14103
   %.63278 = phi i1 [ true, %14103 ], [ false, %14108 ]
   %.pn4997 = phi { ptr, i32 } [ %14104, %14103 ], [ %14106, %14108 ]
   %14112 = getelementptr inbounds nuw i8, ptr %1277, i64 48
   br label %14113
 
-14113:                                            ; preds = %14113, %.loopexit8926
-  %14114 = phi ptr [ %14112, %.loopexit8926 ], [ %14115, %14113 ]
+14113:                                            ; preds = %14113, %.loopexit8893
+  %14114 = phi ptr [ %14112, %.loopexit8893 ], [ %14115, %14113 ]
   %14115 = getelementptr inbounds i8, ptr %14114, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14115) #27
   %14116 = icmp eq ptr %14115, %1277
-  br i1 %14116, label %.loopexit8925, label %14113
+  br i1 %14116, label %.loopexit8892, label %14113
 
-.loopexit8925:                                    ; preds = %14113, %14101
+.loopexit8892:                                    ; preds = %14113, %14101
   %14117 = phi i1 [ false, %14101 ], [ true, %14113 ]
   %.53277 = phi i1 [ true, %14101 ], [ %.63278, %14113 ]
   %.pn4997.pn = phi { ptr, i32 } [ %14102, %14101 ], [ %.pn4997, %14113 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1278) #27
-  br label %.loopexit8924
+  br label %.loopexit8891
 
-.loopexit8924:                                    ; preds = %.loopexit8925, %14099
-  %.23281 = phi i1 [ false, %14099 ], [ %14117, %.loopexit8925 ]
-  %.43276 = phi i1 [ true, %14099 ], [ %.53277, %.loopexit8925 ]
-  %.pn4997.pn.pn = phi { ptr, i32 } [ %14100, %14099 ], [ %.pn4997.pn, %.loopexit8925 ]
+.loopexit8891:                                    ; preds = %.loopexit8892, %14099
+  %.23281 = phi i1 [ false, %14099 ], [ %14117, %.loopexit8892 ]
+  %.43276 = phi i1 [ true, %14099 ], [ %.53277, %.loopexit8892 ]
+  %.pn4997.pn.pn = phi { ptr, i32 } [ %14100, %14099 ], [ %.pn4997.pn, %.loopexit8892 ]
   %14118 = getelementptr inbounds nuw i8, ptr %1279, i64 48
   br label %14119
 
-14119:                                            ; preds = %14119, %.loopexit8924
-  %14120 = phi ptr [ %14118, %.loopexit8924 ], [ %14121, %14119 ]
+14119:                                            ; preds = %14119, %.loopexit8891
+  %14120 = phi ptr [ %14118, %.loopexit8891 ], [ %14121, %14119 ]
   %14121 = getelementptr inbounds i8, ptr %14120, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14121) #27
   %14122 = icmp eq ptr %14121, %1279
@@ -41633,24 +41633,24 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .body6911:                                        ; preds = %14119
   call void @llvm.lifetime.end.p0(ptr nonnull %1279)
   call void @llvm.lifetime.end.p0(ptr nonnull %1278)
-  br i1 %.23281, label %.body6911.thread, label %.preheader8923.preheader
+  br i1 %.23281, label %.body6911.thread, label %.preheader8890.preheader
 
-.preheader8923.preheader:                         ; preds = %.body6911.thread9369, %.body6911
-  %.pn4997.pn.pn.pn9374 = phi { ptr, i32 } [ %13876, %.body6911.thread9369 ], [ %.pn4997.pn.pn, %.body6911 ]
-  %.332759373 = phi i1 [ true, %.body6911.thread9369 ], [ %.43276, %.body6911 ]
+.preheader8890.preheader:                         ; preds = %.body6911.thread9336, %.body6911
+  %.pn4997.pn.pn.pn9341 = phi { ptr, i32 } [ %13876, %.body6911.thread9336 ], [ %.pn4997.pn.pn, %.body6911 ]
+  %.332759340 = phi i1 [ true, %.body6911.thread9336 ], [ %.43276, %.body6911 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1277) #27
   br label %.body6911.thread
 
-.body6911.thread:                                 ; preds = %.preheader8923.preheader, %13871, %.body6911
-  %.pn4997.pn.pn.pn.pn8802 = phi { ptr, i32 } [ %.pn4997.pn.pn, %.body6911 ], [ %13872, %13871 ], [ %.pn4997.pn.pn.pn9374, %.preheader8923.preheader ]
-  %.232748801 = phi i1 [ %.43276, %.body6911 ], [ true, %13871 ], [ %.332759373, %.preheader8923.preheader ]
+.body6911.thread:                                 ; preds = %.preheader8890.preheader, %13871, %.body6911
+  %.pn4997.pn.pn.pn.pn8769 = phi { ptr, i32 } [ %.pn4997.pn.pn, %.body6911 ], [ %13872, %13871 ], [ %.pn4997.pn.pn.pn9341, %.preheader8890.preheader ]
+  %.232748768 = phi i1 [ %.43276, %.body6911 ], [ true, %13871 ], [ %.332759340, %.preheader8890.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1277)
   br label %14123
 
 14123:                                            ; preds = %.body6911.thread, %14097
   %.13304 = phi ptr [ %13870, %.body6911.thread ], [ %1275, %14097 ]
-  %.13273 = phi i1 [ %.232748801, %.body6911.thread ], [ true, %14097 ]
-  %.pn4997.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4997.pn.pn.pn.pn8802, %.body6911.thread ], [ %14098, %14097 ]
+  %.13273 = phi i1 [ %.232748768, %.body6911.thread ], [ true, %14097 ]
+  %.pn4997.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4997.pn.pn.pn.pn8769, %.body6911.thread ], [ %14098, %14097 ]
   %14124 = getelementptr inbounds nuw i8, ptr %1276, i64 48
   br label %14125
 
@@ -41661,26 +41661,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14128 = icmp eq ptr %14127, %1276
   br i1 %14128, label %14129, label %14125
 
-.thread8804:                                      ; preds = %.body6903, %.body6903.thread
+.thread8771:                                      ; preds = %.body6903, %.body6903.thread
   %.pn4997.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %13861, %.body6903.thread ], [ %13865, %.body6903 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1276)
-  br label %.loopexit8922
+  br label %.loopexit8889
 
 14129:                                            ; preds = %14125
   call void @llvm.lifetime.end.p0(ptr nonnull %1276)
   %14130 = icmp ne ptr %1275, %.13304
   %or.cond313.not = select i1 %.13273, i1 %14130, i1 false
-  br i1 %or.cond313.not, label %.preheader8921, label %.loopexit8922
+  br i1 %or.cond313.not, label %.preheader8888, label %.loopexit8889
 
-.preheader8921:                                   ; preds = %14129, %.preheader8921
-  %14131 = phi ptr [ %14132, %.preheader8921 ], [ %.13304, %14129 ]
+.preheader8888:                                   ; preds = %14129, %.preheader8888
+  %14131 = phi ptr [ %14132, %.preheader8888 ], [ %.13304, %14129 ]
   %14132 = getelementptr inbounds i8, ptr %14131, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14132) #27
   %14133 = icmp eq ptr %14132, %1275
-  br i1 %14133, label %.loopexit8922, label %.preheader8921
+  br i1 %14133, label %.loopexit8889, label %.preheader8888
 
-.loopexit8922:                                    ; preds = %.preheader8921, %.thread8804, %14129
-  %.pn4997.pn.pn.pn.pn.pn.pn8809 = phi { ptr, i32 } [ %.pn4997.pn.pn.pn.pn.pn.pn.ph, %.thread8804 ], [ %.pn4997.pn.pn.pn.pn.pn, %14129 ], [ %.pn4997.pn.pn.pn.pn.pn, %.preheader8921 ]
+.loopexit8889:                                    ; preds = %.preheader8888, %.thread8771, %14129
+  %.pn4997.pn.pn.pn.pn.pn.pn8776 = phi { ptr, i32 } [ %.pn4997.pn.pn.pn.pn.pn.pn.ph, %.thread8771 ], [ %.pn4997.pn.pn.pn.pn.pn, %14129 ], [ %.pn4997.pn.pn.pn.pn.pn, %.preheader8888 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1275)
   br label %14202
 
@@ -41692,7 +41692,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 14136:                                            ; preds = %13950
   %14137 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8920
+  br label %.loopexit8887
 
 14138:                                            ; preds = %13955
   %14139 = landingpad { ptr, i32 }
@@ -41705,31 +41705,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14143 = getelementptr inbounds i8, ptr %14142, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14143) #27
   %14144 = icmp eq ptr %14143, %1281
-  br i1 %14144, label %.loopexit8920, label %14141
+  br i1 %14144, label %.loopexit8887, label %14141
 
-.loopexit8920:                                    ; preds = %14141, %14136
+.loopexit8887:                                    ; preds = %14141, %14136
   %.33261 = phi i1 [ true, %14136 ], [ false, %14141 ]
   %.pn5005 = phi { ptr, i32 } [ %14137, %14136 ], [ %14139, %14141 ]
   %14145 = getelementptr inbounds nuw i8, ptr %1283, i64 48
   br label %14146
 
-14146:                                            ; preds = %14146, %.loopexit8920
-  %14147 = phi ptr [ %14145, %.loopexit8920 ], [ %14148, %14146 ]
+14146:                                            ; preds = %14146, %.loopexit8887
+  %14147 = phi ptr [ %14145, %.loopexit8887 ], [ %14148, %14146 ]
   %14148 = getelementptr inbounds i8, ptr %14147, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14148) #27
   %14149 = icmp eq ptr %14148, %1283
-  br i1 %14149, label %.loopexit8919, label %14146
+  br i1 %14149, label %.loopexit8886, label %14146
 
-.loopexit8919:                                    ; preds = %14146, %13948
+.loopexit8886:                                    ; preds = %14146, %13948
   %.23260 = phi i1 [ true, %13948 ], [ %.33261, %14146 ]
   %.pn5005.pn = phi { ptr, i32 } [ %13949, %13948 ], [ %.pn5005, %14146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1283)
   br label %14150
 
-14150:                                            ; preds = %.loopexit8919, %14134
-  %.13268 = phi ptr [ %13947, %.loopexit8919 ], [ %1281, %14134 ]
-  %.13259 = phi i1 [ %.23260, %.loopexit8919 ], [ true, %14134 ]
-  %.pn5005.pn.pn = phi { ptr, i32 } [ %.pn5005.pn, %.loopexit8919 ], [ %14135, %14134 ]
+14150:                                            ; preds = %.loopexit8886, %14134
+  %.13268 = phi ptr [ %13947, %.loopexit8886 ], [ %1281, %14134 ]
+  %.13259 = phi i1 [ %.23260, %.loopexit8886 ], [ true, %14134 ]
+  %.pn5005.pn.pn = phi { ptr, i32 } [ %.pn5005.pn, %.loopexit8886 ], [ %14135, %14134 ]
   %14151 = getelementptr inbounds nuw i8, ptr %1282, i64 48
   br label %14152
 
@@ -41740,26 +41740,26 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14155 = icmp eq ptr %14154, %1282
   br i1 %14155, label %14156, label %14152
 
-.thread8813:                                      ; preds = %.body6933, %.body6933.thread
+.thread8780:                                      ; preds = %.body6933, %.body6933.thread
   %.pn5005.pn.pn.pn.ph = phi { ptr, i32 } [ %13938, %.body6933.thread ], [ %13942, %.body6933 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1282)
-  br label %.loopexit8918
+  br label %.loopexit8885
 
 14156:                                            ; preds = %14152
   call void @llvm.lifetime.end.p0(ptr nonnull %1282)
   %14157 = icmp ne ptr %1281, %.13268
   %or.cond319.not = select i1 %.13259, i1 %14157, i1 false
-  br i1 %or.cond319.not, label %.preheader8917, label %.loopexit8918
+  br i1 %or.cond319.not, label %.preheader8884, label %.loopexit8885
 
-.preheader8917:                                   ; preds = %14156, %.preheader8917
-  %14158 = phi ptr [ %14159, %.preheader8917 ], [ %.13268, %14156 ]
+.preheader8884:                                   ; preds = %14156, %.preheader8884
+  %14158 = phi ptr [ %14159, %.preheader8884 ], [ %.13268, %14156 ]
   %14159 = getelementptr inbounds i8, ptr %14158, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14159) #27
   %14160 = icmp eq ptr %14159, %1281
-  br i1 %14160, label %.loopexit8918, label %.preheader8917
+  br i1 %14160, label %.loopexit8885, label %.preheader8884
 
-.loopexit8918:                                    ; preds = %.preheader8917, %.thread8813, %14156
-  %.pn5005.pn.pn.pn8818 = phi { ptr, i32 } [ %.pn5005.pn.pn.pn.ph, %.thread8813 ], [ %.pn5005.pn.pn, %14156 ], [ %.pn5005.pn.pn, %.preheader8917 ]
+.loopexit8885:                                    ; preds = %.preheader8884, %.thread8780, %14156
+  %.pn5005.pn.pn.pn8785 = phi { ptr, i32 } [ %.pn5005.pn.pn.pn.ph, %.thread8780 ], [ %.pn5005.pn.pn, %14156 ], [ %.pn5005.pn.pn, %.preheader8884 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1281)
   br label %14201
 
@@ -41781,7 +41781,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 14167:                                            ; preds = %14029
   %14168 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8916
+  br label %.loopexit8883
 
 14169:                                            ; preds = %14034
   %14170 = landingpad { ptr, i32 }
@@ -41815,31 +41815,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14181 = getelementptr inbounds i8, ptr %14180, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14181) #27
   %14182 = icmp eq ptr %14181, %1288
-  br i1 %14182, label %.loopexit8916, label %14179
+  br i1 %14182, label %.loopexit8883, label %14179
 
-.loopexit8916:                                    ; preds = %14179, %14167
+.loopexit8883:                                    ; preds = %14179, %14167
   %.33249 = phi i1 [ true, %14167 ], [ false, %14179 ]
   %.pn5010.pn.pn = phi { ptr, i32 } [ %14168, %14167 ], [ %.pn5010.pn, %14179 ]
   %14183 = getelementptr inbounds nuw i8, ptr %1290, i64 48
   br label %14184
 
-14184:                                            ; preds = %14184, %.loopexit8916
-  %14185 = phi ptr [ %14183, %.loopexit8916 ], [ %14186, %14184 ]
+14184:                                            ; preds = %14184, %.loopexit8883
+  %14185 = phi ptr [ %14183, %.loopexit8883 ], [ %14186, %14184 ]
   %14186 = getelementptr inbounds i8, ptr %14185, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14186) #27
   %14187 = icmp eq ptr %14186, %1290
-  br i1 %14187, label %.loopexit8915, label %14184
+  br i1 %14187, label %.loopexit8882, label %14184
 
-.loopexit8915:                                    ; preds = %14184, %14027
+.loopexit8882:                                    ; preds = %14184, %14027
   %.23248 = phi i1 [ true, %14027 ], [ %.33249, %14184 ]
   %.pn5010.pn.pn.pn = phi { ptr, i32 } [ %14028, %14027 ], [ %.pn5010.pn.pn, %14184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1290)
   br label %14188
 
-14188:                                            ; preds = %.loopexit8915, %14165
-  %.13257 = phi ptr [ %14026, %.loopexit8915 ], [ %1288, %14165 ]
-  %.13247 = phi i1 [ %.23248, %.loopexit8915 ], [ true, %14165 ]
-  %.pn5010.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn, %.loopexit8915 ], [ %14166, %14165 ]
+14188:                                            ; preds = %.loopexit8882, %14165
+  %.13257 = phi ptr [ %14026, %.loopexit8882 ], [ %1288, %14165 ]
+  %.13247 = phi i1 [ %.23248, %.loopexit8882 ], [ true, %14165 ]
+  %.pn5010.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn, %.loopexit8882 ], [ %14166, %14165 ]
   %14189 = getelementptr inbounds nuw i8, ptr %1289, i64 48
   br label %14190
 
@@ -41850,32 +41850,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14193 = icmp eq ptr %14192, %1289
   br i1 %14193, label %14194, label %14190
 
-.thread8822:                                      ; preds = %.body6961, %.body6961.thread
+.thread8789:                                      ; preds = %.body6961, %.body6961.thread
   %.pn5010.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %14017, %.body6961.thread ], [ %14021, %.body6961 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1289)
-  br label %.loopexit8914
+  br label %.loopexit8881
 
 14194:                                            ; preds = %14190
   call void @llvm.lifetime.end.p0(ptr nonnull %1289)
   %14195 = icmp ne ptr %1288, %.13257
   %or.cond325.not = select i1 %.13247, i1 %14195, i1 false
-  br i1 %or.cond325.not, label %.preheader8913, label %.loopexit8914
+  br i1 %or.cond325.not, label %.preheader8880, label %.loopexit8881
 
-.preheader8913:                                   ; preds = %14194, %.preheader8913
-  %14196 = phi ptr [ %14197, %.preheader8913 ], [ %.13257, %14194 ]
+.preheader8880:                                   ; preds = %14194, %.preheader8880
+  %14196 = phi ptr [ %14197, %.preheader8880 ], [ %.13257, %14194 ]
   %14197 = getelementptr inbounds i8, ptr %14196, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14197) #27
   %14198 = icmp eq ptr %14197, %1288
-  br i1 %14198, label %.loopexit8914, label %.preheader8913
+  br i1 %14198, label %.loopexit8881, label %.preheader8880
 
-.loopexit8914:                                    ; preds = %.preheader8913, %.thread8822, %14194
-  %.pn5010.pn.pn.pn.pn.pn8827 = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.ph, %.thread8822 ], [ %.pn5010.pn.pn.pn.pn, %14194 ], [ %.pn5010.pn.pn.pn.pn, %.preheader8913 ]
+.loopexit8881:                                    ; preds = %.preheader8880, %.thread8789, %14194
+  %.pn5010.pn.pn.pn.pn.pn8794 = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.ph, %.thread8789 ], [ %.pn5010.pn.pn.pn.pn, %14194 ], [ %.pn5010.pn.pn.pn.pn, %.preheader8880 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1288)
   call void @llvm.lifetime.end.p0(ptr nonnull %1287)
   br label %14199
 
-14199:                                            ; preds = %.loopexit8914, %14163
-  %.pn5010.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn8827, %.loopexit8914 ], [ %14164, %14163 ]
+14199:                                            ; preds = %.loopexit8881, %14163
+  %.pn5010.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn8794, %.loopexit8881 ], [ %14164, %14163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1286)
   call void @llvm.lifetime.end.p0(ptr nonnull %1285)
   call void @llvm.lifetime.end.p0(ptr nonnull %1284)
@@ -41886,14 +41886,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1280) #27
   br label %14201
 
-14201:                                            ; preds = %14200, %.loopexit8918
-  %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.pn.pn, %14200 ], [ %.pn5005.pn.pn.pn8818, %.loopexit8918 ]
+14201:                                            ; preds = %14200, %.loopexit8885
+  %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.pn.pn, %14200 ], [ %.pn5005.pn.pn.pn8785, %.loopexit8885 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1280)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1274) #27
   br label %14202
 
-14202:                                            ; preds = %14201, %.loopexit8922
-  %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn, %14201 ], [ %.pn4997.pn.pn.pn.pn.pn.pn8809, %.loopexit8922 ]
+14202:                                            ; preds = %14201, %.loopexit8889
+  %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5010.pn.pn.pn.pn.pn.pn.pn.pn, %14201 ], [ %.pn4997.pn.pn.pn.pn.pn.pn8776, %.loopexit8889 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1274)
   br label %14204
 
@@ -42648,7 +42648,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %14403 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1326) #27
-  br label %.loopexit8911
+  br label %.loopexit8878
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRA4_KcA4_cTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SK_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %14402
   %14404 = getelementptr inbounds nuw i8, ptr %1326, i64 16
@@ -42791,7 +42791,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14443 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1331) #27
-  br label %.loopexit8909
+  br label %.loopexit8876
 
 14444:                                            ; preds = %14441
   %14445 = getelementptr inbounds nuw i8, ptr %1331, i64 16
@@ -43092,20 +43092,20 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %14601
 
 .body7017:                                        ; preds = %14405, %14408
-  %.sink9398 = phi ptr [ %14404, %14405 ], [ %14407, %14408 ]
+  %.sink9365 = phi ptr [ %14404, %14405 ], [ %14407, %14408 ]
   %eh.lpad-body7018 = phi { ptr, i32 } [ %14406, %14405 ], [ %14409, %14408 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink9398) #27
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink9365) #27
   br label %14550
 
 14550:                                            ; preds = %.body7017, %14550
-  %14551 = phi ptr [ %.sink9398, %.body7017 ], [ %14552, %14550 ]
+  %14551 = phi ptr [ %.sink9365, %.body7017 ], [ %14552, %14550 ]
   %14552 = getelementptr inbounds i8, ptr %14551, i64 -16
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14552) #27
   %14553 = icmp eq ptr %14552, %1326
-  br i1 %14553, label %.loopexit8911, label %14550
+  br i1 %14553, label %.loopexit8878, label %14550
 
 .body7027:                                        ; preds = %.body7502.thread, %.body7502, %14427
-  %eh.lpad-body75039377 = phi { ptr, i32 } [ %14426, %.body7502.thread ], [ %14421, %.body7502 ], [ %14421, %14427 ]
+  %eh.lpad-body75039344 = phi { ptr, i32 } [ %14426, %.body7502.thread ], [ %14421, %.body7502 ], [ %14421, %14427 ]
   br label %14554
 
 14554:                                            ; preds = %14554, %.body7027
@@ -43113,10 +43113,10 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14556 = getelementptr inbounds i8, ptr %14555, i64 -16
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14556) #27
   %14557 = icmp eq ptr %14556, %1326
-  br i1 %14557, label %.loopexit8911, label %14554
+  br i1 %14557, label %.loopexit8878, label %14554
 
-.loopexit8911:                                    ; preds = %14550, %14554, %.body7017.thread
-  %.pn5063 = phi { ptr, i32 } [ %eh.lpad-body75039377, %14554 ], [ %14403, %.body7017.thread ], [ %eh.lpad-body7018, %14550 ]
+.loopexit8878:                                    ; preds = %14550, %14554, %.body7017.thread
+  %.pn5063 = phi { ptr, i32 } [ %eh.lpad-body75039344, %14554 ], [ %14403, %.body7017.thread ], [ %eh.lpad-body7018, %14550 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1326)
   br label %14600
 
@@ -43131,17 +43131,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %14580
 
 .body7032:                                        ; preds = %14447, %14452
-  %.sink9399 = phi ptr [ %14446, %14447 ], [ %14451, %14452 ]
+  %.sink9366 = phi ptr [ %14446, %14447 ], [ %14451, %14452 ]
   %eh.lpad-body7033 = phi { ptr, i32 } [ %14448, %14447 ], [ %14453, %14452 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9399) #27
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink9366) #27
   br label %14562
 
 14562:                                            ; preds = %.body7032, %14562
-  %14563 = phi ptr [ %.sink9399, %.body7032 ], [ %14564, %14562 ]
+  %14563 = phi ptr [ %.sink9366, %.body7032 ], [ %14564, %14562 ]
   %14564 = getelementptr inbounds i8, ptr %14563, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14564) #27
   %14565 = icmp eq ptr %14564, %1331
-  br i1 %14565, label %.loopexit8909, label %14562
+  br i1 %14565, label %.loopexit8876, label %14562
 
 14566:                                            ; preds = %14454
   %14567 = landingpad { ptr, i32 }
@@ -43175,16 +43175,16 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14578 = getelementptr inbounds i8, ptr %14577, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14578) #27
   %14579 = icmp eq ptr %14578, %1331
-  br i1 %14579, label %.loopexit8909, label %14576
+  br i1 %14579, label %.loopexit8876, label %14576
 
-.loopexit8909:                                    ; preds = %14562, %14576, %.body7032.thread
+.loopexit8876:                                    ; preds = %14562, %14576, %.body7032.thread
   %.pn5065.pn.pn = phi { ptr, i32 } [ %.pn5065.pn, %14576 ], [ %14443, %.body7032.thread ], [ %eh.lpad-body7033, %14562 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1331)
   call void @llvm.lifetime.end.p0(ptr nonnull %1330)
   br label %14580
 
-14580:                                            ; preds = %.loopexit8909, %14560
-  %.pn5065.pn.pn.pn = phi { ptr, i32 } [ %.pn5065.pn.pn, %.loopexit8909 ], [ %14561, %14560 ]
+14580:                                            ; preds = %.loopexit8876, %14560
+  %.pn5065.pn.pn.pn = phi { ptr, i32 } [ %.pn5065.pn.pn, %.loopexit8876 ], [ %14561, %14560 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1329)
   call void @llvm.lifetime.end.p0(ptr nonnull %1328)
   call void @llvm.lifetime.end.p0(ptr nonnull %1327)
@@ -43246,8 +43246,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1325) #27
   br label %14600
 
-14600:                                            ; preds = %14599, %.loopexit8911
-  %.pn5070.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5070.pn.pn.pn, %14599 ], [ %.pn5063, %.loopexit8911 ]
+14600:                                            ; preds = %14599, %.loopexit8878
+  %.pn5070.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5070.pn.pn.pn, %14599 ], [ %.pn5063, %.loopexit8878 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1325)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1323) #27
   br label %14601
@@ -43294,7 +43294,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14608 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1341) #27
-  br label %.loopexit8907
+  br label %.loopexit8874
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRA4_KcA4_cTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SK_EE5valueEiE4typeELi0EEEOT_.exit7056: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit7053
   %14609 = getelementptr inbounds nuw i8, ptr %1341, i64 16
@@ -43378,12 +43378,12 @@ _ZSt10_ConstructIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__c
   br label %.body7066
 
 .body7511:                                        ; preds = %14625
-  %.pr8832 = load ptr, ptr %1340, align 8, !tbaa !69
-  %.not.i.i.i7064 = icmp eq ptr %.pr8832, null
+  %.pr8799 = load ptr, ptr %1340, align 8, !tbaa !69
+  %.not.i.i.i7064 = icmp eq ptr %.pr8799, null
   br i1 %.not.i.i.i7064, label %.body7066, label %14632
 
 14632:                                            ; preds = %.body7511
-  call void @_ZdlPv(ptr noundef nonnull %.pr8832) #30
+  call void @_ZdlPv(ptr noundef nonnull %.pr8799) #30
   br label %.body7066
 
 14633:                                            ; preds = %_ZSt10_ConstructIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i7508
@@ -43465,20 +43465,20 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %14725
 
 .body7054:                                        ; preds = %14610, %14613
-  %.sink9400 = phi ptr [ %14609, %14610 ], [ %14612, %14613 ]
+  %.sink9367 = phi ptr [ %14609, %14610 ], [ %14612, %14613 ]
   %eh.lpad-body7055 = phi { ptr, i32 } [ %14611, %14610 ], [ %14614, %14613 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink9400) #27
+  call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink9367) #27
   br label %14661
 
 14661:                                            ; preds = %.body7054, %14661
-  %14662 = phi ptr [ %.sink9400, %.body7054 ], [ %14663, %14661 ]
+  %14662 = phi ptr [ %.sink9367, %.body7054 ], [ %14663, %14661 ]
   %14663 = getelementptr inbounds i8, ptr %14662, i64 -16
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14663) #27
   %14664 = icmp eq ptr %14663, %1341
-  br i1 %14664, label %.loopexit8907, label %14661
+  br i1 %14664, label %.loopexit8874, label %14661
 
 .body7066:                                        ; preds = %.body7511.thread, %.body7511, %14632
-  %eh.lpad-body75129380 = phi { ptr, i32 } [ %14631, %.body7511.thread ], [ %14626, %.body7511 ], [ %14626, %14632 ]
+  %eh.lpad-body75129347 = phi { ptr, i32 } [ %14631, %.body7511.thread ], [ %14626, %.body7511 ], [ %14626, %14632 ]
   br label %14665
 
 14665:                                            ; preds = %14665, %.body7066
@@ -43486,10 +43486,10 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14667 = getelementptr inbounds i8, ptr %14666, i64 -16
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14667) #27
   %14668 = icmp eq ptr %14667, %1341
-  br i1 %14668, label %.loopexit8907, label %14665
+  br i1 %14668, label %.loopexit8874, label %14665
 
-.loopexit8907:                                    ; preds = %14661, %14665, %.body7054.thread
-  %.pn5081 = phi { ptr, i32 } [ %eh.lpad-body75129380, %14665 ], [ %14608, %.body7054.thread ], [ %eh.lpad-body7055, %14661 ]
+.loopexit8874:                                    ; preds = %14661, %14665, %.body7054.thread
+  %.pn5081 = phi { ptr, i32 } [ %eh.lpad-body75129347, %14665 ], [ %14608, %.body7054.thread ], [ %eh.lpad-body7055, %14661 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1341)
   br label %14723
 
@@ -43660,8 +43660,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1340) #27
   br label %14723
 
-14723:                                            ; preds = %14722, %.loopexit8907
-  %.pn5087.pn.pn.pn = phi { ptr, i32 } [ %.pn5087.pn.pn, %14722 ], [ %.pn5081, %.loopexit8907 ]
+14723:                                            ; preds = %14722, %.loopexit8874
+  %.pn5087.pn.pn.pn = phi { ptr, i32 } [ %.pn5087.pn.pn, %14722 ], [ %.pn5081, %.loopexit8874 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1340)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1339) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1339)
@@ -43724,14 +43724,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %1350)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1350, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1350, ptr noundef nonnull align 1 dereferenceable(4) @.str.20)
-          to label %14738 unwind label %.thread8836
+          to label %14738 unwind label %.thread8803
 
-.thread8836:                                      ; preds = %14736
+.thread8803:                                      ; preds = %14736
   %14737 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1350) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1350)
-  br label %.loopexit8904
+  br label %.loopexit8871
 
 14738:                                            ; preds = %14736
   %14739 = getelementptr inbounds nuw i8, ptr %1350, i64 16
@@ -43758,7 +43758,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14747 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1351) #27
-  br label %.loopexit8905
+  br label %.loopexit8872
 
 14748:                                            ; preds = %14743
   %14749 = getelementptr inbounds nuw i8, ptr %1351, i64 16
@@ -43854,17 +43854,17 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.start.p0(ptr nonnull %1352)
   call void @llvm.lifetime.start.p0(ptr nonnull %1353)
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEC2IRA4_KcSK_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_(ptr noundef nonnull align 8 dereferenceable(48) %1353, ptr noundef nonnull align 1 dereferenceable(4) @.str.211, ptr noundef nonnull align 1 dereferenceable(4) @.str.212)
-          to label %14790 unwind label %.thread8844
+          to label %14790 unwind label %.thread8811
 
-.thread8844:                                      ; preds = %14788
+.thread8811:                                      ; preds = %14788
   %14789 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8901
+  br label %.loopexit8868
 
 14790:                                            ; preds = %14788
   %14791 = getelementptr inbounds nuw i8, ptr %1353, i64 48
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEC2IRA8_KcRA5_SI_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(48) %14791, ptr noundef nonnull align 1 dereferenceable(8) @.str.213, ptr noundef nonnull align 1 dereferenceable(5) @.str.214)
-          to label %14792 unwind label %.loopexit8901.loopexit9083
+          to label %14792 unwind label %.loopexit8868.loopexit9050
 
 14792:                                            ; preds = %14790
   %14793 = getelementptr inbounds nuw i8, ptr %1352, i64 8
@@ -43961,7 +43961,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
   %14819 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1359) #27
-  br label %.thread8851
+  br label %.thread8818
 
 14820:                                            ; preds = %14817
   %14821 = getelementptr inbounds nuw i8, ptr %1359, i64 16
@@ -43975,7 +43975,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14822) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1359) #27
-  br label %.thread8851
+  br label %.thread8818
 
 14824:                                            ; preds = %14820
   %14825 = getelementptr inbounds nuw i8, ptr %1359, i64 40
@@ -43996,7 +43996,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
   %14829 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1360) #27
-  br label %.loopexit8898
+  br label %.loopexit8865
 
 14830:                                            ; preds = %14826
   %14831 = getelementptr inbounds nuw i8, ptr %1360, i64 16
@@ -44010,7 +44010,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14832) #27
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1360) #27
-  br label %.loopexit8898
+  br label %.loopexit8865
 
 14834:                                            ; preds = %14830
   %14835 = getelementptr inbounds nuw i8, ptr %1360, i64 40
@@ -44144,14 +44144,14 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void @llvm.lifetime.start.p0(ptr nonnull %1366)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1366, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail20external_constructorILNS1_7value_tE3EE9constructINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES8_IhSaIhEEvEEA4_cTnNSt9enable_ifIXntsr3std7is_sameIT0_NT_8string_tEEE5valueEiE4typeELi0EEEvRSM_RKSL_(ptr noundef nonnull align 8 dereferenceable(24) %1366, ptr noundef nonnull align 1 dereferenceable(4) @.str.20)
-          to label %14885 unwind label %.thread8858
+          to label %14885 unwind label %.thread8825
 
-.thread8858:                                      ; preds = %14882
+.thread8825:                                      ; preds = %14882
   %14884 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1366) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1366)
-  br label %.loopexit8893
+  br label %.loopexit8860
 
 14885:                                            ; preds = %14882
   %14886 = getelementptr inbounds nuw i8, ptr %1366, i64 16
@@ -44178,7 +44178,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %14894 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1367) #27
-  br label %.loopexit8894
+  br label %.loopexit8861
 
 14895:                                            ; preds = %14890
   %14896 = getelementptr inbounds nuw i8, ptr %1367, i64 16
@@ -44383,7 +44383,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 14971:                                            ; preds = %14748
   %14972 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8906
+  br label %.loopexit8873
 
 14973:                                            ; preds = %14753
   %14974 = landingpad { ptr, i32 }
@@ -44396,31 +44396,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %14978 = getelementptr inbounds i8, ptr %14977, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14978) #27
   %14979 = icmp eq ptr %14978, %1349
-  br i1 %14979, label %.loopexit8906, label %14976
+  br i1 %14979, label %.loopexit8873, label %14976
 
-.loopexit8906:                                    ; preds = %14976, %14971
+.loopexit8873:                                    ; preds = %14976, %14971
   %14980 = phi i1 [ false, %14971 ], [ true, %14976 ]
   %.pn5100 = phi { ptr, i32 } [ %14972, %14971 ], [ %14974, %14976 ]
   %14981 = getelementptr inbounds nuw i8, ptr %1351, i64 48
   br label %14982
 
-14982:                                            ; preds = %14982, %.loopexit8906
-  %14983 = phi ptr [ %14981, %.loopexit8906 ], [ %14984, %14982 ]
+14982:                                            ; preds = %14982, %.loopexit8873
+  %14983 = phi ptr [ %14981, %.loopexit8873 ], [ %14984, %14982 ]
   %14984 = getelementptr inbounds i8, ptr %14983, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14984) #27
   %14985 = icmp eq ptr %14984, %1351
-  br i1 %14985, label %.loopexit8905, label %14982
+  br i1 %14985, label %.loopexit8872, label %14982
 
-.loopexit8905:                                    ; preds = %14982, %14746
+.loopexit8872:                                    ; preds = %14982, %14746
   %.23203 = phi i1 [ false, %14746 ], [ %14980, %14982 ]
   %.pn5100.pn = phi { ptr, i32 } [ %14747, %14746 ], [ %.pn5100, %14982 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1351)
   br label %14986
 
-14986:                                            ; preds = %.loopexit8905, %14969
-  %.13213 = phi ptr [ %14745, %.loopexit8905 ], [ %1349, %14969 ]
-  %.13202 = phi i1 [ %.23203, %.loopexit8905 ], [ false, %14969 ]
-  %.pn5100.pn.pn = phi { ptr, i32 } [ %.pn5100.pn, %.loopexit8905 ], [ %14970, %14969 ]
+14986:                                            ; preds = %.loopexit8872, %14969
+  %.13213 = phi ptr [ %14745, %.loopexit8872 ], [ %1349, %14969 ]
+  %.13202 = phi i1 [ %.23203, %.loopexit8872 ], [ false, %14969 ]
+  %.pn5100.pn.pn = phi { ptr, i32 } [ %.pn5100.pn, %.loopexit8872 ], [ %14970, %14969 ]
   %14987 = getelementptr inbounds nuw i8, ptr %1350, i64 48
   br label %14988
 
@@ -44435,35 +44435,35 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1350)
   %14993 = icmp eq ptr %1349, %.13213
   %or.cond340 = select i1 %.13202, i1 true, i1 %14993
-  br i1 %or.cond340, label %.loopexit8904, label %.preheader8903
+  br i1 %or.cond340, label %.loopexit8871, label %.preheader8870
 
-.preheader8903:                                   ; preds = %14992, %.preheader8903
-  %14994 = phi ptr [ %14995, %.preheader8903 ], [ %.13213, %14992 ]
+.preheader8870:                                   ; preds = %14992, %.preheader8870
+  %14994 = phi ptr [ %14995, %.preheader8870 ], [ %.13213, %14992 ]
   %14995 = getelementptr inbounds i8, ptr %14994, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14995) #27
   %14996 = icmp eq ptr %14995, %1349
-  br i1 %14996, label %.loopexit8904, label %.preheader8903
+  br i1 %14996, label %.loopexit8871, label %.preheader8870
 
-.loopexit8904:                                    ; preds = %.preheader8903, %.thread8836, %14992
-  %.pn5100.pn.pn.pn8843 = phi { ptr, i32 } [ %14737, %.thread8836 ], [ %.pn5100.pn.pn, %14992 ], [ %.pn5100.pn.pn, %.preheader8903 ]
+.loopexit8871:                                    ; preds = %.preheader8870, %.thread8803, %14992
+  %.pn5100.pn.pn.pn8810 = phi { ptr, i32 } [ %14737, %.thread8803 ], [ %.pn5100.pn.pn, %14992 ], [ %.pn5100.pn.pn, %.preheader8870 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1349)
   br label %15081
 
-.loopexit8901.loopexit9083:                       ; preds = %14790
+.loopexit8868.loopexit9050:                       ; preds = %14790
   %14997 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %1353) #27
-  br label %.loopexit8901
+  br label %.loopexit8868
 
 14998:                                            ; preds = %14998, %.body7098
   %14999 = phi ptr [ %14798, %.body7098 ], [ %15000, %14998 ]
   %15000 = getelementptr inbounds i8, ptr %14999, i64 -48
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15000) #27
   %15001 = icmp eq ptr %15000, %1353
-  br i1 %15001, label %.loopexit8901, label %14998
+  br i1 %15001, label %.loopexit8868, label %14998
 
-.loopexit8901:                                    ; preds = %14998, %.loopexit8901.loopexit9083, %.thread8844
-  %.pn5105 = phi { ptr, i32 } [ %14997, %.loopexit8901.loopexit9083 ], [ %14789, %.thread8844 ], [ %14800, %14998 ]
+.loopexit8868:                                    ; preds = %14998, %.loopexit8868.loopexit9050, %.thread8811
+  %.pn5105 = phi { ptr, i32 } [ %14997, %.loopexit8868.loopexit9050 ], [ %14789, %.thread8811 ], [ %14800, %14998 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1353)
   br label %15080
 
@@ -44485,7 +44485,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 15008:                                            ; preds = %14834
   %15009 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8899
+  br label %.loopexit8866
 
 15010:                                            ; preds = %14836
   %15011 = landingpad { ptr, i32 }
@@ -44519,31 +44519,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %15022 = getelementptr inbounds i8, ptr %15021, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15022) #27
   %15023 = icmp eq ptr %15022, %1358
-  br i1 %15023, label %.loopexit8899, label %15020
+  br i1 %15023, label %.loopexit8866, label %15020
 
-.loopexit8899:                                    ; preds = %15020, %15008
+.loopexit8866:                                    ; preds = %15020, %15008
   %.33191 = phi i1 [ true, %15008 ], [ false, %15020 ]
   %.pn5107.pn.pn = phi { ptr, i32 } [ %15009, %15008 ], [ %.pn5107.pn, %15020 ]
   %15024 = getelementptr inbounds nuw i8, ptr %1360, i64 48
   br label %15025
 
-15025:                                            ; preds = %15025, %.loopexit8899
-  %15026 = phi ptr [ %15024, %.loopexit8899 ], [ %15027, %15025 ]
+15025:                                            ; preds = %15025, %.loopexit8866
+  %15026 = phi ptr [ %15024, %.loopexit8866 ], [ %15027, %15025 ]
   %15027 = getelementptr inbounds i8, ptr %15026, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15027) #27
   %15028 = icmp eq ptr %15027, %1360
-  br i1 %15028, label %.loopexit8898, label %15025
+  br i1 %15028, label %.loopexit8865, label %15025
 
-.loopexit8898:                                    ; preds = %15025, %.body7114, %.body7114.thread
+.loopexit8865:                                    ; preds = %15025, %.body7114, %.body7114.thread
   %.23190 = phi i1 [ true, %.body7114 ], [ true, %.body7114.thread ], [ %.33191, %15025 ]
   %.pn5107.pn.pn.pn = phi { ptr, i32 } [ %14833, %.body7114 ], [ %14829, %.body7114.thread ], [ %.pn5107.pn.pn, %15025 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1360)
   br label %15029
 
-15029:                                            ; preds = %.loopexit8898, %15006
-  %.13199 = phi ptr [ %14828, %.loopexit8898 ], [ %1358, %15006 ]
-  %.13189 = phi i1 [ %.23190, %.loopexit8898 ], [ true, %15006 ]
-  %.pn5107.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5107.pn.pn.pn, %.loopexit8898 ], [ %15007, %15006 ]
+15029:                                            ; preds = %.loopexit8865, %15006
+  %.13199 = phi ptr [ %14828, %.loopexit8865 ], [ %1358, %15006 ]
+  %.13189 = phi i1 [ %.23190, %.loopexit8865 ], [ true, %15006 ]
+  %.pn5107.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5107.pn.pn.pn, %.loopexit8865 ], [ %15007, %15006 ]
   %15030 = getelementptr inbounds nuw i8, ptr %1359, i64 48
   br label %15031
 
@@ -44554,32 +44554,32 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %15034 = icmp eq ptr %15033, %1359
   br i1 %15034, label %15035, label %15031
 
-.thread8851:                                      ; preds = %.body7106, %.body7106.thread
+.thread8818:                                      ; preds = %.body7106, %.body7106.thread
   %.pn5107.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %14819, %.body7106.thread ], [ %14823, %.body7106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1359)
-  br label %.loopexit8897
+  br label %.loopexit8864
 
 15035:                                            ; preds = %15031
   call void @llvm.lifetime.end.p0(ptr nonnull %1359)
   %15036 = icmp ne ptr %1358, %.13199
   %or.cond343.not = select i1 %.13189, i1 %15036, i1 false
-  br i1 %or.cond343.not, label %.preheader8896, label %.loopexit8897
+  br i1 %or.cond343.not, label %.preheader8863, label %.loopexit8864
 
-.preheader8896:                                   ; preds = %15035, %.preheader8896
-  %15037 = phi ptr [ %15038, %.preheader8896 ], [ %.13199, %15035 ]
+.preheader8863:                                   ; preds = %15035, %.preheader8863
+  %15037 = phi ptr [ %15038, %.preheader8863 ], [ %.13199, %15035 ]
   %15038 = getelementptr inbounds i8, ptr %15037, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15038) #27
   %15039 = icmp eq ptr %15038, %1358
-  br i1 %15039, label %.loopexit8897, label %.preheader8896
+  br i1 %15039, label %.loopexit8864, label %.preheader8863
 
-.loopexit8897:                                    ; preds = %.preheader8896, %.thread8851, %15035
-  %.pn5107.pn.pn.pn.pn.pn8856 = phi { ptr, i32 } [ %.pn5107.pn.pn.pn.pn.pn.ph, %.thread8851 ], [ %.pn5107.pn.pn.pn.pn, %15035 ], [ %.pn5107.pn.pn.pn.pn, %.preheader8896 ]
+.loopexit8864:                                    ; preds = %.preheader8863, %.thread8818, %15035
+  %.pn5107.pn.pn.pn.pn.pn8823 = phi { ptr, i32 } [ %.pn5107.pn.pn.pn.pn.pn.ph, %.thread8818 ], [ %.pn5107.pn.pn.pn.pn, %15035 ], [ %.pn5107.pn.pn.pn.pn, %.preheader8863 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1358)
   call void @llvm.lifetime.end.p0(ptr nonnull %1357)
   br label %15040
 
-15040:                                            ; preds = %.loopexit8897, %15004
-  %.pn5107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5107.pn.pn.pn.pn.pn8856, %.loopexit8897 ], [ %15005, %15004 ]
+15040:                                            ; preds = %.loopexit8864, %15004
+  %.pn5107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5107.pn.pn.pn.pn.pn8823, %.loopexit8864 ], [ %15005, %15004 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1356)
   call void @llvm.lifetime.end.p0(ptr nonnull %1355)
   call void @llvm.lifetime.end.p0(ptr nonnull %1354)
@@ -44598,7 +44598,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 15045:                                            ; preds = %14895
   %15046 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit8895
+  br label %.loopexit8862
 
 15047:                                            ; preds = %14900
   %15048 = landingpad { ptr, i32 }
@@ -44632,31 +44632,31 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %15059 = getelementptr inbounds i8, ptr %15058, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15059) #27
   %15060 = icmp eq ptr %15059, %1365
-  br i1 %15060, label %.loopexit8895, label %15057
+  br i1 %15060, label %.loopexit8862, label %15057
 
-.loopexit8895:                                    ; preds = %15057, %15045
+.loopexit8862:                                    ; preds = %15057, %15045
   %15061 = phi i1 [ false, %15045 ], [ true, %15057 ]
   %.pn5115.pn.pn = phi { ptr, i32 } [ %15046, %15045 ], [ %.pn5115.pn, %15057 ]
   %15062 = getelementptr inbounds nuw i8, ptr %1367, i64 48
   br label %15063
 
-15063:                                            ; preds = %15063, %.loopexit8895
-  %15064 = phi ptr [ %15062, %.loopexit8895 ], [ %15065, %15063 ]
+15063:                                            ; preds = %15063, %.loopexit8862
+  %15064 = phi ptr [ %15062, %.loopexit8862 ], [ %15065, %15063 ]
   %15065 = getelementptr inbounds i8, ptr %15064, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15065) #27
   %15066 = icmp eq ptr %15065, %1367
-  br i1 %15066, label %.loopexit8894, label %15063
+  br i1 %15066, label %.loopexit8861, label %15063
 
-.loopexit8894:                                    ; preds = %15063, %14893
+.loopexit8861:                                    ; preds = %15063, %14893
   %.23170 = phi i1 [ false, %14893 ], [ %15061, %15063 ]
   %.pn5115.pn.pn.pn = phi { ptr, i32 } [ %14894, %14893 ], [ %.pn5115.pn.pn, %15063 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1367)
   br label %15067
 
-15067:                                            ; preds = %.loopexit8894, %15043
-  %.13182 = phi ptr [ %14892, %.loopexit8894 ], [ %1365, %15043 ]
-  %.13169 = phi i1 [ %.23170, %.loopexit8894 ], [ false, %15043 ]
-  %.pn5115.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn, %.loopexit8894 ], [ %15044, %15043 ]
+15067:                                            ; preds = %.loopexit8861, %15043
+  %.13182 = phi ptr [ %14892, %.loopexit8861 ], [ %1365, %15043 ]
+  %.13169 = phi i1 [ %.23170, %.loopexit8861 ], [ false, %15043 ]
+  %.pn5115.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn, %.loopexit8861 ], [ %15044, %15043 ]
   %15068 = getelementptr inbounds nuw i8, ptr %1366, i64 48
   br label %15069
 
@@ -44671,23 +44671,23 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %1366)
   %15074 = icmp eq ptr %1365, %.13182
   %or.cond352 = select i1 %.13169, i1 true, i1 %15074
-  br i1 %or.cond352, label %.loopexit8893, label %.preheader
+  br i1 %or.cond352, label %.loopexit8860, label %.preheader
 
 .preheader:                                       ; preds = %15073, %.preheader
   %15075 = phi ptr [ %15076, %.preheader ], [ %.13182, %15073 ]
   %15076 = getelementptr inbounds i8, ptr %15075, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15076) #27
   %15077 = icmp eq ptr %15076, %1365
-  br i1 %15077, label %.loopexit8893, label %.preheader
+  br i1 %15077, label %.loopexit8860, label %.preheader
 
-.loopexit8893:                                    ; preds = %.preheader, %.thread8858, %15073
-  %.pn5115.pn.pn.pn.pn.pn8865 = phi { ptr, i32 } [ %14884, %.thread8858 ], [ %.pn5115.pn.pn.pn.pn, %15073 ], [ %.pn5115.pn.pn.pn.pn, %.preheader ]
+.loopexit8860:                                    ; preds = %.preheader, %.thread8825, %15073
+  %.pn5115.pn.pn.pn.pn.pn8832 = phi { ptr, i32 } [ %14884, %.thread8825 ], [ %.pn5115.pn.pn.pn.pn, %15073 ], [ %.pn5115.pn.pn.pn.pn, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1365)
   call void @llvm.lifetime.end.p0(ptr nonnull %1364)
   br label %15078
 
-15078:                                            ; preds = %.loopexit8893, %15041
-  %.pn5115.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn8865, %.loopexit8893 ], [ %15042, %15041 ]
+15078:                                            ; preds = %.loopexit8860, %15041
+  %.pn5115.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn8832, %.loopexit8860 ], [ %15042, %15041 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1363)
   call void @llvm.lifetime.end.p0(ptr nonnull %1362)
   call void @llvm.lifetime.end.p0(ptr nonnull %1361)
@@ -44698,14 +44698,14 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %1352) #27
   br label %15080
 
-15080:                                            ; preds = %15079, %.loopexit8901
-  %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn.pn.pn, %15079 ], [ %.pn5105, %.loopexit8901 ]
+15080:                                            ; preds = %15079, %.loopexit8868
+  %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn.pn.pn, %15079 ], [ %.pn5105, %.loopexit8868 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1352)
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1348) #27
   br label %15081
 
-15081:                                            ; preds = %15080, %.loopexit8904
-  %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn, %15080 ], [ %.pn5100.pn.pn.pn8843, %.loopexit8904 ]
+15081:                                            ; preds = %15080, %.loopexit8871
+  %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn5115.pn.pn.pn.pn.pn.pn.pn.pn, %15080 ], [ %.pn5100.pn.pn.pn8810, %.loopexit8871 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1348)
   br label %15123
 
@@ -44739,9 +44739,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(ptr nonnull %1371)
   call void @llvm.lifetime.start.p0(ptr nonnull %1372)
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEC2IRA4_KcSK_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_(ptr noundef nonnull align 8 dereferenceable(48) %1372, ptr noundef nonnull align 1 dereferenceable(4) @.str.211, ptr noundef nonnull align 1 dereferenceable(4) @.str.212)
-          to label %15089 unwind label %.thread8866
+          to label %15089 unwind label %.thread8833
 
-.thread8866:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit7149
+.thread8833:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit7149
   %15088 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -44749,7 +44749,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 15089:                                            ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit7149
   %15090 = getelementptr inbounds nuw i8, ptr %1372, i64 48
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEC2IRA8_KcRA5_SI_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(48) %15090, ptr noundef nonnull align 1 dereferenceable(8) @.str.213, ptr noundef nonnull align 1 dereferenceable(5) @.str.214)
-          to label %15091 unwind label %.loopexit.loopexit9081
+          to label %15091 unwind label %.loopexit.loopexit9048
 
 15091:                                            ; preds = %15089
   %15092 = getelementptr inbounds nuw i8, ptr %1371, i64 8
@@ -44872,7 +44872,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
           cleanup
   br label %15186
 
-.loopexit.loopexit9081:                           ; preds = %15089
+.loopexit.loopexit9048:                           ; preds = %15089
   %15131 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %1372) #27
@@ -44885,8 +44885,8 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json
   %15135 = icmp eq ptr %15134, %1372
   br i1 %15135, label %.loopexit, label %15132
 
-.loopexit:                                        ; preds = %15132, %.loopexit.loopexit9081, %.thread8866
-  %.pn5130 = phi { ptr, i32 } [ %15131, %.loopexit.loopexit9081 ], [ %15088, %.thread8866 ], [ %15099, %15132 ]
+.loopexit:                                        ; preds = %15132, %.loopexit.loopexit9048, %.thread8833
+  %.pn5130 = phi { ptr, i32 } [ %15131, %.loopexit.loopexit9048 ], [ %15088, %.thread8833 ], [ %15099, %15132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1372)
   br label %15184
 
@@ -45684,12 +45684,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7196:       ; preds = %15361
 
 15364:                                            ; preds = %15361
   store i8 1, ptr %15362, align 1
-  %.sroa.57614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 1
-  store i8 2, ptr %.sroa.57614.0..sroa_idx, align 1
-  %.sroa.67615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 2
-  store i8 3, ptr %.sroa.67615.0..sroa_idx, align 1
-  %.sroa.77616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 3
-  store i8 4, ptr %.sroa.77616.0..sroa_idx, align 1
+  %.sroa.57593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 1
+  store i8 2, ptr %.sroa.57593.0..sroa_idx, align 1
+  %.sroa.67594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 2
+  store i8 3, ptr %.sroa.67594.0..sroa_idx, align 1
+  %.sroa.77595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15362, i64 3
+  store i8 4, ptr %.sroa.77595.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !539)
   %15365 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   store ptr null, ptr %15365, align 8, !tbaa !10, !alias.scope !539
@@ -45729,12 +45729,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7207:       ; preds = %_ZNSt6vectorIhSaIhE
 _ZNSt6vectorIhSaIhEED2Ev.exit7213:                ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit7205
   %15376 = getelementptr inbounds nuw i8, ptr %15374, i64 4
   store i8 5, ptr %15374, align 1
-  %.sroa.57601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 1
-  store i8 6, ptr %.sroa.57601.0..sroa_idx, align 1
-  %.sroa.67602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 2
-  store i8 7, ptr %.sroa.67602.0..sroa_idx, align 1
-  %.sroa.77603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 3
-  store i8 8, ptr %.sroa.77603.0..sroa_idx, align 1
+  %.sroa.57583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 1
+  store i8 6, ptr %.sroa.57583.0..sroa_idx, align 1
+  %.sroa.67584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 2
+  store i8 7, ptr %.sroa.67584.0..sroa_idx, align 1
+  %.sroa.77585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15374, i64 3
+  store i8 8, ptr %.sroa.77585.0..sroa_idx, align 1
   store ptr %15374, ptr %1400, align 8, !tbaa !39
   %15377 = getelementptr inbounds nuw i8, ptr %1400, i64 8
   store ptr %15376, ptr %15377, align 8, !tbaa !41
@@ -45770,12 +45770,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7217:       ; preds = %15382
 
 15386:                                            ; preds = %15382
   store i8 5, ptr %15384, align 1
-  %.sroa.57587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 1
-  store i8 6, ptr %.sroa.57587.0..sroa_idx, align 1
-  %.sroa.67588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 2
-  store i8 7, ptr %.sroa.67588.0..sroa_idx, align 1
-  %.sroa.77589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 3
-  store i8 8, ptr %.sroa.77589.0..sroa_idx, align 1
+  %.sroa.57572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 1
+  store i8 6, ptr %.sroa.57572.0..sroa_idx, align 1
+  %.sroa.67573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 2
+  store i8 7, ptr %.sroa.67573.0..sroa_idx, align 1
+  %.sroa.77574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15384, i64 3
+  store i8 8, ptr %.sroa.77574.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !542)
   %15387 = getelementptr inbounds nuw i8, ptr %1404, i64 8
   store ptr null, ptr %15387, align 8, !tbaa !10, !alias.scope !542
@@ -45855,12 +45855,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7231:       ; preds = %15407
 
 15411:                                            ; preds = %15407
   store i8 1, ptr %15409, align 1
-  %.sroa.57573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 1
-  store i8 2, ptr %.sroa.57573.0..sroa_idx, align 1
-  %.sroa.67574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 2
-  store i8 3, ptr %.sroa.67574.0..sroa_idx, align 1
-  %.sroa.77575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 3
-  store i8 4, ptr %.sroa.77575.0..sroa_idx, align 1
+  %.sroa.57561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 1
+  store i8 2, ptr %.sroa.57561.0..sroa_idx, align 1
+  %.sroa.67562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 2
+  store i8 3, ptr %.sroa.67562.0..sroa_idx, align 1
+  %.sroa.77563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15409, i64 3
+  store i8 4, ptr %.sroa.77563.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %15412 = getelementptr inbounds nuw i8, ptr %1408, i64 8
   store ptr null, ptr %15412, align 8, !tbaa !10, !alias.scope !545
@@ -46114,12 +46114,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7259:       ; preds = %15478
 
 15481:                                            ; preds = %15478
   store i8 1, ptr %15479, align 1
-  %.sroa.57559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 1
-  store i8 2, ptr %.sroa.57559.0..sroa_idx, align 1
-  %.sroa.67560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 2
-  store i8 3, ptr %.sroa.67560.0..sroa_idx, align 1
-  %.sroa.77561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 3
-  store i8 4, ptr %.sroa.77561.0..sroa_idx, align 1
+  %.sroa.57550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 1
+  store i8 2, ptr %.sroa.57550.0..sroa_idx, align 1
+  %.sroa.67551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 2
+  store i8 3, ptr %.sroa.67551.0..sroa_idx, align 1
+  %.sroa.77552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15479, i64 3
+  store i8 4, ptr %.sroa.77552.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
   %15482 = getelementptr inbounds nuw i8, ptr %1411, i64 8
   store ptr null, ptr %15482, align 8, !tbaa !10, !alias.scope !548
@@ -46162,12 +46162,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit7268:                ; preds = %15481
   %15496 = getelementptr inbounds nuw i8, ptr %1412, i64 16
   store ptr %15495, ptr %15496, align 8, !tbaa !42
   store i8 5, ptr %15491, align 1
-  %.sroa.57554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 1
-  store i8 6, ptr %.sroa.57554.0..sroa_idx, align 1
-  %.sroa.67555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 2
-  store i8 7, ptr %.sroa.67555.0..sroa_idx, align 1
-  %.sroa.77556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 3
-  store i8 8, ptr %.sroa.77556.0..sroa_idx, align 1
+  %.sroa.57545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 1
+  store i8 6, ptr %.sroa.57545.0..sroa_idx, align 1
+  %.sroa.67546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 2
+  store i8 7, ptr %.sroa.67546.0..sroa_idx, align 1
+  %.sroa.77547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15491, i64 3
+  store i8 8, ptr %.sroa.77547.0..sroa_idx, align 1
   %15497 = getelementptr inbounds nuw i8, ptr %1412, i64 8
   store ptr %15495, ptr %15497, align 8, !tbaa !41
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4swapERSC_(ptr noundef nonnull align 8 dereferenceable(16) %1411, ptr noundef nonnull align 8 dereferenceable(24) %1412)
@@ -46196,12 +46196,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7277:       ; preds = %15499
 
 15503:                                            ; preds = %15499
   store i8 5, ptr %15501, align 1
-  %.sroa.57540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 1
-  store i8 6, ptr %.sroa.57540.0..sroa_idx, align 1
-  %.sroa.67541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 2
-  store i8 7, ptr %.sroa.67541.0..sroa_idx, align 1
-  %.sroa.77542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 3
-  store i8 8, ptr %.sroa.77542.0..sroa_idx, align 1
+  %.sroa.57534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 1
+  store i8 6, ptr %.sroa.57534.0..sroa_idx, align 1
+  %.sroa.67535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 2
+  store i8 7, ptr %.sroa.67535.0..sroa_idx, align 1
+  %.sroa.77536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15501, i64 3
+  store i8 8, ptr %.sroa.77536.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
   %15504 = getelementptr inbounds nuw i8, ptr %1416, i64 8
   store ptr null, ptr %15504, align 8, !tbaa !10, !alias.scope !551
@@ -46281,12 +46281,12 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i7291:       ; preds = %15524
 
 15528:                                            ; preds = %15524
   store i8 1, ptr %15526, align 1
-  %.sroa.57528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 1
-  store i8 2, ptr %.sroa.57528.0..sroa_idx, align 1
-  %.sroa.67529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 2
-  store i8 3, ptr %.sroa.67529.0..sroa_idx, align 1
-  %.sroa.77530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 3
-  store i8 4, ptr %.sroa.77530.0..sroa_idx, align 1
+  %.sroa.57525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 1
+  store i8 2, ptr %.sroa.57525.0..sroa_idx, align 1
+  %.sroa.67526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 2
+  store i8 3, ptr %.sroa.67526.0..sroa_idx, align 1
+  %.sroa.77527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15526, i64 3
+  store i8 4, ptr %.sroa.77527.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !554)
   %15529 = getelementptr inbounds nuw i8, ptr %1420, i64 8
   store ptr null, ptr %15529, align 8, !tbaa !10, !alias.scope !554

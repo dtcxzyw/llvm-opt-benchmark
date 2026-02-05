@@ -206,9 +206,9 @@ window_sum.exit.loopexit:                         ; preds = %67
   br label %window_sum.exit
 
 window_sum.exit:                                  ; preds = %59, %window_sum.exit.loopexit
-  %.sroa.6.1 = phi i1 [ %85, %window_sum.exit.loopexit ], [ true, %59 ]
-  %.sroa.9.1 = phi float [ %80, %window_sum.exit.loopexit ], [ 0.000000e+00, %59 ]
-  %.sroa.12115.1 = phi i64 [ %83, %window_sum.exit.loopexit ], [ 0, %59 ]
+  %.sroa.6.0 = phi i1 [ %85, %window_sum.exit.loopexit ], [ true, %59 ]
+  %.sroa.9.0 = phi float [ %80, %window_sum.exit.loopexit ], [ 0.000000e+00, %59 ]
+  %.sroa.12115.0 = phi i64 [ %83, %window_sum.exit.loopexit ], [ 0, %59 ]
   %86 = phi i64 [ %84, %window_sum.exit.loopexit ], [ poison, %59 ]
   %87 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !38
@@ -217,7 +217,7 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
   %91 = uitofp i32 %90 to double
   %92 = fmul double %91, 2.500000e+00
   %93 = fcmp olt double %92, %89
-  %or.cond6 = select i1 %93, i1 %.sroa.6.1, i1 false
+  %or.cond6 = select i1 %93, i1 %.sroa.6.0, i1 false
   br i1 %or.cond6, label %109, label %94
 
 94:                                               ; preds = %window_sum.exit
@@ -233,12 +233,12 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
 100:                                              ; preds = %94
   %101 = lshr i32 %66, 1
   %102 = zext nneg i32 %101 to i64
-  %103 = icmp ugt i64 %.sroa.12115.1, %102
+  %103 = icmp ugt i64 %.sroa.12115.0, %102
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %100
   %105 = uitofp i32 %66 to float
-  %106 = fdiv float %.sroa.9.1, %105
+  %106 = fdiv float %.sroa.9.0, %105
   %107 = fcmp ogt float %106, 2.500000e-01
   br i1 %107, label %108, label %110
 

@@ -4096,20 +4096,20 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph13identifyNodesEPN4llvm11Instructio
   %1514 = zext i32 %1513 to i64
   %.idx.i90.i = shl nuw nsw i64 %1514, 3
   %1515 = getelementptr inbounds nuw i8, ptr %1512, i64 %.idx.i90.i
-  %.not62.i.i = icmp eq i32 %1513, 0
+  %.not60.i.i = icmp eq i32 %1513, 0
   %1516 = load ptr, ptr %57, align 8
   %1517 = icmp eq ptr %1516, null
-  %or.cond = select i1 %.not62.i.i, i1 true, i1 %1517
+  %or.cond = select i1 %.not60.i.i, i1 true, i1 %1517
   br i1 %or.cond, label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12replaceNodesEv.exit.i, label %.lr.ph.split.i.i
 
 ._crit_edge.i114.i:                               ; preds = %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i
   %.pre.i115.i = load ptr, ptr %2, align 8, !tbaa !25
-  %.pre74.i.i = load i32, ptr %121, align 8, !tbaa !26
-  %1518 = zext i32 %.pre74.i.i to i64
-  %.idx69.i.i = shl nuw nsw i64 %1518, 3
-  %1519 = getelementptr inbounds nuw i8, ptr %.pre.i115.i, i64 %.idx69.i.i
-  %.not1664.i.i = icmp eq i32 %.pre74.i.i, 0
-  br i1 %.not1664.i.i, label %._crit_edge68.i.i, label %.lr.ph67.i.i
+  %.pre72.i.i = load i32, ptr %121, align 8, !tbaa !26
+  %1518 = zext i32 %.pre72.i.i to i64
+  %.idx67.i.i = shl nuw nsw i64 %1518, 3
+  %1519 = getelementptr inbounds nuw i8, ptr %.pre.i115.i, i64 %.idx67.i.i
+  %.not1662.i.i = icmp eq i32 %.pre72.i.i, 0
+  br i1 %.not1662.i.i, label %._crit_edge66.i.i, label %.lr.ph65.i.i
 
 .lr.ph.splitthread-pre-split.i.i:                 ; preds = %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i
   %.val.i.i.pr.i.i = load ptr, ptr %57, align 8, !tbaa !119
@@ -4117,9 +4117,9 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph13identifyNodesEPN4llvm11Instructio
 
 .lr.ph.split.i.i:                                 ; preds = %1511, %.lr.ph.splitthread-pre-split.i.i
   %.val.i.i.i92.i = phi ptr [ %.val.i.i.pr.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ %1516, %1511 ]
-  %.063.i.i = phi ptr [ %1689, %.lr.ph.splitthread-pre-split.i.i ], [ %1512, %1511 ]
+  %.061.i.i = phi ptr [ %1689, %.lr.ph.splitthread-pre-split.i.i ], [ %1512, %1511 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %1520 = load ptr, ptr %.063.i.i, align 8, !tbaa !152
+  %1520 = load ptr, ptr %.061.i.i, align 8, !tbaa !152
   store ptr %1520, ptr %3, align 8, !tbaa !152
   %.not2.i.i.i.i93.i = icmp eq ptr %.val.i.i.i92.i, null
   br i1 %.not2.i.i.i.i93.i, label %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i, label %.lr.ph.i.i.i.i94.i
@@ -4145,8 +4145,8 @@ _ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterle
   %.19.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1523, ptr %.083.i.i.i.i96.i, ptr %.04.i.i.i.i95.i
   %.19.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1525 = load ptr, ptr %.19.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !152
-  %.not58.i104.i = icmp ult ptr %1520, %1525
-  br i1 %.not58.i104.i, label %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i, label %1526
+  %.not56.i104.i = icmp ult ptr %1520, %1525
+  br i1 %.not56.i104.i, label %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i, label %1526
 
 1526:                                             ; preds = %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.i103.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4478,26 +4478,26 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 
 _ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.thread.i112.i: ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i, %_ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE5countERSA_.exit.i103.i, %_ZNKSt8_Rb_treeIPN4llvm11InstructionESt4pairIKS2_St10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i102.i, %.lr.ph.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %1689 = getelementptr inbounds nuw i8, ptr %.063.i.i, i64 8
+  %1689 = getelementptr inbounds nuw i8, ptr %.061.i.i, i64 8
   %.not.i113.i = icmp eq ptr %1689, %1515
   br i1 %.not.i113.i, label %._crit_edge.i114.i, label %.lr.ph.splitthread-pre-split.i.i, !llvm.loop !282
 
-._crit_edge68.loopexit.i.i:                       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i
-  %.pre75.i.i = load ptr, ptr %2, align 8, !tbaa !25
-  br label %._crit_edge68.i.i
+._crit_edge66.loopexit.i.i:                       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i
+  %.pre73.i.i = load ptr, ptr %2, align 8, !tbaa !25
+  br label %._crit_edge66.i.i
 
-._crit_edge68.i.i:                                ; preds = %._crit_edge68.loopexit.i.i, %._crit_edge.i114.i
-  %1690 = phi ptr [ %.pre75.i.i, %._crit_edge68.loopexit.i.i ], [ %.pre.i115.i, %._crit_edge.i114.i ]
+._crit_edge66.i.i:                                ; preds = %._crit_edge66.loopexit.i.i, %._crit_edge.i114.i
+  %1690 = phi ptr [ %.pre73.i.i, %._crit_edge66.loopexit.i.i ], [ %.pre.i115.i, %._crit_edge.i114.i ]
   %1691 = icmp eq ptr %1690, %120
   br i1 %1691, label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12replaceNodesEv.exit.i, label %1692
 
-1692:                                             ; preds = %._crit_edge68.i.i
+1692:                                             ; preds = %._crit_edge66.i.i
   call void @free(ptr noundef %1690) #26
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12replaceNodesEv.exit.i
 
-.lr.ph67.i.i:                                     ; preds = %._crit_edge.i114.i, %_ZNSt14_Function_baseD2Ev.exit.i.i
-  %.01565.i.i = phi ptr [ %1699, %_ZNSt14_Function_baseD2Ev.exit.i.i ], [ %.pre.i115.i, %._crit_edge.i114.i ]
-  %1693 = load ptr, ptr %.01565.i.i, align 8, !tbaa !152
+.lr.ph65.i.i:                                     ; preds = %._crit_edge.i114.i, %_ZNSt14_Function_baseD2Ev.exit.i.i
+  %.01563.i.i = phi ptr [ %1699, %_ZNSt14_Function_baseD2Ev.exit.i.i ], [ %.pre.i115.i, %._crit_edge.i114.i ]
+  %1693 = load ptr, ptr %.01563.i.i, align 8, !tbaa !152
   %1694 = load ptr, ptr %44, align 8, !tbaa !117
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %1695 = call noundef zeroext i1 @_ZN4llvm42RecursivelyDeleteTriviallyDeadInstructionsEPNS_5ValueEPKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterESt8functionIFvS1_EE(ptr noundef %1693, ptr noundef %1694, ptr noundef null, ptr noundef nonnull %8) #26
@@ -4505,16 +4505,16 @@ _ZNKSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterle
   %.not.i.i116.i = icmp eq ptr %1696, null
   br i1 %.not.i.i116.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %1697
 
-1697:                                             ; preds = %.lr.ph67.i.i
+1697:                                             ; preds = %.lr.ph65.i.i
   %1698 = call noundef zeroext i1 %1696(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #26
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i
 
-_ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %1697, %.lr.ph67.i.i
-  %1699 = getelementptr inbounds nuw i8, ptr %.01565.i.i, i64 8
+_ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %1697, %.lr.ph65.i.i
+  %1699 = getelementptr inbounds nuw i8, ptr %.01563.i.i, i64 8
   %.not16.i.i = icmp eq ptr %1699, %1519
-  br i1 %.not16.i.i, label %._crit_edge68.loopexit.i.i, label %.lr.ph67.i.i
+  br i1 %.not16.i.i, label %._crit_edge66.loopexit.i.i, label %.lr.ph65.i.i
 
-_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12replaceNodesEv.exit.i: ; preds = %1692, %._crit_edge68.i.i, %1511
+_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12replaceNodesEv.exit.i: ; preds = %1692, %._crit_edge66.i.i, %1511
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph10checkNodesEv.exit.thread.i
@@ -7617,12 +7617,12 @@ _ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit: ; preds = %895
   %898 = icmp eq i32 %887, 13
   %899 = icmp eq i32 %889, 15
   %900 = and i1 %898, %899
-  br i1 %900, label %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+  br i1 %900, label %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
 
 _ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread: ; preds = %885, %892, %895, %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !416)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  switch i8 %.val122, label %.thread463 [
+  switch i8 %.val122, label %.thread461 [
     i8 45, label %901
     i8 44, label %903
     i8 43, label %905
@@ -7631,19 +7631,19 @@ _ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread: ; preds = %885, %
 
 901:                                              ; preds = %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread
   %902 = icmp eq i8 %.val123, 43
-  br i1 %902, label %909, label %.thread463
+  br i1 %902, label %909, label %.thread461
 
 903:                                              ; preds = %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread
   %904 = icmp eq i8 %.val123, 42
-  br i1 %904, label %909, label %.thread463
+  br i1 %904, label %909, label %.thread461
 
 905:                                              ; preds = %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread
   %906 = icmp eq i8 %.val123, 45
-  br i1 %906, label %909, label %.thread463
+  br i1 %906, label %909, label %.thread461
 
 907:                                              ; preds = %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread
   %908 = icmp eq i8 %.val123, 44
-  br i1 %908, label %909, label %.thread463
+  br i1 %908, label %909, label %.thread461
 
 909:                                              ; preds = %907, %905, %903, %901
   %.0.i377 = phi i32 [ 1, %901 ], [ 1, %903 ], [ 3, %907 ], [ 3, %905 ]
@@ -7704,7 +7704,7 @@ _ZNK4llvm4User10getOperandEj.exit57.i:            ; preds = %932, %929
   %or.cond.i379 = and i1 %921, %937
   %or.cond3.i380 = and i1 %or.cond.i379, %941
   %or.cond5.i381 = and i1 %925, %or.cond3.i380
-  br i1 %or.cond5.i381, label %942, label %.thread463
+  br i1 %or.cond5.i381, label %942, label %.thread461
 
 942:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit57.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !416
@@ -8167,15 +8167,15 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %1135, label %1136, label %.critedge84
 
-.thread463:                                       ; preds = %907, %905, %903, %901, %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread, %_ZNK4llvm4User10getOperandEj.exit57.i
+.thread461:                                       ; preds = %907, %905, %903, %901, %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit.thread, %_ZNK4llvm4User10getOperandEj.exit57.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !416
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
 
 1136:                                             ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit97.i
   %.val109.pre = load ptr, ptr %140, align 8, !tbaa !204
-  %.not.i.i458 = icmp eq ptr %.val109.pre, null
-  br i1 %.not.i.i458, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462, label %1137
+  %.not.i.i456 = icmp eq ptr %.val109.pre, null
+  br i1 %.not.i.i456, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460, label %1137
 
 1137:                                             ; preds = %1136
   %1138 = getelementptr inbounds nuw i8, ptr %.val109.pre, i64 8
@@ -8196,35 +8196,35 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 24
   %1149 = load ptr, ptr %1148, align 8
   call void %1149(ptr noundef nonnull align 8 dereferenceable(16) %.val109.pre) #26
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
 
 1150:                                             ; preds = %1137
   %1151 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !209
-  %.not.i.i.i459 = icmp eq i8 %1151, 0
-  br i1 %.not.i.i.i459, label %1154, label %1152
+  %.not.i.i.i457 = icmp eq i8 %1151, 0
+  br i1 %.not.i.i.i457, label %1154, label %1152
 
 1152:                                             ; preds = %1150
   %1153 = add nsw i32 %1141, -1
   store i32 %1153, ptr %1138, align 4, !tbaa !184
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i460
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i458
 
 1154:                                             ; preds = %1150
   %1155 = atomicrmw volatile add ptr %1138, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i460
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i458
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i460: ; preds = %1154, %1152
-  %.0.i.i.i.i461 = phi i32 [ %1141, %1152 ], [ %1155, %1154 ]
-  %1156 = icmp eq i32 %.0.i.i.i.i461, 1
-  br i1 %1156, label %1157, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462, !prof !188
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i458: ; preds = %1154, %1152
+  %.0.i.i.i.i459 = phi i32 [ %1141, %1152 ], [ %1155, %1154 ]
+  %1156 = icmp eq i32 %.0.i.i.i.i459, 1
+  br i1 %1156, label %1157, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460, !prof !188
 
-1157:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i460
+1157:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i458
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val109.pre) #26
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462: ; preds = %1157, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i460, %1142, %1136, %.thread463, %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit
+_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460: ; preds = %1157, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i458, %1142, %1136, %.thread461, %_ZL20isInstructionPairAddPN4llvm11InstructionES1_.exit
   br i1 %851, label %1158, label %.thread
 
-1158:                                             ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+1158:                                             ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
   call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyReassocNodesEPN4llvm11InstructionES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %2, ptr noundef %3)
   %.val120 = load ptr, ptr %0, align 8, !tbaa !198
   %.not204 = icmp eq ptr %.val120, null
@@ -8235,7 +8235,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val110) #26
   br label %.thread
 
-.thread:                                          ; preds = %_ZL20isInstructionPairMulPN4llvm11InstructionES1_.exit.thread, %1159, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit462
+.thread:                                          ; preds = %_ZL20isInstructionPairMulPN4llvm11InstructionES1_.exit.thread, %1159, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit460
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1160 = load i8, ptr %2, align 8, !tbaa !126, !noalias !427
@@ -8245,12 +8245,12 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 
 1162:                                             ; preds = %.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !427
-  br label %.thread412
+  br label %.thread410
 
 1163:                                             ; preds = %.thread
   %1164 = add i8 %1160, -41
   %switch.i.i = icmp ult i8 %1164, 7
-  br i1 %switch.i.i, label %1165, label %.thread412
+  br i1 %switch.i.i, label %1165, label %.thread410
 
 1165:                                             ; preds = %1163
   %1166 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -8844,7 +8844,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %1432, label %1433, label %.critedge84
 
-.thread412:                                       ; preds = %1162, %1163
+.thread410:                                       ; preds = %1162, %1163
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit402
 
@@ -8897,7 +8897,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i400: ; preds = %1451, %
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val111.pre) #26
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit402
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit402: ; preds = %.thread412, %1433, %1439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i400, %1454
+_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit402: ; preds = %.thread410, %1433, %1439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i400, %1454
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %2, ptr %24, align 8, !tbaa !286
   %1455 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -16794,10 +16794,10 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   br label %83
 
 83:                                               ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122, %70, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit, %68
-  %.sroa.7.3253267 = phi ptr [ %49, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %49, %68 ], [ %49, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %49, %70 ], [ %51, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
-  %.sroa.0195.3255265 = phi ptr [ %48, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %48, %68 ], [ %48, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %48, %70 ], [ %50, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
-  %.sroa.17.3 = phi ptr [ %53, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %53, %68 ], [ %53, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %53, %70 ], [ %71, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
-  %.sroa.0192.3 = phi ptr [ %56, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %56, %68 ], [ %56, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %56, %70 ], [ %74, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
+  %.sroa.7.0253267 = phi ptr [ %49, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %49, %68 ], [ %49, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %49, %70 ], [ %51, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
+  %.sroa.0195.0255265 = phi ptr [ %48, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %48, %68 ], [ %48, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %48, %70 ], [ %50, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
+  %.sroa.17.0 = phi ptr [ %53, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %53, %68 ], [ %53, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %53, %70 ], [ %71, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
+  %.sroa.0192.0 = phi ptr [ %56, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %56, %68 ], [ %56, %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit112 ], [ %56, %70 ], [ %74, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit122 ]
   %.not.i.i.i123 = icmp eq ptr %.sroa.10.3, null
   br i1 %.not.i.i.i123, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit, label %84
 
@@ -16818,10 +16818,10 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit: ; preds = %90, %87, %83
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0192.3, i64 40
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0192.3, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 48
   %94 = load i32, ptr %93, align 8, !tbaa !26
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0192.3, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 52
   %96 = load i32, ptr %95, align 4, !tbaa !27
   %.not.not.i.i.i.i = icmp ult i32 %94, %96
   br i1 %.not.not.i.i.i.i, label %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit, label %97, !prof !33
@@ -16829,7 +16829,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 97:                                               ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit
   %98 = zext i32 %94 to i64
   %99 = add nuw nsw i64 %98, 1
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0192.3, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull %100, i64 noundef %99, i64 noundef 8) #26
   %.val2.pre.i.i = load i32, ptr %93, align 8, !tbaa !26
   br label %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit
@@ -16891,11 +16891,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i127: ; preds = %123, %1
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129: ; preds = %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit, %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i127, %126
-  %.not.i.i.i130 = icmp eq ptr %.sroa.7.3253267, null
+  %.not.i.i.i130 = icmp eq ptr %.sroa.7.0253267, null
   br i1 %.not.i.i.i130, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit132, label %127
 
 127:                                              ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.7.3253267, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.7.0253267, i64 8
   %129 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !209
   %.not.i.i.i.i131 = icmp eq i8 %129, 0
   br i1 %.not.i.i.i.i131, label %133, label %130
@@ -16919,7 +16919,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 137:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit132
   %138 = zext i32 %135 to i64
   %139 = add nuw nsw i64 %138, 1
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0192.3, i64 56
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull %140, i64 noundef %139, i64 noundef 8) #26
   %.val2.pre.i.i135 = load i32, ptr %93, align 8, !tbaa !26
   br label %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit138
@@ -16929,7 +16929,7 @@ _ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptr
   %.val.i.i137 = load ptr, ptr %92, align 8, !tbaa !25
   %141 = zext i32 %.val2.i.i136 to i64
   %142 = getelementptr inbounds nuw ptr, ptr %.val.i.i137, i64 %141
-  %143 = ptrtoint ptr %.sroa.0195.3255265 to i64
+  %143 = ptrtoint ptr %.sroa.0195.0255265 to i64
   store i64 %143, ptr %142, align 1
   %144 = load i32, ptr %93, align 8, !tbaa !26
   %145 = add i32 %144, 1
@@ -16937,7 +16937,7 @@ _ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptr
   br i1 %.not.i.i.i130, label %167, label %146
 
 146:                                              ; preds = %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit138
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.7.3253267, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.7.0253267, i64 8
   %148 = load atomic i64, ptr %147 acquire, align 8
   %149 = icmp eq i64 %148, 4294967297
   %150 = trunc i64 %148 to i32
@@ -16945,16 +16945,16 @@ _ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptr
 
 151:                                              ; preds = %146
   store i32 0, ptr %147, align 8, !tbaa !206
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.7.3253267, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.7.0253267, i64 12
   store i32 0, ptr %152, align 4, !tbaa !208
-  %153 = load ptr, ptr %.sroa.7.3253267, align 8, !tbaa !3
+  %153 = load ptr, ptr %.sroa.7.0253267, align 8, !tbaa !3
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3253267) #26
-  %156 = load ptr, ptr %.sroa.7.3253267, align 8, !tbaa !3
+  call void %155(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0253267) #26
+  %156 = load ptr, ptr %.sroa.7.0253267, align 8, !tbaa !3
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %158 = load ptr, ptr %157, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3253267) #26
+  call void %158(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0253267) #26
   br label %167
 
 159:                                              ; preds = %146
@@ -16977,13 +16977,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141: ; preds = %163, %1
   br i1 %165, label %166, label %167, !prof !188
 
 166:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3253267) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0253267) #26
   br label %167
 
 167:                                              ; preds = %166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141, %151, %_ZN12_GLOBAL__N_134ComplexDeinterleavingCompositeNode10addOperandESt10shared_ptrIS0_E.exit138
-  store ptr %.sroa.0192.3, ptr %11, align 8, !tbaa !198
-  store ptr %.sroa.17.3, ptr %34, align 8, !tbaa !204
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.17.3, i64 8
+  store ptr %.sroa.0192.0, ptr %11, align 8, !tbaa !198
+  store ptr %.sroa.17.0, ptr %34, align 8, !tbaa !204
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 8
   %169 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !209
   %.not.i.i.i.i145 = icmp eq i8 %169, 0
   br i1 %.not.i.i.i.i145, label %173, label %170
@@ -17098,7 +17098,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i154: ; preds = %213, %2
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit151, %201, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i154, %216
-  %.not.i.i.i157 = icmp eq ptr %.sroa.17.3, %.sroa.10.3
+  %.not.i.i.i157 = icmp eq ptr %.sroa.17.0, %.sroa.10.3
   br i1 %.not.i.i.i157, label %245, label %217
 
 217:                                              ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156
@@ -17164,7 +17164,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163: ; preds = %241, 
   br label %245
 
 245:                                              ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156, %244, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163, %229, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
-  %.sroa.10.7 = phi ptr [ %.sroa.10.3, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156 ], [ %.sroa.17.3, %244 ], [ %.sroa.17.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163 ], [ %.sroa.17.3, %229 ], [ %.sroa.17.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160 ]
+  %.sroa.10.7 = phi ptr [ %.sroa.10.3, %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit156 ], [ %.sroa.17.0, %244 ], [ %.sroa.17.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163 ], [ %.sroa.17.0, %229 ], [ %.sroa.17.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160 ]
   %246 = load i64, ptr %12, align 8, !tbaa !451
   %247 = add i64 %246, -1
   store i64 %247, ptr %12, align 8, !tbaa !451
@@ -17182,16 +17182,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163: ; preds = %241, 
 
 253:                                              ; preds = %245
   store i32 0, ptr %168, align 8, !tbaa !206
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.17.3, i64 12
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 12
   store i32 0, ptr %254, align 4, !tbaa !208
-  %255 = load ptr, ptr %.sroa.17.3, align 8, !tbaa !3
+  %255 = load ptr, ptr %.sroa.17.0, align 8, !tbaa !3
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %257 = load ptr, ptr %256, align 8
-  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.3) #26
-  %258 = load ptr, ptr %.sroa.17.3, align 8, !tbaa !3
+  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.0) #26
+  %258 = load ptr, ptr %.sroa.17.0, align 8, !tbaa !3
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8
-  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.3) #26
+  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.0) #26
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
 
 261:                                              ; preds = %245
@@ -17214,20 +17214,20 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170: ; preds = %265, %2
   br i1 %267, label %268, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, !prof !188
 
 268:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.3) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17.0) #26
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172: ; preds = %.thread, %268, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170, %253, %47
   %.not234257 = phi i1 [ true, %47 ], [ false, %253 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ false, %268 ], [ true, %.thread ]
-  %.sroa.7.3254 = phi ptr [ %49, %47 ], [ %.sroa.7.3253267, %253 ], [ %.sroa.7.3253267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ %.sroa.7.3253267, %268 ], [ %51, %.thread ]
+  %.sroa.7.0254 = phi ptr [ %49, %47 ], [ %.sroa.7.0253267, %253 ], [ %.sroa.7.0253267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ %.sroa.7.0253267, %268 ], [ %51, %.thread ]
   %.sroa.10.5 = phi ptr [ %.sroa.10.3, %47 ], [ %.sroa.10.7, %253 ], [ %.sroa.10.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ %.sroa.10.7, %268 ], [ %.sroa.10.3, %.thread ]
-  %.sroa.0213.4 = phi ptr [ %.sroa.0213.2, %47 ], [ %.sroa.0192.3, %253 ], [ %.sroa.0192.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ %.sroa.0192.3, %268 ], [ %.sroa.0213.2, %.thread ]
+  %.sroa.0213.4 = phi ptr [ %.sroa.0213.2, %47 ], [ %.sroa.0192.0, %253 ], [ %.sroa.0192.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ %.sroa.0192.0, %268 ], [ %.sroa.0213.2, %.thread ]
   %.2 = phi i1 [ %.031, %47 ], [ true, %253 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170 ], [ true, %268 ], [ %.031, %.thread ]
-  %.not.i.i173 = icmp eq ptr %.sroa.7.3254, null
+  %.not.i.i173 = icmp eq ptr %.sroa.7.0254, null
   br i1 %.not.i.i173, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit177, label %269
 
 269:                                              ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
-  %270 = getelementptr inbounds nuw i8, ptr %.sroa.7.3254, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.7.0254, i64 8
   %271 = load atomic i64, ptr %270 acquire, align 8
   %272 = icmp eq i64 %271, 4294967297
   %273 = trunc i64 %271 to i32
@@ -17235,16 +17235,16 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 
 274:                                              ; preds = %269
   store i32 0, ptr %270, align 8, !tbaa !206
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.7.3254, i64 12
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.7.0254, i64 12
   store i32 0, ptr %275, align 4, !tbaa !208
-  %276 = load ptr, ptr %.sroa.7.3254, align 8, !tbaa !3
+  %276 = load ptr, ptr %.sroa.7.0254, align 8, !tbaa !3
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load ptr, ptr %277, align 8
-  call void %278(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3254) #26
-  %279 = load ptr, ptr %.sroa.7.3254, align 8, !tbaa !3
+  call void %278(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0254) #26
+  %279 = load ptr, ptr %.sroa.7.0254, align 8, !tbaa !3
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %281 = load ptr, ptr %280, align 8
-  call void %281(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3254) #26
+  call void %281(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0254) #26
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit177
 
 282:                                              ; preds = %269
@@ -17267,7 +17267,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i175: ; preds = %286, %2
   br i1 %288, label %289, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit177, !prof !188
 
 289:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i175
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.3254) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0254) #26
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit177
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit177: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, %274, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i175, %289
@@ -18559,15 +18559,15 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGrap
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %58 = load i32, ptr %57, align 8, !tbaa !26
-  %.not186 = icmp eq i32 %58, 0
-  br i1 %.not186, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit69", label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit"
+  %.not184 = icmp eq i32 %58, 0
+  br i1 %.not184, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit69", label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit"
 
 "_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit": ; preds = %55
   %.val.i = load ptr, ptr %56, align 8, !tbaa !25
   %59 = load ptr, ptr %.val.i, align 8, !tbaa !205
   %60 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %59)
-  %.pre188 = load i32, ptr %57, align 8, !tbaa !26
-  %61 = icmp ugt i32 %.pre188, 1
+  %.pre186 = load i32, ptr %57, align 8, !tbaa !26
+  %61 = icmp ugt i32 %.pre186, 1
   br i1 %61, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit67", label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit69"
 
 "_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit67": ; preds = %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit"
@@ -18575,8 +18575,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGrap
   %62 = getelementptr inbounds nuw i8, ptr %.val.i66, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !205
   %64 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %63)
-  %.pre189 = load i32, ptr %57, align 8, !tbaa !26
-  %65 = icmp ugt i32 %.pre189, 2
+  %.pre187 = load i32, ptr %57, align 8, !tbaa !26
+  %65 = icmp ugt i32 %.pre187, 2
   br i1 %65, label %66, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit69"
 
 66:                                               ; preds = %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit67"
@@ -18604,8 +18604,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGrap
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %84 = load i32, ptr %83, align 8, !tbaa !26
-  %.not185 = icmp eq i32 %84, 0
-  br i1 %.not185, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit75", label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit71"
+  %.not183 = icmp eq i32 %84, 0
+  br i1 %.not183, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit75", label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit71"
 
 "_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit71": ; preds = %81
   %.val.i70 = load ptr, ptr %82, align 8, !tbaa !25
@@ -18620,8 +18620,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGrap
   %88 = getelementptr inbounds nuw i8, ptr %.val.i72, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !205
   %90 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %89)
-  %.pre187 = load i32, ptr %83, align 8, !tbaa !26
-  %91 = icmp ugt i32 %.pre187, 2
+  %.pre185 = load i32, ptr %83, align 8, !tbaa !26
+  %91 = icmp ugt i32 %.pre185, 2
   br i1 %91, label %92, label %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit75"
 
 92:                                               ; preds = %"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph11replaceNodeERN4llvm13IRBuilderBaseEPNS_34ComplexDeinterleavingCompositeNodeEENK3$_0clERS5_j.exit73"

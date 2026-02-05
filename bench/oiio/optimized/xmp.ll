@@ -985,8 +985,8 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010decode_xmpENS0_17basic_strin
   br label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %30, %33
-  %.sroa.0.1 = phi ptr [ %39, %33 ], [ null, %30 ]
-  %.sroa.6.1 = phi i64 [ %.0.i4, %33 ], [ 0, %30 ]
+  %.sroa.0.0 = phi ptr [ %39, %33 ], [ null, %30 ]
+  %.sroa.6.0 = phi i64 [ %.0.i4, %33 ], [ 0, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   store i64 0, ptr %19, align 8
@@ -1000,7 +1000,7 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
   store ptr %20, ptr %25, align 8, !tbaa !32
   store ptr %22, ptr %16, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN11OpenImageIO6v3_1_04pugi12xml_document11load_bufferEPKvmjNS1_12xml_encodingE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenImageIO::v3_1_0::pugi::xml_parse_result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef %.sroa.0.1, i64 noundef %.sroa.6.1, i32 noundef 4212, i32 noundef 0)
+  invoke void @_ZN11OpenImageIO6v3_1_04pugi12xml_document11load_bufferEPKvmjNS1_12xml_encodingE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenImageIO::v3_1_0::pugi::xml_parse_result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef %.sroa.0.0, i64 noundef %.sroa.6.0, i32 noundef 4212, i32 noundef 0)
           to label %40 unwind label %45
 
 40:                                               ; preds = %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
@@ -16064,11 +16064,11 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
 
 ._crit_edge.loopexit:                             ; preds = %115
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !tbaa !400
-  %.pre15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !tbaa !401
+  %.pre13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !tbaa !401
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread.i
-  %49 = phi ptr [ %.pre15, %._crit_edge.loopexit ], [ %.val.i, %.thread.i ]
+  %49 = phi ptr [ %.pre13, %._crit_edge.loopexit ], [ %.val.i, %.thread.i ]
   %50 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val.i, %.thread.i ]
   store i64 %.sroa.0.0, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !tbaa !59
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 24), align 8, !tbaa !403

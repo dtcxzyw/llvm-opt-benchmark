@@ -6861,8 +6861,8 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load i32, ptr %10, align 8, !tbaa !292
-  %.not297 = icmp eq i32 %12, 0
-  br i1 %.not297, label %._crit_edge, label %.lr.ph
+  %.not285 = icmp eq i32 %12, 0
+  br i1 %.not285, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6877,7 +6877,7 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
 
 21:                                               ; preds = %.lr.ph, %handle_commit.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %handle_commit.exit.thread ]
-  %.042295 = phi ptr [ %0, %.lr.ph ], [ %.1, %handle_commit.exit.thread ]
+  %.042283 = phi ptr [ %0, %.lr.ph ], [ %.1, %handle_commit.exit.thread ]
   %22 = load ptr, ptr %13, align 8, !tbaa !293
   %23 = getelementptr inbounds nuw %struct.object_array_entry, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !294
@@ -7098,9 +7098,9 @@ add_pending_object_with_path.exit:                ; preds = %81, %87
   br i1 %.not13.i, label %mark_parents_uninteresting.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %123, %147
-  %.sroa.0.3 = phi ptr [ %.sroa.0.17, %147 ], [ null, %123 ]
-  %.sroa.20.3 = phi i64 [ %.sroa.20.12, %147 ], [ 0, %123 ]
-  %.sroa.36.3 = phi i64 [ %.sroa.36.17, %147 ], [ 0, %123 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.14, %147 ], [ null, %123 ]
+  %.sroa.20.0 = phi i64 [ %.sroa.20.8, %147 ], [ 0, %123 ]
+  %.sroa.36.0 = phi i64 [ %.sroa.36.13, %147 ], [ 0, %123 ]
   %.014.i116 = phi ptr [ %.0.i119, %147 ], [ %.012.i114, %123 ]
   %125 = load ptr, ptr %.014.i116, align 8, !tbaa !59
   %126 = load i32, ptr %125, align 8
@@ -7117,17 +7117,17 @@ add_pending_object_with_path.exit:                ; preds = %81, %87
   br i1 %.not1014.i138, label %mark_one_parent_uninteresting.exit171, label %.lr.ph.split.i142
 
 .lr.ph.split.i142:                                ; preds = %128, %143
-  %.sroa.0.13 = phi ptr [ %.sroa.0.14, %143 ], [ %.sroa.0.3, %128 ]
-  %.sroa.20.10 = phi i64 [ %132, %143 ], [ %.sroa.20.3, %128 ]
-  %.sroa.36.13 = phi i64 [ %.sroa.36.14, %143 ], [ %.sroa.36.3, %128 ]
+  %.sroa.0.10 = phi ptr [ %.sroa.0.11, %143 ], [ %.sroa.0.0, %128 ]
+  %.sroa.20.6 = phi i64 [ %132, %143 ], [ %.sroa.20.0, %128 ]
+  %.sroa.36.9 = phi i64 [ %.sroa.36.10, %143 ], [ %.sroa.36.0, %128 ]
   %.015.i143 = phi ptr [ %.0.i149, %143 ], [ %.013.i137, %128 ]
   %131 = load ptr, ptr %.015.i143, align 8, !tbaa !59
-  %132 = add i64 %.sroa.20.10, 1
-  %133 = icmp ugt i64 %132, %.sroa.36.13
+  %132 = add i64 %.sroa.20.6, 1
+  %133 = icmp ugt i64 %132, %.sroa.36.9
   br i1 %133, label %134, label %commit_stack_push.exit.i146
 
 134:                                              ; preds = %.lr.ph.split.i142
-  %135 = mul i64 %.sroa.36.13, 3
+  %135 = mul i64 %.sroa.36.9, 3
   %136 = add i64 %135, 48
   %137 = lshr i64 %136, 1
   %..i.i151 = call i64 @llvm.umax.i64(i64 %137, i64 %132)
@@ -7140,13 +7140,13 @@ add_pending_object_with_path.exit:                ; preds = %81, %87
 
 st_mult.exit.i.i153:                              ; preds = %134
   %138 = shl nuw i64 %..i.i151, 3
-  %139 = call ptr @xrealloc(ptr noundef %.sroa.0.13, i64 noundef %138) #27
+  %139 = call ptr @xrealloc(ptr noundef %.sroa.0.10, i64 noundef %138) #27
   br label %commit_stack_push.exit.i146
 
 commit_stack_push.exit.i146:                      ; preds = %.lr.ph.split.i142, %st_mult.exit.i.i153
-  %.sroa.0.14 = phi ptr [ %139, %st_mult.exit.i.i153 ], [ %.sroa.0.13, %.lr.ph.split.i142 ]
-  %.sroa.36.14 = phi i64 [ %..i.i151, %st_mult.exit.i.i153 ], [ %.sroa.36.13, %.lr.ph.split.i142 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %.sroa.0.14, i64 %.sroa.20.10
+  %.sroa.0.11 = phi ptr [ %139, %st_mult.exit.i.i153 ], [ %.sroa.0.10, %.lr.ph.split.i142 ]
+  %.sroa.36.10 = phi i64 [ %..i.i151, %st_mult.exit.i.i153 ], [ %.sroa.36.9, %.lr.ph.split.i142 ]
+  %140 = getelementptr inbounds nuw ptr, ptr %.sroa.0.11, i64 %.sroa.20.6
   store ptr %131, ptr %140, align 8, !tbaa !67
   %141 = load i64, ptr %14, align 8
   %142 = and i64 %141, 549755813888
@@ -7160,9 +7160,9 @@ commit_stack_push.exit.i146:                      ; preds = %.lr.ph.split.i142, 
   br i1 %.not10.i150, label %mark_one_parent_uninteresting.exit171, label %.lr.ph.split.i142, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit171:            ; preds = %commit_stack_push.exit.i146, %143, %.lr.ph.split.i, %128
-  %.sroa.0.17 = phi ptr [ %.sroa.0.3, %128 ], [ %.sroa.0.3, %.lr.ph.split.i ], [ %.sroa.0.14, %143 ], [ %.sroa.0.14, %commit_stack_push.exit.i146 ]
-  %.sroa.20.12 = phi i64 [ %.sroa.20.3, %128 ], [ %.sroa.20.3, %.lr.ph.split.i ], [ %132, %143 ], [ %132, %commit_stack_push.exit.i146 ]
-  %.sroa.36.17 = phi i64 [ %.sroa.36.3, %128 ], [ %.sroa.36.3, %.lr.ph.split.i ], [ %.sroa.36.14, %143 ], [ %.sroa.36.14, %commit_stack_push.exit.i146 ]
+  %.sroa.0.14 = phi ptr [ %.sroa.0.0, %128 ], [ %.sroa.0.0, %.lr.ph.split.i ], [ %.sroa.0.11, %143 ], [ %.sroa.0.11, %commit_stack_push.exit.i146 ]
+  %.sroa.20.8 = phi i64 [ %.sroa.20.0, %128 ], [ %.sroa.20.0, %.lr.ph.split.i ], [ %132, %143 ], [ %132, %commit_stack_push.exit.i146 ]
+  %.sroa.36.13 = phi i64 [ %.sroa.36.0, %128 ], [ %.sroa.36.0, %.lr.ph.split.i ], [ %.sroa.36.10, %143 ], [ %.sroa.36.10, %commit_stack_push.exit.i146 ]
   %145 = load i64, ptr %14, align 8
   %146 = and i64 %145, 549755813888
   %.not10.i = icmp eq i64 %146, 0
@@ -7175,15 +7175,15 @@ mark_one_parent_uninteresting.exit171:            ; preds = %commit_stack_push.e
   br i1 %.not.i120, label %._crit_edge.i117, label %.lr.ph.split.i, !llvm.loop !62
 
 ._crit_edge.i117:                                 ; preds = %147, %mark_one_parent_uninteresting.exit171
-  %.not1116.i = icmp eq i64 %.sroa.20.12, 0
+  %.not1116.i = icmp eq i64 %.sroa.20.8, 0
   br i1 %.not1116.i, label %mark_parents_uninteresting.exit, label %commit_stack_pop.exit.i
 
 commit_stack_pop.exit.i:                          ; preds = %._crit_edge.i117, %mark_one_parent_uninteresting.exit
-  %.sroa.0.5 = phi ptr [ %.sroa.0.12, %mark_one_parent_uninteresting.exit ], [ %.sroa.0.17, %._crit_edge.i117 ]
-  %.sroa.36.5 = phi i64 [ %.sroa.36.12, %mark_one_parent_uninteresting.exit ], [ %.sroa.36.17, %._crit_edge.i117 ]
-  %149 = phi i64 [ %.sroa.20.9, %mark_one_parent_uninteresting.exit ], [ %.sroa.20.12, %._crit_edge.i117 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.9, %mark_one_parent_uninteresting.exit ], [ %.sroa.0.14, %._crit_edge.i117 ]
+  %.sroa.36.2 = phi i64 [ %.sroa.36.8, %mark_one_parent_uninteresting.exit ], [ %.sroa.36.13, %._crit_edge.i117 ]
+  %149 = phi i64 [ %.sroa.20.5, %mark_one_parent_uninteresting.exit ], [ %.sroa.20.8, %._crit_edge.i117 ]
   %150 = add i64 %149, -1
-  %151 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !67
   %153 = load i32, ptr %152, align 8
   %154 = and i32 %153, 32
@@ -7199,17 +7199,17 @@ commit_stack_pop.exit.i:                          ; preds = %._crit_edge.i117, %
   br i1 %.not1014.i, label %mark_one_parent_uninteresting.exit, label %.lr.ph.split.i127
 
 .lr.ph.split.i127:                                ; preds = %155, %170
-  %.sroa.0.8 = phi ptr [ %.sroa.0.9, %170 ], [ %.sroa.0.5, %155 ]
-  %.sroa.20.7 = phi i64 [ %159, %170 ], [ %150, %155 ]
-  %.sroa.36.8 = phi i64 [ %.sroa.36.9, %170 ], [ %.sroa.36.5, %155 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.6, %170 ], [ %.sroa.0.2, %155 ]
+  %.sroa.20.3 = phi i64 [ %159, %170 ], [ %150, %155 ]
+  %.sroa.36.4 = phi i64 [ %.sroa.36.5, %170 ], [ %.sroa.36.2, %155 ]
   %.015.i = phi ptr [ %.0.i129, %170 ], [ %.013.i, %155 ]
   %158 = load ptr, ptr %.015.i, align 8, !tbaa !59
-  %159 = add i64 %.sroa.20.7, 1
-  %160 = icmp ugt i64 %159, %.sroa.36.8
+  %159 = add i64 %.sroa.20.3, 1
+  %160 = icmp ugt i64 %159, %.sroa.36.4
   br i1 %160, label %161, label %commit_stack_push.exit.i
 
 161:                                              ; preds = %.lr.ph.split.i127
-  %162 = mul i64 %.sroa.36.8, 3
+  %162 = mul i64 %.sroa.36.4, 3
   %163 = add i64 %162, 48
   %164 = lshr i64 %163, 1
   %..i.i = call i64 @llvm.umax.i64(i64 %164, i64 %159)
@@ -7222,13 +7222,13 @@ commit_stack_pop.exit.i:                          ; preds = %._crit_edge.i117, %
 
 st_mult.exit.i.i:                                 ; preds = %161
   %165 = shl nuw i64 %..i.i, 3
-  %166 = call ptr @xrealloc(ptr noundef nonnull %.sroa.0.8, i64 noundef %165) #27
+  %166 = call ptr @xrealloc(ptr noundef nonnull %.sroa.0.5, i64 noundef %165) #27
   br label %commit_stack_push.exit.i
 
 commit_stack_push.exit.i:                         ; preds = %.lr.ph.split.i127, %st_mult.exit.i.i
-  %.sroa.0.9 = phi ptr [ %166, %st_mult.exit.i.i ], [ %.sroa.0.8, %.lr.ph.split.i127 ]
-  %.sroa.36.9 = phi i64 [ %..i.i, %st_mult.exit.i.i ], [ %.sroa.36.8, %.lr.ph.split.i127 ]
-  %167 = getelementptr inbounds nuw ptr, ptr %.sroa.0.9, i64 %.sroa.20.7
+  %.sroa.0.6 = phi ptr [ %166, %st_mult.exit.i.i ], [ %.sroa.0.5, %.lr.ph.split.i127 ]
+  %.sroa.36.5 = phi i64 [ %..i.i, %st_mult.exit.i.i ], [ %.sroa.36.4, %.lr.ph.split.i127 ]
+  %167 = getelementptr inbounds nuw ptr, ptr %.sroa.0.6, i64 %.sroa.20.3
   store ptr %158, ptr %167, align 8, !tbaa !67
   %168 = load i64, ptr %14, align 8
   %169 = and i64 %168, 549755813888
@@ -7242,15 +7242,15 @@ commit_stack_push.exit.i:                         ; preds = %.lr.ph.split.i127, 
   br i1 %.not10.i130, label %mark_one_parent_uninteresting.exit, label %.lr.ph.split.i127, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit:               ; preds = %commit_stack_push.exit.i, %170, %commit_stack_pop.exit.i, %155
-  %.sroa.0.12 = phi ptr [ %.sroa.0.5, %155 ], [ %.sroa.0.5, %commit_stack_pop.exit.i ], [ %.sroa.0.9, %170 ], [ %.sroa.0.9, %commit_stack_push.exit.i ]
-  %.sroa.20.9 = phi i64 [ %150, %155 ], [ %150, %commit_stack_pop.exit.i ], [ %159, %170 ], [ %159, %commit_stack_push.exit.i ]
-  %.sroa.36.12 = phi i64 [ %.sroa.36.5, %155 ], [ %.sroa.36.5, %commit_stack_pop.exit.i ], [ %.sroa.36.9, %170 ], [ %.sroa.36.9, %commit_stack_push.exit.i ]
-  %.not11.i118 = icmp eq i64 %.sroa.20.9, 0
+  %.sroa.0.9 = phi ptr [ %.sroa.0.2, %155 ], [ %.sroa.0.2, %commit_stack_pop.exit.i ], [ %.sroa.0.6, %170 ], [ %.sroa.0.6, %commit_stack_push.exit.i ]
+  %.sroa.20.5 = phi i64 [ %150, %155 ], [ %150, %commit_stack_pop.exit.i ], [ %159, %170 ], [ %159, %commit_stack_push.exit.i ]
+  %.sroa.36.8 = phi i64 [ %.sroa.36.2, %155 ], [ %.sroa.36.2, %commit_stack_pop.exit.i ], [ %.sroa.36.5, %170 ], [ %.sroa.36.5, %commit_stack_push.exit.i ]
+  %.not11.i118 = icmp eq i64 %.sroa.20.5, 0
   br i1 %.not11.i118, label %mark_parents_uninteresting.exit, label %commit_stack_pop.exit.i, !llvm.loop !68
 
 mark_parents_uninteresting.exit:                  ; preds = %mark_one_parent_uninteresting.exit, %123, %._crit_edge.i117
-  %.sroa.0.7 = phi ptr [ %.sroa.0.17, %._crit_edge.i117 ], [ null, %123 ], [ %.sroa.0.12, %mark_one_parent_uninteresting.exit ]
-  call void @free(ptr noundef %.sroa.0.7) #27
+  %.sroa.0.4 = phi ptr [ %.sroa.0.14, %._crit_edge.i117 ], [ null, %123 ], [ %.sroa.0.9, %mark_one_parent_uninteresting.exit ]
+  call void @free(ptr noundef %.sroa.0.4) #27
   %172 = load i64, ptr %14, align 8
   %173 = and i64 %172, 512
   %.not81.i = icmp eq i64 %173, 0
@@ -7275,7 +7275,7 @@ mark_parents_uninteresting.exit:                  ; preds = %mark_one_parent_uni
 180:                                              ; preds = %177, %174, %122
   %181 = load ptr, ptr %19, align 8, !tbaa !303
   %.not83.i = icmp eq ptr %181, null
-  br i1 %.not83.i, label %handle_commit.exit.thread227, label %182
+  br i1 %.not83.i, label %handle_commit.exit.thread221, label %182
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 64
@@ -7349,12 +7349,12 @@ revision_sources_at.exit.i:                       ; preds = %206, %201
   %222 = getelementptr inbounds nuw ptr, ptr %217, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !200
   %.not84.i = icmp eq ptr %223, null
-  br i1 %.not84.i, label %224, label %handle_commit.exit.thread227
+  br i1 %.not84.i, label %224, label %handle_commit.exit.thread221
 
 224:                                              ; preds = %revision_sources_at.exit.i
   %225 = call ptr @xstrdup(ptr noundef %26) #27
   store ptr %225, ptr %222, align 8, !tbaa !200
-  br label %handle_commit.exit.thread227
+  br label %handle_commit.exit.thread221
 
 .split116.us.i:                                   ; preds = %.split.us.i, %.split.i
   %.us-phi117.i = phi i32 [ %.071.i, %.split.i ], [ %.071.us.i, %.split.us.i ]
@@ -7395,20 +7395,20 @@ revision_sources_at.exit.i:                       ; preds = %206, %201
   call void (ptr, ...) @die(ptr noundef nonnull @.str.218, ptr noundef %26) #29
   unreachable
 
-handle_commit.exit.thread227:                     ; preds = %180, %224, %revision_sources_at.exit.i
+handle_commit.exit.thread221:                     ; preds = %180, %224, %revision_sources_at.exit.i
   %235 = load i32, ptr %.us-phi.i, align 8
   %236 = and i32 %235, 16
   %.not58 = icmp eq i32 %236, 0
   br i1 %.not58, label %237, label %handle_commit.exit.thread
 
-237:                                              ; preds = %handle_commit.exit.thread227
+237:                                              ; preds = %handle_commit.exit.thread221
   %238 = or disjoint i32 %235, 16
   store i32 %238, ptr %.us-phi.i, align 8
-  %239 = call ptr @commit_list_append(ptr noundef nonnull %.us-phi.i, ptr noundef %.042295) #27
+  %239 = call ptr @commit_list_append(ptr noundef nonnull %.us-phi.i, ptr noundef %.042283) #27
   br label %handle_commit.exit.thread
 
-handle_commit.exit.thread:                        ; preds = %108, %.split126.us.i, %97, %.split116.us.i, %234, %.split121.us.i, %229, %231, %handle_commit.exit.thread227, %237
-  %.1 = phi ptr [ %.042295, %handle_commit.exit.thread227 ], [ %239, %237 ], [ %.042295, %108 ], [ %.042295, %231 ], [ %.042295, %229 ], [ %.042295, %.split121.us.i ], [ %.042295, %234 ], [ %.042295, %.split116.us.i ], [ %.042295, %97 ], [ %.042295, %.split126.us.i ]
+handle_commit.exit.thread:                        ; preds = %108, %.split126.us.i, %97, %.split116.us.i, %234, %.split121.us.i, %229, %231, %handle_commit.exit.thread221, %237
+  %.1 = phi ptr [ %.042283, %handle_commit.exit.thread221 ], [ %239, %237 ], [ %.042283, %108 ], [ %.042283, %231 ], [ %.042283, %229 ], [ %.042283, %.split121.us.i ], [ %.042283, %234 ], [ %.042283, %.split116.us.i ], [ %.042283, %97 ], [ %.042283, %.split126.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = load i32, ptr %10, align 8, !tbaa !292
   %241 = zext i32 %240 to i64
@@ -7423,8 +7423,8 @@ handle_commit.exit.thread:                        ; preds = %108, %.split126.us.
   %.not = icmp ne i64 %245, 0
   %246 = and i64 %244, 274878431372
   %or.cond = icmp eq i64 %246, 524300
-  %or.cond479 = or i1 %.not, %or.cond
-  br i1 %or.cond479, label %247, label %249
+  %or.cond467 = or i1 %.not, %or.cond
+  br i1 %or.cond467, label %247, label %249
 
 247:                                              ; preds = %._crit_edge
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 2712
@@ -7686,8 +7686,8 @@ collect_bottom_commits.exit.i:                    ; preds = %357, %350
   unreachable
 
 362:                                              ; preds = %collect_bottom_commits.exit.i, %347
-  %.not64235.i = icmp eq ptr %348, null
-  br i1 %.not64235.i, label %.thread.thread.i, label %.lr.ph.i67
+  %.not64229.i = icmp eq ptr %348, null
+  br i1 %.not64229.i, label %.thread.thread.i, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %362
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 1416
@@ -7696,13 +7696,13 @@ collect_bottom_commits.exit.i:                    ; preds = %357, %350
   br label %366
 
 366:                                              ; preds = %still_interesting.exit.thread.i, %.lr.ph.i67
-  %.051239.i = phi i32 [ 5, %.lr.ph.i67 ], [ %.152.i, %still_interesting.exit.thread.i ]
-  %.053238.i = phi i64 [ -1, %.lr.ph.i67 ], [ %.154.i, %still_interesting.exit.thread.i ]
-  %.055237.i = phi ptr [ %9, %.lr.ph.i67 ], [ %.156.i, %still_interesting.exit.thread.i ]
-  %.0236.i = phi ptr [ null, %.lr.ph.i67 ], [ %.2192.i, %still_interesting.exit.thread.i ]
+  %.051233.i = phi i32 [ 5, %.lr.ph.i67 ], [ %.152.i, %still_interesting.exit.thread.i ]
+  %.053232.i = phi i64 [ -1, %.lr.ph.i67 ], [ %.154.i, %still_interesting.exit.thread.i ]
+  %.055231.i = phi ptr [ %9, %.lr.ph.i67 ], [ %.156.i, %still_interesting.exit.thread.i ]
+  %.0230.i = phi ptr [ null, %.lr.ph.i67 ], [ %.2192.i, %still_interesting.exit.thread.i ]
   %367 = call ptr @pop_commit(ptr noundef nonnull %8) #27
-  %368 = icmp eq ptr %367, %.0236.i
-  %spec.select.i = select i1 %368, ptr null, ptr %.0236.i
+  %368 = icmp eq ptr %367, %.0230.i
+  %spec.select.i = select i1 %368, ptr null, ptr %.0230.i
   %369 = load i64, ptr %363, align 8, !tbaa !213
   %.not65.i = icmp eq i64 %369, -1
   br i1 %.not65.i, label %377, label %370
@@ -7742,9 +7742,9 @@ limit_list.exit.thread:                           ; preds = %377
   br i1 %.not13.i.i, label %mark_parents_uninteresting.exit.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %383, %407
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.16.i, %407 ], [ null, %383 ]
-  %.sroa.20.2.i = phi i64 [ %.sroa.20.11.i, %407 ], [ 0, %383 ]
-  %.sroa.36.2.i = phi i64 [ %.sroa.36.16.i, %407 ], [ 0, %383 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.14.i, %407 ], [ null, %383 ]
+  %.sroa.20.0.i = phi i64 [ %.sroa.20.8.i, %407 ], [ 0, %383 ]
+  %.sroa.36.0.i = phi i64 [ %.sroa.36.13.i, %407 ], [ 0, %383 ]
   %.014.i.i = phi ptr [ %.0.i.i, %407 ], [ %.012.i.i, %383 ]
   %385 = load ptr, ptr %.014.i.i, align 8, !tbaa !59
   %386 = load i32, ptr %385, align 8
@@ -7761,17 +7761,17 @@ limit_list.exit.thread:                           ; preds = %377
   br i1 %.not1014.i115.i, label %mark_one_parent_uninteresting.exit148.i, label %.lr.ph.split.i119.i
 
 .lr.ph.split.i119.i:                              ; preds = %388, %403
-  %.sroa.0.12.i = phi ptr [ %.sroa.0.13.i, %403 ], [ %.sroa.0.2.i, %388 ]
-  %.sroa.20.9.i = phi i64 [ %392, %403 ], [ %.sroa.20.2.i, %388 ]
-  %.sroa.36.12.i = phi i64 [ %.sroa.36.13.i, %403 ], [ %.sroa.36.2.i, %388 ]
+  %.sroa.0.10.i = phi ptr [ %.sroa.0.11.i, %403 ], [ %.sroa.0.0.i, %388 ]
+  %.sroa.20.6.i = phi i64 [ %392, %403 ], [ %.sroa.20.0.i, %388 ]
+  %.sroa.36.9.i = phi i64 [ %.sroa.36.10.i, %403 ], [ %.sroa.36.0.i, %388 ]
   %.015.i120.i = phi ptr [ %.0.i126.i, %403 ], [ %.013.i114.i, %388 ]
   %391 = load ptr, ptr %.015.i120.i, align 8, !tbaa !59
-  %392 = add i64 %.sroa.20.9.i, 1
-  %393 = icmp ugt i64 %392, %.sroa.36.12.i
+  %392 = add i64 %.sroa.20.6.i, 1
+  %393 = icmp ugt i64 %392, %.sroa.36.9.i
   br i1 %393, label %394, label %commit_stack_push.exit.i123.i
 
 394:                                              ; preds = %.lr.ph.split.i119.i
-  %395 = mul i64 %.sroa.36.12.i, 3
+  %395 = mul i64 %.sroa.36.9.i, 3
   %396 = add i64 %395, 48
   %397 = lshr i64 %396, 1
   %..i.i128.i = call i64 @llvm.umax.i64(i64 %397, i64 %392)
@@ -7784,13 +7784,13 @@ limit_list.exit.thread:                           ; preds = %377
 
 st_mult.exit.i.i130.i:                            ; preds = %394
   %398 = shl nuw i64 %..i.i128.i, 3
-  %399 = call ptr @xrealloc(ptr noundef %.sroa.0.12.i, i64 noundef %398) #27
+  %399 = call ptr @xrealloc(ptr noundef %.sroa.0.10.i, i64 noundef %398) #27
   br label %commit_stack_push.exit.i123.i
 
 commit_stack_push.exit.i123.i:                    ; preds = %st_mult.exit.i.i130.i, %.lr.ph.split.i119.i
-  %.sroa.0.13.i = phi ptr [ %399, %st_mult.exit.i.i130.i ], [ %.sroa.0.12.i, %.lr.ph.split.i119.i ]
-  %.sroa.36.13.i = phi i64 [ %..i.i128.i, %st_mult.exit.i.i130.i ], [ %.sroa.36.12.i, %.lr.ph.split.i119.i ]
-  %400 = getelementptr inbounds nuw ptr, ptr %.sroa.0.13.i, i64 %.sroa.20.9.i
+  %.sroa.0.11.i = phi ptr [ %399, %st_mult.exit.i.i130.i ], [ %.sroa.0.10.i, %.lr.ph.split.i119.i ]
+  %.sroa.36.10.i = phi i64 [ %..i.i128.i, %st_mult.exit.i.i130.i ], [ %.sroa.36.9.i, %.lr.ph.split.i119.i ]
+  %400 = getelementptr inbounds nuw ptr, ptr %.sroa.0.11.i, i64 %.sroa.20.6.i
   store ptr %391, ptr %400, align 8, !tbaa !67
   %401 = load i64, ptr %243, align 8
   %402 = and i64 %401, 549755813888
@@ -7804,9 +7804,9 @@ commit_stack_push.exit.i123.i:                    ; preds = %st_mult.exit.i.i130
   br i1 %.not10.i127.i, label %mark_one_parent_uninteresting.exit148.i, label %.lr.ph.split.i119.i, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit148.i:          ; preds = %403, %commit_stack_push.exit.i123.i, %388, %.lr.ph.split.i.i
-  %.sroa.0.16.i = phi ptr [ %.sroa.0.2.i, %388 ], [ %.sroa.0.2.i, %.lr.ph.split.i.i ], [ %.sroa.0.13.i, %commit_stack_push.exit.i123.i ], [ %.sroa.0.13.i, %403 ]
-  %.sroa.20.11.i = phi i64 [ %.sroa.20.2.i, %388 ], [ %.sroa.20.2.i, %.lr.ph.split.i.i ], [ %392, %commit_stack_push.exit.i123.i ], [ %392, %403 ]
-  %.sroa.36.16.i = phi i64 [ %.sroa.36.2.i, %388 ], [ %.sroa.36.2.i, %.lr.ph.split.i.i ], [ %.sroa.36.13.i, %commit_stack_push.exit.i123.i ], [ %.sroa.36.13.i, %403 ]
+  %.sroa.0.14.i = phi ptr [ %.sroa.0.0.i, %388 ], [ %.sroa.0.0.i, %.lr.ph.split.i.i ], [ %.sroa.0.11.i, %commit_stack_push.exit.i123.i ], [ %.sroa.0.11.i, %403 ]
+  %.sroa.20.8.i = phi i64 [ %.sroa.20.0.i, %388 ], [ %.sroa.20.0.i, %.lr.ph.split.i.i ], [ %392, %commit_stack_push.exit.i123.i ], [ %392, %403 ]
+  %.sroa.36.13.i = phi i64 [ %.sroa.36.0.i, %388 ], [ %.sroa.36.0.i, %.lr.ph.split.i.i ], [ %.sroa.36.10.i, %commit_stack_push.exit.i123.i ], [ %.sroa.36.10.i, %403 ]
   %405 = load i64, ptr %243, align 8
   %406 = and i64 %405, 549755813888
   %.not10.i.i = icmp eq i64 %406, 0
@@ -7819,15 +7819,15 @@ mark_one_parent_uninteresting.exit148.i:          ; preds = %403, %commit_stack_
   br i1 %.not.i84.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !62
 
 ._crit_edge.i.i:                                  ; preds = %407, %mark_one_parent_uninteresting.exit148.i
-  %.not1116.i.i = icmp eq i64 %.sroa.20.11.i, 0
+  %.not1116.i.i = icmp eq i64 %.sroa.20.8.i, 0
   br i1 %.not1116.i.i, label %mark_parents_uninteresting.exit.i, label %commit_stack_pop.exit.i.i
 
 commit_stack_pop.exit.i.i:                        ; preds = %._crit_edge.i.i, %mark_one_parent_uninteresting.exit.i
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.11.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.0.16.i, %._crit_edge.i.i ]
-  %.sroa.36.4.i = phi i64 [ %.sroa.36.11.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.36.16.i, %._crit_edge.i.i ]
-  %409 = phi i64 [ %.sroa.20.8.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.20.11.i, %._crit_edge.i.i ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.9.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.0.14.i, %._crit_edge.i.i ]
+  %.sroa.36.2.i = phi i64 [ %.sroa.36.8.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.36.13.i, %._crit_edge.i.i ]
+  %409 = phi i64 [ %.sroa.20.5.i, %mark_one_parent_uninteresting.exit.i ], [ %.sroa.20.8.i, %._crit_edge.i.i ]
   %410 = add i64 %409, -1
-  %411 = getelementptr inbounds nuw ptr, ptr %.sroa.0.4.i, i64 %410
+  %411 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2.i, i64 %410
   %412 = load ptr, ptr %411, align 8, !tbaa !67
   %413 = load i32, ptr %412, align 8
   %414 = and i32 %413, 32
@@ -7843,17 +7843,17 @@ commit_stack_pop.exit.i.i:                        ; preds = %._crit_edge.i.i, %m
   br i1 %.not1014.i.i, label %mark_one_parent_uninteresting.exit.i, label %.lr.ph.split.i106.i
 
 .lr.ph.split.i106.i:                              ; preds = %415, %430
-  %.sroa.0.7.i = phi ptr [ %.sroa.0.8.i, %430 ], [ %.sroa.0.4.i, %415 ]
-  %.sroa.20.6.i = phi i64 [ %419, %430 ], [ %410, %415 ]
-  %.sroa.36.7.i = phi i64 [ %.sroa.36.8.i, %430 ], [ %.sroa.36.4.i, %415 ]
+  %.sroa.0.5.i = phi ptr [ %.sroa.0.6.i, %430 ], [ %.sroa.0.2.i, %415 ]
+  %.sroa.20.3.i = phi i64 [ %419, %430 ], [ %410, %415 ]
+  %.sroa.36.4.i = phi i64 [ %.sroa.36.5.i, %430 ], [ %.sroa.36.2.i, %415 ]
   %.015.i.i = phi ptr [ %.0.i108.i, %430 ], [ %.013.i103.i, %415 ]
   %418 = load ptr, ptr %.015.i.i, align 8, !tbaa !59
-  %419 = add i64 %.sroa.20.6.i, 1
-  %420 = icmp ugt i64 %419, %.sroa.36.7.i
+  %419 = add i64 %.sroa.20.3.i, 1
+  %420 = icmp ugt i64 %419, %.sroa.36.4.i
   br i1 %420, label %421, label %commit_stack_push.exit.i.i
 
 421:                                              ; preds = %.lr.ph.split.i106.i
-  %422 = mul i64 %.sroa.36.7.i, 3
+  %422 = mul i64 %.sroa.36.4.i, 3
   %423 = add i64 %422, 48
   %424 = lshr i64 %423, 1
   %..i.i.i = call i64 @llvm.umax.i64(i64 %424, i64 %419)
@@ -7866,13 +7866,13 @@ commit_stack_pop.exit.i.i:                        ; preds = %._crit_edge.i.i, %m
 
 st_mult.exit.i.i.i:                               ; preds = %421
   %425 = shl nuw i64 %..i.i.i, 3
-  %426 = call ptr @xrealloc(ptr noundef nonnull %.sroa.0.7.i, i64 noundef %425) #27
+  %426 = call ptr @xrealloc(ptr noundef nonnull %.sroa.0.5.i, i64 noundef %425) #27
   br label %commit_stack_push.exit.i.i
 
 commit_stack_push.exit.i.i:                       ; preds = %st_mult.exit.i.i.i, %.lr.ph.split.i106.i
-  %.sroa.0.8.i = phi ptr [ %426, %st_mult.exit.i.i.i ], [ %.sroa.0.7.i, %.lr.ph.split.i106.i ]
-  %.sroa.36.8.i = phi i64 [ %..i.i.i, %st_mult.exit.i.i.i ], [ %.sroa.36.7.i, %.lr.ph.split.i106.i ]
-  %427 = getelementptr inbounds nuw ptr, ptr %.sroa.0.8.i, i64 %.sroa.20.6.i
+  %.sroa.0.6.i = phi ptr [ %426, %st_mult.exit.i.i.i ], [ %.sroa.0.5.i, %.lr.ph.split.i106.i ]
+  %.sroa.36.5.i = phi i64 [ %..i.i.i, %st_mult.exit.i.i.i ], [ %.sroa.36.4.i, %.lr.ph.split.i106.i ]
+  %427 = getelementptr inbounds nuw ptr, ptr %.sroa.0.6.i, i64 %.sroa.20.3.i
   store ptr %418, ptr %427, align 8, !tbaa !67
   %428 = load i64, ptr %243, align 8
   %429 = and i64 %428, 549755813888
@@ -7886,15 +7886,15 @@ commit_stack_push.exit.i.i:                       ; preds = %st_mult.exit.i.i.i,
   br i1 %.not10.i109.i, label %mark_one_parent_uninteresting.exit.i, label %.lr.ph.split.i106.i, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit.i:             ; preds = %430, %commit_stack_push.exit.i.i, %415, %commit_stack_pop.exit.i.i
-  %.sroa.0.11.i = phi ptr [ %.sroa.0.4.i, %415 ], [ %.sroa.0.4.i, %commit_stack_pop.exit.i.i ], [ %.sroa.0.8.i, %commit_stack_push.exit.i.i ], [ %.sroa.0.8.i, %430 ]
-  %.sroa.20.8.i = phi i64 [ %410, %415 ], [ %410, %commit_stack_pop.exit.i.i ], [ %419, %commit_stack_push.exit.i.i ], [ %419, %430 ]
-  %.sroa.36.11.i = phi i64 [ %.sroa.36.4.i, %415 ], [ %.sroa.36.4.i, %commit_stack_pop.exit.i.i ], [ %.sroa.36.8.i, %commit_stack_push.exit.i.i ], [ %.sroa.36.8.i, %430 ]
-  %.not11.i.i = icmp eq i64 %.sroa.20.8.i, 0
+  %.sroa.0.9.i = phi ptr [ %.sroa.0.2.i, %415 ], [ %.sroa.0.2.i, %commit_stack_pop.exit.i.i ], [ %.sroa.0.6.i, %commit_stack_push.exit.i.i ], [ %.sroa.0.6.i, %430 ]
+  %.sroa.20.5.i = phi i64 [ %410, %415 ], [ %410, %commit_stack_pop.exit.i.i ], [ %419, %commit_stack_push.exit.i.i ], [ %419, %430 ]
+  %.sroa.36.8.i = phi i64 [ %.sroa.36.2.i, %415 ], [ %.sroa.36.2.i, %commit_stack_pop.exit.i.i ], [ %.sroa.36.5.i, %commit_stack_push.exit.i.i ], [ %.sroa.36.5.i, %430 ]
+  %.not11.i.i = icmp eq i64 %.sroa.20.5.i, 0
   br i1 %.not11.i.i, label %mark_parents_uninteresting.exit.i, label %commit_stack_pop.exit.i.i, !llvm.loop !68
 
 mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uninteresting.exit.i, %._crit_edge.i.i, %383
-  %.sroa.0.6.i = phi ptr [ %.sroa.0.16.i, %._crit_edge.i.i ], [ null, %383 ], [ %.sroa.0.11.i, %mark_one_parent_uninteresting.exit.i ]
-  call void @free(ptr noundef %.sroa.0.6.i) #27
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.14.i, %._crit_edge.i.i ], [ null, %383 ], [ %.sroa.0.9.i, %mark_one_parent_uninteresting.exit.i ]
+  call void @free(ptr noundef %.sroa.0.4.i) #27
   %432 = load ptr, ptr %8, align 8, !tbaa !58
   %.not.i85.i = icmp eq ptr %432, null
   br i1 %.not.i85.i, label %.thread.i, label %433
@@ -7903,7 +7903,7 @@ mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uni
   %434 = load ptr, ptr %432, align 8, !tbaa !59
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 40
   %436 = load i64, ptr %435, align 8, !tbaa !321
-  %.not7.i86.i = icmp ugt i64 %.053238.i, %436
+  %.not7.i86.i = icmp ugt i64 %.053232.i, %436
   br i1 %.not7.i86.i, label %437, label %still_interesting.exit.thread.i
 
 437:                                              ; preds = %433
@@ -7911,7 +7911,7 @@ mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uni
   br i1 %.not.i.i.i71, label %.critedge.i.i.i.preheader, label %438
 
 438:                                              ; preds = %437
-  %439 = load i32, ptr %.0236.i, align 8
+  %439 = load i32, ptr %.0230.i, align 8
   %440 = and i32 %439, 32
   %.not16.not.i.i.i = icmp eq i32 %440, 0
   br i1 %.not16.not.i.i.i, label %still_interesting.exit.thread.i, label %.critedge.i.i.i.preheader
@@ -7934,7 +7934,7 @@ mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uni
   br i1 %.not18.not.i.i.i, label %still_interesting.exit.thread.i, label %.critedge.i.i.i, !llvm.loop !322
 
 still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
-  %447 = add i32 %.051239.i, -1
+  %447 = add i32 %.051233.i, -1
   %.not72.i = icmp eq i32 %447, 0
   br i1 %.not72.i, label %.thread.i, label %still_interesting.exit.thread.i
 
@@ -7944,30 +7944,30 @@ still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %367, i64 40
   %.pre.i72.pre = load i64, ptr %.phi.trans.insert.i.phi.trans.insert, align 8, !tbaa !321
   %450 = icmp ugt i64 %.pre.i72.pre, %449
-  %or.cond480 = select i1 %.not67.i, i1 %450, i1 false
-  br i1 %or.cond480, label %451, label %._crit_edge355
+  %or.cond468 = select i1 %.not67.i, i1 %450, i1 false
+  br i1 %or.cond468, label %451, label %._crit_edge343
 
 451:                                              ; preds = %448
   %452 = load i64, ptr %243, align 8
   %453 = and i64 %452, 1099511627776
   %.not68.i = icmp eq i64 %453, 0
-  br i1 %.not68.i, label %still_interesting.exit.thread.i, label %._crit_edge355, !llvm.loop !323
+  br i1 %.not68.i, label %still_interesting.exit.thread.i, label %._crit_edge343, !llvm.loop !323
 
-._crit_edge355:                                   ; preds = %448, %451
+._crit_edge343:                                   ; preds = %448, %451
   %454 = load i64, ptr %365, align 8, !tbaa !214
   %.not69.i = icmp ne i64 %454, -1
   %455 = icmp ult i64 %.pre.i72.pre, %454
-  %or.cond320.i = select i1 %.not69.i, i1 %455, i1 false
-  br i1 %or.cond320.i, label %456, label %._crit_edge.i73
+  %or.cond314.i = select i1 %.not69.i, i1 %455, i1 false
+  br i1 %or.cond314.i, label %456, label %._crit_edge.i73
 
-456:                                              ; preds = %._crit_edge355
+456:                                              ; preds = %._crit_edge343
   %457 = load i64, ptr %243, align 8
   %458 = and i64 %457, 1099511627776
   %.not70.i = icmp eq i64 %458, 0
   br i1 %.not70.i, label %still_interesting.exit.thread.i, label %._crit_edge.i73, !llvm.loop !323
 
-._crit_edge.i73:                                  ; preds = %456, %._crit_edge355
-  %459 = call ptr @commit_list_insert(ptr noundef nonnull %367, ptr noundef %.055237.i) #27
+._crit_edge.i73:                                  ; preds = %456, %._crit_edge343
+  %459 = call ptr @commit_list_insert(ptr noundef nonnull %367, ptr noundef %.055231.i) #27
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   %461 = load volatile ptr, ptr @show_early_output, align 8, !tbaa !324
   %.not71.i = icmp eq ptr %461, null
@@ -7980,16 +7980,16 @@ still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   br label %still_interesting.exit.thread.i
 
 still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_edge.i73, %456, %451, %still_interesting.exit.i, %438, %433
-  %.2192.i = phi ptr [ %spec.select.i, %still_interesting.exit.i ], [ %spec.select.i, %._crit_edge.i73 ], [ %spec.select.i, %462 ], [ %spec.select.i, %456 ], [ %spec.select.i, %451 ], [ %spec.select.i, %433 ], [ %.0236.i, %438 ], [ %442, %441 ]
-  %.156.i = phi ptr [ %.055237.i, %still_interesting.exit.i ], [ %460, %._crit_edge.i73 ], [ %460, %462 ], [ %.055237.i, %456 ], [ %.055237.i, %451 ], [ %.055237.i, %433 ], [ %.055237.i, %438 ], [ %.055237.i, %441 ]
-  %.154.i = phi i64 [ %.053238.i, %still_interesting.exit.i ], [ %.pre.i72.pre, %._crit_edge.i73 ], [ %.pre.i72.pre, %462 ], [ %.053238.i, %456 ], [ %.053238.i, %451 ], [ %.053238.i, %433 ], [ %.053238.i, %438 ], [ %.053238.i, %441 ]
-  %.152.i = phi i32 [ %447, %still_interesting.exit.i ], [ %.051239.i, %._crit_edge.i73 ], [ %.051239.i, %462 ], [ %.051239.i, %456 ], [ %.051239.i, %451 ], [ 5, %433 ], [ 5, %438 ], [ 5, %441 ]
+  %.2192.i = phi ptr [ %spec.select.i, %still_interesting.exit.i ], [ %spec.select.i, %._crit_edge.i73 ], [ %spec.select.i, %462 ], [ %spec.select.i, %456 ], [ %spec.select.i, %451 ], [ %spec.select.i, %433 ], [ %.0230.i, %438 ], [ %442, %441 ]
+  %.156.i = phi ptr [ %.055231.i, %still_interesting.exit.i ], [ %460, %._crit_edge.i73 ], [ %460, %462 ], [ %.055231.i, %456 ], [ %.055231.i, %451 ], [ %.055231.i, %433 ], [ %.055231.i, %438 ], [ %.055231.i, %441 ]
+  %.154.i = phi i64 [ %.053232.i, %still_interesting.exit.i ], [ %.pre.i72.pre, %._crit_edge.i73 ], [ %.pre.i72.pre, %462 ], [ %.053232.i, %456 ], [ %.053232.i, %451 ], [ %.053232.i, %433 ], [ %.053232.i, %438 ], [ %.053232.i, %441 ]
+  %.152.i = phi i32 [ %447, %still_interesting.exit.i ], [ %.051233.i, %._crit_edge.i73 ], [ %.051233.i, %462 ], [ %.051233.i, %456 ], [ %.051233.i, %451 ], [ 5, %433 ], [ 5, %438 ], [ 5, %441 ]
   %464 = load ptr, ptr %8, align 8, !tbaa !58
   %.not64.i = icmp eq ptr %464, null
   br i1 %.not64.i, label %.thread.i, label %366
 
 .thread.i:                                        ; preds = %still_interesting.exit.thread.i, %still_interesting.exit.i, %mark_parents_uninteresting.exit.i
-  %.pre256.pre.i = load ptr, ptr %9, align 8
+  %.pre250.pre.i = load ptr, ptr %9, align 8
   %465 = load i64, ptr %243, align 8
   %466 = and i64 %465, 25769803776
   %or.cond.i68 = icmp eq i64 %466, 0
@@ -7998,20 +7998,20 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
 .thread.thread.i:                                 ; preds = %362
   %467 = load i64, ptr %243, align 8
   %468 = and i64 %467, 25769803776
-  %or.cond286.i = icmp eq i64 %468, 0
-  br i1 %or.cond286.i, label %limit_left_right.exit.thread.i, label %.thread288.i
+  %or.cond280.i = icmp eq i64 %468, 0
+  br i1 %or.cond280.i, label %limit_left_right.exit.thread.i, label %.thread282.i
 
-.thread288.i:                                     ; preds = %.thread.thread.i
+.thread282.i:                                     ; preds = %.thread.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %cherry_pick_list.exit.i
 
 469:                                              ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not56.i.i = icmp eq ptr %.pre256.pre.i, null
+  %.not56.i.i = icmp eq ptr %.pre250.pre.i, null
   br i1 %.not56.i.i, label %cherry_pick_list.exit.i, label %.lr.ph.i88.i
 
 .lr.ph.i88.i:                                     ; preds = %469, %479
-  %.059.i.i = phi ptr [ %481, %479 ], [ %.pre256.pre.i, %469 ]
+  %.059.i.i = phi ptr [ %481, %479 ], [ %.pre250.pre.i, %469 ]
   %.04158.i.i = phi i32 [ %.142.i.i, %479 ], [ 0, %469 ]
   %.04357.i.i = phi i32 [ %.144.i.i, %479 ], [ 0, %469 ]
   %470 = load ptr, ptr %.059.i.i, align 8, !tbaa !59
@@ -8058,7 +8058,7 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
   br label %.lr.ph64.i.i
 
 .lr.ph64.i.i:                                     ; preds = %499, %484
-  %.162.i.i = phi ptr [ %501, %499 ], [ %.pre256.pre.i, %484 ]
+  %.162.i.i = phi ptr [ %501, %499 ], [ %.pre250.pre.i, %484 ]
   %491 = load ptr, ptr %.162.i.i, align 8, !tbaa !59
   %492 = load i32, ptr %491, align 8
   %493 = and i32 %492, 512
@@ -8089,7 +8089,7 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
   br label %.lr.ph69.i.i
 
 .lr.ph69.i.i:                                     ; preds = %.loopexit.i.i, %._crit_edge65.i.i
-  %.267.i.i = phi ptr [ %524, %.loopexit.i.i ], [ %.pre256.pre.i, %._crit_edge65.i.i ]
+  %.267.i.i = phi ptr [ %524, %.loopexit.i.i ], [ %.pre250.pre.i, %._crit_edge65.i.i ]
   %505 = load ptr, ptr %.267.i.i, align 8, !tbaa !59
   %506 = load i32, ptr %505, align 8
   %507 = and i32 %506, 512
@@ -8132,24 +8132,24 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
 
 ._crit_edge70.i.i:                                ; preds = %.loopexit.i.i
   %525 = call i32 @free_patch_ids(ptr noundef nonnull %7) #27
-  %.pre254.pre.i = load i64, ptr %243, align 8
-  %.pre255.pre.i = load ptr, ptr %9, align 8
+  %.pre248.pre.i = load i64, ptr %243, align 8
+  %.pre249.pre.i = load ptr, ptr %9, align 8
   br label %cherry_pick_list.exit.i
 
-cherry_pick_list.exit.i:                          ; preds = %._crit_edge70.i.i, %._crit_edge.i90.i, %469, %.thread288.i
-  %.pre255.i = phi ptr [ null, %469 ], [ %.pre256.pre.i, %._crit_edge.i90.i ], [ %.pre255.pre.i, %._crit_edge70.i.i ], [ null, %.thread288.i ]
-  %.pre254.i = phi i64 [ %465, %469 ], [ %465, %._crit_edge.i90.i ], [ %.pre254.pre.i, %._crit_edge70.i.i ], [ %467, %.thread288.i ]
+cherry_pick_list.exit.i:                          ; preds = %._crit_edge70.i.i, %._crit_edge.i90.i, %469, %.thread282.i
+  %.pre249.i = phi ptr [ null, %469 ], [ %.pre250.pre.i, %._crit_edge.i90.i ], [ %.pre249.pre.i, %._crit_edge70.i.i ], [ null, %.thread282.i ]
+  %.pre248.i = phi i64 [ %465, %469 ], [ %465, %._crit_edge.i90.i ], [ %.pre248.pre.i, %._crit_edge70.i.i ], [ %467, %.thread282.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %526
 
 526:                                              ; preds = %cherry_pick_list.exit.i, %.thread.i
-  %527 = phi ptr [ %.pre256.pre.i, %.thread.i ], [ %.pre255.i, %cherry_pick_list.exit.i ]
-  %528 = phi i64 [ %465, %.thread.i ], [ %.pre254.i, %cherry_pick_list.exit.i ]
+  %527 = phi ptr [ %.pre250.pre.i, %.thread.i ], [ %.pre249.i, %cherry_pick_list.exit.i ]
+  %528 = phi i64 [ %465, %.thread.i ], [ %.pre248.i, %cherry_pick_list.exit.i ]
   %529 = and i64 %528, 201326592
   %or.cond82.i = icmp eq i64 %529, 0
   %.not12.i.i = icmp eq ptr %527, null
-  %or.cond227.i = select i1 %or.cond82.i, i1 true, i1 %.not12.i.i
-  br i1 %or.cond227.i, label %limit_left_right.exit.i, label %.lr.ph.i91.i
+  %or.cond221.i = select i1 %or.cond82.i, i1 true, i1 %.not12.i.i
+  br i1 %or.cond221.i, label %limit_left_right.exit.i, label %.lr.ph.i91.i
 
 .lr.ph.i91.i:                                     ; preds = %526, %537
   %.013.i.i = phi ptr [ %539, %537 ], [ %527, %526 ]
@@ -8175,23 +8175,23 @@ cherry_pick_list.exit.i:                          ; preds = %._crit_edge70.i.i, 
   br i1 %.not.i94.i, label %limit_left_right.exit.loopexit.i, label %.lr.ph.i91.i, !llvm.loop !333
 
 limit_left_right.exit.loopexit.i:                 ; preds = %537
-  %.pre257.i = load i64, ptr %243, align 8
-  %.049241.pre259.pre.i = load ptr, ptr %9, align 8
+  %.pre251.i = load i64, ptr %243, align 8
+  %.049235.pre253.pre.i = load ptr, ptr %9, align 8
   br label %limit_left_right.exit.i
 
 limit_left_right.exit.i:                          ; preds = %limit_left_right.exit.loopexit.i, %526
-  %.049241.pre259.i = phi ptr [ %.049241.pre259.pre.i, %limit_left_right.exit.loopexit.i ], [ %527, %526 ]
-  %540 = phi i64 [ %.pre257.i, %limit_left_right.exit.loopexit.i ], [ %528, %526 ]
+  %.049235.pre253.i = phi ptr [ %.049235.pre253.pre.i, %limit_left_right.exit.loopexit.i ], [ %527, %526 ]
+  %540 = phi i64 [ %.pre251.i, %limit_left_right.exit.loopexit.i ], [ %528, %526 ]
   %541 = and i64 %540, 68719476736
   %.not77.i = icmp eq i64 %541, 0
   br i1 %.not77.i, label %593, label %545
 
 limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   %542 = and i64 %467, 68719476736
-  %.not77296.i = icmp eq i64 %542, 0
-  br i1 %.not77296.i, label %.loopexit, label %.thread298.i
+  %.not77290.i = icmp eq i64 %542, 0
+  br i1 %.not77290.i, label %.loopexit, label %.thread292.i
 
-.thread298.i:                                     ; preds = %limit_left_right.exit.thread.i
+.thread292.i:                                     ; preds = %limit_left_right.exit.thread.i
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %544 = load ptr, ptr %543, align 8, !tbaa !272
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8203,18 +8203,18 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   %547 = load ptr, ptr %546, align 8, !tbaa !272
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !58
-  %.not49.i96.i = icmp eq ptr %.049241.pre259.i, null
+  %.not49.i96.i = icmp eq ptr %.049235.pre253.i, null
   br i1 %.not49.i96.i, label %.preheader48.i.i, label %.lr.ph.i97.i
 
-.preheader48.i.i:                                 ; preds = %.lr.ph.i97.i, %545, %.thread298.i
-  %.not49.i96302.i = phi i1 [ true, %.thread298.i ], [ true, %545 ], [ false, %.lr.ph.i97.i ]
-  %548 = phi ptr [ %544, %.thread298.i ], [ %547, %545 ], [ %547, %.lr.ph.i97.i ]
-  %.049241.pre259297301.i = phi ptr [ null, %.thread298.i ], [ null, %545 ], [ %.049241.pre259.i, %.lr.ph.i97.i ]
+.preheader48.i.i:                                 ; preds = %.lr.ph.i97.i, %545, %.thread292.i
+  %.not49.i96296.i = phi i1 [ true, %.thread292.i ], [ true, %545 ], [ false, %.lr.ph.i97.i ]
+  %548 = phi ptr [ %544, %.thread292.i ], [ %547, %545 ], [ %547, %.lr.ph.i97.i ]
+  %.049235.pre253291295.i = phi ptr [ null, %.thread292.i ], [ null, %545 ], [ %.049235.pre253.i, %.lr.ph.i97.i ]
   %.not3551.i.i = icmp eq ptr %548, null
   br i1 %.not3551.i.i, label %.preheader47.i.i, label %.lr.ph53.i.i
 
 .lr.ph.i97.i:                                     ; preds = %545, %.lr.ph.i97.i
-  %.050.i.i = phi ptr [ %552, %.lr.ph.i97.i ], [ %.049241.pre259.i, %545 ]
+  %.050.i.i = phi ptr [ %552, %.lr.ph.i97.i ], [ %.049235.pre253.i, %545 ]
   %549 = load ptr, ptr %.050.i.i, align 8, !tbaa !59
   %550 = call ptr @commit_list_insert(ptr noundef %549, ptr noundef nonnull %6) #27
   %551 = getelementptr inbounds nuw i8, ptr %.050.i.i, i64 8
@@ -8298,14 +8298,14 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
 ._crit_edge.i100.i:                               ; preds = %.loopexit.i99.i
   %.258.pr.i.i = load ptr, ptr %6, align 8
   %.not3659.i.i = icmp eq ptr %.258.pr.i.i, null
-  %or.cond245.i = select i1 %560, i1 true, i1 %.not3659.i.i
-  br i1 %or.cond245.i, label %.preheader46.i.i, label %.lr.ph62.outer.i.i.backedge
+  %or.cond239.i = select i1 %560, i1 true, i1 %.not3659.i.i
+  br i1 %or.cond239.i, label %.preheader46.i.i, label %.lr.ph62.outer.i.i.backedge
 
 .preheader46.i.i:                                 ; preds = %._crit_edge.i100.i, %.preheader47.splitthread-pre-split.i.i, %.preheader47.i.i
-  br i1 %.not49.i96302.i, label %.preheader.i.i, label %.lr.ph65.i.i
+  br i1 %.not49.i96296.i, label %.preheader.i.i, label %.lr.ph65.i.i
 
 .lr.ph65.i.i:                                     ; preds = %.preheader46.i.i, %579
-  %.364.i.i = phi ptr [ %581, %579 ], [ %.049241.pre259297301.i, %.preheader46.i.i ]
+  %.364.i.i = phi ptr [ %581, %579 ], [ %.049235.pre253291295.i, %.preheader46.i.i ]
   %574 = load ptr, ptr %.364.i.i, align 8, !tbaa !59
   %575 = load i32, ptr %574, align 8
   %576 = and i32 %575, -2147483392
@@ -8327,7 +8327,7 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   br i1 %.not3551.i.i, label %limit_to_ancestry.exit.i, label %.lr.ph71.i.i
 
 .lr.ph68.i.i:                                     ; preds = %579, %.lr.ph68.i.i
-  %.467.i.i = phi ptr [ %586, %.lr.ph68.i.i ], [ %.049241.pre259297301.i, %579 ]
+  %.467.i.i = phi ptr [ %586, %.lr.ph68.i.i ], [ %.049235.pre253291295.i, %579 ]
   %582 = load ptr, ptr %.467.i.i, align 8, !tbaa !59
   %583 = load i32, ptr %582, align 8
   %584 = and i32 %583, 2147483391
@@ -8353,35 +8353,35 @@ limit_to_ancestry.exit.i:                         ; preds = %.lr.ph71.i.i, %.pre
   call void @free_commit_list(ptr noundef %592) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val.pre.i = load i64, ptr %243, align 8
-  %.049241.pre.i = load ptr, ptr %9, align 8
+  %.049235.pre.i = load ptr, ptr %9, align 8
   br label %593
 
 593:                                              ; preds = %limit_to_ancestry.exit.i, %limit_left_right.exit.i
-  %.049241.i = phi ptr [ %.049241.pre.i, %limit_to_ancestry.exit.i ], [ %.049241.pre259.i, %limit_left_right.exit.i ]
+  %.049235.i = phi ptr [ %.049235.pre.i, %limit_to_ancestry.exit.i ], [ %.049235.pre253.i, %limit_left_right.exit.i ]
   %.val.i = phi i64 [ %.val.pre.i, %limit_to_ancestry.exit.i ], [ %540, %limit_left_right.exit.i ]
   %594 = and i64 %.val.i, 274877907084
   %narrow.i.not.i = icmp ne i64 %594, 12
-  %.not79242.i = icmp eq ptr %.049241.i, null
-  %or.cond246.i = select i1 %narrow.i.not.i, i1 true, i1 %.not79242.i
-  br i1 %or.cond246.i, label %.loopexit, label %.lr.ph244.i
+  %.not79236.i = icmp eq ptr %.049235.i, null
+  %or.cond240.i = select i1 %narrow.i.not.i, i1 true, i1 %.not79236.i
+  br i1 %or.cond240.i, label %.loopexit, label %.lr.ph238.i
 
-.lr.ph244.i:                                      ; preds = %593, %599
-  %.049243.i = phi ptr [ %.049.i69, %599 ], [ %.049241.i, %593 ]
-  %595 = load ptr, ptr %.049243.i, align 8, !tbaa !59
+.lr.ph238.i:                                      ; preds = %593, %599
+  %.049237.i = phi ptr [ %.049.i69, %599 ], [ %.049235.i, %593 ]
+  %595 = load ptr, ptr %.049237.i, align 8, !tbaa !59
   %596 = load i32, ptr %595, align 8
   %597 = and i32 %596, 96
   %.not80.i = icmp eq i32 %597, 0
   br i1 %.not80.i, label %598, label %599
 
-598:                                              ; preds = %.lr.ph244.i
+598:                                              ; preds = %.lr.ph238.i
   call fastcc void @update_treesame(ptr noundef nonnull %0, ptr noundef nonnull %595)
   br label %599
 
-599:                                              ; preds = %598, %.lr.ph244.i
-  %600 = getelementptr inbounds nuw i8, ptr %.049243.i, i64 8
+599:                                              ; preds = %598, %.lr.ph238.i
+  %600 = getelementptr inbounds nuw i8, ptr %.049237.i, i64 8
   %.049.i69 = load ptr, ptr %600, align 8, !tbaa !58
   %.not79.i = icmp eq ptr %.049.i69, null
-  br i1 %.not79.i, label %.loopexit, label %.lr.ph244.i, !llvm.loop !343
+  br i1 %.not79.i, label %.loopexit, label %.lr.ph238.i, !llvm.loop !343
 
 .loopexit:                                        ; preds = %599, %593, %limit_left_right.exit.thread.i
   %601 = load ptr, ptr %8, align 8, !tbaa !58
@@ -8714,16 +8714,16 @@ init_topo_walk.exit:                              ; preds = %734, %731, %608, %.
 want_ancestry.exit:                               ; preds = %738
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %741 = load ptr, ptr %740, align 8, !tbaa !236
-  %.not239 = icmp eq ptr %741, null
-  br i1 %.not239, label %743, label %want_ancestry.exit.thread
+  %.not227 = icmp eq ptr %741, null
+  br i1 %.not227, label %743, label %want_ancestry.exit.thread
 
 want_ancestry.exit.thread:                        ; preds = %738, %want_ancestry.exit
   %742 = call i32 @line_log_filter(ptr noundef nonnull %0) #27
-  %.pre357 = load i64, ptr %243, align 8
+  %.pre345 = load i64, ptr %243, align 8
   br label %743
 
 743:                                              ; preds = %want_ancestry.exit.thread, %want_ancestry.exit, %init_topo_walk.exit
-  %744 = phi i64 [ %.pre357, %want_ancestry.exit.thread ], [ %736, %want_ancestry.exit ], [ %736, %init_topo_walk.exit ]
+  %744 = phi i64 [ %.pre345, %want_ancestry.exit.thread ], [ %736, %want_ancestry.exit ], [ %736, %init_topo_walk.exit ]
   %745 = and i64 %744, 1024
   %.not55 = icmp eq i64 %745, 0
   br i1 %.not55, label %920, label %746
@@ -13066,9 +13066,9 @@ define internal fastcc void @compute_indegrees_to_depth(ptr noundef %0, i64 noun
   br i1 %.not13.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %61, %85
-  %.sroa.0.3.i.i = phi ptr [ %.sroa.0.17.i.i, %85 ], [ null, %61 ]
-  %.sroa.20.3.i.i = phi i64 [ %.sroa.20.12.i.i, %85 ], [ 0, %61 ]
-  %.sroa.36.3.i.i = phi i64 [ %.sroa.36.17.i.i, %85 ], [ 0, %61 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.14.i.i, %85 ], [ null, %61 ]
+  %.sroa.20.0.i.i = phi i64 [ %.sroa.20.8.i.i, %85 ], [ 0, %61 ]
+  %.sroa.36.0.i.i = phi i64 [ %.sroa.36.13.i.i, %85 ], [ 0, %61 ]
   %.014.i.i.i = phi ptr [ %.0.i6.i.i, %85 ], [ %.012.i.i.i, %61 ]
   %63 = load ptr, ptr %.014.i.i.i, align 8, !tbaa !59
   %64 = load i32, ptr %63, align 8
@@ -13085,17 +13085,17 @@ define internal fastcc void @compute_indegrees_to_depth(ptr noundef %0, i64 noun
   br i1 %.not1014.i18.i.i, label %mark_one_parent_uninteresting.exit51.i.i, label %.lr.ph.split.i22.i.i
 
 .lr.ph.split.i22.i.i:                             ; preds = %66, %81
-  %.sroa.0.13.i.i = phi ptr [ %.sroa.0.14.i.i, %81 ], [ %.sroa.0.3.i.i, %66 ]
-  %.sroa.20.10.i.i = phi i64 [ %70, %81 ], [ %.sroa.20.3.i.i, %66 ]
-  %.sroa.36.13.i.i = phi i64 [ %.sroa.36.14.i.i, %81 ], [ %.sroa.36.3.i.i, %66 ]
+  %.sroa.0.10.i.i = phi ptr [ %.sroa.0.11.i.i, %81 ], [ %.sroa.0.0.i.i, %66 ]
+  %.sroa.20.6.i.i = phi i64 [ %70, %81 ], [ %.sroa.20.0.i.i, %66 ]
+  %.sroa.36.9.i.i = phi i64 [ %.sroa.36.10.i.i, %81 ], [ %.sroa.36.0.i.i, %66 ]
   %.015.i23.i.i = phi ptr [ %.0.i29.i.i, %81 ], [ %.013.i17.i.i, %66 ]
   %69 = load ptr, ptr %.015.i23.i.i, align 8, !tbaa !59
-  %70 = add i64 %.sroa.20.10.i.i, 1
-  %71 = icmp ugt i64 %70, %.sroa.36.13.i.i
+  %70 = add i64 %.sroa.20.6.i.i, 1
+  %71 = icmp ugt i64 %70, %.sroa.36.9.i.i
   br i1 %71, label %72, label %commit_stack_push.exit.i26.i.i
 
 72:                                               ; preds = %.lr.ph.split.i22.i.i
-  %73 = mul i64 %.sroa.36.13.i.i, 3
+  %73 = mul i64 %.sroa.36.9.i.i, 3
   %74 = add i64 %73, 48
   %75 = lshr i64 %74, 1
   %..i.i31.i.i = tail call i64 @llvm.umax.i64(i64 %75, i64 %70)
@@ -13108,13 +13108,13 @@ define internal fastcc void @compute_indegrees_to_depth(ptr noundef %0, i64 noun
 
 st_mult.exit.i.i33.i.i:                           ; preds = %72
   %76 = shl nuw i64 %..i.i31.i.i, 3
-  %77 = tail call ptr @xrealloc(ptr noundef %.sroa.0.13.i.i, i64 noundef %76) #27
+  %77 = tail call ptr @xrealloc(ptr noundef %.sroa.0.10.i.i, i64 noundef %76) #27
   br label %commit_stack_push.exit.i26.i.i
 
 commit_stack_push.exit.i26.i.i:                   ; preds = %st_mult.exit.i.i33.i.i, %.lr.ph.split.i22.i.i
-  %.sroa.0.14.i.i = phi ptr [ %77, %st_mult.exit.i.i33.i.i ], [ %.sroa.0.13.i.i, %.lr.ph.split.i22.i.i ]
-  %.sroa.36.14.i.i = phi i64 [ %..i.i31.i.i, %st_mult.exit.i.i33.i.i ], [ %.sroa.36.13.i.i, %.lr.ph.split.i22.i.i ]
-  %78 = getelementptr inbounds nuw ptr, ptr %.sroa.0.14.i.i, i64 %.sroa.20.10.i.i
+  %.sroa.0.11.i.i = phi ptr [ %77, %st_mult.exit.i.i33.i.i ], [ %.sroa.0.10.i.i, %.lr.ph.split.i22.i.i ]
+  %.sroa.36.10.i.i = phi i64 [ %..i.i31.i.i, %st_mult.exit.i.i33.i.i ], [ %.sroa.36.9.i.i, %.lr.ph.split.i22.i.i ]
+  %78 = getelementptr inbounds nuw ptr, ptr %.sroa.0.11.i.i, i64 %.sroa.20.6.i.i
   store ptr %69, ptr %78, align 8, !tbaa !67
   %79 = load i64, ptr %10, align 8
   %80 = and i64 %79, 549755813888
@@ -13128,9 +13128,9 @@ commit_stack_push.exit.i26.i.i:                   ; preds = %st_mult.exit.i.i33.
   br i1 %.not10.i30.i.i, label %mark_one_parent_uninteresting.exit51.i.i, label %.lr.ph.split.i22.i.i, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit51.i.i:         ; preds = %81, %commit_stack_push.exit.i26.i.i, %66, %.lr.ph.split.i.i.i
-  %.sroa.0.17.i.i = phi ptr [ %.sroa.0.3.i.i, %66 ], [ %.sroa.0.3.i.i, %.lr.ph.split.i.i.i ], [ %.sroa.0.14.i.i, %commit_stack_push.exit.i26.i.i ], [ %.sroa.0.14.i.i, %81 ]
-  %.sroa.20.12.i.i = phi i64 [ %.sroa.20.3.i.i, %66 ], [ %.sroa.20.3.i.i, %.lr.ph.split.i.i.i ], [ %70, %commit_stack_push.exit.i26.i.i ], [ %70, %81 ]
-  %.sroa.36.17.i.i = phi i64 [ %.sroa.36.3.i.i, %66 ], [ %.sroa.36.3.i.i, %.lr.ph.split.i.i.i ], [ %.sroa.36.14.i.i, %commit_stack_push.exit.i26.i.i ], [ %.sroa.36.14.i.i, %81 ]
+  %.sroa.0.14.i.i = phi ptr [ %.sroa.0.0.i.i, %66 ], [ %.sroa.0.0.i.i, %.lr.ph.split.i.i.i ], [ %.sroa.0.11.i.i, %commit_stack_push.exit.i26.i.i ], [ %.sroa.0.11.i.i, %81 ]
+  %.sroa.20.8.i.i = phi i64 [ %.sroa.20.0.i.i, %66 ], [ %.sroa.20.0.i.i, %.lr.ph.split.i.i.i ], [ %70, %commit_stack_push.exit.i26.i.i ], [ %70, %81 ]
+  %.sroa.36.13.i.i = phi i64 [ %.sroa.36.0.i.i, %66 ], [ %.sroa.36.0.i.i, %.lr.ph.split.i.i.i ], [ %.sroa.36.10.i.i, %commit_stack_push.exit.i26.i.i ], [ %.sroa.36.10.i.i, %81 ]
   %83 = load i64, ptr %10, align 8
   %84 = and i64 %83, 549755813888
   %.not10.i.i.i = icmp eq i64 %84, 0
@@ -13143,15 +13143,15 @@ mark_one_parent_uninteresting.exit51.i.i:         ; preds = %81, %commit_stack_p
   br i1 %.not.i7.i.i, label %._crit_edge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !62
 
 ._crit_edge.i.i.i:                                ; preds = %85, %mark_one_parent_uninteresting.exit51.i.i
-  %.not1116.i.i.i = icmp eq i64 %.sroa.20.12.i.i, 0
+  %.not1116.i.i.i = icmp eq i64 %.sroa.20.8.i.i, 0
   br i1 %.not1116.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i
 
 commit_stack_pop.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i, %mark_one_parent_uninteresting.exit.i.i
-  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.12.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.0.17.i.i, %._crit_edge.i.i.i ]
-  %.sroa.36.5.i.i = phi i64 [ %.sroa.36.12.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.36.17.i.i, %._crit_edge.i.i.i ]
-  %87 = phi i64 [ %.sroa.20.9.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.20.12.i.i, %._crit_edge.i.i.i ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.9.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.0.14.i.i, %._crit_edge.i.i.i ]
+  %.sroa.36.2.i.i = phi i64 [ %.sroa.36.8.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.36.13.i.i, %._crit_edge.i.i.i ]
+  %87 = phi i64 [ %.sroa.20.5.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %.sroa.20.8.i.i, %._crit_edge.i.i.i ]
   %88 = add i64 %87, -1
-  %89 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5.i.i, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2.i.i, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !67
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 32
@@ -13167,17 +13167,17 @@ commit_stack_pop.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i, 
   br i1 %.not1014.i.i.i, label %mark_one_parent_uninteresting.exit.i.i, label %.lr.ph.split.i11.i.i
 
 .lr.ph.split.i11.i.i:                             ; preds = %93, %108
-  %.sroa.0.8.i.i = phi ptr [ %.sroa.0.9.i.i, %108 ], [ %.sroa.0.5.i.i, %93 ]
-  %.sroa.20.7.i.i = phi i64 [ %97, %108 ], [ %88, %93 ]
-  %.sroa.36.8.i.i = phi i64 [ %.sroa.36.9.i.i, %108 ], [ %.sroa.36.5.i.i, %93 ]
+  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.6.i.i, %108 ], [ %.sroa.0.2.i.i, %93 ]
+  %.sroa.20.3.i.i = phi i64 [ %97, %108 ], [ %88, %93 ]
+  %.sroa.36.4.i.i = phi i64 [ %.sroa.36.5.i.i, %108 ], [ %.sroa.36.2.i.i, %93 ]
   %.015.i.i.i = phi ptr [ %.0.i12.i.i, %108 ], [ %.013.i.i.i, %93 ]
   %96 = load ptr, ptr %.015.i.i.i, align 8, !tbaa !59
-  %97 = add i64 %.sroa.20.7.i.i, 1
-  %98 = icmp ugt i64 %97, %.sroa.36.8.i.i
+  %97 = add i64 %.sroa.20.3.i.i, 1
+  %98 = icmp ugt i64 %97, %.sroa.36.4.i.i
   br i1 %98, label %99, label %commit_stack_push.exit.i.i.i
 
 99:                                               ; preds = %.lr.ph.split.i11.i.i
-  %100 = mul i64 %.sroa.36.8.i.i, 3
+  %100 = mul i64 %.sroa.36.4.i.i, 3
   %101 = add i64 %100, 48
   %102 = lshr i64 %101, 1
   %..i.i.i.i = tail call i64 @llvm.umax.i64(i64 %102, i64 %97)
@@ -13190,13 +13190,13 @@ commit_stack_pop.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i, 
 
 st_mult.exit.i.i.i.i:                             ; preds = %99
   %103 = shl nuw i64 %..i.i.i.i, 3
-  %104 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.0.8.i.i, i64 noundef %103) #27
+  %104 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.0.5.i.i, i64 noundef %103) #27
   br label %commit_stack_push.exit.i.i.i
 
 commit_stack_push.exit.i.i.i:                     ; preds = %st_mult.exit.i.i.i.i, %.lr.ph.split.i11.i.i
-  %.sroa.0.9.i.i = phi ptr [ %104, %st_mult.exit.i.i.i.i ], [ %.sroa.0.8.i.i, %.lr.ph.split.i11.i.i ]
-  %.sroa.36.9.i.i = phi i64 [ %..i.i.i.i, %st_mult.exit.i.i.i.i ], [ %.sroa.36.8.i.i, %.lr.ph.split.i11.i.i ]
-  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.0.9.i.i, i64 %.sroa.20.7.i.i
+  %.sroa.0.6.i.i = phi ptr [ %104, %st_mult.exit.i.i.i.i ], [ %.sroa.0.5.i.i, %.lr.ph.split.i11.i.i ]
+  %.sroa.36.5.i.i = phi i64 [ %..i.i.i.i, %st_mult.exit.i.i.i.i ], [ %.sroa.36.4.i.i, %.lr.ph.split.i11.i.i ]
+  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.0.6.i.i, i64 %.sroa.20.3.i.i
   store ptr %96, ptr %105, align 8, !tbaa !67
   %106 = load i64, ptr %10, align 8
   %107 = and i64 %106, 549755813888
@@ -13210,15 +13210,15 @@ commit_stack_push.exit.i.i.i:                     ; preds = %st_mult.exit.i.i.i.
   br i1 %.not10.i13.i.i, label %mark_one_parent_uninteresting.exit.i.i, label %.lr.ph.split.i11.i.i, !llvm.loop !70
 
 mark_one_parent_uninteresting.exit.i.i:           ; preds = %108, %commit_stack_push.exit.i.i.i, %93, %commit_stack_pop.exit.i.i.i
-  %.sroa.0.12.i.i = phi ptr [ %.sroa.0.5.i.i, %93 ], [ %.sroa.0.5.i.i, %commit_stack_pop.exit.i.i.i ], [ %.sroa.0.9.i.i, %commit_stack_push.exit.i.i.i ], [ %.sroa.0.9.i.i, %108 ]
-  %.sroa.20.9.i.i = phi i64 [ %88, %93 ], [ %88, %commit_stack_pop.exit.i.i.i ], [ %97, %commit_stack_push.exit.i.i.i ], [ %97, %108 ]
-  %.sroa.36.12.i.i = phi i64 [ %.sroa.36.5.i.i, %93 ], [ %.sroa.36.5.i.i, %commit_stack_pop.exit.i.i.i ], [ %.sroa.36.9.i.i, %commit_stack_push.exit.i.i.i ], [ %.sroa.36.9.i.i, %108 ]
-  %.not11.i.i.i = icmp eq i64 %.sroa.20.9.i.i, 0
+  %.sroa.0.9.i.i = phi ptr [ %.sroa.0.2.i.i, %93 ], [ %.sroa.0.2.i.i, %commit_stack_pop.exit.i.i.i ], [ %.sroa.0.6.i.i, %commit_stack_push.exit.i.i.i ], [ %.sroa.0.6.i.i, %108 ]
+  %.sroa.20.5.i.i = phi i64 [ %88, %93 ], [ %88, %commit_stack_pop.exit.i.i.i ], [ %97, %commit_stack_push.exit.i.i.i ], [ %97, %108 ]
+  %.sroa.36.8.i.i = phi i64 [ %.sroa.36.2.i.i, %93 ], [ %.sroa.36.2.i.i, %commit_stack_pop.exit.i.i.i ], [ %.sroa.36.5.i.i, %commit_stack_push.exit.i.i.i ], [ %.sroa.36.5.i.i, %108 ]
+  %.not11.i.i.i = icmp eq i64 %.sroa.20.5.i.i, 0
   br i1 %.not11.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i, !llvm.loop !68
 
 mark_parents_uninteresting.exit.i.i:              ; preds = %mark_one_parent_uninteresting.exit.i.i, %._crit_edge.i.i.i, %61
-  %.sroa.0.7.i.i = phi ptr [ %.sroa.0.17.i.i, %._crit_edge.i.i.i ], [ null, %61 ], [ %.sroa.0.12.i.i, %mark_one_parent_uninteresting.exit.i.i ]
-  tail call void @free(ptr noundef %.sroa.0.7.i.i) #27
+  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.14.i.i, %._crit_edge.i.i.i ], [ null, %61 ], [ %.sroa.0.9.i.i, %mark_one_parent_uninteresting.exit.i.i ]
+  tail call void @free(ptr noundef %.sroa.0.4.i.i) #27
   br label %110
 
 110:                                              ; preds = %mark_parents_uninteresting.exit.i.i, %58

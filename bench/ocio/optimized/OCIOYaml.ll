@@ -2546,13 +2546,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %6
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 %625
   store i8 0, ptr %628, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
-  %.pre4621 = load ptr, ptr %108, align 8, !tbaa !18
-  %.pre4622 = load i64, ptr %626, align 8, !tbaa !62
+  %.pre4601 = load ptr, ptr %108, align 8, !tbaa !18
+  %.pre4602 = load i64, ptr %626, align 8, !tbaa !62
   br label %629
 
 629:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %._crit_edge.i.i903
-  %630 = phi i64 [ %.pre4622, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ 6, %._crit_edge.i.i903 ]
-  %631 = phi ptr [ %.pre4621, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %613, %._crit_edge.i.i903 ]
+  %630 = phi i64 [ %.pre4602, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ 6, %._crit_edge.i.i903 ]
+  %631 = phi ptr [ %.pre4601, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %613, %._crit_edge.i.i903 ]
   %632 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef %631, i64 noundef %630)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %665
 
@@ -3592,30 +3592,30 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %771, %.thread.i, %7
   %1352 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %1353 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %1354 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %.sroa.94591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %.sroa.124596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %.sroa.94591.0..sroa_idx4592 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %.sroa.124596.0..sroa_idx4597 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %.sroa.94591.0..sroa_idx4594 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %.sroa.124596.0..sroa_idx4599 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.sroa.94576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.sroa.124581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.sroa.94576.0..sroa_idx4577 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.sroa.124581.0..sroa_idx4582 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.sroa.94576.0..sroa_idx4579 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.sroa.124581.0..sroa_idx4584 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %.sroa.94504.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.94504.0..sroa_idx4505 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.12.0..sroa_idx4509 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.94504.0..sroa_idx4507 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.12.0..sroa_idx4511 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.94531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %.sroa.124536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %.sroa.94531.0..sroa_idx4532 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %.sroa.124536.0..sroa_idx4537 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %.sroa.94531.0..sroa_idx4534 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %.sroa.124536.0..sroa_idx4539 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %.sroa.94561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %.sroa.124566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %.sroa.94561.0..sroa_idx4562 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %.sroa.124566.0..sroa_idx4567 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %.sroa.94561.0..sroa_idx4564 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %.sroa.124566.0..sroa_idx4569 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %.sroa.94526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.sroa.124531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %.sroa.94526.0..sroa_idx4527 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.sroa.124531.0..sroa_idx4532 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %.sroa.94526.0..sroa_idx4529 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.sroa.124531.0..sroa_idx4534 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %.sroa.94551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %.sroa.124556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %.sroa.94551.0..sroa_idx4552 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %.sroa.124556.0..sroa_idx4557 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %.sroa.94551.0..sroa_idx4554 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %.sroa.124556.0..sroa_idx4559 = getelementptr inbounds nuw i8, ptr %85, i64 16
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118: ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118.backedge, %_ZNK4YAML4Node5beginEv.exit
@@ -3653,29 +3653,29 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118: ; preds = %
   %1366 = load i32, ptr %1364, align 4, !tbaa !16, !noalias !106
   %1367 = add nsw i32 %1366, 1
   store i32 %1367, ptr %1364, align 4, !tbaa !16, !noalias !106
-  %.sroa.04583.0.copyload = load i32, ptr %90, align 8
-  %.sroa.94591.0.copyload = load ptr, ptr %.sroa.94591.0..sroa_idx, align 8
-  %.sroa.124596.0.copyload = load ptr, ptr %.sroa.124596.0..sroa_idx, align 8
+  %.sroa.04568.0.copyload = load i32, ptr %90, align 8
+  %.sroa.94576.0.copyload = load ptr, ptr %.sroa.94576.0..sroa_idx, align 8
+  %.sroa.124581.0.copyload = load ptr, ptr %.sroa.124581.0..sroa_idx, align 8
   br label %1371
 
 1368:                                             ; preds = %1363
   %1369 = atomicrmw volatile add ptr %1364, i32 1 acq_rel, align 4, !noalias !106
   %.pre.i969 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !106
   %1370 = icmp eq i8 %.pre.i969, 0
-  %.sroa.04583.0.copyload4584 = load i32, ptr %90, align 8
-  %.sroa.94591.0.copyload4593 = load ptr, ptr %.sroa.94591.0..sroa_idx4592, align 8
-  %.sroa.124596.0.copyload4598 = load ptr, ptr %.sroa.124596.0..sroa_idx4597, align 8
-  br i1 %1370, label %1374, label %._crit_edge4613
+  %.sroa.04568.0.copyload4569 = load i32, ptr %90, align 8
+  %.sroa.94576.0.copyload4578 = load ptr, ptr %.sroa.94576.0..sroa_idx4577, align 8
+  %.sroa.124581.0.copyload4583 = load ptr, ptr %.sroa.124581.0..sroa_idx4582, align 8
+  br i1 %1370, label %1374, label %._crit_edge4593
 
-._crit_edge4613:                                  ; preds = %1368
+._crit_edge4593:                                  ; preds = %1368
   %.pre = load i32, ptr %1364, align 4, !tbaa !16, !noalias !106
   br label %1371
 
-1371:                                             ; preds = %._crit_edge4613, %.thread13.i965
-  %1372 = phi i32 [ %.pre, %._crit_edge4613 ], [ %1367, %.thread13.i965 ]
-  %.sroa.94591.2 = phi ptr [ %.sroa.94591.0.copyload4593, %._crit_edge4613 ], [ %.sroa.94591.0.copyload, %.thread13.i965 ]
-  %.sroa.124596.2 = phi ptr [ %.sroa.124596.0.copyload4598, %._crit_edge4613 ], [ %.sroa.124596.0.copyload, %.thread13.i965 ]
-  %.sroa.04583.1 = phi i32 [ %.sroa.04583.0.copyload4584, %._crit_edge4613 ], [ %.sroa.04583.0.copyload, %.thread13.i965 ]
+1371:                                             ; preds = %._crit_edge4593, %.thread13.i965
+  %1372 = phi i32 [ %.pre, %._crit_edge4593 ], [ %1367, %.thread13.i965 ]
+  %.sroa.94576.1 = phi ptr [ %.sroa.94576.0.copyload4578, %._crit_edge4593 ], [ %.sroa.94576.0.copyload, %.thread13.i965 ]
+  %.sroa.124581.1 = phi ptr [ %.sroa.124581.0.copyload4583, %._crit_edge4593 ], [ %.sroa.124581.0.copyload, %.thread13.i965 ]
+  %.sroa.04568.1 = phi i32 [ %.sroa.04568.0.copyload4569, %._crit_edge4593 ], [ %.sroa.04568.0.copyload, %.thread13.i965 ]
   %1373 = add nsw i32 %1372, 1
   store i32 %1373, ptr %1364, align 4, !tbaa !16, !noalias !106
   br label %1377
@@ -3685,15 +3685,15 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118: ; preds = %
   br label %1377
 
 1376:                                             ; preds = %.noexc971
-  %.sroa.04583.0.copyload4585 = load i32, ptr %90, align 8
-  %.sroa.94591.0.copyload4595 = load ptr, ptr %.sroa.94591.0..sroa_idx4594, align 8
-  %.sroa.124596.0.copyload4600 = load ptr, ptr %.sroa.124596.0..sroa_idx4599, align 8
+  %.sroa.04568.0.copyload4570 = load i32, ptr %90, align 8
+  %.sroa.94576.0.copyload4580 = load ptr, ptr %.sroa.94576.0..sroa_idx4579, align 8
+  %.sroa.124581.0.copyload4585 = load ptr, ptr %.sroa.124581.0..sroa_idx4584, align 8
   br label %.thread.i970
 
 1377:                                             ; preds = %1374, %1371
-  %.sroa.94591.3 = phi ptr [ %.sroa.94591.0.copyload4593, %1374 ], [ %.sroa.94591.2, %1371 ]
-  %.sroa.124596.3 = phi ptr [ %.sroa.124596.0.copyload4598, %1374 ], [ %.sroa.124596.2, %1371 ]
-  %.sroa.04583.2 = phi i32 [ %.sroa.04583.0.copyload4584, %1374 ], [ %.sroa.04583.1, %1371 ]
+  %.sroa.94576.2 = phi ptr [ %.sroa.94576.0.copyload4578, %1374 ], [ %.sroa.94576.1, %1371 ]
+  %.sroa.124581.2 = phi ptr [ %.sroa.124581.0.copyload4583, %1374 ], [ %.sroa.124581.1, %1371 ]
+  %.sroa.04568.2 = phi i32 [ %.sroa.04568.0.copyload4569, %1374 ], [ %.sroa.04568.1, %1371 ]
   %1378 = load atomic i64, ptr %1364 acquire, align 8, !noalias !106
   %1379 = icmp eq i64 %1378, 4294967297
   %1380 = trunc i64 %1378 to i32
@@ -3737,38 +3737,38 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967: ; preds = %1393,
   br label %.thread.i970
 
 .thread.i970:                                     ; preds = %1357, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118, %1396, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967, %1381, %1376
-  %.sroa.94591.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.94591.0.copyload4595, %1376 ], [ %.sroa.94591.3, %1381 ], [ %.sroa.94591.3, %1396 ], [ %.sroa.94591.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
-  %.sroa.124596.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.124596.0.copyload4600, %1376 ], [ %.sroa.124596.3, %1381 ], [ %.sroa.124596.3, %1396 ], [ %.sroa.124596.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
-  %.sroa.164607.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ null, %1376 ], [ %1362, %1381 ], [ %1362, %1396 ], [ %1362, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
-  %.sroa.04583.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.04583.0.copyload4585, %1376 ], [ %.sroa.04583.2, %1381 ], [ %.sroa.04583.2, %1396 ], [ %.sroa.04583.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ 0, %1357 ]
+  %.sroa.94576.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.94576.0.copyload4580, %1376 ], [ %.sroa.94576.2, %1381 ], [ %.sroa.94576.2, %1396 ], [ %.sroa.94576.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
+  %.sroa.124581.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.124581.0.copyload4585, %1376 ], [ %.sroa.124581.2, %1381 ], [ %.sroa.124581.2, %1396 ], [ %.sroa.124581.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
+  %.sroa.164592.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ null, %1376 ], [ %1362, %1381 ], [ %1362, %1396 ], [ %1362, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ null, %1357 ]
+  %.sroa.04568.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118 ], [ %.sroa.04568.0.copyload4570, %1376 ], [ %.sroa.04568.2, %1381 ], [ %.sroa.04568.2, %1396 ], [ %.sroa.04568.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967 ], [ 0, %1357 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %1397 = load i32, ptr %116, align 8, !tbaa !94
-  %.not.i.i.i972 = icmp eq i32 %1397, %.sroa.04583.0
+  %.not.i.i.i972 = icmp eq i32 %1397, %.sroa.04568.0
   br i1 %.not.i.i.i972, label %1398, label %1405
 
 1398:                                             ; preds = %.thread.i970
-  switch i32 %.sroa.04583.0, label %1405 [
+  switch i32 %.sroa.04568.0, label %1405 [
     i32 2, label %1402
     i32 1, label %1399
   ]
 
 1399:                                             ; preds = %1398
   %1400 = load ptr, ptr %824, align 8, !tbaa !115
-  %1401 = icmp eq ptr %1400, %.sroa.94591.1
+  %1401 = icmp eq ptr %1400, %.sroa.94576.0
   br label %1405
 
 1402:                                             ; preds = %1398
   %1403 = load ptr, ptr %825, align 8, !tbaa !116
-  %1404 = icmp eq ptr %1403, %.sroa.124596.1
+  %1404 = icmp eq ptr %1403, %.sroa.124581.0
   br label %1405
 
 1405:                                             ; preds = %1402, %1399, %1398, %.thread.i970
   %.0.i.i.i = phi i1 [ %1404, %1402 ], [ %1401, %1399 ], [ false, %.thread.i970 ], [ true, %1398 ]
-  %.not.i.i.i973 = icmp eq ptr %.sroa.164607.1, null
+  %.not.i.i.i973 = icmp eq ptr %.sroa.164592.0, null
   br i1 %.not.i.i.i973, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %1406
 
 1406:                                             ; preds = %1405
-  %1407 = getelementptr inbounds nuw i8, ptr %.sroa.164607.1, i64 8
+  %1407 = getelementptr inbounds nuw i8, ptr %.sroa.164592.0, i64 8
   %1408 = load atomic i64, ptr %1407 acquire, align 8
   %1409 = icmp eq i64 %1408, 4294967297
   %1410 = trunc i64 %1408 to i32
@@ -3776,16 +3776,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i967: ; preds = %1393,
 
 1411:                                             ; preds = %1406
   store i32 0, ptr %1407, align 8, !tbaa !9
-  %1412 = getelementptr inbounds nuw i8, ptr %.sroa.164607.1, i64 12
+  %1412 = getelementptr inbounds nuw i8, ptr %.sroa.164592.0, i64 12
   store i32 0, ptr %1412, align 4, !tbaa !12
-  %1413 = load ptr, ptr %.sroa.164607.1, align 8, !tbaa !13
+  %1413 = load ptr, ptr %.sroa.164592.0, align 8, !tbaa !13
   %1414 = getelementptr inbounds nuw i8, ptr %1413, i64 16
   %1415 = load ptr, ptr %1414, align 8
-  call void %1415(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164607.1) #29
-  %1416 = load ptr, ptr %.sroa.164607.1, align 8, !tbaa !13
+  call void %1415(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164592.0) #29
+  %1416 = load ptr, ptr %.sroa.164592.0, align 8, !tbaa !13
   %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 24
   %1418 = load ptr, ptr %1417, align 8
-  call void %1418(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164607.1) #29
+  call void %1418(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164592.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 1419:                                             ; preds = %1406
@@ -3808,7 +3808,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i975: ; preds = %1423,
   br i1 %1425, label %1426, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 1426:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i975
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164607.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164592.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %1405, %1411, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i975, %1426
@@ -4916,29 +4916,29 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %1850 = load i32, ptr %1848, align 4, !tbaa !16, !noalias !134
   %1851 = add nsw i32 %1850, 1
   store i32 %1851, ptr %1848, align 4, !tbaa !16, !noalias !134
-  %.sroa.04553.0.copyload = load i32, ptr %85, align 8
-  %.sroa.94561.0.copyload = load ptr, ptr %.sroa.94561.0..sroa_idx, align 8
-  %.sroa.124566.0.copyload = load ptr, ptr %.sroa.124566.0..sroa_idx, align 8
+  %.sroa.04543.0.copyload = load i32, ptr %85, align 8
+  %.sroa.94551.0.copyload = load ptr, ptr %.sroa.94551.0..sroa_idx, align 8
+  %.sroa.124556.0.copyload = load ptr, ptr %.sroa.124556.0..sroa_idx, align 8
   br label %1855
 
 1852:                                             ; preds = %1847
   %1853 = atomicrmw volatile add ptr %1848, i32 1 acq_rel, align 4, !noalias !134
   %.pre.i1088 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !134
   %1854 = icmp eq i8 %.pre.i1088, 0
-  %.sroa.04553.0.copyload4554 = load i32, ptr %85, align 8
-  %.sroa.94561.0.copyload4563 = load ptr, ptr %.sroa.94561.0..sroa_idx4562, align 8
-  %.sroa.124566.0.copyload4568 = load ptr, ptr %.sroa.124566.0..sroa_idx4567, align 8
-  br i1 %1854, label %1858, label %._crit_edge4619
+  %.sroa.04543.0.copyload4544 = load i32, ptr %85, align 8
+  %.sroa.94551.0.copyload4553 = load ptr, ptr %.sroa.94551.0..sroa_idx4552, align 8
+  %.sroa.124556.0.copyload4558 = load ptr, ptr %.sroa.124556.0..sroa_idx4557, align 8
+  br i1 %1854, label %1858, label %._crit_edge4599
 
-._crit_edge4619:                                  ; preds = %1852
-  %.pre4620 = load i32, ptr %1848, align 4, !tbaa !16, !noalias !134
+._crit_edge4599:                                  ; preds = %1852
+  %.pre4600 = load i32, ptr %1848, align 4, !tbaa !16, !noalias !134
   br label %1855
 
-1855:                                             ; preds = %._crit_edge4619, %.thread13.i1084
-  %1856 = phi i32 [ %.pre4620, %._crit_edge4619 ], [ %1851, %.thread13.i1084 ]
-  %.sroa.94561.4 = phi ptr [ %.sroa.94561.0.copyload4563, %._crit_edge4619 ], [ %.sroa.94561.0.copyload, %.thread13.i1084 ]
-  %.sroa.124566.4 = phi ptr [ %.sroa.124566.0.copyload4568, %._crit_edge4619 ], [ %.sroa.124566.0.copyload, %.thread13.i1084 ]
-  %.sroa.04553.1 = phi i32 [ %.sroa.04553.0.copyload4554, %._crit_edge4619 ], [ %.sroa.04553.0.copyload, %.thread13.i1084 ]
+1855:                                             ; preds = %._crit_edge4599, %.thread13.i1084
+  %1856 = phi i32 [ %.pre4600, %._crit_edge4599 ], [ %1851, %.thread13.i1084 ]
+  %.sroa.94551.1 = phi ptr [ %.sroa.94551.0.copyload4553, %._crit_edge4599 ], [ %.sroa.94551.0.copyload, %.thread13.i1084 ]
+  %.sroa.124556.1 = phi ptr [ %.sroa.124556.0.copyload4558, %._crit_edge4599 ], [ %.sroa.124556.0.copyload, %.thread13.i1084 ]
+  %.sroa.04543.1 = phi i32 [ %.sroa.04543.0.copyload4544, %._crit_edge4599 ], [ %.sroa.04543.0.copyload, %.thread13.i1084 ]
   %1857 = add nsw i32 %1856, 1
   store i32 %1857, ptr %1848, align 4, !tbaa !16, !noalias !134
   br label %1861
@@ -4948,15 +4948,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %1861
 
 1860:                                             ; preds = %.noexc1090
-  %.sroa.04553.0.copyload4555 = load i32, ptr %85, align 8
-  %.sroa.94561.0.copyload4565 = load ptr, ptr %.sroa.94561.0..sroa_idx4564, align 8
-  %.sroa.124566.0.copyload4570 = load ptr, ptr %.sroa.124566.0..sroa_idx4569, align 8
+  %.sroa.04543.0.copyload4545 = load i32, ptr %85, align 8
+  %.sroa.94551.0.copyload4555 = load ptr, ptr %.sroa.94551.0..sroa_idx4554, align 8
+  %.sroa.124556.0.copyload4560 = load ptr, ptr %.sroa.124556.0..sroa_idx4559, align 8
   br label %.thread.i1089
 
 1861:                                             ; preds = %1858, %1855
-  %.sroa.94561.5 = phi ptr [ %.sroa.94561.0.copyload4563, %1858 ], [ %.sroa.94561.4, %1855 ]
-  %.sroa.124566.5 = phi ptr [ %.sroa.124566.0.copyload4568, %1858 ], [ %.sroa.124566.4, %1855 ]
-  %.sroa.04553.2 = phi i32 [ %.sroa.04553.0.copyload4554, %1858 ], [ %.sroa.04553.1, %1855 ]
+  %.sroa.94551.2 = phi ptr [ %.sroa.94551.0.copyload4553, %1858 ], [ %.sroa.94551.1, %1855 ]
+  %.sroa.124556.2 = phi ptr [ %.sroa.124556.0.copyload4558, %1858 ], [ %.sroa.124556.1, %1855 ]
+  %.sroa.04543.2 = phi i32 [ %.sroa.04543.0.copyload4544, %1858 ], [ %.sroa.04543.1, %1855 ]
   %1862 = load atomic i64, ptr %1848 acquire, align 8, !noalias !134
   %1863 = icmp eq i64 %1862, 4294967297
   %1864 = trunc i64 %1862 to i32
@@ -5000,38 +5000,38 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086: ; preds = %1877
   br label %.thread.i1089
 
 .thread.i1089:                                    ; preds = %1841, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076, %1880, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086, %1865, %1860
-  %.sroa.94561.3 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.94561.0.copyload4565, %1860 ], [ %.sroa.94561.5, %1865 ], [ %.sroa.94561.5, %1880 ], [ %.sroa.94561.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
-  %.sroa.124566.3 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.124566.0.copyload4570, %1860 ], [ %.sroa.124566.5, %1865 ], [ %.sroa.124566.5, %1880 ], [ %.sroa.124566.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
-  %.sroa.164577.3 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ null, %1860 ], [ %1846, %1865 ], [ %1846, %1880 ], [ %1846, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
-  %.sroa.04553.0 = phi i32 [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.04553.0.copyload4555, %1860 ], [ %.sroa.04553.2, %1865 ], [ %.sroa.04553.2, %1880 ], [ %.sroa.04553.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ 0, %1841 ]
+  %.sroa.94551.0 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.94551.0.copyload4555, %1860 ], [ %.sroa.94551.2, %1865 ], [ %.sroa.94551.2, %1880 ], [ %.sroa.94551.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
+  %.sroa.124556.0 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.124556.0.copyload4560, %1860 ], [ %.sroa.124556.2, %1865 ], [ %.sroa.124556.2, %1880 ], [ %.sroa.124556.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
+  %.sroa.164567.0 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ null, %1860 ], [ %1846, %1865 ], [ %1846, %1880 ], [ %1846, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ null, %1841 ]
+  %.sroa.04543.0 = phi i32 [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1076 ], [ %.sroa.04543.0.copyload4545, %1860 ], [ %.sroa.04543.2, %1865 ], [ %.sroa.04543.2, %1880 ], [ %.sroa.04543.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086 ], [ 0, %1841 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %1881 = load i32, ptr %124, align 8, !tbaa !94
-  %.not.i.i.i1092 = icmp eq i32 %1881, %.sroa.04553.0
+  %.not.i.i.i1092 = icmp eq i32 %1881, %.sroa.04543.0
   br i1 %.not.i.i.i1092, label %1882, label %1889
 
 1882:                                             ; preds = %.thread.i1089
-  switch i32 %.sroa.04553.0, label %1889 [
+  switch i32 %.sroa.04543.0, label %1889 [
     i32 2, label %1886
     i32 1, label %1883
   ]
 
 1883:                                             ; preds = %1882
   %1884 = load ptr, ptr %1281, align 8, !tbaa !115
-  %1885 = icmp eq ptr %1884, %.sroa.94561.3
+  %1885 = icmp eq ptr %1884, %.sroa.94551.0
   br label %1889
 
 1886:                                             ; preds = %1882
   %1887 = load ptr, ptr %1303, align 8, !tbaa !116
-  %1888 = icmp eq ptr %1887, %.sroa.124566.3
+  %1888 = icmp eq ptr %1887, %.sroa.124556.0
   br label %1889
 
 1889:                                             ; preds = %1886, %1883, %1882, %.thread.i1089
   %.0.i.i.i1093 = phi i1 [ %1888, %1886 ], [ %1885, %1883 ], [ false, %.thread.i1089 ], [ true, %1882 ]
-  %.not.i.i.i1095 = icmp eq ptr %.sroa.164577.3, null
+  %.not.i.i.i1095 = icmp eq ptr %.sroa.164567.0, null
   br i1 %.not.i.i.i1095, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100, label %1890
 
 1890:                                             ; preds = %1889
-  %1891 = getelementptr inbounds nuw i8, ptr %.sroa.164577.3, i64 8
+  %1891 = getelementptr inbounds nuw i8, ptr %.sroa.164567.0, i64 8
   %1892 = load atomic i64, ptr %1891 acquire, align 8
   %1893 = icmp eq i64 %1892, 4294967297
   %1894 = trunc i64 %1892 to i32
@@ -5039,16 +5039,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1086: ; preds = %1877
 
 1895:                                             ; preds = %1890
   store i32 0, ptr %1891, align 8, !tbaa !9
-  %1896 = getelementptr inbounds nuw i8, ptr %.sroa.164577.3, i64 12
+  %1896 = getelementptr inbounds nuw i8, ptr %.sroa.164567.0, i64 12
   store i32 0, ptr %1896, align 4, !tbaa !12
-  %1897 = load ptr, ptr %.sroa.164577.3, align 8, !tbaa !13
+  %1897 = load ptr, ptr %.sroa.164567.0, align 8, !tbaa !13
   %1898 = getelementptr inbounds nuw i8, ptr %1897, i64 16
   %1899 = load ptr, ptr %1898, align 8
-  call void %1899(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164577.3) #29
-  %1900 = load ptr, ptr %.sroa.164577.3, align 8, !tbaa !13
+  call void %1899(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164567.0) #29
+  %1900 = load ptr, ptr %.sroa.164567.0, align 8, !tbaa !13
   %1901 = getelementptr inbounds nuw i8, ptr %1900, i64 24
   %1902 = load ptr, ptr %1901, align 8
-  call void %1902(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164577.3) #29
+  call void %1902(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164567.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100
 
 1903:                                             ; preds = %1890
@@ -5071,7 +5071,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1097: ; preds = %1907
   br i1 %1909, label %1910, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100, !prof !17
 
 1910:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1097
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164577.3) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164567.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1100: ; preds = %1889, %1895, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1097, %1910
@@ -7272,11 +7272,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit1285: ; 
   br i1 %2761, label %.body1283, label %.body1283.sink.split
 
 .body1283.sink.split:                             ; preds = %2758, %2740
-  %.sink6677 = phi ptr [ %2742, %2740 ], [ %2760, %2758 ]
+  %.sink6657 = phi ptr [ %2742, %2740 ], [ %2760, %2758 ]
   %.pn798.ph = phi { ptr, i32 } [ %2741, %2740 ], [ %2759, %2758 ]
   %2762 = load i64, ptr %2726, align 8, !tbaa !15
   %2763 = add i64 %2762, 1
-  call void @_ZdlPvm(ptr noundef %.sink6677, i64 noundef %2763) #30
+  call void @_ZdlPvm(ptr noundef %.sink6657, i64 noundef %2763) #30
   br label %.body1283
 
 .body1283:                                        ; preds = %.body1283.sink.split, %2758, %2740
@@ -7584,11 +7584,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1334: ; preds = %_ZN
   %2876 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %145) #29
-  %.pre4618.pre = load ptr, ptr %144, align 8, !tbaa !173
+  %.pre4598.pre = load ptr, ptr %144, align 8, !tbaa !173
   br label %2877
 
 2877:                                             ; preds = %2875, %2873
-  %.pre4618 = phi ptr [ %.pre4618.pre, %2875 ], [ null, %2873 ]
+  %.pre4598 = phi ptr [ %.pre4598.pre, %2875 ], [ null, %2873 ]
   %.pn780 = phi { ptr, i32 } [ %2876, %2875 ], [ %2874, %2873 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %2902
@@ -7651,7 +7651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1340: ; preds = %2
 2896:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1327
   %2897 = load ptr, ptr %1, align 8, !tbaa !84
   invoke void @_ZN19OpenColorIO_v2_5dev6Config19setDefaultLumaCoefsEPKd(ptr noundef nonnull align 8 dereferenceable(8) %2897, ptr noundef nonnull %2857)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.thread5330
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.thread5310
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2896
   %2898 = load ptr, ptr %1235, align 8, !tbaa !174
@@ -7661,20 +7661,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2896
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %7135
 
-.thread5330:                                      ; preds = %2896
+.thread5310:                                      ; preds = %2896
   %2901 = landingpad { ptr, i32 }
           cleanup
   br label %2904
 
 2902:                                             ; preds = %2895, %2877
-  %2903 = phi ptr [ %.pre4618, %2877 ], [ %2857, %2895 ]
+  %2903 = phi ptr [ %.pre4598, %2877 ], [ %2857, %2895 ]
   %.pn788 = phi { ptr, i32 } [ %.pn780, %2877 ], [ %.pn783.pn.pn.pn, %2895 ]
   %.not.i.i.i1342 = icmp eq ptr %2903, null
   br i1 %.not.i.i.i1342, label %_ZNSt6vectorIdSaIdEED2Ev.exit1343, label %2904
 
-2904:                                             ; preds = %.thread5330, %2902
-  %.pn7885333 = phi { ptr, i32 } [ %2901, %.thread5330 ], [ %.pn788, %2902 ]
-  %2905 = phi ptr [ %2857, %.thread5330 ], [ %2903, %2902 ]
+2904:                                             ; preds = %.thread5310, %2902
+  %.pn7885313 = phi { ptr, i32 } [ %2901, %.thread5310 ], [ %.pn788, %2902 ]
+  %2905 = phi ptr [ %2857, %.thread5310 ], [ %2903, %2902 ]
   %2906 = load ptr, ptr %1235, align 8, !tbaa !174
   %2907 = ptrtoint ptr %2906 to i64
   %2908 = ptrtoint ptr %2905 to i64
@@ -7683,7 +7683,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2896
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit1343
 
 _ZNSt6vectorIdSaIdEED2Ev.exit1343:                ; preds = %2902, %2904
-  %.pn7885334 = phi { ptr, i32 } [ %.pn788, %2902 ], [ %.pn7885333, %2904 ]
+  %.pn7885314 = phi { ptr, i32 } [ %.pn788, %2902 ], [ %.pn7885313, %2904 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %.body1029
 
@@ -7834,29 +7834,29 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1419: ; preds = %
   %2955 = load i32, ptr %2953, align 4, !tbaa !16, !noalias !175
   %2956 = add nsw i32 %2955, 1
   store i32 %2956, ptr %2953, align 4, !tbaa !16, !noalias !175
-  %.sroa.04523.0.copyload = load i32, ptr %79, align 8
-  %.sroa.94531.0.copyload = load ptr, ptr %.sroa.94531.0..sroa_idx, align 8
-  %.sroa.124536.0.copyload = load ptr, ptr %.sroa.124536.0..sroa_idx, align 8
+  %.sroa.04518.0.copyload = load i32, ptr %79, align 8
+  %.sroa.94526.0.copyload = load ptr, ptr %.sroa.94526.0..sroa_idx, align 8
+  %.sroa.124531.0.copyload = load ptr, ptr %.sroa.124531.0..sroa_idx, align 8
   br label %2960
 
 2957:                                             ; preds = %2952
   %2958 = atomicrmw volatile add ptr %2953, i32 1 acq_rel, align 4, !noalias !175
   %.pre.i1358 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !175
   %2959 = icmp eq i8 %.pre.i1358, 0
-  %.sroa.04523.0.copyload4524 = load i32, ptr %79, align 8
-  %.sroa.94531.0.copyload4533 = load ptr, ptr %.sroa.94531.0..sroa_idx4532, align 8
-  %.sroa.124536.0.copyload4538 = load ptr, ptr %.sroa.124536.0..sroa_idx4537, align 8
-  br i1 %2959, label %2963, label %._crit_edge4616
+  %.sroa.04518.0.copyload4519 = load i32, ptr %79, align 8
+  %.sroa.94526.0.copyload4528 = load ptr, ptr %.sroa.94526.0..sroa_idx4527, align 8
+  %.sroa.124531.0.copyload4533 = load ptr, ptr %.sroa.124531.0..sroa_idx4532, align 8
+  br i1 %2959, label %2963, label %._crit_edge4596
 
-._crit_edge4616:                                  ; preds = %2957
-  %.pre4617 = load i32, ptr %2953, align 4, !tbaa !16, !noalias !175
+._crit_edge4596:                                  ; preds = %2957
+  %.pre4597 = load i32, ptr %2953, align 4, !tbaa !16, !noalias !175
   br label %2960
 
-2960:                                             ; preds = %._crit_edge4616, %.thread13.i1354
-  %2961 = phi i32 [ %.pre4617, %._crit_edge4616 ], [ %2956, %.thread13.i1354 ]
-  %.sroa.94531.4 = phi ptr [ %.sroa.94531.0.copyload4533, %._crit_edge4616 ], [ %.sroa.94531.0.copyload, %.thread13.i1354 ]
-  %.sroa.124536.4 = phi ptr [ %.sroa.124536.0.copyload4538, %._crit_edge4616 ], [ %.sroa.124536.0.copyload, %.thread13.i1354 ]
-  %.sroa.04523.1 = phi i32 [ %.sroa.04523.0.copyload4524, %._crit_edge4616 ], [ %.sroa.04523.0.copyload, %.thread13.i1354 ]
+2960:                                             ; preds = %._crit_edge4596, %.thread13.i1354
+  %2961 = phi i32 [ %.pre4597, %._crit_edge4596 ], [ %2956, %.thread13.i1354 ]
+  %.sroa.94526.1 = phi ptr [ %.sroa.94526.0.copyload4528, %._crit_edge4596 ], [ %.sroa.94526.0.copyload, %.thread13.i1354 ]
+  %.sroa.124531.1 = phi ptr [ %.sroa.124531.0.copyload4533, %._crit_edge4596 ], [ %.sroa.124531.0.copyload, %.thread13.i1354 ]
+  %.sroa.04518.1 = phi i32 [ %.sroa.04518.0.copyload4519, %._crit_edge4596 ], [ %.sroa.04518.0.copyload, %.thread13.i1354 ]
   %2962 = add nsw i32 %2961, 1
   store i32 %2962, ptr %2953, align 4, !tbaa !16, !noalias !175
   br label %2966
@@ -7866,15 +7866,15 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1419: ; preds = %
   br label %2966
 
 2965:                                             ; preds = %.noexc1360
-  %.sroa.04523.0.copyload4525 = load i32, ptr %79, align 8
-  %.sroa.94531.0.copyload4535 = load ptr, ptr %.sroa.94531.0..sroa_idx4534, align 8
-  %.sroa.124536.0.copyload4540 = load ptr, ptr %.sroa.124536.0..sroa_idx4539, align 8
+  %.sroa.04518.0.copyload4520 = load i32, ptr %79, align 8
+  %.sroa.94526.0.copyload4530 = load ptr, ptr %.sroa.94526.0..sroa_idx4529, align 8
+  %.sroa.124531.0.copyload4535 = load ptr, ptr %.sroa.124531.0..sroa_idx4534, align 8
   br label %.thread.i1359
 
 2966:                                             ; preds = %2963, %2960
-  %.sroa.94531.5 = phi ptr [ %.sroa.94531.0.copyload4533, %2963 ], [ %.sroa.94531.4, %2960 ]
-  %.sroa.124536.5 = phi ptr [ %.sroa.124536.0.copyload4538, %2963 ], [ %.sroa.124536.4, %2960 ]
-  %.sroa.04523.2 = phi i32 [ %.sroa.04523.0.copyload4524, %2963 ], [ %.sroa.04523.1, %2960 ]
+  %.sroa.94526.2 = phi ptr [ %.sroa.94526.0.copyload4528, %2963 ], [ %.sroa.94526.1, %2960 ]
+  %.sroa.124531.2 = phi ptr [ %.sroa.124531.0.copyload4533, %2963 ], [ %.sroa.124531.1, %2960 ]
+  %.sroa.04518.2 = phi i32 [ %.sroa.04518.0.copyload4519, %2963 ], [ %.sroa.04518.1, %2960 ]
   %2967 = load atomic i64, ptr %2953 acquire, align 8, !noalias !175
   %2968 = icmp eq i64 %2967, 4294967297
   %2969 = trunc i64 %2967 to i32
@@ -7918,38 +7918,38 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356: ; preds = %2982
   br label %.thread.i1359
 
 .thread.i1359:                                    ; preds = %2946, %2943, %2985, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356, %2970, %2965
-  %.sroa.94531.3 = phi ptr [ null, %2943 ], [ %.sroa.94531.0.copyload4535, %2965 ], [ %.sroa.94531.5, %2970 ], [ %.sroa.94531.5, %2985 ], [ %.sroa.94531.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
-  %.sroa.124536.3 = phi ptr [ null, %2943 ], [ %.sroa.124536.0.copyload4540, %2965 ], [ %.sroa.124536.5, %2970 ], [ %.sroa.124536.5, %2985 ], [ %.sroa.124536.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
-  %.sroa.164547.3 = phi ptr [ null, %2943 ], [ null, %2965 ], [ %2951, %2970 ], [ %2951, %2985 ], [ %2951, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
-  %.sroa.04523.0 = phi i32 [ 0, %2943 ], [ %.sroa.04523.0.copyload4525, %2965 ], [ %.sroa.04523.2, %2970 ], [ %.sroa.04523.2, %2985 ], [ %.sroa.04523.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ 0, %2946 ]
+  %.sroa.94526.0 = phi ptr [ null, %2943 ], [ %.sroa.94526.0.copyload4530, %2965 ], [ %.sroa.94526.2, %2970 ], [ %.sroa.94526.2, %2985 ], [ %.sroa.94526.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
+  %.sroa.124531.0 = phi ptr [ null, %2943 ], [ %.sroa.124531.0.copyload4535, %2965 ], [ %.sroa.124531.2, %2970 ], [ %.sroa.124531.2, %2985 ], [ %.sroa.124531.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
+  %.sroa.164542.0 = phi ptr [ null, %2943 ], [ null, %2965 ], [ %2951, %2970 ], [ %2951, %2985 ], [ %2951, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ null, %2946 ]
+  %.sroa.04518.0 = phi i32 [ 0, %2943 ], [ %.sroa.04518.0.copyload4520, %2965 ], [ %.sroa.04518.2, %2970 ], [ %.sroa.04518.2, %2985 ], [ %.sroa.04518.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356 ], [ 0, %2946 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %2986 = load i32, ptr %153, align 8, !tbaa !94
-  %.not.i.i.i1362 = icmp eq i32 %2986, %.sroa.04523.0
+  %.not.i.i.i1362 = icmp eq i32 %2986, %.sroa.04518.0
   br i1 %.not.i.i.i1362, label %2987, label %2994
 
 2987:                                             ; preds = %.thread.i1359
-  switch i32 %.sroa.04523.0, label %2994 [
+  switch i32 %.sroa.04518.0, label %2994 [
     i32 2, label %2991
     i32 1, label %2988
   ]
 
 2988:                                             ; preds = %2987
   %2989 = load ptr, ptr %1211, align 8, !tbaa !115
-  %2990 = icmp eq ptr %2989, %.sroa.94531.3
+  %2990 = icmp eq ptr %2989, %.sroa.94526.0
   br label %2994
 
 2991:                                             ; preds = %2987
   %2992 = load ptr, ptr %1212, align 8, !tbaa !116
-  %2993 = icmp eq ptr %2992, %.sroa.124536.3
+  %2993 = icmp eq ptr %2992, %.sroa.124531.0
   br label %2994
 
 2994:                                             ; preds = %2991, %2988, %2987, %.thread.i1359
   %.0.i.i.i1363 = phi i1 [ %2993, %2991 ], [ %2990, %2988 ], [ false, %.thread.i1359 ], [ true, %2987 ]
-  %.not.i.i.i1365 = icmp eq ptr %.sroa.164547.3, null
+  %.not.i.i.i1365 = icmp eq ptr %.sroa.164542.0, null
   br i1 %.not.i.i.i1365, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370, label %2995
 
 2995:                                             ; preds = %2994
-  %2996 = getelementptr inbounds nuw i8, ptr %.sroa.164547.3, i64 8
+  %2996 = getelementptr inbounds nuw i8, ptr %.sroa.164542.0, i64 8
   %2997 = load atomic i64, ptr %2996 acquire, align 8
   %2998 = icmp eq i64 %2997, 4294967297
   %2999 = trunc i64 %2997 to i32
@@ -7957,16 +7957,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1356: ; preds = %2982
 
 3000:                                             ; preds = %2995
   store i32 0, ptr %2996, align 8, !tbaa !9
-  %3001 = getelementptr inbounds nuw i8, ptr %.sroa.164547.3, i64 12
+  %3001 = getelementptr inbounds nuw i8, ptr %.sroa.164542.0, i64 12
   store i32 0, ptr %3001, align 4, !tbaa !12
-  %3002 = load ptr, ptr %.sroa.164547.3, align 8, !tbaa !13
+  %3002 = load ptr, ptr %.sroa.164542.0, align 8, !tbaa !13
   %3003 = getelementptr inbounds nuw i8, ptr %3002, i64 16
   %3004 = load ptr, ptr %3003, align 8
-  call void %3004(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164547.3) #29
-  %3005 = load ptr, ptr %.sroa.164547.3, align 8, !tbaa !13
+  call void %3004(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164542.0) #29
+  %3005 = load ptr, ptr %.sroa.164542.0, align 8, !tbaa !13
   %3006 = getelementptr inbounds nuw i8, ptr %3005, i64 24
   %3007 = load ptr, ptr %3006, align 8
-  call void %3007(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164547.3) #29
+  call void %3007(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164542.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370
 
 3008:                                             ; preds = %2995
@@ -7989,7 +7989,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1367: ; preds = %3012
   br i1 %3014, label %3015, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370, !prof !17
 
 3015:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1367
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164547.3) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.164542.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1370: ; preds = %2994, %3000, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1367, %3015
@@ -9211,17 +9211,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   %.sroa.0.0.copyload401.i = load i32, ptr %40, align 8
   %.sroa.9407.0.copyload409.i = load ptr, ptr %.sroa.9407.0..sroa_idx.i, align 8
   %.sroa.12.0.copyload413.i = load ptr, ptr %.sroa.12.0..sroa_idx.i, align 8
-  br i1 %3427, label %3431, label %._crit_edge426.i
+  br i1 %3427, label %3431, label %._crit_edge421.i
 
-._crit_edge426.i:                                 ; preds = %3425
+._crit_edge421.i:                                 ; preds = %3425
   %.pre.i1500 = load i32, ptr %3421, align 4, !tbaa !16, !noalias !199
   br label %3428
 
-3428:                                             ; preds = %._crit_edge426.i, %.thread13.i154.i
-  %3429 = phi i32 [ %.pre.i1500, %._crit_edge426.i ], [ %3424, %.thread13.i154.i ]
-  %.sroa.9407.2.i = phi ptr [ %.sroa.9407.0.copyload409.i, %._crit_edge426.i ], [ %.sroa.9407.0.copyload.i, %.thread13.i154.i ]
-  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload413.i, %._crit_edge426.i ], [ %.sroa.12.0.copyload.i, %.thread13.i154.i ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload401.i, %._crit_edge426.i ], [ %.sroa.0.0.copyload.i, %.thread13.i154.i ]
+3428:                                             ; preds = %._crit_edge421.i, %.thread13.i154.i
+  %3429 = phi i32 [ %.pre.i1500, %._crit_edge421.i ], [ %3424, %.thread13.i154.i ]
+  %.sroa.9407.1.i = phi ptr [ %.sroa.9407.0.copyload409.i, %._crit_edge421.i ], [ %.sroa.9407.0.copyload.i, %.thread13.i154.i ]
+  %.sroa.12.1.i = phi ptr [ %.sroa.12.0.copyload413.i, %._crit_edge421.i ], [ %.sroa.12.0.copyload.i, %.thread13.i154.i ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload401.i, %._crit_edge421.i ], [ %.sroa.0.0.copyload.i, %.thread13.i154.i ]
   %3430 = add nsw i32 %3429, 1
   store i32 %3430, ptr %3421, align 4, !tbaa !16, !noalias !199
   br label %3434
@@ -9237,8 +9237,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   br label %.thread.i159.i
 
 3434:                                             ; preds = %3431, %3428
-  %.sroa.9407.3.i = phi ptr [ %.sroa.9407.0.copyload409.i, %3431 ], [ %.sroa.9407.2.i, %3428 ]
-  %.sroa.12.3.i = phi ptr [ %.sroa.12.0.copyload413.i, %3431 ], [ %.sroa.12.2.i, %3428 ]
+  %.sroa.9407.2.i = phi ptr [ %.sroa.9407.0.copyload409.i, %3431 ], [ %.sroa.9407.1.i, %3428 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload413.i, %3431 ], [ %.sroa.12.1.i, %3428 ]
   %.sroa.0.2.i = phi i32 [ %.sroa.0.0.copyload401.i, %3431 ], [ %.sroa.0.1.i, %3428 ]
   %3435 = load atomic i64, ptr %3421 acquire, align 8, !noalias !199
   %3436 = icmp eq i64 %3435, 4294967297
@@ -9283,9 +9283,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i: ; preds = %345
   br label %.thread.i159.i
 
 .thread.i159.i:                                   ; preds = %3453, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i, %3438, %3433, %3414, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i
-  %.sroa.9407.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.9407.0.copyload411.i, %3433 ], [ %.sroa.9407.3.i, %3438 ], [ %.sroa.9407.3.i, %3453 ], [ %.sroa.9407.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
-  %.sroa.12.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.12.0.copyload415.i, %3433 ], [ %.sroa.12.3.i, %3438 ], [ %.sroa.12.3.i, %3453 ], [ %.sroa.12.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
-  %.sroa.16.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ null, %3433 ], [ %3419, %3438 ], [ %3419, %3453 ], [ %3419, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
+  %.sroa.9407.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.9407.0.copyload411.i, %3433 ], [ %.sroa.9407.2.i, %3438 ], [ %.sroa.9407.2.i, %3453 ], [ %.sroa.9407.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
+  %.sroa.12.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.12.0.copyload415.i, %3433 ], [ %.sroa.12.2.i, %3438 ], [ %.sroa.12.2.i, %3453 ], [ %.sroa.12.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
+  %.sroa.16.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ null, %3433 ], [ %3419, %3438 ], [ %3419, %3453 ], [ %3419, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ null, %3414 ]
   %.sroa.0.0.i = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.0.0.copyload402.i, %3433 ], [ %.sroa.0.2.i, %3438 ], [ %.sroa.0.2.i, %3453 ], [ %.sroa.0.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i ], [ 0, %3414 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %3454 = load i32, ptr %49, align 8, !tbaa !94
@@ -9300,21 +9300,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i: ; preds = %345
 
 3456:                                             ; preds = %3455
   %3457 = load ptr, ptr %1142, align 8, !tbaa !115
-  %3458 = icmp eq ptr %3457, %.sroa.9407.1.i
+  %3458 = icmp eq ptr %3457, %.sroa.9407.0.i
   br label %3462
 
 3459:                                             ; preds = %3455
   %3460 = load ptr, ptr %1147, align 8, !tbaa !116
-  %3461 = icmp eq ptr %3460, %.sroa.12.1.i
+  %3461 = icmp eq ptr %3460, %.sroa.12.0.i
   br label %3462
 
 3462:                                             ; preds = %3459, %3456, %3455, %.thread.i159.i
   %.0.i.i.i.i1487 = phi i1 [ %3461, %3459 ], [ %3458, %3456 ], [ false, %.thread.i159.i ], [ true, %3455 ]
-  %.not.i.i.i161.i = icmp eq ptr %.sroa.16.1.i, null
+  %.not.i.i.i161.i = icmp eq ptr %.sroa.16.0.i, null
   br i1 %.not.i.i.i161.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, label %3463
 
 3463:                                             ; preds = %3462
-  %3464 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i, i64 8
+  %3464 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i, i64 8
   %3465 = load atomic i64, ptr %3464 acquire, align 8
   %3466 = icmp eq i64 %3465, 4294967297
   %3467 = trunc i64 %3465 to i32
@@ -9322,16 +9322,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156.i: ; preds = %345
 
 3468:                                             ; preds = %3463
   store i32 0, ptr %3464, align 8, !tbaa !9
-  %3469 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i, i64 12
+  %3469 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i, i64 12
   store i32 0, ptr %3469, align 4, !tbaa !12
-  %3470 = load ptr, ptr %.sroa.16.1.i, align 8, !tbaa !13
+  %3470 = load ptr, ptr %.sroa.16.0.i, align 8, !tbaa !13
   %3471 = getelementptr inbounds nuw i8, ptr %3470, i64 16
   %3472 = load ptr, ptr %3471, align 8
-  call void %3472(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
-  %3473 = load ptr, ptr %.sroa.16.1.i, align 8, !tbaa !13
+  call void %3472(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
+  %3473 = load ptr, ptr %.sroa.16.0.i, align 8, !tbaa !13
   %3474 = getelementptr inbounds nuw i8, ptr %3473, i64 24
   %3475 = load ptr, ptr %3474, align 8
-  call void %3475(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
+  call void %3475(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i
 
 3476:                                             ; preds = %3463
@@ -9354,7 +9354,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163.i: ; preds = %348
   br i1 %3482, label %3483, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, !prof !17
 
 3483:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i: ; preds = %3483, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163.i, %3468, %3462
@@ -11262,13 +11262,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit322.i: ; preds = %41
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %4173
-  %.pre427.i = load ptr, ptr %48, align 8, !tbaa !63
-  %.pre428.i = load ptr, ptr %1202, align 8, !tbaa !66
+  %.pre422.i = load ptr, ptr %48, align 8, !tbaa !63
+  %.pre423.i = load ptr, ptr %1202, align 8, !tbaa !66
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %4159
-  %4193 = phi ptr [ %.pre428.i, %._crit_edge.loopexit.i ], [ %4160, %4159 ]
-  %4194 = phi ptr [ %.pre427.i, %._crit_edge.loopexit.i ], [ %4161, %4159 ]
+  %4193 = phi ptr [ %.pre423.i, %._crit_edge.loopexit.i ], [ %4160, %4159 ]
+  %4194 = phi ptr [ %.pre422.i, %._crit_edge.loopexit.i ], [ %4161, %4159 ]
   %.not4.i.i.i.i.i = icmp eq ptr %4194, %4193
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -11692,11 +11692,11 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1536: ; pre
   br i1 %4336, label %.body1528, label %.body1528.sink.split
 
 .body1528.sink.split:                             ; preds = %4333, %4315
-  %.sink6680 = phi ptr [ %4317, %4315 ], [ %4335, %4333 ]
+  %.sink6660 = phi ptr [ %4317, %4315 ], [ %4335, %4333 ]
   %.pn748.ph = phi { ptr, i32 } [ %4316, %4315 ], [ %4334, %4333 ]
   %4337 = load i64, ptr %1117, align 8, !tbaa !15
   %4338 = add i64 %4337, 1
-  call void @_ZdlPvm(ptr noundef %.sink6680, i64 noundef %4338) #30
+  call void @_ZdlPvm(ptr noundef %.sink6660, i64 noundef %4338) #30
   br label %.body1528
 
 .body1528:                                        ; preds = %.body1528.sink.split, %4333, %4315
@@ -12196,14 +12196,14 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1584: ; pre
 4507:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1584
   %4508 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %4508, ptr noundef nonnull align 8 dereferenceable(32) %1100)
-          to label %.invoke6001 unwind label %4510
+          to label %.invoke5981 unwind label %4510
 
-.invoke6001:                                      ; preds = %4526, %4507
+.invoke5981:                                      ; preds = %4526, %4507
   %4509 = phi ptr [ %4508, %4507 ], [ %4527, %4526 ]
   invoke void @__cxa_throw(ptr nonnull %4509, ptr nonnull @_ZTIN4YAML11InvalidNodeE, ptr nonnull @_ZN4YAML11InvalidNodeD1Ev) #31
-          to label %.cont6002 unwind label %.loopexit.split-lp2494
+          to label %.cont5982 unwind label %.loopexit.split-lp2494
 
-.cont6002:                                        ; preds = %.invoke6001
+.cont5982:                                        ; preds = %.invoke5981
   unreachable
 
 4510:                                             ; preds = %4507
@@ -12241,7 +12241,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit1590:             ; preds = %4514, %4518
 4526:                                             ; preds = %4523
   %4527 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %4527, ptr noundef nonnull align 8 dereferenceable(32) %1100)
-          to label %.invoke6001 unwind label %4528
+          to label %.invoke5981 unwind label %4528
 
 4528:                                             ; preds = %4526
   %4529 = landingpad { ptr, i32 }
@@ -12450,17 +12450,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624: ; preds =
   %.sroa.0.0.copyload320.i = load i32, ptr %13, align 8
   %.sroa.9326.0.copyload328.i = load ptr, ptr %.sroa.9326.0..sroa_idx.i, align 8
   %.sroa.12.0.copyload332.i = load ptr, ptr %.sroa.12.0..sroa_idx.i1597, align 8
-  br i1 %4600, label %4604, label %._crit_edge345.i
+  br i1 %4600, label %4604, label %._crit_edge340.i
 
-._crit_edge345.i:                                 ; preds = %4598
+._crit_edge340.i:                                 ; preds = %4598
   %.pre.i1669 = load i32, ptr %4594, align 4, !tbaa !16, !noalias !236
   br label %4601
 
-4601:                                             ; preds = %._crit_edge345.i, %.thread13.i111.i
-  %4602 = phi i32 [ %.pre.i1669, %._crit_edge345.i ], [ %4597, %.thread13.i111.i ]
-  %.sroa.9326.2.i = phi ptr [ %.sroa.9326.0.copyload328.i, %._crit_edge345.i ], [ %.sroa.9326.0.copyload.i, %.thread13.i111.i ]
-  %.sroa.12.2.i1665 = phi ptr [ %.sroa.12.0.copyload332.i, %._crit_edge345.i ], [ %.sroa.12.0.copyload.i1664, %.thread13.i111.i ]
-  %.sroa.0.1.i1666 = phi i32 [ %.sroa.0.0.copyload320.i, %._crit_edge345.i ], [ %.sroa.0.0.copyload.i1663, %.thread13.i111.i ]
+4601:                                             ; preds = %._crit_edge340.i, %.thread13.i111.i
+  %4602 = phi i32 [ %.pre.i1669, %._crit_edge340.i ], [ %4597, %.thread13.i111.i ]
+  %.sroa.9326.1.i = phi ptr [ %.sroa.9326.0.copyload328.i, %._crit_edge340.i ], [ %.sroa.9326.0.copyload.i, %.thread13.i111.i ]
+  %.sroa.12.1.i1665 = phi ptr [ %.sroa.12.0.copyload332.i, %._crit_edge340.i ], [ %.sroa.12.0.copyload.i1664, %.thread13.i111.i ]
+  %.sroa.0.1.i1666 = phi i32 [ %.sroa.0.0.copyload320.i, %._crit_edge340.i ], [ %.sroa.0.0.copyload.i1663, %.thread13.i111.i ]
   %4603 = add nsw i32 %4602, 1
   store i32 %4603, ptr %4594, align 4, !tbaa !16, !noalias !236
   br label %4607
@@ -12476,8 +12476,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624: ; preds =
   br label %.thread.i116.i
 
 4607:                                             ; preds = %4604, %4601
-  %.sroa.9326.3.i = phi ptr [ %.sroa.9326.0.copyload328.i, %4604 ], [ %.sroa.9326.2.i, %4601 ]
-  %.sroa.12.3.i1667 = phi ptr [ %.sroa.12.0.copyload332.i, %4604 ], [ %.sroa.12.2.i1665, %4601 ]
+  %.sroa.9326.2.i = phi ptr [ %.sroa.9326.0.copyload328.i, %4604 ], [ %.sroa.9326.1.i, %4601 ]
+  %.sroa.12.2.i1667 = phi ptr [ %.sroa.12.0.copyload332.i, %4604 ], [ %.sroa.12.1.i1665, %4601 ]
   %.sroa.0.2.i1668 = phi i32 [ %.sroa.0.0.copyload320.i, %4604 ], [ %.sroa.0.1.i1666, %4601 ]
   %4608 = load atomic i64, ptr %4594 acquire, align 8, !noalias !236
   %4609 = icmp eq i64 %4608, 4294967297
@@ -12522,9 +12522,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i: ; preds = %462
   br label %.thread.i116.i
 
 .thread.i116.i:                                   ; preds = %4626, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i, %4611, %4606, %4587, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624
-  %.sroa.9326.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ %.sroa.9326.0.copyload330.i, %4606 ], [ %.sroa.9326.3.i, %4611 ], [ %.sroa.9326.3.i, %4626 ], [ %.sroa.9326.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
-  %.sroa.12.1.i1598 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ %.sroa.12.0.copyload334.i, %4606 ], [ %.sroa.12.3.i1667, %4611 ], [ %.sroa.12.3.i1667, %4626 ], [ %.sroa.12.3.i1667, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
-  %.sroa.16.1.i1599 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ null, %4606 ], [ %4592, %4611 ], [ %4592, %4626 ], [ %4592, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
+  %.sroa.9326.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ %.sroa.9326.0.copyload330.i, %4606 ], [ %.sroa.9326.2.i, %4611 ], [ %.sroa.9326.2.i, %4626 ], [ %.sroa.9326.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
+  %.sroa.12.0.i1598 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ %.sroa.12.0.copyload334.i, %4606 ], [ %.sroa.12.2.i1667, %4611 ], [ %.sroa.12.2.i1667, %4626 ], [ %.sroa.12.2.i1667, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
+  %.sroa.16.0.i1599 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ null, %4606 ], [ %4592, %4611 ], [ %4592, %4626 ], [ %4592, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ null, %4587 ]
   %.sroa.0.0.i1600 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624 ], [ %.sroa.0.0.copyload321.i, %4606 ], [ %.sroa.0.2.i1668, %4611 ], [ %.sroa.0.2.i1668, %4626 ], [ %.sroa.0.2.i1668, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i ], [ 0, %4587 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %4627 = load i32, ptr %20, align 8, !tbaa !94
@@ -12539,21 +12539,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i: ; preds = %462
 
 4629:                                             ; preds = %4628
   %4630 = load ptr, ptr %1022, align 8, !tbaa !115
-  %4631 = icmp eq ptr %4630, %.sroa.9326.1.i
+  %4631 = icmp eq ptr %4630, %.sroa.9326.0.i
   br label %4635
 
 4632:                                             ; preds = %4628
   %4633 = load ptr, ptr %1027, align 8, !tbaa !116
-  %4634 = icmp eq ptr %4633, %.sroa.12.1.i1598
+  %4634 = icmp eq ptr %4633, %.sroa.12.0.i1598
   br label %4635
 
 4635:                                             ; preds = %4632, %4629, %4628, %.thread.i116.i
   %.0.i.i.i.i1602 = phi i1 [ %4634, %4632 ], [ %4631, %4629 ], [ false, %.thread.i116.i ], [ true, %4628 ]
-  %.not.i.i.i118.i = icmp eq ptr %.sroa.16.1.i1599, null
+  %.not.i.i.i118.i = icmp eq ptr %.sroa.16.0.i1599, null
   br i1 %.not.i.i.i118.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603, label %4636
 
 4636:                                             ; preds = %4635
-  %4637 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i1599, i64 8
+  %4637 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i1599, i64 8
   %4638 = load atomic i64, ptr %4637 acquire, align 8
   %4639 = icmp eq i64 %4638, 4294967297
   %4640 = trunc i64 %4638 to i32
@@ -12561,16 +12561,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113.i: ; preds = %462
 
 4641:                                             ; preds = %4636
   store i32 0, ptr %4637, align 8, !tbaa !9
-  %4642 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i1599, i64 12
+  %4642 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i1599, i64 12
   store i32 0, ptr %4642, align 4, !tbaa !12
-  %4643 = load ptr, ptr %.sroa.16.1.i1599, align 8, !tbaa !13
+  %4643 = load ptr, ptr %.sroa.16.0.i1599, align 8, !tbaa !13
   %4644 = getelementptr inbounds nuw i8, ptr %4643, i64 16
   %4645 = load ptr, ptr %4644, align 8
-  call void %4645(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i1599) #29
-  %4646 = load ptr, ptr %.sroa.16.1.i1599, align 8, !tbaa !13
+  call void %4645(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i1599) #29
+  %4646 = load ptr, ptr %.sroa.16.0.i1599, align 8, !tbaa !13
   %4647 = getelementptr inbounds nuw i8, ptr %4646, i64 24
   %4648 = load ptr, ptr %4647, align 8
-  call void %4648(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i1599) #29
+  call void %4648(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i1599) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603
 
 4649:                                             ; preds = %4636
@@ -12593,7 +12593,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120.i: ; preds = %465
   br i1 %4655, label %4656, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603, !prof !17
 
 4656:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i1599) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i1599) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i1603: ; preds = %4656, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120.i, %4641, %4635
@@ -14327,13 +14327,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i1645: ; preds = %5
   unreachable
 
 ._crit_edge318.loopexit.i:                        ; preds = %5301
-  %.pre346.i = load ptr, ptr %19, align 8, !tbaa !63
-  %.pre347.i = load ptr, ptr %1098, align 8, !tbaa !66
+  %.pre341.i = load ptr, ptr %19, align 8, !tbaa !63
+  %.pre342.i = load ptr, ptr %1098, align 8, !tbaa !66
   br label %._crit_edge318.i
 
 ._crit_edge318.i:                                 ; preds = %._crit_edge318.loopexit.i, %._crit_edge314.i
-  %5321 = phi ptr [ %.pre347.i, %._crit_edge318.loopexit.i ], [ %5282, %._crit_edge314.i ]
-  %5322 = phi ptr [ %.pre346.i, %._crit_edge318.loopexit.i ], [ %5283, %._crit_edge314.i ]
+  %5321 = phi ptr [ %.pre342.i, %._crit_edge318.loopexit.i ], [ %5282, %._crit_edge314.i ]
+  %5322 = phi ptr [ %.pre341.i, %._crit_edge318.loopexit.i ], [ %5283, %._crit_edge314.i ]
   %.not4.i.i.i.i.i1653 = icmp eq ptr %5322, %5321
   br i1 %.not4.i.i.i.i.i1653, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i1660, label %.lr.ph.i.i.i.i.i1654
 
@@ -14611,7 +14611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298.i: ; preds = %
           cleanup
   br label %.body1587
 
-.loopexit.split-lp2494:                           ; preds = %.invoke6001
+.loopexit.split-lp2494:                           ; preds = %.invoke5981
   %lpad.loopexit.split-lp2496 = landingpad { ptr, i32 }
           cleanup
   br label %.body1587
@@ -14772,11 +14772,11 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1711: ; pre
   br i1 %5464, label %.body1703, label %.body1703.sink.split
 
 .body1703.sink.split:                             ; preds = %5461, %5443
-  %.sink6683 = phi ptr [ %5445, %5443 ], [ %5463, %5461 ]
+  %.sink6663 = phi ptr [ %5445, %5443 ], [ %5463, %5461 ]
   %.pn721.ph = phi { ptr, i32 } [ %5444, %5443 ], [ %5462, %5461 ]
   %5465 = load i64, ptr %1005, align 8, !tbaa !15
   %5466 = add i64 %5465, 1
-  call void @_ZdlPvm(ptr noundef %.sink6683, i64 noundef %5466) #30
+  call void @_ZdlPvm(ptr noundef %.sink6663, i64 noundef %5466) #30
   br label %.body1703
 
 .body1703:                                        ; preds = %.body1703.sink.split, %5461, %5443
@@ -15558,17 +15558,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1856: ; preds = %
   %.sroa.0.0.copyload4498 = load i32, ptr %9, align 8
   %.sroa.94504.0.copyload4506 = load ptr, ptr %.sroa.94504.0..sroa_idx4505, align 8
   %.sroa.12.0.copyload4510 = load ptr, ptr %.sroa.12.0..sroa_idx4509, align 8
-  br i1 %5728, label %5732, label %._crit_edge4614
+  br i1 %5728, label %5732, label %._crit_edge4594
 
-._crit_edge4614:                                  ; preds = %5726
-  %.pre4615 = load i32, ptr %5722, align 4, !tbaa !16, !noalias !258
+._crit_edge4594:                                  ; preds = %5726
+  %.pre4595 = load i32, ptr %5722, align 4, !tbaa !16, !noalias !258
   br label %5729
 
-5729:                                             ; preds = %._crit_edge4614, %.thread13.i1774
-  %5730 = phi i32 [ %.pre4615, %._crit_edge4614 ], [ %5725, %.thread13.i1774 ]
-  %.sroa.94504.4 = phi ptr [ %.sroa.94504.0.copyload4506, %._crit_edge4614 ], [ %.sroa.94504.0.copyload, %.thread13.i1774 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.0.copyload4510, %._crit_edge4614 ], [ %.sroa.12.0.copyload, %.thread13.i1774 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload4498, %._crit_edge4614 ], [ %.sroa.0.0.copyload, %.thread13.i1774 ]
+5729:                                             ; preds = %._crit_edge4594, %.thread13.i1774
+  %5730 = phi i32 [ %.pre4595, %._crit_edge4594 ], [ %5725, %.thread13.i1774 ]
+  %.sroa.94504.1 = phi ptr [ %.sroa.94504.0.copyload4506, %._crit_edge4594 ], [ %.sroa.94504.0.copyload, %.thread13.i1774 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload4510, %._crit_edge4594 ], [ %.sroa.12.0.copyload, %.thread13.i1774 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload4498, %._crit_edge4594 ], [ %.sroa.0.0.copyload, %.thread13.i1774 ]
   %5731 = add nsw i32 %5730, 1
   store i32 %5731, ptr %5722, align 4, !tbaa !16, !noalias !258
   br label %5735
@@ -15584,8 +15584,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1856: ; preds = %
   br label %.thread.i1779
 
 5735:                                             ; preds = %5732, %5729
-  %.sroa.94504.5 = phi ptr [ %.sroa.94504.0.copyload4506, %5732 ], [ %.sroa.94504.4, %5729 ]
-  %.sroa.12.5 = phi ptr [ %.sroa.12.0.copyload4510, %5732 ], [ %.sroa.12.4, %5729 ]
+  %.sroa.94504.2 = phi ptr [ %.sroa.94504.0.copyload4506, %5732 ], [ %.sroa.94504.1, %5729 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload4510, %5732 ], [ %.sroa.12.1, %5729 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload4498, %5732 ], [ %.sroa.0.1, %5729 ]
   %5736 = load atomic i64, ptr %5722 acquire, align 8, !noalias !258
   %5737 = icmp eq i64 %5736, 4294967297
@@ -15630,9 +15630,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776: ; preds = %5751
   br label %.thread.i1779
 
 .thread.i1779:                                    ; preds = %5715, %5712, %5754, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776, %5739, %5734
-  %.sroa.94504.3 = phi ptr [ null, %5712 ], [ %.sroa.94504.0.copyload4508, %5734 ], [ %.sroa.94504.5, %5739 ], [ %.sroa.94504.5, %5754 ], [ %.sroa.94504.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
-  %.sroa.12.3 = phi ptr [ null, %5712 ], [ %.sroa.12.0.copyload4512, %5734 ], [ %.sroa.12.5, %5739 ], [ %.sroa.12.5, %5754 ], [ %.sroa.12.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
-  %.sroa.16.3 = phi ptr [ null, %5712 ], [ null, %5734 ], [ %5720, %5739 ], [ %5720, %5754 ], [ %5720, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
+  %.sroa.94504.0 = phi ptr [ null, %5712 ], [ %.sroa.94504.0.copyload4508, %5734 ], [ %.sroa.94504.2, %5739 ], [ %.sroa.94504.2, %5754 ], [ %.sroa.94504.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
+  %.sroa.12.0 = phi ptr [ null, %5712 ], [ %.sroa.12.0.copyload4512, %5734 ], [ %.sroa.12.2, %5739 ], [ %.sroa.12.2, %5754 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
+  %.sroa.16.0 = phi ptr [ null, %5712 ], [ null, %5734 ], [ %5720, %5739 ], [ %5720, %5754 ], [ %5720, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ null, %5715 ]
   %.sroa.0.0 = phi i32 [ 0, %5712 ], [ %.sroa.0.0.copyload4499, %5734 ], [ %.sroa.0.2, %5739 ], [ %.sroa.0.2, %5754 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776 ], [ 0, %5715 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %5755 = load i32, ptr %203, align 8, !tbaa !94
@@ -15647,21 +15647,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776: ; preds = %5751
 
 5757:                                             ; preds = %5756
   %5758 = load ptr, ptr %908, align 8, !tbaa !115
-  %5759 = icmp eq ptr %5758, %.sroa.94504.3
+  %5759 = icmp eq ptr %5758, %.sroa.94504.0
   br label %5763
 
 5760:                                             ; preds = %5756
   %5761 = load ptr, ptr %909, align 8, !tbaa !116
-  %5762 = icmp eq ptr %5761, %.sroa.12.3
+  %5762 = icmp eq ptr %5761, %.sroa.12.0
   br label %5763
 
 5763:                                             ; preds = %5760, %5757, %5756, %.thread.i1779
   %.0.i.i.i1783 = phi i1 [ %5762, %5760 ], [ %5759, %5757 ], [ false, %.thread.i1779 ], [ true, %5756 ]
-  %.not.i.i.i1785 = icmp eq ptr %.sroa.16.3, null
+  %.not.i.i.i1785 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i1785, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790, label %5764
 
 5764:                                             ; preds = %5763
-  %5765 = getelementptr inbounds nuw i8, ptr %.sroa.16.3, i64 8
+  %5765 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %5766 = load atomic i64, ptr %5765 acquire, align 8
   %5767 = icmp eq i64 %5766, 4294967297
   %5768 = trunc i64 %5766 to i32
@@ -15669,16 +15669,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1776: ; preds = %5751
 
 5769:                                             ; preds = %5764
   store i32 0, ptr %5765, align 8, !tbaa !9
-  %5770 = getelementptr inbounds nuw i8, ptr %.sroa.16.3, i64 12
+  %5770 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %5770, align 4, !tbaa !12
-  %5771 = load ptr, ptr %.sroa.16.3, align 8, !tbaa !13
+  %5771 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %5772 = getelementptr inbounds nuw i8, ptr %5771, i64 16
   %5773 = load ptr, ptr %5772, align 8
-  call void %5773(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.3) #29
-  %5774 = load ptr, ptr %.sroa.16.3, align 8, !tbaa !13
+  call void %5773(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %5774 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %5775 = getelementptr inbounds nuw i8, ptr %5774, i64 24
   %5776 = load ptr, ptr %5775, align 8
-  call void %5776(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.3) #29
+  call void %5776(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790
 
 5777:                                             ; preds = %5764
@@ -15701,7 +15701,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1787: ; preds = %5781
   br i1 %5783, label %5784, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790, !prof !17
 
 5784:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1787
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.3) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit1790: ; preds = %5763, %5769, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1787, %5784
@@ -16407,14 +16407,14 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1864: ; pre
 6038:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1864
   %6039 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %6039, ptr noundef nonnull align 8 dereferenceable(32) %956)
-          to label %.invoke6003 unwind label %6041
+          to label %.invoke5983 unwind label %6041
 
-.invoke6003:                                      ; preds = %6038, %6099
+.invoke5983:                                      ; preds = %6038, %6099
   %6040 = phi ptr [ %6100, %6099 ], [ %6039, %6038 ]
   invoke void @__cxa_throw(ptr nonnull %6040, ptr nonnull @_ZTIN4YAML11InvalidNodeE, ptr nonnull @_ZN4YAML11InvalidNodeD1Ev) #31
-          to label %.cont6004 unwind label %.loopexit.split-lp2448
+          to label %.cont5984 unwind label %.loopexit.split-lp2448
 
-.cont6004:                                        ; preds = %.invoke6003
+.cont5984:                                        ; preds = %.invoke5983
   unreachable
 
 6041:                                             ; preds = %6038
@@ -16570,7 +16570,7 @@ _ZN19OpenColorIO_v2_5dev4ViewD2Ev.exit1888:       ; preds = %_ZNSt7__cxx1112basi
           cleanup
   br label %.body1867
 
-.loopexit.split-lp2448:                           ; preds = %.invoke6003
+.loopexit.split-lp2448:                           ; preds = %.invoke5983
   %lpad.loopexit.split-lp2450 = landingpad { ptr, i32 }
           cleanup
   br label %.body1867
@@ -16590,7 +16590,7 @@ _ZN19OpenColorIO_v2_5dev4ViewD2Ev.exit1888:       ; preds = %_ZNSt7__cxx1112basi
 6099:                                             ; preds = %6096
   %6100 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %6100, ptr noundef nonnull align 8 dereferenceable(32) %956)
-          to label %.invoke6003 unwind label %6101
+          to label %.invoke5983 unwind label %6101
 
 6101:                                             ; preds = %6099
   %6102 = landingpad { ptr, i32 }
@@ -19859,7 +19859,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118.backedge
 
 .body1029:                                        ; preds = %.loopexit2518, %.loopexit.split-lp2519, %1652, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106, %7115, %6969, %6957, %6941, %6928, %6839, %6827, %6811, %6726, %6714, %6698, %6567, %6555, %6539, %6408, %6396, %6380, %6352, %6324, %6296, %6205, %6193, %6175, %5708, %5696, %5678, %5531, %5519, %5501, %4412, %4400, %4384, %4368, %3227, %3215, %3202, %3178, %2939, %2927, %_ZNSt6vectorIdSaIdEED2Ev.exit1343, %2823, %2765, %2751, %2669, %2643, %2589, %2549, %2495, %2490, %2406, %1684, %1673, %1591
-  %.pn833.pn.pn = phi { ptr, i32 } [ %.pn833.pn, %2406 ], [ %.pn818.pn, %1684 ], [ %.pn496.pn.pn, %1591 ], [ %.pn815, %1673 ], [ %.pn813, %2495 ], [ %.pn811, %2549 ], [ %.pn807, %2490 ], [ %.pn805, %2589 ], [ %.pn803, %2643 ], [ %.pn798.pn.pn.pn, %2765 ], [ %.pn795, %2751 ], [ %.pn792.pn, %2669 ], [ %.pn790, %2823 ], [ %.pn7885334, %_ZNSt6vectorIdSaIdEED2Ev.exit1343 ], [ %.pn777.pn, %3178 ], [ %.pn762.pn, %2939 ], [ %.pn759, %2927 ], [ %.pn755.pn.pn, %4368 ], [ %.pn743.pn, %4384 ], [ %.pn737.pn, %3227 ], [ %.pn734, %3215 ], [ %.pn731.pn, %3202 ], [ %.pn725.pn.pn.pn.pn, %5501 ], [ %.pn713.pn, %4412 ], [ %.pn710, %4400 ], [ %.pn707.pn, %5678 ], [ %.pn699.pn, %5531 ], [ %.pn696, %5519 ], [ %.pn688.pn.pn.pn.pn.pn.pn, %6175 ], [ %.pn665.pn, %5708 ], [ %.pn662, %5696 ], [ %.pn658.pn.pn, %6296 ], [ %.pn644.pn, %6205 ], [ %.pn641, %6193 ], [ %.pn638.pn, %6324 ], [ %.pn633.pn, %6352 ], [ %.pn628.pn, %6380 ], [ %.pn615.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6539 ], [ %.pn603.pn, %6408 ], [ %.pn600, %6396 ], [ %.pn589.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6698 ], [ %.pn577.pn, %6567 ], [ %.pn574, %6555 ], [ %.pn568.pn.pn.pn.pn, %6811 ], [ %.pn556.pn, %6726 ], [ %.pn553, %6714 ], [ %.pn546.pn.pn.pn.pn.pn, %6928 ], [ %.pn534.pn, %6839 ], [ %.pn531, %6827 ], [ %.pn529, %6941 ], [ %.pn520.pn.pn.pn.pn.pn.pn.pn, %7115 ], [ %.pn506.pn, %6969 ], [ %.pn503, %6957 ], [ %.pn500.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106 ], [ %1653, %1652 ], [ %lpad.loopexit2520, %.loopexit2518 ], [ %lpad.loopexit.split-lp2521, %.loopexit.split-lp2519 ]
+  %.pn833.pn.pn = phi { ptr, i32 } [ %.pn833.pn, %2406 ], [ %.pn818.pn, %1684 ], [ %.pn496.pn.pn, %1591 ], [ %.pn815, %1673 ], [ %.pn813, %2495 ], [ %.pn811, %2549 ], [ %.pn807, %2490 ], [ %.pn805, %2589 ], [ %.pn803, %2643 ], [ %.pn798.pn.pn.pn, %2765 ], [ %.pn795, %2751 ], [ %.pn792.pn, %2669 ], [ %.pn790, %2823 ], [ %.pn7885314, %_ZNSt6vectorIdSaIdEED2Ev.exit1343 ], [ %.pn777.pn, %3178 ], [ %.pn762.pn, %2939 ], [ %.pn759, %2927 ], [ %.pn755.pn.pn, %4368 ], [ %.pn743.pn, %4384 ], [ %.pn737.pn, %3227 ], [ %.pn734, %3215 ], [ %.pn731.pn, %3202 ], [ %.pn725.pn.pn.pn.pn, %5501 ], [ %.pn713.pn, %4412 ], [ %.pn710, %4400 ], [ %.pn707.pn, %5678 ], [ %.pn699.pn, %5531 ], [ %.pn696, %5519 ], [ %.pn688.pn.pn.pn.pn.pn.pn, %6175 ], [ %.pn665.pn, %5708 ], [ %.pn662, %5696 ], [ %.pn658.pn.pn, %6296 ], [ %.pn644.pn, %6205 ], [ %.pn641, %6193 ], [ %.pn638.pn, %6324 ], [ %.pn633.pn, %6352 ], [ %.pn628.pn, %6380 ], [ %.pn615.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6539 ], [ %.pn603.pn, %6408 ], [ %.pn600, %6396 ], [ %.pn589.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6698 ], [ %.pn577.pn, %6567 ], [ %.pn574, %6555 ], [ %.pn568.pn.pn.pn.pn, %6811 ], [ %.pn556.pn, %6726 ], [ %.pn553, %6714 ], [ %.pn546.pn.pn.pn.pn.pn, %6928 ], [ %.pn534.pn, %6839 ], [ %.pn531, %6827 ], [ %.pn529, %6941 ], [ %.pn520.pn.pn.pn.pn.pn.pn.pn, %7115 ], [ %.pn506.pn, %6969 ], [ %.pn503, %6957 ], [ %.pn500.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106 ], [ %1653, %1652 ], [ %lpad.loopexit2520, %.loopexit2518 ], [ %lpad.loopexit.split-lp2521, %.loopexit.split-lp2519 ]
   %7160 = load ptr, ptr %117, align 8, !tbaa !18
   %7161 = icmp eq ptr %7160, %1353
   br i1 %7161, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2119
@@ -20550,11 +20550,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2203: ; preds = %7
   br i1 %7422, label %.body2192, label %.body2192.sink.split
 
 .body2192.sink.split:                             ; preds = %7419, %7376
-  %.sink6686 = phi ptr [ %7378, %7376 ], [ %7421, %7419 ]
+  %.sink6666 = phi ptr [ %7378, %7376 ], [ %7421, %7419 ]
   %.pn481.ph = phi { ptr, i32 } [ %7377, %7376 ], [ %7420, %7419 ]
   %7423 = load i64, ptr %7362, align 8, !tbaa !15
   %7424 = add i64 %7423, 1
-  call void @_ZdlPvm(ptr noundef %.sink6686, i64 noundef %7424) #30
+  call void @_ZdlPvm(ptr noundef %.sink6666, i64 noundef %7424) #30
   br label %.body2192
 
 .body2192:                                        ; preds = %.body2192.sink.split, %7419, %7376
@@ -20923,11 +20923,11 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit2260: ; pre
   br i1 %7569, label %.body2252, label %.body2252.sink.split
 
 .body2252.sink.split:                             ; preds = %7566, %7541
-  %.sink6689 = phi ptr [ %7543, %7541 ], [ %7568, %7566 ]
+  %.sink6669 = phi ptr [ %7543, %7541 ], [ %7568, %7566 ]
   %.pn490.ph = phi { ptr, i32 } [ %7542, %7541 ], [ %7567, %7566 ]
   %7570 = load i64, ptr %7527, align 8, !tbaa !15
   %7571 = add i64 %7570, 1
-  call void @_ZdlPvm(ptr noundef %.sink6689, i64 noundef %7571) #30
+  call void @_ZdlPvm(ptr noundef %.sink6669, i64 noundef %7571) #30
   br label %.body2252
 
 .body2252:                                        ; preds = %.body2252.sink.split, %7566, %7541
@@ -31176,8 +31176,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 98:                                               ; preds = %._crit_edge, %.thread13.i34
   %99 = phi i32 [ %.pre, %._crit_edge ], [ %94, %.thread13.i34 ]
-  %.sroa.993.2 = phi ptr [ %.sroa.993.0.copyload95, %._crit_edge ], [ %.sroa.993.0.copyload, %.thread13.i34 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload99, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i34 ]
+  %.sroa.993.1 = phi ptr [ %.sroa.993.0.copyload95, %._crit_edge ], [ %.sroa.993.0.copyload, %.thread13.i34 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload99, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i34 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload87, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i34 ]
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %91, align 4, !tbaa !16, !noalias !431
@@ -31194,8 +31194,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i39
 
 104:                                              ; preds = %101, %98
-  %.sroa.993.3 = phi ptr [ %.sroa.993.0.copyload95, %101 ], [ %.sroa.993.2, %98 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload99, %101 ], [ %.sroa.12.2, %98 ]
+  %.sroa.993.2 = phi ptr [ %.sroa.993.0.copyload95, %101 ], [ %.sroa.993.1, %98 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload99, %101 ], [ %.sroa.12.1, %98 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload87, %101 ], [ %.sroa.0.1, %98 ]
   %105 = load atomic i64, ptr %91 acquire, align 8, !noalias !431
   %106 = icmp eq i64 %105, 4294967297
@@ -31240,9 +31240,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %120, %
   br label %.thread.i39
 
 .thread.i39:                                      ; preds = %84, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %123, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36, %108, %103
-  %.sroa.993.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.993.0.copyload97, %103 ], [ %.sroa.993.3, %108 ], [ %.sroa.993.3, %123 ], [ %.sroa.993.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload101, %103 ], [ %.sroa.12.3, %108 ], [ %.sroa.12.3, %123 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %103 ], [ %89, %108 ], [ %89, %123 ], [ %89, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
+  %.sroa.993.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.993.0.copyload97, %103 ], [ %.sroa.993.2, %108 ], [ %.sroa.993.2, %123 ], [ %.sroa.993.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload101, %103 ], [ %.sroa.12.2, %108 ], [ %.sroa.12.2, %123 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %103 ], [ %89, %108 ], [ %89, %123 ], [ %89, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ null, %84 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload88, %103 ], [ %.sroa.0.2, %108 ], [ %.sroa.0.2, %123 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %124 = load i32, ptr %7, align 8, !tbaa !94
@@ -31257,21 +31257,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %120, %
 
 126:                                              ; preds = %125
   %127 = load ptr, ptr %73, align 8, !tbaa !115
-  %128 = icmp eq ptr %127, %.sroa.993.1
+  %128 = icmp eq ptr %127, %.sroa.993.0
   br label %132
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %74, align 8, !tbaa !116
-  %131 = icmp eq ptr %130, %.sroa.12.1
+  %131 = icmp eq ptr %130, %.sroa.12.0
   br label %132
 
 132:                                              ; preds = %129, %126, %125, %.thread.i39
   %.0.i.i.i = phi i1 [ %131, %129 ], [ %128, %126 ], [ false, %.thread.i39 ], [ true, %125 ]
-  %.not.i.i.i41 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i41 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i41, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %133
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %135 = load atomic i64, ptr %134 acquire, align 8
   %136 = icmp eq i64 %135, 4294967297
   %137 = trunc i64 %135 to i32
@@ -31279,16 +31279,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %120, %
 
 138:                                              ; preds = %133
   store i32 0, ptr %134, align 8, !tbaa !9
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %139, align 4, !tbaa !12
-  %140 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %140 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %143 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %143 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 146:                                              ; preds = %133
@@ -31311,7 +31311,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43: ; preds = %150, %
   br i1 %152, label %153, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 153:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %132, %138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43, %153
@@ -33987,8 +33987,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 182:                                              ; preds = %._crit_edge, %.thread13.i107
   %183 = phi i32 [ %.pre, %._crit_edge ], [ %178, %.thread13.i107 ]
-  %.sroa.9384.2 = phi ptr [ %.sroa.9384.0.copyload386, %._crit_edge ], [ %.sroa.9384.0.copyload, %.thread13.i107 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload390, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i107 ]
+  %.sroa.9384.1 = phi ptr [ %.sroa.9384.0.copyload386, %._crit_edge ], [ %.sroa.9384.0.copyload, %.thread13.i107 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload390, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i107 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload378, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i107 ]
   %184 = add nsw i32 %183, 1
   store i32 %184, ptr %175, align 4, !tbaa !16, !noalias !476
@@ -34005,8 +34005,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i112
 
 188:                                              ; preds = %185, %182
-  %.sroa.9384.3 = phi ptr [ %.sroa.9384.0.copyload386, %185 ], [ %.sroa.9384.2, %182 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload390, %185 ], [ %.sroa.12.2, %182 ]
+  %.sroa.9384.2 = phi ptr [ %.sroa.9384.0.copyload386, %185 ], [ %.sroa.9384.1, %182 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload390, %185 ], [ %.sroa.12.1, %182 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload378, %185 ], [ %.sroa.0.1, %182 ]
   %189 = load atomic i64, ptr %175 acquire, align 8, !noalias !476
   %190 = icmp eq i64 %189, 4294967297
@@ -34051,9 +34051,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109: ; preds = %204, 
   br label %.thread.i112
 
 .thread.i112:                                     ; preds = %168, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %207, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109, %192, %187
-  %.sroa.9384.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9384.0.copyload388, %187 ], [ %.sroa.9384.3, %192 ], [ %.sroa.9384.3, %207 ], [ %.sroa.9384.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload392, %187 ], [ %.sroa.12.3, %192 ], [ %.sroa.12.3, %207 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %187 ], [ %173, %192 ], [ %173, %207 ], [ %173, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
+  %.sroa.9384.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9384.0.copyload388, %187 ], [ %.sroa.9384.2, %192 ], [ %.sroa.9384.2, %207 ], [ %.sroa.9384.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload392, %187 ], [ %.sroa.12.2, %192 ], [ %.sroa.12.2, %207 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %187 ], [ %173, %192 ], [ %173, %207 ], [ %173, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ null, %168 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload379, %187 ], [ %.sroa.0.2, %192 ], [ %.sroa.0.2, %207 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109 ], [ 0, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %208 = load i32, ptr %9, align 8, !tbaa !94
@@ -34068,21 +34068,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109: ; preds = %204, 
 
 210:                                              ; preds = %209
   %211 = load ptr, ptr %102, align 8, !tbaa !115
-  %212 = icmp eq ptr %211, %.sroa.9384.1
+  %212 = icmp eq ptr %211, %.sroa.9384.0
   br label %216
 
 213:                                              ; preds = %209
   %214 = load ptr, ptr %103, align 8, !tbaa !116
-  %215 = icmp eq ptr %214, %.sroa.12.1
+  %215 = icmp eq ptr %214, %.sroa.12.0
   br label %216
 
 216:                                              ; preds = %213, %210, %209, %.thread.i112
   %.0.i.i.i = phi i1 [ %215, %213 ], [ %212, %210 ], [ false, %.thread.i112 ], [ true, %209 ]
-  %.not.i.i.i113 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i113 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i113, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %217
 
 217:                                              ; preds = %216
-  %218 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %219 = load atomic i64, ptr %218 acquire, align 8
   %220 = icmp eq i64 %219, 4294967297
   %221 = trunc i64 %219 to i32
@@ -34090,16 +34090,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i109: ; preds = %204, 
 
 222:                                              ; preds = %217
   store i32 0, ptr %218, align 8, !tbaa !9
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %223, align 4, !tbaa !12
-  %224 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %224 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
-  call void %226(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %227 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %226(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %227 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %229 = load ptr, ptr %228, align 8
-  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 230:                                              ; preds = %217
@@ -34122,7 +34122,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %234, 
   br i1 %236, label %237, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 237:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %216, %222, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115, %237
@@ -35763,11 +35763,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278: ; preds = %85
   br i1 %861, label %.body259, label %.body259.sink.split
 
 .body259.sink.split:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278, %826
-  %.sink562 = phi ptr [ %828, %826 ], [ %860, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ]
+  %.sink557 = phi ptr [ %828, %826 ], [ %860, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ]
   %.pn73.pn.ph = phi { ptr, i32 } [ %827, %826 ], [ %.pn73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ]
   %862 = load i64, ptr %812, align 8, !tbaa !15
   %863 = add i64 %862, 1
-  call void @_ZdlPvm(ptr noundef %.sink562, i64 noundef %863) #30
+  call void @_ZdlPvm(ptr noundef %.sink557, i64 noundef %863) #30
   br label %.body259
 
 .body259:                                         ; preds = %.body259.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278, %826
@@ -36385,17 +36385,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.sroa.0.0.copyload392 = load i32, ptr %7, align 8
   %.sroa.9398.0.copyload400 = load ptr, ptr %.sroa.9398.0..sroa_idx399, align 8
   %.sroa.12.0.copyload404 = load ptr, ptr %.sroa.12.0..sroa_idx403, align 8
-  br i1 %280, label %284, label %._crit_edge417
+  br i1 %280, label %284, label %._crit_edge412
 
-._crit_edge417:                                   ; preds = %278
+._crit_edge412:                                   ; preds = %278
   %.pre = load i32, ptr %274, align 4, !tbaa !16, !noalias !518
   br label %281
 
-281:                                              ; preds = %._crit_edge417, %.thread13.i179
-  %282 = phi i32 [ %.pre, %._crit_edge417 ], [ %277, %.thread13.i179 ]
-  %.sroa.9398.2 = phi ptr [ %.sroa.9398.0.copyload400, %._crit_edge417 ], [ %.sroa.9398.0.copyload, %.thread13.i179 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload404, %._crit_edge417 ], [ %.sroa.12.0.copyload, %.thread13.i179 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload392, %._crit_edge417 ], [ %.sroa.0.0.copyload, %.thread13.i179 ]
+281:                                              ; preds = %._crit_edge412, %.thread13.i179
+  %282 = phi i32 [ %.pre, %._crit_edge412 ], [ %277, %.thread13.i179 ]
+  %.sroa.9398.1 = phi ptr [ %.sroa.9398.0.copyload400, %._crit_edge412 ], [ %.sroa.9398.0.copyload, %.thread13.i179 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload404, %._crit_edge412 ], [ %.sroa.12.0.copyload, %.thread13.i179 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload392, %._crit_edge412 ], [ %.sroa.0.0.copyload, %.thread13.i179 ]
   %283 = add nsw i32 %282, 1
   store i32 %283, ptr %274, align 4, !tbaa !16, !noalias !518
   br label %287
@@ -36411,8 +36411,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i184
 
 287:                                              ; preds = %284, %281
-  %.sroa.9398.3 = phi ptr [ %.sroa.9398.0.copyload400, %284 ], [ %.sroa.9398.2, %281 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload404, %284 ], [ %.sroa.12.2, %281 ]
+  %.sroa.9398.2 = phi ptr [ %.sroa.9398.0.copyload400, %284 ], [ %.sroa.9398.1, %281 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload404, %284 ], [ %.sroa.12.1, %281 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload392, %284 ], [ %.sroa.0.1, %281 ]
   %288 = load atomic i64, ptr %274 acquire, align 8, !noalias !518
   %289 = icmp eq i64 %288, 4294967297
@@ -36457,9 +36457,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181: ; preds = %303, 
   br label %.thread.i184
 
 .thread.i184:                                     ; preds = %267, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %306, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181, %291, %286
-  %.sroa.9398.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9398.0.copyload402, %286 ], [ %.sroa.9398.3, %291 ], [ %.sroa.9398.3, %306 ], [ %.sroa.9398.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload406, %286 ], [ %.sroa.12.3, %291 ], [ %.sroa.12.3, %306 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %286 ], [ %272, %291 ], [ %272, %306 ], [ %272, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
+  %.sroa.9398.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9398.0.copyload402, %286 ], [ %.sroa.9398.2, %291 ], [ %.sroa.9398.2, %306 ], [ %.sroa.9398.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload406, %286 ], [ %.sroa.12.2, %291 ], [ %.sroa.12.2, %306 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %286 ], [ %272, %291 ], [ %272, %306 ], [ %272, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ null, %267 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload393, %286 ], [ %.sroa.0.2, %291 ], [ %.sroa.0.2, %306 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181 ], [ 0, %267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %307 = load i32, ptr %13, align 8, !tbaa !94
@@ -36474,21 +36474,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181: ; preds = %303, 
 
 309:                                              ; preds = %308
   %310 = load ptr, ptr %178, align 8, !tbaa !115
-  %311 = icmp eq ptr %310, %.sroa.9398.1
+  %311 = icmp eq ptr %310, %.sroa.9398.0
   br label %315
 
 312:                                              ; preds = %308
   %313 = load ptr, ptr %179, align 8, !tbaa !116
-  %314 = icmp eq ptr %313, %.sroa.12.1
+  %314 = icmp eq ptr %313, %.sroa.12.0
   br label %315
 
 315:                                              ; preds = %312, %309, %308, %.thread.i184
   %.0.i.i.i = phi i1 [ %314, %312 ], [ %311, %309 ], [ false, %.thread.i184 ], [ true, %308 ]
-  %.not.i.i.i186 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i186 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i186, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %316
 
 316:                                              ; preds = %315
-  %317 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %318 = load atomic i64, ptr %317 acquire, align 8
   %319 = icmp eq i64 %318, 4294967297
   %320 = trunc i64 %318 to i32
@@ -36496,16 +36496,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181: ; preds = %303, 
 
 321:                                              ; preds = %316
   store i32 0, ptr %317, align 8, !tbaa !9
-  %322 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %322 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %322, align 4, !tbaa !12
-  %323 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %323 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %325 = load ptr, ptr %324, align 8
-  call void %325(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %326 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %325(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %326 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
   %328 = load ptr, ptr %327, align 8
-  call void %328(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %328(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 329:                                              ; preds = %316
@@ -36528,7 +36528,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i188: ; preds = %333, 
   br i1 %335, label %336, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 336:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i188
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %315, %321, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i188, %336
@@ -38095,7 +38095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %13)
-          to label %930 unwind label %.thread524
+          to label %930 unwind label %.thread519
 
 930:                                              ; preds = %929
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(64) %210, ptr noundef nonnull align 8 dereferenceable(24) %32)
@@ -38119,7 +38119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %89
   invoke void @_ZN19OpenColorIO_v2_5dev10ColorSpace17setAllocationVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(8) %936, i32 noundef %941, ptr noundef nonnull %932)
           to label %.thread372 unwind label %.thread
 
-.thread524:                                       ; preds = %929
+.thread519:                                       ; preds = %929
   %942 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -38135,11 +38135,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %89
   br i1 %.not.i.i.i316, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %..thread372_crit_edge
 
 ..thread372_crit_edge:                            ; preds = %944
-  %.pre420 = ptrtoint ptr %932 to i64
+  %.pre415 = ptrtoint ptr %932 to i64
   br label %.thread372
 
 .thread372:                                       ; preds = %..thread372_crit_edge, %935
-  %.pre-phi = phi i64 [ %.pre420, %..thread372_crit_edge ], [ %938, %935 ]
+  %.pre-phi = phi i64 [ %.pre415, %..thread372_crit_edge ], [ %938, %935 ]
   %945 = load ptr, ptr %212, align 8, !tbaa !534
   %946 = ptrtoint ptr %945 to i64
   %947 = sub i64 %946, %.pre-phi
@@ -38154,14 +38154,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %944, %.thread372
   %949 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %33) #29
-  %.pre418.pre = load ptr, ptr %32, align 8, !tbaa !536
+  %.pre413.pre = load ptr, ptr %32, align 8, !tbaa !536
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %.not.i.i.i317 = icmp eq ptr %.pre418.pre, null
+  %.not.i.i.i317 = icmp eq ptr %.pre413.pre, null
   br i1 %.not.i.i.i317, label %_ZNSt6vectorIfSaIfEED2Ev.exit318, label %950
 
 950:                                              ; preds = %.thread, %948
-  %.pn139522 = phi { ptr, i32 } [ %943, %.thread ], [ %949, %948 ]
-  %951 = phi ptr [ %932, %.thread ], [ %.pre418.pre, %948 ]
+  %.pn139517 = phi { ptr, i32 } [ %943, %.thread ], [ %949, %948 ]
+  %951 = phi ptr [ %932, %.thread ], [ %.pre413.pre, %948 ]
   %952 = load ptr, ptr %212, align 8, !tbaa !534
   %953 = ptrtoint ptr %952 to i64
   %954 = ptrtoint ptr %951 to i64
@@ -38169,8 +38169,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %944, %.thread372
   call void @_ZdlPvm(ptr noundef nonnull %951, i64 noundef %955) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit318
 
-_ZNSt6vectorIfSaIfEED2Ev.exit318:                 ; preds = %.thread524, %948, %950
-  %.pn139523 = phi { ptr, i32 } [ %949, %948 ], [ %.pn139522, %950 ], [ %942, %.thread524 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit318:                 ; preds = %.thread519, %948, %950
+  %.pn139518 = phi { ptr, i32 } [ %949, %948 ], [ %.pn139517, %950 ], [ %942, %.thread519 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1161
 
@@ -38796,7 +38796,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 1161:                                             ; preds = %776, %777, %1135, %1127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350, %1086, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %1041, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332, %1000, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324, %_ZNSt6vectorIfSaIfEED2Ev.exit318, %925, %912, %899, %818, %727, %688, %648, %647, %590, %540, %501
-  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %540 ], [ %.pn162, %590 ], [ %649, %648 ], [ %.pn160, %647 ], [ %.pn158, %688 ], [ %.pn156, %727 ], [ %.pn107.pn.pn, %501 ], [ %.pn150, %818 ], [ %.pn147.pn, %899 ], [ %.pn143, %912 ], [ %.pn141, %925 ], [ %.pn139523, %_ZNSt6vectorIfSaIfEED2Ev.exit318 ], [ %.pn135, %1000 ], [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %.pn129, %1041 ], [ %.pn125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332 ], [ %.pn123, %1086 ], [ %.pn119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %.pn117, %1127 ], [ %.pn113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350 ], [ %.pn111, %1135 ], [ %778, %777 ], [ %.pn152, %776 ]
+  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %540 ], [ %.pn162, %590 ], [ %649, %648 ], [ %.pn160, %647 ], [ %.pn158, %688 ], [ %.pn156, %727 ], [ %.pn107.pn.pn, %501 ], [ %.pn150, %818 ], [ %.pn147.pn, %899 ], [ %.pn143, %912 ], [ %.pn141, %925 ], [ %.pn139518, %_ZNSt6vectorIfSaIfEED2Ev.exit318 ], [ %.pn135, %1000 ], [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %.pn129, %1041 ], [ %.pn125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332 ], [ %.pn123, %1086 ], [ %.pn119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %.pn117, %1127 ], [ %.pn113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350 ], [ %.pn111, %1135 ], [ %778, %777 ], [ %.pn152, %776 ]
   %1162 = load ptr, ptr %14, align 8, !tbaa !18
   %1163 = icmp eq ptr %1162, %263
   br i1 %1163, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit360, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i358
@@ -39277,8 +39277,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 172:                                              ; preds = %._crit_edge, %.thread13.i77
   %173 = phi i32 [ %.pre, %._crit_edge ], [ %168, %.thread13.i77 ]
-  %.sroa.9234.2 = phi ptr [ %.sroa.9234.0.copyload236, %._crit_edge ], [ %.sroa.9234.0.copyload, %.thread13.i77 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload240, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i77 ]
+  %.sroa.9234.1 = phi ptr [ %.sroa.9234.0.copyload236, %._crit_edge ], [ %.sroa.9234.0.copyload, %.thread13.i77 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload240, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i77 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload228, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i77 ]
   %174 = add nsw i32 %173, 1
   store i32 %174, ptr %165, align 4, !tbaa !16, !noalias !548
@@ -39295,8 +39295,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i82
 
 178:                                              ; preds = %175, %172
-  %.sroa.9234.3 = phi ptr [ %.sroa.9234.0.copyload236, %175 ], [ %.sroa.9234.2, %172 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload240, %175 ], [ %.sroa.12.2, %172 ]
+  %.sroa.9234.2 = phi ptr [ %.sroa.9234.0.copyload236, %175 ], [ %.sroa.9234.1, %172 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload240, %175 ], [ %.sroa.12.1, %172 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload228, %175 ], [ %.sroa.0.1, %172 ]
   %179 = load atomic i64, ptr %165 acquire, align 8, !noalias !548
   %180 = icmp eq i64 %179, 4294967297
@@ -39341,9 +39341,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79: ; preds = %194, %
   br label %.thread.i82
 
 .thread.i82:                                      ; preds = %158, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %197, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79, %182, %177
-  %.sroa.9234.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9234.0.copyload238, %177 ], [ %.sroa.9234.3, %182 ], [ %.sroa.9234.3, %197 ], [ %.sroa.9234.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload242, %177 ], [ %.sroa.12.3, %182 ], [ %.sroa.12.3, %197 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %177 ], [ %163, %182 ], [ %163, %197 ], [ %163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
+  %.sroa.9234.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9234.0.copyload238, %177 ], [ %.sroa.9234.2, %182 ], [ %.sroa.9234.2, %197 ], [ %.sroa.9234.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload242, %177 ], [ %.sroa.12.2, %182 ], [ %.sroa.12.2, %197 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %177 ], [ %163, %182 ], [ %163, %197 ], [ %163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ null, %158 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload229, %177 ], [ %.sroa.0.2, %182 ], [ %.sroa.0.2, %197 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79 ], [ 0, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = load i32, ptr %6, align 8, !tbaa !94
@@ -39358,21 +39358,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79: ; preds = %194, %
 
 200:                                              ; preds = %199
   %201 = load ptr, ptr %97, align 8, !tbaa !115
-  %202 = icmp eq ptr %201, %.sroa.9234.1
+  %202 = icmp eq ptr %201, %.sroa.9234.0
   br label %206
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %98, align 8, !tbaa !116
-  %205 = icmp eq ptr %204, %.sroa.12.1
+  %205 = icmp eq ptr %204, %.sroa.12.0
   br label %206
 
 206:                                              ; preds = %203, %200, %199, %.thread.i82
   %.0.i.i.i = phi i1 [ %205, %203 ], [ %202, %200 ], [ false, %.thread.i82 ], [ true, %199 ]
-  %.not.i.i.i83 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i83 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i83, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %207
 
 207:                                              ; preds = %206
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %209 = load atomic i64, ptr %208 acquire, align 8
   %210 = icmp eq i64 %209, 4294967297
   %211 = trunc i64 %209 to i32
@@ -39380,16 +39380,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79: ; preds = %194, %
 
 212:                                              ; preds = %207
   store i32 0, ptr %208, align 8, !tbaa !9
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %213, align 4, !tbaa !12
-  %214 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %214 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8
-  call void %216(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %217 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %216(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %217 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %219 = load ptr, ptr %218, align 8
-  call void %219(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %219(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 220:                                              ; preds = %207
@@ -39412,7 +39412,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85: ; preds = %224, %
   br i1 %226, label %227, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 227:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %206, %212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85, %227
@@ -41340,8 +41340,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 127:                                              ; preds = %._crit_edge, %.thread13.i67
   %128 = phi i32 [ %.pre, %._crit_edge ], [ %123, %.thread13.i67 ]
-  %.sroa.9173.2 = phi ptr [ %.sroa.9173.0.copyload175, %._crit_edge ], [ %.sroa.9173.0.copyload, %.thread13.i67 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload179, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i67 ]
+  %.sroa.9173.1 = phi ptr [ %.sroa.9173.0.copyload175, %._crit_edge ], [ %.sroa.9173.0.copyload, %.thread13.i67 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload179, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i67 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload167, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i67 ]
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %120, align 4, !tbaa !16, !noalias !563
@@ -41358,8 +41358,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i72
 
 133:                                              ; preds = %130, %127
-  %.sroa.9173.3 = phi ptr [ %.sroa.9173.0.copyload175, %130 ], [ %.sroa.9173.2, %127 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload179, %130 ], [ %.sroa.12.2, %127 ]
+  %.sroa.9173.2 = phi ptr [ %.sroa.9173.0.copyload175, %130 ], [ %.sroa.9173.1, %127 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload179, %130 ], [ %.sroa.12.1, %127 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload167, %130 ], [ %.sroa.0.1, %127 ]
   %134 = load atomic i64, ptr %120 acquire, align 8, !noalias !563
   %135 = icmp eq i64 %134, 4294967297
@@ -41404,9 +41404,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69: ; preds = %149, %
   br label %.thread.i72
 
 .thread.i72:                                      ; preds = %113, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69, %137, %132
-  %.sroa.9173.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9173.0.copyload177, %132 ], [ %.sroa.9173.3, %137 ], [ %.sroa.9173.3, %152 ], [ %.sroa.9173.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload181, %132 ], [ %.sroa.12.3, %137 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %132 ], [ %118, %137 ], [ %118, %152 ], [ %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
+  %.sroa.9173.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9173.0.copyload177, %132 ], [ %.sroa.9173.2, %137 ], [ %.sroa.9173.2, %152 ], [ %.sroa.9173.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload181, %132 ], [ %.sroa.12.2, %137 ], [ %.sroa.12.2, %152 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %132 ], [ %118, %137 ], [ %118, %152 ], [ %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ null, %113 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload168, %132 ], [ %.sroa.0.2, %137 ], [ %.sroa.0.2, %152 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69 ], [ 0, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %153 = load i32, ptr %9, align 8, !tbaa !94
@@ -41421,21 +41421,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69: ; preds = %149, %
 
 155:                                              ; preds = %154
   %156 = load ptr, ptr %91, align 8, !tbaa !115
-  %157 = icmp eq ptr %156, %.sroa.9173.1
+  %157 = icmp eq ptr %156, %.sroa.9173.0
   br label %161
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %92, align 8, !tbaa !116
-  %160 = icmp eq ptr %159, %.sroa.12.1
+  %160 = icmp eq ptr %159, %.sroa.12.0
   br label %161
 
 161:                                              ; preds = %158, %155, %154, %.thread.i72
   %.0.i.i.i = phi i1 [ %160, %158 ], [ %157, %155 ], [ false, %.thread.i72 ], [ true, %154 ]
-  %.not.i.i.i74 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i74 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i74, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %162
 
 162:                                              ; preds = %161
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %164 = load atomic i64, ptr %163 acquire, align 8
   %165 = icmp eq i64 %164, 4294967297
   %166 = trunc i64 %164 to i32
@@ -41443,16 +41443,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69: ; preds = %149, %
 
 167:                                              ; preds = %162
   store i32 0, ptr %163, align 8, !tbaa !9
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %168, align 4, !tbaa !12
-  %169 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %169 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %172 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %171(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %172 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 175:                                              ; preds = %162
@@ -41475,7 +41475,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i76: ; preds = %179, %
   br i1 %181, label %182, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 182:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i76
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %161, %167, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i76, %182
@@ -42567,17 +42567,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.sroa.0.0.copyload341 = load i32, ptr %5, align 8
   %.sroa.9347.0.copyload349 = load ptr, ptr %.sroa.9347.0..sroa_idx348, align 8
   %.sroa.12.0.copyload353 = load ptr, ptr %.sroa.12.0..sroa_idx352, align 8
-  br i1 %254, label %258, label %._crit_edge366
+  br i1 %254, label %258, label %._crit_edge361
 
-._crit_edge366:                                   ; preds = %252
+._crit_edge361:                                   ; preds = %252
   %.pre = load i32, ptr %248, align 4, !tbaa !16, !noalias !591
   br label %255
 
-255:                                              ; preds = %._crit_edge366, %.thread13.i115
-  %256 = phi i32 [ %.pre, %._crit_edge366 ], [ %251, %.thread13.i115 ]
-  %.sroa.9347.2 = phi ptr [ %.sroa.9347.0.copyload349, %._crit_edge366 ], [ %.sroa.9347.0.copyload, %.thread13.i115 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload353, %._crit_edge366 ], [ %.sroa.12.0.copyload, %.thread13.i115 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload341, %._crit_edge366 ], [ %.sroa.0.0.copyload, %.thread13.i115 ]
+255:                                              ; preds = %._crit_edge361, %.thread13.i115
+  %256 = phi i32 [ %.pre, %._crit_edge361 ], [ %251, %.thread13.i115 ]
+  %.sroa.9347.1 = phi ptr [ %.sroa.9347.0.copyload349, %._crit_edge361 ], [ %.sroa.9347.0.copyload, %.thread13.i115 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload353, %._crit_edge361 ], [ %.sroa.12.0.copyload, %.thread13.i115 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload341, %._crit_edge361 ], [ %.sroa.0.0.copyload, %.thread13.i115 ]
   %257 = add nsw i32 %256, 1
   store i32 %257, ptr %248, align 4, !tbaa !16, !noalias !591
   br label %261
@@ -42593,8 +42593,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i120
 
 261:                                              ; preds = %258, %255
-  %.sroa.9347.3 = phi ptr [ %.sroa.9347.0.copyload349, %258 ], [ %.sroa.9347.2, %255 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload353, %258 ], [ %.sroa.12.2, %255 ]
+  %.sroa.9347.2 = phi ptr [ %.sroa.9347.0.copyload349, %258 ], [ %.sroa.9347.1, %255 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload353, %258 ], [ %.sroa.12.1, %255 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload341, %258 ], [ %.sroa.0.1, %255 ]
   %262 = load atomic i64, ptr %248 acquire, align 8, !noalias !591
   %263 = icmp eq i64 %262, 4294967297
@@ -42639,9 +42639,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117: ; preds = %277, 
   br label %.thread.i120
 
 .thread.i120:                                     ; preds = %241, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %280, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117, %265, %260
-  %.sroa.9347.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9347.0.copyload351, %260 ], [ %.sroa.9347.3, %265 ], [ %.sroa.9347.3, %280 ], [ %.sroa.9347.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload355, %260 ], [ %.sroa.12.3, %265 ], [ %.sroa.12.3, %280 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %260 ], [ %246, %265 ], [ %246, %280 ], [ %246, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
+  %.sroa.9347.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9347.0.copyload351, %260 ], [ %.sroa.9347.2, %265 ], [ %.sroa.9347.2, %280 ], [ %.sroa.9347.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload355, %260 ], [ %.sroa.12.2, %265 ], [ %.sroa.12.2, %280 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %260 ], [ %246, %265 ], [ %246, %280 ], [ %246, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ null, %241 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload342, %260 ], [ %.sroa.0.2, %265 ], [ %.sroa.0.2, %280 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117 ], [ 0, %241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %281 = load i32, ptr %9, align 8, !tbaa !94
@@ -42656,21 +42656,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117: ; preds = %277, 
 
 283:                                              ; preds = %282
   %284 = load ptr, ptr %157, align 8, !tbaa !115
-  %285 = icmp eq ptr %284, %.sroa.9347.1
+  %285 = icmp eq ptr %284, %.sroa.9347.0
   br label %289
 
 286:                                              ; preds = %282
   %287 = load ptr, ptr %158, align 8, !tbaa !116
-  %288 = icmp eq ptr %287, %.sroa.12.1
+  %288 = icmp eq ptr %287, %.sroa.12.0
   br label %289
 
 289:                                              ; preds = %286, %283, %282, %.thread.i120
   %.0.i.i.i = phi i1 [ %288, %286 ], [ %285, %283 ], [ false, %.thread.i120 ], [ true, %282 ]
-  %.not.i.i.i121 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i121 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i121, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %290
 
 290:                                              ; preds = %289
-  %291 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %292 = load atomic i64, ptr %291 acquire, align 8
   %293 = icmp eq i64 %292, 4294967297
   %294 = trunc i64 %292 to i32
@@ -42678,16 +42678,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117: ; preds = %277, 
 
 295:                                              ; preds = %290
   store i32 0, ptr %291, align 8, !tbaa !9
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %296, align 4, !tbaa !12
-  %297 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %297 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
   %299 = load ptr, ptr %298, align 8
-  call void %299(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %300 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %299(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %300 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %302 = load ptr, ptr %301, align 8
-  call void %302(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %302(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 303:                                              ; preds = %290
@@ -42710,7 +42710,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i123: ; preds = %307, 
   br i1 %309, label %310, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 310:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i123
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %289, %295, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i123, %310
@@ -45512,17 +45512,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.sroa.0.0.copyload291 = load i32, ptr %5, align 8
   %.sroa.9297.0.copyload299 = load ptr, ptr %.sroa.9297.0..sroa_idx298, align 8
   %.sroa.12.0.copyload303 = load ptr, ptr %.sroa.12.0..sroa_idx302, align 8
-  br i1 %243, label %247, label %._crit_edge316
+  br i1 %243, label %247, label %._crit_edge311
 
-._crit_edge316:                                   ; preds = %241
+._crit_edge311:                                   ; preds = %241
   %.pre = load i32, ptr %237, align 4, !tbaa !16, !noalias !619
   br label %244
 
-244:                                              ; preds = %._crit_edge316, %.thread13.i106
-  %245 = phi i32 [ %.pre, %._crit_edge316 ], [ %240, %.thread13.i106 ]
-  %.sroa.9297.2 = phi ptr [ %.sroa.9297.0.copyload299, %._crit_edge316 ], [ %.sroa.9297.0.copyload, %.thread13.i106 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload303, %._crit_edge316 ], [ %.sroa.12.0.copyload, %.thread13.i106 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload291, %._crit_edge316 ], [ %.sroa.0.0.copyload, %.thread13.i106 ]
+244:                                              ; preds = %._crit_edge311, %.thread13.i106
+  %245 = phi i32 [ %.pre, %._crit_edge311 ], [ %240, %.thread13.i106 ]
+  %.sroa.9297.1 = phi ptr [ %.sroa.9297.0.copyload299, %._crit_edge311 ], [ %.sroa.9297.0.copyload, %.thread13.i106 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload303, %._crit_edge311 ], [ %.sroa.12.0.copyload, %.thread13.i106 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload291, %._crit_edge311 ], [ %.sroa.0.0.copyload, %.thread13.i106 ]
   %246 = add nsw i32 %245, 1
   store i32 %246, ptr %237, align 4, !tbaa !16, !noalias !619
   br label %250
@@ -45538,8 +45538,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i111
 
 250:                                              ; preds = %247, %244
-  %.sroa.9297.3 = phi ptr [ %.sroa.9297.0.copyload299, %247 ], [ %.sroa.9297.2, %244 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload303, %247 ], [ %.sroa.12.2, %244 ]
+  %.sroa.9297.2 = phi ptr [ %.sroa.9297.0.copyload299, %247 ], [ %.sroa.9297.1, %244 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload303, %247 ], [ %.sroa.12.1, %244 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload291, %247 ], [ %.sroa.0.1, %244 ]
   %251 = load atomic i64, ptr %237 acquire, align 8, !noalias !619
   %252 = icmp eq i64 %251, 4294967297
@@ -45584,9 +45584,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108: ; preds = %266, 
   br label %.thread.i111
 
 .thread.i111:                                     ; preds = %230, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %269, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108, %254, %249
-  %.sroa.9297.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9297.0.copyload301, %249 ], [ %.sroa.9297.3, %254 ], [ %.sroa.9297.3, %269 ], [ %.sroa.9297.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload305, %249 ], [ %.sroa.12.3, %254 ], [ %.sroa.12.3, %269 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %249 ], [ %235, %254 ], [ %235, %269 ], [ %235, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
+  %.sroa.9297.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9297.0.copyload301, %249 ], [ %.sroa.9297.2, %254 ], [ %.sroa.9297.2, %269 ], [ %.sroa.9297.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload305, %249 ], [ %.sroa.12.2, %254 ], [ %.sroa.12.2, %269 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %249 ], [ %235, %254 ], [ %235, %269 ], [ %235, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ null, %230 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload292, %249 ], [ %.sroa.0.2, %254 ], [ %.sroa.0.2, %269 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108 ], [ 0, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %270 = load i32, ptr %10, align 8, !tbaa !94
@@ -45601,21 +45601,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108: ; preds = %266, 
 
 272:                                              ; preds = %271
   %273 = load ptr, ptr %154, align 8, !tbaa !115
-  %274 = icmp eq ptr %273, %.sroa.9297.1
+  %274 = icmp eq ptr %273, %.sroa.9297.0
   br label %278
 
 275:                                              ; preds = %271
   %276 = load ptr, ptr %155, align 8, !tbaa !116
-  %277 = icmp eq ptr %276, %.sroa.12.1
+  %277 = icmp eq ptr %276, %.sroa.12.0
   br label %278
 
 278:                                              ; preds = %275, %272, %271, %.thread.i111
   %.0.i.i.i = phi i1 [ %277, %275 ], [ %274, %272 ], [ false, %.thread.i111 ], [ true, %271 ]
-  %.not.i.i.i113 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i113 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i113, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %279
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %281 = load atomic i64, ptr %280 acquire, align 8
   %282 = icmp eq i64 %281, 4294967297
   %283 = trunc i64 %281 to i32
@@ -45623,16 +45623,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108: ; preds = %266, 
 
 284:                                              ; preds = %279
   store i32 0, ptr %280, align 8, !tbaa !9
-  %285 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %285 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %285, align 4, !tbaa !12
-  %286 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %286 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
   %288 = load ptr, ptr %287, align 8
-  call void %288(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %289 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %288(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %289 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %291 = load ptr, ptr %290, align 8
-  call void %291(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %291(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 292:                                              ; preds = %279
@@ -45655,7 +45655,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %296, 
   br i1 %298, label %299, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 299:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %278, %284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115, %299
@@ -51290,11 +51290,11 @@ _ZNK4YAML6detail18node_iterator_baseINS0_4nodeEEdeEv.exit: ; preds = %2
 25:                                               ; preds = %19
   %26 = atomicrmw volatile add ptr %20, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %4, align 8, !tbaa !105
-  %.pre75 = load ptr, ptr %16, align 8, !tbaa !3
+  %.pre70 = load ptr, ptr %16, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit: ; preds = %13, %22, %25
-  %27 = phi ptr [ null, %13 ], [ %18, %22 ], [ %.pre75, %25 ]
+  %27 = phi ptr [ null, %13 ], [ %18, %22 ], [ %.pre70, %25 ]
   %28 = phi ptr [ %15, %13 ], [ %15, %22 ], [ %.pre, %25 ]
   store i8 1, ptr %3, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -51490,13 +51490,13 @@ _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED
 
 112:                                              ; preds = %106
   %113 = atomicrmw volatile add ptr %107, i32 1 acq_rel, align 4
-  %.pre76 = load ptr, ptr %6, align 8, !tbaa !105
-  %.pre77 = load ptr, ptr %103, align 8, !tbaa !3
+  %.pre71 = load ptr, ptr %6, align 8, !tbaa !105
+  %.pre72 = load ptr, ptr %103, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit18
 
 _ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit18: ; preds = %100, %109, %112
-  %114 = phi ptr [ null, %100 ], [ %105, %109 ], [ %.pre77, %112 ]
-  %115 = phi ptr [ %102, %100 ], [ %102, %109 ], [ %.pre76, %112 ]
+  %114 = phi ptr [ null, %100 ], [ %105, %109 ], [ %.pre72, %112 ]
+  %115 = phi ptr [ %102, %100 ], [ %102, %109 ], [ %.pre71, %112 ]
   store i8 1, ptr %5, align 8, !tbaa !23
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -51553,13 +51553,13 @@ _ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21: ; 
 
 139:                                              ; preds = %133
   %140 = atomicrmw volatile add ptr %134, i32 1 acq_rel, align 4
-  %.pre78 = load ptr, ptr %8, align 8, !tbaa !105
-  %.pre79 = load ptr, ptr %131, align 8, !tbaa !3
+  %.pre73 = load ptr, ptr %8, align 8, !tbaa !105
+  %.pre74 = load ptr, ptr %131, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit24
 
 _ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit24: ; preds = %_ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21, %136, %139
-  %141 = phi ptr [ null, %_ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21 ], [ %132, %136 ], [ %.pre79, %139 ]
-  %142 = phi ptr [ %130, %_ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21 ], [ %130, %136 ], [ %.pre78, %139 ]
+  %141 = phi ptr [ null, %_ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21 ], [ %132, %136 ], [ %.pre74, %139 ]
+  %142 = phi ptr [ %130, %_ZN4YAML4NodeC2ERNS_6detail4nodeESt10shared_ptrINS1_13memory_holderEE.exit21 ], [ %130, %136 ], [ %.pre73, %139 ]
   store i8 1, ptr %7, align 8, !tbaa !23
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -56790,8 +56790,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 112:                                              ; preds = %._crit_edge, %.thread13.i33
   %113 = phi i32 [ %.pre, %._crit_edge ], [ %108, %.thread13.i33 ]
-  %.sroa.9102.2 = phi ptr [ %.sroa.9102.0.copyload104, %._crit_edge ], [ %.sroa.9102.0.copyload, %.thread13.i33 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload108, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i33 ]
+  %.sroa.9102.1 = phi ptr [ %.sroa.9102.0.copyload104, %._crit_edge ], [ %.sroa.9102.0.copyload, %.thread13.i33 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload108, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i33 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload96, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i33 ]
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %105, align 4, !tbaa !16, !noalias !798
@@ -56808,8 +56808,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i38
 
 118:                                              ; preds = %115, %112
-  %.sroa.9102.3 = phi ptr [ %.sroa.9102.0.copyload104, %115 ], [ %.sroa.9102.2, %112 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload108, %115 ], [ %.sroa.12.2, %112 ]
+  %.sroa.9102.2 = phi ptr [ %.sroa.9102.0.copyload104, %115 ], [ %.sroa.9102.1, %112 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload108, %115 ], [ %.sroa.12.1, %112 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload96, %115 ], [ %.sroa.0.1, %112 ]
   %119 = load atomic i64, ptr %105 acquire, align 8, !noalias !798
   %120 = icmp eq i64 %119, 4294967297
@@ -56854,9 +56854,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35: ; preds = %134, %
   br label %.thread.i38
 
 .thread.i38:                                      ; preds = %98, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %137, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35, %122, %117
-  %.sroa.9102.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9102.0.copyload106, %117 ], [ %.sroa.9102.3, %122 ], [ %.sroa.9102.3, %137 ], [ %.sroa.9102.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload110, %117 ], [ %.sroa.12.3, %122 ], [ %.sroa.12.3, %137 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %117 ], [ %103, %122 ], [ %103, %137 ], [ %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
+  %.sroa.9102.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9102.0.copyload106, %117 ], [ %.sroa.9102.2, %122 ], [ %.sroa.9102.2, %137 ], [ %.sroa.9102.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload110, %117 ], [ %.sroa.12.2, %122 ], [ %.sroa.12.2, %137 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %117 ], [ %103, %122 ], [ %103, %137 ], [ %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ null, %98 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload97, %117 ], [ %.sroa.0.2, %122 ], [ %.sroa.0.2, %137 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35 ], [ 0, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %138 = load i32, ptr %10, align 8, !tbaa !94
@@ -56871,21 +56871,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35: ; preds = %134, %
 
 140:                                              ; preds = %139
   %141 = load ptr, ptr %78, align 8, !tbaa !115
-  %142 = icmp eq ptr %141, %.sroa.9102.1
+  %142 = icmp eq ptr %141, %.sroa.9102.0
   br label %146
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %79, align 8, !tbaa !116
-  %145 = icmp eq ptr %144, %.sroa.12.1
+  %145 = icmp eq ptr %144, %.sroa.12.0
   br label %146
 
 146:                                              ; preds = %143, %140, %139, %.thread.i38
   %.0.i.i.i = phi i1 [ %145, %143 ], [ %142, %140 ], [ false, %.thread.i38 ], [ true, %139 ]
-  %.not.i.i.i39 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i39 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i39, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %147
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %149 = load atomic i64, ptr %148 acquire, align 8
   %150 = icmp eq i64 %149, 4294967297
   %151 = trunc i64 %149 to i32
@@ -56893,16 +56893,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35: ; preds = %134, %
 
 152:                                              ; preds = %147
   store i32 0, ptr %148, align 8, !tbaa !9
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %153, align 4, !tbaa !12
-  %154 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %154 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %157 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %156(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %157 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8
-  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 160:                                              ; preds = %147
@@ -56925,7 +56925,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i41: ; preds = %164, %
   br i1 %166, label %167, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 167:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i41
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %146, %152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i41, %167
@@ -57248,11 +57248,11 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit_crit_edge unwind label %343
 
 ._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit_crit_edge: ; preds = %288
-  %.pre121 = load ptr, ptr %89, align 8, !tbaa !66
+  %.pre116 = load ptr, ptr %89, align 8, !tbaa !66
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit_crit_edge, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %289 = phi ptr [ %.pre121, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit_crit_edge ], [ %287, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ]
+  %289 = phi ptr [ %.pre116, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit_crit_edge ], [ %287, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ]
   %290 = load ptr, ptr %90, align 8, !tbaa !67
   %.not.i67 = icmp eq ptr %289, %290
   br i1 %.not.i67, label %308, label %291
@@ -59684,8 +59684,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
 
 337:                                              ; preds = %._crit_edge.i, %.thread13.i60.i
   %338 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %333, %.thread13.i60.i ]
-  %.sroa.9161.2.i = phi ptr [ %.sroa.9161.0.copyload163.i, %._crit_edge.i ], [ %.sroa.9161.0.copyload.i, %.thread13.i60.i ]
-  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload167.i, %._crit_edge.i ], [ %.sroa.12.0.copyload.i, %.thread13.i60.i ]
+  %.sroa.9161.1.i = phi ptr [ %.sroa.9161.0.copyload163.i, %._crit_edge.i ], [ %.sroa.9161.0.copyload.i, %.thread13.i60.i ]
+  %.sroa.12.1.i = phi ptr [ %.sroa.12.0.copyload167.i, %._crit_edge.i ], [ %.sroa.12.0.copyload.i, %.thread13.i60.i ]
   %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload155.i, %._crit_edge.i ], [ %.sroa.0.0.copyload.i, %.thread13.i60.i ]
   %339 = add nsw i32 %338, 1
   store i32 %339, ptr %330, align 4, !tbaa !16, !noalias !873
@@ -59702,8 +59702,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   br label %.thread.i65.i
 
 343:                                              ; preds = %340, %337
-  %.sroa.9161.3.i = phi ptr [ %.sroa.9161.0.copyload163.i, %340 ], [ %.sroa.9161.2.i, %337 ]
-  %.sroa.12.3.i = phi ptr [ %.sroa.12.0.copyload167.i, %340 ], [ %.sroa.12.2.i, %337 ]
+  %.sroa.9161.2.i = phi ptr [ %.sroa.9161.0.copyload163.i, %340 ], [ %.sroa.9161.1.i, %337 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload167.i, %340 ], [ %.sroa.12.1.i, %337 ]
   %.sroa.0.2.i = phi i32 [ %.sroa.0.0.copyload155.i, %340 ], [ %.sroa.0.1.i, %337 ]
   %344 = load atomic i64, ptr %330 acquire, align 8, !noalias !873
   %345 = icmp eq i64 %344, 4294967297
@@ -59748,9 +59748,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i: ; preds = %359,
   br label %.thread.i65.i
 
 .thread.i65.i:                                    ; preds = %362, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i, %347, %342, %323, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i
-  %.sroa.9161.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.9161.0.copyload165.i, %342 ], [ %.sroa.9161.3.i, %347 ], [ %.sroa.9161.3.i, %362 ], [ %.sroa.9161.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
-  %.sroa.12.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.12.0.copyload169.i, %342 ], [ %.sroa.12.3.i, %347 ], [ %.sroa.12.3.i, %362 ], [ %.sroa.12.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
-  %.sroa.16.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ null, %342 ], [ %328, %347 ], [ %328, %362 ], [ %328, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
+  %.sroa.9161.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.9161.0.copyload165.i, %342 ], [ %.sroa.9161.2.i, %347 ], [ %.sroa.9161.2.i, %362 ], [ %.sroa.9161.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
+  %.sroa.12.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.12.0.copyload169.i, %342 ], [ %.sroa.12.2.i, %347 ], [ %.sroa.12.2.i, %362 ], [ %.sroa.12.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
+  %.sroa.16.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ null, %342 ], [ %328, %347 ], [ %328, %362 ], [ %328, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ null, %323 ]
   %.sroa.0.0.i = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i ], [ %.sroa.0.0.copyload156.i, %342 ], [ %.sroa.0.2.i, %347 ], [ %.sroa.0.2.i, %362 ], [ %.sroa.0.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i ], [ 0, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %363 = load i32, ptr %97, align 8, !tbaa !94
@@ -59765,21 +59765,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i: ; preds = %359,
 
 365:                                              ; preds = %364
   %366 = load ptr, ptr %276, align 8, !tbaa !115
-  %367 = icmp eq ptr %366, %.sroa.9161.1.i
+  %367 = icmp eq ptr %366, %.sroa.9161.0.i
   br label %371
 
 368:                                              ; preds = %364
   %369 = load ptr, ptr %277, align 8, !tbaa !116
-  %370 = icmp eq ptr %369, %.sroa.12.1.i
+  %370 = icmp eq ptr %369, %.sroa.12.0.i
   br label %371
 
 371:                                              ; preds = %368, %365, %364, %.thread.i65.i
   %.0.i.i.i.i = phi i1 [ %370, %368 ], [ %367, %365 ], [ false, %.thread.i65.i ], [ true, %364 ]
-  %.not.i.i.i67.i = icmp eq ptr %.sroa.16.1.i, null
+  %.not.i.i.i67.i = icmp eq ptr %.sroa.16.0.i, null
   br i1 %.not.i.i.i67.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, label %372
 
 372:                                              ; preds = %371
-  %373 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i, i64 8
   %374 = load atomic i64, ptr %373 acquire, align 8
   %375 = icmp eq i64 %374, 4294967297
   %376 = trunc i64 %374 to i32
@@ -59787,16 +59787,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62.i: ; preds = %359,
 
 377:                                              ; preds = %372
   store i32 0, ptr %373, align 8, !tbaa !9
-  %378 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i, i64 12
+  %378 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i, i64 12
   store i32 0, ptr %378, align 4, !tbaa !12
-  %379 = load ptr, ptr %.sroa.16.1.i, align 8, !tbaa !13
+  %379 = load ptr, ptr %.sroa.16.0.i, align 8, !tbaa !13
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load ptr, ptr %380, align 8
-  call void %381(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
-  %382 = load ptr, ptr %.sroa.16.1.i, align 8, !tbaa !13
+  call void %381(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
+  %382 = load ptr, ptr %.sroa.16.0.i, align 8, !tbaa !13
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %384 = load ptr, ptr %383, align 8
-  call void %384(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
+  call void %384(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i
 
 385:                                              ; preds = %372
@@ -59819,7 +59819,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i: ; preds = %389,
   br i1 %391, label %392, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i, !prof !17
 
 392:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i: ; preds = %392, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69.i, %377, %371
@@ -60375,7 +60375,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit108.i: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %104, ptr noundef nonnull align 8 dereferenceable(48) %97)
-          to label %607 unwind label %.thread235.i
+          to label %607 unwind label %.thread230.i
 
 607:                                              ; preds = %606
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(64) %305, ptr noundef nonnull align 8 dereferenceable(24) %103)
@@ -60459,7 +60459,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit116.i: ; pr
   invoke void @_ZN19OpenColorIO_v2_5dev19AllocationTransform7setVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(16) %639, i32 noundef %644, ptr noundef nonnull %635)
           to label %.thread148.i unwind label %.thread.i
 
-.thread235.i:                                     ; preds = %606
+.thread230.i:                                     ; preds = %606
   %645 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
@@ -60475,11 +60475,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit116.i: ; pr
   br i1 %.not.i.i.i117.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %..thread148_crit_edge.i
 
 ..thread148_crit_edge.i:                          ; preds = %647
-  %.pre182.i = ptrtoint ptr %635 to i64
+  %.pre177.i = ptrtoint ptr %635 to i64
   br label %.thread148.i
 
 .thread148.i:                                     ; preds = %..thread148_crit_edge.i, %638
-  %.pre-phi.i = phi i64 [ %.pre182.i, %..thread148_crit_edge.i ], [ %641, %638 ]
+  %.pre-phi.i = phi i64 [ %.pre177.i, %..thread148_crit_edge.i ], [ %641, %638 ]
   %648 = load ptr, ptr %311, align 8, !tbaa !534
   %649 = ptrtoint ptr %648 to i64
   %650 = sub i64 %649, %.pre-phi.i
@@ -60494,27 +60494,27 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.thread148.i, %647
   %652 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %104) #29
-  %.pre180.pre.i = load ptr, ptr %103, align 8, !tbaa !536
+  %.pre175.pre.i = load ptr, ptr %103, align 8, !tbaa !536
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
-  %.not.i.i.i118.i = icmp eq ptr %.pre180.pre.i, null
+  %.not.i.i.i118.i = icmp eq ptr %.pre175.pre.i, null
   br i1 %.not.i.i.i118.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit119.i, label %._crit_edge492
 
 ._crit_edge492:                                   ; preds = %651
-  %.pre493 = ptrtoint ptr %.pre180.pre.i to i64
+  %.pre493 = ptrtoint ptr %.pre175.pre.i to i64
   br label %653
 
 653:                                              ; preds = %._crit_edge492, %.thread.i
   %.pre-phi = phi i64 [ %.pre493, %._crit_edge492 ], [ %641, %.thread.i ]
-  %.pn45233.i = phi { ptr, i32 } [ %652, %._crit_edge492 ], [ %646, %.thread.i ]
-  %654 = phi ptr [ %.pre180.pre.i, %._crit_edge492 ], [ %635, %.thread.i ]
+  %.pn45228.i = phi { ptr, i32 } [ %652, %._crit_edge492 ], [ %646, %.thread.i ]
+  %654 = phi ptr [ %.pre175.pre.i, %._crit_edge492 ], [ %635, %.thread.i ]
   %655 = load ptr, ptr %311, align 8, !tbaa !534
   %656 = ptrtoint ptr %655 to i64
   %657 = sub i64 %656, %.pre-phi
   call void @_ZdlPvm(ptr noundef nonnull %654, i64 noundef %657) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit119.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit119.i:               ; preds = %653, %651, %.thread235.i
-  %.pn45234.i = phi { ptr, i32 } [ %652, %651 ], [ %.pn45233.i, %653 ], [ %645, %.thread235.i ]
+_ZNSt6vectorIfSaIfEED2Ev.exit119.i:               ; preds = %653, %651, %.thread230.i
+  %.pn45229.i = phi { ptr, i32 } [ %652, %651 ], [ %.pn45228.i, %653 ], [ %645, %.thread230.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %769
 
@@ -60805,7 +60805,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i.backedge: ; pr
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i
 
 769:                                              ; preds = %743, %709, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i, %601, %600, %551
-  %.pn49.pn.i = phi { ptr, i32 } [ %.pn35.pn.pn.i, %551 ], [ %.pn45234.i, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i ], [ %.pn41.i, %709 ], [ %.pn39.i, %743 ], [ %602, %601 ], [ %.pn47.i, %600 ]
+  %.pn49.pn.i = phi { ptr, i32 } [ %.pn35.pn.pn.i, %551 ], [ %.pn45229.i, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i ], [ %.pn41.i, %709 ], [ %.pn39.i, %743 ], [ %602, %601 ], [ %.pn47.i, %600 ]
   %770 = load ptr, ptr %98, align 8, !tbaa !18
   %771 = icmp eq ptr %770, %319
   br i1 %771, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i
@@ -61223,8 +61223,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120: ; preds = 
 
 951:                                              ; preds = %._crit_edge.i154, %.thread13.i53.i
   %952 = phi i32 [ %.pre.i155, %._crit_edge.i154 ], [ %947, %.thread13.i53.i ]
-  %.sroa.9148.2.i = phi ptr [ %.sroa.9148.0.copyload150.i, %._crit_edge.i154 ], [ %.sroa.9148.0.copyload.i, %.thread13.i53.i ]
-  %.sroa.12.2.i150 = phi ptr [ %.sroa.12.0.copyload154.i, %._crit_edge.i154 ], [ %.sroa.12.0.copyload.i149, %.thread13.i53.i ]
+  %.sroa.9148.1.i = phi ptr [ %.sroa.9148.0.copyload150.i, %._crit_edge.i154 ], [ %.sroa.9148.0.copyload.i, %.thread13.i53.i ]
+  %.sroa.12.1.i150 = phi ptr [ %.sroa.12.0.copyload154.i, %._crit_edge.i154 ], [ %.sroa.12.0.copyload.i149, %.thread13.i53.i ]
   %.sroa.0.1.i151 = phi i32 [ %.sroa.0.0.copyload142.i, %._crit_edge.i154 ], [ %.sroa.0.0.copyload.i148, %.thread13.i53.i ]
   %953 = add nsw i32 %952, 1
   store i32 %953, ptr %944, align 4, !tbaa !16, !noalias !898
@@ -61241,8 +61241,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120: ; preds = 
   br label %.thread.i58.i
 
 957:                                              ; preds = %954, %951
-  %.sroa.9148.3.i = phi ptr [ %.sroa.9148.0.copyload150.i, %954 ], [ %.sroa.9148.2.i, %951 ]
-  %.sroa.12.3.i152 = phi ptr [ %.sroa.12.0.copyload154.i, %954 ], [ %.sroa.12.2.i150, %951 ]
+  %.sroa.9148.2.i = phi ptr [ %.sroa.9148.0.copyload150.i, %954 ], [ %.sroa.9148.1.i, %951 ]
+  %.sroa.12.2.i152 = phi ptr [ %.sroa.12.0.copyload154.i, %954 ], [ %.sroa.12.1.i150, %951 ]
   %.sroa.0.2.i153 = phi i32 [ %.sroa.0.0.copyload142.i, %954 ], [ %.sroa.0.1.i151, %951 ]
   %958 = load atomic i64, ptr %944 acquire, align 8, !noalias !898
   %959 = icmp eq i64 %958, 4294967297
@@ -61287,9 +61287,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i: ; preds = %973,
   br label %.thread.i58.i
 
 .thread.i58.i:                                    ; preds = %976, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i, %961, %956, %937, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120
-  %.sroa.9148.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ %.sroa.9148.0.copyload152.i, %956 ], [ %.sroa.9148.3.i, %961 ], [ %.sroa.9148.3.i, %976 ], [ %.sroa.9148.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
-  %.sroa.12.1.i100 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ %.sroa.12.0.copyload156.i, %956 ], [ %.sroa.12.3.i152, %961 ], [ %.sroa.12.3.i152, %976 ], [ %.sroa.12.3.i152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
-  %.sroa.16.1.i101 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ null, %956 ], [ %942, %961 ], [ %942, %976 ], [ %942, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
+  %.sroa.9148.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ %.sroa.9148.0.copyload152.i, %956 ], [ %.sroa.9148.2.i, %961 ], [ %.sroa.9148.2.i, %976 ], [ %.sroa.9148.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
+  %.sroa.12.0.i100 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ %.sroa.12.0.copyload156.i, %956 ], [ %.sroa.12.2.i152, %961 ], [ %.sroa.12.2.i152, %976 ], [ %.sroa.12.2.i152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
+  %.sroa.16.0.i101 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ null, %956 ], [ %942, %961 ], [ %942, %976 ], [ %942, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ null, %937 ]
   %.sroa.0.0.i102 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120 ], [ %.sroa.0.0.copyload143.i, %956 ], [ %.sroa.0.2.i153, %961 ], [ %.sroa.0.2.i153, %976 ], [ %.sroa.0.2.i153, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i ], [ 0, %937 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %977 = load i32, ptr %82, align 8, !tbaa !94
@@ -61304,21 +61304,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i: ; preds = %973,
 
 979:                                              ; preds = %978
   %980 = load ptr, ptr %897, align 8, !tbaa !115
-  %981 = icmp eq ptr %980, %.sroa.9148.1.i
+  %981 = icmp eq ptr %980, %.sroa.9148.0.i
   br label %985
 
 982:                                              ; preds = %978
   %983 = load ptr, ptr %898, align 8, !tbaa !116
-  %984 = icmp eq ptr %983, %.sroa.12.1.i100
+  %984 = icmp eq ptr %983, %.sroa.12.0.i100
   br label %985
 
 985:                                              ; preds = %982, %979, %978, %.thread.i58.i
   %.0.i.i.i.i103 = phi i1 [ %984, %982 ], [ %981, %979 ], [ false, %.thread.i58.i ], [ true, %978 ]
-  %.not.i.i.i61.i = icmp eq ptr %.sroa.16.1.i101, null
+  %.not.i.i.i61.i = icmp eq ptr %.sroa.16.0.i101, null
   br i1 %.not.i.i.i61.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104, label %986
 
 986:                                              ; preds = %985
-  %987 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i101, i64 8
+  %987 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i101, i64 8
   %988 = load atomic i64, ptr %987 acquire, align 8
   %989 = icmp eq i64 %988, 4294967297
   %990 = trunc i64 %988 to i32
@@ -61326,16 +61326,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i55.i: ; preds = %973,
 
 991:                                              ; preds = %986
   store i32 0, ptr %987, align 8, !tbaa !9
-  %992 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i101, i64 12
+  %992 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i101, i64 12
   store i32 0, ptr %992, align 4, !tbaa !12
-  %993 = load ptr, ptr %.sroa.16.1.i101, align 8, !tbaa !13
+  %993 = load ptr, ptr %.sroa.16.0.i101, align 8, !tbaa !13
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 16
   %995 = load ptr, ptr %994, align 8
-  call void %995(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i101) #29
-  %996 = load ptr, ptr %.sroa.16.1.i101, align 8, !tbaa !13
+  call void %995(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i101) #29
+  %996 = load ptr, ptr %.sroa.16.0.i101, align 8, !tbaa !13
   %997 = getelementptr inbounds nuw i8, ptr %996, i64 24
   %998 = load ptr, ptr %997, align 8
-  call void %998(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i101) #29
+  call void %998(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i101) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104
 
 999:                                              ; preds = %986
@@ -61358,7 +61358,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63.i: ; preds = %1003
   br i1 %1005, label %1006, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104, !prof !17
 
 1006:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i101) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i101) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i104: ; preds = %1006, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63.i, %991, %985
@@ -62679,8 +62679,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212: ; preds = 
 
 1555:                                             ; preds = %._crit_edge.i238, %.thread13.i122.i
   %1556 = phi i32 [ %.pre.i239, %._crit_edge.i238 ], [ %1551, %.thread13.i122.i ]
-  %.sroa.9399.2.i = phi ptr [ %.sroa.9399.0.copyload401.i, %._crit_edge.i238 ], [ %.sroa.9399.0.copyload.i, %.thread13.i122.i ]
-  %.sroa.12.2.i234 = phi ptr [ %.sroa.12.0.copyload405.i, %._crit_edge.i238 ], [ %.sroa.12.0.copyload.i233, %.thread13.i122.i ]
+  %.sroa.9399.1.i = phi ptr [ %.sroa.9399.0.copyload401.i, %._crit_edge.i238 ], [ %.sroa.9399.0.copyload.i, %.thread13.i122.i ]
+  %.sroa.12.1.i234 = phi ptr [ %.sroa.12.0.copyload405.i, %._crit_edge.i238 ], [ %.sroa.12.0.copyload.i233, %.thread13.i122.i ]
   %.sroa.0.1.i235 = phi i32 [ %.sroa.0.0.copyload393.i, %._crit_edge.i238 ], [ %.sroa.0.0.copyload.i232, %.thread13.i122.i ]
   %1557 = add nsw i32 %1556, 1
   store i32 %1557, ptr %1548, align 4, !tbaa !16, !noalias !923
@@ -62697,8 +62697,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212: ; preds = 
   br label %.thread.i127.i
 
 1561:                                             ; preds = %1558, %1555
-  %.sroa.9399.3.i = phi ptr [ %.sroa.9399.0.copyload401.i, %1558 ], [ %.sroa.9399.2.i, %1555 ]
-  %.sroa.12.3.i236 = phi ptr [ %.sroa.12.0.copyload405.i, %1558 ], [ %.sroa.12.2.i234, %1555 ]
+  %.sroa.9399.2.i = phi ptr [ %.sroa.9399.0.copyload401.i, %1558 ], [ %.sroa.9399.1.i, %1555 ]
+  %.sroa.12.2.i236 = phi ptr [ %.sroa.12.0.copyload405.i, %1558 ], [ %.sroa.12.1.i234, %1555 ]
   %.sroa.0.2.i237 = phi i32 [ %.sroa.0.0.copyload393.i, %1558 ], [ %.sroa.0.1.i235, %1555 ]
   %1562 = load atomic i64, ptr %1548 acquire, align 8, !noalias !923
   %1563 = icmp eq i64 %1562, 4294967297
@@ -62743,9 +62743,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i: ; preds = %157
   br label %.thread.i127.i
 
 .thread.i127.i:                                   ; preds = %1580, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i, %1565, %1560, %1541, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212
-  %.sroa.9399.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ %.sroa.9399.0.copyload403.i, %1560 ], [ %.sroa.9399.3.i, %1565 ], [ %.sroa.9399.3.i, %1580 ], [ %.sroa.9399.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
-  %.sroa.12.1.i191 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ %.sroa.12.0.copyload407.i, %1560 ], [ %.sroa.12.3.i236, %1565 ], [ %.sroa.12.3.i236, %1580 ], [ %.sroa.12.3.i236, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
-  %.sroa.16.1.i192 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ null, %1560 ], [ %1546, %1565 ], [ %1546, %1580 ], [ %1546, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
+  %.sroa.9399.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ %.sroa.9399.0.copyload403.i, %1560 ], [ %.sroa.9399.2.i, %1565 ], [ %.sroa.9399.2.i, %1580 ], [ %.sroa.9399.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
+  %.sroa.12.0.i191 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ %.sroa.12.0.copyload407.i, %1560 ], [ %.sroa.12.2.i236, %1565 ], [ %.sroa.12.2.i236, %1580 ], [ %.sroa.12.2.i236, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
+  %.sroa.16.0.i192 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ null, %1560 ], [ %1546, %1565 ], [ %1546, %1580 ], [ %1546, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ null, %1541 ]
   %.sroa.0.0.i193 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212 ], [ %.sroa.0.0.copyload394.i, %1560 ], [ %.sroa.0.2.i237, %1565 ], [ %.sroa.0.2.i237, %1580 ], [ %.sroa.0.2.i237, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i ], [ 0, %1541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1581 = load i32, ptr %48, align 8, !tbaa !94
@@ -62760,21 +62760,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i: ; preds = %157
 
 1583:                                             ; preds = %1582
   %1584 = load ptr, ptr %1468, align 8, !tbaa !115
-  %1585 = icmp eq ptr %1584, %.sroa.9399.1.i
+  %1585 = icmp eq ptr %1584, %.sroa.9399.0.i
   br label %1589
 
 1586:                                             ; preds = %1582
   %1587 = load ptr, ptr %1469, align 8, !tbaa !116
-  %1588 = icmp eq ptr %1587, %.sroa.12.1.i191
+  %1588 = icmp eq ptr %1587, %.sroa.12.0.i191
   br label %1589
 
 1589:                                             ; preds = %1586, %1583, %1582, %.thread.i127.i
   %.0.i.i.i.i195 = phi i1 [ %1588, %1586 ], [ %1585, %1583 ], [ false, %.thread.i127.i ], [ true, %1582 ]
-  %.not.i.i.i129.i = icmp eq ptr %.sroa.16.1.i192, null
+  %.not.i.i.i129.i = icmp eq ptr %.sroa.16.0.i192, null
   br i1 %.not.i.i.i129.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196, label %1590
 
 1590:                                             ; preds = %1589
-  %1591 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i192, i64 8
+  %1591 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i192, i64 8
   %1592 = load atomic i64, ptr %1591 acquire, align 8
   %1593 = icmp eq i64 %1592, 4294967297
   %1594 = trunc i64 %1592 to i32
@@ -62782,16 +62782,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i124.i: ; preds = %157
 
 1595:                                             ; preds = %1590
   store i32 0, ptr %1591, align 8, !tbaa !9
-  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i192, i64 12
+  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i192, i64 12
   store i32 0, ptr %1596, align 4, !tbaa !12
-  %1597 = load ptr, ptr %.sroa.16.1.i192, align 8, !tbaa !13
+  %1597 = load ptr, ptr %.sroa.16.0.i192, align 8, !tbaa !13
   %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 16
   %1599 = load ptr, ptr %1598, align 8
-  call void %1599(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i192) #29
-  %1600 = load ptr, ptr %.sroa.16.1.i192, align 8, !tbaa !13
+  call void %1599(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i192) #29
+  %1600 = load ptr, ptr %.sroa.16.0.i192, align 8, !tbaa !13
   %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 24
   %1602 = load ptr, ptr %1601, align 8
-  call void %1602(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i192) #29
+  call void %1602(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i192) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196
 
 1603:                                             ; preds = %1590
@@ -62814,7 +62814,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i131.i: ; preds = %160
   br i1 %1609, label %1610, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196, !prof !17
 
 1610:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i131.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i192) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i192) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i196: ; preds = %1610, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i131.i, %1595, %1589
@@ -63437,11 +63437,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i: ; pr
   %1856 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %54) #29
-  %.pre420.pre.i = load ptr, ptr %53, align 8, !tbaa !173
+  %.pre415.pre.i = load ptr, ptr %53, align 8, !tbaa !173
   br label %1857
 
 1857:                                             ; preds = %1855, %1853
-  %.pre420.i = phi ptr [ %.pre420.pre.i, %1855 ], [ null, %1853 ]
+  %.pre415.i = phi ptr [ %.pre415.pre.i, %1855 ], [ null, %1853 ]
   %.pn103.i = phi { ptr, i32 } [ %1856, %1855 ], [ %1854, %1853 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1881
@@ -63519,7 +63519,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1872
   br label %1883
 
 1881:                                             ; preds = %1871, %1857
-  %1882 = phi ptr [ %.pre420.i, %1857 ], [ %1803, %1871 ]
+  %1882 = phi ptr [ %.pre415.i, %1857 ], [ %1803, %1871 ]
   %.pn111.i = phi { ptr, i32 } [ %.pn103.i, %1857 ], [ %.pn106.pn.pn.pn.i, %1871 ]
   %.not.i.i.i197.i = icmp eq ptr %1882, null
   br i1 %.not.i.i.i197.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit198.i, label %._crit_edge491
@@ -63530,7 +63530,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1872
 
 1883:                                             ; preds = %._crit_edge491, %.thread.i228
   %.pre-phi495 = phi i64 [ %.pre494, %._crit_edge491 ], [ %1805, %.thread.i228 ]
-  %.pn111508.i = phi { ptr, i32 } [ %.pn111.i, %._crit_edge491 ], [ %1880, %.thread.i228 ]
+  %.pn111503.i = phi { ptr, i32 } [ %.pn111.i, %._crit_edge491 ], [ %1880, %.thread.i228 ]
   %1884 = phi ptr [ %1882, %._crit_edge491 ], [ %1803, %.thread.i228 ]
   %1885 = load ptr, ptr %1536, align 8, !tbaa !174
   %1886 = ptrtoint ptr %1885 to i64
@@ -63539,7 +63539,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1872
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit198.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit198.i:               ; preds = %1883, %1881
-  %.pn111509.i = phi { ptr, i32 } [ %.pn111.i, %1881 ], [ %.pn111508.i, %1883 ]
+  %.pn111504.i = phi { ptr, i32 } [ %.pn111.i, %1881 ], [ %.pn111503.i, %1883 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %2394
 
@@ -63755,11 +63755,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit230.i: ;
   %1974 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %59) #29
-  %.pre419.pre.i = load ptr, ptr %58, align 8, !tbaa !173
+  %.pre414.pre.i = load ptr, ptr %58, align 8, !tbaa !173
   br label %1975
 
 1975:                                             ; preds = %1973, %1971
-  %.pre419.i = phi ptr [ %.pre419.pre.i, %1973 ], [ null, %1971 ]
+  %.pre414.i = phi ptr [ %.pre414.pre.i, %1973 ], [ null, %1971 ]
   %.pn93.i = phi { ptr, i32 } [ %1974, %1973 ], [ %1972, %1971 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %1999
@@ -63821,7 +63821,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit230.i: ;
   %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 120
   %1994 = load ptr, ptr %1993, align 8
   invoke void %1994(ptr noundef nonnull align 8 dereferenceable(8) %1991, ptr noundef nonnull %1921)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit249.i unwind label %.thread510.i
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit249.i unwind label %.thread505.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %1990
   %1995 = load ptr, ptr %1529, align 8, !tbaa !174
@@ -63831,13 +63831,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %1990
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %2369
 
-.thread510.i:                                     ; preds = %1990
+.thread505.i:                                     ; preds = %1990
   %1998 = landingpad { ptr, i32 }
           cleanup
   br label %2001
 
 1999:                                             ; preds = %1989, %1975
-  %2000 = phi ptr [ %.pre419.i, %1975 ], [ %1921, %1989 ]
+  %2000 = phi ptr [ %.pre414.i, %1975 ], [ %1921, %1989 ]
   %.pn101.i = phi { ptr, i32 } [ %.pn93.i, %1975 ], [ %.pn96.pn.pn.pn.i, %1989 ]
   %.not.i.i.i250.i = icmp eq ptr %2000, null
   br i1 %.not.i.i.i250.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit251.i, label %._crit_edge490
@@ -63846,10 +63846,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %1990
   %.pre496 = ptrtoint ptr %2000 to i64
   br label %2001
 
-2001:                                             ; preds = %._crit_edge490, %.thread510.i
-  %.pre-phi497 = phi i64 [ %.pre496, %._crit_edge490 ], [ %1923, %.thread510.i ]
-  %.pn101513.i = phi { ptr, i32 } [ %.pn101.i, %._crit_edge490 ], [ %1998, %.thread510.i ]
-  %2002 = phi ptr [ %2000, %._crit_edge490 ], [ %1921, %.thread510.i ]
+2001:                                             ; preds = %._crit_edge490, %.thread505.i
+  %.pre-phi497 = phi i64 [ %.pre496, %._crit_edge490 ], [ %1923, %.thread505.i ]
+  %.pn101508.i = phi { ptr, i32 } [ %.pn101.i, %._crit_edge490 ], [ %1998, %.thread505.i ]
+  %2002 = phi ptr [ %2000, %._crit_edge490 ], [ %1921, %.thread505.i ]
   %2003 = load ptr, ptr %1529, align 8, !tbaa !174
   %2004 = ptrtoint ptr %2003 to i64
   %2005 = sub i64 %2004, %.pre-phi497
@@ -63857,7 +63857,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %1990
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit251.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit251.i:               ; preds = %2001, %1999
-  %.pn101514.i = phi { ptr, i32 } [ %.pn101.i, %1999 ], [ %.pn101513.i, %2001 ]
+  %.pn101509.i = phi { ptr, i32 } [ %.pn101.i, %1999 ], [ %.pn101508.i, %2001 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %2394
 
@@ -64073,11 +64073,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit283.i: ;
   %2092 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %64) #29
-  %.pre418.pre.i = load ptr, ptr %63, align 8, !tbaa !173
+  %.pre413.pre.i = load ptr, ptr %63, align 8, !tbaa !173
   br label %2093
 
 2093:                                             ; preds = %2091, %2089
-  %.pre418.i = phi ptr [ %.pre418.pre.i, %2091 ], [ null, %2089 ]
+  %.pre413.i = phi ptr [ %.pre413.pre.i, %2091 ], [ null, %2089 ]
   %.pn84.i = phi { ptr, i32 } [ %2092, %2091 ], [ %2090, %2089 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %2117
@@ -64139,7 +64139,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit283.i: ;
   %2111 = getelementptr inbounds nuw i8, ptr %2110, i64 136
   %2112 = load ptr, ptr %2111, align 8
   invoke void %2112(ptr noundef nonnull align 8 dereferenceable(8) %2109, ptr noundef nonnull %2039)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit302.i unwind label %.thread515.i
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit302.i unwind label %.thread510.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2108
   %2113 = load ptr, ptr %1522, align 8, !tbaa !174
@@ -64149,13 +64149,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2108
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2369
 
-.thread515.i:                                     ; preds = %2108
+.thread510.i:                                     ; preds = %2108
   %2116 = landingpad { ptr, i32 }
           cleanup
   br label %2119
 
 2117:                                             ; preds = %2107, %2093
-  %2118 = phi ptr [ %.pre418.i, %2093 ], [ %2039, %2107 ]
+  %2118 = phi ptr [ %.pre413.i, %2093 ], [ %2039, %2107 ]
   %.pn91.i = phi { ptr, i32 } [ %.pn84.i, %2093 ], [ %.pn86.pn.pn.pn.i, %2107 ]
   %.not.i.i.i303.i = icmp eq ptr %2118, null
   br i1 %.not.i.i.i303.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit304.i, label %._crit_edge
@@ -64164,10 +64164,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2108
   %.pre498 = ptrtoint ptr %2118 to i64
   br label %2119
 
-2119:                                             ; preds = %._crit_edge, %.thread515.i
-  %.pre-phi499 = phi i64 [ %.pre498, %._crit_edge ], [ %2041, %.thread515.i ]
-  %.pn91518.i = phi { ptr, i32 } [ %.pn91.i, %._crit_edge ], [ %2116, %.thread515.i ]
-  %2120 = phi ptr [ %2118, %._crit_edge ], [ %2039, %.thread515.i ]
+2119:                                             ; preds = %._crit_edge, %.thread510.i
+  %.pre-phi499 = phi i64 [ %.pre498, %._crit_edge ], [ %2041, %.thread510.i ]
+  %.pn91513.i = phi { ptr, i32 } [ %.pn91.i, %._crit_edge ], [ %2116, %.thread510.i ]
+  %2120 = phi ptr [ %2118, %._crit_edge ], [ %2039, %.thread510.i ]
   %2121 = load ptr, ptr %1522, align 8, !tbaa !174
   %2122 = ptrtoint ptr %2121 to i64
   %2123 = sub i64 %2122, %.pre-phi499
@@ -64175,7 +64175,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2108
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit304.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit304.i:               ; preds = %2119, %2117
-  %.pn91519.i = phi { ptr, i32 } [ %.pn91.i, %2117 ], [ %.pn91518.i, %2119 ]
+  %.pn91514.i = phi { ptr, i32 } [ %.pn91.i, %2117 ], [ %.pn91513.i, %2119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2394
 
@@ -64866,7 +64866,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212.backedge: ;
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212
 
 2394:                                             ; preds = %2368, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i, %2280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i, %2172, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i, %1769
-  %.pn111.pn.i = phi { ptr, i32 } [ %.pn111509.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i ], [ %.pn101514.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i ], [ %.pn91519.i, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i ], [ %.pn82.i, %2172 ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i ], [ %.pn74.i, %2280 ], [ %.pn72.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i ], [ %.pn70.i, %2368 ], [ %.pn66.pn.pn.i, %1769 ]
+  %.pn111.pn.i = phi { ptr, i32 } [ %.pn111504.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i ], [ %.pn101509.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i ], [ %.pn91514.i, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i ], [ %.pn82.i, %2172 ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i ], [ %.pn74.i, %2280 ], [ %.pn72.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i ], [ %.pn70.i, %2368 ], [ %.pn66.pn.pn.i, %1769 ]
   %2395 = load ptr, ptr %49, align 8, !tbaa !18
   %2396 = icmp eq ptr %2395, %1537
   br i1 %2396, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit365.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i363.i
@@ -65294,8 +65294,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298: ; preds = 
 
 2587:                                             ; preds = %._crit_edge.i325, %.thread13.i65.i
   %2588 = phi i32 [ %.pre.i326, %._crit_edge.i325 ], [ %2583, %.thread13.i65.i ]
-  %.sroa.9181.2.i = phi ptr [ %.sroa.9181.0.copyload183.i, %._crit_edge.i325 ], [ %.sroa.9181.0.copyload.i, %.thread13.i65.i ]
-  %.sroa.12.2.i319 = phi ptr [ %.sroa.12.0.copyload187.i, %._crit_edge.i325 ], [ %.sroa.12.0.copyload.i318, %.thread13.i65.i ]
+  %.sroa.9181.1.i = phi ptr [ %.sroa.9181.0.copyload183.i, %._crit_edge.i325 ], [ %.sroa.9181.0.copyload.i, %.thread13.i65.i ]
+  %.sroa.12.1.i319 = phi ptr [ %.sroa.12.0.copyload187.i, %._crit_edge.i325 ], [ %.sroa.12.0.copyload.i318, %.thread13.i65.i ]
   %.sroa.0.1.i320 = phi i32 [ %.sroa.0.0.copyload175.i, %._crit_edge.i325 ], [ %.sroa.0.0.copyload.i317, %.thread13.i65.i ]
   %2589 = add nsw i32 %2588, 1
   store i32 %2589, ptr %2580, align 4, !tbaa !16, !noalias !969
@@ -65312,8 +65312,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298: ; preds = 
   br label %.thread.i70.i
 
 2593:                                             ; preds = %2590, %2587
-  %.sroa.9181.3.i = phi ptr [ %.sroa.9181.0.copyload183.i, %2590 ], [ %.sroa.9181.2.i, %2587 ]
-  %.sroa.12.3.i321 = phi ptr [ %.sroa.12.0.copyload187.i, %2590 ], [ %.sroa.12.2.i319, %2587 ]
+  %.sroa.9181.2.i = phi ptr [ %.sroa.9181.0.copyload183.i, %2590 ], [ %.sroa.9181.1.i, %2587 ]
+  %.sroa.12.2.i321 = phi ptr [ %.sroa.12.0.copyload187.i, %2590 ], [ %.sroa.12.1.i319, %2587 ]
   %.sroa.0.2.i322 = phi i32 [ %.sroa.0.0.copyload175.i, %2590 ], [ %.sroa.0.1.i320, %2587 ]
   %2594 = load atomic i64, ptr %2580 acquire, align 8, !noalias !969
   %2595 = icmp eq i64 %2594, 4294967297
@@ -65358,9 +65358,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323: ; preds = %2
   br label %.thread.i70.i
 
 .thread.i70.i:                                    ; preds = %2612, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323, %2597, %2592, %2573, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298
-  %.sroa.9181.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ %.sroa.9181.0.copyload185.i, %2592 ], [ %.sroa.9181.3.i, %2597 ], [ %.sroa.9181.3.i, %2612 ], [ %.sroa.9181.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
-  %.sroa.12.1.i276 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ %.sroa.12.0.copyload189.i, %2592 ], [ %.sroa.12.3.i321, %2597 ], [ %.sroa.12.3.i321, %2612 ], [ %.sroa.12.3.i321, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
-  %.sroa.16.1.i277 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ null, %2592 ], [ %2578, %2597 ], [ %2578, %2612 ], [ %2578, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
+  %.sroa.9181.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ %.sroa.9181.0.copyload185.i, %2592 ], [ %.sroa.9181.2.i, %2597 ], [ %.sroa.9181.2.i, %2612 ], [ %.sroa.9181.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
+  %.sroa.12.0.i276 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ %.sroa.12.0.copyload189.i, %2592 ], [ %.sroa.12.2.i321, %2597 ], [ %.sroa.12.2.i321, %2612 ], [ %.sroa.12.2.i321, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
+  %.sroa.16.0.i277 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ null, %2592 ], [ %2578, %2597 ], [ %2578, %2612 ], [ %2578, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ null, %2573 ]
   %.sroa.0.0.i278 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298 ], [ %.sroa.0.0.copyload176.i, %2592 ], [ %.sroa.0.2.i322, %2597 ], [ %.sroa.0.2.i322, %2612 ], [ %.sroa.0.2.i322, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323 ], [ 0, %2573 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2613 = load i32, ptr %30, align 8, !tbaa !94
@@ -65375,21 +65375,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323: ; preds = %2
 
 2615:                                             ; preds = %2614
   %2616 = load ptr, ptr %2521, align 8, !tbaa !115
-  %2617 = icmp eq ptr %2616, %.sroa.9181.1.i
+  %2617 = icmp eq ptr %2616, %.sroa.9181.0.i
   br label %2621
 
 2618:                                             ; preds = %2614
   %2619 = load ptr, ptr %2522, align 8, !tbaa !116
-  %2620 = icmp eq ptr %2619, %.sroa.12.1.i276
+  %2620 = icmp eq ptr %2619, %.sroa.12.0.i276
   br label %2621
 
 2621:                                             ; preds = %2618, %2615, %2614, %.thread.i70.i
   %.0.i.i.i.i280 = phi i1 [ %2620, %2618 ], [ %2617, %2615 ], [ false, %.thread.i70.i ], [ true, %2614 ]
-  %.not.i.i.i72.i = icmp eq ptr %.sroa.16.1.i277, null
+  %.not.i.i.i72.i = icmp eq ptr %.sroa.16.0.i277, null
   br i1 %.not.i.i.i72.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281, label %2622
 
 2622:                                             ; preds = %2621
-  %2623 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i277, i64 8
+  %2623 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i277, i64 8
   %2624 = load atomic i64, ptr %2623 acquire, align 8
   %2625 = icmp eq i64 %2624, 4294967297
   %2626 = trunc i64 %2624 to i32
@@ -65397,16 +65397,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i323: ; preds = %2
 
 2627:                                             ; preds = %2622
   store i32 0, ptr %2623, align 8, !tbaa !9
-  %2628 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i277, i64 12
+  %2628 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i277, i64 12
   store i32 0, ptr %2628, align 4, !tbaa !12
-  %2629 = load ptr, ptr %.sroa.16.1.i277, align 8, !tbaa !13
+  %2629 = load ptr, ptr %.sroa.16.0.i277, align 8, !tbaa !13
   %2630 = getelementptr inbounds nuw i8, ptr %2629, i64 16
   %2631 = load ptr, ptr %2630, align 8
-  call void %2631(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i277) #29
-  %2632 = load ptr, ptr %.sroa.16.1.i277, align 8, !tbaa !13
+  call void %2631(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i277) #29
+  %2632 = load ptr, ptr %.sroa.16.0.i277, align 8, !tbaa !13
   %2633 = getelementptr inbounds nuw i8, ptr %2632, i64 24
   %2634 = load ptr, ptr %2633, align 8
-  call void %2634(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i277) #29
+  call void %2634(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i277) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281
 
 2635:                                             ; preds = %2622
@@ -65429,7 +65429,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i: ; preds = %2639
   br i1 %2641, label %2642, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281, !prof !17
 
 2642:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i277) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i277) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i281: ; preds = %2642, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i, %2627, %2621
@@ -66941,8 +66941,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384: ; preds = 
 
 3259:                                             ; preds = %._crit_edge.i413, %.thread13.i80.i
   %3260 = phi i32 [ %.pre.i414, %._crit_edge.i413 ], [ %3255, %.thread13.i80.i ]
-  %.sroa.9224.2.i = phi ptr [ %.sroa.9224.0.copyload226.i, %._crit_edge.i413 ], [ %.sroa.9224.0.copyload.i, %.thread13.i80.i ]
-  %.sroa.12.2.i409 = phi ptr [ %.sroa.12.0.copyload230.i, %._crit_edge.i413 ], [ %.sroa.12.0.copyload.i408, %.thread13.i80.i ]
+  %.sroa.9224.1.i = phi ptr [ %.sroa.9224.0.copyload226.i, %._crit_edge.i413 ], [ %.sroa.9224.0.copyload.i, %.thread13.i80.i ]
+  %.sroa.12.1.i409 = phi ptr [ %.sroa.12.0.copyload230.i, %._crit_edge.i413 ], [ %.sroa.12.0.copyload.i408, %.thread13.i80.i ]
   %.sroa.0.1.i410 = phi i32 [ %.sroa.0.0.copyload218.i, %._crit_edge.i413 ], [ %.sroa.0.0.copyload.i407, %.thread13.i80.i ]
   %3261 = add nsw i32 %3260, 1
   store i32 %3261, ptr %3252, align 4, !tbaa !16, !noalias !994
@@ -66959,8 +66959,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384: ; preds = 
   br label %.thread.i85.i
 
 3265:                                             ; preds = %3262, %3259
-  %.sroa.9224.3.i = phi ptr [ %.sroa.9224.0.copyload226.i, %3262 ], [ %.sroa.9224.2.i, %3259 ]
-  %.sroa.12.3.i411 = phi ptr [ %.sroa.12.0.copyload230.i, %3262 ], [ %.sroa.12.2.i409, %3259 ]
+  %.sroa.9224.2.i = phi ptr [ %.sroa.9224.0.copyload226.i, %3262 ], [ %.sroa.9224.1.i, %3259 ]
+  %.sroa.12.2.i411 = phi ptr [ %.sroa.12.0.copyload230.i, %3262 ], [ %.sroa.12.1.i409, %3259 ]
   %.sroa.0.2.i412 = phi i32 [ %.sroa.0.0.copyload218.i, %3262 ], [ %.sroa.0.1.i410, %3259 ]
   %3266 = load atomic i64, ptr %3252 acquire, align 8, !noalias !994
   %3267 = icmp eq i64 %3266, 4294967297
@@ -67005,9 +67005,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i: ; preds = %3281
   br label %.thread.i85.i
 
 .thread.i85.i:                                    ; preds = %3284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i, %3269, %3264, %3245, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384
-  %.sroa.9224.1.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ %.sroa.9224.0.copyload228.i, %3264 ], [ %.sroa.9224.3.i, %3269 ], [ %.sroa.9224.3.i, %3284 ], [ %.sroa.9224.3.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
-  %.sroa.12.1.i363 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ %.sroa.12.0.copyload232.i, %3264 ], [ %.sroa.12.3.i411, %3269 ], [ %.sroa.12.3.i411, %3284 ], [ %.sroa.12.3.i411, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
-  %.sroa.16.1.i364 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ null, %3264 ], [ %3250, %3269 ], [ %3250, %3284 ], [ %3250, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
+  %.sroa.9224.0.i = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ %.sroa.9224.0.copyload228.i, %3264 ], [ %.sroa.9224.2.i, %3269 ], [ %.sroa.9224.2.i, %3284 ], [ %.sroa.9224.2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
+  %.sroa.12.0.i363 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ %.sroa.12.0.copyload232.i, %3264 ], [ %.sroa.12.2.i411, %3269 ], [ %.sroa.12.2.i411, %3284 ], [ %.sroa.12.2.i411, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
+  %.sroa.16.0.i364 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ null, %3264 ], [ %3250, %3269 ], [ %3250, %3284 ], [ %3250, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ null, %3245 ]
   %.sroa.0.0.i365 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384 ], [ %.sroa.0.0.copyload219.i, %3264 ], [ %.sroa.0.2.i412, %3269 ], [ %.sroa.0.2.i412, %3284 ], [ %.sroa.0.2.i412, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i ], [ 0, %3245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %3285 = load i32, ptr %8, align 8, !tbaa !94
@@ -67022,21 +67022,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i: ; preds = %3281
 
 3287:                                             ; preds = %3286
   %3288 = load ptr, ptr %3181, align 8, !tbaa !115
-  %3289 = icmp eq ptr %3288, %.sroa.9224.1.i
+  %3289 = icmp eq ptr %3288, %.sroa.9224.0.i
   br label %3293
 
 3290:                                             ; preds = %3286
   %3291 = load ptr, ptr %3182, align 8, !tbaa !116
-  %3292 = icmp eq ptr %3291, %.sroa.12.1.i363
+  %3292 = icmp eq ptr %3291, %.sroa.12.0.i363
   br label %3293
 
 3293:                                             ; preds = %3290, %3287, %3286, %.thread.i85.i
   %.0.i.i.i.i366 = phi i1 [ %3292, %3290 ], [ %3289, %3287 ], [ false, %.thread.i85.i ], [ true, %3286 ]
-  %.not.i.i.i87.i = icmp eq ptr %.sroa.16.1.i364, null
+  %.not.i.i.i87.i = icmp eq ptr %.sroa.16.0.i364, null
   br i1 %.not.i.i.i87.i, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367, label %3294
 
 3294:                                             ; preds = %3293
-  %3295 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i364, i64 8
+  %3295 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i364, i64 8
   %3296 = load atomic i64, ptr %3295 acquire, align 8
   %3297 = icmp eq i64 %3296, 4294967297
   %3298 = trunc i64 %3296 to i32
@@ -67044,16 +67044,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i82.i: ; preds = %3281
 
 3299:                                             ; preds = %3294
   store i32 0, ptr %3295, align 8, !tbaa !9
-  %3300 = getelementptr inbounds nuw i8, ptr %.sroa.16.1.i364, i64 12
+  %3300 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.i364, i64 12
   store i32 0, ptr %3300, align 4, !tbaa !12
-  %3301 = load ptr, ptr %.sroa.16.1.i364, align 8, !tbaa !13
+  %3301 = load ptr, ptr %.sroa.16.0.i364, align 8, !tbaa !13
   %3302 = getelementptr inbounds nuw i8, ptr %3301, i64 16
   %3303 = load ptr, ptr %3302, align 8
-  call void %3303(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i364) #29
-  %3304 = load ptr, ptr %.sroa.16.1.i364, align 8, !tbaa !13
+  call void %3303(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i364) #29
+  %3304 = load ptr, ptr %.sroa.16.0.i364, align 8, !tbaa !13
   %3305 = getelementptr inbounds nuw i8, ptr %3304, i64 24
   %3306 = load ptr, ptr %3305, align 8
-  call void %3306(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i364) #29
+  call void %3306(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i364) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367
 
 3307:                                             ; preds = %3294
@@ -67076,7 +67076,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i89.i: ; preds = %3311
   br i1 %3313, label %3314, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367, !prof !17
 
 3314:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i89.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1.i364) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0.i364) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit.i367: ; preds = %3314, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i89.i, %3299, %3293
@@ -70995,8 +70995,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 213:                                              ; preds = %._crit_edge, %.thread13.i83
   %214 = phi i32 [ %.pre, %._crit_edge ], [ %209, %.thread13.i83 ]
-  %.sroa.9254.2 = phi ptr [ %.sroa.9254.0.copyload256, %._crit_edge ], [ %.sroa.9254.0.copyload, %.thread13.i83 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload260, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i83 ]
+  %.sroa.9254.1 = phi ptr [ %.sroa.9254.0.copyload256, %._crit_edge ], [ %.sroa.9254.0.copyload, %.thread13.i83 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload260, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i83 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload248, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i83 ]
   %215 = add nsw i32 %214, 1
   store i32 %215, ptr %206, align 4, !tbaa !16, !noalias !1036
@@ -71013,8 +71013,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i88
 
 219:                                              ; preds = %216, %213
-  %.sroa.9254.3 = phi ptr [ %.sroa.9254.0.copyload256, %216 ], [ %.sroa.9254.2, %213 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload260, %216 ], [ %.sroa.12.2, %213 ]
+  %.sroa.9254.2 = phi ptr [ %.sroa.9254.0.copyload256, %216 ], [ %.sroa.9254.1, %213 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload260, %216 ], [ %.sroa.12.1, %213 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload248, %216 ], [ %.sroa.0.1, %213 ]
   %220 = load atomic i64, ptr %206 acquire, align 8, !noalias !1036
   %221 = icmp eq i64 %220, 4294967297
@@ -71059,9 +71059,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85: ; preds = %235, %
   br label %.thread.i88
 
 .thread.i88:                                      ; preds = %199, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %238, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85, %223, %218
-  %.sroa.9254.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9254.0.copyload258, %218 ], [ %.sroa.9254.3, %223 ], [ %.sroa.9254.3, %238 ], [ %.sroa.9254.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload262, %218 ], [ %.sroa.12.3, %223 ], [ %.sroa.12.3, %238 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %218 ], [ %204, %223 ], [ %204, %238 ], [ %204, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
+  %.sroa.9254.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9254.0.copyload258, %218 ], [ %.sroa.9254.2, %223 ], [ %.sroa.9254.2, %238 ], [ %.sroa.9254.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload262, %218 ], [ %.sroa.12.2, %223 ], [ %.sroa.12.2, %238 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %218 ], [ %204, %223 ], [ %204, %238 ], [ %204, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ null, %199 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload249, %218 ], [ %.sroa.0.2, %223 ], [ %.sroa.0.2, %238 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85 ], [ 0, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %239 = load i32, ptr %8, align 8, !tbaa !94
@@ -71076,21 +71076,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85: ; preds = %235, %
 
 241:                                              ; preds = %240
   %242 = load ptr, ptr %131, align 8, !tbaa !115
-  %243 = icmp eq ptr %242, %.sroa.9254.1
+  %243 = icmp eq ptr %242, %.sroa.9254.0
   br label %247
 
 244:                                              ; preds = %240
   %245 = load ptr, ptr %132, align 8, !tbaa !116
-  %246 = icmp eq ptr %245, %.sroa.12.1
+  %246 = icmp eq ptr %245, %.sroa.12.0
   br label %247
 
 247:                                              ; preds = %244, %241, %240, %.thread.i88
   %.0.i.i.i = phi i1 [ %246, %244 ], [ %243, %241 ], [ false, %.thread.i88 ], [ true, %240 ]
-  %.not.i.i.i90 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i90 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i90, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %248
 
 248:                                              ; preds = %247
-  %249 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %250 = load atomic i64, ptr %249 acquire, align 8
   %251 = icmp eq i64 %250, 4294967297
   %252 = trunc i64 %250 to i32
@@ -71098,16 +71098,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i85: ; preds = %235, %
 
 253:                                              ; preds = %248
   store i32 0, ptr %249, align 8, !tbaa !9
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %254, align 4, !tbaa !12
-  %255 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %255 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %257 = load ptr, ptr %256, align 8
-  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %258 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %258 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8
-  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 261:                                              ; preds = %248
@@ -71130,7 +71130,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i92: ; preds = %265, %
   br i1 %267, label %268, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 268:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i92
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %247, %253, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i92, %268
@@ -71735,7 +71735,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit141: ; preds = %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i139
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.pre274 = load ptr, ptr %13, align 8, !tbaa !173
+  %.pre269 = load ptr, ptr %13, align 8, !tbaa !173
   br label %570
 
 508:                                              ; preds = %431
@@ -71862,7 +71862,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit149: ; pred
           to label %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge unwind label %567
 
 ._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge: ; preds = %554
-  %.pre273 = load ptr, ptr %13, align 8, !tbaa !173
+  %.pre268 = load ptr, ptr %13, align 8, !tbaa !173
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 556:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit149
@@ -71879,7 +71879,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit149: ; pred
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge, %559, %557, %556
-  %560 = phi ptr [ %.pre273, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge ], [ %548, %559 ], [ %548, %557 ], [ %548, %556 ]
+  %560 = phi ptr [ %.pre268, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge ], [ %548, %559 ], [ %548, %557 ], [ %548, %556 ]
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 24
   store double 1.000000e+00, ptr %561, align 8, !tbaa !329
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -71912,7 +71912,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %._ZNSt6vectorIdSaId
   br label %659
 
 570:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit141
-  %571 = phi ptr [ %560, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit ], [ %.pre274, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit141 ]
+  %571 = phi ptr [ %560, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit ], [ %.pre269, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit141 ]
   %572 = load ptr, ptr %185, align 8, !tbaa !170
   %573 = ptrtoint ptr %572 to i64
   %574 = ptrtoint ptr %571 to i64
@@ -73317,8 +73317,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 251:                                              ; preds = %._crit_edge, %.thread13.i126
   %252 = phi i32 [ %.pre, %._crit_edge ], [ %247, %.thread13.i126 ]
-  %.sroa.9411.2 = phi ptr [ %.sroa.9411.0.copyload413, %._crit_edge ], [ %.sroa.9411.0.copyload, %.thread13.i126 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload417, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i126 ]
+  %.sroa.9411.1 = phi ptr [ %.sroa.9411.0.copyload413, %._crit_edge ], [ %.sroa.9411.0.copyload, %.thread13.i126 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload417, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i126 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload405, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i126 ]
   %253 = add nsw i32 %252, 1
   store i32 %253, ptr %244, align 4, !tbaa !16, !noalias !1069
@@ -73335,8 +73335,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i131
 
 257:                                              ; preds = %254, %251
-  %.sroa.9411.3 = phi ptr [ %.sroa.9411.0.copyload413, %254 ], [ %.sroa.9411.2, %251 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload417, %254 ], [ %.sroa.12.2, %251 ]
+  %.sroa.9411.2 = phi ptr [ %.sroa.9411.0.copyload413, %254 ], [ %.sroa.9411.1, %251 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload417, %254 ], [ %.sroa.12.1, %251 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload405, %254 ], [ %.sroa.0.1, %251 ]
   %258 = load atomic i64, ptr %244 acquire, align 8, !noalias !1069
   %259 = icmp eq i64 %258, 4294967297
@@ -73381,9 +73381,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128: ; preds = %273, 
   br label %.thread.i131
 
 .thread.i131:                                     ; preds = %237, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %276, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128, %261, %256
-  %.sroa.9411.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9411.0.copyload415, %256 ], [ %.sroa.9411.3, %261 ], [ %.sroa.9411.3, %276 ], [ %.sroa.9411.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload419, %256 ], [ %.sroa.12.3, %261 ], [ %.sroa.12.3, %276 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %256 ], [ %242, %261 ], [ %242, %276 ], [ %242, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
+  %.sroa.9411.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9411.0.copyload415, %256 ], [ %.sroa.9411.2, %261 ], [ %.sroa.9411.2, %276 ], [ %.sroa.9411.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload419, %256 ], [ %.sroa.12.2, %261 ], [ %.sroa.12.2, %276 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %256 ], [ %242, %261 ], [ %242, %276 ], [ %242, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ null, %237 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload406, %256 ], [ %.sroa.0.2, %261 ], [ %.sroa.0.2, %276 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128 ], [ 0, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %277 = load i32, ptr %9, align 8, !tbaa !94
@@ -73398,21 +73398,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128: ; preds = %273, 
 
 279:                                              ; preds = %278
   %280 = load ptr, ptr %148, align 8, !tbaa !115
-  %281 = icmp eq ptr %280, %.sroa.9411.1
+  %281 = icmp eq ptr %280, %.sroa.9411.0
   br label %285
 
 282:                                              ; preds = %278
   %283 = load ptr, ptr %149, align 8, !tbaa !116
-  %284 = icmp eq ptr %283, %.sroa.12.1
+  %284 = icmp eq ptr %283, %.sroa.12.0
   br label %285
 
 285:                                              ; preds = %282, %279, %278, %.thread.i131
   %.0.i.i.i = phi i1 [ %284, %282 ], [ %281, %279 ], [ false, %.thread.i131 ], [ true, %278 ]
-  %.not.i.i.i133 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i133 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i133, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %286
 
 286:                                              ; preds = %285
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %288 = load atomic i64, ptr %287 acquire, align 8
   %289 = icmp eq i64 %288, 4294967297
   %290 = trunc i64 %288 to i32
@@ -73420,16 +73420,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i128: ; preds = %273, 
 
 291:                                              ; preds = %286
   store i32 0, ptr %287, align 8, !tbaa !9
-  %292 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %292, align 4, !tbaa !12
-  %293 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %293 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8
-  call void %295(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %296 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %295(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %296 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %298 = load ptr, ptr %297, align 8
-  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 299:                                              ; preds = %286
@@ -73452,7 +73452,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135: ; preds = %303, 
   br i1 %305, label %306, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 306:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %285, %291, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135, %306
@@ -74065,7 +74065,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184: ; preds = %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i182
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre433 = load ptr, ptr %14, align 8, !tbaa !173
+  %.pre428 = load ptr, ptr %14, align 8, !tbaa !173
   br label %610
 
 548:                                              ; preds = %471
@@ -74192,7 +74192,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit192: ; pred
           to label %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge unwind label %607
 
 ._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge: ; preds = %594
-  %.pre432 = load ptr, ptr %14, align 8, !tbaa !173
+  %.pre427 = load ptr, ptr %14, align 8, !tbaa !173
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 596:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit192
@@ -74209,7 +74209,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit192: ; pred
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge, %599, %597, %596
-  %600 = phi ptr [ %.pre432, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge ], [ %588, %599 ], [ %588, %597 ], [ %588, %596 ]
+  %600 = phi ptr [ %.pre427, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit_crit_edge ], [ %588, %599 ], [ %588, %597 ], [ %588, %596 ]
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 24
   store double 1.000000e+00, ptr %601, align 8, !tbaa !329
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -74242,7 +74242,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %._ZNSt6vectorIdSaId
   br label %668
 
 610:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184
-  %611 = phi ptr [ %600, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit ], [ %.pre433, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184 ]
+  %611 = phi ptr [ %600, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit ], [ %.pre428, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184 ]
   %612 = load ptr, ptr %223, align 8, !tbaa !170
   %613 = ptrtoint ptr %612 to i64
   %614 = ptrtoint ptr %611 to i64
@@ -74589,7 +74589,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit223: ; preds = %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i220, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i221
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.pre431 = load ptr, ptr %22, align 8, !tbaa !173
+  %.pre426 = load ptr, ptr %22, align 8, !tbaa !173
   br label %817
 
 755:                                              ; preds = %678
@@ -74716,7 +74716,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit231: ; pred
           to label %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234_crit_edge unwind label %814
 
 ._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234_crit_edge: ; preds = %801
-  %.pre430 = load ptr, ptr %22, align 8, !tbaa !173
+  %.pre425 = load ptr, ptr %22, align 8, !tbaa !173
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234
 
 803:                                              ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit231
@@ -74733,7 +74733,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit231: ; pred
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234
 
 _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234:         ; preds = %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234_crit_edge, %806, %804, %803
-  %807 = phi ptr [ %.pre430, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234_crit_edge ], [ %795, %806 ], [ %795, %804 ], [ %795, %803 ]
+  %807 = phi ptr [ %.pre425, %._ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234_crit_edge ], [ %795, %806 ], [ %795, %804 ], [ %795, %803 ]
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 24
   store double 0.000000e+00, ptr %808, align 8, !tbaa !329
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -74766,7 +74766,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234:         ; preds = %._ZNSt6vectorIdSaId
   br label %875
 
 817:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit223
-  %818 = phi ptr [ %807, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234 ], [ %.pre431, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit223 ]
+  %818 = phi ptr [ %807, %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit234 ], [ %.pre426, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit223 ]
   %819 = load ptr, ptr %202, align 8, !tbaa !170
   %820 = ptrtoint ptr %819 to i64
   %821 = ptrtoint ptr %818 to i64
@@ -76168,8 +76168,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 225:                                              ; preds = %._crit_edge, %.thread13.i120
   %226 = phi i32 [ %.pre, %._crit_edge ], [ %221, %.thread13.i120 ]
-  %.sroa.9478.2 = phi ptr [ %.sroa.9478.0.copyload480, %._crit_edge ], [ %.sroa.9478.0.copyload, %.thread13.i120 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload484, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i120 ]
+  %.sroa.9478.1 = phi ptr [ %.sroa.9478.0.copyload480, %._crit_edge ], [ %.sroa.9478.0.copyload, %.thread13.i120 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload484, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i120 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload472, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i120 ]
   %227 = add nsw i32 %226, 1
   store i32 %227, ptr %218, align 4, !tbaa !16, !noalias !1094
@@ -76186,8 +76186,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i125
 
 231:                                              ; preds = %228, %225
-  %.sroa.9478.3 = phi ptr [ %.sroa.9478.0.copyload480, %228 ], [ %.sroa.9478.2, %225 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload484, %228 ], [ %.sroa.12.2, %225 ]
+  %.sroa.9478.2 = phi ptr [ %.sroa.9478.0.copyload480, %228 ], [ %.sroa.9478.1, %225 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload484, %228 ], [ %.sroa.12.1, %225 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload472, %228 ], [ %.sroa.0.1, %225 ]
   %232 = load atomic i64, ptr %218 acquire, align 8, !noalias !1094
   %233 = icmp eq i64 %232, 4294967297
@@ -76232,9 +76232,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122: ; preds = %247, 
   br label %.thread.i125
 
 .thread.i125:                                     ; preds = %211, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %250, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122, %235, %230
-  %.sroa.9478.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9478.0.copyload482, %230 ], [ %.sroa.9478.3, %235 ], [ %.sroa.9478.3, %250 ], [ %.sroa.9478.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload486, %230 ], [ %.sroa.12.3, %235 ], [ %.sroa.12.3, %250 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %230 ], [ %216, %235 ], [ %216, %250 ], [ %216, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
+  %.sroa.9478.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9478.0.copyload482, %230 ], [ %.sroa.9478.2, %235 ], [ %.sroa.9478.2, %250 ], [ %.sroa.9478.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload486, %230 ], [ %.sroa.12.2, %235 ], [ %.sroa.12.2, %250 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %230 ], [ %216, %235 ], [ %216, %250 ], [ %216, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ null, %211 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload473, %230 ], [ %.sroa.0.2, %235 ], [ %.sroa.0.2, %250 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122 ], [ 0, %211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %251 = load i32, ptr %8, align 8, !tbaa !94
@@ -76249,21 +76249,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122: ; preds = %247, 
 
 253:                                              ; preds = %252
   %254 = load ptr, ptr %134, align 8, !tbaa !115
-  %255 = icmp eq ptr %254, %.sroa.9478.1
+  %255 = icmp eq ptr %254, %.sroa.9478.0
   br label %259
 
 256:                                              ; preds = %252
   %257 = load ptr, ptr %135, align 8, !tbaa !116
-  %258 = icmp eq ptr %257, %.sroa.12.1
+  %258 = icmp eq ptr %257, %.sroa.12.0
   br label %259
 
 259:                                              ; preds = %256, %253, %252, %.thread.i125
   %.0.i.i.i = phi i1 [ %258, %256 ], [ %255, %253 ], [ false, %.thread.i125 ], [ true, %252 ]
-  %.not.i.i.i127 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i127 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i127, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %260
 
 260:                                              ; preds = %259
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %262 = load atomic i64, ptr %261 acquire, align 8
   %263 = icmp eq i64 %262, 4294967297
   %264 = trunc i64 %262 to i32
@@ -76271,16 +76271,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122: ; preds = %247, 
 
 265:                                              ; preds = %260
   store i32 0, ptr %261, align 8, !tbaa !9
-  %266 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %266, align 4, !tbaa !12
-  %267 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %267 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8
-  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %270 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %270 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 273:                                              ; preds = %260
@@ -76303,7 +76303,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i129: ; preds = %277, 
   br i1 %279, label %280, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 280:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i129
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %259, %265, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i129, %280
@@ -78559,8 +78559,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 195:                                              ; preds = %._crit_edge, %.thread13.i70
   %196 = phi i32 [ %.pre, %._crit_edge ], [ %191, %.thread13.i70 ]
-  %.sroa.9189.2 = phi ptr [ %.sroa.9189.0.copyload191, %._crit_edge ], [ %.sroa.9189.0.copyload, %.thread13.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload195, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.9189.1 = phi ptr [ %.sroa.9189.0.copyload191, %._crit_edge ], [ %.sroa.9189.0.copyload, %.thread13.i70 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload195, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload183, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %188, align 4, !tbaa !16, !noalias !1119
@@ -78577,8 +78577,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i75
 
 201:                                              ; preds = %198, %195
-  %.sroa.9189.3 = phi ptr [ %.sroa.9189.0.copyload191, %198 ], [ %.sroa.9189.2, %195 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload195, %198 ], [ %.sroa.12.2, %195 ]
+  %.sroa.9189.2 = phi ptr [ %.sroa.9189.0.copyload191, %198 ], [ %.sroa.9189.1, %195 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload195, %198 ], [ %.sroa.12.1, %195 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload183, %198 ], [ %.sroa.0.1, %195 ]
   %202 = load atomic i64, ptr %188 acquire, align 8, !noalias !1119
   %203 = icmp eq i64 %202, 4294967297
@@ -78623,9 +78623,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %217, %
   br label %.thread.i75
 
 .thread.i75:                                      ; preds = %181, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %220, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72, %205, %200
-  %.sroa.9189.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9189.0.copyload193, %200 ], [ %.sroa.9189.3, %205 ], [ %.sroa.9189.3, %220 ], [ %.sroa.9189.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload197, %200 ], [ %.sroa.12.3, %205 ], [ %.sroa.12.3, %220 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %200 ], [ %186, %205 ], [ %186, %220 ], [ %186, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
+  %.sroa.9189.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9189.0.copyload193, %200 ], [ %.sroa.9189.2, %205 ], [ %.sroa.9189.2, %220 ], [ %.sroa.9189.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload197, %200 ], [ %.sroa.12.2, %205 ], [ %.sroa.12.2, %220 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %200 ], [ %186, %205 ], [ %186, %220 ], [ %186, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %181 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload184, %200 ], [ %.sroa.0.2, %205 ], [ %.sroa.0.2, %220 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ 0, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %221 = load i32, ptr %10, align 8, !tbaa !94
@@ -78640,21 +78640,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %217, %
 
 223:                                              ; preds = %222
   %224 = load ptr, ptr %126, align 8, !tbaa !115
-  %225 = icmp eq ptr %224, %.sroa.9189.1
+  %225 = icmp eq ptr %224, %.sroa.9189.0
   br label %229
 
 226:                                              ; preds = %222
   %227 = load ptr, ptr %127, align 8, !tbaa !116
-  %228 = icmp eq ptr %227, %.sroa.12.1
+  %228 = icmp eq ptr %227, %.sroa.12.0
   br label %229
 
 229:                                              ; preds = %226, %223, %222, %.thread.i75
   %.0.i.i.i = phi i1 [ %228, %226 ], [ %225, %223 ], [ false, %.thread.i75 ], [ true, %222 ]
-  %.not.i.i.i78 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i78 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i78, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %230
 
 230:                                              ; preds = %229
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %232 = load atomic i64, ptr %231 acquire, align 8
   %233 = icmp eq i64 %232, 4294967297
   %234 = trunc i64 %232 to i32
@@ -78662,16 +78662,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %217, %
 
 235:                                              ; preds = %230
   store i32 0, ptr %231, align 8, !tbaa !9
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %236, align 4, !tbaa !12
-  %237 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %237 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8
-  call void %239(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %240 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %239(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %240 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = load ptr, ptr %241, align 8
-  call void %242(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %242(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 243:                                              ; preds = %230
@@ -78694,7 +78694,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i80: ; preds = %247, %
   br i1 %249, label %250, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 250:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i80
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %229, %235, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i80, %250
@@ -80419,8 +80419,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 209:                                              ; preds = %._crit_edge, %.thread13.i93
   %210 = phi i32 [ %.pre, %._crit_edge ], [ %205, %.thread13.i93 ]
-  %.sroa.9310.2 = phi ptr [ %.sroa.9310.0.copyload312, %._crit_edge ], [ %.sroa.9310.0.copyload, %.thread13.i93 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload316, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i93 ]
+  %.sroa.9310.1 = phi ptr [ %.sroa.9310.0.copyload312, %._crit_edge ], [ %.sroa.9310.0.copyload, %.thread13.i93 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload316, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i93 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload304, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i93 ]
   %211 = add nsw i32 %210, 1
   store i32 %211, ptr %202, align 4, !tbaa !16, !noalias !1144
@@ -80437,8 +80437,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i98
 
 215:                                              ; preds = %212, %209
-  %.sroa.9310.3 = phi ptr [ %.sroa.9310.0.copyload312, %212 ], [ %.sroa.9310.2, %209 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload316, %212 ], [ %.sroa.12.2, %209 ]
+  %.sroa.9310.2 = phi ptr [ %.sroa.9310.0.copyload312, %212 ], [ %.sroa.9310.1, %209 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload316, %212 ], [ %.sroa.12.1, %209 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload304, %212 ], [ %.sroa.0.1, %209 ]
   %216 = load atomic i64, ptr %202 acquire, align 8, !noalias !1144
   %217 = icmp eq i64 %216, 4294967297
@@ -80483,9 +80483,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95: ; preds = %231, %
   br label %.thread.i98
 
 .thread.i98:                                      ; preds = %195, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %234, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95, %219, %214
-  %.sroa.9310.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9310.0.copyload314, %214 ], [ %.sroa.9310.3, %219 ], [ %.sroa.9310.3, %234 ], [ %.sroa.9310.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload318, %214 ], [ %.sroa.12.3, %219 ], [ %.sroa.12.3, %234 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %214 ], [ %200, %219 ], [ %200, %234 ], [ %200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
+  %.sroa.9310.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9310.0.copyload314, %214 ], [ %.sroa.9310.2, %219 ], [ %.sroa.9310.2, %234 ], [ %.sroa.9310.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload318, %214 ], [ %.sroa.12.2, %219 ], [ %.sroa.12.2, %234 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %214 ], [ %200, %219 ], [ %200, %234 ], [ %200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ null, %195 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload305, %214 ], [ %.sroa.0.2, %219 ], [ %.sroa.0.2, %234 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95 ], [ 0, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %235 = load i32, ptr %9, align 8, !tbaa !94
@@ -80500,21 +80500,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95: ; preds = %231, %
 
 237:                                              ; preds = %236
   %238 = load ptr, ptr %128, align 8, !tbaa !115
-  %239 = icmp eq ptr %238, %.sroa.9310.1
+  %239 = icmp eq ptr %238, %.sroa.9310.0
   br label %243
 
 240:                                              ; preds = %236
   %241 = load ptr, ptr %129, align 8, !tbaa !116
-  %242 = icmp eq ptr %241, %.sroa.12.1
+  %242 = icmp eq ptr %241, %.sroa.12.0
   br label %243
 
 243:                                              ; preds = %240, %237, %236, %.thread.i98
   %.0.i.i.i = phi i1 [ %242, %240 ], [ %239, %237 ], [ false, %.thread.i98 ], [ true, %236 ]
-  %.not.i.i.i100 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i100 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i100, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %244
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %246 = load atomic i64, ptr %245 acquire, align 8
   %247 = icmp eq i64 %246, 4294967297
   %248 = trunc i64 %246 to i32
@@ -80522,16 +80522,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95: ; preds = %231, %
 
 249:                                              ; preds = %244
   store i32 0, ptr %245, align 8, !tbaa !9
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %250, align 4, !tbaa !12
-  %251 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %251 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load ptr, ptr %252, align 8
-  call void %253(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %254 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %253(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %254 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %256 = load ptr, ptr %255, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %256(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 257:                                              ; preds = %244
@@ -80554,7 +80554,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i102: ; preds = %261, 
   br i1 %263, label %264, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 264:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i102
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %243, %249, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i102, %264
@@ -80979,7 +80979,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit131: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %428 unwind label %.thread404
+          to label %428 unwind label %.thread399
 
 428:                                              ; preds = %427
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(64) %184, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -81065,7 +81065,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit139: ; pred
   invoke void %467(ptr noundef nonnull align 8 dereferenceable(8) %460, ptr noundef nonnull %456, i64 noundef %464)
           to label %.thread220 unwind label %.thread
 
-.thread404:                                       ; preds = %427
+.thread399:                                       ; preds = %427
   %468 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -81081,11 +81081,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit139: ; pred
   br i1 %.not.i.i.i140, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %..thread220_crit_edge
 
 ..thread220_crit_edge:                            ; preds = %470
-  %.pre331 = ptrtoint ptr %456 to i64
+  %.pre326 = ptrtoint ptr %456 to i64
   br label %.thread220
 
 .thread220:                                       ; preds = %..thread220_crit_edge, %459
-  %.pre-phi = phi i64 [ %.pre331, %..thread220_crit_edge ], [ %462, %459 ]
+  %.pre-phi = phi i64 [ %.pre326, %..thread220_crit_edge ], [ %462, %459 ]
   %471 = load ptr, ptr %190, align 8, !tbaa !174
   %472 = ptrtoint ptr %471 to i64
   %473 = sub i64 %472, %.pre-phi
@@ -81100,14 +81100,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %470, %.thread220
   %475 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %15) #29
-  %.pre329.pre = load ptr, ptr %14, align 8, !tbaa !173
+  %.pre324.pre = load ptr, ptr %14, align 8, !tbaa !173
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not.i.i.i141 = icmp eq ptr %.pre329.pre, null
+  %.not.i.i.i141 = icmp eq ptr %.pre324.pre, null
   br i1 %.not.i.i.i141, label %_ZNSt6vectorIdSaIdEED2Ev.exit142, label %476
 
 476:                                              ; preds = %.thread, %474
-  %.pn81402 = phi { ptr, i32 } [ %469, %.thread ], [ %475, %474 ]
-  %477 = phi ptr [ %456, %.thread ], [ %.pre329.pre, %474 ]
+  %.pn81397 = phi { ptr, i32 } [ %469, %.thread ], [ %475, %474 ]
+  %477 = phi ptr [ %456, %.thread ], [ %.pre324.pre, %474 ]
   %478 = load ptr, ptr %190, align 8, !tbaa !174
   %479 = ptrtoint ptr %478 to i64
   %480 = ptrtoint ptr %477 to i64
@@ -81115,8 +81115,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %470, %.thread220
   call void @_ZdlPvm(ptr noundef nonnull %477, i64 noundef %481) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit142
 
-_ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %.thread404, %474, %476
-  %.pn81403 = phi { ptr, i32 } [ %475, %474 ], [ %.pn81402, %476 ], [ %468, %.thread404 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %.thread399, %474, %476
+  %.pn81398 = phi { ptr, i32 } [ %475, %474 ], [ %.pn81397, %476 ], [ %468, %.thread399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.body195
 
@@ -81887,7 +81887,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 .body195:                                         ; preds = %.loopexit222, %.loopexit.split-lp223, %705, %748, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192, %643, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt6vectorIdSaIdEED2Ev.exit142, %423
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81403, %_ZNSt6vectorIdSaIdEED2Ev.exit142 ], [ %.pn73.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ], [ %.pn69, %643 ], [ %.pn67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192 ], [ %.pn65, %748 ], [ %.pn61.pn.pn, %423 ], [ %706, %705 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp225, %.loopexit.split-lp223 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81398, %_ZNSt6vectorIdSaIdEED2Ev.exit142 ], [ %.pn73.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ], [ %.pn69, %643 ], [ %.pn67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192 ], [ %.pn65, %748 ], [ %.pn61.pn.pn, %423 ], [ %706, %705 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp225, %.loopexit.split-lp223 ]
   %774 = load ptr, ptr %10, align 8, !tbaa !18
   %775 = icmp eq ptr %774, %191
   br i1 %775, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210
@@ -82617,8 +82617,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 293:                                              ; preds = %._crit_edge, %.thread13.i149
   %294 = phi i32 [ %.pre, %._crit_edge ], [ %289, %.thread13.i149 ]
-  %.sroa.91087.2 = phi ptr [ %.sroa.91087.0.copyload1089, %._crit_edge ], [ %.sroa.91087.0.copyload, %.thread13.i149 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload1093, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i149 ]
+  %.sroa.91087.1 = phi ptr [ %.sroa.91087.0.copyload1089, %._crit_edge ], [ %.sroa.91087.0.copyload, %.thread13.i149 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload1093, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i149 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload1081, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i149 ]
   %295 = add nsw i32 %294, 1
   store i32 %295, ptr %286, align 4, !tbaa !16, !noalias !1189
@@ -82635,8 +82635,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i154
 
 299:                                              ; preds = %296, %293
-  %.sroa.91087.3 = phi ptr [ %.sroa.91087.0.copyload1089, %296 ], [ %.sroa.91087.2, %293 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload1093, %296 ], [ %.sroa.12.2, %293 ]
+  %.sroa.91087.2 = phi ptr [ %.sroa.91087.0.copyload1089, %296 ], [ %.sroa.91087.1, %293 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload1093, %296 ], [ %.sroa.12.1, %293 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload1081, %296 ], [ %.sroa.0.1, %293 ]
   %300 = load atomic i64, ptr %286 acquire, align 8, !noalias !1189
   %301 = icmp eq i64 %300, 4294967297
@@ -82681,9 +82681,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151: ; preds = %315, 
   br label %.thread.i154
 
 .thread.i154:                                     ; preds = %279, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %318, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151, %303, %298
-  %.sroa.91087.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.91087.0.copyload1091, %298 ], [ %.sroa.91087.3, %303 ], [ %.sroa.91087.3, %318 ], [ %.sroa.91087.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload1095, %298 ], [ %.sroa.12.3, %303 ], [ %.sroa.12.3, %318 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %298 ], [ %284, %303 ], [ %284, %318 ], [ %284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
+  %.sroa.91087.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.91087.0.copyload1091, %298 ], [ %.sroa.91087.2, %303 ], [ %.sroa.91087.2, %318 ], [ %.sroa.91087.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload1095, %298 ], [ %.sroa.12.2, %303 ], [ %.sroa.12.2, %318 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %298 ], [ %284, %303 ], [ %284, %318 ], [ %284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ null, %279 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload1082, %298 ], [ %.sroa.0.2, %303 ], [ %.sroa.0.2, %318 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151 ], [ 0, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %319 = load i32, ptr %14, align 8, !tbaa !94
@@ -82698,21 +82698,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151: ; preds = %315, 
 
 321:                                              ; preds = %320
   %322 = load ptr, ptr %169, align 8, !tbaa !115
-  %323 = icmp eq ptr %322, %.sroa.91087.1
+  %323 = icmp eq ptr %322, %.sroa.91087.0
   br label %327
 
 324:                                              ; preds = %320
   %325 = load ptr, ptr %170, align 8, !tbaa !116
-  %326 = icmp eq ptr %325, %.sroa.12.1
+  %326 = icmp eq ptr %325, %.sroa.12.0
   br label %327
 
 327:                                              ; preds = %324, %321, %320, %.thread.i154
   %.0.i.i.i = phi i1 [ %326, %324 ], [ %323, %321 ], [ false, %.thread.i154 ], [ true, %320 ]
-  %.not.i.i.i156 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i156 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i156, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %328
 
 328:                                              ; preds = %327
-  %329 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %330 = load atomic i64, ptr %329 acquire, align 8
   %331 = icmp eq i64 %330, 4294967297
   %332 = trunc i64 %330 to i32
@@ -82720,16 +82720,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i151: ; preds = %315, 
 
 333:                                              ; preds = %328
   store i32 0, ptr %329, align 8, !tbaa !9
-  %334 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %334 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %334, align 4, !tbaa !12
-  %335 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %335 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 16
   %337 = load ptr, ptr %336, align 8
-  call void %337(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %338 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %337(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %338 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8
-  call void %340(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %340(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 341:                                              ; preds = %328
@@ -82752,7 +82752,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i158: ; preds = %345, 
   br i1 %347, label %348, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 348:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i158
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %327, %333, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i158, %348
@@ -85767,8 +85767,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 260:                                              ; preds = %._crit_edge, %.thread13.i104
   %261 = phi i32 [ %.pre, %._crit_edge ], [ %256, %.thread13.i104 ]
-  %.sroa.9434.2 = phi ptr [ %.sroa.9434.0.copyload436, %._crit_edge ], [ %.sroa.9434.0.copyload, %.thread13.i104 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload440, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i104 ]
+  %.sroa.9434.1 = phi ptr [ %.sroa.9434.0.copyload436, %._crit_edge ], [ %.sroa.9434.0.copyload, %.thread13.i104 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload440, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i104 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload428, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i104 ]
   %262 = add nsw i32 %261, 1
   store i32 %262, ptr %253, align 4, !tbaa !16, !noalias !1215
@@ -85785,8 +85785,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i109
 
 266:                                              ; preds = %263, %260
-  %.sroa.9434.3 = phi ptr [ %.sroa.9434.0.copyload436, %263 ], [ %.sroa.9434.2, %260 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload440, %263 ], [ %.sroa.12.2, %260 ]
+  %.sroa.9434.2 = phi ptr [ %.sroa.9434.0.copyload436, %263 ], [ %.sroa.9434.1, %260 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload440, %263 ], [ %.sroa.12.1, %260 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload428, %263 ], [ %.sroa.0.1, %260 ]
   %267 = load atomic i64, ptr %253 acquire, align 8, !noalias !1215
   %268 = icmp eq i64 %267, 4294967297
@@ -85831,9 +85831,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106: ; preds = %282, 
   br label %.thread.i109
 
 .thread.i109:                                     ; preds = %246, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106, %270, %265
-  %.sroa.9434.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9434.0.copyload438, %265 ], [ %.sroa.9434.3, %270 ], [ %.sroa.9434.3, %285 ], [ %.sroa.9434.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload442, %265 ], [ %.sroa.12.3, %270 ], [ %.sroa.12.3, %285 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %265 ], [ %251, %270 ], [ %251, %285 ], [ %251, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
+  %.sroa.9434.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9434.0.copyload438, %265 ], [ %.sroa.9434.2, %270 ], [ %.sroa.9434.2, %285 ], [ %.sroa.9434.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload442, %265 ], [ %.sroa.12.2, %270 ], [ %.sroa.12.2, %285 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %265 ], [ %251, %270 ], [ %251, %285 ], [ %251, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ null, %246 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload429, %265 ], [ %.sroa.0.2, %270 ], [ %.sroa.0.2, %285 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106 ], [ 0, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %286 = load i32, ptr %12, align 8, !tbaa !94
@@ -85848,21 +85848,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106: ; preds = %282, 
 
 288:                                              ; preds = %287
   %289 = load ptr, ptr %150, align 8, !tbaa !115
-  %290 = icmp eq ptr %289, %.sroa.9434.1
+  %290 = icmp eq ptr %289, %.sroa.9434.0
   br label %294
 
 291:                                              ; preds = %287
   %292 = load ptr, ptr %151, align 8, !tbaa !116
-  %293 = icmp eq ptr %292, %.sroa.12.1
+  %293 = icmp eq ptr %292, %.sroa.12.0
   br label %294
 
 294:                                              ; preds = %291, %288, %287, %.thread.i109
   %.0.i.i.i = phi i1 [ %293, %291 ], [ %290, %288 ], [ false, %.thread.i109 ], [ true, %287 ]
-  %.not.i.i.i112 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i112 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i112, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %295
 
 295:                                              ; preds = %294
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %297 = load atomic i64, ptr %296 acquire, align 8
   %298 = icmp eq i64 %297, 4294967297
   %299 = trunc i64 %297 to i32
@@ -85870,16 +85870,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106: ; preds = %282, 
 
 300:                                              ; preds = %295
   store i32 0, ptr %296, align 8, !tbaa !9
-  %301 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %301 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %301, align 4, !tbaa !12
-  %302 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %302 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load ptr, ptr %303, align 8
-  call void %304(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %305 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %304(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %305 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %307 = load ptr, ptr %306, align 8
-  call void %307(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %307(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 308:                                              ; preds = %295
@@ -85902,7 +85902,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i114: ; preds = %312, 
   br i1 %314, label %315, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 315:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i114
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %294, %300, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i114, %315
@@ -87081,11 +87081,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199: ; preds = %780
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split: ; preds = %783, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199, %768
-  %.pr561 = load ptr, ptr %201, align 8, !tbaa !3
+  %.pr556 = load ptr, ptr %201, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split, %759
-  %784 = phi ptr [ %.pr561, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split ], [ null, %759 ]
+  %784 = phi ptr [ %.pr556, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split ], [ null, %759 ]
   %.not.i.i202 = icmp eq ptr %784, null
   br i1 %.not.i.i202, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, label %785
 
@@ -87373,11 +87373,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225: ; preds = %896
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split: ; preds = %899, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225, %884
-  %.pr562 = load ptr, ptr %190, align 8, !tbaa !3
+  %.pr557 = load ptr, ptr %190, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split, %875
-  %900 = phi ptr [ %.pr562, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split ], [ null, %875 ]
+  %900 = phi ptr [ %.pr557, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split ], [ null, %875 ]
   %.not.i.i228 = icmp eq ptr %900, null
   br i1 %.not.i.i228, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit232, label %901
 
@@ -87665,11 +87665,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251: ; preds = %101
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split: ; preds = %1015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251, %1000
-  %.pr563 = load ptr, ptr %179, align 8, !tbaa !3
+  %.pr558 = load ptr, ptr %179, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split, %991
-  %1016 = phi ptr [ %.pr563, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split ], [ null, %991 ]
+  %1016 = phi ptr [ %.pr558, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split ], [ null, %991 ]
   %.not.i.i254 = icmp eq ptr %1016, null
   br i1 %.not.i.i254, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit258, label %1017
 
@@ -88317,11 +88317,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311: ; preds = %126
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split: ; preds = %1267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311, %1252
-  %.pr564 = load ptr, ptr %1244, align 8, !tbaa !3
+  %.pr559 = load ptr, ptr %1244, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split, %1242
-  %1268 = phi ptr [ %.pr564, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split ], [ null, %1242 ]
+  %1268 = phi ptr [ %.pr559, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split ], [ null, %1242 ]
   %.not.i.i314 = icmp eq ptr %1268, null
   br i1 %.not.i.i314, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit318, label %1269
 
@@ -88447,11 +88447,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321: ; preds = %131
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split: ; preds = %1322, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321, %1307
-  %.pr565 = load ptr, ptr %1299, align 8, !tbaa !3
+  %.pr560 = load ptr, ptr %1299, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split, %1297
-  %1323 = phi ptr [ %.pr565, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split ], [ null, %1297 ]
+  %1323 = phi ptr [ %.pr560, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split ], [ null, %1297 ]
   %.not.i.i324 = icmp eq ptr %1323, null
   br i1 %.not.i.i324, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit328, label %1324
 
@@ -88577,11 +88577,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331: ; preds = %137
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split: ; preds = %1377, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331, %1362
-  %.pr566 = load ptr, ptr %1354, align 8, !tbaa !3
+  %.pr561 = load ptr, ptr %1354, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split, %1352
-  %1378 = phi ptr [ %.pr566, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split ], [ null, %1352 ]
+  %1378 = phi ptr [ %.pr561, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split ], [ null, %1352 ]
   %.not.i.i334 = icmp eq ptr %1378, null
   br i1 %.not.i.i334, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit338, label %1379
 
@@ -88707,11 +88707,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341: ; preds = %142
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split: ; preds = %1432, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341, %1417
-  %.pr567 = load ptr, ptr %1409, align 8, !tbaa !3
+  %.pr562 = load ptr, ptr %1409, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split, %1407
-  %1433 = phi ptr [ %.pr567, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split ], [ null, %1407 ]
+  %1433 = phi ptr [ %.pr562, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split ], [ null, %1407 ]
   %.not.i.i344 = icmp eq ptr %1433, null
   br i1 %.not.i.i344, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit348, label %1434
 
@@ -90093,8 +90093,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 276:                                              ; preds = %._crit_edge, %.thread13.i113
   %277 = phi i32 [ %.pre, %._crit_edge ], [ %272, %.thread13.i113 ]
-  %.sroa.9667.2 = phi ptr [ %.sroa.9667.0.copyload669, %._crit_edge ], [ %.sroa.9667.0.copyload, %.thread13.i113 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload673, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i113 ]
+  %.sroa.9667.1 = phi ptr [ %.sroa.9667.0.copyload669, %._crit_edge ], [ %.sroa.9667.0.copyload, %.thread13.i113 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload673, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i113 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload661, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i113 ]
   %278 = add nsw i32 %277, 1
   store i32 %278, ptr %269, align 4, !tbaa !16, !noalias !1258
@@ -90111,8 +90111,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i118
 
 282:                                              ; preds = %279, %276
-  %.sroa.9667.3 = phi ptr [ %.sroa.9667.0.copyload669, %279 ], [ %.sroa.9667.2, %276 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload673, %279 ], [ %.sroa.12.2, %276 ]
+  %.sroa.9667.2 = phi ptr [ %.sroa.9667.0.copyload669, %279 ], [ %.sroa.9667.1, %276 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload673, %279 ], [ %.sroa.12.1, %276 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload661, %279 ], [ %.sroa.0.1, %276 ]
   %283 = load atomic i64, ptr %269 acquire, align 8, !noalias !1258
   %284 = icmp eq i64 %283, 4294967297
@@ -90157,9 +90157,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %298, 
   br label %.thread.i118
 
 .thread.i118:                                     ; preds = %262, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %301, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115, %286, %281
-  %.sroa.9667.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9667.0.copyload671, %281 ], [ %.sroa.9667.3, %286 ], [ %.sroa.9667.3, %301 ], [ %.sroa.9667.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload675, %281 ], [ %.sroa.12.3, %286 ], [ %.sroa.12.3, %301 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %281 ], [ %267, %286 ], [ %267, %301 ], [ %267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
+  %.sroa.9667.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9667.0.copyload671, %281 ], [ %.sroa.9667.2, %286 ], [ %.sroa.9667.2, %301 ], [ %.sroa.9667.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload675, %281 ], [ %.sroa.12.2, %286 ], [ %.sroa.12.2, %301 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %281 ], [ %267, %286 ], [ %267, %301 ], [ %267, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ null, %262 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload662, %281 ], [ %.sroa.0.2, %286 ], [ %.sroa.0.2, %301 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ 0, %262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %302 = load i32, ptr %14, align 8, !tbaa !94
@@ -90174,21 +90174,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %298, 
 
 304:                                              ; preds = %303
   %305 = load ptr, ptr %165, align 8, !tbaa !115
-  %306 = icmp eq ptr %305, %.sroa.9667.1
+  %306 = icmp eq ptr %305, %.sroa.9667.0
   br label %310
 
 307:                                              ; preds = %303
   %308 = load ptr, ptr %166, align 8, !tbaa !116
-  %309 = icmp eq ptr %308, %.sroa.12.1
+  %309 = icmp eq ptr %308, %.sroa.12.0
   br label %310
 
 310:                                              ; preds = %307, %304, %303, %.thread.i118
   %.0.i.i.i = phi i1 [ %309, %307 ], [ %306, %304 ], [ false, %.thread.i118 ], [ true, %303 ]
-  %.not.i.i.i120 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i120 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i120, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %311
 
 311:                                              ; preds = %310
-  %312 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %313 = load atomic i64, ptr %312 acquire, align 8
   %314 = icmp eq i64 %313, 4294967297
   %315 = trunc i64 %313 to i32
@@ -90196,16 +90196,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115: ; preds = %298, 
 
 316:                                              ; preds = %311
   store i32 0, ptr %312, align 8, !tbaa !9
-  %317 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %317 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %317, align 4, !tbaa !12
-  %318 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %318 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %320 = load ptr, ptr %319, align 8
-  call void %320(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %321 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %320(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %321 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %323 = load ptr, ptr %322, align 8
-  call void %323(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %323(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 324:                                              ; preds = %311
@@ -90228,7 +90228,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122: ; preds = %328, 
   br i1 %330, label %331, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 331:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %310, %316, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i122, %331
@@ -93051,8 +93051,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 280:                                              ; preds = %._crit_edge, %.thread13.i70
   %281 = phi i32 [ %.pre, %._crit_edge ], [ %276, %.thread13.i70 ]
-  %.sroa.9428.2 = phi ptr [ %.sroa.9428.0.copyload430, %._crit_edge ], [ %.sroa.9428.0.copyload, %.thread13.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload434, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.9428.1 = phi ptr [ %.sroa.9428.0.copyload430, %._crit_edge ], [ %.sroa.9428.0.copyload, %.thread13.i70 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload434, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload422, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %282 = add nsw i32 %281, 1
   store i32 %282, ptr %273, align 4, !tbaa !16, !noalias !1286
@@ -93069,8 +93069,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i75
 
 286:                                              ; preds = %283, %280
-  %.sroa.9428.3 = phi ptr [ %.sroa.9428.0.copyload430, %283 ], [ %.sroa.9428.2, %280 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload434, %283 ], [ %.sroa.12.2, %280 ]
+  %.sroa.9428.2 = phi ptr [ %.sroa.9428.0.copyload430, %283 ], [ %.sroa.9428.1, %280 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload434, %283 ], [ %.sroa.12.1, %280 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload422, %283 ], [ %.sroa.0.1, %280 ]
   %287 = load atomic i64, ptr %273 acquire, align 8, !noalias !1286
   %288 = icmp eq i64 %287, 4294967297
@@ -93115,9 +93115,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %302, %
   br label %.thread.i75
 
 .thread.i75:                                      ; preds = %266, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %305, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72, %290, %285
-  %.sroa.9428.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9428.0.copyload432, %285 ], [ %.sroa.9428.3, %290 ], [ %.sroa.9428.3, %305 ], [ %.sroa.9428.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload436, %285 ], [ %.sroa.12.3, %290 ], [ %.sroa.12.3, %305 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %285 ], [ %271, %290 ], [ %271, %305 ], [ %271, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
+  %.sroa.9428.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9428.0.copyload432, %285 ], [ %.sroa.9428.2, %290 ], [ %.sroa.9428.2, %305 ], [ %.sroa.9428.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload436, %285 ], [ %.sroa.12.2, %290 ], [ %.sroa.12.2, %305 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %285 ], [ %271, %290 ], [ %271, %305 ], [ %271, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %266 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload423, %285 ], [ %.sroa.0.2, %290 ], [ %.sroa.0.2, %305 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ 0, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %306 = load i32, ptr %21, align 8, !tbaa !94
@@ -93132,21 +93132,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %302, %
 
 308:                                              ; preds = %307
   %309 = load ptr, ptr %141, align 8, !tbaa !115
-  %310 = icmp eq ptr %309, %.sroa.9428.1
+  %310 = icmp eq ptr %309, %.sroa.9428.0
   br label %314
 
 311:                                              ; preds = %307
   %312 = load ptr, ptr %142, align 8, !tbaa !116
-  %313 = icmp eq ptr %312, %.sroa.12.1
+  %313 = icmp eq ptr %312, %.sroa.12.0
   br label %314
 
 314:                                              ; preds = %311, %308, %307, %.thread.i75
   %.0.i.i.i = phi i1 [ %313, %311 ], [ %310, %308 ], [ false, %.thread.i75 ], [ true, %307 ]
-  %.not.i.i.i77 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i77 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i77, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %315
 
 315:                                              ; preds = %314
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %317 = load atomic i64, ptr %316 acquire, align 8
   %318 = icmp eq i64 %317, 4294967297
   %319 = trunc i64 %317 to i32
@@ -93154,16 +93154,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %302, %
 
 320:                                              ; preds = %315
   store i32 0, ptr %316, align 8, !tbaa !9
-  %321 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %321 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %321, align 4, !tbaa !12
-  %322 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %322 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %324 = load ptr, ptr %323, align 8
-  call void %324(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %325 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %324(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %325 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %327 = load ptr, ptr %326, align 8
-  call void %327(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %327(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 328:                                              ; preds = %315
@@ -93186,7 +93186,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79: ; preds = %332, %
   br i1 %334, label %335, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 335:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %314, %320, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i79, %335
@@ -93851,8 +93851,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i: ; preds
   br i1 %.not.i.i.i.i235, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %577
 
 577:                                              ; preds = %.thread, %574
-  %.pr556 = phi ptr [ %562, %.thread ], [ %.pr.pre, %574 ]
-  %578 = getelementptr inbounds nuw i8, ptr %.pr556, i64 8
+  %.pr551 = phi ptr [ %562, %.thread ], [ %.pr.pre, %574 ]
+  %578 = getelementptr inbounds nuw i8, ptr %.pr551, i64 8
   %579 = load atomic i64, ptr %578 acquire, align 8
   %580 = icmp eq i64 %579, 4294967297
   %581 = trunc i64 %579 to i32
@@ -93860,16 +93860,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i: ; preds
 
 582:                                              ; preds = %577
   store i32 0, ptr %578, align 8, !tbaa !9
-  %583 = getelementptr inbounds nuw i8, ptr %.pr556, i64 12
+  %583 = getelementptr inbounds nuw i8, ptr %.pr551, i64 12
   store i32 0, ptr %583, align 4, !tbaa !12
-  %584 = load ptr, ptr %.pr556, align 8, !tbaa !13
+  %584 = load ptr, ptr %.pr551, align 8, !tbaa !13
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 16
   %586 = load ptr, ptr %585, align 8
-  call void %586(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
-  %587 = load ptr, ptr %.pr556, align 8, !tbaa !13
+  call void %586(ptr noundef nonnull align 8 dereferenceable(16) %.pr551) #29
+  %587 = load ptr, ptr %.pr551, align 8, !tbaa !13
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 24
   %589 = load ptr, ptr %588, align 8
-  call void %589(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
+  call void %589(ptr noundef nonnull align 8 dereferenceable(16) %.pr551) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
 590:                                              ; preds = %577
@@ -93892,7 +93892,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237: ; preds = %594
   br i1 %596, label %597, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !17
 
 597:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr551) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %.thread381, %597, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237, %582, %574
@@ -94492,9 +94492,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
   %818 = getelementptr inbounds nuw i8, ptr %815, i64 8
   %819 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i7.i357 = icmp eq i8 %819, 0
-  br i1 %.not.i.i.i.i.i7.i357, label %827, label %.thread557
+  br i1 %.not.i.i.i.i.i7.i357, label %827, label %.thread552
 
-.thread557:                                       ; preds = %817
+.thread552:                                       ; preds = %817
   %820 = load i32, ptr %818, align 4, !tbaa !16
   %821 = add nsw i32 %820, 1
   store i32 %821, ptr %818, align 4, !tbaa !16
@@ -94526,9 +94526,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
   %.not.i.i.i.i259 = icmp eq ptr %.pr384.pre, null
   br i1 %.not.i.i.i.i259, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263, label %830
 
-830:                                              ; preds = %.thread557, %827
-  %.pr384560 = phi ptr [ %815, %.thread557 ], [ %.pr384.pre, %827 ]
-  %831 = getelementptr inbounds nuw i8, ptr %.pr384560, i64 8
+830:                                              ; preds = %.thread552, %827
+  %.pr384555 = phi ptr [ %815, %.thread552 ], [ %.pr384.pre, %827 ]
+  %831 = getelementptr inbounds nuw i8, ptr %.pr384555, i64 8
   %832 = load atomic i64, ptr %831 acquire, align 8
   %833 = icmp eq i64 %832, 4294967297
   %834 = trunc i64 %832 to i32
@@ -94536,16 +94536,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
 
 835:                                              ; preds = %830
   store i32 0, ptr %831, align 8, !tbaa !9
-  %836 = getelementptr inbounds nuw i8, ptr %.pr384560, i64 12
+  %836 = getelementptr inbounds nuw i8, ptr %.pr384555, i64 12
   store i32 0, ptr %836, align 4, !tbaa !12
-  %837 = load ptr, ptr %.pr384560, align 8, !tbaa !13
+  %837 = load ptr, ptr %.pr384555, align 8, !tbaa !13
   %838 = getelementptr inbounds nuw i8, ptr %837, i64 16
   %839 = load ptr, ptr %838, align 8
-  call void %839(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
-  %840 = load ptr, ptr %.pr384560, align 8, !tbaa !13
+  call void %839(ptr noundef nonnull align 8 dereferenceable(16) %.pr384555) #29
+  %840 = load ptr, ptr %.pr384555, align 8, !tbaa !13
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 24
   %842 = load ptr, ptr %841, align 8
-  call void %842(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
+  call void %842(ptr noundef nonnull align 8 dereferenceable(16) %.pr384555) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263
 
 843:                                              ; preds = %830
@@ -94568,7 +94568,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261: ; preds = %847
   br i1 %849, label %850, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263, !prof !17
 
 850:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr384555) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263: ; preds = %.thread385, %850, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261, %835, %827
@@ -95191,9 +95191,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
   %1110 = getelementptr inbounds nuw i8, ptr %1105, i64 8
   %1111 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i7.i373 = icmp eq i8 %1111, 0
-  br i1 %.not.i.i.i.i.i7.i373, label %1121, label %.thread561
+  br i1 %.not.i.i.i.i.i7.i373, label %1121, label %.thread556
 
-.thread561:                                       ; preds = %1109
+.thread556:                                       ; preds = %1109
   %1112 = load i32, ptr %1110, align 4, !tbaa !16
   %1113 = add nsw i32 %1112, 1
   store i32 %1113, ptr %1110, align 4, !tbaa !16
@@ -95229,9 +95229,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
   %.not.i.i.i.i301 = icmp eq ptr %.pr388.pre, null
   br i1 %.not.i.i.i.i301, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305, label %1126
 
-1126:                                             ; preds = %.thread561, %1121
-  %.pr388564 = phi ptr [ %1105, %.thread561 ], [ %.pr388.pre, %1121 ]
-  %1127 = getelementptr inbounds nuw i8, ptr %.pr388564, i64 8
+1126:                                             ; preds = %.thread556, %1121
+  %.pr388559 = phi ptr [ %1105, %.thread556 ], [ %.pr388.pre, %1121 ]
+  %1127 = getelementptr inbounds nuw i8, ptr %.pr388559, i64 8
   %1128 = load atomic i64, ptr %1127 acquire, align 8
   %1129 = icmp eq i64 %1128, 4294967297
   %1130 = trunc i64 %1128 to i32
@@ -95239,16 +95239,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
 
 1131:                                             ; preds = %1126
   store i32 0, ptr %1127, align 8, !tbaa !9
-  %1132 = getelementptr inbounds nuw i8, ptr %.pr388564, i64 12
+  %1132 = getelementptr inbounds nuw i8, ptr %.pr388559, i64 12
   store i32 0, ptr %1132, align 4, !tbaa !12
-  %1133 = load ptr, ptr %.pr388564, align 8, !tbaa !13
+  %1133 = load ptr, ptr %.pr388559, align 8, !tbaa !13
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 16
   %1135 = load ptr, ptr %1134, align 8
-  call void %1135(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
-  %1136 = load ptr, ptr %.pr388564, align 8, !tbaa !13
+  call void %1135(ptr noundef nonnull align 8 dereferenceable(16) %.pr388559) #29
+  %1136 = load ptr, ptr %.pr388559, align 8, !tbaa !13
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 24
   %1138 = load ptr, ptr %1137, align 8
-  call void %1138(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
+  call void %1138(ptr noundef nonnull align 8 dereferenceable(16) %.pr388559) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305
 
 1139:                                             ; preds = %1126
@@ -95271,7 +95271,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303: ; preds = %114
   br i1 %1145, label %1146, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305, !prof !17
 
 1146:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr388559) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305: ; preds = %.thread389, %1146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303, %1131, %1121
@@ -96701,8 +96701,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 218:                                              ; preds = %._crit_edge, %.thread13.i96
   %219 = phi i32 [ %.pre, %._crit_edge ], [ %214, %.thread13.i96 ]
-  %.sroa.9257.2 = phi ptr [ %.sroa.9257.0.copyload259, %._crit_edge ], [ %.sroa.9257.0.copyload, %.thread13.i96 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload263, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i96 ]
+  %.sroa.9257.1 = phi ptr [ %.sroa.9257.0.copyload259, %._crit_edge ], [ %.sroa.9257.0.copyload, %.thread13.i96 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload263, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i96 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload251, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i96 ]
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %211, align 4, !tbaa !16, !noalias !1321
@@ -96719,8 +96719,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i101
 
 224:                                              ; preds = %221, %218
-  %.sroa.9257.3 = phi ptr [ %.sroa.9257.0.copyload259, %221 ], [ %.sroa.9257.2, %218 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload263, %221 ], [ %.sroa.12.2, %218 ]
+  %.sroa.9257.2 = phi ptr [ %.sroa.9257.0.copyload259, %221 ], [ %.sroa.9257.1, %218 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload263, %221 ], [ %.sroa.12.1, %218 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload251, %221 ], [ %.sroa.0.1, %218 ]
   %225 = load atomic i64, ptr %211 acquire, align 8, !noalias !1321
   %226 = icmp eq i64 %225, 4294967297
@@ -96765,9 +96765,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98: ; preds = %240, %
   br label %.thread.i101
 
 .thread.i101:                                     ; preds = %204, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %243, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98, %228, %223
-  %.sroa.9257.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9257.0.copyload261, %223 ], [ %.sroa.9257.3, %228 ], [ %.sroa.9257.3, %243 ], [ %.sroa.9257.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload265, %223 ], [ %.sroa.12.3, %228 ], [ %.sroa.12.3, %243 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %223 ], [ %209, %228 ], [ %209, %243 ], [ %209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
+  %.sroa.9257.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9257.0.copyload261, %223 ], [ %.sroa.9257.2, %228 ], [ %.sroa.9257.2, %243 ], [ %.sroa.9257.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload265, %223 ], [ %.sroa.12.2, %228 ], [ %.sroa.12.2, %243 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %223 ], [ %209, %228 ], [ %209, %243 ], [ %209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ null, %204 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload252, %223 ], [ %.sroa.0.2, %228 ], [ %.sroa.0.2, %243 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98 ], [ 0, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %244 = load i32, ptr %13, align 8, !tbaa !94
@@ -96782,21 +96782,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98: ; preds = %240, %
 
 246:                                              ; preds = %245
   %247 = load ptr, ptr %133, align 8, !tbaa !115
-  %248 = icmp eq ptr %247, %.sroa.9257.1
+  %248 = icmp eq ptr %247, %.sroa.9257.0
   br label %252
 
 249:                                              ; preds = %245
   %250 = load ptr, ptr %134, align 8, !tbaa !116
-  %251 = icmp eq ptr %250, %.sroa.12.1
+  %251 = icmp eq ptr %250, %.sroa.12.0
   br label %252
 
 252:                                              ; preds = %249, %246, %245, %.thread.i101
   %.0.i.i.i = phi i1 [ %251, %249 ], [ %248, %246 ], [ false, %.thread.i101 ], [ true, %245 ]
-  %.not.i.i.i103 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i103 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i103, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %253
 
 253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %255 = load atomic i64, ptr %254 acquire, align 8
   %256 = icmp eq i64 %255, 4294967297
   %257 = trunc i64 %255 to i32
@@ -96804,16 +96804,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i98: ; preds = %240, %
 
 258:                                              ; preds = %253
   store i32 0, ptr %254, align 8, !tbaa !9
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %259, align 4, !tbaa !12
-  %260 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %260 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8
-  call void %262(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %263 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %262(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %263 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = load ptr, ptr %264, align 8
-  call void %265(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %265(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 266:                                              ; preds = %253
@@ -96836,7 +96836,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105: ; preds = %270, 
   br i1 %272, label %273, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 273:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %252, %258, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105, %273
@@ -98994,8 +98994,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 232:                                              ; preds = %._crit_edge, %.thread13.i118
   %233 = phi i32 [ %.pre, %._crit_edge ], [ %228, %.thread13.i118 ]
-  %.sroa.9419.2 = phi ptr [ %.sroa.9419.0.copyload421, %._crit_edge ], [ %.sroa.9419.0.copyload, %.thread13.i118 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload425, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i118 ]
+  %.sroa.9419.1 = phi ptr [ %.sroa.9419.0.copyload421, %._crit_edge ], [ %.sroa.9419.0.copyload, %.thread13.i118 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload425, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i118 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload413, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i118 ]
   %234 = add nsw i32 %233, 1
   store i32 %234, ptr %225, align 4, !tbaa !16, !noalias !1346
@@ -99012,8 +99012,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i123
 
 238:                                              ; preds = %235, %232
-  %.sroa.9419.3 = phi ptr [ %.sroa.9419.0.copyload421, %235 ], [ %.sroa.9419.2, %232 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload425, %235 ], [ %.sroa.12.2, %232 ]
+  %.sroa.9419.2 = phi ptr [ %.sroa.9419.0.copyload421, %235 ], [ %.sroa.9419.1, %232 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload425, %235 ], [ %.sroa.12.1, %232 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload413, %235 ], [ %.sroa.0.1, %232 ]
   %239 = load atomic i64, ptr %225 acquire, align 8, !noalias !1346
   %240 = icmp eq i64 %239, 4294967297
@@ -99058,9 +99058,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120: ; preds = %254, 
   br label %.thread.i123
 
 .thread.i123:                                     ; preds = %218, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %257, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120, %242, %237
-  %.sroa.9419.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9419.0.copyload423, %237 ], [ %.sroa.9419.3, %242 ], [ %.sroa.9419.3, %257 ], [ %.sroa.9419.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload427, %237 ], [ %.sroa.12.3, %242 ], [ %.sroa.12.3, %257 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %237 ], [ %223, %242 ], [ %223, %257 ], [ %223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
+  %.sroa.9419.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9419.0.copyload423, %237 ], [ %.sroa.9419.2, %242 ], [ %.sroa.9419.2, %257 ], [ %.sroa.9419.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload427, %237 ], [ %.sroa.12.2, %242 ], [ %.sroa.12.2, %257 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %237 ], [ %223, %242 ], [ %223, %257 ], [ %223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ null, %218 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload414, %237 ], [ %.sroa.0.2, %242 ], [ %.sroa.0.2, %257 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120 ], [ 0, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %258 = load i32, ptr %15, align 8, !tbaa !94
@@ -99075,21 +99075,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120: ; preds = %254, 
 
 260:                                              ; preds = %259
   %261 = load ptr, ptr %137, align 8, !tbaa !115
-  %262 = icmp eq ptr %261, %.sroa.9419.1
+  %262 = icmp eq ptr %261, %.sroa.9419.0
   br label %266
 
 263:                                              ; preds = %259
   %264 = load ptr, ptr %138, align 8, !tbaa !116
-  %265 = icmp eq ptr %264, %.sroa.12.1
+  %265 = icmp eq ptr %264, %.sroa.12.0
   br label %266
 
 266:                                              ; preds = %263, %260, %259, %.thread.i123
   %.0.i.i.i = phi i1 [ %265, %263 ], [ %262, %260 ], [ false, %.thread.i123 ], [ true, %259 ]
-  %.not.i.i.i125 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i125 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i125, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %267
 
 267:                                              ; preds = %266
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %269 = load atomic i64, ptr %268 acquire, align 8
   %270 = icmp eq i64 %269, 4294967297
   %271 = trunc i64 %269 to i32
@@ -99097,16 +99097,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120: ; preds = %254, 
 
 272:                                              ; preds = %267
   store i32 0, ptr %268, align 8, !tbaa !9
-  %273 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %273, align 4, !tbaa !12
-  %274 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %274 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load ptr, ptr %275, align 8
-  call void %276(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %277 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %276(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %277 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %279 = load ptr, ptr %278, align 8
-  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 280:                                              ; preds = %267
@@ -99129,7 +99129,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127: ; preds = %284, 
   br i1 %286, label %287, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 287:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %266, %272, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127, %287
@@ -101463,8 +101463,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 190:                                              ; preds = %._crit_edge, %.thread13.i72
   %191 = phi i32 [ %.pre, %._crit_edge ], [ %186, %.thread13.i72 ]
-  %.sroa.9211.2 = phi ptr [ %.sroa.9211.0.copyload213, %._crit_edge ], [ %.sroa.9211.0.copyload, %.thread13.i72 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload217, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i72 ]
+  %.sroa.9211.1 = phi ptr [ %.sroa.9211.0.copyload213, %._crit_edge ], [ %.sroa.9211.0.copyload, %.thread13.i72 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload217, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i72 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload205, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i72 ]
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr %183, align 4, !tbaa !16, !noalias !1371
@@ -101481,8 +101481,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i77
 
 196:                                              ; preds = %193, %190
-  %.sroa.9211.3 = phi ptr [ %.sroa.9211.0.copyload213, %193 ], [ %.sroa.9211.2, %190 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload217, %193 ], [ %.sroa.12.2, %190 ]
+  %.sroa.9211.2 = phi ptr [ %.sroa.9211.0.copyload213, %193 ], [ %.sroa.9211.1, %190 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload217, %193 ], [ %.sroa.12.1, %190 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload205, %193 ], [ %.sroa.0.1, %190 ]
   %197 = load atomic i64, ptr %183 acquire, align 8, !noalias !1371
   %198 = icmp eq i64 %197, 4294967297
@@ -101527,9 +101527,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74: ; preds = %212, %
   br label %.thread.i77
 
 .thread.i77:                                      ; preds = %176, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74, %200, %195
-  %.sroa.9211.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9211.0.copyload215, %195 ], [ %.sroa.9211.3, %200 ], [ %.sroa.9211.3, %215 ], [ %.sroa.9211.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload219, %195 ], [ %.sroa.12.3, %200 ], [ %.sroa.12.3, %215 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %195 ], [ %181, %200 ], [ %181, %215 ], [ %181, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
+  %.sroa.9211.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9211.0.copyload215, %195 ], [ %.sroa.9211.2, %200 ], [ %.sroa.9211.2, %215 ], [ %.sroa.9211.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload219, %195 ], [ %.sroa.12.2, %200 ], [ %.sroa.12.2, %215 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %195 ], [ %181, %200 ], [ %181, %215 ], [ %181, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ null, %176 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload206, %195 ], [ %.sroa.0.2, %200 ], [ %.sroa.0.2, %215 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74 ], [ 0, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %216 = load i32, ptr %8, align 8, !tbaa !94
@@ -101544,21 +101544,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74: ; preds = %212, %
 
 218:                                              ; preds = %217
   %219 = load ptr, ptr %125, align 8, !tbaa !115
-  %220 = icmp eq ptr %219, %.sroa.9211.1
+  %220 = icmp eq ptr %219, %.sroa.9211.0
   br label %224
 
 221:                                              ; preds = %217
   %222 = load ptr, ptr %126, align 8, !tbaa !116
-  %223 = icmp eq ptr %222, %.sroa.12.1
+  %223 = icmp eq ptr %222, %.sroa.12.0
   br label %224
 
 224:                                              ; preds = %221, %218, %217, %.thread.i77
   %.0.i.i.i = phi i1 [ %223, %221 ], [ %220, %218 ], [ false, %.thread.i77 ], [ true, %217 ]
-  %.not.i.i.i79 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i79 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i79, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %225
 
 225:                                              ; preds = %224
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %227 = load atomic i64, ptr %226 acquire, align 8
   %228 = icmp eq i64 %227, 4294967297
   %229 = trunc i64 %227 to i32
@@ -101566,16 +101566,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74: ; preds = %212, %
 
 230:                                              ; preds = %225
   store i32 0, ptr %226, align 8, !tbaa !9
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %231, align 4, !tbaa !12
-  %232 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %232 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 8
-  call void %234(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %235 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %234(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %235 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %237 = load ptr, ptr %236, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 238:                                              ; preds = %225
@@ -101598,7 +101598,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81: ; preds = %242, %
   br i1 %244, label %245, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 245:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %224, %230, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81, %245
@@ -103348,8 +103348,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 192:                                              ; preds = %._crit_edge, %.thread13.i68
   %193 = phi i32 [ %.pre, %._crit_edge ], [ %188, %.thread13.i68 ]
-  %.sroa.9196.2 = phi ptr [ %.sroa.9196.0.copyload198, %._crit_edge ], [ %.sroa.9196.0.copyload, %.thread13.i68 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload202, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i68 ]
+  %.sroa.9196.1 = phi ptr [ %.sroa.9196.0.copyload198, %._crit_edge ], [ %.sroa.9196.0.copyload, %.thread13.i68 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload202, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i68 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload190, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i68 ]
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr %185, align 4, !tbaa !16, !noalias !1396
@@ -103366,8 +103366,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i73
 
 198:                                              ; preds = %195, %192
-  %.sroa.9196.3 = phi ptr [ %.sroa.9196.0.copyload198, %195 ], [ %.sroa.9196.2, %192 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload202, %195 ], [ %.sroa.12.2, %192 ]
+  %.sroa.9196.2 = phi ptr [ %.sroa.9196.0.copyload198, %195 ], [ %.sroa.9196.1, %192 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload202, %195 ], [ %.sroa.12.1, %192 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload190, %195 ], [ %.sroa.0.1, %192 ]
   %199 = load atomic i64, ptr %185 acquire, align 8, !noalias !1396
   %200 = icmp eq i64 %199, 4294967297
@@ -103412,9 +103412,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70: ; preds = %214, %
   br label %.thread.i73
 
 .thread.i73:                                      ; preds = %178, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %217, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70, %202, %197
-  %.sroa.9196.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9196.0.copyload200, %197 ], [ %.sroa.9196.3, %202 ], [ %.sroa.9196.3, %217 ], [ %.sroa.9196.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload204, %197 ], [ %.sroa.12.3, %202 ], [ %.sroa.12.3, %217 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %197 ], [ %183, %202 ], [ %183, %217 ], [ %183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
+  %.sroa.9196.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9196.0.copyload200, %197 ], [ %.sroa.9196.2, %202 ], [ %.sroa.9196.2, %217 ], [ %.sroa.9196.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload204, %197 ], [ %.sroa.12.2, %202 ], [ %.sroa.12.2, %217 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %197 ], [ %183, %202 ], [ %183, %217 ], [ %183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ null, %178 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload191, %197 ], [ %.sroa.0.2, %202 ], [ %.sroa.0.2, %217 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70 ], [ 0, %178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %218 = load i32, ptr %8, align 8, !tbaa !94
@@ -103429,21 +103429,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70: ; preds = %214, %
 
 220:                                              ; preds = %219
   %221 = load ptr, ptr %124, align 8, !tbaa !115
-  %222 = icmp eq ptr %221, %.sroa.9196.1
+  %222 = icmp eq ptr %221, %.sroa.9196.0
   br label %226
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr %125, align 8, !tbaa !116
-  %225 = icmp eq ptr %224, %.sroa.12.1
+  %225 = icmp eq ptr %224, %.sroa.12.0
   br label %226
 
 226:                                              ; preds = %223, %220, %219, %.thread.i73
   %.0.i.i.i = phi i1 [ %225, %223 ], [ %222, %220 ], [ false, %.thread.i73 ], [ true, %219 ]
-  %.not.i.i.i75 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i75 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i75, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %227
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %229 = load atomic i64, ptr %228 acquire, align 8
   %230 = icmp eq i64 %229, 4294967297
   %231 = trunc i64 %229 to i32
@@ -103451,16 +103451,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70: ; preds = %214, %
 
 232:                                              ; preds = %227
   store i32 0, ptr %228, align 8, !tbaa !9
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %233, align 4, !tbaa !12
-  %234 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %234 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8
-  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %237 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %237 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %239 = load ptr, ptr %238, align 8
-  call void %239(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %239(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 240:                                              ; preds = %227
@@ -103483,7 +103483,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i77: ; preds = %244, %
   br i1 %246, label %247, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 247:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i77
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %226, %232, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i77, %247
@@ -105139,8 +105139,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 198:                                              ; preds = %._crit_edge, %.thread13.i86
   %199 = phi i32 [ %.pre, %._crit_edge ], [ %194, %.thread13.i86 ]
-  %.sroa.9276.2 = phi ptr [ %.sroa.9276.0.copyload278, %._crit_edge ], [ %.sroa.9276.0.copyload, %.thread13.i86 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload282, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i86 ]
+  %.sroa.9276.1 = phi ptr [ %.sroa.9276.0.copyload278, %._crit_edge ], [ %.sroa.9276.0.copyload, %.thread13.i86 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload282, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i86 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload270, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i86 ]
   %200 = add nsw i32 %199, 1
   store i32 %200, ptr %191, align 4, !tbaa !16, !noalias !1421
@@ -105157,8 +105157,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i91
 
 204:                                              ; preds = %201, %198
-  %.sroa.9276.3 = phi ptr [ %.sroa.9276.0.copyload278, %201 ], [ %.sroa.9276.2, %198 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload282, %201 ], [ %.sroa.12.2, %198 ]
+  %.sroa.9276.2 = phi ptr [ %.sroa.9276.0.copyload278, %201 ], [ %.sroa.9276.1, %198 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload282, %201 ], [ %.sroa.12.1, %198 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload270, %201 ], [ %.sroa.0.1, %198 ]
   %205 = load atomic i64, ptr %191 acquire, align 8, !noalias !1421
   %206 = icmp eq i64 %205, 4294967297
@@ -105203,9 +105203,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %220, %
   br label %.thread.i91
 
 .thread.i91:                                      ; preds = %184, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88, %208, %203
-  %.sroa.9276.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9276.0.copyload280, %203 ], [ %.sroa.9276.3, %208 ], [ %.sroa.9276.3, %223 ], [ %.sroa.9276.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload284, %203 ], [ %.sroa.12.3, %208 ], [ %.sroa.12.3, %223 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %203 ], [ %189, %208 ], [ %189, %223 ], [ %189, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
+  %.sroa.9276.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9276.0.copyload280, %203 ], [ %.sroa.9276.2, %208 ], [ %.sroa.9276.2, %223 ], [ %.sroa.9276.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload284, %203 ], [ %.sroa.12.2, %208 ], [ %.sroa.12.2, %223 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %203 ], [ %189, %208 ], [ %189, %223 ], [ %189, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ null, %184 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload271, %203 ], [ %.sroa.0.2, %208 ], [ %.sroa.0.2, %223 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88 ], [ 0, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %224 = load i32, ptr %8, align 8, !tbaa !94
@@ -105220,21 +105220,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %220, %
 
 226:                                              ; preds = %225
   %227 = load ptr, ptr %130, align 8, !tbaa !115
-  %228 = icmp eq ptr %227, %.sroa.9276.1
+  %228 = icmp eq ptr %227, %.sroa.9276.0
   br label %232
 
 229:                                              ; preds = %225
   %230 = load ptr, ptr %131, align 8, !tbaa !116
-  %231 = icmp eq ptr %230, %.sroa.12.1
+  %231 = icmp eq ptr %230, %.sroa.12.0
   br label %232
 
 232:                                              ; preds = %229, %226, %225, %.thread.i91
   %.0.i.i.i = phi i1 [ %231, %229 ], [ %228, %226 ], [ false, %.thread.i91 ], [ true, %225 ]
-  %.not.i.i.i93 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i93 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i93, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %233
 
 233:                                              ; preds = %232
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %235 = load atomic i64, ptr %234 acquire, align 8
   %236 = icmp eq i64 %235, 4294967297
   %237 = trunc i64 %235 to i32
@@ -105242,16 +105242,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %220, %
 
 238:                                              ; preds = %233
   store i32 0, ptr %234, align 8, !tbaa !9
-  %239 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %239 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %239, align 4, !tbaa !12
-  %240 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %240 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load ptr, ptr %241, align 8
-  call void %242(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %243 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %242(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %243 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %245(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 246:                                              ; preds = %233
@@ -105274,7 +105274,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95: ; preds = %250, %
   br i1 %252, label %253, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 253:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %232, %238, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i95, %253
@@ -105901,11 +105901,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %499 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %14) #29
-  %.pre296.pre = load ptr, ptr %13, align 8, !tbaa !173
+  %.pre291.pre = load ptr, ptr %13, align 8, !tbaa !173
   br label %500
 
 500:                                              ; preds = %498, %496
-  %.pre296 = phi ptr [ %.pre296.pre, %498 ], [ null, %496 ]
+  %.pre291 = phi ptr [ %.pre291.pre, %498 ], [ null, %496 ]
   %.pn67 = phi { ptr, i32 } [ %499, %498 ], [ %497, %496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %524
@@ -105983,13 +105983,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %515
   br label %526
 
 524:                                              ; preds = %514, %500
-  %525 = phi ptr [ %.pre296, %500 ], [ %446, %514 ]
+  %525 = phi ptr [ %.pre291, %500 ], [ %446, %514 ]
   %.pn75 = phi { ptr, i32 } [ %.pn67, %500 ], [ %.pn70.pn.pn.pn, %514 ]
   %.not.i.i.i161 = icmp eq ptr %525, null
   br i1 %.not.i.i.i161, label %_ZNSt6vectorIdSaIdEED2Ev.exit162, label %526
 
 526:                                              ; preds = %.thread, %524
-  %.pn75363 = phi { ptr, i32 } [ %523, %.thread ], [ %.pn75, %524 ]
+  %.pn75358 = phi { ptr, i32 } [ %523, %.thread ], [ %.pn75, %524 ]
   %527 = phi ptr [ %446, %.thread ], [ %525, %524 ]
   %528 = load ptr, ptr %179, align 8, !tbaa !174
   %529 = ptrtoint ptr %528 to i64
@@ -105999,7 +105999,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %515
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit162
 
 _ZNSt6vectorIdSaIdEED2Ev.exit162:                 ; preds = %524, %526
-  %.pn75364 = phi { ptr, i32 } [ %.pn75, %524 ], [ %.pn75363, %526 ]
+  %.pn75359 = phi { ptr, i32 } [ %.pn75, %524 ], [ %.pn75358, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %816
 
@@ -106215,11 +106215,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit194: ; p
   %618 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %19) #29
-  %.pre295.pre = load ptr, ptr %18, align 8, !tbaa !173
+  %.pre290.pre = load ptr, ptr %18, align 8, !tbaa !173
   br label %619
 
 619:                                              ; preds = %617, %615
-  %.pre295 = phi ptr [ %.pre295.pre, %617 ], [ null, %615 ]
+  %.pre290 = phi ptr [ %.pre290.pre, %617 ], [ null, %615 ]
   %.pn58 = phi { ptr, i32 } [ %618, %617 ], [ %616, %615 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %643
@@ -106247,11 +106247,11 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit194: ; p
   br i1 %629, label %.body192, label %.body192.sink.split
 
 .body192.sink.split:                              ; preds = %626, %608
-  %.sink386 = phi ptr [ %610, %608 ], [ %628, %626 ]
+  %.sink381 = phi ptr [ %610, %608 ], [ %628, %626 ]
   %.pn60.ph = phi { ptr, i32 } [ %609, %608 ], [ %627, %626 ]
   %630 = load i64, ptr %594, align 8, !tbaa !15
   %631 = add i64 %630, 1
-  call void @_ZdlPvm(ptr noundef %.sink386, i64 noundef %631) #30
+  call void @_ZdlPvm(ptr noundef %.sink381, i64 noundef %631) #30
   br label %.body192
 
 .body192:                                         ; preds = %.body192.sink.split, %626, %608
@@ -106281,7 +106281,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit194: ; p
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 104
   %638 = load ptr, ptr %637, align 8
   invoke void %638(ptr noundef nonnull align 8 dereferenceable(8) %635, ptr noundef nonnull %565)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit213 unwind label %.thread365
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit213 unwind label %.thread360
 
 _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %634
   %639 = load ptr, ptr %172, align 8, !tbaa !174
@@ -106291,20 +106291,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %634
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %791
 
-.thread365:                                       ; preds = %634
+.thread360:                                       ; preds = %634
   %642 = landingpad { ptr, i32 }
           cleanup
   br label %645
 
 643:                                              ; preds = %633, %619
-  %644 = phi ptr [ %.pre295, %619 ], [ %565, %633 ]
+  %644 = phi ptr [ %.pre290, %619 ], [ %565, %633 ]
   %.pn65 = phi { ptr, i32 } [ %.pn58, %619 ], [ %.pn60.pn.pn.pn, %633 ]
   %.not.i.i.i214 = icmp eq ptr %644, null
   br i1 %.not.i.i.i214, label %_ZNSt6vectorIdSaIdEED2Ev.exit215, label %645
 
-645:                                              ; preds = %.thread365, %643
-  %.pn65368 = phi { ptr, i32 } [ %642, %.thread365 ], [ %.pn65, %643 ]
-  %646 = phi ptr [ %565, %.thread365 ], [ %644, %643 ]
+645:                                              ; preds = %.thread360, %643
+  %.pn65363 = phi { ptr, i32 } [ %642, %.thread360 ], [ %.pn65, %643 ]
+  %646 = phi ptr [ %565, %.thread360 ], [ %644, %643 ]
   %647 = load ptr, ptr %172, align 8, !tbaa !174
   %648 = ptrtoint ptr %647 to i64
   %649 = ptrtoint ptr %646 to i64
@@ -106313,7 +106313,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %634
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit215
 
 _ZNSt6vectorIdSaIdEED2Ev.exit215:                 ; preds = %643, %645
-  %.pn65369 = phi { ptr, i32 } [ %.pn65, %643 ], [ %.pn65368, %645 ]
+  %.pn65364 = phi { ptr, i32 } [ %.pn65, %643 ], [ %.pn65363, %645 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %816
 
@@ -106737,7 +106737,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 816:                                              ; preds = %790, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239, %702, %_ZNSt6vectorIdSaIdEED2Ev.exit215, %_ZNSt6vectorIdSaIdEED2Ev.exit162, %412
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75364, %_ZNSt6vectorIdSaIdEED2Ev.exit162 ], [ %.pn65369, %_ZNSt6vectorIdSaIdEED2Ev.exit215 ], [ %.pn56, %702 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ %.pn52, %790 ], [ %.pn48.pn.pn, %412 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75359, %_ZNSt6vectorIdSaIdEED2Ev.exit162 ], [ %.pn65364, %_ZNSt6vectorIdSaIdEED2Ev.exit215 ], [ %.pn56, %702 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ %.pn52, %790 ], [ %.pn48.pn.pn, %412 ]
   %817 = load ptr, ptr %9, align 8, !tbaa !18
   %818 = icmp eq ptr %817, %180
   br i1 %818, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252
@@ -107287,8 +107287,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 208:                                              ; preds = %._crit_edge, %.thread13.i79
   %209 = phi i32 [ %.pre, %._crit_edge ], [ %204, %.thread13.i79 ]
-  %.sroa.9217.2 = phi ptr [ %.sroa.9217.0.copyload219, %._crit_edge ], [ %.sroa.9217.0.copyload, %.thread13.i79 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload223, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i79 ]
+  %.sroa.9217.1 = phi ptr [ %.sroa.9217.0.copyload219, %._crit_edge ], [ %.sroa.9217.0.copyload, %.thread13.i79 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload223, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i79 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload211, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i79 ]
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr %201, align 4, !tbaa !16, !noalias !1460
@@ -107305,8 +107305,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i84
 
 214:                                              ; preds = %211, %208
-  %.sroa.9217.3 = phi ptr [ %.sroa.9217.0.copyload219, %211 ], [ %.sroa.9217.2, %208 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload223, %211 ], [ %.sroa.12.2, %208 ]
+  %.sroa.9217.2 = phi ptr [ %.sroa.9217.0.copyload219, %211 ], [ %.sroa.9217.1, %208 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload223, %211 ], [ %.sroa.12.1, %208 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload211, %211 ], [ %.sroa.0.1, %208 ]
   %215 = load atomic i64, ptr %201 acquire, align 8, !noalias !1460
   %216 = icmp eq i64 %215, 4294967297
@@ -107351,9 +107351,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81: ; preds = %230, %
   br label %.thread.i84
 
 .thread.i84:                                      ; preds = %194, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %233, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81, %218, %213
-  %.sroa.9217.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9217.0.copyload221, %213 ], [ %.sroa.9217.3, %218 ], [ %.sroa.9217.3, %233 ], [ %.sroa.9217.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload225, %213 ], [ %.sroa.12.3, %218 ], [ %.sroa.12.3, %233 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %213 ], [ %199, %218 ], [ %199, %233 ], [ %199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
+  %.sroa.9217.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9217.0.copyload221, %213 ], [ %.sroa.9217.2, %218 ], [ %.sroa.9217.2, %233 ], [ %.sroa.9217.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload225, %213 ], [ %.sroa.12.2, %218 ], [ %.sroa.12.2, %233 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %213 ], [ %199, %218 ], [ %199, %233 ], [ %199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ null, %194 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload212, %213 ], [ %.sroa.0.2, %218 ], [ %.sroa.0.2, %233 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81 ], [ 0, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %234 = load i32, ptr %8, align 8, !tbaa !94
@@ -107368,21 +107368,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81: ; preds = %230, %
 
 236:                                              ; preds = %235
   %237 = load ptr, ptr %127, align 8, !tbaa !115
-  %238 = icmp eq ptr %237, %.sroa.9217.1
+  %238 = icmp eq ptr %237, %.sroa.9217.0
   br label %242
 
 239:                                              ; preds = %235
   %240 = load ptr, ptr %128, align 8, !tbaa !116
-  %241 = icmp eq ptr %240, %.sroa.12.1
+  %241 = icmp eq ptr %240, %.sroa.12.0
   br label %242
 
 242:                                              ; preds = %239, %236, %235, %.thread.i84
   %.0.i.i.i = phi i1 [ %241, %239 ], [ %238, %236 ], [ false, %.thread.i84 ], [ true, %235 ]
-  %.not.i.i.i86 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i86 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i86, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %243
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %245 = load atomic i64, ptr %244 acquire, align 8
   %246 = icmp eq i64 %245, 4294967297
   %247 = trunc i64 %245 to i32
@@ -107390,16 +107390,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i81: ; preds = %230, %
 
 248:                                              ; preds = %243
   store i32 0, ptr %244, align 8, !tbaa !9
-  %249 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %249, align 4, !tbaa !12
-  %250 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %250 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %252 = load ptr, ptr %251, align 8
-  call void %252(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %253 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %252(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %253 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
-  call void %255(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %255(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 256:                                              ; preds = %243
@@ -107422,7 +107422,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88: ; preds = %260, %
   br i1 %262, label %263, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 263:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %242, %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i88, %263
@@ -109705,8 +109705,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 140:                                              ; preds = %._crit_edge, %.thread13.i76
   %141 = phi i32 [ %.pre, %._crit_edge ], [ %136, %.thread13.i76 ]
-  %.sroa.9247.2 = phi ptr [ %.sroa.9247.0.copyload249, %._crit_edge ], [ %.sroa.9247.0.copyload, %.thread13.i76 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload253, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i76 ]
+  %.sroa.9247.1 = phi ptr [ %.sroa.9247.0.copyload249, %._crit_edge ], [ %.sroa.9247.0.copyload, %.thread13.i76 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload253, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i76 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload241, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i76 ]
   %142 = add nsw i32 %141, 1
   store i32 %142, ptr %133, align 4, !tbaa !16, !noalias !1476
@@ -109723,8 +109723,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i81
 
 146:                                              ; preds = %143, %140
-  %.sroa.9247.3 = phi ptr [ %.sroa.9247.0.copyload249, %143 ], [ %.sroa.9247.2, %140 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload253, %143 ], [ %.sroa.12.2, %140 ]
+  %.sroa.9247.2 = phi ptr [ %.sroa.9247.0.copyload249, %143 ], [ %.sroa.9247.1, %140 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload253, %143 ], [ %.sroa.12.1, %140 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload241, %143 ], [ %.sroa.0.1, %140 ]
   %147 = load atomic i64, ptr %133 acquire, align 8, !noalias !1476
   %148 = icmp eq i64 %147, 4294967297
@@ -109769,9 +109769,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78: ; preds = %162, %
   br label %.thread.i81
 
 .thread.i81:                                      ; preds = %126, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %165, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78, %150, %145
-  %.sroa.9247.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9247.0.copyload251, %145 ], [ %.sroa.9247.3, %150 ], [ %.sroa.9247.3, %165 ], [ %.sroa.9247.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload255, %145 ], [ %.sroa.12.3, %150 ], [ %.sroa.12.3, %165 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %145 ], [ %131, %150 ], [ %131, %165 ], [ %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
+  %.sroa.9247.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9247.0.copyload251, %145 ], [ %.sroa.9247.2, %150 ], [ %.sroa.9247.2, %165 ], [ %.sroa.9247.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload255, %145 ], [ %.sroa.12.2, %150 ], [ %.sroa.12.2, %165 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %145 ], [ %131, %150 ], [ %131, %165 ], [ %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ null, %126 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload242, %145 ], [ %.sroa.0.2, %150 ], [ %.sroa.0.2, %165 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78 ], [ 0, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %166 = load i32, ptr %10, align 8, !tbaa !94
@@ -109786,21 +109786,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78: ; preds = %162, %
 
 168:                                              ; preds = %167
   %169 = load ptr, ptr %85, align 8, !tbaa !115
-  %170 = icmp eq ptr %169, %.sroa.9247.1
+  %170 = icmp eq ptr %169, %.sroa.9247.0
   br label %174
 
 171:                                              ; preds = %167
   %172 = load ptr, ptr %86, align 8, !tbaa !116
-  %173 = icmp eq ptr %172, %.sroa.12.1
+  %173 = icmp eq ptr %172, %.sroa.12.0
   br label %174
 
 174:                                              ; preds = %171, %168, %167, %.thread.i81
   %.0.i.i.i = phi i1 [ %173, %171 ], [ %170, %168 ], [ false, %.thread.i81 ], [ true, %167 ]
-  %.not.i.i.i82 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i82 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i82, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %175
 
 175:                                              ; preds = %174
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %177 = load atomic i64, ptr %176 acquire, align 8
   %178 = icmp eq i64 %177, 4294967297
   %179 = trunc i64 %177 to i32
@@ -109808,16 +109808,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78: ; preds = %162, %
 
 180:                                              ; preds = %175
   store i32 0, ptr %176, align 8, !tbaa !9
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %181, align 4, !tbaa !12
-  %182 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %182 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %185 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %185 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 188:                                              ; preds = %175
@@ -109840,7 +109840,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84: ; preds = %192, %
   br i1 %194, label %195, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 195:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %174, %180, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84, %195
@@ -110383,11 +110383,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit121: ; pred
   %402 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %16) #29
-  %.pre266.pre = load ptr, ptr %15, align 8, !tbaa !173
+  %.pre261.pre = load ptr, ptr %15, align 8, !tbaa !173
   br label %403
 
 403:                                              ; preds = %401, %399
-  %.pre266 = phi ptr [ %.pre266.pre, %401 ], [ null, %399 ]
+  %.pre261 = phi ptr [ %.pre261.pre, %401 ], [ null, %399 ]
   %.pn61 = phi { ptr, i32 } [ %402, %401 ], [ %400, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %423
@@ -110443,7 +110443,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN4YAML6detail13it
   br label %501
 
 423:                                              ; preds = %414, %403
-  %424 = phi ptr [ %388, %414 ], [ %.pre266, %403 ]
+  %424 = phi ptr [ %388, %414 ], [ %.pre261, %403 ]
   %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %414 ], [ %.pn61, %403 ]
   %.not.i.i.i135 = icmp eq ptr %424, null
   br i1 %.not.i.i.i135, label %_ZNSt6vectorIdSaIdEED2Ev.exit136, label %425
@@ -111092,8 +111092,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 142:                                              ; preds = %._crit_edge, %.thread13.i70
   %143 = phi i32 [ %.pre, %._crit_edge ], [ %138, %.thread13.i70 ]
-  %.sroa.9170.2 = phi ptr [ %.sroa.9170.0.copyload172, %._crit_edge ], [ %.sroa.9170.0.copyload, %.thread13.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload176, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.9170.1 = phi ptr [ %.sroa.9170.0.copyload172, %._crit_edge ], [ %.sroa.9170.0.copyload, %.thread13.i70 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload176, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload164, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %135, align 4, !tbaa !16, !noalias !1491
@@ -111110,8 +111110,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i75
 
 148:                                              ; preds = %145, %142
-  %.sroa.9170.3 = phi ptr [ %.sroa.9170.0.copyload172, %145 ], [ %.sroa.9170.2, %142 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload176, %145 ], [ %.sroa.12.2, %142 ]
+  %.sroa.9170.2 = phi ptr [ %.sroa.9170.0.copyload172, %145 ], [ %.sroa.9170.1, %142 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload176, %145 ], [ %.sroa.12.1, %142 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload164, %145 ], [ %.sroa.0.1, %142 ]
   %149 = load atomic i64, ptr %135 acquire, align 8, !noalias !1491
   %150 = icmp eq i64 %149, 4294967297
@@ -111156,9 +111156,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %164, %
   br label %.thread.i75
 
 .thread.i75:                                      ; preds = %128, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %167, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72, %152, %147
-  %.sroa.9170.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9170.0.copyload174, %147 ], [ %.sroa.9170.3, %152 ], [ %.sroa.9170.3, %167 ], [ %.sroa.9170.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload178, %147 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %167 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %147 ], [ %133, %152 ], [ %133, %167 ], [ %133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
+  %.sroa.9170.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9170.0.copyload174, %147 ], [ %.sroa.9170.2, %152 ], [ %.sroa.9170.2, %167 ], [ %.sroa.9170.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload178, %147 ], [ %.sroa.12.2, %152 ], [ %.sroa.12.2, %167 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %147 ], [ %133, %152 ], [ %133, %167 ], [ %133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ null, %128 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload165, %147 ], [ %.sroa.0.2, %152 ], [ %.sroa.0.2, %167 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72 ], [ 0, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %168 = load i32, ptr %14, align 8, !tbaa !94
@@ -111173,21 +111173,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %164, %
 
 170:                                              ; preds = %169
   %171 = load ptr, ptr %87, align 8, !tbaa !115
-  %172 = icmp eq ptr %171, %.sroa.9170.1
+  %172 = icmp eq ptr %171, %.sroa.9170.0
   br label %176
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %88, align 8, !tbaa !116
-  %175 = icmp eq ptr %174, %.sroa.12.1
+  %175 = icmp eq ptr %174, %.sroa.12.0
   br label %176
 
 176:                                              ; preds = %173, %170, %169, %.thread.i75
   %.0.i.i.i = phi i1 [ %175, %173 ], [ %172, %170 ], [ false, %.thread.i75 ], [ true, %169 ]
-  %.not.i.i.i76 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i76 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i76, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %177
 
 177:                                              ; preds = %176
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %179 = load atomic i64, ptr %178 acquire, align 8
   %180 = icmp eq i64 %179, 4294967297
   %181 = trunc i64 %179 to i32
@@ -111195,16 +111195,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %164, %
 
 182:                                              ; preds = %177
   store i32 0, ptr %178, align 8, !tbaa !9
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %183, align 4, !tbaa !12
-  %184 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %184 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %187 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %187 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
-  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 190:                                              ; preds = %177
@@ -111227,7 +111227,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78: ; preds = %194, %
   br i1 %196, label %197, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 197:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %176, %182, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i78, %197
@@ -112467,8 +112467,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 134:                                              ; preds = %._crit_edge, %.thread13.i61
   %135 = phi i32 [ %.pre, %._crit_edge ], [ %130, %.thread13.i61 ]
-  %.sroa.9153.2 = phi ptr [ %.sroa.9153.0.copyload155, %._crit_edge ], [ %.sroa.9153.0.copyload, %.thread13.i61 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload159, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i61 ]
+  %.sroa.9153.1 = phi ptr [ %.sroa.9153.0.copyload155, %._crit_edge ], [ %.sroa.9153.0.copyload, %.thread13.i61 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload159, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i61 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload147, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i61 ]
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %127, align 4, !tbaa !16, !noalias !1506
@@ -112485,8 +112485,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i66
 
 140:                                              ; preds = %137, %134
-  %.sroa.9153.3 = phi ptr [ %.sroa.9153.0.copyload155, %137 ], [ %.sroa.9153.2, %134 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload159, %137 ], [ %.sroa.12.2, %134 ]
+  %.sroa.9153.2 = phi ptr [ %.sroa.9153.0.copyload155, %137 ], [ %.sroa.9153.1, %134 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload159, %137 ], [ %.sroa.12.1, %134 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload147, %137 ], [ %.sroa.0.1, %134 ]
   %141 = load atomic i64, ptr %127 acquire, align 8, !noalias !1506
   %142 = icmp eq i64 %141, 4294967297
@@ -112531,9 +112531,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63: ; preds = %156, %
   br label %.thread.i66
 
 .thread.i66:                                      ; preds = %120, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %159, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63, %144, %139
-  %.sroa.9153.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9153.0.copyload157, %139 ], [ %.sroa.9153.3, %144 ], [ %.sroa.9153.3, %159 ], [ %.sroa.9153.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload161, %139 ], [ %.sroa.12.3, %144 ], [ %.sroa.12.3, %159 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %139 ], [ %125, %144 ], [ %125, %159 ], [ %125, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
+  %.sroa.9153.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9153.0.copyload157, %139 ], [ %.sroa.9153.2, %144 ], [ %.sroa.9153.2, %159 ], [ %.sroa.9153.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload161, %139 ], [ %.sroa.12.2, %144 ], [ %.sroa.12.2, %159 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %139 ], [ %125, %144 ], [ %125, %159 ], [ %125, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ null, %120 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload148, %139 ], [ %.sroa.0.2, %144 ], [ %.sroa.0.2, %159 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63 ], [ 0, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %160 = load i32, ptr %12, align 8, !tbaa !94
@@ -112548,21 +112548,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63: ; preds = %156, %
 
 162:                                              ; preds = %161
   %163 = load ptr, ptr %84, align 8, !tbaa !115
-  %164 = icmp eq ptr %163, %.sroa.9153.1
+  %164 = icmp eq ptr %163, %.sroa.9153.0
   br label %168
 
 165:                                              ; preds = %161
   %166 = load ptr, ptr %85, align 8, !tbaa !116
-  %167 = icmp eq ptr %166, %.sroa.12.1
+  %167 = icmp eq ptr %166, %.sroa.12.0
   br label %168
 
 168:                                              ; preds = %165, %162, %161, %.thread.i66
   %.0.i.i.i = phi i1 [ %167, %165 ], [ %164, %162 ], [ false, %.thread.i66 ], [ true, %161 ]
-  %.not.i.i.i67 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i67 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i67, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %169
 
 169:                                              ; preds = %168
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %171 = load atomic i64, ptr %170 acquire, align 8
   %172 = icmp eq i64 %171, 4294967297
   %173 = trunc i64 %171 to i32
@@ -112570,16 +112570,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63: ; preds = %156, %
 
 174:                                              ; preds = %169
   store i32 0, ptr %170, align 8, !tbaa !9
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %175, align 4, !tbaa !12
-  %176 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %176 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %179 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %178(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %179 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load ptr, ptr %180, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %181(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 182:                                              ; preds = %169
@@ -112602,7 +112602,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69: ; preds = %186, %
   br i1 %188, label %189, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 189:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %168, %174, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69, %189
@@ -114022,17 +114022,17 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.sroa.0.0.copyload297 = load i32, ptr %9, align 8
   %.sroa.9303.0.copyload305 = load ptr, ptr %.sroa.9303.0..sroa_idx304, align 8
   %.sroa.12.0.copyload309 = load ptr, ptr %.sroa.12.0..sroa_idx308, align 8
-  br i1 %142, label %146, label %._crit_edge322
+  br i1 %142, label %146, label %._crit_edge317
 
-._crit_edge322:                                   ; preds = %140
+._crit_edge317:                                   ; preds = %140
   %.pre = load i32, ptr %136, align 4, !tbaa !16, !noalias !1521
   br label %143
 
-143:                                              ; preds = %._crit_edge322, %.thread13.i109
-  %144 = phi i32 [ %.pre, %._crit_edge322 ], [ %139, %.thread13.i109 ]
-  %.sroa.9303.2 = phi ptr [ %.sroa.9303.0.copyload305, %._crit_edge322 ], [ %.sroa.9303.0.copyload, %.thread13.i109 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload309, %._crit_edge322 ], [ %.sroa.12.0.copyload, %.thread13.i109 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload297, %._crit_edge322 ], [ %.sroa.0.0.copyload, %.thread13.i109 ]
+143:                                              ; preds = %._crit_edge317, %.thread13.i109
+  %144 = phi i32 [ %.pre, %._crit_edge317 ], [ %139, %.thread13.i109 ]
+  %.sroa.9303.1 = phi ptr [ %.sroa.9303.0.copyload305, %._crit_edge317 ], [ %.sroa.9303.0.copyload, %.thread13.i109 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload309, %._crit_edge317 ], [ %.sroa.12.0.copyload, %.thread13.i109 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload297, %._crit_edge317 ], [ %.sroa.0.0.copyload, %.thread13.i109 ]
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr %136, align 4, !tbaa !16, !noalias !1521
   br label %149
@@ -114048,8 +114048,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i114
 
 149:                                              ; preds = %146, %143
-  %.sroa.9303.3 = phi ptr [ %.sroa.9303.0.copyload305, %146 ], [ %.sroa.9303.2, %143 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload309, %146 ], [ %.sroa.12.2, %143 ]
+  %.sroa.9303.2 = phi ptr [ %.sroa.9303.0.copyload305, %146 ], [ %.sroa.9303.1, %143 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload309, %146 ], [ %.sroa.12.1, %143 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload297, %146 ], [ %.sroa.0.1, %143 ]
   %150 = load atomic i64, ptr %136 acquire, align 8, !noalias !1521
   %151 = icmp eq i64 %150, 4294967297
@@ -114094,9 +114094,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111: ; preds = %165, 
   br label %.thread.i114
 
 .thread.i114:                                     ; preds = %129, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %168, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111, %153, %148
-  %.sroa.9303.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9303.0.copyload307, %148 ], [ %.sroa.9303.3, %153 ], [ %.sroa.9303.3, %168 ], [ %.sroa.9303.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload311, %148 ], [ %.sroa.12.3, %153 ], [ %.sroa.12.3, %168 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %148 ], [ %134, %153 ], [ %134, %168 ], [ %134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
+  %.sroa.9303.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9303.0.copyload307, %148 ], [ %.sroa.9303.2, %153 ], [ %.sroa.9303.2, %168 ], [ %.sroa.9303.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload311, %148 ], [ %.sroa.12.2, %153 ], [ %.sroa.12.2, %168 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %148 ], [ %134, %153 ], [ %134, %168 ], [ %134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ null, %129 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload298, %148 ], [ %.sroa.0.2, %153 ], [ %.sroa.0.2, %168 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111 ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %169 = load i32, ptr %11, align 8, !tbaa !94
@@ -114111,21 +114111,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111: ; preds = %165, 
 
 171:                                              ; preds = %170
   %172 = load ptr, ptr %89, align 8, !tbaa !115
-  %173 = icmp eq ptr %172, %.sroa.9303.1
+  %173 = icmp eq ptr %172, %.sroa.9303.0
   br label %177
 
 174:                                              ; preds = %170
   %175 = load ptr, ptr %90, align 8, !tbaa !116
-  %176 = icmp eq ptr %175, %.sroa.12.1
+  %176 = icmp eq ptr %175, %.sroa.12.0
   br label %177
 
 177:                                              ; preds = %174, %171, %170, %.thread.i114
   %.0.i.i.i = phi i1 [ %176, %174 ], [ %173, %171 ], [ false, %.thread.i114 ], [ true, %170 ]
-  %.not.i.i.i115 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i115 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i115, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %178
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %180 = load atomic i64, ptr %179 acquire, align 8
   %181 = icmp eq i64 %180, 4294967297
   %182 = trunc i64 %180 to i32
@@ -114133,16 +114133,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111: ; preds = %165, 
 
 183:                                              ; preds = %178
   store i32 0, ptr %179, align 8, !tbaa !9
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %184, align 4, !tbaa !12
-  %185 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %185 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %188 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %188 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 191:                                              ; preds = %178
@@ -114165,7 +114165,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117: ; preds = %195, 
   br i1 %197, label %198, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 198:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %177, %183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117, %198
@@ -114748,11 +114748,11 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit:                 ; preds = %407, %411
   %423 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %17) #29
-  %.pre324.pre = load ptr, ptr %16, align 8, !tbaa !536
+  %.pre319.pre = load ptr, ptr %16, align 8, !tbaa !536
   br label %424
 
 424:                                              ; preds = %422, %420
-  %.pre324 = phi ptr [ %.pre324.pre, %422 ], [ null, %420 ]
+  %.pre319 = phi ptr [ %.pre319.pre, %422 ], [ null, %420 ]
   %.pn90 = phi { ptr, i32 } [ %423, %422 ], [ %421, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.body157
@@ -114858,7 +114858,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge274, %._
   br label %.body157
 
 .body157:                                         ; preds = %425, %403, %437, %462, %448, %424
-  %464 = phi ptr [ %.pre324, %424 ], [ %391, %448 ], [ %391, %437 ], [ %391, %462 ], [ %391, %425 ], [ %391, %403 ]
+  %464 = phi ptr [ %.pre319, %424 ], [ %391, %448 ], [ %391, %437 ], [ %391, %462 ], [ %391, %425 ], [ %391, %403 ]
   %.pn96.pn.pn = phi { ptr, i32 } [ %.pn90, %424 ], [ %449, %448 ], [ %.pn93.pn, %437 ], [ %463, %462 ], [ %426, %425 ], [ %404, %403 ]
   %.not.i.i.i173 = icmp eq ptr %464, null
   br i1 %.not.i.i.i173, label %_ZNSt6vectorIfSaIfEED2Ev.exit174, label %465
@@ -115052,11 +115052,11 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit188:              ; preds = %524, %528
   %540 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %21) #29
-  %.pre323.pre = load ptr, ptr %20, align 8, !tbaa !536
+  %.pre318.pre = load ptr, ptr %20, align 8, !tbaa !536
   br label %541
 
 541:                                              ; preds = %539, %537
-  %.pre323 = phi ptr [ %.pre323.pre, %539 ], [ null, %537 ]
+  %.pre318 = phi ptr [ %.pre318.pre, %539 ], [ null, %537 ]
   %.pn82 = phi { ptr, i32 } [ %540, %539 ], [ %538, %537 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body185
@@ -115137,13 +115137,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit208:                 ; preds = %._crit_edge, %._cri
   br label %568
 
 .body185:                                         ; preds = %542, %520, %554, %541
-  %567 = phi ptr [ %.pre323, %541 ], [ %503, %520 ], [ %503, %554 ], [ %503, %542 ]
+  %567 = phi ptr [ %.pre318, %541 ], [ %503, %520 ], [ %503, %554 ], [ %503, %542 ]
   %.pn87.pn = phi { ptr, i32 } [ %.pn82, %541 ], [ %521, %520 ], [ %.pn84.pn, %554 ], [ %543, %542 ]
   %.not.i.i.i209 = icmp eq ptr %567, null
   br i1 %.not.i.i.i209, label %_ZNSt6vectorIfSaIfEED2Ev.exit210, label %568
 
 568:                                              ; preds = %.body185.thread, %.body185
-  %.pn87.pn383 = phi { ptr, i32 } [ %566, %.body185.thread ], [ %.pn87.pn, %.body185 ]
+  %.pn87.pn378 = phi { ptr, i32 } [ %566, %.body185.thread ], [ %.pn87.pn, %.body185 ]
   %569 = phi ptr [ %503, %.body185.thread ], [ %567, %.body185 ]
   %570 = load ptr, ptr %117, align 8, !tbaa !534
   %571 = ptrtoint ptr %570 to i64
@@ -115153,7 +115153,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit208:                 ; preds = %._crit_edge, %._cri
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit210
 
 _ZNSt6vectorIfSaIfEED2Ev.exit210:                 ; preds = %.body185, %568
-  %.pn87.pn384 = phi { ptr, i32 } [ %.pn87.pn, %.body185 ], [ %.pn87.pn383, %568 ]
+  %.pn87.pn379 = phi { ptr, i32 } [ %.pn87.pn, %.body185 ], [ %.pn87.pn378, %568 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %633
 
@@ -115312,7 +115312,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 633:                                              ; preds = %607, %_ZNSt6vectorIfSaIfEED2Ev.exit210, %_ZNSt6vectorIfSaIfEED2Ev.exit174, %357
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit174 ], [ %.pn87.pn384, %_ZNSt6vectorIfSaIfEED2Ev.exit210 ], [ %.pn80, %607 ], [ %.pn76.pn.pn, %357 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit174 ], [ %.pn87.pn379, %_ZNSt6vectorIfSaIfEED2Ev.exit210 ], [ %.pn80, %607 ], [ %.pn76.pn.pn, %357 ]
   %634 = load ptr, ptr %12, align 8, !tbaa !18
   %635 = icmp eq ptr %634, %125
   br i1 %635, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i223
@@ -115886,8 +115886,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
 
 157:                                              ; preds = %._crit_edge, %.thread13.i105
   %158 = phi i32 [ %.pre, %._crit_edge ], [ %153, %.thread13.i105 ]
-  %.sroa.9391.2 = phi ptr [ %.sroa.9391.0.copyload393, %._crit_edge ], [ %.sroa.9391.0.copyload, %.thread13.i105 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload397, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i105 ]
+  %.sroa.9391.1 = phi ptr [ %.sroa.9391.0.copyload393, %._crit_edge ], [ %.sroa.9391.0.copyload, %.thread13.i105 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0.copyload397, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i105 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload385, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i105 ]
   %159 = add nsw i32 %158, 1
   store i32 %159, ptr %150, align 4, !tbaa !16, !noalias !1541
@@ -115904,8 +115904,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   br label %.thread.i110
 
 163:                                              ; preds = %160, %157
-  %.sroa.9391.3 = phi ptr [ %.sroa.9391.0.copyload393, %160 ], [ %.sroa.9391.2, %157 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.0.copyload397, %160 ], [ %.sroa.12.2, %157 ]
+  %.sroa.9391.2 = phi ptr [ %.sroa.9391.0.copyload393, %160 ], [ %.sroa.9391.1, %157 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload397, %160 ], [ %.sroa.12.1, %157 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload385, %160 ], [ %.sroa.0.1, %157 ]
   %164 = load atomic i64, ptr %150 acquire, align 8, !noalias !1541
   %165 = icmp eq i64 %164, 4294967297
@@ -115950,9 +115950,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107: ; preds = %179, 
   br label %.thread.i110
 
 .thread.i110:                                     ; preds = %143, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit, %182, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107, %167, %162
-  %.sroa.9391.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9391.0.copyload395, %162 ], [ %.sroa.9391.3, %167 ], [ %.sroa.9391.3, %182 ], [ %.sroa.9391.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
-  %.sroa.12.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload399, %162 ], [ %.sroa.12.3, %167 ], [ %.sroa.12.3, %182 ], [ %.sroa.12.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
-  %.sroa.16.1 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %162 ], [ %148, %167 ], [ %148, %182 ], [ %148, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
+  %.sroa.9391.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.9391.0.copyload395, %162 ], [ %.sroa.9391.2, %167 ], [ %.sroa.9391.2, %182 ], [ %.sroa.9391.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.12.0.copyload399, %162 ], [ %.sroa.12.2, %167 ], [ %.sroa.12.2, %182 ], [ %.sroa.12.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ null, %162 ], [ %148, %167 ], [ %148, %182 ], [ %148, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ null, %143 ]
   %.sroa.0.0 = phi i32 [ 0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit ], [ %.sroa.0.0.copyload386, %162 ], [ %.sroa.0.2, %167 ], [ %.sroa.0.2, %182 ], [ %.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107 ], [ 0, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %183 = load i32, ptr %11, align 8, !tbaa !94
@@ -115967,21 +115967,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107: ; preds = %179, 
 
 185:                                              ; preds = %184
   %186 = load ptr, ptr %89, align 8, !tbaa !115
-  %187 = icmp eq ptr %186, %.sroa.9391.1
+  %187 = icmp eq ptr %186, %.sroa.9391.0
   br label %191
 
 188:                                              ; preds = %184
   %189 = load ptr, ptr %90, align 8, !tbaa !116
-  %190 = icmp eq ptr %189, %.sroa.12.1
+  %190 = icmp eq ptr %189, %.sroa.12.0
   br label %191
 
 191:                                              ; preds = %188, %185, %184, %.thread.i110
   %.0.i.i.i = phi i1 [ %190, %188 ], [ %187, %185 ], [ false, %.thread.i110 ], [ true, %184 ]
-  %.not.i.i.i111 = icmp eq ptr %.sroa.16.1, null
+  %.not.i.i.i111 = icmp eq ptr %.sroa.16.0, null
   br i1 %.not.i.i.i111, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, label %192
 
 192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 8
   %194 = load atomic i64, ptr %193 acquire, align 8
   %195 = icmp eq i64 %194, 4294967297
   %196 = trunc i64 %194 to i32
@@ -115989,16 +115989,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107: ; preds = %179, 
 
 197:                                              ; preds = %192
   store i32 0, ptr %193, align 8, !tbaa !9
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.16.1, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 12
   store i32 0, ptr %198, align 4, !tbaa !12
-  %199 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  %199 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
-  %202 = load ptr, ptr %.sroa.16.1, align 8, !tbaa !13
+  call void %201(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
+  %202 = load ptr, ptr %.sroa.16.0, align 8, !tbaa !13
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 205:                                              ; preds = %192
@@ -116021,7 +116021,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113: ; preds = %209, 
   br i1 %211, label %212, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit, !prof !17
 
 212:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.1) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.0) #29
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit: ; preds = %191, %197, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113, %212
@@ -116566,11 +116566,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit150: ; pred
   %419 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %17) #29
-  %.pre410.pre = load ptr, ptr %16, align 8, !tbaa !173
+  %.pre405.pre = load ptr, ptr %16, align 8, !tbaa !173
   br label %420
 
 420:                                              ; preds = %418, %416
-  %.pre410 = phi ptr [ %.pre410.pre, %418 ], [ null, %416 ]
+  %.pre405 = phi ptr [ %.pre405.pre, %418 ], [ null, %416 ]
   %.pn90 = phi { ptr, i32 } [ %419, %418 ], [ %417, %416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %440
@@ -116626,7 +116626,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN4YAML6detail13it
   br label %592
 
 440:                                              ; preds = %431, %420
-  %441 = phi ptr [ %405, %431 ], [ %.pre410, %420 ]
+  %441 = phi ptr [ %405, %431 ], [ %.pre405, %420 ]
   %.pn92.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %431 ], [ %.pn90, %420 ]
   %.not.i.i.i164 = icmp eq ptr %441, null
   br i1 %.not.i.i.i164, label %_ZNSt6vectorIdSaIdEED2Ev.exit165, label %442
@@ -118654,7 +118654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4Y
 
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
   %69 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 28)
-          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit unwind label %.loopexit.split-lp250
+          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit unwind label %.loopexit.split-lp247
 
 70:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %71 = landingpad { ptr, i32 }
@@ -118680,17 +118680,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %.bo
   br label %499
 
 76:                                               ; preds = %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
-  %.043265 = phi i64 [ 0, %61 ], [ %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
+  %.043262 = phi i64 [ 0, %61 ], [ %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %77 = load ptr, ptr %1, align 8, !tbaa !275
-  %78 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace8getAliasEm(ptr noundef nonnull align 8 dereferenceable(8) %77, i64 noundef %.043265) #29
+  %78 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace8getAliasEm(ptr noundef nonnull align 8 dereferenceable(8) %77, i64 noundef %.043262) #29
   store ptr %64, ptr %10, align 8, !tbaa !61
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %76
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.109) #31
-          to label %.noexc88 unwind label %.loopexit.split-lp255
+          to label %.noexc88 unwind label %.loopexit.split-lp252
 
 .noexc88:                                         ; preds = %80
   unreachable
@@ -118704,7 +118704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %.bo
 
 .noexc.i87:                                       ; preds = %81
   %84 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-          to label %.noexc89 unwind label %.loopexit254
+          to label %.noexc89 unwind label %.loopexit251
 
 .noexc89:                                         ; preds = %.noexc.i87
   store ptr %84, ptr %10, align 8, !tbaa !18
@@ -118777,29 +118777,29 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit unwind label %113
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %108
-  %.pre266 = load ptr, ptr %10, align 8, !tbaa !18
-  %109 = icmp eq ptr %.pre266, %64
+  %.pre263 = load ptr, ptr %10, align 8, !tbaa !18
+  %109 = icmp eq ptr %.pre263, %64
   br i1 %109, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
   %110 = load i64, ptr %64, align 8, !tbaa !15
   %111 = add i64 %110, 1
-  call void @_ZdlPvm(ptr noundef %.pre266, i64 noundef %111) #30
+  call void @_ZdlPvm(ptr noundef %.pre263, i64 noundef %111) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %112 = add nuw i64 %.043265, 1
+  %112 = add nuw i64 %.043262, 1
   %exitcond.not = icmp eq i64 %112, %58
   br i1 %exitcond.not, label %68, label %76, !llvm.loop !1567
 
-.loopexit254:                                     ; preds = %.noexc.i87
-  %lpad.loopexit256 = landingpad { ptr, i32 }
+.loopexit251:                                     ; preds = %.noexc.i87
+  %lpad.loopexit253 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
 
-.loopexit.split-lp255:                            ; preds = %80
-  %lpad.loopexit.split-lp257 = landingpad { ptr, i32 }
+.loopexit.split-lp252:                            ; preds = %80
+  %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
 
@@ -118816,18 +118816,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
   call void @_ZdlPvm(ptr noundef %115, i64 noundef %118) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %113, %.loopexit254, %.loopexit.split-lp255, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
-  %.pn74 = phi { ptr, i32 } [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ], [ %lpad.loopexit256, %.loopexit254 ], [ %114, %113 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %113, %.loopexit251, %.loopexit.split-lp252, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
+  %.pn74 = phi { ptr, i32 } [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95 ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp252 ], [ %lpad.loopexit253, %.loopexit251 ], [ %114, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %140
 
 _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit: ; preds = %68
   %119 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %69, i32 noundef 33)
-          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99 unwind label %.loopexit.split-lp250
+          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99 unwind label %.loopexit.split-lp247
 
 _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99: ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit
   %120 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %119, i32 noundef 26)
-          to label %.noexc101 unwind label %.loopexit.split-lp250
+          to label %.noexc101 unwind label %.loopexit.split-lp247
 
 .noexc101:                                        ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99
   %121 = load ptr, ptr %9, align 8, !tbaa !161
@@ -118838,7 +118838,7 @@ _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99: ; preds = %_ZN4YAMLlsERNS_7E
 .lr.ph.i.i:                                       ; preds = %.noexc101, %.noexc102
   %.sroa.08.012.i.i = phi ptr [ %124, %.noexc102 ], [ %121, %.noexc101 ]
   %123 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %119, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.012.i.i)
-          to label %.noexc102 unwind label %.loopexit249
+          to label %.noexc102 unwind label %.loopexit246
 
 .noexc102:                                        ; preds = %.lr.ph.i.i
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i, i64 32
@@ -118847,7 +118847,7 @@ _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99: ; preds = %_ZN4YAMLlsERNS_7E
 
 _ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i: ; preds = %.noexc102, %.noexc101
   %125 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %119, i32 noundef 27)
-          to label %_ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit unwind label %.loopexit.split-lp250
+          to label %_ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit unwind label %.loopexit.split-lp247
 
 _ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit: ; preds = %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i
   %126 = load ptr, ptr %9, align 8, !tbaa !63
@@ -118894,18 +118894,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %141
 
-.loopexit249:                                     ; preds = %.lr.ph.i.i
-  %lpad.loopexit251 = landingpad { ptr, i32 }
+.loopexit246:                                     ; preds = %.lr.ph.i.i
+  %lpad.loopexit248 = landingpad { ptr, i32 }
           cleanup
   br label %140
 
-.loopexit.split-lp250:                            ; preds = %68, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99, %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i
-  %lpad.loopexit.split-lp252 = landingpad { ptr, i32 }
+.loopexit.split-lp247:                            ; preds = %68, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit99, %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i
+  %lpad.loopexit.split-lp249 = landingpad { ptr, i32 }
           cleanup
   br label %140
 
-140:                                              ; preds = %.loopexit249, %.loopexit.split-lp250, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
-  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ]
+140:                                              ; preds = %.loopexit246, %.loopexit.split-lp247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
+  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %lpad.loopexit248, %.loopexit246 ], [ %lpad.loopexit.split-lp249, %.loopexit.split-lp247 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %499
@@ -118965,7 +118965,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 182:                                              ; preds = %180
   %183 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 32)
-          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105 unwind label %.loopexit.split-lp240
+          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105 unwind label %.loopexit.split-lp237
 
 184:                                              ; preds = %177
   %185 = landingpad { ptr, i32 }
@@ -118985,7 +118985,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 191:                                              ; preds = %189
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.109) #31
-          to label %.noexc108 unwind label %.loopexit.split-lp245
+          to label %.noexc108 unwind label %.loopexit.split-lp242
 
 .noexc108:                                        ; preds = %191
   unreachable
@@ -118999,7 +118999,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .noexc.i107:                                      ; preds = %192
   %195 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc109 unwind label %.loopexit244
+          to label %.noexc109 unwind label %.loopexit241
 
 .noexc109:                                        ; preds = %.noexc.i107
   store ptr %195, ptr %12, align 8, !tbaa !18
@@ -119054,11 +119054,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %209, ptr %205, align 8, !tbaa !18
   %215 = load i64, ptr %173, align 8, !tbaa !15
   store i64 %215, ptr %208, align 8, !tbaa !15
-  %.pre267 = load i64, ptr %174, align 8, !tbaa !62
+  %.pre264 = load i64, ptr %174, align 8, !tbaa !62
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115.thread
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115.thread: ; preds = %211, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i112
-  %216 = phi i64 [ %.pre267, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i112 ], [ %212, %211 ]
+  %216 = phi i64 [ %.pre264, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i112 ], [ %212, %211 ]
   %217 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i64 %216, ptr %217, align 8, !tbaa !62
   store ptr %173, ptr %12, align 8, !tbaa !18
@@ -119072,14 +119072,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115 unwind label %226
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115: ; preds = %219
-  %.pre268 = load ptr, ptr %12, align 8, !tbaa !18
-  %220 = icmp eq ptr %.pre268, %173
+  %.pre265 = load ptr, ptr %12, align 8, !tbaa !18
+  %220 = icmp eq ptr %.pre265, %173
   br i1 %220, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115
   %221 = load i64, ptr %173, align 8, !tbaa !15
   %222 = add i64 %221, 1
-  call void @_ZdlPvm(ptr noundef %.pre268, i64 noundef %222) #30
+  call void @_ZdlPvm(ptr noundef %.pre265, i64 noundef %222) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit115.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116
@@ -119092,13 +119092,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
 
-.loopexit244:                                     ; preds = %.noexc.i107
-  %lpad.loopexit246 = landingpad { ptr, i32 }
+.loopexit241:                                     ; preds = %.noexc.i107
+  %lpad.loopexit243 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
 
-.loopexit.split-lp245:                            ; preds = %191
-  %lpad.loopexit.split-lp247 = landingpad { ptr, i32 }
+.loopexit.split-lp242:                            ; preds = %191
+  %lpad.loopexit.split-lp244 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
 
@@ -119115,26 +119115,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   call void @_ZdlPvm(ptr noundef %228, i64 noundef %231) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %226, %.loopexit244, %.loopexit.split-lp245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119, %224
-  %.pn69.pn = phi { ptr, i32 } [ %225, %224 ], [ %227, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119 ], [ %lpad.loopexit.split-lp247, %.loopexit.split-lp245 ], [ %lpad.loopexit246, %.loopexit244 ], [ %227, %226 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %226, %.loopexit241, %.loopexit.split-lp242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119, %224
+  %.pn69.pn = phi { ptr, i32 } [ %225, %224 ], [ %227, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119 ], [ %lpad.loopexit.split-lp244, %.loopexit.split-lp242 ], [ %lpad.loopexit243, %.loopexit241 ], [ %227, %226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %256
 
 _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105: ; preds = %182
   %232 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAMLlsERNS_7EmitterEPKc(ptr noundef nonnull align 8 dereferenceable(72) %183, ptr noundef nonnull @.str.163)
-          to label %233 unwind label %.loopexit.split-lp240
+          to label %233 unwind label %.loopexit.split-lp237
 
 233:                                              ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105
   %234 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 28)
-          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123 unwind label %.loopexit.split-lp240
+          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123 unwind label %.loopexit.split-lp237
 
 _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123: ; preds = %233
   %235 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %234, i32 noundef 33)
-          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125 unwind label %.loopexit.split-lp240
+          to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125 unwind label %.loopexit.split-lp237
 
 _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125: ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123
   %236 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %235, i32 noundef 26)
-          to label %.noexc131 unwind label %.loopexit.split-lp240
+          to label %.noexc131 unwind label %.loopexit.split-lp237
 
 .noexc131:                                        ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125
   %237 = load ptr, ptr %11, align 8, !tbaa !161
@@ -119145,7 +119145,7 @@ _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125: ; preds = %_ZN4YAMLlsERNS_7
 .lr.ph.i.i127:                                    ; preds = %.noexc131, %.noexc132
   %.sroa.08.012.i.i128 = phi ptr [ %240, %.noexc132 ], [ %237, %.noexc131 ]
   %239 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %235, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.012.i.i128)
-          to label %.noexc132 unwind label %.loopexit239
+          to label %.noexc132 unwind label %.loopexit236
 
 .noexc132:                                        ; preds = %.lr.ph.i.i127
   %240 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i128, i64 32
@@ -119154,7 +119154,7 @@ _ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125: ; preds = %_ZN4YAMLlsERNS_7
 
 _ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i130: ; preds = %.noexc132, %.noexc131
   %241 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %235, i32 noundef 27)
-          to label %_ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit134 unwind label %.loopexit.split-lp240
+          to label %_ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit134 unwind label %.loopexit.split-lp237
 
 _ZN4YAMLlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_7EmitterES8_RKSt6vectorIT_SaISA_EE.exit134: ; preds = %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i130
   %242 = load ptr, ptr %11, align 8, !tbaa !63
@@ -119201,18 +119201,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %257
 
-.loopexit239:                                     ; preds = %.lr.ph.i.i127
-  %lpad.loopexit241 = landingpad { ptr, i32 }
+.loopexit236:                                     ; preds = %.lr.ph.i.i127
+  %lpad.loopexit238 = landingpad { ptr, i32 }
           cleanup
   br label %256
 
-.loopexit.split-lp240:                            ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105, %182, %233, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125, %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i130
-  %lpad.loopexit.split-lp242 = landingpad { ptr, i32 }
+.loopexit.split-lp237:                            ; preds = %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit105, %182, %233, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit123, %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit125, %_ZN4YAML7EmitSeqISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEERNS_7EmitterESB_RKT_.exit.i130
+  %lpad.loopexit.split-lp239 = landingpad { ptr, i32 }
           cleanup
   br label %256
 
-256:                                              ; preds = %.loopexit239, %.loopexit.split-lp240, %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
-  %.pn69.pn.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %.pn69.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ %lpad.loopexit241, %.loopexit239 ], [ %lpad.loopexit.split-lp242, %.loopexit.split-lp240 ]
+256:                                              ; preds = %.loopexit236, %.loopexit.split-lp237, %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
+  %.pn69.pn.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %.pn69.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ %lpad.loopexit238, %.loopexit236 ], [ %lpad.loopexit.split-lp239, %.loopexit.split-lp237 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %499
@@ -119455,7 +119455,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN4YAML7EmitSeqISt
   br label %335
 
 335:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.thread
-  %lpad.phi236 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %lpad.phi233 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %336 = ptrtoint ptr %.sroa.12.0 to i64
   %337 = ptrtoint ptr %.sroa.0222.0 to i64
   %338 = sub i64 %336, %337
@@ -119583,8 +119583,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   %392 = load ptr, ptr %1, align 8, !tbaa !275
   call void @_ZNK19OpenColorIO_v2_5dev10ColorSpace12getTransformENS_19ColorSpaceDirectionE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.132") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %392, i32 noundef 1) #29
   %393 = load ptr, ptr %16, align 8, !tbaa !366
-  %.not238 = icmp eq ptr %393, null
-  br i1 %.not238, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201, label %394
+  %.not235 = icmp eq ptr %393, null
+  br i1 %.not235, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201, label %394
 
 394:                                              ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %395 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 32)
@@ -119829,7 +119829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218: ; preds = %_Z
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit181
 
 _ZNSt6vectorIfSaIfEED2Ev.exit181:                 ; preds = %331, %333, %335, %494, %287
-  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %494 ], [ %288, %287 ], [ %332, %331 ], [ %334, %333 ], [ %lpad.phi236, %335 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %494 ], [ %288, %287 ], [ %332, %331 ], [ %334, %333 ], [ %lpad.phi233, %335 ]
   %495 = load ptr, ptr %13, align 8, !tbaa !18
   %496 = icmp eq ptr %495, %260
   br i1 %496, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i219
@@ -120956,7 +120956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %.
   br label %170
 
 170:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i, %.thread.i
-  %lpad.phi59.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %lpad.phi56.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %145) #30
   br label %.body
 
@@ -121139,7 +121139,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %241, %239
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i, %170, %221, %245
-  %eh.lpad-body = phi { ptr, i32 } [ %246, %245 ], [ %222, %221 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i ], [ %lpad.phi59.i, %170 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %246, %245 ], [ %222, %221 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i ], [ %lpad.phi56.i, %170 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19AllocationTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
   br label %1405
 

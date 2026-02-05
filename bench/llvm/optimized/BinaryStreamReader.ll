@@ -1285,7 +1285,7 @@ _ZN4llvm5ErrorD2Ev.exit1:                         ; preds = %_ZN4llvm5ErrorD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm18BinaryStreamReader5splitEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair") align 8 captures(none) initializes((0, 128)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %.sroa.49 = alloca [7 x i8], align 1
-  %.sroa.1567 = alloca [7 x i8], align 1
+  %.sroa.1565 = alloca [7 x i8], align 1
   %.sroa.15 = alloca [7 x i8], align 1
   %4 = alloca %"class.llvm::BinaryStreamReader", align 8
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
@@ -1299,14 +1299,14 @@ define dso_local void @_ZNK4llvm18BinaryStreamReader5splitEm(ptr dead_on_unwind 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !102, !noalias !138
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread381, label %13
+  br i1 %.not.i, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread379, label %13
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread381: ; preds = %3
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread379: ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, i8 0, i64 7, i1 false), !alias.scope !138
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1567)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1567, i8 0, i64 7, i1 false), !alias.scope !141
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1565)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1565, i8 0, i64 7, i1 false), !alias.scope !141
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
-  br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277
+  br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1355,7 +1355,7 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %37, %34, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i
-  %.sroa.1580.16.copyload = load ptr, ptr %11, align 8
+  %.sroa.1578.16.copyload = load ptr, ptr %11, align 8
   %.sroa.25.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.25.16.copyload = load i64, ptr %.sroa.25.16..sroa_idx, align 8
   %.sroa.32.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1366,14 +1366,14 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %37, %34, %_ZNK4llvm
   %39 = icmp ne i64 %.sroa.speculated.i, 0
   %40 = add i64 %.sroa.25.16.copyload, %.sroa.speculated.i
   %41 = trunc nuw i8 %.sroa.41.16.copyload to i1
-  %spec.select306 = and i8 %.sroa.41.16.copyload, 1
-  %.not307 = select i1 %39, i1 %41, i1 false
-  %spec.select = select i1 %.not307, i64 %.sroa.speculated.i, i64 0
+  %spec.select304 = and i8 %.sroa.41.16.copyload, 1
+  %.not305 = select i1 %39, i1 %41, i1 false
+  %spec.select = select i1 %.not305, i64 %.sroa.speculated.i, i64 0
   %.sroa.32.0 = sub i64 %.sroa.32.16.copyload, %spec.select
-  %.sroa.41.0 = select i1 %39, i8 %spec.select306, i8 %.sroa.41.16.copyload
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1567)
+  %.sroa.41.0 = select i1 %39, i8 %spec.select304, i8 %.sroa.41.16.copyload
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1565)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %.not.i2 = icmp eq ptr %.sroa.1580.16.copyload, null
+  %.not.i2 = icmp eq ptr %.sroa.1578.16.copyload, null
   br i1 %.not.i2, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9, label %42
 
 42:                                               ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
@@ -1381,10 +1381,10 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %37, %34, %_ZNK4llvm
   br i1 %43, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i3, label %44
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr %.sroa.1580.16.copyload, align 8, !tbaa !3, !noalias !141
+  %45 = load ptr, ptr %.sroa.1578.16.copyload, align 8, !tbaa !3, !noalias !141
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8, !noalias !141
-  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1580.16.copyload) #15, !noalias !141
+  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1578.16.copyload) #15, !noalias !141
   %49 = sub i64 %48, %40
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i3
 
@@ -1410,9 +1410,9 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   br label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8:        ; preds = %56, %53, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1567, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1565, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, i64 7, i1 false)
   %58 = icmp eq i64 %.sroa.speculated.i5, 0
-  br i1 %58, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread315, label %59
+  br i1 %58, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread313, label %59
 
 59:                                               ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8
   %60 = add i64 %.sroa.speculated.i5, %40
@@ -1420,7 +1420,7 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8:        ; preds = %56, %53, %_ZNK4llvm
 
 .thread:                                          ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
-  br label %.thread357
+  br label %.thread355
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread: ; preds = %59
   %61 = sub i64 %.sroa.32.0, %.sroa.speculated.i5
@@ -1428,40 +1428,40 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_fr
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1567, i8 0, i64 7, i1 false), !alias.scope !141
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1565, i8 0, i64 7, i1 false), !alias.scope !141
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277
+  br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread315: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread313: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
   %62 = trunc nuw i8 %.sroa.41.0 to i1
-  br i1 %62, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10, label %.thread357
+  br i1 %62, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10, label %.thread355
 
-.thread357:                                       ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread315, %.thread
-  %.sroa.10.0215233 = phi i64 [ %60, %.thread ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread315 ]
-  %63 = load ptr, ptr %.sroa.1580.16.copyload, align 8, !tbaa !3, !noalias !144
+.thread355:                                       ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread313, %.thread
+  %.sroa.10.0213231 = phi i64 [ %60, %.thread ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread313 ]
+  %63 = load ptr, ptr %.sroa.1578.16.copyload, align 8, !tbaa !3, !noalias !144
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8, !noalias !144
-  %66 = tail call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1580.16.copyload) #15, !noalias !144
+  %66 = tail call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1578.16.copyload) #15, !noalias !144
   %67 = sub i64 %66, %40
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread315
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread313
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread381
-  %.sroa.875.0141384 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread381 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9 ]
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread379
+  %.sroa.873.0139382 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread379 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15, i8 0, i64 7, i1 false), !alias.scope !150
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread, %.thread357
-  %.0.i.i11.ph.pn = phi i64 [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %67, %.thread357 ]
-  %.sroa.41.0148167276 = phi i8 [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ 0, %.thread357 ]
-  %.sroa.10.0185263 = phi i64 [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %60, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %.sroa.10.0215233, %.thread357 ]
-  %.sroa.12.0187261 = phi i64 [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %61, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %.sroa.32.0, %.thread357 ]
-  %68 = phi i1 [ true, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ true, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ false, %.thread357 ]
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread, %.thread355
+  %.0.i.i11.ph.pn = phi i64 [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %67, %.thread355 ]
+  %.sroa.41.0146165274 = phi i8 [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ 0, %.thread355 ]
+  %.sroa.10.0183261 = phi i64 [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %60, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %.sroa.10.0213231, %.thread355 ]
+  %.sroa.12.0185259 = phi i64 [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ %61, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ %.sroa.32.0, %.thread355 ]
+  %68 = phi i1 [ true, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10 ], [ true, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit9.thread ], [ false, %.thread355 ]
   %69 = sub i64 %.0.i.i11.ph.pn, %2
   %.not.i.i.i.i.i.i.i12 = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i.i12, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i, label %70
@@ -1492,46 +1492,46 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   br i1 %78, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
-  %79 = load ptr, ptr %.sroa.1580.16.copyload, align 8, !tbaa !3, !noalias !150
+  %79 = load ptr, ptr %.sroa.1578.16.copyload, align 8, !tbaa !3, !noalias !150
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !noalias !150
-  %82 = tail call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1580.16.copyload) #15, !noalias !150
+  %82 = tail call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1578.16.copyload) #15, !noalias !150
   %83 = sub i64 %82, %40
-  %.sroa.speculated.i.i300 = tail call i64 @llvm.umin.i64(i64 %83, i64 %69)
-  %84 = icmp eq i64 %.sroa.speculated.i.i300, 0
+  %.sroa.speculated.i.i298 = tail call i64 @llvm.umin.i64(i64 %83, i64 %69)
+  %84 = icmp eq i64 %.sroa.speculated.i.i298, 0
   br i1 %84, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread
-  %85 = load ptr, ptr %.sroa.1580.16.copyload, align 8, !tbaa !3, !noalias !150
+  %85 = load ptr, ptr %.sroa.1578.16.copyload, align 8, !tbaa !3, !noalias !150
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8, !noalias !150
-  %88 = tail call noundef i64 %87(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1580.16.copyload) #15, !noalias !150
+  %88 = tail call noundef i64 %87(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.1578.16.copyload) #15, !noalias !150
   %89 = sub i64 %88, %40
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i
-  %.sroa.speculated.i.i301304 = phi i64 [ %.sroa.speculated.i.i300, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.speculated.i.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
-  %.sroa.13.0 = phi i8 [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.41.0148167276, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
+  %.sroa.speculated.i.i299302 = phi i64 [ %.sroa.speculated.i.i298, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.speculated.i.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
+  %.sroa.13.0 = phi i8 [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.41.0146165274, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
   %90 = phi i64 [ %89, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit4.i.i ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ]
-  %91 = sub i64 %90, %.sroa.speculated.i.i301304
+  %91 = sub i64 %90, %.sroa.speculated.i.i299302
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
 
-_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i, %._crit_edge.i.i
-  %.sroa.875.0140175271 = phi ptr [ %.sroa.875.0141384, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %30, %._crit_edge.i.i ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.058.0179268 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %28, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %28, %._crit_edge.i.i ], [ %28, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.5.0181266 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %30, %._crit_edge.i.i ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.8.0183264 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.1580.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.1580.16.copyload, %._crit_edge.i.i ], [ %.sroa.1580.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.10.0185262 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.10.0185263, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.10.0185263, %._crit_edge.i.i ], [ %.sroa.10.0185263, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.12.0187260 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.12.0187261, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.12.0187261, %._crit_edge.i.i ], [ %.sroa.12.0187261, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.14.0189258 = phi i8 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.41.0148167276, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.41.0148167276, %._crit_edge.i.i ], [ %.sroa.41.0148167276, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.9.sroa.5.0 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %40, %._crit_edge.i.i ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.11.0 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %91, %._crit_edge.i.i ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.13.1 = phi i8 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread277 ], [ %.sroa.41.0148167276, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.13.0, %._crit_edge.i.i ], [ %.sroa.41.0148167276, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.not.i.i.i.i.i.i13 = icmp eq ptr %.sroa.875.0140175271, null
+_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i, %._crit_edge.i.i
+  %.sroa.873.0138173269 = phi ptr [ %.sroa.873.0139382, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %30, %._crit_edge.i.i ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.056.0177266 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %28, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %28, %._crit_edge.i.i ], [ %28, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.5.0179264 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %30, %._crit_edge.i.i ], [ %30, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.8.0181262 = phi ptr [ null, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.1578.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.1578.16.copyload, %._crit_edge.i.i ], [ %.sroa.1578.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.10.0183260 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.10.0183261, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.10.0183261, %._crit_edge.i.i ], [ %.sroa.10.0183261, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.12.0185258 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.12.0185259, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.12.0185259, %._crit_edge.i.i ], [ %.sroa.12.0185259, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.14.0187256 = phi i8 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.41.0146165274, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.41.0146165274, %._crit_edge.i.i ], [ %.sroa.41.0146165274, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.9.sroa.5.0 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %40, %._crit_edge.i.i ], [ %40, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.11.0 = phi i64 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %91, %._crit_edge.i.i ], [ %.sroa.32.0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.13.1 = phi i8 [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i10.thread275 ], [ %.sroa.41.0146165274, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i ], [ %.sroa.13.0, %._crit_edge.i.i ], [ %.sroa.41.0146165274, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.not.i.i.i.i.i.i13 = icmp eq ptr %.sroa.873.0138173269, null
   br i1 %.not.i.i.i.i.i.i13, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit, label %92
 
 92:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.875.0140175271, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.873.0138173269, i64 8
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = icmp eq i64 %94, 4294967297
   %96 = trunc i64 %94 to i32
@@ -1539,16 +1539,16 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_fr
 
 97:                                               ; preds = %92
   store i32 0, ptr %93, align 8, !tbaa !110
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.875.0140175271, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.873.0138173269, i64 12
   store i32 0, ptr %98, align 4, !tbaa !112
-  %99 = load ptr, ptr %.sroa.875.0140175271, align 8, !tbaa !3
+  %99 = load ptr, ptr %.sroa.873.0138173269, align 8, !tbaa !3
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.875.0140175271) #15
-  %102 = load ptr, ptr %.sroa.875.0140175271, align 8, !tbaa !3
+  tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.873.0138173269) #15
+  %102 = load ptr, ptr %.sroa.873.0138173269, align 8, !tbaa !3
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
-  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.875.0140175271) #15
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.873.0138173269) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
 
 105:                                              ; preds = %92
@@ -1571,21 +1571,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %10
   br i1 %111, label %112, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit, !prof !42
 
 112:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.875.0140175271) #15
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.873.0138173269) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
 
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit: ; preds = %112, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %97, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10keep_frontEm.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.sroa.058.0179268, ptr %5, align 8, !tbaa !6
+  store ptr %.sroa.056.0177266, ptr %5, align 8, !tbaa !6
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.5.0181266, ptr %113, align 8, !tbaa !13
-  %.not.i.i.i.i.i = icmp eq ptr %.sroa.5.0181266, null
+  store ptr %.sroa.5.0179264, ptr %113, align 8, !tbaa !13
+  %.not.i.i.i.i.i = icmp eq ptr %.sroa.5.0179264, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit, label %114
 
 114:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 8
   %116 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14
   %.not.i.i.i.i.i.i16 = icmp eq i8 %116, 0
   br i1 %.not.i.i.i.i.i.i16, label %120, label %117
@@ -1602,15 +1602,15 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit:
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit:           ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit, %117, %120
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.8.0183264, ptr %122, align 8
-  %.sroa.25.16..sroa_idx88 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.9.sroa.5.0, ptr %.sroa.25.16..sroa_idx88, align 8
-  %.sroa.32.16..sroa_idx97 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %.sroa.11.0, ptr %.sroa.32.16..sroa_idx97, align 8
-  %.sroa.41.16..sroa_idx103 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %.sroa.13.1, ptr %.sroa.41.16..sroa_idx103, align 8
-  %.sroa.49.16..sroa_idx109 = getelementptr inbounds nuw i8, ptr %5, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49.16..sroa_idx109, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, i64 7, i1 false)
+  store ptr %.sroa.8.0181262, ptr %122, align 8
+  %.sroa.25.16..sroa_idx86 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.9.sroa.5.0, ptr %.sroa.25.16..sroa_idx86, align 8
+  %.sroa.32.16..sroa_idx95 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %.sroa.11.0, ptr %.sroa.32.16..sroa_idx95, align 8
+  %.sroa.41.16..sroa_idx101 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 %.sroa.13.1, ptr %.sroa.41.16..sroa_idx101, align 8
+  %.sroa.49.16..sroa_idx107 = getelementptr inbounds nuw i8, ptr %5, i64 41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49.16..sroa_idx107, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49, i64 7, i1 false)
   call void @_ZN4llvm18BinaryStreamReaderC1ENS_15BinaryStreamRefE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5) #15
   %123 = load ptr, ptr %113, align 8, !tbaa !13
   %.not.i.i.i17 = icmp eq ptr %123, null
@@ -1662,14 +1662,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i19: ; preds = %141, %
 
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit21: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit, %129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i19, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %.sroa.058.0179268, ptr %7, align 8, !tbaa !6
+  store ptr %.sroa.056.0177266, ptr %7, align 8, !tbaa !6
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.5.0181266, ptr %145, align 8, !tbaa !13
-  %.not.i.i.i.i.i22 = icmp eq ptr %.sroa.5.0181266, null
+  store ptr %.sroa.5.0179264, ptr %145, align 8, !tbaa !13
+  %.not.i.i.i.i.i22 = icmp eq ptr %.sroa.5.0179264, null
   br i1 %.not.i.i.i.i.i22, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit24, label %146
 
 146:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit21
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 8
   %148 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14
   %.not.i.i.i.i.i.i23 = icmp eq i8 %148, 0
   br i1 %.not.i.i.i.i.i.i23, label %152, label %149
@@ -1686,15 +1686,15 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit2
 
 _ZN4llvm15BinaryStreamRefC2ERKS0_.exit24:         ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit21, %149, %152
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sroa.8.0183264, ptr %154, align 8
-  %.sroa.10.16..sroa_idx61 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %.sroa.10.0185262, ptr %.sroa.10.16..sroa_idx61, align 8
-  %.sroa.12.16..sroa_idx63 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %.sroa.12.0187260, ptr %.sroa.12.16..sroa_idx63, align 8
-  %.sroa.14.16..sroa_idx65 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %.sroa.14.0189258, ptr %.sroa.14.16..sroa_idx65, align 8
-  %.sroa.1567.16..sroa_idx68 = getelementptr inbounds nuw i8, ptr %7, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1567.16..sroa_idx68, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1567, i64 7, i1 false)
+  store ptr %.sroa.8.0181262, ptr %154, align 8
+  %.sroa.10.16..sroa_idx59 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 %.sroa.10.0183260, ptr %.sroa.10.16..sroa_idx59, align 8
+  %.sroa.12.16..sroa_idx61 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 %.sroa.12.0185258, ptr %.sroa.12.16..sroa_idx61, align 8
+  %.sroa.14.16..sroa_idx63 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i8 %.sroa.14.0187256, ptr %.sroa.14.16..sroa_idx63, align 8
+  %.sroa.1565.16..sroa_idx66 = getelementptr inbounds nuw i8, ptr %7, i64 41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1565.16..sroa_idx66, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1565, i64 7, i1 false)
   call void @_ZN4llvm18BinaryStreamReaderC1ENS_15BinaryStreamRefE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %7) #15
   %155 = load ptr, ptr %145, align 8, !tbaa !13
   %.not.i.i.i25 = icmp eq ptr %155, null
@@ -1924,7 +1924,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit37:          ; preds = %_ZN4llvm18BinaryStr
   br i1 %.not.i.i.i.i.i22, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42, label %260
 
 260:                                              ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit37
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 8
   %262 = load atomic i64, ptr %261 acquire, align 8
   %263 = icmp eq i64 %262, 4294967297
   %264 = trunc i64 %262 to i32
@@ -1932,16 +1932,16 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit37:          ; preds = %_ZN4llvm18BinaryStr
 
 265:                                              ; preds = %260
   store i32 0, ptr %261, align 8, !tbaa !110
-  %266 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 12
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 12
   store i32 0, ptr %266, align 4, !tbaa !112
-  %267 = load ptr, ptr %.sroa.5.0181266, align 8, !tbaa !3
+  %267 = load ptr, ptr %.sroa.5.0179264, align 8, !tbaa !3
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8
-  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
-  %270 = load ptr, ptr %.sroa.5.0181266, align 8, !tbaa !3
+  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
+  %270 = load ptr, ptr %.sroa.5.0179264, align 8, !tbaa !3
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
+  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42
 
 273:                                              ; preds = %260
@@ -1964,15 +1964,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i40: ; preds = %277, %
   br i1 %279, label %280, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42, !prof !42
 
 280:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i40
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42
 
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42: ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit37, %265, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i40, %280
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1567)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1565)
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit47, label %281
 
 281:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42
-  %282 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 8
   %283 = load atomic i64, ptr %282 acquire, align 8
   %284 = icmp eq i64 %283, 4294967297
   %285 = trunc i64 %283 to i32
@@ -1980,16 +1980,16 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit4
 
 286:                                              ; preds = %281
   store i32 0, ptr %282, align 8, !tbaa !110
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.5.0181266, i64 12
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.5.0179264, i64 12
   store i32 0, ptr %287, align 4, !tbaa !112
-  %288 = load ptr, ptr %.sroa.5.0181266, align 8, !tbaa !3
+  %288 = load ptr, ptr %.sroa.5.0179264, align 8, !tbaa !3
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %290 = load ptr, ptr %289, align 8
-  call void %290(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
-  %291 = load ptr, ptr %.sroa.5.0181266, align 8, !tbaa !3
+  call void %290(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
+  %291 = load ptr, ptr %.sroa.5.0179264, align 8, !tbaa !3
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load ptr, ptr %292, align 8
-  call void %293(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
+  call void %293(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit47
 
 294:                                              ; preds = %281
@@ -2012,7 +2012,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i45: ; preds = %298, %
   br i1 %300, label %301, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit47, !prof !42
 
 301:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i45
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0181266) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0179264) #15
   br label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit47
 
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit47: ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit42, %286, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i45, %301

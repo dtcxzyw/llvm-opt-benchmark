@@ -1002,8 +1002,8 @@ define dso_local { ptr, i64 } @_ZNK4llvm13DataExtractor10getCStrRefEPmPNS_5Error
 
 _ZL7isErrorPN4llvm5ErrorE.exit:                   ; preds = %3
   %8 = load ptr, ptr %2, align 8, !tbaa !59
-  %.not24 = icmp eq ptr %8, null
-  br i1 %.not24, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread, label %42
+  %.not18 = icmp eq ptr %8, null
+  br i1 %.not18, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread, label %42
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread:            ; preds = %3, %_ZL7isErrorPN4llvm5ErrorE.exit
   %9 = load i64, ptr %1, align 8, !tbaa !62

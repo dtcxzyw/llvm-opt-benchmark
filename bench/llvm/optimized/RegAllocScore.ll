@@ -711,18 +711,18 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionEN
   br i1 %.not5865, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit, %15
-  %.sroa.039.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.039.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.6.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.6.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.9.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.9.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.12.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.12.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.15.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.15.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.18.1.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.18.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
-  %25 = fadd double %.sroa.039.1.lcssa, %21
-  %26 = fadd double %.sroa.6.1.lcssa, %20
-  %27 = fadd double %.sroa.9.1.lcssa, %19
-  %28 = fadd double %.sroa.15.1.lcssa, %18
-  %29 = fadd double %.sroa.12.1.lcssa, %17
-  %30 = fadd double %.sroa.18.1.lcssa, %16
+  %.sroa.039.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.039.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.6.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.6.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.9.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.9.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.12.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.12.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.15.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.15.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.18.0.lcssa = phi double [ 0.000000e+00, %15 ], [ %.sroa.18.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ]
+  %25 = fadd double %.sroa.039.0.lcssa, %21
+  %26 = fadd double %.sroa.6.0.lcssa, %20
+  %27 = fadd double %.sroa.9.0.lcssa, %19
+  %28 = fadd double %.sroa.15.0.lcssa, %18
+  %29 = fadd double %.sroa.12.0.lcssa, %17
+  %30 = fadd double %.sroa.18.0.lcssa, %16
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.047.081, i64 8
   %.sroa.047.0 = load ptr, ptr %31, align 8, !tbaa !66
   %.not = icmp eq ptr %.sroa.047.0, %8
@@ -730,12 +730,12 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionEN
 
 .lr.ph:                                           ; preds = %15, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit
   %.sroa.037.072 = phi ptr [ %.sroa.037.0, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.037.064, %15 ]
-  %.sroa.18.171 = phi double [ %.sroa.18.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
-  %.sroa.15.170 = phi double [ %.sroa.15.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
-  %.sroa.12.169 = phi double [ %.sroa.12.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
-  %.sroa.9.168 = phi double [ %.sroa.9.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
-  %.sroa.6.167 = phi double [ %.sroa.6.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
-  %.sroa.039.166 = phi double [ %.sroa.039.2, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.18.071 = phi double [ %.sroa.18.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.15.070 = phi double [ %.sroa.15.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.12.069 = phi double [ %.sroa.12.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.9.068 = phi double [ %.sroa.9.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.6.067 = phi double [ %.sroa.6.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
+  %.sroa.039.066 = phi double [ %.sroa.039.1, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit ], [ 0.000000e+00, %15 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 68
   %33 = load i16, ptr %32, align 4, !tbaa !74
   switch i16 %33, label %36 [
@@ -751,7 +751,7 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionEN
   ]
 
 34:                                               ; preds = %.lr.ph
-  %35 = fadd double %22, %.sroa.039.166
+  %35 = fadd double %22, %.sroa.039.066
   br label %139
 
 36:                                               ; preds = %.lr.ph
@@ -768,11 +768,11 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionEN
   br i1 %.not63, label %46, label %44
 
 44:                                               ; preds = %38
-  %45 = fadd double %22, %.sroa.12.169
+  %45 = fadd double %22, %.sroa.12.069
   br label %139
 
 46:                                               ; preds = %38
-  %47 = fadd double %22, %.sroa.18.171
+  %47 = fadd double %22, %.sroa.18.071
   br label %139
 
 48:                                               ; preds = %36
@@ -863,7 +863,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %78
   br i1 %.not60, label %94, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread: ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.thread, %86, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit
-  %93 = fadd double %22, %.sroa.15.170
+  %93 = fadd double %22, %.sroa.15.070
   br label %139
 
 94:                                               ; preds = %._crit_edge102, %64, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
@@ -910,7 +910,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31: ; preds = %103
   br i1 %.not61, label %118, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread: ; preds = %97, %110, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
-  %117 = fadd double %22, %.sroa.6.167
+  %117 = fadd double %22, %.sroa.6.067
   br label %139
 
 118:                                              ; preds = %._crit_edge105, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
@@ -950,16 +950,16 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36: ; preds = %125
   br i1 %.not62, label %139, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread: ; preds = %119, %131, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36
-  %138 = fadd double %22, %.sroa.9.168
+  %138 = fadd double %22, %.sroa.9.068
   br label %139
 
 139:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %131, %34, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread, %44, %46
-  %.sroa.039.2 = phi double [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %131 ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %35, %34 ], [ %.sroa.039.166, %44 ], [ %.sroa.039.166, %46 ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ]
-  %.sroa.6.2 = phi double [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %131 ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.6.167, %34 ], [ %.sroa.6.167, %44 ], [ %.sroa.6.167, %46 ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %117, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ]
-  %.sroa.9.2 = phi double [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %131 ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.9.168, %34 ], [ %.sroa.9.168, %44 ], [ %.sroa.9.168, %46 ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %138, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ]
-  %.sroa.12.2 = phi double [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %131 ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.12.169, %34 ], [ %45, %44 ], [ %.sroa.12.169, %46 ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ]
-  %.sroa.15.2 = phi double [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %131 ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.15.170, %34 ], [ %.sroa.15.170, %44 ], [ %.sroa.15.170, %46 ], [ %93, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ]
-  %.sroa.18.2 = phi double [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %131 ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.18.171, %34 ], [ %.sroa.18.171, %44 ], [ %47, %46 ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ]
+  %.sroa.039.1 = phi double [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %131 ], [ %.sroa.039.066, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %35, %34 ], [ %.sroa.039.066, %44 ], [ %.sroa.039.066, %46 ], [ %.sroa.039.066, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.039.066, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.039.066, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ], [ %.sroa.039.066, %.lr.ph ]
+  %.sroa.6.1 = phi double [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %131 ], [ %.sroa.6.067, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.6.067, %34 ], [ %.sroa.6.067, %44 ], [ %.sroa.6.067, %46 ], [ %.sroa.6.067, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %117, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.6.067, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ], [ %.sroa.6.067, %.lr.ph ]
+  %.sroa.9.1 = phi double [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %131 ], [ %.sroa.9.068, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.9.068, %34 ], [ %.sroa.9.068, %44 ], [ %.sroa.9.068, %46 ], [ %.sroa.9.068, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.9.068, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %138, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ], [ %.sroa.9.068, %.lr.ph ]
+  %.sroa.12.1 = phi double [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %131 ], [ %.sroa.12.069, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.12.069, %34 ], [ %45, %44 ], [ %.sroa.12.069, %46 ], [ %.sroa.12.069, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.12.069, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.12.069, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ], [ %.sroa.12.069, %.lr.ph ]
+  %.sroa.15.1 = phi double [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %131 ], [ %.sroa.15.070, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.15.070, %34 ], [ %.sroa.15.070, %44 ], [ %.sroa.15.070, %46 ], [ %93, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.15.070, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.15.070, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ], [ %.sroa.15.070, %.lr.ph ]
+  %.sroa.18.1 = phi double [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %131 ], [ %.sroa.18.071, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.18.071, %34 ], [ %.sroa.18.071, %44 ], [ %47, %46 ], [ %.sroa.18.071, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.18.071, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.18.071, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ], [ %.sroa.18.071, %.lr.ph ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.037.072, align 8
   %140 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %140, 0

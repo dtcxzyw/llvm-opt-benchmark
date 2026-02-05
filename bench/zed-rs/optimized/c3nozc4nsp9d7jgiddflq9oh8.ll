@@ -80464,9 +80464,9 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   %14 = load ptr, ptr %3, align 8, !noalias !21316, !noundef !11
   %15 = icmp eq ptr %14, null
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %15, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i"
+  br i1 %15, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i"
 
-"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i": ; preds = %11
+"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i": ; preds = %11
   %17 = load ptr, ptr %16, align 8, !noalias !21316, !nonnull !11, !align !74, !noundef !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21316
   br label %19
@@ -80477,17 +80477,17 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i", %2, %2
-  %.sroa.8.217.i = phi ptr [ %7, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i" ], [ %14, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i" ], [ null, %2 ], [ null, %2 ]
+  %.sroa.8.215.i = phi ptr [ %7, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i" ], [ %14, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i" ], [ null, %2 ], [ null, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.217.i, ptr %18, align 8, !alias.scope !21299, !noalias !21302
+  store ptr %.sroa.8.215.i, ptr %18, align 8, !alias.scope !21299, !noalias !21302
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.56.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.i, i64 40, i1 false), !noalias !21302
   br label %"_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h98de55a01908abbdE.exit"
 
-19:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i"
-  %.sroa.8.219.i = phi ptr [ %10, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i" ], [ %17, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i" ]
+19:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i"
+  %.sroa.8.217.i = phi ptr [ %10, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i" ], [ %17, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i" ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.219.i, ptr %20, align 8, !alias.scope !21299, !noalias !21302
+  store ptr %.sroa.8.217.i, ptr %20, align 8, !alias.scope !21299, !noalias !21302
   br label %"_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h98de55a01908abbdE.exit"
 
 "_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h98de55a01908abbdE.exit": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i", %19
@@ -81785,9 +81785,9 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   %14 = load ptr, ptr %3, align 8, !noalias !21781, !noundef !11
   %15 = icmp eq ptr %14, null
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %15, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i"
+  br i1 %15, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i"
 
-"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i": ; preds = %11
+"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i": ; preds = %11
   %17 = load ptr, ptr %16, align 8, !noalias !21781, !nonnull !11, !align !74, !noundef !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21781
   br label %19
@@ -81798,17 +81798,17 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i", %2, %2
-  %.sroa.8.217.i = phi ptr [ %7, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i" ], [ %14, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i" ], [ null, %2 ], [ null, %2 ]
+  %.sroa.8.215.i = phi ptr [ %7, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i" ], [ %14, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i" ], [ null, %2 ], [ null, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.217.i, ptr %18, align 8, !alias.scope !21764, !noalias !21767
+  store ptr %.sroa.8.215.i, ptr %18, align 8, !alias.scope !21764, !noalias !21767
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.56.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.i, i64 40, i1 false), !noalias !21767
   br label %"_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h2e1abe076d5f883dE.exit"
 
-19:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i"
-  %.sroa.8.219.i = phi ptr [ %10, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i" ], [ %17, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i" ]
+19:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i"
+  %.sroa.8.217.i = phi ptr [ %10, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i" ], [ %17, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i" ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.219.i, ptr %20, align 8, !alias.scope !21764, !noalias !21767
+  store ptr %.sroa.8.217.i, ptr %20, align 8, !alias.scope !21764, !noalias !21767
   br label %"_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h2e1abe076d5f883dE.exit"
 
 "_ZN225_$LT$$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEdit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h2e1abe076d5f883dE.exit": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i", %19
@@ -101824,9 +101824,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %19 = load ptr, ptr %3, align 8, !noalias !30935, !noundef !11
   %20 = icmp eq ptr %19, null
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %20, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i"
+  br i1 %20, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i"
 
-"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i": ; preds = %16
+"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i": ; preds = %16
   %22 = load ptr, ptr %21, align 8, !noalias !30935, !nonnull !11, !align !74, !noundef !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30935
   br label %24
@@ -101837,17 +101837,17 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i.i"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i.i": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i", %9, %9
-  %.sroa.8.217.i.i = phi ptr [ %12, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i" ], [ %19, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i" ], [ null, %9 ], [ null, %9 ]
+  %.sroa.8.215.i.i = phi ptr [ %12, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i" ], [ %19, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i" ], [ null, %9 ], [ null, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.217.i.i, ptr %23, align 8, !alias.scope !30940, !noalias !30941
+  store ptr %.sroa.8.215.i.i, ptr %23, align 8, !alias.scope !30940, !noalias !30941
   %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.56.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.i.i, i64 40, i1 false), !noalias !30941
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h3e1c8b3665c390b0E.llvm.1342728808529887919.exit"
 
-24:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i"
-  %.sroa.8.219.i.i = phi ptr [ %15, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i" ], [ %22, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i" ]
+24:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i"
+  %.sroa.8.217.i.i = phi ptr [ %15, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i" ], [ %22, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i" ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.219.i.i, ptr %25, align 8, !alias.scope !30940, !noalias !30941
+  store ptr %.sroa.8.217.i.i, ptr %25, align 8, !alias.scope !30940, !noalias !30941
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h3e1c8b3665c390b0E.llvm.1342728808529887919.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h3e1c8b3665c390b0E.llvm.1342728808529887919.exit": ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread.i.i", %24
@@ -110015,9 +110015,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %25 = load ptr, ptr %3, align 8, !noalias !33288, !noundef !11
   %26 = icmp eq ptr %25, null
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread25", label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit"
+  br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread23", label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit"
 
-"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread25": ; preds = %22
+"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread23": ; preds = %22
   %28 = load ptr, ptr %27, align 8, !noalias !33288, !nonnull !11, !align !74, !noundef !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !33288
   br label %29
@@ -110028,18 +110028,18 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread": ; preds = %11, %11, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit"
-  %.sroa.8.221 = phi ptr [ %18, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i" ], [ %25, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit" ], [ null, %11 ], [ null, %11 ]
+  %.sroa.8.219 = phi ptr [ %18, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i" ], [ %25, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit" ], [ null, %11 ], [ null, %11 ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.221, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.8.219, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14, i64 40, i1 false)
   br label %31
 
-29:                                               ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i.thread", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread25"
-  %.sroa.8.224 = phi ptr [ %21, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i.thread" ], [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread25" ]
+29:                                               ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i.thread", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread23"
+  %.sroa.8.222 = phi ptr [ %21, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7a2445849033cc38E.llvm.6482399857099888620.exit.i.i.i.thread" ], [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15934809e4461aa4E.llvm.1342728808529887919.exit.thread23" ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.224, ptr %30, align 8
+  store ptr %.sroa.8.222, ptr %30, align 8
   store i64 2, ptr %0, align 8
   br label %31
 
@@ -110528,9 +110528,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %25 = load ptr, ptr %3, align 8, !noalias !33416, !noundef !11
   %26 = icmp eq ptr %25, null
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %26, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i"
+  br i1 %26, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i", label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i"
 
-"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i": ; preds = %22
+"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i": ; preds = %22
   %28 = load ptr, ptr %27, align 8, !noalias !33416, !nonnull !11, !align !74, !noundef !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !33416
   br label %30
@@ -110541,16 +110541,16 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %29
 
 29:                                               ; preds = %11, %11, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i", %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i"
-  %.sroa.8.217.i.i.ph = phi ptr [ null, %11 ], [ null, %11 ], [ %25, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i" ], [ %18, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i" ]
+  %.sroa.8.215.i.i.ph = phi ptr [ null, %11 ], [ null, %11 ], [ %25, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.i.i" ], [ %18, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.i.i" ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.217.i.i.ph, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.8.215.i.i.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.i.i, i64 40, i1 false)
   br label %32
 
-30:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i"
-  %.sroa.5.0.ph = phi ptr [ %28, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread20.i.i" ], [ %21, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i" ]
+30:                                               ; preds = %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i", %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i"
+  %.sroa.5.0.ph = phi ptr [ %28, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17hbe6c1c7f9549a17cE.llvm.6482399857099888620.exit.thread18.i.i" ], [ %21, %"_ZN100_$LT$lsp_types..url_map..deserialize..OptionUrlMapVisitor$LT$V$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h4d25aed18c079ec5E.llvm.6482399857099888620.exit.i.thread.i.i" ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.5.0.ph, ptr %31, align 8
   store i64 2, ptr %0, align 8

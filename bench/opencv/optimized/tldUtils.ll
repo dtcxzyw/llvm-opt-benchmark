@@ -442,7 +442,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %49 = fcmp ole double %46, 0.000000e+00
   %50 = fcmp ole double %48, 0.000000e+00
   %51 = select i1 %49, i1 true, i1 %50
-  br i1 %51, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit, label %52
+  br i1 %51, label %.sink.split.i.i.i, label %52
 
 52:                                               ; preds = %.lr.ph.split
   %.sroa.0.0.copyload.i.i = load double, ptr %44, align 8, !tbaa !46, !noalias !52
@@ -457,7 +457,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %.sroa.speculated38.i.i = select i1 %53, double %46, double %.fr144
   %59 = fadd double %54, %.sroa.speculated38.i.i
   %60 = fcmp olt double %59, %55
-  br i1 %60, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit, label %61
+  br i1 %60, label %.sink.split.i.i.i, label %61
 
 61:                                               ; preds = %58, %52
   %.sroa.speculated46.i.i = select i1 %56, double %.sroa.7.0.copyload.i.i, double %32
@@ -473,7 +473,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %64 = fadd double %.sroa.speculated46.i.i, %.sroa.speculated33.i.i
   %.sroa.speculated43.i.i = select i1 %56, double %32, double %.sroa.7.0.copyload.i.i
   %65 = fcmp olt double %64, %.sroa.speculated43.i.i
-  br i1 %65, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit, label %66
+  br i1 %65, label %.sink.split.i.i.i, label %66
 
 66:                                               ; preds = %63, %._crit_edge.i.i.i
   %67 = phi double [ %.pre75.i.sroa.speculated.i.i, %._crit_edge.i.i.i ], [ %.sroa.speculated43.i.i, %63 ]
@@ -493,12 +493,12 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %76 = select i1 %74, i1 true, i1 %75
   br i1 %76, label %.sink.split.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit
 
-.sink.split.i.i.i:                                ; preds = %66
+.sink.split.i.i.i:                                ; preds = %66, %63, %58, %.lr.ph.split
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit
 
-_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit: ; preds = %.sink.split.i.i.i, %66, %63, %58, %.lr.ph.split
-  %.sroa.12.0.i.i = phi double [ %.sroa.speculated55.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %.sink.split.i.i.i ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ]
-  %.sroa.17.0.i.i = phi double [ %.sroa.speculated.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %.sink.split.i.i.i ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ]
+_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit: ; preds = %.sink.split.i.i.i, %66
+  %.sroa.12.0.i.i = phi double [ 0.000000e+00, %.sink.split.i.i.i ], [ %.sroa.speculated55.i.i.i, %66 ]
+  %.sroa.17.0.i.i = phi double [ 0.000000e+00, %.sink.split.i.i.i ], [ %.sroa.speculated.i.i.i, %66 ]
   %77 = fmul double %46, %48
   %78 = fmul double %.sroa.12.0.i.i, %.sroa.17.0.i.i
   %79 = fadd double %77, %33
@@ -593,7 +593,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %125 = select i1 %123, i1 true, i1 %124
   %126 = select i1 %125, i1 true, i1 %95
   %brmerge = select i1 %126, i1 true, i1 %96
-  br i1 %brmerge, label %152, label %127
+  br i1 %brmerge, label %.sink.split.i.i.i95, label %127
 
 127:                                              ; preds = %115
   %.sroa.0.0.copyload.i.i81 = load double, ptr %118, align 8, !tbaa !46, !noalias !58
@@ -608,7 +608,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %.sroa.speculated38.i.i97 = select i1 %128, double %120, double %92
   %134 = fadd double %129, %.sroa.speculated38.i.i97
   %135 = fcmp olt double %134, %130
-  br i1 %135, label %152, label %136
+  br i1 %135, label %.sink.split.i.i.i95, label %136
 
 136:                                              ; preds = %133, %127
   %.sroa.speculated46.i.i84 = select i1 %131, double %.sroa.7.0.copyload.i.i83, double %99
@@ -624,7 +624,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %139 = fadd double %.sroa.speculated46.i.i84, %.sroa.speculated33.i.i85
   %.sroa.speculated43.i.i96 = select i1 %131, double %99, double %.sroa.7.0.copyload.i.i83
   %140 = fcmp olt double %139, %.sroa.speculated43.i.i96
-  br i1 %140, label %152, label %141
+  br i1 %140, label %.sink.split.i.i.i95, label %141
 
 141:                                              ; preds = %138, %._crit_edge.i.i.i86
   %142 = phi double [ %.pre75.i.sroa.speculated.i.i87, %._crit_edge.i.i.i86 ], [ %.sroa.speculated43.i.i96, %138 ]
@@ -644,12 +644,12 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %151 = select i1 %149, i1 true, i1 %150
   br i1 %151, label %.sink.split.i.i.i95, label %152
 
-.sink.split.i.i.i95:                              ; preds = %141
+.sink.split.i.i.i95:                              ; preds = %115, %141, %138, %133
   br label %152
 
-152:                                              ; preds = %115, %.sink.split.i.i.i95, %141, %138, %133
-  %.sroa.12.0.i.i93 = phi double [ %.sroa.speculated55.i.i.i90, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %.sink.split.i.i.i95 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ]
-  %.sroa.17.0.i.i94 = phi double [ %.sroa.speculated.i.i.i92, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %.sink.split.i.i.i95 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ]
+152:                                              ; preds = %.sink.split.i.i.i95, %141
+  %.sroa.12.0.i.i93 = phi double [ 0.000000e+00, %.sink.split.i.i.i95 ], [ %.sroa.speculated55.i.i.i90, %141 ]
+  %.sroa.17.0.i.i94 = phi double [ 0.000000e+00, %.sink.split.i.i.i95 ], [ %.sroa.speculated.i.i.i92, %141 ]
   %153 = fmul double %120, %122
   %154 = fmul double %.sroa.12.0.i.i93, %.sroa.17.0.i.i94
   %155 = fadd double %153, %100
@@ -769,13 +769,13 @@ define hidden noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6
   %11 = fcmp ole double %4, 0.000000e+00
   %12 = fcmp ole double %6, 0.000000e+00
   %13 = select i1 %11, i1 true, i1 %12
-  br i1 %13, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit, label %14
+  br i1 %13, label %.sink.split.i.i, label %14
 
 14:                                               ; preds = %2
   %15 = fcmp ole double %8, 0.000000e+00
   %16 = fcmp ole double %10, 0.000000e+00
   %17 = select i1 %15, i1 true, i1 %16
-  br i1 %17, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit, label %18
+  br i1 %17, label %.sink.split.i.i, label %18
 
 18:                                               ; preds = %14
   %19 = load double, ptr %1, align 8, !tbaa !67, !noalias !64
@@ -792,7 +792,7 @@ define hidden noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6
   %.sroa.speculated38.i = select i1 %20, double %4, double %8
   %28 = fadd double %21, %.sroa.speculated38.i
   %29 = fcmp olt double %28, %22
-  br i1 %29, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit, label %30
+  br i1 %29, label %.sink.split.i.i, label %30
 
 30:                                               ; preds = %27, %18
   %.sroa.speculated46.i = select i1 %25, double %.sroa.7.0.copyload.i, double %24
@@ -808,7 +808,7 @@ define hidden noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6
   %33 = fadd double %.sroa.speculated46.i, %.sroa.speculated33.i
   %.sroa.speculated43.i = select i1 %25, double %24, double %.sroa.7.0.copyload.i
   %34 = fcmp olt double %33, %.sroa.speculated43.i
-  br i1 %34, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit, label %35
+  br i1 %34, label %.sink.split.i.i, label %35
 
 35:                                               ; preds = %32, %._crit_edge.i.i
   %36 = phi double [ %.pre75.i.sroa.speculated.i, %._crit_edge.i.i ], [ %.sroa.speculated43.i, %32 ]
@@ -828,12 +828,12 @@ define hidden noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6
   %45 = select i1 %43, i1 true, i1 %44
   br i1 %45, label %.sink.split.i.i, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit
 
-.sink.split.i.i:                                  ; preds = %35
+.sink.split.i.i:                                  ; preds = %35, %32, %27, %14, %2
   br label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit
 
-_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %2, %14, %27, %32, %35, %.sink.split.i.i
-  %.sroa.12.0.i = phi double [ %.sroa.speculated55.i.i, %35 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %.sink.split.i.i ]
-  %.sroa.17.0.i = phi double [ %.sroa.speculated.i.i, %35 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %.sink.split.i.i ]
+_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %35, %.sink.split.i.i
+  %.sroa.12.0.i = phi double [ 0.000000e+00, %.sink.split.i.i ], [ %.sroa.speculated55.i.i, %35 ]
+  %.sroa.17.0.i = phi double [ 0.000000e+00, %.sink.split.i.i ], [ %.sroa.speculated.i.i, %35 ]
   %46 = fmul double %8, %10
   %47 = fmul double %4, %6
   %48 = fmul double %.sroa.12.0.i, %.sroa.17.0.i

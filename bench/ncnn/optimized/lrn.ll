@@ -415,45 +415,45 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %176, label %.preheader.us, label %.critedge72
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
-  %.048139.us = phi i32 [ %183, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.050138.us = phi i32 [ %182, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.052137.us = phi i32 [ %178, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %177 = sext i32 %.052137.us to i64
-  %178 = add i32 %161, %.052137.us
+  %.048136.us = phi i32 [ %183, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.050135.us = phi i32 [ %182, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.052134.us = phi i32 [ %178, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %177 = sext i32 %.052134.us to i64
+  %178 = add i32 %161, %.052134.us
   br label %179
 
 179:                                              ; preds = %.preheader.us, %179
   %indvars.iv = phi i64 [ %177, %.preheader.us ], [ %indvars.iv.next, %179 ]
-  %.151134.us = phi i32 [ %.050138.us, %.preheader.us ], [ %181, %179 ]
+  %.151131.us = phi i32 [ %.050135.us, %.preheader.us ], [ %181, %179 ]
   %180 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv
-  store i32 %.151134.us, ptr %180, align 4, !tbaa !36
+  store i32 %.151131.us, ptr %180, align 4, !tbaa !36
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %181 = add nsw i32 %.151134.us, 1
+  %181 = add nsw i32 %.151131.us, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %178, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge.us, label %179, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %179
   %182 = add nsw i32 %175, %181
-  %183 = add nuw nsw i32 %.048139.us, 1
-  %exitcond145.not = icmp eq i32 %183, %161
-  br i1 %exitcond145.not, label %.critedge72, label %.preheader.us, !llvm.loop !59
+  %183 = add nuw nsw i32 %.048136.us, 1
+  %exitcond142.not = icmp eq i32 %183, %161
+  br i1 %exitcond142.not, label %.critedge72, label %.preheader.us, !llvm.loop !59
 
 .critedge72:                                      ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.sroa.0128.0180 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %170, %._crit_edge.us ]
-  %.sroa.9.0179 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %171, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %171, %._crit_edge.us ]
+  %.sroa.0128.0177 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %170, %._crit_edge.us ]
+  %.sroa.9.0176 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %171, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %171, %._crit_edge.us ]
   %184 = load i32, ptr %49, align 4, !tbaa !42
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %16, i32 %184)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZNK4ncnn3LRN15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.2, ptr nonnull %4, ptr nonnull %1, ptr nonnull %11, ptr nonnull %10, ptr nonnull %9, ptr nonnull %13, ptr nonnull %15, ptr nonnull %0, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not.i.i.i = icmp eq ptr %.sroa.0128.0180, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0128.0177, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %185
 
 185:                                              ; preds = %.critedge72
-  %186 = ptrtoint ptr %.sroa.9.0179 to i64
-  %187 = ptrtoint ptr %.sroa.0128.0180 to i64
+  %186 = ptrtoint ptr %.sroa.9.0176 to i64
+  %187 = ptrtoint ptr %.sroa.0128.0177 to i64
   %188 = sub i64 %186, %187
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.0180, i64 noundef %188) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.0177, i64 noundef %188) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge72, %185

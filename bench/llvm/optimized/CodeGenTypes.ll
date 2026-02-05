@@ -698,8 +698,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8Q
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %56 = load i8, ptr %55, align 16
   %57 = icmp ne i8 %56, 47
-  %.not113182 = icmp eq ptr %28, null
-  %.not113 = or i1 %.not113182, %57
+  %.not113178 = icmp eq ptr %28, null
+  %.not113 = or i1 %.not113178, %57
   br i1 %.not113, label %61, label %58
 
 58:                                               ; preds = %54
@@ -755,16 +755,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS
   %.sroa.0.1.i = phi ptr [ %88, %.loopexit.i ], [ %75, %67 ], [ %84, %80 ]
   %89 = zext i32 %65 to i64
   %90 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1018", ptr %63, i64 %89
-  %.not183 = icmp eq ptr %.sroa.0.1.i, %90
-  br i1 %.not183, label %.thread173, label %91
+  %.not179 = icmp eq ptr %.sroa.0.1.i, %90
+  br i1 %.not179, label %.thread169, label %91
 
 91:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !860
   %.not114 = icmp eq ptr %93, null
-  br i1 %.not114, label %.thread173, label %520
+  br i1 %.not114, label %.thread169, label %520
 
-.thread173:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit, %91
+.thread169:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit, %91
   switch i8 %56, label %518 [
     i8 27, label %513
     i8 10, label %504
@@ -792,7 +792,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS
     i8 13, label %94
   ]
 
-94:                                               ; preds = %.thread173
+94:                                               ; preds = %.thread169
   %95 = load i32, ptr %55, align 16
   %96 = lshr i32 %95, 19
   %97 = and i32 %96, 511
@@ -1605,7 +1605,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   %286 = tail call noundef ptr @_ZN5clang7CodeGen13CGHLSLRuntime23convertHLSLSpecificTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(96) %285, ptr noundef nonnull %28) #16
   br label %518
 
-287:                                              ; preds = %.thread173
+287:                                              ; preds = %.thread169
   %288 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i124 = load i64, ptr %288, align 16, !tbaa !407
   %289 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i124)
@@ -1618,7 +1618,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %518
 
-293:                                              ; preds = %.thread173, %.thread173
+293:                                              ; preds = %.thread169, %.thread169
   %294 = tail call i64 @_ZNK5clang13ReferenceType14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(40) %28)
   %295 = tail call noundef i32 @_ZNK5clang7CodeGen12CodeGenTypes21getTargetAddressSpaceENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %294)
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1627,7 +1627,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   %299 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %298, i32 noundef %295) #16
   br label %518
 
-300:                                              ; preds = %.thread173
+300:                                              ; preds = %.thread169
   %301 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i125 = load i64, ptr %301, align 16, !tbaa !407
   %302 = tail call noundef i32 @_ZNK5clang7CodeGen12CodeGenTypes21getTargetAddressSpaceENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i125)
@@ -1637,13 +1637,13 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   %306 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %305, i32 noundef %302) #16
   br label %518
 
-307:                                              ; preds = %.thread173
+307:                                              ; preds = %.thread169
   %308 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i126 = load i64, ptr %308, align 16, !tbaa !407
   %309 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i126)
   br label %518
 
-310:                                              ; preds = %.thread173
+310:                                              ; preds = %.thread169
   %311 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i127 = load i64, ptr %311, align 16, !tbaa !407
   %312 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i127)
@@ -1664,7 +1664,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   %321 = tail call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %.1103, i64 noundef 0) #16
   br label %518
 
-322:                                              ; preds = %.thread173, %.thread173
+322:                                              ; preds = %.thread169, %.thread169
   %323 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i128 = load i64, ptr %323, align 16, !tbaa !407
   %324 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i128)
@@ -1703,7 +1703,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %332, %336
   %343 = tail call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %.0107, i64 noundef %342) #16
   br label %518
 
-344:                                              ; preds = %.thread173, %.thread173
+344:                                              ; preds = %.thread169, %.thread169
   %345 = tail call noundef zeroext i1 @_ZNK5clang4Type19isExtVectorBoolTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %28)
   br i1 %345, label %346, label %351
 
@@ -1756,7 +1756,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit135.thread:  ; preds = %351, %_ZNK5clang4Ty
   %376 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %373, i32 noundef %375) #16
   br label %518
 
-377:                                              ; preds = %.thread173
+377:                                              ; preds = %.thread169
   %378 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i137 = load i64, ptr %378, align 16, !tbaa !407
   %379 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i137)
@@ -1768,17 +1768,17 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit135.thread:  ; preds = %351, %_ZNK5clang4Ty
   %385 = tail call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %379, i32 noundef %384) #16
   br label %518
 
-386:                                              ; preds = %.thread173, %.thread173
+386:                                              ; preds = %.thread169, %.thread169
   %387 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes27ConvertFunctionTypeInternalENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %25)
   br label %518
 
-388:                                              ; preds = %.thread173
+388:                                              ; preds = %.thread169
   %389 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %.sroa.0.0.copyload.i138 = load i64, ptr %389, align 8, !tbaa !407
   %390 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i138)
   br label %518
 
-391:                                              ; preds = %.thread173
+391:                                              ; preds = %.thread169
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %28, ptr %15, align 8, !tbaa !878
@@ -1796,14 +1796,14 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit135.thread:  ; preds = %351, %_ZNK5clang4Ty
   store ptr %399, ptr %393, align 8, !tbaa !868
   br label %518
 
-400:                                              ; preds = %.thread173
+400:                                              ; preds = %.thread169
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %402 = load ptr, ptr %401, align 8, !tbaa !436
   %403 = load ptr, ptr %402, align 8, !tbaa !437
   %404 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %403, i32 noundef 0) #16
   br label %518
 
-405:                                              ; preds = %.thread173
+405:                                              ; preds = %.thread169
   %406 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %28) #16
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 74
   %408 = load i8, ptr %407, align 2
@@ -1814,10 +1814,10 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit135.thread:  ; preds = %351, %_ZNK5clang4Ty
   %411 = getelementptr inbounds nuw i8, ptr %406, i64 77
   %412 = load i8, ptr %411, align 1
   %413 = and i8 %412, 2
-  %.not184 = icmp eq i8 %413, 0
-  br i1 %.not184, label %.thread178, label %418
+  %.not180 = icmp eq i8 %413, 0
+  br i1 %.not180, label %.thread174, label %418
 
-.thread178:                                       ; preds = %410
+.thread174:                                       ; preds = %410
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %415 = load ptr, ptr %414, align 8, !tbaa !436
   %416 = load ptr, ptr %415, align 8, !tbaa !437
@@ -1829,7 +1829,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit135.thread:  ; preds = %351, %_ZNK5clang4Ty
   %420 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %419)
   br label %520
 
-421:                                              ; preds = %.thread173
+421:                                              ; preds = %.thread169
   %422 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i139 = load i64, ptr %422, align 16, !tbaa !407
   %423 = load ptr, ptr %19, align 8, !tbaa !434
@@ -1859,7 +1859,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   %438 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %437, i32 noundef %434) #16
   br label %518
 
-439:                                              ; preds = %.thread173
+439:                                              ; preds = %.thread169
   %440 = load ptr, ptr %0, align 8, !tbaa !388
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 224
   %442 = load ptr, ptr %441, align 8, !tbaa !389
@@ -1888,7 +1888,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
 ._crit_edge:                                      ; preds = %447
   %.pre = load ptr, ptr %16, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre185 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !860
+  %.pre181 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !860
   br label %462
 
 455:                                              ; preds = %447
@@ -1902,7 +1902,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   br label %462
 
 462:                                              ; preds = %._crit_edge, %455
-  %463 = phi ptr [ %.pre185, %._crit_edge ], [ %459, %455 ]
+  %463 = phi ptr [ %.pre181, %._crit_edge ], [ %459, %455 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %518
 
@@ -1916,7 +1916,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   %471 = tail call noundef ptr %470(ptr noundef nonnull align 8 dereferenceable(24) %467, ptr noundef nonnull %28) #16
   br label %518
 
-472:                                              ; preds = %.thread173
+472:                                              ; preds = %.thread169
   %473 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sroa.0.0.copyload.i141 = load i64, ptr %473, align 16, !tbaa !407
   %474 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.0.0.copyload.i141)
@@ -1950,7 +1950,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %518
 
-496:                                              ; preds = %.thread173
+496:                                              ; preds = %.thread169
   %497 = load ptr, ptr %0, align 8, !tbaa !388
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 392
   %499 = load ptr, ptr %498, align 8, !tbaa !863
@@ -1960,7 +1960,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   %503 = tail call noundef ptr %502(ptr noundef nonnull align 8 dereferenceable(64) %499, ptr noundef nonnull %28) #16
   br label %518
 
-504:                                              ; preds = %.thread173
+504:                                              ; preds = %.thread169
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %506 = load ptr, ptr %505, align 8, !tbaa !436
   %507 = load ptr, ptr %506, align 8, !tbaa !437
@@ -1971,15 +1971,15 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   %512 = tail call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %507, i32 noundef %511) #16
   br label %518
 
-513:                                              ; preds = %.thread173
+513:                                              ; preds = %.thread169
   %514 = load ptr, ptr %0, align 8, !tbaa !388
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 416
   %516 = load ptr, ptr %515, align 8, !tbaa !875
   %517 = tail call noundef ptr @_ZN5clang7CodeGen13CGHLSLRuntime23convertHLSLSpecificTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(96) %516, ptr noundef nonnull %28) #16
   br label %518
 
-518:                                              ; preds = %391, %395, %.thread178, %472, %484, %462, %464, %94, %98, %103, %108, %118, %145, %150, %157, %162, %167, %230, %235, %264, %282, %513, %504, %496, %_ZNK5clang8QualType15getAddressSpaceEv.exit, %400, %388, %386, %377, %372, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit, %320, %307, %300, %293, %287, %.thread173
-  %.0102 = phi ptr [ null, %.thread173 ], [ %517, %513 ], [ %512, %504 ], [ %503, %496 ], [ %463, %462 ], [ %286, %282 ], [ %438, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ %417, %.thread178 ], [ %404, %400 ], [ %474, %472 ], [ %390, %388 ], [ %387, %386 ], [ %385, %377 ], [ %376, %372 ], [ %343, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %321, %320 ], [ %309, %307 ], [ %306, %300 ], [ %299, %293 ], [ %292, %287 ], [ null, %94 ], [ %102, %98 ], [ %107, %103 ], [ %117, %108 ], [ %124, %118 ], [ %147, %145 ], [ %156, %150 ], [ %161, %157 ], [ %166, %162 ], [ %174, %167 ], [ %234, %230 ], [ %239, %235 ], [ %270, %264 ], [ %471, %464 ], [ %495, %484 ], [ %399, %395 ], [ %394, %391 ]
+518:                                              ; preds = %391, %395, %.thread174, %472, %484, %462, %464, %94, %98, %103, %108, %118, %145, %150, %157, %162, %167, %230, %235, %264, %282, %513, %504, %496, %_ZNK5clang8QualType15getAddressSpaceEv.exit, %400, %388, %386, %377, %372, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit, %320, %307, %300, %293, %287, %.thread169
+  %.0102 = phi ptr [ null, %.thread169 ], [ %517, %513 ], [ %512, %504 ], [ %503, %496 ], [ %463, %462 ], [ %286, %282 ], [ %438, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ %417, %.thread174 ], [ %404, %400 ], [ %474, %472 ], [ %390, %388 ], [ %387, %386 ], [ %385, %377 ], [ %376, %372 ], [ %343, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %321, %320 ], [ %309, %307 ], [ %306, %300 ], [ %299, %293 ], [ %292, %287 ], [ null, %94 ], [ %102, %98 ], [ %107, %103 ], [ %117, %108 ], [ %124, %118 ], [ %147, %145 ], [ %156, %150 ], [ %161, %157 ], [ %166, %162 ], [ %174, %167 ], [ %234, %230 ], [ %239, %235 ], [ %270, %264 ], [ %471, %464 ], [ %495, %484 ], [ %399, %395 ], [ %394, %391 ]
   %519 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %.0102, ptr %519, align 8, !tbaa !868
   br label %520

@@ -735,11 +735,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7139.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0136.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %22 = sub nsw i32 %.sroa.7139.8.extract.trunc, %.sroa.0136.0.extract.trunc
+  %.sroa.7120.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0117.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %22 = sub nsw i32 %.sroa.7120.8.extract.trunc, %.sroa.0117.0.extract.trunc
   %23 = srem i32 %1, %22
-  %24 = add nsw i32 %23, %.sroa.0136.0.extract.trunc
+  %24 = add nsw i32 %23, %.sroa.0117.0.extract.trunc
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !60
   %27 = sdiv i32 %1, %22
@@ -754,23 +754,23 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %35 = getelementptr inbounds i32, ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
-  %36 = icmp slt i32 %24, %.sroa.7139.8.extract.trunc
-  %or.cond.not12.i.not143 = select i1 %.not.i, i1 %36, i1 false
-  %.sroa.0136.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0136.4.extract.trunc = trunc nuw i64 %.sroa.0136.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %28, %.sroa.0136.4.extract.trunc
-  %or.cond10.i.not142 = select i1 %or.cond.not12.i.not143, i1 %.not6.i, i1 false
-  %.sroa.7139.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7139.12.extract.trunc = trunc nuw i64 %.sroa.7139.12.extract.shift to i32
-  %37 = icmp slt i32 %28, %.sroa.7139.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not142, i1 %37, i1 false
+  %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
+  %or.cond.not12.i.not124 = select i1 %.not.i, i1 %36, i1 false
+  %.sroa.0117.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0117.4.extract.trunc = trunc nuw i64 %.sroa.0117.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %28, %.sroa.0117.4.extract.trunc
+  %or.cond10.i.not123 = select i1 %or.cond.not12.i.not124, i1 %.not6.i, i1 false
+  %.sroa.7120.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7120.12.extract.trunc = trunc nuw i64 %.sroa.7120.12.extract.shift to i32
+  %37 = icmp slt i32 %28, %.sroa.7120.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not123, i1 %37, i1 false
   br i1 %or.cond, label %38, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 38:                                               ; preds = %2
-  %.sroa.8127.0.insert.ext132 = zext i32 %28 to i64
-  %.sroa.8127.0.insert.shift133 = shl nuw i64 %.sroa.8127.0.insert.ext132, 32
-  %.sroa.0120.0.insert.ext124 = zext i32 %24 to i64
-  %.sroa.0120.0.insert.insert126 = or disjoint i64 %.sroa.8127.0.insert.shift133, %.sroa.0120.0.insert.ext124
+  %.sroa.8108.0.insert.ext113 = zext i32 %28 to i64
+  %.sroa.8108.0.insert.shift114 = shl nuw i64 %.sroa.8108.0.insert.ext113, 32
+  %.sroa.0101.0.insert.ext105 = zext i32 %24 to i64
+  %.sroa.0101.0.insert.insert107 = or disjoint i64 %.sroa.8108.0.insert.shift114, %.sroa.0101.0.insert.ext105
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %40 = load i64, ptr %39, align 8, !tbaa !4
@@ -780,7 +780,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !61
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %.sroa.0120.0.insert.insert126, ptr %45, align 8
+  store i64 %.sroa.0101.0.insert.insert107, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %44, ptr %46, align 8, !tbaa !123
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 36
@@ -871,21 +871,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br label %_ZN4pbrt15GetCameraSampleINS_14PMJ02BNSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit
 
 _ZN4pbrt15GetCameraSampleINS_14PMJ02BNSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %38, %100
-  %.sroa.0111.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %100 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
-  %.sroa.6112.0 = phi <2 x float> [ splat (float 5.000000e-01), %100 ], [ %95, %38 ]
-  %.sroa.9113.0 = phi float [ 5.000000e-01, %100 ], [ %94, %38 ]
-  %.sroa.11114.0 = phi float [ 1.000000e+00, %100 ], [ %.fca.1.extract.i, %38 ]
+  %.sroa.092.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %100 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
+  %.sroa.693.0 = phi <2 x float> [ splat (float 5.000000e-01), %100 ], [ %95, %38 ]
+  %.sroa.994.0 = phi float [ 5.000000e-01, %100 ], [ %94, %38 ]
+  %.sroa.1195.0 = phi float [ 1.000000e+00, %100 ], [ %.fca.1.extract.i, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.sroa.0111.0, ptr %8, align 8
+  store <2 x float> %.sroa.092.0, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.6112.0, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x float> %.sroa.693.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.sroa.9113.0, ptr %.sroa.3.0..sroa_idx, align 8
+  store float %.sroa.994.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float %.sroa.11114.0, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %.sroa.1195.0, ptr %.sroa.4.0..sroa_idx, align 4
   %104 = load i64, ptr %103, align 8, !tbaa !154, !noalias !155
   %105 = and i64 %104, 144115188075855871
   %106 = inttoptr i64 %105 to ptr
@@ -1087,7 +1087,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %219 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %220 = load ptr, ptr %219, align 8, !tbaa !171
   %221 = getelementptr inbounds float, ptr %220, i64 %31
-  store float %.sroa.11114.0, ptr %221, align 4, !tbaa !130
+  store float %.sroa.1195.0, ptr %221, align 4, !tbaa !130
   %222 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %223 = trunc nuw i8 %222 to i1
   br i1 %223, label %224, label %285
@@ -4448,11 +4448,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7141.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0138.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %20 = sub nsw i32 %.sroa.7141.8.extract.trunc, %.sroa.0138.0.extract.trunc
+  %.sroa.7122.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0119.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %20 = sub nsw i32 %.sroa.7122.8.extract.trunc, %.sroa.0119.0.extract.trunc
   %21 = srem i32 %1, %20
-  %22 = add nsw i32 %21, %.sroa.0138.0.extract.trunc
+  %22 = add nsw i32 %21, %.sroa.0119.0.extract.trunc
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !65
   %25 = sdiv i32 %1, %20
@@ -4466,21 +4466,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %32 = load ptr, ptr %31, align 8, !tbaa !122
   %33 = getelementptr inbounds i32, ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
-  %.sroa.8129.0.insert.ext134 = zext i32 %26 to i64
-  %.sroa.8129.0.insert.shift135 = shl nuw i64 %.sroa.8129.0.insert.ext134, 32
-  %.sroa.0122.0.insert.ext126 = zext i32 %22 to i64
-  %.sroa.0122.0.insert.insert128 = or disjoint i64 %.sroa.8129.0.insert.shift135, %.sroa.0122.0.insert.ext126
+  %.sroa.8110.0.insert.ext115 = zext i32 %26 to i64
+  %.sroa.8110.0.insert.shift116 = shl nuw i64 %.sroa.8110.0.insert.ext115, 32
+  %.sroa.0103.0.insert.ext107 = zext i32 %22 to i64
+  %.sroa.0103.0.insert.insert109 = or disjoint i64 %.sroa.8110.0.insert.shift116, %.sroa.0103.0.insert.ext107
   %.not.i = icmp sgt i32 %21, -1
-  %34 = icmp slt i32 %22, %.sroa.7141.8.extract.trunc
-  %or.cond.not12.i.not145 = select i1 %.not.i, i1 %34, i1 false
-  %.sroa.0138.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0138.4.extract.trunc = trunc nuw i64 %.sroa.0138.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %26, %.sroa.0138.4.extract.trunc
-  %or.cond10.i.not144 = select i1 %or.cond.not12.i.not145, i1 %.not6.i, i1 false
-  %.sroa.7141.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7141.12.extract.trunc = trunc nuw i64 %.sroa.7141.12.extract.shift to i32
-  %35 = icmp slt i32 %26, %.sroa.7141.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not144, i1 %35, i1 false
+  %34 = icmp slt i32 %22, %.sroa.7122.8.extract.trunc
+  %or.cond.not12.i.not126 = select i1 %.not.i, i1 %34, i1 false
+  %.sroa.0119.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0119.4.extract.trunc = trunc nuw i64 %.sroa.0119.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %26, %.sroa.0119.4.extract.trunc
+  %or.cond10.i.not125 = select i1 %or.cond.not12.i.not126, i1 %.not6.i, i1 false
+  %.sroa.7122.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7122.12.extract.trunc = trunc nuw i64 %.sroa.7122.12.extract.shift to i32
+  %35 = icmp slt i32 %26, %.sroa.7122.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not125, i1 %35, i1 false
   br i1 %or.cond, label %36, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 36:                                               ; preds = %2
@@ -4488,18 +4488,18 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = and i64 %38, 144115188075855871
   %40 = inttoptr i64 %39 to ptr
-  %.sroa.0108.0.copyload = load i32, ptr %40, align 8, !tbaa !103
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %.sroa.5110.0.copyload = load i32, ptr %.sroa.5110.0..sroa_idx, align 4, !tbaa !103
+  %.sroa.089.0.copyload = load i32, ptr %40, align 8, !tbaa !103
+  %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %.sroa.591.0.copyload = load i32, ptr %.sroa.591.0..sroa_idx, align 4, !tbaa !103
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !66
-  %43 = mul i64 %.sroa.0122.0.insert.insert128, -4132994306676758123
+  %43 = mul i64 %.sroa.0103.0.insert.insert109, -4132994306676758123
   %44 = lshr i64 %43, 47
   %45 = xor i64 %44, %43
   %46 = mul i64 %45, -4132994306676758123
   %47 = xor i64 %46, 5744300541007557372
   %48 = mul i64 %47, -4132994306676758123
-  %49 = zext i32 %.sroa.5110.0.copyload to i64
+  %49 = zext i32 %.sroa.591.0.copyload to i64
   %50 = xor i64 %48, %49
   %51 = mul i64 %50, -4132994306676758123
   %52 = lshr i64 %51, 47
@@ -4592,17 +4592,17 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !337
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i32 %.sroa.0108.0.copyload, ptr %12, align 8, !tbaa !103
-  %.sroa.5110.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %.sroa.5110.0.copyload, ptr %.sroa.5110.0..sroa_idx111, align 4, !tbaa !103
-  %.sroa.6113.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %85, ptr %.sroa.6113.0..sroa_idx114, align 8, !tbaa !93
-  %.sroa.9116.0..sroa_idx117 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %66, ptr %.sroa.9116.0..sroa_idx117, align 8, !tbaa !93
+  store i32 %.sroa.089.0.copyload, ptr %12, align 8, !tbaa !103
+  %.sroa.591.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %.sroa.591.0.copyload, ptr %.sroa.591.0..sroa_idx92, align 4, !tbaa !103
+  %.sroa.694.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %85, ptr %.sroa.694.0..sroa_idx95, align 8, !tbaa !93
+  %.sroa.997.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %66, ptr %.sroa.997.0..sroa_idx98, align 8, !tbaa !93
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %104 = load i64, ptr %103, align 8, !tbaa !139
   store i64 %104, ptr %13, align 8, !tbaa !139
-  call void @_ZN4pbrt15GetCameraSampleINS_18IndependentSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %11, ptr noundef nonnull byval(%"class.pbrt::IndependentSampler") align 8 %12, i64 %.sroa.0122.0.insert.insert128, ptr noundef nonnull %13)
+  call void @_ZN4pbrt15GetCameraSampleINS_18IndependentSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %11, ptr noundef nonnull byval(%"class.pbrt::IndependentSampler") align 8 %12, i64 %.sroa.0103.0.insert.insert109, ptr noundef nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %106 = load i64, ptr %105, align 8, !tbaa !154, !noalias !340
@@ -5415,11 +5415,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7139.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0136.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %22 = sub nsw i32 %.sroa.7139.8.extract.trunc, %.sroa.0136.0.extract.trunc
+  %.sroa.7120.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0117.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %22 = sub nsw i32 %.sroa.7120.8.extract.trunc, %.sroa.0117.0.extract.trunc
   %23 = srem i32 %1, %22
-  %24 = add nsw i32 %23, %.sroa.0136.0.extract.trunc
+  %24 = add nsw i32 %23, %.sroa.0117.0.extract.trunc
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !70
   %27 = sdiv i32 %1, %22
@@ -5434,23 +5434,23 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %35 = getelementptr inbounds i32, ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
-  %36 = icmp slt i32 %24, %.sroa.7139.8.extract.trunc
-  %or.cond.not12.i.not143 = select i1 %.not.i, i1 %36, i1 false
-  %.sroa.0136.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0136.4.extract.trunc = trunc nuw i64 %.sroa.0136.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %28, %.sroa.0136.4.extract.trunc
-  %or.cond10.i.not142 = select i1 %or.cond.not12.i.not143, i1 %.not6.i, i1 false
-  %.sroa.7139.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7139.12.extract.trunc = trunc nuw i64 %.sroa.7139.12.extract.shift to i32
-  %37 = icmp slt i32 %28, %.sroa.7139.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not142, i1 %37, i1 false
+  %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
+  %or.cond.not12.i.not124 = select i1 %.not.i, i1 %36, i1 false
+  %.sroa.0117.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0117.4.extract.trunc = trunc nuw i64 %.sroa.0117.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %28, %.sroa.0117.4.extract.trunc
+  %or.cond10.i.not123 = select i1 %or.cond.not12.i.not124, i1 %.not6.i, i1 false
+  %.sroa.7120.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7120.12.extract.trunc = trunc nuw i64 %.sroa.7120.12.extract.shift to i32
+  %37 = icmp slt i32 %28, %.sroa.7120.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not123, i1 %37, i1 false
   br i1 %or.cond, label %38, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 38:                                               ; preds = %2
-  %.sroa.8127.0.insert.ext132 = zext i32 %28 to i64
-  %.sroa.8127.0.insert.shift133 = shl nuw i64 %.sroa.8127.0.insert.ext132, 32
-  %.sroa.0120.0.insert.ext124 = zext i32 %24 to i64
-  %.sroa.0120.0.insert.insert126 = or disjoint i64 %.sroa.8127.0.insert.shift133, %.sroa.0120.0.insert.ext124
+  %.sroa.8108.0.insert.ext113 = zext i32 %28 to i64
+  %.sroa.8108.0.insert.shift114 = shl nuw i64 %.sroa.8108.0.insert.ext113, 32
+  %.sroa.0101.0.insert.ext105 = zext i32 %24 to i64
+  %.sroa.0101.0.insert.insert107 = or disjoint i64 %.sroa.8108.0.insert.shift114, %.sroa.0101.0.insert.ext105
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %40 = load i64, ptr %39, align 8, !tbaa !4
@@ -5460,14 +5460,14 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !71
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %.sroa.0120.0.insert.insert126, ptr %45, align 8
+  store i64 %.sroa.0101.0.insert.insert107, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %44, ptr %46, align 8, !tbaa !356
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 44
   store i32 0, ptr %47, align 4, !tbaa !358
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !359
-  %50 = mul i64 %.sroa.0120.0.insert.insert126, -4132994306676758123
+  %50 = mul i64 %.sroa.0101.0.insert.insert107, -4132994306676758123
   %51 = lshr i64 %50, 47
   %52 = xor i64 %51, %50
   %53 = mul i64 %52, -4132994306676758123
@@ -5605,21 +5605,21 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   br label %_ZN4pbrt15GetCameraSampleINS_17StratifiedSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit
 
 _ZN4pbrt15GetCameraSampleINS_17StratifiedSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit, %125
-  %.sroa.0111.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %125 ], [ %.sroa.0.4.vec.insert.i10.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
-  %.sroa.6112.0 = phi <2 x float> [ splat (float 5.000000e-01), %125 ], [ %120, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
-  %.sroa.9113.0 = phi float [ 5.000000e-01, %125 ], [ %119, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
-  %.sroa.11114.0 = phi float [ 1.000000e+00, %125 ], [ %.fca.1.extract.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
+  %.sroa.092.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %125 ], [ %.sroa.0.4.vec.insert.i10.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
+  %.sroa.693.0 = phi <2 x float> [ splat (float 5.000000e-01), %125 ], [ %120, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
+  %.sroa.994.0 = phi float [ 5.000000e-01, %125 ], [ %119, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
+  %.sroa.1195.0 = phi float [ 1.000000e+00, %125 ], [ %.fca.1.extract.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %128 = getelementptr inbounds nuw i8, ptr %17, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.sroa.0111.0, ptr %8, align 8
+  store <2 x float> %.sroa.092.0, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.6112.0, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x float> %.sroa.693.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.sroa.9113.0, ptr %.sroa.3.0..sroa_idx, align 8
+  store float %.sroa.994.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float %.sroa.11114.0, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %.sroa.1195.0, ptr %.sroa.4.0..sroa_idx, align 4
   %129 = load i64, ptr %128, align 8, !tbaa !154, !noalias !369
   %130 = and i64 %129, 144115188075855871
   %131 = inttoptr i64 %130 to ptr
@@ -5821,7 +5821,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %244 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %245 = load ptr, ptr %244, align 8, !tbaa !171
   %246 = getelementptr inbounds float, ptr %245, i64 %31
-  store float %.sroa.11114.0, ptr %246, align 4, !tbaa !130
+  store float %.sroa.1195.0, ptr %246, align 4, !tbaa !130
   %247 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %248 = trunc nuw i8 %247 to i1
   br i1 %248, label %249, label %310
@@ -6592,11 +6592,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7130.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0127.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %20 = sub nsw i32 %.sroa.7130.8.extract.trunc, %.sroa.0127.0.extract.trunc
+  %.sroa.7111.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0108.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %20 = sub nsw i32 %.sroa.7111.8.extract.trunc, %.sroa.0108.0.extract.trunc
   %21 = srem i32 %1, %20
-  %22 = add nsw i32 %21, %.sroa.0127.0.extract.trunc
+  %22 = add nsw i32 %21, %.sroa.0108.0.extract.trunc
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !75
   %25 = sdiv i32 %1, %20
@@ -6611,23 +6611,23 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %33 = getelementptr inbounds i32, ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %21, -1
-  %34 = icmp slt i32 %22, %.sroa.7130.8.extract.trunc
-  %or.cond.not12.i.not134 = select i1 %.not.i, i1 %34, i1 false
-  %.sroa.0127.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0127.4.extract.trunc = trunc nuw i64 %.sroa.0127.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %26, %.sroa.0127.4.extract.trunc
-  %or.cond10.i.not133 = select i1 %or.cond.not12.i.not134, i1 %.not6.i, i1 false
-  %.sroa.7130.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7130.12.extract.trunc = trunc nuw i64 %.sroa.7130.12.extract.shift to i32
-  %35 = icmp slt i32 %26, %.sroa.7130.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not133, i1 %35, i1 false
+  %34 = icmp slt i32 %22, %.sroa.7111.8.extract.trunc
+  %or.cond.not12.i.not115 = select i1 %.not.i, i1 %34, i1 false
+  %.sroa.0108.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0108.4.extract.trunc = trunc nuw i64 %.sroa.0108.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %26, %.sroa.0108.4.extract.trunc
+  %or.cond10.i.not114 = select i1 %or.cond.not12.i.not115, i1 %.not6.i, i1 false
+  %.sroa.7111.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7111.12.extract.trunc = trunc nuw i64 %.sroa.7111.12.extract.shift to i32
+  %35 = icmp slt i32 %26, %.sroa.7111.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not114, i1 %35, i1 false
   br i1 %or.cond, label %36, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 36:                                               ; preds = %2
-  %.sroa.8118.0.insert.ext123 = zext i32 %26 to i64
-  %.sroa.8118.0.insert.shift124 = shl nuw i64 %.sroa.8118.0.insert.ext123, 32
-  %.sroa.0111.0.insert.ext115 = zext i32 %22 to i64
-  %.sroa.0111.0.insert.insert117 = or disjoint i64 %.sroa.8118.0.insert.shift124, %.sroa.0111.0.insert.ext115
+  %.sroa.899.0.insert.ext104 = zext i32 %26 to i64
+  %.sroa.899.0.insert.shift105 = shl nuw i64 %.sroa.899.0.insert.ext104, 32
+  %.sroa.092.0.insert.ext96 = zext i32 %22 to i64
+  %.sroa.092.0.insert.insert98 = or disjoint i64 %.sroa.899.0.insert.shift105, %.sroa.092.0.insert.ext96
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %38 = load i64, ptr %37, align 8, !tbaa !4
@@ -6636,7 +6636,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !76
-  call void @_ZN4pbrt13HaltonSampler16StartPixelSampleENS_6Point2IiEEii(ptr noundef nonnull align 8 dereferenceable(52) %10, i64 %.sroa.0111.0.insert.insert117, i32 noundef %42, i32 noundef 0)
+  call void @_ZN4pbrt13HaltonSampler16StartPixelSampleENS_6Point2IiEEii(ptr noundef nonnull align 8 dereferenceable(52) %10, i64 %.sroa.092.0.insert.insert98, i32 noundef %42, i32 noundef 0)
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %44 = load i32, ptr %43, align 8, !tbaa !380
   %45 = icmp sgt i32 %44, 999
@@ -6667,7 +6667,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %59 = load i64, ptr %58, align 8, !tbaa !139
   store i64 %59, ptr %13, align 8, !tbaa !139
-  call void @_ZN4pbrt15GetCameraSampleINS_13HaltonSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %12, ptr noundef nonnull byval(%"class.pbrt::HaltonSampler") align 8 %10, i64 %.sroa.0111.0.insert.insert117, ptr noundef nonnull %13)
+  call void @_ZN4pbrt15GetCameraSampleINS_13HaltonSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %12, ptr noundef nonnull byval(%"class.pbrt::HaltonSampler") align 8 %10, i64 %.sroa.092.0.insert.insert98, ptr noundef nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %61 = load i64, ptr %60, align 8, !tbaa !154, !noalias !390
@@ -7902,11 +7902,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7139.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0136.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %22 = sub nsw i32 %.sroa.7139.8.extract.trunc, %.sroa.0136.0.extract.trunc
+  %.sroa.7120.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0117.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %22 = sub nsw i32 %.sroa.7120.8.extract.trunc, %.sroa.0117.0.extract.trunc
   %23 = srem i32 %1, %22
-  %24 = add nsw i32 %23, %.sroa.0136.0.extract.trunc
+  %24 = add nsw i32 %23, %.sroa.0117.0.extract.trunc
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !80
   %27 = sdiv i32 %1, %22
@@ -7921,23 +7921,23 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %35 = getelementptr inbounds i32, ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
-  %36 = icmp slt i32 %24, %.sroa.7139.8.extract.trunc
-  %or.cond.not12.i.not143 = select i1 %.not.i, i1 %36, i1 false
-  %.sroa.0136.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0136.4.extract.trunc = trunc nuw i64 %.sroa.0136.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %28, %.sroa.0136.4.extract.trunc
-  %or.cond10.i.not142 = select i1 %or.cond.not12.i.not143, i1 %.not6.i, i1 false
-  %.sroa.7139.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7139.12.extract.trunc = trunc nuw i64 %.sroa.7139.12.extract.shift to i32
-  %37 = icmp slt i32 %28, %.sroa.7139.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not142, i1 %37, i1 false
+  %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
+  %or.cond.not12.i.not124 = select i1 %.not.i, i1 %36, i1 false
+  %.sroa.0117.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0117.4.extract.trunc = trunc nuw i64 %.sroa.0117.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %28, %.sroa.0117.4.extract.trunc
+  %or.cond10.i.not123 = select i1 %or.cond.not12.i.not124, i1 %.not6.i, i1 false
+  %.sroa.7120.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7120.12.extract.trunc = trunc nuw i64 %.sroa.7120.12.extract.shift to i32
+  %37 = icmp slt i32 %28, %.sroa.7120.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not123, i1 %37, i1 false
   br i1 %or.cond, label %38, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 38:                                               ; preds = %2
-  %.sroa.8127.0.insert.ext132 = zext i32 %28 to i64
-  %.sroa.8127.0.insert.shift133 = shl nuw i64 %.sroa.8127.0.insert.ext132, 32
-  %.sroa.0120.0.insert.ext124 = zext i32 %24 to i64
-  %.sroa.0120.0.insert.insert126 = or disjoint i64 %.sroa.8127.0.insert.shift133, %.sroa.0120.0.insert.ext124
+  %.sroa.8108.0.insert.ext113 = zext i32 %28 to i64
+  %.sroa.8108.0.insert.shift114 = shl nuw i64 %.sroa.8108.0.insert.ext113, 32
+  %.sroa.0101.0.insert.ext105 = zext i32 %24 to i64
+  %.sroa.0101.0.insert.insert107 = or disjoint i64 %.sroa.8108.0.insert.shift114, %.sroa.0101.0.insert.ext105
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %40 = load i64, ptr %39, align 8, !tbaa !4
@@ -7947,7 +7947,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !81
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i64 %.sroa.0120.0.insert.insert126, ptr %45, align 4
+  store i64 %.sroa.0101.0.insert.insert107, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 %44, ptr %46, align 4, !tbaa !414
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8017,21 +8017,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br label %_ZN4pbrt15GetCameraSampleINS_18PaddedSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit
 
 _ZN4pbrt15GetCameraSampleINS_18PaddedSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %38, %80
-  %.sroa.0111.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %80 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
-  %.sroa.6112.0 = phi <2 x float> [ splat (float 5.000000e-01), %80 ], [ %75, %38 ]
-  %.sroa.9113.0 = phi float [ 5.000000e-01, %80 ], [ %74, %38 ]
-  %.sroa.11114.0 = phi float [ 1.000000e+00, %80 ], [ %.fca.1.extract.i, %38 ]
+  %.sroa.092.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %80 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
+  %.sroa.693.0 = phi <2 x float> [ splat (float 5.000000e-01), %80 ], [ %75, %38 ]
+  %.sroa.994.0 = phi float [ 5.000000e-01, %80 ], [ %74, %38 ]
+  %.sroa.1195.0 = phi float [ 1.000000e+00, %80 ], [ %.fca.1.extract.i, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.sroa.0111.0, ptr %8, align 8
+  store <2 x float> %.sroa.092.0, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.6112.0, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x float> %.sroa.693.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.sroa.9113.0, ptr %.sroa.3.0..sroa_idx, align 8
+  store float %.sroa.994.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float %.sroa.11114.0, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %.sroa.1195.0, ptr %.sroa.4.0..sroa_idx, align 4
   %84 = load i64, ptr %83, align 8, !tbaa !154, !noalias !426
   %85 = and i64 %84, 144115188075855871
   %86 = inttoptr i64 %85 to ptr
@@ -8233,7 +8233,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %200 = load ptr, ptr %199, align 8, !tbaa !171
   %201 = getelementptr inbounds float, ptr %200, i64 %31
-  store float %.sroa.11114.0, ptr %201, align 4, !tbaa !130
+  store float %.sroa.1195.0, ptr %201, align 4, !tbaa !130
   %202 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %265
@@ -9133,11 +9133,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7132.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0129.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %20 = sub nsw i32 %.sroa.7132.8.extract.trunc, %.sroa.0129.0.extract.trunc
+  %.sroa.7113.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0110.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %20 = sub nsw i32 %.sroa.7113.8.extract.trunc, %.sroa.0110.0.extract.trunc
   %21 = srem i32 %1, %20
-  %22 = add nsw i32 %21, %.sroa.0129.0.extract.trunc
+  %22 = add nsw i32 %21, %.sroa.0110.0.extract.trunc
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !85
   %25 = sdiv i32 %1, %20
@@ -9151,21 +9151,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %32 = load ptr, ptr %31, align 8, !tbaa !122
   %33 = getelementptr inbounds i32, ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
-  %.sroa.8120.0.insert.ext125 = zext i32 %26 to i64
-  %.sroa.8120.0.insert.shift126 = shl nuw i64 %.sroa.8120.0.insert.ext125, 32
-  %.sroa.0113.0.insert.ext117 = zext i32 %22 to i64
-  %.sroa.0113.0.insert.insert119 = or disjoint i64 %.sroa.8120.0.insert.shift126, %.sroa.0113.0.insert.ext117
+  %.sroa.8101.0.insert.ext106 = zext i32 %26 to i64
+  %.sroa.8101.0.insert.shift107 = shl nuw i64 %.sroa.8101.0.insert.ext106, 32
+  %.sroa.094.0.insert.ext98 = zext i32 %22 to i64
+  %.sroa.094.0.insert.insert100 = or disjoint i64 %.sroa.8101.0.insert.shift107, %.sroa.094.0.insert.ext98
   %.not.i = icmp sgt i32 %21, -1
-  %34 = icmp slt i32 %22, %.sroa.7132.8.extract.trunc
-  %or.cond.not12.i.not136 = select i1 %.not.i, i1 %34, i1 false
-  %.sroa.0129.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0129.4.extract.trunc = trunc nuw i64 %.sroa.0129.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %26, %.sroa.0129.4.extract.trunc
-  %or.cond10.i.not135 = select i1 %or.cond.not12.i.not136, i1 %.not6.i, i1 false
-  %.sroa.7132.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7132.12.extract.trunc = trunc nuw i64 %.sroa.7132.12.extract.shift to i32
-  %35 = icmp slt i32 %26, %.sroa.7132.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not135, i1 %35, i1 false
+  %34 = icmp slt i32 %22, %.sroa.7113.8.extract.trunc
+  %or.cond.not12.i.not117 = select i1 %.not.i, i1 %34, i1 false
+  %.sroa.0110.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0110.4.extract.trunc = trunc nuw i64 %.sroa.0110.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %26, %.sroa.0110.4.extract.trunc
+  %or.cond10.i.not116 = select i1 %or.cond.not12.i.not117, i1 %.not6.i, i1 false
+  %.sroa.7113.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7113.12.extract.trunc = trunc nuw i64 %.sroa.7113.12.extract.shift to i32
+  %35 = icmp slt i32 %26, %.sroa.7113.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not116, i1 %35, i1 false
   br i1 %or.cond, label %36, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 36:                                               ; preds = %2
@@ -9178,7 +9178,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !86
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %.sroa.0113.0.insert.insert119, ptr %43, align 8
+  store i64 %.sroa.094.0.insert.insert100, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !442
@@ -9204,8 +9204,8 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
 ._crit_edge.i.i:                                  ; preds = %71, %51
   %.025.lcssa.i.i = phi i64 [ 0, %51 ], [ %.1.i.i, %71 ]
   %58 = zext nneg i32 %48 to i64
-  %59 = shl nuw nsw i64 %.sroa.0113.0.insert.ext117, %58
-  %60 = or i64 %59, %.sroa.8120.0.insert.ext125
+  %59 = shl nuw nsw i64 %.sroa.094.0.insert.ext98, %58
+  %60 = or i64 %59, %.sroa.8101.0.insert.ext106
   %.not3138.i.i = icmp eq i64 %.025.lcssa.i.i, %60
   br i1 %.not3138.i.i, label %_ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %.lr.ph43.i.i
 
@@ -9287,7 +9287,7 @@ _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %79, %
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %94 = load i64, ptr %93, align 8, !tbaa !139
   store i64 %94, ptr %13, align 8, !tbaa !139
-  call void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %12, ptr noundef nonnull byval(%"class.pbrt::SobolSampler") align 8 %10, i64 %.sroa.0113.0.insert.insert119, ptr noundef nonnull %13)
+  call void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr dead_on_unwind nonnull writable sret(%"struct.pbrt::CameraSample") align 4 %12, ptr noundef nonnull byval(%"class.pbrt::SobolSampler") align 8 %10, i64 %.sroa.094.0.insert.insert100, ptr noundef nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %96 = load i64, ptr %95, align 8, !tbaa !154, !noalias !454
@@ -10382,11 +10382,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %.sroa.2.0.copyload.i.i14.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i14.pn.in.i.i.i, align 8
   %.sroa.0.0.copyload.i.i12.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.0.0.copyload.i.i12.pn.i.i.i = load i64, ptr %.sroa.0.0.copyload.i.i12.pn.in.i.i.i, align 8
-  %.sroa.7139.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
-  %.sroa.0136.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
-  %22 = sub nsw i32 %.sroa.7139.8.extract.trunc, %.sroa.0136.0.extract.trunc
+  %.sroa.7120.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i to i32
+  %.sroa.0117.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i to i32
+  %22 = sub nsw i32 %.sroa.7120.8.extract.trunc, %.sroa.0117.0.extract.trunc
   %23 = srem i32 %1, %22
-  %24 = add nsw i32 %23, %.sroa.0136.0.extract.trunc
+  %24 = add nsw i32 %23, %.sroa.0117.0.extract.trunc
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !90
   %27 = sdiv i32 %1, %22
@@ -10401,21 +10401,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %35 = getelementptr inbounds i32, ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
-  %36 = icmp slt i32 %24, %.sroa.7139.8.extract.trunc
-  %or.cond.not12.i.not143 = select i1 %.not.i, i1 %36, i1 false
-  %.sroa.0136.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
-  %.sroa.0136.4.extract.trunc = trunc nuw i64 %.sroa.0136.4.extract.shift to i32
-  %.not6.i = icmp sge i32 %28, %.sroa.0136.4.extract.trunc
-  %or.cond10.i.not142 = select i1 %or.cond.not12.i.not143, i1 %.not6.i, i1 false
-  %.sroa.7139.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
-  %.sroa.7139.12.extract.trunc = trunc nuw i64 %.sroa.7139.12.extract.shift to i32
-  %37 = icmp slt i32 %28, %.sroa.7139.12.extract.trunc
-  %or.cond = select i1 %or.cond10.i.not142, i1 %37, i1 false
+  %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
+  %or.cond.not12.i.not124 = select i1 %.not.i, i1 %36, i1 false
+  %.sroa.0117.4.extract.shift = lshr i64 %.sroa.0.0.copyload.i.i12.pn.i.i.i, 32
+  %.sroa.0117.4.extract.trunc = trunc nuw i64 %.sroa.0117.4.extract.shift to i32
+  %.not6.i = icmp sge i32 %28, %.sroa.0117.4.extract.trunc
+  %or.cond10.i.not123 = select i1 %or.cond.not12.i.not124, i1 %.not6.i, i1 false
+  %.sroa.7120.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.i14.pn.i.i.i, 32
+  %.sroa.7120.12.extract.trunc = trunc nuw i64 %.sroa.7120.12.extract.shift to i32
+  %37 = icmp slt i32 %28, %.sroa.7120.12.extract.trunc
+  %or.cond = select i1 %or.cond10.i.not123, i1 %37, i1 false
   br i1 %or.cond, label %38, label %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
 38:                                               ; preds = %2
-  %.sroa.8127.0.insert.ext132 = zext i32 %28 to i64
-  %.sroa.0120.0.insert.ext124 = zext i32 %24 to i64
+  %.sroa.8108.0.insert.ext113 = zext i32 %28 to i64
+  %.sroa.0101.0.insert.ext105 = zext i32 %24 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %40 = load i64, ptr %39, align 8, !tbaa !4
@@ -10426,8 +10426,8 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %44 = load i32, ptr %43, align 4, !tbaa !91
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 0, ptr %45, align 8, !tbaa !469
-  %46 = shl nuw nsw i64 %.sroa.8127.0.insert.ext132, 16
-  %47 = or i64 %46, %.sroa.8127.0.insert.ext132
+  %46 = shl nuw nsw i64 %.sroa.8108.0.insert.ext113, 16
+  %47 = or i64 %46, %.sroa.8108.0.insert.ext113
   %48 = and i64 %47, 281470681808895
   %49 = shl nuw nsw i64 %48, 8
   %50 = or i64 %49, %48
@@ -10442,8 +10442,8 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %59 = shl nuw nsw i64 %57, 1
   %60 = or i64 %58, %59
   %61 = and i64 %60, -6148914691236517206
-  %62 = shl nuw nsw i64 %.sroa.0120.0.insert.ext124, 16
-  %63 = or i64 %62, %.sroa.0120.0.insert.ext124
+  %62 = shl nuw nsw i64 %.sroa.0101.0.insert.ext105, 16
+  %63 = or i64 %62, %.sroa.0101.0.insert.ext105
   %64 = and i64 %63, 281470681808895
   %65 = shl nuw nsw i64 %64, 8
   %66 = or i64 %65, %64
@@ -10531,21 +10531,21 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br label %_ZN4pbrt15GetCameraSampleINS_13ZSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit
 
 _ZN4pbrt15GetCameraSampleINS_13ZSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %38, %117
-  %.sroa.0111.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %117 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
-  %.sroa.6112.0 = phi <2 x float> [ splat (float 5.000000e-01), %117 ], [ %112, %38 ]
-  %.sroa.9113.0 = phi float [ 5.000000e-01, %117 ], [ %111, %38 ]
-  %.sroa.11114.0 = phi float [ 1.000000e+00, %117 ], [ %.fca.1.extract.i, %38 ]
+  %.sroa.092.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i14.i, %117 ], [ %.sroa.0.4.vec.insert.i10.i, %38 ]
+  %.sroa.693.0 = phi <2 x float> [ splat (float 5.000000e-01), %117 ], [ %112, %38 ]
+  %.sroa.994.0 = phi float [ 5.000000e-01, %117 ], [ %111, %38 ]
+  %.sroa.1195.0 = phi float [ 1.000000e+00, %117 ], [ %.fca.1.extract.i, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %120 = getelementptr inbounds nuw i8, ptr %17, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store <2 x float> %.sroa.0111.0, ptr %8, align 8
+  store <2 x float> %.sroa.092.0, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.6112.0, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x float> %.sroa.693.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.sroa.9113.0, ptr %.sroa.3.0..sroa_idx, align 8
+  store float %.sroa.994.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float %.sroa.11114.0, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %.sroa.1195.0, ptr %.sroa.4.0..sroa_idx, align 4
   %121 = load i64, ptr %120, align 8, !tbaa !154, !noalias !482
   %122 = and i64 %121, 144115188075855871
   %123 = inttoptr i64 %122 to ptr
@@ -10747,7 +10747,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %236 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %237 = load ptr, ptr %236, align 8, !tbaa !171
   %238 = getelementptr inbounds float, ptr %237, i64 %31
-  store float %.sroa.11114.0, ptr %238, align 4, !tbaa !130
+  store float %.sroa.1195.0, ptr %238, align 4, !tbaa !130
   %239 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %240 = trunc nuw i8 %239 to i1
   br i1 %240, label %241, label %302

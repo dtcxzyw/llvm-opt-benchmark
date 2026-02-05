@@ -12421,10 +12421,10 @@ define internal fastcc noundef ptr @_ZL21foldShuffleOfUnaryOpsRN4llvm17ShuffleVe
   store i64 %24, ptr %5, align 8, !tbaa !329, !alias.scope !383
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 170, ptr %25, align 8, !tbaa !201
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %.sroa.5106.0..sroa_idx, align 8, !tbaa !201
-  %.sroa.6108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %4, ptr %.sroa.6108.0..sroa_idx, align 8, !tbaa !329
+  %.sroa.5102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 0, ptr %.sroa.5102.0..sroa_idx, align 8, !tbaa !201
+  %.sroa.6104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %4, ptr %.sroa.6104.0..sroa_idx, align 8, !tbaa !329
   %26 = call noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %20)
   %.pre = load i8, ptr %20, align 8, !tbaa !18
   br i1 %26, label %55, label %27
@@ -12460,7 +12460,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %42, label %43, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit.thread
 
 43:                                               ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i
-  %44 = load i32, ptr %.sroa.5106.0..sroa_idx, align 8, !tbaa !388
+  %44 = load i32, ptr %.sroa.5102.0..sroa_idx, align 8, !tbaa !388
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 134217727
@@ -12474,7 +12474,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %.not.i.not.i.i.i.i, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit.thread, label %_ZN4llvm12PatternMatch14Argument_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_.exit.i.i.i
 
 _ZN4llvm12PatternMatch14Argument_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_.exit.i.i.i: ; preds = %43
-  %54 = load ptr, ptr %.sroa.6108.0..sroa_idx, align 8, !tbaa !339
+  %54 = load ptr, ptr %.sroa.6104.0..sroa_idx, align 8, !tbaa !339
   store ptr %53, ptr %54, align 8, !tbaa !202
   br label %55
 
@@ -12587,16 +12587,16 @@ _ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_1
   store i64 %103, ptr %12, align 8, !tbaa !329, !alias.scope !391
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 170, ptr %104, align 8, !tbaa !201
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %.sroa.686.0..sroa_idx, align 8, !tbaa !201
-  %.sroa.787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %11, ptr %.sroa.787.0..sroa_idx, align 8, !tbaa !329
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 0, ptr %.sroa.684.0..sroa_idx, align 8, !tbaa !201
+  %.sroa.785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %11, ptr %.sroa.785.0..sroa_idx, align 8, !tbaa !329
   %105 = call noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %99)
-  %.pre116 = load i8, ptr %99, align 8, !tbaa !18
+  %.pre112 = load i8, ptr %99, align 8, !tbaa !18
   br i1 %105, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit66, label %106
 
 106:                                              ; preds = %102
-  %.not.i.i.i.i59 = icmp eq i8 %.pre116, 85
+  %.not.i.i.i.i59 = icmp eq i8 %.pre112, 85
   br i1 %.not.i.i.i.i59, label %107, label %.critedge4
 
 107:                                              ; preds = %106
@@ -12626,7 +12626,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %121, label %122, label %.critedge4
 
 122:                                              ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i63
-  %123 = load i32, ptr %.sroa.686.0..sroa_idx, align 8, !tbaa !388
+  %123 = load i32, ptr %.sroa.684.0..sroa_idx, align 8, !tbaa !388
   %124 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = and i32 %125, 134217727
@@ -12640,13 +12640,13 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %.not.i.not.i.i.i.i64, label %.critedge4, label %_ZN4llvm12PatternMatch14Argument_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_.exit.i.i.i65
 
 _ZN4llvm12PatternMatch14Argument_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_.exit.i.i.i65: ; preds = %122
-  %133 = load ptr, ptr %.sroa.787.0..sroa_idx, align 8, !tbaa !339
+  %133 = load ptr, ptr %.sroa.785.0..sroa_idx, align 8, !tbaa !339
   store ptr %132, ptr %133, align 8, !tbaa !202
   br label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit66
 
 _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit66: ; preds = %_ZN4llvm12PatternMatch14Argument_matchINS0_7bind_tyINS_5ValueEEEE5matchINS_11InstructionEEEbPT_.exit.i.i.i65, %102
   %134 = load i8, ptr %20, align 8, !tbaa !18
-  %.not55 = icmp eq i8 %134, %.pre116
+  %.not55 = icmp eq i8 %134, %.pre112
   br i1 %.not55, label %135, label %.critedge4
 
 135:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_16match_combine_orINS0_10FNeg_matchINS0_7bind_tyINS_5ValueEEEEENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchIS7_EEEEEEEEbPT_RKT0_.exit66

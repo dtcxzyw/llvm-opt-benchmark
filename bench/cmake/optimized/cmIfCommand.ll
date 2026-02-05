@@ -242,8 +242,8 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   %33 = load ptr, ptr %1, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !38
-  %.not291399 = icmp eq ptr %33, %35
-  br i1 %.not291399, label %.critedge126, label %.lr.ph
+  %.not288396 = icmp eq ptr %33, %35
+  br i1 %.not288396, label %.critedge126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -313,15 +313,15 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.082401 = phi i32 [ 0, %.lr.ph ], [ %.284, %.backedge.backedge ]
-  %.sroa.0288.0400 = phi ptr [ %33, %.lr.ph ], [ %.sroa.0288.0400.be, %.backedge.backedge ]
-  %97 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %.082398 = phi i32 [ 0, %.lr.ph ], [ %.284, %.backedge.backedge ]
+  %.sroa.0285.0397 = phi ptr [ %33, %.lr.ph ], [ %.sroa.0285.0397.be, %.backedge.backedge ]
+  %97 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %99 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str) #23
   %100 = icmp eq i32 %99, 0
   %101 = zext i1 %100 to i32
-  %spec.select = add nsw i32 %.082401, %101
-  %102 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %spec.select = add nsw i32 %.082398, %101
+  %102 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull @.str.3) #23
   %105 = icmp eq i32 %104, 0
@@ -331,7 +331,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   br i1 %107, label %108, label %.critedge
 
 108:                                              ; preds = %.backedge
-  %109 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %109 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.4) #23
   %112 = icmp eq i32 %111, 0
@@ -341,7 +341,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind nonnull writable sret(%class.cmListFileBacktrace) align 8 %11, ptr noundef nonnull align 8 dereferenceable(2880) %32)
-  %114 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %114 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   store ptr %80, ptr %13, align 8, !tbaa !40
   %115 = load ptr, ptr %114, align 8, !tbaa !22
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -425,7 +425,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %139
   store i8 0, ptr %141, align 1, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %142 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %142 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 64
   %144 = load i64, ptr %143, align 8, !tbaa !43
   store ptr %84, ptr %12, align 8, !tbaa !40
@@ -445,11 +445,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %145, ptr %12, align 8, !tbaa !22
   %151 = load i64, ptr %80, align 8, !tbaa !42
   store i64 %151, ptr %84, align 8, !tbaa !42
-  %.pre403 = load i64, ptr %81, align 8, !tbaa !17
+  %.pre400 = load i64, ptr %81, align 8, !tbaa !17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %147
-  %152 = phi i64 [ %.pre403, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %148, %147 ]
+  %152 = phi i64 [ %.pre400, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %148, %147 ]
   store i64 %152, ptr %85, align 8, !tbaa !17
   store ptr %80, ptr %13, align 8, !tbaa !22
   store i64 0, ptr %81, align 8, !tbaa !17
@@ -471,11 +471,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i:
   store ptr %153, ptr %86, align 8, !tbaa !22
   %159 = load i64, ptr %82, align 8, !tbaa !42
   store i64 %159, ptr %87, align 8, !tbaa !42
-  %.pre404 = load i64, ptr %83, align 8, !tbaa !17
+  %.pre401 = load i64, ptr %83, align 8, !tbaa !17
   br label %_ZN17cmListFileContextC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_l.exit
 
 _ZN17cmListFileContextC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_l.exit: ; preds = %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i
-  %160 = phi i64 [ %156, %155 ], [ %.pre404, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i ]
+  %160 = phi i64 [ %156, %155 ], [ %.pre401, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i ]
   store i64 %160, ptr %88, align 8, !tbaa !17
   store ptr %82, ptr %14, align 8, !tbaa !22
   store i64 0, ptr %83, align 8, !tbaa !17
@@ -730,7 +730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %23
   br i1 %251, label %252, label %253
 
 252:                                              ; preds = %248
-  invoke void @_ZNK10cmMakefile17PrintCommandTraceERK18cmListFileFunctionRK19cmListFileBacktraceNS_23CommandMissingFromStackE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0288.0400, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 1)
+  invoke void @_ZNK10cmMakefile17PrintCommandTraceERK18cmListFileFunctionRK19cmListFileBacktraceNS_23CommandMissingFromStackE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0285.0397, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 1)
           to label %253 unwind label %233
 
 253:                                              ; preds = %243, %248, %252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140
@@ -784,9 +784,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i152: ; preds = %272, 
 
 _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154: ; preds = %253, %260, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i152, %275
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %276 = getelementptr inbounds nuw i8, ptr %.sroa.0288.0400, i64 16
-  %.not291 = icmp eq ptr %276, %35
-  %or.cond = select i1 %208, i1 true, i1 %.not291
+  %276 = getelementptr inbounds nuw i8, ptr %.sroa.0285.0397, i64 16
+  %.not288 = icmp eq ptr %276, %35
+  %or.cond = select i1 %208, i1 true, i1 %.not288
   br i1 %or.cond, label %.critedge126, label %.backedge.backedge
 
 277:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %233
@@ -800,7 +800,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154: ; preds
   br label %697
 
 279:                                              ; preds = %108
-  %280 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %280 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull @.str.6) #23
   %283 = icmp eq i32 %282, 0
@@ -810,7 +810,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind nonnull writable sret(%class.cmListFileBacktrace) align 8 %17, ptr noundef nonnull align 8 dereferenceable(2880) %32)
-  %285 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %285 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   store ptr %50, ptr %19, align 8, !tbaa !40
   %286 = load ptr, ptr %285, align 8, !tbaa !22
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
@@ -894,7 +894,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154: ; preds
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 %310
   store i8 0, ptr %312, align 1, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %313 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %313 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 64
   %315 = load i64, ptr %314, align 8, !tbaa !43
   store ptr %56, ptr %18, align 8, !tbaa !40
@@ -940,11 +940,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i1
   store ptr %324, ptr %58, align 8, !tbaa !22
   %330 = load i64, ptr %53, align 8, !tbaa !42
   store i64 %330, ptr %59, align 8, !tbaa !42
-  %.pre402 = load i64, ptr %55, align 8, !tbaa !17
+  %.pre399 = load i64, ptr %55, align 8, !tbaa !17
   br label %_ZN17cmListFileContextC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_l.exit166
 
 _ZN17cmListFileContextC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_l.exit166: ; preds = %326, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i165
-  %331 = phi i64 [ %327, %326 ], [ %.pre402, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i165 ]
+  %331 = phi i64 [ %327, %326 ], [ %.pre399, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i165 ]
   store i64 %331, ptr %60, align 8, !tbaa !17
   store ptr %53, ptr %20, align 8, !tbaa !22
   store i64 0, ptr %55, align 8, !tbaa !17
@@ -1199,7 +1199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %40
   br i1 %422, label %423, label %424
 
 423:                                              ; preds = %419
-  invoke void @_ZNK10cmMakefile17PrintCommandTraceERK18cmListFileFunctionRK19cmListFileBacktraceNS_23CommandMissingFromStackE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0288.0400, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 1)
+  invoke void @_ZNK10cmMakefile17PrintCommandTraceERK18cmListFileFunctionRK19cmListFileBacktraceNS_23CommandMissingFromStackE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0285.0397, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 1)
           to label %424 unwind label %.loopexit
 
 424:                                              ; preds = %423, %419
@@ -1209,7 +1209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %40
   store i8 0, ptr %68, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  %425 = load ptr, ptr %.sroa.0288.0400, align 8, !tbaa !4
+  %425 = load ptr, ptr %.sroa.0285.0397, align 8, !tbaa !4
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 80
   %427 = invoke noundef zeroext i1 @_ZNK10cmMakefile15ExpandArgumentsERKSt6vectorI18cmListFileArgumentSaIS1_EERS0_I25cmExpandedCommandArgumentSaIS6_EE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(24) %426, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %428 unwind label %488
@@ -1680,7 +1680,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit237: ; preds
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store i32 0, ptr %41, align 8
   store i8 0, ptr %44, align 8, !tbaa !55
-  %590 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0288.0400, ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %31)
+  %590 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0285.0397, ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %31)
           to label %591 unwind label %633
 
 591:                                              ; preds = %589
@@ -1913,12 +1913,12 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %697
 
 .critedge124:                                     ; preds = %_ZN17cmExecutionStatusD2Ev.exit, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit237, %.critedge
-  %.old = getelementptr inbounds nuw i8, ptr %.sroa.0288.0400, i64 16
-  %.not291.old = icmp eq ptr %.old, %35
-  br i1 %.not291.old, label %.critedge126, label %.backedge.backedge
+  %.old = getelementptr inbounds nuw i8, ptr %.sroa.0285.0397, i64 16
+  %.not288.old = icmp eq ptr %.old, %35
+  br i1 %.not288.old, label %.critedge126, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.critedge124, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154
-  %.sroa.0288.0400.be = phi ptr [ %.old, %.critedge124 ], [ %276, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154 ]
+  %.sroa.0285.0397.be = phi ptr [ %.old, %.critedge124 ], [ %276, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154 ]
   br label %.backedge
 
 .critedge120:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189

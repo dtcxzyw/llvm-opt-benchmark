@@ -753,18 +753,18 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
   br label %31
 
 31:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %_ZN10open_spiel13TabularPolicyD2Ev.exit
-  %.03998 = phi double [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.140, %_ZN10open_spiel13TabularPolicyD2Ev.exit ]
+  %.03995 = phi double [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.140, %_ZN10open_spiel13TabularPolicyD2Ev.exit ]
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %4, align 8
   store ptr %24, ptr %23, align 8
   store i64 1, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  %.sroa.062.082 = load ptr, ptr %29, align 8
-  %.not83 = icmp eq ptr %.sroa.062.082, null
-  br i1 %.not83, label %.thread118, label %.lr.ph
+  %.sroa.062.079 = load ptr, ptr %29, align 8
+  %.not80 = icmp eq ptr %.sroa.062.079, null
+  br i1 %.not80, label %.thread115, label %.lr.ph
 
-.thread118:                                       ; preds = %31
+.thread115:                                       ; preds = %31
   store double 1.000000e+00, ptr %6, align 8
   store i32 0, ptr %7, align 4
   store double 1.000000e+00, ptr %10, align 8
@@ -773,10 +773,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
 
 .lr.ph:                                           ; preds = %31, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ 0, %31 ]
-  %.sroa.062.086 = phi ptr [ %.sroa.062.0, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ %.sroa.062.082, %31 ]
-  %.04185 = phi double [ %42, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ 1.000000e+00, %31 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.062.086, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.062.086, i64 40
+  %.sroa.062.083 = phi ptr [ %.sroa.062.0, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ %.sroa.062.079, %31 ]
+  %.04182 = phi double [ %42, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ 1.000000e+00, %31 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.062.083, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.062.083, i64 40
   %34 = getelementptr inbounds nuw i32, ptr %.sroa.065.0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -787,7 +787,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %.lr.ph
-  %42 = fmul double %.04185, %40
+  %42 = fmul double %.04182, %40
   %43 = fcmp oeq double %42, 0.000000e+00
   br i1 %43, label %._crit_edge, label %44
 
@@ -797,12 +797,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit54
 
 .loopexit.split-lp.loopexit:                      ; preds = %77
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit54
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %70, %63
-  %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit54
 
@@ -833,7 +833,7 @@ _ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIldESaISB_EE.exit, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.sroa.062.0 = load ptr, ptr %.sroa.062.086, align 8
+  %.sroa.062.0 = load ptr, ptr %.sroa.062.083, align 8
   %.not = icmp eq ptr %.sroa.062.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -904,32 +904,32 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZN10open_spiel13Ta
   %76 = fcmp ogt double %42, 0.000000e+00
   br i1 %76, label %77, label %81
 
-77:                                               ; preds = %.thread118, %75
-  %.142115117120 = phi double [ 1.000000e+00, %.thread118 ], [ %42, %75 ]
-  %78 = fmul double %2, %.142115117120
+77:                                               ; preds = %.thread115, %75
+  %.142112114117 = phi double [ 1.000000e+00, %.thread115 ], [ %42, %75 ]
+  %78 = fmul double %2, %.142112114117
   invoke void @_ZN10open_spiel10algorithms14CorrDevBuilder26AddDeterminsticJointPolicyERKNS_13TabularPolicyEd(ptr noundef nonnull align 8 dereferenceable(5088) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, double noundef %78)
           to label %79 unwind label %.loopexit.split-lp.loopexit
 
 79:                                               ; preds = %77
-  %80 = fadd double %.03998, %.142115117120
+  %80 = fadd double %.03995, %.142112114117
   br label %81
 
 81:                                               ; preds = %79, %75
-  %.140 = phi double [ %80, %79 ], [ %.03998, %75 ]
-  %.sroa.058.089 = load ptr, ptr %29, align 8
-  %.not99 = icmp eq ptr %.sroa.058.089, null
-  br i1 %.not99, label %._crit_edge94, label %.lr.ph93
+  %.140 = phi double [ %80, %79 ], [ %.03995, %75 ]
+  %.sroa.058.086 = load ptr, ptr %29, align 8
+  %.not96 = icmp eq ptr %.sroa.058.086, null
+  br i1 %.not96, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph93:                                         ; preds = %81, %95
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %95 ], [ 0, %81 ]
-  %.sroa.058.091 = phi ptr [ %.sroa.058.0, %95 ], [ %.sroa.058.089, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.065.0, i64 %indvars.iv104
+.lr.ph90:                                         ; preds = %81, %95
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %95 ], [ 0, %81 ]
+  %.sroa.058.088 = phi ptr [ %.sroa.058.0, %95 ], [ %.sroa.058.086, %81 ]
+  %82 = getelementptr inbounds nuw i32, ptr %.sroa.065.0, i64 %indvars.iv101
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.058.091, i64 40
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.058.091, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.058.088, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.058.088, i64 48
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %86, align 8
   %90 = ptrtoint ptr %88 to i64
@@ -937,24 +937,24 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZN10open_spiel13Ta
   %92 = sub i64 %90, %91
   %93 = ashr exact i64 %92, 4
   %94 = icmp ugt i64 %93, %85
-  br i1 %94, label %._crit_edge94, label %95
+  br i1 %94, label %._crit_edge91, label %95
 
-95:                                               ; preds = %.lr.ph93
+95:                                               ; preds = %.lr.ph90
   store i32 0, ptr %82, align 4
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %.sroa.058.0 = load ptr, ptr %.sroa.058.091, align 8
-  %.not100 = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not100, label %._crit_edge94, label %.lr.ph93
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %.sroa.058.0 = load ptr, ptr %.sroa.058.088, align 8
+  %.not97 = icmp eq ptr %.sroa.058.0, null
+  br i1 %.not97, label %._crit_edge91, label %.lr.ph90
 
-._crit_edge94:                                    ; preds = %95, %.lr.ph93, %81
-  %.lcssa = phi i1 [ false, %81 ], [ %94, %.lr.ph93 ], [ %94, %95 ]
+._crit_edge91:                                    ; preds = %95, %.lr.ph90, %81
+  %.lcssa = phi i1 [ false, %81 ], [ %94, %.lr.ph90 ], [ %94, %95 ]
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %4, align 8
   %96 = load ptr, ptr %26, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %96, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge94, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %97, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i ], [ %96, %._crit_edge94 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge91, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i
+  %.06.i.i.i.i.i = phi ptr [ %97, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i ], [ %96, %._crit_edge91 ]
   %97 = load ptr, ptr %.06.i.i.i.i.i, align 8
   %98 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 40
   %99 = load ptr, ptr %98, align 8
@@ -977,7 +977,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
   %.not.i.i.i.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
-_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i, %._crit_edge94
+_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i, %._crit_edge91
   %107 = load ptr, ptr %23, align 8
   %108 = load i64, ptr %25, align 8
   %109 = shl i64 %108, 3
@@ -997,7 +997,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit:          ; preds = %_ZNSt10_HashtableIN
   br i1 %.lcssa, label %31, label %115, !llvm.loop !19
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit54:      ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %57, %54, %73, %66
-  %.pn = phi { ptr, i32 } [ %55, %57 ], [ %55, %54 ], [ %74, %73 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %55, %57 ], [ %55, %54 ], [ %74, %73 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp72, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #25
   br label %130
 

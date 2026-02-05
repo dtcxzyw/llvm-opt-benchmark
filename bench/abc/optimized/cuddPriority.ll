@@ -1151,10 +1151,10 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %.0179281 = phi i32 [ %6, %.lr.ph283.preheader ], [ %35, %119 ]
   %.0180280 = phi i32 [ 1, %.lr.ph283.preheader ], [ %33, %119 ]
   %.0182278 = phi ptr [ null, %.lr.ph283.preheader ], [ %.1183.lcssa, %119 ]
-  %.sroa.082.0277 = phi ptr [ null, %.lr.ph283.preheader ], [ %.sroa.08.1.lcssa, %119 ]
+  %.sroa.082.0277 = phi ptr [ null, %.lr.ph283.preheader ], [ %.sroa.08.0.lcssa, %119 ]
   %.sroa.053.0276 = phi i32 [ %13, %.lr.ph283.preheader ], [ %.sroa.0.0.lcssa, %119 ]
   %.sroa.11.0275 = phi i32 [ %13, %.lr.ph283.preheader ], [ %.sroa.9.0.lcssa, %119 ]
-  %.sroa.1189.0274 = phi ptr [ null, %.lr.ph283.preheader ], [ %.sroa.8.1.lcssa, %119 ]
+  %.sroa.1189.0274 = phi ptr [ null, %.lr.ph283.preheader ], [ %.sroa.8.0.lcssa, %119 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = ashr i32 %6, %25
   %27 = and i32 %.0180280, %2
@@ -1181,8 +1181,8 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 42:                                               ; preds = %.lr.ph, %114
   %.sroa.0.0268 = phi i32 [ %13, %.lr.ph ], [ %.sroa.0.1, %114 ]
   %.sroa.9.0267 = phi i32 [ %13, %.lr.ph ], [ %.sroa.9.1, %114 ]
-  %.sroa.8.1266 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.2, %114 ]
-  %.sroa.08.1265 = phi ptr [ null, %.lr.ph ], [ %.sroa.08.2, %114 ]
+  %.sroa.8.0266 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %114 ]
+  %.sroa.08.0265 = phi ptr [ null, %.lr.ph ], [ %.sroa.08.1, %114 ]
   %.0264 = phi i32 [ %34, %.lr.ph ], [ %115, %114 ]
   %.1183263 = phi ptr [ %.0182278, %.lr.ph ], [ %.2184, %114 ]
   %.not201 = icmp slt i32 %.0264, %38
@@ -1262,7 +1262,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not219, label %68, label %67
 
 67:                                               ; preds = %66
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1265) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0265) #7
   br label %68
 
 68:                                               ; preds = %67, %66
@@ -1270,7 +1270,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not220, label %.thread, label %69
 
 69:                                               ; preds = %68
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1266) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0266) #7
   br label %.thread
 
 70:                                               ; preds = %58
@@ -1308,7 +1308,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not215, label %86, label %85
 
 85:                                               ; preds = %84
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1265) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0265) #7
   br label %86
 
 86:                                               ; preds = %85, %84
@@ -1316,7 +1316,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not216, label %.thread, label %87
 
 87:                                               ; preds = %86
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1266) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0266) #7
   br label %.thread
 
 88:                                               ; preds = %70
@@ -1355,7 +1355,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not211, label %104, label %103
 
 103:                                              ; preds = %102
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1265) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0265) #7
   br label %104
 
 104:                                              ; preds = %103, %102
@@ -1363,7 +1363,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not212, label %.thread, label %105
 
 105:                                              ; preds = %104
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1266) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0266) #7
   br label %.thread
 
 106:                                              ; preds = %88
@@ -1377,16 +1377,16 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef nonnull %60) #7
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef nonnull %78) #7
   %113 = icmp eq i32 %.sroa.0.0268, %13
-  %..sroa.08.1 = select i1 %113, ptr %96, ptr %.sroa.08.1265
-  %.sroa.8.1. = select i1 %113, ptr %.sroa.8.1266, ptr %96
+  %..sroa.08.0 = select i1 %113, ptr %96, ptr %.sroa.08.0265
+  %.sroa.8.0. = select i1 %113, ptr %.sroa.8.0266, ptr %96
   %.sroa.9.0..0 = select i1 %113, i32 %.sroa.9.0267, i32 %.0264
   %.0..sroa.0.0 = select i1 %113, i32 %.0264, i32 %.sroa.0.0268
   br label %114
 
 114:                                              ; preds = %106, %42
   %.2184 = phi ptr [ %.1183263, %42 ], [ %96, %106 ]
-  %.sroa.08.2 = phi ptr [ %.sroa.08.1265, %42 ], [ %..sroa.08.1, %106 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.1266, %42 ], [ %.sroa.8.1., %106 ]
+  %.sroa.08.1 = phi ptr [ %.sroa.08.0265, %42 ], [ %..sroa.08.0, %106 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0266, %42 ], [ %.sroa.8.0., %106 ]
   %.sroa.9.1 = phi i32 [ %.sroa.9.0267, %42 ], [ %.sroa.9.0..0, %106 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0268, %42 ], [ %.0..sroa.0.0, %106 ]
   %115 = add i32 %.0264, 1
@@ -1395,8 +1395,8 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 
 ._crit_edge:                                      ; preds = %114, %.lr.ph283
   %.1183.lcssa = phi ptr [ %.0182278, %.lr.ph283 ], [ %.2184, %114 ]
-  %.sroa.08.1.lcssa = phi ptr [ null, %.lr.ph283 ], [ %.sroa.08.2, %114 ]
-  %.sroa.8.1.lcssa = phi ptr [ null, %.lr.ph283 ], [ %.sroa.8.2, %114 ]
+  %.sroa.08.0.lcssa = phi ptr [ null, %.lr.ph283 ], [ %.sroa.08.1, %114 ]
+  %.sroa.8.0.lcssa = phi ptr [ null, %.lr.ph283 ], [ %.sroa.8.1, %114 ]
   %.sroa.9.0.lcssa = phi i32 [ %13, %.lr.ph283 ], [ %.sroa.9.1, %114 ]
   %.sroa.0.0.lcssa = phi i32 [ %13, %.lr.ph283 ], [ %.sroa.0.1, %114 ]
   %.not199 = icmp eq i32 %.sroa.053.0276, %13
@@ -1480,10 +1480,10 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %.0188298 = phi i32 [ %7, %.lr.ph300 ], [ %35, %126 ]
   %.0189297 = phi i32 [ 1, %.lr.ph300 ], [ %37, %126 ]
   %.0191295 = phi ptr [ null, %.lr.ph300 ], [ %.1192.lcssa, %126 ]
-  %.sroa.085.0294 = phi ptr [ null, %.lr.ph300 ], [ %.sroa.08.1.lcssa, %126 ]
+  %.sroa.085.0294 = phi ptr [ null, %.lr.ph300 ], [ %.sroa.08.0.lcssa, %126 ]
   %.sroa.056.0293 = phi i32 [ %14, %.lr.ph300 ], [ %.sroa.0.0.lcssa, %126 ]
   %.sroa.11.0292 = phi i32 [ %14, %.lr.ph300 ], [ %.sroa.9.0.lcssa, %126 ]
-  %.sroa.1192.0291 = phi ptr [ null, %.lr.ph300 ], [ %.sroa.8.1.lcssa, %126 ]
+  %.sroa.1192.0291 = phi ptr [ null, %.lr.ph300 ], [ %.sroa.8.0.lcssa, %126 ]
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = ashr i32 %7, %27
   %29 = add nsw i32 %28, 2
@@ -1512,8 +1512,8 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 46:                                               ; preds = %.lr.ph, %121
   %.sroa.0.0285 = phi i32 [ %14, %.lr.ph ], [ %.sroa.0.1, %121 ]
   %.sroa.9.0284 = phi i32 [ %14, %.lr.ph ], [ %.sroa.9.1, %121 ]
-  %.sroa.8.1283 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.2, %121 ]
-  %.sroa.08.1282 = phi ptr [ null, %.lr.ph ], [ %.sroa.08.2, %121 ]
+  %.sroa.8.0283 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %121 ]
+  %.sroa.08.0282 = phi ptr [ null, %.lr.ph ], [ %.sroa.08.1, %121 ]
   %.0281 = phi i32 [ %38, %.lr.ph ], [ %122, %121 ]
   %.1192280 = phi ptr [ %.0191295, %.lr.ph ], [ %.2193, %121 ]
   %.not208 = icmp slt i32 %.0281, %41
@@ -1602,7 +1602,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not226, label %75, label %74
 
 74:                                               ; preds = %73
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1282) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0282) #7
   br label %75
 
 75:                                               ; preds = %74, %73
@@ -1610,7 +1610,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not227, label %.thread, label %76
 
 76:                                               ; preds = %75
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1283) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0283) #7
   br label %.thread
 
 77:                                               ; preds = %65
@@ -1648,7 +1648,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not222, label %93, label %92
 
 92:                                               ; preds = %91
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1282) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0282) #7
   br label %93
 
 93:                                               ; preds = %92, %91
@@ -1656,7 +1656,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not223, label %.thread, label %94
 
 94:                                               ; preds = %93
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1283) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0283) #7
   br label %.thread
 
 95:                                               ; preds = %77
@@ -1695,7 +1695,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not218, label %111, label %110
 
 110:                                              ; preds = %109
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.1282) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.08.0282) #7
   br label %111
 
 111:                                              ; preds = %110, %109
@@ -1703,7 +1703,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not219, label %.thread, label %112
 
 112:                                              ; preds = %111
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.1283) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.sroa.8.0283) #7
   br label %.thread
 
 113:                                              ; preds = %95
@@ -1717,16 +1717,16 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef nonnull %67) #7
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef nonnull %85) #7
   %120 = icmp eq i32 %.sroa.0.0285, %14
-  %..sroa.08.1 = select i1 %120, ptr %103, ptr %.sroa.08.1282
-  %.sroa.8.1. = select i1 %120, ptr %.sroa.8.1283, ptr %103
+  %..sroa.08.0 = select i1 %120, ptr %103, ptr %.sroa.08.0282
+  %.sroa.8.0. = select i1 %120, ptr %.sroa.8.0283, ptr %103
   %.sroa.9.0..0 = select i1 %120, i32 %.sroa.9.0284, i32 %.0281
   %.0..sroa.0.0 = select i1 %120, i32 %.0281, i32 %.sroa.0.0285
   br label %121
 
 121:                                              ; preds = %113, %46
   %.2193 = phi ptr [ %.1192280, %46 ], [ %103, %113 ]
-  %.sroa.08.2 = phi ptr [ %.sroa.08.1282, %46 ], [ %..sroa.08.1, %113 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.1283, %46 ], [ %.sroa.8.1., %113 ]
+  %.sroa.08.1 = phi ptr [ %.sroa.08.0282, %46 ], [ %..sroa.08.0, %113 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0283, %46 ], [ %.sroa.8.0., %113 ]
   %.sroa.9.1 = phi i32 [ %.sroa.9.0284, %46 ], [ %.sroa.9.0..0, %113 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0285, %46 ], [ %.0..sroa.0.0, %113 ]
   %122 = add i32 %.0281, 1
@@ -1735,8 +1735,8 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 ._crit_edge:                                      ; preds = %121, %26
   %.1192.lcssa = phi ptr [ %.0191295, %26 ], [ %.2193, %121 ]
-  %.sroa.08.1.lcssa = phi ptr [ null, %26 ], [ %.sroa.08.2, %121 ]
-  %.sroa.8.1.lcssa = phi ptr [ null, %26 ], [ %.sroa.8.2, %121 ]
+  %.sroa.08.0.lcssa = phi ptr [ null, %26 ], [ %.sroa.08.1, %121 ]
+  %.sroa.8.0.lcssa = phi ptr [ null, %26 ], [ %.sroa.8.1, %121 ]
   %.sroa.9.0.lcssa = phi i32 [ %14, %26 ], [ %.sroa.9.1, %121 ]
   %.sroa.0.0.lcssa = phi i32 [ %14, %26 ], [ %.sroa.0.1, %121 ]
   %.not206 = icmp eq i32 %.sroa.056.0293, %14

@@ -933,8 +933,8 @@ _ZN10PacketList19setColumnVisibilityEv.exit:      ; preds = %.lr.ph.i, %18
 _ZN9QtPrivate21qMakeForeachContainerIR5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit: ; preds = %38, %44
   %.idx = mul i64 %43, 24
   %46 = getelementptr i8, ptr %42, i64 %.idx
-  %.not3132 = icmp eq i64 %.idx, 0
-  br i1 %.not3132, label %._crit_edge, label %.lr.ph
+  %.not2526 = icmp eq i64 %.idx, 0
+  br i1 %.not2526, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %57, %_ZN9QtPrivate21qMakeForeachContainerIR5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit, label %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i
@@ -959,9 +959,9 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
   br label %63
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, %57
-  %.sroa.12.033 = phi ptr [ %58, %57 ], [ %42, %_ZN9QtPrivate21qMakeForeachContainerIR5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit ]
+  %.sroa.12.027 = phi ptr [ %58, %57 ], [ %42, %_ZN9QtPrivate21qMakeForeachContainerIR5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef align 8 dereferenceable(24) %.sroa.12.033, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef align 8 dereferenceable(24) %.sroa.12.027, i64 24, i1 false)
   %52 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
           to label %53 unwind label %59
 
@@ -974,9 +974,9 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
 
 57:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %58 = getelementptr i8, ptr %.sroa.12.033, i64 24
-  %.not31 = icmp eq ptr %58, %46
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  %58 = getelementptr i8, ptr %.sroa.12.027, i64 24
+  %.not25 = icmp eq ptr %58, %46
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 59:                                               ; preds = %53, %.lr.ph
   %60 = landingpad { ptr, i32 }

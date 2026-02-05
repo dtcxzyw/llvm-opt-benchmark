@@ -1068,20 +1068,20 @@ _Py_PreInitializeFromConfig.exit.i.thread:        ; preds = %30
   br label %_Py_PreInitializeFromConfig.exit.i
 
 _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
-  %.sroa.028.0.copyload.pr = load i32, ptr %12, align 8, !tbaa !191
+  %.sroa.022.0.copyload.pr = load i32, ptr %12, align 8, !tbaa !191
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !223
-  %.sroa.1134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.sroa.1134.0.copyload = load i32, ptr %.sroa.1134.0..sroa_idx, align 4
-  %.sroa.1341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.1341.0.copyload = load ptr, ptr %.sroa.1341.0..sroa_idx, align 8, !tbaa !193
+  %.sroa.1128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.sroa.1128.0.copyload = load i32, ptr %.sroa.1128.0..sroa_idx, align 4
+  %.sroa.1335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.1335.0.copyload = load ptr, ptr %.sroa.1335.0..sroa_idx, align 8, !tbaa !193
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.14.0.copyload = load ptr, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !193
-  %.sroa.1554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.1554.0.copyload = load i32, ptr %.sroa.1554.0..sroa_idx, align 8, !tbaa !191
+  %.sroa.1548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.1548.0.copyload = load i32, ptr %.sroa.1548.0..sroa_idx, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 28
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !213
-  %.not.i = icmp eq i32 %.sroa.028.0.copyload.pr, 0
+  %.not.i = icmp eq i32 %.sroa.022.0.copyload.pr, 0
   br i1 %.not.i, label %44, label %pyinit_core.exit.thread
 
 44:                                               ; preds = %_Py_PreInitializeFromConfig.exit.i.thread, %_Py_PreInitializeFromConfig.exit.i
@@ -1089,38 +1089,38 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %13) #23, !noalias !213
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !213
   call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %14, ptr noundef nonnull %13, ptr noundef nonnull %1) #23, !noalias !213
-  %.sroa.028.0.copyload31 = load i32, ptr %14, align 8, !tbaa !191
-  %.sroa.1134.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %.sroa.1134.0.copyload36 = load i32, ptr %.sroa.1134.0..sroa_idx35, align 4
-  %.sroa.1341.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.1341.0.copyload43 = load ptr, ptr %.sroa.1341.0..sroa_idx42, align 8, !tbaa !193
-  %.sroa.14.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.14.0.copyload49 = load ptr, ptr %.sroa.14.0..sroa_idx48, align 8, !tbaa !193
-  %.sroa.1554.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sroa.1554.0.copyload56 = load i32, ptr %.sroa.1554.0..sroa_idx55, align 8, !tbaa !191
-  %.sroa.16.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %.sroa.16.0.copyload62 = load i32, ptr %.sroa.16.0..sroa_idx61, align 4
+  %.sroa.022.0.copyload25 = load i32, ptr %14, align 8, !tbaa !191
+  %.sroa.1128.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.sroa.1128.0.copyload30 = load i32, ptr %.sroa.1128.0..sroa_idx29, align 4
+  %.sroa.1335.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.1335.0.copyload37 = load ptr, ptr %.sroa.1335.0..sroa_idx36, align 8, !tbaa !193
+  %.sroa.14.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.14.0.copyload43 = load ptr, ptr %.sroa.14.0..sroa_idx42, align 8, !tbaa !193
+  %.sroa.1548.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sroa.1548.0.copyload50 = load i32, ptr %.sroa.1548.0..sroa_idx49, align 8, !tbaa !191
+  %.sroa.16.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %.sroa.16.0.copyload56 = load i32, ptr %.sroa.16.0..sroa_idx55, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !213
-  %.not7.i = icmp eq i32 %.sroa.028.0.copyload31, 0
-  br i1 %.not7.i, label %45, label %pyinit_core.exit.thread119
+  %.not7.i = icmp eq i32 %.sroa.022.0.copyload25, 0
+  br i1 %.not7.i, label %45, label %pyinit_core.exit.thread113
 
 45:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !213
   call void @_PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %15, ptr noundef nonnull %13, i32 noundef 0) #23, !noalias !213
-  %.sroa.028.0.copyload32 = load i32, ptr %15, align 8, !tbaa !191
-  %.sroa.1134.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.sroa.1134.0.copyload38 = load i32, ptr %.sroa.1134.0..sroa_idx37, align 4
-  %.sroa.1341.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.1341.0.copyload45 = load ptr, ptr %.sroa.1341.0..sroa_idx44, align 8, !tbaa !193
-  %.sroa.14.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.14.0.copyload51 = load ptr, ptr %.sroa.14.0..sroa_idx50, align 8, !tbaa !193
-  %.sroa.1554.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sroa.1554.0.copyload58 = load i32, ptr %.sroa.1554.0..sroa_idx57, align 8, !tbaa !191
-  %.sroa.16.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %.sroa.16.0.copyload64 = load i32, ptr %.sroa.16.0..sroa_idx63, align 4
+  %.sroa.022.0.copyload26 = load i32, ptr %15, align 8, !tbaa !191
+  %.sroa.1128.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %.sroa.1128.0.copyload32 = load i32, ptr %.sroa.1128.0..sroa_idx31, align 4
+  %.sroa.1335.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.1335.0.copyload39 = load ptr, ptr %.sroa.1335.0..sroa_idx38, align 8, !tbaa !193
+  %.sroa.14.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.14.0.copyload45 = load ptr, ptr %.sroa.14.0..sroa_idx44, align 8, !tbaa !193
+  %.sroa.1548.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.1548.0.copyload52 = load i32, ptr %.sroa.1548.0..sroa_idx51, align 8, !tbaa !191
+  %.sroa.16.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %15, i64 28
+  %.sroa.16.0.copyload58 = load i32, ptr %.sroa.16.0..sroa_idx57, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !213
-  %.not8.i = icmp eq i32 %.sroa.028.0.copyload32, 0
-  br i1 %.not8.i, label %46, label %pyinit_core.exit.thread119
+  %.not8.i = icmp eq i32 %.sroa.022.0.copyload26, 0
+  br i1 %.not8.i, label %46, label %pyinit_core.exit.thread113
 
 46:                                               ; preds = %45
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 668), align 4, !tbaa !4, !noalias !213
@@ -1131,13 +1131,13 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
   %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %50 = load ptr, ptr %49, align 8, !tbaa !212, !noalias !225
   %.not.i10.i = icmp eq ptr %50, null
-  br i1 %.not.i10.i, label %pyinit_core.exit.thread119, label %51
+  br i1 %.not.i10.i, label %pyinit_core.exit.thread113, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !228, !noalias !225
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %pyinit_core.exit.thread119, label %55
+  br i1 %54, label %pyinit_core.exit.thread113, label %55
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !225
@@ -1155,7 +1155,7 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
   %.sroa.11.i.sroa.17.0.copyload.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !225
   %.not25.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not25.i.i, label %56, label %pyinit_core.exit.thread119
+  br i1 %.not25.i.i, label %56, label %pyinit_core.exit.thread113
 
 56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !225
@@ -1174,14 +1174,14 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
   %.sroa.11.i.sroa.17.0.copyload27.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 4, !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !225
   %.not26.i.i = icmp eq i32 %.sroa.0.0.copyload9.i.i, 0
-  br i1 %.not26.i.i, label %58, label %pyinit_core.exit.thread119
+  br i1 %.not26.i.i, label %58, label %pyinit_core.exit.thread113
 
 58:                                               ; preds = %56
   %59 = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %53) #23, !noalias !225
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 432
   %61 = load i32, ptr %60, align 8, !tbaa !229, !noalias !225
   %.not27.i.i = icmp eq i32 %61, 0
-  br i1 %.not27.i.i, label %pyinit_core.exit.thread127, label %62
+  br i1 %.not27.i.i, label %pyinit_core.exit.thread121, label %62
 
 62:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !225
@@ -1199,20 +1199,20 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
   %.sroa.11.i.sroa.17.0.copyload28.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 4, !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !225
   %.not28.i.i = icmp eq i32 %.sroa.0.0.copyload11.i.i, 0
-  br i1 %.not28.i.i, label %pyinit_core.exit.thread127, label %pyinit_core.exit.thread119
+  br i1 %.not28.i.i, label %pyinit_core.exit.thread121, label %pyinit_core.exit.thread113
 
-pyinit_core.exit.thread127:                       ; preds = %58, %62
+pyinit_core.exit.thread121:                       ; preds = %58, %62
   call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !213
   br label %63
 
-pyinit_core.exit.thread119:                       ; preds = %44, %45, %51, %48, %56, %55, %62
-  %.sroa.16.0.ph = phi i32 [ %.sroa.11.i.sroa.17.0.copyload28.i, %62 ], [ %.sroa.11.i.sroa.17.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.17.0.copyload27.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.16.0.copyload64, %45 ], [ %.sroa.16.0.copyload62, %44 ]
-  %.sroa.1554.0.ph = phi i32 [ %.sroa.11.i.sroa.14.0.copyload26.i, %62 ], [ %.sroa.11.i.sroa.14.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.14.0.copyload25.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1554.0.copyload58, %45 ], [ %.sroa.1554.0.copyload56, %44 ]
-  %.sroa.14.0.ph = phi ptr [ %.sroa.11.i.sroa.11.0.copyload24.i, %62 ], [ %.sroa.11.i.sroa.11.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.11.0.copyload23.i, %56 ], [ @.str.164, %48 ], [ @.str.165, %51 ], [ %.sroa.14.0.copyload51, %45 ], [ %.sroa.14.0.copyload49, %44 ]
-  %.sroa.1341.0.ph = phi ptr [ %.sroa.11.i.sroa.8.0.copyload22.i, %62 ], [ %.sroa.11.i.sroa.8.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.8.0.copyload21.i, %56 ], [ @__func__.pyinit_core_reconfigure, %48 ], [ @__func__.pyinit_core_reconfigure, %51 ], [ %.sroa.1341.0.copyload45, %45 ], [ %.sroa.1341.0.copyload43, %44 ]
-  %.sroa.1134.0.ph = phi i32 [ %.sroa.11.i.sroa.0.0.copyload20.i, %62 ], [ %.sroa.11.i.sroa.0.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.0.0.copyload19.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1134.0.copyload38, %45 ], [ %.sroa.1134.0.copyload36, %44 ]
-  %.sroa.028.0.ph = phi i32 [ %.sroa.0.0.copyload11.i.i, %62 ], [ %.sroa.0.0.copyload.i.i, %55 ], [ %.sroa.0.0.copyload9.i.i, %56 ], [ 1, %48 ], [ 1, %51 ], [ %.sroa.028.0.copyload32, %45 ], [ %.sroa.028.0.copyload31, %44 ]
+pyinit_core.exit.thread113:                       ; preds = %44, %45, %51, %48, %56, %55, %62
+  %.sroa.16.0.ph = phi i32 [ %.sroa.11.i.sroa.17.0.copyload28.i, %62 ], [ %.sroa.11.i.sroa.17.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.17.0.copyload27.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.16.0.copyload58, %45 ], [ %.sroa.16.0.copyload56, %44 ]
+  %.sroa.1548.0.ph = phi i32 [ %.sroa.11.i.sroa.14.0.copyload26.i, %62 ], [ %.sroa.11.i.sroa.14.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.14.0.copyload25.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1548.0.copyload52, %45 ], [ %.sroa.1548.0.copyload50, %44 ]
+  %.sroa.14.0.ph = phi ptr [ %.sroa.11.i.sroa.11.0.copyload24.i, %62 ], [ %.sroa.11.i.sroa.11.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.11.0.copyload23.i, %56 ], [ @.str.164, %48 ], [ @.str.165, %51 ], [ %.sroa.14.0.copyload45, %45 ], [ %.sroa.14.0.copyload43, %44 ]
+  %.sroa.1335.0.ph = phi ptr [ %.sroa.11.i.sroa.8.0.copyload22.i, %62 ], [ %.sroa.11.i.sroa.8.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.8.0.copyload21.i, %56 ], [ @__func__.pyinit_core_reconfigure, %48 ], [ @__func__.pyinit_core_reconfigure, %51 ], [ %.sroa.1335.0.copyload39, %45 ], [ %.sroa.1335.0.copyload37, %44 ]
+  %.sroa.1128.0.ph = phi i32 [ %.sroa.11.i.sroa.0.0.copyload20.i, %62 ], [ %.sroa.11.i.sroa.0.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.0.0.copyload19.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1128.0.copyload32, %45 ], [ %.sroa.1128.0.copyload30, %44 ]
+  %.sroa.022.0.ph = phi i32 [ %.sroa.0.0.copyload11.i.i, %62 ], [ %.sroa.0.0.copyload.i.i, %55 ], [ %.sroa.0.0.copyload9.i.i, %56 ], [ 1, %48 ], [ 1, %51 ], [ %.sroa.022.0.copyload26, %45 ], [ %.sroa.022.0.copyload25, %44 ]
   call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !213
   br label %pyinit_core.exit.thread
@@ -1220,56 +1220,56 @@ pyinit_core.exit.thread119:                       ; preds = %44, %45, %51, %48, 
 pyinit_core.exit:                                 ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !213
   call fastcc void @pyinit_config(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %18, ptr noundef %13), !noalias !213
-  %.sroa.028.0.copyload33 = load i32, ptr %16, align 8, !tbaa !191
-  %.sroa.1134.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.sroa.1134.0.copyload40 = load i32, ptr %.sroa.1134.0..sroa_idx39, align 4
-  %.sroa.1341.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.1341.0.copyload47 = load ptr, ptr %.sroa.1341.0..sroa_idx46, align 8, !tbaa !193
-  %.sroa.14.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.14.0.copyload53 = load ptr, ptr %.sroa.14.0..sroa_idx52, align 8, !tbaa !193
-  %.sroa.1554.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.1554.0.copyload60 = load i32, ptr %.sroa.1554.0..sroa_idx59, align 8, !tbaa !191
-  %.sroa.16.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %.sroa.16.0.copyload66 = load i32, ptr %.sroa.16.0..sroa_idx65, align 4
+  %.sroa.022.0.copyload27 = load i32, ptr %16, align 8, !tbaa !191
+  %.sroa.1128.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.sroa.1128.0.copyload34 = load i32, ptr %.sroa.1128.0..sroa_idx33, align 4
+  %.sroa.1335.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.1335.0.copyload41 = load ptr, ptr %.sroa.1335.0..sroa_idx40, align 8, !tbaa !193
+  %.sroa.14.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.14.0.copyload47 = load ptr, ptr %.sroa.14.0..sroa_idx46, align 8, !tbaa !193
+  %.sroa.1548.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.1548.0.copyload54 = load i32, ptr %.sroa.1548.0..sroa_idx53, align 8, !tbaa !191
+  %.sroa.16.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %.sroa.16.0.copyload60 = load i32, ptr %.sroa.16.0..sroa_idx59, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !213
   call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !213
-  %.not16 = icmp eq i32 %.sroa.028.0.copyload33, 0
+  %.not16 = icmp eq i32 %.sroa.022.0.copyload27, 0
   br i1 %.not16, label %pyinit_core.exit._crit_edge, label %pyinit_core.exit.thread
 
 pyinit_core.exit._crit_edge:                      ; preds = %pyinit_core.exit
   %.pre = load ptr, ptr %18, align 8, !tbaa !212
   br label %63
 
-pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFromConfig.exit.i, %pyinit_core.exit.thread119, %pyinit_core.exit
-  %.sroa.028.1118 = phi i32 [ %.sroa.028.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.028.0.copyload33, %pyinit_core.exit ], [ %.sroa.028.0.copyload.pr, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1134.1117 = phi i32 [ %.sroa.1134.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1134.0.copyload40, %pyinit_core.exit ], [ %.sroa.1134.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1341.1116 = phi ptr [ %.sroa.1341.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1341.0.copyload47, %pyinit_core.exit ], [ %.sroa.1341.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.14.1115 = phi ptr [ %.sroa.14.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.14.0.copyload53, %pyinit_core.exit ], [ %.sroa.14.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1554.1114 = phi i32 [ %.sroa.1554.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1554.0.copyload60, %pyinit_core.exit ], [ %.sroa.1554.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.16.1113 = phi i32 [ %.sroa.16.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.16.0.copyload66, %pyinit_core.exit ], [ %.sroa.16.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  store i32 %.sroa.028.1118, ptr %0, align 8, !tbaa !191
+pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFromConfig.exit.i, %pyinit_core.exit.thread113, %pyinit_core.exit
+  %.sroa.022.1112 = phi i32 [ %.sroa.022.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.022.0.copyload27, %pyinit_core.exit ], [ %.sroa.022.0.copyload.pr, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1128.1111 = phi i32 [ %.sroa.1128.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.1128.0.copyload34, %pyinit_core.exit ], [ %.sroa.1128.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1335.1110 = phi ptr [ %.sroa.1335.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.1335.0.copyload41, %pyinit_core.exit ], [ %.sroa.1335.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.14.1109 = phi ptr [ %.sroa.14.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.14.0.copyload47, %pyinit_core.exit ], [ %.sroa.14.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1548.1108 = phi i32 [ %.sroa.1548.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.1548.0.copyload54, %pyinit_core.exit ], [ %.sroa.1548.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.16.1107 = phi i32 [ %.sroa.16.0.ph, %pyinit_core.exit.thread113 ], [ %.sroa.16.0.copyload60, %pyinit_core.exit ], [ %.sroa.16.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  store i32 %.sroa.022.1112, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.1134.1117, ptr %.sroa.11.0..sroa_idx10, align 4
+  store i32 %.sroa.1128.1111, ptr %.sroa.11.0..sroa_idx10, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1341.1116, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
+  store ptr %.sroa.1335.1110, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.14.1115, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
+  store ptr %.sroa.14.1109, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.1554.1114, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !191
+  store i32 %.sroa.1548.1108, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.16.1113, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx10.sroa_idx, align 4
+  store i32 %.sroa.16.1107, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx10.sroa_idx, align 4
   br label %95
 
-63:                                               ; preds = %pyinit_core.exit._crit_edge, %pyinit_core.exit.thread127
-  %64 = phi ptr [ %.pre, %pyinit_core.exit._crit_edge ], [ %50, %pyinit_core.exit.thread127 ]
+63:                                               ; preds = %pyinit_core.exit._crit_edge, %pyinit_core.exit.thread121
+  %64 = phi ptr [ %.pre, %pyinit_core.exit._crit_edge ], [ %50, %pyinit_core.exit.thread121 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !228
   %67 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %66) #23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 436
   %69 = load i32, ptr %68, align 4, !tbaa !230
   %.not17 = icmp eq i32 %69, 0
-  br i1 %.not17, label %pyinit_main.exit.thread148, label %70
+  br i1 %.not17, label %pyinit_main.exit.thread142, label %70
 
 70:                                               ; preds = %63
   %71 = load ptr, ptr %65, align 8, !tbaa !228, !noalias !231
@@ -1331,18 +1331,18 @@ interpreter_update_config.exit.i.i:               ; preds = %.critedge18.i.i.i, 
   store i32 %89, ptr %90, align 8, !tbaa !240, !noalias !235
   %91 = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %64) #23, !noalias !235
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %pyinit_main.exit.thread, label %pyinit_main.exit.thread148
+  br i1 %92, label %pyinit_main.exit.thread, label %pyinit_main.exit.thread142
 
 93:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !231
   call fastcc void @init_interp_main(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %64), !noalias !231
   %94 = load i32, ptr %5, align 8, !tbaa !183, !noalias !231
   %.not6.i = icmp eq i32 %94, 0
-  br i1 %.not6.i, label %pyinit_main.exit.thread156, label %pyinit_main.exit
+  br i1 %.not6.i, label %pyinit_main.exit.thread150, label %pyinit_main.exit
 
-pyinit_main.exit.thread156:                       ; preds = %93
+pyinit_main.exit.thread150:                       ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !231
-  br label %pyinit_main.exit.thread148
+  br label %pyinit_main.exit.thread142
 
 pyinit_main.exit:                                 ; preds = %93
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1359,30 +1359,30 @@ pyinit_main.exit:                                 ; preds = %93
   br label %pyinit_main.exit.thread
 
 pyinit_main.exit.thread:                          ; preds = %82, %86, %interpreter_update_config.exit.i.i, %70, %pyinit_main.exit
-  %.sroa.17.1147 = phi i32 [ %.sroa.17.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
-  %.sroa.15.1146 = phi i32 [ %.sroa.15.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
-  %.sroa.13.1145 = phi ptr [ %.sroa.13.0.copyload, %pyinit_main.exit ], [ @.str.166, %70 ], [ @.str.167, %interpreter_update_config.exit.i.i ], [ @.str.167, %86 ], [ @.str.167, %82 ]
-  %.sroa.1121.1144 = phi ptr [ %.sroa.1121.0.copyload, %pyinit_main.exit ], [ @__func__.pyinit_main, %70 ], [ @__func__.pyinit_main_reconfigure, %interpreter_update_config.exit.i.i ], [ @__func__.pyinit_main_reconfigure, %86 ], [ @__func__.pyinit_main_reconfigure, %82 ]
-  %.sroa.8.1143 = phi i32 [ %.sroa.8.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
-  %.sroa.0.1142 = phi i32 [ %94, %pyinit_main.exit ], [ 1, %70 ], [ 1, %interpreter_update_config.exit.i.i ], [ 1, %86 ], [ 1, %82 ]
-  store i32 %.sroa.0.1142, ptr %0, align 8, !tbaa !191
+  %.sroa.17.1141 = phi i32 [ %.sroa.17.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
+  %.sroa.15.1140 = phi i32 [ %.sroa.15.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
+  %.sroa.13.1139 = phi ptr [ %.sroa.13.0.copyload, %pyinit_main.exit ], [ @.str.166, %70 ], [ @.str.167, %interpreter_update_config.exit.i.i ], [ @.str.167, %86 ], [ @.str.167, %82 ]
+  %.sroa.1121.1138 = phi ptr [ %.sroa.1121.0.copyload, %pyinit_main.exit ], [ @__func__.pyinit_main, %70 ], [ @__func__.pyinit_main_reconfigure, %interpreter_update_config.exit.i.i ], [ @__func__.pyinit_main_reconfigure, %86 ], [ @__func__.pyinit_main_reconfigure, %82 ]
+  %.sroa.8.1137 = phi i32 [ %.sroa.8.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
+  %.sroa.0.1136 = phi i32 [ %94, %pyinit_main.exit ], [ 1, %70 ], [ 1, %interpreter_update_config.exit.i.i ], [ 1, %86 ], [ 1, %82 ]
+  store i32 %.sroa.0.1136, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.8.1143, ptr %.sroa.11.0..sroa_idx12, align 4
+  store i32 %.sroa.8.1137, ptr %.sroa.11.0..sroa_idx12, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1121.1144, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
+  store ptr %.sroa.1121.1138, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.13.1145, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
+  store ptr %.sroa.13.1139, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.15.1146, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !191
+  store i32 %.sroa.15.1140, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sroa.17.1147, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx12.sroa_idx, align 4
+  store i32 %.sroa.17.1141, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx12.sroa_idx, align 4
   br label %95
 
-pyinit_main.exit.thread148:                       ; preds = %interpreter_update_config.exit.i.i, %pyinit_main.exit.thread156, %63
+pyinit_main.exit.thread142:                       ; preds = %interpreter_update_config.exit.i.i, %pyinit_main.exit.thread150, %63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %95
 
-95:                                               ; preds = %pyinit_main.exit.thread148, %pyinit_main.exit.thread, %pyinit_core.exit.thread
+95:                                               ; preds = %pyinit_main.exit.thread142, %pyinit_main.exit.thread, %pyinit_core.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %96
 

@@ -995,25 +995,25 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %133 = and i32 %130, 4
   %134 = and i32 %133, %132
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.thread26, label %136
+  br i1 %135, label %.thread21, label %136
 
 136:                                              ; preds = %127
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 8
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %.thread26, label %.thread29
+  br i1 %140, label %.thread21, label %.thread24
 
-.thread29:                                        ; preds = %136
+.thread24:                                        ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %142 = load ptr, ptr %141, align 8
   %143 = tail call i32 %142(ptr noundef %0, i32 noundef 1) #17
-  %.pre38 = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre38, i64 104
-  %.pre39 = load i32, ptr %.phi.trans.insert, align 8
-  %.pre40 = load i32, ptr %76, align 8
-  %.pre44 = xor i32 %.pre40, -1
-  br label %.thread26
+  %.pre33 = load ptr, ptr %0, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre33, i64 104
+  %.pre34 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre35 = load i32, ptr %76, align 8
+  %.pre39 = xor i32 %.pre35, -1
+  br label %.thread21
 
 144:                                              ; preds = %cdrom_count_tracks.exit, %123, %118, %68, %63, %58, %53, %43
   %145 = phi i32 [ -123, %68 ], [ %125, %123 ], [ -123, %43 ], [ -123, %53 ], [ -123, %58 ], [ -123, %63 ], [ -123, %cdrom_count_tracks.exit ], [ -124, %118 ]
@@ -1026,31 +1026,31 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %152 = and i32 %148, 4
   %153 = and i32 %152, %151
   %154 = icmp eq i32 %153, 0
-  br i1 %154, label %.thread28, label %155
+  br i1 %154, label %.thread23, label %155
 
 155:                                              ; preds = %144
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, 8
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %.thread28, label %160
+  br i1 %159, label %.thread23, label %160
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %162 = load ptr, ptr %161, align 8
   %163 = tail call i32 %162(ptr noundef %0, i32 noundef 0) #17
-  br label %.thread28
+  br label %.thread23
 
-.thread26:                                        ; preds = %136, %127, %.thread29
-  %.pre-phi = phi i32 [ %132, %136 ], [ %132, %127 ], [ %.pre44, %.thread29 ]
-  %164 = phi i32 [ %130, %136 ], [ %130, %127 ], [ %.pre39, %.thread29 ]
-  %165 = phi ptr [ %128, %136 ], [ %128, %127 ], [ %.pre38, %.thread29 ]
+.thread21:                                        ; preds = %136, %127, %.thread24
+  %.pre-phi = phi i32 [ %132, %136 ], [ %132, %127 ], [ %.pre39, %.thread24 ]
+  %164 = phi i32 [ %130, %136 ], [ %130, %127 ], [ %.pre34, %.thread24 ]
+  %165 = phi ptr [ %128, %136 ], [ %128, %127 ], [ %.pre33, %.thread24 ]
   %166 = and i32 %164, 4096
   %167 = and i32 %166, %.pre-phi
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %191, label %169
 
-169:                                              ; preds = %.thread26
+169:                                              ; preds = %.thread21
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
@@ -1089,10 +1089,10 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %191
 
-191:                                              ; preds = %169, %.thread26
+191:                                              ; preds = %169, %.thread21
   %192 = and i32 %1, 2
   %193 = icmp eq i32 %192, 0
-  br i1 %193, label %.thread37, label %194
+  br i1 %193, label %.thread32, label %194
 
 194:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1238,13 +1238,13 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %.not11 = select i1 %270, i1 true, i1 %269
   %271 = select i1 %.not11, i32 2097152, i32 0
   %272 = or disjoint i32 %271, %246
-  %.pre41 = load i32, ptr %76, align 8
-  %.pre42 = load ptr, ptr %0, align 8
+  %.pre36 = load i32, ptr %76, align 8
+  %.pre37 = load ptr, ptr %0, align 8
   br label %273
 
 273:                                              ; preds = %256, %245
-  %274 = phi ptr [ %.pre42, %256 ], [ %248, %245 ]
-  %275 = phi i32 [ %.pre41, %256 ], [ %251, %245 ]
+  %274 = phi ptr [ %.pre37, %256 ], [ %248, %245 ]
+  %275 = phi i32 [ %.pre36, %256 ], [ %251, %245 ]
   %276 = phi i32 [ %272, %256 ], [ %246, %245 ]
   %277 = and i32 %275, -3670017
   %278 = or disjoint i32 %276, %247
@@ -1509,7 +1509,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %428 = select i1 %425, i1 %.not, i1 false
-  br i1 %428, label %429, label %.thread34
+  br i1 %428, label %429, label %.thread29
 
 429:                                              ; preds = %414
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1541,7 +1541,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
 442:                                              ; preds = %429
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread34
+  br label %.thread29
 
 443:                                              ; preds = %429
   %444 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1554,7 +1554,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %451 = zext nneg i8 %450 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %448, label %select.unfold, label %.thread36
+  br i1 %448, label %select.unfold, label %.thread31
 
 452:                                              ; preds = %411
   %453 = and i32 %283, 262144
@@ -1637,18 +1637,18 @@ cdrom_count_tracks.exit:                          ; preds = %82
 492:                                              ; preds = %452
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %494 = load i16, ptr %493, align 2
-  switch i16 %494, label %.thread34 [
-    i16 18, label %.thread36
-    i16 26, label %.thread36
-    i16 67, label %.thread36
+  switch i16 %494, label %.thread29 [
+    i16 18, label %.thread31
+    i16 26, label %.thread31
+    i16 67, label %.thread31
   ]
 
 select.unfold:                                    ; preds = %443, %490, %402, %375
   %495 = phi i32 [ %376, %375 ], [ %410, %402 ], [ %491, %490 ], [ %451, %443 ]
   %496 = icmp eq i32 %495, 0
-  br i1 %496, label %.thread36, label %.thread34
+  br i1 %496, label %.thread31, label %.thread29
 
-.thread36:                                        ; preds = %492, %492, %492, %443, %select.unfold
+.thread31:                                        ; preds = %492, %492, %492, %443, %select.unfold
   %497 = load ptr, ptr %0, align 8
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 104
   %499 = load i32, ptr %498, align 8
@@ -1657,14 +1657,14 @@ select.unfold:                                    ; preds = %443, %490, %402, %3
   %502 = and i32 %499, 2097152
   %503 = and i32 %502, %501
   %504 = icmp eq i32 %503, 0
-  br i1 %504, label %.thread34, label %505
+  br i1 %504, label %.thread29, label %505
 
-505:                                              ; preds = %.thread36
+505:                                              ; preds = %.thread31
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 0, ptr %506, align 1
-  br label %.thread37
+  br label %.thread32
 
-.thread37:                                        ; preds = %191, %505
+.thread32:                                        ; preds = %191, %505
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 1, ptr %507, align 4
   br label %537
@@ -1674,9 +1674,9 @@ select.unfold:                                    ; preds = %443, %490, %402, %3
   %510 = load ptr, ptr %509, align 8
   %511 = tail call i32 %510(ptr noundef %0, i32 noundef 1) #17
   %512 = icmp eq i32 %511, 0
-  br i1 %512, label %537, label %.thread28
+  br i1 %512, label %537, label %.thread23
 
-.thread34:                                        ; preds = %492, %442, %414, %.thread36, %select.unfold
+.thread29:                                        ; preds = %492, %442, %414, %.thread31, %select.unfold
   %513 = load ptr, ptr %0, align 8
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 104
   %515 = load i32, ptr %514, align 8
@@ -1687,7 +1687,7 @@ select.unfold:                                    ; preds = %443, %490, %402, %3
   %520 = icmp eq i32 %519, 0
   br i1 %520, label %530, label %521
 
-521:                                              ; preds = %.thread34
+521:                                              ; preds = %.thread29
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %523 = load i32, ptr %522, align 4
   %524 = and i32 %523, 8
@@ -1698,25 +1698,25 @@ select.unfold:                                    ; preds = %443, %490, %402, %3
   %527 = getelementptr inbounds nuw i8, ptr %513, i64 40
   %528 = load ptr, ptr %527, align 8
   %529 = call i32 %528(ptr noundef %0, i32 noundef 0) #17
-  %.pre43 = load ptr, ptr %0, align 8
+  %.pre38 = load ptr, ptr %0, align 8
   br label %530
 
-530:                                              ; preds = %526, %521, %.thread34
-  %531 = phi ptr [ %.pre43, %526 ], [ %513, %521 ], [ %513, %.thread34 ]
+530:                                              ; preds = %526, %521, %.thread29
+  %531 = phi ptr [ %.pre38, %526 ], [ %513, %521 ], [ %513, %.thread29 ]
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   %533 = load ptr, ptr %532, align 8
   call void %533(ptr noundef %0) #17
-  br label %.thread28
+  br label %.thread23
 
-.thread28:                                        ; preds = %144, %155, %160, %530, %508
+.thread23:                                        ; preds = %144, %155, %160, %530, %508
   %534 = phi i32 [ %511, %508 ], [ %145, %160 ], [ -30, %530 ], [ %145, %155 ], [ %145, %144 ]
   %535 = load i32, ptr %25, align 8
   %536 = add i32 %535, -1
   store i32 %536, ptr %25, align 8
   br label %537
 
-537:                                              ; preds = %.thread37, %.thread28, %508
-  %538 = phi i32 [ %534, %.thread28 ], [ 0, %508 ], [ 0, %.thread37 ]
+537:                                              ; preds = %.thread32, %.thread23, %508
+  %538 = phi i32 [ %534, %.thread23 ], [ 0, %508 ], [ 0, %.thread32 ]
   ret i32 %538
 }
 
@@ -2561,7 +2561,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %52 = mul nsw i32 %51, 75
   %53 = add nsw i32 %52, %43
   store i32 %53, ptr %14, align 8
-  br label %.thread38
+  br label %.thread33
 
 54:                                               ; preds = %38
   %55 = load i32, ptr %14, align 8
@@ -2578,9 +2578,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %64 = sdiv i32 %60, 60
   %65 = trunc i32 %64 to i8
   store i8 %65, ptr %14, align 8
-  br label %.thread38
+  br label %.thread33
 
-.thread38:                                        ; preds = %40, %54
+.thread33:                                        ; preds = %40, %54
   store i8 %27, ptr %26, align 1
   br label %68
 
@@ -2588,7 +2588,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %67 = icmp eq i32 %33, 0
   br i1 %67, label %68, label %.thread
 
-68:                                               ; preds = %.thread38, %66
+68:                                               ; preds = %.thread33, %66
   %69 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %14, i64 noundef 8) #17
   %70 = icmp eq i64 %69, 0
   %71 = select i1 %70, i32 0, i32 -14
@@ -2634,14 +2634,14 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %97 = load ptr, ptr %96, align 8
   %98 = tail call i32 %97(ptr noundef %0, i32 noundef 0) #17
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %._crit_edge74, label %766
+  br i1 %99, label %._crit_edge69, label %766
 
-._crit_edge74:                                    ; preds = %95
-  %.pre75 = load ptr, ptr %0, align 8
+._crit_edge69:                                    ; preds = %95
+  %.pre70 = load ptr, ptr %0, align 8
   br label %100
 
-100:                                              ; preds = %._crit_edge74, %92
-  %101 = phi ptr [ %.pre75, %._crit_edge74 ], [ %74, %92 ]
+100:                                              ; preds = %._crit_edge69, %92
+  %101 = phi ptr [ %.pre70, %._crit_edge69 ], [ %74, %92 ]
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %103(ptr noundef %0, i32 noundef 1) #17
@@ -2795,9 +2795,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %210, ptr %207, align 4
   %211 = add nuw nsw i64 %206, 1
   %212 = icmp eq i64 %211, 3
-  br i1 %212, label %.thread39, label %205, !llvm.loop !48
+  br i1 %212, label %.thread34, label %205, !llvm.loop !48
 
-.thread39:                                        ; preds = %205
+.thread34:                                        ; preds = %205
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %232
 
@@ -2832,7 +2832,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %238
 
-232:                                              ; preds = %.thread39, %213
+232:                                              ; preds = %.thread34, %213
   %233 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %234 = getelementptr %struct.cdrom_slot, ptr %233, i64 %3
   %235 = load i8, ptr %234, align 4
@@ -3110,9 +3110,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %418, ptr %415, align 4
   %419 = add nuw nsw i64 %414, 1
   %420 = icmp eq i64 %419, 3
-  br i1 %420, label %.thread40, label %413, !llvm.loop !48
+  br i1 %420, label %.thread35, label %413, !llvm.loop !48
 
-.thread40:                                        ; preds = %413
+.thread35:                                        ; preds = %413
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %442
 
@@ -3152,7 +3152,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   call void @kfree(ptr noundef nonnull %397) #17
   br label %766
 
-442:                                              ; preds = %.thread40, %421
+442:                                              ; preds = %.thread35, %421
   %443 = load i16, ptr %397, align 8
   %444 = and i16 %443, 31
   %445 = zext nneg i16 %444 to i32
@@ -3379,9 +3379,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %597, ptr %594, align 4
   %598 = add nuw nsw i64 %593, 1
   %599 = icmp eq i64 %598, 3
-  br i1 %599, label %.thread41, label %592, !llvm.loop !48
+  br i1 %599, label %.thread36, label %592, !llvm.loop !48
 
-.thread41:                                        ; preds = %592
+.thread36:                                        ; preds = %592
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %619
 
@@ -3416,7 +3416,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %618 = icmp eq i32 %617, 0
   br i1 %618, label %619, label %627
 
-619:                                              ; preds = %.thread41, %600
+619:                                              ; preds = %.thread36, %600
   %620 = getelementptr inbounds nuw i8, ptr %577, i64 8
   %621 = shl i64 %3, 32
   %622 = ashr exact i64 %621, 30
@@ -3443,7 +3443,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %636 = and i32 %632, 256
   %637 = and i32 %636, %635
   %638 = icmp eq i32 %637, 0
-  br i1 %638, label %.thread70, label %639
+  br i1 %638, label %.thread65, label %639
 
 639:                                              ; preds = %629
   store i16 0, ptr %5, align 2, !annotation !46
@@ -3451,7 +3451,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %640 = getelementptr inbounds nuw i8, ptr %630, i64 80
   %641 = load ptr, ptr %640, align 8
   %642 = call i32 %641(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %5) #17
-  switch i32 %642, label %.thread70 [
+  switch i32 %642, label %.thread65 [
     i32 0, label %643
     i32 -123, label %679
   ]
@@ -3463,7 +3463,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %646 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %647 = load i8, ptr %646, align 1
   %648 = icmp ugt i8 %645, %647
-  br i1 %648, label %.thread70, label %649
+  br i1 %648, label %.thread65, label %649
 
 649:                                              ; preds = %643
   %650 = zext i8 %645 to i32
@@ -3530,7 +3530,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %766
 
-.thread70:                                        ; preds = %639, %643, %629
+.thread65:                                        ; preds = %639, %643, %629
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %766
@@ -3588,7 +3588,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 708:                                              ; preds = %698
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
-  switch i32 %2, label %.thread73 [
+  switch i32 %2, label %.thread68 [
     i32 21268, label %709
     i32 21261, label %709
     i32 21260, label %709
@@ -3608,7 +3608,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
     i32 21397, label %744
   ]
 
-.thread73:                                        ; preds = %708
+.thread68:                                        ; preds = %708
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %749
 
@@ -3686,7 +3686,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %748 = icmp eq i32 %747, -25
   br i1 %748, label %749, label %766
 
-749:                                              ; preds = %.thread73, %746, %698
+749:                                              ; preds = %.thread68, %746, %698
   switch i32 %2, label %766 [
     i32 21259, label %750
     i32 21253, label %752
@@ -3733,8 +3733,8 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %765 = call fastcc i32 @cdrom_ioctl_audioctl(ptr noundef %0, i32 noundef %2)
   br label %766
 
-766:                                              ; preds = %693, %679, %682, %689, %691, %.thread70, %764, %762, %760, %758, %756, %754, %752, %750, %749, %746, %695, %627, %575, %570, %565, %561, %545, %543, %520, %516, %514, %508, %506, %485, %480, %470, %468, %456, %453, %441, %395, %393, %359, %346, %341, %331, %322, %314, %303, %299, %289, %285, %238, %187, %182, %178, %141, %134, %129, %119, %115, %105, %100, %95, %87, %83, %73, %.thread
-  %767 = phi i32 [ %765, %764 ], [ %763, %762 ], [ %761, %760 ], [ %759, %758 ], [ %757, %756 ], [ %755, %754 ], [ %753, %752 ], [ %751, %750 ], [ %697, %695 ], [ -12, %575 ], [ %544, %543 ], [ %527, %520 ], [ %328, %322 ], [ %286, %285 ], [ %72, %.thread ], [ %747, %746 ], [ -38, %749 ], [ %98, %95 ], [ %104, %100 ], [ -38, %73 ], [ -16, %87 ], [ -16, %83 ], [ %118, %115 ], [ -38, %105 ], [ 0, %134 ], [ -38, %119 ], [ -16, %129 ], [ %239, %238 ], [ -38, %141 ], [ -22, %182 ], [ -12, %187 ], [ %179, %178 ], [ %319, %314 ], [ %302, %299 ], [ -38, %289 ], [ -38, %303 ], [ %345, %341 ], [ -38, %331 ], [ -38, %346 ], [ -22, %359 ], [ %394, %393 ], [ %439, %441 ], [ -12, %395 ], [ %455, %453 ], [ %467, %456 ], [ %484, %480 ], [ -13, %468 ], [ -38, %470 ], [ %513, %508 ], [ -95, %485 ], [ -16, %506 ], [ %519, %516 ], [ -13, %514 ], [ %564, %561 ], [ -38, %545 ], [ -22, %565 ], [ %628, %627 ], [ 0, %570 ], [ 1, %679 ], [ %688, %682 ], [ 104, %689 ], [ 103, %691 ], [ 0, %.thread70 ], [ %spec.select, %693 ]
+766:                                              ; preds = %693, %679, %682, %689, %691, %.thread65, %764, %762, %760, %758, %756, %754, %752, %750, %749, %746, %695, %627, %575, %570, %565, %561, %545, %543, %520, %516, %514, %508, %506, %485, %480, %470, %468, %456, %453, %441, %395, %393, %359, %346, %341, %331, %322, %314, %303, %299, %289, %285, %238, %187, %182, %178, %141, %134, %129, %119, %115, %105, %100, %95, %87, %83, %73, %.thread
+  %767 = phi i32 [ %765, %764 ], [ %763, %762 ], [ %761, %760 ], [ %759, %758 ], [ %757, %756 ], [ %755, %754 ], [ %753, %752 ], [ %751, %750 ], [ %697, %695 ], [ -12, %575 ], [ %544, %543 ], [ %527, %520 ], [ %328, %322 ], [ %286, %285 ], [ %72, %.thread ], [ %747, %746 ], [ -38, %749 ], [ %98, %95 ], [ %104, %100 ], [ -38, %73 ], [ -16, %87 ], [ -16, %83 ], [ %118, %115 ], [ -38, %105 ], [ 0, %134 ], [ -38, %119 ], [ -16, %129 ], [ %239, %238 ], [ -38, %141 ], [ -22, %182 ], [ -12, %187 ], [ %179, %178 ], [ %319, %314 ], [ %302, %299 ], [ -38, %289 ], [ -38, %303 ], [ %345, %341 ], [ -38, %331 ], [ -38, %346 ], [ -22, %359 ], [ %394, %393 ], [ %439, %441 ], [ -12, %395 ], [ %455, %453 ], [ %467, %456 ], [ %484, %480 ], [ -13, %468 ], [ -38, %470 ], [ %513, %508 ], [ -95, %485 ], [ -16, %506 ], [ %519, %516 ], [ -13, %514 ], [ %564, %561 ], [ -38, %545 ], [ -22, %565 ], [ %628, %627 ], [ 0, %570 ], [ 1, %679 ], [ %688, %682 ], [ 104, %689 ], [ 103, %691 ], [ 0, %.thread65 ], [ %spec.select, %693 ]
   ret i32 %767
 }
 

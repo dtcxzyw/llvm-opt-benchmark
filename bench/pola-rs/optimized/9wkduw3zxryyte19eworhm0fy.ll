@@ -41408,7 +41408,7 @@ define internal fastcc void @_ZN10polars_sql7context10SQLContext17execute_statem
   unreachable
 
 common.resume:                                    ; preds = %591, %596, %507, %487, %490, %454, %459, %.body.i65, %132, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %507 ], [ %.pn20.i, %.body.i ], [ %.pn.i66, %.body.i65 ], [ %455, %454 ], [ %lpad.thr_comm.split-lp.i, %490 ], [ %133, %132 ], [ %460, %459 ], [ %lpad.thr_comm.split-lp14.i, %487 ], [ %lpad.phi.i.i, %591 ], [ %597, %596 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %507 ], [ %.pn20.i, %.body.i ], [ %.pn.i66, %.body.i65 ], [ %455, %454 ], [ %lpad.thr_comm.split-lp.i, %490 ], [ %133, %132 ], [ %460, %459 ], [ %lpad.thr_comm.split-lp13.i, %487 ], [ %lpad.phi.i.i, %591 ], [ %597, %596 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h302bae2b98527c00E.exit.i": ; preds = %134
@@ -42490,7 +42490,7 @@ _ZN10polars_sql7context10SQLContext19execute_show_tables17h631a78b1ef729894E.exi
   unreachable
 
 487:                                              ; preds = %480
-  %lpad.thr_comm.split-lp14.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp13.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17ha9d29fcdceab817dE"(ptr noalias noundef align 16 dereferenceable(160) %31) #28
           to label %common.resume unwind label %488, !noalias !3256

@@ -4140,7 +4140,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly
   br i1 %29, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %27
-  %.pre133 = load i32, ptr %8, align 4, !tbaa !41
+  %.pre129 = load i32, ptr %8, align 4, !tbaa !41
   br label %46
 
 30:                                               ; preds = %27
@@ -4168,7 +4168,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly
   br label %46
 
 46:                                               ; preds = %._crit_edge, %36
-  %47 = phi i32 [ %.pre133, %._crit_edge ], [ %39, %36 ]
+  %47 = phi i32 [ %.pre129, %._crit_edge ], [ %39, %36 ]
   %48 = load i32, ptr %10, align 4, !tbaa !41
   br i1 %.015, label %90, label %49
 
@@ -4249,14 +4249,14 @@ rgb2hsv.exit.i:                                   ; preds = %87, %84, %49
   %92 = shl i32 %91, 8
   %93 = and i32 %92, 65280
   %94 = and i32 %47, 255
-  %.sroa.0.1.insert.insert70125 = or disjoint i32 %93, %94
+  %.sroa.0.1.insert.insert66121 = or disjoint i32 %93, %94
   %95 = shl i32 %48, 16
   %96 = load i32, ptr %11, align 4, !tbaa !41
   %97 = shl i32 %96, 24
   %.masked = and i32 %95, 16711680
-  %98 = or disjoint i32 %.sroa.0.1.insert.insert70125, %.masked
-  %.sroa.0.3.insert.insert96127 = or disjoint i32 %98, %97
-  br label %.thread118
+  %98 = or disjoint i32 %.sroa.0.1.insert.insert66121, %.masked
+  %.sroa.0.3.insert.insert92123 = or disjoint i32 %98, %97
+  br label %.thread114
 
 .thread.i:                                        ; preds = %33, %30
   %99 = load i8, ptr %.0110.i, align 1, !tbaa !3
@@ -4483,23 +4483,23 @@ hsv2rgb.exit.i:                                   ; preds = %186, %185, %184, %1
   %.sink.i.i = phi double [ %161, %165 ], [ %175, %182 ], [ %181, %183 ], [ %161, %184 ], [ %161, %185 ], [ %178, %186 ], [ %175, %167 ]
   %190 = fmul double %.sink59.i.i, 2.550000e+02
   %191 = fptoui double %190 to i8
-  %.sroa.0.0.insert.ext49 = zext i8 %191 to i64
+  %.sroa.0.0.insert.ext47 = zext i8 %191 to i64
   %192 = fmul double %.sink58.i.i, 2.550000e+02
   %193 = fptoui double %192 to i8
-  %.sroa.0.1.insert.ext62 = zext i8 %193 to i64
-  %.sroa.0.1.insert.shift63 = shl nuw nsw i64 %.sroa.0.1.insert.ext62, 8
-  %.sroa.0.1.insert.insert65 = or disjoint i64 %.sroa.0.1.insert.shift63, %.sroa.0.0.insert.ext49
+  %.sroa.0.1.insert.ext58 = zext i8 %193 to i64
+  %.sroa.0.1.insert.shift59 = shl nuw nsw i64 %.sroa.0.1.insert.ext58, 8
+  %.sroa.0.1.insert.insert61 = or disjoint i64 %.sroa.0.1.insert.shift59, %.sroa.0.0.insert.ext47
   %194 = fmul double %.sink.i.i, 2.550000e+02
   %195 = fptoui double %194 to i8
-  %.sroa.0.2.insert.ext75 = zext i8 %195 to i64
-  %.sroa.0.2.insert.shift76 = shl nuw nsw i64 %.sroa.0.2.insert.ext75, 16
-  %.sroa.0.2.insert.insert78 = or disjoint i64 %.sroa.0.1.insert.insert65, %.sroa.0.2.insert.shift76
+  %.sroa.0.2.insert.ext71 = zext i8 %195 to i64
+  %.sroa.0.2.insert.shift72 = shl nuw nsw i64 %.sroa.0.2.insert.ext71, 16
+  %.sroa.0.2.insert.insert74 = or disjoint i64 %.sroa.0.1.insert.insert61, %.sroa.0.2.insert.shift72
   %196 = fmul double %164, 2.550000e+02
   %197 = fptoui double %196 to i8
-  %.sroa.0.3.insert.ext88 = zext i8 %197 to i64
-  %.sroa.0.3.insert.shift89 = shl nuw nsw i64 %.sroa.0.3.insert.ext88, 24
-  %.sroa.0.3.insert.insert91 = or disjoint i64 %.sroa.0.2.insert.insert78, %.sroa.0.3.insert.shift89
-  %198 = bitcast i64 %.sroa.0.3.insert.insert91 to double
+  %.sroa.0.3.insert.ext84 = zext i8 %197 to i64
+  %.sroa.0.3.insert.shift85 = shl nuw nsw i64 %.sroa.0.3.insert.ext84, 24
+  %.sroa.0.3.insert.insert87 = or disjoint i64 %.sroa.0.2.insert.insert74, %.sroa.0.3.insert.shift85
+  %198 = bitcast i64 %.sroa.0.3.insert.insert87 to double
   br label %199
 
 199:                                              ; preds = %151, %hsv2rgb.exit.i
@@ -4621,7 +4621,7 @@ resolveColor.exit.i:                              ; preds = %218, %216, %211, %2
 252:                                              ; preds = %234
   %253 = getelementptr inbounds nuw i8, ptr %235, i64 11
   %254 = load i32, ptr %253, align 1
-  br label %.thread118
+  br label %.thread114
 
 255:                                              ; preds = %232
   call void @free(ptr noundef nonnull %221) #24
@@ -4656,10 +4656,10 @@ colorxlate.exit:                                  ; preds = %255, %resolveColor.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %257
 
-.thread118:                                       ; preds = %90, %252
-  %.sroa.0.1.ph.ph117.in.in = phi i32 [ %254, %252 ], [ %.sroa.0.3.insert.insert96127, %90 ]
-  %.sroa.0.1.ph.ph117.in = zext i32 %.sroa.0.1.ph.ph117.in.in to i64
-  %.sroa.0.1.ph.ph117 = bitcast i64 %.sroa.0.1.ph.ph117.in to double
+.thread114:                                       ; preds = %90, %252
+  %.sroa.0.1.ph.ph113.in.in = phi i32 [ %254, %252 ], [ %.sroa.0.3.insert.insert92123, %90 ]
+  %.sroa.0.1.ph.ph113.in = zext i32 %.sroa.0.1.ph.ph113.in.in to i64
+  %.sroa.0.1.ph.ph113 = bitcast i64 %.sroa.0.1.ph.ph113.in to double
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4687,20 +4687,20 @@ colorxlate.exit:                                  ; preds = %255, %resolveColor.
   br i1 %.015, label %259, label %257
 
 257:                                              ; preds = %.thread, %256
-  %.sroa.0.1.ph115 = phi double [ %.sroa.0.1.ph.ph, %.thread ], [ %.sroa.0.0, %256 ]
-  %.sroa.36.1.ph114 = phi double [ %.sroa.36.1.ph.ph, %.thread ], [ %.sroa.36.0, %256 ]
-  %.sroa.32.1.ph113 = phi double [ %.sroa.32.1.ph.ph, %.thread ], [ %.sroa.32.0, %256 ]
-  %.sroa.28.1.ph112 = phi double [ %.sroa.28.1.ph.ph, %.thread ], [ %.sroa.28.0, %256 ]
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph115, double noundef %.sroa.28.1.ph112, double noundef %.sroa.32.1.ph113)
+  %.sroa.0.1.ph111 = phi double [ %.sroa.0.1.ph.ph, %.thread ], [ %.sroa.0.0, %256 ]
+  %.sroa.36.1.ph110 = phi double [ %.sroa.36.1.ph.ph, %.thread ], [ %.sroa.36.0, %256 ]
+  %.sroa.32.1.ph109 = phi double [ %.sroa.32.1.ph.ph, %.thread ], [ %.sroa.32.0, %256 ]
+  %.sroa.28.1.ph108 = phi double [ %.sroa.28.1.ph.ph, %.thread ], [ %.sroa.28.0, %256 ]
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph111, double noundef %.sroa.28.1.ph108, double noundef %.sroa.32.1.ph109)
   br i1 %.not19.not, label %258, label %268
 
 258:                                              ; preds = %257
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.36.1.ph114)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.36.1.ph110)
   br label %268
 
-259:                                              ; preds = %.thread118, %256
-  %.sroa.0.1.ph124 = phi double [ %.sroa.0.1.ph.ph117, %.thread118 ], [ %.sroa.0.0, %256 ]
-  %260 = bitcast double %.sroa.0.1.ph124 to i64
+259:                                              ; preds = %.thread114, %256
+  %.sroa.0.1.ph120 = phi double [ %.sroa.0.1.ph.ph113, %.thread114 ], [ %.sroa.0.0, %256 ]
+  %260 = bitcast double %.sroa.0.1.ph120 to i64
   %.sroa.0.0.extract.trunc = trunc i64 %260 to i32
   %261 = and i32 %.sroa.0.0.extract.trunc, 255
   %262 = lshr i32 %.sroa.0.0.extract.trunc, 8

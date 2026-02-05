@@ -115475,7 +115475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1381: ; preds = %_
   br label %4259
 
 4259:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit823, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1381
-  %.0.i8112221 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1381 ], [ false, %_ZN7testing15AssertionResultD2Ev.exit823 ]
+  %.0.i8112221 = phi i1 [ false, %_ZN7testing15AssertionResultD2Ev.exit823 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1381 ]
   %4260 = load i8, ptr %143, align 8, !tbaa !24
   %4261 = trunc i8 %4260 to i1
   br i1 %4261, label %4262, label %_ZN4absl4CordD2Ev.exit1382

@@ -777,8 +777,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit81:    ; preds = %308, %310, %311
   br i1 %327, label %.thread, label %.thread276
 
 .thread276:                                       ; preds = %318, %323
-  %.sroa.0147.2280 = phi ptr [ %325, %323 ], [ @.str.11, %318 ]
-  %.sroa.7.2279 = phi i64 [ %326, %323 ], [ 7, %318 ]
+  %.sroa.0147.0280 = phi ptr [ %325, %323 ], [ @.str.11, %318 ]
+  %.sroa.7.0279 = phi i64 [ %326, %323 ], [ 7, %318 ]
   %328 = load ptr, ptr %95, align 8, !tbaa !46
   %329 = load ptr, ptr %96, align 8, !tbaa !51
   %.not.i82 = icmp ult ptr %328, %329
@@ -795,12 +795,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit81:    ; preds = %308, %310, %311
   br label %_ZN4llvm11raw_ostreamlsEc.exit84
 
 _ZN4llvm11raw_ostreamlsEc.exit84:                 ; preds = %330, %332
-  %334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.sroa.0147.2280, i64 %.sroa.7.2279, i1 noundef zeroext false) #14
+  %334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.sroa.0147.0280, i64 %.sroa.7.0279, i1 noundef zeroext false) #14
   br label %.thread
 
 .thread:                                          ; preds = %318, %_ZN4llvm11raw_ostreamlsEc.exit84, %323
-  %.sroa.0147.2195 = phi ptr [ %325, %323 ], [ %.sroa.0147.2280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ null, %318 ]
-  %.sroa.7.2194 = phi i64 [ 0, %323 ], [ %.sroa.7.2279, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %318 ]
+  %.sroa.0147.0195 = phi ptr [ %325, %323 ], [ %.sroa.0147.0280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ null, %318 ]
+  %.sroa.7.0194 = phi i64 [ 0, %323 ], [ %.sroa.7.0279, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %318 ]
   %335 = load ptr, ptr %96, align 8, !tbaa !51
   %336 = load ptr, ptr %95, align 8, !tbaa !46
   %337 = ptrtoint ptr %335 to i64
@@ -1052,8 +1052,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %420
   store i8 3, ptr %107, align 8, !tbaa !69, !alias.scope !72
   store i8 5, ptr %108, align 1, !tbaa !75, !alias.scope !72
   store ptr @.str.16, ptr %16, align 8, !tbaa !52, !alias.scope !72
-  store ptr %.sroa.0147.2195, ptr %109, align 8, !tbaa !52, !alias.scope !72
-  store i64 %.sroa.7.2194, ptr %110, align 8, !tbaa !52, !alias.scope !72
+  store ptr %.sroa.0147.0195, ptr %109, align 8, !tbaa !52, !alias.scope !72
+  store i64 %.sroa.7.0194, ptr %110, align 8, !tbaa !52, !alias.scope !72
   store ptr %16, ptr %15, align 8, !alias.scope !76
   store ptr @.str.17, ptr %111, align 8, !alias.scope !76
   store i8 2, ptr %112, align 8, !tbaa !69, !alias.scope !76

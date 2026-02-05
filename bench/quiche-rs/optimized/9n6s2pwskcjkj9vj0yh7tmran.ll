@@ -995,12 +995,12 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h51808e0b9bc5a9e2E.exit.thread"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h51808e0b9bc5a9e2E.exit.thread": ; preds = %18, %3
-  %.sroa.5.040.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
+  %.sroa.5.039.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
   %.sroa.038.0.ph = phi i64 [ 0, %3 ], [ %.sroa.0.0.i, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, i64, { { [16 x i64] }, i64 }, i64, i64, i64, i64, i8, i8, i8, i8, i8, [3 x i8] }, ptr %21, i64 %.sroa.038.0.ph
-  %23 = sub i64 %.sroa.5.040.ph, %.sroa.038.0.ph
+  %23 = sub i64 %.sroa.5.039.ph, %.sroa.038.0.ph
   br label %.thread
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h51808e0b9bc5a9e2E.exit": ; preds = %11
@@ -1070,8 +1070,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 
 ._crit_edge.i30.loopexit:                         ; preds = %.lr.ph.i26
   %.phi.trans.insert = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, i64, { { [16 x i64] }, i64 }, i64, i64, i64, i64, i8, i8, i8, i8, i8, [3 x i8] }, ptr %26, i64 %58
-  %.phi.trans.insert56 = getelementptr i8, ptr %.phi.trans.insert, i64 80
-  %.val20.i32.pre = load i64, ptr %.phi.trans.insert56, align 8, !alias.scope !43, !noalias !46
+  %.phi.trans.insert55 = getelementptr i8, ptr %.phi.trans.insert, i64 80
+  %.val20.i32.pre = load i64, ptr %.phi.trans.insert55, align 8, !alias.scope !43, !noalias !46
   br label %._crit_edge.i30
 
 ._crit_edge.i30:                                  ; preds = %._crit_edge.i30.loopexit, %.preheader.i23
@@ -1079,8 +1079,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %.sroa.05.0.lcssa.i31 = phi i64 [ 0, %.preheader.i23 ], [ %58, %._crit_edge.i30.loopexit ]
   %51 = icmp ult i64 %.sroa.05.0.lcssa.i31, %24
   tail call void @llvm.assume(i1 %51)
-  %.not52 = icmp ne i64 %.val20.i32, %.val2.i
-  br i1 %.not52, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h4490b5df4d65b284E.exit35"
+  %.not51 = icmp ne i64 %.val20.i32, %.val2.i
+  br i1 %.not51, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h4490b5df4d65b284E.exit35"
 
 .lr.ph.i26:                                       ; preds = %.preheader.i23, %.lr.ph.i26
   %.sroa.01.025.i27 = phi i64 [ %59, %.lr.ph.i26 ], [ %24, %.preheader.i23 ]
@@ -1108,7 +1108,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h4490b5df4d65b284E.exit35": ; preds = %._crit_edge.i30, %61
   %.sroa.4.0.i33 = phi i64 [ %.sroa.05.0.lcssa.i31, %._crit_edge.i30 ], [ %64, %61 ]
-  %.sroa.0.2 = zext i1 %.not52 to i64
+  %.sroa.0.2 = zext i1 %.not51 to i64
   %.sroa.5.2 = add i64 %.sroa.4.0.i33, %17
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h4490b5df4d65b284E.exit"
 
@@ -1149,12 +1149,12 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h20174117920eb5a7E.exit.thread"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h20174117920eb5a7E.exit.thread": ; preds = %18, %3
-  %.sroa.5.040.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
+  %.sroa.5.039.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
   %.sroa.038.0.ph = phi i64 [ 0, %3 ], [ %.sroa.0.0.i, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %21, i64 %.sroa.038.0.ph
-  %23 = sub i64 %.sroa.5.040.ph, %.sroa.038.0.ph
+  %23 = sub i64 %.sroa.5.039.ph, %.sroa.038.0.ph
   br label %.thread
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h20174117920eb5a7E.exit": ; preds = %11
@@ -1229,8 +1229,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %.sroa.05.0.lcssa.i31 = phi i64 [ 0, %.preheader.i23 ], [ %54, %._crit_edge.i30.loopexit ]
   %48 = icmp ult i64 %.sroa.05.0.lcssa.i31, %24
   tail call void @llvm.assume(i1 %48)
-  %.not52 = icmp ne i64 %.val20.i32, %.val1.i
-  br i1 %.not52, label %57, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6e4c4e03add95376E.exit35"
+  %.not51 = icmp ne i64 %.val20.i32, %.val1.i
+  br i1 %.not51, label %57, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6e4c4e03add95376E.exit35"
 
 .lr.ph.i26:                                       ; preds = %.preheader.i23, %.lr.ph.i26
   %.sroa.01.025.i27 = phi i64 [ %55, %.lr.ph.i26 ], [ %24, %.preheader.i23 ]
@@ -1257,7 +1257,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6e4c4e03add95376E.exit35": ; preds = %._crit_edge.i30, %57
   %.sroa.4.0.i33 = phi i64 [ %.sroa.05.0.lcssa.i31, %._crit_edge.i30 ], [ %60, %57 ]
-  %.sroa.0.2 = zext i1 %.not52 to i64
+  %.sroa.0.2 = zext i1 %.not51 to i64
   %.sroa.5.2 = add i64 %.sroa.4.0.i33, %17
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6e4c4e03add95376E.exit"
 
@@ -1298,12 +1298,12 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h86270665f0de6077E.exit.thread"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h86270665f0de6077E.exit.thread": ; preds = %18, %3
-  %.sroa.5.040.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
+  %.sroa.5.039.ph = phi i64 [ 0, %3 ], [ %19, %18 ]
   %.sroa.038.0.ph = phi i64 [ 0, %3 ], [ %.sroa.0.0.i, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %21, i64 %.sroa.038.0.ph
-  %23 = sub i64 %.sroa.5.040.ph, %.sroa.038.0.ph
+  %23 = sub i64 %.sroa.5.039.ph, %.sroa.038.0.ph
   br label %.thread
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h86270665f0de6077E.exit": ; preds = %11
@@ -1373,8 +1373,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 
 ._crit_edge.i30.loopexit:                         ; preds = %.lr.ph.i26
   %.phi.trans.insert = getelementptr inbounds nuw { { [2 x i32], i32, [39 x i32] }, i64 }, ptr %26, i64 %58
-  %.phi.trans.insert56 = getelementptr i8, ptr %.phi.trans.insert, i64 168
-  %.val20.i32.pre = load i64, ptr %.phi.trans.insert56, align 8, !alias.scope !75, !noalias !78
+  %.phi.trans.insert55 = getelementptr i8, ptr %.phi.trans.insert, i64 168
+  %.val20.i32.pre = load i64, ptr %.phi.trans.insert55, align 8, !alias.scope !75, !noalias !78
   br label %._crit_edge.i30
 
 ._crit_edge.i30:                                  ; preds = %._crit_edge.i30.loopexit, %.preheader.i23
@@ -1382,8 +1382,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %.sroa.05.0.lcssa.i31 = phi i64 [ 0, %.preheader.i23 ], [ %58, %._crit_edge.i30.loopexit ]
   %51 = icmp ult i64 %.sroa.05.0.lcssa.i31, %24
   tail call void @llvm.assume(i1 %51)
-  %.not52 = icmp ne i64 %.val20.i32, %.val1.i
-  br i1 %.not52, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h1cf98752820d591cE.exit35"
+  %.not51 = icmp ne i64 %.val20.i32, %.val1.i
+  br i1 %.not51, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h1cf98752820d591cE.exit35"
 
 .lr.ph.i26:                                       ; preds = %.preheader.i23, %.lr.ph.i26
   %.sroa.01.025.i27 = phi i64 [ %59, %.lr.ph.i26 ], [ %24, %.preheader.i23 ]
@@ -1411,7 +1411,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h1cf98752820d591cE.exit35": ; preds = %._crit_edge.i30, %61
   %.sroa.4.0.i33 = phi i64 [ %.sroa.05.0.lcssa.i31, %._crit_edge.i30 ], [ %64, %61 ]
-  %.sroa.0.2 = zext i1 %.not52 to i64
+  %.sroa.0.2 = zext i1 %.not51 to i64
   %.sroa.5.2 = add i64 %.sroa.4.0.i33, %17
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h1cf98752820d591cE.exit"
 

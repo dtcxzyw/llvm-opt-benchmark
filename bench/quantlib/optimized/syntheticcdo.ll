@@ -8069,7 +8069,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad.body.i
   br i1 %cleanup.isactive.0.lpad-body, label %cleanup.action, label %ehcleanup65
 
 cleanup.action:                                   ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn232 = phi { ptr, i32 } [ %54, %ehcleanup.thread ], [ %eh.lpad-body, %ehcleanup ]
+  %.pn228 = phi { ptr, i32 } [ %54, %ehcleanup.thread ], [ %eh.lpad-body, %ehcleanup ]
   call void @_ZdlPvm(ptr noundef nonnull %call4, i64 noundef 408) #34
   br label %ehcleanup65
 
@@ -9175,7 +9175,7 @@ ehcleanup64:                                      ; preds = %ehcleanup63, %lpad1
   br label %ehcleanup65
 
 ehcleanup65:                                      ; preds = %ehcleanup, %cleanup.action, %ehcleanup64, %lpad2
-  %.pn2.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2.pn.pn.pn.pn.pn, %ehcleanup64 ], [ %.pn232, %cleanup.action ], [ %eh.lpad-body, %ehcleanup ], [ %53, %lpad2 ]
+  %.pn2.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2.pn.pn.pn.pn.pn, %ehcleanup64 ], [ %.pn228, %cleanup.action ], [ %eh.lpad-body, %ehcleanup ], [ %53, %lpad2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %lhp)
   call void @_ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %correl) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %correl)

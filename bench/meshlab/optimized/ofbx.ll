@@ -13127,28 +13127,28 @@ _ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i: ; preds = %
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = icmp ugt ptr %22, %7
-  br i1 %23, label %27, label %.thread148
+  br i1 %23, label %27, label %.thread146
 
 24:                                               ; preds = %.thread
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = icmp ugt ptr %25, %7
-  br i1 %26, label %34, label %.thread153
+  br i1 %26, label %34, label %.thread151
 
 27:                                               ; preds = %21
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8
-  %.pre120 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.pre120, i64 8
+  %.pre118 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.pre118, i64 8
   %29 = icmp ugt ptr %28, %7
   br i1 %29, label %33, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53
 
-.thread148:                                       ; preds = %21
+.thread146:                                       ; preds = %21
   %30 = load i64, ptr %9, align 8
   store ptr %22, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = icmp ugt ptr %31, %7
-  br i1 %32, label %33, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread151
+  br i1 %32, label %33, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread149
 
-33:                                               ; preds = %.thread148, %27
+33:                                               ; preds = %.thread146, %27
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
@@ -13159,15 +13159,15 @@ _ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i: ; preds = %
   %36 = icmp ugt ptr %35, %7
   br i1 %36, label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52, label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47
 
-.thread153:                                       ; preds = %24
+.thread151:                                       ; preds = %24
   %37 = load i32, ptr %13, align 4
   store ptr %25, ptr %0, align 8
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %40 = icmp ugt ptr %39, %7
-  br i1 %40, label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread151
+  br i1 %40, label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread149
 
-_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52: ; preds = %.thread153, %34
+_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52: ; preds = %.thread151, %34
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
@@ -13179,20 +13179,20 @@ _ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53: ; preds = %27
   store ptr %28, ptr %0, align 8
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
-_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread151: ; preds = %.thread153, %.thread148
-  %.sink = phi ptr [ %31, %.thread148 ], [ %39, %.thread153 ]
-  %.sroa.04.0.i838693147 = phi i64 [ %16, %.thread148 ], [ %19, %.thread153 ]
-  %.sroa.04.0.i4195146 = phi i64 [ %30, %.thread148 ], [ %38, %.thread153 ]
+_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread149: ; preds = %.thread151, %.thread146
+  %.sink = phi ptr [ %31, %.thread146 ], [ %39, %.thread151 ]
+  %.sroa.04.0.i818491145 = phi i64 [ %16, %.thread146 ], [ %19, %.thread151 ]
+  %.sroa.04.0.i4193144 = phi i64 [ %30, %.thread146 ], [ %38, %.thread151 ]
   store ptr %.sink, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.sink, i64 1
   %42 = icmp ugt ptr %41, %7
   br i1 %42, label %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i, label %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i
 
-_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i: ; preds = %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread151
+_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i: ; preds = %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread149
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8, !noalias !197
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
-_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i: ; preds = %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread151
+_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i: ; preds = %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread149
   %43 = load i8, ptr %.sink, align 1, !noalias !197
   store ptr %41, ptr %0, align 8, !noalias !197
   %44 = zext i8 %43 to i64
@@ -13216,12 +13216,12 @@ _ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i: ; preds = %_ZN4ofb
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store i64 0, ptr %54, align 8
   store ptr %41, ptr %51, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %45, ptr %.sroa.264.0..sroa_idx, align 8
+  %.sroa.262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store ptr %45, ptr %.sroa.262.0..sroa_idx, align 8
   store i8 1, ptr %52, align 8
-  %.not115 = icmp eq i64 %.sroa.04.0.i4195146, 0
+  %.not113 = icmp eq i64 %.sroa.04.0.i4193144, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
-  br i1 %.not115, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not113, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 48
@@ -13229,8 +13229,8 @@ _ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i: ; preds = %_ZN4ofb
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %116
   %56 = phi ptr [ %117, %116 ], [ %45, %.lr.ph.preheader ]
-  %.037110 = phi ptr [ %118, %116 ], [ %55, %.lr.ph.preheader ]
-  %.038109 = phi i32 [ %119, %116 ], [ 0, %.lr.ph.preheader ]
+  %.037108 = phi ptr [ %118, %116 ], [ %55, %.lr.ph.preheader ]
+  %.038107 = phi i32 [ %119, %116 ], [ 0, %.lr.ph.preheader ]
   %57 = icmp eq ptr %56, %7
   br i1 %57, label %58, label %59
 
@@ -13355,7 +13355,7 @@ _ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit25.i: ; preds = %99, %
 
 103:                                              ; preds = %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit25.i
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8
-  %.pre83.i = load ptr, ptr %0, align 8
+  %.pre81.i = load ptr, ptr %0, align 8
   br label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit27.i
 
 104:                                              ; preds = %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit25.i
@@ -13363,7 +13363,7 @@ _ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit25.i: ; preds = %99, %
   br label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit27.i
 
 _ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit27.i: ; preds = %104, %103
-  %105 = phi ptr [ %101, %104 ], [ %.pre83.i, %103 ]
+  %105 = phi ptr [ %101, %104 ], [ %.pre81.i, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = icmp ugt ptr %106, %7
   br i1 %107, label %_ZNKSt14default_deleteIN4ofbx8PropertyEEclEPS1_.exit.i31.sink.split.i, label %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit29.i
@@ -13400,11 +13400,11 @@ _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEEN
 116:                                              ; preds = %114, %94, %85, %83, %81, %79, %77, %75, %74
   %117 = phi ptr [ %72, %74 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %92, %94 ], [ %112, %114 ]
   store ptr %117, ptr %63, align 8
-  store ptr %60, ptr %.037110, align 8
+  store ptr %60, ptr %.037108, align 8
   %118 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %119 = add i32 %.038109, 1
+  %119 = add i32 %.038107, 1
   %120 = zext i32 %119 to i64
-  %121 = icmp ugt i64 %.sroa.04.0.i4195146, %120
+  %121 = icmp ugt i64 %.sroa.04.0.i4193144, %120
   br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %116, %48
@@ -13414,30 +13414,30 @@ _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEEN
   %125 = ptrtoint ptr %122 to i64
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
-  %.not = icmp slt i64 %127, %.sroa.04.0.i838693147
+  %.not = icmp slt i64 %127, %.sroa.04.0.i818491145
   br i1 %.not, label %128, label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
 128:                                              ; preds = %._crit_edge
   %129 = icmp ugt i32 %1, 7499
   %130 = select i1 %129, i64 25, i64 13
-  %131 = sub nsw i64 %.sroa.04.0.i838693147, %130
+  %131 = sub nsw i64 %.sroa.04.0.i818491145, %130
   %132 = icmp slt i64 %127, %131
-  br i1 %132, label %.lr.ph113, label %._crit_edge114
+  br i1 %132, label %.lr.ph111, label %._crit_edge112
 
-.lr.ph113:                                        ; preds = %128, %137
-  %.0111 = phi ptr [ %139, %137 ], [ %53, %128 ]
+.lr.ph111:                                        ; preds = %128, %137
+  %.0109 = phi ptr [ %139, %137 ], [ %53, %128 ]
   %133 = tail call fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef %0, i32 noundef %1)
   %134 = extractvalue { ptr, i8 } %133, 1
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %137
 
-136:                                              ; preds = %.lr.ph113
+136:                                              ; preds = %.lr.ph111
   tail call fastcc void @_ZN4ofbxL13deleteElementEPNS_7ElementE(ptr noundef nonnull %49)
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
-137:                                              ; preds = %.lr.ph113
+137:                                              ; preds = %.lr.ph111
   %138 = extractvalue { ptr, i8 } %133, 0
-  store ptr %138, ptr %.0111, align 8
+  store ptr %138, ptr %.0109, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load ptr, ptr %0, align 8
   %141 = load ptr, ptr %123, align 8
@@ -13445,33 +13445,33 @@ _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEEN
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = icmp slt i64 %144, %131
-  br i1 %145, label %.lr.ph113, label %._crit_edge114.loopexit, !llvm.loop !204
+  br i1 %145, label %.lr.ph111, label %._crit_edge112.loopexit, !llvm.loop !204
 
-._crit_edge114.loopexit:                          ; preds = %137
-  %.pre121 = load ptr, ptr %6, align 8
-  br label %._crit_edge114
+._crit_edge112.loopexit:                          ; preds = %137
+  %.pre119 = load ptr, ptr %6, align 8
+  br label %._crit_edge112
 
-._crit_edge114:                                   ; preds = %._crit_edge114.loopexit, %128
-  %146 = phi ptr [ %7, %128 ], [ %.pre121, %._crit_edge114.loopexit ]
-  %.lcssa = phi ptr [ %122, %128 ], [ %140, %._crit_edge114.loopexit ]
+._crit_edge112:                                   ; preds = %._crit_edge112.loopexit, %128
+  %146 = phi ptr [ %7, %128 ], [ %.pre119, %._crit_edge112.loopexit ]
+  %.lcssa = phi ptr [ %122, %128 ], [ %140, %._crit_edge112.loopexit ]
   %147 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %130
   %148 = icmp ugt ptr %147, %146
   br i1 %148, label %149, label %150
 
-149:                                              ; preds = %._crit_edge114
+149:                                              ; preds = %._crit_edge112
   tail call fastcc void @_ZN4ofbxL13deleteElementEPNS_7ElementE(ptr noundef nonnull %49)
   store ptr @.str.15, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
-150:                                              ; preds = %._crit_edge114
+150:                                              ; preds = %._crit_edge112
   store ptr %147, ptr %0, align 8
   br label %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread
 
 _ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53.thread: ; preds = %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47, %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52, %33, %._crit_edge, %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i, %47, %.thread, %15, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i, %11, %150, %149, %136, %115
-  %.sroa.073.0 = phi ptr [ undef, %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ null, %.thread ], [ undef, %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53 ], [ undef, %115 ], [ undef, %136 ], [ undef, %149 ], [ %49, %150 ], [ undef, %11 ], [ null, %15 ], [ %49, %._crit_edge ], [ undef, %47 ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47 ], [ undef, %33 ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52 ]
-  %.sroa.474.0 = phi i8 [ 1, %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ 0, %.thread ], [ 1, %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53 ], [ 1, %115 ], [ 1, %136 ], [ 1, %149 ], [ 0, %150 ], [ 1, %11 ], [ 0, %15 ], [ 0, %._crit_edge ], [ 1, %47 ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47 ], [ 1, %33 ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.073.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.474.0, 1
+  %.sroa.071.0 = phi ptr [ undef, %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ null, %.thread ], [ undef, %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53 ], [ undef, %115 ], [ undef, %136 ], [ undef, %149 ], [ %49, %150 ], [ undef, %11 ], [ null, %15 ], [ %49, %._crit_edge ], [ undef, %47 ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47 ], [ undef, %33 ], [ undef, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52 ]
+  %.sroa.472.0 = phi i8 [ 1, %_ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i ], [ 0, %.thread ], [ 1, %_ZN4ofbxL17readElementOffsetEPNS_6CursorEt.exit53 ], [ 1, %115 ], [ 1, %136 ], [ 1, %149 ], [ 0, %150 ], [ 1, %11 ], [ 0, %15 ], [ 0, %._crit_edge ], [ 1, %47 ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i47 ], [ 1, %33 ], [ 1, %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.thread.i52 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.071.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.472.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

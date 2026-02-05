@@ -2639,7 +2639,7 @@ invoke.cont53:                                    ; preds = %invoke.cont49
   %add.ptr.i78 = getelementptr inbounds nuw double, ptr %g_.sroa.0.0, i64 %conv19
   store double %div, ptr %add.ptr.i78, align 8, !tbaa !45
   %.pre = load i64, ptr %numberOfRates_, align 8, !tbaa !40
-  %.pre139 = trunc i64 %.pre to i32
+  %.pre136 = trunc i64 %.pre to i32
   br label %if.end
 
 lpad24:                                           ; preds = %cond.false.i69, %invoke.cont49
@@ -2648,10 +2648,10 @@ lpad24:                                           ; preds = %cond.false.i69, %in
   br label %ehcleanup161
 
 if.end:                                           ; preds = %invoke.cont53, %invoke.cont
-  %.pre-phi = phi i32 [ %.pre139, %invoke.cont53 ], [ %16, %invoke.cont ]
+  %.pre-phi = phi i32 [ %.pre136, %invoke.cont53 ], [ %16, %invoke.cont ]
   %conv76 = add i32 %.pre-phi, -2
-  %cmp77.not133 = icmp slt i32 %conv76, %conv
-  br i1 %cmp77.not133, label %for.end156, label %for.body.lr.ph
+  %cmp77.not130 = icmp slt i32 %conv76, %conv
+  br i1 %cmp77.not130, label %for.end156, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 16
@@ -2669,8 +2669,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %indvars.iv = phi i64 [ %43, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont131 ]
   %45 = add nsw i64 %indvars.iv, 1
   %46 = load i64, ptr %numberOfRates_, align 8, !tbaa !40
-  %cmp82130 = icmp ugt i64 %46, %45
-  br i1 %cmp82130, label %invoke.cont87.lr.ph, label %for.cond.cleanup
+  %cmp82127 = icmp ugt i64 %46, %45
+  br i1 %cmp82127, label %invoke.cont87.lr.ph, label %for.cond.cleanup
 
 invoke.cont87.lr.ph:                              ; preds = %for.body
   %47 = load ptr, ptr %call12, align 8, !tbaa !17
@@ -2740,15 +2740,15 @@ cond.false.i103:                                  ; preds = %_ZSt13inner_product
   br label %invoke.cont127
 
 invoke.cont87:                                    ; preds = %invoke.cont87.lr.ph, %invoke.cont87
-  %j.0132 = phi i64 [ %45, %invoke.cont87.lr.ph ], [ %inc, %invoke.cont87 ]
-  %drifts2.0131 = phi double [ 0.000000e+00, %invoke.cont87.lr.ph ], [ %65, %invoke.cont87 ]
-  %add.ptr.i107 = getelementptr inbounds nuw double, ptr %g_.sroa.0.0, i64 %j.0132
+  %j.0129 = phi i64 [ %45, %invoke.cont87.lr.ph ], [ %inc, %invoke.cont87 ]
+  %drifts2.0128 = phi double [ 0.000000e+00, %invoke.cont87.lr.ph ], [ %65, %invoke.cont87 ]
+  %add.ptr.i107 = getelementptr inbounds nuw double, ptr %g_.sroa.0.0, i64 %j.0129
   %63 = load double, ptr %add.ptr.i107, align 8, !tbaa !45
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.0132
+  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.0129
   %64 = load double, ptr %arrayidx, align 8, !tbaa !45
   %neg = fneg double %63
-  %65 = tail call double @llvm.fmuladd.f64(double %neg, double %64, double %drifts2.0131)
-  %inc = add nuw i64 %j.0132, 1
+  %65 = tail call double @llvm.fmuladd.f64(double %neg, double %64, double %drifts2.0128)
+  %inc = add nuw i64 %j.0129, 1
   %cmp82 = icmp ult i64 %inc, %46
   br i1 %cmp82, label %invoke.cont87, label %for.cond.cleanup, !llvm.loop !85
 

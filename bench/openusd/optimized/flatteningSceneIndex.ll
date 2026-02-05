@@ -5574,29 +5574,29 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndex23_Con
 
 .lr.ph:                                           ; preds = %25, %1
   %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.0.i.i.i, %25 ]
-  %.sroa.14.3.in = phi i64 [ %4, %1 ], [ %27, %25 ]
-  %.sroa.8.3 = phi ptr [ %2, %1 ], [ %storemerge.i.i.i, %25 ]
-  %.sroa.14.3 = inttoptr i64 %.sroa.14.3.in to ptr
+  %.sroa.14.2.in = phi i64 [ %4, %1 ], [ %27, %25 ]
+  %.sroa.8.2 = phi ptr [ %2, %1 ], [ %storemerge.i.i.i, %25 ]
+  %.sroa.14.2 = inttoptr i64 %.sroa.14.2.in to ptr
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4312
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4360
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit
-  %.sroa.8.027 = phi ptr [ %.sroa.8.3, %.lr.ph ], [ %.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
-  %.sroa.14.026 = phi ptr [ %.sroa.14.3, %.lr.ph ], [ %.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
-  %.sroa.4.025 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.14.026, i64 16
+  %.sroa.8.025 = phi ptr [ %.sroa.8.2, %.lr.ph ], [ %.sroa.8.5, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
+  %.sroa.14.024 = phi ptr [ %.sroa.14.2, %.lr.ph ], [ %.sroa.14.4, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
+  %.sroa.4.023 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.14.024, i64 16
   %34 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEEixERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 4 dereferenceable(8) %33)
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.14.026, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.14.024, i64 24
   tail call void @_ZSt4swapIN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35) #15
-  %36 = load ptr, ptr %.sroa.14.026, align 8
+  %36 = load ptr, ptr %.sroa.14.024, align 8
   %.not.i5 = icmp eq ptr %36, null
   br i1 %.not.i5, label %.preheader, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit
 
 .preheader:                                       ; preds = %32, %53
-  %.sroa.8.4 = phi ptr [ %storemerge.i.i, %53 ], [ %.sroa.8.027, %32 ]
-  %.0.in.i.i = phi i64 [ %.0.i.i6, %53 ], [ %.sroa.4.025, %32 ]
+  %.sroa.8.3 = phi ptr [ %storemerge.i.i, %53 ], [ %.sroa.8.025, %32 ]
+  %.0.in.i.i = phi i64 [ %.0.i.i6, %53 ], [ %.sroa.4.023, %32 ]
   %.0.i.i6 = add i64 %.0.in.i.i, 1
   %37 = load atomic i64, ptr %30 monotonic, align 8
   %.not.i.i = icmp ugt i64 %.0.i.i6, %37
@@ -5609,7 +5609,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndex23_Con
   br i1 %.not12.i.i, label %43, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.8.4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.8.3, i64 16
   br label %53
 
 43:                                               ; preds = %38
@@ -5630,17 +5630,17 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndex23_Con
   %54 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
   %55 = load atomic i64, ptr %54 monotonic, align 8
   %56 = icmp ugt i64 %55, 63
-  br i1 %56, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19, label %.preheader, !llvm.loop !80
+  br i1 %56, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17, label %.preheader, !llvm.loop !80
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19: ; preds = %53
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17: ; preds = %53
   %.0.i.i.i7.le = inttoptr i64 %55 to ptr
   br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19, %32
-  %.sroa.4.2 = phi i64 [ %.sroa.4.025, %32 ], [ %.0.i.i6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19 ]
-  %.sroa.14.6 = phi ptr [ %36, %32 ], [ %.0.i.i.i7.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19 ]
-  %.sroa.8.6 = phi ptr [ %.sroa.8.027, %32 ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit19 ]
-  %.not.i.not = icmp eq ptr %.sroa.14.6, null
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17, %32
+  %.sroa.4.2 = phi i64 [ %.sroa.4.023, %32 ], [ %.0.i.i6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17 ]
+  %.sroa.14.4 = phi ptr [ %36, %32 ], [ %.0.i.i.i7.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17 ]
+  %.sroa.8.5 = phi ptr [ %.sroa.8.025, %32 ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit.loopexit.split.loop.exit17 ]
+  %.not.i.not = icmp eq ptr %.sroa.14.4, null
   br i1 %.not.i.not, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %.preheader.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_16HdSceneIndexPrimENS4_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESD_EppEv.exit, %.preheader
@@ -14667,23 +14667,23 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 3
-  %.not43 = icmp eq ptr %34, %35
-  br i1 %.not43, label %._crit_edge46, label %.lr.ph45
+  %.not40 = icmp eq ptr %34, %35
+  br i1 %.not40, label %._crit_edge43, label %.lr.ph42
 
-.lr.ph45:                                         ; preds = %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit, %._crit_edge
-  %.01744 = phi i64 [ %65, %._crit_edge ], [ 0, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit ]
+.lr.ph42:                                         ; preds = %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit, %._crit_edge
+  %.01741 = phi i64 [ %65, %._crit_edge ], [ 0, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit ]
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.01744
+  %41 = getelementptr inbounds ptr, ptr %40, i64 %.01741
   %42 = load ptr, ptr %41, align 8
-  %.not1841 = icmp eq ptr %42, null
-  br i1 %.not1841, label %._crit_edge, label %.lr.ph
+  %.not1838 = icmp eq ptr %42, null
+  br i1 %.not1838, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph45, %.lr.ph
-  %.01642 = phi ptr [ %44, %.lr.ph ], [ %42, %.lr.ph45 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.01642, i64 32
+.lr.ph:                                           ; preds = %.lr.ph42, %.lr.ph
+  %.01639 = phi ptr [ %44, %.lr.ph ], [ %42, %.lr.ph42 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.01639, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %.01642, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.01642, i64 4
+  %45 = load i32, ptr %.01639, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01639, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %45 to i64
   %49 = zext i32 %47 to i64
@@ -14699,7 +14699,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   %59 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %58
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %43, align 8
-  store ptr %.01642, ptr %59, align 8
+  store ptr %.01639, ptr %59, align 8
   %.not18 = icmp eq ptr %44, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !153
 
@@ -14714,17 +14714,17 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   br label %84
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph45
-  %65 = add i64 %.01744, 1
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph42
+  %65 = add i64 %.01741, 1
   %.not = icmp eq i64 %65, %39
-  br i1 %.not, label %._crit_edge46.loopexit, label %.lr.ph45, !llvm.loop !154
+  br i1 %.not, label %._crit_edge43.loopexit, label %.lr.ph42, !llvm.loop !154
 
-._crit_edge46.loopexit:                           ; preds = %._crit_edge
+._crit_edge43.loopexit:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %0, align 8
-  br label %._crit_edge46
+  br label %._crit_edge43
 
-._crit_edge46:                                    ; preds = %._crit_edge46.loopexit, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit
-  %66 = phi ptr [ %.pre, %._crit_edge46.loopexit ], [ %35, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit ]
+._crit_edge43:                                    ; preds = %._crit_edge43.loopexit, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit
+  %66 = phi ptr [ %.pre, %._crit_edge43.loopexit ], [ %35, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EEC2EmRKS6_.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   store ptr %.sroa.0.0, ptr %0, align 8
@@ -14733,14 +14733,14 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneInd
   %.not.i.i.i25 = icmp eq ptr %66, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EED2Ev.exit26, label %69
 
-69:                                               ; preds = %._crit_edge46
+69:                                               ; preds = %._crit_edge43
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %66 to i64
   %72 = sub i64 %70, %71
   tail call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #21
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EED2Ev.exit26
 
-_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EED2Ev.exit26: ; preds = %._crit_edge46, %69
+_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_16HdSceneIndexPrimEE6_EntryESaIS5_EED2Ev.exit26: ; preds = %._crit_edge43, %69
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit, label %73
 

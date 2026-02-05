@@ -25524,24 +25524,24 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %_ZN7rocksdb6Statusa
 .thread:                                          ; preds = %266, %288
   %304 = phi i1 [ %302, %288 ], [ false, %266 ]
   %.sroa.18206.2262 = phi ptr [ %301, %288 ], [ null, %266 ]
-  %.sroa.0204.0260 = phi i8 [ %289, %288 ], [ 3, %266 ]
+  %.sroa.9205.0260 = phi i32 [ %.sroa.9205.5.insert.insert, %288 ], [ 0, %266 ]
   %.sroa.6.0259 = phi i8 [ %291, %288 ], [ 0, %266 ]
-  %.sroa.9205.0258 = phi i32 [ %.sroa.9205.5.insert.insert, %288 ], [ 0, %266 ]
-  store i8 %.sroa.0204.0260, ptr %0, align 8, !tbaa !156
+  %.sroa.0204.0258 = phi i8 [ %289, %288 ], [ 3, %266 ]
+  store i8 %.sroa.0204.0258, ptr %0, align 8, !tbaa !156
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.6.0259, ptr %305, align 1, !tbaa !169
-  %.sroa.9205.2.extract.trunc = trunc i32 %.sroa.9205.0258 to i8
+  %.sroa.9205.2.extract.trunc = trunc i32 %.sroa.9205.0260 to i8
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %.sroa.9205.2.extract.trunc, ptr %306, align 2, !tbaa !171
-  %.sroa.9205.3.extract.shift = lshr i32 %.sroa.9205.0258, 8
+  %.sroa.9205.3.extract.shift = lshr i32 %.sroa.9205.0260, 8
   %.sroa.9205.3.extract.trunc = trunc i32 %.sroa.9205.3.extract.shift to i8
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %.sroa.9205.3.extract.trunc, ptr %307, align 1, !tbaa !175
-  %.sroa.9205.4.extract.shift = lshr i32 %.sroa.9205.0258, 16
+  %.sroa.9205.4.extract.shift = lshr i32 %.sroa.9205.0260, 16
   %.sroa.9205.4.extract.trunc = trunc i32 %.sroa.9205.4.extract.shift to i8
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %.sroa.9205.4.extract.trunc, ptr %308, align 4, !tbaa !176
-  %.sroa.9205.5.extract.shift = lshr i32 %.sroa.9205.0258, 24
+  %.sroa.9205.5.extract.shift = lshr i32 %.sroa.9205.0260, 24
   %.sroa.9205.5.extract.trunc = trunc nuw i32 %.sroa.9205.5.extract.shift to i8
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %.sroa.9205.5.extract.trunc, ptr %309, align 1, !tbaa !177

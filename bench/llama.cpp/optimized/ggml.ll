@@ -2455,24 +2455,24 @@ define internal fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef captures(no
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.076.lcssa = phi i64 [ %29, %20 ], [ %35, %.lr.ph ]
+  %.073.lcssa = phi i64 [ %29, %20 ], [ %35, %.lr.ph ]
   %31 = icmp eq ptr %.071, null
-  %32 = icmp eq i64 %.076.lcssa, 0
+  %32 = icmp eq i64 %.073.lcssa, 0
   %or.cond5 = select i1 %31, i1 true, i1 %32
   br i1 %or.cond5, label %73, label %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.076100 = phi i64 [ %29, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.073101 = phi i64 [ %29, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %33 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !39
-  %35 = mul i64 %34, %.076100
+  %35 = mul i64 %34, %.073101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 36:                                               ; preds = %._crit_edge
-  %37 = add i64 %.076.lcssa, %.072
+  %37 = add i64 %.073.lcssa, %.072
   %38 = load i32, ptr %.071, align 8, !tbaa !40
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %39
@@ -2550,12 +2550,12 @@ ggml_nbytes.exit:                                 ; preds = %48, %64
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %79 = load i8, ptr %78, align 1, !tbaa !68, !range !52, !noundef !53
   %80 = trunc nuw i8 %79 to i1
-  %spec.select90 = select i1 %80, i64 0, i64 %.076.lcssa
+  %spec.select90 = select i1 %80, i64 0, i64 %.073.lcssa
   br label %81
 
 81:                                               ; preds = %.thread, %77
   %spec.select94 = phi ptr [ null, %77 ], [ %spec.select, %.thread ]
-  %.073 = phi i64 [ %spec.select90, %77 ], [ 0, %.thread ]
+  %.076 = phi i64 [ %spec.select90, %77 ], [ 0, %.thread ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !67
   %84 = icmp eq ptr %83, null
@@ -2570,7 +2570,7 @@ ggml_nbytes.exit:                                 ; preds = %48, %64
 
 .thread.i:                                        ; preds = %85, %81
   %90 = phi i64 [ %89, %85 ], [ 0, %81 ]
-  %91 = add i64 %.073, 351
+  %91 = add i64 %.076, 351
   %92 = and i64 %91, -16
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !66
@@ -2622,7 +2622,7 @@ ggml_nbytes.exit:                                 ; preds = %48, %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3, i8 0, i64 12, i1 false)
   %.sroa.3.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.3.16..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false), !tbaa.struct !78
-  %.not89 = icmp eq i64 %.073, 0
+  %.not89 = icmp eq i64 %.076, 0
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 336
   %115 = select i1 %.not89, ptr %spec.select94, ptr %114
   store i32 %1, ptr %113, align 8, !tbaa !8

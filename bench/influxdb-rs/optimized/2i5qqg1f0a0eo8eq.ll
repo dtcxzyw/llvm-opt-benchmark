@@ -11570,9 +11570,9 @@ _ZN10serde_json2de12ParserNumber5visit17h47f41641cec5711dE.exit.i.i.i.i.i.i.i.i:
   br i1 %.not.i, label %.loopexit148.i, label %147
 
 .loopexit20.i:                                    ; preds = %.noexc.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i"
-  %.sroa.9.1.i = phi ptr [ %.sroa.1126.1.ph.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %63, %.noexc.i ]
+  %.sroa.9.0.i = phi ptr [ %.sroa.1126.1.ph.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %63, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2973
-  %146 = icmp ne ptr %.sroa.9.1.i, null
+  %146 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %146)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3073
@@ -11635,7 +11635,7 @@ common.resume:                                    ; preds = %161, %.body.i
 
 "_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h4a0030968b4b82b4E.exit": ; preds = %.loopexit20.i, %.loopexit148.i
   %.sroa.032.0 = phi i64 [ 1, %.loopexit20.i ], [ 0, %.loopexit148.i ]
-  %.sroa.533.0 = phi ptr [ %.sroa.9.1.i, %.loopexit20.i ], [ %.sroa.533.8.copyload, %.loopexit148.i ]
+  %.sroa.533.0 = phi ptr [ %.sroa.9.0.i, %.loopexit20.i ], [ %.sroa.533.8.copyload, %.loopexit148.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2963
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -12059,9 +12059,9 @@ common.resume:                                    ; preds = %116, %.body.i
   br i1 %.not.i, label %.loopexit74.i, label %103
 
 .loopexit25.i:                                    ; preds = %.noexc.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i"
-  %.sroa.9.1.i = phi ptr [ %.sroa.3.0.i.i.i.pn.i.ph.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %55, %.noexc.i ]
+  %.sroa.9.0.i = phi ptr [ %.sroa.3.0.i.i.i.pn.i.ph.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %55, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3139
-  %98 = icmp ne ptr %.sroa.9.1.i, null
+  %98 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %98)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -12118,7 +12118,7 @@ common.resume:                                    ; preds = %116, %.body.i
 
 "_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hec26a446ab36c66dE.exit": ; preds = %.loopexit25.i, %102, %.loopexit74.i
   %.sroa.032.0 = phi ptr [ null, %.loopexit25.i ], [ null, %102 ], [ %.sroa.032.0.copyload33, %.loopexit74.i ]
-  %.sroa.534.0 = phi ptr [ %.sroa.9.1.i, %.loopexit25.i ], [ %.sroa.9.1.i, %102 ], [ %.sroa.534.0.copyload36, %.loopexit74.i ]
+  %.sroa.534.0 = phi ptr [ %.sroa.9.0.i, %.loopexit25.i ], [ %.sroa.9.0.i, %102 ], [ %.sroa.534.0.copyload36, %.loopexit74.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3110
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -12532,10 +12532,10 @@ common.resume:                                    ; preds = %107, %.body.i
   br i1 %.not.i, label %.loopexit37.i, label %95
 
 .loopexit30.i:                                    ; preds = %.noexc.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i"
-  %.sroa.9.1.i = phi ptr [ %79, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %57, %.noexc.i ]
+  %.sroa.9.0.i = phi ptr [ %79, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %57, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3278
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.421.i)
-  %90 = icmp ne ptr %.sroa.9.1.i, null
+  %90 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -12594,7 +12594,7 @@ common.resume:                                    ; preds = %107, %.body.i
 
 "_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h13ce113c77cdcb6bE.exit": ; preds = %.loopexit30.i, %94, %.loopexit37.i
   %.sroa.032.0 = phi ptr [ null, %.loopexit30.i ], [ null, %94 ], [ %.sroa.032.0.copyload33, %.loopexit37.i ]
-  %.sroa.534.0 = phi ptr [ %.sroa.9.1.i, %.loopexit30.i ], [ %.sroa.9.1.i, %94 ], [ %.sroa.534.0.copyload36, %.loopexit37.i ]
+  %.sroa.534.0 = phi ptr [ %.sroa.9.0.i, %.loopexit30.i ], [ %.sroa.9.0.i, %94 ], [ %.sroa.534.0.copyload36, %.loopexit37.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3249
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -13007,10 +13007,10 @@ common.resume:                                    ; preds = %103, %.body.i
   br i1 %.not.i, label %.loopexit35.i, label %93
 
 .loopexit28.i:                                    ; preds = %.noexc.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i"
-  %.sroa.9.1.i = phi ptr [ %77, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %55, %.noexc.i ]
+  %.sroa.9.0.i = phi ptr [ %77, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %55, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3398
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.419.i)
-  %88 = icmp ne ptr %.sroa.9.1.i, null
+  %88 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -13062,7 +13062,7 @@ common.resume:                                    ; preds = %103, %.body.i
 
 "_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h138d8dc9a0cd6774E.exit": ; preds = %.loopexit28.i, %92, %.loopexit35.i
   %.sroa.032.0 = phi ptr [ null, %.loopexit28.i ], [ null, %92 ], [ %.sroa.032.0.copyload33, %.loopexit35.i ]
-  %.sroa.534.0 = phi ptr [ %.sroa.9.1.i, %.loopexit28.i ], [ %.sroa.9.1.i, %92 ], [ %.sroa.534.0.copyload36, %.loopexit35.i ]
+  %.sroa.534.0 = phi ptr [ %.sroa.9.0.i, %.loopexit28.i ], [ %.sroa.9.0.i, %92 ], [ %.sroa.534.0.copyload36, %.loopexit35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3369
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -13451,10 +13451,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %.not.i, label %.loopexit35.i, label %91
 
 .loopexit28.i:                                    ; preds = %.noexc.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i"
-  %.sroa.9.1.i = phi ptr [ %79, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %57, %.noexc.i ]
+  %.sroa.9.0.i = phi ptr [ %79, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i.i" ], [ %57, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3499
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.418.i)
-  %90 = icmp ne ptr %.sroa.9.1.i, null
+  %90 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3541
@@ -13550,7 +13550,7 @@ common.resume:                                    ; preds = %111, %.body.i
 
 "_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hecef3397b9766647E.exit": ; preds = %.loopexit28.i, %.loopexit35.i
   %.sroa.032.0 = phi i64 [ 1, %.loopexit28.i ], [ 0, %.loopexit35.i ]
-  %.sroa.533.0 = phi ptr [ %.sroa.9.1.i, %.loopexit28.i ], [ %.sroa.533.8.copyload, %.loopexit35.i ]
+  %.sroa.533.0 = phi ptr [ %.sroa.9.0.i, %.loopexit28.i ], [ %.sroa.533.8.copyload, %.loopexit35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !3489
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)

@@ -3103,11 +3103,11 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i: ; p
   br i1 %1011, label %985, label %._crit_edge.loopexit.i241.i, !llvm.loop !51
 
 ._crit_edge.loopexit.i241.i:                      ; preds = %1008
-  %.pre35.i.i = load ptr, ptr %971, align 8
+  %.pre34.i.i = load ptr, ptr %971, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i241.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i
-  %1012 = phi ptr [ %.pre35.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i ]
+  %1012 = phi ptr [ %.pre34.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i ]
   call void @_ZdlPv(ptr noundef %1012) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.val39.val40.i = load ptr, ptr %899, align 8
@@ -3127,9 +3127,9 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10S
   %1021 = getelementptr inbounds nuw i8, ptr %27, i64 272
   store ptr null, ptr %1021, align 8
   %1022 = icmp ugt i32 %1017, 32
-  br i1 %1022, label %.noexc.i263.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
+  br i1 %1022, label %.noexc.i261.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
 
-.noexc.i263.i:                                    ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
+.noexc.i261.i:                                    ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
   %1023 = zext i32 %1017 to i64
   %1024 = shl nuw nsw i64 %1023, 3
   %1025 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1024) #20
@@ -3138,8 +3138,8 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10S
   store i32 %1017, ptr %1020, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
 
-_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i: ; preds = %.noexc.i263.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
-  %1026 = phi ptr [ null, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i ], [ %1025, %.noexc.i263.i ]
+_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i: ; preds = %.noexc.i261.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
+  %1026 = phi ptr [ null, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i ], [ %1025, %.noexc.i261.i ]
   %1027 = getelementptr inbounds nuw i8, ptr %1014, i64 8
   %1028 = load i32, ptr %1027, align 8
   %1029 = icmp sgt i32 %1028, 0
@@ -3154,7 +3154,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i: ; 
 
 1034:                                             ; preds = %1047, %.lr.ph.i248.i
   %1035 = phi i32 [ %1028, %.lr.ph.i248.i ], [ %1048, %1047 ]
-  %indvars.iv.i249.i = phi i64 [ 0, %.lr.ph.i248.i ], [ %indvars.iv.next.i257.i, %1047 ]
+  %indvars.iv.i249.i = phi i64 [ 0, %.lr.ph.i248.i ], [ %indvars.iv.next.i256.i, %1047 ]
   %1036 = load ptr, ptr %1030, align 8
   %1037 = getelementptr inbounds nuw i32, ptr %1036, i64 %indvars.iv.i249.i
   %1038 = load i32, ptr %1037, align 4
@@ -3164,35 +3164,35 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i: ; 
 1039:                                             ; preds = %1034
   %1040 = mul i32 %1038, %.8.val3.fr.i
   %1041 = sext i32 %1040 to i64
-  br i1 %1031, label %.lr.ph.i.preheader.i260.i, label %.loopexit.i253.i
+  br i1 %1031, label %.lr.ph.i.preheader.i258.i, label %.loopexit.i253.i
 
-.lr.ph.i.preheader.i260.i:                        ; preds = %1039
+.lr.ph.i.preheader.i258.i:                        ; preds = %1039
   %1042 = getelementptr double, ptr %100, i64 %1041
   call void @llvm.memset.p0.i64(ptr align 8 %1042, i8 0, i64 %1033, i1 false)
   br label %.loopexit.i253.i
 
-.loopexit.i253.i:                                 ; preds = %.lr.ph.i.preheader.i260.i, %1039
+.loopexit.i253.i:                                 ; preds = %.lr.ph.i.preheader.i258.i, %1039
   %1043 = getelementptr inbounds double, ptr %100, i64 %1041
   %1044 = getelementptr inbounds nuw double, ptr %1043, i64 %indvars.iv.i249.i
   %1045 = load double, ptr %1044, align 8
   %1046 = fadd double %1045, 1.000000e+00
   store double %1046, ptr %1044, align 8
-  %.pre.i256.i = load i32, ptr %1027, align 8
+  %.pre.i255.i = load i32, ptr %1027, align 8
   br label %1047
 
 1047:                                             ; preds = %.loopexit.i253.i, %1034
-  %1048 = phi i32 [ %1035, %1034 ], [ %.pre.i256.i, %.loopexit.i253.i ]
-  %indvars.iv.next.i257.i = add nuw nsw i64 %indvars.iv.i249.i, 1
+  %1048 = phi i32 [ %1035, %1034 ], [ %.pre.i255.i, %.loopexit.i253.i ]
+  %indvars.iv.next.i256.i = add nuw nsw i64 %indvars.iv.i249.i, 1
   %1049 = sext i32 %1048 to i64
-  %1050 = icmp slt i64 %indvars.iv.next.i257.i, %1049
-  br i1 %1050, label %1034, label %._crit_edge.loopexit.i258.i, !llvm.loop !52
+  %1050 = icmp slt i64 %indvars.iv.next.i256.i, %1049
+  br i1 %1050, label %1034, label %._crit_edge.loopexit.i257.i, !llvm.loop !52
 
-._crit_edge.loopexit.i258.i:                      ; preds = %1047
-  %.pre35.i259.i = load ptr, ptr %1021, align 8
+._crit_edge.loopexit.i257.i:                      ; preds = %1047
+  %.pre33.i.i = load ptr, ptr %1021, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
 
-_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i258.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
-  %1051 = phi ptr [ %.pre35.i259.i, %._crit_edge.loopexit.i258.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i ]
+_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i257.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
+  %1051 = phi ptr [ %.pre33.i.i, %._crit_edge.loopexit.i257.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i ]
   call void @_ZdlPv(ptr noundef %1051) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIdEEEEviRKT_RT0_.exit
@@ -7032,11 +7032,11 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i: ; p
   br i1 %1011, label %985, label %._crit_edge.loopexit.i241.i, !llvm.loop !99
 
 ._crit_edge.loopexit.i241.i:                      ; preds = %1008
-  %.pre35.i.i = load ptr, ptr %971, align 8
+  %.pre34.i.i = load ptr, ptr %971, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i241.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i
-  %1012 = phi ptr [ %.pre35.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i ]
+  %1012 = phi ptr [ %.pre34.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i ]
   call void @_ZdlPv(ptr noundef %1012) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.val39.val40.i = load ptr, ptr %899, align 8
@@ -7056,9 +7056,9 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10S
   %1021 = getelementptr inbounds nuw i8, ptr %27, i64 144
   store ptr null, ptr %1021, align 8
   %1022 = icmp ugt i32 %1017, 32
-  br i1 %1022, label %.noexc.i263.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
+  br i1 %1022, label %.noexc.i261.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
 
-.noexc.i263.i:                                    ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
+.noexc.i261.i:                                    ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
   %1023 = zext i32 %1017 to i64
   %1024 = shl nuw nsw i64 %1023, 2
   %1025 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1024) #20
@@ -7067,8 +7067,8 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10S
   store i32 %1017, ptr %1020, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
 
-_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i: ; preds = %.noexc.i263.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
-  %1026 = phi ptr [ null, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i ], [ %1025, %.noexc.i263.i ]
+_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i: ; preds = %.noexc.i261.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
+  %1026 = phi ptr [ null, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i ], [ %1025, %.noexc.i261.i ]
   %1027 = getelementptr inbounds nuw i8, ptr %1014, i64 8
   %1028 = load i32, ptr %1027, align 8
   %1029 = icmp sgt i32 %1028, 0
@@ -7083,7 +7083,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i: ; 
 
 1034:                                             ; preds = %1047, %.lr.ph.i248.i
   %1035 = phi i32 [ %1028, %.lr.ph.i248.i ], [ %1048, %1047 ]
-  %indvars.iv.i249.i = phi i64 [ 0, %.lr.ph.i248.i ], [ %indvars.iv.next.i257.i, %1047 ]
+  %indvars.iv.i249.i = phi i64 [ 0, %.lr.ph.i248.i ], [ %indvars.iv.next.i256.i, %1047 ]
   %1036 = load ptr, ptr %1030, align 8
   %1037 = getelementptr inbounds nuw i32, ptr %1036, i64 %indvars.iv.i249.i
   %1038 = load i32, ptr %1037, align 4
@@ -7093,35 +7093,35 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i: ; 
 1039:                                             ; preds = %1034
   %1040 = mul i32 %1038, %.8.val3.fr.i
   %1041 = sext i32 %1040 to i64
-  br i1 %1031, label %.lr.ph.i.preheader.i260.i, label %.loopexit.i253.i
+  br i1 %1031, label %.lr.ph.i.preheader.i258.i, label %.loopexit.i253.i
 
-.lr.ph.i.preheader.i260.i:                        ; preds = %1039
+.lr.ph.i.preheader.i258.i:                        ; preds = %1039
   %1042 = getelementptr float, ptr %100, i64 %1041
   call void @llvm.memset.p0.i64(ptr align 4 %1042, i8 0, i64 %1033, i1 false)
   br label %.loopexit.i253.i
 
-.loopexit.i253.i:                                 ; preds = %.lr.ph.i.preheader.i260.i, %1039
+.loopexit.i253.i:                                 ; preds = %.lr.ph.i.preheader.i258.i, %1039
   %1043 = getelementptr inbounds float, ptr %100, i64 %1041
   %1044 = getelementptr inbounds nuw float, ptr %1043, i64 %indvars.iv.i249.i
   %1045 = load float, ptr %1044, align 4
   %1046 = fadd float %1045, 1.000000e+00
   store float %1046, ptr %1044, align 4
-  %.pre.i256.i = load i32, ptr %1027, align 8
+  %.pre.i255.i = load i32, ptr %1027, align 8
   br label %1047
 
 1047:                                             ; preds = %.loopexit.i253.i, %1034
-  %1048 = phi i32 [ %1035, %1034 ], [ %.pre.i256.i, %.loopexit.i253.i ]
-  %indvars.iv.next.i257.i = add nuw nsw i64 %indvars.iv.i249.i, 1
+  %1048 = phi i32 [ %1035, %1034 ], [ %.pre.i255.i, %.loopexit.i253.i ]
+  %indvars.iv.next.i256.i = add nuw nsw i64 %indvars.iv.i249.i, 1
   %1049 = sext i32 %1048 to i64
-  %1050 = icmp slt i64 %indvars.iv.next.i257.i, %1049
-  br i1 %1050, label %1034, label %._crit_edge.loopexit.i258.i, !llvm.loop !100
+  %1050 = icmp slt i64 %indvars.iv.next.i256.i, %1049
+  br i1 %1050, label %1034, label %._crit_edge.loopexit.i257.i, !llvm.loop !100
 
-._crit_edge.loopexit.i258.i:                      ; preds = %1047
-  %.pre35.i259.i = load ptr, ptr %1021, align 8
+._crit_edge.loopexit.i257.i:                      ; preds = %1047
+  %.pre33.i.i = load ptr, ptr %1021, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
 
-_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i258.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
-  %1051 = phi ptr [ %.pre35.i259.i, %._crit_edge.loopexit.i258.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i ]
+_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i257.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
+  %1051 = phi ptr [ %.pre33.i.i, %._crit_edge.loopexit.i257.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i ]
   call void @_ZdlPv(ptr noundef %1051) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIfEEEEviRKT_RT0_.exit

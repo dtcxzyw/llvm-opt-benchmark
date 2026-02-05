@@ -27865,12 +27865,12 @@ if.then4:                                         ; preds = %if.then.if.then4_cr
   %lexer_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 0) #16
   store ptr %call2.i, ptr %tok_, align 8
-  %.pre110 = load ptr, ptr %this, align 8
+  %.pre108 = load ptr, ptr %this, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i, %if.then4, %entry
   %8 = phi ptr [ %call2.i, %if.then4 ], [ %0, %if.then ], [ %0, %entry ], [ %0, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
-  %9 = phi ptr [ %.pre110, %if.then4 ], [ %2, %if.then ], [ %2, %entry ], [ %2, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
+  %9 = phi ptr [ %.pre108, %if.then4 ], [ %2, %if.then ], [ %2, %entry ], [ %2, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
   %kindRange.sroa.5.0 = phi ptr [ %retval.sroa.2.0.copyload.i.i, %if.then4 ], [ null, %if.then ], [ null, %entry ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
   %kindRange.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload.i, %if.then4 ], [ null, %if.then ], [ null, %entry ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
   %kind.0 = phi ptr [ %7, %if.then4 ], [ %1, %if.then ], [ %1, %entry ], [ %1, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ]
@@ -27941,8 +27941,8 @@ if.then25:                                        ; preds = %land.lhs.true
   %add.i.i.i.i.i = add i64 %23, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %24
   %25 = and i64 %sub1.i.i.i.i.i, 7
-  %.neg106 = add i64 %24, 7
-  %sub.i.i.i.i = sub i64 %.neg106, %25
+  %.neg104 = add i64 %24, 7
+  %sub.i.i.i.i = sub i64 %.neg104, %25
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
   %26 = load ptr, ptr %state_.i.i.i, align 8
   %offset8.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -27995,8 +27995,8 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %add.i.i.i.i.i31 = add i64 %35, 7
   %sub1.i.i.i.i.i32 = add i64 %add.i.i.i.i.i31, %36
   %37 = and i64 %sub1.i.i.i.i.i32, 7
-  %.neg109 = add i64 %36, 7
-  %sub.i.i.i.i33 = sub i64 %.neg109, %37
+  %.neg107 = add i64 %36, 7
+  %sub.i.i.i.i33 = sub i64 %.neg107, %37
   store i64 %sub.i.i.i.i33, ptr %offset.i.i.i30, align 8
   %38 = load ptr, ptr %state_.i.i.i27, align 8
   %offset8.i.i.i34 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -28059,8 +28059,8 @@ if.end43:                                         ; preds = %if.else
   %add.i.i.i.i.i52 = add i64 %49, 7
   %sub1.i.i.i.i.i53 = add i64 %add.i.i.i.i.i52, %50
   %51 = and i64 %sub1.i.i.i.i.i53, 7
-  %.neg103 = add i64 %50, 7
-  %sub.i.i.i.i54 = sub i64 %.neg103, %51
+  %.neg101 = add i64 %50, 7
+  %sub.i.i.i.i54 = sub i64 %.neg101, %51
   store i64 %sub.i.i.i.i54, ptr %offset.i.i.i51, align 8
   %52 = load ptr, ptr %state_.i.i.i48, align 8
   %offset8.i.i.i55 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -28122,7 +28122,7 @@ _ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer1
   %lexer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call2.i.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i, i32 noundef 0) #16
   store ptr %call2.i.i, ptr %tok_, align 8
-  %.pre111 = load i32, ptr %call2.i.i, align 8
+  %.pre109 = load i32, ptr %call2.i.i, align 8
   br label %if.end53
 
 if.then51:                                        ; preds = %if.end49
@@ -28130,7 +28130,7 @@ if.then51:                                        ; preds = %if.end49
   br label %return
 
 if.end53:                                         ; preds = %if.then11, %_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit.thread, %if.end20
-  %59 = phi i32 [ %.pre111, %_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit.thread ], [ %.pr, %if.end20 ], [ %11, %if.then11 ]
+  %59 = phi i32 [ %.pre109, %_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit.thread ], [ %.pr, %if.end20 ], [ %11, %if.then11 ]
   %kind.2 = phi ptr [ %kind.3, %_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit.thread ], [ %kind.1.ph, %if.end20 ], [ %kind.0, %if.then11 ]
   switch i32 %59, label %if.then66 [
     i32 66, label %if.then55
@@ -28168,12 +28168,12 @@ if.end67:                                         ; preds = %if.end53
   %call68 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl17parseNamedImportsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %specifiers)
   %66 = ptrtoint ptr %kind.2 to i64
   %spec.select = select i1 %call68, i64 %66, i64 undef
-  %spec.select101 = zext i1 %call68 to i8
+  %spec.select99 = zext i1 %call68 to i8
   br label %return
 
 return:                                           ; preds = %if.end67, %if.then55, %if.then66, %if.end60, %if.then51, %if.then40
   %retval.sroa.0.0 = phi i64 [ %64, %if.end60 ], [ undef, %if.then40 ], [ %spec.select, %if.end67 ], [ undef, %if.then55 ], [ %65, %if.then66 ], [ %58, %if.then51 ]
-  %retval.sroa.5.0 = phi i8 [ 1, %if.end60 ], [ 0, %if.then40 ], [ %spec.select101, %if.end67 ], [ 0, %if.then55 ], [ 1, %if.then66 ], [ 1, %if.then51 ]
+  %retval.sroa.5.0 = phi i8 [ 1, %if.end60 ], [ 0, %if.then40 ], [ %spec.select99, %if.end67 ], [ 0, %if.then55 ], [ 1, %if.then66 ], [ 1, %if.then51 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert

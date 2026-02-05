@@ -34253,11 +34253,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !711
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -34299,8 +34299,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -39464,11 +39464,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !711
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -39510,8 +39510,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -47176,11 +47176,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !882
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -47222,8 +47222,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -49931,11 +49931,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !882
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test11other_emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_E15emplace_elementERKS5_S3_EESI_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -49977,8 +49977,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_E15emplace_elementERKS4_S2_EESD_EEvRT0_ENUlPKvS5_S2_E_8__invokeESJ_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -52488,11 +52488,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !711
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -52534,8 +52534,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_EELm3EEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_EELm3EEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -54337,11 +54337,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !711
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EELm3EEvRT_RKNSK_13registry_typeENSK_11entity_typeEEESJ_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -54383,8 +54383,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_EELm3EEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z7emplaceINS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_EELm3EEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -79844,11 +79844,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !1178
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -79890,8 +79890,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_EEEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIvS2_SaIvEvEES4_EEEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -81243,11 +81243,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !1178
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ES4_EEE10disconnectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES5_EEEvRT_RKNSH_13registry_typeENSH_11entity_typeEEESG_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -81289,8 +81289,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_EEEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_Z6removeINS_20basic_reactive_mixinINS_13basic_storageIbS2_SaIbEvEES4_EEEvRT_RKNSF_13registry_typeENSF_11entity_typeEEESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESO_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -83631,11 +83631,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !711
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !567
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityESaIS3_EEES3_ESaIN4test5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES3_SaISG_EvEES5_E15emplace_elementERKS5_S3_EESJ_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -83677,8 +83677,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EE
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES2_SaISB_EvEES4_E15emplace_elementERKS4_S2_EESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESK_S5_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageINS_8reactiveES2_SaISB_EvEES4_E15emplace_elementERKS4_S2_EESE_EEvRT0_ENUlPKvS5_S2_E_8__invokeESK_S5_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityESaIS3_EEES3_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -95492,11 +95492,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_
 _ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !1399
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1323
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1323
   br label %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS4_SaIvEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -95538,8 +95538,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRN4test21basic_custom_registryINS2_6entityEEES4_
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRN4test21basic_custom_registryINS1_6entityEEES3_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES4_E15emplace_elementERKS4_S3_EESD_EEvRT0_ENUlPKvS5_S3_E_8__invokeESJ_S5_S3_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRN4test21basic_custom_registryINS1_6entityEEES3_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_SaIvEvEES4_E15emplace_elementERKS4_S3_EESD_EEvRT0_ENUlPKvS5_S3_E_8__invokeESJ_S5_S3_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRN4test21basic_custom_registryINS2_6entityEEES4_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -98995,11 +98995,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_
 _ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !1399
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1323
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1323
   br label %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRN4test21basic_custom_registryINS2_6entityEEES4_ESaINS2_5emptyEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS4_SaIbEvEES5_E15emplace_elementERKS5_S4_EESH_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -99041,8 +99041,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRN4test21basic_custom_registryINS2_6entityEEES4_
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRN4test21basic_custom_registryINS1_6entityEEES3_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES4_E15emplace_elementERKS4_S3_EESD_EEvRT0_ENUlPKvS5_S3_E_8__invokeESJ_S5_S3_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRN4test21basic_custom_registryINS1_6entityEEES3_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_SaIbEvEES4_E15emplace_elementERKS4_S3_EESD_EEvRT0_ENUlPKvS5_S3_E_8__invokeESJ_S5_S3_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRN4test21basic_custom_registryINS2_6entityEEES4_EEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -138166,11 +138166,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit: ; preds = %28
   %.pre = load ptr, ptr %1, align 8, !tbaa !1945
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1748
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1748
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit, %3
-  %30 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %7, %3 ]
+  %30 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %7, %3 ]
   %31 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS3_NS5_IvEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -138212,8 +138212,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   %51 = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %43
   store ptr %2, ptr %52, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_NS4_IvEEvEES6_E15emplace_elementERKS6_S2_EESF_EEvRT0_ENUlPKvS7_S2_E_8__invokeESL_S7_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIvS2_NS4_IvEEvEES6_E15emplace_elementERKS6_S2_EESF_EEvRT0_ENUlPKvS7_S2_E_8__invokeESL_S7_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %40, %30
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -149678,11 +149678,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryIN
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit: ; preds = %28
   %.pre = load ptr, ptr %1, align 8, !tbaa !1945
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1748
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1748
   br label %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit, %3
-  %30 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %7, %3 ]
+  %30 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %7, %3 ]
   %31 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS3_EEEES3_ENS5_INS4_5emptyEEEEEE10disconnectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS3_NS5_IbEEvEES7_E15emplace_elementERKS7_S3_EESJ_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -149724,8 +149724,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   %51 = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %43
   store ptr %2, ptr %52, align 8, !tbaa !440
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_NS4_IbEEvEES6_E15emplace_elementERKS6_S2_EESF_EEvRT0_ENUlPKvS7_S2_E_8__invokeESL_S7_S2_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !440
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr @_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityEN4test18throwing_allocatorIS2_EEEES2_EE7connectITnDaXadL_ZNS_20basic_reactive_mixinINS_13basic_storageIbS2_NS4_IbEEvEES6_E15emplace_elementERKS6_S2_EESF_EEvRT0_ENUlPKvS7_S2_E_8__invokeESL_S7_S2_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !440
   %.not10.i.i.i.i.i.i = icmp eq ptr %40, %30
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 

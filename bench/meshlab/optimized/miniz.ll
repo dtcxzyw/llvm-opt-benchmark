@@ -11497,8 +11497,8 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef captures(address_is
 
 110:                                              ; preds = %98
   %111 = call i16 @llvm.umax.i16(i16 %79, i16 %81)
-  %.not318 = icmp eq i16 %111, 0
-  br i1 %.not318, label %.critedge278, label %112
+  %.not309 = icmp eq i16 %111, 0
+  br i1 %.not309, label %.critedge278, label %112
 
 112:                                              ; preds = %110
   %113 = zext i16 %111 to i64
@@ -11633,23 +11633,23 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef captures(address_is
   %.sroa.gep.sroa.gep296.val = load i32, ptr %.sroa.gep.sroa.gep296, align 8
   %180 = select i1 %176, i32 %.sroa.gep.sroa.gep296.val, i32 %.sroa.gep.val
   %181 = zext i32 %180 to i64
-  %.sroa.gep333 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sroa.gep333.val = load i32, ptr %.sroa.gep333, align 4
-  %182 = select i1 %176, i32 %.sroa.gep333.val, i32 %.sroa.gep.sroa.gep296.val
+  %.sroa.gep324 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sroa.gep324.val = load i32, ptr %.sroa.gep324, align 4
+  %182 = select i1 %176, i32 %.sroa.gep324.val, i32 %.sroa.gep.sroa.gep296.val
   %183 = zext i32 %182 to i64
   br i1 %or.cond14, label %184, label %193
 
 184:                                              ; preds = %174
   %185 = shl nuw i64 %183, 32
   %186 = or disjoint i64 %185, %181
-  %.sroa.gep335 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.gep335.val = load i32, ptr %.sroa.gep335, align 16
-  %.sroa.gep333.val353 = load i32, ptr %.sroa.gep333, align 4
-  %187 = select i1 %176, i32 %.sroa.gep335.val, i32 %.sroa.gep333.val353
+  %.sroa.gep326 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.gep326.val = load i32, ptr %.sroa.gep326, align 16
+  %.sroa.gep324.val344 = load i32, ptr %.sroa.gep324, align 4
+  %187 = select i1 %176, i32 %.sroa.gep326.val, i32 %.sroa.gep324.val344
   %188 = zext i32 %187 to i64
-  %.sroa.gep337 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %.sroa.gep337.val = load i32, ptr %.sroa.gep337, align 4
-  %189 = select i1 %176, i32 %.sroa.gep337.val, i32 %.sroa.gep335.val
+  %.sroa.gep328 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %.sroa.gep328.val = load i32, ptr %.sroa.gep328, align 4
+  %189 = select i1 %176, i32 %.sroa.gep328.val, i32 %.sroa.gep326.val
   %190 = zext i32 %189 to i64
   %191 = shl nuw i64 %190, 32
   %192 = or disjoint i64 %191, %188
@@ -15984,7 +15984,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %137 = add i64 %107, %136
   %138 = call i64 %134(ptr noundef %135, i64 noundef %137, ptr noundef nonnull %132, i64 noundef %127) #32
   %.not788 = icmp eq i64 %138, %127
-  br i1 %.not788, label %.preheader929, label %141
+  br i1 %.not788, label %.preheader909, label %141
 
 139:                                              ; preds = %126
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -16000,13 +16000,13 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   store i32 20, ptr %145, align 4
   br label %.critedge
 
-.preheader929:                                    ; preds = %.critedge831, %173
+.preheader909:                                    ; preds = %.critedge831, %173
   %.0723 = phi ptr [ %175, %173 ], [ %132, %.critedge831 ]
   %.0722 = phi i32 [ %176, %173 ], [ %113, %.critedge831 ]
   %146 = icmp ult i32 %.0722, 4
   br i1 %146, label %147, label %152
 
-147:                                              ; preds = %.preheader929
+147:                                              ; preds = %.preheader909
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %130, align 8
@@ -16015,7 +16015,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   store i32 9, ptr %151, align 4
   br label %.critedge
 
-152:                                              ; preds = %.preheader929
+152:                                              ; preds = %.preheader909
   %153 = getelementptr inbounds nuw i8, ptr %.0723, i64 2
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
@@ -16055,7 +16055,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %175 = getelementptr inbounds nuw i8, ptr %.0723, i64 %174
   %176 = sub i32 %.0722, %156
   %.not789 = icmp eq i32 %176, 0
-  br i1 %.not789, label %.loopexit, label %.preheader929
+  br i1 %.not789, label %.loopexit, label %.preheader909
 
 .loopexit:                                        ; preds = %173, %166
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16120,8 +16120,8 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
 
 .preheader:                                       ; preds = %205
   %214 = add i64 %197, 30
-  %.not793940 = icmp eq i64 %118, 0
-  br i1 %.not793940, label %240, label %.lr.ph
+  %.not793920 = icmp eq i64 %118, 0
+  br i1 %.not793920, label %240, label %.lr.ph
 
 215:                                              ; preds = %205
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -16129,13 +16129,13 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %235
-  %.0729943 = phi i64 [ %237, %235 ], [ %214, %.preheader ]
-  %.0731942 = phi i64 [ %236, %235 ], [ %107, %.preheader ]
-  %.0732941 = phi i64 [ %238, %235 ], [ %118, %.preheader ]
-  %217 = call i64 @llvm.umin.i64(i64 %.0732941, i64 65536)
+  %.0729923 = phi i64 [ %237, %235 ], [ %214, %.preheader ]
+  %.0731922 = phi i64 [ %236, %235 ], [ %107, %.preheader ]
+  %.0732921 = phi i64 [ %238, %235 ], [ %118, %.preheader ]
+  %217 = call i64 @llvm.umin.i64(i64 %.0732921, i64 65536)
   %218 = load ptr, ptr %16, align 8
   %219 = load ptr, ptr %97, align 8
-  %220 = call i64 %218(ptr noundef %219, i64 noundef %.0731942, ptr noundef %212, i64 noundef %217) #32
+  %220 = call i64 %218(ptr noundef %219, i64 noundef %.0731922, ptr noundef %212, i64 noundef %217) #32
   %.not828 = icmp eq i64 %220, %217
   br i1 %.not828, label %226, label %221
 
@@ -16151,7 +16151,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
 226:                                              ; preds = %.lr.ph
   %227 = load ptr, ptr %198, align 8
   %228 = load ptr, ptr %200, align 8
-  %229 = call i64 %227(ptr noundef %228, i64 noundef %.0729943, ptr noundef %212, i64 noundef %217) #32
+  %229 = call i64 %227(ptr noundef %228, i64 noundef %.0729923, ptr noundef %212, i64 noundef %217) #32
   %.not829 = icmp eq i64 %229, %217
   br i1 %.not829, label %235, label %230
 
@@ -16165,9 +16165,9 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br label %.critedge
 
 235:                                              ; preds = %226
-  %236 = add i64 %.0731942, %217
-  %237 = add i64 %.0729943, %217
-  %238 = sub i64 %.0732941, %217
+  %236 = add i64 %.0731922, %217
+  %237 = add i64 %.0729923, %217
+  %238 = sub i64 %.0732921, %217
   %.not793 = icmp eq i64 %238, 0
   br i1 %.not793, label %._crit_edge, label %.lr.ph
 
@@ -16315,8 +16315,8 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %316 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.20..20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i64 -1, ptr %.20..20..20..20..sroa_idx, align 4
-  %.42..42..42..42..sroa_idx1019 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  store i32 -1, ptr %.42..42..42..42..sroa_idx1019, align 2
+  %.42..42..42..42..sroa_idx999 = getelementptr inbounds nuw i8, ptr %6, i64 42
+  store i32 -1, ptr %.42..42..42..42..sroa_idx999, align 2
   %.val853 = load i64, ptr %316, align 8
   %317 = call fastcc i32 @mz_zip_writer_update_zip64_extension_block(ptr noundef %8, ptr noundef %0, ptr noundef %314, i32 noundef %57, i64 %117, i64 %.val853, i64 %197)
   %.not807 = icmp eq i32 %317, 0

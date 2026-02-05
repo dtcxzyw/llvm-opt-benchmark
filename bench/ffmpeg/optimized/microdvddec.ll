@@ -475,13 +475,13 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br label %20
 
 20:                                               ; preds = %19, %17
-  %.sroa.1243.2 = phi i32 [ 1, %19 ], [ 0, %17 ]
+  %.sroa.1243.0 = phi i32 [ 1, %19 ], [ 0, %17 ]
   %21 = ptrtoint ptr %11 to i64
   br label %22
 
 22:                                               ; preds = %30, %20
   %23 = phi ptr [ %18, %20 ], [ %38, %30 ]
-  %.sroa.18.2 = phi i32 [ 0, %20 ], [ %.sroa.18.3, %30 ]
+  %.sroa.18.0 = phi i32 [ 0, %20 ], [ %.sroa.18.1, %30 ]
   %24 = load i8, ptr %23, align 1, !tbaa !30
   %25 = sext i8 %24 to i32
   switch i8 %24, label %26 [
@@ -505,7 +505,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   %35 = shl nuw i32 1, %34
   %36 = icmp slt i32 %34, 0
   %37 = select i1 %36, i32 0, i32 %35
-  %.sroa.18.3 = or i32 %37, %.sroa.18.2
+  %.sroa.18.1 = or i32 %37, %.sroa.18.0
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 1
   br label %22, !llvm.loop !59
 
@@ -513,7 +513,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br label %40
 
 40:                                               ; preds = %39, %17
-  %.sroa.1243.3 = phi i32 [ 1, %39 ], [ 0, %17 ]
+  %.sroa.1243.1 = phi i32 [ 1, %39 ], [ 0, %17 ]
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2, %40
@@ -538,7 +538,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br label %51
 
 51:                                               ; preds = %50, %17
-  %.sroa.1243.4 = phi i32 [ 1, %50 ], [ 0, %17 ]
+  %.sroa.1243.2 = phi i32 [ 1, %50 ], [ 0, %17 ]
   %52 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 125) #10
   %.not.i36 = icmp eq ptr %52, null
   %53 = ptrtoint ptr %52 to i64
@@ -558,7 +558,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br label %63
 
 63:                                               ; preds = %62, %17
-  %.sroa.1243.5 = phi i32 [ 1, %62 ], [ 0, %17 ]
+  %.sroa.1243.3 = phi i32 [ 1, %62 ], [ 0, %17 ]
   %64 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 10) #9
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %3, align 8, !tbaa !58
@@ -616,13 +616,13 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
 
 .thread55:                                        ; preds = %22, %90, %81, %63, %44, %59, %76
   %97 = phi ptr [ %95, %90 ], [ %61, %59 ], [ %78, %76 ], [ %66, %63 ], [ %48, %44 ], [ %82, %81 ], [ %23, %22 ]
-  %.sroa.0.267 = phi i8 [ 111, %90 ], [ 102, %59 ], [ 104, %76 ], [ 115, %63 ], [ 99, %44 ], [ 112, %81 ], [ %13, %22 ]
-  %.sroa.27.266 = phi i32 [ 0, %90 ], [ %56, %59 ], [ %73, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
-  %.sroa.25.265 = phi ptr [ null, %90 ], [ %18, %59 ], [ %18, %76 ], [ null, %63 ], [ null, %44 ], [ null, %81 ], [ null, %22 ]
-  %.sroa.24.264 = phi i32 [ %94, %90 ], [ 0, %59 ], [ 0, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
-  %.sroa.18.463 = phi i32 [ %91, %90 ], [ 0, %59 ], [ 0, %76 ], [ %65, %63 ], [ %47, %44 ], [ %84, %81 ], [ %.sroa.18.2, %22 ]
-  %.sroa.1243.662 = phi i32 [ 1, %90 ], [ %.sroa.1243.4, %59 ], [ 0, %76 ], [ %.sroa.1243.5, %63 ], [ %.sroa.1243.3, %44 ], [ 1, %81 ], [ %.sroa.1243.2, %22 ]
-  %98 = sext i8 %.sroa.0.267 to i32
+  %.sroa.0.067 = phi i8 [ 111, %90 ], [ 102, %59 ], [ 104, %76 ], [ 115, %63 ], [ 99, %44 ], [ 112, %81 ], [ %13, %22 ]
+  %.sroa.27.066 = phi i32 [ 0, %90 ], [ %56, %59 ], [ %73, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
+  %.sroa.25.065 = phi ptr [ null, %90 ], [ %18, %59 ], [ %18, %76 ], [ null, %63 ], [ null, %44 ], [ null, %81 ], [ null, %22 ]
+  %.sroa.24.064 = phi i32 [ %94, %90 ], [ 0, %59 ], [ 0, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
+  %.sroa.18.263 = phi i32 [ %91, %90 ], [ 0, %59 ], [ 0, %76 ], [ %65, %63 ], [ %47, %44 ], [ %84, %81 ], [ %.sroa.18.0, %22 ]
+  %.sroa.1243.462 = phi i32 [ 1, %90 ], [ %.sroa.1243.2, %59 ], [ 0, %76 ], [ %.sroa.1243.3, %63 ], [ %.sroa.1243.1, %44 ], [ 1, %81 ], [ %.sroa.1243.0, %22 ]
+  %98 = sext i8 %.sroa.0.067 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.6, i32 %98, i64 9)
   %.not.i.i = icmp eq ptr %memchr.i, null
   %99 = ptrtoint ptr %memchr.i to i64
@@ -635,25 +635,25 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
 104:                                              ; preds = %.thread55
   %105 = zext nneg i32 %102 to i64
   %106 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %0, i64 %105
-  store i8 %.sroa.0.267, ptr %106, align 8
+  store i8 %.sroa.0.067, ptr %106, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.0..sroa_idx, i8 0, i64 3, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i32 %.sroa.1243.662, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 %.sroa.1243.462, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i32 %.sroa.18.463, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %.sroa.18.263, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 12
-  store i32 %.sroa.24.264, ptr %.sroa.8.0..sroa_idx, align 4
+  store i32 %.sroa.24.064, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 16
-  store ptr %.sroa.25.265, ptr %.sroa.9.0..sroa_idx, align 8
+  store ptr %.sroa.25.065, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i32 %.sroa.27.266, ptr %.sroa.10.0..sroa_idx, align 8
+  store i32 %.sroa.27.066, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 28
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 4
   br label %107
 
 .thread69:                                        ; preds = %.lr.ph, %14
-  %.pre96 = load i8, ptr %11, align 1, !tbaa !30
+  %.pre94 = load i8, ptr %11, align 1, !tbaa !30
   br label %.loopexit
 
 107:                                              ; preds = %104, %.thread55
@@ -664,7 +664,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br i1 %110, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %check_for_italic_slash_marker.exit, %.thread69
-  %111 = phi i8 [ %.pre96, %.thread69 ], [ %9, %check_for_italic_slash_marker.exit ], [ %109, %107 ]
+  %111 = phi i8 [ %.pre94, %.thread69 ], [ %9, %check_for_italic_slash_marker.exit ], [ %109, %107 ]
   %112 = phi ptr [ %11, %.thread69 ], [ %.0.i, %check_for_italic_slash_marker.exit ], [ %108, %107 ]
   %113 = icmp eq i8 %111, 47
   br i1 %113, label %microdvd_set_tag.exit.i39, label %check_for_italic_slash_marker.exit42

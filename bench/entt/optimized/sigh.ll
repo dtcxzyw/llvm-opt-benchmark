@@ -894,11 +894,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit.loopexit: ; preds = %26
   %.pre = load ptr, ptr %1, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit.loopexit, %2
-  %28 = phi ptr [ %.pre10, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit.loopexit ], [ %5, %2 ]
+  %28 = phi ptr [ %.pre6, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit.loopexit ], [ %5, %2 ]
   %29 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit.loopexit ], [ %3, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -940,8 +940,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; p
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %40
   store ptr null, ptr %50, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_, ptr %.sroa.7.0..sroa_idx4, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %37, %28
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -7776,11 +7776,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -7822,8 +7822,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; p
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES5_EEvRT0_ENUlPKvS1_E_8__invokeES9_S1_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES5_EEvRT0_ENUlPKvS1_E_8__invokeES9_S1_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -10879,11 +10879,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !126
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
   br label %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -10925,8 +10925,8 @@ _ZNKSt6vectorIN4entt8delegateIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -12756,11 +12756,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !161
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
   br label %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -12802,8 +12802,8 @@ _ZNKSt6vectorIN4entt8delegateIFbiEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -12889,11 +12889,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !161
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
   br label %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit
 
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -12935,8 +12935,8 @@ _ZNKSt6vectorIN4entt8delegateIFbiEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -13022,11 +13022,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !161
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !164
   br label %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -13068,8 +13068,8 @@ _ZNKSt6vectorIN4entt8delegateIFbiEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -14657,11 +14657,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !198
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
   br label %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit
 
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvPT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -14703,8 +14703,8 @@ _ZNKSt6vectorIN4entt8delegateIFviEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -14790,11 +14790,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !198
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
   br label %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZNK13sigh_listener1hERKiEES7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -14836,8 +14836,8 @@ _ZNKSt6vectorIN4entt8delegateIFviEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -16004,8 +16004,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %26
 
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit:         ; preds = %.noexc
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
-  %.pre238 = load ptr, ptr %27, align 8, !tbaa !209
-  %41 = icmp ne ptr %.pre, %.pre238
+  %.pre232 = load ptr, ptr %27, align 8, !tbaa !209
+  %41 = icmp ne ptr %.pre, %.pre232
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %6, align 8, !tbaa !64
@@ -16479,9 +16479,9 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit167.thread: ; preds = %_ZN4entt17scoped_
   br i1 %.not.i165, label %_ZNK4entt4sighIFviESaIvEE7publishEi.exit167, label %.lr.ph.i163, !llvm.loop !239
 
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit167:      ; preds = %.noexc166
-  %.pre239 = load ptr, ptr %3, align 8, !tbaa !209
-  %.pre240 = load ptr, ptr %27, align 8, !tbaa !209
-  %194 = icmp eq ptr %.pre239, %.pre240
+  %.pre233 = load ptr, ptr %3, align 8, !tbaa !209
+  %.pre234 = load ptr, ptr %27, align 8, !tbaa !209
+  %194 = icmp eq ptr %.pre233, %.pre234
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %195 = zext i1 %194 to i8
   store i8 %195, ptr %18, align 8, !tbaa !64
@@ -16883,11 +16883,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !198
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
   br label %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFviESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -16929,8 +16929,8 @@ _ZNKSt6vectorIN4entt8delegateIFviEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -17030,7 +17030,7 @@ define hidden void @_ZN30SigH_ScopedConnectionMove_Test8TestBodyEv(ptr nonnull r
           to label %49 unwind label %56
 
 49:                                               ; preds = %1
-  %.sroa.0595.0.copyload = load ptr, ptr %5, align 8, !tbaa !17
+  %.sroa.0578.0.copyload = load ptr, ptr %5, align 8, !tbaa !17
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.13.0.copyload = load ptr, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !17
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -17565,7 +17565,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit319:         ; preds = %_ZN7testing7MessageD2Ev.exit314, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i317
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0595.0.copyload, ptr noundef %.sroa.21.0.copyload)
+  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0578.0.copyload, ptr noundef %.sroa.21.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit542 unwind label %222
 
 222:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit319
@@ -17633,7 +17633,7 @@ _ZN7testing7MessageD2Ev.exit326:                  ; preds = %_ZNKSt14default_del
 
 _ZN7testing15AssertionResultD2Ev.exit331:         ; preds = %_ZNK4entt4sighIFviESaIvEE7publishEi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0595.0.copyload, ptr noundef %.sroa.21.0.copyload)
+  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0578.0.copyload, ptr noundef %.sroa.21.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit334 unwind label %243
 
 243:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit331
@@ -17655,8 +17655,8 @@ _ZN4entt17scoped_connectionD2Ev.exit334:          ; preds = %_ZN7testing15Assert
   br i1 %248, label %295, label %255
 
 251:                                              ; preds = %146, %_ZN7testing7MessageD2Ev.exit326, %.thread
-  %.pn128.pn.pn.pn626 = phi { ptr, i32 } [ %.pn116.pn.pn, %.thread ], [ %.pn128.pn.pn, %_ZN7testing7MessageD2Ev.exit326 ], [ %147, %146 ]
-  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0595.0.copyload, ptr noundef %.sroa.21.0.copyload)
+  %.pn128.pn.pn.pn602 = phi { ptr, i32 } [ %.pn116.pn.pn, %.thread ], [ %.pn128.pn.pn, %_ZN7testing7MessageD2Ev.exit326 ], [ %147, %146 ]
+  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0578.0.copyload, ptr noundef %.sroa.21.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit545 unwind label %252
 
 252:                                              ; preds = %251
@@ -17801,7 +17801,7 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %_ZNKSt14default_del
           to label %296 unwind label %302
 
 296:                                              ; preds = %295
-  %.sroa.0621.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.0597.0.copyload = load ptr, ptr %26, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -18150,7 +18150,7 @@ _ZN7testing7MessageD2Ev.exit409:                  ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %407 = load ptr, ptr %390, align 8, !tbaa !75
   %.not.i.i410 = icmp eq ptr %407, null
-  br i1 %.not.i.i410, label %_ZN4entt17scoped_connectionD2Ev.exit.thread648, label %408
+  br i1 %.not.i.i410, label %_ZN4entt17scoped_connectionD2Ev.exit.thread624, label %408
 
 408:                                              ; preds = %_ZN7testing7MessageD2Ev.exit409
   %409 = load ptr, ptr %407, align 8, !tbaa !57
@@ -18166,12 +18166,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i412: ; preds = %408, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i411
   call void @_ZdlPvm(ptr noundef nonnull %407, i64 noundef 32) #26
-  br label %_ZN4entt17scoped_connectionD2Ev.exit.thread648
+  br label %_ZN4entt17scoped_connectionD2Ev.exit.thread624
 
 414:                                              ; preds = %392
   %415 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread662
+  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread638
 
 416:                                              ; preds = %393
   %417 = landingpad { ptr, i32 }
@@ -18208,21 +18208,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417: ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %428 = load ptr, ptr %36, align 8, !tbaa !61
   %.not.i.i418 = icmp eq ptr %428, null
-  br i1 %.not.i.i418, label %_ZN4entt17scoped_connectionD2Ev.exit337.thread662, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419
+  br i1 %.not.i.i418, label %_ZN4entt17scoped_connectionD2Ev.exit337.thread638, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417
   %429 = load ptr, ptr %428, align 8, !tbaa !30
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load ptr, ptr %430, align 8
   call void %431(ptr noundef nonnull align 8 dereferenceable(128) %428) #27
-  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread662
+  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread638
 
-_ZN4entt17scoped_connectionD2Ev.exit337.thread662: ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %414
+_ZN4entt17scoped_connectionD2Ev.exit337.thread638: ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %414
   %.pn145.pn.pn = phi { ptr, i32 } [ %415, %414 ], [ %.pn145.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ %.pn145.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
+  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread648
 
 432:                                              ; preds = %.lr.ph.i496
   %433 = landingpad { ptr, i32 }
@@ -18277,8 +18277,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit500:      ; preds = %.noexc499, %434
   store i8 %450, ptr %41, align 8, !tbaa !64
   %451 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %451, align 8, !tbaa !73
-  %.not.not678 = icmp eq i8 %449, 0
-  br i1 %.not.not678, label %.critedge208, label %452
+  %.not.not654 = icmp eq i8 %449, 0
+  br i1 %.not.not654, label %.critedge208, label %452
 
 452:                                              ; preds = %_ZNK4entt4sighIFviESaIvEE7publishEi.exit500
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -18331,7 +18331,7 @@ _ZN7testing7MessageD2Ev.exit506:                  ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0621.0.copyload, ptr noundef %.sroa.5.0.copyload)
+  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0597.0.copyload, ptr noundef %.sroa.5.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit542 unwind label %467
 
 467:                                              ; preds = %_ZN7testing7MessageD2Ev.exit506
@@ -18400,7 +18400,7 @@ _ZN7testing7MessageD2Ev.exit515:                  ; preds = %_ZNKSt14default_del
 .critedge208:                                     ; preds = %_ZNK4entt4sighIFviESaIvEE7publishEi.exit500
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0621.0.copyload, ptr noundef %.sroa.5.0.copyload)
+  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0597.0.copyload, ptr noundef %.sroa.5.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit518 unwind label %488
 
 488:                                              ; preds = %.critedge208
@@ -18423,7 +18423,7 @@ _ZN4entt17scoped_connectionD2Ev.exit518:          ; preds = %.critedge208
 
 496:                                              ; preds = %432, %_ZN7testing7MessageD2Ev.exit515
   %.pn165.pn.pn.pn = phi { ptr, i32 } [ %.pn165.pn.pn, %_ZN7testing7MessageD2Ev.exit515 ], [ %433, %432 ]
-  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0621.0.copyload, ptr noundef %.sroa.5.0.copyload)
+  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0597.0.copyload, ptr noundef %.sroa.5.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit545 unwind label %497
 
 497:                                              ; preds = %496
@@ -18547,7 +18547,7 @@ _ZN7testing7MessageD2Ev.exit533:                  ; preds = %_ZNKSt14default_del
 
 534:                                              ; preds = %_ZN7testing7MessageD2Ev.exit248, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i251
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0595.0.copyload, ptr noundef %.sroa.21.0.copyload)
+  invoke void %.sroa.13.0.copyload(ptr noundef %.sroa.0578.0.copyload, ptr noundef %.sroa.21.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit542 unwind label %535
 
 535:                                              ; preds = %534
@@ -18557,22 +18557,22 @@ _ZN7testing7MessageD2Ev.exit533:                  ; preds = %_ZNKSt14default_del
   call void @__clang_call_terminate(ptr %537) #28
   unreachable
 
-_ZN4entt17scoped_connectionD2Ev.exit.thread648:   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i412, %_ZN7testing7MessageD2Ev.exit409
+_ZN4entt17scoped_connectionD2Ev.exit.thread624:   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i412, %_ZN7testing7MessageD2Ev.exit409
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %538
 
 _ZN4entt17scoped_connectionD2Ev.exit:             ; preds = %_ZN7testing15AssertionResultD2Ev.exit370, %_ZN7testing15AssertionResultD2Ev.exit
   %.sroa.21.0 = phi ptr [ %.sroa.21.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit ], [ %.sroa.5.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit370 ]
   %.sroa.13.0 = phi ptr [ %.sroa.13.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit ], [ %.sroa.4.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit370 ]
-  %.sroa.0595.0 = phi ptr [ %.sroa.0595.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit ], [ %.sroa.0621.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit370 ]
+  %.sroa.0578.0 = phi ptr [ %.sroa.0578.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit ], [ %.sroa.0597.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit370 ]
   %.not.i.i540 = icmp eq ptr %.sroa.13.0, null
   br i1 %.not.i.i540, label %_ZN4entt17scoped_connectionD2Ev.exit542, label %538
 
-538:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit.thread648, %_ZN4entt17scoped_connectionD2Ev.exit
-  %.sroa.0595.0655 = phi ptr [ %.sroa.0621.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread648 ], [ %.sroa.0595.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
-  %.sroa.13.0654 = phi ptr [ %.sroa.4.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread648 ], [ %.sroa.13.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
-  %.sroa.21.0653 = phi ptr [ %.sroa.5.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread648 ], [ %.sroa.21.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
-  invoke void %.sroa.13.0654(ptr noundef %.sroa.0595.0655, ptr noundef %.sroa.21.0653)
+538:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit.thread624, %_ZN4entt17scoped_connectionD2Ev.exit
+  %.sroa.0578.0631 = phi ptr [ %.sroa.0597.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread624 ], [ %.sroa.0578.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
+  %.sroa.13.0630 = phi ptr [ %.sroa.4.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread624 ], [ %.sroa.13.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
+  %.sroa.21.0629 = phi ptr [ %.sroa.5.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit.thread624 ], [ %.sroa.21.0, %_ZN4entt17scoped_connectionD2Ev.exit ]
+  invoke void %.sroa.13.0630(ptr noundef %.sroa.0578.0631, ptr noundef %.sroa.21.0629)
           to label %_ZN4entt17scoped_connectionD2Ev.exit542 unwind label %539
 
 539:                                              ; preds = %538
@@ -18605,28 +18605,28 @@ _ZN4entt4sighIFviESaIvEED2Ev.exit:                ; preds = %_ZN4entt17scoped_co
 _ZN4entt17scoped_connectionD2Ev.exit337:          ; preds = %_ZN7testing7MessageD2Ev.exit376, %_ZN7testing7MessageD2Ev.exit215
   %.sroa.21.1 = phi ptr [ %.sroa.21.0.copyload, %_ZN7testing7MessageD2Ev.exit215 ], [ %.sroa.5.0.copyload, %_ZN7testing7MessageD2Ev.exit376 ]
   %.sroa.13.1 = phi ptr [ %.sroa.13.0.copyload, %_ZN7testing7MessageD2Ev.exit215 ], [ %.sroa.4.0.copyload, %_ZN7testing7MessageD2Ev.exit376 ]
-  %.sroa.0595.1 = phi ptr [ %.sroa.0595.0.copyload, %_ZN7testing7MessageD2Ev.exit215 ], [ %.sroa.0621.0.copyload, %_ZN7testing7MessageD2Ev.exit376 ]
+  %.sroa.0578.1 = phi ptr [ %.sroa.0578.0.copyload, %_ZN7testing7MessageD2Ev.exit215 ], [ %.sroa.0597.0.copyload, %_ZN7testing7MessageD2Ev.exit376 ]
   %.pn171.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit215 ], [ %.pn137.pn.pn, %_ZN7testing7MessageD2Ev.exit376 ]
   %.not.i.i543 = icmp eq ptr %.sroa.13.1, null
-  br i1 %.not.i.i543, label %_ZN4entt17scoped_connectionD2Ev.exit545, label %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
+  br i1 %.not.i.i543, label %_ZN4entt17scoped_connectionD2Ev.exit545, label %_ZN4entt17scoped_connectionD2Ev.exit337.thread648
 
-_ZN4entt17scoped_connectionD2Ev.exit337.thread672: ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread662, %_ZN4entt17scoped_connectionD2Ev.exit337
-  %.pn171.pn.pn.pn671 = phi { ptr, i32 } [ %.pn145.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
-  %.sroa.0595.1670 = phi ptr [ %.sroa.0621.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.0595.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
-  %.sroa.13.1669 = phi ptr [ %.sroa.4.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.13.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
-  %.sroa.21.1668 = phi ptr [ %.sroa.5.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.21.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
-  invoke void %.sroa.13.1669(ptr noundef %.sroa.0595.1670, ptr noundef %.sroa.21.1668)
+_ZN4entt17scoped_connectionD2Ev.exit337.thread648: ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread638, %_ZN4entt17scoped_connectionD2Ev.exit337
+  %.pn171.pn.pn.pn647 = phi { ptr, i32 } [ %.pn145.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337.thread638 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
+  %.sroa.0578.1646 = phi ptr [ %.sroa.0597.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread638 ], [ %.sroa.0578.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
+  %.sroa.13.1645 = phi ptr [ %.sroa.4.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread638 ], [ %.sroa.13.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
+  %.sroa.21.1644 = phi ptr [ %.sroa.5.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread638 ], [ %.sroa.21.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
+  invoke void %.sroa.13.1645(ptr noundef %.sroa.0578.1646, ptr noundef %.sroa.21.1644)
           to label %_ZN4entt17scoped_connectionD2Ev.exit545 unwind label %549
 
-549:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
+549:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread648
   %550 = landingpad { ptr, i32 }
           catch ptr null
   %551 = extractvalue { ptr, i32 } %550, 0
   call void @__clang_call_terminate(ptr %551) #28
   unreachable
 
-_ZN4entt17scoped_connectionD2Ev.exit545:          ; preds = %496, %251, %_ZN7testing7MessageD2Ev.exit237, %_ZN7testing7MessageD2Ev.exit354, %302, %_ZN7testing7MessageD2Ev.exit398, %_ZN7testing7MessageD2Ev.exit533, %_ZN4entt17scoped_connectionD2Ev.exit337, %_ZN4entt17scoped_connectionD2Ev.exit337.thread672, %56
-  %.pn171.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn171.pn.pn.pn671, %_ZN4entt17scoped_connectionD2Ev.exit337.thread672 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ], [ %.pn165.pn.pn.pn, %496 ], [ %.pn128.pn.pn.pn626, %251 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit533 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit237 ], [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %303, %302 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ]
+_ZN4entt17scoped_connectionD2Ev.exit545:          ; preds = %496, %251, %_ZN7testing7MessageD2Ev.exit237, %_ZN7testing7MessageD2Ev.exit354, %302, %_ZN7testing7MessageD2Ev.exit398, %_ZN7testing7MessageD2Ev.exit533, %_ZN4entt17scoped_connectionD2Ev.exit337, %_ZN4entt17scoped_connectionD2Ev.exit337.thread648, %56
+  %.pn171.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn171.pn.pn.pn647, %_ZN4entt17scoped_connectionD2Ev.exit337.thread648 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ], [ %.pn165.pn.pn.pn, %496 ], [ %.pn128.pn.pn.pn602, %251 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit533 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit237 ], [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %303, %302 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %552 = load ptr, ptr %3, align 8, !tbaa !204
   %.not.i.i.i.i546 = icmp eq ptr %552, null
@@ -18698,10 +18698,10 @@ define hidden void @_ZN50SigH_ScopedConnectionConstructorsAndOperators_Test8Test
   store ptr %3, ptr %4, align 8, !tbaa !198
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnDaXadL_ZN13sigh_listener1gEiEES7_EENS_10connectionERT0_(ptr dead_on_unwind nonnull writable sret(%"class.entt::connection") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %44 unwind label %.loopexit.split-lp538
+          to label %44 unwind label %.loopexit.split-lp523
 
 44:                                               ; preds = %1
-  %.sroa.0518.0.copyload = load ptr, ptr %5, align 8
+  %.sroa.0503.0.copyload = load ptr, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -18734,7 +18734,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %44
   %56 = load ptr, ptr %55, align 8, !tbaa !205
   %57 = load ptr, ptr %54, align 8, !tbaa !207
   invoke void %56(ptr noundef %57, i32 noundef 1)
-          to label %.noexc unwind label %.loopexit537
+          to label %.noexc unwind label %.loopexit522
 
 .noexc:                                           ; preds = %.lr.ph.i
   %.not.i = icmp eq i64 %52, 0
@@ -18742,8 +18742,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %44
 
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit:         ; preds = %.noexc
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
-  %.pre542 = load ptr, ptr %43, align 8, !tbaa !209
-  %58 = icmp ne ptr %.pre, %.pre542
+  %.pre527 = load ptr, ptr %43, align 8, !tbaa !209
+  %58 = icmp ne ptr %.pre, %.pre527
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = zext i1 %58 to i8
   store i8 %59, ptr %6, align 8, !tbaa !64
@@ -18751,16 +18751,16 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit:         ; preds = %.noexc
   store ptr null, ptr %60, align 8, !tbaa !73
   br i1 %58, label %102, label %61
 
-.loopexit537:                                     ; preds = %.lr.ph.i
-  %lpad.loopexit539 = landingpad { ptr, i32 }
+.loopexit522:                                     ; preds = %.lr.ph.i
+  %lpad.loopexit524 = landingpad { ptr, i32 }
           cleanup
   br label %404
 
-.loopexit.split-lp538:                            ; preds = %1, %190
+.loopexit.split-lp523:                            ; preds = %1, %190
   %.sroa.32.1.ph = phi ptr [ null, %1 ], [ %.sroa.5.0.copyload, %190 ]
   %.sroa.22.1.ph = phi ptr [ null, %1 ], [ %.sroa.4.0.copyload, %190 ]
-  %.sroa.0.1.ph = phi ptr [ null, %1 ], [ %.sroa.0518.0.copyload, %190 ]
-  %lpad.loopexit.split-lp540 = landingpad { ptr, i32 }
+  %.sroa.0.1.ph = phi ptr [ null, %1 ], [ %.sroa.0503.0.copyload, %190 ]
+  %lpad.loopexit.split-lp525 = landingpad { ptr, i32 }
           cleanup
   br label %404
 
@@ -19175,8 +19175,8 @@ _ZN7testing7MessageD2Ev.exit284:                  ; preds = %_ZNKSt14default_del
 
 190:                                              ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0518.0.copyload, ptr noundef %.sroa.5.0.copyload)
-          to label %_ZN4entt17scoped_connection7releaseEv.exit unwind label %.loopexit.split-lp538
+  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0503.0.copyload, ptr noundef %.sroa.5.0.copyload)
+          to label %_ZN4entt17scoped_connection7releaseEv.exit unwind label %.loopexit.split-lp523
 
 _ZN4entt17scoped_connection7releaseEv.exit:       ; preds = %190
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -19325,7 +19325,7 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %_ZNKSt14default_del
           to label %237 unwind label %.loopexit.split-lp
 
 237:                                              ; preds = %236
-  %.sroa.0522.0.copyload = load ptr, ptr %22, align 8, !tbaa !17
+  %.sroa.0507.0.copyload = load ptr, ptr %22, align 8, !tbaa !17
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !17
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -19365,9 +19365,9 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit342.thread: ; preds = %237
   br i1 %.not.i340, label %_ZNK4entt4sighIFviESaIvEE7publishEi.exit342, label %.lr.ph.i338, !llvm.loop !239
 
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit342:      ; preds = %.noexc341
-  %.pre543 = load ptr, ptr %3, align 8, !tbaa !209
-  %.pre544 = load ptr, ptr %43, align 8, !tbaa !209
-  %251 = icmp ne ptr %.pre543, %.pre544
+  %.pre528 = load ptr, ptr %3, align 8, !tbaa !209
+  %.pre529 = load ptr, ptr %43, align 8, !tbaa !209
+  %251 = icmp ne ptr %.pre528, %.pre529
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %252 = zext i1 %251 to i8
   store i8 %252, ptr %23, align 8, !tbaa !64
@@ -19524,8 +19524,8 @@ _ZN7testing7MessageD2Ev.exit359:                  ; preds = %_ZNKSt14default_del
   store i8 %297, ptr %27, align 8, !tbaa !64
   %298 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %298, align 8, !tbaa !73
-  %.not.not535 = icmp eq i8 %296, 0
-  br i1 %.not.not535, label %339, label %299
+  %.not.not520 = icmp eq i8 %296, 0
+  br i1 %.not.not520, label %339, label %299
 
 299:                                              ; preds = %295
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -19799,7 +19799,7 @@ _ZN7testing7MessageD2Ev.exit404:                  ; preds = %_ZNKSt14default_del
 383:                                              ; preds = %339
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  invoke void %.sroa.2.0.copyload(ptr noundef %.sroa.0522.0.copyload, ptr noundef %.sroa.3.0.copyload)
+  invoke void %.sroa.2.0.copyload(ptr noundef %.sroa.0507.0.copyload, ptr noundef %.sroa.3.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit412 unwind label %384
 
 384:                                              ; preds = %383
@@ -19843,9 +19843,9 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit419.thread: ; preds = %_ZN4entt17scoped_
   br i1 %.not.i417, label %_ZNK4entt4sighIFviESaIvEE7publishEi.exit419, label %.lr.ph.i415, !llvm.loop !239
 
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit419:      ; preds = %.noexc418
-  %.pre545 = load ptr, ptr %3, align 8, !tbaa !209
-  %.pre546 = load ptr, ptr %43, align 8, !tbaa !209
-  %400 = icmp eq ptr %.pre545, %.pre546
+  %.pre530 = load ptr, ptr %3, align 8, !tbaa !209
+  %.pre531 = load ptr, ptr %43, align 8, !tbaa !209
+  %400 = icmp eq ptr %.pre530, %.pre531
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %401 = zext i1 %400 to i8
   store i8 %401, ptr %35, align 8, !tbaa !64
@@ -19856,16 +19856,16 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit419:      ; preds = %.noexc418
 403:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN7testing7MessageD2Ev.exit404, %_ZN7testing7MessageD2Ev.exit381, %_ZN7testing7MessageD2Ev.exit359
   %.sroa.32.3 = phi ptr [ %.sroa.3.0.copyload, %_ZN7testing7MessageD2Ev.exit404 ], [ %.sroa.3.0.copyload, %_ZN7testing7MessageD2Ev.exit381 ], [ %.sroa.3.0.copyload, %_ZN7testing7MessageD2Ev.exit359 ], [ %.sroa.3.0.copyload, %.loopexit ], [ %.sroa.5.0.copyload, %.loopexit.split-lp ]
   %.sroa.22.3 = phi ptr [ null, %_ZN7testing7MessageD2Ev.exit404 ], [ %.sroa.2.0.copyload, %_ZN7testing7MessageD2Ev.exit381 ], [ %.sroa.2.0.copyload, %_ZN7testing7MessageD2Ev.exit359 ], [ %.sroa.2.0.copyload, %.loopexit ], [ null, %.loopexit.split-lp ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0522.0.copyload, %_ZN7testing7MessageD2Ev.exit404 ], [ %.sroa.0522.0.copyload, %_ZN7testing7MessageD2Ev.exit381 ], [ %.sroa.0522.0.copyload, %_ZN7testing7MessageD2Ev.exit359 ], [ %.sroa.0522.0.copyload, %.loopexit ], [ null, %.loopexit.split-lp ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0507.0.copyload, %_ZN7testing7MessageD2Ev.exit404 ], [ %.sroa.0507.0.copyload, %_ZN7testing7MessageD2Ev.exit381 ], [ %.sroa.0507.0.copyload, %_ZN7testing7MessageD2Ev.exit359 ], [ %.sroa.0507.0.copyload, %.loopexit ], [ null, %.loopexit.split-lp ]
   %.pn126.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn, %_ZN7testing7MessageD2Ev.exit404 ], [ %.pn122.pn.pn, %_ZN7testing7MessageD2Ev.exit381 ], [ %.pn118.pn.pn, %_ZN7testing7MessageD2Ev.exit359 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %404
 
-404:                                              ; preds = %.loopexit537, %.loopexit.split-lp538, %403, %_ZN7testing7MessageD2Ev.exit262, %_ZN7testing7MessageD2Ev.exit240
-  %.sroa.32.0 = phi ptr [ %.sroa.32.3, %403 ], [ %.sroa.5.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.5.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.5.0.copyload, %.loopexit537 ], [ %.sroa.32.1.ph, %.loopexit.split-lp538 ]
-  %.sroa.22.0 = phi ptr [ %.sroa.22.3, %403 ], [ %.sroa.4.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.4.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.4.0.copyload, %.loopexit537 ], [ %.sroa.22.1.ph, %.loopexit.split-lp538 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.3, %403 ], [ %.sroa.0518.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.0518.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.0518.0.copyload, %.loopexit537 ], [ %.sroa.0.1.ph, %.loopexit.split-lp538 ]
-  %.pn126.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn.pn, %403 ], [ %.pn98.pn.pn, %_ZN7testing7MessageD2Ev.exit240 ], [ %.pn102.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %lpad.loopexit539, %.loopexit537 ], [ %lpad.loopexit.split-lp540, %.loopexit.split-lp538 ]
+404:                                              ; preds = %.loopexit522, %.loopexit.split-lp523, %403, %_ZN7testing7MessageD2Ev.exit262, %_ZN7testing7MessageD2Ev.exit240
+  %.sroa.32.0 = phi ptr [ %.sroa.32.3, %403 ], [ %.sroa.5.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.5.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.5.0.copyload, %.loopexit522 ], [ %.sroa.32.1.ph, %.loopexit.split-lp523 ]
+  %.sroa.22.0 = phi ptr [ %.sroa.22.3, %403 ], [ %.sroa.4.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.4.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.4.0.copyload, %.loopexit522 ], [ %.sroa.22.1.ph, %.loopexit.split-lp523 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.3, %403 ], [ %.sroa.0503.0.copyload, %_ZN7testing7MessageD2Ev.exit240 ], [ %.sroa.0503.0.copyload, %_ZN7testing7MessageD2Ev.exit262 ], [ %.sroa.0503.0.copyload, %.loopexit522 ], [ %.sroa.0.1.ph, %.loopexit.split-lp523 ]
+  %.pn126.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn.pn, %403 ], [ %.pn98.pn.pn, %_ZN7testing7MessageD2Ev.exit240 ], [ %.pn102.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %lpad.loopexit524, %.loopexit522 ], [ %lpad.loopexit.split-lp525, %.loopexit.split-lp523 ]
   %.not.i.i420 = icmp eq ptr %.sroa.22.0, null
   br i1 %.not.i.i420, label %_ZN4entt17scoped_connectionD2Ev.exit422, label %405
 
@@ -20024,8 +20024,8 @@ _ZN7testing7MessageD2Ev.exit439:                  ; preds = %_ZNKSt14default_del
   store i8 %454, ptr %39, align 8, !tbaa !64
   %455 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %455, align 8, !tbaa !73
-  %.not.not536 = icmp eq i8 %453, 0
-  br i1 %.not.not536, label %_ZN7testing15AssertionResultD2Ev.exit461, label %456
+  %.not.not521 = icmp eq i8 %453, 0
+  br i1 %.not.not521, label %_ZN7testing15AssertionResultD2Ev.exit461, label %456
 
 456:                                              ; preds = %451
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -20161,7 +20161,7 @@ _ZN7testing15AssertionResultD2Ev.exit461:         ; preds = %451, %489, %_ZNKSt1
   br i1 %.not.i.i462, label %_ZN4entt17scoped_connectionD2Ev.exit464, label %496
 
 496:                                              ; preds = %.critedge161
-  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0518.0.copyload, ptr noundef %.sroa.5.0.copyload)
+  invoke void %.sroa.4.0.copyload(ptr noundef %.sroa.0503.0.copyload, ptr noundef %.sroa.5.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit464 unwind label %497
 
 497:                                              ; preds = %496
@@ -20177,7 +20177,7 @@ _ZN7testing15AssertionResultD2Ev.exit461:         ; preds = %451, %489, %_ZNKSt1
   br i1 %.not.i.i465, label %_ZN4entt17scoped_connectionD2Ev.exit464, label %500
 
 500:                                              ; preds = %.critedge165
-  invoke void %.sroa.2.0.copyload(ptr noundef %.sroa.0522.0.copyload, ptr noundef %.sroa.3.0.copyload)
+  invoke void %.sroa.2.0.copyload(ptr noundef %.sroa.0507.0.copyload, ptr noundef %.sroa.3.0.copyload)
           to label %_ZN4entt17scoped_connectionD2Ev.exit464 unwind label %501
 
 501:                                              ; preds = %500
@@ -21245,11 +21245,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !126
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
   br label %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -21291,8 +21291,8 @@ _ZNKSt6vectorIN4entt8delegateIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES4_EEvRT0_ENUlPKvE_8__invokeES8_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES4_EEvRT0_ENUlPKvE_8__invokeES8_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -21378,11 +21378,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !126
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
   br label %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES7_EEvPT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -21424,8 +21424,8 @@ _ZNKSt6vectorIN4entt8delegateIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES4_EEvPT0_ENUlPKvE_8__invokeES8_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES4_EEvPT0_ENUlPKvE_8__invokeES8_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -21511,11 +21511,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !126
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
   br label %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS7_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -21557,8 +21557,8 @@ _ZNKSt6vectorIN4entt8delegateIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS4_EEvRT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS4_EEvRT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -21644,11 +21644,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !126
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !129
   br label %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS7_EEvPT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -21690,8 +21690,8 @@ _ZNKSt6vectorIN4entt8delegateIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS4_EEvPT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS4_EEvPT0_ENUlPKvE_8__invokeES9_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -22028,11 +22028,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIv
 _ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit.loopexit: ; preds = %26
   %.pre = load ptr, ptr %1, align 8, !tbaa !287
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !290
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !290
   br label %_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit
 
 _ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit: ; preds = %_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit.loopexit, %2
-  %28 = phi ptr [ %.pre10, %_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit.loopexit ], [ %5, %2 ]
+  %28 = phi ptr [ %.pre6, %_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit.loopexit ], [ %5, %2 ]
   %29 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIvEEEE10disconnectITnDaXadL_ZNS3_3valEEEEEvv.exit.loopexit ], [ %3, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -22074,8 +22074,8 @@ _ZNKSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE12_M_check_lenEmPKc.
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %40
   store ptr null, ptr %50, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr @_ZZN4entt8delegateIFRbR13sigh_listenerEE7connectITnDaXadL_ZNS2_3valEEEEEvvENUlPKvS3_E_8__invokeES8_S3_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr @_ZZN4entt8delegateIFRbR13sigh_listenerEE7connectITnDaXadL_ZNS2_3valEEEEEvvENUlPKvS3_E_8__invokeES8_S3_, ptr %.sroa.7.0..sroa_idx4, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %37, %28
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -22409,11 +22409,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIv
 _ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit.loopexit: ; preds = %26
   %.pre = load ptr, ptr %1, align 8, !tbaa !305
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !308
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !308
   br label %_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit
 
 _ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit.loopexit, %2
-  %28 = phi ptr [ %.pre10, %_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit.loopexit ], [ %5, %2 ]
+  %28 = phi ptr [ %.pre6, %_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit.loopexit ], [ %5, %2 ]
   %29 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIvEEEE10disconnectITnDaXadL_ZNS2_1gEiEEEEvv.exit.loopexit ], [ %3, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -22455,8 +22455,8 @@ _ZNKSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE12_M_check_lenEmPKc.
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %40
   store ptr null, ptr %50, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr @_ZZN4entt8delegateIFvP13sigh_listeneriEE7connectITnDaXadL_ZNS1_1gEiEEEEvvENUlPKvS2_iE_8__invokeES7_S2_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr @_ZZN4entt8delegateIFvP13sigh_listeneriEE7connectITnDaXadL_ZNS1_1gEiEEEEvvENUlPKvS2_iE_8__invokeES7_S2_i, ptr %.sroa.7.0..sroa_idx4, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %37, %28
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -24100,11 +24100,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_Z27connect_and_auto_disconnectRS5_RKiEES5_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -24146,8 +24146,8 @@ _ZNKSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; p
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -26190,11 +26190,11 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE7connectI
 _ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit: ; preds = %27
   %.pre = load ptr, ptr %1, align 8, !tbaa !342
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !201
   br label %_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit
 
 _ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit: ; preds = %_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit, %3
-  %29 = phi ptr [ %.pre13, %_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %6, %3 ]
+  %29 = phi ptr [ %.pre9, %_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %6, %3 ]
   %30 = phi ptr [ %.pre, %_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit.loopexit ], [ %4, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -26236,8 +26236,8 @@ _ZNKSt6vectorIN4entt8delegateIFviEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
   store ptr %2, ptr %51, align 8, !tbaa !17
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx10, align 8, !tbaa !17
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i, ptr %.sroa.7.0..sroa_idx7, align 8, !tbaa !17
   %.not10.i.i.i.i.i.i = icmp eq ptr %38, %29
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 

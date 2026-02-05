@@ -5079,9 +5079,9 @@ define dso_local void @_ZN4llvm10sampleprof16ProfileConverterC2ERNS0_16SamplePro
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %.sroa.010.017 = load ptr, ptr %10, align 8, !tbaa !81
-  %.not18 = icmp eq ptr %.sroa.010.017, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.sroa.010.015 = load ptr, ptr %10, align 8, !tbaa !81
+  %.not16 = icmp eq ptr %.sroa.010.015, null
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5091,14 +5091,14 @@ define dso_local void @_ZN4llvm10sampleprof16ProfileConverterC2ERNS0_16SamplePro
   ret void
 
 12:                                               ; preds = %.lr.ph, %_ZN4llvm10sampleprof16ProfileConverter22getOrCreateContextPathERKNS0_13SampleContextE.exit
-  %.sroa.010.019 = phi ptr [ %.sroa.010.017, %.lr.ph ], [ %.sroa.010.0, %_ZN4llvm10sampleprof16ProfileConverter22getOrCreateContextPathERKNS0_13SampleContextE.exit ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 16
+  %.sroa.010.017 = phi ptr [ %.sroa.010.015, %.lr.ph ], [ %.sroa.010.0, %_ZN4llvm10sampleprof16ProfileConverter22getOrCreateContextPathERKNS0_13SampleContextE.exit ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !64
   store i32 0, ptr %11, align 4, !tbaa !66
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 48
   %.sroa.0.0.copyload.i.i = load ptr, ptr %14, align 8, !tbaa !237
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 56
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 56
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !53
   %.idx.i = mul nuw nsw i64 %.sroa.2.0.copyload.i.i, 24
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i
@@ -5124,7 +5124,7 @@ _ZN4llvm10sampleprof16ProfileConverter22getOrCreateContextPathERKNS0_13SampleCon
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 64
   store ptr %13, ptr %20, align 8, !tbaa !274
-  %.sroa.010.0 = load ptr, ptr %.sroa.010.019, align 8, !tbaa !81
+  %.sroa.010.0 = load ptr, ptr %.sroa.010.017, align 8, !tbaa !81
   %.not = icmp eq ptr %.sroa.010.0, null
   br i1 %.not, label %._crit_edge, label %12
 }

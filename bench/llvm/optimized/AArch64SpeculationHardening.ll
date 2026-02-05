@@ -1490,8 +1490,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i: ; 
   br i1 %.not.i, label %._crit_edge138.i, label %.lr.ph137.i
 
 484:                                              ; preds = %484, %.lr.ph.i60
-  %.sroa.073.3134.i = phi ptr [ %479, %.lr.ph.i60 ], [ %496, %484 ]
-  %485 = load i16, ptr %.sroa.073.3134.i, align 2, !tbaa !253
+  %.sroa.073.0134.i = phi ptr [ %479, %.lr.ph.i60 ], [ %496, %484 ]
+  %485 = load i16, ptr %.sroa.073.0134.i, align 2, !tbaa !253
   %486 = zext i16 %485 to i32
   %487 = and i32 %486, 63
   %488 = zext nneg i32 %487 to i64
@@ -1503,7 +1503,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i79.i.i.i.i.i.i: ; 
   %494 = load i64, ptr %493, align 8, !tbaa !47
   %495 = and i64 %494, %490
   store i64 %495, ptr %493, align 8, !tbaa !47
-  %496 = getelementptr inbounds nuw i8, ptr %.sroa.073.3134.i, i64 2
+  %496 = getelementptr inbounds nuw i8, ptr %.sroa.073.0134.i, i64 2
   %.not98.i = icmp eq ptr %496, %481
   br i1 %.not98.i, label %._crit_edge.i61, label %484, !llvm.loop !254
 
@@ -2905,8 +2905,8 @@ _ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12Ma
   br i1 %.not.i.i117, label %._crit_edge52.i.i, label %.lr.ph51.i.i
 
 1018:                                             ; preds = %1018, %.lr.ph.i.i115
-  %.sroa.037.147.i.i = phi ptr [ %1013, %.lr.ph.i.i115 ], [ %1029, %1018 ]
-  %1019 = load i16, ptr %.sroa.037.147.i.i, align 2, !tbaa !253
+  %.sroa.037.047.i.i = phi ptr [ %1013, %.lr.ph.i.i115 ], [ %1029, %1018 ]
+  %1019 = load i16, ptr %.sroa.037.047.i.i, align 2, !tbaa !253
   %1020 = zext i16 %1019 to i32
   %1021 = and i32 %1020, 63
   %1022 = zext nneg i32 %1021 to i64
@@ -2917,7 +2917,7 @@ _ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12Ma
   %1027 = load i64, ptr %1026, align 8, !tbaa !47
   %1028 = or i64 %1023, %1027
   store i64 %1028, ptr %1026, align 8, !tbaa !47
-  %1029 = getelementptr inbounds nuw i8, ptr %.sroa.037.147.i.i, i64 2
+  %1029 = getelementptr inbounds nuw i8, ptr %.sroa.037.047.i.i, i64 2
   %.not45.i.i = icmp eq ptr %1029, %1015
   br i1 %.not45.i.i, label %._crit_edge.i.i116, label %1018, !llvm.loop !348
 

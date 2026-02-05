@@ -509,9 +509,9 @@ cleanup65.thread:                                 ; preds = %_ZN4node11Environme
 if.end:                                           ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %call6 = tail call ptr @SSL_new(ptr noundef nonnull %call2) #20
   %cmp.i19.not = icmp eq ptr %call6, null
-  br i1 %cmp.i19.not, label %cleanup65.thread44, label %if.end10
+  br i1 %cmp.i19.not, label %cleanup65.thread42, label %if.end10
 
-cleanup65.thread44:                               ; preds = %if.end
+cleanup65.thread42:                               ; preds = %if.end
   %call9 = tail call i64 @ERR_get_error() #20
   tail call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef %retval.0.i.i, i64 noundef %call9, ptr noundef nonnull @.str.1) #20
   br label %if.then.i31
@@ -543,8 +543,8 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN2v85L
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %for.body.preheader.i.i.i.i.i
   %arr.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %__cur.0.lcssa.i.i.i.i.i = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %cmp46 = icmp sgt i32 %call14, 0
-  br i1 %cmp46, label %for.body.lr.ph, label %for.cond30.preheader
+  %cmp44 = icmp sgt i32 %call14, 0
+  br i1 %cmp44, label %for.body.lr.ph, label %for.cond30.preheader
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
@@ -577,8 +577,8 @@ _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %for.body, %if.then.
   br i1 %exitcond.not, label %for.cond30.preheader, label %for.body, !llvm.loop !5
 
 for.body34:                                       ; preds = %for.cond30.preheader, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26
-  %indvars.iv50 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next51, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26 ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN4node6crypto10CipherBase13GetSSLCiphersERKN2v820FunctionCallbackInfoINS2_5ValueEEEE13TLS13_CIPHERS, i64 %indvars.iv50
+  %indvars.iv48 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next49, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26 ]
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN4node6crypto10CipherBase13GetSSLCiphersERKN2v820FunctionCallbackInfoINS2_5ValueEEEE13TLS13_CIPHERS, i64 %indvars.iv48
   %15 = load ptr, ptr %arrayidx, align 8
   %16 = load ptr, ptr %isolate_.i22, align 8
   %call.i23 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %16, ptr noundef %15, i32 noundef 0, i32 noundef -1) #20
@@ -590,14 +590,14 @@ if.then.i.i25:                                    ; preds = %for.body34
   br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26: ; preds = %for.body34, %if.then.i.i25
-  %17 = trunc nuw nsw i64 %indvars.iv50 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv48 to i32
   %add45 = add i32 %call14, %17
   %conv46 = zext i32 %add45 to i64
   %add.ptr.i27 = getelementptr inbounds nuw %"class.v8::Local", ptr %arr.sroa.0.0, i64 %conv46
   store ptr %call.i23, ptr %add.ptr.i27, align 8
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 5
-  br i1 %exitcond53.not, label %for.end50, label %for.body34, !llvm.loop !7
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 5
+  br i1 %exitcond51.not, label %for.end50, label %for.body34, !llvm.loop !7
 
 for.end50:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit26
   %18 = load ptr, ptr %args, align 8
@@ -626,7 +626,7 @@ if.then.i29:                                      ; preds = %for.end50, %if.then
   tail call void @SSL_free(ptr noundef nonnull %call6) #20
   br label %if.then.i31
 
-if.then.i31:                                      ; preds = %if.then.i29, %cleanup65.thread44
+if.then.i31:                                      ; preds = %if.then.i29, %cleanup65.thread42
   tail call void @SSL_CTX_free(ptr noundef nonnull %call2) #20
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEED2Ev.exit
 

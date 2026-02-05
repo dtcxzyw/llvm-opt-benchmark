@@ -2846,31 +2846,31 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
 
 12:                                               ; preds = %11, %111
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %111 ]
-  %.sroa.0.1304 = phi i64 [ 0, %11 ], [ %21, %111 ]
+  %.sroa.0.0304 = phi i64 [ 0, %11 ], [ %21, %111 ]
   %.0303 = phi i32 [ 0, %11 ], [ %.1270, %111 ]
   %.0256302 = phi i32 [ 0, %11 ], [ %.1257269, %111 ]
   %.0258301 = phi i32 [ 0, %11 ], [ %.1259268, %111 ]
   %.0260300 = phi i32 [ 0, %11 ], [ %69, %111 ]
-  %.sroa.6.1299 = phi i64 [ 0, %11 ], [ %24, %111 ]
-  %.sroa.9.1297 = phi i64 [ 0, %11 ], [ %27, %111 ]
-  %.sroa.59.1296 = phi i32 [ 0, %11 ], [ %.sroa.59.2, %111 ]
-  %.sroa.56.1295 = phi i64 [ 0, %11 ], [ %66, %111 ]
-  %.sroa.54.1294 = phi i64 [ 0, %11 ], [ %.sroa.54.2, %111 ]
-  %.sroa.52.1293 = phi i64 [ 0, %11 ], [ %.sroa.52.2, %111 ]
-  %.sroa.50.1292 = phi i64 [ 0, %11 ], [ %.sroa.50.2, %111 ]
-  %.sroa.48.1291 = phi i64 [ 0, %11 ], [ %.sroa.48.2, %111 ]
-  %.sroa.45.1290 = phi i64 [ 0, %11 ], [ %63, %111 ]
-  %.sroa.42.1289 = phi i64 [ 0, %11 ], [ %60, %111 ]
-  %.sroa.39.1288 = phi i64 [ 0, %11 ], [ %57, %111 ]
-  %.sroa.36.1287 = phi i64 [ 0, %11 ], [ %54, %111 ]
-  %.sroa.33.1286 = phi i64 [ 0, %11 ], [ %51, %111 ]
-  %.sroa.30.1285 = phi i64 [ 0, %11 ], [ %48, %111 ]
-  %.sroa.27.1284 = phi i64 [ 0, %11 ], [ %45, %111 ]
-  %.sroa.24.1283 = phi i64 [ 0, %11 ], [ %42, %111 ]
-  %.sroa.21.1282 = phi i64 [ 0, %11 ], [ %39, %111 ]
-  %.sroa.18.1281 = phi i64 [ 0, %11 ], [ %36, %111 ]
-  %.sroa.15.1280 = phi i64 [ 0, %11 ], [ %33, %111 ]
-  %.sroa.12.1279 = phi i64 [ 0, %11 ], [ %30, %111 ]
+  %.sroa.6.0299 = phi i64 [ 0, %11 ], [ %24, %111 ]
+  %.sroa.9.0297 = phi i64 [ 0, %11 ], [ %27, %111 ]
+  %.sroa.59.0296 = phi i32 [ 0, %11 ], [ %.sroa.59.1, %111 ]
+  %.sroa.56.0295 = phi i64 [ 0, %11 ], [ %66, %111 ]
+  %.sroa.54.0294 = phi i64 [ 0, %11 ], [ %.sroa.54.1, %111 ]
+  %.sroa.52.0293 = phi i64 [ 0, %11 ], [ %.sroa.52.1, %111 ]
+  %.sroa.50.0292 = phi i64 [ 0, %11 ], [ %.sroa.50.1, %111 ]
+  %.sroa.48.0291 = phi i64 [ 0, %11 ], [ %.sroa.48.1, %111 ]
+  %.sroa.45.0290 = phi i64 [ 0, %11 ], [ %63, %111 ]
+  %.sroa.42.0289 = phi i64 [ 0, %11 ], [ %60, %111 ]
+  %.sroa.39.0288 = phi i64 [ 0, %11 ], [ %57, %111 ]
+  %.sroa.36.0287 = phi i64 [ 0, %11 ], [ %54, %111 ]
+  %.sroa.33.0286 = phi i64 [ 0, %11 ], [ %51, %111 ]
+  %.sroa.30.0285 = phi i64 [ 0, %11 ], [ %48, %111 ]
+  %.sroa.27.0284 = phi i64 [ 0, %11 ], [ %45, %111 ]
+  %.sroa.24.0283 = phi i64 [ 0, %11 ], [ %42, %111 ]
+  %.sroa.21.0282 = phi i64 [ 0, %11 ], [ %39, %111 ]
+  %.sroa.18.0281 = phi i64 [ 0, %11 ], [ %36, %111 ]
+  %.sroa.15.0280 = phi i64 [ 0, %11 ], [ %33, %111 ]
+  %.sroa.12.0279 = phi i64 [ 0, %11 ], [ %30, %111 ]
   %13 = getelementptr inbounds nuw i32, ptr @lru_type_map, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %15 = or i32 %14, %.0262305
@@ -2879,52 +2879,52 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #19
   %19 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %16
   %20 = load i64, ptr %19, align 8, !tbaa !44
-  %21 = add i64 %20, %.sroa.0.1304
+  %21 = add i64 %20, %.sroa.0.0304
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !46
-  %24 = add i64 %23, %.sroa.6.1299
+  %24 = add i64 %23, %.sroa.6.0299
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !37
-  %27 = add i64 %26, %.sroa.9.1297
+  %27 = add i64 %26, %.sroa.9.0297
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !63
-  %30 = add i64 %29, %.sroa.12.1279
+  %30 = add i64 %29, %.sroa.12.0279
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !36
-  %33 = add i64 %32, %.sroa.15.1280
+  %33 = add i64 %32, %.sroa.15.0280
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %35 = load i64, ptr %34, align 8, !tbaa !12
-  %36 = add i64 %35, %.sroa.18.1281
+  %36 = add i64 %35, %.sroa.18.0281
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %38 = load i64, ptr %37, align 8, !tbaa !47
-  %39 = add i64 %38, %.sroa.21.1282
+  %39 = add i64 %38, %.sroa.21.0282
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %41 = load i64, ptr %40, align 8, !tbaa !48
-  %42 = add i64 %41, %.sroa.24.1283
+  %42 = add i64 %41, %.sroa.24.0283
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %44 = load i64, ptr %43, align 8, !tbaa !6
-  %45 = add i64 %44, %.sroa.27.1284
+  %45 = add i64 %44, %.sroa.27.0284
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %47 = load i64, ptr %46, align 8, !tbaa !13
-  %48 = add i64 %47, %.sroa.30.1285
+  %48 = add i64 %47, %.sroa.30.0285
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %50 = load i64, ptr %49, align 8, !tbaa !34
-  %51 = add i64 %50, %.sroa.33.1286
+  %51 = add i64 %50, %.sroa.33.0286
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %53 = load i64, ptr %52, align 8, !tbaa !42
-  %54 = add i64 %53, %.sroa.36.1287
+  %54 = add i64 %53, %.sroa.36.0287
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %56 = load i64, ptr %55, align 8, !tbaa !41
-  %57 = add i64 %56, %.sroa.39.1288
+  %57 = add i64 %56, %.sroa.39.0288
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %59 = load i64, ptr %58, align 8, !tbaa !40
-  %60 = add i64 %59, %.sroa.42.1289
+  %60 = add i64 %59, %.sroa.42.0289
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %62 = load i64, ptr %61, align 8, !tbaa !27
-  %63 = add i64 %62, %.sroa.45.1290
+  %63 = add i64 %62, %.sroa.45.0290
   %64 = getelementptr inbounds i64, ptr @sizes_bytes, i64 %16
   %65 = load i64, ptr %64, align 8, !tbaa !14
-  %66 = add i64 %65, %.sroa.56.1295
+  %66 = add i64 %65, %.sroa.56.0295
   %67 = getelementptr inbounds i32, ptr @sizes, i64 %16
   %68 = load i32, ptr %67, align 4, !tbaa !22
   %69 = add i32 %68, %.0260300
@@ -2986,7 +2986,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %.1270 = phi i32 [ %.0303, %.thread272 ], [ %.0303, %83 ], [ %.0303, %80 ], [ %.0303, %88 ], [ %95, %91 ], [ %.0303, %12 ]
   %.1257269 = phi i32 [ %.0256302, %.thread272 ], [ %87, %83 ], [ %.0256302, %80 ], [ %.0256302, %88 ], [ %.0256302, %91 ], [ %.0256302, %12 ]
   %.1259268 = phi i32 [ %.1259276, %.thread272 ], [ %.0258301, %83 ], [ %.0258301, %80 ], [ %.0258301, %88 ], [ %.0258301, %91 ], [ %.0258301, %12 ]
-  %.sroa.59.2 = phi i32 [ %97, %.thread272 ], [ %.sroa.59.1296, %83 ], [ %.sroa.59.1296, %80 ], [ %.sroa.59.1296, %88 ], [ %.sroa.59.1296, %91 ], [ %.sroa.59.1296, %12 ]
+  %.sroa.59.1 = phi i32 [ %97, %.thread272 ], [ %.sroa.59.0296, %83 ], [ %.sroa.59.0296, %80 ], [ %.sroa.59.0296, %88 ], [ %.sroa.59.0296, %91 ], [ %.sroa.59.0296, %12 ]
   %98 = call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 26)
   switch i32 %98, label %111 [
     i32 0, label %99
@@ -3016,10 +3016,10 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   br label %111
 
 111:                                              ; preds = %108, %105, %102, %99, %.thread
-  %.sroa.48.2 = phi i64 [ %.sroa.48.1291, %.thread ], [ %101, %99 ], [ %.sroa.48.1291, %102 ], [ %.sroa.48.1291, %105 ], [ %.sroa.48.1291, %108 ]
-  %.sroa.50.2 = phi i64 [ %.sroa.50.1292, %.thread ], [ %.sroa.50.1292, %99 ], [ %104, %102 ], [ %.sroa.50.1292, %105 ], [ %.sroa.50.1292, %108 ]
-  %.sroa.52.2 = phi i64 [ %.sroa.52.1293, %.thread ], [ %.sroa.52.1293, %99 ], [ %.sroa.52.1293, %102 ], [ %107, %105 ], [ %.sroa.52.1293, %108 ]
-  %.sroa.54.2 = phi i64 [ %.sroa.54.1294, %.thread ], [ %.sroa.54.1294, %99 ], [ %.sroa.54.1294, %102 ], [ %.sroa.54.1294, %105 ], [ %110, %108 ]
+  %.sroa.48.1 = phi i64 [ %.sroa.48.0291, %.thread ], [ %101, %99 ], [ %.sroa.48.0291, %102 ], [ %.sroa.48.0291, %105 ], [ %.sroa.48.0291, %108 ]
+  %.sroa.50.1 = phi i64 [ %.sroa.50.0292, %.thread ], [ %.sroa.50.0292, %99 ], [ %104, %102 ], [ %.sroa.50.0292, %105 ], [ %.sroa.50.0292, %108 ]
+  %.sroa.52.1 = phi i64 [ %.sroa.52.0293, %.thread ], [ %.sroa.52.0293, %99 ], [ %.sroa.52.0293, %102 ], [ %107, %105 ], [ %.sroa.52.0293, %108 ]
+  %.sroa.54.1 = phi i64 [ %.sroa.54.0294, %.thread ], [ %.sroa.54.0294, %99 ], [ %.sroa.54.0294, %102 ], [ %.sroa.54.0294, %105 ], [ %110, %108 ]
   %112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3095,7 +3095,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %160 = trunc i32 %158 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %160, ptr noundef nonnull %6, i32 noundef %159, ptr noundef %1) #19
   %161 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.29) #19
-  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %.sroa.59.2) #19
+  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %.sroa.59.1) #19
   %163 = trunc i32 %161 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %163, ptr noundef nonnull %6, i32 noundef %162, ptr noundef %1) #19
   %164 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.30) #19
@@ -3164,19 +3164,19 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %209 = trunc i32 %207 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %209, ptr noundef nonnull %6, i32 noundef %208, ptr noundef %1) #19
   %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.32) #19
-  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.48.2) #19
+  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.48.1) #19
   %212 = trunc i32 %210 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %212, ptr noundef nonnull %6, i32 noundef %211, ptr noundef %1) #19
   %213 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.33) #19
-  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.50.2) #19
+  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.50.1) #19
   %215 = trunc i32 %213 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %215, ptr noundef nonnull %6, i32 noundef %214, ptr noundef %1) #19
   %216 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.34) #19
-  %217 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.52.2) #19
+  %217 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.52.1) #19
   %218 = trunc i32 %216 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %218, ptr noundef nonnull %6, i32 noundef %217, ptr noundef %1) #19
   %219 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %.0262305, ptr noundef nonnull @.str.35) #19
-  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.54.2) #19
+  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.3, i64 noundef %.sroa.54.1) #19
   %221 = trunc i32 %219 to i16
   call void %0(ptr noundef nonnull %5, i16 noundef zeroext %221, ptr noundef nonnull %6, i32 noundef %220, ptr noundef %1) #19
   br label %222

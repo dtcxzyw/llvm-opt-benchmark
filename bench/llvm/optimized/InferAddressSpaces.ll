@@ -4582,15 +4582,15 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit.i.i:   ; preds = %_ZN4llvm8dyn_castIN
 _ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i: ; preds = %.critedge.i.i
   %1840 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1650, i32 noundef 1) #20
   %.pre.i139.i.i = load i32, ptr %1821, align 4
-  %.pre77.i.i.i = and i32 %.pre.i139.i.i, 536870912
-  %1841 = icmp eq i32 %.pre77.i.i.i, 0
+  %.pre75.i.i.i = and i32 %.pre.i139.i.i, 536870912
+  %1841 = icmp eq i32 %.pre75.i.i.i, 0
   br i1 %1841, label %_ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i
 
 _ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i
   %1842 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1650, i32 noundef 7) #20
-  %.pre76.i.i.i = load i32, ptr %1821, align 4
-  %.pre78.i.i.i = and i32 %.pre76.i.i.i, 536870912
-  %1843 = icmp eq i32 %.pre78.i.i.i, 0
+  %.pre74.i.i.i = load i32, ptr %1821, align 4
+  %.pre76.i.i.i = and i32 %.pre74.i.i.i, 536870912
+  %1843 = icmp eq i32 %.pre76.i.i.i, 0
   br i1 %1843, label %_ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i, label %1844
 
 1844:                                             ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i
@@ -4598,8 +4598,8 @@ _ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i: ; preds = %_ZNK4llvm11Instru
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i
 
 _ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i: ; preds = %1844, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i, %.critedge.i.i
-  %.0.i5088.i.i.i = phi ptr [ %1842, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i ], [ %1842, %1844 ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i ], [ null, %.critedge.i.i ]
-  %.0.i8387.i.i.i = phi ptr [ %1840, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i ], [ %1840, %1844 ], [ %1840, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i ], [ null, %.critedge.i.i ]
+  %.0.i5086.i.i.i = phi ptr [ %1842, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i ], [ %1842, %1844 ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i ], [ null, %.critedge.i.i ]
+  %.0.i8185.i.i.i = phi ptr [ %1840, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i ], [ %1840, %1844 ], [ %1840, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i ], [ null, %.critedge.i.i ]
   %.0.i53.i.i.i = phi ptr [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit51.i.i.i ], [ %1845, %1844 ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i.i ], [ null, %.critedge.i.i ]
   %1846 = load ptr, ptr %1805, align 8, !tbaa !131, !nonnull !49, !noundef !49
   %1847 = getelementptr inbounds nuw i8, ptr %1846, i64 36
@@ -4621,7 +4621,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i: ; preds = %1844, %_ZNK4llvm1
   %1859 = load ptr, ptr %1858, align 8, !tbaa !131
   %1860 = getelementptr inbounds nuw i8, ptr %1650, i64 72
   %1861 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %1860, i32 noundef 0) #20
-  %1862 = call noundef ptr @_ZN4llvm13IRBuilderBase12CreateMemSetEPNS_5ValueES2_S2_NS_10MaybeAlignEbPNS_6MDNodeES5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull %1465, ptr noundef %1857, ptr noundef %1859, i16 %1861, i1 noundef zeroext false, ptr noundef %.0.i8387.i.i.i, ptr noundef %.0.i5088.i.i.i, ptr noundef %.0.i53.i.i.i) #20
+  %1862 = call noundef ptr @_ZN4llvm13IRBuilderBase12CreateMemSetEPNS_5ValueES2_S2_NS_10MaybeAlignEbPNS_6MDNodeES5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull %1465, ptr noundef %1857, ptr noundef %1859, i16 %1861, i1 noundef zeroext false, ptr noundef %.0.i8185.i.i.i, ptr noundef %.0.i5086.i.i.i, ptr noundef %.0.i53.i.i.i) #20
   br label %1923
 
 1863:                                             ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit54.i.i.i
@@ -4681,7 +4681,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit57.i.i.i: ; preds = %1883, %1881
   %1892 = getelementptr inbounds %"class.llvm::Use", ptr %.0.i.i.i140.i.i, i64 %1891
   %1893 = getelementptr inbounds nuw i8, ptr %1892, i64 64
   %1894 = load ptr, ptr %1893, align 8, !tbaa !131
-  %1895 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 240, ptr noundef %.045.i.i.i, i16 %1886, ptr noundef %spec.select.i141.i.i, i16 %1887, ptr noundef %1894, i1 noundef zeroext false, ptr noundef %.0.i8387.i.i.i, ptr noundef %.0.i56.i.i.i, ptr noundef %.0.i5088.i.i.i, ptr noundef %.0.i53.i.i.i) #20
+  %1895 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 240, ptr noundef %.045.i.i.i, i16 %1886, ptr noundef %spec.select.i141.i.i, i16 %1887, ptr noundef %1894, i1 noundef zeroext false, ptr noundef %.0.i8185.i.i.i, ptr noundef %.0.i56.i.i.i, ptr noundef %.0.i5086.i.i.i, ptr noundef %.0.i53.i.i.i) #20
   br label %1923
 
 1896:                                             ; preds = %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i
@@ -4705,7 +4705,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit60.i.i.i: ; preds = %1898, %1896
   %1907 = getelementptr inbounds %"class.llvm::Use", ptr %.0.i.i.i140.i.i, i64 %1906
   %1908 = getelementptr inbounds nuw i8, ptr %1907, i64 64
   %1909 = load ptr, ptr %1908, align 8, !tbaa !131
-  %1910 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 238, ptr noundef %.045.i.i.i, i16 %1901, ptr noundef %spec.select.i141.i.i, i16 %1902, ptr noundef %1909, i1 noundef zeroext false, ptr noundef %.0.i8387.i.i.i, ptr noundef %.0.i59.i.i.i, ptr noundef %.0.i5088.i.i.i, ptr noundef %.0.i53.i.i.i) #20
+  %1910 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 238, ptr noundef %.045.i.i.i, i16 %1901, ptr noundef %spec.select.i141.i.i, i16 %1902, ptr noundef %1909, i1 noundef zeroext false, ptr noundef %.0.i8185.i.i.i, ptr noundef %.0.i59.i.i.i, ptr noundef %.0.i5086.i.i.i, ptr noundef %.0.i53.i.i.i) #20
   br label %1923
 
 1911:                                             ; preds = %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i
@@ -4719,7 +4719,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit60.i.i.i: ; preds = %1898, %1896
   %1919 = getelementptr inbounds %"class.llvm::Use", ptr %.0.i.i.i140.i.i, i64 %1918
   %1920 = getelementptr inbounds nuw i8, ptr %1919, i64 64
   %1921 = load ptr, ptr %1920, align 8, !tbaa !131
-  %1922 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 241, ptr noundef %.045.i.i.i, i16 %1913, ptr noundef %spec.select.i141.i.i, i16 %1914, ptr noundef %1921, i1 noundef zeroext false, ptr noundef %.0.i8387.i.i.i, ptr noundef null, ptr noundef %.0.i5088.i.i.i, ptr noundef %.0.i53.i.i.i) #20
+  %1922 = call noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 241, ptr noundef %.045.i.i.i, i16 %1913, ptr noundef %spec.select.i141.i.i, i16 %1914, ptr noundef %1921, i1 noundef zeroext false, ptr noundef %.0.i8185.i.i.i, ptr noundef null, ptr noundef %.0.i5086.i.i.i, ptr noundef %.0.i53.i.i.i) #20
   br label %1923
 
 1923:                                             ; preds = %1911, %_ZNK4llvm11Instruction11getMetadataEj.exit60.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit57.i.i.i, %1850

@@ -99,8 +99,8 @@ define dso_local { ptr, i64 } @_ZNK5clang4ento14CheckerContext13getCalleeNameEPK
   %6 = and i64 %5, 7
   %7 = icmp ne i64 %6, 0
   %8 = and i64 %5, -8
-  %.not512 = icmp eq i64 %8, 0
-  %.not5 = or i1 %7, %.not512
+  %.not56 = icmp eq i64 %8, 0
+  %.not5 = or i1 %7, %.not56
   br i1 %.not5, label %16, label %9
 
 9:                                                ; preds = %3

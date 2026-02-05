@@ -6189,7 +6189,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !13
   %.not.i23 = icmp eq i64 %162, 0
-  br i1 %.not.i23, label %.loopexit41, label %.lr.ph.i
+  br i1 %.not.i23, label %.loopexit38, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %.noexc24
   %.03.i = phi i64 [ %166, %.noexc24 ], [ 0, %163 ]
@@ -6199,21 +6199,21 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate.exit: ; preds 
 .noexc24:                                         ; preds = %.lr.ph.i
   %166 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %166, %162
-  br i1 %exitcond.not.i, label %.loopexit41, label %.lr.ph.i, !llvm.loop !283
+  br i1 %exitcond.not.i, label %.loopexit38, label %.lr.ph.i, !llvm.loop !283
 
-.loopexit41:                                      ; preds = %.noexc24, %163
+.loopexit38:                                      ; preds = %.noexc24, %163
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %167 = load ptr, ptr %6, align 8, !tbaa !11
   %168 = icmp eq ptr %167, %20
   br i1 %168, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %.loopexit41
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %.loopexit38
   %169 = load i64, ptr %20, align 8, !tbaa !13
   %170 = add i64 %169, 1
   call void @_ZdlPvm(ptr noundef %167, i64 noundef %170) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %.loopexit41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %.loopexit38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 

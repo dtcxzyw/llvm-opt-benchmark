@@ -1775,7 +1775,7 @@ _ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb
 
 _ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.i: ; preds = %129, %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i
   %275 = phi ptr [ %.pre145.i, %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i ], [ %93, %129 ]
-  %.not46 = phi i1 [ %274, %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i ], [ true, %129 ]
+  %.not44 = phi i1 [ %274, %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i ], [ true, %129 ]
   %.130.i = phi i1 [ %.130.ph.i, %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i ], [ %.029.i, %129 ]
   %.not.i.i.i.i84.i = icmp eq ptr %275, null
   br i1 %.not.i.i.i.i84.i, label %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EED2Ev.exit.i.i, label %276
@@ -1881,7 +1881,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_defa
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %323 = icmp ult i32 %.036.i, 2
   %324 = select i1 %.130.i, i1 true, i1 %323
-  %or.cond = select i1 %.not46, i1 %324, i1 false
+  %or.cond = select i1 %.not44, i1 %324, i1 false
   br i1 %or.cond, label %325, label %_ZL22hasOnlyUniformBranchesPN4llvm6RegionEjRKNS_21GenericUniformityInfoINS_17GenericSSAContextINS_8FunctionEEEEE.exit.thread
 
 325:                                              ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i
@@ -2013,7 +2013,7 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_def
   br label %382
 
 382:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit
-  %383 = phi ptr [ %.pre100, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread ], [ %378, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit ]
+  %383 = phi ptr [ %.pre98, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread ], [ %378, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit ]
   %384 = phi ptr [ %.pre, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread ], [ %.0.lcssa.i.i.i.i.i.i.i28, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit ]
   %385 = load ptr, ptr %380, align 8, !tbaa !173
   %386 = load ptr, ptr %333, align 8, !tbaa !176
@@ -2214,7 +2214,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %477
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread: ; preds = %477, %471, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %.loopexit
   call void @_ZN4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %11)
   %.pre = load ptr, ptr %381, align 8, !tbaa !173
-  %.pre100 = load ptr, ptr %357, align 8, !tbaa !176
+  %.pre98 = load ptr, ptr %357, align 8, !tbaa !176
   br label %382
 
 _ZL22hasOnlyUniformBranchesPN4llvm6RegionEjRKNS_21GenericUniformityInfoINS_17GenericSSAContextINS_8FunctionEEEEE.exit.thread: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit.i, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit, %3

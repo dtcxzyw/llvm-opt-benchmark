@@ -26193,7 +26193,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_7memprof
   %24 = sext i8 %23 to i32
   %25 = add nsw i32 %24, -58
   %isdigit.i.i31.i.i.i.i.i = icmp ult i32 %25, -10
-  br i1 %isdigit.i.i31.i.i.i.i.i, label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20, label %26
+  br i1 %isdigit.i.i31.i.i.i.i.i, label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit18, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
@@ -26201,7 +26201,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_7memprof
   %29 = sext i8 %28 to i32
   %30 = add nsw i32 %29, -58
   %isdigit.i.i32.i.i.i.i.i = icmp ult i32 %30, -10
-  br i1 %isdigit.i.i32.i.i.i.i.i, label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit22, label %31
+  br i1 %isdigit.i.i32.i.i.i.i.i, label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
@@ -26254,16 +26254,16 @@ _ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   br label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit
 
-_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20: ; preds = %21
+_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit18: ; preds = %21
   %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit
 
-_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit22: ; preds = %26
+_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20: ; preds = %26
   %54 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   br label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit
 
-_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit22, %36, %42, %48
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %42 ], [ %.029.lcssa.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i, %48 ], [ %54, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit22 ], [ %53, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20 ], [ %52, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit18, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20, %36, %42, %48
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %42 ], [ %.029.lcssa.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i, %48 ], [ %54, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit20 ], [ %53, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit18 ], [ %52, %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %55 = icmp eq ptr %8, %.028.i.i.i.i.i
   br i1 %55, label %_ZN4llvm6all_ofIRNS_9StringRefEZNS_4yaml12ScalarTraitsINS_7memprof9GUIDHex64EvE5inputES1_PvRS6_EUlcE_EEbOT_T0_.exit.thread, label %56
 

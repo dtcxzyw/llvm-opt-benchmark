@@ -14684,7 +14684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43.i: ; preds = %_
 
 .preheader.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43.i
   %.not4142.i.not.i = icmp eq ptr %502, %501
-  %.pre14.pre.i = load i16, ptr %209, align 8
+  %.pre12.pre.i = load i16, ptr %209, align 8
   br i1 %.not4142.i.not.i, label %507, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -14709,8 +14709,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i.i:            ; preds = %_ZNSt7__cxx1112basi
 
 507:                                              ; preds = %.preheader.i.i
   %508 = and i16 %.sroa.05.0.copyload.i.fr, 256
-  %.not57.i = icmp eq i16 %508, 0
-  br i1 %.not57.i, label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i, label %.critedge17.i.i.thread
+  %.not55.i = icmp eq i16 %508, 0
+  br i1 %.not55.i, label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i, label %.critedge17.i.i.thread
 
 .critedge17.i.i.thread:                           ; preds = %507
   %509 = load i64, ptr %210, align 8, !tbaa !316
@@ -14719,7 +14719,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i.i:            ; preds = %_ZNSt7__cxx1112basi
 
 511:                                              ; preds = %511, %.lr.ph.i.i
   %512 = phi i64 [ %.promoted46.i.i, %.lr.ph.i.i ], [ %533, %511 ]
-  %storemerge.i45.i.i = phi i16 [ %.pre14.pre.i, %.lr.ph.i.i ], [ %storemerge.i.i.i, %511 ]
+  %storemerge.i45.i.i = phi i16 [ %.pre12.pre.i, %.lr.ph.i.i ], [ %storemerge.i.i.i, %511 ]
   %.044.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %513, %511 ]
   %.sroa.034.043.i.i = phi ptr [ %502, %.lr.ph.i.i ], [ %534, %511 ]
   %513 = add i32 %.044.i.i, 1
@@ -14759,19 +14759,19 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i.i:            ; preds = %_ZNSt7__cxx1112basi
 
 538:                                              ; preds = %.critedge17.i.i, %.critedge17.i.i.thread
   %.in = phi i64 [ %533, %.critedge17.i.i ], [ %509, %.critedge17.i.i.thread ]
-  %.in404 = phi i16 [ %storemerge.i.i.i, %.critedge17.i.i ], [ %.pre14.pre.i, %.critedge17.i.i.thread ]
-  %.0.lcssa.i55.i400 = phi i16 [ %535, %.critedge17.i.i ], [ 3, %.critedge17.i.i.thread ]
+  %.in404 = phi i16 [ %storemerge.i.i.i, %.critedge17.i.i ], [ %.pre12.pre.i, %.critedge17.i.i.thread ]
+  %.0.lcssa.i53.i400 = phi i16 [ %535, %.critedge17.i.i ], [ 3, %.critedge17.i.i.thread ]
   %.in405 = phi i16 [ %narrow, %.critedge17.i.i ], [ %510, %.critedge17.i.i.thread ]
   %539 = zext nneg i16 %.in405 to i64
   %540 = and i16 %.in404, -512
   %541 = and i64 %.in, -4
   %542 = or i64 %541, %539
   store i64 %542, ptr %210, align 8, !tbaa !316
-  %543 = or disjoint i16 %540, %.0.lcssa.i55.i400
+  %543 = or disjoint i16 %540, %.0.lcssa.i53.i400
   br label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i
 
 _ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i: ; preds = %538, %507, %_ZN4llvmplERKNS_5TwineES2_.exit32.i.i
-  %544 = phi i16 [ %.pre.i209, %_ZN4llvmplERKNS_5TwineES2_.exit32.i.i ], [ %.pre14.pre.i, %507 ], [ %543, %538 ]
+  %544 = phi i16 [ %.pre.i209, %_ZN4llvmplERKNS_5TwineES2_.exit32.i.i ], [ %.pre12.pre.i, %507 ], [ %543, %538 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %545 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0408, i64 76
   %.sroa.02.0.copyload.i = load i64, ptr %545, align 4

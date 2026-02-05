@@ -3348,8 +3348,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EE
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
-  %or.cond103 = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond103, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E5clearEv.exit, label %52
+  %or.cond99 = select i1 %48, i1 %51, i1 false
+  br i1 %or.cond99, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E5clearEv.exit, label %52
 
 52:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E5clearEv.exit
   %53 = shl i32 %47, 2
@@ -3452,9 +3452,9 @@ _ZN4llvm14OwningArrayRefIhED2Ev.exit:             ; preds = %80, %_ZNSt6vectorIP
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %88, ptr %95, align 8
   %96 = icmp ne ptr %88, %94
-  %.not.i.i.i.i113 = icmp ne i64 %87, %93
-  %.not2.i114 = select i1 %96, i1 true, i1 %.not.i.i.i.i113
-  br i1 %.not2.i114, label %.lr.ph, label %._crit_edge.i.i.i49.critedge
+  %.not.i.i.i.i109 = icmp ne i64 %87, %93
+  %.not2.i110 = select i1 %96, i1 true, i1 %.not.i.i.i.i109
+  br i1 %.not2.i110, label %.lr.ph, label %._crit_edge.i.i.i49.critedge
 
 .lr.ph:                                           ; preds = %_ZN4llvm14OwningArrayRefIhED2Ev.exit
   %.promoted = load ptr, ptr %0, align 8
@@ -3473,20 +3473,20 @@ _ZN4llvm14OwningArrayRefIhED2Ev.exit:             ; preds = %80, %_ZNSt6vectorIP
   br label %108
 
 108:                                              ; preds = %.lr.ph, %149
-  %lhsv.i.i.i.i121 = phi i64 [ %87, %.lr.ph ], [ %lhsv.i.i.i.i, %149 ]
+  %lhsv.i.i.i.i117 = phi i64 [ %87, %.lr.ph ], [ %lhsv.i.i.i.i, %149 ]
   %109 = phi ptr [ %88, %.lr.ph ], [ %154, %149 ]
-  %.sroa.684.0120 = phi i1 [ false, %.lr.ph ], [ %.sroa.684.1, %149 ]
-  %.sroa.483.0119 = phi ptr [ undef, %.lr.ph ], [ %.sroa.483.1, %149 ]
-  %.sroa.082.0118 = phi i64 [ undef, %.lr.ph ], [ %.sroa.082.1, %149 ]
-  %.sroa.6.0117 = phi i1 [ false, %.lr.ph ], [ %.sroa.6.1, %149 ]
-  %.sroa.4.0116 = phi ptr [ undef, %.lr.ph ], [ %.sroa.4.1, %149 ]
-  %.sroa.080.0115 = phi i64 [ undef, %.lr.ph ], [ %.sroa.080.1, %149 ]
+  %.sroa.684.0116 = phi i1 [ false, %.lr.ph ], [ %.sroa.684.1, %149 ]
+  %.sroa.483.0115 = phi ptr [ undef, %.lr.ph ], [ %.sroa.483.1, %149 ]
+  %.sroa.082.0114 = phi i64 [ undef, %.lr.ph ], [ %.sroa.082.1, %149 ]
+  %.sroa.6.0113 = phi i1 [ false, %.lr.ph ], [ %.sroa.6.1, %149 ]
+  %.sroa.4.0112 = phi ptr [ undef, %.lr.ph ], [ %.sroa.4.1, %149 ]
+  %.sroa.080.0111 = phi i64 [ undef, %.lr.ph ], [ %.sroa.080.1, %149 ]
   %110 = phi ptr [ %.promoted, %.lr.ph ], [ %141, %149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %111 = load ptr, ptr %109, align 8, !tbaa !9, !noalias !353
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 144
   %113 = load ptr, ptr %112, align 8, !noalias !353
-  call void %113(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.19") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %109, i64 %lhsv.i.i.i.i121) #24
+  call void %113(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.19") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %109, i64 %lhsv.i.i.i.i117) #24
   %114 = load i8, ptr %97, align 8
   %115 = trunc i8 %114 to i1
   br i1 %115, label %._crit_edge.i.i.i, label %137
@@ -3565,7 +3565,7 @@ _ZN12_GLOBAL__N_13ErrD2Ev.exit:                   ; preds = %_ZN4llvm5ErrorD2Ev.
 
 137:                                              ; preds = %108
   %138 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6object10SectionRefENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  store i64 %lhsv.i.i.i.i121, ptr %138, align 8, !tbaa !42
+  store i64 %lhsv.i.i.i.i117, ptr %138, align 8, !tbaa !42
   %.sroa.7.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %109, ptr %.sroa.7.0..sroa_idx70, align 8, !tbaa !328
   %.sroa.010.0.copyload = load ptr, ptr %13, align 8, !tbaa !40
@@ -3593,12 +3593,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit45.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNSt8optionalIN4llvm6object10SectionRefEEaSIRS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS2_ES8_IS2_NSt5decayISB_E4typeEEEEESt16is_constructibleIS2_JSB_EESt13is_assignableIS5_SB_EEERS3_E4typeEOSB_.exit46: ; preds = %137, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN12_GLOBAL__N_13ErrD2Ev.exit
   %141 = phi ptr [ %110, %137 ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %125, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.080.1 = phi i64 [ %.sroa.080.0115, %137 ], [ %.sroa.080.0115, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.080.0115, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %lhsv.i.i.i.i121, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.080.0115, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.080.0115, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0116, %137 ], [ %.sroa.4.0116, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.4.0116, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %109, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.4.0116, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.4.0116, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.6.1 = phi i1 [ %.sroa.6.0117, %137 ], [ %.sroa.6.0117, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.6.0117, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.6.0117, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.6.0117, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.082.1 = phi i64 [ %.sroa.082.0118, %137 ], [ %.sroa.082.0118, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.082.0118, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.082.0118, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %lhsv.i.i.i.i121, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.082.0118, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.483.1 = phi ptr [ %.sroa.483.0119, %137 ], [ %.sroa.483.0119, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.483.0119, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.483.0119, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %109, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.483.0119, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.684.1 = phi i1 [ %.sroa.684.0120, %137 ], [ %.sroa.684.0120, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.684.0120, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.684.0120, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.684.0120, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.080.1 = phi i64 [ %.sroa.080.0111, %137 ], [ %.sroa.080.0111, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.080.0111, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %lhsv.i.i.i.i117, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.080.0111, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.080.0111, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0112, %137 ], [ %.sroa.4.0112, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.4.0112, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %109, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.4.0112, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.4.0112, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.6.1 = phi i1 [ %.sroa.6.0113, %137 ], [ %.sroa.6.0113, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.6.0113, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %.sroa.6.0113, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.6.0113, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.082.1 = phi i64 [ %.sroa.082.0114, %137 ], [ %.sroa.082.0114, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.082.0114, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.082.0114, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %lhsv.i.i.i.i117, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.082.0114, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.483.1 = phi ptr [ %.sroa.483.0115, %137 ], [ %.sroa.483.0115, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.483.0115, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.483.0115, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ %109, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.483.0115, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.684.1 = phi i1 [ %.sroa.684.0116, %137 ], [ %.sroa.684.0116, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ %.sroa.684.0116, %_ZN12_GLOBAL__N_13ErrD2Ev.exit ], [ %.sroa.684.0116, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.684.0116, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %142 = load i8, ptr %97, align 8
   %143 = trunc i8 %142 to i1
   br i1 %143, label %144, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit

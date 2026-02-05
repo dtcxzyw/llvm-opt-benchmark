@@ -10132,23 +10132,23 @@ invoke.cont147.while.cond103.loopexit_crit_edge:  ; preds = %while.end.i.i371
   br label %while.cond103.outer.outer, !llvm.loop !252
 
 while.cond103.outer.outer:                        ; preds = %while.cond103.outer.preheader, %invoke.cont147.while.cond103.loopexit_crit_edge
-  %current_scc_q.sroa.7.1.ph.ph = phi ptr [ %next_scc_q.sroa.10.2834, %while.cond103.outer.preheader ], [ %add.ptr.i.i169, %invoke.cont147.while.cond103.loopexit_crit_edge ]
+  %current_scc_q.sroa.7.0.ph.ph = phi ptr [ %next_scc_q.sroa.10.2834, %while.cond103.outer.preheader ], [ %add.ptr.i.i169, %invoke.cont147.while.cond103.loopexit_crit_edge ]
   %next_scc_q.sroa.21.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.21.5, %invoke.cont147.while.cond103.loopexit_crit_edge ]
   %next_scc_q.sroa.10.3.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.10.5, %invoke.cont147.while.cond103.loopexit_crit_edge ]
   %next_scc_q.sroa.0.5.ph.ph = phi ptr [ null, %while.cond103.outer.preheader ], [ %next_scc_q.sroa.0.7, %invoke.cont147.while.cond103.loopexit_crit_edge ]
   br label %while.cond103.outer
 
 while.cond103.outer:                              ; preds = %while.cond103.outer.outer, %invoke.cont144
-  %current_scc_q.sroa.7.1.ph = phi ptr [ %add.ptr.i.i169, %invoke.cont144 ], [ %current_scc_q.sroa.7.1.ph.ph, %while.cond103.outer.outer ]
+  %current_scc_q.sroa.7.0.ph = phi ptr [ %add.ptr.i.i169, %invoke.cont144 ], [ %current_scc_q.sroa.7.0.ph.ph, %while.cond103.outer.outer ]
   br label %while.cond103
 
 while.cond103:                                    ; preds = %while.cond103.outer, %invoke.cont130
-  %current_scc_q.sroa.7.1 = phi ptr [ %add.ptr.i.i169, %invoke.cont130 ], [ %current_scc_q.sroa.7.1.ph, %while.cond103.outer ]
-  %cmp.i.i167 = icmp eq ptr %next_scc_q.sroa.0.3835, %current_scc_q.sroa.7.1
+  %current_scc_q.sroa.7.0 = phi ptr [ %add.ptr.i.i169, %invoke.cont130 ], [ %current_scc_q.sroa.7.0.ph, %while.cond103.outer ]
+  %cmp.i.i167 = icmp eq ptr %next_scc_q.sroa.0.3835, %current_scc_q.sroa.7.0
   br i1 %cmp.i.i167, label %while.end208, label %while.body106
 
 while.body106:                                    ; preds = %while.cond103
-  %add.ptr.i.i169 = getelementptr inbounds i8, ptr %current_scc_q.sroa.7.1, i64 -8
+  %add.ptr.i.i169 = getelementptr inbounds i8, ptr %current_scc_q.sroa.7.0, i64 -8
   %159 = load ptr, ptr %add.ptr.i.i169, align 8
   %160 = load ptr, ptr %159, align 8
   %_M_finish.i172 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -10458,9 +10458,9 @@ invoke.cont150:                                   ; preds = %invoke.cont150.lr.p
   %next_scc_q.sroa.0.6829 = phi ptr [ %next_scc_q.sroa.0.5.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.0.7, %while.end.i.i371 ]
   %next_scc_q.sroa.10.4828 = phi ptr [ %next_scc_q.sroa.10.3.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.10.5, %while.end.i.i371 ]
   %next_scc_q.sroa.21.4827 = phi ptr [ %next_scc_q.sroa.21.3.ph.ph, %invoke.cont150.lr.ph ], [ %next_scc_q.sroa.21.5, %while.end.i.i371 ]
-  %__begin5140.sroa.0.0826 = phi ptr [ %retval.sroa.0.0.i268, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.0.1, %while.end.i.i371 ]
-  %__begin5140.sroa.6.0825 = phi ptr [ %retval.sroa.5.0.i267, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.6.1, %while.end.i.i371 ]
-  %201 = load ptr, ptr %__begin5140.sroa.6.0825, align 8
+  %__begin5140.sroa.6.0826 = phi ptr [ %retval.sroa.5.0.i267, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.6.1, %while.end.i.i371 ]
+  %__begin5140.sroa.0.0825 = phi ptr [ %retval.sroa.0.0.i268, %invoke.cont150.lr.ph ], [ %__begin5140.sroa.0.1, %while.end.i.i371 ]
+  %201 = load ptr, ptr %__begin5140.sroa.6.0826, align 8
   %202 = load ptr, ptr %scc_to_outgoing_edges_map, align 8
   call void @llvm.prefetch.p0(ptr %202, i32 0, i32 1, i32 1)
   %203 = ptrtoint ptr %201 to i64
@@ -10635,8 +10635,8 @@ for.inc204:                                       ; preds = %_ZNSt6vectorIPKN6go
   %next_scc_q.sroa.21.5 = phi ptr [ %next_scc_q.sroa.21.4827, %invoke.cont197 ], [ %add.ptr19.i.i361, %_ZNSt6vectorIPKN6google8protobuf8compiler3SCCESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i360 ], [ %next_scc_q.sroa.21.4827, %if.then.i339 ]
   %next_scc_q.sroa.10.5 = phi ptr [ %next_scc_q.sroa.10.4828, %invoke.cont197 ], [ %incdec.ptr.i.i357, %_ZNSt6vectorIPKN6google8protobuf8compiler3SCCESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i360 ], [ %incdec.ptr.i340, %if.then.i339 ]
   %next_scc_q.sroa.0.7 = phi ptr [ %next_scc_q.sroa.0.6829, %invoke.cont197 ], [ %call5.i.i.i.i.i366, %_ZNSt6vectorIPKN6google8protobuf8compiler3SCCESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i360 ], [ %next_scc_q.sroa.0.6829, %if.then.i339 ]
-  %incdec.ptr.i368 = getelementptr inbounds nuw i8, ptr %__begin5140.sroa.0.0826, i64 1
-  %incdec.ptr4.i369 = getelementptr inbounds nuw i8, ptr %__begin5140.sroa.6.0825, i64 8
+  %incdec.ptr.i368 = getelementptr inbounds nuw i8, ptr %__begin5140.sroa.0.0825, i64 1
+  %incdec.ptr4.i369 = getelementptr inbounds nuw i8, ptr %__begin5140.sroa.6.0826, i64 8
   %218 = load i8, ptr %incdec.ptr.i368, align 1
   %cmp.i3.i.i370 = icmp slt i8 %218, -1
   br i1 %cmp.i3.i.i370, label %while.body.i.i375, label %while.end.i.i371
@@ -10658,8 +10658,8 @@ while.body.i.i375:                                ; preds = %for.inc204, %while.
   br i1 %cmp.i.i.i382, label %while.body.i.i375, label %while.end.i.i371, !llvm.loop !261
 
 while.end.i.i371:                                 ; preds = %while.body.i.i375, %for.inc204
-  %__begin5140.sroa.6.1 = phi ptr [ %incdec.ptr4.i369, %for.inc204 ], [ %add.ptr6.i.i381, %while.body.i.i375 ]
   %__begin5140.sroa.0.1 = phi ptr [ %incdec.ptr.i368, %for.inc204 ], [ %add.ptr.i.i380, %while.body.i.i375 ]
+  %__begin5140.sroa.6.1 = phi ptr [ %incdec.ptr4.i369, %for.inc204 ], [ %add.ptr6.i.i381, %while.body.i.i375 ]
   %.lcssa.i.i372 = phi i8 [ %218, %for.inc204 ], [ %224, %while.body.i.i375 ]
   %cmp.i.i373 = icmp eq i8 %.lcssa.i.i372, -1
   br i1 %cmp.i.i373, label %invoke.cont147.while.cond103.loopexit_crit_edge, label %invoke.cont150, !llvm.loop !252

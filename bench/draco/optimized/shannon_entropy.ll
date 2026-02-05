@@ -59,12 +59,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %13 = sitofp i32 %1 to double
-  %.not38 = icmp slt i32 %2, 0
-  br i1 %.not38, label %._crit_edge44, label %.lr.ph43.preheader
+  %.not35 = icmp slt i32 %2, 0
+  br i1 %.not35, label %._crit_edge41, label %.lr.ph40.preheader
 
-.lr.ph43.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count50 = zext i32 %5 to i64
-  br label %.lr.ph43
+.lr.ph40.preheader:                               ; preds = %._crit_edge
+  %wide.trip.count47 = zext i32 %5 to i64
+  br label %.lr.ph40
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -79,41 +79,41 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge44:                                    ; preds = %29, %._crit_edge
+._crit_edge41:                                    ; preds = %29, %._crit_edge
   %.022.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.123, %29 ]
   %.021.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1, %29 ]
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %31, label %30
 
-.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %29
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next48, %29 ]
-  %.02140 = phi i32 [ 0, %.lr.ph43.preheader ], [ %.1, %29 ]
-  %.02239 = phi double [ 0.000000e+00, %.lr.ph43.preheader ], [ %.123, %29 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.sroa.029.0, i64 %indvars.iv47
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %29
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next45, %29 ]
+  %.02137 = phi i32 [ 0, %.lr.ph40.preheader ], [ %.1, %29 ]
+  %.02236 = phi double [ 0.000000e+00, %.lr.ph40.preheader ], [ %.123, %29 ]
+  %20 = getelementptr inbounds nuw i32, ptr %.sroa.029.0, i64 %indvars.iv44
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %29
 
-23:                                               ; preds = %.lr.ph43
-  %24 = add nsw i32 %.02140, 1
+23:                                               ; preds = %.lr.ph40
+  %24 = add nsw i32 %.02137, 1
   %25 = uitofp nneg i32 %21 to double
   %26 = fdiv double %25, %13
   %27 = tail call double @log2(double noundef %26) #20, !tbaa !3
-  %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double %.02239)
+  %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double %.02236)
   br label %29
 
-29:                                               ; preds = %.lr.ph43, %23
-  %.123 = phi double [ %28, %23 ], [ %.02239, %.lr.ph43 ]
-  %.1 = phi i32 [ %24, %23 ], [ %.02140, %.lr.ph43 ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !9
+29:                                               ; preds = %.lr.ph40, %23
+  %.123 = phi double [ %28, %23 ], [ %.02236, %.lr.ph40 ]
+  %.1 = phi i32 [ %24, %23 ], [ %.02137, %.lr.ph40 ]
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !9
 
-30:                                               ; preds = %._crit_edge44
+30:                                               ; preds = %._crit_edge41
   store i32 %.021.lcssa, ptr %3, align 4, !tbaa !3
   br label %31
 
-31:                                               ; preds = %30, %._crit_edge44
+31:                                               ; preds = %30, %._crit_edge41
   %.not.i.i.i = icmp eq ptr %.sroa.029.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %32
 

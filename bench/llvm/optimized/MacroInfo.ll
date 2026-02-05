@@ -1270,12 +1270,12 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader: ; preds = %4
   %9 = and i8 %.sroa.020.043.i.i, 1
   %10 = zext nneg i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
-  %.sroa.6.8.insert.shift.i.i32121 = select i1 %8, i64 %11, i64 4294967296
-  %.sroa.3.8.insert.ext.i.i33122 = zext i32 %.sroa.024.041.i.i to i64
-  %.sroa.3.8.insert.insert.i.i34123 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32121, %.sroa.3.8.insert.ext.i.i33122
+  %.sroa.6.8.insert.shift.i.i32119 = select i1 %8, i64 %11, i64 4294967296
+  %.sroa.3.8.insert.ext.i.i33120 = zext i32 %.sroa.024.041.i.i to i64
+  %.sroa.3.8.insert.insert.i.i34121 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32119, %.sroa.3.8.insert.ext.i.i33120
   %12 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 8
-  %.sroa.0.0.copyload.i.i124 = load i32, ptr %12, align 8, !tbaa !3
-  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i124, 0
+  %.sroa.0.0.copyload.i.i122 = load i32, ptr %12, align 8, !tbaa !3
+  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i122, 0
   br i1 %13, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
 
 14:                                               ; preds = %4
@@ -1311,19 +1311,19 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit: ; preds = %.pre
   br i1 %26, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, !llvm.loop !297
 
 _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit
-  %.sroa.0.0.copyload.i.i128 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i124, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.3.8.insert.insert.i.i34127 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.038.065126 = phi ptr [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.024.041.i.i23.lcssa.sink125 = phi i32 [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i128, i32 %1) #15
+  %.sroa.0.0.copyload.i.i126 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i122, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.3.8.insert.insert.i.i34125 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34121, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.038.063124 = phi ptr [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.024.041.i.i23.lcssa.sink123 = phi i32 [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i126, i32 %1) #15
   br i1 %27, label %.critedge, label %31
 
 .critedge:                                        ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader
-  %.sroa.024.041.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.041.i.i23.lcssa.sink125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.038.065.lcssa = phi ptr [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.065126, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34127, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.not61 = icmp eq i32 %.sroa.024.041.i.i23.lcssa.sink.lcssa, 0
-  br i1 %.not61, label %30, label %28
+  %.sroa.024.041.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.041.i.i23.lcssa.sink123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.038.063.lcssa = phi ptr [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.063124, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34121, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.not59 = icmp eq i32 %.sroa.024.041.i.i23.lcssa.sink.lcssa, 0
+  br i1 %.not59, label %30, label %28
 
 28:                                               ; preds = %.critedge
   %29 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %1, i32 %.sroa.024.041.i.i23.lcssa.sink.lcssa) #15
@@ -1333,7 +1333,7 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
   br label %.thread
 
 31:                                               ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
-  %32 = load ptr, ptr %.sroa.038.065126, align 8, !tbaa !293
+  %32 = load ptr, ptr %.sroa.038.063124, align 8, !tbaa !293
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %.preheader.i
 
@@ -1371,7 +1371,7 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
 
 .thread:                                          ; preds = %19, %31, %42, %28, %30
   %.sroa.6.1 = phi i64 [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %28 ], [ 4294967296, %42 ], [ 4294967296, %31 ], [ 4294967296, %19 ]
-  %.sroa.045.1 = phi ptr [ %.sroa.038.065.lcssa, %30 ], [ null, %28 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
+  %.sroa.045.1 = phi ptr [ %.sroa.038.063.lcssa, %30 ], [ null, %28 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.045.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { ptr, i64 } %.fca.1.insert

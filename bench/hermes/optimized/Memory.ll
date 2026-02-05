@@ -80,10 +80,10 @@ if.end12:                                         ; preds = %if.then8, %land.lhs
   br i1 %cmp14, label %if.then17, label %if.end23
 
 if.end12.thread:                                  ; preds = %init.end
-  %mul32 = mul i64 %div, %2
-  %call1333 = tail call ptr @mmap(ptr noundef null, i64 noundef %mul32, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
-  %cmp1434 = icmp eq ptr %call1333, inttoptr (i64 -1 to ptr)
-  br i1 %cmp1434, label %if.end19, label %if.end23
+  %mul28 = mul i64 %div, %2
+  %call1329 = tail call ptr @mmap(ptr noundef null, i64 noundef %mul28, i32 noundef %switch.load, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
+  %cmp1430 = icmp eq ptr %call1329, inttoptr (i64 -1 to ptr)
+  br i1 %cmp1430, label %if.end19, label %if.end23
 
 if.then17:                                        ; preds = %if.end12
   %call18 = tail call { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef null, i32 noundef %PFlags, ptr noundef nonnull align 8 dereferenceable(16) %EC)
@@ -100,8 +100,8 @@ if.end19:                                         ; preds = %if.end12.thread
   br label %return
 
 if.end23:                                         ; preds = %if.end12.thread, %if.end12
-  %call1335 = phi ptr [ %call1333, %if.end12.thread ], [ %call13, %if.end12 ]
-  store ptr %call1335, ptr %Result, align 8
+  %call1331 = phi ptr [ %call1329, %if.end12.thread ], [ %call13, %if.end12 ]
+  store ptr %call1331, ptr %Result, align 8
   %13 = load i64, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
   %mul24 = mul i64 %13, %div
   %Size = getelementptr inbounds nuw i8, ptr %Result, i64 8
@@ -126,7 +126,7 @@ if.end33:                                         ; preds = %if.then26, %if.end2
 
 return:                                           ; preds = %if.then26, %entry, %if.end33, %if.end19, %if.then17
   %retval.sroa.6.0 = phi i64 [ 0, %entry ], [ 0, %if.end19 ], [ %11, %if.then17 ], [ %mul24, %if.end33 ], [ 0, %if.then26 ]
-  %retval.sroa.0.0 = phi ptr [ null, %entry ], [ null, %if.end19 ], [ %10, %if.then17 ], [ %call1335, %if.end33 ], [ null, %if.then26 ]
+  %retval.sroa.0.0 = phi ptr [ null, %entry ], [ null, %if.end19 ], [ %10, %if.then17 ], [ %call1331, %if.end33 ], [ null, %if.then26 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert

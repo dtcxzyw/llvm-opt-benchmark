@@ -4364,8 +4364,8 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %67, %70
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %67 ], [ %72, %70 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx
-  %.not3156 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not3156, label %._crit_edge, label %.lr.ph
+  %.not3154 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not3154, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4390,8 +4390,8 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %67, %70
   ]
 
 80:                                               ; preds = %.lr.ph, %143
-  %.02857 = phi ptr [ %75, %.lr.ph ], [ %144, %143 ]
-  %81 = load ptr, ptr %.02857, align 8, !tbaa !146
+  %.02855 = phi ptr [ %75, %.lr.ph ], [ %144, %143 ]
+  %81 = load ptr, ptr %.02855, align 8, !tbaa !146
   %82 = load i8, ptr %1, align 8, !tbaa !83
   %83 = and i8 %82, -2
   %switch = icmp eq i8 %83, 72
@@ -4525,7 +4525,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm23SmallVect
   br label %143
 
 143:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit36, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit
-  %144 = getelementptr inbounds nuw i8, ptr %.02857, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %.02855, i64 32
   %.not31 = icmp eq ptr %144, %76
   br i1 %.not31, label %._crit_edge, label %80
 

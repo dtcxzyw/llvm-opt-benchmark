@@ -1408,23 +1408,23 @@ define void @_Z20do_redist_pos_coeffsP9gmx_pme_tPK9t_commrecbN3gmx8ArrayRefIKNS4
   br label %36
 
 36:                                               ; preds = %28, %32
-  %.sroa.027.1.in = phi ptr [ %35, %32 ], [ %5, %28 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0.copyload, %32 ], [ %4, %28 ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.copyload, %32 ], [ %3, %28 ]
-  %.sroa.027.1 = load ptr, ptr %.sroa.027.1.in, align 8
+  %.sroa.027.0.in = phi ptr [ %35, %32 ], [ %5, %28 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload, %32 ], [ %4, %28 ]
+  %.sroa.031.0 = phi ptr [ %.sroa.031.0.copyload, %32 ], [ %3, %28 ]
+  %.sroa.027.0 = load ptr, ptr %.sroa.027.0.in, align 8
   %37 = getelementptr inbounds nuw %class.PmeAtomComm, ptr %.pre, i64 %indvars.iv.next
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  %39 = ptrtoint ptr %.sroa.8.1 to i64
-  %40 = ptrtoint ptr %.sroa.031.1 to i64
+  %39 = ptrtoint ptr %.sroa.8.0 to i64
+  %40 = ptrtoint ptr %.sroa.031.0 to i64
   %41 = sub i64 %39, %40
   %42 = sdiv exact i64 %41, 12
   call void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %42)
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %44 = call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %.sroa.031.1, ptr %12, align 8
+  store ptr %.sroa.031.0, ptr %12, align 8
   store ptr %43, ptr %20, align 8
   store ptr %19, ptr %13, align 8, !tbaa !11
   store ptr %37, ptr %14, align 8, !tbaa !201
@@ -1730,7 +1730,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
   br label %204
 
 199:                                              ; preds = %198
-  %200 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.031.1, i64 %.0111152.i
+  %200 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.031.0, i64 %.0111152.i
   %201 = sext i32 %.0105153.i to i64
   %202 = load ptr, ptr %186, align 8, !tbaa !84
   %203 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %202, i64 %201
@@ -1739,7 +1739,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
 
 204:                                              ; preds = %199, %._crit_edge181.i
   %.pre-phi190.i = phi i64 [ %.pre189.i, %._crit_edge181.i ], [ %201, %199 ]
-  %205 = getelementptr inbounds nuw float, ptr %.sroa.027.1, i64 %.0111152.i
+  %205 = getelementptr inbounds nuw float, ptr %.sroa.027.0, i64 %.0111152.i
   %206 = load float, ptr %205, align 4, !tbaa !16
   %207 = load ptr, ptr %187, align 8, !tbaa !87
   %208 = getelementptr inbounds nuw float, ptr %207, i64 %.pre-phi190.i
@@ -1754,7 +1754,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
   br i1 %2, label %214, label %220
 
 214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.031.1, i64 %.0111152.i
+  %215 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.031.0, i64 %.0111152.i
   %216 = load i32, ptr %213, align 4, !tbaa !107
   %217 = sext i32 %216 to i64
   %218 = load ptr, ptr %24, align 8, !tbaa !130
@@ -1763,7 +1763,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
   br label %220
 
 220:                                              ; preds = %214, %210
-  %221 = getelementptr inbounds nuw float, ptr %.sroa.027.1, i64 %.0111152.i
+  %221 = getelementptr inbounds nuw float, ptr %.sroa.027.0, i64 %.0111152.i
   %222 = load float, ptr %221, align 4, !tbaa !16
   %223 = load i32, ptr %213, align 4, !tbaa !107
   %224 = sext i32 %223 to i64

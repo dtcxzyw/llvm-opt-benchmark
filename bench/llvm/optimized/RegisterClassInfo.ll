@@ -622,14 +622,14 @@ _ZNK4llvm9BitVectorneERKS0_.exit:                 ; preds = %155
   br i1 %.not49, label %._crit_edge130.loopexit, label %.lr.ph129, !llvm.loop !250
 
 .lr.ph125:                                        ; preds = %.lr.ph129, %_ZN4llvm9BitVector9referenceaSEb.exit
-  %.sroa.083.1123 = phi ptr [ %192, %_ZN4llvm9BitVector9referenceaSEb.exit ], [ %165, %.lr.ph129 ]
-  %170 = load i16, ptr %.sroa.083.1123, align 2, !tbaa !236
+  %.sroa.083.0123 = phi ptr [ %192, %_ZN4llvm9BitVector9referenceaSEb.exit ], [ %165, %.lr.ph129 ]
+  %170 = load i16, ptr %.sroa.083.0123, align 2, !tbaa !236
   %171 = zext i16 %170 to i32
   %172 = load ptr, ptr %6, align 8, !tbaa !3
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 456
   %174 = load ptr, ptr %173, align 8
   %175 = call noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(304) %6, ptr noundef nonnull align 8 dereferenceable(1065) %1, i32 %171) #15
-  %176 = load i16, ptr %.sroa.083.1123, align 2, !tbaa !236
+  %176 = load i16, ptr %.sroa.083.0123, align 2, !tbaa !236
   %177 = zext i16 %176 to i32
   %178 = lshr i32 %177, 6
   %179 = zext nneg i32 %178 to i64
@@ -654,7 +654,7 @@ _ZNK4llvm9BitVectorneERKS0_.exit:                 ; preds = %155
 _ZN4llvm9BitVector9referenceaSEb.exit:            ; preds = %185, %188
   %storemerge = phi i64 [ %191, %188 ], [ %187, %185 ]
   store i64 %storemerge, ptr %181, align 8, !tbaa !53
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.083.1123, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.083.0123, i64 2
   %.not110 = icmp eq ptr %192, %167
   br i1 %.not110, label %._crit_edge126, label %.lr.ph125, !llvm.loop !251
 

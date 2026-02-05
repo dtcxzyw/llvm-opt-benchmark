@@ -695,12 +695,12 @@ _ZN7testing7MessageD2Ev.exit211:                  ; preds = %_ZNKSt14default_del
   br i1 %40, label %_ZN7testing15AssertionResultD2Ev.exit208.sink.split, label %_ZN7testing15AssertionResultD2Ev.exit208.sink.split.sink.split
 
 _ZN7testing15AssertionResultD2Ev.exit208.sink.split.sink.split: ; preds = %37, %20
-  %.sink365.in = phi ptr [ %22, %20 ], [ %39, %37 ]
-  %.sink363 = phi ptr [ %21, %20 ], [ %38, %37 ]
+  %.sink360.in = phi ptr [ %22, %20 ], [ %39, %37 ]
+  %.sink358 = phi ptr [ %21, %20 ], [ %38, %37 ]
   %.sink.ph = phi ptr [ %19, %20 ], [ %36, %37 ]
-  %.sink365 = load i64, ptr %.sink365.in, align 8, !tbaa !36
-  %41 = add i64 %.sink365, 1
-  call void @_ZdlPvm(ptr noundef %.sink363, i64 noundef %41) #15
+  %.sink360 = load i64, ptr %.sink360.in, align 8, !tbaa !36
+  %41 = add i64 %.sink360, 1
+  call void @_ZdlPvm(ptr noundef %.sink358, i64 noundef %41) #15
   br label %_ZN7testing15AssertionResultD2Ev.exit208.sink.split
 
 _ZN7testing15AssertionResultD2Ev.exit208.sink.split: ; preds = %_ZN7testing15AssertionResultD2Ev.exit208.sink.split.sink.split, %37, %20

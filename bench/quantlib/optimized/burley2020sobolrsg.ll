@@ -142,8 +142,8 @@ if.then.i.i24:                                    ; preds = %invoke.cont
   unreachable
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %call5.i.i.i.i2.i.i.noexc
-  %_M_finish.i.i7.i61 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i61, align 8, !tbaa !28
+  %_M_finish.i.i7.i55 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i55, align 8, !tbaa !28
   br label %if.then.i.i.i.i.i12
 
 _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
@@ -171,8 +171,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt12_Vector_base
   %agg.tmp.sroa.8.0 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %add.ptr.i.i.i14, %call5.i.i.i.i2.i.i.noexc26 ], [ %add.ptr.i.i.i14, %if.end.i.i.i.i.i.i.i19 ]
   %agg.tmp.sroa.0.0 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %call5.i.i.i.i2.i.i27, %call5.i.i.i.i2.i.i.noexc26 ], [ %call5.i.i.i.i2.i.i27, %if.end.i.i.i.i.i.i.i19 ]
   %__first.addr.0.i.i.i.i.i22 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %incdec.ptr.i.i.i.i.i16, %call5.i.i.i.i2.i.i.noexc26 ], [ %add.ptr.i.i.i.i.i.i.i21, %if.end.i.i.i.i.i.i.i19 ]
-  %sequence_6466 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %agg.tmp.sroa.0.0, ptr %sequence_6466, align 8, !tbaa !30
+  %sequence_5860 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store ptr %agg.tmp.sroa.0.0, ptr %sequence_5860, align 8, !tbaa !30
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %__first.addr.0.i.i.i.i.i22, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !31
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -225,8 +225,8 @@ invoke.cont12:                                    ; preds = %invoke.cont.i.i, %i
 invoke.cont14:                                    ; preds = %invoke.cont12
   %3 = load ptr, ptr %group4Seeds_, align 8, !tbaa !34
   %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
-  %cmp.i32.not73 = icmp eq ptr %3, %4
-  br i1 %cmp.i32.not73, label %for.cond.cleanup, label %for.body.lr.ph
+  %cmp.i32.not67 = icmp eq ptr %3, %4
+  br i1 %cmp.i32.not67, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont14
   %mti.i = getelementptr inbounds nuw i8, ptr %mt, i64 4992
@@ -259,7 +259,7 @@ lpad13:                                           ; preds = %invoke.cont12
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont21
   %9 = phi i64 [ %.pre, %for.body.lr.ph ], [ %inc.i, %invoke.cont21 ]
-  %__begin1.sroa.0.074 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %invoke.cont21 ]
+  %__begin1.sroa.0.068 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %invoke.cont21 ]
   %cmp.i33 = icmp eq i64 %9, 624
   br i1 %cmp.i33, label %if.then.i34, label %invoke.cont21
 
@@ -288,8 +288,8 @@ invoke.cont21:                                    ; preds = %.noexc35, %for.body
   %shr7.i = lshr i64 %xor6.i, 18
   %xor8.i = xor i64 %shr7.i, %xor6.i
   %conv = trunc i64 %xor8.i to i32
-  store i32 %conv, ptr %__begin1.sroa.0.074, align 4, !tbaa !27
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.074, i64 4
+  store i32 %conv, ptr %__begin1.sroa.0.068, align 4, !tbaa !27
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.068, i64 4
   %cmp.i32.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i32.not, label %for.cond.cleanup, label %for.body
 
@@ -319,7 +319,7 @@ if.then.i.i.i37:                                  ; preds = %ehcleanup29
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %ehcleanup29, %if.then.i.i.i37
-  %15 = load ptr, ptr %sequence_6466, align 8, !tbaa !30
+  %15 = load ptr, ptr %sequence_5860, align 8, !tbaa !30
   %tobool.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i, label %ehcleanup31, label %if.then.i.i.i.i
 

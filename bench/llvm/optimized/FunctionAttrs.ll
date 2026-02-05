@@ -1407,7 +1407,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29thinLTOPropagateFunctionAttrsERNS
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit, %10
   %22 = phi ptr [ %16, %10 ], [ %323, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
-  %.019.lcssa = phi i1 [ false, %10 ], [ %.157, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
+  %.019.lcssa = phi i1 [ false, %10 ], [ %.153, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !140
   %.not.i.i.i.i = icmp eq ptr %24, null
@@ -1471,7 +1471,7 @@ _ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEED2Ev.exit
 55:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit
   %56 = phi ptr [ %17, %.lr.ph ], [ %324, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %57 = phi ptr [ %16, %.lr.ph ], [ %323, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
-  %.01979 = phi i1 [ false, %.lr.ph ], [ %.157, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
+  %.01975 = phi i1 [ false, %.lr.ph ], [ %.153, %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit ]
   %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
@@ -1637,8 +1637,8 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i: ; preds = %107, %104
   br label %.thread106.sink.split.i
 
 .thread.i.thread:                                 ; preds = %.critedge.i
-  %.not64.i27 = icmp eq ptr %.239.i, null
-  br i1 %.not64.i27, label %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit, label %.thread106.sink.split.i
+  %.not64.i26 = icmp eq ptr %.239.i, null
+  br i1 %.not64.i26, label %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit, label %.thread106.sink.split.i
 
 .thread106.sink.split.i:                          ; preds = %.thread.i, %.thread.i.thread
   %.14479.sink.i = phi ptr [ %spec.select, %.thread.i ], [ %.239.i, %.thread.i.thread ]
@@ -2133,12 +2133,12 @@ _ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionS
   br i1 %.not82.i, label %._crit_edge.split.split.i, label %.lr.ph172.i
 
 .loopexit:                                        ; preds = %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit, %._crit_edge.split.split.i, %._crit_edge.split.split.us.us.i, %._crit_edge.split.us.split.us186.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.i, %.thread138.i, %.lr.ph181.split.us.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread.i, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread
-  %.1.ph = phi i1 [ %.01979, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread ], [ %.01979, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread.i ], [ %.01979, %.thread138.i ], [ true, %._crit_edge.split.split.us.us.i ], [ true, %._crit_edge.split.us.split.us186.i ], [ %.01979, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.i ], [ true, %._crit_edge.split.split.i ], [ true, %.lr.ph181.split.us.i ], [ %.01979, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit ]
+  %.1.ph = phi i1 [ %.01975, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread ], [ %.01975, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.thread.i ], [ %.01975, %.thread138.i ], [ true, %._crit_edge.split.split.us.us.i ], [ true, %._crit_edge.split.us.split.us186.i ], [ %.01975, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit.i ], [ true, %._crit_edge.split.split.i ], [ true, %.lr.ph181.split.us.i ], [ %.01975, %_ZL26calculatePrevailingSummaryN4llvm9ValueInfoERNS_8DenseMapIS0_PNS_15FunctionSummaryENS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S3_EEEENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit ]
   call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %60) #25
   br label %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit:  ; preds = %55, %.loopexit
-  %.157 = phi i1 [ %.1.ph, %.loopexit ], [ true, %55 ]
+  %.153 = phi i1 [ %.1.ph, %.loopexit ], [ true, %55 ]
   call void @_ZN4llvm12scc_iteratorIPNS_18ModuleSummaryIndexENS_11GraphTraitsIS2_EEE10GetNextSCCEv(ptr noundef nonnull align 8 dereferenceable(104) %7)
   %323 = load ptr, ptr %14, align 8, !tbaa !139
   %324 = load ptr, ptr %15, align 8, !tbaa !139

@@ -624,8 +624,8 @@ _ZNSt10unique_ptrIN4llvm13CodeGenTargetESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %187
 
 187:                                              ; preds = %183, %177
-  %.sroa.51002.1 = phi i64 [ 0, %177 ], [ %186, %183 ]
-  %.sroa.01001.1 = phi ptr [ null, %177 ], [ %185, %183 ]
+  %.sroa.51002.0 = phi i64 [ 0, %177 ], [ %186, %183 ]
+  %.sroa.01001.0 = phi ptr [ null, %177 ], [ %185, %183 ]
   %188 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %178, ptr nonnull @.str.6, i64 10) #22
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i8, ptr %189, align 8, !tbaa !56
@@ -639,8 +639,8 @@ _ZNSt10unique_ptrIN4llvm13CodeGenTargetESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %196
 
 196:                                              ; preds = %192, %187
-  %.sroa.5996.1 = phi i64 [ 0, %187 ], [ %195, %192 ]
-  %.sroa.0995.1 = phi ptr [ null, %187 ], [ %194, %192 ]
+  %.sroa.5996.0 = phi i64 [ 0, %187 ], [ %195, %192 ]
+  %.sroa.0995.0 = phi ptr [ null, %187 ], [ %194, %192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %197 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !59
@@ -1044,7 +1044,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit: ; preds = %.thread.i.i.i.i
   %326 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %294, ptr %292, i64 %293) #22
   %327 = extractvalue { ptr, i64 } %326, 0
   %328 = extractvalue { ptr, i64 } %326, 1
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectEnumEntriesERNS_11GenericEnumEN4llvm9StringRefES4_NS3_8ArrayRefIPKNS3_6RecordEEE(ptr noundef nonnull align 8 dereferenceable(120) %197, ptr %.sroa.01001.1, i64 %.sroa.51002.1, ptr %.sroa.0995.1, i64 %.sroa.5996.1, ptr %327, i64 %328)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectEnumEntriesERNS_11GenericEnumEN4llvm9StringRefES4_NS3_8ArrayRefIPKNS3_6RecordEEE(ptr noundef nonnull align 8 dereferenceable(120) %197, ptr %.sroa.01001.0, i64 %.sroa.51002.0, ptr %.sroa.0995.0, i64 %.sroa.5996.0, ptr %327, i64 %328)
   %.val9.i = load ptr, ptr %143, align 8, !tbaa !123, !noalias !124
   %.val10.i = load i32, ptr %144, align 8, !tbaa !18, !noalias !124
   %329 = icmp eq i32 %.val10.i, 0
@@ -3716,8 +3716,8 @@ _ZNK4llvm6Record12isSubClassOfEPKS0_.exit:        ; preds = %.lr.ph.i
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %1352, %1360
-  %.sroa.5863.3 = phi i64 [ 0, %1352 ], [ %1363, %1360 ]
-  %.sroa.0862.3 = phi ptr [ null, %1352 ], [ %1362, %1360 ]
+  %.sroa.5863.0 = phi i64 [ 0, %1352 ], [ %1363, %1360 ]
+  %.sroa.0862.0 = phi ptr [ null, %1352 ], [ %1362, %1360 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %1364 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !201
@@ -3926,7 +3926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   store ptr %1336, ptr %1367, align 8, !tbaa !110
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectEnumEntriesERNS_11GenericEnumEN4llvm9StringRefES4_NS3_8ArrayRefIPKNS3_6RecordEEE(ptr noundef nonnull align 8 dereferenceable(120) %1364, ptr %1354, i64 %1355, ptr %.sroa.0862.3, i64 %.sroa.5863.3, ptr %1346, i64 %1347)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectEnumEntriesERNS_11GenericEnumEN4llvm9StringRefES4_NS3_8ArrayRefIPKNS3_6RecordEEE(ptr noundef nonnull align 8 dereferenceable(120) %1364, ptr %1354, i64 %1355, ptr %.sroa.0862.0, i64 %.sroa.5863.0, ptr %1346, i64 %1347)
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_111GenericEnumESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1179, ptr noundef nonnull align 8 dereferenceable(8) %100)
   call fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_111GenericEnumESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %100) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -5811,8 +5811,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectE
   br label %26
 
 26:                                               ; preds = %22, %19
-  %.sroa.02.1 = phi ptr [ %.sroa.0.0.copyload.i.i, %19 ], [ %24, %22 ]
-  %.sroa.6.1 = phi i64 [ %.sroa.2.0.copyload.i.i, %19 ], [ %25, %22 ]
+  %.sroa.02.0 = phi ptr [ %.sroa.0.0.copyload.i.i, %19 ], [ %24, %22 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.2.0.copyload.i.i, %19 ], [ %25, %22 ]
   br i1 %11, label %_ZL6getIntPKN4llvm6RecordENS_9StringRefE.exit, label %27
 
 27:                                               ; preds = %26
@@ -5840,9 +5840,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter18collectE
 _ZL6getIntPKN4llvm6RecordENS_9StringRefE.exit:    ; preds = %36, %33, %26
   %.09 = phi i64 [ 0, %26 ], [ %35, %33 ], [ %39, %36 ]
   %40 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !288
-  store ptr %.sroa.02.1, ptr %40, align 8, !tbaa !104, !noalias !288
+  store ptr %.sroa.02.0, ptr %40, align 8, !tbaa !104, !noalias !288
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !105, !noalias !288
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !105, !noalias !288
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %.09, ptr %41, align 8, !tbaa !252, !noalias !288
   %42 = load ptr, ptr %13, align 8, !tbaa !291

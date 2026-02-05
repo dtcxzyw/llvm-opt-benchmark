@@ -6271,31 +6271,31 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   br i1 %75, label %.lr.ph, label %.preheader.i.i, !llvm.loop !110
 
 .lr.ph:                                           ; preds = %72, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit
-  %.sroa.8.3 = phi ptr [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit ], [ %storemerge.i.i.i, %72 ]
-  %.sroa.14.3.in = phi i64 [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit ], [ %74, %72 ]
+  %.sroa.8.2 = phi ptr [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit ], [ %storemerge.i.i.i, %72 ]
+  %.sroa.14.2.in = phi i64 [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit ], [ %74, %72 ]
   %.sroa.4.1 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE7reserveEm.exit ], [ %.0.i.i.i, %72 ]
-  %.sroa.14.3 = inttoptr i64 %.sroa.14.3.in to ptr
+  %.sroa.14.2 = inttoptr i64 %.sroa.14.2.in to ptr
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %78
 
 78:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit
-  %.sroa.4.047 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
-  %.sroa.14.046 = phi ptr [ %.sroa.14.3, %.lr.ph ], [ %.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
-  %.sroa.8.045 = phi ptr [ %.sroa.8.3, %.lr.ph ], [ %.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.14.046, i64 16
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.14.046, i64 24
+  %.sroa.4.045 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
+  %.sroa.14.044 = phi ptr [ %.sroa.14.2, %.lr.ph ], [ %.sroa.14.4, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
+  %.sroa.8.043 = phi ptr [ %.sroa.8.2, %.lr.ph ], [ %.sroa.8.5, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.14.044, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.14.044, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12emplace_backIJRKNS_7SdfPathERKNS_22HdDataSourceLocatorSetEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(7432) %2, ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(456) %80)
-          to label %81 unwind label %.loopexit34
+          to label %81 unwind label %.loopexit32
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %.sroa.14.046, align 8
+  %82 = load ptr, ptr %.sroa.14.044, align 8
   %.not.i10 = icmp eq ptr %82, null
   br i1 %.not.i10, label %.preheader, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit
 
 .preheader:                                       ; preds = %81, %99
-  %.sroa.8.4 = phi ptr [ %storemerge.i.i, %99 ], [ %.sroa.8.045, %81 ]
-  %.0.in.i.i = phi i64 [ %.0.i.i11, %99 ], [ %.sroa.4.047, %81 ]
+  %.sroa.8.3 = phi ptr [ %storemerge.i.i, %99 ], [ %.sroa.8.043, %81 ]
+  %.0.in.i.i = phi i64 [ %.0.i.i11, %99 ], [ %.sroa.4.045, %81 ]
   %.0.i.i11 = add i64 %.0.in.i.i, 1
   %83 = load atomic i64, ptr %76 monotonic, align 8
   %.not.i.i = icmp ugt i64 %.0.i.i11, %83
@@ -6308,7 +6308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   br i1 %.not12.i.i, label %89, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.8.4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.8.3, i64 16
   br label %99
 
 89:                                               ; preds = %84
@@ -6329,20 +6329,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   %100 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
   %101 = load atomic i64, ptr %100 monotonic, align 8
   %102 = icmp ugt i64 %101, 63
-  br i1 %102, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39, label %.preheader, !llvm.loop !110
+  br i1 %102, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37, label %.preheader, !llvm.loop !110
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39: ; preds = %99
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37: ; preds = %99
   %.0.i.i.i12.le = inttoptr i64 %101 to ptr
   br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39, %81
-  %.sroa.8.6 = phi ptr [ %.sroa.8.045, %81 ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39 ]
-  %.sroa.14.6 = phi ptr [ %82, %81 ], [ %.0.i.i.i12.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39 ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.047, %81 ], [ %.0.i.i11, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit39 ]
-  %.not.i.not = icmp eq ptr %.sroa.14.6, null
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37, %81
+  %.sroa.8.5 = phi ptr [ %.sroa.8.043, %81 ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37 ]
+  %.sroa.14.4 = phi ptr [ %82, %81 ], [ %.0.i.i.i12.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37 ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.045, %81 ], [ %.0.i.i11, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_22HdDataSourceLocatorSetENS4_25UsdImagingStageSceneIndex13_StageGlobals16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS5_S6_EEEEESE_EppEv.exit.loopexit.split.loop.exit37 ]
+  %.not.i.not = icmp eq ptr %.sroa.14.4, null
   br i1 %.not.i.not, label %.loopexit, label %78
 
-.loopexit34:                                      ; preds = %78
+.loopexit32:                                      ; preds = %78
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %103
@@ -6352,8 +6352,8 @@ _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIN32pxrInternal_v0
           cleanup
   br label %103
 
-103:                                              ; preds = %.loopexit.split-lp, %.loopexit34
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit34 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+103:                                              ; preds = %.loopexit.split-lp, %.loopexit32
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit32 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %7, label %104, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 

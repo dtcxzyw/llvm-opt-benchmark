@@ -3170,18 +3170,18 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %72) #25
-  %.pre103 = load ptr, ptr %10, align 8, !tbaa !95
-  %.not.i.i.i33 = icmp eq ptr %.pre103, null
+  %.pre97 = load ptr, ptr %10, align 8, !tbaa !95
+  %.not.i.i.i33 = icmp eq ptr %.pre97, null
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %87
 
 87:                                               ; preds = %.body.thread, %.body
-  %eh.lpad-body125 = phi { ptr, i32 } [ %85, %.body.thread ], [ %86, %.body ]
-  %88 = phi ptr [ %61, %.body.thread ], [ %.pre103, %.body ]
+  %eh.lpad-body119 = phi { ptr, i32 } [ %85, %.body.thread ], [ %86, %.body ]
+  %88 = phi ptr [ %61, %.body.thread ], [ %.pre97, %.body ]
   call void @_ZdlPv(ptr noundef nonnull %88) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit34
 
 _ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %.body, %87
-  %eh.lpad-body126 = phi { ptr, i32 } [ %86, %.body ], [ %eh.lpad-body125, %87 ]
+  %eh.lpad-body120 = phi { ptr, i32 } [ %86, %.body ], [ %eh.lpad-body119, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %122
 
@@ -3313,13 +3313,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit83:                  ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %.not.i.i.i84, label %_ZNSt6vectorIiSaIiEED2Ev.exit85, label %119
 
 119:                                              ; preds = %.body58.thread, %.body58
-  %eh.lpad-body59129 = phi { ptr, i32 } [ %117, %.body58.thread ], [ %118, %.body58 ]
+  %eh.lpad-body59123 = phi { ptr, i32 } [ %117, %.body58.thread ], [ %118, %.body58 ]
   %120 = phi ptr [ %94, %.body58.thread ], [ %.pre, %.body58 ]
   call void @_ZdlPv(ptr noundef nonnull %120) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit85
 
 _ZNSt6vectorIiSaIiEED2Ev.exit85:                  ; preds = %.body58, %119
-  %eh.lpad-body59130 = phi { ptr, i32 } [ %118, %.body58 ], [ %eh.lpad-body59129, %119 ]
+  %eh.lpad-body59124 = phi { ptr, i32 } [ %118, %.body58 ], [ %eh.lpad-body59123, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %122
 
@@ -3327,7 +3327,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit85:                  ; preds = %.body58, %119
   ret i1 false
 
 122:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit34, %_ZNSt6vectorIiSaIiEED2Ev.exit85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn23.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %eh.lpad-body126, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ], [ %eh.lpad-body59130, %_ZNSt6vectorIiSaIiEED2Ev.exit85 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %eh.lpad-body120, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ], [ %eh.lpad-body59124, %_ZNSt6vectorIiSaIiEED2Ev.exit85 ]
   resume { ptr, i32 } %.pn23.pn
 }
 

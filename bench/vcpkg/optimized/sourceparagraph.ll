@@ -36833,11 +36833,11 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
   br label %129
 
 51:                                               ; preds = %.lr.ph, %_ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit
-  %.056 = phi i64 [ 0, %.lr.ph ], [ %117, %_ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit ]
-  %.02155 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit ]
+  %.050 = phi i64 [ 0, %.lr.ph ], [ %117, %_ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit ]
+  %.02149 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit ]
   %52 = load ptr, ptr %10, align 8, !tbaa !853
   %53 = getelementptr inbounds i8, ptr %52, i64 -24
-  store i64 %.056, ptr %53, align 8, !tbaa !831
+  store i64 %.050, ptr %53, align 8, !tbaa !831
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 191, ptr %4, align 8, !tbaa !278
@@ -36855,7 +36855,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = load ptr, ptr %2, align 8, !tbaa !389
-  %58 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %57, i64 %.056
+  %58 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %57, i64 %.050
   invoke void @_ZNK5vcpkg4Json13IDeserializerINS_26DependencyRequestedFeatureEE5visitERNS0_6ReaderERKNS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.241") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %_ZZN5vcpkg4Json6Reader14array_elementsINS_26DependencyRequestedFeatureEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit unwind label %80
 
@@ -36865,7 +36865,7 @@ _ZZN5vcpkg4Json6Reader14array_elementsINS_26DependencyRequestedFeatureEEENS_8Opt
   br i1 %60, label %61, label %84
 
 61:                                               ; preds = %_ZZN5vcpkg4Json6Reader14array_elementsINS_26DependencyRequestedFeatureEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit
-  br i1 %.02155, label %62, label %_ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit
+  br i1 %.02149, label %62, label %_ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %46, align 8, !tbaa !62
@@ -37018,7 +37018,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5vcpkg7details19OptionalStorageDtorINS_26DependencyRequestedFeatureELb0EED2Ev.exit: ; preds = %112, %_ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE9push_backEOS1_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %117 = add nuw i64 %.056, 1
+  %117 = add nuw i64 %.050, 1
   %118 = load ptr, ptr %40, align 8, !tbaa !391
   %119 = load ptr, ptr %2, align 8, !tbaa !389
   %120 = ptrtoint ptr %118 to i64
@@ -38285,11 +38285,11 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
   br label %152
 
 50:                                               ; preds = %.lr.ph, %_ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit
-  %.061 = phi i64 [ 0, %.lr.ph ], [ %138, %_ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit ]
-  %.02160 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit ]
+  %.055 = phi i64 [ 0, %.lr.ph ], [ %138, %_ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit ]
+  %.02154 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit ]
   %51 = load ptr, ptr %9, align 8, !tbaa !853
   %52 = getelementptr inbounds i8, ptr %51, i64 -24
-  store i64 %.061, ptr %52, align 8, !tbaa !831
+  store i64 %.055, ptr %52, align 8, !tbaa !831
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 191, ptr %4, align 8, !tbaa !278
@@ -38307,7 +38307,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = load ptr, ptr %2, align 8, !tbaa !389
-  %57 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %56, i64 %.061
+  %57 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %56, i64 %.055
   invoke void @_ZNK5vcpkg4Json13IDeserializerINS_10DependencyEE5visitERNS0_6ReaderERKNS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.249") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %_ZZN5vcpkg4Json6Reader14array_elementsINS_10DependencyEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit unwind label %63
 
@@ -38317,7 +38317,7 @@ _ZZN5vcpkg4Json6Reader14array_elementsINS_10DependencyEEENS_8OptionalISt6vectorI
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %_ZZN5vcpkg4Json6Reader14array_elementsINS_10DependencyEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit
-  br i1 %.02160, label %61, label %_ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE9push_backEOS1_.exit
+  br i1 %.02154, label %61, label %_ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE9push_backEOS1_.exit
 
 61:                                               ; preds = %60
   %62 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(144) %43)
@@ -38526,7 +38526,7 @@ _ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZSt8_
 
 _ZN5vcpkg7details19OptionalStorageDtorINS_10DependencyELb0EED2Ev.exit: ; preds = %_ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE9push_backEOS1_.exit, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %138 = add nuw i64 %.061, 1
+  %138 = add nuw i64 %.055, 1
   %139 = load ptr, ptr %39, align 8, !tbaa !391
   %140 = load ptr, ptr %2, align 8, !tbaa !389
   %141 = ptrtoint ptr %139 to i64
@@ -39296,11 +39296,11 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
   br label %144
 
 57:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit
-  %.069 = phi i64 [ 0, %.lr.ph ], [ %132, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit ]
-  %.02168 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit ]
+  %.063 = phi i64 [ 0, %.lr.ph ], [ %132, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit ]
+  %.02162 = phi i1 [ true, %.lr.ph ], [ %.122, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit ]
   %58 = load ptr, ptr %16, align 8, !tbaa !853
   %59 = getelementptr inbounds i8, ptr %58, i64 -24
-  store i64 %.069, ptr %59, align 8, !tbaa !831
+  store i64 %.063, ptr %59, align 8, !tbaa !831
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 191, ptr %6, align 8, !tbaa !278
@@ -39318,7 +39318,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = load ptr, ptr %2, align 8, !tbaa !389
-  %64 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %63, i64 %.069
+  %64 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %63, i64 %.063
   invoke void @_ZZNK5vcpkg35DependencyOverrideArrayDeserializer11visit_arrayERNS_4Json6ReaderERKNS1_5ArrayEENKUlS3_RKNS1_13IDeserializerINS_18DependencyOverrideEEERKNS1_5ValueEE_clES3_SB_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.257") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %64)
           to label %65 unwind label %105
 
@@ -39328,7 +39328,7 @@ _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %57
   br i1 %67, label %68, label %109
 
 68:                                               ; preds = %65
-  br i1 %.02168, label %69, label %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit
+  br i1 %.02162, label %69, label %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %52, align 8, !tbaa !335
@@ -39495,7 +39495,7 @@ _ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit: ; preds =
   %.122 = phi i1 [ false, %_ZN5vcpkg15LocalizedStringD2Ev.exit ], [ false, %68 ], [ true, %104 ], [ %67, %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE9push_backEOS1_.exit.sink.split ]
   call void @_ZN5vcpkg7details19OptionalStorageDtorINS_18DependencyOverrideELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %132 = add nuw i64 %.069, 1
+  %132 = add nuw i64 %.063, 1
   %133 = load ptr, ptr %46, align 8, !tbaa !391
   %134 = load ptr, ptr %2, align 8, !tbaa !389
   %135 = ptrtoint ptr %133 to i64

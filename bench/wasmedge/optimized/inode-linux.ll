@@ -2628,8 +2628,8 @@ define void @_ZN8WasmEdge4Host4WASI5INode10sockAcceptE16__wasi_fdflags_t(ptr dea
           to label %21 unwind label %38
 
 21:                                               ; preds = %17
-  %.not21 = icmp eq i32 %20, 0
-  br i1 %.not21, label %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, label %28
+  %.not19 = icmp eq i32 %20, 0
+  br i1 %.not19, label %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, label %28
 
 _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %13, %21
   store i8 1, ptr %0, align 8

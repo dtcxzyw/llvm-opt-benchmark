@@ -737,8 +737,8 @@ define void @freeParseProg(ptr noundef captures(address_is_null) %0) local_unnam
   tail call void @free(ptr noundef %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr i8, ptr %0, i64 48
-  %.val23.i = load i64, ptr %6, align 8, !tbaa !21
-  %.not.i = icmp eq i64 %.val23.i, 0
+  %.val19.i = load i64, ptr %6, align 8, !tbaa !21
+  %.not.i = icmp eq i64 %.val19.i, 0
   br i1 %.not.i, label %freeBlocks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -747,10 +747,10 @@ define void @freeParseProg(ptr noundef captures(address_is_null) %0) local_unnam
   br label %9
 
 9:                                                ; preds = %case_infos_free.exit12.i, %.lr.ph.i
-  %.024.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %case_infos_free.exit12.i ]
+  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %case_infos_free.exit12.i ]
   %10 = load ptr, ptr %5, align 8, !tbaa !24, !noalias !26
   %11 = load i64, ptr %7, align 8, !tbaa !23, !noalias !26
-  %12 = add i64 %11, %.024.i
+  %12 = add i64 %11, %.020.i
   %13 = load i64, ptr %8, align 8, !tbaa !22, !noalias !26
   %14 = urem i64 %12, %13
   %15 = getelementptr inbounds nuw %struct.parse_block, ptr %10, i64 %14
@@ -808,12 +808,12 @@ case_infos_free.exit.i:                           ; preds = %.lr.ph.i.i.i, %9
   tail call void @free(ptr noundef %.sroa.1.0.copyload.i.i9.i) #18
   tail call void @free(ptr noundef %.sroa.27.0.copyload.i.i11.i) #18
   %23 = add nuw i64 %.08.i.i7.i, 1
-  %exitcond25.not.i = icmp eq i64 %23, %.sroa.17.0.copyload.i
-  br i1 %exitcond25.not.i, label %case_infos_free.exit12.i, label %.lr.ph.i.i6.i, !llvm.loop !29
+  %exitcond21.not.i = icmp eq i64 %23, %.sroa.17.0.copyload.i
+  br i1 %exitcond21.not.i, label %case_infos_free.exit12.i, label %.lr.ph.i.i6.i, !llvm.loop !29
 
 case_infos_free.exit12.i:                         ; preds = %.lr.ph.i.i6.i, %case_infos_free.exit.i
   tail call void @free(ptr noundef %.sroa.12.0.copyload.i) #18
-  %24 = add nuw i64 %.024.i, 1
+  %24 = add nuw i64 %.020.i, 1
   %.val.i = load i64, ptr %6, align 8, !tbaa !21
   %25 = icmp ult i64 %24, %.val.i
   br i1 %25, label %9, label %freeBlocks.exit, !llvm.loop !30

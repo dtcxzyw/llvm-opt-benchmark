@@ -9646,12 +9646,12 @@ _ZL22collectMultiplyFactorsRN4llvm15SmallVectorImplINS_11reassociate10ValueEntry
   br label %_ZN4llvm11SmallVectorINS_11reassociate6FactorELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11reassociate6FactorELj4EED2Ev.exit: ; preds = %._crit_edge.i, %_ZL22collectMultiplyFactorsRN4llvm15SmallVectorImplINS_11reassociate10ValueEntryEEERNS0_INS1_6FactorEEE.exit, %136
-  %.152 = phi ptr [ %.2, %136 ], [ %.2, %_ZL22collectMultiplyFactorsRN4llvm15SmallVectorImplINS_11reassociate10ValueEntryEEERNS0_INS1_6FactorEEE.exit ], [ null, %._crit_edge.i ]
+  %.150 = phi ptr [ %.2, %136 ], [ %.2, %_ZL22collectMultiplyFactorsRN4llvm15SmallVectorImplINS_11reassociate10ValueEntryEEERNS0_INS1_6FactorEEE.exit ], [ null, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %137
 
 137:                                              ; preds = %3, %_ZN4llvm11SmallVectorINS_11reassociate6FactorELj4EED2Ev.exit
-  %.0 = phi ptr [ %.152, %_ZN4llvm11SmallVectorINS_11reassociate6FactorELj4EED2Ev.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %.150, %_ZN4llvm11SmallVectorINS_11reassociate6FactorELj4EED2Ev.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -10617,8 +10617,8 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass31canonicalizeNegFPConsta
 .critedge.thread:                                 ; preds = %20
   %24 = load ptr, ptr %7, align 8, !tbaa !25
   %25 = zext i32 %19 to i64
-  %.idx123 = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx123
+  %.idx121 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx121
   br label %.lr.ph
 
 27:                                               ; preds = %20
@@ -10631,8 +10631,8 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass31canonicalizeNegFPConsta
   %30 = zext i32 %.pre to i64
   %.idx = shl nuw nsw i64 %30, 3
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  %.not102 = icmp eq i32 %.pre, 0
-  br i1 %.not102, label %._crit_edge.thread, label %.lr.ph
+  %.not100 = icmp eq i32 %.pre, 0
+  br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.thread, %.critedge
   %32 = phi ptr [ %26, %.critedge.thread ], [ %31, %.critedge ]
@@ -10643,14 +10643,14 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass31canonicalizeNegFPConsta
   br label %39
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread
-  %.pre107 = load i32, ptr %17, align 8, !tbaa !26
-  %37 = and i32 %.pre107, 1
+  %.pre105 = load i32, ptr %17, align 8, !tbaa !26
+  %37 = and i32 %.pre105, 1
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %._crit_edge.thread, label %201
 
 39:                                               ; preds = %.lr.ph, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread
-  %.035103 = phi ptr [ %33, %.lr.ph ], [ %200, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread ]
-  %40 = load ptr, ptr %.035103, align 8, !tbaa !488
+  %.035101 = phi ptr [ %33, %.lr.ph ], [ %200, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread ]
+  %40 = load ptr, ptr %.035101, align 8, !tbaa !488
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1073741824
@@ -11044,7 +11044,7 @@ _ZN4llvm7APFloatD2Ev.exit75:                      ; preds = %198, %199
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit54.thread: ; preds = %135, %145, %143, %_ZN4llvm7APFloatD2Ev.exit75
-  %200 = getelementptr inbounds nuw i8, ptr %.035103, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.035101, i64 8
   %.not = icmp eq ptr %200, %32
   br i1 %.not, label %._crit_edge, label %39
 

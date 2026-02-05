@@ -774,9 +774,9 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
   switch i8 %22, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread [
     i8 1, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread
-    i8 2, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24
-    i8 3, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27
-    i8 4, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30
+    i8 2, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread18
+    i8 3, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread21
+    i8 4, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24
   ]
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread: ; preds = %20
@@ -791,7 +791,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread: ; preds = %20
   %32 = zext i8 %31 to i32
   br label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12
 
-_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24: ; preds = %20
+_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread18: ; preds = %20
   %33 = zext i32 %1 to i64
   %34 = getelementptr inbounds nuw %"struct.OT::IntType.2", ptr %23, i64 %33
   %35 = load i8, ptr %34, align 1
@@ -813,7 +813,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24: ; preds = %20
   %51 = or disjoint i32 %47, %50
   br label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12
 
-_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27: ; preds = %20
+_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread21: ; preds = %20
   %52 = zext i32 %1 to i64
   %53 = getelementptr inbounds nuw %"struct.OT::IntType.20", ptr %23, i64 %52
   %54 = load i8, ptr %53, align 1
@@ -845,7 +845,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27: ; preds = %20
   %80 = or disjoint i32 %76, %79
   br label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12
 
-_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30: ; preds = %20
+_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24: ; preds = %20
   %81 = zext i32 %1 to i64
   %82 = getelementptr inbounds nuw %"struct.OT::IntType.6", ptr %23, i64 %81
   %83 = load i8, ptr %82, align 1
@@ -887,15 +887,15 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30: ; preds = %20
   %119 = or disjoint i32 %115, %118
   br label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12
 
-_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12: ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30
-  %.0.i23 = phi i32 [ %99, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30 ], [ %27, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread ], [ %41, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24 ], [ %65, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27 ]
-  %.0.i11 = phi i32 [ %119, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread30 ], [ %32, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread ], [ %51, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24 ], [ %80, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread27 ]
-  %120 = icmp ult i32 %.0.i11, %.0.i23
+_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12: ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread18, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread21, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24
+  %.0.i17 = phi i32 [ %99, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24 ], [ %27, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread ], [ %41, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread18 ], [ %65, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread21 ]
+  %.0.i11 = phi i32 [ %119, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread24 ], [ %32, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread ], [ %51, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread18 ], [ %80, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit.thread21 ]
+  %120 = icmp ult i32 %.0.i11, %.0.i17
   br i1 %120, label %205, label %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread: ; preds = %20, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12
-  %.0.i1136 = phi i32 [ %.0.i11, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12 ], [ 0, %20 ]
-  %.0.i2335 = phi i32 [ %.0.i23, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12 ], [ 0, %20 ]
+  %.0.i1130 = phi i32 [ %.0.i11, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12 ], [ 0, %20 ]
+  %.0.i1729 = phi i32 [ %.0.i17, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12 ], [ 0, %20 ]
   %121 = load i8, ptr %0, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw i32 %122, 24
@@ -977,7 +977,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread: ; preds = %20
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit14: ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread, %135, %140, %150, %165
   %.0.i13 = phi i32 [ %184, %165 ], [ %139, %135 ], [ %149, %140 ], [ %164, %150 ], [ 0, %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit12.thread ]
-  %185 = icmp ugt i32 %.0.i1136, %.0.i13
+  %185 = icmp ugt i32 %.0.i1130, %.0.i13
   br i1 %185, label %205, label %186
 
 186:                                              ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit14
@@ -996,9 +996,9 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE9offset_atEj.exit14: ; preds = %_ZNK3CFF8
   %199 = mul nuw nsw i64 %198, %187
   %200 = and i64 %199, 4294967295
   %201 = getelementptr inbounds nuw i8, ptr %21, i64 %200
-  %202 = zext i32 %.0.i2335 to i64
+  %202 = zext i32 %.0.i1729 to i64
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 %202
-  %204 = sub i32 %.0.i1136, %.0.i2335
+  %204 = sub i32 %.0.i1130, %.0.i1729
   %.sroa.6.8.insert.ext = zext i32 %204 to i64
   br label %205
 

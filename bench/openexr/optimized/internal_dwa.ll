@@ -1753,8 +1753,8 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 %46
   %52 = add nsw i64 %46, -2
-  %.not94.i = icmp eq i64 %52, 0
-  br i1 %.not94.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.not93.i = icmp eq i64 %52, 0
+  br i1 %.not93.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1762,17 +1762,17 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   br label %55
 
 55:                                               ; preds = %Classifier_destroy.exit.i, %.lr.ph.i
-  %.03785.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %Classifier_destroy.exit.i ]
-  %.06184.i = phi ptr [ %50, %.lr.ph.i ], [ %73, %Classifier_destroy.exit.i ]
-  %.06383.i = phi i64 [ %52, %.lr.ph.i ], [ %74, %Classifier_destroy.exit.i ]
+  %.03784.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %Classifier_destroy.exit.i ]
+  %.06183.i = phi ptr [ %50, %.lr.ph.i ], [ %73, %Classifier_destroy.exit.i ]
+  %.06382.i = phi i64 [ %52, %.lr.ph.i ], [ %74, %Classifier_destroy.exit.i ]
   %56 = load ptr, ptr %53, align 8, !tbaa !41
-  %57 = icmp ult i64 %.06383.i, 4
+  %57 = icmp ult i64 %.06382.i, 4
   br i1 %57, label %DwaCompressor_readChannelRules.exit.thread, label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %7, i8 0, i64 129, i1 false)
-  %59 = add i64 %.06383.i, -3
+  %59 = add i64 %.06382.i, -3
   br label %60
 
 60:                                               ; preds = %66, %58
@@ -1781,7 +1781,7 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   br i1 %61, label %.thread53.i.i, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %.06184.i, i64 %.04660.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.06183.i, i64 %.04660.i.i
   %64 = load i8, ptr %63, align 1, !tbaa !86
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %.thread.i.i, label %66
@@ -1807,7 +1807,7 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
 70:                                               ; preds = %.thread.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %.pre.i.i, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %71 = getelementptr inbounds nuw i8, ptr %.06184.i, i64 %.pre.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %.06183.i, i64 %.pre.i.i
   %72 = load i8, ptr %71, align 1, !tbaa !86
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %74 = sub i64 %59, %.04660.i.i
@@ -1828,7 +1828,7 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   %.0.i.ph.i = phi i32 [ 23, %70 ], [ %spec.select.i, %76 ]
   %82 = load ptr, ptr %54, align 8, !tbaa !42
   tail call void %82(ptr noundef nonnull %69) #21
-  %83 = add i64 %.03785.i, 1
+  %83 = add i64 %.03784.i, 1
   %84 = icmp eq i32 %.0.i.ph.i, 0
   %85 = icmp ne i64 %74, 0
   %86 = and i1 %84, %85
@@ -1838,12 +1838,12 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   br i1 %84, label %._crit_edge.thread.i, label %DwaCompressor_readChannelRules.exit.thread
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %49
-  %.037.lcssa120.i = phi i64 [ %83, %._crit_edge.i ], [ 0, %49 ]
+  %.037.lcssa119.i = phi i64 [ %83, %._crit_edge.i ], [ 0, %49 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.037.lcssa120.i, ptr %87, align 8, !tbaa !76
+  store i64 %.037.lcssa119.i, ptr %87, align 8, !tbaa !76
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %89 = load ptr, ptr %88, align 8, !tbaa !41
-  %90 = mul i64 %.037.lcssa120.i, 24
+  %90 = mul i64 %.037.lcssa119.i, 24
   %91 = tail call ptr %89(i64 noundef %90) #21
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %91, ptr %92, align 8, !tbaa !75
@@ -1852,23 +1852,23 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
 
 93:                                               ; preds = %._crit_edge.thread.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %91, i8 0, i64 %90, i1 false)
-  %.not95.i = icmp eq i64 %.037.lcssa120.i, 0
-  br i1 %.not95.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph93.i
+  %.not94.i = icmp eq i64 %.037.lcssa119.i, 0
+  br i1 %.not94.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph92.i
 
-.lr.ph93.i:                                       ; preds = %93, %Classifier_read.exit52.i
-  %.091.i = phi i64 [ %136, %Classifier_read.exit52.i ], [ 0, %93 ]
-  %.16489.i = phi i64 [ %.3.i, %Classifier_read.exit52.i ], [ %52, %93 ]
-  %.06588.i = phi ptr [ %.166.i, %Classifier_read.exit52.i ], [ %50, %93 ]
+.lr.ph92.i:                                       ; preds = %93, %Classifier_read.exit52.i
+  %.090.i = phi i64 [ %136, %Classifier_read.exit52.i ], [ 0, %93 ]
+  %.16488.i = phi i64 [ %.3.i, %Classifier_read.exit52.i ], [ %52, %93 ]
+  %.06587.i = phi ptr [ %.166.i, %Classifier_read.exit52.i ], [ %50, %93 ]
   %94 = load ptr, ptr %88, align 8, !tbaa !41
   %95 = load ptr, ptr %92, align 8, !tbaa !75
-  %96 = getelementptr inbounds nuw %struct._Classifier, ptr %95, i64 %.091.i
-  %97 = icmp ult i64 %.16489.i, 4
+  %96 = getelementptr inbounds nuw %struct._Classifier, ptr %95, i64 %.090.i
+  %97 = icmp ult i64 %.16488.i, 4
   br i1 %97, label %Classifier_read.exit52.i, label %98
 
-98:                                               ; preds = %.lr.ph93.i
+98:                                               ; preds = %.lr.ph92.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %6, i8 0, i64 129, i1 false)
-  %99 = add i64 %.16489.i, -3
+  %99 = add i64 %.16488.i, -3
   br label %100
 
 100:                                              ; preds = %106, %98
@@ -1877,7 +1877,7 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   br i1 %101, label %.thread53.i46.i, label %102
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %.06588.i, i64 %.04660.i44.i
+  %103 = getelementptr inbounds nuw i8, ptr %.06587.i, i64 %.04660.i44.i
   %104 = load i8, ptr %103, align 1, !tbaa !86
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %.thread.i49.i, label %106
@@ -1905,7 +1905,7 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 22
   store i16 0, ptr %111, align 2, !tbaa !140
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %112 = getelementptr inbounds nuw i8, ptr %.06588.i, i64 %.pre.i50.i
+  %112 = getelementptr inbounds nuw i8, ptr %.06587.i, i64 %.pre.i50.i
   %113 = load i8, ptr %112, align 1, !tbaa !86
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !86
@@ -1941,12 +1941,12 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   store i32 %134, ptr %135, align 4, !tbaa !79
   br label %Classifier_read.exit52.i
 
-Classifier_read.exit52.i:                         ; preds = %133, %128, %123, %110, %.thread53.i46.i, %.lr.ph93.i
-  %.166.i = phi ptr [ %.06588.i, %.lr.ph93.i ], [ %.06588.i, %.thread53.i46.i ], [ %116, %133 ], [ %116, %110 ], [ %116, %123 ], [ %116, %128 ]
-  %.3.i = phi i64 [ %.16489.i, %.lr.ph93.i ], [ %.16489.i, %.thread53.i46.i ], [ %117, %133 ], [ %117, %110 ], [ %117, %123 ], [ %117, %128 ]
-  %136 = add nuw i64 %.091.i, 1
-  %exitcond.not.i = icmp eq i64 %136, %.037.lcssa120.i
-  br i1 %exitcond.not.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph93.i, !llvm.loop !146
+Classifier_read.exit52.i:                         ; preds = %133, %128, %123, %110, %.thread53.i46.i, %.lr.ph92.i
+  %.166.i = phi ptr [ %.06587.i, %.lr.ph92.i ], [ %.06587.i, %.thread53.i46.i ], [ %116, %133 ], [ %116, %110 ], [ %116, %123 ], [ %116, %128 ]
+  %.3.i = phi i64 [ %.16488.i, %.lr.ph92.i ], [ %.16488.i, %.thread53.i46.i ], [ %117, %133 ], [ %117, %110 ], [ %117, %123 ], [ %117, %128 ]
+  %136 = add nuw i64 %.090.i, 1
+  %exitcond.not.i = icmp eq i64 %136, %.037.lcssa119.i
+  br i1 %exitcond.not.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph92.i, !llvm.loop !146
 
 DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exit52.i, %39, %93
   %.0496 = phi ptr [ %19, %39 ], [ %51, %93 ], [ %51, %Classifier_read.exit52.i ]

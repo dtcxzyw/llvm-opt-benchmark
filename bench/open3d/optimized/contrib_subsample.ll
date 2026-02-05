@@ -2091,7 +2091,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN6open3d4core6Ten
   %212 = load ptr, ptr %35, align 8, !tbaa !139
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i64, ptr %213, align 8, !tbaa !145
-  %.not554 = icmp eq i64 %214, 3
+  %.not551 = icmp eq i64 %214, 3
   %215 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %216 = icmp eq ptr %212, %215
   br i1 %216, label %.critedge, label %217
@@ -2102,7 +2102,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN6open3d4core6Ten
 
 .critedge:                                        ; preds = %217, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br i1 %.not554, label %238, label %.critedge.thread
+  br i1 %.not551, label %238, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %206, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -3248,16 +3248,16 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exit:                 ; preds = %610
   %621 = ptrtoint ptr %611 to i64
   %622 = sub i64 %620, %621
   call void @_ZdlPvm(ptr noundef nonnull %611, i64 noundef %622) #38
-  %.pr551 = load ptr, ptr %70, align 8, !tbaa !179
-  %.not.i.i.i277 = icmp eq ptr %.pr551, null
+  %.pr548 = load ptr, ptr %70, align 8, !tbaa !179
+  %.not.i.i.i277 = icmp eq ptr %.pr548, null
   br i1 %.not.i.i.i277, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %623
 
 623:                                              ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit
   %624 = load ptr, ptr %618, align 8, !tbaa !182
   %625 = ptrtoint ptr %624 to i64
-  %626 = ptrtoint ptr %.pr551 to i64
+  %626 = ptrtoint ptr %.pr548 to i64
   %627 = sub i64 %625, %626
-  call void @_ZdlPvm(ptr noundef nonnull %.pr551, i64 noundef %627) #38
+  call void @_ZdlPvm(ptr noundef nonnull %.pr548, i64 noundef %627) #38
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %610, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit, %623
@@ -3765,16 +3765,16 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit323:              ; preds = %803
   %814 = ptrtoint ptr %804 to i64
   %815 = sub i64 %813, %814
   call void @_ZdlPvm(ptr noundef nonnull %804, i64 noundef %815) #38
-  %.pr552 = load ptr, ptr %82, align 8, !tbaa !172
-  %.not.i.i.i324 = icmp eq ptr %.pr552, null
+  %.pr549 = load ptr, ptr %82, align 8, !tbaa !172
+  %.not.i.i.i324 = icmp eq ptr %.pr549, null
   br i1 %.not.i.i.i324, label %_ZNSt6vectorIiSaIiEED2Ev.exit325, label %816
 
 816:                                              ; preds = %_ZNSt6vectorIiSaIiEEaSEOS1_.exit323
   %817 = load ptr, ptr %811, align 8, !tbaa !175
   %818 = ptrtoint ptr %817 to i64
-  %819 = ptrtoint ptr %.pr552 to i64
+  %819 = ptrtoint ptr %.pr549 to i64
   %820 = sub i64 %818, %819
-  call void @_ZdlPvm(ptr noundef nonnull %.pr552, i64 noundef %820) #38
+  call void @_ZdlPvm(ptr noundef nonnull %.pr549, i64 noundef %820) #38
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit325
 
 _ZNSt6vectorIiSaIiEED2Ev.exit325:                 ; preds = %803, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit323, %816
@@ -8395,7 +8395,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN6open3d4core6Ten
   %167 = load ptr, ptr %26, align 8, !tbaa !139
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i64, ptr %168, align 8, !tbaa !145
-  %.not402 = icmp eq i64 %169, 3
+  %.not399 = icmp eq i64 %169, 3
   %170 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %171 = icmp eq ptr %167, %170
   br i1 %171, label %.critedge, label %172
@@ -8406,7 +8406,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN6open3d4core6Ten
 
 .critedge:                                        ; preds = %172, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %.not402, label %193, label %.critedge.thread
+  br i1 %.not399, label %193, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %161, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -9506,16 +9506,16 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %556
   %567 = ptrtoint ptr %557 to i64
   %568 = sub i64 %566, %567
   call void @_ZdlPvm(ptr noundef nonnull %557, i64 noundef %568) #38
-  %.pr400 = load ptr, ptr %55, align 8, !tbaa !172
-  %.not.i.i.i229 = icmp eq ptr %.pr400, null
+  %.pr397 = load ptr, ptr %55, align 8, !tbaa !172
+  %.not.i.i.i229 = icmp eq ptr %.pr397, null
   br i1 %.not.i.i.i229, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %569
 
 569:                                              ; preds = %_ZNSt6vectorIiSaIiEEaSEOS1_.exit
   %570 = load ptr, ptr %564, align 8, !tbaa !175
   %571 = ptrtoint ptr %570 to i64
-  %572 = ptrtoint ptr %.pr400 to i64
+  %572 = ptrtoint ptr %.pr397 to i64
   %573 = sub i64 %571, %572
-  call void @_ZdlPvm(ptr noundef nonnull %.pr400, i64 noundef %573) #38
+  call void @_ZdlPvm(ptr noundef nonnull %.pr397, i64 noundef %573) #38
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %556, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit, %569

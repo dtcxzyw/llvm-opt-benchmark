@@ -15179,11 +15179,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
 
 ._crit_edge.loopexit:                             ; preds = %114
   %.pre = load ptr, ptr %58, align 8
-  %.pre40 = load ptr, ptr %59, align 8
+  %.pre38 = load ptr, ptr %59, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i
-  %116 = phi ptr [ %.pre40, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
+  %116 = phi ptr [ %.pre38, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   %117 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16038,11 +16038,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
 
 ._crit_edge.loopexit:                             ; preds = %114
   %.pre = load ptr, ptr %58, align 8
-  %.pre40 = load ptr, ptr %59, align 8
+  %.pre38 = load ptr, ptr %59, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i
-  %116 = phi ptr [ %.pre40, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
+  %116 = phi ptr [ %.pre38, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   %117 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16735,11 +16735,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
 
 ._crit_edge.loopexit:                             ; preds = %148
   %.pre = load ptr, ptr %58, align 8
-  %.pre38 = load ptr, ptr %59, align 8
+  %.pre36 = load ptr, ptr %59, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIS3_INS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS8_SC_NS_6TfHashESt8equal_toIS8_ESaISD_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSM_11ValueSelectESF_SH_SI_Lb0ESL_E23static_empty_bucket_ptrEv.exit.thread.i
-  %150 = phi ptr [ %.pre38, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIS3_INS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS8_SC_NS_6TfHashESt8equal_toIS8_ESaISD_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSM_11ValueSelectESF_SH_SI_Lb0ESL_E23static_empty_bucket_ptrEv.exit.thread.i ]
+  %150 = phi ptr [ %.pre36, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIS3_INS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS8_SC_NS_6TfHashESt8equal_toIS8_ESaISD_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSM_11ValueSelectESF_SH_SI_Lb0ESL_E23static_empty_bucket_ptrEv.exit.thread.i ]
   %151 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIS3_INS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS8_SC_NS_6TfHashESt8equal_toIS8_ESaISD_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSM_11ValueSelectESF_SH_SI_Lb0ESL_E23static_empty_bucket_ptrEv.exit.thread.i ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17780,11 +17780,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
 
 ._crit_edge.loopexit:                             ; preds = %161
   %.pre = load ptr, ptr %58, align 8
-  %.pre58 = load ptr, ptr %59, align 8
+  %.pre56 = load ptr, ptr %59, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i
-  %163 = phi ptr [ %.pre58, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
+  %163 = phi ptr [ %.pre56, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   %164 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val18, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS7_SB_NS_6TfHashESt8equal_toIS7_ESaISC_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSL_11ValueSelectESE_SG_SH_Lb0ESK_E23static_empty_bucket_ptrEv.exit.thread.i ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18216,11 +18216,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
 
 ._crit_edge.loopexit:                             ; preds = %94
   %.pre = load ptr, ptr %58, align 8
-  %.pre37 = load ptr, ptr %59, align 8
+  %.pre35 = load ptr, ptr %59, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS6_SA_NS_6TfHashESt8equal_toIS6_ESaISB_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSK_11ValueSelectESD_SF_SG_Lb0ESJ_E23static_empty_bucket_ptrEv.exit.thread.i
-  %96 = phi ptr [ %.pre37, %._crit_edge.loopexit ], [ %.val19, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS6_SA_NS_6TfHashESt8equal_toIS6_ESaISB_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSK_11ValueSelectESD_SF_SG_Lb0ESJ_E23static_empty_bucket_ptrEv.exit.thread.i ]
+  %96 = phi ptr [ %.pre35, %._crit_edge.loopexit ], [ %.val19, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS6_SA_NS_6TfHashESt8equal_toIS6_ESaISB_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSK_11ValueSelectESD_SF_SG_Lb0ESJ_E23static_empty_bucket_ptrEv.exit.thread.i ]
   %97 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val19, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleEENS0_9robin_mapIS6_SA_NS_6TfHashESt8equal_toIS6_ESaISB_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSK_11ValueSelectESD_SF_SG_Lb0ESJ_E23static_empty_bucket_ptrEv.exit.thread.i ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24

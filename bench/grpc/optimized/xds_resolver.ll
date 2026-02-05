@@ -12988,8 +12988,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %
   %.val.i.i.i.i.i = load ptr, ptr %207, align 8, !tbaa !453, !noalias !454
   %273 = getelementptr inbounds i8, ptr %.val38.i.i, i64 -144
   %.val8.i.i.i.i.i = load ptr, ptr %273, align 8, !tbaa !453, !noalias !454
-  %.not38.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, %.val8.i.i.i.i.i
-  br i1 %.not38.i.i.i.i.i.i.i.i.i, label %.loopexit46.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.not29.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, %.val8.i.i.i.i.i
+  br i1 %.not29.i.i.i.i.i.i.i.i.i, label %.loopexit46.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %272
   %274 = getelementptr inbounds i8, ptr %.val38.i.i, i64 -24
@@ -12998,16 +12998,16 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %
   br label %279
 
 277:                                              ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i
-  %278 = getelementptr inbounds nuw i8, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, i64 88
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %278, %.val8.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit46.i, label %279
 
 279:                                              ; preds = %277, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.sroa.0.5.i = phi i64 [ 1, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.8.i, %277 ]
-  %.040.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.126.i.i.i.i.i.i.i.i.i, %277 ]
-  %.sroa.013.039.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %278, %277 ]
+  %.031.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.117.i.i.i.i.i.i.i.i.i, %277 ]
+  %.sroa.013.030.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %278, %277 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !455
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData18CreateMethodConfigEPS1_RKNS_22XdsRouteConfigResource5RouteEPKNS5_11RouteAction13ClusterWeightE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(264) %184, ptr noundef nonnull %.sroa.013.039.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData18CreateMethodConfigEPS1_RKNS_22XdsRouteConfigResource5RouteEPKNS5_11RouteAction13ClusterWeightE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(264) %184, ptr noundef nonnull %.sroa.013.030.i.i.i.i.i.i.i.i.i)
           to label %.noexc32.i unwind label %.loopexit.i, !noalias !405
 
 .noexc32.i:                                       ; preds = %279
@@ -13027,11 +13027,11 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %
 _ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEEaSEOS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc32.i
   %287 = load ptr, ptr %115, align 8, !tbaa !395, !noalias !455
   store ptr null, ptr %115, align 8, !tbaa !395, !noalias !455
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, i64 32
   %289 = load i32, ptr %288, align 8, !tbaa !464, !noalias !455
-  %290 = add i32 %289, %.040.i.i.i.i.i.i.i.i.i
-  %291 = load ptr, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
-  %292 = getelementptr inbounds nuw i8, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, i64 8
+  %290 = add i32 %289, %.031.i.i.i.i.i.i.i.i.i
+  %291 = load ptr, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, i64 8
   %293 = load i64, ptr %292, align 8, !tbaa !65, !noalias !455
   %294 = load ptr, ptr %275, align 8, !tbaa !172, !noalias !455
   %295 = load ptr, ptr %276, align 8, !tbaa !177, !noalias !455
@@ -13130,7 +13130,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry
   store i64 8, ptr %36, align 8, !noalias !455
   store ptr @.str.53, ptr %116, align 8, !noalias !455
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !455
-  %325 = load ptr, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
+  %325 = load ptr, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
   %326 = load i64, ptr %292, align 8, !tbaa !65, !noalias !455
   store i64 %326, ptr %37, align 8, !noalias !455
   store ptr %325, ptr %117, align 8, !noalias !455
@@ -13140,7 +13140,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry
 327:                                              ; preds = %324
   %328 = load ptr, ptr %35, align 8, !tbaa !61, !noalias !455
   %329 = load i64, ptr %118, align 8, !tbaa !65, !noalias !455
-  %330 = load ptr, ptr %.sroa.013.039.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
+  %330 = load ptr, ptr %.sroa.013.030.i.i.i.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !455
   %331 = load i64, ptr %292, align 8, !tbaa !65, !noalias !455
   invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPS1_RKNS_22XdsRouteConfigResource5RouteERKNS_8DurationEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESF_"(ptr nonnull align 8 dereferenceable(88) %79, ptr nonnull %42, i64 %329, ptr %328, i64 %331, ptr %330)
           to label %332 unwind label %356, !noalias !455
@@ -13164,7 +13164,7 @@ _ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWe
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i: ; preds = %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i, %284
   %.sroa.0.6.i = phi i64 [ %.sroa.0.5.i, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ], [ %280, %284 ]
-  %.1.ph.i.i.i.i.i.i.i.i.i = phi i32 [ %290, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ], [ %.040.i.i.i.i.i.i.i.i.i, %284 ]
+  %.1.ph.i.i.i.i.i.i.i.i.i = phi i32 [ %290, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ], [ %.031.i.i.i.i.i.i.i.i.i, %284 ]
   %.pr.i.i.i.i10.i.i.i.i.i = load i64, ptr %34, align 8, !tbaa !31, !noalias !455
   %337 = icmp eq i64 %.pr.i.i.i.i10.i.i.i.i.i, 1
   br i1 %337, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i
@@ -13189,7 +13189,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i: ; preds = %_ZN4abs
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i: ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i, %282
   %.sroa.0.7.i = phi i64 [ %.sroa.0.6.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i ], [ %280, %282 ]
-  %.127.i.i.i.i.i.i.i.i.i = phi i32 [ %.1.ph.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i ], [ %.040.i.i.i.i.i.i.i.i.i, %282 ]
+  %.118.i.i.i.i.i.i.i.i.i = phi i32 [ %.1.ph.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i ], [ %.031.i.i.i.i.i.i.i.i.i, %282 ]
   %347 = phi i64 [ %.pr.i.i.i.i10.i.i.i.i.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i9.i.i.i.i.i ], [ %280, %282 ]
   %348 = trunc i64 %347 to i1
   br i1 %348, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i, label %349
@@ -13208,7 +13208,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i: ; preds =
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %349, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i, %343, %339, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i
   %.sroa.0.8.i = phi i64 [ %.sroa.0.6.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i ], [ %.sroa.0.6.i, %343 ], [ %.sroa.0.6.i, %339 ], [ %.sroa.0.7.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i ], [ %.sroa.0.7.i, %349 ]
-  %.126.i.i.i.i.i.i.i.i.i = phi i32 [ %.1.ph.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %343 ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %339 ], [ %.127.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i ], [ %.127.i.i.i.i.i.i.i.i.i, %349 ]
+  %.117.i.i.i.i.i.i.i.i.i = phi i32 [ %.1.ph.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i12.i.i.i.i.i ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %343 ], [ %.1.ph.i.i.i.i.i.i.i.i.i, %339 ], [ %.118.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread.i.i.i.i11.i.i.i.i.i ], [ %.118.i.i.i.i.i.i.i.i.i, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !455
   br i1 %281, label %277, label %"_ZN9grpc_core5MatchIJZNS_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPS2_RKNS_22XdsRouteConfigResource5RouteERKNS_8DurationEE3$_0ZNS3_13AddRouteEntryES4_S8_SB_E3$_1ZNS3_13AddRouteEntryES4_S8_SB_E3$_2ENS6_11RouteAction11ClusterNameEJSt6vectorINSF_13ClusterWeightESaISI_EENSF_26ClusterSpecifierPluginNameEEEEDTclclsr3stdE7declvalINS_12OverloadTypeIJDpT_EEEEEclsr3stdE7declvalIT0_EEEERKSt7variantIJSQ_DpT1_EESO_.exit.i.i"
 

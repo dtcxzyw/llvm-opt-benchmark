@@ -7036,39 +7036,39 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %15, %.noexc54, %_ZN
 30:                                               ; preds = %24, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit61, label %.lr.ph95
+  br i1 %.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit61, label %.lr.ph92
 
-.lr.ph95:                                         ; preds = %30
+.lr.ph92:                                         ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %32
 
-32:                                               ; preds = %.lr.ph95, %._crit_edge
-  %.05093 = phi i32 [ 0, %.lr.ph95 ], [ %147, %._crit_edge ]
-  %.sroa.065.092 = phi ptr [ %20, %.lr.ph95 ], [ %146, %._crit_edge ]
+32:                                               ; preds = %.lr.ph92, %._crit_edge
+  %.05090 = phi i32 [ 0, %.lr.ph92 ], [ %147, %._crit_edge ]
+  %.sroa.065.089 = phi ptr [ %20, %.lr.ph92 ], [ %146, %._crit_edge ]
   %33 = invoke noundef i32 @_ZN11QDataStream11readRawDataEPci(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %.sroa.073.0, i32 noundef %3)
           to label %.preheader unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit.thread
 
 .preheader:                                       ; preds = %32
   %34 = load ptr, ptr %31, align 8
   %35 = load ptr, ptr %2, align 8
-  %.not96 = icmp eq ptr %34, %35
-  br i1 %.not96, label %._crit_edge, label %.lr.ph
+  %.not93 = icmp eq ptr %34, %35
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 40
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 41
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 42
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 43
-  %40 = ptrtoint ptr %.sroa.065.092 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 41
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 42
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 43
+  %40 = ptrtoint ptr %.sroa.065.089 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 8
   br label %43
 
 43:                                               ; preds = %.lr.ph, %.loopexit
   %44 = phi ptr [ %35, %.lr.ph ], [ %133, %.loopexit ]
   %45 = phi i64 [ 0, %.lr.ph ], [ %139, %.loopexit ]
-  %.04891 = phi i32 [ 0, %.lr.ph ], [ %138, %.loopexit ]
-  %.04990 = phi i32 [ 0, %.lr.ph ], [ %137, %.loopexit ]
+  %.04888 = phi i32 [ 0, %.lr.ph ], [ %138, %.loopexit ]
+  %.04987 = phi i32 [ 0, %.lr.ph ], [ %137, %.loopexit ]
   %46 = getelementptr inbounds nuw %"struct.vcg::tri::io::ImporterExpePTS<CMeshO>::FileProperty", ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = load i8, ptr %47, align 4
@@ -7091,19 +7091,19 @@ _ZeqRK10QByteArrayPKc.exit:                       ; preds = %50
   br i1 %55, label %56, label %67
 
 56:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit
-  %57 = sext i32 %.04990 to i64
+  %57 = sext i32 %.04987 to i64
   %58 = getelementptr inbounds i8, ptr %.sroa.073.0, i64 %57
   br label %59
 
 59:                                               ; preds = %56, %59
-  %indvars.iv99 = phi i64 [ 0, %56 ], [ %indvars.iv.next100, %59 ]
-  %60 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv99
+  %indvars.iv96 = phi i64 [ 0, %56 ], [ %indvars.iv.next97, %59 ]
+  %60 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv96
   %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv99
+  %62 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv96
   store float %61, ptr %62, align 4
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next100, 3
-  br i1 %exitcond102.not, label %.loopexit, label %59, !llvm.loop !97
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 3
+  br i1 %exitcond99.not, label %.loopexit, label %59, !llvm.loop !97
 
 63:                                               ; preds = %11, %10
   %64 = landingpad { ptr, i32 }
@@ -7115,7 +7115,7 @@ _ZeqRK10QByteArrayPKc.exit:                       ; preds = %50
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.loopexit87:                                      ; preds = %121, %123, %131
+.loopexit84:                                      ; preds = %121, %123, %131
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -7143,7 +7143,7 @@ _ZeqRK10QByteArrayPKc.exit57:                     ; preds = %67
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit57
-  %76 = sext i32 %.04990 to i64
+  %76 = sext i32 %.04987 to i64
   %77 = getelementptr inbounds i8, ptr %.sroa.073.0, i64 %76
   br label %78
 
@@ -7175,10 +7175,10 @@ _ZeqRK10QByteArrayPKc.exit58:                     ; preds = %82
   br i1 %89, label %90, label %103
 
 90:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit58
-  %91 = sext i32 %.04990 to i64
+  %91 = sext i32 %.04987 to i64
   %92 = getelementptr inbounds i8, ptr %.sroa.073.0, i64 %91
   %93 = load float, ptr %92, align 4
-  %94 = load ptr, ptr %.sroa.065.092, align 8
+  %94 = load ptr, ptr %.sroa.065.089, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 168
   %96 = load ptr, ptr %94, align 8
   %97 = ptrtoint ptr %96 to i64
@@ -7209,7 +7209,7 @@ _ZeqRK10QByteArrayPKc.exit59:                     ; preds = %103
   br i1 %110, label %111, label %121
 
 111:                                              ; preds = %_ZeqRK10QByteArrayPKc.exit59
-  %112 = sext i32 %.04990 to i64
+  %112 = sext i32 %.04987 to i64
   %113 = getelementptr i8, ptr %.sroa.073.0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = getelementptr i8, ptr %113, i64 1
@@ -7226,7 +7226,7 @@ _ZeqRK10QByteArrayPKc.exit59:                     ; preds = %103
 
 121:                                              ; preds = %_ZeqRK10QByteArrayPKc.exit59
   %122 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.51)
-          to label %123 unwind label %.loopexit87
+          to label %123 unwind label %.loopexit84
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %2, align 8
@@ -7236,19 +7236,19 @@ _ZeqRK10QByteArrayPKc.exit59:                     ; preds = %103
   %128 = load i64, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %126, i64 %128
   %130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %129)
-          to label %131 unwind label %.loopexit87
+          to label %131 unwind label %.loopexit84
 
 131:                                              ; preds = %123
   %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.17)
-          to label %.loopexit unwind label %.loopexit87
+          to label %.loopexit unwind label %.loopexit84
 
 .loopexit:                                        ; preds = %78, %59, %111, %90, %131, %43
   %133 = load ptr, ptr %2, align 8
   %134 = getelementptr inbounds nuw %"struct.vcg::tri::io::ImporterExpePTS<CMeshO>::FileProperty", ptr %133, i64 %45
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i32, ptr %135, align 8
-  %137 = add i32 %136, %.04990
-  %138 = add i32 %.04891, 1
+  %137 = add i32 %136, %.04987
+  %138 = add i32 %.04888, 1
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %31, align 8
   %141 = ptrtoint ptr %140 to i64
@@ -7259,10 +7259,10 @@ _ZeqRK10QByteArrayPKc.exit59:                     ; preds = %103
   br i1 %145, label %43, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 48
-  %147 = add nuw i32 %.05093, 1
-  %exitcond103.not = icmp eq i32 %147, %1
-  br i1 %exitcond103.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit61, label %32, !llvm.loop !100
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.065.089, i64 48
+  %147 = add nuw i32 %.05090, 1
+  %exitcond100.not = icmp eq i32 %147, %1
+  br i1 %exitcond100.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit61, label %32, !llvm.loop !100
 
 _ZNSt6vectorIfSaIfEED2Ev.exit61:                  ; preds = %._crit_edge, %30
   %.not.i.i.i62 = icmp eq ptr %.sroa.073.0, null
@@ -7276,18 +7276,18 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   call void @_ZN11QDataStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   ret i32 0
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit87, %29, %25, %65
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %26, %25 ], [ %26, %29 ], [ %lpad.loopexit, %.loopexit87 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit84, %29, %25, %65
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %26, %25 ], [ %26, %29 ], [ %lpad.loopexit, %.loopexit84 ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.073.0, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIhSaIhEED2Ev.exit64, label %149
 
 149:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.thread, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.pn113 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
+  %.pn110 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.073.0) #21
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit64
 
 _ZNSt6vectorIhSaIhEED2Ev.exit64:                  ; preds = %149, %_ZNSt6vectorIfSaIfEED2Ev.exit, %63
-  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn113, %149 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn110, %149 ]
   call void @_ZN11QDataStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   resume { ptr, i32 } %.pn.pn
 }

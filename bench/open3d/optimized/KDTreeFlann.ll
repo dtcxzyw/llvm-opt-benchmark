@@ -519,7 +519,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %52
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.noexc, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.not.i.i.i.i49 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
+  %.not.i.i.i.i46 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.11.0 = phi ptr [ %48, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %48, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.040.0 = phi ptr [ %47, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %47, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -534,7 +534,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %56, ptr %59, align 8, !tbaa !43
   store i64 0, ptr %58, align 8, !tbaa !44
-  br i1 %.not.i.i.i.i49, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %60
+  br i1 %.not.i.i.i.i46, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %60
 
 60:                                               ; preds = %52
   %61 = getelementptr double, ptr %56, i64 %18
@@ -948,7 +948,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %39
 
 39:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.noexc, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.not.i.i.i.i61 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
+  %.not.i.i.i.i58 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.11.0 = phi ptr [ %35, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.049.0 = phi ptr [ %34, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %34, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -963,7 +963,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %43, ptr %46, align 8, !tbaa !43
   store i64 0, ptr %45, align 8, !tbaa !44
-  br i1 %.not.i.i.i.i61, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %47
+  br i1 %.not.i.i.i.i58, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %47
 
 47:                                               ; preds = %39
   %48 = getelementptr double, ptr %43, i64 %19
@@ -3079,7 +3079,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %54
 
 54:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.noexc, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.not.i.i.i.i49 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
+  %.not.i.i.i.i46 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.11.0 = phi ptr [ %50, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %50, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.040.0 = phi ptr [ %49, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %49, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3095,7 +3095,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %59, ptr %62, align 8, !tbaa !43
   store i64 0, ptr %61, align 8, !tbaa !44
-  br i1 %.not.i.i.i.i49, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %63
+  br i1 %.not.i.i.i.i46, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %63
 
 63:                                               ; preds = %54
   %64 = getelementptr double, ptr %59, i64 %20
@@ -3514,7 +3514,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %41
 
 41:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.noexc, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.not.i.i.i.i61 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
+  %.not.i.i.i.i58 = phi i1 [ false, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ false, %.noexc ], [ true, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.11.0 = phi ptr [ %37, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %37, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %.sroa.049.0 = phi ptr [ %36, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3530,7 +3530,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %46, ptr %49, align 8, !tbaa !43
   store i64 0, ptr %48, align 8, !tbaa !44
-  br i1 %.not.i.i.i.i61, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %50
+  br i1 %.not.i.i.i.i58, label %_ZN9nanoflann12KNNResultSetIdlmE4initEPlPd.exit.i, label %50
 
 50:                                               ; preds = %41
   %51 = getelementptr double, ptr %46, i64 %21

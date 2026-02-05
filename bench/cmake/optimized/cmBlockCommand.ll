@@ -2440,8 +2440,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122cmBlockFunctionBlocker6Re
   %7 = load ptr, ptr %1, align 8, !tbaa !195
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !195
-  %.not90 = icmp eq ptr %7, %9
-  br i1 %.not90, label %.critedge24, label %.lr.ph
+  %.not87 = icmp eq ptr %7, %9
+  br i1 %.not87, label %.critedge24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2460,7 +2460,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122cmBlockFunctionBlocker6Re
   br label %23
 
 23:                                               ; preds = %_ZN17cmExecutionStatusD2Ev.exit, %.lr.ph
-  %.sroa.058.091 = phi ptr [ %7, %.lr.ph ], [ %117, %_ZN17cmExecutionStatusD2Ev.exit ]
+  %.sroa.055.088 = phi ptr [ %7, %.lr.ph ], [ %117, %_ZN17cmExecutionStatusD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !196
   store ptr %11, ptr %10, align 8, !tbaa !90
@@ -2471,7 +2471,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122cmBlockFunctionBlocker6Re
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 0, ptr %14, align 8
   store i8 0, ptr %17, align 8, !tbaa !105
-  %24 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.058.091, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5)
+  %24 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.055.088, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5)
           to label %25 unwind label %68
 
 25:                                               ; preds = %23
@@ -2666,7 +2666,7 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread: ; preds = %93, %_ZN13cm
   br label %98
 
 98:                                               ; preds = %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread
-  %.not123 = phi i1 [ true, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread ], [ false, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
+  %.not120 = phi i1 [ true, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread ], [ false, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
   %99 = load ptr, ptr %16, align 8, !tbaa !95
   %100 = load ptr, ptr %21, align 8, !tbaa !96
   %.not4.i.i.i.i.i = icmp eq ptr %99, %100
@@ -2720,9 +2720,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN17cmExecutionStatusD2Ev.exit:                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.058.091, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.055.088, i64 16
   %.not = icmp eq ptr %117, %9
-  %or.cond = select i1 %.not123, i1 true, i1 %.not
+  %or.cond = select i1 %.not120, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge24, label %23
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit31: ; preds = %72, %.loopexit, %.loopexit.split-lp, %49, %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i29, %68

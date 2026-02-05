@@ -13277,10 +13277,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node14PrincipalRealm14BootstrapRealmEv(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  %scope.i49 = alloca %"class.v8::EscapableHandleScope", align 8
-  %scope.i33 = alloca %"class.v8::EscapableHandleScope", align 8
-  %scope.i20 = alloca %"class.v8::EscapableHandleScope", align 8
-  %scope.i7 = alloca %"class.v8::EscapableHandleScope", align 8
+  %scope.i45 = alloca %"class.v8::EscapableHandleScope", align 8
+  %scope.i29 = alloca %"class.v8::EscapableHandleScope", align 8
+  %scope.i16 = alloca %"class.v8::EscapableHandleScope", align 8
+  %scope.i3 = alloca %"class.v8::EscapableHandleScope", align 8
   %scope.i = alloca %"class.v8::EscapableHandleScope", align 8
   %scope = alloca %"class.v8::HandleScope", align 8
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13318,135 +13318,135 @@ if.end:                                           ; preds = %_ZN4node5Realm19Exe
   %flags_.i = getelementptr inbounds nuw i8, ptr %5, i64 2064
   %6 = load i64, ptr %flags_.i, align 8
   %and.i = and i64 %6, 256
-  %tobool.i6.not = icmp eq i64 %and.i, 0
-  br i1 %tobool.i6.not, label %if.then7, label %if.end24
+  %tobool.i2.not = icmp eq i64 %and.i, 0
+  br i1 %tobool.i2.not, label %if.then7, label %if.end24
 
 if.then7:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i3)
   %7 = load ptr, ptr %isolate_, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i7, ptr noundef %7) #20
-  %vtable.i9 = load ptr, ptr %this, align 8
-  %vfn.i10 = getelementptr inbounds nuw i8, ptr %vtable.i9, i64 64
-  %8 = load ptr, ptr %vfn.i10, align 8
-  %call2.i11 = call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i3, ptr noundef %7) #20
+  %vtable.i5 = load ptr, ptr %this, align 8
+  %vfn.i6 = getelementptr inbounds nuw i8, ptr %vtable.i5, i64 64
+  %8 = load ptr, ptr %vfn.i6, align 8
+  %call2.i7 = call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
   %9 = load ptr, ptr %env_.i.i, align 8
-  %builtin_loader_.i.i13 = getelementptr inbounds nuw i8, ptr %9, i64 2736
-  %call10.i14 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i13, ptr %call2.i11, ptr noundef nonnull @.str.165, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
-  %cmp.i.i.i15 = icmp eq ptr %call10.i14, null
-  br i1 %cmp.i.i.i15, label %if.then.i17, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19
+  %builtin_loader_.i.i9 = getelementptr inbounds nuw i8, ptr %9, i64 2736
+  %call10.i10 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i9, ptr %call2.i7, ptr noundef nonnull @.str.165, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  %cmp.i.i.i11 = icmp eq ptr %call10.i10, null
+  br i1 %cmp.i.i.i11, label %if.then.i13, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15
 
-if.then.i17:                                      ; preds = %if.then7
+if.then.i13:                                      ; preds = %if.then7
   %10 = load ptr, ptr %env_.i.i, align 8
-  %async_hooks_.i.i18 = getelementptr inbounds nuw i8, ptr %10, i64 880
-  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i18) #20
-  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19
+  %async_hooks_.i.i14 = getelementptr inbounds nuw i8, ptr %10, i64 880
+  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i14) #20
+  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15
 
-_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19:   ; preds = %if.then7, %if.then.i17
-  %call4.i.i16 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i7, ptr noundef %call10.i14) #20
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i7) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i7)
-  %cmp.i.i150 = icmp eq ptr %call4.i.i16, null
+_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15:   ; preds = %if.then7, %if.then.i13
+  %call4.i.i12 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i3, ptr noundef %call10.i10) #20
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i3)
+  %cmp.i.i150 = icmp eq ptr %call4.i.i12, null
   br i1 %cmp.i.i150, label %cleanup, label %lor.rhs
 
-lor.rhs:                                          ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19
-  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i20)
+lor.rhs:                                          ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i16)
   %11 = load ptr, ptr %isolate_, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i20, ptr noundef %11) #20
-  %vtable.i22 = load ptr, ptr %this, align 8
-  %vfn.i23 = getelementptr inbounds nuw i8, ptr %vtable.i22, i64 64
-  %12 = load ptr, ptr %vfn.i23, align 8
-  %call2.i24 = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i16, ptr noundef %11) #20
+  %vtable.i18 = load ptr, ptr %this, align 8
+  %vfn.i19 = getelementptr inbounds nuw i8, ptr %vtable.i18, i64 64
+  %12 = load ptr, ptr %vfn.i19, align 8
+  %call2.i20 = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
   %13 = load ptr, ptr %env_.i.i, align 8
-  %builtin_loader_.i.i26 = getelementptr inbounds nuw i8, ptr %13, i64 2736
-  %call10.i27 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i26, ptr %call2.i24, ptr noundef nonnull @.str.166, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
-  %cmp.i.i.i28 = icmp eq ptr %call10.i27, null
-  br i1 %cmp.i.i.i28, label %if.then.i30, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32
+  %builtin_loader_.i.i22 = getelementptr inbounds nuw i8, ptr %13, i64 2736
+  %call10.i23 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i22, ptr %call2.i20, ptr noundef nonnull @.str.166, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  %cmp.i.i.i24 = icmp eq ptr %call10.i23, null
+  br i1 %cmp.i.i.i24, label %if.then.i26, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28
 
-if.then.i30:                                      ; preds = %lor.rhs
+if.then.i26:                                      ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i, align 8
-  %async_hooks_.i.i31 = getelementptr inbounds nuw i8, ptr %14, i64 880
-  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i31) #20
-  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32
+  %async_hooks_.i.i27 = getelementptr inbounds nuw i8, ptr %14, i64 880
+  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i27) #20
+  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28
 
-_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32:   ; preds = %lor.rhs, %if.then.i30
-  %call4.i.i29 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i20, ptr noundef %call10.i27) #20
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i20) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i20)
-  %cmp.i.i145 = icmp eq ptr %call4.i.i29, null
-  br i1 %cmp.i.i145, label %cleanup, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32.if.end24_crit_edge
+_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28:   ; preds = %lor.rhs, %if.then.i26
+  %call4.i.i25 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i16, ptr noundef %call10.i23) #20
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i16)
+  %cmp.i.i145 = icmp eq ptr %call4.i.i25, null
+  br i1 %cmp.i.i145, label %cleanup, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28.if.end24_crit_edge
 
-_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32.if.end24_crit_edge: ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32
+_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28.if.end24_crit_edge: ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28
   %.pre = load ptr, ptr %env_.i.i, align 8
   br label %if.end24
 
-if.end24:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32.if.end24_crit_edge, %if.end
-  %15 = phi ptr [ %.pre, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32.if.end24_crit_edge ], [ %5, %if.end ]
+if.end24:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28.if.end24_crit_edge, %if.end
+  %15 = phi ptr [ %.pre, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28.if.end24_crit_edge ], [ %5, %if.end ]
   %isolate_data_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 96
   %16 = load ptr, ptr %isolate_data_.i.i.i, align 8
   %worker_context_.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 4176
   %17 = load ptr, ptr %worker_context_.i.i.i, align 8
   %cmp.i = icmp eq ptr %17, null
   %cond = select i1 %cmp.i, ptr @.str.167, ptr @.str.168
-  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i29)
   %18 = load ptr, ptr %isolate_, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i33, ptr noundef %18) #20
-  %vtable.i35 = load ptr, ptr %this, align 8
-  %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 64
-  %19 = load ptr, ptr %vfn.i36, align 8
-  %call2.i37 = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i29, ptr noundef %18) #20
+  %vtable.i31 = load ptr, ptr %this, align 8
+  %vfn.i32 = getelementptr inbounds nuw i8, ptr %vtable.i31, i64 64
+  %19 = load ptr, ptr %vfn.i32, align 8
+  %call2.i33 = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
   %20 = load ptr, ptr %env_.i.i, align 8
-  %builtin_loader_.i.i39 = getelementptr inbounds nuw i8, ptr %20, i64 2736
-  %call10.i40 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i39, ptr %call2.i37, ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
-  %cmp.i.i.i41 = icmp eq ptr %call10.i40, null
-  br i1 %cmp.i.i.i41, label %if.then.i43, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45
+  %builtin_loader_.i.i35 = getelementptr inbounds nuw i8, ptr %20, i64 2736
+  %call10.i36 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i35, ptr %call2.i33, ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  %cmp.i.i.i37 = icmp eq ptr %call10.i36, null
+  br i1 %cmp.i.i.i37, label %if.then.i39, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41
 
-if.then.i43:                                      ; preds = %if.end24
+if.then.i39:                                      ; preds = %if.end24
   %21 = load ptr, ptr %env_.i.i, align 8
-  %async_hooks_.i.i44 = getelementptr inbounds nuw i8, ptr %21, i64 880
-  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i44) #20
-  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45
+  %async_hooks_.i.i40 = getelementptr inbounds nuw i8, ptr %21, i64 880
+  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i40) #20
+  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41
 
-_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45:   ; preds = %if.end24, %if.then.i43
-  %call4.i.i42 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i33, ptr noundef %call10.i40) #20
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i33) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i33)
-  %cmp.i.i140 = icmp eq ptr %call4.i.i42, null
+_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41:   ; preds = %if.end24, %if.then.i39
+  %call4.i.i38 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i29, ptr noundef %call10.i36) #20
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i29) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i29)
+  %cmp.i.i140 = icmp eq ptr %call4.i.i38, null
   br i1 %cmp.i.i140, label %cleanup, label %if.end35
 
-if.end35:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45
+if.end35:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41
   %22 = load ptr, ptr %env_.i.i, align 8
-  %flags_.i46 = getelementptr inbounds nuw i8, ptr %22, i64 2064
-  %23 = load i64, ptr %flags_.i46, align 8
-  %and.i47 = and i64 %23, 2
-  %tobool.i48.not = icmp eq i64 %and.i47, 0
-  %cond38 = select i1 %tobool.i48.not, ptr @.str.170, ptr @.str.169
-  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i49)
+  %flags_.i42 = getelementptr inbounds nuw i8, ptr %22, i64 2064
+  %23 = load i64, ptr %flags_.i42, align 8
+  %and.i43 = and i64 %23, 2
+  %tobool.i44.not = icmp eq i64 %and.i43, 0
+  %cond38 = select i1 %tobool.i44.not, ptr @.str.170, ptr @.str.169
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i45)
   %24 = load ptr, ptr %isolate_, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i49, ptr noundef %24) #20
-  %vtable.i51 = load ptr, ptr %this, align 8
-  %vfn.i52 = getelementptr inbounds nuw i8, ptr %vtable.i51, i64 64
-  %25 = load ptr, ptr %vfn.i52, align 8
-  %call2.i53 = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope.i45, ptr noundef %24) #20
+  %vtable.i47 = load ptr, ptr %this, align 8
+  %vfn.i48 = getelementptr inbounds nuw i8, ptr %vtable.i47, i64 64
+  %25 = load ptr, ptr %vfn.i48, align 8
+  %call2.i49 = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %this) #20
   %26 = load ptr, ptr %env_.i.i, align 8
-  %builtin_loader_.i.i55 = getelementptr inbounds nuw i8, ptr %26, i64 2736
-  %call10.i56 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i55, ptr %call2.i53, ptr noundef nonnull %cond38, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
-  %cmp.i.i.i57 = icmp eq ptr %call10.i56, null
-  br i1 %cmp.i.i.i57, label %if.then.i59, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61
+  %builtin_loader_.i.i51 = getelementptr inbounds nuw i8, ptr %26, i64 2736
+  %call10.i52 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i51, ptr %call2.i49, ptr noundef nonnull %cond38, ptr noundef nonnull align 8 dereferenceable(872) %this) #20
+  %cmp.i.i.i53 = icmp eq ptr %call10.i52, null
+  br i1 %cmp.i.i.i53, label %if.then.i55, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57
 
-if.then.i59:                                      ; preds = %if.end35
+if.then.i55:                                      ; preds = %if.end35
   %27 = load ptr, ptr %env_.i.i, align 8
-  %async_hooks_.i.i60 = getelementptr inbounds nuw i8, ptr %27, i64 880
-  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i60) #20
-  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61
+  %async_hooks_.i.i56 = getelementptr inbounds nuw i8, ptr %27, i64 880
+  call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i56) #20
+  br label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57
 
-_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61:   ; preds = %if.end35, %if.then.i59
-  %call4.i.i58 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i49, ptr noundef %call10.i56) #20
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i49) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i49)
-  %cmp.i.i = icmp eq ptr %call4.i.i58, null
+_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57:   ; preds = %if.end35, %if.then.i55
+  %call4.i.i54 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope.i45, ptr noundef %call10.i52) #20
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i45) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i45)
+  %cmp.i.i = icmp eq ptr %call4.i.i54, null
   br i1 %cmp.i.i, label %cleanup, label %if.end47
 
-if.end47:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61
+if.end47:                                         ; preds = %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57
   %28 = load ptr, ptr %isolate_, align 8
   %call.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %28, ptr noundef nonnull @.str.171, i32 noundef 0, i32 noundef 3) #20
   %cmp.i.i.i.i = icmp eq ptr %call.i.i, null
@@ -13490,8 +13490,8 @@ if.end114:                                        ; preds = %lor.rhs74
   %37 = inttoptr i64 %add1.i to ptr
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.rhs74, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit, %if.end114
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61 ], [ %37, %if.end114 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19 ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %lor.rhs74 ]
+cleanup:                                          ; preds = %lor.rhs74, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit, %if.end114
+  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit28 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit41 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit57 ], [ %37, %if.end114 ], [ null, %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit15 ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %lor.rhs74 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #20
   ret ptr %retval.sroa.0.0
 }

@@ -892,12 +892,12 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !68
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not127.i = icmp eq ptr %73, null
-  br i1 %.not127.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit80.i, label %74
+  %.not123.i = icmp eq ptr %73, null
+  br i1 %.not123.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit80.i, label %74
 
 74:                                               ; preds = %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i
-  %.not128.i = icmp eq ptr %71, null
-  br i1 %.not128.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit67.i, label %183
+  %.not124.i = icmp eq ptr %71, null
+  br i1 %.not124.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit67.i, label %183
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit67.i: ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -935,8 +935,8 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i: ;
   %85 = load i32, ptr %84, align 8, !tbaa !88
   %86 = and i32 %85, -4
   %.not.i.i = icmp ne i32 %86, 20
-  %.not59129.i = icmp eq ptr %83, null
-  %.not59.i = or i1 %.not59129.i, %.not.i.i
+  %.not59125.i = icmp eq ptr %83, null
+  %.not59.i = or i1 %.not59125.i, %.not.i.i
   br i1 %.not59.i, label %100, label %87
 
 87:                                               ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i

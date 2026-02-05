@@ -488,14 +488,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %merged.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i32, %if.end.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i32, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %cmp268.not = icmp eq ptr %0, %1
-  br i1 %cmp268.not, label %while.body67.preheader, label %while.body
+  %cmp265.not = icmp eq ptr %0, %1
+  br i1 %cmp265.not, label %while.body67.preheader, label %while.body
 
 while.cond52.preheader:                           ; preds = %if.end51
   %2 = sext i32 %leftPos.1 to i64
   %3 = sext i32 %rightPos.1 to i64
-  %cmp5478 = icmp ugt i64 %sub.ptr.div.i, %2
-  br i1 %cmp5478, label %while.body55.preheader, label %while.cond64.preheader
+  %cmp5474 = icmp ugt i64 %sub.ptr.div.i, %2
+  br i1 %cmp5474, label %while.body55.preheader, label %while.cond64.preheader
 
 while.body55.preheader:                           ; preds = %while.cond52.preheader
   %4 = and i64 %indvars.iv.next, 4294967295
@@ -503,21 +503,21 @@ while.body55.preheader:                           ; preds = %while.cond52.prehea
 
 while.body:                                       ; preds = %invoke.cont, %if.end51
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end51 ], [ 0, %invoke.cont ]
-  %conv374 = phi i64 [ %conv3, %if.end51 ], [ 0, %invoke.cont ]
-  %conv73 = phi i64 [ %conv, %if.end51 ], [ 0, %invoke.cont ]
-  %rightPos.070 = phi i32 [ %rightPos.1, %if.end51 ], [ 0, %invoke.cont ]
-  %leftPos.069 = phi i32 [ %leftPos.1, %if.end51 ], [ 0, %invoke.cont ]
-  %add.ptr2.i = getelementptr inbounds i32, ptr %1, i64 %conv73
+  %conv370 = phi i64 [ %conv3, %if.end51 ], [ 0, %invoke.cont ]
+  %conv69 = phi i64 [ %conv, %if.end51 ], [ 0, %invoke.cont ]
+  %rightPos.067 = phi i32 [ %rightPos.1, %if.end51 ], [ 0, %invoke.cont ]
+  %leftPos.066 = phi i32 [ %leftPos.1, %if.end51 ], [ 0, %invoke.cont ]
+  %add.ptr2.i = getelementptr inbounds i32, ptr %1, i64 %conv69
   %5 = load i32, ptr %add.ptr2.i, align 4
   %shr.i = lshr i32 %5, 6
-  %arrayidx = getelementptr inbounds i32, ptr %otherEntries, i64 %conv374
+  %arrayidx = getelementptr inbounds i32, ptr %otherEntries, i64 %conv370
   %6 = load i32, ptr %arrayidx, align 4
   %shr.i34 = lshr i32 %6, 6
   %cmp13 = icmp samesign ult i32 %shr.i, %shr.i34
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %while.body
-  %inc = add nsw i32 %leftPos.069, 1
+  %inc = add nsw i32 %leftPos.066, 1
   br label %if.end51
 
 if.else:                                          ; preds = %while.body
@@ -525,13 +525,13 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp21, label %if.then22, label %if.else29
 
 if.then22:                                        ; preds = %if.else
-  %inc23 = add nsw i32 %rightPos.070, 1
+  %inc23 = add nsw i32 %rightPos.067, 1
   br label %if.end51
 
 if.else29:                                        ; preds = %if.else
-  %inc32 = add nsw i32 %leftPos.069, 1
+  %inc32 = add nsw i32 %leftPos.066, 1
   %and.i = and i32 %5, 63
-  %inc38 = add nsw i32 %rightPos.070, 1
+  %inc38 = add nsw i32 %rightPos.067, 1
   %and.i41 = and i32 %6, 63
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %and.i, i32 %and.i41)
   %shl.i = and i32 %5, -64
@@ -540,8 +540,8 @@ if.else29:                                        ; preds = %if.else
 
 if.end51:                                         ; preds = %if.then22, %if.else29, %if.then14
   %.sink = phi i32 [ %6, %if.then22 ], [ %or.i, %if.else29 ], [ %5, %if.then14 ]
-  %leftPos.1 = phi i32 [ %leftPos.069, %if.then22 ], [ %inc32, %if.else29 ], [ %inc, %if.then14 ]
-  %rightPos.1 = phi i32 [ %inc23, %if.then22 ], [ %inc38, %if.else29 ], [ %rightPos.070, %if.then14 ]
+  %leftPos.1 = phi i32 [ %leftPos.066, %if.then22 ], [ %inc32, %if.else29 ], [ %inc, %if.then14 ]
+  %rightPos.1 = phi i32 [ %inc23, %if.then22 ], [ %inc38, %if.else29 ], [ %rightPos.067, %if.then14 ]
   %add.ptr.i38 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv
   store i32 %.sink, ptr %add.ptr.i38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -553,42 +553,42 @@ if.end51:                                         ; preds = %if.then22, %if.else
   br i1 %7, label %while.body, label %while.cond52.preheader, !llvm.loop !7
 
 while.cond64.preheader:                           ; preds = %while.body55, %while.cond52.preheader
-  %pos.2.lcssa.in = phi i64 [ %indvars.iv.next, %while.cond52.preheader ], [ %indvars.iv.next93, %while.body55 ]
-  %cmp6684 = icmp ugt i64 %otherSize, %3
-  br i1 %cmp6684, label %while.body67.preheader, label %while.end74
+  %pos.2.lcssa.in = phi i64 [ %indvars.iv.next, %while.cond52.preheader ], [ %indvars.iv.next89, %while.body55 ]
+  %cmp6680 = icmp ugt i64 %otherSize, %3
+  br i1 %cmp6680, label %while.body67.preheader, label %while.end74
 
 while.body67.preheader:                           ; preds = %invoke.cont, %while.cond64.preheader
-  %pos.2.lcssa118 = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ 0, %invoke.cont ]
-  %rightPos.0.lcssa113117 = phi i64 [ %3, %while.cond64.preheader ], [ 0, %invoke.cont ]
-  %8 = and i64 %pos.2.lcssa118, 4294967295
+  %pos.2.lcssa114 = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ 0, %invoke.cont ]
+  %rightPos.0.lcssa109113 = phi i64 [ %3, %while.cond64.preheader ], [ 0, %invoke.cont ]
+  %8 = and i64 %pos.2.lcssa114, 4294967295
   br label %while.body67
 
 while.body55:                                     ; preds = %while.body55.preheader, %while.body55
-  %indvars.iv94 = phi i64 [ %2, %while.body55.preheader ], [ %indvars.iv.next95, %while.body55 ]
-  %indvars.iv92 = phi i64 [ %4, %while.body55.preheader ], [ %indvars.iv.next93, %while.body55 ]
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv94
+  %indvars.iv90 = phi i64 [ %2, %while.body55.preheader ], [ %indvars.iv.next91, %while.body55 ]
+  %indvars.iv88 = phi i64 [ %4, %while.body55.preheader ], [ %indvars.iv.next89, %while.body55 ]
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv90
   %9 = load i32, ptr %add.ptr2.i44, align 4
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv92
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv88
   store i32 %9, ptr %add.ptr.i45, align 4
-  %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next95
+  %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next91
   br i1 %cmp54, label %while.body55, label %while.cond64.preheader, !llvm.loop !8
 
 while.body67:                                     ; preds = %while.body67.preheader, %while.body67
-  %indvars.iv101 = phi i64 [ %rightPos.0.lcssa113117, %while.body67.preheader ], [ %indvars.iv.next102, %while.body67 ]
-  %indvars.iv99 = phi i64 [ %8, %while.body67.preheader ], [ %indvars.iv.next100, %while.body67 ]
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv101
+  %indvars.iv97 = phi i64 [ %rightPos.0.lcssa109113, %while.body67.preheader ], [ %indvars.iv.next98, %while.body67 ]
+  %indvars.iv95 = phi i64 [ %8, %while.body67.preheader ], [ %indvars.iv.next96, %while.body67 ]
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv97
   %10 = load i32, ptr %arrayidx70, align 4
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv95
   store i32 %10, ptr %add.ptr.i46, align 4
-  %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next102
+  %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next98
   br i1 %cmp66, label %while.body67, label %while.end74, !llvm.loop !9
 
 while.end74:                                      ; preds = %while.body67, %while.cond64.preheader
-  %pos.3.lcssa.in = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ %indvars.iv.next100, %while.body67 ]
+  %pos.3.lcssa.in = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ %indvars.iv.next96, %while.body67 ]
   %conv76 = and i64 %pos.3.lcssa.in, 4294967295
   %cmp.i47 = icmp ult i64 %sub.ptr.div.i, %conv76
   br i1 %cmp.i47, label %if.then.i, label %if.else.i
@@ -615,14 +615,14 @@ for.body.preheader:                               ; preds = %if.then.i.i48, %if.
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.body ], [ 0, %for.body.preheader ]
-  %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv106
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %for.body ], [ 0, %for.body.preheader ]
+  %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv102
   %11 = load i32, ptr %add.ptr.i50, align 4
   %12 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv106
+  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv102
   store i32 %11, ptr %add.ptr2.i52, align 4
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next107, %conv76
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next103, %conv76
   br i1 %exitcond.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body, !llvm.loop !10
 
 _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body

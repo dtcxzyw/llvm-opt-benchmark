@@ -2494,10 +2494,10 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
   %.099201 = phi i32 [ %.099201.be, %.lr.ph.backedge ], [ -1, %.preheader.preheader ]
   %.1102200 = phi i8 [ %.1102200.be, %.lr.ph.backedge ], [ 1, %.preheader.preheader ]
   %.0103199 = phi i32 [ %.0103199.be, %.lr.ph.backedge ], [ -1, %.preheader.preheader ]
-  %.sroa.0160.3198 = phi ptr [ %.sroa.0160.3198.be, %.lr.ph.backedge ], [ null, %.preheader.preheader ]
-  %.sroa.9161.3197 = phi i64 [ %.sroa.9161.3197.be, %.lr.ph.backedge ], [ 0, %.preheader.preheader ]
-  %.sroa.0156.3196 = phi ptr [ %.sroa.0156.3196.be, %.lr.ph.backedge ], [ null, %.preheader.preheader ]
-  %.sroa.9.3195 = phi i64 [ %.sroa.9.3195.be, %.lr.ph.backedge ], [ 0, %.preheader.preheader ]
+  %.sroa.0160.0198 = phi ptr [ %.sroa.0160.0198.be, %.lr.ph.backedge ], [ null, %.preheader.preheader ]
+  %.sroa.9161.0197 = phi i64 [ %.sroa.9161.0197.be, %.lr.ph.backedge ], [ 0, %.preheader.preheader ]
+  %.sroa.0156.0196 = phi ptr [ %.sroa.0156.0196.be, %.lr.ph.backedge ], [ null, %.preheader.preheader ]
+  %.sroa.9.0195 = phi i64 [ %.sroa.9.0195.be, %.lr.ph.backedge ], [ 0, %.preheader.preheader ]
   %.sroa.0151.0194 = phi i64 [ %.sroa.0151.0194.be, %.lr.ph.backedge ], [ 0, %.preheader.preheader ]
   %156 = trunc i64 %.sroa.0151.0194 to i32
   %157 = load ptr, ptr %105, align 8, !tbaa !25
@@ -2517,7 +2517,7 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
   br label %186
 
 166:                                              ; preds = %161
-  %167 = trunc nuw i64 %.sroa.9161.3197 to i32
+  %167 = trunc nuw i64 %.sroa.9161.0197 to i32
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph.i, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit.thread"
 
@@ -2525,7 +2525,7 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
   %169 = trunc nuw i8 %.1102200 to i1
   %170 = load ptr, ptr %7, align 8, !tbaa !102
   %171 = load i64, ptr %73, align 8, !tbaa !104
-  call void %170(i64 noundef %171, ptr %.sroa.0160.3198, i64 %.sroa.9161.3197, i32 noundef %.0103199, i32 noundef %156, i1 noundef zeroext %169) #21
+  call void %170(i64 noundef %171, ptr %.sroa.0160.0198, i64 %.sroa.9161.0197, i32 noundef %.0103199, i32 noundef %156, i1 noundef zeroext %169) #21
   br label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit"
 
 .lr.ph.i:                                         ; preds = %166, %177
@@ -2537,25 +2537,25 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
 
 174:                                              ; preds = %.lr.ph.i
   %175 = add nsw i32 %173, %167
-  %176 = getelementptr inbounds nuw i32, ptr %.sroa.0160.3198, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw i32, ptr %.sroa.0160.0198, i64 %indvars.iv.i
   store i32 %175, ptr %176, align 4, !tbaa !51
   br label %177
 
 177:                                              ; preds = %174, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.9161.3197
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.9161.0197
   br i1 %exitcond.not.i, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit", label %.lr.ph.i, !llvm.loop !105
 
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit": ; preds = %177
   %178 = trunc nuw i8 %.1102200 to i1
   %179 = load ptr, ptr %7, align 8, !tbaa !102
   %180 = load i64, ptr %73, align 8, !tbaa !104
-  call void %179(i64 noundef %180, ptr %.sroa.0160.3198, i64 %.sroa.9161.3197, i32 noundef %.0103199, i32 noundef %156, i1 noundef zeroext %178) #21
+  call void %179(i64 noundef %180, ptr %.sroa.0160.0198, i64 %.sroa.9161.0197, i32 noundef %.0103199, i32 noundef %156, i1 noundef zeroext %178) #21
   br label %.lr.ph.i126
 
 .lr.ph.i126:                                      ; preds = %185, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit"
   %indvars.iv.i127 = phi i64 [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit" ], [ %indvars.iv.next.i129, %185 ]
-  %181 = getelementptr inbounds nuw i32, ptr %.sroa.0160.3198, i64 %indvars.iv.i127
+  %181 = getelementptr inbounds nuw i32, ptr %.sroa.0160.0198, i64 %indvars.iv.i127
   %182 = load i32, ptr %181, align 4, !tbaa !51
   %.not.i128 = icmp eq i32 %182, -1
   br i1 %.not.i128, label %185, label %183
@@ -2567,7 +2567,7 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
 
 185:                                              ; preds = %183, %.lr.ph.i126
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i127, 1
-  %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %.sroa.9161.3197
+  %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %.sroa.9161.0197
   br i1 %exitcond.not.i130, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit", label %.lr.ph.i126, !llvm.loop !106
 
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit": ; preds = %185, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit.thread"
@@ -2575,10 +2575,10 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
   br label %186
 
 186:                                              ; preds = %.lr.ph, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit", %164
-  %.sroa.9.4 = phi i64 [ %.sroa.9.3195, %.lr.ph ], [ %.sroa.9.3195, %164 ], [ %.sroa.9161.3197, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
-  %.sroa.0156.4 = phi ptr [ %.sroa.0156.3196, %.lr.ph ], [ %.sroa.0156.3196, %164 ], [ %.sroa.0160.3198, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
-  %.sroa.9161.4 = phi i64 [ %.sroa.9161.3197, %.lr.ph ], [ %165, %164 ], [ %.sroa.9161.3197, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
-  %.sroa.0160.4 = phi ptr [ %.sroa.0160.3198, %.lr.ph ], [ %163, %164 ], [ %.sroa.0160.3198, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.0195, %.lr.ph ], [ %.sroa.9.0195, %164 ], [ %.sroa.9161.0197, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
+  %.sroa.0156.1 = phi ptr [ %.sroa.0156.0196, %.lr.ph ], [ %.sroa.0156.0196, %164 ], [ %.sroa.0160.0198, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
+  %.sroa.9161.1 = phi i64 [ %.sroa.9161.0197, %.lr.ph ], [ %165, %164 ], [ %.sroa.9161.0197, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
+  %.sroa.0160.1 = phi ptr [ %.sroa.0160.0198, %.lr.ph ], [ %163, %164 ], [ %.sroa.0160.0198, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
   %.1104 = phi i32 [ %.0103199, %.lr.ph ], [ %156, %164 ], [ %.0103199, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
   %.2 = phi i8 [ %.1102200, %.lr.ph ], [ %.1102200, %164 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
   %.1100 = phi i32 [ %.099201, %.lr.ph ], [ %.099201, %164 ], [ %.0103199, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit" ]
@@ -2590,41 +2590,41 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
   %.099201.be = phi i32 [ %.1100, %186 ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
   %.1102200.be = phi i8 [ %.2, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ %.3, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
   %.0103199.be = phi i32 [ %.1104, %186 ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ -1, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
-  %.sroa.0160.3198.be = phi ptr [ %.sroa.0160.4, %186 ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
-  %.sroa.9161.3197.be = phi i64 [ %.sroa.9161.4, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
-  %.sroa.0156.3196.be = phi ptr [ %.sroa.0156.4, %186 ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
-  %.sroa.9.3195.be = phi i64 [ %.sroa.9.4, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
+  %.sroa.0160.0198.be = phi ptr [ %.sroa.0160.1, %186 ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
+  %.sroa.9161.0197.be = phi i64 [ %.sroa.9161.1, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
+  %.sroa.0156.0196.be = phi ptr [ %.sroa.0156.1, %186 ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ null, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
+  %.sroa.9.0195.be = phi i64 [ %.sroa.9.1, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
   %.sroa.0151.0194.be = phi i64 [ %187, %186 ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge" ], [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146" ]
   br label %.lr.ph, !llvm.loop !107
 
 188:                                              ; preds = %._crit_edge
-  %189 = trunc nuw i64 %.sroa.9.4 to i32
+  %189 = trunc nuw i64 %.sroa.9.1 to i32
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.lr.ph.i133, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge"
 
 .lr.ph.i133:                                      ; preds = %188, %196
   %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i136, %196 ], [ 0, %188 ]
-  %191 = getelementptr inbounds nuw i32, ptr %.sroa.0160.4, i64 %indvars.iv.i134
+  %191 = getelementptr inbounds nuw i32, ptr %.sroa.0160.1, i64 %indvars.iv.i134
   %192 = load i32, ptr %191, align 4, !tbaa !51
   %.not.i135 = icmp eq i32 %192, -1
   br i1 %.not.i135, label %196, label %193
 
 193:                                              ; preds = %.lr.ph.i133
   %194 = add nsw i32 %192, %189
-  %195 = getelementptr inbounds nuw i32, ptr %.sroa.0156.4, i64 %indvars.iv.i134
+  %195 = getelementptr inbounds nuw i32, ptr %.sroa.0156.1, i64 %indvars.iv.i134
   store i32 %194, ptr %195, align 4, !tbaa !51
   br label %196
 
 196:                                              ; preds = %193, %.lr.ph.i133
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i134, 1
-  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %.sroa.9.4
+  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %.sroa.9.1
   br i1 %exitcond.not.i137, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit138", label %.lr.ph.i133, !llvm.loop !105
 
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit138": ; preds = %196
   %197 = trunc nuw i8 %.2 to i1
   %198 = load ptr, ptr %7, align 8, !tbaa !102
   %199 = load i64, ptr %73, align 8, !tbaa !104
-  call void %198(i64 noundef %199, ptr %.sroa.0156.4, i64 %.sroa.9.4, i32 noundef %.1100, i32 noundef %.1104, i1 noundef zeroext %197) #21
+  call void %198(i64 noundef %199, ptr %.sroa.0156.1, i64 %.sroa.9.1, i32 noundef %.1100, i32 noundef %.1104, i1 noundef zeroext %197) #21
   %200 = sext i32 %.1104 to i64
   %201 = load ptr, ptr %105, align 8, !tbaa !25
   %202 = getelementptr inbounds nuw %"class.llvm::SmallVector.23", ptr %201, i64 %200
@@ -2634,7 +2634,7 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
 
 .lr.ph.i141:                                      ; preds = %208, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit138"
   %indvars.iv.i142 = phi i64 [ 0, %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_2clENS_15MutableArrayRefIiEES1_.exit138" ], [ %indvars.iv.next.i144, %208 ]
-  %204 = getelementptr inbounds nuw i32, ptr %.sroa.0156.4, i64 %indvars.iv.i142
+  %204 = getelementptr inbounds nuw i32, ptr %.sroa.0156.1, i64 %indvars.iv.i142
   %205 = load i32, ptr %204, align 4, !tbaa !51
   %.not.i143 = icmp eq i32 %205, -1
   br i1 %.not.i143, label %208, label %206
@@ -2646,14 +2646,14 @@ _ZN4llvm11SmallVectorINS0_INS0_IiLj12EEELj1EEELj1EED2Ev.exit: ; preds = %_ZN4llv
 
 208:                                              ; preds = %206, %.lr.ph.i141
   %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i142, 1
-  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %.sroa.9.4
+  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %.sroa.9.1
   br i1 %exitcond.not.i145, label %"_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146", label %.lr.ph.i141, !llvm.loop !106
 
 "_ZZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEEENK3$_3clENS_15MutableArrayRefIiEE.exit146.critedge": ; preds = %188
   %209 = trunc nuw i8 %.2 to i1
   %210 = load ptr, ptr %7, align 8, !tbaa !102
   %211 = load i64, ptr %73, align 8, !tbaa !104
-  call void %210(i64 noundef %211, ptr %.sroa.0156.4, i64 %.sroa.9.4, i32 noundef %.1100, i32 noundef %.1104, i1 noundef zeroext %209) #21
+  call void %210(i64 noundef %211, ptr %.sroa.0156.1, i64 %.sroa.9.1, i32 noundef %.1100, i32 noundef %.1104, i1 noundef zeroext %209) #21
   %212 = sext i32 %.1104 to i64
   %213 = load ptr, ptr %105, align 8, !tbaa !25
   %214 = getelementptr inbounds nuw %"class.llvm::SmallVector.23", ptr %213, i64 %212

@@ -181,11 +181,11 @@ _ZN5clangneEPKNS_9FileEntryERKNS_12FileEntryRefE.exit: ; preds = %29
 _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %50, %49
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %49 ], [ %.sroa.speculated.i.i.i.i, %50 ]
   %.sroa.027.0.i = phi ptr [ %.sroa.027.0.copyload.i, %49 ], [ %52, %50 ]
-  %.sroa.9.1.i = phi i64 [ 0, %49 ], [ %55, %50 ]
-  %.sroa.630.1.i = phi ptr [ null, %49 ], [ %54, %50 ]
+  %.sroa.9.0.i = phi i64 [ 0, %49 ], [ %55, %50 ]
+  %.sroa.630.0.i = phi ptr [ null, %49 ], [ %54, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %.sroa.630.1.i, ptr %8, align 8, !tbaa !18
-  store i64 %.sroa.9.1.i, ptr %43, align 8, !tbaa !21
+  store ptr %.sroa.630.0.i, ptr %8, align 8, !tbaa !18
+  store i64 %.sroa.9.0.i, ptr %43, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.027.0.i, ptr %6, align 8
   store i64 %.sroa.5.0.i, ptr %44, align 8
@@ -357,11 +357,11 @@ define dso_local noundef zeroext i1 @_ZN5clang7tooling19codeContainsImportsEN4ll
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %11, %12
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %11 ], [ %.sroa.speculated.i.i.i, %12 ]
   %.sroa.06.0 = phi ptr [ %.sroa.06.0.copyload, %11 ], [ %14, %12 ]
-  %.sroa.9.1 = phi i64 [ 0, %11 ], [ %17, %12 ]
-  %.sroa.6.1 = phi ptr [ null, %11 ], [ %16, %12 ]
+  %.sroa.9.0 = phi i64 [ 0, %11 ], [ %17, %12 ]
+  %.sroa.6.0 = phi ptr [ null, %11 ], [ %16, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %.sroa.6.1, ptr %5, align 8, !tbaa !18
-  store i64 %.sroa.9.1, ptr %6, align 8, !tbaa !21
+  store ptr %.sroa.6.0, ptr %5, align 8, !tbaa !18
+  store i64 %.sroa.9.0, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sroa.06.0, ptr %3, align 8
   store i64 %.sroa.5.0, ptr %7, align 8

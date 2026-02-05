@@ -4562,13 +4562,13 @@ _ZN5folly5RangeIPKcE7advanceEm.exit26:            ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly5RangeIPKcE7advanceEm.exit26, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %keyValue.sroa.8.1 = phi ptr [ %input.coerce1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit26 ]
+  %keyValue.sroa.8.0 = phi ptr [ %input.coerce1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit26 ]
   %sp.sroa.0.1 = phi ptr [ %add.ptr.i, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i24, %_ZN5folly5RangeIPKcE7advanceEm.exit26 ]
-  %cmp.i28 = icmp eq ptr %sp.sroa.0.0137, %keyValue.sroa.8.1
+  %cmp.i28 = icmp eq ptr %sp.sroa.0.0137, %keyValue.sroa.8.0
   br i1 %cmp.i28, label %while.cond.backedge, label %if.end.i.i33
 
 if.end.i.i33:                                     ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i35 = ptrtoint ptr %keyValue.sroa.8.1 to i64
+  %sub.ptr.lhs.cast.i.i.i35 = ptrtoint ptr %keyValue.sroa.8.0 to i64
   %sub.ptr.sub.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i35, %sub.ptr.rhs.cast.i.i.i
   %call3.i.i38 = call noundef ptr @memchr(ptr noundef %sp.sroa.0.0137, i32 noundef %conv.i.i34, i64 noundef %sub.ptr.sub.i.i.i37) #33
   %cmp.i.i39 = icmp eq ptr %call3.i.i38, null
@@ -5923,13 +5923,13 @@ _ZN5folly5RangeIPKcE7advanceEm.exit23:            ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly5RangeIPKcE7advanceEm.exit23, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %keyValue.sroa.8.1 = phi ptr [ %sp.coerce1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit23 ]
+  %keyValue.sroa.8.0 = phi ptr [ %sp.coerce1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit23 ]
   %sp.sroa.0.1 = phi ptr [ %add.ptr.i, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %add.ptr.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit23 ]
-  %cmp.i25 = icmp eq ptr %sp.sroa.0.0149, %keyValue.sroa.8.1
+  %cmp.i25 = icmp eq ptr %sp.sroa.0.0149, %keyValue.sroa.8.0
   br i1 %cmp.i25, label %while.cond.backedge, label %if.end.i.i30
 
 if.end.i.i30:                                     ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i32 = ptrtoint ptr %keyValue.sroa.8.1 to i64
+  %sub.ptr.lhs.cast.i.i.i32 = ptrtoint ptr %keyValue.sroa.8.0 to i64
   %sub.ptr.sub.i.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i.i32, %sub.ptr.rhs.cast.i.i.i
   %call3.i.i35 = call noundef ptr @memchr(ptr noundef %sp.sroa.0.0149, i32 noundef %conv.i.i31, i64 noundef %sub.ptr.sub.i.i.i34) #33
   %cmp.i.i36 = icmp eq ptr %call3.i.i35, null
@@ -5953,18 +5953,18 @@ land.rhs.i:                                       ; preds = %for.inc.i, %land.rh
 
 for.inc.i:                                        ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %sp.sroa.0.013.i, i64 1
-  %cmp.i.i45 = icmp eq ptr %incdec.ptr.i.i, %keyValue.sroa.8.1
+  %cmp.i.i45 = icmp eq ptr %incdec.ptr.i.i, %keyValue.sroa.8.0
   br i1 %cmp.i.i45, label %for.end.i, label %land.rhs.i, !llvm.loop !104
 
 for.end.i:                                        ; preds = %land.rhs.i, %for.inc.i
   %sp.sroa.0.0.lcssa.ph.i = phi ptr [ %sp.sroa.0.013.i, %land.rhs.i ], [ %scevgep.i, %for.inc.i ]
   %.pre.i = ptrtoint ptr %sp.sroa.0.0.lcssa.ph.i to i64
   %4 = sub i64 %.pre.i, %sub.ptr.lhs.cast.i.i.i32
-  %scevgep18.i = getelementptr i8, ptr %keyValue.sroa.8.1, i64 %4
+  %scevgep18.i = getelementptr i8, ptr %keyValue.sroa.8.0, i64 %4
   br label %for.cond2.i
 
 for.cond2.i:                                      ; preds = %land.rhs4.i, %for.end.i
-  %sp.sroa.7.0.i = phi ptr [ %keyValue.sroa.8.1, %for.end.i ], [ %incdec.ptr.i.i.i.i.i, %land.rhs4.i ]
+  %sp.sroa.7.0.i = phi ptr [ %keyValue.sroa.8.0, %for.end.i ], [ %incdec.ptr.i.i.i.i.i, %land.rhs4.i ]
   %cmp.i2.i = icmp eq ptr %sp.sroa.0.0.lcssa.ph.i, %sp.sroa.7.0.i
   br i1 %cmp.i2.i, label %_ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit, label %land.rhs4.i
 
@@ -6049,7 +6049,7 @@ land.rhs4.i87:                                    ; preds = %for.cond2.i84
 
 _ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96: ; preds = %for.cond2.i84, %land.rhs4.i87
   %sp.sroa.7.0.lcssa.i90 = phi ptr [ %scevgep18.i83, %for.cond2.i84 ], [ %sp.sroa.7.0.i85, %land.rhs4.i87 ]
-  %cmp.i12.i99 = icmp eq ptr %add.ptr.i63, %keyValue.sroa.8.1
+  %cmp.i12.i99 = icmp eq ptr %add.ptr.i63, %keyValue.sroa.8.0
   br i1 %cmp.i12.i99, label %for.end.i108, label %land.rhs.i102
 
 land.rhs.i102:                                    ; preds = %_ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96, %for.inc.i121
@@ -6060,7 +6060,7 @@ land.rhs.i102:                                    ; preds = %_ZN8proxygen11HTTPM
 
 for.inc.i121:                                     ; preds = %land.rhs.i102
   %incdec.ptr.i.i122 = getelementptr inbounds nuw i8, ptr %sp.sroa.0.013.i103, i64 1
-  %cmp.i.i123 = icmp eq ptr %incdec.ptr.i.i122, %keyValue.sroa.8.1
+  %cmp.i.i123 = icmp eq ptr %incdec.ptr.i.i122, %keyValue.sroa.8.0
   br i1 %cmp.i.i123, label %for.end.i108, label %land.rhs.i102, !llvm.loop !104
 
 for.end.i108:                                     ; preds = %land.rhs.i102, %for.inc.i121, %_ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96

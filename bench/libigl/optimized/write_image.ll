@@ -46,7 +46,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
   %.sroa.16.0 = phi i64 [ %18, %.noexc47 ], [ 0, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.054.0 = phi ptr [ %16, %.noexc47 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %19 = icmp sgt i64 %10, 0
-  br i1 %19, label %.preheader.lr.ph, label %._crit_edge67
+  br i1 %19, label %.preheader.lr.ph, label %._crit_edge64
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
   %20 = icmp sgt i64 %12, 0
@@ -61,13 +61,13 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8
-  br i1 %20, label %.preheader.us, label %._crit_edge67
+  br i1 %20, label %.preheader.us, label %._crit_edge64
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %32 = phi i64 [ %63, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %.03966.us = phi i32 [ %62, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.03963.us = phi i32 [ %62, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %33 = getelementptr i8, ptr %21, i64 %32
-  %34 = shl i32 %.03966.us, 2
+  %34 = shl i32 %.03963.us, 2
   %35 = zext i32 %34 to i64
   %36 = getelementptr i8, ptr %23, i64 %32
   %37 = getelementptr i8, ptr %26, i64 %32
@@ -77,7 +77,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
 
 39:                                               ; preds = %.preheader.us, %39
   %40 = phi i64 [ 0, %.preheader.us ], [ %60, %39 ]
-  %.065.us = phi i32 [ 0, %.preheader.us ], [ %59, %39 ]
+  %.062.us = phi i32 [ 0, %.preheader.us ], [ %59, %39 ]
   %41 = xor i64 %40, -1
   %42 = add nsw i64 %12, %41
   %43 = mul nsw i64 %42, %10
@@ -101,18 +101,18 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
   %57 = load i8, ptr %56, align 1, !tbaa !12
   %58 = getelementptr inbounds nuw i8, ptr %gep, i64 3
   store i8 %57, ptr %58, align 1, !tbaa !12
-  %59 = add i32 %.065.us, 1
+  %59 = add i32 %.062.us, 1
   %60 = zext i32 %59 to i64
   %61 = icmp sgt i64 %12, %60
   br i1 %61, label %39, label %._crit_edge.us, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %39
-  %62 = add i32 %.03966.us, 1
+  %62 = add i32 %.03963.us, 1
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ugt i64 %10, %63
-  br i1 %64, label %.preheader.us, label %._crit_edge67, !llvm.loop !15
+  br i1 %64, label %.preheader.us, label %._crit_edge64, !llvm.loop !15
 
-._crit_edge67:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
+._crit_edge64:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %65, ptr %8, align 8, !tbaa !16
   %66 = load ptr, ptr %0, align 8, !tbaa !18
@@ -123,7 +123,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
   %69 = icmp ugt i64 %68, 15
   br i1 %69, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %._crit_edge67
+.noexc.i:                                         ; preds = %._crit_edge64
   %70 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
           to label %.noexc48 unwind label %94
 
@@ -133,8 +133,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc47, %_ZNSt6ve
   store i64 %71, ptr %65, align 8, !tbaa !12
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc48, %._crit_edge67
-  %72 = phi ptr [ %70, %.noexc48 ], [ %65, %._crit_edge67 ]
+._crit_edge.i.i:                                  ; preds = %.noexc48, %._crit_edge64
+  %72 = phi ptr [ %70, %.noexc48 ], [ %65, %._crit_edge64 ]
   switch i64 %68, label %75 [
     i64 1, label %73
     i64 0, label %76

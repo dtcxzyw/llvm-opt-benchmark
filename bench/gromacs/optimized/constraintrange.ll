@@ -177,71 +177,71 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %common.resume
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.0.i.i.i.i.i118.i = phi i64 [ %71, %.lr.ph.preheader.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.074.0116.i = phi ptr [ %63, %.lr.ph.preheader.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.14.0114.i = phi i64 [ %72, %.lr.ph.preheader.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.0.i.i.i.i.i115.i = phi i64 [ %71, %.lr.ph.preheader.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.074.0113.i = phi ptr [ %63, %.lr.ph.preheader.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.14.0111.i = phi i64 [ %72, %.lr.ph.preheader.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   store float 0.000000e+00, ptr %5, align 4, !tbaa !129
   %73 = icmp sgt i32 %51, 0
-  br i1 %73, label %.lr.ph96.i, label %._crit_edge97.thread.i
+  br i1 %73, label %.lr.ph93.i, label %._crit_edge94.thread.i
 
-.lr.ph96.i:                                       ; preds = %._crit_edge.i
-  %74 = ptrtoint ptr %.sroa.074.0116.i to i64
-  %75 = sub i64 %.0.i.i.i.i.i118.i, %74
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.074.0116.i, i64 %75
+.lr.ph93.i:                                       ; preds = %._crit_edge.i
+  %74 = ptrtoint ptr %.sroa.074.0113.i to i64
+  %75 = sub i64 %.0.i.i.i.i.i115.i, %74
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.074.0113.i, i64 %75
   br label %77
 
-77:                                               ; preds = %77, %.lr.ph96.i
-  %.194.i = phi i32 [ 0, %.lr.ph96.i ], [ %80, %77 ]
+77:                                               ; preds = %77, %.lr.ph93.i
+  %.191.i = phi i32 [ 0, %.lr.ph93.i ], [ %80, %77 ]
   store i32 0, ptr %4, align 4, !tbaa !128
   %78 = load i32, ptr %18, align 8, !tbaa !127
   %79 = add nsw i32 %78, 1
-  store ptr %.sroa.074.0116.i, ptr %8, align 8, !tbaa !130
+  store ptr %.sroa.074.0113.i, ptr %8, align 8, !tbaa !130
   store ptr %76, ptr %20, align 8, !tbaa !130
-  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm95EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2280) %38, ptr %32, ptr %37, i1 noundef zeroext false, i32 noundef %.194.i, i32 noundef 0, i32 noundef %79, ptr noundef nonnull byval(%"class.gmx::ArrayRef.107") align 8 %8, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %5, ptr noundef %4)
-  %80 = add nuw nsw i32 %.194.i, 1
+  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm95EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2280) %38, ptr %32, ptr %37, i1 noundef zeroext false, i32 noundef %.191.i, i32 noundef 0, i32 noundef %79, ptr noundef nonnull byval(%"class.gmx::ArrayRef.107") align 8 %8, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %5, ptr noundef %4)
+  %80 = add nuw nsw i32 %.191.i, 1
   %exitcond.not.i = icmp eq i32 %80, %51
-  br i1 %exitcond.not.i, label %._crit_edge97.i, label %77, !llvm.loop !132
+  br i1 %exitcond.not.i, label %._crit_edge94.i, label %77, !llvm.loop !132
 
-._crit_edge97.i:                                  ; preds = %77
+._crit_edge94.i:                                  ; preds = %77
   %81 = load i32, ptr %19, align 4, !tbaa !134
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %._crit_edge97.i._crit_edge, label %88
+  br i1 %82, label %._crit_edge94.i._crit_edge, label %88
 
-._crit_edge97.i._crit_edge:                       ; preds = %._crit_edge97.i
+._crit_edge94.i._crit_edge:                       ; preds = %._crit_edge94.i
   %.pre = load float, ptr %5, align 4, !tbaa !129
   br label %85
 
-._crit_edge97.thread.i:                           ; preds = %._crit_edge.i
+._crit_edge94.thread.i:                           ; preds = %._crit_edge.i
   %83 = load i32, ptr %19, align 4, !tbaa !134
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %.thread.i
 
-.thread.i:                                        ; preds = %._crit_edge97.thread.i
+.thread.i:                                        ; preds = %._crit_edge94.thread.i
   store float 0.000000e+00, ptr %6, align 4, !tbaa !129
-  br label %._crit_edge101.i
+  br label %._crit_edge98.i
 
-85:                                               ; preds = %._crit_edge97.i._crit_edge, %._crit_edge97.thread.i
-  %86 = phi float [ %.pre, %._crit_edge97.i._crit_edge ], [ 0.000000e+00, %._crit_edge97.thread.i ]
+85:                                               ; preds = %._crit_edge94.i._crit_edge, %._crit_edge94.thread.i
+  %86 = phi float [ %.pre, %._crit_edge94.i._crit_edge ], [ 0.000000e+00, %._crit_edge94.thread.i ]
   %87 = call noundef float @sqrtf(float noundef %86) #14, !tbaa !128
   br label %129
 
-88:                                               ; preds = %._crit_edge97.i
+88:                                               ; preds = %._crit_edge94.i
   store float 0.000000e+00, ptr %6, align 4, !tbaa !129
   br label %89
 
 89:                                               ; preds = %89, %88
-  %.298.i = phi i32 [ 0, %88 ], [ %92, %89 ]
+  %.295.i = phi i32 [ 0, %88 ], [ %92, %89 ]
   store i32 0, ptr %4, align 4, !tbaa !128
   %90 = load i32, ptr %18, align 8, !tbaa !127
   %91 = add nsw i32 %90, 1
-  store ptr %.sroa.074.0116.i, ptr %9, align 8, !tbaa !130
+  store ptr %.sroa.074.0113.i, ptr %9, align 8, !tbaa !130
   store ptr %76, ptr %21, align 8, !tbaa !130
-  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm95EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2280) %38, ptr %32, ptr %37, i1 noundef zeroext true, i32 noundef %.298.i, i32 noundef 0, i32 noundef %91, ptr noundef nonnull byval(%"class.gmx::ArrayRef.107") align 8 %9, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %6, ptr noundef %4)
-  %92 = add nuw nsw i32 %.298.i, 1
-  %exitcond103.not.i = icmp eq i32 %92, %51
-  br i1 %exitcond103.not.i, label %._crit_edge101.i, label %89, !llvm.loop !135
+  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm95EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2280) %38, ptr %32, ptr %37, i1 noundef zeroext true, i32 noundef %.295.i, i32 noundef 0, i32 noundef %91, ptr noundef nonnull byval(%"class.gmx::ArrayRef.107") align 8 %9, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %6, ptr noundef %4)
+  %92 = add nuw nsw i32 %.295.i, 1
+  %exitcond100.not.i = icmp eq i32 %92, %51
+  br i1 %exitcond100.not.i, label %._crit_edge98.i, label %89, !llvm.loop !135
 
-._crit_edge101.i:                                 ; preds = %89, %.thread.i
+._crit_edge98.i:                                  ; preds = %89, %.thread.i
   %93 = load ptr, ptr %22, align 8, !tbaa !136
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !137
@@ -256,7 +256,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
     i32 3, label %98
   ]
 
-98:                                               ; preds = %._crit_edge101.i, %._crit_edge101.i, %._crit_edge101.i, %._crit_edge101.i, %._crit_edge101.i, %._crit_edge101.i
+98:                                               ; preds = %._crit_edge98.i, %._crit_edge98.i, %._crit_edge98.i, %._crit_edge98.i, %._crit_edge98.i, %._crit_edge98.i
   %99 = load i64, ptr %23, align 8, !tbaa !145
   %100 = sitofp i64 %99 to double
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -266,8 +266,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
   %105 = fptrunc double %104 to float
   br label %106
 
-106:                                              ; preds = %98, %._crit_edge101.i
-  %.060.i = phi float [ %105, %98 ], [ %96, %._crit_edge101.i ]
+106:                                              ; preds = %98, %._crit_edge98.i
+  %.060.i = phi float [ %105, %98 ], [ %96, %._crit_edge98.i ]
   %107 = fsub float 1.000000e+00, %.060.i
   %108 = load float, ptr %5, align 4, !tbaa !129
   %109 = call noundef float @sqrtf(float noundef %108) #14, !tbaa !128
@@ -304,13 +304,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 129:                                              ; preds = %114, %106, %85
   %.0.i = phi float [ %87, %85 ], [ %113, %106 ], [ %.sroa.speculated.i, %114 ]
-  %.not.i.i.i68.i = icmp eq ptr %.sroa.074.0116.i, null
+  %.not.i.i.i68.i = icmp eq ptr %.sroa.074.0113.i, null
   br i1 %.not.i.i.i68.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit69.i, label %130
 
 130:                                              ; preds = %129
-  %131 = ptrtoint ptr %.sroa.074.0116.i to i64
-  %132 = sub i64 %.sroa.14.0114.i, %131
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0116.i, i64 noundef %132) #15
+  %131 = ptrtoint ptr %.sroa.074.0113.i to i64
+  %132 = sub i64 %.sroa.14.0111.i, %131
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0113.i, i64 noundef %132) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit69.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit69.i:                ; preds = %130, %129

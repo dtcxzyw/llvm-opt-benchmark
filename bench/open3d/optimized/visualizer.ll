@@ -79365,13 +79365,13 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %49, %43
   br label %62
 
 62:                                               ; preds = %.lr.ph, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit
-  %.sroa.14.138 = phi ptr [ %59, %.lr.ph ], [ %68, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
-  %.sroa.10.137 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
-  %.not = icmp eq ptr %.sroa.14.138, %61
+  %.sroa.14.038 = phi ptr [ %59, %.lr.ph ], [ %68, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
+  %.sroa.10.037 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
+  %.not = icmp eq ptr %.sroa.14.038, %61
   br i1 %.not, label %70, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %62
-  %63 = add i64 %.sroa.10.137, 1
+  %63 = add i64 %.sroa.10.037, 1
   %64 = icmp ult i64 %63, %58
   br i1 %64, label %65, label %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit
 
@@ -84906,9 +84906,9 @@ _ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %.not.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i, label %.thread16, label %21
+  br i1 %.not.i.i.i.i, label %.thread13, label %21
 
-.thread16:                                        ; preds = %_ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit
+.thread13:                                        ; preds = %_ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit
   %20 = getelementptr inbounds i8, ptr null, i64 %19
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
@@ -84939,9 +84939,9 @@ _ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic
   store i32 %31, ptr %24, align 4, !tbaa !974
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread16, %27, %28, %30
-  %32 = phi ptr [ %25, %27 ], [ %25, %28 ], [ %25, %30 ], [ %20, %.thread16 ]
-  %33 = phi ptr [ %24, %27 ], [ %24, %28 ], [ %24, %30 ], [ null, %.thread16 ]
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread13, %27, %28, %30
+  %32 = phi ptr [ %25, %27 ], [ %25, %28 ], [ %25, %30 ], [ %20, %.thread13 ]
+  %33 = phi ptr [ %24, %27 ], [ %24, %28 ], [ %24, %30 ], [ null, %.thread13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.unpack.i = load i64, ptr %1, align 8, !tbaa !901
   %.elt3.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -85182,9 +85182,9 @@ _ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %.not.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i, label %.thread16, label %21
+  br i1 %.not.i.i.i.i, label %.thread13, label %21
 
-.thread16:                                        ; preds = %_ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit
+.thread13:                                        ; preds = %_ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit
   %20 = getelementptr inbounds i8, ptr null, i64 %19
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
@@ -85215,9 +85215,9 @@ _ZN8pybind116detail7cast_opISt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrinsic
   store i32 %31, ptr %24, align 4, !tbaa !974
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread16, %27, %28, %30
-  %32 = phi ptr [ %25, %27 ], [ %25, %28 ], [ %25, %30 ], [ %20, %.thread16 ]
-  %33 = phi ptr [ %24, %27 ], [ %24, %28 ], [ %24, %30 ], [ null, %.thread16 ]
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread13, %27, %28, %30
+  %32 = phi ptr [ %25, %27 ], [ %25, %28 ], [ %25, %30 ], [ %20, %.thread13 ]
+  %33 = phi ptr [ %24, %27 ], [ %24, %28 ], [ %24, %30 ], [ null, %.thread13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.unpack.i = load i64, ptr %1, align 8, !tbaa !914
   %.elt3.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -89796,7 +89796,7 @@ _ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit: ; preds = %.lr.ph.i, %3
   %49 = sub i64 %47, %48
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %49) #35
   %.pre = load ptr, ptr %10, align 8, !tbaa !3053
-  %.pre74 = load ptr, ptr %3, align 8, !tbaa !1992
+  %.pre71 = load ptr, ptr %3, align 8, !tbaa !1992
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 50:                                               ; preds = %.noexc14.i, %.noexc.i, %13
@@ -89805,7 +89805,7 @@ _ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit: ; preds = %.lr.ph.i, %3
   br label %156
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit, %46, %6
-  %52 = phi ptr [ %.sroa.062.0, %_ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit ], [ %.pre74, %46 ], [ %9, %6 ]
+  %52 = phi ptr [ %.sroa.062.0, %_ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit ], [ %.pre71, %46 ], [ %9, %6 ]
   %53 = phi ptr [ %.sroa.10.0, %_ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit ], [ %.pre, %46 ], [ %11, %6 ]
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !3053
@@ -89873,8 +89873,8 @@ _ZN8pybind115dtypeC2ERKS0_.exit:                  ; preds = %75, %71, %68
           to label %_ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit unwind label %102
 
 _ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %83
-  %.not72 = icmp eq i32 %84, 0
-  br i1 %.not72, label %_ZN8pybind116objectD2Ev.exit, label %_ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit.thread
+  %.not69 = icmp eq i32 %84, 0
+  br i1 %.not69, label %_ZN8pybind116objectD2Ev.exit, label %_ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit.thread
 
 _ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit.thread: ; preds = %.noexc41, %_ZN8pybind1110isinstanceINS_5arrayETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit
   %85 = load i32, ptr %5, align 8, !tbaa !263, !noalias !3076
@@ -89937,8 +89937,8 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %98, %95, %89, %_ZN8
 
 114:                                              ; preds = %105
   store ptr %113, ptr %8, align 8, !alias.scope !3080
-  %.not73 = icmp eq ptr %113, null
-  br i1 %.not73, label %115, label %126
+  %.not70 = icmp eq ptr %113, null
+  br i1 %.not70, label %115, label %126
 
 115:                                              ; preds = %114
   %116 = tail call ptr @__cxa_allocate_exception(i64 24) #37

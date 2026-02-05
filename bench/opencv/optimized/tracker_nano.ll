@@ -248,9 +248,9 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.045.055 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %.lr.ph ]
+  %.sroa.045.052 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 1, i32 noundef %19, i32 noundef 5, ptr noundef %.sroa.045.055, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 1, i32 noundef %19, i32 noundef 5, ptr noundef %.sroa.045.052, i64 noundef 0)
           to label %28 unwind label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -424,11 +424,11 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not.i.i.i = icmp eq ptr %.sroa.045.055, null
+  %.not.i.i.i = icmp eq ptr %.sroa.045.052, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %83
 
 83:                                               ; preds = %82
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.045.055) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.045.052) #23
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %82, %83
@@ -503,11 +503,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %82, %83
 105:                                              ; preds = %104, %84
   %.pn29.pn = phi { ptr, i32 } [ %.pn29, %104 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not.i.i.i43 = icmp eq ptr %.sroa.045.055, null
+  %.not.i.i.i43 = icmp eq ptr %.sroa.045.052, null
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIfSaIfEED2Ev.exit44, label %106
 
 106:                                              ; preds = %105
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.045.055) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.045.052) #23
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit44
 
 _ZNSt6vectorIfSaIfEED2Ev.exit44:                  ; preds = %106, %105

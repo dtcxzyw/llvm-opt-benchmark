@@ -15332,17 +15332,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIi
   br label %_ZN3gmx6copyOfIiEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE.exit
 
 _ZN3gmx6copyOfIiEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE.exit: ; preds = %.noexc62, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i
-  %.sroa.10233.0 = phi ptr [ %41, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %43, %.noexc62 ]
-  %.sroa.0230.0 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %42, %.noexc62 ]
+  %.sroa.10227.0 = phi ptr [ %41, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %43, %.noexc62 ]
+  %.sroa.0224.0 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %42, %.noexc62 ]
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %43, %.noexc62 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %45 = load ptr, ptr %44, align 8, !tbaa !311
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %48 = load ptr, ptr %47, align 8, !tbaa !312
-  store ptr %.sroa.0230.0, ptr %44, align 8, !tbaa !311
+  store ptr %.sroa.0224.0, ptr %44, align 8, !tbaa !311
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, ptr %46, align 8, !tbaa !310
-  store ptr %.sroa.10233.0, ptr %47, align 8, !tbaa !312
+  store ptr %.sroa.10227.0, ptr %47, align 8, !tbaa !312
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %49
 
@@ -15391,17 +15391,17 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIf
   br label %_ZN3gmx6copyOfIfEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE.exit
 
 _ZN3gmx6copyOfIfEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE.exit: ; preds = %.noexc69, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i
-  %.sroa.10223.0 = phi ptr [ %61, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %63, %.noexc69 ]
-  %.sroa.0220.0 = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %62, %.noexc69 ]
+  %.sroa.10220.0 = phi ptr [ %61, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %63, %.noexc69 ]
+  %.sroa.0217.0 = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %62, %.noexc69 ]
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i66 = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %63, %.noexc69 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %65 = load ptr, ptr %64, align 8, !tbaa !134
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %68 = load ptr, ptr %67, align 8, !tbaa !135
-  store ptr %.sroa.0220.0, ptr %64, align 8, !tbaa !134
+  store ptr %.sroa.0217.0, ptr %64, align 8, !tbaa !134
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i66, ptr %66, align 8, !tbaa !401
-  store ptr %.sroa.10223.0, ptr %67, align 8, !tbaa !135
+  store ptr %.sroa.10220.0, ptr %67, align 8, !tbaa !135
   %.not.i.i.i.i.i70 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i70, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %69
 

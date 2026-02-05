@@ -6363,15 +6363,15 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit: ; preds = %.noexc5.i, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i
-  %.sroa.1142.0 = phi ptr [ %15, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %17, %.noexc5.i ]
-  %.sroa.038.0 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %16, %.noexc5.i ]
+  %.sroa.1139.0 = phi ptr [ %15, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %17, %.noexc5.i ]
+  %.sroa.035.0 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %16, %.noexc5.i ]
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
-  store ptr %.sroa.038.0, ptr %1, align 8
-  store ptr %.sroa.1142.0, ptr %19, align 8
-  store ptr %.sroa.1142.0, ptr %20, align 8
+  store ptr %.sroa.035.0, ptr %1, align 8
+  store ptr %.sroa.1139.0, ptr %19, align 8
+  store ptr %.sroa.1139.0, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %22
 
@@ -6403,8 +6403,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %22, %_ZNSt6vectorIc
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %36, i64 noundef 1, i64 noundef %38)
-  %.not48 = icmp eq i64 %42, 0
-  br i1 %.not48, label %_ZN6Assimp14IOStreamBufferIcE13readNextBlockEv.exit, label %43
+  %.not42 = icmp eq i64 %42, 0
+  br i1 %.not42, label %_ZN6Assimp14IOStreamBufferIcE13readNextBlockEv.exit, label %43
 
 43:                                               ; preds = %26
   %44 = load i64, ptr %37, align 8
@@ -7534,11 +7534,11 @@ _ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit:
   %33 = sub i64 %31, %32
   call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #28
   %.pre = load ptr, ptr %16, align 8
-  %.pre131 = load ptr, ptr %1, align 8
+  %.pre128 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %30, %_ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit
-  %34 = phi ptr [ %.pre131, %30 ], [ %.sroa.0115.0, %_ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit ]
+  %34 = phi ptr [ %.pre128, %30 ], [ %.sroa.0115.0, %_ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit ]
   %35 = phi ptr [ %.pre, %30 ], [ %.sroa.11.0, %_ZNSt6vectorIcSaIcEEC2IN9__gnu_cxx17__normal_iteratorIPcS1_EEvEET_S7_RKS0_.exit ]
   %36 = load ptr, ptr %8, align 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -7631,7 +7631,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit67:                  ; preds = %.body, %70
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %7, %_ZNSt6vectorIcSaIcEED2Ev.exit64, %switch.lookup
-  %.0126 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load, %_ZNSt6vectorIcSaIcEED2Ev.exit64 ], [ 0, %7 ]
+  %.0123 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load, %_ZNSt6vectorIcSaIcEED2Ev.exit64 ], [ 0, %7 ]
   switch i32 %4, label %118 [
     i32 5, label %76
     i32 3, label %83
@@ -7769,14 +7769,14 @@ _ZNSt6vectorIcSaIcEED2Ev.exit67:                  ; preds = %.body, %70
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %117, ptr %2, align 8
   %.4.insert.insert = call i64 @llvm.bswap.i64(i64 %116)
-  %spec.select130 = select i1 %6, i64 %.4.insert.insert, i64 %116
-  store i64 %spec.select130, ptr %5, align 8
+  %spec.select127 = select i1 %6, i64 %.4.insert.insert, i64 %116
+  store i64 %spec.select127, ptr %5, align 8
   br label %118
 
 118:                                              ; preds = %.thread, %114, %110, %106, %100, %99, %89, %83, %82
   %.057 = phi i1 [ true, %114 ], [ true, %82 ], [ true, %83 ], [ true, %89 ], [ true, %99 ], [ true, %100 ], [ true, %106 ], [ true, %110 ], [ false, %.thread ]
   %119 = load i32, ptr %3, align 4
-  %120 = sub i32 %119, %.0126
+  %120 = sub i32 %119, %.0123
   store i32 %120, ptr %3, align 4
   ret i1 %.057
 

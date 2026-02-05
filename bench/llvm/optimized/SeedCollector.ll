@@ -1315,8 +1315,8 @@ define dso_local { ptr, i64 } @_ZN4llvm9sandboxir10SeedBundle8getSliceEjjb(ptr n
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not62 = icmp eq i32 %1, %9
-  br i1 %.not62, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %.lr.ph
+  %.not60 = icmp eq i32 %1, %9
+  br i1 %.not60, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
@@ -1324,11 +1324,11 @@ define dso_local { ptr, i64 } @_ZN4llvm9sandboxir10SeedBundle8getSliceEjjb(ptr n
   br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us
-  %.066.us = phi i32 [ %29, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ 0, %.lr.ph ]
-  %.02965.us = phi i32 [ %30, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ 0, %.lr.ph ]
-  %.03963.us = phi ptr [ %31, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ %13, %.lr.ph ]
-  %15 = load ptr, ptr %.03963.us, align 8, !tbaa !78
-  %16 = add i32 %.02965.us, %1
+  %.064.us = phi i32 [ %29, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ 0, %.lr.ph ]
+  %.02963.us = phi i32 [ %30, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ 0, %.lr.ph ]
+  %.03961.us = phi ptr [ %31, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ %13, %.lr.ph ]
+  %15 = load ptr, ptr %.03961.us, align 8, !tbaa !78
+  %16 = add i32 %.02963.us, %1
   %17 = load i32, ptr %14, align 8, !tbaa !46
   %18 = icmp ult i32 %16, %17
   br i1 %18, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us
@@ -1343,28 +1343,28 @@ _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us: ; preds = %.lr.ph.split.us
   %25 = getelementptr inbounds nuw i64, ptr %24, i64 %23
   %26 = load i64, ptr %25, align 8, !tbaa !145
   %27 = and i64 %26, %21
-  %.not60.us = icmp eq i64 %27, 0
-  br i1 %.not60.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge
+  %.not58.us = icmp eq i64 %27, 0
+  br i1 %.not58.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge
 
 _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us: ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us, %.lr.ph.split.us
   %28 = tail call noundef i32 @_ZN4llvm9sandboxir5Utils10getNumBitsEPNS0_11InstructionE(ptr noundef %15)
-  %29 = add i32 %28, %.066.us
-  %.not61.us = icmp ugt i32 %29, %2
-  br i1 %.not61.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us
+  %29 = add i32 %28, %.064.us
+  %.not59.us = icmp ugt i32 %29, %2
+  br i1 %.not59.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread.us:         ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us
-  %30 = add i32 %.02965.us, 1
-  %31 = getelementptr inbounds nuw i8, ptr %.03963.us, i64 8
+  %30 = add i32 %.02963.us, 1
+  %31 = getelementptr inbounds nuw i8, ptr %.03961.us, i64 8
   %.not.us = icmp eq ptr %31, %11
   br i1 %.not.us, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread
-  %.066 = phi i32 [ %46, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
-  %.02965 = phi i32 [ %48, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
-  %.03464 = phi i32 [ %.236.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
-  %.03963 = phi ptr [ %51, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %13, %.lr.ph ]
-  %32 = load ptr, ptr %.03963, align 8, !tbaa !78
-  %33 = add i32 %.02965, %1
+  %.064 = phi i32 [ %46, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
+  %.02963 = phi i32 [ %48, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
+  %.03462 = phi i32 [ %.236.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %.lr.ph ]
+  %.03961 = phi ptr [ %51, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %13, %.lr.ph ]
+  %32 = load ptr, ptr %.03961, align 8, !tbaa !78
+  %33 = add i32 %.02963, %1
   %34 = load i32, ptr %14, align 8, !tbaa !46
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread
@@ -1379,35 +1379,35 @@ _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit:    ; preds = %.lr.ph.split
   %42 = getelementptr inbounds nuw i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !145
   %44 = and i64 %43, %38
-  %.not60 = icmp eq i64 %44, 0
-  br i1 %.not60, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge
+  %.not58 = icmp eq i64 %44, 0
+  br i1 %.not58, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge
 
 _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread: ; preds = %.lr.ph.split, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit
   %45 = tail call noundef i32 @_ZN4llvm9sandboxir5Utils10getNumBitsEPNS0_11InstructionE(ptr noundef %32)
-  %46 = add i32 %45, %.066
-  %.not61 = icmp ugt i32 %46, %2
-  br i1 %.not61, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %47
+  %46 = add i32 %45, %.064
+  %.not59 = icmp ugt i32 %46, %2
+  br i1 %.not59, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %47
 
 47:                                               ; preds = %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread
-  %48 = add i32 %.02965, 1
+  %48 = add i32 %.02963, 1
   %.not.i.i.not = icmp eq i32 %46, 0
   br i1 %.not.i.i.not, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %47
   %49 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %46)
   %50 = icmp samesign ult i32 %49, 2
-  %spec.select = select i1 %50, i32 %48, i32 %.03464
+  %spec.select = select i1 %50, i32 %48, i32 %.03462
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit, %47
-  %.236.ph = phi i32 [ %.03464, %47 ], [ %spec.select, %_ZN4llvm13isPowerOf2_32Ej.exit ]
-  %51 = getelementptr inbounds nuw i8, ptr %.03963, i64 8
+  %.236.ph = phi i32 [ %.03462, %47 ], [ %spec.select, %_ZN4llvm13isPowerOf2_32Ej.exit ]
+  %51 = getelementptr inbounds nuw i8, ptr %.03961, i64 8
   %.not = icmp eq ptr %51, %11
   br i1 %.not, label %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge, label %.lr.ph.split
 
 _ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit._crit_edge: ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us, %_ZN4llvm13isPowerOf2_32Ej.exit.thread, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit, %4
-  %.034.lcssa = phi i32 [ 0, %4 ], [ %.03464, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit ], [ %.03464, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread ], [ %.236.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us ], [ 0, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us ], [ 0, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ]
-  %.029.lcssa = phi i32 [ 0, %4 ], [ %.02965, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit ], [ %.02965, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread ], [ %48, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %30, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ %.02965.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us ], [ %.02965.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us ]
+  %.034.lcssa = phi i32 [ 0, %4 ], [ %.03462, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit ], [ %.03462, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread ], [ %.236.ph, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us ], [ 0, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us ], [ 0, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ]
+  %.029.lcssa = phi i32 [ 0, %4 ], [ %.02963, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit ], [ %.02963, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread ], [ %48, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %30, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.us ], [ %.02963.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.thread.us ], [ %.02963.us, %_ZNK4llvm9sandboxir10SeedBundle6isUsedEj.exit.us ]
   %spec.select46 = select i1 %3, i32 %.034.lcssa, i32 %.029.lcssa
   %52 = icmp ugt i32 %spec.select46, 1
   %53 = load ptr, ptr %5, align 8

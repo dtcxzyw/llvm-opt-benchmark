@@ -1257,8 +1257,8 @@ _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPK
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MachineOperandELj4EEEZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_0EEbOT_T0_.exit.i.i": ; preds = %237, %234, %231, %.lr.ph.i.i.i.i.i.i.i.i, %253, %249, %245
   %.028.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i, %249 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %245 ], [ %.2.i.i.i.i.i.i.i.i, %253 ], [ %235, %234 ], [ %232, %231 ], [ %.02944.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %238, %237 ]
-  %.not251.i.i = icmp eq ptr %227, %.028.i.i.i.i.i.i.i.i
-  br i1 %.not251.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MachineOperandELj4EEEZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_0EEbOT_T0_.exit.thread.i.i", label %_ZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEv.exit.thread13.i
+  %.not249.i.i = icmp eq ptr %227, %.028.i.i.i.i.i.i.i.i
+  br i1 %.not249.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MachineOperandELj4EEEZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_0EEbOT_T0_.exit.thread.i.i", label %_ZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEv.exit.thread13.i
 
 _ZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEv.exit.thread13.i: ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MachineOperandELj4EEEZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_0EEbOT_T0_.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1556,23 +1556,23 @@ _ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i
   %389 = zext i32 %.val79.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %389, 5
   %390 = getelementptr inbounds nuw i8, ptr %.val77.i.i, i64 %.idx.i.i
-  %.not71258.i.i = icmp eq i32 %.val79.i.i, 0
-  br i1 %.not71258.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
+  %.not71256.i.i = icmp eq i32 %.val79.i.i, 0
+  br i1 %.not71256.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %457
-  %.sroa.0221.0.extract.trunc.i.i = call i32 @llvm.umin.i32(i32 %.sroa.0176.1.i.i, i32 %.sroa.0166.1.i.i)
+  %.sroa.0219.0.extract.trunc.i.i = call i32 @llvm.umin.i32(i32 %.sroa.0176.1.i.i, i32 %.sroa.0166.1.i.i)
   %.sroa.0.0.extract.trunc.i.i = call i32 @llvm.umax.i32(i32 %.sroa.0176.1.i.i, i32 %.sroa.0166.1.i.i)
   br i1 %.5.i.i, label %._crit_edge.thread.i.i, label %514
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i, %457
-  %.055265.i.i = phi i1 [ %.5.i.i, %457 ], [ true, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.058264.i.i = phi ptr [ %458, %457 ], [ %.val77.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.sroa.0176.0262.i.i = phi i32 [ %.sroa.0176.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.sroa.0166.0260.i.i = phi i32 [ %.sroa.0166.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.sroa.0239.0259.i.i = phi i32 [ %.sroa.0239.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %391 = load ptr, ptr %.058264.i.i, align 8, !tbaa !415
+  %.055263.i.i = phi i1 [ %.5.i.i, %457 ], [ true, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.058262.i.i = phi ptr [ %458, %457 ], [ %.val77.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0176.0260.i.i = phi i32 [ %.sroa.0176.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0166.0258.i.i = phi i32 [ %.sroa.0166.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0237.0257.i.i = phi i32 [ %.sroa.0237.1.i.i, %457 ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %391 = load ptr, ptr %.058262.i.i, align 8, !tbaa !415
   %392 = call noundef i32 @_ZNK4llvm19MachineTraceMetrics5Trace13getInstrSlackERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(70) %391) #21
-  %393 = load ptr, ptr %.058264.i.i, align 8, !tbaa !415
+  %393 = load ptr, ptr %.058262.i.i, align 8, !tbaa !415
   %394 = load ptr, ptr %16, align 8, !tbaa !417
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 376
   %396 = load ptr, ptr %395, align 8, !tbaa !408
@@ -1623,7 +1623,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_19MachineTraceMetric
 _ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i: ; preds = %.lr.ph.i.i.i.i90.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_19MachineTraceMetrics11InstrCyclesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i94.i.i, %.lr.ph.i.i
   %.sroa.022.0.extract.trunc.i.i = phi i32 [ %423, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_19MachineTraceMetrics11InstrCyclesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i94.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.i.i90.i.i ]
   %424 = add i32 %.sroa.022.0.extract.trunc.i.i, %392
-  %425 = getelementptr inbounds nuw i8, ptr %.058264.i.i, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %.058262.i.i, i64 16
   %426 = load i32, ptr %425, align 8, !tbaa !420
   %427 = icmp slt i32 %426, 0
   %428 = add i32 %426, %.sroa.045.0.extract.trunc.i.i
@@ -1635,16 +1635,16 @@ _ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96
 
 431:                                              ; preds = %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i
   %432 = sub nuw i32 %.0.i.i.i, %424
-  %spec.select246.i.i = call i32 @llvm.umax.i32(i32 %432, i32 %.sroa.0239.0259.i.i)
+  %spec.select244.i.i = call i32 @llvm.umax.i32(i32 %432, i32 %.sroa.0237.0257.i.i)
   %433 = icmp ule i32 %432, %283
-  %spec.select.i.i = select i1 %433, i1 %.055265.i.i, i1 false
+  %spec.select.i.i = select i1 %433, i1 %.055263.i.i, i1 false
   br label %434
 
 434:                                              ; preds = %431, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i
-  %.sroa.0239.1.i.i = phi i32 [ %spec.select246.i.i, %431 ], [ %.sroa.0239.0259.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i ]
-  %.156.i.i = phi i1 [ %spec.select.i.i, %431 ], [ %.055265.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i ]
+  %.sroa.0237.1.i.i = phi i32 [ %spec.select244.i.i, %431 ], [ %.sroa.0237.0257.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i ]
+  %.156.i.i = phi i1 [ %spec.select.i.i, %431 ], [ %.055263.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96.i.i ]
   %435 = call noundef i32 @_ZNK4llvm19MachineTraceMetrics5Trace11getPHIDepthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(70) %393) #21
-  %436 = getelementptr inbounds nuw i8, ptr %.058264.i.i, i64 20
+  %436 = getelementptr inbounds nuw i8, ptr %.058262.i.i, i64 20
   %437 = load i32, ptr %436, align 4, !tbaa !421
   %438 = icmp slt i32 %437, 0
   %439 = add i32 %437, %435
@@ -1656,17 +1656,17 @@ _ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96
 
 442:                                              ; preds = %434
   %443 = sub nuw i32 %.0.i98.i.i, %424
-  %spec.select247.i.i = call i32 @llvm.umax.i32(i32 %443, i32 %.sroa.0176.0262.i.i)
+  %spec.select245.i.i = call i32 @llvm.umax.i32(i32 %443, i32 %.sroa.0176.0260.i.i)
   %444 = icmp ule i32 %443, %283
   %spec.select75.i.i = select i1 %444, i1 %.156.i.i, i1 false
   br label %445
 
 445:                                              ; preds = %442, %434
-  %.sroa.0176.1.i.i = phi i32 [ %spec.select247.i.i, %442 ], [ %.sroa.0176.0262.i.i, %434 ]
+  %.sroa.0176.1.i.i = phi i32 [ %spec.select245.i.i, %442 ], [ %.sroa.0176.0260.i.i, %434 ]
   %.3.i.i = phi i1 [ %spec.select75.i.i, %442 ], [ %.156.i.i, %434 ]
-  %446 = load ptr, ptr %.058264.i.i, align 8, !tbaa !415
+  %446 = load ptr, ptr %.058262.i.i, align 8, !tbaa !415
   %447 = call noundef i32 @_ZNK4llvm19MachineTraceMetrics5Trace11getPHIDepthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(70) %446) #21
-  %448 = getelementptr inbounds nuw i8, ptr %.058264.i.i, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %.058262.i.i, i64 24
   %449 = load i32, ptr %448, align 8, !tbaa !422
   %450 = icmp slt i32 %449, 0
   %451 = add i32 %449, %447
@@ -1678,22 +1678,22 @@ _ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit96
 
 454:                                              ; preds = %445
   %455 = sub nuw i32 %.0.i100.i.i, %424
-  %spec.select249.i.i = call i32 @llvm.umax.i32(i32 %455, i32 %.sroa.0166.0260.i.i)
+  %spec.select247.i.i = call i32 @llvm.umax.i32(i32 %455, i32 %.sroa.0166.0258.i.i)
   %456 = icmp ule i32 %455, %283
   %spec.select76.i.i = select i1 %456, i1 %.3.i.i, i1 false
   br label %457
 
 457:                                              ; preds = %454, %445
-  %.sroa.0166.1.i.i = phi i32 [ %spec.select249.i.i, %454 ], [ %.sroa.0166.0260.i.i, %445 ]
+  %.sroa.0166.1.i.i = phi i32 [ %spec.select247.i.i, %454 ], [ %.sroa.0166.0258.i.i, %445 ]
   %.5.i.i = phi i1 [ %spec.select76.i.i, %454 ], [ %.3.i.i, %445 ]
-  %458 = getelementptr inbounds nuw i8, ptr %.058264.i.i, i64 32
+  %458 = getelementptr inbounds nuw i8, ptr %.058262.i.i, i64 32
   %.not71.i.i = icmp eq ptr %458, %390
   br i1 %.not71.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i
-  %.sroa.0.0.extract.trunc331.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.sroa.0221.0.extract.trunc330.i.i = phi i32 [ %.sroa.0221.0.extract.trunc.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
-  %.sroa.0239.0.lcssa327.i.i = phi i32 [ %.sroa.0239.1.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0.0.extract.trunc329.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0219.0.extract.trunc328.i.i = phi i32 [ %.sroa.0219.0.extract.trunc.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
+  %.sroa.0237.0.lcssa325.i.i = phi i32 [ %.sroa.0237.1.i.i, %._crit_edge.i.i ], [ 0, %_ZNK4llvm19MachineTraceMetrics5Trace14getInstrCyclesERKNS_12MachineInstrE.exit.i.i ]
   %459 = load ptr, ptr %13, align 8, !tbaa !374
   %460 = load ptr, ptr %459, align 8, !tbaa !375
   %461 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %460) #21
@@ -1766,23 +1766,23 @@ _ZN4llvm17MachineBasicBlock4backEv.exit.i.i105.i.i: ; preds = %_ZNK4llvm14ilist_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm25MachineOptimizationRemarkE, i64 16), ptr %6, align 8, !tbaa !3, !alias.scope !423
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !423
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.31, i64 55) #21
-  %488 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.32, i32 %.sroa.0239.0.lcssa327.i.i)
+  %488 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.32, i32 %.sroa.0237.0.lcssa325.i.i)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %488, ptr nonnull @.str.33, i64 21) #21
-  %.not.i.i.i.i17 = icmp eq i32 %.sroa.0221.0.extract.trunc330.i.i, 0
+  %.not.i.i.i.i17 = icmp eq i32 %.sroa.0219.0.extract.trunc328.i.i, 0
   br i1 %.not.i.i.i.i17, label %491, label %489
 
 489:                                              ; preds = %_ZN4llvm17MachineBasicBlock4backEv.exit.i.i105.i.i
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.34, i64 33) #21
-  %490 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.35, i32 %.sroa.0221.0.extract.trunc330.i.i)
+  %490 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.35, i32 %.sroa.0219.0.extract.trunc328.i.i)
   br label %491
 
 491:                                              ; preds = %489, %_ZN4llvm17MachineBasicBlock4backEv.exit.i.i105.i.i
-  %.not8.i.i.i.i = icmp eq i32 %.sroa.0.0.extract.trunc331.i.i, 0
+  %.not8.i.i.i.i = icmp eq i32 %.sroa.0.0.extract.trunc329.i.i, 0
   br i1 %.not8.i.i.i.i, label %"_ZZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvENK3$_2clEv.exit.i.i.i", label %492
 
 492:                                              ; preds = %491
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.36, i64 32) #21
-  %493 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.37, i32 %.sroa.0.0.extract.trunc331.i.i)
+  %493 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm25MachineOptimizationRemarkEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr nonnull @.str.37, i32 %.sroa.0.0.extract.trunc329.i.i)
   br label %"_ZZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvENK3$_2clEv.exit.i.i.i"
 
 "_ZZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvENK3$_2clEv.exit.i.i.i": ; preds = %492, %491
@@ -1923,9 +1923,9 @@ _ZN4llvm17MachineBasicBlock4backEv.exit.i.i134.i.i: ; preds = %_ZNK4llvm14ilist_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm31MachineOptimizationRemarkMissedE, i64 16), ptr %4, align 8, !tbaa !3, !alias.scope !426
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !426
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.40, i64 51) #21
-  %544 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm31MachineOptimizationRemarkMissedEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.32, i32 %.sroa.0239.1.i.i)
+  %544 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm31MachineOptimizationRemarkMissedEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.32, i32 %.sroa.0237.1.i.i)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %544, ptr nonnull @.str.33, i64 21) #21
-  %545 = icmp ugt i32 %.sroa.0239.1.i.i, %283
+  %545 = icmp ugt i32 %.sroa.0237.1.i.i, %283
   br i1 %545, label %546, label %548
 
 546:                                              ; preds = %_ZN4llvm17MachineBasicBlock4backEv.exit.i.i134.i.i
@@ -1934,13 +1934,13 @@ _ZN4llvm17MachineBasicBlock4backEv.exit.i.i134.i.i: ; preds = %_ZNK4llvm14ilist_
   br label %548
 
 548:                                              ; preds = %546, %_ZN4llvm17MachineBasicBlock4backEv.exit.i.i134.i.i
-  %.not.i.i137.i.i = icmp eq i32 %.sroa.0221.0.extract.trunc.i.i, 0
+  %.not.i.i137.i.i = icmp eq i32 %.sroa.0219.0.extract.trunc.i.i, 0
   br i1 %.not.i.i137.i.i, label %554, label %549
 
 549:                                              ; preds = %548
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.42, i64 38) #21
-  %550 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm31MachineOptimizationRemarkMissedEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.35, i32 %.sroa.0221.0.extract.trunc.i.i)
-  %551 = icmp ugt i32 %.sroa.0221.0.extract.trunc.i.i, %283
+  %550 = call fastcc noundef nonnull align 8 dereferenceable(432) ptr @_ZN12_GLOBAL__N_1lsIN4llvm31MachineOptimizationRemarkMissedEEERT_S4_NS_6CyclesE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr nonnull @.str.35, i32 %.sroa.0219.0.extract.trunc.i.i)
+  %551 = icmp ugt i32 %.sroa.0219.0.extract.trunc.i.i, %283
   br i1 %551, label %552, label %554
 
 552:                                              ; preds = %549
@@ -2027,12 +2027,12 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i151.i.i: ; preds = %578, %_ZN
   br label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_2EEvT_PDTclfL0p_EE.exit.i.i"
 
 "_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_2EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i151.i.i, %519, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i121.i.i, %463
-  %.055.lcssa328.i.i = phi i1 [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i151.i.i ], [ false, %519 ], [ true, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i121.i.i ], [ true, %463 ]
+  %.055.lcssa326.i.i = phi i1 [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i151.i.i ], [ false, %519 ], [ true, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i121.i.i ], [ true, %463 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i"
 
 "_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_1EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_2EEvT_PDTclfL0p_EE.exit.i.i", %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i, %300
-  %.2.i.i = phi i1 [ %.055.lcssa328.i.i, %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_2EEvT_PDTclfL0p_EE.exit.i.i" ], [ false, %300 ], [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i ]
+  %.2.i.i = phi i1 [ %.055.lcssa326.i.i, %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEvE3$_2EEvT_PDTclfL0p_EE.exit.i.i" ], [ false, %300 ], [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i ]
   %579 = load ptr, ptr %14, align 8, !tbaa !25
   %580 = icmp eq ptr %579, %79
   br i1 %580, label %_ZN12_GLOBAL__N_116EarlyIfConverter15shouldConvertIfEv.exit.i, label %581

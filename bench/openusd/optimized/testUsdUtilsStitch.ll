@@ -3933,9 +3933,9 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__15SdfMa
           to label %11 unwind label %59
 
 11:                                               ; preds = %8
-  %.sroa.016.0.copyload = load ptr, ptr %4, align 8
-  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.219.0.copyload = load ptr, ptr %.sroa.219.0..sroa_idx, align 8
+  %.sroa.013.0.copyload = load ptr, ptr %4, align 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.216.0.copyload = load ptr, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = load ptr, ptr %10, align 8
@@ -3989,11 +3989,11 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueEED2Ev.exit, %28
   store ptr null, ptr %7, align 8
-  %36 = icmp eq ptr %.sroa.016.0.copyload, null
+  %36 = icmp eq ptr %.sroa.013.0.copyload, null
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE5_DataEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
-  %37 = load ptr, ptr %.sroa.016.0.copyload, align 8, !nonnull !65, !noundef !65
+  %37 = load ptr, ptr %.sroa.013.0.copyload, align 8, !nonnull !65, !noundef !65
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
@@ -4006,7 +4006,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34S
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE10_ConstDataEv.exit.i.i
   %46 = extractvalue { ptr, ptr } %42, 0
   %.not.i.i.i.i = icmp eq ptr %.sroa.5.0.copyload, null
-  %47 = icmp eq ptr %.sroa.219.0.copyload, %46
+  %47 = icmp eq ptr %.sroa.216.0.copyload, %46
   %or.cond.i.i8 = select i1 %.not.i.i.i.i, i1 true, i1 %47
   br i1 %or.cond.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE5_DataEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34SdfIdentityMapEditProxyValuePolicyIS1_EEE9_IteratorIPS4_NS1_8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKSE_SF_EEESt17_Rb_tree_iteratorISK_EEENS4_10_PairProxyEE5equalIS6_SQ_SR_EEbRKNS5_IT_T0_T1_EE.exit
 
@@ -4029,7 +4029,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15SdfMapEditProxyINS_12VtDictionaryENS_34Sd
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.219.0.copyload, ptr %56, align 8
+  store ptr %.sroa.216.0.copyload, ptr %56, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   ret void

@@ -4700,20 +4700,20 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
   %49 = or disjoint i32 %48, 8
   store i32 %49, ptr %46, align 8, !tbaa !130
   %50 = load i64, ptr %9, align 8, !tbaa !137
-  %.not55 = icmp eq i64 %50, 0
-  br i1 %.not55, label %._crit_edge54, label %.lr.ph53
+  %.not52 = icmp eq i64 %50, 0
+  br i1 %.not52, label %._crit_edge51, label %.lr.ph50
 
-.lr.ph53:                                         ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit
+.lr.ph50:                                         ; preds = %_ZNSolsEPFRSt8ios_baseS0_E.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.pre56 = load i32, ptr %51, align 8, !tbaa !101
+  %.pre53 = load i32, ptr %51, align 8, !tbaa !101
   br label %68
 
-._crit_edge54:                                    ; preds = %98, %_ZNSolsEPFRSt8ios_baseS0_E.exit
+._crit_edge51:                                    ; preds = %98, %_ZNSolsEPFRSt8ios_baseS0_E.exit
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = invoke noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(240) %52)
           to label %.noexc32 unwind label %66
 
-.noexc32:                                         ; preds = %._crit_edge54
+.noexc32:                                         ; preds = %._crit_edge51
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %54, label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
@@ -4738,16 +4738,16 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
           cleanup
   br label %107
 
-66:                                               ; preds = %54, %._crit_edge54, %.noexc29, %36, %33
+66:                                               ; preds = %54, %._crit_edge51, %.noexc29, %36, %33
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %106
 
-68:                                               ; preds = %.lr.ph53, %98
-  %69 = phi i32 [ %.pre56, %.lr.ph53 ], [ %99, %98 ]
-  %.01852 = phi i64 [ 0, %.lr.ph53 ], [ %101, %98 ]
-  %.not2050 = icmp eq i32 %69, 0
-  br i1 %.not2050, label %._crit_edge, label %.lr.ph.preheader
+68:                                               ; preds = %.lr.ph50, %98
+  %69 = phi i32 [ %.pre53, %.lr.ph50 ], [ %99, %98 ]
+  %.01849 = phi i64 [ 0, %.lr.ph50 ], [ %101, %98 ]
+  %.not2047 = icmp eq i32 %69, 0
+  br i1 %.not2047, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %68
   %70 = zext i32 %69 to i64
@@ -4774,8 +4774,8 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
           to label %98 unwind label %104
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSolsEt.exit
-  %.01751 = phi i64 [ %97, %_ZNSolsEt.exit ], [ %70, %.lr.ph.preheader ]
-  %81 = add i64 %.01751, %.01852
+  %.01748 = phi i64 [ %97, %_ZNSolsEt.exit ], [ %70, %.lr.ph.preheader ]
+  %81 = add i64 %.01748, %.01849
   %82 = load i64, ptr %9, align 8, !tbaa !137
   %.not21 = icmp ugt i64 %81, %82
   %83 = load ptr, ptr %3, align 8, !tbaa !3
@@ -4804,7 +4804,7 @@ _ZNSolsEPFRSt8ios_baseS0_E.exit:                  ; preds = %22, %_ZNKSt9basic_i
           to label %_ZNSolsEt.exit unwind label %93
 
 _ZNSolsEt.exit:                                   ; preds = %.invoke
-  %97 = add nsw i64 %.01751, -1
+  %97 = add nsw i64 %.01748, -1
   %.not20 = icmp eq i64 %97, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !164
 
@@ -4812,10 +4812,10 @@ _ZNSolsEt.exit:                                   ; preds = %.invoke
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %99 = load i32, ptr %51, align 8, !tbaa !101
   %100 = zext i32 %99 to i64
-  %101 = add i64 %.01852, %100
+  %101 = add i64 %.01849, %100
   %102 = load i64, ptr %9, align 8, !tbaa !137
   %103 = icmp ult i64 %101, %102
-  br i1 %103, label %68, label %._crit_edge54, !llvm.loop !165
+  br i1 %103, label %68, label %._crit_edge51, !llvm.loop !165
 
 104:                                              ; preds = %79, %77
   %105 = landingpad { ptr, i32 }

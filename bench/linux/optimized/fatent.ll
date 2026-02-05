@@ -1218,7 +1218,7 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.loopexit26
+  br i1 %22, label %23, label %.loopexit24
 
 23:                                               ; preds = %19, %1
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1291,7 +1291,7 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %66 = icmp ugt i64 %65, 2
-  br i1 %66, label %67, label %.loopexit27
+  br i1 %66, label %67, label %.loopexit25
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1374,9 +1374,9 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   store ptr null, ptr %25, align 8
   %98 = load i32, ptr %24, align 8
   %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.preheader24, label %.loopexit25
+  br i1 %99, label %.preheader22, label %.loopexit23
 
-.preheader24:                                     ; preds = %fat_ent_reada.exit, %106
+.preheader22:                                     ; preds = %fat_ent_reada.exit, %106
   %100 = phi i32 [ %107, %106 ], [ %98, %fat_ent_reada.exit ]
   %101 = phi i64 [ %108, %106 ], [ 0, %fat_ent_reada.exit ]
   %102 = getelementptr ptr, ptr %26, i64 %101
@@ -1384,19 +1384,19 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   %104 = icmp eq ptr %103, null
   br i1 %104, label %106, label %105
 
-105:                                              ; preds = %.preheader24
+105:                                              ; preds = %.preheader22
   call void @__brelse(ptr noundef nonnull %103) #9
-  %.pre35 = load i32, ptr %24, align 8
+  %.pre33 = load i32, ptr %24, align 8
   br label %106
 
-106:                                              ; preds = %105, %.preheader24
-  %107 = phi i32 [ %.pre35, %105 ], [ %100, %.preheader24 ]
+106:                                              ; preds = %105, %.preheader22
+  %107 = phi i32 [ %.pre33, %105 ], [ %100, %.preheader22 ]
   %108 = add nuw nsw i64 %101, 1
   %109 = sext i32 %107 to i64
   %110 = icmp slt i64 %108, %109
-  br i1 %110, label %.preheader24, label %.loopexit25, !llvm.loop !5
+  br i1 %110, label %.preheader22, label %.loopexit23, !llvm.loop !5
 
-.loopexit25:                                      ; preds = %106, %fat_ent_reada.exit
+.loopexit23:                                      ; preds = %106, %fat_ent_reada.exit
   store i32 0, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %111 = load ptr, ptr %97, align 8
@@ -1410,10 +1410,10 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %.preheader23, label %.loopexit26
+  br i1 %118, label %.preheader21, label %.loopexit24
 
-.preheader23:                                     ; preds = %.loopexit25, %130
-  %119 = phi i32 [ %124, %130 ], [ %72, %.loopexit25 ]
+.preheader21:                                     ; preds = %.loopexit23, %130
+  %119 = phi i32 [ %124, %130 ], [ %72, %.loopexit23 ]
   %120 = load ptr, ptr %68, align 8
   %121 = call i32 %120(ptr noundef nonnull %10) #9
   %122 = icmp eq i32 %121, 0
@@ -1426,22 +1426,22 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %135, label %130
 
-130:                                              ; preds = %.preheader23
+130:                                              ; preds = %.preheader21
   %131 = load i32, ptr %10, align 8
   %132 = sext i32 %131 to i64
   %133 = load i64, ptr %27, align 8
   %134 = icmp ugt i64 %133, %132
-  br i1 %134, label %.preheader23, label %135, !llvm.loop !26
+  br i1 %134, label %.preheader21, label %135, !llvm.loop !26
 
-135:                                              ; preds = %130, %.preheader23
+135:                                              ; preds = %130, %.preheader21
   %136 = call i32 @__SCT__cond_resched() #9
   %137 = load i32, ptr %10, align 8
   %138 = sext i32 %137 to i64
   %139 = load i64, ptr %27, align 8
   %140 = icmp ugt i64 %139, %138
-  br i1 %140, label %71, label %.loopexit27, !llvm.loop !27
+  br i1 %140, label %71, label %.loopexit25, !llvm.loop !27
 
-.loopexit27:                                      ; preds = %135, %64
+.loopexit25:                                      ; preds = %135, %64
   %141 = phi i32 [ 0, %64 ], [ %124, %135 ]
   store i32 %141, ptr %16, align 4
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 176
@@ -1453,7 +1453,7 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %148, label %155
 
-148:                                              ; preds = %.loopexit27
+148:                                              ; preds = %.loopexit25
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 9
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 32
@@ -1465,7 +1465,7 @@ fat_ent_reada.exit:                               ; preds = %71, %93
   call void @__mark_inode_dirty(ptr noundef %154, i32 noundef 1) #9
   br label %155
 
-155:                                              ; preds = %152, %148, %.loopexit27
+155:                                              ; preds = %152, %148, %.loopexit25
   store ptr null, ptr %25, align 8
   %156 = load i32, ptr %24, align 8
   %157 = icmp sgt i32 %156, 0
@@ -1481,11 +1481,11 @@ fat_ent_reada.exit:                               ; preds = %71, %93
 
 163:                                              ; preds = %.preheader
   call void @__brelse(ptr noundef nonnull %161) #9
-  %.pre36 = load i32, ptr %24, align 8
+  %.pre34 = load i32, ptr %24, align 8
   br label %164
 
 164:                                              ; preds = %163, %.preheader
-  %165 = phi i32 [ %.pre36, %163 ], [ %158, %.preheader ]
+  %165 = phi i32 [ %.pre34, %163 ], [ %158, %.preheader ]
   %166 = add nuw nsw i64 %159, 1
   %167 = sext i32 %165 to i64
   %168 = icmp slt i64 %166, %167
@@ -1494,10 +1494,10 @@ fat_ent_reada.exit:                               ; preds = %71, %93
 .loopexit:                                        ; preds = %164, %155
   store i32 0, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  br label %.loopexit26
+  br label %.loopexit24
 
-.loopexit26:                                      ; preds = %.loopexit25, %.loopexit, %19
-  %169 = phi i32 [ 0, %19 ], [ 0, %.loopexit ], [ %117, %.loopexit25 ]
+.loopexit24:                                      ; preds = %.loopexit23, %.loopexit, %19
+  %169 = phi i32 [ 0, %19 ], [ 0, %.loopexit ], [ %117, %.loopexit23 ]
   call void @mutex_unlock(ptr noundef nonnull %15) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %169
@@ -1623,7 +1623,7 @@ define dso_local i32 @fat_trim_fs(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %86 = sext i32 %85 to i64
   %87 = icmp ult i64 %43, %86
-  br i1 %87, label %.thread33, label %88
+  br i1 %87, label %.thread31, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -1708,9 +1708,9 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   store ptr null, ptr %45, align 8
   %121 = load i32, ptr %44, align 8
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.preheader38, label %.loopexit39
+  br i1 %122, label %.preheader36, label %.loopexit37
 
-.preheader38:                                     ; preds = %fat_ent_reada.exit, %129
+.preheader36:                                     ; preds = %fat_ent_reada.exit, %129
   %123 = phi i32 [ %130, %129 ], [ %121, %fat_ent_reada.exit ]
   %124 = phi i64 [ %131, %129 ], [ 0, %fat_ent_reada.exit ]
   %125 = getelementptr ptr, ptr %46, i64 %124
@@ -1718,19 +1718,19 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %127 = icmp eq ptr %126, null
   br i1 %127, label %129, label %128
 
-128:                                              ; preds = %.preheader38
+128:                                              ; preds = %.preheader36
   call void @__brelse(ptr noundef nonnull %126) #9
-  %.pre57 = load i32, ptr %44, align 8
+  %.pre55 = load i32, ptr %44, align 8
   br label %129
 
-129:                                              ; preds = %128, %.preheader38
-  %130 = phi i32 [ %.pre57, %128 ], [ %123, %.preheader38 ]
+129:                                              ; preds = %128, %.preheader36
+  %130 = phi i32 [ %.pre55, %128 ], [ %123, %.preheader36 ]
   %131 = add nuw nsw i64 %124, 1
   %132 = sext i32 %130 to i64
   %133 = icmp slt i64 %131, %132
-  br i1 %133, label %.preheader38, label %.loopexit39, !llvm.loop !5
+  br i1 %133, label %.preheader36, label %.loopexit37, !llvm.loop !5
 
-.loopexit39:                                      ; preds = %129, %fat_ent_reada.exit
+.loopexit37:                                      ; preds = %129, %fat_ent_reada.exit
   store i32 0, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   %134 = load ptr, ptr %120, align 8
@@ -1744,21 +1744,21 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %.preheader37, label %.thread33
+  br i1 %141, label %.preheader35, label %.thread31
 
-.preheader37:                                     ; preds = %.loopexit39, %186
-  %142 = phi i64 [ %179, %186 ], [ %95, %.loopexit39 ]
-  %143 = phi i32 [ %180, %186 ], [ %94, %.loopexit39 ]
+.preheader35:                                     ; preds = %.loopexit37, %186
+  %142 = phi i64 [ %179, %186 ], [ %95, %.loopexit37 ]
+  %143 = phi i32 [ %180, %186 ], [ %94, %.loopexit37 ]
   %144 = load ptr, ptr %89, align 8
   %145 = call i32 %144(ptr noundef nonnull %11) #9
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %147, label %149
 
-147:                                              ; preds = %.preheader37
+147:                                              ; preds = %.preheader35
   %148 = add i32 %143, 1
   br label %.thread
 
-149:                                              ; preds = %.preheader37
+149:                                              ; preds = %.preheader35
   %150 = icmp eq i32 %143, 0
   br i1 %150, label %.thread, label %151
 
@@ -1790,7 +1790,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %174 = shl i64 %165, %173
   %175 = shl i64 %168, %173
   %176 = call i32 @blkdev_issue_discard(ptr noundef %169, i64 noundef %174, i64 noundef %175, i32 noundef 3136) #9
-  switch i32 %176, label %.thread33 [
+  switch i32 %176, label %.thread31 [
     i32 0, label %177
     i32 -95, label %.thread
   ]
@@ -1807,7 +1807,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %183 = load ptr, ptr %182, align 8
   %184 = call i32 %183(ptr noundef nonnull %11) #9
   %185 = icmp eq i32 %184, 0
-  br i1 %185, label %.thread32, label %186
+  br i1 %185, label %.thread30, label %186
 
 186:                                              ; preds = %.thread
   %187 = load i32, ptr %11, align 8
@@ -1816,9 +1816,9 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %190 = icmp ule i64 %189, %188
   %.not = icmp ult i64 %43, %188
   %or.cond = select i1 %190, i1 true, i1 %.not
-  br i1 %or.cond, label %.thread32, label %.preheader37, !llvm.loop !28
+  br i1 %or.cond, label %.thread30, label %.preheader35, !llvm.loop !28
 
-.thread32:                                        ; preds = %186, %.thread
+.thread30:                                        ; preds = %186, %.thread
   %191 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !29
   %192 = inttoptr i64 %191 to ptr
   %193 = load volatile i64, ptr %192, align 8
@@ -1826,14 +1826,14 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %195 = icmp eq i64 %194, 0
   br i1 %195, label %.critedge, label %196
 
-196:                                              ; preds = %.thread32
+196:                                              ; preds = %.thread30
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 1936
   %198 = load i64, ptr %197, align 8
   %199 = and i64 %198, 256
   %200 = icmp eq i64 %199, 0
-  br i1 %200, label %.critedge, label %.thread33
+  br i1 %200, label %.critedge, label %.thread31
 
-.critedge:                                        ; preds = %.thread32, %196
+.critedge:                                        ; preds = %.thread30, %196
   %201 = load volatile i64, ptr %192, align 8
   %202 = and i64 %201, 8
   %203 = icmp eq i64 %202, 0
@@ -1843,9 +1843,9 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   store ptr null, ptr %45, align 8
   %205 = load i32, ptr %44, align 8
   %206 = icmp sgt i32 %205, 0
-  br i1 %206, label %.preheader35, label %.loopexit36
+  br i1 %206, label %.preheader33, label %.loopexit34
 
-.preheader35:                                     ; preds = %204, %213
+.preheader33:                                     ; preds = %204, %213
   %207 = phi i32 [ %214, %213 ], [ %205, %204 ]
   %208 = phi i64 [ %215, %213 ], [ 0, %204 ]
   %209 = getelementptr ptr, ptr %46, i64 %208
@@ -1853,19 +1853,19 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %211 = icmp eq ptr %210, null
   br i1 %211, label %213, label %212
 
-212:                                              ; preds = %.preheader35
+212:                                              ; preds = %.preheader33
   call void @__brelse(ptr noundef nonnull %210) #9
-  %.pre58 = load i32, ptr %44, align 8
+  %.pre56 = load i32, ptr %44, align 8
   br label %213
 
-213:                                              ; preds = %212, %.preheader35
-  %214 = phi i32 [ %.pre58, %212 ], [ %207, %.preheader35 ]
+213:                                              ; preds = %212, %.preheader33
+  %214 = phi i32 [ %.pre56, %212 ], [ %207, %.preheader33 ]
   %215 = add nuw nsw i64 %208, 1
   %216 = sext i32 %214 to i64
   %217 = icmp slt i64 %215, %216
-  br i1 %217, label %.preheader35, label %.loopexit36, !llvm.loop !5
+  br i1 %217, label %.preheader33, label %.loopexit34, !llvm.loop !5
 
-.loopexit36:                                      ; preds = %213, %204
+.loopexit34:                                      ; preds = %213, %204
   store i32 0, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   call void @mutex_unlock(ptr noundef nonnull %47) #9
@@ -1873,7 +1873,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   call void @mutex_lock(ptr noundef nonnull %47) #9
   br label %219
 
-219:                                              ; preds = %.loopexit36, %.critedge
+219:                                              ; preds = %.loopexit34, %.critedge
   %220 = load i32, ptr %11, align 8
   %221 = sext i32 %220 to i64
   %222 = icmp ult i64 %43, %221
@@ -1881,12 +1881,12 @@ fat_ent_reada.exit:                               ; preds = %93, %116
 
 223:                                              ; preds = %219
   %224 = icmp eq i32 %180, 0
-  br i1 %224, label %.thread33, label %225
+  br i1 %224, label %.thread31, label %225
 
 225:                                              ; preds = %223
   %226 = zext i32 %180 to i64
   %227 = icmp ugt i64 %31, %226
-  br i1 %227, label %.thread33, label %228
+  br i1 %227, label %.thread31, label %228
 
 228:                                              ; preds = %225
   %229 = sub i32 %220, %180
@@ -1910,29 +1910,29 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   %247 = shl i64 %238, %246
   %248 = shl i64 %241, %246
   %249 = call i32 @blkdev_issue_discard(ptr noundef %242, i64 noundef %247, i64 noundef %248, i32 noundef 3136) #9
-  switch i32 %249, label %.thread33 [
+  switch i32 %249, label %.thread31 [
     i32 0, label %250
     i32 -95, label %252
   ]
 
 250:                                              ; preds = %228
   %251 = add i64 %179, %226
-  br label %.thread33
+  br label %.thread31
 
 252:                                              ; preds = %228
-  br label %.thread33
+  br label %.thread31
 
-.thread33:                                        ; preds = %196, %.loopexit39, %154, %84, %252, %250, %228, %225, %223
-  %253 = phi i64 [ %179, %225 ], [ %179, %223 ], [ %179, %228 ], [ %251, %250 ], [ %179, %252 ], [ 0, %84 ], [ %142, %154 ], [ %95, %.loopexit39 ], [ %179, %196 ]
-  %254 = phi i32 [ 0, %225 ], [ 0, %223 ], [ %249, %228 ], [ 0, %250 ], [ 0, %252 ], [ 0, %84 ], [ %176, %154 ], [ %140, %.loopexit39 ], [ -512, %196 ]
+.thread31:                                        ; preds = %196, %.loopexit37, %154, %84, %252, %250, %228, %225, %223
+  %253 = phi i64 [ %179, %225 ], [ %179, %223 ], [ %179, %228 ], [ %251, %250 ], [ %179, %252 ], [ 0, %84 ], [ %142, %154 ], [ %95, %.loopexit37 ], [ %179, %196 ]
+  %254 = phi i32 [ 0, %225 ], [ 0, %223 ], [ %249, %228 ], [ 0, %250 ], [ 0, %252 ], [ 0, %84 ], [ %176, %154 ], [ %140, %.loopexit37 ], [ -512, %196 ]
   store ptr null, ptr %45, align 8
   %255 = load i32, ptr %44, align 8
   %256 = icmp sgt i32 %255, 0
   br i1 %256, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread33, %263
-  %257 = phi i32 [ %264, %263 ], [ %255, %.thread33 ]
-  %258 = phi i64 [ %265, %263 ], [ 0, %.thread33 ]
+.preheader:                                       ; preds = %.thread31, %263
+  %257 = phi i32 [ %264, %263 ], [ %255, %.thread31 ]
+  %258 = phi i64 [ %265, %263 ], [ 0, %.thread31 ]
   %259 = getelementptr ptr, ptr %46, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
@@ -1940,17 +1940,17 @@ fat_ent_reada.exit:                               ; preds = %93, %116
 
 262:                                              ; preds = %.preheader
   call void @__brelse(ptr noundef nonnull %260) #9
-  %.pre59 = load i32, ptr %44, align 8
+  %.pre57 = load i32, ptr %44, align 8
   br label %263
 
 263:                                              ; preds = %262, %.preheader
-  %264 = phi i32 [ %.pre59, %262 ], [ %257, %.preheader ]
+  %264 = phi i32 [ %.pre57, %262 ], [ %257, %.preheader ]
   %265 = add nuw nsw i64 %258, 1
   %266 = sext i32 %264 to i64
   %267 = icmp slt i64 %265, %266
   br i1 %267, label %.preheader, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %263, %.thread33
+.loopexit:                                        ; preds = %263, %.thread31
   store i32 0, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   call void @mutex_unlock(ptr noundef nonnull %47) #9

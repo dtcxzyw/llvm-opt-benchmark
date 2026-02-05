@@ -381,8 +381,8 @@ _ZNK4llvm9StringRef5splitES0_.exit28:             ; preds = %116, %117
   br label %_ZNK4llvm9StringRef6rsplitES0_.exit
 
 _ZNK4llvm9StringRef6rsplitES0_.exit:              ; preds = %_ZNK4llvm9StringRef5splitES0_.exit28, %125
-  %.sroa.877.1 = phi i64 [ %130, %125 ], [ 0, %_ZNK4llvm9StringRef5splitES0_.exit28 ]
-  %.sroa.576.1 = phi ptr [ %129, %125 ], [ null, %_ZNK4llvm9StringRef5splitES0_.exit28 ]
+  %.sroa.877.0 = phi i64 [ %130, %125 ], [ 0, %_ZNK4llvm9StringRef5splitES0_.exit28 ]
+  %.sroa.576.0 = phi ptr [ %129, %125 ], [ null, %_ZNK4llvm9StringRef5splitES0_.exit28 ]
   %131 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr nonnull @.str.5, i64 1) #13, !noalias !92
   %132 = icmp eq i64 %131, -1
   br i1 %132, label %133, label %134
@@ -419,7 +419,7 @@ _ZNK4llvm9StringRef6rsplitES0_.exit37:            ; preds = %133, %134
 _ZNK4llvm9StringRef5splitES0_.exit42:             ; preds = %139, %140
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload57, %139 ], [ %.sroa.speculated.i.i38, %140 ]
   %.sroa.054.0 = phi ptr [ %.sroa.054.0.copyload55, %139 ], [ %142, %140 ]
-  %143 = icmp eq i64 %.sroa.877.1, 0
+  %143 = icmp eq i64 %.sroa.877.0, 0
   %144 = icmp eq i64 %.sroa.565.0, 0
   %or.cond = select i1 %143, i1 true, i1 %144
   %145 = icmp eq i64 %.sroa.5.0, 0
@@ -450,8 +450,8 @@ _ZNK4llvm9StringRef5splitES0_.exit42:             ; preds = %139, %140
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm9StringRef5splitES0_.exit42
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  store ptr %.sroa.576.1, ptr %24, align 8, !alias.scope !101
-  store i64 %.sroa.877.1, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !62, !alias.scope !101
+  store ptr %.sroa.576.0, ptr %24, align 8, !alias.scope !101
+  store i64 %.sroa.877.0, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !62, !alias.scope !101
   store ptr %.sroa.054.0, ptr %93, align 8, !alias.scope !101
   store i64 %.sroa.5.0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !62, !alias.scope !101
   store i8 5, ptr %94, align 8, !tbaa !57, !alias.scope !101

@@ -480,10 +480,10 @@ define internal noalias noundef ptr @logger_thread(ptr readnone captures(none) %
 .lr.ph:                                           ; preds = %14, %logger_thread_read.exit
   %.036 = phi ptr [ %.0, %logger_thread_read.exit ], [ %.029, %14 ]
   %.01335 = phi i32 [ %123, %logger_thread_read.exit ], [ 0, %14 ]
-  %.sroa.14.134 = phi i64 [ %.sroa.14.7, %logger_thread_read.exit ], [ 0, %14 ]
-  %.sroa.9.133 = phi i64 [ %.sroa.9.7, %logger_thread_read.exit ], [ 0, %14 ]
-  %.sroa.6.132 = phi i64 [ %.sroa.6.2, %logger_thread_read.exit ], [ 0, %14 ]
-  %.sroa.0.131 = phi i64 [ %.sroa.0.2, %logger_thread_read.exit ], [ 0, %14 ]
+  %.sroa.14.034 = phi i64 [ %.sroa.14.6, %logger_thread_read.exit ], [ 0, %14 ]
+  %.sroa.9.033 = phi i64 [ %.sroa.9.6, %logger_thread_read.exit ], [ 0, %14 ]
+  %.sroa.6.032 = phi i64 [ %.sroa.6.1, %logger_thread_read.exit ], [ 0, %14 ]
+  %.sroa.0.031 = phi i64 [ %.sroa.0.1, %logger_thread_read.exit ], [ 0, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %.036, i64 16
@@ -504,8 +504,8 @@ define internal noalias noundef ptr @logger_thread(ptr readnone captures(none) %
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %logger_thread_write_entry.exit.i
-  %.sroa.9.3 = phi i64 [ %.sroa.9.6, %logger_thread_write_entry.exit.i ], [ %.sroa.9.133, %.preheader.i ]
-  %.sroa.14.3 = phi i64 [ %.sroa.14.6, %logger_thread_write_entry.exit.i ], [ %.sroa.14.134, %.preheader.i ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.5, %logger_thread_write_entry.exit.i ], [ %.sroa.9.033, %.preheader.i ]
+  %.sroa.14.2 = phi i64 [ %.sroa.14.5, %logger_thread_write_entry.exit.i ], [ %.sroa.14.034, %.preheader.i ]
   %.02534.i = phi i32 [ %100, %logger_thread_write_entry.exit.i ], [ 0, %.preheader.i ]
   %27 = zext i32 %.02534.i to i64
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 %27
@@ -531,8 +531,8 @@ logger_thread_parse_entry.exit.i:                 ; preds = %.lr.ph.i
   br label %42
 
 42:                                               ; preds = %92, %38
-  %.sroa.9.4 = phi i64 [ %.sroa.9.3, %38 ], [ %.sroa.9.5, %92 ]
-  %.sroa.14.4 = phi i64 [ %.sroa.14.3, %38 ], [ %.sroa.14.5, %92 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.2, %38 ], [ %.sroa.9.4, %92 ]
+  %.sroa.14.3 = phi i64 [ %.sroa.14.2, %38 ], [ %.sroa.14.4, %92 ]
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %92 ]
   %43 = getelementptr inbounds nuw ptr, ptr @watchers, i64 %indvars.iv.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !36
@@ -595,7 +595,7 @@ logger_thread_parse_entry.exit.i:                 ; preds = %.lr.ph.i
   %72 = load i64, ptr %71, align 8, !tbaa !56
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !56
-  %74 = add i64 %.sroa.9.4, 1
+  %74 = add i64 %.sroa.9.3, 1
   br label %92
 
 75:                                               ; preds = %.critedge.i.i
@@ -614,7 +614,7 @@ logger_thread_parse_entry.exit.i:                 ; preds = %.lr.ph.i
   %82 = load i64, ptr %76, align 8, !tbaa !56
   %83 = add i64 %82, 1
   store i64 %83, ptr %76, align 8, !tbaa !56
-  %84 = add i64 %.sroa.9.4, 1
+  %84 = add i64 %.sroa.9.3, 1
   br label %92
 
 85:                                               ; preds = %78
@@ -626,19 +626,19 @@ logger_thread_parse_entry.exit.i:                 ; preds = %.lr.ph.i
 88:                                               ; preds = %85, %75
   %89 = load ptr, ptr %57, align 8, !tbaa !47
   %90 = call i32 @bipbuf_offer(ptr noundef %89, ptr noundef nonnull %3, i32 noundef %34) #18
-  %91 = add i64 %.sroa.14.4, 1
+  %91 = add i64 %.sroa.14.3, 1
   br label %92
 
 92:                                               ; preds = %88, %81, %.critedge.thread.i.i, %52, %46, %42
-  %.sroa.9.5 = phi i64 [ %.sroa.9.4, %42 ], [ %.sroa.9.4, %46 ], [ %.sroa.9.4, %52 ], [ %74, %.critedge.thread.i.i ], [ %.sroa.9.4, %88 ], [ %84, %81 ]
-  %.sroa.14.5 = phi i64 [ %.sroa.14.4, %42 ], [ %.sroa.14.4, %46 ], [ %.sroa.14.4, %52 ], [ %.sroa.14.4, %.critedge.thread.i.i ], [ %91, %88 ], [ %.sroa.14.4, %81 ]
+  %.sroa.9.4 = phi i64 [ %.sroa.9.3, %42 ], [ %.sroa.9.3, %46 ], [ %.sroa.9.3, %52 ], [ %74, %.critedge.thread.i.i ], [ %.sroa.9.3, %88 ], [ %84, %81 ]
+  %.sroa.14.4 = phi i64 [ %.sroa.14.3, %42 ], [ %.sroa.14.3, %46 ], [ %.sroa.14.3, %52 ], [ %.sroa.14.3, %.critedge.thread.i.i ], [ %91, %88 ], [ %.sroa.14.3, %81 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
   br i1 %exitcond.not.i.i, label %logger_thread_write_entry.exit.i, label %42, !llvm.loop !57
 
 logger_thread_write_entry.exit.i:                 ; preds = %92, %logger_thread_parse_entry.exit.i
-  %.sroa.9.6 = phi i64 [ %.sroa.9.3, %logger_thread_parse_entry.exit.i ], [ %.sroa.9.5, %92 ]
-  %.sroa.14.6 = phi i64 [ %.sroa.14.3, %logger_thread_parse_entry.exit.i ], [ %.sroa.14.5, %92 ]
+  %.sroa.9.5 = phi i64 [ %.sroa.9.2, %logger_thread_parse_entry.exit.i ], [ %.sroa.9.4, %92 ]
+  %.sroa.14.5 = phi i64 [ %.sroa.14.2, %logger_thread_parse_entry.exit.i ], [ %.sroa.14.4, %92 ]
   %93 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %94 = load i32, ptr %93, align 8, !tbaa !9
   %95 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -655,18 +655,18 @@ logger_thread_write_entry.exit.i:                 ; preds = %92, %logger_thread_
   br i1 %105, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %logger_thread_write_entry.exit.i, %.preheader.i
-  %.sroa.9.2 = phi i64 [ %.sroa.9.133, %.preheader.i ], [ %.sroa.9.6, %logger_thread_write_entry.exit.i ]
-  %.sroa.14.2 = phi i64 [ %.sroa.14.134, %.preheader.i ], [ %.sroa.14.6, %logger_thread_write_entry.exit.i ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %.preheader.i ], [ %.sroa.9.5, %logger_thread_write_entry.exit.i ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.034, %.preheader.i ], [ %.sroa.14.5, %logger_thread_write_entry.exit.i ]
   %106 = call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #18
   %107 = load ptr, ptr %17, align 8, !tbaa !21
   %108 = load i32, ptr %2, align 4, !tbaa !9
   %109 = call ptr @bipbuf_poll(ptr noundef %107, i32 noundef %108) #18
   %110 = getelementptr inbounds nuw i8, ptr %.036, i64 56
   %111 = load i64, ptr %110, align 8, !tbaa !35
-  %112 = add i64 %111, %.sroa.6.132
+  %112 = add i64 %111, %.sroa.6.032
   %113 = getelementptr inbounds nuw i8, ptr %.036, i64 64
   %114 = load i64, ptr %113, align 8, !tbaa !30
-  %115 = add i64 %114, %.sroa.0.131
+  %115 = add i64 %114, %.sroa.0.031
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
   %116 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #18
   %117 = icmp eq ptr %109, null
@@ -682,10 +682,10 @@ logger_thread_write_entry.exit.i:                 ; preds = %92, %logger_thread_
   br label %logger_thread_read.exit
 
 logger_thread_read.exit:                          ; preds = %.lr.ph, %121
-  %.sroa.0.2 = phi i64 [ %.sroa.0.131, %.lr.ph ], [ %115, %121 ]
-  %.sroa.6.2 = phi i64 [ %.sroa.6.132, %.lr.ph ], [ %112, %121 ]
-  %.sroa.9.7 = phi i64 [ %.sroa.9.133, %.lr.ph ], [ %.sroa.9.2, %121 ]
-  %.sroa.14.7 = phi i64 [ %.sroa.14.134, %.lr.ph ], [ %.sroa.14.2, %121 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.031, %.lr.ph ], [ %115, %121 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.032, %.lr.ph ], [ %112, %121 ]
+  %.sroa.9.6 = phi i64 [ %.sroa.9.033, %.lr.ph ], [ %.sroa.9.1, %121 ]
+  %.sroa.14.6 = phi i64 [ %.sroa.14.034, %.lr.ph ], [ %.sroa.14.1, %121 ]
   %.0.i = phi i32 [ 0, %.lr.ph ], [ %122, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -700,10 +700,10 @@ logger_thread_read.exit:                          ; preds = %.lr.ph, %121
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
-  %.sroa.0.1.lcssa = phi i64 [ 0, %14 ], [ %.sroa.0.2, %._crit_edge.loopexit ]
-  %.sroa.6.1.lcssa = phi i64 [ 0, %14 ], [ %.sroa.6.2, %._crit_edge.loopexit ]
-  %.sroa.9.1.lcssa = phi i64 [ 0, %14 ], [ %.sroa.9.7, %._crit_edge.loopexit ]
-  %.sroa.14.1.lcssa = phi i64 [ 0, %14 ], [ %.sroa.14.7, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi i64 [ 0, %14 ], [ %.sroa.0.1, %._crit_edge.loopexit ]
+  %.sroa.6.0.lcssa = phi i64 [ 0, %14 ], [ %.sroa.6.1, %._crit_edge.loopexit ]
+  %.sroa.9.0.lcssa = phi i64 [ 0, %14 ], [ %.sroa.9.6, %._crit_edge.loopexit ]
+  %.sroa.14.0.lcssa = phi i64 [ 0, %14 ], [ %.sroa.14.6, %._crit_edge.loopexit ]
   %.013.lcssa = phi i1 [ true, %14 ], [ %125, %._crit_edge.loopexit ]
   %126 = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 1, i32 noundef -1)
   %127 = load i32, ptr @watcher_count, align 4, !tbaa !9
@@ -727,16 +727,16 @@ logger_thread_read.exit:                          ; preds = %.lr.ph, %121
   %.2 = phi i32 [ %spec.store.select1, %133 ], [ %spec.store.select, %129 ]
   call void @STATS_LOCK() #18
   %136 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 120), align 8, !tbaa !60
-  %137 = add i64 %136, %.sroa.0.1.lcssa
+  %137 = add i64 %136, %.sroa.0.0.lcssa
   store i64 %137, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 120), align 8, !tbaa !60
   %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 128), align 8, !tbaa !63
-  %139 = add i64 %138, %.sroa.6.1.lcssa
+  %139 = add i64 %138, %.sroa.6.0.lcssa
   store i64 %139, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 128), align 8, !tbaa !63
   %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 136), align 8, !tbaa !64
-  %141 = add i64 %140, %.sroa.9.1.lcssa
+  %141 = add i64 %140, %.sroa.9.0.lcssa
   store i64 %141, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 136), align 8, !tbaa !64
   %142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 144), align 8, !tbaa !65
-  %143 = add i64 %142, %.sroa.14.1.lcssa
+  %143 = add i64 %142, %.sroa.14.0.lcssa
   store i64 %143, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 144), align 8, !tbaa !65
   store i32 %127, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 48), align 8, !tbaa !66
   call void @STATS_UNLOCK() #18

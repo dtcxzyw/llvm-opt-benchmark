@@ -75,38 +75,38 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %18 = zext i32 %17 to i64
   %.idx = mul nuw nsw i64 %18, 12
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %.not102 = icmp eq i32 %17, 0
-  br i1 %.not102, label %.thread95, label %.lr.ph106
+  %.not98 = icmp eq i32 %17, 0
+  br i1 %.not98, label %.thread91, label %.lr.ph102
 
-.lr.ph106:                                        ; preds = %6, %._crit_edge
-  %.0104 = phi i32 [ %49, %._crit_edge ], [ 0, %6 ]
-  %.048103 = phi ptr [ %50, %._crit_edge ], [ %16, %6 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.048103, i64 4
+.lr.ph102:                                        ; preds = %6, %._crit_edge
+  %.0100 = phi i32 [ %49, %._crit_edge ], [ 0, %6 ]
+  %.04899 = phi ptr [ %50, %._crit_edge ], [ %16, %6 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.04899, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !15
-  %22 = sub i32 %21, %.0104
-  %23 = zext i32 %.0104 to i64
+  %22 = sub i32 %21, %.0100
+  %23 = zext i32 %.0100 to i64
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 %23
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %25, i64 noundef %24) #8
-  %26 = load i32, ptr %.048103, align 4, !tbaa !18
+  %26 = load i32, ptr %.04899, align 4, !tbaa !18
   %27 = icmp eq i32 %26, 1
   %.sroa.071.0.copyload.sroa.speculated = select i1 %27, ptr %4, ptr %2
   %.sroa.573.0.copyload.sroa.speculated = select i1 %27, i64 %5, i64 %3
   %28 = load i32, ptr %20, align 4, !tbaa !15
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %.048103, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.04899, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 %29
-  %.idx107 = shl nuw nsw i64 %32, 2
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx107
-  %.not53100 = icmp eq i32 %31, 0
-  br i1 %.not53100, label %._crit_edge, label %.lr.ph
+  %.idx103 = shl nuw nsw i64 %32, 2
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx103
+  %.not5396 = icmp eq i32 %31, 0
+  br i1 %.not5396, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph106, %.critedge
-  %.052101 = phi ptr [ %45, %.critedge ], [ %33, %.lr.ph106 ]
+.lr.ph:                                           ; preds = %.lr.ph102, %.critedge
+  %.05297 = phi ptr [ %45, %.critedge ], [ %33, %.lr.ph102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %35 = load i32, ptr %.052101, align 1, !tbaa !20
+  %35 = load i32, ptr %.05297, align 1, !tbaa !20
   store i32 %35, ptr %10, align 4, !tbaa !20
   %36 = icmp ult i32 %35, 4096
   br i1 %36, label %.critedge, label %37
@@ -125,38 +125,38 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   br i1 %44, label %51, label %.critedge
 
 .critedge:                                        ; preds = %41, %.lr.ph
-  %.sroa.7.2 = phi i64 [ 4, %.lr.ph ], [ 8, %41 ]
-  %.sroa.066.2 = phi ptr [ %10, %.lr.ph ], [ %42, %41 ]
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.066.2, i64 noundef %.sroa.7.2) #8
+  %.sroa.7.0 = phi i64 [ 4, %.lr.ph ], [ 8, %41 ]
+  %.sroa.066.0 = phi ptr [ %10, %.lr.ph ], [ %42, %41 ]
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.066.0, i64 noundef %.sroa.7.0) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %45 = getelementptr inbounds nuw i8, ptr %.052101, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.05297, i64 4
   %.not53 = icmp eq ptr %45, %34
   br i1 %.not53, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
   %.pre = load i32, ptr %20, align 4, !tbaa !15
-  %.pre108 = load i32, ptr %30, align 4, !tbaa !19
-  %46 = shl i32 %.pre108, 2
+  %.pre104 = load i32, ptr %30, align 4, !tbaa !19
+  %46 = shl i32 %.pre104, 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph106
-  %47 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %.lr.ph106 ]
-  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %28, %.lr.ph106 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph102
+  %47 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %.lr.ph102 ]
+  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %28, %.lr.ph102 ]
   %49 = add i32 %47, %48
-  %50 = getelementptr inbounds nuw i8, ptr %.048103, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.04899, i64 12
   %.not = icmp eq ptr %50, %19
-  br i1 %.not, label %.thread95.loopexit, label %.lr.ph106
+  br i1 %.not, label %.thread91.loopexit, label %.lr.ph102
 
 51:                                               ; preds = %41, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %56
 
-.thread95.loopexit:                               ; preds = %._crit_edge
+.thread91.loopexit:                               ; preds = %._crit_edge
   %52 = zext i32 %49 to i64
-  br label %.thread95
+  br label %.thread91
 
-.thread95:                                        ; preds = %.thread95.loopexit, %6
-  %.0.lcssa = phi i64 [ 0, %6 ], [ %52, %.thread95.loopexit ]
+.thread91:                                        ; preds = %.thread91.loopexit, %6
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %52, %.thread91.loopexit ]
   %53 = sub i64 %14, %.0.lcssa
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 %.0.lcssa
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %54, i64 noundef %53) #8
@@ -166,8 +166,8 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
-56:                                               ; preds = %51, %.thread95
-  %.sroa.086.4 = phi i64 [ %55, %.thread95 ], [ 0, %51 ]
+56:                                               ; preds = %51, %.thread91
+  %.sroa.086.4 = phi i64 [ %55, %.thread91 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %57 = load ptr, ptr %8, align 8, !tbaa !10
   %58 = icmp eq ptr %57, %11

@@ -96,9 +96,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mjpeg_start_frame(ptr nound
   br label %50
 
 50:                                               ; preds = %._crit_edge, %48
-  %.029 = phi i32 [ %46, %48 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ %46, %48 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.029
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -119,14 +119,14 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 2400
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2336
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 3424
-  %indvars.iv111.sroa.gep129 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %indvars.iv111.sroa.gep132 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %indvars.iv111.sroa.gep130 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %indvars.iv111.sroa.gep133 = getelementptr inbounds nuw i8, ptr %4, i64 208
   br label %16
 
 16:                                               ; preds = %3, %42
   %17 = phi i1 [ true, %3 ], [ false, %42 ]
-  %indvars.iv111.sroa.phi = phi ptr [ %4, %3 ], [ %indvars.iv111.sroa.gep129, %42 ]
-  %indvars.iv111.sroa.phi130 = phi ptr [ %4, %3 ], [ %indvars.iv111.sroa.gep132, %42 ]
+  %indvars.iv111.sroa.phi = phi ptr [ %4, %3 ], [ %indvars.iv111.sroa.gep130, %42 ]
+  %indvars.iv111.sroa.phi131 = phi ptr [ %4, %3 ], [ %indvars.iv111.sroa.gep133, %42 ]
   %indvars.iv111 = phi i64 [ 0, %3 ], [ 1, %42 ]
   store i8 1, ptr %indvars.iv111.sroa.phi, align 1, !tbaa !49
   %18 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv111
@@ -135,7 +135,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 
 .preheader85:                                     ; preds = %22
   %20 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 %indvars.iv111
-  %21 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi130, i64 18
+  %21 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi131, i64 18
   br label %28
 
 22:                                               ; preds = %16, %22
@@ -150,7 +150,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 
 .preheader84:                                     ; preds = %28
   %26 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv111
-  %27 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi130, i64 30
+  %27 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi131, i64 30
   br label %34
 
 28:                                               ; preds = %.preheader85, %28
@@ -165,7 +165,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 
 .preheader:                                       ; preds = %34
   %32 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 %indvars.iv111
-  %33 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi130, i64 46
+  %33 = getelementptr inbounds nuw i8, ptr %indvars.iv111.sroa.phi131, i64 46
   br label %38
 
 34:                                               ; preds = %.preheader84, %34
@@ -297,16 +297,16 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %101, label %99
 
 99:                                               ; preds = %._crit_edge, %59, %43
-  %.079 = phi i32 [ %44, %43 ], [ %60, %59 ], [ %98, %._crit_edge ]
+  %.076 = phi i32 [ %44, %43 ], [ %60, %59 ], [ %98, %._crit_edge ]
   %100 = call i32 @ff_vaapi_decode_cancel(ptr noundef %0, ptr noundef %10) #4
   br label %101
 
 101:                                              ; preds = %._crit_edge, %99
-  %.080 = phi i32 [ %.079, %99 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ %.076, %99 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.080
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1593,9 +1593,9 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %30
 
 38:                                               ; preds = %.noexc6
   %39 = icmp eq i64 %26, 4
-  br i1 %39, label %.thread17, label %41
+  br i1 %39, label %.thread15, label %41
 
-.thread17:                                        ; preds = %38
+.thread15:                                        ; preds = %38
   %40 = load i32, ptr %.sroa.09.0, align 4, !tbaa !99
   store i32 %40, ptr %32, align 4, !tbaa !99
   store ptr %34, ptr %33, align 8, !tbaa !57
@@ -1608,7 +1608,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %30
   %.not.i.i.i = icmp eq ptr %.sroa.09.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %44
 
-44:                                               ; preds = %.thread17, %41
+44:                                               ; preds = %.thread15, %41
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %26) #36
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 

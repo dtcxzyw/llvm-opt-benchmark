@@ -2490,11 +2490,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   store ptr %58, ptr %56, align 8, !tbaa !17
   %64 = load i64, ptr %40, align 8, !tbaa !19
   store i64 %64, ptr %57, align 8, !tbaa !19
-  %.pre56 = load i64, ptr %53, align 8, !tbaa !20
+  %.pre53 = load i64, ptr %53, align 8, !tbaa !20
   br label %65
 
 65:                                               ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
-  %66 = phi i64 [ %61, %60 ], [ %.pre56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27 ]
+  %66 = phi i64 [ %61, %60 ], [ %.pre53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27 ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %66, ptr %67, align 8, !tbaa !20
   store ptr %40, ptr %10, align 8, !tbaa !17
@@ -2629,7 +2629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   br label %.loopexit49
 
 .body:                                            ; preds = %.body42.thread, %89
-  %eh.lpad-body4373 = phi { ptr, i32 } [ %88, %.body42.thread ], [ %83, %89 ]
+  %eh.lpad-body4370 = phi { ptr, i32 } [ %88, %.body42.thread ], [ %83, %89 ]
   br label %110
 
 110:                                              ; preds = %110, %.body
@@ -2640,7 +2640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   br i1 %113, label %.loopexit49, label %110
 
 .loopexit49:                                      ; preds = %110, %108
-  %.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %eh.lpad-body4373, %110 ]
+  %.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %eh.lpad-body4370, %110 ]
   %114 = phi i1 [ false, %108 ], [ true, %110 ]
   %115 = load ptr, ptr %10, align 8, !tbaa !17
   %116 = icmp eq ptr %115, %40
@@ -2825,11 +2825,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   store ptr %57, ptr %55, align 8, !tbaa !17
   %63 = load i64, ptr %39, align 8, !tbaa !19
   store i64 %63, ptr %56, align 8, !tbaa !19
-  %.pre54 = load i64, ptr %52, align 8, !tbaa !20
+  %.pre51 = load i64, ptr %52, align 8, !tbaa !20
   br label %64
 
 64:                                               ; preds = %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
-  %65 = phi i64 [ %60, %59 ], [ %.pre54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26 ]
+  %65 = phi i64 [ %60, %59 ], [ %.pre51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26 ]
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %65, ptr %66, align 8, !tbaa !20
   store ptr %39, ptr %9, align 8, !tbaa !17
@@ -2954,7 +2954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
 
 .body:                                            ; preds = %.body41.thread, %86
-  %eh.lpad-body4271 = phi { ptr, i32 } [ %85, %.body41.thread ], [ %80, %86 ]
+  %eh.lpad-body4268 = phi { ptr, i32 } [ %85, %.body41.thread ], [ %80, %86 ]
   br label %105
 
 105:                                              ; preds = %105, %.body
@@ -2977,7 +2977,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34, %103
   %.317 = phi ptr [ %38, %103 ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ %67, %109 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body4271, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ %eh.lpad-body4271, %109 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body4268, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ %eh.lpad-body4268, %109 ]
   %.1 = phi i1 [ false, %103 ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ true, %109 ]
   %114 = load ptr, ptr %8, align 8, !tbaa !17
   %115 = icmp eq ptr %114, %10
@@ -19165,17 +19165,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %133
 
 147:                                              ; preds = %146
   tail call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %144, i1 false)
-  %.pre17.i = load ptr, ptr %141, align 8, !tbaa !687
-  %.pre18.i = load ptr, ptr %122, align 8, !tbaa !474
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %141, align 8, !tbaa !687
+  %.pre15.i = load ptr, ptr %122, align 8, !tbaa !474
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %147, %146
-  %.pre-phi21.i = phi i64 [ %130, %146 ], [ %.pre20.i, %147 ]
-  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre19.i, %147 ]
-  %148 = phi ptr [ %142, %146 ], [ %.pre17.i, %147 ]
-  %.neg.i19 = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %130, %146 ], [ %.pre17.i, %147 ]
+  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre16.i, %147 ]
+  %148 = phi ptr [ %142, %146 ], [ %.pre14.i, %147 ]
+  %.neg.i19 = sub i64 %.pre-phi18.i, %.pre-phi.i
   %149 = add i64 %.neg.i19, %125
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %151
@@ -40515,17 +40515,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %98
 
 110:                                              ; preds = %109
   call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %107, i1 false)
-  %.pre17.i = load ptr, ptr %13, align 8, !tbaa !687
-  %.pre18.i = load ptr, ptr %11, align 8, !tbaa !474
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %13, align 8, !tbaa !687
+  %.pre15.i = load ptr, ptr %11, align 8, !tbaa !474
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %110, %109
-  %.pre-phi21.i = phi i64 [ %95, %109 ], [ %.pre20.i, %110 ]
-  %.pre-phi.i = phi i64 [ %106, %109 ], [ %.pre19.i, %110 ]
-  %111 = phi ptr [ %105, %109 ], [ %.pre17.i, %110 ]
-  %.neg.i = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %95, %109 ], [ %.pre17.i, %110 ]
+  %.pre-phi.i = phi i64 [ %106, %109 ], [ %.pre16.i, %110 ]
+  %111 = phi ptr [ %105, %109 ], [ %.pre14.i, %110 ]
+  %.neg.i = sub i64 %.pre-phi18.i, %.pre-phi.i
   %112 = add i64 %.neg.i, %91
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %114
@@ -40644,17 +40644,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i47:        ; preds = %144
 
 156:                                              ; preds = %155
   call void @llvm.memset.p0.i64(ptr align 1 %139, i8 0, i64 %153, i1 false)
-  %.pre17.i37 = load ptr, ptr %13, align 8, !tbaa !687
-  %.pre18.i38 = load ptr, ptr %11, align 8, !tbaa !474
-  %.pre19.i39 = ptrtoint ptr %.pre17.i37 to i64
-  %.pre20.i40 = ptrtoint ptr %.pre18.i38 to i64
+  %.pre14.i37 = load ptr, ptr %13, align 8, !tbaa !687
+  %.pre15.i38 = load ptr, ptr %11, align 8, !tbaa !474
+  %.pre16.i39 = ptrtoint ptr %.pre14.i37 to i64
+  %.pre17.i40 = ptrtoint ptr %.pre15.i38 to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i41
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i41: ; preds = %156, %155
-  %.pre-phi21.i42 = phi i64 [ %141, %155 ], [ %.pre20.i40, %156 ]
-  %.pre-phi.i43 = phi i64 [ %152, %155 ], [ %.pre19.i39, %156 ]
-  %157 = phi ptr [ %151, %155 ], [ %.pre17.i37, %156 ]
-  %.neg.i44 = sub i64 %.pre-phi21.i42, %.pre-phi.i43
+  %.pre-phi18.i42 = phi i64 [ %141, %155 ], [ %.pre17.i40, %156 ]
+  %.pre-phi.i43 = phi i64 [ %152, %155 ], [ %.pre16.i39, %156 ]
+  %157 = phi ptr [ %151, %155 ], [ %.pre14.i37, %156 ]
+  %.neg.i44 = sub i64 %.pre-phi18.i42, %.pre-phi.i43
   %158 = add i64 %.neg.i44, %137
   %159 = icmp eq i64 %158, 0
   br i1 %159, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i45, label %160

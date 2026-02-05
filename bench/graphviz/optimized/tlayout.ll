@@ -439,8 +439,8 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 .lr.ph210.i:                                      ; preds = %184, %.lr.ph210.i.backedge
   %.0208.i = phi ptr [ %.0208.i.be, %.lr.ph210.i.backedge ], [ %185, %184 ]
   %.0156207.i = phi i32 [ %.0156207.i.be, %.lr.ph210.i.backedge ], [ 0, %184 ]
-  %.sroa.8.2206.i = phi double [ %.sroa.8.2206.i.be, %.lr.ph210.i.backedge ], [ 0.000000e+00, %184 ]
-  %.sroa.0.2205.i = phi double [ %.sroa.0.2205.i.be, %.lr.ph210.i.backedge ], [ 0.000000e+00, %184 ]
+  %.sroa.8.0206.i = phi double [ %.sroa.8.0206.i.be, %.lr.ph210.i.backedge ], [ 0.000000e+00, %184 ]
+  %.sroa.0.0205.i = phi double [ %.sroa.0.0205.i.be, %.lr.ph210.i.backedge ], [ 0.000000e+00, %184 ]
   %186 = load i32, ptr %.0208.i, align 8
   %187 = and i32 %186, 3
   %188 = icmp eq i32 %187, 2
@@ -473,19 +473,19 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 176
   %207 = load ptr, ptr %206, align 8, !tbaa !76
   %208 = load double, ptr %207, align 8, !tbaa !77
-  %209 = tail call double @llvm.fmuladd.f64(double %.sroa.0.2205.i, double %205, double %208)
+  %209 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0205.i, double %205, double %208)
   %210 = add nsw i32 %.0156207.i, 1
   %211 = sitofp i32 %210 to double
   %212 = fdiv double %209, %211
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %214 = load double, ptr %213, align 8, !tbaa !77
-  %215 = tail call double @llvm.fmuladd.f64(double %.sroa.8.2206.i, double %205, double %214)
+  %215 = tail call double @llvm.fmuladd.f64(double %.sroa.8.0206.i, double %205, double %214)
   %216 = fdiv double %215, %211
   br label %217
 
 217:                                              ; preds = %204, %197, %.lr.ph210.i
-  %.sroa.0.3.i = phi double [ %.sroa.0.2205.i, %.lr.ph210.i ], [ %.sroa.0.2205.i, %197 ], [ %212, %204 ]
-  %.sroa.8.3.i = phi double [ %.sroa.8.2206.i, %.lr.ph210.i ], [ %.sroa.8.2206.i, %197 ], [ %216, %204 ]
+  %.sroa.0.1.i = phi double [ %.sroa.0.0205.i, %.lr.ph210.i ], [ %.sroa.0.0205.i, %197 ], [ %212, %204 ]
+  %.sroa.8.1.i = phi double [ %.sroa.8.0206.i, %.lr.ph210.i ], [ %.sroa.8.0206.i, %197 ], [ %216, %204 ]
   %.1.i = phi i32 [ %.0156207.i, %.lr.ph210.i ], [ %.0156207.i, %197 ], [ %210, %204 ]
   %218 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0208.i, ptr noundef nonnull %.1158216.i) #7
   %.not182.i = icmp eq ptr %218, null
@@ -494,8 +494,8 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 .lr.ph210.i.backedge:                             ; preds = %217, %.thread
   %.0208.i.be = phi ptr [ %224, %.thread ], [ %218, %217 ]
   %.0156207.i.be = phi i32 [ 1, %.thread ], [ %.1.i, %217 ]
-  %.sroa.8.2206.i.be = phi double [ %223, %.thread ], [ %.sroa.8.3.i, %217 ]
-  %.sroa.0.2205.i.be = phi double [ %221, %.thread ], [ %.sroa.0.3.i, %217 ]
+  %.sroa.8.0206.i.be = phi double [ %223, %.thread ], [ %.sroa.8.1.i, %217 ]
+  %.sroa.0.0205.i.be = phi double [ %221, %.thread ], [ %.sroa.0.1.i, %217 ]
   br label %.lr.ph210.i, !llvm.loop !95
 
 .thread:                                          ; preds = %203
@@ -516,7 +516,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %227 = load ptr, ptr %164, align 8, !tbaa !34
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 176
   %229 = load ptr, ptr %228, align 8, !tbaa !76
-  store double %.sroa.0.3.i, ptr %229, align 8, !tbaa !77
+  store double %.sroa.0.1.i, ptr %229, align 8, !tbaa !77
   br label %252
 
 230:                                              ; preds = %._crit_edge211.i
@@ -524,14 +524,14 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br i1 %231, label %.thread70, label %.thread.i
 
 .thread70:                                        ; preds = %.thread, %230
-  %.sroa.8.3.i626875 = phi double [ %.sroa.8.3.i, %230 ], [ %223, %.thread ]
-  %.sroa.0.3.i616974 = phi double [ %.sroa.0.3.i, %230 ], [ %221, %.thread ]
-  %232 = tail call double @llvm.fmuladd.f64(double %.sroa.0.3.i616974, double 0x3FEF5C28F5C28F5C, double %161)
+  %.sroa.8.1.i626875 = phi double [ %.sroa.8.1.i, %230 ], [ %223, %.thread ]
+  %.sroa.0.1.i616974 = phi double [ %.sroa.0.1.i, %230 ], [ %221, %.thread ]
+  %232 = tail call double @llvm.fmuladd.f64(double %.sroa.0.1.i616974, double 0x3FEF5C28F5C28F5C, double %161)
   %233 = load ptr, ptr %164, align 8, !tbaa !34
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 176
   %235 = load ptr, ptr %234, align 8, !tbaa !76
   store double %232, ptr %235, align 8, !tbaa !77
-  %236 = tail call double @llvm.fmuladd.f64(double %.sroa.8.3.i626875, double 9.000000e-01, double %162)
+  %236 = tail call double @llvm.fmuladd.f64(double %.sroa.8.1.i626875, double 9.000000e-01, double %162)
   br label %252
 
 .thread.i:                                        ; preds = %230, %184
@@ -555,7 +555,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 
 252:                                              ; preds = %.thread.i, %.thread70, %226
   %.sink256.i = phi ptr [ %235, %.thread70 ], [ %247, %.thread.i ], [ %229, %226 ]
-  %.sink.i38 = phi double [ %236, %.thread70 ], [ %251, %.thread.i ], [ %.sroa.8.3.i, %226 ]
+  %.sink.i38 = phi double [ %236, %.thread70 ], [ %251, %.thread.i ], [ %.sroa.8.1.i, %226 ]
   %253 = phi ptr [ %233, %.thread70 ], [ %245, %.thread.i ], [ %227, %226 ]
   %254 = getelementptr inbounds nuw i8, ptr %.sink256.i, i64 8
   store double %.sink.i38, ptr %254, align 8, !tbaa !77

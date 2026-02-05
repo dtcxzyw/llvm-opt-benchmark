@@ -86,25 +86,25 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %260, label %.preheader181
+  br i1 %13, label %260, label %.preheader157
 
-.preheader181:                                    ; preds = %10
+.preheader157:                                    ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %.preheader180, label %.lr.ph188
+  br i1 %.not, label %.preheader156, label %.lr.ph164
 
-.lr.ph188:                                        ; preds = %.preheader181
+.lr.ph164:                                        ; preds = %.preheader157
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %27
 
-.preheader180:                                    ; preds = %._crit_edge186, %.preheader181
+.preheader156:                                    ; preds = %._crit_edge162, %.preheader157
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %.not206 = icmp eq i32 %18, 0
-  br i1 %.not206, label %._crit_edge203, label %.lr.ph202
+  %.not182 = icmp eq i32 %18, 0
+  br i1 %.not182, label %._crit_edge179, label %.lr.ph178
 
-.lr.ph202:                                        ; preds = %.preheader180
+.lr.ph178:                                        ; preds = %.preheader156
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115,42 +115,42 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %66
 
-27:                                               ; preds = %.lr.ph188, %._crit_edge186
-  %28 = phi i32 [ %15, %.lr.ph188 ], [ %35, %._crit_edge186 ]
-  %indvars.iv215 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next216, %._crit_edge186 ]
+27:                                               ; preds = %.lr.ph164, %._crit_edge162
+  %28 = phi i32 [ %15, %.lr.ph164 ], [ %35, %._crit_edge162 ]
+  %indvars.iv191 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next192, %._crit_edge162 ]
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv215
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv191
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1048
   %33 = load i32, ptr %32, align 8
-  %.not204 = icmp eq i32 %33, 0
-  br i1 %.not204, label %._crit_edge186, label %.lr.ph185
+  %.not180 = icmp eq i32 %33, 0
+  br i1 %.not180, label %._crit_edge162, label %.lr.ph161
 
-.lr.ph185:                                        ; preds = %27
+.lr.ph161:                                        ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 1056
   br label %38
 
-._crit_edge186.loopexit:                          ; preds = %._crit_edge
-  %.pre233 = load i32, ptr %14, align 8
-  br label %._crit_edge186
+._crit_edge162.loopexit:                          ; preds = %._crit_edge
+  %.pre209 = load i32, ptr %14, align 8
+  br label %._crit_edge162
 
-._crit_edge186:                                   ; preds = %._crit_edge186.loopexit, %27
-  %35 = phi i32 [ %.pre233, %._crit_edge186.loopexit ], [ %28, %27 ]
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+._crit_edge162:                                   ; preds = %._crit_edge162.loopexit, %27
+  %35 = phi i32 [ %.pre209, %._crit_edge162.loopexit ], [ %28, %27 ]
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %36 = zext i32 %35 to i64
-  %37 = icmp samesign ult i64 %indvars.iv.next216, %36
-  br i1 %37, label %27, label %.preheader180, !llvm.loop !3
+  %37 = icmp samesign ult i64 %indvars.iv.next192, %36
+  br i1 %37, label %27, label %.preheader156, !llvm.loop !3
 
-38:                                               ; preds = %.lr.ph185, %._crit_edge
-  %39 = phi i32 [ %33, %.lr.ph185 ], [ %46, %._crit_edge ]
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next213, %._crit_edge ]
+38:                                               ; preds = %.lr.ph161, %._crit_edge
+  %39 = phi i32 [ %33, %.lr.ph161 ], [ %46, %._crit_edge ]
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next189, %._crit_edge ]
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv212
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv188
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1028
   %44 = load i32, ptr %43, align 4
-  %.not205 = icmp eq i32 %44, 0
-  br i1 %.not205, label %._crit_edge, label %.lr.ph
+  %.not181 = icmp eq i32 %44, 0
+  br i1 %.not181, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1032
@@ -162,10 +162,10 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
   %46 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %39, %38 ]
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next213, %47
-  br i1 %48, label %38, label %._crit_edge186.loopexit, !llvm.loop !5
+  %48 = icmp samesign ult i64 %indvars.iv.next189, %47
+  br i1 %48, label %38, label %._crit_edge162.loopexit, !llvm.loop !5
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
@@ -190,39 +190,39 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
   br i1 %64, label %49, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge203:                                   ; preds = %._crit_edge200, %.preheader180
+._crit_edge179:                                   ; preds = %._crit_edge176, %.preheader156
   %65 = load ptr, ptr %11, align 8
   call void @_ZN6Assimp12ScaleProcess13traverseNodesEP6aiNodej(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %65, i32 noundef 0)
   br label %260
 
-66:                                               ; preds = %.lr.ph202, %._crit_edge200
-  %indvars.iv230 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next231, %._crit_edge200 ]
+66:                                               ; preds = %.lr.ph178, %._crit_edge176
+  %indvars.iv206 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next207, %._crit_edge176 ]
   %67 = load ptr, ptr %19, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv230
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv206
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
-  %.not207 = icmp eq i32 %71, 0
-  br i1 %.not207, label %.preheader179, label %.lr.ph191
+  %.not183 = icmp eq i32 %71, 0
+  br i1 %.not183, label %.preheader155, label %.lr.ph167
 
-.lr.ph191:                                        ; preds = %66
+.lr.ph167:                                        ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   br label %76
 
-.preheader179:                                    ; preds = %76, %66
+.preheader155:                                    ; preds = %76, %66
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 216
   %74 = load i32, ptr %73, align 8
-  %.not208 = icmp eq i32 %74, 0
-  br i1 %.not208, label %.preheader, label %.lr.ph193
+  %.not184 = icmp eq i32 %74, 0
+  br i1 %.not184, label %.preheader, label %.lr.ph169
 
-.lr.ph193:                                        ; preds = %.preheader179
+.lr.ph169:                                        ; preds = %.preheader155
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 224
   br label %94
 
-76:                                               ; preds = %.lr.ph191, %76
-  %indvars.iv218 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next219, %76 ]
+76:                                               ; preds = %.lr.ph167, %76
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next195, %76 ]
   %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds nuw %class.aiVector3t, ptr %77, i64 %indvars.iv218
+  %78 = getelementptr inbounds nuw %class.aiVector3t, ptr %77, i64 %indvars.iv194
   %79 = load float, ptr %6, align 8
   %80 = load float, ptr %78, align 4
   %81 = fmul float %79, %80
@@ -235,26 +235,26 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %86 = load float, ptr %85, align 4
   %87 = fmul float %79, %86
   store float %87, ptr %85, align 4
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %88 = load i32, ptr %70, align 4
   %89 = zext i32 %88 to i64
-  %90 = icmp samesign ult i64 %indvars.iv.next219, %89
-  br i1 %90, label %76, label %.preheader179, !llvm.loop !7
+  %90 = icmp samesign ult i64 %indvars.iv.next195, %89
+  br i1 %90, label %76, label %.preheader155, !llvm.loop !7
 
-.preheader:                                       ; preds = %94, %.preheader179
+.preheader:                                       ; preds = %94, %.preheader155
   %91 = getelementptr inbounds nuw i8, ptr %69, i64 1264
   %92 = load i32, ptr %91, align 8
-  %.not209 = icmp eq i32 %92, 0
-  br i1 %.not209, label %._crit_edge200, label %.lr.ph199
+  %.not185 = icmp eq i32 %92, 0
+  br i1 %.not185, label %._crit_edge176, label %.lr.ph175
 
-.lr.ph199:                                        ; preds = %.preheader
+.lr.ph175:                                        ; preds = %.preheader
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 1272
   br label %234
 
-94:                                               ; preds = %.lr.ph193, %94
-  %indvars.iv221 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next222, %94 ]
+94:                                               ; preds = %.lr.ph169, %94
+  %indvars.iv197 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next198, %94 ]
   %95 = load ptr, ptr %75, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv221
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv197
   %97 = load ptr, ptr %96, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4
@@ -437,49 +437,49 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %228 = load i32, ptr %73, align 8
   %229 = zext i32 %228 to i64
-  %230 = icmp samesign ult i64 %indvars.iv.next222, %229
+  %230 = icmp samesign ult i64 %indvars.iv.next198, %229
   br i1 %230, label %94, label %.preheader, !llvm.loop !11
 
-._crit_edge200:                                   ; preds = %._crit_edge197, %.preheader
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
+._crit_edge176:                                   ; preds = %._crit_edge173, %.preheader
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %231 = load i32, ptr %17, align 8
   %232 = zext i32 %231 to i64
-  %233 = icmp samesign ult i64 %indvars.iv.next231, %232
-  br i1 %233, label %66, label %._crit_edge203, !llvm.loop !12
+  %233 = icmp samesign ult i64 %indvars.iv.next207, %232
+  br i1 %233, label %66, label %._crit_edge179, !llvm.loop !12
 
-234:                                              ; preds = %.lr.ph199, %._crit_edge197
-  %235 = phi i32 [ %92, %.lr.ph199 ], [ %242, %._crit_edge197 ]
-  %indvars.iv227 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next228, %._crit_edge197 ]
+234:                                              ; preds = %.lr.ph175, %._crit_edge173
+  %235 = phi i32 [ %92, %.lr.ph175 ], [ %242, %._crit_edge173 ]
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next204, %._crit_edge173 ]
   %236 = load ptr, ptr %93, align 8
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv227
+  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv203
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1192
   %240 = load i32, ptr %239, align 8
-  %.not210 = icmp eq i32 %240, 0
-  br i1 %.not210, label %._crit_edge197, label %.lr.ph196
+  %.not186 = icmp eq i32 %240, 0
+  br i1 %.not186, label %._crit_edge173, label %.lr.ph172
 
-.lr.ph196:                                        ; preds = %234
+.lr.ph172:                                        ; preds = %234
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 1032
   br label %245
 
-._crit_edge197.loopexit:                          ; preds = %245
-  %.pre234 = load i32, ptr %91, align 8
-  br label %._crit_edge197
+._crit_edge173.loopexit:                          ; preds = %245
+  %.pre210 = load i32, ptr %91, align 8
+  br label %._crit_edge173
 
-._crit_edge197:                                   ; preds = %._crit_edge197.loopexit, %234
-  %242 = phi i32 [ %.pre234, %._crit_edge197.loopexit ], [ %235, %234 ]
-  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+._crit_edge173:                                   ; preds = %._crit_edge173.loopexit, %234
+  %242 = phi i32 [ %.pre210, %._crit_edge173.loopexit ], [ %235, %234 ]
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %243 = zext i32 %242 to i64
-  %244 = icmp samesign ult i64 %indvars.iv.next228, %243
-  br i1 %244, label %234, label %._crit_edge200, !llvm.loop !13
+  %244 = icmp samesign ult i64 %indvars.iv.next204, %243
+  br i1 %244, label %234, label %._crit_edge176, !llvm.loop !13
 
-245:                                              ; preds = %.lr.ph196, %245
-  %indvars.iv224 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next225, %245 ]
+245:                                              ; preds = %.lr.ph172, %245
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next201, %245 ]
   %246 = load ptr, ptr %241, align 8
-  %247 = getelementptr inbounds nuw %class.aiVector3t, ptr %246, i64 %indvars.iv224
+  %247 = getelementptr inbounds nuw %class.aiVector3t, ptr %246, i64 %indvars.iv200
   %248 = load float, ptr %6, align 8
   %249 = load float, ptr %247, align 4
   %250 = fmul float %248, %249
@@ -492,13 +492,13 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %255 = load float, ptr %254, align 4
   %256 = fmul float %248, %255
   store float %256, ptr %254, align 4
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %257 = load i32, ptr %239, align 8
   %258 = zext i32 %257 to i64
-  %259 = icmp samesign ult i64 %indvars.iv.next225, %258
-  br i1 %259, label %245, label %._crit_edge197.loopexit, !llvm.loop !14
+  %259 = icmp samesign ult i64 %indvars.iv.next201, %258
+  br i1 %259, label %245, label %._crit_edge173.loopexit, !llvm.loop !14
 
-260:                                              ; preds = %10, %2, %._crit_edge203
+260:                                              ; preds = %10, %2, %._crit_edge179
   ret void
 }
 

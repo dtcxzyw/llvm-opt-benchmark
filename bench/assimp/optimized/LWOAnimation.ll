@@ -614,14 +614,14 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   store float 1.000000e+00, ptr %1, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  %.sroa.5244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store float 1.000000e+00, ptr %.sroa.5244.0..sroa_idx, align 4
-  %.sroa.6245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6245.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.5192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store float 1.000000e+00, ptr %.sroa.5192.0..sroa_idx, align 4
+  %.sroa.6193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6193.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8246.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.8194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8194.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %279
 
 7:                                                ; preds = %2
@@ -638,7 +638,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %15
 
 15:                                               ; preds = %10, %7
-  %.sroa.0234.0 = phi float [ 0.000000e+00, %7 ], [ %14, %10 ]
+  %.sroa.0182.0 = phi float [ 0.000000e+00, %7 ], [ %14, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not11 = icmp eq ptr %17, null
@@ -652,7 +652,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %23
 
 23:                                               ; preds = %18, %15
-  %.sroa.5235.0 = phi float [ 0.000000e+00, %15 ], [ %22, %18 ]
+  %.sroa.5183.0 = phi float [ 0.000000e+00, %15 ], [ %22, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not12 = icmp eq ptr %25, null
@@ -666,7 +666,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %31
 
 31:                                               ; preds = %26, %23
-  %.sroa.8236.0 = phi float [ 0.000000e+00, %23 ], [ %30, %26 ]
+  %.sroa.8184.0 = phi float [ 0.000000e+00, %23 ], [ %30, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not13 = icmp eq ptr %33, null
@@ -680,7 +680,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %39
 
 39:                                               ; preds = %34, %31
-  %.sroa.0240.0 = phi float [ 0.000000e+00, %31 ], [ %38, %34 ]
+  %.sroa.0188.0 = phi float [ 0.000000e+00, %31 ], [ %38, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   %.not14 = icmp eq ptr %41, null
@@ -694,7 +694,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %47
 
 47:                                               ; preds = %42, %39
-  %.sroa.5241.0 = phi float [ 0.000000e+00, %39 ], [ %46, %42 ]
+  %.sroa.5189.0 = phi float [ 0.000000e+00, %39 ], [ %46, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
   %.not15 = icmp eq ptr %49, null
@@ -708,7 +708,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %55
 
 55:                                               ; preds = %50, %47
-  %.sroa.8242.0 = phi float [ 0.000000e+00, %47 ], [ %54, %50 ]
+  %.sroa.8190.0 = phi float [ 0.000000e+00, %47 ], [ %54, %50 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load ptr, ptr %56, align 8
   %.not16 = icmp eq ptr %57, null
@@ -722,7 +722,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %63
 
 63:                                               ; preds = %58, %55
-  %.sroa.0237.0 = phi float [ 1.000000e+00, %55 ], [ %62, %58 ]
+  %.sroa.0185.0 = phi float [ 1.000000e+00, %55 ], [ %62, %58 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %.not17 = icmp eq ptr %65, null
@@ -736,7 +736,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %71
 
 71:                                               ; preds = %66, %63
-  %.sroa.5238.0 = phi float [ 1.000000e+00, %63 ], [ %70, %66 ]
+  %.sroa.5186.0 = phi float [ 1.000000e+00, %63 ], [ %70, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %73 = load ptr, ptr %72, align 8
   %.not18 = icmp eq ptr %73, null
@@ -750,38 +750,38 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   br label %79
 
 79:                                               ; preds = %74, %71
-  %.sroa.8239.0 = phi float [ 1.000000e+00, %71 ], [ %78, %74 ]
-  %80 = tail call noundef float @cosf(float noundef %.sroa.8242.0) #18
-  %81 = tail call noundef float @sinf(float noundef %.sroa.8242.0) #18
+  %.sroa.8187.0 = phi float [ 1.000000e+00, %71 ], [ %78, %74 ]
+  %80 = tail call noundef float @cosf(float noundef %.sroa.8190.0) #18
+  %81 = tail call noundef float @sinf(float noundef %.sroa.8190.0) #18
   %82 = fneg float %81
-  %83 = tail call noundef float @cosf(float noundef %.sroa.5241.0) #18
-  %84 = tail call noundef float @sinf(float noundef %.sroa.5241.0) #18
+  %83 = tail call noundef float @cosf(float noundef %.sroa.5189.0) #18
+  %84 = tail call noundef float @sinf(float noundef %.sroa.5189.0) #18
   %85 = fneg float %84
-  %86 = tail call noundef float @cosf(float noundef %.sroa.0240.0) #18
-  %87 = tail call noundef float @sinf(float noundef %.sroa.0240.0) #18
+  %86 = tail call noundef float @cosf(float noundef %.sroa.0188.0) #18
+  %87 = tail call noundef float @sinf(float noundef %.sroa.0188.0) #18
   %88 = fneg float %87
   %89 = fadd float %86, 0.000000e+00
   %90 = tail call float @llvm.fmuladd.f32(float %88, float 0.000000e+00, float %89)
-  %91 = tail call float @llvm.fmuladd.f32(float %.sroa.0234.0, float 0.000000e+00, float %90)
-  %92 = tail call float @llvm.fmuladd.f32(float %.sroa.0234.0, float 0.000000e+00, float 0.000000e+00)
+  %91 = tail call float @llvm.fmuladd.f32(float %.sroa.0182.0, float 0.000000e+00, float %90)
+  %92 = tail call float @llvm.fmuladd.f32(float %.sroa.0182.0, float 0.000000e+00, float 0.000000e+00)
   %93 = fadd float %87, 0.000000e+00
   %94 = tail call float @llvm.fmuladd.f32(float %86, float 0.000000e+00, float %93)
-  %95 = tail call float @llvm.fmuladd.f32(float %.sroa.0234.0, float 0.000000e+00, float %94)
-  %96 = fadd float %.sroa.0234.0, 0.000000e+00
+  %95 = tail call float @llvm.fmuladd.f32(float %.sroa.0182.0, float 0.000000e+00, float %94)
+  %96 = fadd float %.sroa.0182.0, 0.000000e+00
   %97 = tail call float @llvm.fmuladd.f32(float %86, float 0.000000e+00, float 0.000000e+00)
   %98 = tail call float @llvm.fmuladd.f32(float %88, float 0.000000e+00, float %97)
-  %99 = tail call float @llvm.fmuladd.f32(float %.sroa.5235.0, float 0.000000e+00, float %98)
-  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.5235.0, float 0.000000e+00, float 1.000000e+00)
+  %99 = tail call float @llvm.fmuladd.f32(float %.sroa.5183.0, float 0.000000e+00, float %98)
+  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.5183.0, float 0.000000e+00, float 1.000000e+00)
   %101 = tail call float @llvm.fmuladd.f32(float %87, float 0.000000e+00, float 0.000000e+00)
   %102 = tail call float @llvm.fmuladd.f32(float %86, float 0.000000e+00, float %101)
-  %103 = tail call float @llvm.fmuladd.f32(float %.sroa.5235.0, float 0.000000e+00, float %102)
-  %104 = fadd float %.sroa.5235.0, 0.000000e+00
+  %103 = tail call float @llvm.fmuladd.f32(float %.sroa.5183.0, float 0.000000e+00, float %102)
+  %104 = fadd float %.sroa.5183.0, 0.000000e+00
   %105 = fsub float %97, %87
-  %106 = tail call float @llvm.fmuladd.f32(float %.sroa.8236.0, float 0.000000e+00, float %105)
-  %107 = tail call float @llvm.fmuladd.f32(float %.sroa.8236.0, float 0.000000e+00, float 0.000000e+00)
+  %106 = tail call float @llvm.fmuladd.f32(float %.sroa.8184.0, float 0.000000e+00, float %105)
+  %107 = tail call float @llvm.fmuladd.f32(float %.sroa.8184.0, float 0.000000e+00, float 0.000000e+00)
   %108 = fadd float %86, %101
-  %109 = tail call float @llvm.fmuladd.f32(float %.sroa.8236.0, float 0.000000e+00, float %108)
-  %110 = fadd float %.sroa.8236.0, 0.000000e+00
+  %109 = tail call float @llvm.fmuladd.f32(float %.sroa.8184.0, float 0.000000e+00, float %108)
+  %110 = fadd float %.sroa.8184.0, 0.000000e+00
   %111 = fadd float %98, 0.000000e+00
   %112 = fadd float %102, 0.000000e+00
   %113 = fmul float %92, 0.000000e+00
@@ -899,54 +899,54 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4
   %225 = tail call float @llvm.fmuladd.f32(float %167, float 0.000000e+00, float %222)
   %226 = fadd float %170, %225
   %227 = fmul float %178, 0.000000e+00
-  %228 = tail call float @llvm.fmuladd.f32(float %.sroa.0237.0, float %174, float %227)
+  %228 = tail call float @llvm.fmuladd.f32(float %.sroa.0185.0, float %174, float %227)
   %229 = tail call float @llvm.fmuladd.f32(float %182, float 0.000000e+00, float %228)
   %230 = tail call float @llvm.fmuladd.f32(float %184, float 0.000000e+00, float %229)
-  %231 = fmul float %.sroa.5238.0, %178
+  %231 = fmul float %.sroa.5186.0, %178
   %232 = tail call float @llvm.fmuladd.f32(float %174, float 0.000000e+00, float %231)
   %233 = tail call float @llvm.fmuladd.f32(float %182, float 0.000000e+00, float %232)
   %234 = tail call float @llvm.fmuladd.f32(float %184, float 0.000000e+00, float %233)
   %235 = tail call float @llvm.fmuladd.f32(float %174, float 0.000000e+00, float %227)
-  %236 = tail call float @llvm.fmuladd.f32(float %.sroa.8239.0, float %182, float %235)
+  %236 = tail call float @llvm.fmuladd.f32(float %.sroa.8187.0, float %182, float %235)
   %237 = tail call float @llvm.fmuladd.f32(float %184, float 0.000000e+00, float %236)
   %238 = tail call float @llvm.fmuladd.f32(float %182, float 0.000000e+00, float %235)
   %239 = fadd float %184, %238
   %240 = fmul float %192, 0.000000e+00
-  %241 = tail call float @llvm.fmuladd.f32(float %.sroa.0237.0, float %188, float %240)
+  %241 = tail call float @llvm.fmuladd.f32(float %.sroa.0185.0, float %188, float %240)
   %242 = tail call float @llvm.fmuladd.f32(float %196, float 0.000000e+00, float %241)
   %243 = tail call float @llvm.fmuladd.f32(float %198, float 0.000000e+00, float %242)
-  %244 = fmul float %.sroa.5238.0, %192
+  %244 = fmul float %.sroa.5186.0, %192
   %245 = tail call float @llvm.fmuladd.f32(float %188, float 0.000000e+00, float %244)
   %246 = tail call float @llvm.fmuladd.f32(float %196, float 0.000000e+00, float %245)
   %247 = tail call float @llvm.fmuladd.f32(float %198, float 0.000000e+00, float %246)
   %248 = tail call float @llvm.fmuladd.f32(float %188, float 0.000000e+00, float %240)
-  %249 = tail call float @llvm.fmuladd.f32(float %.sroa.8239.0, float %196, float %248)
+  %249 = tail call float @llvm.fmuladd.f32(float %.sroa.8187.0, float %196, float %248)
   %250 = tail call float @llvm.fmuladd.f32(float %198, float 0.000000e+00, float %249)
   %251 = tail call float @llvm.fmuladd.f32(float %196, float 0.000000e+00, float %248)
   %252 = fadd float %198, %251
   %253 = fmul float %206, 0.000000e+00
-  %254 = tail call float @llvm.fmuladd.f32(float %.sroa.0237.0, float %202, float %253)
+  %254 = tail call float @llvm.fmuladd.f32(float %.sroa.0185.0, float %202, float %253)
   %255 = tail call float @llvm.fmuladd.f32(float %210, float 0.000000e+00, float %254)
   %256 = tail call float @llvm.fmuladd.f32(float %212, float 0.000000e+00, float %255)
-  %257 = fmul float %.sroa.5238.0, %206
+  %257 = fmul float %.sroa.5186.0, %206
   %258 = tail call float @llvm.fmuladd.f32(float %202, float 0.000000e+00, float %257)
   %259 = tail call float @llvm.fmuladd.f32(float %210, float 0.000000e+00, float %258)
   %260 = tail call float @llvm.fmuladd.f32(float %212, float 0.000000e+00, float %259)
   %261 = tail call float @llvm.fmuladd.f32(float %202, float 0.000000e+00, float %253)
-  %262 = tail call float @llvm.fmuladd.f32(float %.sroa.8239.0, float %210, float %261)
+  %262 = tail call float @llvm.fmuladd.f32(float %.sroa.8187.0, float %210, float %261)
   %263 = tail call float @llvm.fmuladd.f32(float %212, float 0.000000e+00, float %262)
   %264 = tail call float @llvm.fmuladd.f32(float %210, float 0.000000e+00, float %261)
   %265 = fadd float %212, %264
   %266 = fmul float %220, 0.000000e+00
-  %267 = tail call float @llvm.fmuladd.f32(float %.sroa.0237.0, float %216, float %266)
+  %267 = tail call float @llvm.fmuladd.f32(float %.sroa.0185.0, float %216, float %266)
   %268 = tail call float @llvm.fmuladd.f32(float %224, float 0.000000e+00, float %267)
   %269 = tail call float @llvm.fmuladd.f32(float %226, float 0.000000e+00, float %268)
-  %270 = fmul float %.sroa.5238.0, %220
+  %270 = fmul float %.sroa.5186.0, %220
   %271 = tail call float @llvm.fmuladd.f32(float %216, float 0.000000e+00, float %270)
   %272 = tail call float @llvm.fmuladd.f32(float %224, float 0.000000e+00, float %271)
   %273 = tail call float @llvm.fmuladd.f32(float %226, float 0.000000e+00, float %272)
   %274 = tail call float @llvm.fmuladd.f32(float %216, float 0.000000e+00, float %266)
-  %275 = tail call float @llvm.fmuladd.f32(float %.sroa.8239.0, float %224, float %274)
+  %275 = tail call float @llvm.fmuladd.f32(float %.sroa.8187.0, float %224, float %274)
   %276 = tail call float @llvm.fmuladd.f32(float %226, float 0.000000e+00, float %275)
   %277 = tail call float @llvm.fmuladd.f32(float %224, float 0.000000e+00, float %274)
   %278 = fadd float %226, %277

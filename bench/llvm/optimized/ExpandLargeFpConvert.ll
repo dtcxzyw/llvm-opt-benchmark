@@ -927,7 +927,7 @@ _ZN4llvm4User17dropAllReferencesEv.exit.i:        ; preds = %_ZN4llvm3Use3setEPN
 
 342:                                              ; preds = %489, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %489 ]
-  %.036.i = phi ptr [ %313, %.lr.ph.i ], [ %.1.i22.i, %489 ]
+  %.034.i = phi ptr [ %313, %.lr.ph.i ], [ %.1.i22.i, %489 ]
   %343 = load i32, ptr %314, align 4
   %344 = and i32 %343, 1073741824
   %.not.i.i19.i = icmp eq i32 %344, 0
@@ -1212,7 +1212,7 @@ _ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4Typ
   %456 = load ptr, ptr %455, align 8, !tbaa !3
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 104
   %458 = load ptr, ptr %457, align 8
-  %459 = call noundef ptr %458(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef %.036.i, ptr noundef nonnull %.0.i93, ptr noundef %454) #16
+  %459 = call noundef ptr %458(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef %.034.i, ptr noundef nonnull %.0.i93, ptr noundef %454) #16
   %.not.not.i21.i = icmp eq ptr %459, null
   br i1 %.not.not.i21.i, label %460, label %_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE.exit.i
 
@@ -1222,7 +1222,7 @@ _ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4Typ
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %461 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm17InsertElementInstC1EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %461, ptr noundef %.036.i, ptr noundef nonnull %.0.i93, ptr noundef %454, ptr noundef nonnull align 8 dereferenceable(34) %69, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %68) #16
+  call void @_ZN4llvm17InsertElementInstC1EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %461, ptr noundef %.034.i, ptr noundef nonnull %.0.i93, ptr noundef %454, ptr noundef nonnull align 8 dereferenceable(34) %69, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %68) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %462 = load ptr, ptr %110, align 8, !tbaa !143
   %.sroa.0.0.copyload.i.i23.i = load ptr, ptr %111, align 8
@@ -2990,11 +2990,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i: ; preds = 
 1285:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1201) #16
   %.pre.i414.i = load i32, ptr %1202, align 4
-  %.pre441.i = load ptr, ptr %1216, align 8, !tbaa !105
+  %.pre439.i = load ptr, ptr %1216, align 8, !tbaa !105
   br label %1286
 
 1286:                                             ; preds = %1285, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i
-  %1287 = phi ptr [ %.pre441.i, %1285 ], [ %1276, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i ]
+  %1287 = phi ptr [ %.pre439.i, %1285 ], [ %1276, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i ]
   %1288 = phi i32 [ %.pre.i414.i, %1285 ], [ %1282, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit407.i ]
   %1289 = add i32 %1288, 1
   %1290 = and i32 %1289, 134217727
@@ -5009,11 +5009,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575: ; preds = %_
 888:                                              ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %804) #16
   %.pre.i582 = load i32, ptr %805, align 4
-  %.pre1329 = load ptr, ptr %819, align 8, !tbaa !105
+  %.pre1327 = load ptr, ptr %819, align 8, !tbaa !105
   br label %889
 
 889:                                              ; preds = %888, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575
-  %890 = phi ptr [ %.pre1329, %888 ], [ %879, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575 ]
+  %890 = phi ptr [ %.pre1327, %888 ], [ %879, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575 ]
   %891 = phi i32 [ %.pre.i582, %888 ], [ %885, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit575 ]
   %892 = add i32 %891, 1
   %893 = and i32 %892, 134217727
@@ -6687,11 +6687,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923: ; preds = %_
 1683:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1637) #16
   %.pre.i930 = load i32, ptr %1638, align 4
-  %.pre1330 = load ptr, ptr %1652, align 8, !tbaa !105
+  %.pre1328 = load ptr, ptr %1652, align 8, !tbaa !105
   br label %1684
 
 1684:                                             ; preds = %1683, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923
-  %1685 = phi ptr [ %.pre1330, %1683 ], [ %1674, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923 ]
+  %1685 = phi ptr [ %.pre1328, %1683 ], [ %1674, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923 ]
   %1686 = phi i32 [ %.pre.i930, %1683 ], [ %1680, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit923 ]
   %1687 = add i32 %1686, 1
   %1688 = and i32 %1687, 134217727
@@ -6762,11 +6762,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931: ; preds = %_
 1721:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1637) #16
   %.pre.i938 = load i32, ptr %1638, align 4
-  %.pre1331 = load ptr, ptr %1652, align 8, !tbaa !105
+  %.pre1329 = load ptr, ptr %1652, align 8, !tbaa !105
   br label %1722
 
 1722:                                             ; preds = %1721, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931
-  %1723 = phi ptr [ %.pre1331, %1721 ], [ %1712, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931 ]
+  %1723 = phi ptr [ %.pre1329, %1721 ], [ %1712, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931 ]
   %1724 = phi i32 [ %.pre.i938, %1721 ], [ %1718, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit931 ]
   %1725 = add i32 %1724, 1
   %1726 = and i32 %1725, 134217727
@@ -6927,11 +6927,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947: ; preds = %_
 1808:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1762) #16
   %.pre.i954 = load i32, ptr %1763, align 4
-  %.pre1332 = load ptr, ptr %1777, align 8, !tbaa !105
+  %.pre1330 = load ptr, ptr %1777, align 8, !tbaa !105
   br label %1809
 
 1809:                                             ; preds = %1808, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947
-  %1810 = phi ptr [ %.pre1332, %1808 ], [ %1799, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947 ]
+  %1810 = phi ptr [ %.pre1330, %1808 ], [ %1799, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947 ]
   %1811 = phi i32 [ %.pre.i954, %1808 ], [ %1805, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit947 ]
   %1812 = add i32 %1811, 1
   %1813 = and i32 %1812, 134217727
@@ -7002,11 +7002,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955: ; preds = %_
 1846:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1762) #16
   %.pre.i962 = load i32, ptr %1763, align 4
-  %.pre1333 = load ptr, ptr %1777, align 8, !tbaa !105
+  %.pre1331 = load ptr, ptr %1777, align 8, !tbaa !105
   br label %1847
 
 1847:                                             ; preds = %1846, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955
-  %1848 = phi ptr [ %.pre1333, %1846 ], [ %1837, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955 ]
+  %1848 = phi ptr [ %.pre1331, %1846 ], [ %1837, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955 ]
   %1849 = phi i32 [ %.pre.i962, %1846 ], [ %1843, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit955 ]
   %1850 = add i32 %1849, 1
   %1851 = and i32 %1850, 134217727
@@ -7167,11 +7167,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971: ; preds = %_
 1933:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1887) #16
   %.pre.i978 = load i32, ptr %1888, align 4
-  %.pre1334 = load ptr, ptr %1902, align 8, !tbaa !105
+  %.pre1332 = load ptr, ptr %1902, align 8, !tbaa !105
   br label %1934
 
 1934:                                             ; preds = %1933, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971
-  %1935 = phi ptr [ %.pre1334, %1933 ], [ %1924, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971 ]
+  %1935 = phi ptr [ %.pre1332, %1933 ], [ %1924, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971 ]
   %1936 = phi i32 [ %.pre.i978, %1933 ], [ %1930, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit971 ]
   %1937 = add i32 %1936, 1
   %1938 = and i32 %1937, 134217727
@@ -7242,11 +7242,11 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979: ; preds = %_
 1971:                                             ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %1887) #16
   %.pre.i986 = load i32, ptr %1888, align 4
-  %.pre1335 = load ptr, ptr %1902, align 8, !tbaa !105
+  %.pre1333 = load ptr, ptr %1902, align 8, !tbaa !105
   br label %1972
 
 1972:                                             ; preds = %1971, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979
-  %1973 = phi ptr [ %.pre1335, %1971 ], [ %1962, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979 ]
+  %1973 = phi ptr [ %.pre1333, %1971 ], [ %1962, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979 ]
   %1974 = phi i32 [ %.pre.i986, %1971 ], [ %1968, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit979 ]
   %1975 = add i32 %1974, 1
   %1976 = and i32 %1975, 134217727

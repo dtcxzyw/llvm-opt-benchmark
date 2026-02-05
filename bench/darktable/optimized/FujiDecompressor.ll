@@ -238,22 +238,22 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %.preheader84.i
+  br label %.preheader82.i
 
-.preheader84.i:                                   ; preds = %68, %64
-  %indvars.iv92.i = phi i64 [ 0, %64 ], [ %indvars.iv.next93.i, %68 ]
-  %65 = mul nuw nsw i64 %indvars.iv92.i, 6
+.preheader82.i:                                   ; preds = %68, %64
+  %indvars.iv90.i = phi i64 [ 0, %64 ], [ %indvars.iv.next91.i, %68 ]
+  %65 = mul nuw nsw i64 %indvars.iv90.i, 6
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 %65
-  %67 = trunc nuw nsw i64 %indvars.iv92.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv90.i to i32
   br label %69
 
 68:                                               ; preds = %.noexc
-  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
-  %exitcond95.not.i = icmp eq i64 %indvars.iv.next93.i, 6
-  br i1 %exitcond95.not.i, label %.preheader.i, label %.preheader84.i, !llvm.loop !109
+  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
+  %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 6
+  br i1 %exitcond93.not.i, label %.preheader.i, label %.preheader82.i, !llvm.loop !109
 
-69:                                               ; preds = %.noexc, %.preheader84.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next.i, %.noexc ]
+69:                                               ; preds = %.noexc, %.preheader82.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next.i, %.noexc ]
   %70 = trunc nuw nsw i64 %indvars.iv.i to i32
   %71 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef %70, i32 noundef %67)
           to label %.noexc unwind label %.loopexit135
@@ -266,11 +266,11 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
   br i1 %exitcond.not.i, label %68, label %69, !llvm.loop !113
 
 .preheader.i:                                     ; preds = %68, %97
-  %storemerge88.i = phi i32 [ %98, %97 ], [ 0, %68 ]
+  %storemerge86.i = phi i32 [ %98, %97 ], [ 0, %68 ]
   br label %73
 
 73:                                               ; preds = %95, %.preheader.i
-  %storemerge1187.i = phi i32 [ 0, %.preheader.i ], [ %96, %95 ]
+  %storemerge1185.i = phi i32 [ 0, %.preheader.i ], [ %96, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
@@ -279,7 +279,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
 .preheader.i.i.i:                                 ; preds = %82, %73
   %indvars.iv85.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next86.i.i.i, %82 ]
   %74 = trunc i64 %indvars.iv85.i.i.i to i32
-  %75 = add nuw nsw i32 %storemerge88.i, %74
+  %75 = add nuw nsw i32 %storemerge86.i, %74
   %76 = urem i32 %75, 6
   %77 = mul nuw nsw i32 %76, 6
   %78 = zext nneg i32 %77 to i64
@@ -296,7 +296,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
 83:                                               ; preds = %83, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %83 ]
   %84 = trunc i64 %indvars.iv.i.i.i to i32
-  %85 = add nuw nsw i32 %storemerge1187.i, %84
+  %85 = add nuw nsw i32 %storemerge1185.i, %84
   %86 = urem i32 %85, 6
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 %87
@@ -325,14 +325,14 @@ _ZSteqIN8rawspeed8CFAColorELm36EEbRKSt5arrayIT_XT0_EES6_.exit.i: ; preds = %.lr.
   br i1 %93, label %101, label %95
 
 95:                                               ; preds = %_ZSteqIN8rawspeed8CFAColorELm36EEbRKSt5arrayIT_XT0_EES6_.exit.i
-  %96 = add nuw nsw i32 %storemerge1187.i, 1
-  %exitcond96.not.i = icmp eq i32 %96, 6
-  br i1 %exitcond96.not.i, label %97, label %73, !llvm.loop !124
+  %96 = add nuw nsw i32 %storemerge1185.i, 1
+  %exitcond94.not.i = icmp eq i32 %96, 6
+  br i1 %exitcond94.not.i, label %97, label %73, !llvm.loop !124
 
 97:                                               ; preds = %95
-  %98 = add nuw nsw i32 %storemerge88.i, 1
-  %exitcond97.not.i = icmp eq i32 %98, 6
-  br i1 %exitcond97.not.i, label %99, label %.preheader.i, !llvm.loop !125
+  %98 = add nuw nsw i32 %storemerge86.i, 1
+  %exitcond95.not.i = icmp eq i32 %98, 6
+  br i1 %exitcond95.not.i, label %99, label %.preheader.i, !llvm.loop !125
 
 99:                                               ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -357,12 +357,12 @@ _ZSteqIN8rawspeed8CFAColorELm36EEbRKSt5arrayIT_XT0_EES6_.exit.i: ; preds = %.lr.
 
 101:                                              ; preds = %_ZSteqIN8rawspeed8CFAColorELm36EEbRKSt5arrayIT_XT0_EES6_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %102 = or i32 %storemerge1187.i, %storemerge88.i
+  %102 = or i32 %storemerge1185.i, %storemerge86.i
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %149, label %104
 
 104:                                              ; preds = %101
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStreamE, i32 noundef %storemerge1187.i, i32 noundef %storemerge88.i) #17
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStreamE, i32 noundef %storemerge1185.i, i32 noundef %storemerge86.i) #17
           to label %105 unwind label %.loopexit.split-lp136
 
 105:                                              ; preds = %104

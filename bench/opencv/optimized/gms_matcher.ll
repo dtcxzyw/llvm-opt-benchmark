@@ -1256,9 +1256,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %.b
   br i1 %450, label %.body352, label %.body352.sink.split
 
 .body352.sink.split:                              ; preds = %447, %292
-  %.sink981 = phi ptr [ %294, %292 ], [ %449, %447 ]
+  %.sink979 = phi ptr [ %294, %292 ], [ %449, %447 ]
   %.pn214.ph = phi { ptr, i32 } [ %293, %292 ], [ %448, %447 ]
-  call void @_ZdlPv(ptr noundef %.sink981) #15
+  call void @_ZdlPv(ptr noundef %.sink979) #15
   br label %.body352
 
 .body352:                                         ; preds = %.body352.sink.split, %447, %292
@@ -1284,9 +1284,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436: ; preds = %.b
   br i1 %456, label %.body368, label %.body368.sink.split
 
 .body368.sink.split:                              ; preds = %453, %306
-  %.sink982 = phi ptr [ %308, %306 ], [ %455, %453 ]
+  %.sink980 = phi ptr [ %308, %306 ], [ %455, %453 ]
   %.pn217.ph = phi { ptr, i32 } [ %307, %306 ], [ %454, %453 ]
-  call void @_ZdlPv(ptr noundef %.sink982) #15
+  call void @_ZdlPv(ptr noundef %.sink980) #15
   br label %.body368
 
 .body368:                                         ; preds = %.body368.sink.split, %453, %306
@@ -1840,7 +1840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit493: ; preds = %66
   br label %946
 
 664:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit490, %666
-  %.0124877 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit490 ], [ %667, %666 ]
+  %.0124875 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit490 ], [ %667, %666 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #17
   %665 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN2cv12VideoCapturersERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(41) %69, ptr noundef nonnull align 8 dereferenceable(96) %71)
@@ -1849,7 +1849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit493: ; preds = %66
 666:                                              ; preds = %664
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
-  %667 = add nuw nsw i32 %.0124877, 1
+  %667 = add nuw nsw i32 %.0124875, 1
   %exitcond.not = icmp eq i32 %667, 10
   br i1 %exitcond.not, label %558, label %664, !llvm.loop !110
 
@@ -2020,8 +2020,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit493: ; preds = %66
 ._crit_edge.i.i511:                               ; preds = %.noexc499
   %719 = icmp eq i64 %711, 0
   %720 = sub nsw i64 %717, %711
-  %.sroa.28.2 = select i1 %719, i64 0, i64 %720
-  %721 = sitofp i64 %.sroa.28.2 to double
+  %spec.select708 = select i1 %719, i64 0, i64 %720
+  %721 = sitofp i64 %spec.select708 to double
   %722 = fdiv double %721, %718
   %723 = fmul double %722, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %85)

@@ -13721,13 +13721,13 @@ define dso_local noundef ptr @_ZN4llvm12DIExpression6appendEPKS0_NS_8ArrayRefImE
   %10 = load ptr, ptr %9, align 8, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !77
-  %.not28 = icmp eq ptr %10, %12
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %10, %12
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
   %.pre = load i32, ptr %7, align 8, !tbaa !26
-  %.pre33 = load i32, ptr %8, align 4, !tbaa !27
-  %13 = zext i32 %.pre33 to i64
+  %.pre31 = load i32, ptr %8, align 4, !tbaa !27
+  %13 = zext i32 %.pre31 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -13795,23 +13795,23 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %_ZNK4llvm6MDNode10g
   ret ptr %36
 
 .lr.ph:                                           ; preds = %3, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
-  %.sroa.6.031 = phi i64 [ %.sroa.6.1, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %2, %3 ]
-  %.sroa.014.030 = phi ptr [ %63, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %10, %3 ]
-  %.sroa.017.029 = phi ptr [ %.sroa.017.1, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %1, %3 ]
+  %.sroa.6.029 = phi i64 [ %.sroa.6.1, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %2, %3 ]
+  %.sroa.017.028 = phi ptr [ %.sroa.017.1, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %1, %3 ]
+  %.sroa.014.027 = phi ptr [ %63, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %10, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %40 = ptrtoint ptr %.sroa.014.030 to i64
+  %40 = ptrtoint ptr %.sroa.014.027 to i64
   store i64 %40, ptr %5, align 8, !tbaa !654
-  %41 = load i64, ptr %.sroa.014.030, align 8, !tbaa !47
+  %41 = load i64, ptr %.sroa.014.027, align 8, !tbaa !47
   switch i64 %41, label %57 [
     i64 159, label %42
     i64 4096, label %42
   ]
 
 42:                                               ; preds = %.lr.ph, %.lr.ph
-  %.idx26 = shl nuw nsw i64 %.sroa.6.031, 3
+  %.idx24 = shl nuw nsw i64 %.sroa.6.029, 3
   %43 = load i32, ptr %7, align 8, !tbaa !26
   %44 = zext i32 %43 to i64
-  %45 = add nsw i64 %.sroa.6.031, %44
+  %45 = add nsw i64 %.sroa.6.029, %44
   %46 = load i32, ptr %8, align 4, !tbaa !27
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %45, %47
@@ -13824,30 +13824,30 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %_ZNK4llvm6MDNode10g
 
 _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i7:   ; preds = %49, %42
   %.pre8.i8 = phi i32 [ %43, %42 ], [ %.pre8.pre.i11, %49 ]
-  %.not.i.i9 = icmp eq i64 %.sroa.6.031, 0
+  %.not.i.i9 = icmp eq i64 %.sroa.6.029, 0
   br i1 %.not.i.i9, label %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12, label %50
 
 50:                                               ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i7
   %51 = load ptr, ptr %4, align 8, !tbaa !25
   %52 = zext i32 %.pre8.i8 to i64
   %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 8 %.sroa.017.029, i64 %.idx26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 8 %.sroa.017.028, i64 %.idx24, i1 false)
   %.pre.i10 = load i32, ptr %7, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12
 
 _ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12: ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i7, %50
   %54 = phi i32 [ %.pre8.i8, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i7 ], [ %.pre.i10, %50 ]
-  %55 = trunc i64 %.sroa.6.031 to i32
+  %55 = trunc i64 %.sroa.6.029 to i32
   %56 = add i32 %54, %55
   store i32 %56, ptr %7, align 8, !tbaa !26
   br label %57
 
 57:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12
-  %.sroa.017.1 = phi ptr [ null, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12 ], [ %.sroa.017.029, %.lr.ph ]
-  %.sroa.6.1 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12 ], [ %.sroa.6.031, %.lr.ph ]
+  %.sroa.017.1 = phi ptr [ null, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12 ], [ %.sroa.017.028, %.lr.ph ]
+  %.sroa.6.1 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12 ], [ %.sroa.6.029, %.lr.ph ]
   call void @_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = load i64, ptr %.sroa.014.030, align 8, !tbaa !47
+  %58 = load i64, ptr %.sroa.014.027, align 8, !tbaa !47
   %59 = add i64 %58, -112
   %or.cond.i.i.i = icmp ult i64 %59, 32
   br i1 %or.cond.i.i.i, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, label %60
@@ -13877,7 +13877,7 @@ _ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit12: ; preds = %_ZN4llvm15Sm
 
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %57, %60, %60, %60, %60, %60, %61, %62
   %.0.i.i.i = phi i64 [ 2, %61 ], [ 1, %62 ], [ 2, %57 ], [ 3, %60 ], [ 3, %60 ], [ 3, %60 ], [ 3, %60 ], [ 3, %60 ]
-  %63 = getelementptr inbounds nuw i64, ptr %.sroa.014.030, i64 %.0.i.i.i
+  %63 = getelementptr inbounds nuw i64, ptr %.sroa.014.027, i64 %.0.i.i.i
   %.not = icmp eq ptr %63, %12
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }

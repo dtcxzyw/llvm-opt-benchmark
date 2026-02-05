@@ -152,8 +152,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %51, %_ZNSt10unique_
 
 55:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %46
   %56 = phi i8 [ %44, %46 ], [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0.copyload, %46 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sroa.071.1 = phi ptr [ %.sroa.071.0.copyload, %46 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %46 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.071.0 = phi ptr [ %.sroa.071.0.copyload, %46 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ]
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
@@ -174,20 +174,20 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %58, %_ZNKSt14defaul
   br i1 %23, label %.critedge, label %63
 
 63:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
-  %.not.i = icmp eq i64 %.sroa.7.1, 10
+  %.not.i = icmp eq i64 %.sroa.7.0, 10
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread81
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %63
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.071.1, ptr noundef nonnull dereferenceable(10) @.str.2, i64 10)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.071.0, ptr noundef nonnull dereferenceable(10) @.str.2, i64 10)
   %64 = icmp eq i32 %bcmp.i, 0
   br i1 %64, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread81
 
 .critedge:                                        ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
-  %.not.i29 = icmp eq i64 %.sroa.7.1, 8
+  %.not.i29 = icmp eq i64 %.sroa.7.0, 8
   br i1 %.not.i29, label %_ZN4llvmeqENS_9StringRefES0_.exit32, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread81
 
 _ZN4llvmeqENS_9StringRefES0_.exit32:              ; preds = %.critedge
-  %bcmp.i31 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.071.1, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
+  %bcmp.i31 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.071.0, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
   %65 = icmp eq i32 %bcmp.i31, 0
   br i1 %65, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread81
 

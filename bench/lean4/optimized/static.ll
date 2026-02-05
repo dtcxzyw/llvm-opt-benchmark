@@ -15446,7 +15446,7 @@ _Z12_mi_os_allocmP10mi_memid_s.exit36.i:          ; preds = %_Z22_mi_os_good_all
   br label %58
 
 58:                                               ; preds = %55, %54
-  %.468.i = phi ptr [ %.4.ph.i, %55 ], [ null, %54 ]
+  %.463.i = phi ptr [ %.4.ph.i, %55 ], [ null, %54 ]
   %.117.i = phi i1 [ %57, %55 ], [ false, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %59
@@ -15457,7 +15457,7 @@ _Z12_mi_os_allocmP10mi_memid_s.exit36.i:          ; preds = %_Z22_mi_os_good_all
 
 59:                                               ; preds = %.loopexit.i, %58
   %.016.i = phi i1 [ %.117.i, %58 ], [ false, %.loopexit.i ]
-  %.3.i = phi ptr [ %.468.i, %58 ], [ %.0.i.i.i26.le.i, %.loopexit.i ]
+  %.3.i = phi ptr [ %.463.i, %58 ], [ %.0.i.i.i26.le.i, %.loopexit.i ]
   %60 = icmp eq ptr %.3.i, null
   %or.cond.i = select i1 %60, i1 true, i1 %.016.i
   br i1 %or.cond.i, label %_ZL21mi_thread_data_zallocv.exit, label %_ZL21mi_thread_data_zallocv.exit.thread

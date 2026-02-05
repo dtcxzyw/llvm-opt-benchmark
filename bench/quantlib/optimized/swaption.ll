@@ -1868,8 +1868,8 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
   store ptr %1, ptr %pn.i1.i, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
   %pn3.i23.phi.trans.insert = getelementptr inbounds nuw i8, ptr %swap, i64 8
-  %.pre91 = load ptr, ptr %pn3.i23.phi.trans.insert, align 8, !tbaa !41
-  %.pre90 = load ptr, ptr %swap, align 8, !tbaa !51
+  %.pre89 = load ptr, ptr %pn3.i23.phi.trans.insert, align 8, !tbaa !41
+  %.pre88 = load ptr, ptr %swap, align 8, !tbaa !51
   %.pre = load ptr, ptr %vtt, align 8
   store ptr %.pre, ptr %this, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %vtt, i64 80
@@ -1886,9 +1886,9 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset6
   store ptr %13, ptr %add.ptr7, align 8, !tbaa !32
   %swap_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr %.pre90, ptr %swap_, align 8, !tbaa !51
+  store ptr %.pre88, ptr %swap_, align 8, !tbaa !51
   %pn.i22 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr %.pre91, ptr %pn.i22, align 8, !tbaa !41
+  store ptr %.pre89, ptr %pn.i22, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %swap, i8 0, i64 16, i1 false)
   %settlementType_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 %delivery, ptr %settlementType_, align 8, !tbaa !53
@@ -2668,7 +2668,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
   store ptr %5, ptr %pn.i1.i, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
   %pn3.i27.phi.trans.insert = getelementptr inbounds nuw i8, ptr %swap, i64 8
-  %.pre92 = load ptr, ptr %pn3.i27.phi.trans.insert, align 8, !tbaa !41
+  %.pre90 = load ptr, ptr %pn3.i27.phi.trans.insert, align 8, !tbaa !41
   %.pre = load ptr, ptr %swap, align 8, !tbaa !51
   store ptr getelementptr inbounds nuw inrange(-32, 80) (i8, ptr @_ZTVN8QuantLib8SwaptionE, i64 32), ptr %this, align 8, !tbaa !32
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib8SwaptionE, i64 136), ptr %0, align 8, !tbaa !32
@@ -2676,7 +2676,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
   %swap_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %.pre, ptr %swap_, align 8, !tbaa !51
   %pn.i26 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr %.pre92, ptr %pn.i26, align 8, !tbaa !41
+  store ptr %.pre90, ptr %pn.i26, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %swap, i8 0, i64 16, i1 false)
   %settlementType_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 %delivery, ptr %settlementType_, align 8, !tbaa !53

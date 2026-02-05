@@ -2761,7 +2761,7 @@ define internal range(i32 -2147483648, 1) i32 @mxf_init(ptr noundef %0) #0 {
   br label %79
 
 79:                                               ; preds = %69, %73, %77, %67
-  %.sroa.024.2 = phi i64 [ %.sroa.01.0.insert.insert.i, %67 ], [ %.sroa.01.0.insert.insert.i266, %77 ], [ 0, %73 ], [ 0, %69 ]
+  %.sroa.024.0 = phi i64 [ %.sroa.01.0.insert.insert.i, %67 ], [ %.sroa.01.0.insert.insert.i266, %77 ], [ 0, %73 ], [ 0, %69 ]
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 60
   store i32 8, ptr %80, align 4, !tbaa !73
   %81 = getelementptr inbounds nuw i8, ptr %41, i64 72
@@ -2883,14 +2883,14 @@ choose_chroma_location.exit.thread.sink.split:    ; preds = %115, %108, %choose_
   br label %choose_chroma_location.exit.thread
 
 choose_chroma_location.exit.thread:               ; preds = %choose_chroma_location.exit.thread.sink.split, %108, %.thread.i, %130, %119, %114
-  %132 = call i32 @ff_mxf_get_content_package_rate(i64 %.sroa.024.2) #14
+  %132 = call i32 @ff_mxf_get_content_package_rate(i64 %.sroa.024.0) #14
   store i32 %132, ptr %33, align 8, !tbaa !132
-  store i64 %.sroa.024.2, ptr %27, align 4
-  %133 = trunc i64 %.sroa.024.2 to i32
-  %134 = lshr i64 %.sroa.024.2, 32
+  store i64 %.sroa.024.0, ptr %27, align 4
+  %133 = trunc i64 %.sroa.024.0 to i32
+  %134 = lshr i64 %.sroa.024.0, 32
   %135 = trunc nuw i64 %134 to i32
   call void @avpriv_set_pts_info(ptr noundef nonnull %40, i32 noundef 64, i32 noundef %133, i32 noundef %135) #14
-  %136 = call fastcc i32 @mxf_init_timecode(ptr noundef nonnull %0, ptr noundef nonnull %40, i64 %.sroa.024.2)
+  %136 = call fastcc i32 @mxf_init_timecode(ptr noundef nonnull %0, ptr noundef nonnull %40, i64 %.sroa.024.0)
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.thread302, label %138
 

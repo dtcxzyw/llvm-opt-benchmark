@@ -835,11 +835,11 @@ _ZNSt10unique_ptrIN5clang7Builtin7ContextESt14default_deleteIS2_EED2Ev.exit: ; p
   store i8 %204, ptr %55, align 8, !tbaa !431
   %205 = load i32, ptr %56, align 4, !tbaa !385
   %.not.i11 = icmp eq i32 %205, 1
-  %.pre38 = load ptr, ptr %13, align 8, !tbaa !15
+  %.pre36 = load ptr, ptr %13, align 8, !tbaa !15
   br i1 %.not.i11, label %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread, label %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit
 
 _ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit: ; preds = %198
-  %206 = getelementptr inbounds nuw i8, ptr %.pre38, i64 76
+  %206 = getelementptr inbounds nuw i8, ptr %.pre36, i64 76
   %207 = load i8, ptr %206, align 4, !tbaa !432, !range !458, !noundef !459
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread
@@ -849,13 +849,13 @@ _ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit: ; preds = %198
   br label %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread
 
 _ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread: ; preds = %198, %209, %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit
-  %210 = getelementptr inbounds nuw i8, ptr %.pre38, i64 88
+  %210 = getelementptr inbounds nuw i8, ptr %.pre36, i64 88
   %211 = load i64, ptr %210, align 8, !tbaa !379
   %212 = icmp eq i64 %211, 0
   br i1 %212, label %218, label %213
 
 213:                                              ; preds = %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread
-  %214 = getelementptr inbounds nuw i8, ptr %.pre38, i64 120
+  %214 = getelementptr inbounds nuw i8, ptr %.pre36, i64 120
   %215 = load i64, ptr %214, align 8, !tbaa !379
   %216 = icmp eq i64 %215, 0
   br i1 %216, label %218, label %217
@@ -865,7 +865,7 @@ _ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread: ; preds = %198
   br label %218
 
 218:                                              ; preds = %217, %213, %_ZN5clang12Preprocessor25usingPCHWithPragmaHdrStopEv.exit.thread
-  %219 = getelementptr inbounds nuw i8, ptr %.pre38, i64 232
+  %219 = getelementptr inbounds nuw i8, ptr %.pre36, i64 232
   %220 = load i8, ptr %219, align 8, !tbaa !462, !range !458, !noundef !459
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %223

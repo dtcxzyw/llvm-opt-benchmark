@@ -4022,8 +4022,8 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %38
   br label %_ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit:            ; preds = %.noexc16, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.022.0 = phi ptr [ %42, %.noexc16 ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.12.0 = phi i64 [ %44, %.noexc16 ], [ 0, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.022.0 = phi ptr [ %42, %.noexc16 ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.sroa.022.0, ptr %2, align 8, !tbaa !171
   %45 = load i32, ptr %30, align 4, !tbaa !128
@@ -4072,14 +4072,14 @@ _ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit:            ; preds = %.noexc16, %_ZNSt6ve
   %65 = sub i64 %.sroa.12.0, %64
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.022.0, i64 noundef %65) #28
   %.pre = load i32, ptr %30, align 4, !tbaa !128
-  %.pre36 = load i32, ptr %32, align 8, !tbaa !188
+  %.pre30 = load i32, ptr %32, align 8, !tbaa !188
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit19
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %58, %56
   resume { ptr, i32 } %57
 
 _ZNSt6vectorIcSaIcEED2Ev.exit19:                  ; preds = %63, %._crit_edge, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %66 = phi i32 [ %.pre36, %63 ], [ %61, %._crit_edge ], [ %33, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %66 = phi i32 [ %.pre30, %63 ], [ %61, %._crit_edge ], [ %33, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %67 = phi i32 [ %.pre, %63 ], [ %62, %._crit_edge ], [ %31, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %.not8 = icmp slt i32 %67, %66
   %68 = load ptr, ptr %35, align 8

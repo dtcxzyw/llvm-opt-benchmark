@@ -2929,10 +2929,10 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread57: ; preds = %79, %67, %_ZN
   %98 = zext nneg i32 %95 to i64
   %99 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %97, i64 %98
   %.sroa.0.0.copyload.i = load i64, ptr %99, align 8, !tbaa !66
-  %.sroa.049.0.in73 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.sroa.049.074 = load ptr, ptr %.sroa.049.0.in73, align 8, !tbaa !65
-  %.not75 = icmp eq ptr %.sroa.049.074, null
-  br i1 %.not75, label %.critedge25, label %.lr.ph
+  %.sroa.049.0.in67 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %.sroa.049.068 = load ptr, ptr %.sroa.049.0.in67, align 8, !tbaa !65
+  %.not69 = icmp eq ptr %.sroa.049.068, null
+  br i1 %.not69, label %.critedge25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread57
   %100 = inttoptr i64 %59 to ptr
@@ -2940,17 +2940,17 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread57: ; preds = %79, %67, %_ZN
   br label %102
 
 102:                                              ; preds = %.lr.ph, %.critedge23
-  %.sroa.049.076 = phi ptr [ %.sroa.049.074, %.lr.ph ], [ %.sroa.049.0, %.critedge23 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.049.076, i64 112
+  %.sroa.049.070 = phi ptr [ %.sroa.049.068, %.lr.ph ], [ %.sroa.049.0, %.critedge23 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 112
   %104 = load i64, ptr %103, align 8, !tbaa !347
   %105 = and i64 %104, %.sroa.0.0.copyload.i
-  %.not68 = icmp eq i64 %105, 0
-  br i1 %.not68, label %.critedge23, label %106
+  %.not62 = icmp eq i64 %105, 0
+  br i1 %.not62, label %.critedge23, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.049.076, i64 %59) #11, !noalias !459
-  %108 = load ptr, ptr %.sroa.049.076, align 8, !tbaa !23, !noalias !459
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.049.076, i64 8
+  %107 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.049.070, i64 %59) #11, !noalias !459
+  %108 = load ptr, ptr %.sroa.049.070, align 8, !tbaa !23, !noalias !459
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !27, !noalias !459
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %108, i64 %111
@@ -2979,7 +2979,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread57: ; preds = %79, %67, %_ZN
   br i1 %128, label %.critedge25, label %.critedge23
 
 .critedge23:                                      ; preds = %124, %114, %106, %102
-  %.sroa.049.0.in = getelementptr inbounds nuw i8, ptr %.sroa.049.076, i64 104
+  %.sroa.049.0.in = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 104
   %.sroa.049.0 = load ptr, ptr %.sroa.049.0.in, align 8, !tbaa !65
   %.not = icmp eq ptr %.sroa.049.0, null
   br i1 %.not, label %.critedge25, label %102

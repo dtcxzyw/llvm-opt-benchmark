@@ -2804,11 +2804,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %80, %7
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i: ; preds = %83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %68, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.thread.i
   store ptr %57, ptr %56, align 8, !tbaa !54, !alias.scope !74
-  %.pr187 = load ptr, ptr @_ZN4entt7locatorI12base_serviceE7serviceE, align 8, !tbaa !20
+  %.pr185 = load ptr, ptr @_ZN4entt7locatorI12base_serviceE7serviceE, align 8, !tbaa !20
   br label %_ZN4entt7locatorI12base_serviceE6handleEv.exit
 
 _ZN4entt7locatorI12base_serviceE6handleEv.exit:   ; preds = %_ZN4entt7locatorI12base_serviceE7emplaceI15derived_serviceJiEEERS1_DpOT0_.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
-  %84 = phi ptr [ %54, %_ZN4entt7locatorI12base_serviceE7emplaceI15derived_serviceJiEEERS1_DpOT0_.exit ], [ %.pr187, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i ]
+  %84 = phi ptr [ %54, %_ZN4entt7locatorI12base_serviceE7emplaceI15derived_serviceJiEEERS1_DpOT0_.exit ], [ %.pr185, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i ]
   %85 = phi ptr [ %53, %_ZN4entt7locatorI12base_serviceE7emplaceI15derived_serviceJiEEERS1_DpOT0_.exit ], [ %56, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = icmp ne ptr %84, null
@@ -3393,11 +3393,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i132: ; preds = %279
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i134: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i129.thread, %282, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i132, %267, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i129
   store ptr %255, ptr getelementptr inbounds nuw (i8, ptr @_ZN4entt7locatorI12base_serviceE7serviceE, i64 8), align 8, !tbaa !54
-  %.pr188 = load ptr, ptr @_ZN4entt7locatorI12base_serviceE7serviceE, align 8, !tbaa !20
+  %.pr186 = load ptr, ptr @_ZN4entt7locatorI12base_serviceE7serviceE, align 8, !tbaa !20
   br label %_ZN4entt7locatorI12base_serviceE5resetERKNS2_14service_handleE.exit136
 
 _ZN4entt7locatorI12base_serviceE5resetERKNS2_14service_handleE.exit136: ; preds = %252, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i134
-  %283 = phi ptr [ %254, %252 ], [ %.pr188, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i134 ]
+  %283 = phi ptr [ %254, %252 ], [ %.pr186, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %284 = icmp ne ptr %283, null
   %285 = zext i1 %284 to i8

@@ -5204,12 +5204,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
 
 ._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge: ; preds = %28
   %.pre = load ptr, ptr %2, align 8, !tbaa !207
-  %.pre82 = load ptr, ptr %0, align 8, !tbaa !210
+  %.pre79 = load ptr, ptr %0, align 8, !tbaa !210
   br label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03777 = phi i64 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %.03777
+  %.03774 = phi i64 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %.03774
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.val = load i32, ptr %32, align 4, !tbaa !211
   %34 = getelementptr i8, ptr %32, i64 4
@@ -5223,25 +5223,25 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %39 = mul nsw i32 %37, %37
   %40 = add nuw nsw i32 %39, %38
   %41 = uitofp nneg i32 %40 to float
-  %42 = getelementptr inbounds nuw float, ptr %13, i64 %.03777
+  %42 = getelementptr inbounds nuw float, ptr %13, i64 %.03774
   store float %41, ptr %42, align 4, !tbaa !150
-  %43 = add nuw i64 %.03777, 1
+  %43 = add nuw i64 %.03774, 1
   %exitcond.not = icmp eq i64 %43, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !214
 
 _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit: ; preds = %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge, %._crit_edge
-  %44 = phi ptr [ %.pre82, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %4, %._crit_edge ]
+  %44 = phi ptr [ %.pre79, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %4, %._crit_edge ]
   %45 = phi ptr [ %.pre, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %3, %._crit_edge ]
   %46 = load float, ptr %25, align 4, !tbaa !150
   %.not = icmp eq ptr %45, %44
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80
+  br i1 %.not, label %._crit_edge78, label %.lr.ph77
 
-.lr.ph80:                                         ; preds = %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit, %70
+.lr.ph77:                                         ; preds = %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit, %70
   %47 = phi ptr [ %71, %70 ], [ %44, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
   %48 = phi ptr [ %72, %70 ], [ %45, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
-  %.079 = phi i64 [ %.1, %70 ], [ 0, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
-  %.03078 = phi i64 [ %73, %70 ], [ 0, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %.03078
+  %.076 = phi i64 [ %.1, %70 ], [ 0, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
+  %.03075 = phi i64 [ %73, %70 ], [ 0, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
+  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %.03075
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.val46 = load i32, ptr %49, align 4, !tbaa !211
   %51 = getelementptr i8, ptr %49, i64 4
@@ -5258,16 +5258,16 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_
   %59 = fcmp ult float %46, %58
   br i1 %59, label %70, label %60
 
-60:                                               ; preds = %.lr.ph80
-  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %.079
+60:                                               ; preds = %.lr.ph77
+  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %.076
   %62 = load i64, ptr %49, align 4
   store i64 %62, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i64, ptr %50, align 4
   store i64 %64, ptr %63, align 4
-  %65 = add i64 %.079, 1
-  %.pre83 = load ptr, ptr %2, align 8, !tbaa !207
-  %.pre84 = load ptr, ptr %0, align 8, !tbaa !210
+  %65 = add i64 %.076, 1
+  %.pre80 = load ptr, ptr %2, align 8, !tbaa !207
+  %.pre81 = load ptr, ptr %0, align 8, !tbaa !210
   br label %70
 
 66:                                               ; preds = %28
@@ -5275,29 +5275,29 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit61
 
-68:                                               ; preds = %._crit_edge81
+68:                                               ; preds = %._crit_edge78
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit61
 
-70:                                               ; preds = %60, %.lr.ph80
-  %71 = phi ptr [ %.pre84, %60 ], [ %47, %.lr.ph80 ]
-  %72 = phi ptr [ %.pre83, %60 ], [ %48, %.lr.ph80 ]
-  %.1 = phi i64 [ %65, %60 ], [ %.079, %.lr.ph80 ]
-  %73 = add nuw i64 %.03078, 1
+70:                                               ; preds = %60, %.lr.ph77
+  %71 = phi ptr [ %.pre81, %60 ], [ %47, %.lr.ph77 ]
+  %72 = phi ptr [ %.pre80, %60 ], [ %48, %.lr.ph77 ]
+  %.1 = phi i64 [ %65, %60 ], [ %.076, %.lr.ph77 ]
+  %73 = add nuw i64 %.03075, 1
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %71 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 4
   %78 = icmp ult i64 %73, %77
-  br i1 %78, label %.lr.ph80, label %._crit_edge81, !llvm.loop !215
+  br i1 %78, label %.lr.ph77, label %._crit_edge78, !llvm.loop !215
 
-._crit_edge81:                                    ; preds = %70, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit
+._crit_edge78:                                    ; preds = %70, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit
   %.0.lcssa = phi i64 [ 0, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ], [ %.1, %70 ]
   invoke void @_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.0.lcssa)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %68
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge81
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge78
   tail call void @_ZdlPv(ptr noundef nonnull %13) #29
   br label %79
 

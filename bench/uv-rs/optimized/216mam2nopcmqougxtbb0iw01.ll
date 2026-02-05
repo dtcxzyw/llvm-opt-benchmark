@@ -4073,7 +4073,7 @@ _ZN3std2io4Seek15stream_position17hd8ef70643f0d01d2E.exit.i.i.i: ; preds = %322
           to label %.noexc38.i.i unwind label %.loopexit.split-lp.i.i, !noalias !405
 
 .noexc38.i.i:                                     ; preds = %.loopexit179.i.i, %.loopexit178.i.i
-  %.sroa.9.sroa.14.sroa.0.2.i.i = phi i64 [ %.sroa.9.sroa.14.0.extract.shift124.i.i, %.loopexit178.i.i ], [ 0, %.loopexit179.i.i ]
+  %.sroa.9.sroa.14.sroa.0.1.i.i = phi i64 [ %.sroa.9.sroa.14.0.extract.shift124.i.i, %.loopexit178.i.i ], [ 0, %.loopexit179.i.i ]
   %.sroa.9.sroa.0.1.i.i = phi i64 [ %.sroa.1145.3157.i.i.i, %.loopexit178.i.i ], [ %.sroa.9.sroa.0.0.i.i, %.loopexit179.i.i ]
   %.sroa.20.sroa.15.1.in.in.i.i = phi i64 [ %.sroa.19.3158.i.i.i, %.loopexit178.i.i ], [ %.sroa.20.sroa.15.0.in.in.i.i, %.loopexit179.i.i ]
   %.sroa.20.sroa.0.1.i.i = phi i8 [ %.sroa.20.sroa.0.0.extract.trunc80.i.i, %.loopexit178.i.i ], [ %.sroa.20.sroa.0.0.i.i, %.loopexit179.i.i ]
@@ -4142,9 +4142,9 @@ _ZN3zip4read26central_header_to_zip_file17he40d10d06db4b82bE.exit.thread.i.i: ; 
   %.sroa.20.sroa.0.2161.i.i = phi i8 [ %.sroa.20.sroa.0.0.extract.trunc.le.i.i, %.loopexit180.i.i ], [ %.sroa.20.sroa.0.0.extract.trunc76.i.i, %133 ], [ %.sroa.097.sroa.8.8.extract.trunc.i.i.i, %320 ], [ %.sroa.20.sroa.0.1.i.i, %.noexc38.i.i ]
   %.sroa.20.sroa.14.2160.in.in.i.i = phi i64 [ %.sroa.20.0.copyload.i.i, %.loopexit180.i.i ], [ %127, %133 ], [ %321, %320 ], [ %.sroa.20.sroa.15.1.in.in.i.i, %.noexc38.i.i ]
   %.sroa.9.sroa.0.2158.i.i = phi i64 [ %.sroa.9.0.copyload.i.i, %.loopexit180.i.i ], [ 0, %133 ], [ %.sroa.81.0.ph.i.i.i, %320 ], [ %.sroa.9.sroa.0.1.i.i, %.noexc38.i.i ]
-  %.sroa.9.sroa.14.sroa.0.3157.i.i = phi i64 [ %.sroa.9.sroa.14.0.extract.shift.le.i.i, %.loopexit180.i.i ], [ 0, %133 ], [ 0, %320 ], [ %.sroa.9.sroa.14.sroa.0.2.i.i, %.noexc38.i.i ]
+  %.sroa.9.sroa.14.sroa.0.2157.i.i = phi i64 [ %.sroa.9.sroa.14.0.extract.shift.le.i.i, %.loopexit180.i.i ], [ 0, %133 ], [ 0, %320 ], [ %.sroa.9.sroa.14.sroa.0.1.i.i, %.noexc38.i.i ]
   %.sroa.9.sroa.0.0.insert.ext.i.i = and i64 %.sroa.9.sroa.0.2158.i.i, 255
-  %.sroa.9.sroa.0.0.insert.insert.i.i = or i64 %.sroa.9.sroa.14.sroa.0.3157.i.i, %.sroa.9.sroa.0.0.insert.ext.i.i
+  %.sroa.9.sroa.0.0.insert.insert.i.i = or i64 %.sroa.9.sroa.14.sroa.0.2157.i.i, %.sroa.9.sroa.0.0.insert.ext.i.i
   %.sroa.20.sroa.14.0.insert.insert.i.i = and i64 %.sroa.20.sroa.14.2160.in.in.i.i, -256
   %.sroa.20.sroa.0.0.insert.ext.i.i = zext i8 %.sroa.20.sroa.0.2161.i.i to i64
   %.sroa.20.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.20.sroa.14.0.insert.insert.i.i, %.sroa.20.sroa.0.0.insert.ext.i.i

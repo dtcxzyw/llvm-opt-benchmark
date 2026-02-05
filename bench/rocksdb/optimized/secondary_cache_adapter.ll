@@ -2228,25 +2228,25 @@ define void @_ZN7rocksdb25CacheWithSecondaryAdapter7WaitAllEPNS_5Cache17AsyncLoo
   %5 = alloca %"class.std::vector.30", align 8
   %6 = alloca %"class.std::unique_ptr.17", align 8
   %7 = icmp eq i64 %2, 0
-  br i1 %7, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit68, label %.preheader147
+  br i1 %7, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit68, label %.preheader144
 
-.preheader147:                                    ; preds = %3
+.preheader144:                                    ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %11
 
 9:                                                ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
-  %10 = icmp eq ptr %.sroa.0112.1, %.sroa.10117.1
+  %10 = icmp eq ptr %.sroa.0109.1, %.sroa.10114.1
   br i1 %10, label %.preheader, label %61
 
-11:                                               ; preds = %.preheader147, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
-  %.0205 = phi i64 [ 0, %.preheader147 ], [ %60, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.0122.0204 = phi ptr [ null, %.preheader147 ], [ %.sroa.0122.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.12.0203 = phi ptr [ null, %.preheader147 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.20.0202 = phi ptr [ null, %.preheader147 ], [ %.sroa.20.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.0112.0201 = phi ptr [ null, %.preheader147 ], [ %.sroa.0112.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.10117.0200 = phi ptr [ null, %.preheader147 ], [ %.sroa.10117.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %.sroa.15.0199 = phi ptr [ null, %.preheader147 ], [ %.sroa.15.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
-  %12 = getelementptr inbounds nuw %"struct.rocksdb::Cache::AsyncLookupHandle", ptr %1, i64 %.0205
+11:                                               ; preds = %.preheader144, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
+  %.0202 = phi i64 [ 0, %.preheader144 ], [ %60, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.0119.0201 = phi ptr [ null, %.preheader144 ], [ %.sroa.0119.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.12.0200 = phi ptr [ null, %.preheader144 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.20.0199 = phi ptr [ null, %.preheader144 ], [ %.sroa.20.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.0109.0198 = phi ptr [ null, %.preheader144 ], [ %.sroa.0109.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.10114.0197 = phi ptr [ null, %.preheader144 ], [ %.sroa.10114.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %.sroa.15.0196 = phi ptr [ null, %.preheader144 ], [ %.sroa.15.1, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44 ]
+  %12 = getelementptr inbounds nuw %"struct.rocksdb::Cache::AsyncLookupHandle", ptr %1, i64 %.0202
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !131
   %.not = icmp eq ptr %14, null
@@ -2258,23 +2258,23 @@ define void @_ZN7rocksdb25CacheWithSecondaryAdapter7WaitAllEPNS_5Cache17AsyncLoo
   br i1 %17, label %18, label %38
 
 18:                                               ; preds = %15
-  %.not.i = icmp eq ptr %.sroa.12.0203, %.sroa.20.0202
+  %.not.i = icmp eq ptr %.sroa.12.0200, %.sroa.20.0199
   br i1 %.not.i, label %20, label %19
 
 19:                                               ; preds = %18
-  store ptr %12, ptr %.sroa.12.0203, align 8, !tbaa !132
+  store ptr %12, ptr %.sroa.12.0200, align 8, !tbaa !132
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit
 
 20:                                               ; preds = %18
-  %21 = ptrtoint ptr %.sroa.12.0203 to i64
-  %22 = ptrtoint ptr %.sroa.0122.0204 to i64
+  %21 = ptrtoint ptr %.sroa.12.0200 to i64
+  %22 = ptrtoint ptr %.sroa.0119.0201 to i64
   %23 = sub i64 %21, %22
   %24 = icmp eq i64 %23, 9223372036854775800
   br i1 %24, label %25, label %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 25:                                               ; preds = %20
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
-          to label %.noexc unwind label %.loopexit.split-lp149
+          to label %.noexc unwind label %.loopexit.split-lp146
 
 .noexc:                                           ; preds = %25
   unreachable
@@ -2290,7 +2290,7 @@ _ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.ex
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %31 = shl nuw nsw i64 %30, 3
   %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #25
-          to label %.noexc34 unwind label %.loopexit148
+          to label %.noexc34 unwind label %.loopexit145
 
 .noexc34:                                         ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %33 = getelementptr inbounds i8, ptr %32, i64 %23
@@ -2299,15 +2299,15 @@ _ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.ex
   br i1 %34, label %35, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
 35:                                               ; preds = %.noexc34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %.sroa.0122.0204, i64 %23, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %.sroa.0119.0201, i64 %23, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %35, %.noexc34
-  %.not.i17.i.i = icmp eq ptr %.sroa.0122.0204, null
+  %.not.i17.i.i = icmp eq ptr %.sroa.0119.0201, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.0204, i64 noundef %23) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0119.0201, i64 noundef %23) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
@@ -2315,46 +2315,46 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %19
-  %.sroa.20.5 = phi ptr [ %37, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.20.0202, %19 ]
-  %.pn143 = phi ptr [ %33, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.12.0203, %19 ]
-  %.sroa.0122.5 = phi ptr [ %32, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0122.0204, %19 ]
-  %.sroa.12.4 = getelementptr inbounds nuw i8, ptr %.pn143, i64 8
+  %.sroa.20.5 = phi ptr [ %37, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.20.0199, %19 ]
+  %.pn140 = phi ptr [ %33, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.12.0200, %19 ]
+  %.sroa.0119.5 = phi ptr [ %32, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0119.0201, %19 ]
+  %.sroa.12.4 = getelementptr inbounds nuw i8, ptr %.pn140, i64 8
   store ptr null, ptr %13, align 8, !tbaa !131
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
 
-.loopexit148:                                     ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36
-  %.sroa.20.0202.lcssa245 = phi ptr [ %.sroa.12.0203, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.20.0202, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36 ]
-  %.sroa.15.0199.lcssa237 = phi ptr [ %.sroa.15.0199, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.10117.0200, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36 ]
-  %lpad.loopexit150 = landingpad { ptr, i32 }
+.loopexit145:                                     ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36
+  %.sroa.20.0199.lcssa242 = phi ptr [ %.sroa.12.0200, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.20.0199, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36 ]
+  %.sroa.15.0196.lcssa234 = phi ptr [ %.sroa.15.0196, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.10114.0197, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36 ]
+  %lpad.loopexit147 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
 
-.loopexit.split-lp149:                            ; preds = %25, %46
-  %.sroa.20.0202248 = phi ptr [ %.sroa.12.0203, %25 ], [ %.sroa.20.0202, %46 ]
-  %.sroa.15.0199240 = phi ptr [ %.sroa.15.0199, %25 ], [ %.sroa.10117.0200, %46 ]
-  %lpad.loopexit.split-lp151 = landingpad { ptr, i32 }
+.loopexit.split-lp146:                            ; preds = %25, %46
+  %.sroa.20.0199245 = phi ptr [ %.sroa.12.0200, %25 ], [ %.sroa.20.0199, %46 ]
+  %.sroa.15.0196237 = phi ptr [ %.sroa.15.0196, %25 ], [ %.sroa.10114.0197, %46 ]
+  %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
 
 38:                                               ; preds = %15
-  %.not.i35 = icmp eq ptr %.sroa.10117.0200, %.sroa.15.0199
+  %.not.i35 = icmp eq ptr %.sroa.10114.0197, %.sroa.15.0196
   br i1 %.not.i35, label %41, label %39
 
 39:                                               ; preds = %38
-  store ptr %12, ptr %.sroa.10117.0200, align 8, !tbaa !132
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.10117.0200, i64 8
+  store ptr %12, ptr %.sroa.10114.0197, align 8, !tbaa !132
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.10114.0197, i64 8
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
 
 41:                                               ; preds = %38
-  %42 = ptrtoint ptr %.sroa.10117.0200 to i64
-  %43 = ptrtoint ptr %.sroa.0112.0201 to i64
+  %42 = ptrtoint ptr %.sroa.10114.0197 to i64
+  %43 = ptrtoint ptr %.sroa.0109.0198 to i64
   %44 = sub i64 %42, %43
   %45 = icmp eq i64 %44, 9223372036854775800
   br i1 %45, label %46, label %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36
 
 46:                                               ; preds = %41
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #28
-          to label %.noexc42 unwind label %.loopexit.split-lp149
+          to label %.noexc42 unwind label %.loopexit.split-lp146
 
 .noexc42:                                         ; preds = %46
   unreachable
@@ -2370,7 +2370,7 @@ _ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.ex
   tail call void @llvm.assume(i1 %.not.i.i.i38)
   %52 = shl nuw nsw i64 %51, 3
   %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #25
-          to label %.noexc43 unwind label %.loopexit148
+          to label %.noexc43 unwind label %.loopexit145
 
 .noexc43:                                         ; preds = %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i36
   %54 = getelementptr inbounds i8, ptr %53, i64 %44
@@ -2379,16 +2379,16 @@ _ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.ex
   br i1 %55, label %56, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i39
 
 56:                                               ; preds = %.noexc43
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.sroa.0112.0201, i64 %44, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.sroa.0109.0198, i64 %44, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i39
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i39: ; preds = %56, %.noexc43
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.not.i17.i.i40 = icmp eq ptr %.sroa.0112.0201, null
+  %.not.i17.i.i40 = icmp eq ptr %.sroa.0109.0198, null
   br i1 %.not.i17.i.i40, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i39
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0112.0201, i64 noundef %44) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.0198, i64 noundef %44) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41: ; preds = %58, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i39
@@ -2396,13 +2396,13 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44: ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41, %39, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit, %11
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0199, %11 ], [ %.sroa.15.0199, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %59, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.15.0199, %39 ]
-  %.sroa.10117.1 = phi ptr [ %.sroa.10117.0200, %11 ], [ %.sroa.10117.0200, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %57, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %40, %39 ]
-  %.sroa.0112.1 = phi ptr [ %.sroa.0112.0201, %11 ], [ %.sroa.0112.0201, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %53, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.0112.0201, %39 ]
-  %.sroa.20.1 = phi ptr [ %.sroa.20.0202, %11 ], [ %.sroa.20.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.20.0202, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.20.0202, %39 ]
-  %.sroa.12.1 = phi ptr [ %.sroa.12.0203, %11 ], [ %.sroa.12.4, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.12.0203, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.12.0203, %39 ]
-  %.sroa.0122.1 = phi ptr [ %.sroa.0122.0204, %11 ], [ %.sroa.0122.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.0122.0204, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.0122.0204, %39 ]
-  %60 = add nuw i64 %.0205, 1
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0196, %11 ], [ %.sroa.15.0196, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %59, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.15.0196, %39 ]
+  %.sroa.10114.1 = phi ptr [ %.sroa.10114.0197, %11 ], [ %.sroa.10114.0197, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %57, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %40, %39 ]
+  %.sroa.0109.1 = phi ptr [ %.sroa.0109.0198, %11 ], [ %.sroa.0109.0198, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %53, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.0109.0198, %39 ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.0199, %11 ], [ %.sroa.20.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.20.0199, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.20.0199, %39 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0200, %11 ], [ %.sroa.12.4, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.12.0200, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.12.0200, %39 ]
+  %.sroa.0119.1 = phi ptr [ %.sroa.0119.0201, %11 ], [ %.sroa.0119.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit ], [ %.sroa.0119.0201, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i41 ], [ %.sroa.0119.0201, %39 ]
+  %60 = add nuw i64 %.0202, 1
   %exitcond.not = icmp eq i64 %60, %2
   br i1 %exitcond.not, label %9, label %11, !llvm.loop !134
 
@@ -2423,16 +2423,16 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
 .preheader:                                       ; preds = %117, %9
   %.sroa.20.3.lcssa = phi ptr [ %.sroa.20.1, %9 ], [ %.sroa.20.4, %117 ]
   %.sroa.12.2.lcssa = phi ptr [ %.sroa.12.1, %9 ], [ %.sroa.12.3, %117 ]
-  %.sroa.0122.3.lcssa = phi ptr [ %.sroa.0122.1, %9 ], [ %.sroa.0122.4, %117 ]
-  %.not140213 = icmp eq ptr %.sroa.0122.3.lcssa, %.sroa.12.2.lcssa
-  br i1 %.not140213, label %._crit_edge, label %.lr.ph218
+  %.sroa.0119.3.lcssa = phi ptr [ %.sroa.0119.1, %9 ], [ %.sroa.0119.4, %117 ]
+  %.not137210 = icmp eq ptr %.sroa.0119.3.lcssa, %.sroa.12.2.lcssa
+  br i1 %.not137210, label %._crit_edge, label %.lr.ph215
 
 .lr.ph:                                           ; preds = %61, %117
-  %.sroa.0122.3210 = phi ptr [ %.sroa.0122.4, %117 ], [ %.sroa.0122.1, %61 ]
-  %.sroa.12.2209 = phi ptr [ %.sroa.12.3, %117 ], [ %.sroa.12.1, %61 ]
-  %.sroa.20.3208 = phi ptr [ %.sroa.20.4, %117 ], [ %.sroa.20.1, %61 ]
-  %.sroa.0104.0207 = phi ptr [ %118, %117 ], [ %.sroa.0112.1, %61 ]
-  %69 = load ptr, ptr %.sroa.0104.0207, align 8, !tbaa !132
+  %.sroa.0119.3207 = phi ptr [ %.sroa.0119.4, %117 ], [ %.sroa.0119.1, %61 ]
+  %.sroa.12.2206 = phi ptr [ %.sroa.12.3, %117 ], [ %.sroa.12.1, %61 ]
+  %.sroa.20.3205 = phi ptr [ %.sroa.20.4, %117 ], [ %.sroa.20.1, %61 ]
+  %.sroa.0101.0204 = phi ptr [ %118, %117 ], [ %.sroa.0109.1, %61 ]
+  %69 = load ptr, ptr %.sroa.0101.0204, align 8, !tbaa !132
   %70 = invoke noundef ptr @_ZN7rocksdb5Cache17AsyncLookupHandle6ResultEv(ptr noundef nonnull align 8 dereferenceable(74) %69)
           to label %71 unwind label %.loopexit
 
@@ -2481,16 +2481,16 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit44
   br i1 %94, label %96, label %117
 
 96:                                               ; preds = %95
-  %.not.i47 = icmp eq ptr %.sroa.12.2209, %.sroa.20.3208
+  %.not.i47 = icmp eq ptr %.sroa.12.2206, %.sroa.20.3205
   br i1 %.not.i47, label %98, label %97
 
 97:                                               ; preds = %96
-  store ptr %69, ptr %.sroa.12.2209, align 8, !tbaa !132
+  store ptr %69, ptr %.sroa.12.2206, align 8, !tbaa !132
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56
 
 98:                                               ; preds = %96
-  %99 = ptrtoint ptr %.sroa.12.2209 to i64
-  %100 = ptrtoint ptr %.sroa.0122.3210 to i64
+  %99 = ptrtoint ptr %.sroa.12.2206 to i64
+  %100 = ptrtoint ptr %.sroa.0119.3207 to i64
   %101 = sub i64 %99, %100
   %102 = icmp eq i64 %101, 9223372036854775800
   br i1 %102, label %103, label %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i48
@@ -2522,15 +2522,15 @@ _ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.ex
   br i1 %112, label %113, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i51
 
 113:                                              ; preds = %.noexc55
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %110, ptr align 8 %.sroa.0122.3210, i64 %101, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %110, ptr align 8 %.sroa.0119.3207, i64 %101, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i51
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i51: ; preds = %113, %.noexc55
-  %.not.i17.i.i52 = icmp eq ptr %.sroa.0122.3210, null
+  %.not.i17.i.i52 = icmp eq ptr %.sroa.0119.3207, null
   br i1 %.not.i17.i.i52, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53, label %114
 
 114:                                              ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i51
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.3210, i64 noundef %101) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0119.3207, i64 noundef %101) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53: ; preds = %114, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i51
@@ -2538,32 +2538,32 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56: ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53, %97
-  %.sroa.20.6 = phi ptr [ %115, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.20.3208, %97 ]
-  %.pn142 = phi ptr [ %111, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.12.2209, %97 ]
-  %.sroa.0122.6 = phi ptr [ %110, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.0122.3210, %97 ]
-  %.sroa.12.5 = getelementptr inbounds nuw i8, ptr %.pn142, i64 8
+  %.sroa.20.6 = phi ptr [ %115, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.20.3205, %97 ]
+  %.pn139 = phi ptr [ %111, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.12.2206, %97 ]
+  %.sroa.0119.6 = phi ptr [ %110, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53 ], [ %.sroa.0119.3207, %97 ]
+  %.sroa.12.5 = getelementptr inbounds nuw i8, ptr %.pn139, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr null, ptr %116, align 8, !tbaa !131
   br label %117
 
 .loopexit:                                        ; preds = %.lr.ph, %93, %73, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i48
-  %.sroa.20.3208.lcssa = phi ptr [ %.sroa.20.3208, %.lr.ph ], [ %.sroa.20.3208, %93 ], [ %.sroa.20.3208, %73 ], [ %.sroa.12.2209, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i48 ]
-  %lpad.loopexit144 = landingpad { ptr, i32 }
+  %.sroa.20.3205.lcssa = phi ptr [ %.sroa.20.3205, %.lr.ph ], [ %.sroa.20.3205, %93 ], [ %.sroa.20.3205, %73 ], [ %.sroa.12.2206, %_ZNKSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i48 ]
+  %lpad.loopexit141 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
 
 .loopexit.split-lp:                               ; preds = %103
-  %lpad.loopexit.split-lp145 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp142 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
 
 117:                                              ; preds = %95, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56, %71
-  %.sroa.20.4 = phi ptr [ %.sroa.20.6, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.20.3208, %95 ], [ %.sroa.20.3208, %71 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.12.2209, %95 ], [ %.sroa.12.2209, %71 ]
-  %.sroa.0122.4 = phi ptr [ %.sroa.0122.6, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.0122.3210, %95 ], [ %.sroa.0122.3210, %71 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0207, i64 8
-  %.not139 = icmp eq ptr %118, %.sroa.10117.1
-  br i1 %.not139, label %.preheader, label %.lr.ph
+  %.sroa.20.4 = phi ptr [ %.sroa.20.6, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.20.3205, %95 ], [ %.sroa.20.3205, %71 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.5, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.12.2206, %95 ], [ %.sroa.12.2206, %71 ]
+  %.sroa.0119.4 = phi ptr [ %.sroa.0119.6, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56 ], [ %.sroa.0119.3207, %95 ], [ %.sroa.0119.3207, %71 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0204, i64 8
+  %.not136 = icmp eq ptr %118, %.sroa.10114.1
+  br i1 %.not136, label %.preheader, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit, %.preheader
   %.sroa.088.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.088.2, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ]
@@ -2581,24 +2581,24 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE9push_backERKS3_.exit56
   invoke void %124(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull %5)
           to label %149 unwind label %164
 
-.lr.ph218:                                        ; preds = %.preheader, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit
-  %.sroa.085.0217 = phi ptr [ %148, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0122.3.lcssa, %.preheader ]
-  %.sroa.14.0216 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
-  %.sroa.10.0215 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
-  %.sroa.088.0214 = phi ptr [ %.sroa.088.2, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
-  %125 = load ptr, ptr %.sroa.085.0217, align 8, !tbaa !132
+.lr.ph215:                                        ; preds = %.preheader, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit
+  %.sroa.085.0214 = phi ptr [ %148, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0119.3.lcssa, %.preheader ]
+  %.sroa.14.0213 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
+  %.sroa.10.0212 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
+  %.sroa.088.0211 = phi ptr [ %.sroa.088.2, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader ]
+  %125 = load ptr, ptr %.sroa.085.0214, align 8, !tbaa !132
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  %.not.i57 = icmp eq ptr %.sroa.10.0215, %.sroa.14.0216
+  %.not.i57 = icmp eq ptr %.sroa.10.0212, %.sroa.14.0213
   br i1 %.not.i57, label %129, label %127
 
-127:                                              ; preds = %.lr.ph218
+127:                                              ; preds = %.lr.ph215
   %128 = load ptr, ptr %126, align 8, !tbaa !107
-  store ptr %128, ptr %.sroa.10.0215, align 8, !tbaa !107
+  store ptr %128, ptr %.sroa.10.0212, align 8, !tbaa !107
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit
 
-129:                                              ; preds = %.lr.ph218
-  %130 = ptrtoint ptr %.sroa.14.0216 to i64
-  %131 = ptrtoint ptr %.sroa.088.0214 to i64
+129:                                              ; preds = %.lr.ph215
+  %130 = ptrtoint ptr %.sroa.14.0213 to i64
+  %131 = ptrtoint ptr %.sroa.088.0211 to i64
   %132 = sub i64 %130, %131
   %133 = icmp eq i64 %132, 9223372036854775800
   br i1 %133, label %134, label %_ZNKSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2631,15 +2631,15 @@ _ZNKSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE12_M_check_lenEmPKc
   br i1 %144, label %145, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 145:                                              ; preds = %.noexc62
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %141, ptr align 8 %.sroa.088.0214, i64 %132, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %141, ptr align 8 %.sroa.088.0211, i64 %132, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %145, %.noexc62
-  %.not.i17.i.i60 = icmp eq ptr %.sroa.088.0214, null
+  %.not.i17.i.i60 = icmp eq ptr %.sroa.088.0211, null
   br i1 %.not.i17.i.i60, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %146
 
 146:                                              ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.088.0214, i64 noundef %132) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.088.0211, i64 noundef %132) #27
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %146, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
@@ -2647,13 +2647,13 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertI
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %127
-  %.sroa.088.2 = phi ptr [ %141, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.088.0214, %127 ]
-  %.pn = phi ptr [ %142, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.0215, %127 ]
-  %.sroa.14.2 = phi ptr [ %147, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.14.0216, %127 ]
+  %.sroa.088.2 = phi ptr [ %141, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.088.0211, %127 ]
+  %.pn = phi ptr [ %142, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.0212, %127 ]
+  %.sroa.14.2 = phi ptr [ %147, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.14.0213, %127 ]
   %.sroa.10.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.085.0217, i64 8
-  %.not140 = icmp eq ptr %148, %.sroa.12.2.lcssa
-  br i1 %.not140, label %._crit_edge, label %.lr.ph218
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.085.0214, i64 8
+  %.not137 = icmp eq ptr %148, %.sroa.12.2.lcssa
+  br i1 %.not137, label %._crit_edge, label %.lr.ph215
 
 149:                                              ; preds = %._crit_edge
   %150 = load ptr, ptr %5, align 8, !tbaa !136
@@ -2669,28 +2669,28 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE9push_backERKS2_.exi
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65: ; preds = %151, %149
-  br i1 %.not140213, label %._crit_edge225, label %.lr.ph224
+  br i1 %.not137210, label %._crit_edge222, label %.lr.ph221
 
-._crit_edge225:                                   ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65
-  %.not.i.i.i66 = icmp eq ptr %.sroa.0112.1, null
+._crit_edge222:                                   ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65
+  %.not.i.i.i66 = icmp eq ptr %.sroa.0109.1, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit, label %156
 
-156:                                              ; preds = %._crit_edge225
+156:                                              ; preds = %._crit_edge222
   %157 = ptrtoint ptr %.sroa.15.1 to i64
-  %158 = ptrtoint ptr %.sroa.0112.1 to i64
+  %158 = ptrtoint ptr %.sroa.0109.1 to i64
   %159 = sub i64 %157, %158
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0112.1, i64 noundef %159) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.1, i64 noundef %159) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit: ; preds = %._crit_edge225, %156
-  %.not.i.i.i67 = icmp eq ptr %.sroa.0122.3.lcssa, null
+_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit: ; preds = %._crit_edge222, %156
+  %.not.i.i.i67 = icmp eq ptr %.sroa.0119.3.lcssa, null
   br i1 %.not.i.i.i67, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit68, label %160
 
 160:                                              ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit
   %161 = ptrtoint ptr %.sroa.20.3.lcssa to i64
-  %162 = ptrtoint ptr %.sroa.0122.3.lcssa to i64
+  %162 = ptrtoint ptr %.sroa.0119.3.lcssa to i64
   %163 = sub i64 %161, %162
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.3.lcssa, i64 noundef %163) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0119.3.lcssa, i64 noundef %163) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit68
 
 164:                                              ; preds = %._crit_edge
@@ -2720,16 +2720,16 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70.loopexit
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70: ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70.loopexit.split-lp, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70.loopexit.split-lp ]
-  %.not.i.i.i71 = icmp eq ptr %.sroa.088.0214, null
+  %.not.i.i.i71 = icmp eq ptr %.sroa.088.0211, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72, label %172
 
 172:                                              ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.088.0214, i64 noundef %132) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.088.0211, i64 noundef %132) #27
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
 
-.lr.ph224:                                        ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.081.0223 = phi ptr [ %194, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit ], [ %.sroa.0122.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65 ]
-  %173 = load ptr, ptr %.sroa.081.0223, align 8, !tbaa !132
+.lr.ph221:                                        ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
+  %.sroa.081.0220 = phi ptr [ %194, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit ], [ %.sroa.0119.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit65 ]
+  %173 = load ptr, ptr %.sroa.081.0220, align 8, !tbaa !132
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
   %175 = load ptr, ptr %174, align 8, !tbaa !130
@@ -2750,7 +2750,7 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70: ; preds
   %188 = invoke noundef ptr @_ZN7rocksdb25CacheWithSecondaryAdapter7PromoteEOSt10unique_ptrINS_26SecondaryCacheResultHandleESt14default_deleteIS2_EERKNS_5SliceEPKNS_5Cache15CacheItemHelperENSA_8PriorityEPNS_10StatisticsEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef %177, i32 noundef %179, ptr noundef %181, i1 noundef zeroext %184, i1 noundef zeroext %187)
           to label %189 unwind label %195
 
-189:                                              ; preds = %.lr.ph224
+189:                                              ; preds = %.lr.ph221
   %190 = getelementptr inbounds nuw i8, ptr %173, i64 48
   store ptr %188, ptr %190, align 8, !tbaa !144
   %.not.i73 = icmp eq ptr %175, null
@@ -2765,11 +2765,11 @@ _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i: ; 
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit: ; preds = %189, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.081.0223, i64 8
-  %.not141 = icmp eq ptr %194, %.sroa.12.2.lcssa
-  br i1 %.not141, label %._crit_edge225, label %.lr.ph224
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.081.0220, i64 8
+  %.not138 = icmp eq ptr %194, %.sroa.12.2.lcssa
+  br i1 %.not138, label %._crit_edge222, label %.lr.ph221
 
-195:                                              ; preds = %.lr.ph224
+195:                                              ; preds = %.lr.ph221
   %196 = landingpad { ptr, i32 }
           cleanup
   %.not.i74 = icmp eq ptr %175, null
@@ -2789,31 +2789,31 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit68: ; preds = %160, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit, %3
   ret void
 
-_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72: ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit148, %.loopexit.split-lp149, %167, %164, %172, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76, %67
-  %.sroa.15.0195 = phi ptr [ %.sroa.15.1, %167 ], [ %.sroa.15.0199240, %.loopexit.split-lp149 ], [ %.sroa.15.1, %67 ], [ %.sroa.15.1, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.15.1, %172 ], [ %.sroa.15.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.15.1, %164 ], [ %.sroa.15.0199.lcssa237, %.loopexit148 ], [ %.sroa.15.1, %.loopexit ], [ %.sroa.15.1, %.loopexit.split-lp ]
-  %.sroa.0112.0185 = phi ptr [ %.sroa.0112.1, %167 ], [ %.sroa.0112.0201, %.loopexit.split-lp149 ], [ %.sroa.0112.1, %67 ], [ %.sroa.0112.1, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.0112.1, %172 ], [ %.sroa.0112.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.0112.1, %164 ], [ %.sroa.0112.0201, %.loopexit148 ], [ %.sroa.0112.1, %.loopexit ], [ %.sroa.0112.1, %.loopexit.split-lp ]
-  %.sroa.20.2 = phi ptr [ %.sroa.20.3.lcssa, %167 ], [ %.sroa.20.0202248, %.loopexit.split-lp149 ], [ %.sroa.20.1, %67 ], [ %.sroa.20.3.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.20.3.lcssa, %172 ], [ %.sroa.20.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.20.3.lcssa, %164 ], [ %.sroa.20.0202.lcssa245, %.loopexit148 ], [ %.sroa.20.3208.lcssa, %.loopexit ], [ %.sroa.12.2209, %.loopexit.split-lp ]
-  %.sroa.0122.2 = phi ptr [ %.sroa.0122.3.lcssa, %167 ], [ %.sroa.0122.0204, %.loopexit.split-lp149 ], [ %.sroa.0122.1, %67 ], [ %.sroa.0122.3.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.0122.3.lcssa, %172 ], [ %.sroa.0122.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.0122.3.lcssa, %164 ], [ %.sroa.0122.0204, %.loopexit148 ], [ %.sroa.0122.3210, %.loopexit ], [ %.sroa.0122.3210, %.loopexit.split-lp ]
-  %.pn32 = phi { ptr, i32 } [ %165, %167 ], [ %lpad.loopexit.split-lp151, %.loopexit.split-lp149 ], [ %68, %67 ], [ %196, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %lpad.phi, %172 ], [ %lpad.phi, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %165, %164 ], [ %lpad.loopexit150, %.loopexit148 ], [ %lpad.loopexit144, %.loopexit ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp ]
-  %.not.i.i.i77 = icmp eq ptr %.sroa.0112.0185, null
+_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72: ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit145, %.loopexit.split-lp146, %167, %164, %172, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76, %67
+  %.sroa.15.0192 = phi ptr [ %.sroa.15.1, %167 ], [ %.sroa.15.0196237, %.loopexit.split-lp146 ], [ %.sroa.15.1, %67 ], [ %.sroa.15.1, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.15.1, %172 ], [ %.sroa.15.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.15.1, %164 ], [ %.sroa.15.0196.lcssa234, %.loopexit145 ], [ %.sroa.15.1, %.loopexit ], [ %.sroa.15.1, %.loopexit.split-lp ]
+  %.sroa.0109.0182 = phi ptr [ %.sroa.0109.1, %167 ], [ %.sroa.0109.0198, %.loopexit.split-lp146 ], [ %.sroa.0109.1, %67 ], [ %.sroa.0109.1, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.0109.1, %172 ], [ %.sroa.0109.1, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.0109.1, %164 ], [ %.sroa.0109.0198, %.loopexit145 ], [ %.sroa.0109.1, %.loopexit ], [ %.sroa.0109.1, %.loopexit.split-lp ]
+  %.sroa.20.2 = phi ptr [ %.sroa.20.3.lcssa, %167 ], [ %.sroa.20.0199245, %.loopexit.split-lp146 ], [ %.sroa.20.1, %67 ], [ %.sroa.20.3.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.20.3.lcssa, %172 ], [ %.sroa.20.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.20.3.lcssa, %164 ], [ %.sroa.20.0199.lcssa242, %.loopexit145 ], [ %.sroa.20.3205.lcssa, %.loopexit ], [ %.sroa.12.2206, %.loopexit.split-lp ]
+  %.sroa.0119.2 = phi ptr [ %.sroa.0119.3.lcssa, %167 ], [ %.sroa.0119.0201, %.loopexit.split-lp146 ], [ %.sroa.0119.1, %67 ], [ %.sroa.0119.3.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %.sroa.0119.3.lcssa, %172 ], [ %.sroa.0119.3.lcssa, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %.sroa.0119.3.lcssa, %164 ], [ %.sroa.0119.0201, %.loopexit145 ], [ %.sroa.0119.3207, %.loopexit ], [ %.sroa.0119.3207, %.loopexit.split-lp ]
+  %.pn32 = phi { ptr, i32 } [ %165, %167 ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp146 ], [ %68, %67 ], [ %196, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit76 ], [ %lpad.phi, %172 ], [ %lpad.phi, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit70 ], [ %165, %164 ], [ %lpad.loopexit147, %.loopexit145 ], [ %lpad.loopexit141, %.loopexit ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp ]
+  %.not.i.i.i77 = icmp eq ptr %.sroa.0109.0182, null
   br i1 %.not.i.i.i77, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit78, label %200
 
 200:                                              ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72
-  %201 = ptrtoint ptr %.sroa.15.0195 to i64
-  %202 = ptrtoint ptr %.sroa.0112.0185 to i64
+  %201 = ptrtoint ptr %.sroa.15.0192 to i64
+  %202 = ptrtoint ptr %.sroa.0109.0182 to i64
   %203 = sub i64 %201, %202
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0112.0185, i64 noundef %203) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.0182, i64 noundef %203) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit78
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit78: ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit72, %200
-  %.not.i.i.i79 = icmp eq ptr %.sroa.0122.2, null
+  %.not.i.i.i79 = icmp eq ptr %.sroa.0119.2, null
   br i1 %.not.i.i.i79, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit80, label %204
 
 204:                                              ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit78
   %205 = ptrtoint ptr %.sroa.20.2 to i64
-  %206 = ptrtoint ptr %.sroa.0122.2 to i64
+  %206 = ptrtoint ptr %.sroa.0119.2 to i64
   %207 = sub i64 %205, %206
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.2, i64 noundef %207) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0119.2, i64 noundef %207) #27
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit80
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit80: ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit78, %204
@@ -4326,20 +4326,20 @@ _ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit:     ; preds = %_ZN7rocksdb31Compre
 
 .critedge.sink.split:                             ; preds = %75
   %79 = load ptr, ptr %59, align 8, !tbaa !15
-  %.not105 = icmp eq ptr %79, null
-  %. = select i1 %.not105, i32 1, i32 3
+  %.not101 = icmp eq ptr %79, null
+  %. = select i1 %.not101, i32 1, i32 3
   store i32 %., ptr %76, align 4, !tbaa !169
   br label %.critedge
 
 80:                                               ; preds = %_ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit
   %81 = load ptr, ptr %59, align 8, !tbaa !15
-  %.not103 = icmp eq ptr %81, null
-  br i1 %.not103, label %.critedge16, label %.critedge
+  %.not99 = icmp eq ptr %81, null
+  br i1 %.not99, label %.critedge16, label %.critedge
 
 82:                                               ; preds = %_ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit, %_ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit, %_ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit
   %83 = load ptr, ptr %59, align 8, !tbaa !15
-  %.not104 = icmp eq ptr %83, null
-  br i1 %.not104, label %.critedge, label %.critedge16
+  %.not100 = icmp eq ptr %83, null
+  br i1 %.not100, label %.critedge, label %.critedge16
 
 .critedge16:                                      ; preds = %80, %_ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit, %82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -4419,11 +4419,11 @@ _ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i: ; preds = %102,
 
 119:                                              ; preds = %113
   %120 = atomicrmw volatile add ptr %114, i32 1 acq_rel, align 4
-  %.pre107 = load ptr, ptr %110, align 8, !tbaa !12
+  %.pre103 = load ptr, ptr %110, align 8, !tbaa !12
   br label %_ZN7rocksdb15LRUCacheOptionsC2ERKS0_.exit
 
 _ZN7rocksdb15LRUCacheOptionsC2ERKS0_.exit:        ; preds = %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i, %116, %119
-  %121 = phi ptr [ null, %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i ], [ %112, %116 ], [ %.pre107, %119 ]
+  %121 = phi ptr [ null, %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i ], [ %112, %116 ], [ %.pre103, %119 ]
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %123 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %124 = load i32, ptr %123, align 8, !tbaa !168
@@ -4983,8 +4983,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i60: ; preds = %365, %36
 _ZNSt12__shared_ptrIN7rocksdb14SecondaryCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit62: ; preds = %_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEaSEOS2_.exit57, %353, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i60, %368
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %369 = load ptr, ptr %59, align 8, !tbaa !15
-  %.not106 = icmp eq ptr %369, null
-  br i1 %.not106, label %407, label %370
+  %.not102 = icmp eq ptr %369, null
+  br i1 %.not102, label %407, label %370
 
 370:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb14SecondaryCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit62
   %371 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -5187,12 +5187,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80: ; preds = %436, %43
 441:                                              ; preds = %439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80, %424, %417
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre108 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !12
-  %.not.i.i83 = icmp eq ptr %.pre108, null
+  %.pre104 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !12
+  %.not.i.i83 = icmp eq ptr %.pre104, null
   br i1 %.not.i.i83, label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit87, label %442
 
 442:                                              ; preds = %441
-  %443 = getelementptr inbounds nuw i8, ptr %.pre108, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %.pre104, i64 8
   %444 = load atomic i64, ptr %443 acquire, align 8
   %445 = icmp eq i64 %444, 4294967297
   %446 = trunc i64 %444 to i32
@@ -5200,16 +5200,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80: ; preds = %436, %43
 
 447:                                              ; preds = %442
   store i32 0, ptr %443, align 8, !tbaa !56
-  %448 = getelementptr inbounds nuw i8, ptr %.pre108, i64 12
+  %448 = getelementptr inbounds nuw i8, ptr %.pre104, i64 12
   store i32 0, ptr %448, align 4, !tbaa !62
-  %449 = load ptr, ptr %.pre108, align 8, !tbaa !13
+  %449 = load ptr, ptr %.pre104, align 8, !tbaa !13
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %451 = load ptr, ptr %450, align 8
-  call void %451(ptr noundef nonnull align 8 dereferenceable(16) %.pre108) #26
-  %452 = load ptr, ptr %.pre108, align 8, !tbaa !13
+  call void %451(ptr noundef nonnull align 8 dereferenceable(16) %.pre104) #26
+  %452 = load ptr, ptr %.pre104, align 8, !tbaa !13
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 24
   %454 = load ptr, ptr %453, align 8
-  call void %454(ptr noundef nonnull align 8 dereferenceable(16) %.pre108) #26
+  call void %454(ptr noundef nonnull align 8 dereferenceable(16) %.pre104) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit87
 
 455:                                              ; preds = %442
@@ -5232,7 +5232,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i85: ; preds = %459, %45
   br i1 %461, label %462, label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit87, !prof !75
 
 462:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i85
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre108) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre104) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit87
 
 _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit87: ; preds = %.thread, %441, %447, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i85, %462

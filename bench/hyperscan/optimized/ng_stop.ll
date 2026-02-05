@@ -532,10 +532,10 @@ _ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit: ; preds = %3
 
 42:                                               ; preds = %40, %37
   %.val = phi i64 [ %.val.pre, %37 ], [ %33, %40 ]
-  %.sroa.068.2 = phi i64 [ %.sroa.068.0.copyload, %37 ], [ %.sroa.068.0.copyload69, %40 ]
-  %.sroa.7.2 = phi i64 [ %.sroa.7.0.copyload, %37 ], [ %.sroa.7.0.copyload71, %40 ]
-  %.sroa.8.2 = phi i64 [ %.sroa.8.0.copyload, %37 ], [ %.sroa.8.0.copyload73, %40 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.0.copyload, %37 ], [ %.sroa.9.0.copyload75, %40 ]
+  %.sroa.068.0 = phi i64 [ %.sroa.068.0.copyload, %37 ], [ %.sroa.068.0.copyload69, %40 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %37 ], [ %.sroa.7.0.copyload71, %40 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.8.0.copyload, %37 ], [ %.sroa.8.0.copyload73, %40 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload, %37 ], [ %.sroa.9.0.copyload75, %40 ]
   %43 = and i64 %.val, 4294967295
   %44 = load ptr, ptr %24, align 8
   %45 = load ptr, ptr %4, align 8
@@ -607,19 +607,19 @@ thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN3ue2
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %71 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %20, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
-  %73 = or i64 %72, %.sroa.068.2
+  %73 = or i64 %72, %.sroa.068.0
   store i64 %73, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = or i64 %75, %.sroa.7.2
+  %76 = or i64 %75, %.sroa.7.0
   store i64 %76, ptr %74, align 8
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = load i64, ptr %77, align 8
-  %79 = or i64 %78, %.sroa.8.2
+  %79 = or i64 %78, %.sroa.8.0
   store i64 %79, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = or i64 %81, %.sroa.9.2
+  %82 = or i64 %81, %.sroa.9.0
   store i64 %82, ptr %80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

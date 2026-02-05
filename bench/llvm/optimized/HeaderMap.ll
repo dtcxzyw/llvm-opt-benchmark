@@ -911,27 +911,27 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %31 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !63
   %33 = tail call i32 @llvm.bswap.i32(i32 %32)
-  %spec.select.i.i70 = select i1 %14, i32 %33, i32 %32
-  %34 = icmp eq i32 %spec.select.i.i70, 0
+  %spec.select.i.i68 = select i1 %14, i32 %33, i32 %32
+  %34 = icmp eq i32 %spec.select.i.i68, 0
   br i1 %34, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %.critedge21
   %35 = phi i8 [ %141, %.critedge21 ], [ %13, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
   %36 = phi ptr [ %142, %.critedge21 ], [ %7, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
   %.pn = phi ptr [ %149, %.critedge21 ], [ %31, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %spec.select.i.i72 = phi i32 [ %spec.select.i.i, %.critedge21 ], [ %spec.select.i.i70, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %spec.select.i.i70 = phi i32 [ %spec.select.i.i, %.critedge21 ], [ %spec.select.i.i68, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
   %37 = phi i1 [ %151, %.critedge21 ], [ %14, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
   %38 = phi ptr [ %146, %.critedge21 ], [ %9, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %.071 = phi i32 [ %143, %.critedge21 ], [ %.0.lcssa.i, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  %39 = load i32, ptr %.in73, align 4, !tbaa !65
+  %.069 = phi i32 [ %143, %.critedge21 ], [ %.0.lcssa.i, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %.in71 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
+  %39 = load i32, ptr %.in71, align 4, !tbaa !65
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %40 = load i32, ptr %.in, align 4, !tbaa !66
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !67, !noalias !95
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   %spec.select.i.i22 = select i1 %37, i32 %43, i32 %42
-  %44 = add i32 %spec.select.i.i22, %spec.select.i.i72
+  %44 = add i32 %spec.select.i.i22, %spec.select.i.i70
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !36, !noalias !95
@@ -969,7 +969,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %68 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %52, i64 %65) #16
   %69 = icmp eq i32 %68, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !35
-  %.pre81 = load i8, ptr %12, align 8, !tbaa !45, !range !61
+  %.pre79 = load i8, ptr %12, align 8, !tbaa !45, !range !61
   br i1 %69, label %70, label %.critedge21
 
 70:                                               ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
@@ -981,7 +981,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %74 = load ptr, ptr %73, align 8, !tbaa !38, !noalias !100
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 4, !tbaa !67, !noalias !100
-  %77 = trunc nuw i8 %.pre81 to i1
+  %77 = trunc nuw i8 %.pre79 to i1
   %78 = call i32 @llvm.bswap.i32(i32 %76)
   %spec.select.i.i24 = select i1 %77, i32 %78, i32 %76
   %79 = add i32 %spec.select.i.i24, %spec.select.i6.i.le
@@ -1071,9 +1071,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %119
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %124
 
 124:                                              ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
-  %.pre8.i94 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
+  %.pre8.i92 = phi i64 [ %.pre8.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i ]
   %125 = load ptr, ptr %3, align 8, !tbaa !110
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %.pre8.i94
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %.pre8.i92
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %.sroa.043.0, i64 %.sroa.545.0, i1 false)
   %.pre.i = load i64, ptr %118, align 8, !tbaa !106
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
@@ -1117,9 +1117,9 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit41: ; preds = %_ZN4llvm15Sm
   br label %.critedge19
 
 .critedge21:                                      ; preds = %64, %59, %.lr.ph, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
-  %141 = phi i8 [ %35, %64 ], [ %35, %59 ], [ %35, %.lr.ph ], [ %.pre81, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
+  %141 = phi i8 [ %35, %64 ], [ %35, %59 ], [ %35, %.lr.ph ], [ %.pre79, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
   %142 = phi ptr [ %36, %64 ], [ %36, %59 ], [ %36, %.lr.ph ], [ %.pre, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
-  %143 = add i32 %.071, 1
+  %143 = add i32 %.069, 1
   %144 = and i32 %143, %27
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !38
@@ -1161,8 +1161,8 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sext i32 %11 to i64
-  %.not9.i = icmp eq i64 %16, %15
-  %.not.i = select i1 %12, i1 true, i1 %.not9.i
+  %.not7.i = icmp eq i64 %16, %15
+  %.not.i = select i1 %12, i1 true, i1 %.not7.i
   br i1 %.not.i, label %_ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit, label %17
 
 17:                                               ; preds = %9

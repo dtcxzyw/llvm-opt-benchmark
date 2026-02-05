@@ -696,7 +696,7 @@ if.then.i.i.i.i.i112:                             ; preds = %if.then.i96
   br label %invoke.cont61
 
 invoke.cont61:                                    ; preds = %invoke.cont44, %if.then.i.i.i.i.i112
-  %result.sroa.0.1285 = phi ptr [ %call.i103, %if.then.i.i.i.i.i112 ], [ null, %invoke.cont44 ]
+  %result.sroa.0.0285 = phi ptr [ %call.i103, %if.then.i.i.i.i.i112 ], [ null, %invoke.cont44 ]
   %69 = load ptr, ptr %simulationData, align 8, !tbaa !8
   %add.ptr.i114 = getelementptr inbounds nuw %"class.std::vector.5", ptr %69, i64 %sub3
   %_M_finish.i115 = getelementptr inbounds nuw i8, ptr %add.ptr.i114, i64 8
@@ -710,11 +710,11 @@ for.body70.preheader:                             ; preds = %invoke.cont61
   br label %for.body70
 
 for.cond.cleanup69:                               ; preds = %for.inc, %invoke.cont61
-  %cmp.not.i.i120 = icmp eq ptr %result.sroa.0.1285, null
+  %cmp.not.i.i120 = icmp eq ptr %result.sroa.0.0285, null
   br i1 %cmp.not.i.i120, label %_ZN8QuantLib5ArrayD2Ev.exit122, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i121
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i121: ; preds = %for.cond.cleanup69
-  call void @_ZdaPv(ptr noundef nonnull %result.sroa.0.1285) #20
+  call void @_ZdaPv(ptr noundef nonnull %result.sroa.0.0285) #20
   br label %_ZN8QuantLib5ArrayD2Ev.exit122
 
 _ZN8QuantLib5ArrayD2Ev.exit122:                   ; preds = %for.cond.cleanup69, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i121
@@ -894,7 +894,7 @@ invoke.cont79:                                    ; preds = %if.then
 lpad78:                                           ; preds = %if.then
   %101 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i.i155 = icmp eq ptr %result.sroa.0.1285, null
+  %cmp.not.i.i155 = icmp eq ptr %result.sroa.0.0285, null
   br i1 %cmp.not.i.i155, label %ehcleanup91, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i156
 
 for.inc:                                          ; preds = %invoke.cont79, %for.body70
@@ -910,7 +910,7 @@ for.inc:                                          ; preds = %invoke.cont79, %for
   br i1 %cmp68, label %for.body70, label %for.cond.cleanup69, !llvm.loop !59
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i156: ; preds = %lpad78
-  call void @_ZdaPv(ptr noundef nonnull %result.sroa.0.1285) #20
+  call void @_ZdaPv(ptr noundef nonnull %result.sroa.0.0285) #20
   br label %ehcleanup91
 
 ehcleanup91:                                      ; preds = %lpad46, %lpad78, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i156, %lpad43

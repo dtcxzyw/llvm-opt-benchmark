@@ -2084,12 +2084,12 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   %.03251.i = phi i32 [ %789, %.lr.ph.i73 ], [ %.1.i, %quantize_mantissas_blk_ch.exit.i ]
   %.13450.i = phi i32 [ %.03354.i, %.lr.ph.i73 ], [ %.2.i, %quantize_mantissas_blk_ch.exit.i ]
   %.03549.i = phi i32 [ 1, %.lr.ph.i73 ], [ %914, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.0.148.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.0.4.i, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.19.147.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.19.4.i, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.15.146.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.15.4.i, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.11.145.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.11.4.i, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.9.144.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.9.4.i, %quantize_mantissas_blk_ch.exit.i ]
-  %.sroa.6.143.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.6.4.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.0.048.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.0.3.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.19.047.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.19.3.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.15.046.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.15.3.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.11.045.i = phi i32 [ 0, %.lr.ph.i73 ], [ %.sroa.11.3.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.9.044.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.9.3.i, %quantize_mantissas_blk_ch.exit.i ]
+  %.sroa.6.043.i = phi ptr [ null, %.lr.ph.i73 ], [ %.sroa.6.3.i, %quantize_mantissas_blk_ch.exit.i ]
   %795 = icmp eq i32 %.03251.i, 0
   %796 = icmp sgt i32 %.03549.i, 1
   %or.cond.i = and i1 %795, %796
@@ -2137,12 +2137,12 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br label %822
 
 822:                                              ; preds = %910, %.lr.ph.i.i82
-  %.sroa.6.2.i = phi ptr [ %.sroa.6.143.i, %.lr.ph.i.i82 ], [ %.sroa.6.3.i, %910 ]
-  %.sroa.9.2.i = phi ptr [ %.sroa.9.144.i, %.lr.ph.i.i82 ], [ %.sroa.9.3.i, %910 ]
-  %.sroa.11.2.i = phi i32 [ %.sroa.11.145.i, %.lr.ph.i.i82 ], [ %.sroa.11.3.i, %910 ]
-  %.sroa.15.2.i = phi i32 [ %.sroa.15.146.i, %.lr.ph.i.i82 ], [ %.sroa.15.3.i, %910 ]
-  %.sroa.19.2.i = phi i32 [ %.sroa.19.147.i, %.lr.ph.i.i82 ], [ %.sroa.19.3.i, %910 ]
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.148.i, %.lr.ph.i.i82 ], [ %.sroa.0.3.i, %910 ]
+  %.sroa.6.1.i = phi ptr [ %.sroa.6.043.i, %.lr.ph.i.i82 ], [ %.sroa.6.2.i, %910 ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.044.i, %.lr.ph.i.i82 ], [ %.sroa.9.2.i, %910 ]
+  %.sroa.11.1.i = phi i32 [ %.sroa.11.045.i, %.lr.ph.i.i82 ], [ %.sroa.11.2.i, %910 ]
+  %.sroa.15.1.i = phi i32 [ %.sroa.15.046.i, %.lr.ph.i.i82 ], [ %.sroa.15.2.i, %910 ]
+  %.sroa.19.1.i = phi i32 [ %.sroa.19.047.i, %.lr.ph.i.i82 ], [ %.sroa.19.2.i, %910 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.048.i, %.lr.ph.i.i82 ], [ %.sroa.0.2.i, %910 ]
   %indvars.iv.i.i84 = phi i64 [ %821, %.lr.ph.i.i82 ], [ %indvars.iv.next.i.i86, %910 ]
   %823 = getelementptr inbounds i32, ptr %806, i64 %indvars.iv.i.i84
   %824 = load i32, ptr %823, align 4, !tbaa !41
@@ -2168,7 +2168,7 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   %833 = ashr i32 %831, %832
   %834 = add nsw i32 %833, 3
   %835 = ashr i32 %834, 1
-  switch i32 %.sroa.11.2.i, label %844 [
+  switch i32 %.sroa.11.1.i, label %844 [
     i32 0, label %836
     i32 1, label %839
   ]
@@ -2179,18 +2179,18 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br label %910
 
 839:                                              ; preds = %830
-  %840 = load i16, ptr %.sroa.0.2.i, align 2, !tbaa !127
+  %840 = load i16, ptr %.sroa.0.1.i, align 2, !tbaa !127
   %841 = trunc i32 %835 to i16
   %842 = mul i16 %841, 3
   %843 = add i16 %840, %842
-  store i16 %843, ptr %.sroa.0.2.i, align 2, !tbaa !127
+  store i16 %843, ptr %.sroa.0.1.i, align 2, !tbaa !127
   br label %910
 
 844:                                              ; preds = %830
-  %845 = load i16, ptr %.sroa.0.2.i, align 2, !tbaa !127
+  %845 = load i16, ptr %.sroa.0.1.i, align 2, !tbaa !127
   %846 = trunc i32 %835 to i16
   %847 = add i16 %845, %846
-  store i16 %847, ptr %.sroa.0.2.i, align 2, !tbaa !127
+  store i16 %847, ptr %.sroa.0.1.i, align 2, !tbaa !127
   br label %910
 
 848:                                              ; preds = %822
@@ -2199,7 +2199,7 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   %851 = ashr i32 %849, %850
   %852 = add nsw i32 %851, 5
   %853 = ashr i32 %852, 1
-  switch i32 %.sroa.15.2.i, label %862 [
+  switch i32 %.sroa.15.1.i, label %862 [
     i32 0, label %854
     i32 1, label %857
   ]
@@ -2210,18 +2210,18 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br label %910
 
 857:                                              ; preds = %848
-  %858 = load i16, ptr %.sroa.6.2.i, align 2, !tbaa !127
+  %858 = load i16, ptr %.sroa.6.1.i, align 2, !tbaa !127
   %859 = trunc i32 %853 to i16
   %860 = mul i16 %859, 5
   %861 = add i16 %858, %860
-  store i16 %861, ptr %.sroa.6.2.i, align 2, !tbaa !127
+  store i16 %861, ptr %.sroa.6.1.i, align 2, !tbaa !127
   br label %910
 
 862:                                              ; preds = %848
-  %863 = load i16, ptr %.sroa.6.2.i, align 2, !tbaa !127
+  %863 = load i16, ptr %.sroa.6.1.i, align 2, !tbaa !127
   %864 = trunc i32 %853 to i16
   %865 = add i16 %863, %864
-  store i16 %865, ptr %.sroa.6.2.i, align 2, !tbaa !127
+  store i16 %865, ptr %.sroa.6.1.i, align 2, !tbaa !127
   br label %910
 
 866:                                              ; preds = %822
@@ -2238,7 +2238,7 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   %875 = ashr i32 %873, %874
   %876 = add nsw i32 %875, 11
   %877 = ashr i32 %876, 1
-  %cond.i.i = icmp eq i32 %.sroa.19.2.i, 0
+  %cond.i.i = icmp eq i32 %.sroa.19.1.i, 0
   br i1 %cond.i.i, label %878, label %881
 
 878:                                              ; preds = %872
@@ -2247,10 +2247,10 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br label %910
 
 881:                                              ; preds = %872
-  %882 = load i16, ptr %.sroa.9.2.i, align 2, !tbaa !127
+  %882 = load i16, ptr %.sroa.9.1.i, align 2, !tbaa !127
   %883 = trunc i32 %877 to i16
   %884 = add i16 %882, %883
-  store i16 %884, ptr %.sroa.9.2.i, align 2, !tbaa !127
+  store i16 %884, ptr %.sroa.9.1.i, align 2, !tbaa !127
   br label %910
 
 885:                                              ; preds = %822
@@ -2291,12 +2291,12 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br label %910
 
 910:                                              ; preds = %901, %896, %891, %885, %881, %878, %866, %862, %857, %854, %844, %839, %836, %822
-  %.sroa.6.3.i = phi ptr [ %.sroa.6.2.i, %901 ], [ %.sroa.6.2.i, %822 ], [ %.sroa.6.2.i, %844 ], [ %.sroa.6.2.i, %836 ], [ %.sroa.6.2.i, %839 ], [ %.sroa.6.2.i, %862 ], [ %855, %854 ], [ %.sroa.6.2.i, %857 ], [ %.sroa.6.2.i, %866 ], [ %.sroa.6.2.i, %878 ], [ %.sroa.6.2.i, %881 ], [ %.sroa.6.2.i, %885 ], [ %.sroa.6.2.i, %891 ], [ %.sroa.6.2.i, %896 ]
-  %.sroa.9.3.i = phi ptr [ %.sroa.9.2.i, %901 ], [ %.sroa.9.2.i, %822 ], [ %.sroa.9.2.i, %844 ], [ %.sroa.9.2.i, %836 ], [ %.sroa.9.2.i, %839 ], [ %.sroa.9.2.i, %862 ], [ %.sroa.9.2.i, %854 ], [ %.sroa.9.2.i, %857 ], [ %.sroa.9.2.i, %866 ], [ %879, %878 ], [ %.sroa.9.2.i, %881 ], [ %.sroa.9.2.i, %885 ], [ %.sroa.9.2.i, %891 ], [ %.sroa.9.2.i, %896 ]
-  %.sroa.11.3.i = phi i32 [ %.sroa.11.2.i, %901 ], [ %.sroa.11.2.i, %822 ], [ 0, %844 ], [ 1, %836 ], [ 2, %839 ], [ %.sroa.11.2.i, %862 ], [ %.sroa.11.2.i, %854 ], [ %.sroa.11.2.i, %857 ], [ %.sroa.11.2.i, %866 ], [ %.sroa.11.2.i, %878 ], [ %.sroa.11.2.i, %881 ], [ %.sroa.11.2.i, %885 ], [ %.sroa.11.2.i, %891 ], [ %.sroa.11.2.i, %896 ]
-  %.sroa.15.3.i = phi i32 [ %.sroa.15.2.i, %901 ], [ %.sroa.15.2.i, %822 ], [ %.sroa.15.2.i, %844 ], [ %.sroa.15.2.i, %836 ], [ %.sroa.15.2.i, %839 ], [ 0, %862 ], [ 1, %854 ], [ 2, %857 ], [ %.sroa.15.2.i, %866 ], [ %.sroa.15.2.i, %878 ], [ %.sroa.15.2.i, %881 ], [ %.sroa.15.2.i, %885 ], [ %.sroa.15.2.i, %891 ], [ %.sroa.15.2.i, %896 ]
-  %.sroa.19.3.i = phi i32 [ %.sroa.19.2.i, %901 ], [ %.sroa.19.2.i, %822 ], [ %.sroa.19.2.i, %844 ], [ %.sroa.19.2.i, %836 ], [ %.sroa.19.2.i, %839 ], [ %.sroa.19.2.i, %862 ], [ %.sroa.19.2.i, %854 ], [ %.sroa.19.2.i, %857 ], [ %.sroa.19.2.i, %866 ], [ 1, %878 ], [ 0, %881 ], [ %.sroa.19.2.i, %885 ], [ %.sroa.19.2.i, %891 ], [ %.sroa.19.2.i, %896 ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %901 ], [ %.sroa.0.2.i, %822 ], [ %.sroa.0.2.i, %844 ], [ %837, %836 ], [ %.sroa.0.2.i, %839 ], [ %.sroa.0.2.i, %862 ], [ %.sroa.0.2.i, %854 ], [ %.sroa.0.2.i, %857 ], [ %.sroa.0.2.i, %866 ], [ %.sroa.0.2.i, %878 ], [ %.sroa.0.2.i, %881 ], [ %.sroa.0.2.i, %885 ], [ %.sroa.0.2.i, %891 ], [ %.sroa.0.2.i, %896 ]
+  %.sroa.6.2.i = phi ptr [ %.sroa.6.1.i, %901 ], [ %.sroa.6.1.i, %822 ], [ %.sroa.6.1.i, %844 ], [ %.sroa.6.1.i, %836 ], [ %.sroa.6.1.i, %839 ], [ %.sroa.6.1.i, %862 ], [ %855, %854 ], [ %.sroa.6.1.i, %857 ], [ %.sroa.6.1.i, %866 ], [ %.sroa.6.1.i, %878 ], [ %.sroa.6.1.i, %881 ], [ %.sroa.6.1.i, %885 ], [ %.sroa.6.1.i, %891 ], [ %.sroa.6.1.i, %896 ]
+  %.sroa.9.2.i = phi ptr [ %.sroa.9.1.i, %901 ], [ %.sroa.9.1.i, %822 ], [ %.sroa.9.1.i, %844 ], [ %.sroa.9.1.i, %836 ], [ %.sroa.9.1.i, %839 ], [ %.sroa.9.1.i, %862 ], [ %.sroa.9.1.i, %854 ], [ %.sroa.9.1.i, %857 ], [ %.sroa.9.1.i, %866 ], [ %879, %878 ], [ %.sroa.9.1.i, %881 ], [ %.sroa.9.1.i, %885 ], [ %.sroa.9.1.i, %891 ], [ %.sroa.9.1.i, %896 ]
+  %.sroa.11.2.i = phi i32 [ %.sroa.11.1.i, %901 ], [ %.sroa.11.1.i, %822 ], [ 0, %844 ], [ 1, %836 ], [ 2, %839 ], [ %.sroa.11.1.i, %862 ], [ %.sroa.11.1.i, %854 ], [ %.sroa.11.1.i, %857 ], [ %.sroa.11.1.i, %866 ], [ %.sroa.11.1.i, %878 ], [ %.sroa.11.1.i, %881 ], [ %.sroa.11.1.i, %885 ], [ %.sroa.11.1.i, %891 ], [ %.sroa.11.1.i, %896 ]
+  %.sroa.15.2.i = phi i32 [ %.sroa.15.1.i, %901 ], [ %.sroa.15.1.i, %822 ], [ %.sroa.15.1.i, %844 ], [ %.sroa.15.1.i, %836 ], [ %.sroa.15.1.i, %839 ], [ 0, %862 ], [ 1, %854 ], [ 2, %857 ], [ %.sroa.15.1.i, %866 ], [ %.sroa.15.1.i, %878 ], [ %.sroa.15.1.i, %881 ], [ %.sroa.15.1.i, %885 ], [ %.sroa.15.1.i, %891 ], [ %.sroa.15.1.i, %896 ]
+  %.sroa.19.2.i = phi i32 [ %.sroa.19.1.i, %901 ], [ %.sroa.19.1.i, %822 ], [ %.sroa.19.1.i, %844 ], [ %.sroa.19.1.i, %836 ], [ %.sroa.19.1.i, %839 ], [ %.sroa.19.1.i, %862 ], [ %.sroa.19.1.i, %854 ], [ %.sroa.19.1.i, %857 ], [ %.sroa.19.1.i, %866 ], [ 1, %878 ], [ 0, %881 ], [ %.sroa.19.1.i, %885 ], [ %.sroa.19.1.i, %891 ], [ %.sroa.19.1.i, %896 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i, %901 ], [ %.sroa.0.1.i, %822 ], [ %.sroa.0.1.i, %844 ], [ %837, %836 ], [ %.sroa.0.1.i, %839 ], [ %.sroa.0.1.i, %862 ], [ %.sroa.0.1.i, %854 ], [ %.sroa.0.1.i, %857 ], [ %.sroa.0.1.i, %866 ], [ %.sroa.0.1.i, %878 ], [ %.sroa.0.1.i, %881 ], [ %.sroa.0.1.i, %885 ], [ %.sroa.0.1.i, %891 ], [ %.sroa.0.1.i, %896 ]
   %.0.i.i85 = phi i32 [ %spec.select.i66.i.i, %901 ], [ 0, %822 ], [ 128, %844 ], [ %838, %836 ], [ 128, %839 ], [ 128, %862 ], [ %856, %854 ], [ 128, %857 ], [ %871, %866 ], [ %880, %878 ], [ 128, %881 ], [ %890, %885 ], [ %spec.select.i.i.i88, %891 ], [ %spec.select.i65.i.i, %896 ]
   %911 = trunc i32 %.0.i.i85 to i16
   %912 = getelementptr inbounds i16, ptr %815, i64 %indvars.iv.i.i84
@@ -2306,12 +2306,12 @@ ac3_group_exponents.exit:                         ; preds = %._crit_edge.i70
   br i1 %exitcond.not.i.i87, label %quantize_mantissas_blk_ch.exit.i, label %822, !llvm.loop !143
 
 quantize_mantissas_blk_ch.exit.i:                 ; preds = %910, %803
-  %.sroa.6.4.i = phi ptr [ %.sroa.6.143.i, %803 ], [ %.sroa.6.3.i, %910 ]
-  %.sroa.9.4.i = phi ptr [ %.sroa.9.144.i, %803 ], [ %.sroa.9.3.i, %910 ]
-  %.sroa.11.4.i = phi i32 [ %.sroa.11.145.i, %803 ], [ %.sroa.11.3.i, %910 ]
-  %.sroa.15.4.i = phi i32 [ %.sroa.15.146.i, %803 ], [ %.sroa.15.3.i, %910 ]
-  %.sroa.19.4.i = phi i32 [ %.sroa.19.147.i, %803 ], [ %.sroa.19.3.i, %910 ]
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.148.i, %803 ], [ %.sroa.0.3.i, %910 ]
+  %.sroa.6.3.i = phi ptr [ %.sroa.6.043.i, %803 ], [ %.sroa.6.2.i, %910 ]
+  %.sroa.9.3.i = phi ptr [ %.sroa.9.044.i, %803 ], [ %.sroa.9.2.i, %910 ]
+  %.sroa.11.3.i = phi i32 [ %.sroa.11.045.i, %803 ], [ %.sroa.11.2.i, %910 ]
+  %.sroa.15.3.i = phi i32 [ %.sroa.15.046.i, %803 ], [ %.sroa.15.2.i, %910 ]
+  %.sroa.19.3.i = phi i32 [ %.sroa.19.047.i, %803 ], [ %.sroa.19.2.i, %910 ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.048.i, %803 ], [ %.sroa.0.2.i, %910 ]
   %913 = icmp eq i32 %.136.i, 0
   %spec.select.i78 = select i1 %913, i32 %.2.i, i32 %.136.i
   %914 = add nsw i32 %spec.select.i78, 1

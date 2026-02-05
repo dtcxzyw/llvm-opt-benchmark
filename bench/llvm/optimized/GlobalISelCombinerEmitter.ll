@@ -22356,8 +22356,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %120, %118, %109
   %.04232 = phi ptr [ %198, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ %122, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %.sroa.5.031 = phi i64 [ %.sroa.5.2, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %.sroa.010.030 = phi ptr [ %.sroa.010.2, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ @.str.1, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  %.sroa.67.129 = phi i64 [ %.sroa.67.3, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  %.sroa.05.128 = phi ptr [ %.sroa.05.3, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.sroa.67.029 = phi i64 [ %.sroa.67.2, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.sroa.05.028 = phi ptr [ %.sroa.05.2, %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %129 = load i32, ptr %.04232, align 4, !tbaa !134
   %130 = zext i32 %129 to i64
   %131 = load ptr, ptr %93, align 8, !tbaa !25
@@ -22429,7 +22429,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit58:    ; preds = %149, %151, %152
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61:    ; preds = %164, %162, %135
   %.sroa.010.1 = phi ptr [ %.sroa.010.030, %135 ], [ @.str.161, %162 ], [ @.str.161, %164 ]
   %.sroa.5.1 = phi i64 [ %.sroa.5.031, %135 ], [ 2, %162 ], [ 2, %164 ]
-  %168 = icmp eq i64 %.sroa.67.129, 0
+  %168 = icmp eq i64 %.sroa.67.029, 0
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61
@@ -22446,8 +22446,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61:    ; preds = %164, %162, %135
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %4, ptr %4, align 8, !tbaa !943
   store ptr inttoptr (i64 1 to ptr), ptr %94, align 8, !tbaa !659
-  store ptr %.sroa.05.128, ptr %95, align 8, !tbaa !44
-  store i64 %.sroa.67.129, ptr %.sroa.67.0..sroa_idx8, align 8, !tbaa !45
+  store ptr %.sroa.05.028, ptr %95, align 8, !tbaa !44
+  store i64 %.sroa.67.029, ptr %.sroa.67.0..sroa_idx8, align 8, !tbaa !45
   %172 = call { ptr, i8 } @_ZNSt8_Rb_treeIN4llvm18EquivalenceClassesINS0_9StringRefESt4lessIS2_EE7ECValueES6_St9_IdentityIS6_ENS5_17ECValueComparatorESaIS6_EE16_M_insert_uniqueIS6_EESt4pairISt17_Rb_tree_iteratorIS6_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %172, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -22504,8 +22504,8 @@ _ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tr
   br label %_ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit
 
 _ZN4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE9unionSetsERKS1_S6_.exit: ; preds = %169, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i, %183, %.lr.ph33
-  %.sroa.05.3 = phi ptr [ %.sroa.05.128, %.lr.ph33 ], [ %.sroa.0.0.copyload.i51, %169 ], [ %.sroa.05.128, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.05.128, %183 ]
-  %.sroa.67.3 = phi i64 [ %.sroa.67.129, %.lr.ph33 ], [ %134, %169 ], [ %.sroa.67.129, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.67.129, %183 ]
+  %.sroa.05.2 = phi ptr [ %.sroa.05.028, %.lr.ph33 ], [ %.sroa.0.0.copyload.i51, %169 ], [ %.sroa.05.028, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.05.028, %183 ]
+  %.sroa.67.2 = phi i64 [ %.sroa.67.029, %.lr.ph33 ], [ %134, %169 ], [ %.sroa.67.029, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.67.029, %183 ]
   %.sroa.010.2 = phi ptr [ %.sroa.010.030, %.lr.ph33 ], [ %.sroa.010.1, %169 ], [ %.sroa.010.1, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.010.1, %183 ]
   %.sroa.5.2 = phi i64 [ %.sroa.5.031, %.lr.ph33 ], [ %.sroa.5.1, %169 ], [ %.sroa.5.1, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderESt23_Rb_tree_const_iteratorINS4_7ECValueEE.exit11.i ], [ %.sroa.5.1, %183 ]
   %198 = getelementptr inbounds nuw i8, ptr %.04232, i64 4

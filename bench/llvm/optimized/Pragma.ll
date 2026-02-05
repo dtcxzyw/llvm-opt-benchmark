@@ -377,8 +377,8 @@ define dso_local noundef ptr @_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9St
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = sext i32 %7 to i64
-  %.not17 = icmp eq i64 %12, %11
-  %.not = select i1 %8, i1 true, i1 %.not17
+  %.not15 = icmp eq i64 %12, %11
+  %.not = select i1 %8, i1 true, i1 %.not15
   br i1 %.not, label %13, label %.sink.split
 
 13:                                               ; preds = %4
@@ -391,14 +391,14 @@ define dso_local noundef ptr @_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9St
   %18 = load i32, ptr %9, align 8
   %19 = zext i32 %18 to i64
   %20 = sext i32 %16 to i64
-  %.not1819 = icmp eq i64 %20, %19
-  %.not18 = select i1 %17, i1 true, i1 %.not1819
-  br i1 %.not18, label %25, label %.sink.split
+  %.not1617 = icmp eq i64 %20, %19
+  %.not16 = select i1 %17, i1 true, i1 %.not1617
+  br i1 %.not16, label %25, label %.sink.split
 
 .sink.split:                                      ; preds = %14, %4
-  %.sink23 = phi i64 [ %12, %4 ], [ %20, %14 ]
+  %.sink21 = phi i64 [ %12, %4 ], [ %20, %14 ]
   %21 = load ptr, ptr %5, align 8
-  %.sroa.0.0.i.i6 = getelementptr inbounds ptr, ptr %21, i64 %.sink23
+  %.sroa.0.0.i.i6 = getelementptr inbounds ptr, ptr %21, i64 %.sink21
   %22 = load ptr, ptr %.sroa.0.0.i.i6, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !19
@@ -530,8 +530,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %switch.hole_check,
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = sext i32 %24 to i64
-  %.not17.i = icmp eq i64 %29, %28
-  %.not.i = select i1 %25, i1 true, i1 %.not17.i
+  %.not15.i = icmp eq i64 %29, %28
+  %.not.i = select i1 %25, i1 true, i1 %.not15.i
   br i1 %.not.i, label %30, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit
 
 30:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread
@@ -541,14 +541,14 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %switch.hole_check,
   %34 = load i32, ptr %26, align 8
   %35 = zext i32 %34 to i64
   %36 = sext i32 %32 to i64
-  %.not1819.i = icmp eq i64 %36, %35
-  %.not18.i = select i1 %33, i1 true, i1 %.not1819.i
-  br i1 %.not18.i, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit.thread, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit
+  %.not1617.i = icmp eq i64 %36, %35
+  %.not16.i = select i1 %33, i1 true, i1 %.not1617.i
+  br i1 %.not16.i, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit.thread, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit
 
 _ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %30
-  %.sink23.i = phi i64 [ %29, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ], [ %36, %30 ]
+  %.sink21.i = phi i64 [ %29, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ], [ %36, %30 ]
   %37 = load ptr, ptr %22, align 8
-  %.sroa.0.0.i.i6.i = getelementptr inbounds ptr, ptr %37, i64 %.sink23.i
+  %.sroa.0.0.i.i6.i = getelementptr inbounds ptr, ptr %37, i64 %.sink21.i
   %38 = load ptr, ptr %.sroa.0.0.i.i6.i, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !19
@@ -5746,8 +5746,8 @@ define dso_local void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRe
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = sext i32 %12 to i64
-  %.not17.i = icmp eq i64 %17, %16
-  %.not.i = select i1 %13, i1 true, i1 %.not17.i
+  %.not15.i = icmp eq i64 %17, %16
+  %.not.i = select i1 %13, i1 true, i1 %.not15.i
   br i1 %.not.i, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit.thread, label %_ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit
 
 _ZNK5clang15PragmaNamespace11FindHandlerEN4llvm9StringRefEb.exit: ; preds = %9
@@ -5887,9 +5887,9 @@ define dso_local void @_ZN5clang12Preprocessor19RemovePragmaHandlerEN4llvm9Strin
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sext i32 %10 to i64
-  %.not17.i = icmp ne i64 %15, %14
+  %.not15.i = icmp ne i64 %15, %14
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.assume(i1 %.not17.i)
+  tail call void @llvm.assume(i1 %.not15.i)
   %16 = load ptr, ptr %8, align 8
   %.sroa.0.0.i.i6.i = getelementptr inbounds ptr, ptr %16, i64 %15
   %17 = load ptr, ptr %.sroa.0.0.i.i6.i, align 8, !tbaa !17
@@ -7055,16 +7055,16 @@ _ZNKSt14default_deleteIN5clang13PragmaHandlerEEclEPS1_.exit.i.i.i11.i114: ; pred
   br label %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115
 
 _ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115: ; preds = %_ZNKSt14default_deleteIN5clang13PragmaHandlerEEclEPS1_.exit.i.i.i11.i114, %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit111, %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit87
-  %.sroa.0120.0169 = load ptr, ptr @_ZN4llvm8RegistryIN5clang13PragmaHandlerEE4HeadE, align 8, !tbaa !584
-  %.not168170 = icmp eq ptr %.sroa.0120.0169, null
-  br i1 %.not168170, label %._crit_edge, label %.lr.ph
+  %.sroa.0120.0167 = load ptr, ptr @_ZN4llvm8RegistryIN5clang13PragmaHandlerEE4HeadE, align 8, !tbaa !584
+  %.not166168 = icmp eq ptr %.sroa.0120.0167, null
+  br i1 %.not166168, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EED2Ev.exit, %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115
   ret void
 
 .lr.ph:                                           ; preds = %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115, %_ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.0120.0171 = phi ptr [ %.sroa.0120.0, %_ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EED2Ev.exit ], [ %.sroa.0120.0169, %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115 ]
-  %402 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0171, i64 8
+  %.sroa.0120.0169 = phi ptr [ %.sroa.0120.0, %_ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EED2Ev.exit ], [ %.sroa.0120.0167, %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit115 ]
+  %402 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0169, i64 8
   %403 = load ptr, ptr %402, align 8, !tbaa !586
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 32
@@ -7109,9 +7109,9 @@ _ZNKSt14default_deleteIN5clang13PragmaHandlerEEclEPS1_.exit.i: ; preds = %_ZN5cl
 
 _ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE.exit119, %_ZNKSt14default_deleteIN5clang13PragmaHandlerEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.sroa.0120.0 = load ptr, ptr %.sroa.0120.0171, align 8, !tbaa !584
-  %.not168 = icmp eq ptr %.sroa.0120.0, null
-  br i1 %.not168, label %._crit_edge, label %.lr.ph
+  %.sroa.0120.0 = load ptr, ptr %.sroa.0120.0169, align 8, !tbaa !584
+  %.not166 = icmp eq ptr %.sroa.0120.0, null
+  br i1 %.not166, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1183,9 +1183,9 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit
 
 _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit: ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i
-  %.0.i.i.i.i12.i = phi ptr [ %23, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i ], [ %32, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i ]
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i, ptr align 1 %18, i64 %16, i1 false)
-  %.fca.0.insert.i66 = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i12.i, 0
+  %.0.i.i.i.i10.i = phi ptr [ %23, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i ], [ %32, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i ]
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i, ptr align 1 %18, i64 %16, i1 false)
+  %.fca.0.insert.i66 = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i10.i, 0
   %.fca.1.insert.i67 = insertvalue { ptr, i64 } %.fca.0.insert.i66, i64 %16, 1
   br label %33
 
@@ -1265,12 +1265,12 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %72
 
 72:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i74, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i83
-  %.0.i.i.i.i12.i77 = phi ptr [ %62, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i83 ], [ %71, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i74 ]
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i77, ptr align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
+  %.0.i.i.i.i10.i77 = phi ptr [ %62, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i83 ], [ %71, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i74 ]
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i77, ptr align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
   br label %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit84
 
 _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit84: ; preds = %54, %72
-  %.sroa.0.0.i79 = phi ptr [ null, %54 ], [ %.0.i.i.i.i12.i77, %72 ]
+  %.sroa.0.0.i79 = phi ptr [ null, %54 ], [ %.0.i.i.i.i10.i77, %72 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %75 = load i64, ptr %74, align 8, !tbaa !77
@@ -1590,12 +1590,12 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116
 
 _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116: ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i115, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i106
-  %.0.i.i.i.i12.i109 = phi ptr [ %224, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i115 ], [ %232, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i106 ]
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i109, ptr align 1 %221, i64 %219, i1 false)
+  %.0.i.i.i.i10.i109 = phi ptr [ %224, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i115 ], [ %232, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i106 ]
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i109, ptr align 1 %221, i64 %219, i1 false)
   br label %233
 
 233:                                              ; preds = %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116, %215
-  %.sroa.0150.0 = phi ptr [ %217, %215 ], [ %.0.i.i.i.i12.i109, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116 ]
+  %.sroa.0150.0 = phi ptr [ %217, %215 ], [ %.0.i.i.i.i10.i109, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116 ]
   %.sroa.7.0 = phi i64 [ %218, %215 ], [ %219, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit116 ]
   %234 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0150.0, i64 %.sroa.7.0) #35
   %235 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr %.sroa.0150.0, i64 %.sroa.7.0, i32 noundef %234) #35
@@ -7493,8 +7493,8 @@ _ZN4llvm8to_floatERKNS_5TwineERd.exit:            ; preds = %20, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %.not.i.i, i64 0, i64 29
-  %spec.select4 = select i1 %.not.i.i, ptr null, ptr @.str.42
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select4, 0
+  %spec.select2 = select i1 %.not.i.i, ptr null, ptr @.str.42
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -7562,8 +7562,8 @@ _ZN4llvm8to_floatERKNS_5TwineERf.exit:            ; preds = %20, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %.not.i.i, i64 0, i64 29
-  %spec.select4 = select i1 %.not.i.i, ptr null, ptr @.str.42
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select4, 0
+  %spec.select2 = select i1 %.not.i.i, ptr null, ptr @.str.42
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -7758,9 +7758,9 @@ declare void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind w
 define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_12VersionTupleEvE5inputENS_9StringRefEPvRS2_(ptr %0, i64 %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) local_unnamed_addr #6 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr %0, i64 %1) #35
   %spec.select = select i1 %5, ptr @.str.52, ptr null
-  %spec.select5 = select i1 %5, i64 22, i64 0
+  %spec.select3 = select i1 %5, i64 22, i64 0
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select5, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select3, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

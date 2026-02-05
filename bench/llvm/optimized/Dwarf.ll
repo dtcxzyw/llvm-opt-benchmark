@@ -6983,13 +6983,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.8.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.8.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7039,13 +7039,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7061,13 +7061,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7084,13 +7084,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7106,13 +7106,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.6.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8239,13 +8239,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8686,13 +8686,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8729,13 +8729,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.9, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.9, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.16.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.16.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8752,13 +8752,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.10, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.10, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.7.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8861,13 +8861,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.11, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.11, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.15.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.15.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.15.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8884,13 +8884,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.12, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.12, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.13.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.13.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.13.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9008,13 +9008,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.11.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.11.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.11.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9030,13 +9030,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.14, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.14, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.12.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.12.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.12.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9214,13 +9214,13 @@ switch.lookup:                                    ; preds = %.split
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %4 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.15, i64 %7
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.15, i64 %7
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %8
 
 8:                                                ; preds = %switch.lookup, %.split, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ], [ null, %.split ]
-  %.sroa.18.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ], [ 0, %.split ]
+  %.sroa.18.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ], [ 0, %.split ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.18.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9237,13 +9237,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.16, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.16, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.9.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.9.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9259,13 +9259,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.17, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.17, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.9.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.9.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9320,7 +9320,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
 
 5:                                                ; preds = %2
   %6 = icmp ult i32 %1, 3
-  br i1 %6, label %switch.lookup47, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  br i1 %6, label %switch.lookup45, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 7:                                                ; preds = %2
   %8 = tail call { ptr, i64 } @_ZN4llvm5dwarf14LanguageStringEj(i32 noundef %1)
@@ -9335,9 +9335,9 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 15:                                               ; preds = %2
-  %switch.tableidx52 = add i32 %1, -1
-  %16 = icmp ult i32 %switch.tableidx52, 5
-  br i1 %16, label %switch.lookup53, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  %switch.tableidx50 = add i32 %1, -1
+  %16 = icmp ult i32 %switch.tableidx50, 5
+  br i1 %16, label %switch.lookup51, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 17:                                               ; preds = %2
   switch i32 %1, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit [
@@ -9364,13 +9364,13 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 23:                                               ; preds = %2
-  %switch.tableidx58 = add i32 %1, -1
-  %24 = icmp ult i32 %switch.tableidx58, 3
-  br i1 %24, label %switch.lookup59, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  %switch.tableidx56 = add i32 %1, -1
+  %24 = icmp ult i32 %switch.tableidx56, 3
+  br i1 %24, label %switch.lookup57, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 25:                                               ; preds = %2
   %26 = icmp ult i32 %1, 4
-  br i1 %26, label %switch.lookup64, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  br i1 %26, label %switch.lookup62, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 27:                                               ; preds = %2
   %28 = tail call { ptr, i64 } @_ZN4llvm5dwarf16ConventionStringEj(i32 noundef %1)
@@ -9380,7 +9380,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
 
 31:                                               ; preds = %2
   %32 = icmp ult i32 %1, 4
-  br i1 %32, label %switch.lookup69, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  br i1 %32, label %switch.lookup67, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 33:                                               ; preds = %2
   switch i32 %1, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit [
@@ -9402,74 +9402,74 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
 
 40:                                               ; preds = %2
   %41 = icmp ult i32 %1, 3
-  br i1 %41, label %switch.lookup74, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
+  br i1 %41, label %switch.lookup72, label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup:                                    ; preds = %3
   %42 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %43
-  %switch.load46 = load i64, ptr %switch.gep45, align 8
+  %switch.gep43 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %43
+  %switch.load44 = load i64, ptr %switch.gep43, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup47:                                  ; preds = %5
+switch.lookup45:                                  ; preds = %5
   %44 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %44
-  %switch.load49 = load ptr, ptr %switch.gep48, align 8
+  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %44
+  %switch.load47 = load ptr, ptr %switch.gep46, align 8
   %45 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %45
-  %switch.load51 = load i64, ptr %switch.gep50, align 8
+  %switch.gep48 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %45
+  %switch.load49 = load i64, ptr %switch.gep48, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup53:                                  ; preds = %15
-  %46 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %46
-  %switch.load55 = load ptr, ptr %switch.gep54, align 8
-  %47 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep56 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %47
-  %switch.load57 = load i64, ptr %switch.gep56, align 8
+switch.lookup51:                                  ; preds = %15
+  %46 = zext nneg i32 %switch.tableidx50 to i64
+  %switch.gep52 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %46
+  %switch.load53 = load ptr, ptr %switch.gep52, align 8
+  %47 = zext nneg i32 %switch.tableidx50 to i64
+  %switch.gep54 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %47
+  %switch.load55 = load i64, ptr %switch.gep54, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup59:                                  ; preds = %23
-  %48 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %48
-  %switch.load61 = load ptr, ptr %switch.gep60, align 8
-  %49 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %49
-  %switch.load63 = load i64, ptr %switch.gep62, align 8
+switch.lookup57:                                  ; preds = %23
+  %48 = zext nneg i32 %switch.tableidx56 to i64
+  %switch.gep58 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %48
+  %switch.load59 = load ptr, ptr %switch.gep58, align 8
+  %49 = zext nneg i32 %switch.tableidx56 to i64
+  %switch.gep60 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %49
+  %switch.load61 = load i64, ptr %switch.gep60, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup64:                                  ; preds = %25
+switch.lookup62:                                  ; preds = %25
   %50 = zext nneg i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %50
-  %switch.load66 = load ptr, ptr %switch.gep65, align 8
+  %switch.gep63 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %50
+  %switch.load64 = load ptr, ptr %switch.gep63, align 8
   %51 = zext nneg i32 %1 to i64
-  %switch.gep67 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %51
-  %switch.load68 = load i64, ptr %switch.gep67, align 8
+  %switch.gep65 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %51
+  %switch.load66 = load i64, ptr %switch.gep65, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup69:                                  ; preds = %31
+switch.lookup67:                                  ; preds = %31
   %52 = zext nneg i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %52
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %52
+  %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %53 = zext nneg i32 %1 to i64
-  %switch.gep72 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %53
-  %switch.load73 = load i64, ptr %switch.gep72, align 8
+  %switch.gep70 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %53
+  %switch.load71 = load i64, ptr %switch.gep70, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-switch.lookup74:                                  ; preds = %40
+switch.lookup72:                                  ; preds = %40
   %54 = zext nneg i32 %1 to i64
-  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %54
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep73 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %54
+  %switch.load74 = load ptr, ptr %switch.gep73, align 8
   %55 = zext nneg i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %55
-  %switch.load78 = load i64, ptr %switch.gep77, align 8
+  %switch.gep75 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %55
+  %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
-_ZN4llvm5dwarf19AccessibilityStringEj.exit:       ; preds = %switch.lookup74, %40, %switch.lookup69, %31, %switch.lookup64, %25, %switch.lookup59, %23, %switch.lookup53, %15, %switch.lookup47, %5, %switch.lookup, %3, %35, %34, %33, %22, %21, %20, %19, %18, %17, %2, %36, %27, %11, %7
-  %.sroa.0.0 = phi ptr [ null, %33 ], [ null, %2 ], [ null, %3 ], [ %9, %7 ], [ %13, %11 ], [ null, %5 ], [ null, %15 ], [ null, %17 ], [ null, %23 ], [ %29, %27 ], [ null, %25 ], [ null, %31 ], [ %38, %36 ], [ %switch.load61, %switch.lookup59 ], [ %switch.load, %switch.lookup ], [ null, %40 ], [ @.str.688, %21 ], [ %switch.load49, %switch.lookup47 ], [ %switch.load76, %switch.lookup74 ], [ %switch.load66, %switch.lookup64 ], [ %switch.load55, %switch.lookup53 ], [ @.str.846, %34 ], [ @.str.847, %35 ], [ %switch.load71, %switch.lookup69 ], [ @.str.689, %22 ], [ @.str.685, %18 ], [ @.str.686, %19 ], [ @.str.687, %20 ]
-  %.sroa.16.0 = phi i64 [ 0, %33 ], [ 0, %2 ], [ 0, %3 ], [ %10, %7 ], [ %14, %11 ], [ 0, %5 ], [ 0, %15 ], [ 0, %17 ], [ 0, %23 ], [ %30, %27 ], [ 0, %25 ], [ 0, %31 ], [ %39, %36 ], [ %switch.load63, %switch.lookup59 ], [ %switch.load46, %switch.lookup ], [ 0, %40 ], [ 14, %21 ], [ %switch.load51, %switch.lookup47 ], [ %switch.load78, %switch.lookup74 ], [ %switch.load68, %switch.lookup64 ], [ %switch.load57, %switch.lookup53 ], [ 16, %34 ], [ 16, %35 ], [ %switch.load73, %switch.lookup69 ], [ 14, %22 ], [ 14, %18 ], [ 10, %19 ], [ 13, %20 ]
+_ZN4llvm5dwarf19AccessibilityStringEj.exit:       ; preds = %switch.lookup72, %40, %switch.lookup67, %31, %switch.lookup62, %25, %switch.lookup57, %23, %switch.lookup51, %15, %switch.lookup45, %5, %switch.lookup, %3, %35, %34, %33, %22, %21, %20, %19, %18, %17, %2, %36, %27, %11, %7
+  %.sroa.0.0 = phi ptr [ null, %33 ], [ null, %2 ], [ null, %3 ], [ %9, %7 ], [ %13, %11 ], [ null, %5 ], [ null, %15 ], [ null, %17 ], [ null, %23 ], [ %29, %27 ], [ null, %25 ], [ null, %31 ], [ %38, %36 ], [ %switch.load59, %switch.lookup57 ], [ %switch.load, %switch.lookup ], [ null, %40 ], [ @.str.688, %21 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load74, %switch.lookup72 ], [ %switch.load64, %switch.lookup62 ], [ %switch.load53, %switch.lookup51 ], [ @.str.846, %34 ], [ @.str.847, %35 ], [ %switch.load69, %switch.lookup67 ], [ @.str.689, %22 ], [ @.str.685, %18 ], [ @.str.686, %19 ], [ @.str.687, %20 ]
+  %.sroa.16.0 = phi i64 [ 0, %33 ], [ 0, %2 ], [ 0, %3 ], [ %10, %7 ], [ %14, %11 ], [ 0, %5 ], [ 0, %15 ], [ 0, %17 ], [ 0, %23 ], [ %30, %27 ], [ 0, %25 ], [ 0, %31 ], [ %39, %36 ], [ %switch.load61, %switch.lookup57 ], [ %switch.load44, %switch.lookup ], [ 0, %40 ], [ 14, %21 ], [ %switch.load49, %switch.lookup45 ], [ %switch.load76, %switch.lookup72 ], [ %switch.load66, %switch.lookup62 ], [ %switch.load55, %switch.lookup51 ], [ 16, %34 ], [ 16, %35 ], [ %switch.load71, %switch.lookup67 ], [ 14, %22 ], [ 14, %18 ], [ 10, %19 ], [ 13, %20 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9753,13 +9753,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.11.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.11.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.11.0, 1
   ret { ptr, i64 } %.fca.1.insert

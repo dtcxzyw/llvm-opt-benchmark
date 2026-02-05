@@ -26962,8 +26962,8 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory5VisitERKN
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit
 
 21:                                               ; preds = %3
-  %.not89 = icmp eq i64 %16, 32
-  br i1 %.not89, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %22
+  %.not87 = icmp eq i64 %16, 32
+  br i1 %.not87, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -27397,8 +27397,8 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit49: ; preds = 
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit60
 
 222:                                              ; preds = %209
-  %.not90 = icmp eq i64 %217, 48
-  br i1 %.not90, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit60, label %223
+  %.not88 = icmp eq i64 %217, 48
+  br i1 %.not88, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit60, label %223
 
 223:                                              ; preds = %222
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 48
@@ -27566,8 +27566,8 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit71: ; preds = %_ZNSt16_Sp_counted
   %297 = sub i64 %295, %296
   %298 = lshr exact i64 %297, 4
   %299 = trunc i64 %298 to i32
-  %.not3691 = icmp sgt i32 %299, 0
-  br i1 %.not3691, label %.lr.ph, label %.critedge
+  %.not3689 = icmp sgt i32 %299, 0
+  br i1 %.not3689, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit71
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 8

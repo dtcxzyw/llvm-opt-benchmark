@@ -196,9 +196,9 @@ generateRandomOrdering.exit53:                    ; preds = %67, %generateRandom
   %72 = load ptr, ptr %70, align 8, !tbaa !13
   call void @free(ptr noundef %72) #20
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.val112 = load i64, ptr %73, align 8, !tbaa !16
-  %.not = icmp eq i64 %.val112, 0
-  br i1 %.not, label %._crit_edge118, label %.preheader.lr.ph
+  %.val108 = load i64, ptr %73, align 8, !tbaa !16
+  %.not = icmp eq i64 %.val108, 0
+  br i1 %.not, label %._crit_edge114, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %generateRandomOrdering.exit53
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -207,22 +207,22 @@ generateRandomOrdering.exit53:                    ; preds = %67, %generateRandom
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %79 = load i64, ptr %74, align 8, !tbaa !16
-  %.not126 = icmp eq i64 %79, 0
-  br i1 %.not126, label %._crit_edge118, label %.preheader
+  %.not122 = icmp eq i64 %79, 0
+  br i1 %.not122, label %._crit_edge114, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.val136 = phi i64 [ %.val, %._crit_edge ], [ %.val112, %.preheader.lr.ph ]
-  %.val32132 = phi i64 [ %.val32133, %._crit_edge ], [ %79, %.preheader.lr.ph ]
-  %.val32103 = phi i64 [ %.val32103130, %._crit_edge ], [ 1, %.preheader.lr.ph ]
-  %.031117 = phi i64 [ %89, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.sroa.21.0116 = phi i64 [ %.sroa.21.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.sroa.16.0115 = phi i64 [ %.sroa.16.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.sroa.10.0114 = phi i64 [ %.sroa.10.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.sroa.056.0113 = phi ptr [ %.sroa.056.1.lcssa, %._crit_edge ], [ null, %.preheader.lr.ph ]
-  %.not127 = icmp eq i64 %.val32103, 0
-  br i1 %.not127, label %._crit_edge, label %.lr.ph
+  %.val132 = phi i64 [ %.val, %._crit_edge ], [ %.val108, %.preheader.lr.ph ]
+  %.val32128 = phi i64 [ %.val32129, %._crit_edge ], [ %79, %.preheader.lr.ph ]
+  %.val3299 = phi i64 [ %.val3299126, %._crit_edge ], [ 1, %.preheader.lr.ph ]
+  %.031113 = phi i64 [ %89, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.sroa.21.0112 = phi i64 [ %.sroa.21.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.sroa.16.0111 = phi i64 [ %.sroa.16.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.sroa.10.0110 = phi i64 [ %.sroa.10.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.sroa.056.0109 = phi ptr [ %.sroa.056.1.lcssa, %._crit_edge ], [ null, %.preheader.lr.ph ]
+  %.not123 = icmp eq i64 %.val3299, 0
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
-._crit_edge118:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %generateRandomOrdering.exit53
+._crit_edge114:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %generateRandomOrdering.exit53
   %.sroa.056.0.lcssa = phi ptr [ null, %generateRandomOrdering.exit53 ], [ null, %.preheader.lr.ph ], [ %.sroa.056.1.lcssa, %._crit_edge ]
   %.sroa.10.0.lcssa = phi i64 [ 0, %generateRandomOrdering.exit53 ], [ 0, %.preheader.lr.ph ], [ %.sroa.10.1.lcssa, %._crit_edge ]
   %.sroa.16.0.lcssa = phi i64 [ 0, %generateRandomOrdering.exit53 ], [ 0, %.preheader.lr.ph ], [ %.sroa.16.1.lcssa, %._crit_edge ]
@@ -243,7 +243,7 @@ generateRandomOrdering.exit53:                    ; preds = %67, %generateRandom
   %.not12.i.i = icmp eq i64 %.sroa.10.0.lcssa, 0
   br i1 %.not12.i.i, label %boxes_detach.exit, label %.lr.ph14.i.i
 
-.lr.ph14.i.i:                                     ; preds = %._crit_edge118
+.lr.ph14.i.i:                                     ; preds = %._crit_edge114
   %84 = icmp eq i64 %.sroa.21.0.lcssa, 0
   br i1 %84, label %.lr.ph14.split.us.i.i, label %.lr.ph14.split.i.i
 
@@ -279,7 +279,7 @@ generateRandomOrdering.exit53:                    ; preds = %67, %generateRandom
   %.not9.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not9.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
-boxes_detach.exit:                                ; preds = %._crit_edge.i.i, %.lr.ph14.split.us.i.i, %._crit_edge118
+boxes_detach.exit:                                ; preds = %._crit_edge.i.i, %.lr.ph14.split.us.i.i, %._crit_edge114
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -291,90 +291,90 @@ boxes_detach.exit:                                ; preds = %._crit_edge.i.i, %.
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.val = phi i64 [ %.val136, %.preheader ], [ %.val.pre, %._crit_edge.loopexit ]
-  %.val32133 = phi i64 [ %.val32132, %.preheader ], [ %.val32, %._crit_edge.loopexit ]
-  %.val32103130 = phi i64 [ 0, %.preheader ], [ %.val32, %._crit_edge.loopexit ]
-  %.sroa.056.1.lcssa = phi ptr [ %.sroa.056.0113, %.preheader ], [ %.sroa.056.2, %._crit_edge.loopexit ]
-  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.0114, %.preheader ], [ %.sroa.10.2, %._crit_edge.loopexit ]
-  %.sroa.16.1.lcssa = phi i64 [ %.sroa.16.0115, %.preheader ], [ %.sroa.16.2, %._crit_edge.loopexit ]
-  %.sroa.21.1.lcssa = phi i64 [ %.sroa.21.0116, %.preheader ], [ %.sroa.21.2, %._crit_edge.loopexit ]
-  %89 = add nuw i64 %.031117, 1
+  %.val = phi i64 [ %.val132, %.preheader ], [ %.val.pre, %._crit_edge.loopexit ]
+  %.val32129 = phi i64 [ %.val32128, %.preheader ], [ %.val32, %._crit_edge.loopexit ]
+  %.val3299126 = phi i64 [ 0, %.preheader ], [ %.val32, %._crit_edge.loopexit ]
+  %.sroa.056.1.lcssa = phi ptr [ %.sroa.056.0109, %.preheader ], [ %.sroa.056.2, %._crit_edge.loopexit ]
+  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.0110, %.preheader ], [ %.sroa.10.2, %._crit_edge.loopexit ]
+  %.sroa.16.1.lcssa = phi i64 [ %.sroa.16.0111, %.preheader ], [ %.sroa.16.2, %._crit_edge.loopexit ]
+  %.sroa.21.1.lcssa = phi i64 [ %.sroa.21.0112, %.preheader ], [ %.sroa.21.2, %._crit_edge.loopexit ]
+  %89 = add nuw i64 %.031113, 1
   %90 = icmp ult i64 %89, %.val
-  br i1 %90, label %.preheader, label %._crit_edge118, !llvm.loop !27
+  br i1 %90, label %.preheader, label %._crit_edge114, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.preheader, %139
-  %.val32134 = phi i64 [ %.val32, %139 ], [ %.val32132, %.preheader ]
-  %.0108 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
-  %.sroa.21.1107 = phi i64 [ %.sroa.21.2, %139 ], [ %.sroa.21.0116, %.preheader ]
-  %.sroa.16.1106 = phi i64 [ %.sroa.16.2, %139 ], [ %.sroa.16.0115, %.preheader ]
-  %.sroa.10.1105 = phi i64 [ %.sroa.10.2, %139 ], [ %.sroa.10.0114, %.preheader ]
-  %.sroa.056.1104 = phi ptr [ %.sroa.056.2, %139 ], [ %.sroa.056.0113, %.preheader ]
+  %.val32130 = phi i64 [ %.val32, %139 ], [ %.val32128, %.preheader ]
+  %.0104 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
+  %.sroa.21.1103 = phi i64 [ %.sroa.21.2, %139 ], [ %.sroa.21.0112, %.preheader ]
+  %.sroa.16.1102 = phi i64 [ %.sroa.16.2, %139 ], [ %.sroa.16.0111, %.preheader ]
+  %.sroa.10.1101 = phi i64 [ %.sroa.10.2, %139 ], [ %.sroa.10.0110, %.preheader ]
+  %.sroa.056.1100 = phi ptr [ %.sroa.056.2, %139 ], [ %.sroa.056.0109, %.preheader ]
   %91 = load ptr, ptr %10, align 8, !tbaa !18, !noalias !28
   %92 = load i64, ptr %75, align 8, !tbaa !31, !noalias !28
-  %93 = add i64 %92, %.031117
+  %93 = add i64 %92, %.031113
   %94 = load i64, ptr %76, align 8, !tbaa !32, !noalias !28
   %95 = urem i64 %93, %94
   %96 = getelementptr inbounds nuw %struct.boxf, ptr %91, i64 %95
-  %.sroa.079.0.copyload = load double, ptr %96, align 8, !tbaa !22
+  %.sroa.075.0.copyload = load double, ptr %96, align 8, !tbaa !22
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !22
-  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %.sroa.480.0.copyload = load double, ptr %.sroa.480.0..sroa_idx, align 8, !tbaa !22
+  %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %.sroa.476.0.copyload = load double, ptr %.sroa.476.0..sroa_idx, align 8, !tbaa !22
   %97 = load ptr, ptr %8, align 8, !tbaa !18, !noalias !33
   %98 = load i64, ptr %77, align 8, !tbaa !31, !noalias !33
-  %99 = add i64 %98, %.0108
+  %99 = add i64 %98, %.0104
   %100 = load i64, ptr %78, align 8, !tbaa !32, !noalias !33
   %101 = urem i64 %99, %100
   %102 = getelementptr inbounds nuw %struct.boxf, ptr %97, i64 %101
-  %.sroa.085.0.copyload = load double, ptr %102, align 8, !tbaa !22
-  %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %.sroa.286.0.copyload = load double, ptr %.sroa.286.0..sroa_idx, align 8, !tbaa !22
-  %.sroa.387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %.sroa.387.0.copyload = load double, ptr %.sroa.387.0..sroa_idx, align 8, !tbaa !22
-  %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %.sroa.488.0.copyload = load double, ptr %.sroa.488.0..sroa_idx, align 8, !tbaa !22
-  %103 = call double @llvm.maxnum.f64(double %.sroa.079.0.copyload, double %.sroa.085.0.copyload)
-  %104 = call double @llvm.minnum.f64(double %.sroa.3.0.copyload, double %.sroa.387.0.copyload)
-  %105 = call double @llvm.maxnum.f64(double %.sroa.2.0.copyload, double %.sroa.286.0.copyload)
-  %106 = call double @llvm.minnum.f64(double %.sroa.480.0.copyload, double %.sroa.488.0.copyload)
+  %.sroa.081.0.copyload = load double, ptr %102, align 8, !tbaa !22
+  %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %.sroa.282.0.copyload = load double, ptr %.sroa.282.0..sroa_idx, align 8, !tbaa !22
+  %.sroa.383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %.sroa.383.0.copyload = load double, ptr %.sroa.383.0..sroa_idx, align 8, !tbaa !22
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %.sroa.484.0.copyload = load double, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !22
+  %103 = call double @llvm.maxnum.f64(double %.sroa.075.0.copyload, double %.sroa.081.0.copyload)
+  %104 = call double @llvm.minnum.f64(double %.sroa.3.0.copyload, double %.sroa.383.0.copyload)
+  %105 = call double @llvm.maxnum.f64(double %.sroa.2.0.copyload, double %.sroa.282.0.copyload)
+  %106 = call double @llvm.minnum.f64(double %.sroa.476.0.copyload, double %.sroa.484.0.copyload)
   %107 = fcmp ult double %103, %104
   %108 = fcmp ult double %105, %106
   %109 = select i1 %107, i1 %108, i1 false
   br i1 %109, label %110, label %139
 
 110:                                              ; preds = %.lr.ph
-  %111 = icmp eq i64 %.sroa.16.1106, %.sroa.21.1107
+  %111 = icmp eq i64 %.sroa.16.1102, %.sroa.21.1103
   br i1 %111, label %112, label %boxes_append.exit
 
 112:                                              ; preds = %110
-  %113 = icmp eq i64 %.sroa.21.1107, 0
-  %114 = shl i64 %.sroa.21.1107, 1
+  %113 = icmp eq i64 %.sroa.21.1103, 0
+  %114 = shl i64 %.sroa.21.1103, 1
   %spec.select.i.i = select i1 %113, i64 1, i64 %114
   %mul.ov.i.i = icmp ugt i64 %spec.select.i.i, 576460752303423487
   br i1 %mul.ov.i.i, label %131, label %115
 
 115:                                              ; preds = %112
   %116 = shl nuw i64 %spec.select.i.i, 5
-  %117 = call ptr @realloc(ptr noundef %.sroa.056.1104, i64 noundef %116) #21
+  %117 = call ptr @realloc(ptr noundef %.sroa.056.1100, i64 noundef %116) #21
   %118 = icmp eq ptr %117, null
   br i1 %118, label %131, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw %struct.boxf, ptr %117, i64 %.sroa.21.1107
-  %121 = sub i64 %spec.select.i.i, %.sroa.21.1107
+  %120 = getelementptr inbounds nuw %struct.boxf, ptr %117, i64 %.sroa.21.1103
+  %121 = sub i64 %spec.select.i.i, %.sroa.21.1103
   %122 = shl i64 %121, 5
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %120, i8 0, i64 %122, i1 false)
-  %123 = add i64 %.sroa.21.1107, %.sroa.10.1105
-  %124 = icmp ugt i64 %123, %.sroa.21.1107
+  %123 = add i64 %.sroa.21.1103, %.sroa.10.1101
+  %124 = icmp ugt i64 %123, %.sroa.21.1103
   br i1 %124, label %125, label %boxes_append.exit
 
 125:                                              ; preds = %119
-  %126 = sub i64 %.sroa.21.1107, %.sroa.10.1105
+  %126 = sub i64 %.sroa.21.1103, %.sroa.10.1101
   %127 = sub i64 %spec.select.i.i, %126
   %128 = getelementptr inbounds nuw %struct.boxf, ptr %117, i64 %127
-  %129 = getelementptr inbounds nuw %struct.boxf, ptr %117, i64 %.sroa.10.1105
+  %129 = getelementptr inbounds nuw %struct.boxf, ptr %117, i64 %.sroa.10.1101
   %130 = shl i64 %126, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr nonnull align 8 %129, i64 %130, i1 false)
   br label %boxes_append.exit
@@ -388,30 +388,30 @@ boxes_detach.exit:                                ; preds = %._crit_edge.i.i, %.
   unreachable
 
 boxes_append.exit:                                ; preds = %119, %125, %110
-  %.sroa.056.3 = phi ptr [ %.sroa.056.1104, %110 ], [ %117, %125 ], [ %117, %119 ]
-  %.sroa.10.6 = phi i64 [ %.sroa.10.1105, %110 ], [ %127, %125 ], [ %.sroa.10.1105, %119 ]
-  %.sroa.21.3 = phi i64 [ %.sroa.21.1107, %110 ], [ %spec.select.i.i, %125 ], [ %spec.select.i.i, %119 ]
-  %135 = add i64 %.sroa.10.6, %.sroa.16.1106
+  %.sroa.056.3 = phi ptr [ %.sroa.056.1100, %110 ], [ %117, %125 ], [ %117, %119 ]
+  %.sroa.10.5 = phi i64 [ %.sroa.10.1101, %110 ], [ %127, %125 ], [ %.sroa.10.1101, %119 ]
+  %.sroa.21.3 = phi i64 [ %.sroa.21.1103, %110 ], [ %spec.select.i.i, %125 ], [ %spec.select.i.i, %119 ]
+  %135 = add i64 %.sroa.10.5, %.sroa.16.1102
   %136 = urem i64 %135, %.sroa.21.3
   %137 = getelementptr inbounds nuw %struct.boxf, ptr %.sroa.056.3, i64 %136
   store double %103, ptr %137, align 8
-  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store double %105, ptr %.sroa.490.0..sroa_idx, align 8
-  %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store double %104, ptr %.sroa.591.0..sroa_idx, align 8
-  %.sroa.692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store double %106, ptr %.sroa.692.0..sroa_idx, align 8
-  %138 = add i64 %.sroa.16.1106, 1
+  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store double %105, ptr %.sroa.486.0..sroa_idx, align 8
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store double %104, ptr %.sroa.587.0..sroa_idx, align 8
+  %.sroa.688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 24
+  store double %106, ptr %.sroa.688.0..sroa_idx, align 8
+  %138 = add i64 %.sroa.16.1102, 1
   %.val32.pre = load i64, ptr %74, align 8, !tbaa !16
   br label %139
 
 139:                                              ; preds = %boxes_append.exit, %.lr.ph
-  %.val32 = phi i64 [ %.val32.pre, %boxes_append.exit ], [ %.val32134, %.lr.ph ]
-  %.sroa.056.2 = phi ptr [ %.sroa.056.3, %boxes_append.exit ], [ %.sroa.056.1104, %.lr.ph ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.6, %boxes_append.exit ], [ %.sroa.10.1105, %.lr.ph ]
-  %.sroa.16.2 = phi i64 [ %138, %boxes_append.exit ], [ %.sroa.16.1106, %.lr.ph ]
-  %.sroa.21.2 = phi i64 [ %.sroa.21.3, %boxes_append.exit ], [ %.sroa.21.1107, %.lr.ph ]
-  %140 = add nuw i64 %.0108, 1
+  %.val32 = phi i64 [ %.val32.pre, %boxes_append.exit ], [ %.val32130, %.lr.ph ]
+  %.sroa.056.2 = phi ptr [ %.sroa.056.3, %boxes_append.exit ], [ %.sroa.056.1100, %.lr.ph ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.5, %boxes_append.exit ], [ %.sroa.10.1101, %.lr.ph ]
+  %.sroa.16.2 = phi i64 [ %138, %boxes_append.exit ], [ %.sroa.16.1102, %.lr.ph ]
+  %.sroa.21.2 = phi i64 [ %.sroa.21.3, %boxes_append.exit ], [ %.sroa.21.1103, %.lr.ph ]
+  %140 = add nuw i64 %.0104, 1
   %141 = icmp ult i64 %140, %.val32
   br i1 %141, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !36
 }

@@ -15737,24 +15737,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 71:                                               ; preds = %69
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %61, i64 noundef %67, i64 noundef 1) #26
   %.pre.i.i = load i64, ptr %62, align 8, !tbaa !1212
-  %.pre.pre144.pre = load ptr, ptr %9, align 8, !tbaa !1210
+  %.pre.pre130.pre = load ptr, ptr %9, align 8, !tbaa !1210
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %71, %69
-  %.pre.pre144 = phi ptr [ %61, %69 ], [ %.pre.pre144.pre, %71 ]
+  %.pre.pre130 = phi ptr [ %61, %69 ], [ %.pre.pre130.pre, %71 ]
   %72 = phi i64 [ 0, %69 ], [ %.pre.i.i, %71 ]
   %.not11.i.i = icmp samesign eq i64 %72, %67
   br i1 %.not11.i.i, label %.sink.split.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %73 = getelementptr i8, ptr %.pre.pre144, i64 %72
+  %73 = getelementptr i8, ptr %.pre.pre130, i64 %72
   %74 = sub i64 %67, %72
   call void @llvm.memset.p0.i64(ptr align 1 %73, i8 0, i64 %74, i1 false), !tbaa !47
   %.pre.pre = load ptr, ptr %9, align 8, !tbaa !1210
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %.pre = phi ptr [ %.pre.pre, %.lr.ph.preheader.i.i ], [ %.pre.pre144, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
+  %.pre = phi ptr [ %.pre.pre, %.lr.ph.preheader.i.i ], [ %.pre.pre130, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
   store i64 %67, ptr %62, align 8, !tbaa !1212
   br label %_ZN4llvm15SmallVectorImplIcE6resizeEm.exit
 
@@ -15773,31 +15773,31 @@ _ZN4llvm15SmallVectorImplIcE6resizeEm.exit:       ; preds = %60, %.sink.split.i.
   %82 = call noundef i32 @_ZN5clang5Lexer11getSpellingERKNS_5TokenERPKcRKNS_13SourceManagerERKNS_11LangOptionsEPb(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(696) %79, ptr noundef nonnull align 8 dereferenceable(849) %81, ptr noundef nonnull %11) #26
   %83 = load i8, ptr %11, align 1, !tbaa !1123, !range !388, !noundef !389
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %_ZN5clang17DiagnosticBuilderD2Ev.exit78, label %.preheader109
+  br i1 %84, label %_ZN5clang17DiagnosticBuilderD2Ev.exit78, label %.preheader95
 
-.preheader109:                                    ; preds = %_ZN4llvm15SmallVectorImplIcE6resizeEm.exit
-  %.not133 = icmp eq i32 %82, 0
-  br i1 %.not133, label %.critedge.thread, label %.lr.ph
+.preheader95:                                     ; preds = %_ZN4llvm15SmallVectorImplIcE6resizeEm.exit
+  %.not119 = icmp eq i32 %82, 0
+  br i1 %.not119, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader109
+.lr.ph:                                           ; preds = %.preheader95
   %85 = load ptr, ptr %10, align 8, !tbaa !1228
   %wide.trip.count = zext i32 %82 to i64
   br label %86
 
 86:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %.056110 = phi i32 [ 0, %.lr.ph ], [ %97, %93 ]
+  %.05696 = phi i32 [ 0, %.lr.ph ], [ %97, %93 ]
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv
   %88 = load i8, ptr %87, align 1, !tbaa !47
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !1131
   %92 = and i16 %91, 8
-  %.not103 = icmp eq i16 %92, 0
-  br i1 %.not103, label %.critedge.split.loop.exit, label %93
+  %.not89 = icmp eq i16 %92, 0
+  br i1 %.not89, label %.critedge.split.loop.exit, label %93
 
 93:                                               ; preds = %86
-  %94 = mul i32 %.056110, 10
+  %94 = mul i32 %.05696, 10
   %95 = sext i8 %88 to i32
   %96 = add i32 %94, -48
   %97 = add i32 %96, %95
@@ -15810,12 +15810,12 @@ _ZN4llvm15SmallVectorImplIcE6resizeEm.exit:       ; preds = %60, %.sink.split.i.
   br label %.critedge
 
 .critedge:                                        ; preds = %93, %.critedge.split.loop.exit
-  %.056.lcssa = phi i32 [ %.056110, %.critedge.split.loop.exit ], [ %97, %93 ]
+  %.056.lcssa = phi i32 [ %.05696, %.critedge.split.loop.exit ], [ %97, %93 ]
   %.055.lcssa = phi i32 [ %98, %.critedge.split.loop.exit ], [ %82, %93 ]
   %99 = icmp eq i32 %.055.lcssa, 0
   br i1 %99, label %.critedge.thread, label %123
 
-.critedge.thread:                                 ; preds = %.preheader109, %.critedge
+.critedge.thread:                                 ; preds = %.preheader95, %.critedge
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %19, i32 noundef 1555) #26
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %101 = load i8, ptr %100, align 8, !tbaa !1167, !range !388, !noundef !389
@@ -15944,19 +15944,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i74: ; preds = %_
   %158 = load i8, ptr %157, align 1, !tbaa !47
   %159 = icmp ne i8 %158, 46
   %160 = icmp ne i8 %158, 95
-  %.not106 = and i1 %159, %160
+  %.not92 = and i1 %159, %160
   %161 = add i32 %.055.lcssa, 1
   %162 = icmp eq i32 %161, %82
-  %or.cond64 = or i1 %162, %.not106
+  %or.cond64 = or i1 %162, %.not92
   br i1 %or.cond64, label %165, label %.preheader
 
 .preheader:                                       ; preds = %154
   %163 = icmp ult i32 %161, %82
-  br i1 %163, label %.lr.ph118.preheader, label %.critedge2
+  br i1 %163, label %.lr.ph104.preheader, label %.critedge2
 
-.lr.ph118.preheader:                              ; preds = %.preheader
+.lr.ph104.preheader:                              ; preds = %.preheader
   %164 = zext i32 %161 to i64
-  br label %.lr.ph118
+  br label %.lr.ph104
 
 165:                                              ; preds = %154
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %19, i32 noundef 1555) #26
@@ -16015,47 +16015,47 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit85:          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit78
 
-.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %195
-  %indvars.iv135 = phi i64 [ %164, %.lr.ph118.preheader ], [ %indvars.iv.next136, %195 ]
-  %.057117 = phi i32 [ 0, %.lr.ph118.preheader ], [ %199, %195 ]
-  %189 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv135
+.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %195
+  %indvars.iv121 = phi i64 [ %164, %.lr.ph104.preheader ], [ %indvars.iv.next122, %195 ]
+  %.057103 = phi i32 [ 0, %.lr.ph104.preheader ], [ %199, %195 ]
+  %189 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv121
   %190 = load i8, ptr %189, align 1, !tbaa !47
   %191 = zext i8 %190 to i64
   %192 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %191
   %193 = load i16, ptr %192, align 2, !tbaa !1131
   %194 = and i16 %193, 8
-  %.not107 = icmp eq i16 %194, 0
-  br i1 %.not107, label %.critedge2.loopexit, label %195
+  %.not93 = icmp eq i16 %194, 0
+  br i1 %.not93, label %.critedge2.loopexit, label %195
 
-195:                                              ; preds = %.lr.ph118
-  %196 = mul i32 %.057117, 10
+195:                                              ; preds = %.lr.ph104
+  %196 = mul i32 %.057103, 10
   %197 = sext i8 %190 to i32
   %198 = add i32 %196, -48
   %199 = add i32 %198, %197
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next136 to i32
-  %exitcond138.not = icmp eq i32 %82, %lftr.wideiv
-  br i1 %exitcond138.not, label %.critedge2.thread, label %.lr.ph118, !llvm.loop !1230
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next122 to i32
+  %exitcond124.not = icmp eq i32 %82, %lftr.wideiv
+  br i1 %exitcond124.not, label %.critedge2.thread, label %.lr.ph104, !llvm.loop !1230
 
-.critedge2.loopexit:                              ; preds = %.lr.ph118
-  %200 = trunc nuw i64 %indvars.iv135 to i32
+.critedge2.loopexit:                              ; preds = %.lr.ph104
+  %200 = trunc nuw i64 %indvars.iv121 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader
   %.058.lcssa = phi i32 [ %161, %.preheader ], [ %200, %.critedge2.loopexit ]
-  %.057.lcssa = phi i32 [ 0, %.preheader ], [ %.057117, %.critedge2.loopexit ]
+  %.057.lcssa = phi i32 [ 0, %.preheader ], [ %.057103, %.critedge2.loopexit ]
   %201 = icmp eq i32 %.058.lcssa, %82
   br i1 %201, label %.critedge2.thread, label %215
 
 .critedge2.thread:                                ; preds = %195, %.critedge2
-  %.057.lcssa172 = phi i32 [ %.057.lcssa, %.critedge2 ], [ %199, %195 ]
+  %.057.lcssa158 = phi i32 [ %.057.lcssa, %.critedge2 ], [ %199, %195 ]
   %202 = load i32, ptr %19, align 8, !tbaa !375
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %202, ptr %203, align 8, !tbaa !149
   %204 = load ptr, ptr %76, align 8, !tbaa !155
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %204, ptr noundef nonnull align 8 dereferenceable(20) %19) #26
   %205 = icmp eq i32 %.056.lcssa, 0
-  %206 = icmp eq i32 %.057.lcssa172, 0
+  %206 = icmp eq i32 %.057.lcssa158, 0
   %or.cond = select i1 %205, i1 %206, i1 false
   br i1 %or.cond, label %207, label %208
 
@@ -16066,7 +16066,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit85:          ; preds = %_ZNSt7__cxx1112basi
 
 208:                                              ; preds = %.critedge2.thread
   %209 = zext i32 %.056.lcssa to i64
-  %210 = and i32 %.057.lcssa172, 2147483647
+  %210 = and i32 %.057.lcssa158, 2147483647
   %211 = zext nneg i32 %210 to i64
   %212 = shl nuw nsw i64 %211, 32
   %213 = or disjoint i64 %212, %209
@@ -16103,51 +16103,51 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit85:          ; preds = %_ZNSt7__cxx1112basi
   br label %224
 
 224:                                              ; preds = %223, %222
-  %.054124 = add i32 %.058.lcssa, 1
-  %225 = icmp ult i32 %.054124, %82
-  br i1 %225, label %.lr.ph127, label %.critedge5
+  %.054110 = add i32 %.058.lcssa, 1
+  %225 = icmp ult i32 %.054110, %82
+  br i1 %225, label %.lr.ph113, label %.critedge5
 
-.lr.ph127:                                        ; preds = %224
+.lr.ph113:                                        ; preds = %224
   %226 = load ptr, ptr %10, align 8, !tbaa !1228
-  %227 = zext i32 %.054124 to i64
+  %227 = zext i32 %.054110 to i64
   br label %228
 
-228:                                              ; preds = %.lr.ph127, %235
-  %indvars.iv139 = phi i64 [ %227, %.lr.ph127 ], [ %indvars.iv.next140, %235 ]
-  %.0125 = phi i32 [ 0, %.lr.ph127 ], [ %239, %235 ]
-  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv139
+228:                                              ; preds = %.lr.ph113, %235
+  %indvars.iv125 = phi i64 [ %227, %.lr.ph113 ], [ %indvars.iv.next126, %235 ]
+  %.0111 = phi i32 [ 0, %.lr.ph113 ], [ %239, %235 ]
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv125
   %230 = load i8, ptr %229, align 1, !tbaa !47
   %231 = zext i8 %230 to i64
   %232 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %231
   %233 = load i16, ptr %232, align 2, !tbaa !1131
   %234 = and i16 %233, 8
-  %.not108 = icmp eq i16 %234, 0
-  br i1 %.not108, label %.critedge5.loopexit.split.loop.exit179, label %235
+  %.not94 = icmp eq i16 %234, 0
+  br i1 %.not94, label %.critedge5.loopexit.split.loop.exit165, label %235
 
 235:                                              ; preds = %228
-  %236 = mul i32 %.0125, 10
+  %236 = mul i32 %.0111, 10
   %237 = sext i8 %230 to i32
   %238 = add i32 %236, -48
   %239 = add i32 %238, %237
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %lftr.wideiv142 = trunc i64 %indvars.iv.next140 to i32
-  %exitcond143.not = icmp eq i32 %82, %lftr.wideiv142
-  br i1 %exitcond143.not, label %.critedge5.loopexit, label %228, !llvm.loop !1231
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %lftr.wideiv128 = trunc i64 %indvars.iv.next126 to i32
+  %exitcond129.not = icmp eq i32 %82, %lftr.wideiv128
+  br i1 %exitcond129.not, label %.critedge5.loopexit, label %228, !llvm.loop !1231
 
-.critedge5.loopexit.split.loop.exit179:           ; preds = %228
-  %240 = trunc nuw i64 %indvars.iv139 to i32
+.critedge5.loopexit.split.loop.exit165:           ; preds = %228
+  %240 = trunc nuw i64 %indvars.iv125 to i32
   br label %.critedge5.loopexit
 
-.critedge5.loopexit:                              ; preds = %235, %.critedge5.loopexit.split.loop.exit179
-  %.0.lcssa.ph = phi i32 [ %.0125, %.critedge5.loopexit.split.loop.exit179 ], [ %239, %235 ]
-  %.054.lcssa.ph = phi i32 [ %240, %.critedge5.loopexit.split.loop.exit179 ], [ %82, %235 ]
+.critedge5.loopexit:                              ; preds = %235, %.critedge5.loopexit.split.loop.exit165
+  %.0.lcssa.ph = phi i32 [ %.0111, %.critedge5.loopexit.split.loop.exit165 ], [ %239, %235 ]
+  %.054.lcssa.ph = phi i32 [ %240, %.critedge5.loopexit.split.loop.exit165 ], [ %82, %235 ]
   %241 = or i32 %.0.lcssa.ph, -2147483648
   %242 = zext i32 %241 to i64
   br label %.critedge5
 
 .critedge5:                                       ; preds = %.critedge5.loopexit, %224
   %.0.lcssa = phi i64 [ 2147483648, %224 ], [ %242, %.critedge5.loopexit ]
-  %.054.lcssa = phi i32 [ %.054124, %224 ], [ %.054.lcssa.ph, %.critedge5.loopexit ]
+  %.054.lcssa = phi i32 [ %.054110, %224 ], [ %.054.lcssa.ph, %.critedge5.loopexit ]
   %.not61 = icmp eq i32 %.054.lcssa, %82
   br i1 %.not61, label %246, label %243
 

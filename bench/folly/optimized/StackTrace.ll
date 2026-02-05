@@ -293,9 +293,9 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit
-  %.038 = phi ptr [ %.sroa.11.1, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %.0.i.i.i, %.lr.ph.preheader ]
-  %.02637 = phi ptr [ %.sroa.9.1, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %8, %.lr.ph.preheader ]
-  %.02736 = phi ptr [ %.sroa.6.1, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %6, %.lr.ph.preheader ]
+  %.038 = phi ptr [ %.sroa.11.0, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %.0.i.i.i, %.lr.ph.preheader ]
+  %.02637 = phi ptr [ %.sroa.9.0, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %8, %.lr.ph.preheader ]
+  %.02736 = phi ptr [ %.sroa.6.0, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %6, %.lr.ph.preheader ]
   %.135 = phi i64 [ %63, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %.029, %.lr.ph.preheader ]
   %15 = icmp ne ptr %.02736, null
   %16 = icmp ne ptr %.038, null
@@ -384,11 +384,11 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   br i1 %exitcond.not, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %.lr.ph.i32
 
 _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit: ; preds = %.thread.i, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, %47, %51, %55, %59
-  %.sroa.0.1 = phi i64 [ %43, %47 ], [ %43, %51 ], [ %43, %55 ], [ %43, %59 ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %36, %.thread.i ]
-  %.sroa.6.1 = phi ptr [ null, %47 ], [ null, %51 ], [ %56, %55 ], [ %56, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
-  %.sroa.9.1 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ %61, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
-  %.sroa.11.1 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ %.0.i.i.i.i, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
-  %63 = add i64 %.sroa.0.1, %34
+  %.sroa.0.0 = phi i64 [ %43, %47 ], [ %43, %51 ], [ %43, %55 ], [ %43, %59 ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %36, %.thread.i ]
+  %.sroa.6.0 = phi ptr [ null, %47 ], [ null, %51 ], [ %56, %55 ], [ %56, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
+  %.sroa.9.0 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ %61, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
+  %.sroa.11.0 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ %.0.i.i.i.i, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
+  %63 = add i64 %.sroa.0.0, %34
   %64 = icmp ult i64 %63, %1
   br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !35
 

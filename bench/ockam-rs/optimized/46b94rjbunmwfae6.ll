@@ -555,9 +555,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br i1 %.not.i.i.i.i.i, label %.loopexit48.i.i.i.i.i, label %136
 
 123:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00954e4bb2577eb1E.exit.i.i.i.i.i.i.i", %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h967e84816e339572E.exit.i.i.i.i.i.i.i", %.noexc7.i.i.i.i.i, %.noexc5.i.i.i.i.i, %.noexc4.i.i.i.i.i, %.noexc3.i.i.i.i.i, %.noexc.i.i.i.i.i
-  %.sroa.9.1.ph.i.i.i.i.i = phi ptr [ %92, %.noexc7.i.i.i.i.i ], [ %85, %.noexc3.i.i.i.i.i ], [ %74, %.noexc.i.i.i.i.i ], [ %86, %.noexc4.i.i.i.i.i ], [ %93, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h967e84816e339572E.exit.i.i.i.i.i.i.i" ], [ %111, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00954e4bb2577eb1E.exit.i.i.i.i.i.i.i" ], [ %87, %.noexc5.i.i.i.i.i ]
+  %.sroa.9.0.ph.i.i.i.i.i = phi ptr [ %92, %.noexc7.i.i.i.i.i ], [ %85, %.noexc3.i.i.i.i.i ], [ %74, %.noexc.i.i.i.i.i ], [ %86, %.noexc4.i.i.i.i.i ], [ %93, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h967e84816e339572E.exit.i.i.i.i.i.i.i" ], [ %111, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00954e4bb2577eb1E.exit.i.i.i.i.i.i.i" ], [ %87, %.noexc5.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.424.i.i.i.i.i)
-  %124 = icmp ne ptr %.sroa.9.1.ph.i.i.i.i.i, null
+  %124 = icmp ne ptr %.sroa.9.0.ph.i.i.i.i.i, null
   call void @llvm.assume(i1 %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
@@ -657,7 +657,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
 
 "_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h49fe76324916b699E.exit.i.i.i.i": ; preds = %.loopexit48.i.i.i.i.i, %135, %.noexc12, %123
   %.sroa.034.0.i.i.i.i = phi ptr [ null, %123 ], [ null, %.noexc12 ], [ null, %135 ], [ %.sroa.034.0.copyload35.i.i.i.i, %.loopexit48.i.i.i.i.i ]
-  %.sroa.536.0.i.i.i.i = phi ptr [ %.sroa.9.1.ph.i.i.i.i.i, %123 ], [ %.sroa.9.1.ph.i.i.i.i.i, %.noexc12 ], [ %.sroa.9.1.ph.i.i.i.i.i, %135 ], [ %.sroa.536.0.copyload38.i.i.i.i, %.loopexit48.i.i.i.i.i ]
+  %.sroa.536.0.i.i.i.i = phi ptr [ %.sroa.9.0.ph.i.i.i.i.i, %123 ], [ %.sroa.9.0.ph.i.i.i.i.i, %.noexc12 ], [ %.sroa.9.0.ph.i.i.i.i.i, %135 ], [ %.sroa.536.0.copyload38.i.i.i.i, %.loopexit48.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !64
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !55
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !55

@@ -3898,8 +3898,8 @@ _ZNK4llvm8MCSymbol7getNameEv.exit179.thread.i:    ; preds = %_ZNK4llvm8MCSymbol7
   br label %950
 
 950:                                              ; preds = %947, %945
-  %.sroa.9.3.i = phi i64 [ 0, %945 ], [ %.sroa.6.0.i, %947 ]
-  %.sroa.7.3.i = phi ptr [ null, %945 ], [ %.sroa.0233.0.i, %947 ]
+  %.sroa.9.0.i = phi i64 [ 0, %945 ], [ %.sroa.6.0.i, %947 ]
+  %.sroa.7.0.i = phi ptr [ null, %945 ], [ %.sroa.0233.0.i, %947 ]
   br i1 %851, label %951, label %974
 
 951:                                              ; preds = %950
@@ -3909,9 +3909,9 @@ _ZNK4llvm8MCSymbol7getNameEv.exit179.thread.i:    ; preds = %_ZNK4llvm8MCSymbol7
 952:                                              ; preds = %951
   store ptr %759, ptr %.sroa.7301.0362.i, align 8, !tbaa !81
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.7301.0362.i, i64 8
-  store ptr %.sroa.7.3.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !85
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !85
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.7301.0362.i, i64 16
-  store i64 %.sroa.9.3.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !86
+  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !86
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.7301.0362.i, i64 24
   store i32 %.sroa.10.2.i, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !381
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.7301.0362.i, i64 28
@@ -3945,9 +3945,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE12_M_check_lenEmP
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 %957
   store ptr %759, ptr %968, align 8, !tbaa !81
   %.sroa.7.0..sroa_idx242.i = getelementptr inbounds nuw i8, ptr %968, i64 8
-  store ptr %.sroa.7.3.i, ptr %.sroa.7.0..sroa_idx242.i, align 8, !tbaa !85
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx242.i, align 8, !tbaa !85
   %.sroa.9.0..sroa_idx248.i = getelementptr inbounds nuw i8, ptr %968, i64 16
-  store i64 %.sroa.9.3.i, ptr %.sroa.9.0..sroa_idx248.i, align 8, !tbaa !86
+  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx248.i, align 8, !tbaa !86
   %.sroa.10.0..sroa_idx254.i = getelementptr inbounds nuw i8, ptr %968, i64 24
   store i32 %.sroa.10.2.i, ptr %.sroa.10.0..sroa_idx254.i, align 8, !tbaa !381
   %.sroa.16.0..sroa_idx260.i = getelementptr inbounds nuw i8, ptr %968, i64 28
@@ -3984,9 +3984,9 @@ _ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE17_M_realloc_inser
 975:                                              ; preds = %974
   store ptr %759, ptr %.sroa.7298.0358.i, align 8, !tbaa !81
   %.sroa.7.0..sroa_idx244.i = getelementptr inbounds nuw i8, ptr %.sroa.7298.0358.i, i64 8
-  store ptr %.sroa.7.3.i, ptr %.sroa.7.0..sroa_idx244.i, align 8, !tbaa !85
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx244.i, align 8, !tbaa !85
   %.sroa.9.0..sroa_idx250.i = getelementptr inbounds nuw i8, ptr %.sroa.7298.0358.i, i64 16
-  store i64 %.sroa.9.3.i, ptr %.sroa.9.0..sroa_idx250.i, align 8, !tbaa !86
+  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx250.i, align 8, !tbaa !86
   %.sroa.10.0..sroa_idx256.i = getelementptr inbounds nuw i8, ptr %.sroa.7298.0358.i, i64 24
   store i32 %.sroa.10.2.i, ptr %.sroa.10.0..sroa_idx256.i, align 8, !tbaa !381
   %.sroa.16.0..sroa_idx262.i = getelementptr inbounds nuw i8, ptr %.sroa.7298.0358.i, i64 28
@@ -4020,9 +4020,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE12_M_check_lenEmP
   %991 = getelementptr inbounds nuw i8, ptr %990, i64 %980
   store ptr %759, ptr %991, align 8, !tbaa !81
   %.sroa.7.0..sroa_idx246.i = getelementptr inbounds nuw i8, ptr %991, i64 8
-  store ptr %.sroa.7.3.i, ptr %.sroa.7.0..sroa_idx246.i, align 8, !tbaa !85
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx246.i, align 8, !tbaa !85
   %.sroa.9.0..sroa_idx252.i = getelementptr inbounds nuw i8, ptr %991, i64 16
-  store i64 %.sroa.9.3.i, ptr %.sroa.9.0..sroa_idx252.i, align 8, !tbaa !86
+  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx252.i, align 8, !tbaa !86
   %.sroa.10.0..sroa_idx258.i = getelementptr inbounds nuw i8, ptr %991, i64 24
   store i32 %.sroa.10.2.i, ptr %.sroa.10.0..sroa_idx258.i, align 8, !tbaa !381
   %.sroa.16.0..sroa_idx264.i = getelementptr inbounds nuw i8, ptr %991, i64 28

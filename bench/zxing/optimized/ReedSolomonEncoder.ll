@@ -311,10 +311,10 @@ _ZN5ZXing13GenericGFPolyD2Ev.exit:                ; preds = %_ZNSt6vectorIiSaIiE
   br label %102
 
 36:                                               ; preds = %9, %90
-  %.071 = phi i32 [ %8, %9 ], [ %93, %90 ]
+  %.068 = phi i32 [ %8, %9 ], [ %93, %90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = add nsw i32 %.071, -1
+  %38 = add nsw i32 %.068, -1
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !33
   %41 = add nsw i32 %38, %40
@@ -436,8 +436,8 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN5ZXing13GenericGFPolyEEEED2Ev.exit9.i.
   %91 = load i64, ptr %6, align 8, !tbaa !30
   %92 = add i64 %91, 1
   store i64 %92, ptr %6, align 8, !tbaa !30
-  %93 = add i32 %.071, 1
-  %exitcond.not = icmp eq i32 %.071, %1
+  %93 = add i32 %.068, 1
+  %exitcond.not = icmp eq i32 %.068, %1
   br i1 %exitcond.not, label %19, label %36, !llvm.loop !45
 
 94:                                               ; preds = %51

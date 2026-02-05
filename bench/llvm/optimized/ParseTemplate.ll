@@ -7240,13 +7240,13 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_S3_S3_S3_EEEbS3_DpT_.exit.thre
 
 235:                                              ; preds = %231, %_ZN5clang6Parser9NextTokenEv.exit76, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_S3_S3_S3_EEEbS3_DpT_.exit.thread
   %236 = phi i1 [ false, %231 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit76 ], [ %234, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_S3_S3_S3_EEEbS3_DpT_.exit.thread ]
-  %.pre160 = load ptr, ptr %217, align 8, !tbaa !97
+  %.pre158 = load ptr, ptr %217, align 8, !tbaa !97
   br i1 %4, label %326, label %237
 
 237:                                              ; preds = %235
-  %238 = getelementptr inbounds nuw i8, ptr %.pre160, i64 88
+  %238 = getelementptr inbounds nuw i8, ptr %.pre158, i64 88
   %239 = load ptr, ptr %238, align 8, !tbaa !1097
-  %240 = getelementptr inbounds nuw i8, ptr %.pre160, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %.pre158, i64 56
   %241 = load ptr, ptr %240, align 8, !tbaa !1073
   %242 = call noundef i32 @_ZN5clang5Lexer20getTokenPrefixLengthENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %216, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(696) %239, ptr noundef nonnull align 8 dereferenceable(849) %241) #18
   %243 = add i32 %242, %216
@@ -7469,11 +7469,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit94:                   ; preds = %_ZN5clang9FixItHintD2Ev.exit90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i91
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.pre159 = load ptr, ptr %217, align 8, !tbaa !97
+  %.pre157 = load ptr, ptr %217, align 8, !tbaa !97
   br label %326
 
 326:                                              ; preds = %_ZN5clang9FixItHintD2Ev.exit94, %235
-  %327 = phi ptr [ %.pre159, %_ZN5clang9FixItHintD2Ev.exit94 ], [ %.pre160, %235 ]
+  %327 = phi ptr [ %.pre157, %_ZN5clang9FixItHintD2Ev.exit94 ], [ %.pre158, %235 ]
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 88
   %329 = load ptr, ptr %328, align 8, !tbaa !1097
   %330 = getelementptr inbounds nuw i8, ptr %327, i64 56
@@ -7530,36 +7530,36 @@ _ZN5clang9FixItHintD2Ev.exit94:                   ; preds = %_ZN5clang9FixItHint
 
 353:                                              ; preds = %351, %350
   %354 = load ptr, ptr %217, align 8, !tbaa !97
-  br i1 %3, label %.thread, label %.thread156
+  br i1 %3, label %.thread, label %.thread154
 
 .thread:                                          ; preds = %353
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %.sroa.012.0.copyload, ptr %13, align 8, !tbaa !320
-  %.sroa.7.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %332, ptr %.sroa.7.0..sroa_idx124, align 4, !tbaa !320
-  %.sroa.8.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx130, align 8, !tbaa !1096
-  %.sroa.8136.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 52, ptr %.sroa.8136.0..sroa_idx137, align 8, !tbaa !361
-  %.sroa.9.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 %.sroa.9.sroa.0.0.copyload, ptr %.sroa.9.0..sroa_idx143, align 2, !tbaa !1099
+  %.sroa.7.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %332, ptr %.sroa.7.0..sroa_idx122, align 4, !tbaa !320
+  %.sroa.8.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx128, align 8, !tbaa !1096
+  %.sroa.8134.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i16 52, ptr %.sroa.8134.0..sroa_idx135, align 8, !tbaa !361
+  %.sroa.9.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %13, i64 18
+  store i16 %.sroa.9.sroa.0.0.copyload, ptr %.sroa.9.0..sroa_idx141, align 2, !tbaa !1099
   %355 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %355, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !1098
   call void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llvm8ArrayRefINS_5TokenEEE(ptr noundef nonnull align 8 dereferenceable(3288) %354, ptr nonnull %13, i64 2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %357
 
-.thread156:                                       ; preds = %353
+.thread154:                                       ; preds = %353
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %.sroa.012.0.copyload, ptr %14, align 8, !tbaa !320
-  %.sroa.7.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %332, ptr %.sroa.7.0..sroa_idx126, align 4, !tbaa !320
-  %.sroa.8.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx132, align 8, !tbaa !1096
-  %.sroa.8136.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 52, ptr %.sroa.8136.0..sroa_idx139, align 8, !tbaa !361
-  %.sroa.9.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 %.sroa.9.sroa.0.0.copyload, ptr %.sroa.9.0..sroa_idx144, align 2, !tbaa !1099
+  %.sroa.7.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 %332, ptr %.sroa.7.0..sroa_idx124, align 4, !tbaa !320
+  %.sroa.8.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx130, align 8, !tbaa !1096
+  %.sroa.8134.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i16 52, ptr %.sroa.8134.0..sroa_idx137, align 8, !tbaa !361
+  %.sroa.9.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %14, i64 18
+  store i16 %.sroa.9.sroa.0.0.copyload, ptr %.sroa.9.0..sroa_idx142, align 2, !tbaa !1099
   call void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llvm8ArrayRefINS_5TokenEEE(ptr noundef nonnull align 8 dereferenceable(3288) %354, ptr nonnull %14, i64 1) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %359
@@ -7572,7 +7572,7 @@ _ZN5clang9FixItHintD2Ev.exit94:                   ; preds = %_ZN5clang9FixItHint
   store i32 %358, ptr %215, align 8, !tbaa !320
   br label %372
 
-359:                                              ; preds = %.thread156, %356
+359:                                              ; preds = %.thread154, %356
   store i32 %.sroa.037.0.copyload, ptr %215, align 8, !tbaa !320
   %360 = load ptr, ptr %217, align 8, !tbaa !97
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 996

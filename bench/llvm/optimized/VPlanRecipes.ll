@@ -13583,7 +13583,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %_ZNK4llvm4User10get
   %.sroa.11.0.in.in = extractvalue { i64, i32 } %.pn, 1
   %.sroa.11.0.in = icmp eq i32 %.sroa.11.0.in.in, 1
   %.sroa.11.0 = zext i1 %.sroa.11.0.in to i32
-  %.sroa.069.0 = extractvalue { i64, i32 } %.pn, 0
+  %.sroa.067.0 = extractvalue { i64, i32 } %.pn, 0
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %84 = load i8, ptr %83, align 1, !tbaa !396, !range !57, !noundef !58
   %85 = trunc nuw i8 %84 to i1
@@ -13598,15 +13598,15 @@ _ZN4llvm15InstructionCostpLERKS0_.exit59:         ; preds = %_ZN4llvm15Instructi
   %.fca.0.extract = extractvalue { i64, i32 } %89, 0
   %.fca.1.extract = extractvalue { i64, i32 } %89, 1
   %90 = icmp eq i32 %.fca.1.extract, 1
-  %spec.select83 = select i1 %90, i32 1, i32 %.sroa.11.0
-  %.0.i58 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.069.0, i64 %.fca.0.extract)
+  %spec.select81 = select i1 %90, i32 1, i32 %.sroa.11.0
+  %.0.i58 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.067.0, i64 %.fca.0.extract)
   br label %91
 
 91:                                               ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit59, %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit
-  %.sroa.047.1.pn = phi i64 [ %.0.i.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.0.i58, %_ZN4llvm15InstructionCostpLERKS0_.exit59 ], [ %.sroa.069.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
-  %.sroa.4.1.pn = phi i32 [ %spec.select.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %spec.select83, %_ZN4llvm15InstructionCostpLERKS0_.exit59 ], [ %.sroa.11.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
-  %.pn85 = insertvalue { i64, i32 } poison, i64 %.sroa.047.1.pn, 0
-  %.fca.1.insert.merged = insertvalue { i64, i32 } %.pn85, i32 %.sroa.4.1.pn, 1
+  %.sroa.047.1.pn = phi i64 [ %.0.i.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %.0.i58, %_ZN4llvm15InstructionCostpLERKS0_.exit59 ], [ %.sroa.067.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
+  %.sroa.4.1.pn = phi i32 [ %spec.select.i, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit ], [ %spec.select81, %_ZN4llvm15InstructionCostpLERKS0_.exit59 ], [ %.sroa.11.0, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
+  %.pn83 = insertvalue { i64, i32 } poison, i64 %.sroa.047.1.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, i32 } %.pn83, i32 %.sroa.4.1.pn, 1
   ret { i64, i32 } %.fca.1.insert.merged
 }
 
@@ -18136,9 +18136,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %2, %23
   %30 = and i64 %29, 4294967296
   %31 = icmp ne i64 %30, 0
   %32 = and i64 %29, 8589934591
-  %.not59.not = icmp eq i64 %32, 1
+  %.not57.not = icmp eq i64 %32, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %.not59.not, label %37, label %33
+  br i1 %.not57.not, label %37, label %33
 
 33:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32

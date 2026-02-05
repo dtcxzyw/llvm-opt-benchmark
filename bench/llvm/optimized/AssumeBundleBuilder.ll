@@ -832,8 +832,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118AssumeBuilderState5buildE
   %23 = zext i32 %22 to i64
   %.idx = mul nuw nsw i64 %23, 24
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
-  %.not43 = icmp eq i32 %22, 0
-  br i1 %.not43, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i32 %22, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -981,12 +981,12 @@ _ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj8EED2Ev.exit: ; pred
   br label %207
 
 88:                                               ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit
-  %.01544 = phi ptr [ %21, %.lr.ph ], [ %206, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit ]
+  %.01542 = phi ptr [ %21, %.lr.ph ], [ %206, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %25, ptr %5, align 8, !tbaa !25
   store i32 0, ptr %26, align 8, !tbaa !26
   store i32 2, ptr %27, align 4, !tbaa !27
-  %89 = load ptr, ptr %.01544, align 8, !tbaa !235
+  %89 = load ptr, ptr %.01542, align 8, !tbaa !235
   %.not17 = icmp eq ptr %89, null
   br i1 %.not17, label %91, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit
 
@@ -997,7 +997,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   br label %91
 
 91:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit, %88
-  %92 = getelementptr inbounds nuw i8, ptr %.01544, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.01542, i64 16
   %93 = load i64, ptr %92, align 8, !tbaa !239
   %.not18 = icmp eq i64 %93, 0
   br i1 %.not18, label %112, label %94
@@ -1034,7 +1034,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit24: ; preds
 
 112:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit24, %91
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %113 = getelementptr inbounds nuw i8, ptr %.01544, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.01542, i64 8
   %114 = load i32, ptr %113, align 8, !tbaa !240
   %115 = call { ptr, i64 } @_ZN4llvm9Attribute19getNameFromAttrKindENS0_8AttrKindE(i32 noundef %114) #20
   %116 = extractvalue { ptr, i64 } %115, 0
@@ -1261,7 +1261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
 
 _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit:  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %205
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %206 = getelementptr inbounds nuw i8, ptr %.01544, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %.01542, i64 24
   %.not = icmp eq ptr %206, %24
   br i1 %.not, label %._crit_edge, label %88
 

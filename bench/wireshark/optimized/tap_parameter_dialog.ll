@@ -7962,7 +7962,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit773:           ; preds = %1311, %_ZN17QArrayD
   br label %1413
 
 1315:                                             ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit822, %1296, %1291
-  %.sroa.0975.4 = phi ptr [ %.sroa.0975.5, %_ZN17QArrayDataPointerIDsED2Ev.exit822 ], [ null, %1296 ], [ null, %1291 ]
+  %.sroa.0975.0 = phi ptr [ %.sroa.0975.1, %_ZN17QArrayDataPointerIDsED2Ev.exit822 ], [ null, %1296 ], [ null, %1291 ]
   %1316 = landingpad { ptr, i32 }
           cleanup
   br label %1410
@@ -8030,9 +8030,9 @@ _ZN7QStringD2Ev.exit789:                          ; preds = %1329
   br label %_ZN7QStringD2Ev.exit855
 
 1335:                                             ; preds = %_ZN7QStringD2Ev.exit789, %_ZN17QArrayDataPointerIDsED2Ev.exit773
-  %.sroa.12981.4 = phi ptr [ %1303, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1331, %_ZN7QStringD2Ev.exit789 ]
-  %.sroa.17.4 = phi i64 [ %1304, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1332, %_ZN7QStringD2Ev.exit789 ]
-  %.sroa.0975.5 = phi ptr [ %1302, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1330, %_ZN7QStringD2Ev.exit789 ]
+  %.sroa.12981.0 = phi ptr [ %1303, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1331, %_ZN7QStringD2Ev.exit789 ]
+  %.sroa.17.0 = phi i64 [ %1304, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1332, %_ZN7QStringD2Ev.exit789 ]
+  %.sroa.0975.1 = phi ptr [ %1302, %_ZN17QArrayDataPointerIDsED2Ev.exit773 ], [ %1330, %_ZN7QStringD2Ev.exit789 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
@@ -8086,10 +8086,10 @@ _ZN7QStringD2Ev.exit789:                          ; preds = %1329
   store i64 %1351, ptr %860, align 8, !alias.scope !90, !noalias !87
   store ptr %spec.select.i.i.i.i797, ptr %.sroa.2.0..sroa_idx.i.i.i798, align 8, !alias.scope !90, !noalias !87
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !87
-  %.not.i.i.i3.i799 = icmp eq ptr %.sroa.12981.4, null
-  %spec.select.i.i.i4.i800 = select i1 %.not.i.i.i3.i799, ptr @_ZN7QString6_emptyE, ptr %.sroa.12981.4
+  %.not.i.i.i3.i799 = icmp eq ptr %.sroa.12981.0, null
+  %spec.select.i.i.i4.i800 = select i1 %.not.i.i.i3.i799, ptr @_ZN7QString6_emptyE, ptr %.sroa.12981.0
   store i8 2, ptr %7, align 8, !alias.scope !94, !noalias !87
-  store i64 %.sroa.17.4, ptr %861, align 8, !alias.scope !94, !noalias !87
+  store i64 %.sroa.17.0, ptr %861, align 8, !alias.scope !94, !noalias !87
   store ptr %spec.select.i.i.i4.i800, ptr %.sroa.2.0..sroa_idx.i.i5.i801, align 8, !alias.scope !94, !noalias !87
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !97
   store ptr %6, ptr %5, align 16, !noalias !97
@@ -8203,16 +8203,16 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i824: ; preds = %.noexc826
 1380:                                             ; preds = %1378, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i824, %.noexc826
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1381 = add i32 %.01105, 1
-  %.not.i.i.i828 = icmp eq ptr %.sroa.0975.5, null
+  %.not.i.i.i828 = icmp eq ptr %.sroa.0975.1, null
   br i1 %.not.i.i.i828, label %_ZN7QStringD2Ev.exit831, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i829
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i829:   ; preds = %1380
-  %1382 = atomicrmw sub ptr %.sroa.0975.5, i32 1 seq_cst, align 4
+  %1382 = atomicrmw sub ptr %.sroa.0975.1, i32 1 seq_cst, align 4
   %.not.i.i830 = icmp eq i32 %1382, 1
   br i1 %.not.i.i830, label %1383, label %_ZN7QStringD2Ev.exit831
 
 1383:                                             ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i829
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0975.5, i64 noundef 2, i64 noundef 8) #32
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0975.1, i64 noundef 2, i64 noundef 8) #32
   br label %_ZN7QStringD2Ev.exit831
 
 _ZN7QStringD2Ev.exit831:                          ; preds = %1380, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i829, %1383
@@ -8313,18 +8313,18 @@ _ZN17QArrayDataPointerIDsED2Ev.exit851:           ; preds = %1408, %_ZN17QArrayD
   br label %1410
 
 1410:                                             ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit851, %1315
-  %.sroa.0975.6 = phi ptr [ %.sroa.0975.4, %1315 ], [ %.sroa.0975.5, %_ZN17QArrayDataPointerIDsED2Ev.exit851 ]
+  %.sroa.0975.2 = phi ptr [ %.sroa.0975.0, %1315 ], [ %.sroa.0975.1, %_ZN17QArrayDataPointerIDsED2Ev.exit851 ]
   %.pn155 = phi { ptr, i32 } [ %1316, %1315 ], [ %.pn151.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit851 ]
-  %.not.i.i.i852 = icmp eq ptr %.sroa.0975.6, null
+  %.not.i.i.i852 = icmp eq ptr %.sroa.0975.2, null
   br i1 %.not.i.i.i852, label %_ZN7QStringD2Ev.exit855, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i853
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i853:   ; preds = %1410
-  %1411 = atomicrmw sub ptr %.sroa.0975.6, i32 1 seq_cst, align 4
+  %1411 = atomicrmw sub ptr %.sroa.0975.2, i32 1 seq_cst, align 4
   %.not.i.i854 = icmp eq i32 %1411, 1
   br i1 %.not.i.i854, label %1412, label %_ZN7QStringD2Ev.exit855
 
 1412:                                             ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i853
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0975.6, i64 noundef 2, i64 noundef 8) #32
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0975.2, i64 noundef 2, i64 noundef 8) #32
   br label %_ZN7QStringD2Ev.exit855
 
 _ZN7QStringD2Ev.exit855:                          ; preds = %1333, %_ZN17QArrayDataPointerIDsED2Ev.exit785, %1410, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i853, %1412

@@ -2993,8 +2993,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev18NamedTransformImpl12setTransformER
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8, !tbaa !34
-  %.not44 = icmp eq ptr %7, null
-  br i1 %.not44, label %8, label %33
+  %.not40 = icmp eq ptr %7, null
+  br i1 %.not40, label %8, label %33
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64

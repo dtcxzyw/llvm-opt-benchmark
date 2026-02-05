@@ -1990,11 +1990,11 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.037 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %i.031 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %1 = load ptr, ptr %stats_, align 8, !tbaa !109
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %1, i64 %i.037
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %1, i64 %i.031
   tail call void @_ZN8QuantLib21IncrementalStatistics5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i)
-  %inc = add nuw i64 %i.037, 1
+  %inc = add nuw i64 %i.031, 1
   %2 = load i64, ptr %this, align 8, !tbaa !86
   %cmp5 = icmp ult i64 %inc, %2
   br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !113

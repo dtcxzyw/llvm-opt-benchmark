@@ -8541,29 +8541,29 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   %15 = phi i64 [ %3, %1 ], [ %.pre, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit.loopexit ]
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %10, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit.loopexit ]
   %.not = icmp eq i64 %15, 0
-  %.pre34 = load ptr, ptr %0, align 8, !tbaa !205
-  br i1 %.not, label %._crit_edge31, label %.lr.ph30
+  %.pre30 = load ptr, ptr %0, align 8, !tbaa !205
+  br i1 %.not, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph30:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit
+.lr.ph26:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit
   %16 = add i64 %spec.select, -1
   br label %18
 
-._crit_edge31:                                    ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit
+._crit_edge27:                                    ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEEC2ERS4_m.exit
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !205
   store i64 %spec.select, ptr %2, align 8, !tbaa !206
-  %.not.i11 = icmp eq ptr %.pre34, null
+  %.not.i11 = icmp eq ptr %.pre30, null
   br i1 %.not.i11, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEED2Ev.exit, label %17
 
-17:                                               ; preds = %._crit_edge31.thread, %._crit_edge31
-  tail call void @_ZdlPv(ptr noundef nonnull %.pre34) #14
+17:                                               ; preds = %._crit_edge27.thread, %._crit_edge27
+  tail call void @_ZdlPv(ptr noundef nonnull %.pre30) #14
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEED2Ev.exit
 
-_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %._crit_edge31, %17
+_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %._crit_edge27, %17
   ret void
 
-18:                                               ; preds = %.lr.ph30, %44
-  %.029 = phi i64 [ 0, %.lr.ph30 ], [ %45, %44 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.pre34, i64 %.029
+18:                                               ; preds = %.lr.ph26, %44
+  %.025 = phi i64 [ 0, %.lr.ph26 ], [ %45, %44 ]
+  %19 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.pre30, i64 %.025
   %20 = load i32, ptr %19, align 4, !tbaa !96
   %21 = load i32, ptr %6, align 8, !tbaa !96
   %22 = icmp eq i32 %20, %21
@@ -8578,21 +8578,21 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %23
-  %.02334.i.lcssa25 = phi i64 [ %25, %23 ], [ %35, %32 ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.sroa.0.0, i64 %.02334.i.lcssa25
+  %.02334.i.lcssa21 = phi i64 [ %25, %23 ], [ %35, %32 ]
+  %29 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.sroa.0.0, i64 %.02334.i.lcssa21
   store i32 %20, ptr %29, align 4, !tbaa !172
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
 .lr.ph:                                           ; preds = %23, %32
   %30 = phi i32 [ %37, %32 ], [ %27, %23 ]
-  %.02334.i27 = phi i64 [ %35, %32 ], [ %25, %23 ]
-  %.02235.i26 = phi i64 [ %33, %32 ], [ 0, %23 ]
+  %.02334.i23 = phi i64 [ %35, %32 ], [ %25, %23 ]
+  %.02235.i22 = phi i64 [ %33, %32 ], [ 0, %23 ]
   %31 = icmp eq i32 %30, %20
   br i1 %31, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = add i64 %.02235.i26, 1
-  %34 = add i64 %33, %.02334.i27
+  %33 = add i64 %.02235.i22, 1
+  %34 = add i64 %33, %.02334.i23
   %35 = and i64 %34, %16
   %.not.i12 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i12)
@@ -8602,7 +8602,7 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br i1 %38, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit: ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.sroa.0.0, i64 %.02334.i27
+  %39 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %.sroa.0.0, i64 %.02334.i23
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit, %._crit_edge
@@ -8615,11 +8615,11 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br label %44
 
 44:                                               ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit, %18
-  %45 = add nuw i64 %.029, 1
+  %45 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %45, %15
-  br i1 %exitcond.not, label %._crit_edge31.thread, label %18, !llvm.loop !208
+  br i1 %exitcond.not, label %._crit_edge27.thread, label %18, !llvm.loop !208
 
-._crit_edge31.thread:                             ; preds = %44
+._crit_edge27.thread:                             ; preds = %44
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !205
   store i64 %spec.select, ptr %2, align 8, !tbaa !206
   br label %17

@@ -1605,8 +1605,8 @@ define internal fastcc void @"_ZN5vcpkg4Util12fmap_flattenIRSt6vectorINS_20Insta
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not55 = icmp eq ptr %4, %5
-  br i1 %.not55, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i
+  %.not53 = icmp eq ptr %4, %5
+  br i1 %.not53, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1619,26 +1619,26 @@ _ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i: ;
   br label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit
 
 _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i, %11
-  %.promoted2644 = phi ptr [ %16, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i ], [ null, %11 ]
-  %.promoted39 = phi ptr [ %15, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i ], [ null, %11 ]
-  %.not27 = icmp eq ptr %5, %4
-  br i1 %.not27, label %._crit_edge30, label %.lr.ph29
+  %.promoted2442 = phi ptr [ %16, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i ], [ null, %11 ]
+  %.promoted37 = phi ptr [ %15, %_ZNSt12_Vector_baseIPKN5vcpkg15StatusParagraphESaIS3_EE11_M_allocateEm.exit.i ], [ null, %11 ]
+  %.not25 = icmp eq ptr %5, %4
+  br i1 %.not25, label %._crit_edge28, label %.lr.ph27
 
-.lr.ph29:                                         ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit
+.lr.ph27:                                         ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
-._crit_edge30:                                    ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit
+._crit_edge28:                                    ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit
   ret void
 
-18:                                               ; preds = %.lr.ph29, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit
-  %19 = phi ptr [ %.promoted39, %.lr.ph29 ], [ %31, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
-  %.promoted26 = phi ptr [ %.promoted2644, %.lr.ph29 ], [ %.promoted2642, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
-  %.promoted = phi ptr [ %.promoted39, %.lr.ph29 ], [ %.promoted38, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
-  %.sroa.011.028 = phi ptr [ %5, %.lr.ph29 ], [ %36, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
-  %20 = getelementptr i8, ptr %.sroa.011.028, i64 8
+18:                                               ; preds = %.lr.ph27, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit
+  %19 = phi ptr [ %.promoted37, %.lr.ph27 ], [ %31, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
+  %.promoted24 = phi ptr [ %.promoted2442, %.lr.ph27 ], [ %.promoted2440, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
+  %.promoted = phi ptr [ %.promoted37, %.lr.ph27 ], [ %.promoted36, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
+  %.sroa.09.026 = phi ptr [ %5, %.lr.ph27 ], [ %36, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit ]
+  %20 = getelementptr i8, ptr %.sroa.09.026, i64 8
   %.val = load ptr, ptr %20, align 8, !tbaa !36
-  %21 = getelementptr i8, ptr %.sroa.011.028, i64 16
+  %21 = getelementptr i8, ptr %.sroa.09.026, i64 16
   %.val15 = load ptr, ptr %21, align 8, !tbaa !75
   %22 = ptrtoint ptr %.val15 to i64
   %23 = ptrtoint ptr %.val to i64
@@ -1656,14 +1656,14 @@ _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit: ; preds = %_ZNS
 
 .noexc.i.i.i:                                     ; preds = %26
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
-          to label %.noexc17 unwind label %.loopexit.split-lp16
+          to label %.noexc17 unwind label %.loopexit.split-lp14
 
 .noexc17:                                         ; preds = %.noexc.i.i.i
   unreachable
 
 28:                                               ; preds = %26
   %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #25
-          to label %.noexc18 unwind label %.loopexit15
+          to label %.noexc18 unwind label %.loopexit13
 
 .noexc18:                                         ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %24
@@ -1671,51 +1671,51 @@ _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE7reserveEm.exit: ; preds = %_ZNS
   br label %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit"
 
 "_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit": ; preds = %.noexc18, %.thread.i
-  %.sroa.04.1 = phi ptr [ null, %.thread.i ], [ %29, %.noexc18 ]
-  %.sroa.11.1 = phi ptr [ %25, %.thread.i ], [ %30, %.noexc18 ]
-  %.not1424 = icmp eq ptr %.sroa.04.1, %.sroa.11.1
-  br i1 %.not1424, label %._crit_edge, label %.lr.ph
+  %.sroa.04.0 = phi ptr [ null, %.thread.i ], [ %29, %.noexc18 ]
+  %.sroa.11.0 = phi ptr [ %25, %.thread.i ], [ %30, %.noexc18 ]
+  %.not1222 = icmp eq ptr %.sroa.04.0, %.sroa.11.0
+  br i1 %.not1222, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit"
   %31 = phi ptr [ %19, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ], [ %63, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ]
-  %.promoted2642 = phi ptr [ %.promoted26, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ], [ %.promoted2643, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ]
-  %.promoted38 = phi ptr [ %.promoted, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ], [ %65, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ]
-  %.not.i.i.i = icmp eq ptr %.sroa.04.1, null
+  %.promoted2440 = phi ptr [ %.promoted24, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ], [ %.promoted2441, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ]
+  %.promoted36 = phi ptr [ %.promoted, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ], [ %65, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ]
+  %.not.i.i.i = icmp eq ptr %.sroa.04.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit, label %32
 
 32:                                               ; preds = %._crit_edge
-  %33 = ptrtoint ptr %.sroa.11.1 to i64
-  %34 = ptrtoint ptr %.sroa.04.1 to i64
+  %33 = ptrtoint ptr %.sroa.11.0 to i64
+  %34 = ptrtoint ptr %.sroa.04.0 to i64
   %35 = sub i64 %33, %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.1, i64 noundef %35) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.0, i64 noundef %35) #23
   br label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %32
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.011.028, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.09.026, i64 32
   %.not = icmp eq ptr %36, %4
-  br i1 %.not, label %._crit_edge30, label %18
+  br i1 %.not, label %._crit_edge28, label %18
 
-.loopexit15:                                      ; preds = %28
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+.loopexit13:                                      ; preds = %28
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22
 
-.loopexit.split-lp16:                             ; preds = %.noexc.i.i.i
-  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
+.loopexit.split-lp14:                             ; preds = %.noexc.i.i.i
+  %lpad.loopexit.split-lp16 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22
 
 .lr.ph:                                           ; preds = %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit", %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit
   %37 = phi ptr [ %63, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %19, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
-  %.promoted2640 = phi ptr [ %.promoted2643, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.promoted26, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
-  %38 = phi ptr [ %64, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.promoted26, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
+  %.promoted2438 = phi ptr [ %.promoted2441, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.promoted24, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
+  %38 = phi ptr [ %64, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.promoted24, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
   %39 = phi ptr [ %65, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.promoted, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
-  %.sroa.01.025 = phi ptr [ %66, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.04.1, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
+  %.sroa.01.023 = phi ptr [ %66, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.04.0, %"_ZZN5vcpkg21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_1clERKNS_20InstalledPackageViewE.exit" ]
   %.not.i.i = icmp eq ptr %39, %38
   br i1 %.not.i.i, label %43, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = load ptr, ptr %.sroa.01.025, align 8, !tbaa !39
+  %41 = load ptr, ptr %.sroa.01.023, align 8, !tbaa !39
   store ptr %41, ptr %39, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %42, ptr %17, align 8, !tbaa !75
@@ -1750,7 +1750,7 @@ _ZNKSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
 
 .noexc20:                                         ; preds = %_ZNKSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %56 = getelementptr inbounds i8, ptr %55, i64 %46
-  %57 = load ptr, ptr %.sroa.01.025, align 8, !tbaa !39
+  %57 = load ptr, ptr %.sroa.01.023, align 8, !tbaa !39
   store ptr %57, ptr %56, align 8, !tbaa !39
   %58 = icmp sgt i64 %46, 0
   br i1 %58, label %59, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
@@ -1777,12 +1777,12 @@ _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__
 
 _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %40
   %63 = phi ptr [ %55, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %37, %40 ]
-  %.promoted2643 = phi ptr [ %62, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.promoted2640, %40 ]
+  %.promoted2441 = phi ptr [ %62, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.promoted2438, %40 ]
   %64 = phi ptr [ %62, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %38, %40 ]
   %65 = phi ptr [ %60, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %42, %40 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01.025, i64 8
-  %.not14 = icmp eq ptr %66, %.sroa.11.1
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01.023, i64 8
+  %.not12 = icmp eq ptr %66, %.sroa.11.0
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1796,20 +1796,20 @@ _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE9push_backEOS3_.exit: ; preds = 
 
 67:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i21 = icmp eq ptr %.sroa.04.1, null
+  %.not.i.i.i21 = icmp eq ptr %.sroa.04.0, null
   br i1 %.not.i.i.i21, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22, label %68
 
 68:                                               ; preds = %67
-  %69 = ptrtoint ptr %.sroa.11.1 to i64
-  %70 = ptrtoint ptr %.sroa.04.1 to i64
+  %69 = ptrtoint ptr %.sroa.11.0 to i64
+  %70 = ptrtoint ptr %.sroa.04.0 to i64
   %71 = sub i64 %69, %70
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.1, i64 noundef %71) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.0, i64 noundef %71) #23
   br label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22
 
-_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22: ; preds = %.loopexit15, %.loopexit.split-lp16, %67, %68
-  %72 = phi ptr [ %.promoted26, %.loopexit.split-lp16 ], [ %.promoted2640, %68 ], [ %.promoted2640, %67 ], [ %.promoted26, %.loopexit15 ]
-  %73 = phi ptr [ %19, %.loopexit.split-lp16 ], [ %37, %68 ], [ %37, %67 ], [ %19, %.loopexit15 ]
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp18, %.loopexit.split-lp16 ], [ %lpad.phi, %68 ], [ %lpad.phi, %67 ], [ %lpad.loopexit17, %.loopexit15 ]
+_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit22: ; preds = %.loopexit13, %.loopexit.split-lp14, %67, %68
+  %72 = phi ptr [ %.promoted24, %.loopexit.split-lp14 ], [ %.promoted2438, %68 ], [ %.promoted2438, %67 ], [ %.promoted24, %.loopexit13 ]
+  %73 = phi ptr [ %19, %.loopexit.split-lp14 ], [ %37, %68 ], [ %37, %67 ], [ %19, %.loopexit13 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp16, %.loopexit.split-lp14 ], [ %lpad.phi, %68 ], [ %lpad.phi, %67 ], [ %lpad.loopexit15, %.loopexit13 ]
   %.not.i.i.i23 = icmp eq ptr %73, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit24, label %74
 

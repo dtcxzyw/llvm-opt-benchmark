@@ -634,18 +634,18 @@ _ZN7mitsuba6Stream4readImEEvRT_.exit70:           ; preds = %.lr.ph.i.preheader.
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %163, %._crit_edge.loopexit
-  %.sroa.7.1153 = phi ptr [ %170, %._crit_edge.loopexit ], [ null, %163 ]
-  %.sroa.0.1151 = phi ptr [ %168, %._crit_edge.loopexit ], [ null, %163 ]
+  %.sroa.7.0153 = phi ptr [ %170, %._crit_edge.loopexit ], [ null, %163 ]
+  %.sroa.0.0151 = phi ptr [ %168, %._crit_edge.loopexit ], [ null, %163 ]
   %183 = phi i8 [ %.pre138, %._crit_edge.loopexit ], [ %148, %163 ]
   %184 = zext i8 %183 to i32
   store i32 %184, ptr %22, align 8
   %185 = load i64, ptr %18, align 8
   store i64 %185, ptr %112, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %186 = ptrtoint ptr %.sroa.7.1153 to i64
-  %187 = ptrtoint ptr %.sroa.0.1151 to i64
+  %186 = ptrtoint ptr %.sroa.7.0153 to i64
+  %187 = ptrtoint ptr %.sroa.0.0151 to i64
   %188 = sub i64 %186, %187
-  %.not.i.i = icmp eq ptr %.sroa.7.1153, %.sroa.0.1151
+  %.not.i.i = icmp eq ptr %.sroa.7.0153, %.sroa.0.0151
   br i1 %.not.i.i, label %_ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit, label %189
 
 189:                                              ; preds = %._crit_edge
@@ -667,7 +667,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEE18__construct_at_endIPmS5_EEvT_T0_m.exit.i.i
   store ptr %192, ptr %113, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 %188
   store ptr %193, ptr %115, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %192, ptr align 8 %.sroa.0.1151, i64 %188, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %192, ptr align 8 %.sroa.0.0151, i64 %188, i1 false)
   store ptr %193, ptr %114, align 8
   br label %_ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit
 
@@ -731,11 +731,11 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit:           ; preds = %208, %203
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 80
   store ptr %201, ptr %212, align 8
-  %.not.i.i76 = icmp eq ptr %.sroa.0.1151, null
+  %.not.i.i76 = icmp eq ptr %.sroa.0.0151, null
   br i1 %.not.i.i76, label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit, label %213
 
 213:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1151) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0151) #25
   br label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit
 
 _ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit, %213
@@ -769,13 +769,13 @@ _ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba1
 
 .body71:                                          ; preds = %.thread, %222, %220, %219, %217, %194, %195
   %.pn41 = phi { ptr, i32 } [ %lpad.loopexit.split-lp110, %194 ], [ %218, %219 ], [ %lpad.loopexit109, %.thread ], [ %lpad.loopexit.split-lp110, %195 ], [ %218, %217 ], [ %221, %220 ], [ %221, %222 ]
-  %.not.i.i81 = icmp eq ptr %.sroa.0.1151, null
+  %.not.i.i81 = icmp eq ptr %.sroa.0.0151, null
   br i1 %.not.i.i81, label %.body, label %223
 
 223:                                              ; preds = %.body71.thread, %.body71
   %.pn41160 = phi { ptr, i32 } [ %182, %.body71.thread ], [ %.pn41, %.body71 ]
-  %.sroa.0.1152159 = phi ptr [ %168, %.body71.thread ], [ %.sroa.0.1151, %.body71 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1152159) #25
+  %.sroa.0.0152159 = phi ptr [ %168, %.body71.thread ], [ %.sroa.0.0151, %.body71 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0152159) #25
   br label %.body
 
 .body:                                            ; preds = %.loopexit102, %.loopexit.split-lp103, %223, %.body71, %_ZNSt3__128__exception_guard_exceptionsINS_6vectorImNS_9allocatorImEEE16__destroy_vectorEED2B8ne190000Ev.exit.i, %161

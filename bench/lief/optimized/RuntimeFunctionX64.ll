@@ -1267,8 +1267,8 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39: ; preds
   %118 = load ptr, ptr %117, align 8
   %119 = call i64 %118(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %115) #24
   %120 = and i64 %119, 4294967296
-  %.not114 = icmp eq i64 %120, 0
-  br i1 %.not114, label %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
+  %.not111 = icmp eq i64 %120, 0
+  br i1 %.not111, label %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39
   %121 = load i8, ptr %17, align 1, !tbaa !53
@@ -1288,8 +1288,8 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %_ZNK4LIEF12BinarySt
   %131 = load ptr, ptr %130, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %132 = and i8 %122, 3
-  %.not115 = icmp eq i8 %132, 0
-  br i1 %.not115, label %139, label %133
+  %.not112 = icmp eq i8 %132, 0
+  br i1 %.not112, label %139, label %133
 
 133:                                              ; preds = %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -1297,8 +1297,8 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %_ZNK4LIEF12BinarySt
   %135 = trunc i64 %134 to i40
   store i40 %135, ptr %23, align 8
   %136 = and i64 %134, 4294967296
-  %.not125 = icmp eq i64 %136, 0
-  br i1 %.not125, label %203, label %.thread
+  %.not122 = icmp eq i64 %136, 0
+  br i1 %.not122, label %203, label %.thread
 
 .thread:                                          ; preds = %133
   %137 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.65) #24
@@ -1311,8 +1311,8 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %_ZNK4LIEF12BinarySt
   %.sroa.28.0 = phi i8 [ 1, %.thread ], [ 0, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit ]
   %.sroa.25.0 = phi i32 [ %138, %.thread ], [ 2, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit ]
   %140 = and i8 %122, 4
-  %.not116 = icmp eq i8 %140, 0
-  br i1 %.not116, label %184, label %141
+  %.not113 = icmp eq i8 %140, 0
+  br i1 %.not113, label %184, label %141
 
 141:                                              ; preds = %139
   %142 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.65) #24
@@ -1320,9 +1320,9 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %_ZNK4LIEF12BinarySt
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN4LIEF2PE18RuntimeFunctionX645parseERNS0_6ParserERNS_12BinaryStreamEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.38") align 8 %24, ptr noundef nonnull align 8 dereferenceable(215) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext true)
   %143 = load ptr, ptr %24, align 8, !tbaa !48
-  %.not117 = icmp eq ptr %143, null
+  %.not114 = icmp eq ptr %143, null
   %144 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.65) #24
-  br i1 %.not117, label %179, label %145
+  br i1 %.not114, label %179, label %145
 
 145:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -1421,7 +1421,7 @@ _ZNK4LIEF2PE6Parser19find_exception_infoEj.exit.thread: ; preds = %_ZNKSt8_Rb_tr
   br label %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit
 
 _ZNKSt14default_deleteIN4LIEF2PE18RuntimeFunctionX64EEclEPS2_.exit.i: ; preds = %165, %_ZNK4LIEF2PE6Parser19find_exception_infoEj.exit.thread
-  %.sroa.3060.1.ph = phi ptr [ %..i41, %165 ], [ null, %_ZNK4LIEF2PE6Parser19find_exception_infoEj.exit.thread ]
+  %.sroa.3059.1.ph = phi ptr [ %..i41, %165 ], [ null, %_ZNK4LIEF2PE6Parser19find_exception_infoEj.exit.thread ]
   %181 = load ptr, ptr %143, align 8, !tbaa !12
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %183 = load ptr, ptr %182, align 8
@@ -1429,12 +1429,12 @@ _ZNKSt14default_deleteIN4LIEF2PE18RuntimeFunctionX64EEclEPS2_.exit.i: ; preds = 
   br label %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %179, %_ZNKSt14default_deleteIN4LIEF2PE18RuntimeFunctionX64EEclEPS2_.exit.i
-  %.sroa.3060.1104 = phi ptr [ null, %179 ], [ %.sroa.3060.1.ph, %_ZNKSt14default_deleteIN4LIEF2PE18RuntimeFunctionX64EEclEPS2_.exit.i ]
+  %.sroa.3059.1101 = phi ptr [ null, %179 ], [ %.sroa.3059.1.ph, %_ZNKSt14default_deleteIN4LIEF2PE18RuntimeFunctionX64EEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %184
 
 184:                                              ; preds = %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit, %139
-  %.sroa.3060.0 = phi ptr [ %.sroa.3060.1104, %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit ], [ null, %139 ]
+  %.sroa.3059.0 = phi ptr [ %.sroa.3059.1101, %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit ], [ null, %139 ]
   %.sroa.050.sroa.9.0.insert.ext = zext i8 %124 to i32
   %.sroa.050.sroa.9.0.insert.shift = shl nuw i32 %.sroa.050.sroa.9.0.insert.ext, 24
   %.sroa.050.sroa.8.0.insert.ext = zext i8 %123 to i32
@@ -1466,7 +1466,7 @@ _ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exi
   %.sroa.20.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i8 %.sroa.28.0, ptr %.sroa.20.i.sroa.5.0..sroa_idx, align 4
   %.sroa.20.i.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %.sroa.3060.0, ptr %.sroa.20.i.sroa.7.0..sroa_idx, align 8
+  store ptr %.sroa.3059.0, ptr %.sroa.20.i.sroa.7.0..sroa_idx, align 8
   store i8 1, ptr %186, align 8, !tbaa !47
   br label %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44
 
@@ -1490,10 +1490,10 @@ _ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exi
 _ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i: ; preds = %198, %194
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %.sroa.25.0, ptr %202, align 8
-  %.sroa.20.i.sroa.5.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i8 %.sroa.28.0, ptr %.sroa.20.i.sroa.5.0..sroa_idx85, align 4
-  %.sroa.20.i.sroa.7.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %.sroa.3060.0, ptr %.sroa.20.i.sroa.7.0..sroa_idx88, align 8
+  %.sroa.20.i.sroa.5.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  store i8 %.sroa.28.0, ptr %.sroa.20.i.sroa.5.0..sroa_idx82, align 4
+  %.sroa.20.i.sroa.7.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr %.sroa.3059.0, ptr %.sroa.20.i.sroa.7.0..sroa_idx85, align 8
   br label %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44
 
 203:                                              ; preds = %133
@@ -1509,8 +1509,8 @@ _ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i: ; preds = %198
   br label %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44
 
 _ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_tD2Ev.exit44: ; preds = %204, %203, %191, %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39
-  %.sroa.082.4 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39 ], [ %134, %204 ], [ %134, %203 ], [ 0, %191 ], [ 0, %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i ]
-  %.sroa.783.4 = phi i64 [ 0, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39 ], [ 0, %204 ], [ 0, %203 ], [ 4294967296, %191 ], [ 4294967296, %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i ]
+  %.sroa.079.4 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39 ], [ %134, %204 ], [ %134, %203 ], [ 0, %191 ], [ 0, %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i ]
+  %.sroa.780.4 = phi i64 [ 0, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39 ], [ 0, %204 ], [ 0, %203 ], [ 4294967296, %191 ], [ 4294967296, %_ZN4LIEF2PE18RuntimeFunctionX6413unwind_info_taSEOS2_.exit.i.i.i ]
   %208 = load ptr, ptr %22, align 8, !tbaa !54
   %.not.i.i.i = icmp eq ptr %208, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %209
@@ -1530,23 +1530,23 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN4LIEF2PE18Runtim
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %215 = and i64 %.sroa.082.4, 4294967295
-  %216 = or disjoint i64 %.sroa.783.4, %215
+  %215 = and i64 %.sroa.079.4, 4294967295
+  %216 = or disjoint i64 %.sroa.780.4, %215
   br label %217
 
 217:                                              ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit33.thread, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39.thread, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.sroa.783.2 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39.thread ], [ %216, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit33.thread ]
+  %.sroa.780.2 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit39.thread ], [ %216, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit33.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %218
 
 218:                                              ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit27.thread, %217
-  %219 = phi i64 [ %.sroa.783.2, %217 ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit27.thread ]
+  %219 = phi i64 [ %.sroa.780.2, %217 ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit27.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %220
 
 220:                                              ; preds = %218, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
-  %.sroa.082.0.insert.insert = phi i64 [ %219, %218 ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread ]
-  ret i64 %.sroa.082.0.insert.insert
+  %.sroa.079.0.insert.insert = phi i64 [ %219, %218 ], [ 1, %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread ]
+  ret i64 %.sroa.079.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

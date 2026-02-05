@@ -3164,9 +3164,9 @@ common.resume:                                    ; preds = %32, %.body
           to label %common.resume unwind label %66
 
 30:                                               ; preds = %25, %26
-  %.sroa.8.1 = phi ptr [ %18, %25 ], [ %24, %26 ]
+  %.sroa.8.0 = phi ptr [ %18, %25 ], [ %24, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %31, align 8
+  store ptr %.sroa.8.0, ptr %31, align 8
   store ptr null, ptr %0, align 8
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5c9b37ec7740b96E.llvm.11279091928976205697"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %34 unwind label %32

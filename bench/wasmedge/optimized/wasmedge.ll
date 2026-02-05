@@ -2994,12 +2994,12 @@ define void @WasmEdge_StatisticsSetCostTable(ptr noundef %0, ptr noundef %1, i32
 
 5:                                                ; preds = %3
   %.not.i = icmp eq ptr %1, null
-  %.not8.i = icmp eq i32 %2, 0
+  %.not6.i = icmp eq i32 %2, 0
   %6 = zext i32 %2 to i64
-  %spec.select.i = select i1 %.not8.i, ptr null, ptr %1
-  %spec.select7.i = select i1 %.not.i, i64 0, i64 %6
+  %spec.select.i = select i1 %.not6.i, ptr null, ptr %1
+  %spec.select5.i = select i1 %.not.i, i64 0, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = getelementptr inbounds nuw i64, ptr %spec.select.i, i64 %spec.select7.i
+  %7 = getelementptr inbounds nuw i64, ptr %spec.select.i, i64 %spec.select5.i
   tail call void @_ZNSt6vectorImSaImEE13_M_assign_auxIPKmEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %spec.select.i, ptr noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -5868,13 +5868,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %20, %17
   store ptr null, ptr %18, align 8, !noalias !99
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #39, !noalias !99
   %.not.i.i.i = icmp eq ptr %2, null
-  %.not8.i.i.i = icmp eq i32 %1, 0
+  %.not6.i.i.i = icmp eq i32 %1, 0
   %21 = zext i32 %1 to i64
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %2
-  %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %21
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %2
+  %spec.select5.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %21
   store ptr null, ptr %10, align 8, !noalias !99
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %13, ptr noundef nonnull align 8 dereferenceable(360) %22, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i)
+  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %13, ptr noundef nonnull align 8 dereferenceable(360) %22, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i)
           to label %23 unwind label %69, !noalias !99
 
 23:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i
@@ -5958,7 +5958,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
 
 _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @_ZN8WasmEdge4LLVM7CodeGen7codegenEN5cxx204spanIKhLm18446744073709551615EEENS0_4DataENSt10filesystem7__cxx114pathE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %14, ptr noundef nonnull align 8 dereferenceable(160) %44, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #39
+  call void @_ZN8WasmEdge4LLVM7CodeGen7codegenEN5cxx204spanIKhLm18446744073709551615EEENS0_4DataENSt10filesystem7__cxx114pathE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %14, ptr noundef nonnull align 8 dereferenceable(160) %44, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #39
   %45 = load ptr, ptr %40, align 8, !noalias !140
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6invokeIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E0_JN8WasmEdge4LLVM4DataEEENSt13invoke_resultIS1_JDpT0_EE4typeEOS1_DpOS7_.exit.i.i.i.i", label %46
@@ -6562,11 +6562,11 @@ define i32 @WasmEdge_LoaderParseFromBuffer(ptr noundef %0, ptr noundef writeonly
 
 8:                                                ; preds = %4
   %.not.i.i.i.i = icmp eq ptr %2, null
-  %.not8.i.i.i.i = icmp eq i32 %3, 0
+  %.not6.i.i.i.i = icmp eq i32 %3, 0
   %9 = zext i32 %3 to i64
-  %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, ptr null, ptr %2
-  %spec.select7.i.i.i.i = select i1 %.not.i.i.i.i, i64 0, i64 %9
-  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i.i, i64 %spec.select7.i.i.i.i)
+  %spec.select.i.i.i.i = select i1 %.not6.i.i.i.i, ptr null, ptr %2
+  %spec.select5.i.i.i.i = select i1 %.not.i.i.i.i, i64 0, i64 %9
+  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i.i, i64 %spec.select5.i.i.i.i)
           to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i" unwind label %16
 
 "_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i": ; preds = %8
@@ -6608,11 +6608,11 @@ define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly 
 
 8:                                                ; preds = %4
   %.not.i.i.i = icmp eq ptr %3, null
-  %.not8.i.i.i = icmp eq i32 %2, 0
+  %.not6.i.i.i = icmp eq i32 %2, 0
   %9 = zext i32 %2 to i64
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %3
-  %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %9
-  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i)
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %3
+  %spec.select5.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %9
+  invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i)
           to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i" unwind label %16
 
 "_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i": ; preds = %8
@@ -12381,9 +12381,9 @@ define i32 @WasmEdge_MemoryInstanceSetData(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 8:                                                ; preds = %4
-  %.not8.i.i.i = icmp eq i32 %3, 0
+  %.not6.i.i.i = icmp eq i32 %3, 0
   %9 = zext i32 %3 to i64
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %1
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %1
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance8setBytesEN5cxx204spanIKhLm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %5, ptr noundef nonnull align 8 dereferenceable(28) %0, ptr %spec.select.i.i.i, i64 %9, i32 noundef %2, i32 noundef 0, i32 noundef %3) #39
   %10 = load i8, ptr %5, align 4
   %11 = trunc i8 %10 to i1
@@ -13427,8 +13427,8 @@ _ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantI
   br label %.body.i
 
 _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i: ; preds = %.noexc5.i.i.i.i.i.i, %.noexc5.i.i.i.i.i.thread.i
-  %.sroa.414.1.ph38.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %20, %.noexc5.i.i.i.i.i.i ]
-  %.sroa.16.1.ph35.i = phi ptr [ %17, %.noexc5.i.i.i.i.i.thread.i ], [ %24, %.noexc5.i.i.i.i.i.i ]
+  %.sroa.413.1.ph36.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %20, %.noexc5.i.i.i.i.i.i ]
+  %.sroa.16.1.ph33.i = phi ptr [ %17, %.noexc5.i.i.i.i.i.thread.i ], [ %24, %.noexc5.i.i.i.i.i.i ]
   %.sroa.4.0.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %29, %.noexc5.i.i.i.i.i.i ]
   %.sroa.11.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %35, %.noexc5.i.i.i.i.i.i ]
   %.sroa.14.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %36, %.noexc5.i.i.i.i.i.i ]
@@ -13476,14 +13476,14 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 49:                                               ; preds = %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i", %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i14.i = icmp eq ptr %.sroa.414.1.ph38.i, null
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i14.i = icmp eq ptr %.sroa.413.1.ph36.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i14.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %50
 
 50:                                               ; preds = %49
-  %51 = ptrtoint ptr %.sroa.16.1.ph35.i to i64
-  %52 = ptrtoint ptr %.sroa.414.1.ph38.i to i64
+  %51 = ptrtoint ptr %.sroa.16.1.ph33.i to i64
+  %52 = ptrtoint ptr %.sroa.413.1.ph36.i to i64
   %53 = sub i64 %51, %52
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.414.1.ph38.i, i64 noundef %53) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.413.1.ph36.i, i64 noundef %53) #38
   br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i.i, %4
@@ -13870,11 +13870,11 @@ define i32 @WasmEdge_VMRegisterModuleFromBytes(ptr noundef %0, i32 %1, ptr %2, i
 _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i: ; preds = %7
   %.not.i.i.i = icmp eq ptr %4, null
   %12 = zext i32 %3 to i64
-  %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %12
-  %.not8.i.i.i = icmp eq i32 %3, 0
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %4
+  %spec.select5.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %12
+  %.not6.i.i.i = icmp eq i32 %3, 0
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %4
   %13 = zext i32 %1 to i64
-  invoke void @_ZN8WasmEdge2VM2VM20unsafeRegisterModuleESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %6, ptr noundef nonnull align 8 dereferenceable(1920) %0, i64 %13, ptr %2, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i)
+  invoke void @_ZN8WasmEdge2VM2VM20unsafeRegisterModuleESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %6, ptr noundef nonnull align 8 dereferenceable(1920) %0, i64 %13, ptr %2, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i)
           to label %16 unwind label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i
@@ -14373,16 +14373,16 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i: ; preds = %14
   %34 = zext i32 %3 to i64
   %.not.i.i.i = icmp eq ptr %2, null
   %35 = zext i32 %1 to i64
-  %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %35
-  %.not8.i.i.i = icmp eq i32 %1, 0
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %2
+  %spec.select5.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %35
+  %.not6.i.i.i = icmp eq i32 %1, 0
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %2
   store ptr %15, ptr %10, align 8, !noalias !225
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %33, ptr %36, align 8, !noalias !225
   store ptr %19, ptr %11, align 8, !noalias !225
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %29, ptr %37, align 8, !noalias !225
-  invoke void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.623") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i, i64 %34, ptr %4, ptr noundef nonnull byval(%"struct.cxx20::span.277") align 8 %10, ptr noundef nonnull byval(%"struct.cxx20::span.279") align 8 %11)
+  invoke void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.623") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i, i64 %34, ptr %4, ptr noundef nonnull byval(%"struct.cxx20::span.277") align 8 %10, ptr noundef nonnull byval(%"struct.cxx20::span.279") align 8 %11)
           to label %40 unwind label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i
@@ -14953,10 +14953,10 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr
 
 14:                                               ; preds = %12
   %.not.i = icmp eq ptr %2, null
-  %.not8.i = icmp eq i32 %1, 0
+  %.not6.i = icmp eq i32 %1, 0
   %15 = zext i32 %1 to i64
-  %spec.select.i = select i1 %.not8.i, ptr null, ptr %2
-  %spec.select7.i = select i1 %.not.i, i64 0, i64 %15
+  %spec.select.i = select i1 %.not6.i, ptr null, ptr %2
+  %spec.select5.i = select i1 %.not.i, i64 0, i64 %15
   %16 = zext i32 %3 to i64
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -14979,7 +14979,7 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr
   store ptr %26, ptr %11, align 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %32, ptr %33, align 8
-  invoke void @_ZN8WasmEdge2VM2VM16asyncRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::Async") align 8 %9, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i, i64 %spec.select7.i, i64 %16, ptr %4, ptr noundef nonnull byval(%"struct.cxx20::span.277") align 8 %10, ptr noundef nonnull byval(%"struct.cxx20::span.279") align 8 %11)
+  invoke void @_ZN8WasmEdge2VM2VM16asyncRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::Async") align 8 %9, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i, i64 %spec.select5.i, i64 %16, ptr %4, ptr noundef nonnull byval(%"struct.cxx20::span.277") align 8 %10, ptr noundef nonnull byval(%"struct.cxx20::span.279") align 8 %11)
           to label %34 unwind label %50
 
 34:                                               ; preds = %14
@@ -15338,10 +15338,10 @@ define i32 @WasmEdge_VMLoadWasmFromBytes(ptr noundef %0, i32 %1, ptr %2) local_u
 _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i: ; preds = %5
   %.not.i.i.i = icmp eq ptr %2, null
   %10 = zext i32 %1 to i64
-  %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %10
-  %.not8.i.i.i = icmp eq i32 %1, 0
-  %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %2
-  invoke void @_ZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %4, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i)
+  %spec.select5.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %10
+  %.not6.i.i.i = icmp eq i32 %1, 0
+  %spec.select.i.i.i = select i1 %.not6.i.i.i, ptr null, ptr %2
+  invoke void @_ZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %4, ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr %spec.select.i.i.i, i64 %spec.select5.i.i.i)
           to label %13 unwind label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i.i.i
@@ -59244,8 +59244,8 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds 
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !711
 
 _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc45, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.sroa.1285.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %18, %.noexc45 ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.077.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %17, %.noexc45 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.1282.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %18, %.noexc45 ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.074.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %17, %.noexc45 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %19, %.noexc45 ], [ %23, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -59298,21 +59298,21 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56: ; preds = %.lr.ph.i.i.i.i
   %.sroa.12.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i46 ], [ %38, %.noexc55 ], [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i49 ]
   %.sroa.066.0 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i46 ], [ %37, %.noexc55 ], [ %37, %.lr.ph.i.i.i.i.i.i.i.i.i49 ]
   %.0.i.i.i.i.i52 = phi ptr [ null, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i46 ], [ %39, %.noexc55 ], [ %43, %.lr.ph.i.i.i.i.i.i.i.i.i49 ]
-  %.not97 = icmp eq i64 %4, 0
-  br i1 %.not97, label %._crit_edge, label %.lr.ph
+  %.not91 = icmp eq i64 %4, 0
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56, %.lr.ph
   %45 = phi i64 [ %50, %.lr.ph ], [ 0, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56 ]
-  %.03592 = phi i32 [ %49, %.lr.ph ], [ 0, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56 ]
+  %.03586 = phi i32 [ %49, %.lr.ph ], [ 0, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56 ]
   %46 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %3, i64 %45
   %47 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %10, i64 %45
   %.val = load i128, ptr %46, align 1
   %.val44 = load i64, ptr %47, align 1
-  %48 = getelementptr inbounds nuw %struct.WasmEdge_Value, ptr %.sroa.077.0, i64 %45
+  %48 = getelementptr inbounds nuw %struct.WasmEdge_Value, ptr %.sroa.074.0, i64 %45
   store i128 %.val, ptr %48, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 %.val44, ptr %.sroa.2.0..sroa_idx, align 16
-  %49 = add i32 %.03592, 1
+  %49 = add i32 %.03586, 1
   %50 = zext i32 %49 to i64
   %51 = icmp ugt i64 %4, %50
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !712
@@ -59335,9 +59335,9 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56
-  %59 = ptrtoint ptr %.sroa.077.0 to i64
-  %.not = icmp eq ptr %.0.i.i.i.i.i, %.sroa.077.0
-  %spec.select = select i1 %.not, ptr null, ptr %.sroa.077.0
+  %59 = ptrtoint ptr %.sroa.074.0 to i64
+  %.not = icmp eq ptr %.0.i.i.i.i.i, %.sroa.074.0
+  %spec.select = select i1 %.not, ptr null, ptr %.sroa.074.0
   %60 = ptrtoint ptr %.sroa.066.0 to i64
   %.not40 = icmp eq ptr %.0.i.i.i.i.i52, %.sroa.066.0
   %61 = select i1 %.not40, ptr null, ptr %.sroa.066.0
@@ -59374,30 +59374,30 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56: ; preds = %.lr.ph.i.i.i.i
   %.sroa.012.0 = phi i32 [ %67, %64 ], [ %83, %68 ]
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %86 = load i64, ptr %85, align 8
-  %.not98 = icmp eq i64 %86, 0
-  br i1 %.not98, label %._crit_edge96, label %.lr.ph95
+  %.not92 = icmp eq i64 %86, 0
+  br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph95:                                         ; preds = %84
+.lr.ph89:                                         ; preds = %84
   %87 = load ptr, ptr %5, align 8
   br label %88
 
-88:                                               ; preds = %.lr.ph95, %88
-  %89 = phi i64 [ 0, %.lr.ph95 ], [ %94, %88 ]
-  %.03693 = phi i32 [ 0, %.lr.ph95 ], [ %93, %88 ]
+88:                                               ; preds = %.lr.ph89, %88
+  %89 = phi i64 [ 0, %.lr.ph89 ], [ %94, %88 ]
+  %.03687 = phi i32 [ 0, %.lr.ph89 ], [ %93, %88 ]
   %90 = getelementptr inbounds nuw %struct.WasmEdge_Value, ptr %.sroa.066.0, i64 %89
   %91 = load i128, ptr %90, align 16
   %92 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %87, i64 %89
   store i128 %91, ptr %92, align 16
-  %93 = add i32 %.03693, 1
+  %93 = add i32 %.03687, 1
   %94 = zext i32 %93 to i64
   %95 = icmp ugt i64 %86, %94
-  br i1 %95, label %88, label %._crit_edge96, !llvm.loop !713
+  br i1 %95, label %88, label %._crit_edge90, !llvm.loop !713
 
-._crit_edge96:                                    ; preds = %88, %84
+._crit_edge90:                                    ; preds = %88, %84
   %or.cond.i = icmp ult i32 %.sroa.012.0, 2
   br i1 %or.cond.i, label %96, label %100
 
-96:                                               ; preds = %._crit_edge96
+96:                                               ; preds = %._crit_edge90
   %97 = icmp eq i32 %.sroa.012.0, 1
   br i1 %97, label %98, label %102
 
@@ -59407,7 +59407,7 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56: ; preds = %.lr.ph.i.i.i.i
   store i32 1, ptr %99, align 4
   br label %103
 
-100:                                              ; preds = %._crit_edge96
+100:                                              ; preds = %._crit_edge90
   store i8 0, ptr %0, align 4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.012.0, ptr %101, align 4
@@ -59428,13 +59428,13 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EEC2EmRKS1_.exit56: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit58
 
 _ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit58: ; preds = %103, %104
-  %.not.i.i.i59 = icmp eq ptr %.sroa.077.0, null
+  %.not.i.i.i59 = icmp eq ptr %.sroa.074.0, null
   br i1 %.not.i.i.i59, label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit60, label %107
 
 107:                                              ; preds = %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit58
-  %108 = ptrtoint ptr %.sroa.1285.0 to i64
+  %108 = ptrtoint ptr %.sroa.1282.0 to i64
   %109 = sub i64 %108, %59
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.077.0, i64 noundef %109) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0, i64 noundef %109) #38
   br label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit60
 
 _ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit60: ; preds = %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit58, %107
@@ -59442,14 +59442,14 @@ _ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit60: ; preds = %_ZNSt6vectorI14Wasm
 
 _ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit:   ; preds = %56, %54, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %55, %54 ], [ %55, %56 ]
-  %.not.i.i.i61 = icmp eq ptr %.sroa.077.0, null
+  %.not.i.i.i61 = icmp eq ptr %.sroa.074.0, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit62, label %110
 
 110:                                              ; preds = %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit
-  %111 = ptrtoint ptr %.sroa.1285.0 to i64
-  %112 = ptrtoint ptr %.sroa.077.0 to i64
+  %111 = ptrtoint ptr %.sroa.1282.0 to i64
+  %112 = ptrtoint ptr %.sroa.074.0 to i64
   %113 = sub i64 %111, %112
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.077.0, i64 noundef %113) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0, i64 noundef %113) #38
   br label %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit62
 
 _ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit62: ; preds = %110, %_ZNSt6vectorI14WasmEdge_ValueSaIS0_EED2Ev.exit

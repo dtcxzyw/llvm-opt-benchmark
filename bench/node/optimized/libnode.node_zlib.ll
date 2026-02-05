@@ -5838,10 +5838,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242: ; preds = %lor.lhs.false.
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242
   %.pre = load ptr, ptr %args, align 8
   %arrayidx.i412.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre78 = load ptr, ptr %arrayidx.i412.phi.trans.insert, align 8
-  %.pre79 = ptrtoint ptr %.pre78 to i64
-  %.pre80 = add i64 %.pre79, 608
-  %.pre81 = inttoptr i64 %.pre80 to ptr
+  %.pre75 = load ptr, ptr %arrayidx.i412.phi.trans.insert, align 8
+  %.pre76 = ptrtoint ptr %.pre75 to i64
+  %.pre77 = add i64 %.pre76, 608
+  %.pre78 = inttoptr i64 %.pre77 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224
 
 if.end.i216:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242
@@ -5849,8 +5849,8 @@ if.end.i216:                                      ; preds = %_ZNK2v820FunctionCa
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.thread, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge, %if.end.i216
-  %retval.i225.sroa.0.076 = phi ptr [ %add.ptr.i237, %if.end.i216 ], [ %add.ptr.i237, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge ], [ %63, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.thread ]
-  %retval.i207.sroa.0.0 = phi ptr [ %add.ptr.i219, %if.end.i216 ], [ %.pre81, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge ], [ %63, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.thread ]
+  %retval.i225.sroa.0.073 = phi ptr [ %add.ptr.i237, %if.end.i216 ], [ %add.ptr.i237, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge ], [ %63, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.thread ]
+  %retval.i207.sroa.0.0 = phi ptr [ %add.ptr.i219, %if.end.i216 ], [ %.pre78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.if.then.i221_crit_edge ], [ %63, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit242.thread ]
   %call159 = tail call noundef zeroext i1 @_ZN4node6Buffer11HasInstanceEN2v85LocalINS1_5ValueEEE(ptr %retval.i207.sroa.0.0) #22
   br i1 %call159, label %lor.lhs.false.i195, label %if.end182
 
@@ -5936,7 +5936,7 @@ _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS
 
 _ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit: ; preds = %if.end182, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i ], [ %80, %if.end182 ]
-  call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, i32 noundef 3, ptr %retval.i225.sroa.0.076) #22
+  call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, i32 noundef 3, ptr %retval.i225.sroa.0.073) #22
   %init_done_.i = getelementptr inbounds nuw i8, ptr %retval.i17.0.i, i64 208
   store i8 1, ptr %init_done_.i, align 8
   %zalloc.i = getelementptr inbounds nuw i8, ptr %retval.i17.0.i, i64 416

@@ -946,8 +946,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   %251 = add nuw i64 %249, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %252 = load i64, ptr %20, align 8, !tbaa !30, !noalias !42
-  %.not199 = icmp ult i64 %249, %252
-  br i1 %.not199, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i143, label %253
+  %.not198 = icmp ult i64 %249, %252
+  br i1 %.not198, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i143, label %253
 
 253:                                              ; preds = %250
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i64 noundef %251, i64 noundef %252) #25
@@ -1249,7 +1249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %33
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  br label %.thread197
+  br label %.thread196
 
 354:                                              ; preds = %344, %340
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1263,7 +1263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %33
 
 360:                                              ; preds = %358
   %361 = icmp eq i32 %359, 0
-  br i1 %361, label %.thread197, label %364
+  br i1 %361, label %.thread196, label %364
 
 362:                                              ; preds = %358
   %363 = landingpad { ptr, i32 }
@@ -1282,21 +1282,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %33
 
 369:                                              ; preds = %367
   %.not81 = icmp eq i32 %368, 0
-  br i1 %.not81, label %.thread197, label %383
+  br i1 %.not81, label %.thread196, label %383
 
 370:                                              ; preds = %367
   %371 = landingpad { ptr, i32 }
           cleanup
   br label %386
 
-.thread197:                                       ; preds = %360, %353, %369
+.thread196:                                       ; preds = %360, %353, %369
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %.343, ptr %372, align 2, !tbaa !3
   %373 = load i16, ptr %1, align 4, !tbaa !3
   %374 = icmp eq i16 %373, 10
   br i1 %374, label %375, label %383
 
-375:                                              ; preds = %.thread197
+375:                                              ; preds = %.thread196
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.053, ptr %376, align 4, !tbaa !3
   br label %383
@@ -1331,8 +1331,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %.c
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %383
 
-383:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177, %.thread197, %375, %369, %364, %.critedge
-  %.2 = phi i32 [ -1, %.critedge ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177 ], [ -1, %364 ], [ -1, %369 ], [ 0, %375 ], [ 0, %.thread197 ]
+383:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177, %.thread196, %375, %369, %364, %.critedge
+  %.2 = phi i32 [ -1, %.critedge ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177 ], [ -1, %364 ], [ -1, %369 ], [ 0, %375 ], [ 0, %.thread196 ]
   %384 = load ptr, ptr %11, align 8, !tbaa !35
   %385 = icmp eq ptr %384, %19
   br i1 %385, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181

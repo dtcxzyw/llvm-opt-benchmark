@@ -1308,7 +1308,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %245
   br label %.body.i.i.i.i
 
 .noexc30.i.i.i:                                   ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
-  %.sroa.0.2181.i.i = ptrtoint ptr %249 to i64
+  %.sroa.0.0181.i.i = ptrtoint ptr %249 to i64
   %254 = icmp eq ptr %249, %224
   br i1 %254, label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit.i.i.i.i, label %255
 
@@ -1350,7 +1350,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0E
   br i1 %267, label %.lr.ph.i24.preheader.i.i, label %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEERS5_RKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.thread56.i
 
 .lr.ph.i24.preheader.i.i:                         ; preds = %269
-  %270 = and i64 %.sroa.0.2181.i.i, 7
+  %270 = and i64 %.sroa.0.0181.i.i, 7
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %270, 0
   br label %.lr.ph.i24.i.i
 
@@ -1519,7 +1519,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %342 = icmp eq i64 %341, 0
   %343 = call i64 @llvm.umin.i64(i64 %341, i64 128)
   %.sroa.speculated49.i.i.i.i = select i1 %342, i64 8, i64 %343
-  %344 = and i64 %.sroa.0.2181.i.i, 7
+  %344 = and i64 %.sroa.0.0181.i.i, 7
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %344, 0
   br label %345
 
@@ -2090,9 +2090,9 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i.i.i.i: ; pre
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %.loopexit.split-lp.loopexit.i.i.i, %.loopexit.i.i.i, %605, %526, %514, %435, %252
-  %.sroa.0.8.i.i = phi ptr [ %249, %.loopexit.split-lp.loopexit.i.i.i ], [ %249, %605 ], [ %249, %526 ], [ %249, %514 ], [ %249, %435 ], [ %249, %.loopexit.i.i.i ], [ null, %252 ]
+  %.sroa.0.5.i.i = phi ptr [ %249, %.loopexit.split-lp.loopexit.i.i.i ], [ %249, %605 ], [ %249, %526 ], [ %249, %514 ], [ %249, %435 ], [ %249, %.loopexit.i.i.i ], [ null, %252 ]
   %.pn.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit139.i.i.i, %.loopexit.split-lp.loopexit.i.i.i ], [ %606, %605 ], [ %527, %526 ], [ %515, %514 ], [ %436, %435 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %253, %252 ]
-  call void @free(ptr noundef %.sroa.0.8.i.i) #31
+  call void @free(ptr noundef %.sroa.0.5.i.i) #31
   br label %.body.i.i
 
 _ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit.i.i.i: ; preds = %611, %_ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i, %292, %377
@@ -2486,8 +2486,8 @@ _ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1EL
   br label %.body.i.i
 
 "_ZZN5ceres8internal23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEENK3$_0clEi.exit.i.i.i": ; preds = %_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_.exit.i.i, %.loopexit.i.i.i.i
-  %.sroa.0.2242.i3955.i = phi ptr [ %249, %_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_.exit.i.i ], [ null, %.loopexit.i.i.i.i ]
-  call void @free(ptr noundef %.sroa.0.2242.i3955.i) #31
+  %.sroa.0.0242.i3955.i = phi ptr [ %249, %_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_.exit.i.i ], [ null, %.loopexit.i.i.i.i ]
+  call void @free(ptr noundef %.sroa.0.0242.i3955.i) #31
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %801 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   %.not.i26.i.i.i = icmp eq i32 %209, %801

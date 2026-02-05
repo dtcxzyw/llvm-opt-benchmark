@@ -314,11 +314,11 @@ _ZNK4llvm5APInt12getSExtValueEv.exit23:           ; preds = %53, %61
   store i8 0, ptr %46, align 8, !tbaa !34
   %66 = icmp ult i32 %51, 65
   %67 = icmp eq ptr %64, null
-  %or.cond44 = select i1 %66, i1 true, i1 %67
+  %or.cond42 = select i1 %66, i1 true, i1 %67
   br i1 %65, label %70, label %68
 
 68:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit23
-  br i1 %or.cond44, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %69
+  br i1 %or.cond42, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %69
 
 69:                                               ; preds = %68
   call void @_ZdaPv(ptr noundef nonnull %64) #8
@@ -329,7 +329,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %42, %6
   br label %72
 
 70:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit23
-  br i1 %or.cond44, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, label %71
+  br i1 %or.cond42, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, label %71
 
 71:                                               ; preds = %70
   call void @_ZdaPv(ptr noundef nonnull %64) #8

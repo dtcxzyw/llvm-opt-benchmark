@@ -2183,8 +2183,8 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_120AtomicOperandChecker15getRecovery
   br label %39
 
 39:                                               ; preds = %6, %1, %36
-  %.sroa.013.0 = phi i64 [ %4, %1 ], [ %38, %36 ], [ 1, %6 ]
-  ret i64 %.sroa.013.0
+  %.sroa.011.0 = phi i64 [ %4, %1 ], [ %38, %36 ], [ 1, %6 ]
+  ret i64 %.sroa.011.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

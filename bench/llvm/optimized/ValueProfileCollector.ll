@@ -614,14 +614,14 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i.i: ; preds = %23, %_ZNSt6v
 
 _ZN4llvm17findIndirectCallsERNS_8FunctionE.exit:  ; preds = %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i.i, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !86
-  %.not24 = icmp eq ptr %.sroa.020.0, %.sroa.9.0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq ptr %.sroa.020.0, %.sroa.9.0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm17findIndirectCallsERNS_8FunctionE.exit
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %36, align 8, !tbaa !76
-  %.pre26 = load ptr, ptr %37, align 8, !tbaa !79
+  %.pre24 = load ptr, ptr %37, align 8, !tbaa !79
   br label %42
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit, %_ZN4llvm17findIndirectCallsERNS_8FunctionE.exit
@@ -639,10 +639,10 @@ _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EED2Ev.exit:  ; preds = %._crit_edge, %38
   ret void
 
 42:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
-  %43 = phi ptr [ %.pre26, %.lr.ph ], [ %70, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
+  %43 = phi ptr [ %.pre24, %.lr.ph ], [ %70, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
   %44 = phi ptr [ %.pre, %.lr.ph ], [ %71, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
-  %.sroa.017.025 = phi ptr [ %.sroa.020.0, %.lr.ph ], [ %72, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
-  %45 = load ptr, ptr %.sroa.017.025, align 8, !tbaa !99
+  %.sroa.017.023 = phi ptr [ %.sroa.020.0, %.lr.ph ], [ %72, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
+  %45 = load ptr, ptr %.sroa.017.023, align 8, !tbaa !99
   %46 = getelementptr inbounds i8, ptr %45, i64 -32
   %47 = load ptr, ptr %46, align 8, !tbaa !31
   %.not.i = icmp eq ptr %44, %43
@@ -713,7 +713,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_i
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit: ; preds = %48, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %70 = phi ptr [ %43, %48 ], [ %69, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %71 = phi ptr [ %49, %48 ], [ %67, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.017.023, i64 8
   %.not = icmp eq ptr %72, %.sroa.9.0
   br i1 %.not, label %._crit_edge, label %42
 }
@@ -1065,10 +1065,10 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i.i: ; preds = %23, %_ZNSt6v
 
 _ZN4llvm15findVTableAddrsERNS_8FunctionE.exit:    ; preds = %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i.i, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !115
-  %.not38 = icmp eq ptr %.sroa.028.0, %.sroa.9.0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph40
+  %.not36 = icmp eq ptr %.sroa.028.0, %.sroa.9.0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph38
 
-.lr.ph40:                                         ; preds = %_ZN4llvm15findVTableAddrsERNS_8FunctionE.exit
+.lr.ph38:                                         ; preds = %_ZN4llvm15findVTableAddrsERNS_8FunctionE.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %41
@@ -1087,16 +1087,16 @@ _ZN4llvm15findVTableAddrsERNS_8FunctionE.exit:    ; preds = %_ZNSt6vectorIPN4llv
 _ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %37
   ret void
 
-41:                                               ; preds = %.lr.ph40, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
-  %.sroa.025.039 = phi ptr [ %.sroa.028.0, %.lr.ph40 ], [ %70, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
-  %42 = load ptr, ptr %.sroa.025.039, align 8, !tbaa !81
+41:                                               ; preds = %.lr.ph38, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
+  %.sroa.025.037 = phi ptr [ %.sroa.028.0, %.lr.ph38 ], [ %70, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit ]
+  %42 = load ptr, ptr %.sroa.025.037, align 8, !tbaa !81
   %43 = call noundef ptr @_ZNK4llvm11Instruction26getNextNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %42, i1 noundef zeroext false) #12
-  %cond36 = icmp eq ptr %43, null
-  br i1 %cond36, label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit, label %.lr.ph
+  %cond34 = icmp eq ptr %43, null
+  br i1 %cond34, label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %.critedge2
-  %.01637 = phi ptr [ %45, %.critedge2 ], [ %43, %41 ]
-  %44 = load i8, ptr %.01637, align 8, !tbaa !22
+  %.01635 = phi ptr [ %45, %.critedge2 ], [ %43, %41 ]
+  %44 = load i8, ptr %.01635, align 8, !tbaa !22
   switch i8 %44, label %.critedge [
     i8 84, label %.critedge2
     i8 39, label %.critedge2
@@ -1106,7 +1106,7 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %37
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %45 = call noundef ptr @_ZNK4llvm11Instruction26getNextNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %.01637, i1 noundef zeroext false) #12
+  %45 = call noundef ptr @_ZNK4llvm11Instruction26getNextNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %.01635, i1 noundef zeroext false) #12
   %cond = icmp eq ptr %45, null
   br i1 %cond, label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit, label %.lr.ph, !llvm.loop !118
 
@@ -1119,7 +1119,7 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %37
 48:                                               ; preds = %.critedge
   store ptr %42, ptr %46, align 8, !tbaa !80
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %.01637, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !81
+  store ptr %.01635, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !81
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %42, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !81
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -1152,7 +1152,7 @@ _ZNKSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12_M_check_le
   %64 = getelementptr inbounds i8, ptr %63, i64 %54
   store ptr %42, ptr %64, align 8, !tbaa !80
   %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %.01637, ptr %.sroa.5.0..sroa_idx20, align 8, !tbaa !81
+  store ptr %.01635, ptr %.sroa.5.0..sroa_idx20, align 8, !tbaa !81
   %.sroa.6.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %42, ptr %.sroa.6.0..sroa_idx22, align 8, !tbaa !81
   %65 = icmp sgt i64 %54, 0
@@ -1179,7 +1179,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_i
   br label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit: ; preds = %.critedge2, %41, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %48
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.025.037, i64 8
   %.not = icmp eq ptr %70, %.sroa.9.0
   br i1 %.not, label %._crit_edge, label %41
 }

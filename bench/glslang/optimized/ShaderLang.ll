@@ -6232,26 +6232,26 @@ define noundef zeroext i1 @_ZN7glslang8TProgram15crossStageCheckE11EShMessages(p
 
 8:                                                ; preds = %2, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %.sroa.24.059 = phi ptr [ null, %2 ], [ %.sroa.24.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %.sroa.16.058 = phi ptr [ null, %2 ], [ %.sroa.16.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %.sroa.3.057 = phi ptr [ null, %2 ], [ %.sroa.3.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
+  %.sroa.24.057 = phi ptr [ null, %2 ], [ %.sroa.24.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
+  %.sroa.16.056 = phi ptr [ null, %2 ], [ %.sroa.16.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
+  %.sroa.3.055 = phi ptr [ null, %2 ], [ %.sroa.3.1, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit ]
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit, label %11
 
 11:                                               ; preds = %8
-  %.not.i = icmp eq ptr %.sroa.16.058, %.sroa.24.059
+  %.not.i = icmp eq ptr %.sroa.16.056, %.sroa.24.057
   br i1 %.not.i, label %14, label %12
 
 12:                                               ; preds = %11
-  store ptr %10, ptr %.sroa.16.058, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.16.058, i64 8
+  store ptr %10, ptr %.sroa.16.056, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.16.056, i64 8
   br label %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit
 
 14:                                               ; preds = %11
-  %15 = ptrtoint ptr %.sroa.24.059 to i64
-  %16 = ptrtoint ptr %.sroa.3.057 to i64
+  %15 = ptrtoint ptr %.sroa.24.057 to i64
+  %16 = ptrtoint ptr %.sroa.3.055 to i64
   %17 = sub i64 %15, %16
   %18 = icmp eq i64 %17, 9223372036854775800
   br i1 %18, label %19, label %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i
@@ -6274,17 +6274,17 @@ _ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_le
   %27 = getelementptr inbounds i8, ptr %26, i64 %17
   %28 = load ptr, ptr %9, align 8
   store ptr %28, ptr %27, align 8
-  %.not8.i.i.i.i = icmp eq ptr %.sroa.3.057, %.sroa.24.059
+  %.not8.i.i.i.i = icmp eq ptr %.sroa.3.055, %.sroa.24.057
   br i1 %.not8.i.i.i.i, label %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i
   %.010.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i ]
-  %.sroa.05.09.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %.sroa.3.057, %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.05.09.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %.sroa.3.055, %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i ]
   %29 = load ptr, ptr %.sroa.05.09.i.i.i.i, align 8
   store ptr %29, ptr %.010.i.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %30, %.sroa.24.059
+  %.not.i.i.i.i = icmp eq ptr %30, %.sroa.24.057
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE12_M_check_lenEmPKc.exit.i.i
@@ -6294,9 +6294,9 @@ _ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_i
   br label %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i, %12, %8
-  %.sroa.3.1 = phi ptr [ %.sroa.3.057, %8 ], [ %26, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %.sroa.3.057, %12 ]
-  %.sroa.16.1 = phi ptr [ %.sroa.16.058, %8 ], [ %32, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %13, %12 ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.059, %8 ], [ %33, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %.sroa.24.059, %12 ]
+  %.sroa.3.1 = phi ptr [ %.sroa.3.055, %8 ], [ %26, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %.sroa.3.055, %12 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.056, %8 ], [ %32, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %13, %12 ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.057, %8 ], [ %33, %_ZNSt6vectorIPN7glslang13TIntermediateENS0_14pool_allocatorIS2_EEE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S5_EEDpOT_.exit.i ], [ %.sroa.24.057, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond.not, label %34, label %8, !llvm.loop !41
@@ -6546,12 +6546,12 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
 
 163:                                              ; preds = %_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit, %163
   %164 = phi i64 [ 0, %_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit ], [ %169, %163 ]
-  %.02561 = phi i32 [ 0, %_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit ], [ %168, %163 ]
+  %.02559 = phi i32 [ 0, %_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit ], [ %168, %163 ]
   %165 = load ptr, ptr %162, align 8
   %166 = getelementptr inbounds nuw ptr, ptr %.sroa.3.1, i64 %164
   %167 = load ptr, ptr %166, align 8
   call void @_ZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS0_(ptr noundef nonnull align 8 dereferenceable(2024) %3, ptr noundef nonnull align 8 dereferenceable(96) %165, ptr noundef nonnull align 8 dereferenceable(2024) %167) #25
-  %168 = add i32 %.02561, 1
+  %168 = add i32 %.02559, 1
   %169 = zext i32 %168 to i64
   %170 = icmp ugt i64 %38, %169
   br i1 %170, label %163, label %171, !llvm.loop !43
@@ -6563,21 +6563,21 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
 
 174:                                              ; preds = %171, %174
   %175 = phi i64 [ 0, %171 ], [ %180, %174 ]
-  %.02462 = phi i32 [ 0, %171 ], [ %179, %174 ]
+  %.02460 = phi i32 [ 0, %171 ], [ %179, %174 ]
   %176 = getelementptr inbounds nuw ptr, ptr %.sroa.3.1, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %162, align 8
   call void @_ZN7glslang13TIntermediate24mergeGlobalUniformBlocksER9TInfoSinkRS0_b(ptr noundef nonnull align 8 dereferenceable(2024) %177, ptr noundef nonnull align 8 dereferenceable(96) %178, ptr noundef nonnull align 8 dereferenceable(2024) %3, i1 noundef zeroext true) #25
-  %179 = add i32 %.02462, 1
+  %179 = add i32 %.02460, 1
   %180 = zext i32 %179 to i64
   %181 = icmp samesign ugt i64 %38, %180
   br i1 %181, label %174, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %174, %.lr.ph
   %182 = phi i64 [ %197, %.lr.ph ], [ 1, %174 ]
-  %.064 = phi i32 [ %196, %.lr.ph ], [ 1, %174 ]
-  %.026.in.in63 = phi i32 [ %195, %.lr.ph ], [ %173, %174 ]
-  %183 = add i32 %.064, -1
+  %.062 = phi i32 [ %196, %.lr.ph ], [ 1, %174 ]
+  %.026.in.in61 = phi i32 [ %195, %.lr.ph ], [ %173, %174 ]
+  %183 = add i32 %.062, -1
   %184 = zext i32 %183 to i64
   %185 = getelementptr inbounds nuw ptr, ptr %.sroa.3.1, i64 %184
   %186 = load ptr, ptr %185, align 8
@@ -6588,10 +6588,10 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit:
   %190 = load ptr, ptr %185, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 612
   %192 = load i32, ptr %191, align 4
-  %193 = or i32 %192, %.026.in.in63
+  %193 = or i32 %192, %.026.in.in61
   %194 = icmp ne i32 %193, 0
   %195 = zext i1 %194 to i32
-  %196 = add i32 %.064, 1
+  %196 = add i32 %.062, 1
   %197 = zext i32 %196 to i64
   %198 = icmp samesign ugt i64 %38, %197
   br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !45

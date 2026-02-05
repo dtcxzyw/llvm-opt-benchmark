@@ -23376,7 +23376,7 @@ _ZNSt6vectorIN5vcpkg11MachineTypeESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorI
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZNSt6vectorIN5vcpkg11MachineTypeESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
   %.pre-phi187 = phi i64 [ %49, %._crit_edge.i.i.i ], [ %.pre186, %_ZNSt6vectorIN5vcpkg11MachineTypeESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ]
-  %.sroa.11.2 = phi ptr [ %45, %._crit_edge.i.i.i ], [ %94, %_ZNSt6vectorIN5vcpkg11MachineTypeESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ]
+  %.sroa.11.0 = phi ptr [ %45, %._crit_edge.i.i.i ], [ %94, %_ZNSt6vectorIN5vcpkg11MachineTypeESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11MachineTypeESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !501)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !501
@@ -23408,7 +23408,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i, %98
-  %.not4.i = icmp eq ptr %46, %.sroa.11.2
+  %.not4.i = icmp eq ptr %46, %.sroa.11.0
   br i1 %.not4.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_11MachineTypeESaIS3_EEZNS_L22check_lib_architectureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKNS_4PathEEENSF_IKNS_8OptionalINS_14LibInformationEEEEERS2_INS_11FileAndArchESaISO_EEE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISU_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISU_EE5beginEEEE4typeESaIS12_EEOSU_OSY_.exit.thread", label %.lr.ph.i
 
 .loopexit99:                                      ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i52
@@ -23601,7 +23601,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.thread.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !501
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 2
-  %.not.i = icmp eq ptr %168, %.sroa.11.2
+  %.not.i = icmp eq ptr %168, %.sroa.11.0
   br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_11MachineTypeESaIS3_EEZNS_L22check_lib_architectureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKNS_4PathEEENSF_IKNS_8OptionalINS_14LibInformationEEEEERS2_INS_11FileAndArchESaISO_EEE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISU_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISU_EE5beginEEEE4typeESaIS12_EEOSU_OSY_.exit", label %.lr.ph.i
 
 169:                                              ; preds = %.lr.ph.i

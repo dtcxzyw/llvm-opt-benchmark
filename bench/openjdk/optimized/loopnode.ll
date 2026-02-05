@@ -4970,8 +4970,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN9Node_List4pushE
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %156, %158, %.split.us.i.i.i
-  %.sroa.15.2.ph.i = phi ptr [ %150, %.split.us.i.i.i ], [ %160, %158 ], [ %150, %156 ]
-  %.not33.i = icmp eq ptr %146, %.sroa.15.2.ph.i
+  %.sroa.15.1.ph.i = phi ptr [ %150, %.split.us.i.i.i ], [ %160, %158 ], [ %150, %156 ]
+  %.not33.i = icmp eq ptr %146, %.sroa.15.1.ph.i
   %or.cond.i = select i1 %153, i1 true, i1 %.not33.i
   br i1 %or.cond.i, label %140, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit, !llvm.loop !20
 

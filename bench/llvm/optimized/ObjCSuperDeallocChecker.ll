@@ -3447,7 +3447,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 12:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21diagnoseCallArgumentsERKN5clang4ento9CallEventERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i
+  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i
 
 13:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   %14 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_118CalledSuperDeallocEE8GDMIndexEvE5Index) #20
@@ -3481,19 +3481,19 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %.113.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i.i, i64 %.113.in.v.i.i.i.i.i.i
   %.113.i.i.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i.i.i, align 8, !tbaa !551
   %.not.i.i.i.i3.i.i = icmp eq ptr %.113.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i3.i.i, label %.thread22.i, label %22
+  br i1 %.not.i.i.i.i3.i.i, label %.thread20.i, label %22
 
 30:                                               ; preds = %22
   %31 = icmp eq i32 %19, 0
   br i1 %31, label %33, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
 
-.thread22.i:                                      ; preds = %28
+.thread20.i:                                      ; preds = %28
   %32 = icmp eq i32 %19, 0
-  br i1 %32, label %.thread23.i, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i
+  br i1 %32, label %.thread21.i, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i
 
-.thread23.i:                                      ; preds = %.thread22.i
+.thread21.i:                                      ; preds = %.thread20.i
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
-  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i
+  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i
 
 33:                                               ; preds = %30
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
@@ -3501,23 +3501,23 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i: ; preds = %33, %30
   %34 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21isSuperDeallocMessageERKN5clang4ento14ObjCMethodCallE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %spec.select.i = select i1 %34, ptr @.str.5, ptr null
-  %spec.select25.i = select i1 %34, i64 51, i64 0
+  %spec.select.i = select i1 %34, i64 51, i64 0
+  %spec.select23.i = select i1 %34, ptr @.str.5, ptr null
   %35 = load ptr, ptr %1, align 8, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
-  call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21reportUseAfterDeallocEPKN5clang4ento7SymExprEN4llvm9StringRefEPKNS1_4StmtERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %11, ptr %spec.select.i, i64 %spec.select25.i, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i
+  call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21reportUseAfterDeallocEPKN5clang4ento7SymExprEN4llvm9StringRefEPKNS1_4StmtERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %11, ptr %spec.select23.i, i64 %spec.select.i, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i
 
-_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i: ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i, %.thread23.i, %.thread22.i, %12
+_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i: ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i, %.thread21.i, %.thread20.i, %12
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i, %15, %13
+.thread.i:                                        ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i, %15, %13
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #20
   br label %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread24.i, %.thread.i
+_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread22.i, %.thread.i
   ret void
 }
 
@@ -3542,20 +3542,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
-  %.not35 = icmp eq i32 %13, 0
-  br i1 %.not35, label %.loopexit, label %.lr.ph
+  %.not29 = icmp eq i32 %13, 0
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread
-  %.034 = phi i32 [ 0, %.lr.ph ], [ %45, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread ]
+  %.028 = phi i32 [ 0, %.lr.ph ], [ %45, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load ptr, ptr %1, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
-  %18 = call { ptr, i8 } %17(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.034) #20
+  %18 = call { ptr, i8 } %17(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.028) #20
   %.fca.0.extract = extractvalue { ptr, i8 } %18, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %18, 1
   store ptr %.fca.0.extract, ptr %4, align 8
@@ -3597,17 +3597,17 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %.113.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 %.113.in.v.i.i.i.i.i
   %.113.i.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i.i, align 8, !tbaa !551
   %.not.i.i.i.i3.i = icmp eq ptr %.113.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i3.i, label %.thread28, label %29
+  br i1 %.not.i.i.i.i3.i, label %.thread22, label %29
 
 37:                                               ; preds = %29
   %38 = icmp eq i32 %26, 0
   br i1 %38, label %40, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit
 
-.thread28:                                        ; preds = %35
+.thread22:                                        ; preds = %35
   %39 = icmp eq i32 %26, 0
-  br i1 %39, label %.thread29, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread
+  br i1 %39, label %.thread23, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread
 
-.thread29:                                        ; preds = %.thread28
+.thread23:                                        ; preds = %.thread22
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
   br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread
 
@@ -3619,12 +3619,12 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS
   %41 = load ptr, ptr %1, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load ptr, ptr %42, align 8
-  %44 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.034) #20
+  %44 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.028) #20
   call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21reportUseAfterDeallocEPKN5clang4ento7SymExprEN4llvm9StringRefEPKNS1_4StmtERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %19, ptr null, i64 0, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %.loopexit
 
-_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread: ; preds = %.thread28, %20, %22, %.thread29, %14
-  %45 = add nuw i32 %.034, 1
+_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread: ; preds = %.thread22, %20, %22, %.thread23, %14
+  %45 = add nuw i32 %.028, 1
   %exitcond.not = icmp eq i32 %45, %13
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !613
 
@@ -4247,17 +4247,17 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %.113.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i.i, i64 %.113.in.v.i.i.i.i.i.i
   %.113.i.i.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i.i.i, align 8, !tbaa !551
   %.not.i.i.i.i3.i.i = icmp eq ptr %.113.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i3.i.i, label %.thread56.i, label %26
+  br i1 %.not.i.i.i.i3.i.i, label %.thread54.i, label %26
 
 34:                                               ; preds = %26
   %35 = icmp eq i32 %23, 0
   br i1 %35, label %37, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
 
-.thread56.i:                                      ; preds = %32
+.thread54.i:                                      ; preds = %32
   %36 = icmp eq i32 %23, 0
-  br i1 %36, label %.thread57.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
+  br i1 %36, label %.thread55.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
-.thread57.i:                                      ; preds = %.thread56.i
+.thread55.i:                                      ; preds = %.thread54.i
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %20)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
@@ -4277,8 +4277,8 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS
   br i1 %41, label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.not61.i7 = icmp eq i32 %40, 10
-  br i1 %.not61.i7, label %.loopexit.i.thread, label %.lr.ph
+  %.not59.i7 = icmp eq i32 %40, 10
+  br i1 %.not59.i7, label %.loopexit.i.thread, label %.lr.ph
 
 .loopexit.i.thread:                               ; preds = %.lr.ph.i.preheader
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 56
@@ -4286,36 +4286,36 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %.not61.i = icmp eq i32 %47, 10
-  br i1 %.not61.i, label %.loopexit.i, label %.lr.ph
+  %.not59.i = icmp eq i32 %47, 10
+  br i1 %.not59.i, label %.loopexit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.02166.i8 = phi ptr [ %45, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %.02166.i8, i64 48
+  %.02164.i8 = phi ptr [ %45, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
+  %44 = getelementptr inbounds nuw i8, ptr %.02164.i8, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !707
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !696
   %48 = icmp slt i32 %47, 9
-  %.not3359.i = icmp eq ptr %45, null
-  %.not33.i = or i1 %.not3359.i, %48
-  br i1 %.not33.i, label %.loopexit.thread84.i, label %.lr.ph.i
+  %.not3357.i = icmp eq ptr %45, null
+  %.not33.i = or i1 %.not3357.i, %48
+  br i1 %.not33.i, label %.loopexit.thread82.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !703
-  br label %.loopexit.thread84.i
+  br label %.loopexit.thread82.i
 
-.loopexit.thread84.i:                             ; preds = %.lr.ph, %.loopexit.i
-  %.1.ph89.i = phi ptr [ %50, %.loopexit.i ], [ %11, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i8, ptr %.02166.i8, i64 16
+.loopexit.thread82.i:                             ; preds = %.lr.ph, %.loopexit.i
+  %.1.ph87.i = phi ptr [ %50, %.loopexit.i ], [ %11, %.lr.ph ]
+  %51 = getelementptr inbounds nuw i8, ptr %.02164.i8, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !696
   %53 = icmp eq i32 %52, 21
-  %spec.select = select i1 %53, ptr %.02166.i8, ptr null
+  %spec.select = select i1 %53, ptr %.02164.i8, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
 
-_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i: ; preds = %.loopexit.thread84.i, %.loopexit.i.thread, %.preheader.i
-  %.1.ph83.i = phi ptr [ %.1.ph89.i, %.loopexit.thread84.i ], [ %43, %.loopexit.i.thread ], [ %11, %.preheader.i ]
-  %.0.i.i.i = phi ptr [ %spec.select, %.loopexit.thread84.i ], [ null, %.loopexit.i.thread ], [ null, %.preheader.i ]
+_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i: ; preds = %.loopexit.thread82.i, %.loopexit.i.thread, %.preheader.i
+  %.1.ph81.i = phi ptr [ %.1.ph87.i, %.loopexit.thread82.i ], [ %43, %.loopexit.i.thread ], [ %11, %.preheader.i ]
+  %.0.i.i.i = phi ptr [ %spec.select, %.loopexit.thread82.i ], [ null, %.loopexit.i.thread ], [ null, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %54, ptr %8, align 8, !tbaa !42
@@ -4396,7 +4396,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42.i:             ; preds = %89, %87
 94:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit42.i, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
   %.sroa.6.0.i = phi i64 [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i ], [ %93, %_ZN4llvm11raw_ostreamlsEPKc.exit42.i ]
   %.sroa.045.0.i = phi ptr [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento14ObjCIvarRegionEKNS2_9MemRegionEEEDaPT0_.exit.i ], [ %92, %_ZN4llvm11raw_ostreamlsEPKc.exit42.i ]
-  call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21reportUseAfterDeallocEPKN5clang4ento7SymExprEN4llvm9StringRefEPKNS1_4StmtERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %.1.ph83.i, ptr %.sroa.045.0.i, i64 %.sroa.6.0.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker21reportUseAfterDeallocEPKN5clang4ento7SymExprEN4llvm9StringRefEPKNS1_4StmtERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %.1.ph81.i, ptr %.sroa.045.0.i, i64 %.sroa.6.0.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %95 = load ptr, ptr %8, align 8, !tbaa !44
@@ -4413,7 +4413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %94,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i, %.thread57.i, %.thread56.i, %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i, %.thread55.i, %.thread54.i, %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %16) #20
   br label %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.exit
 

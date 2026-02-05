@@ -14674,8 +14674,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 51:                                               ; preds = %.body, %52
-  %.pn11 = phi { ptr, i32 } [ %.pn.ph, %52 ], [ %eh.lpad-body, %.body ]
-  resume { ptr, i32 } %.pn11
+  %.pn9 = phi { ptr, i32 } [ %.pn.ph, %52 ], [ %eh.lpad-body, %.body ]
+  resume { ptr, i32 } %.pn9
 
 52:                                               ; preds = %6, %21, %15
   %.pn.ph = phi { ptr, i32 } [ %7, %6 ], [ %16, %21 ], [ %16, %15 ]
@@ -16366,6 +16366,10 @@ common.resume:                                    ; preds = %105, %.body, %25
   %61 = icmp eq i64 %59, %60
   br i1 %61, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h356c31cdc8a045d2E.exit.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hec5fed5a8ad2a5a4E.exit.i.i"
 
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h356c31cdc8a045d2E.exit.i.i": ; preds = %58
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h36c51dfd355dc25fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %59, i64 noundef range(i64 1, 0) 1)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hec5fed5a8ad2a5a4E.exit.i.i" unwind label %65
+
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hec5fed5a8ad2a5a4E.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h356c31cdc8a045d2E.exit.i.i", %58
   %62 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !5526, !noalias !5527, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds { { { { i32, [1 x i32] }, i32 } } }, ptr %62, i64 %59
@@ -16378,10 +16382,6 @@ common.resume:                                    ; preds = %105, %.body, %25
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %53
-
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h356c31cdc8a045d2E.exit.i.i": ; preds = %58
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h36c51dfd355dc25fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %59, i64 noundef range(i64 1, 0) 1)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hec5fed5a8ad2a5a4E.exit.i.i" unwind label %65
 
 67:                                               ; preds = %56
   call void @llvm.experimental.noalias.scope.decl(metadata !5528)
@@ -18190,8 +18190,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 52:                                               ; preds = %.body, %53
-  %.pn12 = phi { ptr, i32 } [ %.pn.ph, %53 ], [ %eh.lpad-body, %.body ]
-  resume { ptr, i32 } %.pn12
+  %.pn10 = phi { ptr, i32 } [ %.pn.ph, %53 ], [ %eh.lpad-body, %.body ]
+  resume { ptr, i32 } %.pn10
 
 53:                                               ; preds = %20, %8
   %.pn.ph = phi { ptr, i32 } [ %9, %8 ], [ %21, %20 ]

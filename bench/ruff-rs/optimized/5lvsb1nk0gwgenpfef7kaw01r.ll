@@ -106,7 +106,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc11collections5btree3fix176_
 
 7:                                                ; preds = %53, %2
   %.sroa.3.0 = phi i64 [ %1, %2 ], [ %.sroa.15.1.ph, %53 ]
-  %.sroa.0.0 = phi ptr [ %0, %2 ], [ %.sroa.11.1.ph, %53 ]
+  %.sroa.0.0 = phi ptr [ %0, %2 ], [ %.sroa.11.0.ph, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 714
@@ -208,11 +208,11 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc11collections5btree3fix176_
 53:                                               ; preds = %27, %36
   %.sink = phi ptr [ %6, %36 ], [ %5, %27 ]
   %54 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h12ccbc7427c7c5acE"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %.sink), !noalias !11
-  %.sroa.11.1.ph = extractvalue { ptr, i64 } %54, 0
+  %.sroa.11.0.ph = extractvalue { ptr, i64 } %54, 0
   %.sroa.15.1.ph = extractvalue { ptr, i64 } %54, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not = icmp eq ptr %.sroa.11.1.ph, null
+  %.not = icmp eq ptr %.sroa.11.0.ph, null
   br i1 %.not, label %.loopexit, label %7
 
 .loopexit.sink.split:                             ; preds = %26, %.thread

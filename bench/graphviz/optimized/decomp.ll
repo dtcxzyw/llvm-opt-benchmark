@@ -24,8 +24,8 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 312
   store i64 0, ptr %8, align 8, !tbaa !13
   %9 = tail call ptr @agfstnode(ptr noundef %0) #13
-  %.not54 = icmp eq ptr %9, null
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq ptr %9, null
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = icmp sgt i32 %1, 0
@@ -35,15 +35,15 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %.lr.ph, %190
-  %.01659 = phi ptr [ %9, %.lr.ph ], [ %191, %190 ]
-  %.sroa.29.058 = phi i64 [ 0, %.lr.ph ], [ %.sroa.29.1, %190 ]
-  %.sroa.20.057 = phi i64 [ 0, %.lr.ph ], [ %.sroa.20.1, %190 ]
-  %.sroa.12.056 = phi i64 [ 0, %.lr.ph ], [ %.sroa.12.1, %190 ]
-  %.sroa.0.055 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.1, %190 ]
+  %.01653 = phi ptr [ %9, %.lr.ph ], [ %191, %190 ]
+  %.sroa.29.052 = phi i64 [ 0, %.lr.ph ], [ %.sroa.29.1, %190 ]
+  %.sroa.20.051 = phi i64 [ 0, %.lr.ph ], [ %.sroa.20.1, %190 ]
+  %.sroa.12.050 = phi i64 [ 0, %.lr.ph ], [ %.sroa.12.1, %190 ]
+  %.sroa.0.049 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.1, %190 ]
   br i1 %10, label %15, label %30
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %.01659, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.01653, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %19 = load ptr, ptr %18, align 8, !tbaa !33
@@ -63,12 +63,12 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %32
 
 30:                                               ; preds = %15, %14
-  %31 = tail call ptr @UF_find(ptr noundef nonnull %.01659) #13
-  %.not19 = icmp eq ptr %.01659, %31
+  %31 = tail call ptr @UF_find(ptr noundef nonnull %.01653) #13
+  %.not19 = icmp eq ptr %.01653, %31
   br i1 %.not19, label %32, label %190
 
 32:                                               ; preds = %30, %20
-  %.0 = phi ptr [ %29, %20 ], [ %.01659, %30 ]
+  %.0 = phi ptr [ %29, %20 ], [ %.01653, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
@@ -85,36 +85,36 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = add i64 %37, 1
   store i64 %40, ptr %35, align 8, !tbaa !43
-  %41 = icmp eq i64 %.sroa.20.057, %.sroa.29.058
+  %41 = icmp eq i64 %.sroa.20.051, %.sroa.29.052
   br i1 %41, label %42, label %push.exit
 
 42:                                               ; preds = %38
-  %43 = icmp eq i64 %.sroa.29.058, 0
-  %44 = shl i64 %.sroa.29.058, 1
+  %43 = icmp eq i64 %.sroa.29.052, 0
+  %44 = shl i64 %.sroa.29.052, 1
   %spec.select.i.i.i.i = select i1 %43, i64 1, i64 %44
   %mul.ov.i.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 2305843009213693951
   br i1 %mul.ov.i.i.i.i, label %61, label %45
 
 45:                                               ; preds = %42
   %46 = shl nuw i64 %spec.select.i.i.i.i, 3
-  %47 = tail call ptr @realloc(ptr noundef %.sroa.0.055, i64 noundef %46) #14
+  %47 = tail call ptr @realloc(ptr noundef %.sroa.0.049, i64 noundef %46) #14
   %48 = icmp eq ptr %47, null
   br i1 %48, label %61, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.29.058
-  %51 = sub i64 %spec.select.i.i.i.i, %.sroa.29.058
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.29.052
+  %51 = sub i64 %spec.select.i.i.i.i, %.sroa.29.052
   %52 = shl i64 %51, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %52, i1 false)
-  %53 = add i64 %.sroa.29.058, %.sroa.12.056
-  %54 = icmp ugt i64 %53, %.sroa.29.058
+  %53 = add i64 %.sroa.29.052, %.sroa.12.050
+  %54 = icmp ugt i64 %53, %.sroa.29.052
   br i1 %54, label %55, label %push.exit
 
 55:                                               ; preds = %49
-  %56 = sub i64 %.sroa.29.058, %.sroa.12.056
+  %56 = sub i64 %.sroa.29.052, %.sroa.12.050
   %57 = sub i64 %spec.select.i.i.i.i, %56
   %58 = getelementptr inbounds nuw ptr, ptr %47, i64 %57
-  %59 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.12.056
+  %59 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.12.050
   %60 = shl i64 %56, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %59, i64 %60, i1 false)
   br label %push.exit
@@ -128,14 +128,14 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   unreachable
 
 push.exit:                                        ; preds = %49, %55, %38
-  %.sroa.0.10 = phi ptr [ %.sroa.0.055, %38 ], [ %47, %55 ], [ %47, %49 ]
-  %.sroa.12.12 = phi i64 [ %.sroa.12.056, %38 ], [ %57, %55 ], [ %.sroa.12.056, %49 ]
-  %.sroa.29.10 = phi i64 [ %.sroa.29.058, %38 ], [ %spec.select.i.i.i.i, %55 ], [ %spec.select.i.i.i.i, %49 ]
-  %65 = add i64 %.sroa.12.12, %.sroa.20.057
+  %.sroa.0.10 = phi ptr [ %.sroa.0.049, %38 ], [ %47, %55 ], [ %47, %49 ]
+  %.sroa.12.12 = phi i64 [ %.sroa.12.050, %38 ], [ %57, %55 ], [ %.sroa.12.050, %49 ]
+  %.sroa.29.10 = phi i64 [ %.sroa.29.052, %38 ], [ %spec.select.i.i.i.i, %55 ], [ %spec.select.i.i.i.i, %49 ]
+  %65 = add i64 %.sroa.12.12, %.sroa.20.051
   %66 = urem i64 %65, %.sroa.29.10
   %67 = getelementptr inbounds nuw ptr, ptr %.sroa.0.10, i64 %66
   store ptr %.0, ptr %67, align 8, !tbaa !42
-  %68 = add i64 %.sroa.20.057, 1
+  %68 = add i64 %.sroa.20.051, 1
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %search_component.exit, label %pop.exit.i
 
@@ -390,11 +390,11 @@ end_component.exit:                               ; preds = %181, %183
   br label %190
 
 190:                                              ; preds = %32, %end_component.exit, %30
-  %.sroa.0.1 = phi ptr [ %.sroa.0.055, %32 ], [ %.sroa.0.9, %end_component.exit ], [ %.sroa.0.055, %30 ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.056, %32 ], [ %.sroa.12.10, %end_component.exit ], [ %.sroa.12.056, %30 ]
-  %.sroa.20.1 = phi i64 [ %.sroa.20.057, %32 ], [ %.sroa.20.7, %end_component.exit ], [ %.sroa.20.057, %30 ]
-  %.sroa.29.1 = phi i64 [ %.sroa.29.058, %32 ], [ %.sroa.29.9, %end_component.exit ], [ %.sroa.29.058, %30 ]
-  %191 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01659) #13
+  %.sroa.0.1 = phi ptr [ %.sroa.0.049, %32 ], [ %.sroa.0.9, %end_component.exit ], [ %.sroa.0.049, %30 ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.050, %32 ], [ %.sroa.12.10, %end_component.exit ], [ %.sroa.12.050, %30 ]
+  %.sroa.20.1 = phi i64 [ %.sroa.20.051, %32 ], [ %.sroa.20.7, %end_component.exit ], [ %.sroa.20.051, %30 ]
+  %.sroa.29.1 = phi i64 [ %.sroa.29.052, %32 ], [ %.sroa.29.9, %end_component.exit ], [ %.sroa.29.052, %30 ]
+  %191 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01653) #13
   %.not = icmp eq ptr %191, null
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !63
 

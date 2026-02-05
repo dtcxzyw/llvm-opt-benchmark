@@ -927,7 +927,7 @@ dynamic_lib_name.exit:                            ; preds = %build_base_name.exi
 
 exe_name.exit:                                    ; preds = %.sink.split.i251, %123, %.sink.split.i237, %90, %.sink.split.i, %84, %static_lib_name.exit, %dynamic_lib_name.exit, %99, %80, %71
   %.0196 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %.sink.split.i ], [ null, %.sink.split.i237 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ %165, %dynamic_lib_name.exit ], [ null, %84 ], [ null, %90 ], [ null, %123 ], [ null, %.sink.split.i251 ]
-  %.0194 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %.sink.split.i ], [ null, %.sink.split.i237 ], [ null, %99 ], [ %145, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %84 ], [ null, %90 ], [ null, %123 ], [ null, %.sink.split.i251 ]
+  %.0192 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %.sink.split.i ], [ null, %.sink.split.i237 ], [ null, %99 ], [ %145, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %84 ], [ null, %90 ], [ null, %123 ], [ null, %.sink.split.i251 ]
   %.0190 = phi ptr [ null, %71 ], [ null, %80 ], [ %87, %.sink.split.i ], [ %93, %.sink.split.i237 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ @.str.17, %84 ], [ @.str.18, %90 ], [ %.015.i250, %123 ], [ %126, %.sink.split.i251 ]
   tail call fastcc void @free_arenas()
   %.not213 = icmp eq ptr %72, null
@@ -1001,7 +1001,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i251, %
 
 .loopexit303:                                     ; preds = %.loopexit303.preheader, %223
   %indvars.iv316 = phi i64 [ %indvars.iv.next317, %223 ], [ 0, %.loopexit303.preheader ]
-  %.0193305 = phi ptr [ %226, %223 ], [ null, %.loopexit303.preheader ]
+  %.0195305 = phi ptr [ %226, %223 ], [ null, %.loopexit303.preheader ]
   %196 = getelementptr inbounds nuw %struct.CompileData_, ptr %183, i64 %indvars.iv316
   %197 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv316
   %198 = load ptr, ptr %197, align 8
@@ -1012,7 +1012,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i251, %
   store ptr @thread_compile_task_llvm, ptr %199, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 24
   store ptr %196, ptr %.sroa.2.0..sroa_idx, align 8
-  %.not.i268 = icmp eq ptr %.0193305, null
+  %.not.i268 = icmp eq ptr %.0195305, null
   br i1 %.not.i268, label %200, label %203
 
 200:                                              ; preds = %.loopexit303
@@ -1022,8 +1022,8 @@ exe_name.exit:                                    ; preds = %.sink.split.i251, %
   br label %205
 
 203:                                              ; preds = %.loopexit303
-  %204 = getelementptr inbounds i8, ptr %.0193305, i64 -8
-  %.phi.trans.insert.i269 = getelementptr inbounds i8, ptr %.0193305, i64 -4
+  %204 = getelementptr inbounds i8, ptr %.0195305, i64 -8
+  %.phi.trans.insert.i269 = getelementptr inbounds i8, ptr %.0195305, i64 -4
   %.pre.i270 = load i32, ptr %.phi.trans.insert.i269, align 4
   br label %205
 
@@ -1360,7 +1360,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.p
   br label %399
 
 362:                                              ; preds = %265
-  %.not220 = icmp eq ptr %.0194, null
+  %.not220 = icmp eq ptr %.0192, null
   br i1 %.not220, label %380, label %363
 
 363:                                              ; preds = %362
@@ -1369,12 +1369,12 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.p
   br i1 %.not223, label %367, label %365
 
 365:                                              ; preds = %363
-  %366 = tail call ptr @file_append_path(ptr noundef nonnull %364, ptr noundef nonnull %.0194) #20
+  %366 = tail call ptr @file_append_path(ptr noundef nonnull %364, ptr noundef nonnull %.0192) #20
   br label %367
 
 367:                                              ; preds = %365, %363
-  %.1195 = phi ptr [ %366, %365 ], [ %.0194, %363 ]
-  %368 = tail call zeroext i1 @file_is_dir(ptr noundef %.1195) #20
+  %.1193 = phi ptr [ %366, %365 ], [ %.0192, %363 ]
+  %368 = tail call zeroext i1 @file_is_dir(ptr noundef %.1193) #20
   br i1 %368, label %369, label %370
 
 369:                                              ; preds = %367
@@ -1382,11 +1382,11 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.p
   unreachable
 
 370:                                              ; preds = %367
-  %371 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1195, ptr noundef nonnull %186, i32 noundef %176) #20
+  %371 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1193, ptr noundef nonnull %186, i32 noundef %176) #20
   br i1 %371, label %373, label %372
 
 372:                                              ; preds = %370
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %.1195) #21
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %.1193) #21
   unreachable
 
 373:                                              ; preds = %370
@@ -1406,7 +1406,7 @@ delete_object_files.exit285:                      ; preds = %.lr.ph.i281, %373
   %378 = tail call double @bench_mark() #20
   store double %378, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
-  %379 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1195)
+  %379 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1193)
   br label %399
 
 380:                                              ; preds = %362

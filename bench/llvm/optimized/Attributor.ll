@@ -7162,8 +7162,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapIn
   %.pn14.i = phi ptr [ %113, %112 ], [ %108, %114 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %115, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %113, %112 ], [ %115, %114 ], [ %115, %.critedge2.i8.i14.i6.i ], [ %115, %.lr.ph.i6.i12.i3.i ]
   %118 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %108, i64 %111
-  %.not5356 = icmp eq ptr %.pn14.i, %118
-  br i1 %.not5356, label %._crit_edge, label %.lr.ph
+  %.not5053 = icmp eq ptr %.pn14.i, %118
+  br i1 %.not5053, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -7188,8 +7188,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapIn
   br label %197
 
 132:                                              ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EELb1EEppEv.exit
-  %.sroa.040.057 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.040.2, %_ZN4llvm16DenseMapIteratorIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EELb1EEppEv.exit ]
-  %133 = load ptr, ptr %.sroa.040.057, align 8, !tbaa !498
+  %.sroa.040.054 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.040.2, %_ZN4llvm16DenseMapIteratorIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EELb1EEppEv.exit ]
+  %133 = load ptr, ptr %.sroa.040.054, align 8, !tbaa !498
   %134 = ptrtoint ptr %133 to i64
   %135 = and i64 %134, -5
   %136 = or i64 %134, 4
@@ -7266,8 +7266,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapIn
   %or.cond = select i1 %173, i1 %175, i1 false
   %176 = load ptr, ptr %119, align 8
   %.not.i38 = icmp eq ptr %176, %.sroa.14.24.copyload
-  %or.cond52 = select i1 %or.cond, i1 %.not.i38, i1 false
-  br i1 %or.cond52, label %_ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit, label %_ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i
+  %or.cond49 = select i1 %or.cond, i1 %.not.i38, i1 false
+  br i1 %or.cond49, label %_ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit, label %_ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i
 
 _ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i: ; preds = %171
   %177 = call noundef ptr @_ZN4llvm22MustBeExecutedIterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #29
@@ -7276,7 +7276,7 @@ _ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i: ; preds = %171
   br i1 %178, label %.loopexit, label %171, !llvm.loop !506
 
 .loopexit:                                        ; preds = %150, %164, %_ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i, %140, %157
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.040.057, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.040.054, i64 16
   %180 = load i64, ptr %179, align 8, !tbaa !507
   %181 = call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %2, i64 noundef %180) #29
   %182 = load i32, ptr %23, align 8, !tbaa !33
@@ -7304,7 +7304,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9AttributeELb1EE9push_backES1_.exit: ; pred
   br label %_ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit
 
 _ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit: ; preds = %171, %_ZN4llvm23SmallVectorTemplateBaseINS_9AttributeELb1EE9push_backES1_.exit
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.040.057, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.040.054, i64 24
   %.not5.i3.i = icmp eq ptr %194, %.pn12.i
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
@@ -7324,8 +7324,8 @@ _ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_
 
 _ZN4llvm16DenseMapIteratorIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit
   %.sroa.040.2 = phi ptr [ %194, %_ZN4llvm29MustBeExecutedContextExplorer15findInContextOfEPKNS_11InstructionERNS_22MustBeExecutedIteratorES5_.exit ], [ %196, %.critedge2.i6.i ], [ %.sroa.040.1, %.lr.ph.i4.i ]
-  %.not53 = icmp eq ptr %.sroa.040.2, %118
-  br i1 %.not53, label %._crit_edge, label %132
+  %.not50 = icmp eq ptr %.sroa.040.2, %118
+  br i1 %.not50, label %._crit_edge, label %132
 
 197:                                              ; preds = %13, %._crit_edge
   %.1 = phi i1 [ %125, %._crit_edge ], [ false, %13 ]

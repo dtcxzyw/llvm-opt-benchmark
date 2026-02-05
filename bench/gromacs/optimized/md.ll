@@ -2411,12 +2411,12 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %881
   br label %1106
 
 1106:                                             ; preds = %1097, %1100
-  %.sroa.61285.2 = phi i64 [ %1105, %1100 ], [ 0, %1097 ]
-  %.sroa.01284.2 = phi ptr [ %1102, %1100 ], [ null, %1097 ]
+  %.sroa.61285.0 = phi i64 [ %1105, %1100 ], [ 0, %1097 ]
+  %.sroa.01284.0 = phi ptr [ %1102, %1100 ], [ null, %1097 ]
   %1107 = load ptr, ptr %116, align 8, !tbaa !218
-  %1108 = ptrtoint ptr %.sroa.01284.2 to i64
-  %1109 = sub i64 %.sroa.61285.2, %1108
-  %1110 = getelementptr inbounds nuw i8, ptr %.sroa.01284.2, i64 %1109
+  %1108 = ptrtoint ptr %.sroa.01284.0 to i64
+  %1109 = sub i64 %.sroa.61285.0, %1108
+  %1110 = getelementptr inbounds nuw i8, ptr %.sroa.01284.0, i64 %1109
   %1111 = getelementptr inbounds nuw i8, ptr %.pre1686, i64 456
   %1112 = load ptr, ptr %1111, align 8, !tbaa !571
   %1113 = getelementptr inbounds nuw i8, ptr %.pre1686, i64 480
@@ -2427,7 +2427,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %881
   %1118 = getelementptr inbounds i8, ptr %1112, i64 %1117
   store ptr %1112, ptr %50, align 8
   store ptr %1118, ptr %1059, align 8
-  invoke void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayRefINS6_11BasicVectorIfEEEESA_(ptr noundef %1107, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(648) %442, ptr %.sroa.01284.2, ptr %1110, ptr noundef nonnull byval(%"class.gmx::ArrayRef.833") align 8 %50)
+  invoke void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayRefINS6_11BasicVectorIfEEEESA_(ptr noundef %1107, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(648) %442, ptr %.sroa.01284.0, ptr %1110, ptr noundef nonnull byval(%"class.gmx::ArrayRef.833") align 8 %50)
           to label %1119 unwind label %1128
 
 1119:                                             ; preds = %1106

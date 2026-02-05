@@ -3314,18 +3314,18 @@ _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc107
   %24 = phi i64 [ 1, %.noexc107 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i185 = phi ptr [ %18, %.noexc107 ], [ %22, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i182 = phi ptr [ %18, %.noexc107 ], [ %22, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.084145 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds double, ptr %3, i64 %.084145
+  %.084142 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %25 = getelementptr inbounds double, ptr %3, i64 %.084142
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.Cell, ptr %17, i64 %.084145
+  %27 = getelementptr inbounds %struct.Cell, ptr %17, i64 %.084142
   store double %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %.084145, ptr %28, align 8
-  %29 = add nuw i64 %.084145, 1
+  store i64 %.084142, ptr %28, align 8
+  %29 = add nuw i64 %.084142, 1
   %exitcond.not = icmp eq i64 %29, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
@@ -3333,35 +3333,35 @@ _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check
   %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %31 = shl nuw nsw i64 %30, 1
   %32 = xor i64 %31, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_T1_(ptr nonnull %17, ptr nonnull %.0.i.i.i.i.i185, i64 noundef %32)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_T1_(ptr nonnull %17, ptr nonnull %.0.i.i.i.i.i182, i64 noundef %32)
           to label %.noexc108 unwind label %54
 
 .noexc108:                                        ; preds = %._crit_edge
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_(ptr nonnull %17, ptr nonnull %.0.i.i.i.i.i185)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_(ptr nonnull %17, ptr nonnull %.0.i.i.i.i.i182)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit unwind label %54
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit: ; preds = %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %.noexc108
-  %.sroa.0119.0176192 = phi ptr [ %17, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %.0.i.i.i.i.i178191 = phi ptr [ %.0.i.i.i.i.i185, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %.sroa.0119.0173189 = phi ptr [ %17, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %.0.i.i.i.i.i175188 = phi ptr [ %.0.i.i.i.i.i182, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %.preheader unwind label %54
 
 .preheader:                                       ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit
-  br i1 %.not.i.i.i.i, label %._crit_edge155, label %.lr.ph154
+  br i1 %.not.i.i.i.i, label %._crit_edge152, label %.lr.ph151
 
-.lr.ph154:                                        ; preds = %.preheader
+.lr.ph151:                                        ; preds = %.preheader
   %33 = sitofp i32 %4 to double
   %34 = fmul double %33, 1.000000e-05
   br label %35
 
-35:                                               ; preds = %.lr.ph154, %102
-  %.085153 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.186, %102 ]
-  %.087152 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.188, %102 ]
-  %.089151 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.190, %102 ]
-  %.092150 = phi i32 [ 0, %.lr.ph154 ], [ %.193, %102 ]
-  %.095149 = phi i32 [ 0, %.lr.ph154 ], [ %.196, %102 ]
-  %.sroa.0116.0148 = phi ptr [ %.sroa.0119.0176192, %.lr.ph154 ], [ %103, %102 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0148, i64 8
+35:                                               ; preds = %.lr.ph151, %102
+  %.085150 = phi double [ 0.000000e+00, %.lr.ph151 ], [ %.186, %102 ]
+  %.087149 = phi double [ 0.000000e+00, %.lr.ph151 ], [ %.188, %102 ]
+  %.089148 = phi double [ 0.000000e+00, %.lr.ph151 ], [ %.190, %102 ]
+  %.092147 = phi i32 [ 0, %.lr.ph151 ], [ %.193, %102 ]
+  %.095146 = phi i32 [ 0, %.lr.ph151 ], [ %.196, %102 ]
+  %.sroa.0116.0145 = phi ptr [ %.sroa.0119.0173189, %.lr.ph151 ], [ %103, %102 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0145, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds double, ptr %3, i64 %37
   %39 = load double, ptr %38, align 8
@@ -3373,7 +3373,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %43 unwind label %56
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0148, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0145, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds double, ptr %3, i64 %45
   %47 = load double, ptr %46, align 8
@@ -3393,7 +3393,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %195 unwind label %56
 
 54:                                               ; preds = %.noexc108, %._crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit
-  %.sroa.0119.0176193 = phi ptr [ %17, %.noexc108 ], [ %17, %._crit_edge ], [ %.sroa.0119.0176192, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit ]
+  %.sroa.0119.0173190 = phi ptr [ %17, %.noexc108 ], [ %17, %._crit_edge ], [ %.sroa.0119.0173189, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %198
@@ -3419,7 +3419,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %66 unwind label %56
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0148, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0145, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds double, ptr %2, i64 %68
   %70 = load double, ptr %69, align 8
@@ -3449,44 +3449,44 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 81:                                               ; preds = %79
   %82 = getelementptr inbounds double, ptr %2, i64 %37
   %83 = load double, ptr %82, align 8
-  %84 = fadd double %.085153, %83
-  %85 = fadd double %.087152, %39
-  %86 = add nsw i32 %.095149, 1
+  %84 = fadd double %.085150, %83
+  %85 = fadd double %.087149, %39
+  %86 = add nsw i32 %.095146, 1
   br label %102
 
 87:                                               ; preds = %79
-  %88 = fcmp ogt double %.087152, 0.000000e+00
-  %89 = fcmp olt double %.087152, %5
+  %88 = fcmp ogt double %.087149, 0.000000e+00
+  %89 = fcmp olt double %.087149, %5
   %or.cond106 = and i1 %88, %89
   %90 = getelementptr inbounds double, ptr %2, i64 %37
   %91 = load double, ptr %90, align 8
   br i1 %or.cond106, label %92, label %96
 
 92:                                               ; preds = %87
-  %93 = fadd double %.085153, %91
-  %94 = fadd double %.087152, %39
-  %95 = add nsw i32 %.095149, 1
+  %93 = fadd double %.085150, %91
+  %94 = fadd double %.087149, %39
+  %95 = add nsw i32 %.095146, 1
   br label %102
 
 96:                                               ; preds = %87
   %97 = fsub double %91, %39
   %98 = fmul double %97, %97
   %99 = fdiv double %98, %39
-  %100 = fadd double %.089151, %99
-  %101 = add nsw i32 %.092150, 1
+  %100 = fadd double %.089148, %99
+  %101 = add nsw i32 %.092147, 1
   br label %102
 
 102:                                              ; preds = %81, %96, %92, %60
-  %.196 = phi i32 [ %.095149, %60 ], [ %86, %81 ], [ %95, %92 ], [ %.095149, %96 ]
-  %.193 = phi i32 [ %.092150, %60 ], [ %.092150, %81 ], [ %.092150, %92 ], [ %101, %96 ]
-  %.190 = phi double [ %.089151, %60 ], [ %.089151, %81 ], [ %.089151, %92 ], [ %100, %96 ]
-  %.188 = phi double [ %.087152, %60 ], [ %85, %81 ], [ %94, %92 ], [ %.087152, %96 ]
-  %.186 = phi double [ %.085153, %60 ], [ %84, %81 ], [ %93, %92 ], [ %.085153, %96 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0148, i64 16
-  %.not = icmp eq ptr %103, %.0.i.i.i.i.i178191
-  br i1 %.not, label %._crit_edge155, label %35
+  %.196 = phi i32 [ %.095146, %60 ], [ %86, %81 ], [ %95, %92 ], [ %.095146, %96 ]
+  %.193 = phi i32 [ %.092147, %60 ], [ %.092147, %81 ], [ %.092147, %92 ], [ %101, %96 ]
+  %.190 = phi double [ %.089148, %60 ], [ %.089148, %81 ], [ %.089148, %92 ], [ %100, %96 ]
+  %.188 = phi double [ %.087149, %60 ], [ %85, %81 ], [ %94, %92 ], [ %.087149, %96 ]
+  %.186 = phi double [ %.085150, %60 ], [ %84, %81 ], [ %93, %92 ], [ %.085150, %96 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0145, i64 16
+  %.not = icmp eq ptr %103, %.0.i.i.i.i.i175188
+  br i1 %.not, label %._crit_edge152, label %35
 
-._crit_edge155:                                   ; preds = %102, %.preheader
+._crit_edge152:                                   ; preds = %102, %.preheader
   %.095.lcssa = phi i32 [ 0, %.preheader ], [ %.196, %102 ]
   %.092.lcssa = phi i32 [ 0, %.preheader ], [ %.193, %102 ]
   %.089.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.190, %102 ]
@@ -3497,7 +3497,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   %or.cond = select i1 %104, i1 true, i1 %105
   br i1 %or.cond, label %106, label %124
 
-106:                                              ; preds = %._crit_edge155
+106:                                              ; preds = %._crit_edge152
   %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.49)
           to label %108 unwind label %56
 
@@ -3529,9 +3529,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   %123 = add nsw i32 %.092.lcssa, 1
   br label %124
 
-124:                                              ; preds = %._crit_edge155, %118
-  %.294 = phi i32 [ %123, %118 ], [ %.092.lcssa, %._crit_edge155 ]
-  %.291 = phi double [ %122, %118 ], [ %.089.lcssa, %._crit_edge155 ]
+124:                                              ; preds = %._crit_edge152, %118
+  %.294 = phi i32 [ %123, %118 ], [ %.092.lcssa, %._crit_edge152 ]
+  %.291 = phi double [ %122, %118 ], [ %.089.lcssa, %._crit_edge152 ]
   %125 = add nsw i32 %.294, -1
   %126 = icmp slt i32 %.294, 2
   br i1 %126, label %127, label %136
@@ -3612,8 +3612,8 @@ _ZN10hypothesis8chi2_cdfEdi.exit:                 ; preds = %152, %148, %156
   %167 = fcmp uge double %161, %166
   %168 = call double @llvm.fabs.f64(double %161)
   %169 = fcmp one double %168, 0x7FF0000000000000
-  %or.cond132 = and i1 %167, %169
-  br i1 %or.cond132, label %182, label %170
+  %or.cond129 = and i1 %167, %169
+  br i1 %or.cond129, label %182, label %170
 
 170:                                              ; preds = %_ZN10hypothesis8chi2_cdfEdi.exit
   %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.56)
@@ -3670,30 +3670,30 @@ _ZN10hypothesis8chi2_cdfEdi.exit:                 ; preds = %152, %148, %156
 
 195:                                              ; preds = %194, %135, %78, %53
   %.0.sink = phi i8 [ 0, %135 ], [ 0, %78 ], [ 0, %53 ], [ %.0, %194 ]
-  %.sink198 = phi ptr [ %12, %135 ], [ %11, %78 ], [ %10, %53 ], [ %13, %194 ]
+  %.sink195 = phi ptr [ %12, %135 ], [ %11, %78 ], [ %10, %53 ], [ %13, %194 ]
   store i8 %.0.sink, ptr %0, align 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %.sink198) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink198) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %.sink195) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink195) #24
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #24
-  %.not.i.i.i = icmp eq ptr %.sroa.0119.0176192, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0119.0173189, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit, label %197
 
 197:                                              ; preds = %195
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0176192) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0173189) #23
   br label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit
 
 _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit: ; preds = %195, %197
   ret void
 
 198:                                              ; preds = %56, %54
-  %.sroa.0119.0177 = phi ptr [ %.sroa.0119.0176192, %56 ], [ %.sroa.0119.0176193, %54 ]
+  %.sroa.0119.0174 = phi ptr [ %.sroa.0119.0173189, %56 ], [ %.sroa.0119.0173190, %54 ]
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
-  %.not.i.i.i111 = icmp eq ptr %.sroa.0119.0177, null
+  %.not.i.i.i111 = icmp eq ptr %.sroa.0119.0174, null
   br i1 %.not.i.i.i111, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112, label %199
 
 199:                                              ; preds = %198
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0177) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0174) #23
   br label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112
 
 _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112: ; preds = %199, %198

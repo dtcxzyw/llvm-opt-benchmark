@@ -3359,8 +3359,8 @@ _ZNSt6vectorIN4llvm11SmallVectorIiLj1EEESaIS2_EE6resizeEm.exit: ; preds = %65, %
   br i1 %.not46, label %.loopexit, label %.lr.ph73, !llvm.loop !309
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %.sroa.059.169 = phi ptr [ %106, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %84, %.lr.ph70.preheader ]
-  %88 = load i16, ptr %.sroa.059.169, align 2, !tbaa !176
+  %.sroa.059.069 = phi ptr [ %106, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %84, %.lr.ph70.preheader ]
+  %88 = load i16, ptr %.sroa.059.069, align 2, !tbaa !176
   %89 = zext i16 %88 to i64
   %90 = load ptr, ptr %60, align 8, !tbaa !3
   %91 = getelementptr inbounds nuw %"class.llvm::SmallVector.21", ptr %90, i64 %89
@@ -3388,7 +3388,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph70, 
   %104 = load i32, ptr %92, align 8, !tbaa !12
   %105 = add i32 %104, 1
   store i32 %105, ptr %92, align 8, !tbaa !12
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.059.169, i64 2
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.059.069, i64 2
   %.not = icmp eq ptr %106, %86
   br i1 %.not, label %._crit_edge, label %.lr.ph70, !llvm.loop !310
 

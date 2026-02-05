@@ -4041,9 +4041,9 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
   br label %_ZN4cvc58internal7Minisat3vecIjE6growToEi.exit
 
 _ZN4cvc58internal7Minisat3vecIjE6growToEi.exit:   ; preds = %132, %._crit_edge.i15
-  %.sroa.0.6 = phi ptr [ %malloc, %._crit_edge.i15 ], [ null, %132 ]
-  %.sroa.9.5 = phi i32 [ %135, %._crit_edge.i15 ], [ 0, %132 ]
-  %.sroa.13.6 = phi i32 [ %138, %._crit_edge.i15 ], [ 0, %132 ]
+  %.sroa.0.1 = phi ptr [ %malloc, %._crit_edge.i15 ], [ null, %132 ]
+  %.sroa.9.0 = phi i32 [ %135, %._crit_edge.i15 ], [ 0, %132 ]
+  %.sroa.13.1 = phi i32 [ %138, %._crit_edge.i15 ], [ 0, %132 ]
   %152 = icmp slt i32 %129, %125
   br i1 %152, label %.lr.ph.i, label %.preheader.i
 
@@ -4071,7 +4071,7 @@ _ZN4cvc58internal7Minisat3vecIjE6growToEi.exit:   ; preds = %132, %._crit_edge.i
   %159 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv23.i
   %160 = load i32, ptr %159, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %161 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %indvars.iv.i
+  %161 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %indvars.iv.i
   store i32 %160, ptr %161, align 4, !tbaa !6
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, 1
   %162 = icmp slt i64 %indvars.iv.next24.i, %154
@@ -4083,7 +4083,7 @@ _ZN4cvc58internal7Minisat3vecIjE6growToEi.exit:   ; preds = %132, %._crit_edge.i
   %163 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv30.i
   %164 = load i32, ptr %163, align 4, !tbaa !6
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %165 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %indvars.iv28.i
+  %165 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %indvars.iv28.i
   store i32 %164, ptr %165, align 4, !tbaa !6
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next31.i, %157
@@ -4094,9 +4094,9 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit.i:      ; preds = %.lr.ph22.i, %.prehe
   store i32 %125, ptr %6, align 4, !tbaa !323
   store i32 0, ptr %8, align 8, !tbaa !297
   tail call void @free(ptr noundef nonnull %121) #28
-  store ptr %.sroa.0.6, ptr %5, align 8, !tbaa !296
-  store i32 %.sroa.9.5, ptr %8, align 8, !tbaa !297
-  store i32 %.sroa.13.6, ptr %28, align 4, !tbaa !298
+  store ptr %.sroa.0.1, ptr %5, align 8, !tbaa !296
+  store i32 %.sroa.9.0, ptr %8, align 8, !tbaa !297
+  store i32 %.sroa.13.1, ptr %28, align 4, !tbaa !298
   %.pre64 = load ptr, ptr %104, align 8, !tbaa !296
   %.pre65 = load ptr, ptr %27, align 8, !tbaa !301
   br label %_ZN4cvc58internal7Minisat5QueueIjE6insertEj.exit

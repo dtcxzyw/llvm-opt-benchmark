@@ -770,13 +770,13 @@ define void @_ZN2cv8descr_ofERKNS_3MatE(ptr dead_on_unwind noalias writable writ
   %17 = load i32, ptr %16, align 8, !tbaa !59
   %.sroa.2.0.insert.ext = zext i32 %17 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.038.0.insert.ext = zext i32 %15 to i64
-  %.sroa.038.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.038.0.insert.ext
+  %.sroa.032.0.insert.ext = zext i32 %15 to i64
+  %.sroa.032.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.032.0.insert.ext
   store i32 %10, ptr %0, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %18, align 4, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.038.0.insert.insert, ptr %19, align 8
+  store i64 %.sroa.032.0.insert.insert, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %20, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -828,9 +828,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i51 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %.lr.ph ]
-  %.sroa.028.049 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %26, %.lr.ph ]
-  %.sroa.13.047 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %.lr.ph ]
+  %.0.i.i.i.i.i45 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %.lr.ph ]
+  %.sroa.028.043 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %26, %.lr.ph ]
+  %.sroa.13.041 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %.lr.ph ]
   %36 = load i32, ptr %1, align 8, !tbaa !52
   %37 = and i32 %36, 7
   store i32 %37, ptr %0, align 8, !tbaa !60
@@ -843,11 +843,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph, %_ZNSt6vect
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %41, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.028.049, ptr %42, align 8, !tbaa !47
+  store ptr %.sroa.028.043, ptr %42, align 8, !tbaa !47
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.0.i.i.i.i.i51, ptr %43, align 8, !tbaa !49
+  store ptr %.0.i.i.i.i.i45, ptr %43, align 8, !tbaa !49
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.13.047, ptr %44, align 8, !tbaa !48
+  store ptr %.sroa.13.041, ptr %44, align 8, !tbaa !48
   br label %45
 
 45:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %8
@@ -1220,11 +1220,11 @@ define void @_ZN2cv9descrs_ofERKSt6vectorINS_3MatESaIS1_EE(ptr dead_on_unwind no
   %40 = load i32, ptr %39, align 8, !tbaa !59, !noalias !100
   %.sroa.2.0.insert.ext.i.i = zext i32 %40 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
-  %.sroa.038.0.insert.ext.i.i = zext i32 %38 to i64
-  %.sroa.038.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.038.0.insert.ext.i.i
+  %.sroa.032.0.insert.ext.i.i = zext i32 %38 to i64
+  %.sroa.032.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.032.0.insert.ext.i.i
   store i32 %33, ptr %3, align 8, !tbaa !60, !alias.scope !100, !noalias !92
   store i32 %36, ptr %14, align 4, !tbaa !43, !alias.scope !100, !noalias !92
-  store i64 %.sroa.038.0.insert.insert.i.i, ptr %15, align 8, !alias.scope !100, !noalias !92
+  store i64 %.sroa.032.0.insert.insert.i.i, ptr %15, align 8, !alias.scope !100, !noalias !92
   store i8 0, ptr %17, align 8, !tbaa !61, !alias.scope !100, !noalias !92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false), !alias.scope !100, !noalias !92
   br label %_ZN2cv8descr_ofERKNS_3MatE.exit.i
@@ -1280,9 +1280,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc11.
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, label %.lr.ph.i.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %.0.i.i.i.i.i51.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %.0.i.i.i.i.i.ph.i.i, %.lr.ph.i.i ]
-  %.sroa.028.049.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %45, %.lr.ph.i.i ]
-  %.sroa.13.047.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %46, %.lr.ph.i.i ]
+  %.0.i.i.i.i.i45.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %.0.i.i.i.i.i.ph.i.i, %.lr.ph.i.i ]
+  %.sroa.028.043.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %45, %.lr.ph.i.i ]
+  %.sroa.13.041.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %46, %.lr.ph.i.i ]
   %55 = load i32, ptr %.sroa.018.022.i, align 8, !tbaa !52, !noalias !100
   %56 = and i32 %55, 7
   store i32 %56, ptr %3, align 8, !tbaa !60, !alias.scope !100, !noalias !92
@@ -1290,9 +1290,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %.lr.ph.i.i, %_ZNSt6
   store i32 -1, ptr %15, align 8, !tbaa !62, !alias.scope !100, !noalias !92
   store i32 -1, ptr %16, align 4, !tbaa !63, !alias.scope !100, !noalias !92
   store i8 0, ptr %17, align 8, !tbaa !61, !alias.scope !100, !noalias !92
-  store ptr %.sroa.028.049.i.i, ptr %18, align 8, !tbaa !47, !alias.scope !100, !noalias !92
-  store ptr %.0.i.i.i.i.i51.i.i, ptr %19, align 8, !tbaa !49, !alias.scope !100, !noalias !92
-  store ptr %.sroa.13.047.i.i, ptr %20, align 8, !tbaa !48, !alias.scope !100, !noalias !92
+  store ptr %.sroa.028.043.i.i, ptr %18, align 8, !tbaa !47, !alias.scope !100, !noalias !92
+  store ptr %.0.i.i.i.i.i45.i.i, ptr %19, align 8, !tbaa !49, !alias.scope !100, !noalias !92
+  store ptr %.sroa.13.041.i.i, ptr %20, align 8, !tbaa !48, !alias.scope !100, !noalias !92
   br label %_ZN2cv8descr_ofERKNS_3MatE.exit.i
 
 _ZN2cv8descr_ofERKNS_3MatE.exit.i:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %31
@@ -1735,13 +1735,13 @@ define noundef zeroext i1 @_ZNK2cv8GMatDesc11canDescribeERKNS_3MatE(ptr noundef 
   %23 = load i32, ptr %22, align 8, !tbaa !59, !noalias !134
   %.sroa.2.0.insert.ext.i.i = zext i32 %23 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
-  %.sroa.038.0.insert.ext.i.i = zext i32 %21 to i64
-  %.sroa.038.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.038.0.insert.ext.i.i
+  %.sroa.032.0.insert.ext.i.i = zext i32 %21 to i64
+  %.sroa.032.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.032.0.insert.ext.i.i
   store i32 %16, ptr %4, align 8, !tbaa !60, !alias.scope !134
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %19, ptr %24, align 4, !tbaa !43, !alias.scope !134
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.038.0.insert.insert.i.i, ptr %25, align 8, !alias.scope !134
+  store i64 %.sroa.032.0.insert.insert.i.i, ptr %25, align 8, !alias.scope !134
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %26, align 8, !tbaa !61, !alias.scope !134
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1793,9 +1793,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc20.
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, label %.lr.ph.i.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %.0.i.i.i.i.i51.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %.0.i.i.i.i.i.ph.i.i, %.lr.ph.i.i ]
-  %.sroa.028.049.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %32, %.lr.ph.i.i ]
-  %.sroa.13.047.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %33, %.lr.ph.i.i ]
+  %.0.i.i.i.i.i45.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %.0.i.i.i.i.i.ph.i.i, %.lr.ph.i.i ]
+  %.sroa.028.043.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %32, %.lr.ph.i.i ]
+  %.sroa.13.041.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %33, %.lr.ph.i.i ]
   %42 = load i32, ptr %1, align 8, !tbaa !52, !noalias !134
   %43 = and i32 %42, 7
   store i32 %43, ptr %4, align 8, !tbaa !60, !alias.scope !134
@@ -1808,11 +1808,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %.lr.ph.i.i, %_ZNSt6
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %47, align 8, !tbaa !61, !alias.scope !134
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sroa.028.049.i.i, ptr %48, align 8, !tbaa !47, !alias.scope !134
+  store ptr %.sroa.028.043.i.i, ptr %48, align 8, !tbaa !47, !alias.scope !134
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.0.i.i.i.i.i51.i.i, ptr %49, align 8, !tbaa !49, !alias.scope !134
+  store ptr %.0.i.i.i.i.i45.i.i, ptr %49, align 8, !tbaa !49, !alias.scope !134
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.13.047.i.i, ptr %50, align 8, !tbaa !48, !alias.scope !134
+  store ptr %.sroa.13.041.i.i, ptr %50, align 8, !tbaa !48, !alias.scope !134
   br label %_ZN2cv8descr_ofERKNS_3MatE.exit.i
 
 _ZN2cv8descr_ofERKNS_3MatE.exit.i:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %14
@@ -1842,13 +1842,13 @@ _ZN2cv8descr_ofERKNS_3MatE.exit.i:                ; preds = %_ZNSt6vectorIiSaIiE
   %68 = load i32, ptr %67, align 8, !tbaa !59, !noalias !137
   %.sroa.2.0.insert.ext.i33.i = zext i32 %68 to i64
   %.sroa.2.0.insert.shift.i34.i = shl nuw i64 %.sroa.2.0.insert.ext.i33.i, 32
-  %.sroa.038.0.insert.ext.i35.i = zext i32 %66 to i64
-  %.sroa.038.0.insert.insert.i36.i = or disjoint i64 %.sroa.2.0.insert.shift.i34.i, %.sroa.038.0.insert.ext.i35.i
+  %.sroa.032.0.insert.ext.i35.i = zext i32 %66 to i64
+  %.sroa.032.0.insert.insert.i36.i = or disjoint i64 %.sroa.2.0.insert.shift.i34.i, %.sroa.032.0.insert.ext.i35.i
   store i32 %61, ptr %3, align 8, !tbaa !60, !alias.scope !137
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %64, ptr %69, align 4, !tbaa !43, !alias.scope !137
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.038.0.insert.insert.i36.i, ptr %70, align 8, !alias.scope !137
+  store i64 %.sroa.032.0.insert.insert.i36.i, ptr %70, align 8, !alias.scope !137
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %71, align 8, !tbaa !61, !alias.scope !137
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1900,9 +1900,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i20.i: ; preds = %.noexc2
   br i1 %.not.i27.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i28.i, label %.lr.ph.i24.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i28.i:              ; preds = %.lr.ph.i24.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i
-  %.0.i.i.i.i.i51.i29.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %.0.i.i.i.i.i.ph.i23.i, %.lr.ph.i24.i ]
-  %.sroa.028.049.i30.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %77, %.lr.ph.i24.i ]
-  %.sroa.13.047.i31.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %78, %.lr.ph.i24.i ]
+  %.0.i.i.i.i.i45.i29.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %.0.i.i.i.i.i.ph.i23.i, %.lr.ph.i24.i ]
+  %.sroa.028.043.i30.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %77, %.lr.ph.i24.i ]
+  %.sroa.13.041.i31.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i17.i ], [ %78, %.lr.ph.i24.i ]
   %87 = load i32, ptr %1, align 8, !tbaa !52, !noalias !137
   %88 = and i32 %87, 7
   store i32 %88, ptr %3, align 8, !tbaa !60, !alias.scope !137
@@ -1915,11 +1915,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i28.i:              ; preds = %.lr.ph.i24.i, %_ZNS
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %92, align 8, !tbaa !61, !alias.scope !137
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.sroa.028.049.i30.i, ptr %93, align 8, !tbaa !47, !alias.scope !137
+  store ptr %.sroa.028.043.i30.i, ptr %93, align 8, !tbaa !47, !alias.scope !137
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %.0.i.i.i.i.i51.i29.i, ptr %94, align 8, !tbaa !49, !alias.scope !137
+  store ptr %.0.i.i.i.i.i45.i29.i, ptr %94, align 8, !tbaa !49, !alias.scope !137
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %.sroa.13.047.i31.i, ptr %95, align 8, !tbaa !48, !alias.scope !137
+  store ptr %.sroa.13.041.i31.i, ptr %95, align 8, !tbaa !48, !alias.scope !137
   br label %.critedge.i
 
 _ZN2cv8descr_ofERKNS_3MatE.exit38.i:              ; preds = %_ZN2cv8descr_ofERKNS_3MatE.exit.i

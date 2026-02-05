@@ -1443,10 +1443,10 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
   %20 = zext i32 %14 to i64
   %.idx.i = mul nuw nsw i64 %20, 12
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
-  %.not75.i = icmp eq i32 %14, 0
-  br i1 %.not75.i, label %.critedge52.i, label %.lr.ph77.i
+  %.not73.i = icmp eq i32 %14, 0
+  br i1 %.not73.i, label %.critedge52.i, label %.lr.ph75.i
 
-.lr.ph77.i:                                       ; preds = %17
+.lr.ph75.i:                                       ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -1456,22 +1456,22 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
   %.0.copyload.i.i.i.i2.i.i.i.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   br label %25
 
-25:                                               ; preds = %.critedge50.i, %.lr.ph77.i
-  %.04576.i = phi ptr [ %19, %.lr.ph77.i ], [ %76, %.critedge50.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.04576.i, i64 4
+25:                                               ; preds = %.critedge50.i, %.lr.ph75.i
+  %.04574.i = phi ptr [ %19, %.lr.ph75.i ], [ %76, %.critedge50.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.04574.i, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !230
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %.04576.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.04574.i, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !233
-  %.not4773.not.i = icmp eq i32 %31, 0
-  br i1 %.not4773.not.i, label %.critedge50.i, label %.lr.ph.i
+  %.not4771.not.i = icmp eq i32 %31, 0
+  br i1 %.not4771.not.i, label %.critedge50.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.critedge.i
   %32 = phi i32 [ %73, %.critedge.i ], [ %31, %25 ]
-  %.04474.i = phi i64 [ %74, %.critedge.i ], [ 0, %25 ]
-  %33 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %29, i64 %.04474.i
-  %34 = load i32, ptr %.04576.i, align 4, !tbaa !234
+  %.04472.i = phi i64 [ %74, %.critedge.i ], [ 0, %25 ]
+  %33 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %29, i64 %.04472.i
+  %34 = load i32, ptr %.04574.i, align 4, !tbaa !234
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %49
 
@@ -1561,13 +1561,13 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %60, %52, %36
   %73 = phi i32 [ %.pre, %.critedge.sink.split.i ], [ %32, %60 ], [ %32, %52 ], [ %32, %36 ]
-  %74 = add nuw nsw i64 %.04474.i, 1
+  %74 = add nuw nsw i64 %.04472.i, 1
   %75 = zext i32 %73 to i64
   %.not47.i = icmp samesign ult i64 %74, %75
   br i1 %.not47.i, label %.lr.ph.i, label %.critedge50.i, !llvm.loop !237
 
 .critedge50.i:                                    ; preds = %.critedge.i, %25
-  %76 = getelementptr inbounds nuw i8, ptr %.04576.i, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.04574.i, i64 12
   %.not.i = icmp eq ptr %76, %21
   br i1 %.not.i, label %.critedge52.i, label %25
 
@@ -1585,13 +1585,13 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
   br label %82
 
 82:                                               ; preds = %82, %77
-  %.079.i = phi i32 [ %10, %77 ], [ %86, %82 ]
-  %.04378.i = phi ptr [ %81, %77 ], [ %85, %82 ]
-  %83 = trunc nuw nsw i32 %.079.i to i8
+  %.077.i = phi i32 [ %10, %77 ], [ %86, %82 ]
+  %.04376.i = phi ptr [ %81, %77 ], [ %85, %82 ]
+  %83 = trunc nuw nsw i32 %.077.i to i8
   %84 = sub nuw nsw i8 -12, %83
-  %85 = getelementptr inbounds nuw i8, ptr %.04378.i, i64 1
-  store i8 %84, ptr %.04378.i, align 1, !tbaa !78
-  %86 = add nuw nsw i32 %.079.i, 1
+  %85 = getelementptr inbounds nuw i8, ptr %.04376.i, i64 1
+  store i8 %84, ptr %.04376.i, align 1, !tbaa !78
+  %86 = add nuw nsw i32 %.077.i, 1
   %exitcond.not.i = icmp eq i32 %86, 4
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i, label %82, !llvm.loop !239
 

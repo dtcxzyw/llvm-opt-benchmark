@@ -2266,10 +2266,10 @@ _ZN7rocksdb17InstrumentedMutex6UnlockEv.exit202:  ; preds = %_ZN7rocksdb17Instru
 
 518:                                              ; preds = %514
   invoke void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %500)
-          to label %._crit_edge358 unwind label %521, !llvm.loop !593
+          to label %._crit_edge357 unwind label %521, !llvm.loop !593
 
-._crit_edge358:                                   ; preds = %518
-  %.pre359 = load ptr, ptr %344, align 64, !tbaa !564
+._crit_edge357:                                   ; preds = %518
+  %.pre358 = load ptr, ptr %344, align 64, !tbaa !564
   br label %615, !llvm.loop !593
 
 519:                                              ; preds = %_ZN7rocksdb17InstrumentedMutex6UnlockEv.exit200, %._crit_edge350, %_ZN7rocksdb17InstrumentedMutex6UnlockEv.exit202
@@ -2536,8 +2536,8 @@ _ZNSt5dequeIN7rocksdb6DBImpl15LogWriterNumberESaIS2_EE9pop_frontEv.exit: ; preds
   store ptr %storemerge.i218, ptr %344, align 64, !tbaa !604
   br label %615
 
-615:                                              ; preds = %._crit_edge358, %_ZNSt5dequeIN7rocksdb6DBImpl15LogWriterNumberESaIS2_EE9pop_frontEv.exit
-  %616 = phi ptr [ %.pre359, %._crit_edge358 ], [ %storemerge.i218, %_ZNSt5dequeIN7rocksdb6DBImpl15LogWriterNumberESaIS2_EE9pop_frontEv.exit ]
+615:                                              ; preds = %._crit_edge357, %_ZNSt5dequeIN7rocksdb6DBImpl15LogWriterNumberESaIS2_EE9pop_frontEv.exit
+  %616 = phi ptr [ %.pre358, %._crit_edge357 ], [ %storemerge.i218, %_ZNSt5dequeIN7rocksdb6DBImpl15LogWriterNumberESaIS2_EE9pop_frontEv.exit ]
   %617 = load ptr, ptr %343, align 32, !tbaa !564
   %618 = icmp eq ptr %617, %616
   br i1 %618, label %.critedge, label %510

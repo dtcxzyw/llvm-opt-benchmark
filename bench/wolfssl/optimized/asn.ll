@@ -13295,8 +13295,8 @@ ConfirmSignature.exit:                            ; preds = %274, %277, %310
   br label %351
 
 351:                                              ; preds = %349, %346, %344, %341, %339
-  %.sroa.8.1.i = phi i32 [ 0, %339 ], [ 0, %341 ], [ %345, %344 ], [ 0, %346 ], [ %350, %349 ]
-  %.sroa.13.1.i = phi ptr [ null, %339 ], [ null, %341 ], [ %343, %344 ], [ null, %346 ], [ %348, %349 ]
+  %.sroa.8.0.i = phi i32 [ 0, %339 ], [ 0, %341 ], [ %345, %344 ], [ 0, %346 ], [ %350, %349 ]
+  %.sroa.13.0.i = phi ptr [ null, %339 ], [ null, %341 ], [ %343, %344 ], [ null, %346 ], [ %348, %349 ]
   %.0.i176 = phi ptr [ %340, %339 ], [ %342, %341 ], [ %342, %344 ], [ %347, %346 ], [ %347, %349 ]
   %.not4194.i = icmp eq ptr %.0.i176, null
   br i1 %.not4194.i, label %._crit_edge.i, label %.lr.ph.i
@@ -13389,8 +13389,8 @@ PermittedListOk.exit.thread.i:                    ; preds = %381, %PermittedList
   br i1 %.not41.i, label %._crit_edge.i, label %353, !llvm.loop !181
 
 ._crit_edge.i:                                    ; preds = %PermittedListOk.exit.thread.i, %351
-  %389 = icmp sgt i32 %.sroa.8.1.i, 0
-  %390 = icmp ne ptr %.sroa.13.1.i, null
+  %389 = icmp sgt i32 %.sroa.8.0.i, 0
+  %390 = icmp ne ptr %.sroa.13.0.i, null
   %or.cond4.i = and i1 %389, %390
   br i1 %or.cond4.i, label %391, label %.critedge.i
 
@@ -13411,13 +13411,13 @@ PermittedListOk.exit.thread.i:                    ; preds = %381, %PermittedList
 397:                                              ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 16
   %399 = load i32, ptr %398, align 8, !tbaa !178
-  %.not16.i52.i = icmp slt i32 %.sroa.8.1.i, %399
+  %.not16.i52.i = icmp slt i32 %.sroa.8.0.i, %399
   br i1 %.not16.i52.i, label %404, label %400
 
 400:                                              ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %.019.i49.i, i64 8
   %402 = load ptr, ptr %401, align 8, !tbaa !91
-  %403 = call fastcc i32 @MatchBaseName(i32 noundef %392, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %402, i32 noundef %399)
+  %403 = call fastcc i32 @MatchBaseName(i32 noundef %392, ptr noundef nonnull %.sroa.13.0.i, i32 noundef %.sroa.8.0.i, ptr noundef %402, i32 noundef %399)
   %.not17.i53.i = icmp eq i32 %403, 0
   br i1 %.not17.i53.i, label %404, label %ConfirmSignature.exit.thread
 
@@ -13446,13 +13446,13 @@ PermittedListOk.exit.thread.i:                    ; preds = %381, %PermittedList
 412:                                              ; preds = %408
   %413 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 16
   %414 = load i32, ptr %413, align 8, !tbaa !178
-  %.not21.i65.i = icmp slt i32 %.sroa.8.1.i, %414
+  %.not21.i65.i = icmp slt i32 %.sroa.8.0.i, %414
   br i1 %.not21.i65.i, label %419, label %415
 
 415:                                              ; preds = %412
   %416 = getelementptr inbounds nuw i8, ptr %.01724.i58.i, i64 8
   %417 = load ptr, ptr %416, align 8, !tbaa !91
-  %418 = call fastcc i32 @MatchBaseName(i32 noundef %407, ptr noundef nonnull %.sroa.13.1.i, i32 noundef %.sroa.8.1.i, ptr noundef %417, i32 noundef %414)
+  %418 = call fastcc i32 @MatchBaseName(i32 noundef %407, ptr noundef nonnull %.sroa.13.0.i, i32 noundef %.sroa.8.0.i, ptr noundef %417, i32 noundef %414)
   %.not22.i66.i = icmp eq i32 %418, 0
   br i1 %.not22.i66.i, label %419, label %.critedge.i
 

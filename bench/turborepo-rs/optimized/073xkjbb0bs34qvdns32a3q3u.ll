@@ -477,7 +477,7 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %33, ptr %34, align 8, !noalias !75
   %35 = icmp eq i64 %.sroa.0.0, %.sroa.5.0
-  br i1 %35, label %.loopexit20, label %.lr.ph.i.preheader
+  br i1 %35, label %.loopexit19, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit
   %36 = getelementptr inbounds { i64, [3 x i64] }, ptr %30, i64 %.sroa.0.0
@@ -496,9 +496,9 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
 
 .noexc8:                                          ; preds = %.lr.ph.i
   %41 = icmp eq ptr %38, %31
-  br i1 %41, label %.loopexit20, label %.lr.ph.i
+  br i1 %41, label %.loopexit19, label %.lr.ph.i
 
-.loopexit20:                                      ; preds = %.noexc8, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit
+.loopexit19:                                      ; preds = %.noexc8, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -515,10 +515,10 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %44, ptr %45, align 8, !noalias !95
   %46 = icmp eq i64 %.sroa.11.0, 0
-  br i1 %46, label %.loopexit16, label %.lr.ph.i10
+  br i1 %46, label %.loopexit15, label %.lr.ph.i10
 
-.lr.ph.i10:                                       ; preds = %.loopexit20, %.noexc12
-  %47 = phi ptr [ %48, %.noexc12 ], [ %30, %.loopexit20 ]
+.lr.ph.i10:                                       ; preds = %.loopexit19, %.noexc12
+  %47 = phi ptr [ %48, %.noexc12 ], [ %30, %.loopexit19 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %48, ptr %5, align 8, !alias.scope !97, !noalias !100
   %.val.i.i11 = load ptr, ptr %44, align 8, !alias.scope !93, !noalias !101, !nonnull !5, !align !85, !noundef !5
@@ -530,9 +530,9 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
 
 .noexc12:                                         ; preds = %.lr.ph.i10
   %51 = icmp eq ptr %48, %42
-  br i1 %51, label %.loopexit16, label %.lr.ph.i10
+  br i1 %51, label %.loopexit15, label %.lr.ph.i10
 
-.loopexit16:                                      ; preds = %.noexc12, %.loopexit20
+.loopexit15:                                      ; preds = %.noexc12, %.loopexit19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val = load ptr, ptr %7, align 8, !nonnull !5, !align !85, !noundef !5
   %.val5 = load i64, ptr %9, align 8, !noundef !5
@@ -558,17 +558,17 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %2
-  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %.loopexit.split-lp.loopexit.split-lp ]
   %.val6 = load ptr, ptr %7, align 8, !nonnull !5, !align !85, !noundef !5
   %.val7 = load i64, ptr %9, align 8, !noundef !5
   %60 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
@@ -657,11 +657,11 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8v
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %37, align 8, !alias.scope !136, !noalias !141, !noundef !5
-  %.promoted27 = load i64, ptr %38, align 8, !alias.scope !136, !noalias !141
+  %.promoted26 = load i64, ptr %38, align 8, !alias.scope !136, !noalias !141
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i9
-  %41 = phi i64 [ %.promoted27, %.lr.ph.i9 ], [ %45, %40 ]
+  %41 = phi i64 [ %.promoted26, %.lr.ph.i9 ], [ %45, %40 ]
   %42 = phi ptr [ %20, %.lr.ph.i9 ], [ %43, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -775,11 +775,11 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8v
   %37 = load ptr, ptr %1, align 8, !alias.scope !188, !noalias !191, !nonnull !5, !align !85, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.pre27 = load i64, ptr %39, align 8, !alias.scope !204, !noalias !209
+  %.pre26 = load i64, ptr %39, align 8, !alias.scope !204, !noalias !209
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %.lr.ph.i9
-  %40 = phi i64 [ %45, %.lr.ph.i9 ], [ %.pre27, %.lr.ph.i9.preheader ]
+  %40 = phi i64 [ %45, %.lr.ph.i9 ], [ %.pre26, %.lr.ph.i9.preheader ]
   %41 = phi ptr [ %42, %.lr.ph.i9 ], [ %20, %.lr.ph.i9.preheader ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)

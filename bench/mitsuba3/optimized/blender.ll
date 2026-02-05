@@ -1965,8 +1965,8 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
   br label %720
 
 720:                                              ; preds = %.sink.split1780, %706
-  %.sroa.6.3 = phi float [ %.sink17821846, %.sink.split1780 ], [ 0.000000e+00, %706 ]
-  %.sroa.11.3 = phi float [ %.sink1781, %.sink.split1780 ], [ 0.000000e+00, %706 ]
+  %.sroa.6.0 = phi float [ %.sink17821846, %.sink.split1780 ], [ 0.000000e+00, %706 ]
+  %.sroa.11.0 = phi float [ %.sink1781, %.sink.split1780 ], [ 0.000000e+00, %706 ]
   %721 = load ptr, ptr %44, align 8
   %722 = getelementptr inbounds %struct.VertexBinding, ptr %721, i64 %.0696
   br label %723
@@ -1993,10 +1993,10 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
 .critedge1805:                                    ; preds = %730, %724
   %733 = getelementptr inbounds nuw i8, ptr %.0679, i64 32
   %734 = load float, ptr %733, align 4
-  %735 = fcmp contract oeq float %.sroa.6.3, %734
+  %735 = fcmp contract oeq float %.sroa.6.0, %734
   %736 = getelementptr inbounds nuw i8, ptr %.0679, i64 36
   %737 = load float, ptr %736, align 4
-  %738 = fcmp contract oeq float %.sroa.11.3, %737
+  %738 = fcmp contract oeq float %.sroa.11.0, %737
   %.016.lcssa.i.i.i.not = and i1 %735, %738
   br i1 %.016.lcssa.i.i.i.not, label %.critedge5, label %.thread1349
 
@@ -2036,10 +2036,10 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
 .critedge1807:                                    ; preds = %755, %748
   %759 = getelementptr inbounds nuw i8, ptr %.0679, i64 32
   %760 = load float, ptr %759, align 4
-  %761 = fcmp contract oeq float %760, %.sroa.6.3
+  %761 = fcmp contract oeq float %760, %.sroa.6.0
   %762 = getelementptr inbounds nuw i8, ptr %.0679, i64 36
   %763 = load float, ptr %762, align 4
-  %764 = fcmp contract oeq float %763, %.sroa.11.3
+  %764 = fcmp contract oeq float %763, %.sroa.11.0
   %.sroa.41158.0.insert.shift = select i1 %764, i16 256, i16 0
   %.sroa.01157.0.insert.ext.masked = zext i1 %761 to i16
   %765 = or disjoint i16 %.sroa.41158.0.insert.shift, %.sroa.01157.0.insert.ext.masked
@@ -2074,9 +2074,9 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
   %.sroa.41840.0..1.sroa_idx = getelementptr inbounds nuw i8, ptr %.1, i64 24
   store i64 %707, ptr %.sroa.41840.0..1.sroa_idx, align 8
   %.sroa.6.0..1.sroa_idx = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store float %.sroa.6.3, ptr %.sroa.6.0..1.sroa_idx, align 16
+  store float %.sroa.6.0, ptr %.sroa.6.0..1.sroa_idx, align 16
   %.sroa.11.0..1.sroa_idx = getelementptr inbounds nuw i8, ptr %.1, i64 36
-  store float %.sroa.11.3, ptr %.sroa.11.0..1.sroa_idx, align 4
+  store float %.sroa.11.0, ptr %.sroa.11.0..1.sroa_idx, align 4
   %776 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   store i32 %.27021527, ptr %776, align 16
   %777 = getelementptr inbounds nuw i8, ptr %.1, i64 64
@@ -2268,9 +2268,9 @@ _ZNSt3__16vectorINS_5arrayIfLm3EEENS_9allocatorIS2_EEE9push_backB8ne190000EOS2_.
   br i1 %858, label %859, label %861
 
 859:                                              ; preds = %855
-  store float %.sroa.6.3, ptr %856, align 4
+  store float %.sroa.6.0, ptr %856, align 4
   %.sroa_idx1837 = getelementptr inbounds nuw i8, ptr %856, i64 4
-  store float %.sroa.11.3, ptr %.sroa_idx1837, align 4
+  store float %.sroa.11.0, ptr %.sroa_idx1837, align 4
   %860 = getelementptr inbounds nuw i8, ptr %856, i64 8
   br label %_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne190000ERKS3_.exit
 
@@ -2311,9 +2311,9 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 .noexc875:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS8_m.exit.i.i.i
   %877 = getelementptr inbounds i8, ptr %876, i64 %865
   %878 = getelementptr inbounds nuw %"struct.mitsuba::Vector.142", ptr %876, i64 %.0.i.i.i870
-  store float %.sroa.6.3, ptr %877, align 4
+  store float %.sroa.6.0, ptr %877, align 4
   %.sroa_idx1839 = getelementptr inbounds nuw i8, ptr %877, i64 4
-  store float %.sroa.11.3, ptr %.sroa_idx1839, align 4
+  store float %.sroa.11.0, ptr %.sroa_idx1839, align 4
   %879 = getelementptr inbounds nuw i8, ptr %877, i64 8
   %880 = sub nsw i64 0, %866
   %881 = getelementptr inbounds %"struct.mitsuba::Vector.142", ptr %877, i64 %880

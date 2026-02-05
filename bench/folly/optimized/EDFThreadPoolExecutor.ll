@@ -4916,7 +4916,7 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i:  ; preds = %.lr.ph.i
 
 _ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread: ; preds = %.lr.ph.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i57, %68
   %.ph = phi i1 [ %.08.in.i.i59, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i57 ], [ %.08.in18.i.i55, %68 ], [ true, %.lr.ph.i ]
-  %or.cond84 = or i1 %66, %.ph
+  %or.cond82 = or i1 %66, %.ph
   %84 = call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EENS_13invoke_detail6traitsIRKSG_E6resultIEESG_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %0)
   %.not = icmp eq ptr %84, null
   br i1 %.not, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %85
@@ -4932,9 +4932,9 @@ _ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread: ; preds = %.lr.ph
   br label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
 
 _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %79, %85, %88, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread
-  %or.cond85 = phi i1 [ %or.cond84, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread ], [ %or.cond84, %85 ], [ %or.cond84, %88 ], [ false, %79 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
+  %or.cond83 = phi i1 [ %or.cond82, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread ], [ %or.cond82, %85 ], [ %or.cond82, %88 ], [ false, %79 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
   %.4 = phi i1 [ %.ph, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit62.thread ], [ %.ph, %85 ], [ %.ph, %88 ], [ %.0, %79 ], [ %.0, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
-  %90 = xor i1 %or.cond85, true
+  %90 = xor i1 %or.cond83, true
   br label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread
 
 _ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i, %34, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit

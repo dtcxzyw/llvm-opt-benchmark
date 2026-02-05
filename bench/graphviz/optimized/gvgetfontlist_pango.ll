@@ -455,20 +455,20 @@ get_faces.exit83.i:                               ; preds = %.loopexit.i79.i, %1
   br label %.thread101.i
 
 .thread101.i:                                     ; preds = %get_faces.exit83.i, %100, %64
-  %.sroa.06.5.i = phi ptr [ %106, %get_faces.exit83.i ], [ %40, %64 ], [ %76, %100 ]
-  %.sroa.11.5.i = phi i64 [ %strlen.i70.i, %get_faces.exit83.i ], [ %strlen.i.i, %64 ], [ %strlen.i56.i, %100 ]
+  %.sroa.06.4.i = phi ptr [ %106, %get_faces.exit83.i ], [ %40, %64 ], [ %76, %100 ]
+  %.sroa.11.4.i = phi i64 [ %strlen.i70.i, %get_faces.exit83.i ], [ %strlen.i.i, %64 ], [ %strlen.i56.i, %100 ]
   %.5.i = phi i32 [ %.011.lcssa.i73.i, %get_faces.exit83.i ], [ %.1.i.i, %64 ], [ %.1.i66.i, %100 ]
   %.not.i = icmp eq i32 %.5.i, 0
   br i1 %.not.i, label %strview_str.exit.i, label %130
 
 130:                                              ; preds = %.thread101.i
-  %131 = call noalias ptr @strndup(ptr noundef nonnull readonly %.sroa.06.5.i, i64 noundef %.sroa.11.5.i) #23, !noalias !8
+  %131 = call noalias ptr @strndup(ptr noundef nonnull readonly %.sroa.06.4.i, i64 noundef %.sroa.11.4.i) #23, !noalias !8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %strview_str.exit.i
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr @stderr, align 8, !tbaa !3, !noalias !8
-  %135 = add i64 %.sroa.11.5.i, 1
+  %135 = add i64 %.sroa.11.4.i, 1
   %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.2, i64 noundef %135) #21, !noalias !8
   call fastcc void @graphviz_exit() #22
   unreachable

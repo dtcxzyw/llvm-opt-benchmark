@@ -20571,10 +20571,6 @@ common.resume:                                    ; preds = %99, %.body, %28, %2
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd622a5a8e2ee1fd4E.exit.i.i", label %60
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd622a5a8e2ee1fd4E.exit.i.i": ; preds = %56
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h9df02d5b3bd203a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %57, i64 noundef 1)
-          to label %60 unwind label %64
-
 60:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd622a5a8e2ee1fd4E.exit.i.i", %56
   %61 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !6039, !noalias !6040, !nonnull !11, !noundef !11
   %62 = getelementptr inbounds { i64, { ptr, i64, { i64, { [3 x i64] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i64, i64 }, { i64, i64 } }, ptr %61, i64 %57
@@ -20589,6 +20585,10 @@ common.resume:                                    ; preds = %99, %.body, %28, %2
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$language..task_context..RunnableRange$GT$17h4967c25761e5715cE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %4) #45
           to label %50 unwind label %66
+
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd622a5a8e2ee1fd4E.exit.i.i": ; preds = %56
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h9df02d5b3bd203a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %57, i64 noundef 1)
+          to label %60 unwind label %64
 
 66:                                               ; preds = %64, %50
   %67 = landingpad { ptr, i32 }
@@ -27392,10 +27392,6 @@ common.resume:                                    ; preds = %101, %95, %.body, %
   %57 = icmp eq i64 %55, %56
   br i1 %57, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc2439a7cbf3f4bd9E.exit.i.i", label %58
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc2439a7cbf3f4bd9E.exit.i.i": ; preds = %54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hdd8187a55e6ddbbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %55, i64 noundef 1)
-          to label %58 unwind label %62
-
 58:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc2439a7cbf3f4bd9E.exit.i.i", %54
   %59 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !8151, !noalias !8152, !nonnull !11, !noundef !11
   %60 = getelementptr inbounds { { { { i32, i32 } } }, { { { i32, i32 } } } }, ptr %59, i64 %55
@@ -27409,6 +27405,10 @@ common.resume:                                    ; preds = %101, %95, %.body, %
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %49
+
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc2439a7cbf3f4bd9E.exit.i.i": ; preds = %54
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hdd8187a55e6ddbbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %55, i64 noundef 1)
+          to label %58 unwind label %62
 
 64:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !8150

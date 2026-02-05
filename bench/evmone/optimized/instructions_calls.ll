@@ -3460,13 +3460,13 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6Opc
   %17 = getelementptr inbounds i8, ptr %0, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !16
   %18 = getelementptr inbounds i8, ptr %0, i64 -64
-  %.sroa.057.0.copyload = load i64, ptr %18, align 8
-  %.sroa.559.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -56
-  %.sroa.559.0.copyload = load i64, ptr %.sroa.559.0..sroa_idx, align 8
-  %.sroa.660.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -48
-  %.sroa.660.0.copyload = load i64, ptr %.sroa.660.0..sroa_idx, align 8
-  %.sroa.761.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -40
-  %.sroa.761.0.copyload = load i64, ptr %.sroa.761.0..sroa_idx, align 8, !tbaa !3
+  %.sroa.053.0.copyload = load i64, ptr %18, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -56
+  %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
+  %.sroa.656.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -48
+  %.sroa.656.0.copyload = load i64, ptr %.sroa.656.0..sroa_idx, align 8
+  %.sroa.757.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 -40
+  %.sroa.757.0.copyload = load i64, ptr %.sroa.757.0..sroa_idx, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #18
   %19 = getelementptr inbounds i8, ptr %0, i64 -96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !16
@@ -3498,11 +3498,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = icmp eq i64 %29, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4) #18
-  br i1 %32, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80_crit_edge, label %33
+  br i1 %32, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76_crit_edge, label %33
 
-_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80_crit_edge: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
+_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76_crit_edge: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
   %.pre = load i64, ptr %6, align 8, !tbaa !9
-  br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80
+  br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76
 
 33:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3522,15 +3522,15 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryE
   br i1 %44, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %45
 
 45:                                               ; preds = %42
-  %46 = or i64 %.sroa.660.0.copyload, %.sroa.559.0.copyload
-  %47 = or i64 %46, %.sroa.761.0.copyload
+  %46 = or i64 %.sroa.656.0.copyload, %.sroa.555.0.copyload
+  %47 = or i64 %46, %.sroa.757.0.copyload
   %.not.i.i = icmp ne i64 %47, 0
-  %48 = icmp ugt i64 %.sroa.057.0.copyload, 4294967295
-  %or.cond85 = select i1 %.not.i.i, i1 true, i1 %48
-  br i1 %or.cond85, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %49
+  %48 = icmp ugt i64 %.sroa.053.0.copyload, 4294967295
+  %or.cond81 = select i1 %.not.i.i, i1 true, i1 %48
+  br i1 %or.cond81, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %49
 
 49:                                               ; preds = %45
-  %50 = add nuw nsw i64 %43, %.sroa.057.0.copyload
+  %50 = add nuw nsw i64 %43, %.sroa.053.0.copyload
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !83
   %53 = icmp ugt i64 %50, %52
@@ -3543,11 +3543,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryE
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %49, %54
   %.0 = phi i64 [ %55, %54 ], [ %1, %49 ]
   %56 = icmp sgt i64 %.0, -1
-  br i1 %56, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
+  br i1 %56, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80_crit_edge, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %57 = phi i64 [ %43, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.pre, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80_crit_edge ]
-  %.183 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80_crit_edge ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76_crit_edge, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
+  %57 = phi i64 [ %43, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.pre, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76_crit_edge ]
+  %.179 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76_crit_edge ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %59 = load i32, ptr %58, align 8, !tbaa !25
   %60 = icmp sgt i32 %59, 10
@@ -3555,12 +3555,12 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80: 
   %or.cond = and i1 %61, %60
   br i1 %or.cond, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %62
 
-62:                                               ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80
+62:                                               ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76
   %.neg = select i1 %60, i64 -2, i64 0
   %63 = add i64 %57, 31
   %64 = lshr i64 %63, 5
   %.neg24 = mul nsw i64 %.neg, %64
-  %65 = add i64 %.neg24, %.183
+  %65 = add i64 %.neg24, %.179
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %67
 
@@ -3651,7 +3651,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %82, %99
   br i1 %113, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge
 
 _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit
-  %.pre90 = load i32, ptr %58, align 8, !tbaa !25
+  %.pre86 = load i32, ptr %58, align 8, !tbaa !25
   br label %114
 
 .critedge:                                        ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
@@ -3660,14 +3660,14 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4u
   br label %114
 
 114:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge, %.critedge
-  %115 = phi i32 [ %.pre90, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %59, %.critedge ]
+  %115 = phi i32 [ %.pre86, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %59, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, i8 0, i64 184, i1 false)
   store i32 3, ptr %9, align 8
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %117 = icmp sgt i32 %115, 1
-  %.neg258486 = lshr i64 %65, 6
-  %118 = select i1 %117, i64 %.neg258486, i64 0
+  %.neg258082 = lshr i64 %65, 6
+  %118 = select i1 %117, i64 %.neg258082, i64 0
   %storemerge = sub nsw i64 %65, %118
   store i64 %storemerge, ptr %116, align 8, !tbaa !102
   %.not = icmp eq i64 %57, 0
@@ -3675,7 +3675,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4u
 
 119:                                              ; preds = %114
   %120 = load ptr, ptr %31, align 8, !tbaa !98
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sroa.057.0.copyload
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sroa.053.0.copyload
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %121, ptr %122, align 8, !tbaa !99
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -3784,9 +3784,9 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %176, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %45, %42, %33, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %67, %62, %180
-  %.sroa.0.1 = phi i32 [ 0, %67 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %180 ], [ 3, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %33 ], [ 3, %42 ], [ 3, %45 ]
-  %.sroa.9.1 = phi i64 [ %65, %67 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.sroa.9.4, %180 ], [ %65, %62 ], [ %.183, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ %65, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %33 ], [ %1, %42 ], [ %1, %45 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %45, %42, %33, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %67, %62, %180
+  %.sroa.0.1 = phi i32 [ 0, %67 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %180 ], [ 3, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %33 ], [ 3, %42 ], [ 3, %45 ]
+  %.sroa.9.1 = phi i64 [ %65, %67 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.sroa.9.4, %180 ], [ %65, %62 ], [ %.179, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76 ], [ %65, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %33 ], [ %1, %42 ], [ %1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18
   br label %181

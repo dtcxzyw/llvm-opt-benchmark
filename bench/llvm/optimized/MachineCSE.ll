@@ -2345,14 +2345,14 @@ _ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKN
   br i1 %.not111117.i.i.i, label %_ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKNS_15MachineFunctionERKNS_18TargetRegisterInfoERKNS_15TargetInstrInfoE.exit.thread.i.i.i, label %.lr.ph.i199.i.i
 
 .lr.ph.i199.i.i:                                  ; preds = %_ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKNS_15MachineFunctionERKNS_18TargetRegisterInfoERKNS_15TargetInstrInfoE.exit.thread99.i.i.i, %.lr.ph.i199.i.i
-  %.sroa.080.2118.i.i.i = phi ptr [ %716, %.lr.ph.i199.i.i ], [ %711, %_ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKNS_15MachineFunctionERKNS_18TargetRegisterInfoERKNS_15TargetInstrInfoE.exit.thread99.i.i.i ]
+  %.sroa.080.0118.i.i.i = phi ptr [ %716, %.lr.ph.i199.i.i ], [ %711, %_ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKNS_15MachineFunctionERKNS_18TargetRegisterInfoERKNS_15TargetInstrInfoE.exit.thread99.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %714 = load i16, ptr %.sroa.080.2118.i.i.i, align 2, !tbaa !397
+  %714 = load i16, ptr %.sroa.080.0118.i.i.i, align 2, !tbaa !397
   %715 = zext i16 %714 to i32
   store i32 %715, ptr %10, align 4
   call void @_ZN4llvm8SmallSetINS_10MCRegisterELj8ESt4lessIS1_EE10insertImplIS1_EESt4pairINS_16SmallSetIteratorIS1_Lj8ES3_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.344") align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %716 = getelementptr inbounds nuw i8, ptr %.sroa.080.2118.i.i.i, i64 2
+  %716 = getelementptr inbounds nuw i8, ptr %.sroa.080.0118.i.i.i, i64 2
   %.not111.i.i.i = icmp eq ptr %716, %713
   br i1 %.not111.i.i.i, label %_ZL31isCallerPreservedOrConstPhysRegN4llvm10MCRegisterERKNS_14MachineOperandERKNS_15MachineFunctionERKNS_18TargetRegisterInfoERKNS_15TargetInstrInfoE.exit.thread.i.i.i, label %.lr.ph.i199.i.i, !llvm.loop !398
 
@@ -2706,14 +2706,14 @@ _ZNK12_GLOBAL__N_114MachineCSEImpl22isPhysDefTriviallyDeadEN4llvm10MCRegisterENS
   br i1 %.not.i203.i.i, label %_ZNK12_GLOBAL__N_114MachineCSEImpl21hasLivePhysRegDefUsesEPKN4llvm12MachineInstrEPKNS1_17MachineBasicBlockERNS1_8SmallSetINS1_10MCRegisterELj8ESt4lessIS9_EEERNS1_11SmallVectorISt4pairIjjELj2EEERb.exit.i.i, label %826, !llvm.loop !408
 
 .lr.ph130.i.i.i:                                  ; preds = %826, %.lr.ph130.i.i.i
-  %.sroa.055.1128.i.i.i = phi ptr [ %838, %.lr.ph130.i.i.i ], [ %833, %826 ]
+  %.sroa.055.0128.i.i.i = phi ptr [ %838, %.lr.ph130.i.i.i ], [ %833, %826 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %836 = load i16, ptr %.sroa.055.1128.i.i.i, align 2, !tbaa !397
+  %836 = load i16, ptr %.sroa.055.0128.i.i.i, align 2, !tbaa !397
   %837 = zext i16 %836 to i32
   store i32 %837, ptr %12, align 4
   call void @_ZN4llvm8SmallSetINS_10MCRegisterELj8ESt4lessIS1_EE10insertImplIS1_EESt4pairINS_16SmallSetIteratorIS1_Lj8ES3_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.344") align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %838 = getelementptr inbounds nuw i8, ptr %.sroa.055.1128.i.i.i, i64 2
+  %838 = getelementptr inbounds nuw i8, ptr %.sroa.055.0128.i.i.i, i64 2
   %.not108.i.i.i = icmp eq ptr %838, %835
   br i1 %.not108.i.i.i, label %._crit_edge131.i.i.i, label %.lr.ph130.i.i.i, !llvm.loop !409
 

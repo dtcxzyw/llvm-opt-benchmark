@@ -3230,7 +3230,7 @@ define internal fastcc void @_ZN3ue2L16addTransientMaskERNS_13RoseBuildImplERKSt
           to label %27 unwind label %28
 
 27:                                               ; preds = %5
-  %.pre204 = load ptr, ptr %17, align 8
+  %.pre203 = load ptr, ptr %17, align 8
   br i1 %26, label %30, label %425
 
 28:                                               ; preds = %5
@@ -3241,7 +3241,7 @@ define internal fastcc void @_ZN3ue2L16addTransientMaskERNS_13RoseBuildImplERKSt
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %.pre204, %32
+  %33 = icmp eq ptr %.pre203, %32
   br i1 %33, label %425, label %34
 
 34:                                               ; preds = %30
@@ -3402,8 +3402,8 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit143: ; preds =
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
   %112 = ashr exact i64 %111, 5
-  %spec.select183 = call i64 @llvm.umax.i64(i64 %112, i64 %106)
-  %spec.select = trunc i64 %spec.select183 to i32
+  %spec.select182 = call i64 @llvm.umax.i64(i64 %112, i64 %106)
+  %spec.select = trunc i64 %spec.select182 to i32
   store i32 %spec.select, ptr %104, align 4
   br label %.lr.ph
 
@@ -3530,12 +3530,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %157, %155
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit145, %145, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.pre203 = load ptr, ptr %17, align 8
+  %.pre202 = load ptr, ptr %17, align 8
   br label %425
 
 161:                                              ; preds = %.lr.ph, %418
-  %.sroa.0177.0201 = phi ptr [ %.pre204, %.lr.ph ], [ %419, %418 ]
-  %162 = invoke noundef i32 @_ZN3ue213RoseBuildImpl12getLiteralIdERKNS_11ue2_literalERKSt6vectorIhSaIhEES8_jNS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0177.0201, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %48, i32 noundef %.0129)
+  %.sroa.0177.0200 = phi ptr [ %.pre203, %.lr.ph ], [ %419, %418 ]
+  %162 = invoke noundef i32 @_ZN3ue213RoseBuildImpl12getLiteralIdERKNS_11ue2_literalERKSt6vectorIhSaIhEES8_jNS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0177.0200, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %48, i32 noundef %.0129)
           to label %163 unwind label %383
 
 163:                                              ; preds = %161
@@ -3589,13 +3589,13 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 174:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0201, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0200, i64 8
   %176 = load i64, ptr %175, align 8, !noalias !128
   %.not180.i = icmp eq i64 %176, 0
   br i1 %.not180.i, label %._crit_edge184.i, label %.lr.ph183.i
 
 .lr.ph183.i:                                      ; preds = %174
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0201, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0200, i64 32
   br label %182
 
 178:                                              ; preds = %164
@@ -3622,7 +3622,7 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %183 = add i64 %.sroa.7.0181.i, -1
-  %184 = load ptr, ptr %.sroa.0177.0201, align 8
+  %184 = load ptr, ptr %.sroa.0177.0200, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 %183
   %186 = load i8, ptr %185, align 1
   %187 = lshr i64 %183, 6
@@ -4062,7 +4062,7 @@ _ZN3ue2L12maskIsNeededERKNS_11ue2_literalERKNS_8NGHolderE.exit: ; preds = %_ZN3u
 
 335:                                              ; preds = %_ZN3ue2L12maskIsNeededERKNS_11ue2_literalERKNS_8NGHolderE.exit, %163
   %336 = phi i1 [ true, %163 ], [ %.3.i, %_ZN3ue2L12maskIsNeededERKNS_11ue2_literalERKNS_8NGHolderE.exit ]
-  %337 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0201, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0200, i64 8
   %338 = load i64, ptr %337, align 8
   %339 = invoke { ptr, i64 } @_ZN3ue212createVertexEPNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjjjmRKNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull %0, ptr %.sroa.038.0.copyload, i64 %.sroa.6.0.copyload, i32 noundef 0, i32 noundef -1, i32 noundef %162, i64 noundef %338, ptr noundef nonnull align 8 dereferenceable(32) %117)
           to label %340 unwind label %385
@@ -4217,12 +4217,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   br i1 %404, label %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit, label %.critedge24.i.i
 
 _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit: ; preds = %.critedge24.i.i, %398
-  %.sroa.0170.2 = phi ptr [ %399, %398 ], [ %.sroa.034.0.i.i, %.critedge24.i.i ]
-  %405 = getelementptr inbounds nuw i8, ptr %.sroa.0170.2, i64 64
+  %.sroa.0170.0 = phi ptr [ %399, %398 ], [ %.sroa.034.0.i.i, %.critedge24.i.i ]
+  %405 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0, i64 64
   store i32 0, ptr %405, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %.sroa.0170.2, i64 68
+  %406 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0, i64 68
   store i32 %88, ptr %406, align 4
-  %407 = getelementptr inbounds nuw i8, ptr %.sroa.0170.2, i64 80
+  %407 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0, i64 80
   store i32 %128, ptr %407, align 8
   br label %408
 
@@ -4256,9 +4256,9 @@ _ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4p
   br label %.body
 
 418:                                              ; preds = %_ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit, %408
-  %419 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0201, i64 64
-  %.not184 = icmp eq ptr %419, %32
-  br i1 %.not184, label %._crit_edge, label %161
+  %419 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0200, i64 64
+  %.not183 = icmp eq ptr %419, %32
+  br i1 %.not183, label %._crit_edge, label %161
 
 .body:                                            ; preds = %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit112.i, %416, %385, %383
   %.pn131.pn.pn = phi { ptr, i32 } [ %384, %383 ], [ %.pn78.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit112.i ], [ %417, %416 ], [ %386, %385 ]
@@ -4276,7 +4276,7 @@ _ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4p
   br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit161
 
 425:                                              ; preds = %30, %27, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.pr.i = phi ptr [ %.pre204, %30 ], [ %.pre204, %27 ], [ %.pre203, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.pr.i = phi ptr [ %.pre203, %30 ], [ %.pre203, %27 ], [ %.pre202, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %426 = getelementptr inbounds nuw i8, ptr %17, i64 8

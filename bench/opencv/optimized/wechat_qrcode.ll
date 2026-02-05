@@ -691,10 +691,10 @@ _ZNSt12__shared_ptrIN2cv13wechat_qrcode10SuperScaleELN9__gnu_cxx12_Lock_policyE2
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %213 = load i64, ptr %212, align 8
   %214 = icmp eq i64 %213, 0
-  %or.cond98 = select i1 %211, i1 true, i1 %214
+  %or.cond96 = select i1 %211, i1 true, i1 %214
   %215 = load ptr, ptr %0, align 8, !tbaa !34
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 33
-  br i1 %or.cond98, label %264, label %217
+  br i1 %or.cond96, label %264, label %217
 
 217:                                              ; preds = %_ZNSt12__shared_ptrIN2cv13wechat_qrcode10SuperScaleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store i8 1, ptr %216, align 1, !tbaa !59

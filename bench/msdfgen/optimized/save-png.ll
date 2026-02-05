@@ -246,8 +246,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %cmp25.not = icmp eq i32 %mul4, 0
-  br i1 %cmp25.not, label %for.end, label %invoke.cont6.preheader
+  %cmp22.not = icmp eq i32 %mul4, 0
+  br i1 %cmp22.not, label %for.end, label %invoke.cont6.preheader
 
 invoke.cont6.preheader:                           ; preds = %invoke.cont
   %wide.trip.count = zext nneg i32 %mul4 to i64

@@ -4484,7 +4484,7 @@ define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_
   %26 = icmp eq i32 %25, %11
   %27 = icmp eq ptr %21, %1
   %or.cond.i.i.i.i = and i1 %27, %26
-  br i1 %or.cond.i.i.i.i, label %.loopexit42, label %30
+  br i1 %or.cond.i.i.i.i, label %.loopexit38, label %30
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = icmp eq ptr %21, null
@@ -4507,7 +4507,7 @@ define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_
   %37 = icmp eq i32 %36, %11
   %38 = icmp eq ptr %32, %1
   %or.cond31.i.i.i.i = and i1 %38, %37
-  br i1 %or.cond31.i.i.i.i, label %.loopexit42, label %42
+  br i1 %or.cond31.i.i.i.i, label %.loopexit38, label %42
 
 39:                                               ; preds = %.lr.ph38.i.i.i.i
   %40 = icmp eq ptr %32, null
@@ -4525,7 +4525,7 @@ define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_
   %.137.i.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !28
 
-.loopexit42:                                      ; preds = %23, %34
+.loopexit38:                                      ; preds = %23, %34
   %.026.i.i.i.i = phi ptr [ %.137.i.i.i.i, %34 ], [ %.035.i.i.i.i, %23 ]
   %43 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !18
@@ -4535,7 +4535,7 @@ define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_
   %.not.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i, label %_ZN8uint_setC2ERKS_.exit.thread, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i
 
-_ZN8uint_setC2ERKS_.exit.thread:                  ; preds = %.loopexit42
+_ZN8uint_setC2ERKS_.exit.thread:                  ; preds = %.loopexit38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !135
@@ -4543,7 +4543,7 @@ _ZN8uint_setC2ERKS_.exit.thread:                  ; preds = %.loopexit42
   store i32 0, ptr %46, align 8, !tbaa !137
   br label %_ZN8uint_set8iteratorC2ERKS_b.exit.i
 
-_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %.loopexit42
+_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %.loopexit38
   %47 = getelementptr inbounds i8, ptr %45, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !30
   %49 = getelementptr inbounds i8, ptr %45, i64 -8
@@ -4663,7 +4663,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %85, %87
           cleanup
   br label %211
 
-.loopexit41:                                      ; preds = %_ZNK9table2mapI17default_map_entryIjSt4pairIP3appP4exprEE6u_hash4u_eqE4findERKjRS6_.exit.thread
+.loopexit37:                                      ; preds = %_ZNK9table2mapI17default_map_entryIjSt4pairIP3appP4exprEE6u_hash4u_eqE4findERKjRS6_.exit.thread
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -4912,10 +4912,10 @@ _ZNK9table2mapI17default_map_entryIjSt4pairIP3appP4exprEE6u_hash4u_eqE4findERKjR
   %210 = add i32 %209, 1
   store i32 %210, ptr %69, align 8, !tbaa !137
   invoke void @_ZN8uint_set8iterator4scanEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %_ZN8uint_set8iteratorppEv.exit unwind label %.loopexit41
+          to label %_ZN8uint_set8iteratorppEv.exit unwind label %.loopexit37
 
-211:                                              ; preds = %.loopexit41, %.loopexit.split-lp, %125, %92
-  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+211:                                              ; preds = %.loopexit37, %.loopexit.split-lp, %125, %92
+  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

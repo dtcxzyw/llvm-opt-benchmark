@@ -1169,31 +1169,31 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
   %115 = phi i32 [ %117, %.preheader ], [ %130, %.lr.ph ]
-  %116 = icmp sgt i32 %.016.in39, 1
+  %116 = icmp sgt i32 %.016.in33, 1
   br i1 %116, label %.preheader, label %._crit_edge, !llvm.loop !4
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %117 = phi i32 [ %115, %.loopexit ], [ %3, %.preheader.preheader ]
-  %.016.in39 = phi i32 [ %.01640, %.loopexit ], [ %2, %.preheader.preheader ]
-  %.01640 = add nsw i32 %.016.in39, -1
+  %.016.in33 = phi i32 [ %.01634, %.loopexit ], [ %2, %.preheader.preheader ]
+  %.01634 = add nsw i32 %.016.in33, -1
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %119 = phi i32 [ %130, %.lr.ph ], [ %117, %.preheader ]
-  %.037 = phi i32 [ %129, %.lr.ph ], [ 0, %.preheader ]
+  %.031 = phi i32 [ %129, %.lr.ph ], [ 0, %.preheader ]
   %120 = load i32, ptr %73, align 8
-  %121 = add i32 %120, %.016.in39
-  %122 = xor i32 %121, %.037
+  %121 = add i32 %120, %.016.in33
+  %122 = xor i32 %121, %.031
   %123 = and i32 %122, 1
   %. = add nuw nsw i32 %123, 1
-  %124 = mul nsw i32 %119, %.01640
-  %125 = add nsw i32 %124, %.037
+  %124 = mul nsw i32 %119, %.01634
+  %125 = add nsw i32 %124, %.031
   %126 = sext i32 %125 to i64
   %127 = load ptr, ptr %75, align 8
   %128 = getelementptr inbounds i32, ptr %127, i64 %126
   store i32 %., ptr %128, align 4
-  %129 = add nuw nsw i32 %.037, 1
+  %129 = add nuw nsw i32 %.031, 1
   %130 = load i32, ptr %74, align 4
   %131 = icmp slt i32 %129, %130
   br i1 %131, label %.lr.ph, label %.loopexit, !llvm.loop !7
@@ -1824,7 +1824,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %51, %69, %82, %_ZNS
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   br label %241
 
-99:                                               ; preds = %._crit_edge49, %150, %137, %128, %119, %112, %105, %94
+99:                                               ; preds = %._crit_edge43, %150, %137, %128, %119, %112, %105, %94
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %233
@@ -2051,20 +2051,20 @@ _ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit: ; preds = %170, 
   %180 = load i32, ptr %91, align 4
   %181 = icmp sgt i32 %180, 0
   %or.cond = select i1 %179, i1 %181, i1 false
-  br i1 %or.cond, label %.preheader, label %._crit_edge49
+  br i1 %or.cond, label %.preheader, label %._crit_edge43
 
 .preheader:                                       ; preds = %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit, %._crit_edge
   %182 = phi i32 [ %223, %._crit_edge ], [ %178, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit ]
   %183 = phi i32 [ %224, %._crit_edge ], [ %180, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit ]
-  %.02348 = phi i32 [ %225, %._crit_edge ], [ 0, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit ]
+  %.02342 = phi i32 [ %225, %._crit_edge ], [ 0, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit ]
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %210
   %185 = phi i32 [ %217, %210 ], [ %183, %.preheader ]
-  %.02247 = phi i32 [ %187, %210 ], [ 0, %.preheader ]
-  %186 = mul nsw i32 %185, %.02348
-  %187 = add nuw nsw i32 %.02247, 1
+  %.02241 = phi i32 [ %187, %210 ], [ 0, %.preheader ]
+  %186 = mul nsw i32 %185, %.02342
+  %187 = add nuw nsw i32 %.02241, 1
   %188 = add i32 %187, %186
   %189 = sext i32 %188 to i64
   %190 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %189) #25
@@ -2140,8 +2140,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #25
   %211 = load i32, ptr %91, align 4
-  %212 = mul nsw i32 %211, %.02348
-  %213 = add nsw i32 %212, %.02247
+  %212 = mul nsw i32 %211, %.02342
+  %213 = add nsw i32 %212, %.02241
   %214 = sext i32 %213 to i64
   %215 = load ptr, ptr %92, align 8
   %216 = getelementptr inbounds i32, ptr %215, i64 %214
@@ -2172,15 +2172,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %223 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %182, %.preheader ]
   %224 = phi i32 [ %217, %._crit_edge.loopexit ], [ %183, %.preheader ]
-  %225 = add nuw nsw i32 %.02348, 1
+  %225 = add nuw nsw i32 %.02342, 1
   %226 = icmp slt i32 %225, %223
-  br i1 %226, label %.preheader, label %._crit_edge49, !llvm.loop !9
+  br i1 %226, label %.preheader, label %._crit_edge43, !llvm.loop !9
 
-._crit_edge49:                                    ; preds = %._crit_edge, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit
+._crit_edge43:                                    ; preds = %._crit_edge, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EED2Ev.exit
   %227 = invoke noundef zeroext i1 @_ZNK10open_spiel7clobber12ClobberState14MovesRemainingEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %228 unwind label %99
 
-228:                                              ; preds = %._crit_edge49
+228:                                              ; preds = %._crit_edge43
   br i1 %227, label %232, label %229
 
 229:                                              ; preds = %228

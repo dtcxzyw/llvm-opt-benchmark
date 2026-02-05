@@ -9011,7 +9011,7 @@ _ZN4entt7type_idIK7derivedEERKNS_9type_infoEv.exit.i: ; preds = %201, %199, %191
 
 217:                                              ; preds = %211
   %218 = atomicrmw volatile add ptr %212, i32 1 acq_rel, align 4, !noalias !120
-  %.pr300.pre = load ptr, ptr %15, align 8, !tbaa !96
+  %.pr298.pre = load ptr, ptr %15, align 8, !tbaa !96
   br label %_Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit
 
 _Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit.thread: ; preds = %_ZN4entt7type_idIK7derivedEERKNS_9type_infoEv.exit.i
@@ -9023,7 +9023,7 @@ _Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit.
   br label %225
 
 _Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit: ; preds = %214, %217, %207
-  %220 = phi ptr [ %208, %214 ], [ %208, %207 ], [ %.pr300.pre, %217 ]
+  %220 = phi ptr [ %208, %214 ], [ %208, %207 ], [ %.pr298.pre, %217 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %221 = icmp ne ptr %220, null
   %222 = zext i1 %221 to i8

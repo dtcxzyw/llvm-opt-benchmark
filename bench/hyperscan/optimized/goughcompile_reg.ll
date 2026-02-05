@@ -968,8 +968,8 @@ _ZSt8_DestroyIN3ue28flat_setIjSt4lessIjESaIjEEEEvPT_.exit.i.i.i.i.i.i: ; preds =
   br label %.body.i
 
 288:                                              ; preds = %559, %.lr.ph.i8.i
-  %.sroa.0103.0149.i.i = phi ptr [ %.sroa.0.11.i, %.lr.ph.i8.i ], [ %560, %559 ]
-  %289 = load ptr, ptr %.sroa.0103.0149.i.i, align 8
+  %.sroa.0103.0146.i.i = phi ptr [ %.sroa.0.11.i, %.lr.ph.i8.i ], [ %560, %559 ]
+  %289 = load ptr, ptr %.sroa.0103.0146.i.i, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 12
   %291 = load i32, ptr %290, align 4
   %.val.i.i = load ptr, ptr %16, align 8
@@ -1056,7 +1056,7 @@ _ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirection
 
 .critedge.i.i.i.i:                                ; preds = %308, %_ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS3_ESaISt4pairIKS3_S8_EEE11lower_boundERSC_.exit.i.i.i.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.7) #25
-          to label %.noexc53.i.i unwind label %.loopexit.split-lp139.i.i
+          to label %.noexc53.i.i unwind label %.loopexit.split-lp136.i.i
 
 .noexc53.i.i:                                     ; preds = %.critedge.i.i.i.i
   unreachable
@@ -1194,7 +1194,7 @@ _ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEE
 
 370:                                              ; preds = %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit78.i.i.i
   %371 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSSAVarJoin19get_edges_for_inputEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 dereferenceable(128) %353, ptr noundef nonnull %289)
-          to label %.noexc54.i.i unwind label %.loopexit138.i.i
+          to label %.noexc54.i.i unwind label %.loopexit135.i.i
 
 .noexc54.i.i:                                     ; preds = %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
@@ -1224,13 +1224,13 @@ _ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectio
   %382 = icmp eq i64 %.335.lcssa.i.i.i, %381
   br i1 %382, label %559, label %_ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.thread.i.i
 
-.loopexit138.i.i:                                 ; preds = %370
-  %lpad.loopexit140.i.i = landingpad { ptr, i32 }
+.loopexit135.i.i:                                 ; preds = %370
+  %lpad.loopexit137.i.i = landingpad { ptr, i32 }
           cleanup
   br label %570
 
-.loopexit.split-lp139.i.i:                        ; preds = %.critedge.i.i.i.i
-  %lpad.loopexit.split-lp141.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp136.i.i:                        ; preds = %.critedge.i.i.i.i
+  %lpad.loopexit.split-lp138.i.i = landingpad { ptr, i32 }
           cleanup
   br label %570
 
@@ -1309,8 +1309,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   br i1 %.not.i.i.i14.i.i.i, label %421, label %465
 
 421:                                              ; preds = %.critedge.thread.i.i.i, %.critedge.i.i.i
-  %.sroa.0117.0.i.i = phi ptr [ %401, %.critedge.i.i.i ], [ %414, %.critedge.thread.i.i.i ]
-  %422 = ptrtoint ptr %.sroa.0117.0.i.i to i64
+  %.sroa.0114.0.i.i = phi ptr [ %401, %.critedge.i.i.i ], [ %414, %.critedge.thread.i.i.i ]
+  %422 = ptrtoint ptr %.sroa.0114.0.i.i to i64
   %423 = sub i64 %422, %402
   %reass.sub.i.i = add i64 %400, 1
   %424 = icmp eq i64 %400, 4611686018427387903
@@ -1357,7 +1357,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
 _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i: ; preds = %436
   %440 = shl nuw nsw i64 %437, 2
   %441 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %440) #22
-          to label %.noexc100.i.i unwind label %.loopexit137.i.i
+          to label %.noexc100.i.i unwind label %.loopexit134.i.i
 
 .noexc100.i.i:                                    ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i
   %.not.i.i95.i.i = icmp eq ptr %399, null
@@ -1370,7 +1370,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
   br label %.noexc71.i.i
 
 444:                                              ; preds = %.noexc100.i.i
-  %.not.i96.i.i = icmp eq ptr %399, %.sroa.0117.0.i.i
+  %.not.i96.i.i = icmp eq ptr %399, %.sroa.0114.0.i.i
   br i1 %.not.i96.i.i, label %447, label %445, !prof !102
 
 445:                                              ; preds = %444
@@ -1383,15 +1383,15 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
   %448 = load i32, ptr %396, align 4, !noalias !103
   store i32 %448, ptr %.0.i.i.i.i.i.i, align 4, !noalias !103
   %449 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 4
-  %450 = icmp ne ptr %.sroa.0117.0.i.i, %401
-  %451 = icmp ne ptr %.sroa.0117.0.i.i, null
+  %450 = icmp ne ptr %.sroa.0114.0.i.i, %401
+  %451 = icmp ne ptr %.sroa.0114.0.i.i, null
   %spec.select.i.i21.i.i.i.i = and i1 %451, %450
   br i1 %spec.select.i.i21.i.i.i.i, label %452, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit23.i.i.i.i, !prof !106
 
 452:                                              ; preds = %447
   %453 = ptrtoint ptr %401 to i64
   %454 = sub i64 %453, %422
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %449, ptr nonnull align 4 %.sroa.0117.0.i.i, i64 %454, i1 false), !noalias !103
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %449, ptr nonnull align 4 %.sroa.0114.0.i.i, i64 %454, i1 false), !noalias !103
   %455 = getelementptr inbounds i8, ptr %449, i64 %454
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit23.i.i.i.i
 
@@ -1661,7 +1661,7 @@ _ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i.i: ; preds = %_ZN
   br label %559
 
 559:                                              ; preds = %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i.i, %_ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.i.i
-  %560 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0149.i.i, i64 8
+  %560 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0146.i.i, i64 8
   %.not.i10.i = icmp eq ptr %560, %.sroa.12.9.i
   br i1 %.not.i10.i, label %.lr.ph.i.i.i.i.i.i, label %288
 
@@ -1670,7 +1670,7 @@ _ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i.i: ; preds = %_ZN
           cleanup
   br label %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i
 
-.loopexit137.i.i:                                 ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i
+.loopexit134.i.i:                                 ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i
   %lpad.loopexit.i15.i = landingpad { ptr, i32 }
           cleanup
   br label %565
@@ -1685,8 +1685,8 @@ _ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i.i: ; preds = %_ZN
           cleanup
   br label %565
 
-565:                                              ; preds = %563, %.loopexit.split-lp.i16.i, %.loopexit137.i.i
-  %.pn.pn.i.i = phi { ptr, i32 } [ %564, %563 ], [ %lpad.loopexit.i15.i, %.loopexit137.i.i ], [ %lpad.loopexit.split-lp.i17.i, %.loopexit.split-lp.i16.i ]
+565:                                              ; preds = %563, %.loopexit.split-lp.i16.i, %.loopexit134.i.i
+  %.pn.pn.i.i = phi { ptr, i32 } [ %564, %563 ], [ %lpad.loopexit.i15.i, %.loopexit134.i.i ], [ %lpad.loopexit.split-lp.i17.i, %.loopexit.split-lp.i16.i ]
   %566 = load ptr, ptr %277, align 8
   invoke void @_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %566)
           to label %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i unwind label %567
@@ -1703,8 +1703,8 @@ _ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i: ; preds = %565, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %570
 
-570:                                              ; preds = %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i, %.loopexit.split-lp139.i.i, %.loopexit138.i.i
-  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i ], [ %lpad.loopexit140.i.i, %.loopexit138.i.i ], [ %lpad.loopexit.split-lp141.i.i, %.loopexit.split-lp139.i.i ]
+570:                                              ; preds = %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i, %.loopexit.split-lp136.i.i, %.loopexit135.i.i
+  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %_ZNSt3setIPKN3ue211GoughSSAVarESt4lessIS3_ESaIS3_EED2Ev.exit.i ], [ %lpad.loopexit137.i.i, %.loopexit135.i.i ], [ %lpad.loopexit.split-lp138.i.i, %.loopexit.split-lp136.i.i ]
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt8_DestroyIN3ue28flat_setIjSt4lessIjESaIjEEEEvPT_.exit.i.i.i.i.i, %570

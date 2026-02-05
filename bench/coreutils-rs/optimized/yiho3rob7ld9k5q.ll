@@ -36535,15 +36535,15 @@ _ZN5uu_ls21display_symlink_count17h80bfc702a489333aE.exit.i: ; preds = %173
   unreachable
 
 _ZN5uu_ls22display_dir_entry_size17h40402be4e27798f7E.exit: ; preds = %142, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i"
-  %.sroa.528.2 = phi i64 [ %223, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %94, %142 ]
-  %.sroa.7.2 = phi i64 [ %224, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %95, %142 ]
-  %.sroa.9.2 = phi i64 [ %225, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %99, %142 ]
-  %.sroa.11.2 = phi i64 [ %.04.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %97, %142 ]
-  %.sroa.13.2 = phi i64 [ %.05.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %98, %142 ]
-  %.sroa.027.2 = phi i64 [ %222, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %93, %142 ]
-  store i64 %.sroa.027.2, ptr %30, align 8
-  store i64 %.sroa.528.2, ptr %31, align 8
-  store i64 %.sroa.7.2, ptr %32, align 8
+  %.sroa.528.0 = phi i64 [ %223, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %94, %142 ]
+  %.sroa.7.0 = phi i64 [ %224, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %95, %142 ]
+  %.sroa.9.0 = phi i64 [ %225, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %99, %142 ]
+  %.sroa.11.0 = phi i64 [ %.04.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %97, %142 ]
+  %.sroa.13.0 = phi i64 [ %.05.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %98, %142 ]
+  %.sroa.027.0 = phi i64 [ %222, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit25.i" ], [ %93, %142 ]
+  store i64 %.sroa.027.0, ptr %30, align 8
+  store i64 %.sroa.528.0, ptr %31, align 8
+  store i64 %.sroa.7.0, ptr %32, align 8
   br i1 %89, label %230, label %228
 
 228:                                              ; preds = %230, %_ZN5uu_ls22display_dir_entry_size17h40402be4e27798f7E.exit
@@ -36560,20 +36560,20 @@ _ZN5uu_ls22display_dir_entry_size17h40402be4e27798f7E.exit: ; preds = %142, %"_Z
   br label %.backedge
 
 232:                                              ; preds = %228
-  store i64 %.sroa.11.2, ptr %35, align 8
-  store i64 %.sroa.13.2, ptr %36, align 8
-  %.0.sroa.speculated.i26 = call noundef i64 @llvm.umax.i64(i64 %.sroa.9.2, i64 %.sroa.11.2)
+  store i64 %.sroa.11.0, ptr %35, align 8
+  store i64 %.sroa.13.0, ptr %36, align 8
+  %.0.sroa.speculated.i26 = call noundef i64 @llvm.umax.i64(i64 %.sroa.9.0, i64 %.sroa.11.0)
   store i64 %.0.sroa.speculated.i26, ptr %34, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %117, %232, %231, %102
   %233 = phi i64 [ %99, %102 ], [ 0, %231 ], [ %.0.sroa.speculated.i26, %232 ], [ %99, %117 ]
-  %234 = phi i64 [ %98, %102 ], [ 0, %231 ], [ %.sroa.13.2, %232 ], [ %98, %117 ]
-  %235 = phi i64 [ %97, %102 ], [ 0, %231 ], [ %.sroa.11.2, %232 ], [ %97, %117 ]
+  %234 = phi i64 [ %98, %102 ], [ 0, %231 ], [ %.sroa.13.0, %232 ], [ %98, %117 ]
+  %235 = phi i64 [ %97, %102 ], [ 0, %231 ], [ %.sroa.11.0, %232 ], [ %97, %117 ]
   %236 = phi i64 [ %96, %102 ], [ %229, %231 ], [ %229, %232 ], [ %96, %117 ]
-  %237 = phi i64 [ %95, %102 ], [ %.sroa.7.2, %231 ], [ %.sroa.7.2, %232 ], [ %95, %117 ]
-  %238 = phi i64 [ %94, %102 ], [ %.sroa.528.2, %231 ], [ %.sroa.528.2, %232 ], [ %94, %117 ]
-  %239 = phi i64 [ %93, %102 ], [ %.sroa.027.2, %231 ], [ %.sroa.027.2, %232 ], [ %93, %117 ]
+  %237 = phi i64 [ %95, %102 ], [ %.sroa.7.0, %231 ], [ %.sroa.7.0, %232 ], [ %95, %117 ]
+  %238 = phi i64 [ %94, %102 ], [ %.sroa.528.0, %231 ], [ %.sroa.528.0, %232 ], [ %94, %117 ]
+  %239 = phi i64 [ %93, %102 ], [ %.sroa.027.0, %231 ], [ %.sroa.027.0, %232 ], [ %93, %117 ]
   %240 = phi i64 [ %92, %102 ], [ %118, %231 ], [ %118, %232 ], [ %118, %117 ]
   %241 = icmp eq ptr %100, %38
   br i1 %241, label %._crit_edge, label %91

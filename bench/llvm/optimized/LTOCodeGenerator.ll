@@ -4908,9 +4908,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm22AIXSystemAssemblerPathB5cxx11E, i64 120), ptr %17, align 8, !tbaa !70
   %36 = call { i32, ptr } @_ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb(ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext true) #25
   %37 = extractvalue { i32, ptr } %36, 0
-  %.not68 = icmp eq i32 %37, 0
+  %.not66 = icmp eq i32 %37, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %.not68, label %._crit_edge.i.i13, label %._crit_edge.i.i
+  br i1 %.not66, label %._crit_edge.i.i13, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %18)

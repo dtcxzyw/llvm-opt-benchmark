@@ -190,7 +190,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %14, %13, %12
-  %.065.i = phi i32 [ 11, %14 ], [ 31, %13 ], [ 5, %12 ]
+  %.063.i = phi i32 [ 11, %14 ], [ 31, %13 ], [ 5, %12 ]
   %.062.i = phi i32 [ %.72.i, %14 ], [ %..i, %13 ], [ 6, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !32
@@ -236,7 +236,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %30 ], [ 0, %._crit_edge.i ]
   %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv90.i
   %28 = load i32, ptr %27, align 8, !tbaa !38
-  %29 = icmp ult i32 %28, %.065.i
+  %29 = icmp ult i32 %28, %.063.i
   br i1 %29, label %.loopexit.loopexit104.split.loop.exit107.i, label %30
 
 30:                                               ; preds = %.preheader76.i
@@ -255,7 +255,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %36 = load ptr, ptr %26, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 8, !tbaa !38
-  %39 = icmp ult i32 %38, %.065.i
+  %39 = icmp ult i32 %38, %.063.i
   br i1 %39, label %.loopexit.i, label %31, !llvm.loop !41
 
 .loopexit.loopexit104.split.loop.exit107.i:       ; preds = %.preheader76.i
@@ -263,15 +263,15 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %34, %31, %.loopexit.loopexit104.split.loop.exit107.i, %._crit_edge.thread.i
-  %.063.i = phi i32 [ %32, %34 ], [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit104.split.loop.exit107.i ], [ %17, %31 ], [ %17, %30 ]
-  %41 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %1, i32 noundef %.063.i, i32 noundef %.062.i, ptr noundef null, ptr noundef null) #6
+  %.065.i = phi i32 [ %32, %34 ], [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit104.split.loop.exit107.i ], [ %17, %31 ], [ %17, %30 ]
+  %41 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %1, i32 noundef %.065.i, i32 noundef %.062.i, ptr noundef null, ptr noundef null) #6
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %cbs_sei_get_unit.exit.thread, label %43
 
 43:                                               ; preds = %.loopexit.i
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !36
-  %46 = sext i32 %.063.i to i64
+  %46 = sext i32 %.065.i to i64
   %47 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %45, i64 %46
   store i32 %.062.i, ptr %47, align 8, !tbaa !38
   %48 = tail call i32 @ff_cbs_alloc_unit_content(ptr noundef %0, ptr noundef nonnull %47) #6

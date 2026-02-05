@@ -1654,11 +1654,11 @@ uleb128.exit21.i.i320:                            ; preds = %._crit_edge.loopexi
 
 .preheader159.i:                                  ; preds = %.preheader159.i.preheader, %di_read_record.exit.thread.i
   %.sroa.0.0.i272 = phi i64 [ %.sroa.0.1.i291, %di_read_record.exit.thread.i ], [ 0, %.preheader159.i.preheader ]
-  %.sroa.8.3.i = phi i64 [ %.sroa.8.4.i, %di_read_record.exit.thread.i ], [ 0, %.preheader159.i.preheader ]
-  %.sroa.10.3.i = phi i64 [ %.sroa.10.4.i, %di_read_record.exit.thread.i ], [ 0, %.preheader159.i.preheader ]
-  %.sroa.14.3.i = phi i1 [ %.sroa.14.4.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
-  %.sroa.17.3.i = phi i1 [ %.sroa.17.4.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
-  %.sroa.19.3.i = phi i1 [ %.sroa.19.4.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.8.1.i, %di_read_record.exit.thread.i ], [ 0, %.preheader159.i.preheader ]
+  %.sroa.10.0.i = phi i64 [ %.sroa.10.1.i, %di_read_record.exit.thread.i ], [ 0, %.preheader159.i.preheader ]
+  %.sroa.14.0.i = phi i1 [ %.sroa.14.1.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
+  %.sroa.17.0.i = phi i1 [ %.sroa.17.1.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
+  %.sroa.19.0.i = phi i1 [ %.sroa.19.1.i, %di_read_record.exit.thread.i ], [ false, %.preheader159.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
   %.promoted.i.i86.i = load ptr, ptr %212, align 8, !tbaa !62
@@ -1968,11 +1968,11 @@ read_abstract_origin.exit.i:                      ; preds = %.thread.i.i, %607, 
 
 di_read_record.exit.thread.i:                     ; preds = %read_abstract_origin.exit.i, %600, %596, %595, %read_addr.exit.i.i, %577, %569, %567, %di_read_record.exit.i290
   %.sroa.0.1.i291 = phi i64 [ %.sroa.0.0.i272, %596 ], [ %.sroa.0.0.i272, %di_read_record.exit.i290 ], [ %.sroa.0.0.i272, %567 ], [ %.sroa.0.0.i272, %569 ], [ %.sroa.0.0.i272, %577 ], [ %.sroa.0.0.i272, %read_abstract_origin.exit.i ], [ %.sroa.0.0.i272, %read_addr.exit.i.i ], [ %.0.i98.i, %595 ], [ %.sroa.0.0.i272, %600 ]
-  %.sroa.8.4.i = phi i64 [ %spec.select151.i, %596 ], [ %.sroa.8.3.i, %di_read_record.exit.i290 ], [ %.sroa.8.3.i, %567 ], [ %.sroa.8.3.i, %569 ], [ %.sroa.8.3.i, %577 ], [ %.sroa.8.3.i, %read_abstract_origin.exit.i ], [ %.sroa.8.3.i, %read_addr.exit.i.i ], [ %.sroa.8.3.i, %595 ], [ %.sroa.8.3.i, %600 ]
-  %.sroa.10.4.i = phi i64 [ %.sroa.10.3.i, %596 ], [ %.sroa.10.3.i, %di_read_record.exit.i290 ], [ %.sroa.10.3.i, %567 ], [ %.sroa.10.3.i, %569 ], [ %.sroa.10.3.i, %577 ], [ %.sroa.10.3.i, %read_abstract_origin.exit.i ], [ %.sroa.10.3.i, %read_addr.exit.i.i ], [ %.sroa.10.3.i, %595 ], [ %.0.i98.i, %600 ]
-  %.sroa.14.4.i = phi i1 [ %.sroa.14.3.i, %596 ], [ %.sroa.14.3.i, %di_read_record.exit.i290 ], [ %.sroa.14.3.i, %567 ], [ %.sroa.14.3.i, %569 ], [ %.sroa.14.3.i, %577 ], [ %.sroa.14.3.i, %read_abstract_origin.exit.i ], [ %.sroa.14.3.i, %read_addr.exit.i.i ], [ true, %595 ], [ %.sroa.14.3.i, %600 ]
-  %.sroa.17.4.i = phi i1 [ true, %596 ], [ %.sroa.17.3.i, %di_read_record.exit.i290 ], [ %.sroa.17.3.i, %567 ], [ %.sroa.17.3.i, %569 ], [ %.sroa.17.3.i, %577 ], [ %.sroa.17.3.i, %read_abstract_origin.exit.i ], [ %.sroa.17.3.i, %read_addr.exit.i.i ], [ %.sroa.17.3.i, %595 ], [ %.sroa.17.3.i, %600 ]
-  %.sroa.19.4.i = phi i1 [ %.sroa.19.3.i, %596 ], [ %.sroa.19.3.i, %di_read_record.exit.i290 ], [ %.sroa.19.3.i, %567 ], [ %.sroa.19.3.i, %569 ], [ %.sroa.19.3.i, %577 ], [ %.sroa.19.3.i, %read_abstract_origin.exit.i ], [ %.sroa.19.3.i, %read_addr.exit.i.i ], [ %.sroa.19.3.i, %595 ], [ true, %600 ]
+  %.sroa.8.1.i = phi i64 [ %spec.select151.i, %596 ], [ %.sroa.8.0.i, %di_read_record.exit.i290 ], [ %.sroa.8.0.i, %567 ], [ %.sroa.8.0.i, %569 ], [ %.sroa.8.0.i, %577 ], [ %.sroa.8.0.i, %read_abstract_origin.exit.i ], [ %.sroa.8.0.i, %read_addr.exit.i.i ], [ %.sroa.8.0.i, %595 ], [ %.sroa.8.0.i, %600 ]
+  %.sroa.10.1.i = phi i64 [ %.sroa.10.0.i, %596 ], [ %.sroa.10.0.i, %di_read_record.exit.i290 ], [ %.sroa.10.0.i, %567 ], [ %.sroa.10.0.i, %569 ], [ %.sroa.10.0.i, %577 ], [ %.sroa.10.0.i, %read_abstract_origin.exit.i ], [ %.sroa.10.0.i, %read_addr.exit.i.i ], [ %.sroa.10.0.i, %595 ], [ %.0.i98.i, %600 ]
+  %.sroa.14.1.i = phi i1 [ %.sroa.14.0.i, %596 ], [ %.sroa.14.0.i, %di_read_record.exit.i290 ], [ %.sroa.14.0.i, %567 ], [ %.sroa.14.0.i, %569 ], [ %.sroa.14.0.i, %577 ], [ %.sroa.14.0.i, %read_abstract_origin.exit.i ], [ %.sroa.14.0.i, %read_addr.exit.i.i ], [ true, %595 ], [ %.sroa.14.0.i, %600 ]
+  %.sroa.17.1.i = phi i1 [ true, %596 ], [ %.sroa.17.0.i, %di_read_record.exit.i290 ], [ %.sroa.17.0.i, %567 ], [ %.sroa.17.0.i, %569 ], [ %.sroa.17.0.i, %577 ], [ %.sroa.17.0.i, %read_abstract_origin.exit.i ], [ %.sroa.17.0.i, %read_addr.exit.i.i ], [ %.sroa.17.0.i, %595 ], [ %.sroa.17.0.i, %600 ]
+  %.sroa.19.1.i = phi i1 [ %.sroa.19.0.i, %596 ], [ %.sroa.19.0.i, %di_read_record.exit.i290 ], [ %.sroa.19.0.i, %567 ], [ %.sroa.19.0.i, %569 ], [ %.sroa.19.0.i, %577 ], [ %.sroa.19.0.i, %read_abstract_origin.exit.i ], [ %.sroa.19.0.i, %read_addr.exit.i.i ], [ %.sroa.19.0.i, %595 ], [ true, %600 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.preheader159.i
 
@@ -1986,8 +1986,8 @@ di_read_record.exit.thread.i:                     ; preds = %read_abstract_origi
   %653 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 120
   %655 = getelementptr inbounds nuw i8, ptr %651, i64 192
-  %.not152.i = xor i1 %.sroa.19.3.i, true
-  %or.cond.i = select i1 %.not152.i, i1 %.sroa.14.3.i, i1 false
+  %.not152.i = xor i1 %.sroa.19.0.i, true
+  %or.cond.i = select i1 %.not152.i, i1 %.sroa.14.0.i, i1 false
   %656 = load ptr, ptr %12, align 8
   %657 = load ptr, ptr %230, align 8
   %658 = load i32, ptr %228, align 8
@@ -1996,7 +1996,7 @@ di_read_record.exit.thread.i:                     ; preds = %read_abstract_origi
   %.pre.i = load i64, ptr %652, align 8, !tbaa !32
   %.pre226.i = load i64, ptr %653, align 8, !tbaa !121
   %.else.val.i = load i64, ptr %192, align 8
-  %spec.select362 = select i1 %.sroa.14.3.i, i64 %.sroa.0.0.i272, i64 %.else.val.i
+  %spec.select362 = select i1 %.sroa.14.0.i, i64 %.sroa.0.0.i272, i64 %.else.val.i
   %661 = load i8, ptr %197, align 8
   %662 = icmp ugt i8 %661, 4
   %663 = load i64, ptr %215, align 8
@@ -2016,19 +2016,19 @@ di_read_record.exit.thread.i:                     ; preds = %read_abstract_origi
   %673 = ptrtoint ptr %672 to i64
   %674 = sub i64 %673, %670
   %675 = add i64 %674, %669
-  br i1 %.sroa.17.3.i, label %676, label %678
+  br i1 %.sroa.17.0.i, label %676, label %678
 
 676:                                              ; preds = %666
   br i1 %or.cond.i, label %677, label %.critedge.thread.i
 
 677:                                              ; preds = %676
   %.not91.i.i = icmp ugt i64 %.sroa.0.0.i272, %675
-  %.not92.i.i = icmp ugt i64 %675, %.sroa.8.3.i
+  %.not92.i.i = icmp ugt i64 %675, %.sroa.8.0.i
   %or.cond153.i = select i1 %.not91.i.i, i1 true, i1 %.not92.i.i
   br i1 %or.cond153.i, label %.thread144.i, label %ranges_include.exit.i
 
 678:                                              ; preds = %666
-  br i1 %.sroa.19.3.i, label %.cont.i, label %822
+  br i1 %.sroa.19.0.i, label %.cont.i, label %822
 
 .cont.i:                                          ; preds = %678
   br i1 %662, label %679, label %806
@@ -2038,7 +2038,7 @@ di_read_record.exit.thread.i:                     ; preds = %read_abstract_origi
   br i1 %.sroa.9118.0.i, label %681, label %684
 
 681:                                              ; preds = %679
-  %682 = getelementptr i8, ptr %680, i64 %.sroa.10.3.i
+  %682 = getelementptr i8, ptr %680, i64 %.sroa.10.0.i
   %683 = getelementptr i8, ptr %682, i64 %663
   br label %read_dw_form_addr.exit.thread.i.i.preheader
 
@@ -2047,13 +2047,13 @@ di_read_record.exit.thread.i:                     ; preds = %read_abstract_origi
   br i1 %.sroa.5.1.i, label %686, label %690
 
 686:                                              ; preds = %684
-  %687 = getelementptr i32, ptr %685, i64 %.sroa.10.3.i
+  %687 = getelementptr i32, ptr %685, i64 %.sroa.10.0.i
   %688 = load i32, ptr %687, align 4, !tbaa !51
   %689 = zext i32 %688 to i64
   br label %693
 
 690:                                              ; preds = %684
-  %691 = getelementptr i64, ptr %685, i64 %.sroa.10.3.i
+  %691 = getelementptr i64, ptr %685, i64 %.sroa.10.0.i
   %692 = load i64, ptr %691, align 8, !tbaa !68
   br label %693
 
@@ -2324,7 +2324,7 @@ read_dw_form_addr.exit.thread.i.i.backedge:       ; preds = %.lr.ph.i136.i.i, %.
 
 806:                                              ; preds = %.cont.i
   %807 = load ptr, ptr %654, align 8, !tbaa !122
-  %808 = getelementptr i8, ptr %807, i64 %.sroa.10.3.i
+  %808 = getelementptr i8, ptr %807, i64 %.sroa.10.0.i
   %809 = getelementptr i8, ptr %808, i64 8
   %.val3.i3.i.i65.i.i = load i64, ptr %808, align 1
   %.val3.i3.i.i19166.i.i = load i64, ptr %809, align 1
@@ -2362,7 +2362,7 @@ read_dw_form_addr.exit.thread.i.i.backedge:       ; preds = %.lr.ph.i136.i.i, %.
 
 822:                                              ; preds = %678
   %823 = icmp eq i64 %.sroa.0.0.i272, %675
-  %or.cond154.i = select i1 %.sroa.14.3.i, i1 %823, i1 false
+  %or.cond154.i = select i1 %.sroa.14.0.i, i1 %823, i1 false
   br i1 %or.cond154.i, label %ranges_include.exit.i, label %.thread144.i
 
 ranges_include.exit.i:                            ; preds = %814, %read_dw_form_addr.exit.i.i, %822, %677

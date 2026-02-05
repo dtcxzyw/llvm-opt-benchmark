@@ -1326,7 +1326,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i181: ; preds = %182
   br label %.body
 
 .loopexit233:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph254, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
-  %.sroa.0.3335 = phi ptr [ null, %.lr.ph254 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %185, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.0.0335 = phi ptr [ null, %.lr.ph254 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %185, %.lr.ph.i.i.i.i.i.i.i ]
   %196 = sub nsw i64 %indvars.iv278, %166
   %197 = load ptr, ptr %15, align 8, !tbaa !70
   %198 = getelementptr inbounds double, ptr %197, i64 %196
@@ -1531,7 +1531,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 265:                                              ; preds = %258
   %266 = load <2 x double>, ptr %259, align 16, !tbaa !30
-  %267 = load <2 x double>, ptr %.sroa.0.3335, align 16, !tbaa !30
+  %267 = load <2 x double>, ptr %.sroa.0.0335, align 16, !tbaa !30
   %268 = fsub <2 x double> %266, %267
   %269 = load <2 x double>, ptr %260, align 16
   %270 = fmul <2 x double> %268, %269
@@ -1541,7 +1541,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 272:                                              ; preds = %265
   %273 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %274 = load <2 x double>, ptr %273, align 16, !tbaa !30
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.0.3335, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.0.0335, i64 16
   %276 = load <2 x double>, ptr %275, align 16, !tbaa !30
   %277 = fsub <2 x double> %274, %276
   %278 = getelementptr inbounds nuw i8, ptr %260, i64 16
@@ -1564,7 +1564,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %.07577.i.i.i.i = phi <2 x double> [ %302, %.lr.ph.i.i.i.i ], [ %280, %272 ]
   %284 = getelementptr inbounds nuw double, ptr %259, i64 %.05480.i.i.i.i
   %285 = load <2 x double>, ptr %284, align 16, !tbaa !30
-  %286 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %.05480.i.i.i.i
+  %286 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %.05480.i.i.i.i
   %287 = load <2 x double>, ptr %286, align 16, !tbaa !30
   %288 = fsub <2 x double> %285, %287
   %289 = getelementptr inbounds nuw double, ptr %260, i64 %.05480.i.i.i.i
@@ -1574,7 +1574,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %293 = add nuw nsw i64 %.054.in79.i.i.i.i, 6
   %294 = getelementptr inbounds nuw double, ptr %259, i64 %293
   %295 = load <2 x double>, ptr %294, align 16, !tbaa !30
-  %296 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %293
+  %296 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %293
   %297 = load <2 x double>, ptr %296, align 16, !tbaa !30
   %298 = fsub <2 x double> %295, %297
   %299 = getelementptr inbounds nuw double, ptr %260, i64 %293
@@ -1588,7 +1588,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 304:                                              ; preds = %._crit_edge.i.i.i.i
   %305 = getelementptr inbounds nuw double, ptr %259, i64 %262
   %306 = load <2 x double>, ptr %305, align 16, !tbaa !30
-  %307 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %262
+  %307 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %262
   %308 = load <2 x double>, ptr %307, align 16, !tbaa !30
   %309 = fsub <2 x double> %306, %308
   %310 = getelementptr inbounds nuw double, ptr %260, i64 %262
@@ -1609,7 +1609,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %.05283.i.i.i.i = phi i64 [ %326, %.lr.ph85.i.i.i.i ], [ %264, %314 ]
   %.182.i.i.i.i = phi double [ %325, %.lr.ph85.i.i.i.i ], [ %315, %314 ]
   %317 = getelementptr inbounds double, ptr %259, i64 %.05283.i.i.i.i
-  %318 = getelementptr inbounds double, ptr %.sroa.0.3335, i64 %.05283.i.i.i.i
+  %318 = getelementptr inbounds double, ptr %.sroa.0.0335, i64 %.05283.i.i.i.i
   %319 = load double, ptr %317, align 8, !tbaa !19
   %320 = load double, ptr %318, align 8, !tbaa !19
   %321 = fsub double %319, %320
@@ -1685,7 +1685,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 357:                                              ; preds = %258
   %358 = load double, ptr %259, align 8, !tbaa !19
-  %359 = load double, ptr %.sroa.0.3335, align 8, !tbaa !19
+  %359 = load double, ptr %.sroa.0.0335, align 8, !tbaa !19
   %360 = fsub double %358, %359
   %361 = load double, ptr %260, align 8, !tbaa !19
   %362 = fmul double %360, %361
@@ -1712,7 +1712,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 372:                                              ; preds = %366
   %373 = load <2 x double>, ptr %367, align 16, !tbaa !30
-  %374 = load <2 x double>, ptr %.sroa.0.3335, align 16, !tbaa !30
+  %374 = load <2 x double>, ptr %.sroa.0.0335, align 16, !tbaa !30
   %375 = fsub <2 x double> %373, %374
   %376 = load <2 x double>, ptr %.pre152.i, align 16, !tbaa !30
   %377 = fmul <2 x double> %375, %376
@@ -1722,7 +1722,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 379:                                              ; preds = %372
   %380 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %381 = load <2 x double>, ptr %380, align 16, !tbaa !30
-  %382 = getelementptr inbounds nuw i8, ptr %.sroa.0.3335, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %.sroa.0.0335, i64 16
   %383 = load <2 x double>, ptr %382, align 16, !tbaa !30
   %384 = fsub <2 x double> %381, %383
   %385 = getelementptr inbounds nuw i8, ptr %.pre152.i, i64 16
@@ -1745,7 +1745,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %.07577.i.i.i89.i = phi <2 x double> [ %409, %.lr.ph.i.i.i85.i ], [ %387, %379 ]
   %391 = getelementptr inbounds nuw double, ptr %367, i64 %.05480.i.i.i86.i
   %392 = load <2 x double>, ptr %391, align 16, !tbaa !30
-  %393 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %.05480.i.i.i86.i
+  %393 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %.05480.i.i.i86.i
   %394 = load <2 x double>, ptr %393, align 16, !tbaa !30
   %395 = fsub <2 x double> %392, %394
   %396 = getelementptr inbounds nuw double, ptr %.pre152.i, i64 %.05480.i.i.i86.i
@@ -1755,7 +1755,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %400 = add nuw nsw i64 %.054.in79.i.i.i87.i, 6
   %401 = getelementptr inbounds nuw double, ptr %367, i64 %400
   %402 = load <2 x double>, ptr %401, align 16, !tbaa !30
-  %403 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %400
+  %403 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %400
   %404 = load <2 x double>, ptr %403, align 16, !tbaa !30
   %405 = fsub <2 x double> %402, %404
   %406 = getelementptr inbounds nuw double, ptr %.pre152.i, i64 %400
@@ -1769,7 +1769,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 411:                                              ; preds = %._crit_edge.i.i.i82.i
   %412 = getelementptr inbounds nuw double, ptr %367, i64 %369
   %413 = load <2 x double>, ptr %412, align 16, !tbaa !30
-  %414 = getelementptr inbounds nuw double, ptr %.sroa.0.3335, i64 %369
+  %414 = getelementptr inbounds nuw double, ptr %.sroa.0.0335, i64 %369
   %415 = load <2 x double>, ptr %414, align 16, !tbaa !30
   %416 = fsub <2 x double> %413, %415
   %417 = getelementptr inbounds nuw double, ptr %.pre152.i, i64 %369
@@ -1790,7 +1790,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %.05283.i.i.i79.i = phi i64 [ %433, %.lr.ph85.i.i.i78.i ], [ %371, %421 ]
   %.182.i.i.i80.i = phi double [ %432, %.lr.ph85.i.i.i78.i ], [ %422, %421 ]
   %424 = getelementptr inbounds double, ptr %367, i64 %.05283.i.i.i79.i
-  %425 = getelementptr inbounds double, ptr %.sroa.0.3335, i64 %.05283.i.i.i79.i
+  %425 = getelementptr inbounds double, ptr %.sroa.0.0335, i64 %.05283.i.i.i79.i
   %426 = load double, ptr %424, align 8, !tbaa !19
   %427 = load double, ptr %425, align 8, !tbaa !19
   %428 = fsub double %426, %427
@@ -1804,7 +1804,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 434:                                              ; preds = %366
   %435 = load double, ptr %367, align 8, !tbaa !19
-  %436 = load double, ptr %.sroa.0.3335, align 8, !tbaa !19
+  %436 = load double, ptr %.sroa.0.0335, align 8, !tbaa !19
   %437 = fsub double %435, %436
   %438 = load double, ptr %.pre152.i, align 8, !tbaa !19
   %439 = fmul double %437, %438
@@ -1855,7 +1855,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %451 = getelementptr inbounds double, ptr %173, i64 %196
   store double %446, ptr %451, align 8, !tbaa !19
-  call void @free(ptr noundef %.sroa.0.3335) #23
+  call void @free(ptr noundef %.sroa.0.0335) #23
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, 1
   %lftr.wideiv281 = trunc i64 %indvars.iv.next279 to i32
   %exitcond282.not = icmp eq i32 %167, %lftr.wideiv281
@@ -1863,7 +1863,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 .body151:                                         ; preds = %200, %.body.i
   %eh.lpad-body152 = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.i, %.body.i ], [ %201, %200 ]
-  call void @free(ptr noundef %.sroa.0.3335) #23
+  call void @free(ptr noundef %.sroa.0.0335) #23
   br label %.body
 
 452:                                              ; preds = %._crit_edge255

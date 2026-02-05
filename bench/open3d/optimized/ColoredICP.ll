@@ -1307,13 +1307,13 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %247
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.noexc102.i.thread, %.noexc102.i
   %260 = phi i64 [ %254, %.noexc102.i.thread ], [ 0, %.noexc102.i ], [ %255, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %.sroa.040.351 = phi ptr [ null, %.noexc102.i.thread ], [ %250, %.noexc102.i ], [ %250, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
+  %.sroa.040.151 = phi ptr [ null, %.noexc102.i.thread ], [ %250, %.noexc102.i ], [ %250, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
   %261 = icmp slt i64 %260, %245
   br i1 %261, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %_ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1ELi0ELin1ELi1EEEEENSt9enable_ifIXcl12__assignableIT_T0_EEERS5_E4typeEOS_IJS9_SA_EE.exit.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader:       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
   %262 = shl i64 %260, 3
-  %scevgep = getelementptr i8, ptr %.sroa.040.351, i64 %262
+  %scevgep = getelementptr i8, ptr %.sroa.040.151, i64 %262
   %scevgep54 = getelementptr i8, ptr %244, i64 %262
   %263 = sub i64 %245, %260
   %264 = shl i64 %263, 3
@@ -1337,10 +1337,10 @@ _ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1EL
 268:                                              ; preds = %_ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1ELi0ELin1ELi1EEEEENSt9enable_ifIXcl12__assignableIT_T0_EEERS5_E4typeEOS_IJS9_SA_EE.exit.i
   %269 = load ptr, ptr %90, align 8, !tbaa !32, !noalias !66
   %270 = getelementptr inbounds nuw %"class.Eigen::Matrix.94", ptr %269, i64 %.055139.i
-  %271 = load <2 x double>, ptr %.sroa.040.351, align 16, !tbaa !16, !noalias !66
+  %271 = load <2 x double>, ptr %.sroa.040.151, align 16, !tbaa !16, !noalias !66
   store <2 x double> %271, ptr %270, align 1, !tbaa !16, !noalias !66
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %273 = getelementptr i8, ptr %.sroa.040.351, i64 16
+  %273 = getelementptr i8, ptr %.sroa.040.151, i64 16
   %274 = load double, ptr %273, align 16, !tbaa !35, !noalias !66
   store double %274, ptr %272, align 8, !tbaa !35, !noalias !66
   br label %286
@@ -1384,7 +1384,7 @@ _ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1EL
   br label %.body90.i
 
 286:                                              ; preds = %268, %_ZNSt5tupleIJRbRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEaSIbNS2_IdLin1ELi1ELi0ELin1ELi1EEEEENSt9enable_ifIXcl12__assignableIT_T0_EEERS5_E4typeEOS_IJS9_SA_EE.exit.i
-  call void @free(ptr noundef %.sroa.040.351) #29, !noalias !66
+  call void @free(ptr noundef %.sroa.040.151) #29, !noalias !66
   %287 = load ptr, ptr %12, align 8, !tbaa !89, !noalias !66
   call void @free(ptr noundef %287) #29, !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !66

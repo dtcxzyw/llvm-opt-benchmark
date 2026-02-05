@@ -9539,10 +9539,10 @@ define internal fastcc void @_ZL25describeTemplateParameterRN4llvm11raw_ostreamE
   %46 = load i64, ptr %45, align 8
   %47 = shl i64 %46, 39
   %48 = and i64 %47, 140737488355328
-  %.masked10.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %34
-  %.masked.masked.masked.masked.masked.masked15.masked = or i64 %.masked10.masked.masked.masked.masked.masked.masked.masked, %36
-  %.masked13.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked15.masked, %24
-  %49 = or i64 %.masked13.masked.masked.masked.masked.masked, %40
+  %.masked8.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %34
+  %.masked.masked.masked.masked.masked.masked13.masked = or i64 %.masked8.masked.masked.masked.masked.masked.masked.masked, %36
+  %.masked11.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked13.masked, %24
+  %49 = or i64 %.masked11.masked.masked.masked.masked.masked, %40
   %50 = or i64 %49, %48
   %51 = xor i64 %50, 1615077378
   store i64 %51, ptr %5, align 8

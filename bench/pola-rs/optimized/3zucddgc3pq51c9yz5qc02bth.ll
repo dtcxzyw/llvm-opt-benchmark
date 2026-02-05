@@ -24652,11 +24652,11 @@ common.resume:                                    ; preds = %41, %37
   br label %68
 
 68:                                               ; preds = %.lr.ph, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17h43ddb6e4cd031bf0E.exit32"
-  %.sroa.02.066 = phi ptr [ %63, %.lr.ph ], [ %69, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17h43ddb6e4cd031bf0E.exit32" ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.02.066, i64 16
+  %.sroa.02.063 = phi ptr [ %63, %.lr.ph ], [ %69, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17h43ddb6e4cd031bf0E.exit32" ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.02.063, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %70 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.02.066)
+  %70 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.02.063)
           to label %71 unwind label %.loopexit
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17h43ddb6e4cd031bf0E.exit32", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17h43ddb6e4cd031bf0E.exit30"
@@ -24691,7 +24691,7 @@ common.resume:                                    ; preds = %41, %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %84 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.02.066)
+  %84 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.02.063)
           to label %86 unwind label %99
 
 85:                                               ; preds = %93

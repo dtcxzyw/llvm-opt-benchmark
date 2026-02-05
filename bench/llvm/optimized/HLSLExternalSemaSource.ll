@@ -2237,11 +2237,11 @@ _ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE12emplace_backIJRPNS1_20TemplateTy
 57:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE12emplace_backIJRPNS1_20TemplateTypeParmDeclEEEERS3_DpOT_.exit
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %7, i64 noundef 4, i1 noundef zeroext false) #15
   %.pre = load i32, ptr %54, align 8, !tbaa !1129
-  %.pre91 = load i64, ptr %7, align 8
+  %.pre89 = load i64, ptr %7, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %56, %57
-  %58 = phi i64 [ 4, %56 ], [ %.pre91, %57 ]
+  %58 = phi i64 [ 4, %56 ], [ %.pre89, %57 ]
   %59 = phi i32 [ %53, %56 ], [ %.pre, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2281,8 +2281,8 @@ _ZN4llvm5APIntD2Ev.exit50:                        ; preds = %67, %64, %_ZN4llvm5
 
 71:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit50
   %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE18growAndEmplaceBackIJRPNS1_23NonTypeTemplateParmDeclEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %.pre92 = load ptr, ptr %2, align 8, !tbaa !1046
-  %.pre93 = load i32, ptr %17, align 8, !tbaa !1047
+  %.pre90 = load ptr, ptr %2, align 8, !tbaa !1046
+  %.pre91 = load i32, ptr %17, align 8, !tbaa !1047
   br label %_ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE12emplace_backIJRPNS1_23NonTypeTemplateParmDeclEEEERS3_DpOT_.exit
 
 73:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit50
@@ -2295,8 +2295,8 @@ _ZN4llvm5APIntD2Ev.exit50:                        ; preds = %67, %64, %_ZN4llvm5
   br label %_ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE12emplace_backIJRPNS1_23NonTypeTemplateParmDeclEEEERS3_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE12emplace_backIJRPNS1_23NonTypeTemplateParmDeclEEEERS3_DpOT_.exit: ; preds = %71, %73
-  %78 = phi i32 [ %.pre93, %71 ], [ %77, %73 ]
-  %79 = phi ptr [ %.pre92, %71 ], [ %75, %73 ]
+  %78 = phi i32 [ %.pre91, %71 ], [ %77, %73 ]
+  %79 = phi ptr [ %.pre90, %71 ], [ %75, %73 ]
   %80 = zext i32 %78 to i64
   %81 = call noundef ptr @_ZN5clang21TemplateParameterList6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9NamedDeclEEES4_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23216) %15, i32 0, i32 0, ptr %79, i64 %80, i32 0, ptr noundef null) #15
   %82 = load ptr, ptr %23, align 8, !tbaa !1029
@@ -5278,8 +5278,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %28, %36
   br label %39
 
 39:                                               ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit, %14
-  %.sroa.024.0 = phi i64 [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %3, %14 ]
-  %40 = call noundef ptr @_ZN5clang8CallExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationENS_17FPOptionsOverrideEjNS0_11ADLCallKindE(ptr noundef nonnull align 8 dereferenceable(23216) %19, ptr noundef %27, ptr nonnull %6, i64 2, i64 %.sroa.024.0, i32 noundef 0, i32 0, i64 0, i32 noundef 0, i1 noundef zeroext false) #15
+  %.sroa.022.0 = phi i64 [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %3, %14 ]
+  %40 = call noundef ptr @_ZN5clang8CallExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationENS_17FPOptionsOverrideEjNS0_11ADLCallKindE(ptr noundef nonnull align 8 dereferenceable(23216) %19, ptr noundef %27, ptr nonnull %6, i64 2, i64 %.sroa.022.0, i32 noundef 0, i32 0, i64 0, i32 noundef 0, i1 noundef zeroext false) #15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load i32, ptr %42, align 8, !tbaa !1047
@@ -6916,8 +6916,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %27, %35
   br label %38
 
 38:                                               ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit, %13
-  %.sroa.024.0 = phi i64 [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %3, %13 ]
-  %39 = call noundef ptr @_ZN5clang8CallExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationENS_17FPOptionsOverrideEjNS0_11ADLCallKindE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr noundef %26, ptr nonnull %6, i64 2, i64 %.sroa.024.0, i32 noundef 0, i32 0, i64 0, i32 noundef 0, i1 noundef zeroext false) #15
+  %.sroa.022.0 = phi i64 [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %3, %13 ]
+  %39 = call noundef ptr @_ZN5clang8CallExpr6CreateERKNS_10ASTContextEPNS_4ExprEN4llvm8ArrayRefIS5_EENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationENS_17FPOptionsOverrideEjNS0_11ADLCallKindE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr noundef %26, ptr nonnull %6, i64 2, i64 %.sroa.022.0, i32 noundef 0, i32 0, i64 0, i32 noundef 0, i1 noundef zeroext false) #15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load i32, ptr %41, align 8, !tbaa !1047

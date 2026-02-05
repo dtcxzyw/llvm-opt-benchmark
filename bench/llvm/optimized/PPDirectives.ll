@@ -3147,8 +3147,8 @@ switch.early.test:                                ; preds = %183
   br label %211
 
 211:                                              ; preds = %204, %208, %209
-  %.sroa.12.4 = phi i64 [ %202, %209 ], [ 0, %208 ], [ 0, %204 ]
-  %.sroa.0308.4 = phi ptr [ %14, %209 ], [ null, %208 ], [ null, %204 ]
+  %.sroa.12.1 = phi i64 [ %202, %209 ], [ 0, %208 ], [ 0, %204 ]
+  %.sroa.0308.1 = phi ptr [ %14, %209 ], [ null, %208 ], [ null, %204 ]
   %.2 = phi i32 [ 0, %209 ], [ 2, %208 ], [ 2, %204 ]
   %212 = load ptr, ptr %15, align 8, !tbaa !273
   %213 = icmp eq ptr %212, %76
@@ -3165,19 +3165,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %211, 
   br i1 %203, label %216, label %741
 
 216:                                              ; preds = %194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.12.3 = phi i64 [ %.sroa.12.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %186, %194 ]
-  %.sroa.0308.3 = phi ptr [ %.sroa.0308.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %184, %194 ]
-  %.not.i119 = icmp samesign ult i64 %.sroa.12.3, 2
+  %.sroa.12.0 = phi i64 [ %.sroa.12.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %186, %194 ]
+  %.sroa.0308.0 = phi ptr [ %.sroa.0308.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %184, %194 ]
+  %.not.i119 = icmp samesign ult i64 %.sroa.12.0, 2
   br i1 %.not.i119, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %216
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.0308.3, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.0308.0, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
   %217 = icmp eq i32 %bcmp.i, 0
   br i1 %217, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %218 = getelementptr inbounds nuw i8, ptr %.sroa.0308.3, i64 2
-  switch i64 %.sroa.12.3, label %_ZN4llvmeqENS_9StringRefES0_.exit127.thread [
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0, i64 2
+  switch i64 %.sroa.12.0, label %_ZN4llvmeqENS_9StringRefES0_.exit127.thread [
     i64 2, label %221
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit127
@@ -3256,20 +3256,20 @@ _ZN5clang17PreprocessorLexer20pushConditionalLevelENS_14SourceLocationEbbb.exit1
   br label %.thread375
 
 _ZN4llvmeqENS_9StringRefES0_.exit127.thread:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit127
-  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.3, i64 %.sroa.12.3)
+  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.0, i64 %.sroa.12.0)
   br label %.thread375
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread334: ; preds = %216, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %251 = load i8, ptr %.sroa.0308.3, align 1, !tbaa !274
+  %251 = load i8, ptr %.sroa.0308.0, align 1, !tbaa !274
   %252 = icmp eq i8 %251, 101
   br i1 %252, label %253, label %736
 
 253:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334
-  %254 = icmp ne i64 %.sroa.12.3, 0
+  %254 = icmp ne i64 %.sroa.12.0, 0
   %.sroa.speculated4.i135.neg = sext i1 %254 to i64
   %.sroa.speculated4.i135.sroa.sel.idx.sroa.sel.idx = zext i1 %254 to i64
-  %.sroa.speculated4.i135.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.0308.3, i64 %.sroa.speculated4.i135.sroa.sel.idx.sroa.sel.idx
-  %255 = add nsw i64 %.sroa.12.3, %.sroa.speculated4.i135.neg
+  %.sroa.speculated4.i135.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.0308.0, i64 %.sroa.speculated4.i135.sroa.sel.idx.sroa.sel.idx
+  %255 = add nsw i64 %.sroa.12.0, %.sroa.speculated4.i135.neg
   switch i64 %255, label %_ZN4llvmeqENS_9StringRefES0_.exit208.thread360 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit141
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit159
@@ -4360,11 +4360,11 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   br label %.thread475
 
 _ZN4llvmeqENS_9StringRefES0_.exit208.thread360:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit204, %_ZN4llvmeqENS_9StringRefES0_.exit178, %_ZN4llvmeqENS_9StringRefES0_.exit141, %253, %_ZN4llvmeqENS_9StringRefES0_.exit208
-  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.3, i64 %.sroa.12.3)
+  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.0, i64 %.sroa.12.0)
   br label %.thread375
 
 736:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334
-  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.3, i64 %.sroa.12.3)
+  call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.0, i64 %.sroa.12.0)
   br label %.thread375
 
 .thread375:                                       ; preds = %_ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit241, %.thread367, %_ZN5clang12Preprocessor19DirectiveEvalResultD2Ev.exit, %_ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit200, %_ZN4llvmeqENS_9StringRefES0_.exit208.thread360, %._crit_edge.loopexit.i.i149, %._crit_edge.loopexit.i.i168, %_ZN5clang17PreprocessorLexer20pushConditionalLevelENS_14SourceLocationEbbb.exit134, %_ZN4llvmeqENS_9StringRefES0_.exit127.thread, %736

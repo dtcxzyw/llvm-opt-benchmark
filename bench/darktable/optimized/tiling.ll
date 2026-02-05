@@ -2632,10 +2632,10 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   br i1 %or.cond5.us.i, label %.lr.ph369.split.us.us.i, label %.lr.ph369.split.us380.preheader.i
 
 .lr.ph369.split.us380.preheader.i:                ; preds = %.lr.ph369.us.i
-  %.sroa.036.3.us.i = select i1 %1648, i64 %1638, i64 0
+  %.sroa.036.0.us.i = select i1 %1648, i64 %1638, i64 0
   %1653 = add i64 %1640, %1638
   %invariant.op.i = mul i64 %1653, %1595
-  %.sroa.0.0.us.i = sub i64 %1646, %.sroa.036.3.us.i
+  %.sroa.0.0.us.i = sub i64 %1646, %.sroa.036.0.us.i
   %1654 = mul i64 %.sroa.0.0.us.i, %1595
   %.reass.i = select i1 %1648, i64 %invariant.op.i, i64 0
   %invariant.gep = getelementptr i8, ptr %3, i64 %.reass.i
@@ -2712,9 +2712,9 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   %.0303365.us.i = phi i64 [ 0, %.lr.ph366.us.i ], [ %1696, %1688 ]
   %1689 = mul i64 %.0303365.us.i, %1635
   %1690 = getelementptr inbounds nuw i8, ptr %1734, i64 %1689
-  %1691 = add i64 %.0303365.us.i, %.sroa.638.3.us.i
+  %1691 = add i64 %.0303365.us.i, %.sroa.638.0.us.i
   %1692 = mul i64 %1691, %1646
-  %1693 = add i64 %1692, %.sroa.036.3.us.i
+  %1693 = add i64 %1692, %.sroa.036.0.us.i
   %1694 = mul i64 %1693, %1595
   %1695 = getelementptr inbounds nuw i8, ptr %1597, i64 %1694
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1690, ptr nonnull align 1 %1695, i64 %1654, i1 false)
@@ -2796,8 +2796,8 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   br label %1718
 
 .split364.us376.i:                                ; preds = %1715, %.split.us.us.i
-  %.sroa.638.3.us.i = select i1 %1665, i64 %1638, i64 0
-  %.not384.i = icmp eq i64 %1663, %.sroa.638.3.us.i
+  %.sroa.638.0.us.i = select i1 %1665, i64 %1638, i64 0
+  %.not384.i = icmp eq i64 %1663, %.sroa.638.0.us.i
   br i1 %.not384.i, label %._crit_edge.us.i, label %.lr.ph366.us.i
 
 .split.us.us.i:                                   ; preds = %.preheader358.us.i
@@ -2810,7 +2810,7 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   %gep = getelementptr i8, ptr %invariant.gep, i64 %1680
   %1734 = getelementptr i8, ptr %gep, i64 %1733
   %umin.i = call i64 @llvm.umin.i64(i64 %indvars.iv393.i, i64 %1660)
-  %1735 = sub i64 %indvars.iv395.i, %.sroa.638.3.us.i
+  %1735 = sub i64 %indvars.iv395.i, %.sroa.638.0.us.i
   %1736 = add i64 %1735, %umin.i
   %umax.i = call i64 @llvm.umax.i64(i64 %1736, i64 1)
   br label %1688

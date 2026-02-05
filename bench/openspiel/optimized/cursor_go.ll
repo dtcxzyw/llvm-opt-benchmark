@@ -1945,8 +1945,8 @@ _ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %174, 
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %.not31 = icmp eq ptr %.sroa.011.1, %.sroa.9.0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq ptr %.sroa.011.1, %.sroa.9.0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %187, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit
   %.not.i.i.i = icmp eq ptr %.sroa.011.1, null
@@ -1960,14 +1960,14 @@ _ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %174, 
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit, %187
-  %.sroa.08.032 = phi ptr [ %188, %187 ], [ %.sroa.011.1, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit ]
-  %185 = load i16, ptr %.sroa.08.032, align 2
+  %.sroa.08.029 = phi ptr [ %188, %187 ], [ %.sroa.011.1, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit ]
+  %185 = load i16, ptr %.sroa.08.029, align 2
   %186 = invoke noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %24, i16 noundef zeroext %185, i8 noundef zeroext 0)
           to label %187 unwind label %189
 
 187:                                              ; preds = %.lr.ph
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.08.032, i64 2
-  %.not = icmp eq ptr %.sroa.08.032, %.pn
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.08.029, i64 2
+  %.not = icmp eq ptr %.sroa.08.029, %.pn
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 189:                                              ; preds = %.lr.ph

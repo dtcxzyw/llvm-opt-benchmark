@@ -1508,8 +1508,8 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit: ; 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit
   %.pre102 = phi ptr [ %.pre, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %150, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
   %.060.lcssa = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
-  %.sroa.0.2.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %.sroa.0.3, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
-  %.sroa.9.2.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %.sroa.9.3, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %.sroa.0.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
+  %.sroa.9.0.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %.sroa.9.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
   %.lcssa62 = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %159, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ]
   %58 = icmp ult i64 %.060.lcssa, %.lcssa62
   br i1 %58, label %.lr.ph.i, label %"_ZZN7rocksdb10Compaction28PopulateWithAtomicBoundariesEPNS_18VersionStorageInfoESt6vectorINS_20CompactionInputFilesESaIS4_EEENK3$_0clEm.exit"
@@ -1527,9 +1527,9 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit: ; 
   br i1 %.not.i.i, label %68, label %66
 
 66:                                               ; preds = %.lr.ph.i
-  store ptr %.sroa.0.2.lcssa, ptr %63, align 8, !tbaa !407
+  store ptr %.sroa.0.0.lcssa, ptr %63, align 8, !tbaa !407
   %.sroa.9.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %.sroa.9.2.lcssa, ptr %.sroa.9.0..sroa_idx45, align 8, !tbaa !407
+  store ptr %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx45, align 8, !tbaa !407
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %67, ptr %62, align 8, !tbaa !405
   br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i
@@ -1558,9 +1558,9 @@ _ZNKSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE12_M_check_lenEmPK
   %80 = shl nuw nsw i64 %79, 4
   %81 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #37
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %72
-  store ptr %.sroa.0.2.lcssa, ptr %82, align 8, !tbaa !407
+  store ptr %.sroa.0.0.lcssa, ptr %82, align 8, !tbaa !407
   %.sroa.9.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %.sroa.9.2.lcssa, ptr %.sroa.9.0..sroa_idx47, align 8, !tbaa !407
+  store ptr %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx47, align 8, !tbaa !407
   %.not10.i.i.i.i.i.i = icmp eq ptr %69, %63
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1598,8 +1598,8 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.ex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit
   %89 = phi ptr [ %155, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ %.ph, %.lr.ph.preheader ]
   %.079 = phi i64 [ %149, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ 0, %.lr.ph.preheader ]
-  %.sroa.9.278 = phi ptr [ %.sroa.9.3, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ null, %.lr.ph.preheader ]
-  %.sroa.0.277 = phi ptr [ %.sroa.0.3, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ null, %.lr.ph.preheader ]
+  %.sroa.9.078 = phi ptr [ %.sroa.9.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ null, %.lr.ph.preheader ]
+  %.sroa.0.077 = phi ptr [ %.sroa.0.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ null, %.lr.ph.preheader ]
   %.06076 = phi i64 [ %.1, %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit ], [ 0, %.lr.ph.preheader ]
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.079
   %91 = load ptr, ptr %90, align 8, !tbaa !36
@@ -1608,8 +1608,8 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.ex
   br i1 %92, label %_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit, label %94
 
 94:                                               ; preds = %.lr.ph
-  %95 = load ptr, ptr %.sroa.9.278, align 8, !tbaa !25
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.9.278, i64 8
+  %95 = load ptr, ptr %.sroa.9.078, align 8, !tbaa !25
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.9.078, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !30
   %98 = load ptr, ptr %93, align 8, !tbaa !25
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 48
@@ -1667,9 +1667,9 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.ex
   br i1 %.not.i.i18, label %128, label %126
 
 126:                                              ; preds = %.lr.ph.i16
-  store ptr %.sroa.0.277, ptr %123, align 8, !tbaa !407
+  store ptr %.sroa.0.077, ptr %123, align 8, !tbaa !407
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store ptr %.sroa.9.278, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !407
+  store ptr %.sroa.9.078, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !407
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %127, ptr %122, align 8, !tbaa !405
   br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i19
@@ -1698,9 +1698,9 @@ _ZNKSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE12_M_check_lenEmPK
   %140 = shl nuw nsw i64 %139, 4
   %141 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %140) #37
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 %132
-  store ptr %.sroa.0.277, ptr %142, align 8, !tbaa !407
+  store ptr %.sroa.0.077, ptr %142, align 8, !tbaa !407
   %.sroa.9.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr %.sroa.9.278, ptr %.sroa.9.0..sroa_idx43, align 8, !tbaa !407
+  store ptr %.sroa.9.078, ptr %.sroa.9.0..sroa_idx43, align 8, !tbaa !407
   %.not10.i.i.i.i.i.i26 = icmp eq ptr %129, %123
   br i1 %.not10.i.i.i.i.i.i26, label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i31, label %.lr.ph.i.i.i.i.i.i27
 
@@ -1737,8 +1737,8 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.ex
 
 _ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit: ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i19, %.lr.ph, %117, %114, %115
   %.1 = phi i64 [ %.06076, %.lr.ph ], [ %.06076, %114 ], [ %.06076, %115 ], [ %.079, %117 ], [ %.079, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i19 ]
-  %.sroa.0.3 = phi ptr [ %93, %.lr.ph ], [ %.sroa.0.277, %114 ], [ %.sroa.0.277, %115 ], [ %93, %117 ], [ %93, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i19 ]
-  %.sroa.9.3 = getelementptr inbounds nuw i8, ptr %91, i64 72
+  %.sroa.0.1 = phi ptr [ %93, %.lr.ph ], [ %.sroa.0.077, %114 ], [ %.sroa.0.077, %115 ], [ %93, %117 ], [ %93, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i19 ]
+  %.sroa.9.1 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %149 = add nuw i64 %.079, 1
   %150 = load ptr, ptr %2, align 8, !tbaa !388
   %151 = getelementptr inbounds nuw %"struct.rocksdb::CompactionInputFiles", ptr %150, i64 %storemerge83

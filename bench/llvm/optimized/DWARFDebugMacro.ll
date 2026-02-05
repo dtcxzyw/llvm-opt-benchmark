@@ -810,11 +810,11 @@ define dso_local void @_ZN4llvm15DWARFDebugMacro9parseImplESt8optionalINS_14iter
   %33 = load ptr, ptr %32, align 8, !tbaa !75
   %34 = icmp eq ptr %31, %33
   %spec.select.i = select i1 %34, ptr null, ptr %29
-  %spec.select3.i = select i1 %34, ptr null, ptr %31
+  %spec.select1.i = select i1 %34, ptr null, ptr %31
   store ptr %spec.select.i, ptr %11, align 8
-  store ptr %spec.select3.i, ptr %25, align 8
+  store ptr %spec.select1.i, ptr %25, align 8
   %.not.i.i = icmp ne ptr %spec.select.i, null
-  %35 = icmp ne ptr %spec.select3.i, null
+  %35 = icmp ne ptr %spec.select1.i, null
   %36 = and i1 %.not.i.i, %35
   br i1 %36, label %37, label %47
 

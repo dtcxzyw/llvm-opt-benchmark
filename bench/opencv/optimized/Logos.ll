@@ -324,10 +324,10 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE5clearEv.exit: ; preds = %4, %10
   br label %57
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
-  %spec.select33.i141 = phi i32 [ %spec.select33.i139, %.thread ], [ %spec.select33.i, %62 ]
+  %spec.select30.i141 = phi i32 [ %spec.select30.i139, %.thread ], [ %spec.select30.i, %62 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %49 = load float, ptr %48, align 4, !tbaa !9
-  %50 = uitofp i32 %spec.select33.i141 to float
+  %50 = uitofp i32 %spec.select30.i141 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load float, ptr %51, align 8, !tbaa !24
   %53 = call float @llvm.fmuladd.f32(float %50, float %52, float %49)
@@ -338,17 +338,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
 
 57:                                               ; preds = %62, %34
   %indvars.iv.i = phi i64 [ 1, %34 ], [ %68, %62 ]
-  %.01835.i = phi i32 [ 0, %34 ], [ %spec.select33.i, %62 ]
-  %.01934.i = phi i32 [ %46, %34 ], [ %spec.select.i, %62 ]
+  %.01832.i = phi i32 [ 0, %34 ], [ %spec.select30.i, %62 ]
+  %.01931.i = phi i32 [ %46, %34 ], [ %spec.select.i, %62 ]
   %58 = icmp eq i64 %indvars.iv.i, %42
   br i1 %58, label %.thread, label %62
 
 .thread:                                          ; preds = %57
   %59 = load i32, ptr %47, align 4, !tbaa !7
   %.reass.i = add i32 %45, %59
-  %60 = icmp sgt i32 %.reass.i, %.01934.i
+  %60 = icmp sgt i32 %.reass.i, %.01931.i
   %61 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select33.i139 = select i1 %60, i32 %61, i32 %.01835.i
+  %spec.select30.i139 = select i1 %60, i32 %61, i32 %.01832.i
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 62:                                               ; preds = %57
@@ -361,10 +361,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
   %69 = getelementptr inbounds nuw i32, ptr %37, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !7
   %71 = add nsw i32 %67, %70
-  %72 = icmp sgt i32 %71, %.01934.i
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %71, i32 %.01934.i)
+  %72 = icmp sgt i32 %71, %.01931.i
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %71, i32 %.01931.i)
   %73 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select33.i = select i1 %72, i32 %73, i32 %.01835.i
+  %spec.select30.i = select i1 %72, i32 %73, i32 %.01832.i
   %exitcond.not.i = icmp eq i64 %68, %35
   br i1 %exitcond.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %57, !llvm.loop !42
 
@@ -829,7 +829,7 @@ define hidden noundef float @_ZN5logos5Logos21calcGlobalOrientationEv(ptr nounde
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %43
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = load float, ptr %20, align 4, !tbaa !9
-  %22 = uitofp i32 %spec.select33 to float
+  %22 = uitofp i32 %spec.select30 to float
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load float, ptr %23, align 8, !tbaa !24
   %25 = tail call float @llvm.fmuladd.f32(float %22, float %24, float %21)
@@ -839,8 +839,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %43
 
 28:                                               ; preds = %5, %43
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next.pre-phi, %43 ]
-  %.01835 = phi i32 [ 0, %5 ], [ %spec.select33, %43 ]
-  %.01934 = phi i32 [ %17, %5 ], [ %spec.select, %43 ]
+  %.01832 = phi i32 [ 0, %5 ], [ %spec.select30, %43 ]
+  %.01931 = phi i32 [ %17, %5 ], [ %spec.select, %43 ]
   %29 = icmp eq i64 %indvars.iv, %14
   br i1 %29, label %30, label %32
 
@@ -866,10 +866,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %43
 43:                                               ; preds = %32, %30
   %indvars.iv.next.pre-phi = phi i64 [ %39, %32 ], [ %.pre, %30 ]
   %.sink = phi i32 [ %42, %32 ], [ %.reass, %30 ]
-  %44 = icmp sgt i32 %.sink, %.01934
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.01934)
+  %44 = icmp sgt i32 %.sink, %.01931
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.01931)
   %45 = trunc nuw i64 %indvars.iv to i32
-  %spec.select33 = select i1 %44, i32 %45, i32 %.01835
+  %spec.select30 = select i1 %44, i32 %45, i32 %.01832
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %6
   br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28, !llvm.loop !42
 

@@ -4429,8 +4429,8 @@ define noundef range(i32 1, 0) i32 @_ZN10ty_project7Project13from_metadata17hd56
   ret i32 %18
 
 .body.thread:                                     ; preds = %.critedge5.i, %19
-  %eh.lpad-body16 = phi { ptr, i32 } [ %16, %.critedge5.i ], [ %lpad.thr_comm, %19 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body14 = phi { ptr, i32 } [ %16, %.critedge5.i ], [ %lpad.thr_comm, %19 ]
+  resume { ptr, i32 } %eh.lpad-body14
 
 19:                                               ; preds = %11, %3
   %lpad.thr_comm = landingpad { ptr, i32 }

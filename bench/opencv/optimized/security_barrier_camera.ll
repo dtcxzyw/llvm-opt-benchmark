@@ -26167,8 +26167,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__no
   %118 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)
   %119 = add nsw i32 %109, %117
   %120 = icmp slt i32 %119, %118
-  %or.cond130 = select i1 %116, i1 %120, i1 false
-  br i1 %or.cond130, label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit84, label %121
+  %or.cond124 = select i1 %116, i1 %120, i1 false
+  br i1 %or.cond124, label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit84, label %121
 
 121:                                              ; preds = %115
   %122 = icmp slt i32 %51, 15

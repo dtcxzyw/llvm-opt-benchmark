@@ -850,7 +850,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %.sroa.0.0.copyload = load i24, ptr %1, align 8
   %121 = ptrtoint ptr %.sroa.039.0 to i64
-  %.sroa.06.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload to i8
+  %.sroa.04.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload to i8
   %.sroa.4.0.extract.shift.i = lshr i24 %.sroa.0.0.copyload, 8
   %.sroa.4.0.extract.trunc.i = trunc i24 %.sroa.4.0.extract.shift.i to i8
   %.sroa.6.0.extract.shift.i = lshr i24 %.sroa.0.0.copyload, 16
@@ -858,7 +858,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr %2, ptr %60, align 8, !tbaa !84
   %122 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %123 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113ClEmitCoveredE, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
-  %124 = or i8 %123, %.sroa.06.0.extract.trunc.i
+  %124 = or i8 %123, %.sroa.04.0.extract.trunc.i
   %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113ClEmitAtomicsE, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
   %126 = or i8 %125, %.sroa.4.0.extract.trunc.i
   %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ClEmitUARE, i64 120), align 8, !tbaa !34, !range !52, !noundef !53

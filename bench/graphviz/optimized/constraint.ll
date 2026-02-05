@@ -973,15 +973,15 @@ compress.exit:                                    ; preds = %.loopexit.i
   unreachable
 
 points_append.exit.i:                             ; preds = %130
-  br i1 %.not.i, label %mkOverlapSet.exit.thread, label %.lr.ph138.i
+  br i1 %.not.i, label %mkOverlapSet.exit.thread, label %.lr.ph134.i
 
-.loopexit.i84:                                    ; preds = %249, %.lr.ph138.i
-  %.sroa.0.1.lcssa.i = phi ptr [ %.sroa.0.0113132.i, %.lr.ph138.i ], [ %.sroa.0.2.i, %249 ]
-  %.sroa.17.1.lcssa.i = phi i64 [ %.sroa.17.0133.i, %.lr.ph138.i ], [ %.sroa.17.2.i, %249 ]
-  %.sroa.30.1.lcssa.i = phi i64 [ %.sroa.30.0134.i, %.lr.ph138.i ], [ %.sroa.30.2.i, %249 ]
-  %.sroa.39.1.lcssa.i = phi i64 [ %.sroa.39.0135.i, %.lr.ph138.i ], [ %.sroa.39.2.i, %249 ]
-  %exitcond144.not.i = icmp eq i64 %162, %7
-  br i1 %exitcond144.not.i, label %._crit_edge.i, label %.lr.ph138.i, !llvm.loop !86
+.loopexit.i84:                                    ; preds = %249, %.lr.ph134.i
+  %.sroa.0.1.lcssa.i = phi ptr [ %.sroa.0.0109128.i, %.lr.ph134.i ], [ %.sroa.0.2.i, %249 ]
+  %.sroa.17.1.lcssa.i = phi i64 [ %.sroa.17.0129.i, %.lr.ph134.i ], [ %.sroa.17.2.i, %249 ]
+  %.sroa.30.1.lcssa.i = phi i64 [ %.sroa.30.0130.i, %.lr.ph134.i ], [ %.sroa.30.2.i, %249 ]
+  %.sroa.39.1.lcssa.i = phi i64 [ %.sroa.39.0131.i, %.lr.ph134.i ], [ %.sroa.39.2.i, %249 ]
+  %exitcond140.not.i = icmp eq i64 %162, %7
+  br i1 %exitcond140.not.i, label %._crit_edge.i, label %.lr.ph134.i, !llvm.loop !86
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i84
   %.not12.i.i.i = icmp eq i64 %.sroa.17.1.lcssa.i, 0
@@ -1064,43 +1064,43 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %159, i8 0, i64 %160, i1 false)
   br label %mkOverlapSet.exit
 
-.lr.ph138.i:                                      ; preds = %points_append.exit.i, %.loopexit.i84
-  %.034137.i = phi i64 [ %162, %.loopexit.i84 ], [ 0, %points_append.exit.i ]
-  %.035136.i = phi ptr [ %161, %.loopexit.i84 ], [ %20, %points_append.exit.i ]
-  %.sroa.39.0135.i = phi i64 [ %.sroa.39.1.lcssa.i, %.loopexit.i84 ], [ 1, %points_append.exit.i ]
-  %.sroa.30.0134.i = phi i64 [ %.sroa.30.1.lcssa.i, %.loopexit.i84 ], [ 1, %points_append.exit.i ]
-  %.sroa.17.0133.i = phi i64 [ %.sroa.17.1.lcssa.i, %.loopexit.i84 ], [ 0, %points_append.exit.i ]
-  %.sroa.0.0113132.i = phi ptr [ %.sroa.0.1.lcssa.i, %.loopexit.i84 ], [ %calloc.i, %points_append.exit.i ]
-  %161 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 72
-  %162 = add nuw i64 %.034137.i, 1
+.lr.ph134.i:                                      ; preds = %points_append.exit.i, %.loopexit.i84
+  %.034133.i = phi i64 [ %162, %.loopexit.i84 ], [ 0, %points_append.exit.i ]
+  %.035132.i = phi ptr [ %161, %.loopexit.i84 ], [ %20, %points_append.exit.i ]
+  %.sroa.39.0131.i = phi i64 [ %.sroa.39.1.lcssa.i, %.loopexit.i84 ], [ 1, %points_append.exit.i ]
+  %.sroa.30.0130.i = phi i64 [ %.sroa.30.1.lcssa.i, %.loopexit.i84 ], [ 1, %points_append.exit.i ]
+  %.sroa.17.0129.i = phi i64 [ %.sroa.17.1.lcssa.i, %.loopexit.i84 ], [ 0, %points_append.exit.i ]
+  %.sroa.0.0109128.i = phi ptr [ %.sroa.0.1.lcssa.i, %.loopexit.i84 ], [ %calloc.i, %points_append.exit.i ]
+  %161 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 72
+  %162 = add nuw i64 %.034133.i, 1
   %163 = icmp ult i64 %162, %7
   br i1 %163, label %.lr.ph.i85, label %.loopexit.i84
 
-.lr.ph.i85:                                       ; preds = %.lr.ph138.i
-  %164 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 32
-  %165 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 16
-  %166 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 40
-  %167 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 24
-  %168 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 48
-  %169 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 8
-  %170 = getelementptr inbounds nuw i8, ptr %.035136.i, i64 56
+.lr.ph.i85:                                       ; preds = %.lr.ph134.i
+  %164 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %.035132.i, i64 56
   br label %171
 
 171:                                              ; preds = %249, %.lr.ph.i85
-  %.0128.i = phi i64 [ %162, %.lr.ph.i85 ], [ %251, %249 ]
-  %.036127.i = phi ptr [ %161, %.lr.ph.i85 ], [ %250, %249 ]
-  %.sroa.39.1126.i = phi i64 [ %.sroa.39.0135.i, %.lr.ph.i85 ], [ %.sroa.39.2.i, %249 ]
-  %.sroa.30.1125.i = phi i64 [ %.sroa.30.0134.i, %.lr.ph.i85 ], [ %.sroa.30.2.i, %249 ]
-  %.sroa.17.1124.i = phi i64 [ %.sroa.17.0133.i, %.lr.ph.i85 ], [ %.sroa.17.2.i, %249 ]
-  %.sroa.0.1123.i = phi ptr [ %.sroa.0.0113132.i, %.lr.ph.i85 ], [ %.sroa.0.2.i, %249 ]
+  %.0124.i = phi i64 [ %162, %.lr.ph.i85 ], [ %251, %249 ]
+  %.036123.i = phi ptr [ %161, %.lr.ph.i85 ], [ %250, %249 ]
+  %.sroa.39.1122.i = phi i64 [ %.sroa.39.0131.i, %.lr.ph.i85 ], [ %.sroa.39.2.i, %249 ]
+  %.sroa.30.1121.i = phi i64 [ %.sroa.30.0130.i, %.lr.ph.i85 ], [ %.sroa.30.2.i, %249 ]
+  %.sroa.17.1120.i = phi i64 [ %.sroa.17.0129.i, %.lr.ph.i85 ], [ %.sroa.17.2.i, %249 ]
+  %.sroa.0.1119.i = phi ptr [ %.sroa.0.0109128.i, %.lr.ph.i85 ], [ %.sroa.0.2.i, %249 ]
   %172 = load double, ptr %164, align 8, !tbaa !77
-  %173 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 16
   %174 = load double, ptr %173, align 8, !tbaa !75
   %175 = fcmp ult double %172, %174
   br i1 %175, label %249, label %176
 
 176:                                              ; preds = %171
-  %177 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 32
   %178 = load double, ptr %177, align 8, !tbaa !77
   %179 = load double, ptr %165, align 8, !tbaa !75
   %180 = fcmp ult double %178, %179
@@ -1108,27 +1108,27 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
 
 181:                                              ; preds = %176
   %182 = load double, ptr %166, align 8, !tbaa !78
-  %183 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 24
   %184 = load double, ptr %183, align 8, !tbaa !76
   %185 = fcmp ult double %182, %184
   br i1 %185, label %249, label %186
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 40
   %188 = load double, ptr %187, align 8, !tbaa !78
   %189 = load double, ptr %167, align 8, !tbaa !76
   %190 = fcmp ult double %188, %189
   br i1 %190, label %249, label %191
 
 191:                                              ; preds = %186
-  %192 = load double, ptr %.035136.i, align 8, !tbaa !72
-  %193 = load double, ptr %.036127.i, align 8, !tbaa !72
+  %192 = load double, ptr %.035132.i, align 8, !tbaa !72
+  %193 = load double, ptr %.036123.i, align 8, !tbaa !72
   %194 = fcmp oeq double %192, %193
   br i1 %194, label %205, label %195
 
 195:                                              ; preds = %191
   %196 = load double, ptr %168, align 8, !tbaa !79
-  %197 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 48
+  %197 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 48
   %198 = load double, ptr %197, align 8, !tbaa !79
   %199 = fadd double %196, %198
   %200 = fsub double %192, %193
@@ -1143,14 +1143,14 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
 205:                                              ; preds = %204, %195, %191
   %.sroa.0.0.i86 = phi double [ %202, %195 ], [ 1.000000e+00, %204 ], [ 0x7FF0000000000000, %191 ]
   %206 = load double, ptr %169, align 8, !tbaa !74
-  %207 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 8
   %208 = load double, ptr %207, align 8, !tbaa !74
   %209 = fcmp oeq double %206, %208
   br i1 %209, label %220, label %210
 
 210:                                              ; preds = %205
   %211 = load double, ptr %170, align 8, !tbaa !80
-  %212 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 56
+  %212 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 56
   %213 = load double, ptr %212, align 8, !tbaa !80
   %214 = fadd double %211, %213
   %215 = fsub double %206, %208
@@ -1164,36 +1164,36 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
 
 220:                                              ; preds = %219, %210, %205
   %.sroa.7.0.i = phi double [ %217, %210 ], [ 1.000000e+00, %219 ], [ 0x7FF0000000000000, %205 ]
-  %221 = icmp eq i64 %.sroa.30.1125.i, %.sroa.39.1126.i
+  %221 = icmp eq i64 %.sroa.30.1121.i, %.sroa.39.1122.i
   br i1 %221, label %222, label %points_append.exit72.i
 
 222:                                              ; preds = %220
-  %223 = icmp eq i64 %.sroa.39.1126.i, 0
-  %224 = shl i64 %.sroa.39.1126.i, 1
+  %223 = icmp eq i64 %.sroa.39.1122.i, 0
+  %224 = shl i64 %.sroa.39.1122.i, 1
   %spec.select.i.i69.i = select i1 %223, i64 1, i64 %224
   %mul.ov.i.i70.i = icmp ugt i64 %spec.select.i.i69.i, 1152921504606846975
   br i1 %mul.ov.i.i70.i, label %241, label %225
 
 225:                                              ; preds = %222
   %226 = shl nuw i64 %spec.select.i.i69.i, 4
-  %227 = call ptr @realloc(ptr noundef %.sroa.0.1123.i, i64 noundef %226) #21
+  %227 = call ptr @realloc(ptr noundef %.sroa.0.1119.i, i64 noundef %226) #21
   %228 = icmp eq ptr %227, null
   br i1 %228, label %241, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.39.1126.i
-  %231 = sub i64 %spec.select.i.i69.i, %.sroa.39.1126.i
+  %230 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.39.1122.i
+  %231 = sub i64 %spec.select.i.i69.i, %.sroa.39.1122.i
   %232 = shl i64 %231, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %230, i8 0, i64 %232, i1 false)
-  %233 = add i64 %.sroa.17.1124.i, %.sroa.39.1126.i
-  %234 = icmp ugt i64 %233, %.sroa.39.1126.i
+  %233 = add i64 %.sroa.17.1120.i, %.sroa.39.1122.i
+  %234 = icmp ugt i64 %233, %.sroa.39.1122.i
   br i1 %234, label %235, label %points_append.exit72.i
 
 235:                                              ; preds = %229
-  %236 = sub i64 %.sroa.39.1126.i, %.sroa.17.1124.i
+  %236 = sub i64 %.sroa.39.1122.i, %.sroa.17.1120.i
   %237 = sub i64 %spec.select.i.i69.i, %236
   %238 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %237
-  %239 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.17.1124.i
+  %239 = getelementptr inbounds nuw %struct.pointf_s, ptr %227, i64 %.sroa.17.1120.i
   %240 = shl i64 %236, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %238, ptr nonnull align 8 %239, i64 %240, i1 false)
   br label %points_append.exit72.i
@@ -1207,25 +1207,25 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
   unreachable
 
 points_append.exit72.i:                           ; preds = %235, %229, %220
-  %.sroa.0.5.i = phi ptr [ %.sroa.0.1123.i, %220 ], [ %227, %235 ], [ %227, %229 ]
-  %.sroa.17.10.i = phi i64 [ %.sroa.17.1124.i, %220 ], [ %237, %235 ], [ %.sroa.17.1124.i, %229 ]
-  %.sroa.39.5.i = phi i64 [ %.sroa.39.1126.i, %220 ], [ %spec.select.i.i69.i, %235 ], [ %spec.select.i.i69.i, %229 ]
-  %245 = add i64 %.sroa.17.10.i, %.sroa.30.1125.i
+  %.sroa.0.5.i = phi ptr [ %.sroa.0.1119.i, %220 ], [ %227, %235 ], [ %227, %229 ]
+  %.sroa.17.9.i = phi i64 [ %.sroa.17.1120.i, %220 ], [ %237, %235 ], [ %.sroa.17.1120.i, %229 ]
+  %.sroa.39.5.i = phi i64 [ %.sroa.39.1122.i, %220 ], [ %spec.select.i.i69.i, %235 ], [ %spec.select.i.i69.i, %229 ]
+  %245 = add i64 %.sroa.17.9.i, %.sroa.30.1121.i
   %246 = urem i64 %245, %.sroa.39.5.i
   %247 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.5.i, i64 %246
   store double %.sroa.0.0.i86, ptr %247, align 8, !tbaa !8
   %.sroa.2.0..sroa_idx.i.i68.i = getelementptr inbounds nuw i8, ptr %247, i64 8
   store double %.sroa.7.0.i, ptr %.sroa.2.0..sroa_idx.i.i68.i, align 8, !tbaa !8
-  %248 = add i64 %.sroa.30.1125.i, 1
+  %248 = add i64 %.sroa.30.1121.i, 1
   br label %249
 
 249:                                              ; preds = %points_append.exit72.i, %186, %181, %176, %171
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.1123.i, %171 ], [ %.sroa.0.1123.i, %176 ], [ %.sroa.0.1123.i, %181 ], [ %.sroa.0.1123.i, %186 ], [ %.sroa.0.5.i, %points_append.exit72.i ]
-  %.sroa.17.2.i = phi i64 [ %.sroa.17.1124.i, %171 ], [ %.sroa.17.1124.i, %176 ], [ %.sroa.17.1124.i, %181 ], [ %.sroa.17.1124.i, %186 ], [ %.sroa.17.10.i, %points_append.exit72.i ]
-  %.sroa.30.2.i = phi i64 [ %.sroa.30.1125.i, %171 ], [ %.sroa.30.1125.i, %176 ], [ %.sroa.30.1125.i, %181 ], [ %.sroa.30.1125.i, %186 ], [ %248, %points_append.exit72.i ]
-  %.sroa.39.2.i = phi i64 [ %.sroa.39.1126.i, %171 ], [ %.sroa.39.1126.i, %176 ], [ %.sroa.39.1126.i, %181 ], [ %.sroa.39.1126.i, %186 ], [ %.sroa.39.5.i, %points_append.exit72.i ]
-  %250 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 72
-  %251 = add i64 %.0128.i, 1
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1119.i, %171 ], [ %.sroa.0.1119.i, %176 ], [ %.sroa.0.1119.i, %181 ], [ %.sroa.0.1119.i, %186 ], [ %.sroa.0.5.i, %points_append.exit72.i ]
+  %.sroa.17.2.i = phi i64 [ %.sroa.17.1120.i, %171 ], [ %.sroa.17.1120.i, %176 ], [ %.sroa.17.1120.i, %181 ], [ %.sroa.17.1120.i, %186 ], [ %.sroa.17.9.i, %points_append.exit72.i ]
+  %.sroa.30.2.i = phi i64 [ %.sroa.30.1121.i, %171 ], [ %.sroa.30.1121.i, %176 ], [ %.sroa.30.1121.i, %181 ], [ %.sroa.30.1121.i, %186 ], [ %248, %points_append.exit72.i ]
+  %.sroa.39.2.i = phi i64 [ %.sroa.39.1122.i, %171 ], [ %.sroa.39.1122.i, %176 ], [ %.sroa.39.1122.i, %181 ], [ %.sroa.39.1122.i, %186 ], [ %.sroa.39.5.i, %points_append.exit72.i ]
+  %250 = getelementptr inbounds nuw i8, ptr %.036123.i, i64 72
+  %251 = add i64 %.0124.i, 1
   %exitcond.not.i87 = icmp eq i64 %251, %7
   br i1 %exitcond.not.i87, label %.loopexit.i84, label %171, !llvm.loop !92
 
@@ -1263,35 +1263,35 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   br i1 %exitcond.not.i90, label %computeScale.exit, label %.lr.ph.i89, !llvm.loop !93
 
 257:                                              ; preds = %.thread, %252
-  %.sroa.30.0.lcssa164169.i105119 = phi i64 [ 0, %.thread ], [ %.sroa.30.1.lcssa.i, %252 ]
+  %.sroa.30.0.lcssa160165.i105119 = phi i64 [ 0, %.thread ], [ %.sroa.30.1.lcssa.i, %252 ]
   %.sroa.0.4.i106117 = phi ptr [ null, %.thread ], [ %.sroa.0.4.i, %252 ]
   store double 1.000000e+00, ptr %.sroa.0.4.i106117, align 8, !tbaa !94
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.0.4.i106117, i64 8
   store double 0x7FF0000000000000, ptr %258, align 8, !tbaa !95
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.4.i106117, i64 16
-  %260 = add i64 %.sroa.30.0.lcssa164169.i105119, -1
+  %260 = add i64 %.sroa.30.0.lcssa160165.i105119, -1
   call void @qsort(ptr noundef nonnull %259, i64 noundef %260, i64 noundef 16, ptr noundef nonnull @sortf) #17
-  %.not.i.i = icmp eq i64 %.sroa.30.0.lcssa164169.i105119, 0
+  %.not.i.i = icmp eq i64 %.sroa.30.0.lcssa160165.i105119, 0
   br i1 %.not.i.i, label %._crit_edge.thread.i, label %261
 
 261:                                              ; preds = %257
-  %mul.ov.i.i = icmp ugt i64 %.sroa.30.0.lcssa164169.i105119, 1152921504606846975
+  %mul.ov.i.i = icmp ugt i64 %.sroa.30.0.lcssa160165.i105119, 1152921504606846975
   br i1 %mul.ov.i.i, label %262, label %265
 
 262:                                              ; preds = %261
   %263 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.2, i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa164169.i105119, i64 noundef 16) #19
+  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.2, i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa160165.i105119, i64 noundef 16) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
 265:                                              ; preds = %261
-  %266 = call noalias ptr @calloc(i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa164169.i105119, i64 noundef 16) #18
+  %266 = call noalias ptr @calloc(i64 noundef range(i64 2, 1) %.sroa.30.0.lcssa160165.i105119, i64 noundef 16) #18
   %267 = icmp eq ptr %266, null
   br i1 %267, label %268, label %.lr.ph.split.us.preheader.i
 
 268:                                              ; preds = %265
   %269 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %270 = shl nuw i64 %.sroa.30.0.lcssa164169.i105119, 4
+  %270 = shl nuw i64 %.sroa.30.0.lcssa160165.i105119, 4
   %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef nonnull @.str.3, i64 noundef %270) #19
   call fastcc void @graphviz_exit() #20
   unreachable
@@ -1313,7 +1313,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   store double %278, ptr %279, align 8, !tbaa !94
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store double 1.000000e+00, ptr %280, align 8, !tbaa !95
-  %281 = add nsw i64 %.sroa.30.0.lcssa164169.i105119, -2
+  %281 = add nsw i64 %.sroa.30.0.lcssa160165.i105119, -2
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
@@ -1345,7 +1345,7 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   %.143.i = select i1 %297, double %296, double %.04247.i
   %.1.i91 = select i1 %297, i64 %.049.i, i64 %.04048.i
   %298 = add nuw nsw i64 %.049.i, 1
-  %exitcond.not.i92 = icmp eq i64 %298, %.sroa.30.0.lcssa164169.i105119
+  %exitcond.not.i92 = icmp eq i64 %298, %.sroa.30.0.lcssa160165.i105119
   br i1 %exitcond.not.i92, label %computeScaleXY.exit.loopexit, label %.lr.ph51.i, !llvm.loop !96
 
 computeScaleXY.exit.loopexit:                     ; preds = %.lr.ph51.i

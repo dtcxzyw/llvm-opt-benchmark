@@ -675,10 +675,10 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
   %.not.i = icmp ult i64 %46, %47
   %48 = load ptr, ptr %28, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %46
-  %.sroa.0.2 = select i1 %.not.i, ptr %49, ptr null
-  %.sroa.5.2 = call i64 @llvm.usub.sat.i64(i64 %47, i64 %46)
-  store ptr %.sroa.0.2, ptr %29, align 8, !tbaa !52
-  store i64 %.sroa.5.2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !53
+  %.sroa.0.0 = select i1 %.not.i, ptr %49, ptr null
+  %.sroa.5.0 = call i64 @llvm.usub.sat.i64(i64 %47, i64 %46)
+  store ptr %.sroa.0.0, ptr %29, align 8, !tbaa !52
+  store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !53
   %.pre = load i32, ptr %23, align 8, !tbaa !56
   br label %50
 

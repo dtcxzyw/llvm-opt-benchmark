@@ -3838,8 +3838,8 @@ lpad646:                                          ; preds = %if.then.i757
   br label %ehcleanup808
 
 invoke.cont669:                                   ; preds = %if.then.i.i.i.i.i.i760, %do.end645
-  %solution.sroa.0.2 = phi ptr [ %call.i764, %if.then.i.i.i.i.i.i760 ], [ null, %do.end645 ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %solution.sroa.0.2, i64 8
+  %solution.sroa.0.0 = phi ptr [ %call.i764, %if.then.i.i.i.i.i.i760 ], [ null, %do.end645 ]
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %solution.sroa.0.0, i64 8
   %358 = load double, ptr %arrayidx.i, align 8, !tbaa !96
   %359 = call double @llvm.fabs.f64(double %358)
   %360 = call double @llvm.floor.f64(double %359)
@@ -3923,16 +3923,16 @@ invoke.cont682:                                   ; preds = %.noexc786, %invoke.
 
 invoke.cont686:                                   ; preds = %invoke.cont682
   store double %call687, ptr %shift680, align 8, !tbaa !96
-  %arrayidx.i788 = getelementptr inbounds nuw i8, ptr %solution.sroa.0.2, i64 16
+  %arrayidx.i788 = getelementptr inbounds nuw i8, ptr %solution.sroa.0.0, i64 16
   %sub691 = fsub double 1.000000e-05, %call687
   %370 = load double, ptr %arrayidx.i788, align 8, !tbaa !96
   %cmp.i789 = fcmp olt double %370, %sub691
   %.sroa.speculated1152 = select i1 %cmp.i789, double %sub691, double %370
   store double %.sroa.speculated1152, ptr %arrayidx.i788, align 8, !tbaa !96
-  %371 = load double, ptr %solution.sroa.0.2, align 8, !tbaa !96
+  %371 = load double, ptr %solution.sroa.0.0, align 8, !tbaa !96
   %cmp.i792 = fcmp olt double %371, 0x3EB0C6F7A0B5ED8D
   %.sroa.speculated = select i1 %cmp.i792, double 0x3EB0C6F7A0B5ED8D, double %371
-  store double %.sroa.speculated, ptr %solution.sroa.0.2, align 8, !tbaa !96
+  store double %.sroa.speculated, ptr %solution.sroa.0.0, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(ptr nonnull %vol)
   %372 = load ptr, ptr %sec675, align 8, !tbaa !94
   %cmp.not.i795 = icmp eq ptr %372, null
@@ -4089,7 +4089,7 @@ cond.end762:                                      ; preds = %invoke.cont759, %in
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp763)
   store i32 0, ptr %ref.tmp763, align 4, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp767)
-  %390 = load double, ptr %solution.sroa.0.2, align 8, !tbaa !96
+  %390 = load double, ptr %solution.sroa.0.0, align 8, !tbaa !96
   %391 = call double @llvm.fabs.f64(double %390)
   store double %391, ptr %ref.tmp767, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp771)
@@ -4485,7 +4485,7 @@ terminate.lpad.i.i1022:                           ; preds = %if.then.i.i.i.i1026
 _ZN8QuantLib5ArrayD2Ev.exit1032:                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit1013, %if.then.i.i1016, %.noexc.i.i1023, %if.then.i.i.i.i1026
   call void @llvm.lifetime.end.p0(ptr nonnull %sec675)
   call void @llvm.lifetime.end.p0(ptr nonnull %matPeriod)
-  call void @_ZdaPv(ptr noundef nonnull %solution.sroa.0.2) #30
+  call void @_ZdaPv(ptr noundef nonnull %solution.sroa.0.0) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %lm, align 8, !tbaa !35
   %460 = load ptr, ptr %initJacobian_.i, align 8, !tbaa !3
   %cmp.not.i.i.i1033 = icmp eq ptr %460, null
@@ -4730,7 +4730,7 @@ ehcleanup801:                                     ; preds = %ehcleanup799, %lpad
 _ZN8QuantLib5ArrayD2Ev.exit1074:                  ; preds = %ehcleanup801, %lpad668
   %.pn80.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup801 ], [ %478, %lpad668 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %matPeriod)
-  call void @_ZdaPv(ptr noundef nonnull %solution.sroa.0.2) #30
+  call void @_ZdaPv(ptr noundef nonnull %solution.sroa.0.0) #30
   br label %ehcleanup808
 
 ehcleanup808:                                     ; preds = %lpad646, %_ZN8QuantLib5ArrayD2Ev.exit1074, %ehcleanup642, %lpad593

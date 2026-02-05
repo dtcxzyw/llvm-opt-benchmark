@@ -4900,12 +4900,12 @@ _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE8containsId
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE8containsIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_bE4typeEE4typeERKS9_.exit: ; preds = %1215
   %.pre.i926 = load ptr, ptr %330, align 8, !tbaa !50
-  %.not1243 = icmp eq ptr %1216, %.pre.i926
-  %1220 = zext i1 %.not1243 to i8
+  %.not1241 = icmp eq ptr %1216, %.pre.i926
+  %1220 = zext i1 %.not1241 to i8
   store i8 %1220, ptr %100, align 8, !tbaa !51
   %1221 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr null, ptr %1221, align 8, !tbaa !61
-  br i1 %.not1243, label %1255, label %1222
+  br i1 %.not1241, label %1255, label %1222
 
 1222:                                             ; preds = %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE8containsIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_bE4typeEE4typeERKS9_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
@@ -5051,11 +5051,11 @@ _ZN7testing7MessageD2Ev.exit939:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit: ; preds = %1267
-  %.pre1270 = load ptr, ptr %330, align 8, !tbaa !50
+  %.pre1268 = load ptr, ptr %330, align 8, !tbaa !50
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit, %1272
-  %1274 = phi ptr [ %1273, %1272 ], [ %.pre1270, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
+  %1274 = phi ptr [ %1273, %1272 ], [ %.pre1268, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
   %.sroa.0.1.i.i = phi ptr [ %1273, %1272 ], [ %1268, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
   store ptr %.sroa.0.1.i.i, ptr %105, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
@@ -5193,11 +5193,11 @@ _ZN7testing7MessageD2Ev.exit948:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit: ; preds = %1316
-  %.pre1271 = load ptr, ptr %330, align 8, !tbaa !50
+  %.pre1269 = load ptr, ptr %330, align 8, !tbaa !50
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit, %1321
-  %1323 = phi ptr [ %1322, %1321 ], [ %.pre1271, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
+  %1323 = phi ptr [ %1322, %1321 ], [ %.pre1269, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
   %.sroa.0.1.i.i952 = phi ptr [ %1322, %1321 ], [ %1317, %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
   store ptr %.sroa.0.1.i.i952, ptr %110, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
@@ -5340,11 +5340,11 @@ _ZN7testing7MessageD2Ev.exit960:                  ; preds = %_ZNKSt14default_del
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit: ; preds = %1366
-  %.pre1272 = load ptr, ptr %330, align 8, !tbaa !50
+  %.pre1270 = load ptr, ptr %330, align 8, !tbaa !50
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit, %1371
-  %1373 = phi ptr [ %1372, %1371 ], [ %.pre1272, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
+  %1373 = phi ptr [ %1372, %1371 ], [ %.pre1270, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
   %.sroa.0.1.i.i964 = phi ptr [ %1372, %1371 ], [ %1367, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit.loopexit ]
   store ptr %.sroa.0.1.i.i964, ptr %115, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
@@ -5487,11 +5487,11 @@ _ZN7testing7MessageD2Ev.exit972:                  ; preds = %_ZNKSt14default_del
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit: ; preds = %1416
-  %.pre1273 = load ptr, ptr %330, align 8, !tbaa !50
+  %.pre1271 = load ptr, ptr %330, align 8, !tbaa !50
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit, %1421
-  %1423 = phi ptr [ %1422, %1421 ], [ %.pre1273, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
+  %1423 = phi ptr [ %1422, %1421 ], [ %.pre1271, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
   %.sroa.0.1.i.i976 = phi ptr [ %1422, %1421 ], [ %1417, %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit.loopexit ]
   store ptr %.sroa.0.1.i.i976, ptr %120, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -7731,12 +7731,12 @@ _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE8containsER
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE8containsERKi.exit1191: ; preds = %2101
   %.pre.i1189 = load ptr, ptr %330, align 8, !tbaa !50
-  %.not1244 = icmp eq ptr %2102, %.pre.i1189
-  %2106 = zext i1 %.not1244 to i8
+  %.not1242 = icmp eq ptr %2102, %.pre.i1189
+  %2106 = zext i1 %.not1242 to i8
   store i8 %2106, ptr %208, align 8, !tbaa !51
   %2107 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store ptr null, ptr %2107, align 8, !tbaa !61
-  br i1 %.not1244, label %.critedge611, label %2109
+  br i1 %.not1242, label %.critedge611, label %2109
 
 2108:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1183, %2070
   %.pn514.pn.pn = phi { ptr, i32 } [ %.pn514.pn, %_ZN7testing7MessageD2Ev.exit1183 ], [ %2071, %2070 ]

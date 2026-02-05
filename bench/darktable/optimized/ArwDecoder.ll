@@ -380,7 +380,7 @@ _ZNK8rawspeed6Buffer10getSubViewEjj.exit91:       ; preds = %21
   br i1 %exitcond.not.i, label %43, label %51, !llvm.loop !24
 
 55:                                               ; preds = %55, %43
-  %store_forwarded191 = phi i32 [ %50, %43 ], [ %65, %55 ]
+  %store_forwarded188 = phi i32 [ %50, %43 ], [ %65, %55 ]
   %indvars.iv59.i = phi i64 [ 4, %43 ], [ %indvars.iv.next60.i, %55 ]
   %56 = getelementptr i32, ptr %4, i64 %indvars.iv59.i
   %57 = getelementptr i8, ptr %56, i64 -16
@@ -390,7 +390,7 @@ _ZNK8rawspeed6Buffer10getSubViewEjj.exit91:       ; preds = %21
   %61 = xor i32 %60, %58
   %62 = getelementptr i8, ptr %56, i64 -12
   %63 = load i32, ptr %62, align 4, !tbaa !23
-  %64 = xor i32 %store_forwarded191, %63
+  %64 = xor i32 %store_forwarded188, %63
   %65 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %64, i32 1)
   store i32 %65, ptr %56, align 4, !tbaa !23
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
@@ -454,15 +454,15 @@ _ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit: ; pre
   unreachable
 
 87:                                               ; preds = %_ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit, %87
-  %indvars.iv181 = phi i64 [ 26, %_ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit ], [ %indvars.iv.next182, %87 ]
-  %.0179 = phi i32 [ %41, %_ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit ], [ %92, %87 ]
-  %88 = shl i32 %.0179, 8
-  %indvars.iv.next182 = add nsw i64 %indvars.iv181, -1
-  %89 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.next182
+  %indvars.iv178 = phi i64 [ 26, %_ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit ], [ %indvars.iv.next179, %87 ]
+  %.0176 = phi i32 [ %41, %_ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit ], [ %92, %87 ]
+  %88 = shl i32 %.0176, 8
+  %indvars.iv.next179 = add nsw i64 %indvars.iv178, -1
+  %89 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.next179
   %90 = load i8, ptr %89, align 1, !tbaa !15
   %91 = zext i8 %90 to i32
   %92 = or disjoint i32 %88, %91
-  %93 = icmp samesign ugt i64 %indvars.iv181, 23
+  %93 = icmp samesign ugt i64 %indvars.iv178, 23
   br i1 %93, label %87, label %83, !llvm.loop !29
 
 94:                                               ; preds = %83
@@ -4757,8 +4757,8 @@ define hidden void @_ZNK8rawspeed10ArwDecoder5GetWBEv(ptr noundef nonnull readon
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %9, i16 noundef zeroext -14796) #33
-  %.not267 = icmp eq ptr %10, null
-  br i1 %.not267, label %335, label %11
+  %.not264 = icmp eq ptr %10, null
+  br i1 %.not264, label %335, label %11
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4858,13 +4858,13 @@ _ZN8rawspeed9roundDownEmm.exit:                   ; preds = %41
   br label %333
 
 49:                                               ; preds = %_ZN8rawspeed9roundDownEmm.exit
-  %.sroa.5254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.sroa.5254.0.copyload = load i32, ptr %.sroa.5254.0..sroa_idx, align 8
-  %.sroa.6256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.sroa.6256.0.copyload = load i32, ptr %.sroa.6256.0..sroa_idx, align 8
-  %50 = zext i32 %.sroa.6256.0.copyload to i64
+  %.sroa.5251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.sroa.5251.0.copyload = load i32, ptr %.sroa.5251.0..sroa_idx, align 8
+  %.sroa.6253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.sroa.6253.0.copyload = load i32, ptr %.sroa.6253.0..sroa_idx, align 8
+  %50 = zext i32 %.sroa.6253.0.copyload to i64
   %51 = add nuw nsw i64 %50, 4
-  %52 = zext i32 %.sroa.5254.0.copyload to i64
+  %52 = zext i32 %.sroa.5251.0.copyload to i64
   %.not.i.i.i = icmp samesign ugt i64 %51, %52
   br i1 %.not.i.i.i, label %53, label %54
 
@@ -4877,15 +4877,15 @@ _ZN8rawspeed9roundDownEmm.exit:                   ; preds = %41
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.sroa.0253.0.copyload = load ptr, ptr %55, align 8, !nonnull !21, !noundef !21
-  %56 = icmp sgt i32 %.sroa.5254.0.copyload, -1
+  %.sroa.0250.0.copyload = load ptr, ptr %55, align 8, !nonnull !21, !noundef !21
+  %56 = icmp sgt i32 %.sroa.5251.0.copyload, -1
   call void @llvm.assume(i1 %56)
-  %57 = add nuw nsw i32 %.sroa.6256.0.copyload, 4
-  %58 = icmp samesign ule i32 %57, %.sroa.5254.0.copyload
+  %57 = add nuw nsw i32 %.sroa.6253.0.copyload, 4
+  %58 = icmp samesign ule i32 %57, %.sroa.5251.0.copyload
   call void @llvm.assume(i1 %58)
-  %59 = icmp sgt i32 %.sroa.6256.0.copyload, -1
+  %59 = icmp sgt i32 %.sroa.6253.0.copyload, -1
   call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0253.0.copyload, i64 %50
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0250.0.copyload, i64 %50
   %.0.copyload.i.i.i = load i32, ptr %60, align 1
   %61 = invoke { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %62 unwind label %161
@@ -4907,14 +4907,14 @@ _ZN8rawspeed9roundDownEmm.exit:                   ; preds = %41
   unreachable
 
 68:                                               ; preds = %62
-  %.sroa.5251.8.extract.trunc = trunc i64 %.fca.1.extract45 to i32
+  %.sroa.5248.8.extract.trunc = trunc i64 %.fca.1.extract45 to i32
   %.fca.0.extract44 = extractvalue { ptr, i64 } %61, 0
   %69 = icmp ne ptr %.fca.0.extract44, null
   call void @llvm.assume(i1 %69)
-  %70 = icmp sgt i32 %.sroa.5251.8.extract.trunc, -1
+  %70 = icmp sgt i32 %.sroa.5248.8.extract.trunc, -1
   call void @llvm.assume(i1 %70)
   %71 = add nuw nsw i32 %.1.i.i, %40
-  %72 = icmp samesign ule i32 %71, %.sroa.5251.8.extract.trunc
+  %72 = icmp samesign ule i32 %71, %.sroa.5248.8.extract.trunc
   call void @llvm.assume(i1 %72)
   %73 = icmp sgt i32 %40, -1
   call void @llvm.assume(i1 %73)
@@ -5248,10 +5248,10 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157: ; preds = %_ZNKSt8_Rb_treeI
           to label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split unwind label %199
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread.sink.split: ; preds = %208, %182
-  %.sink312.in = phi ptr [ %178, %182 ], [ %204, %208 ]
+  %.sink309.in = phi ptr [ %178, %182 ], [ %204, %208 ]
   %.sink = phi float [ %185, %182 ], [ %211, %208 ]
-  %.sink312 = load ptr, ptr %.sink312.in, align 8, !tbaa !30
-  %212 = getelementptr inbounds nuw i8, ptr %.sink312, i64 264
+  %.sink309 = load ptr, ptr %.sink309.in, align 8, !tbaa !30
+  %212 = getelementptr inbounds nuw i8, ptr %.sink309, i64 264
   store float %.sink, ptr %212, align 4, !tbaa !192
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread
 
@@ -5355,16 +5355,16 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169: ; preds = %_ZNKSt8_Rb_treeI
   br label %331
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread: ; preds = %246
-  %.pr263.pre = load ptr, ptr %143, align 8, !tbaa !47
-  %.not10.i.i.i.i170 = icmp eq ptr %.pr263.pre, null
+  %.pr260.pre = load ptr, ptr %143, align 8, !tbaa !47
+  %.not10.i.i.i.i170 = icmp eq ptr %.pr260.pre, null
   br i1 %.not10.i.i.i.i170, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181.thread, label %.lr.ph.i.i.i.i171.preheader
 
 .lr.ph.i.i.i.i171.preheader:                      ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i167, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread
-  %.pr263303 = phi ptr [ %.pr263.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread ], [ %.pr, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i167 ], [ %.pr, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169 ]
+  %.pr260300 = phi ptr [ %.pr260.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread ], [ %.pr, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i167 ], [ %.pr, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169 ]
   br label %.lr.ph.i.i.i.i171
 
 .lr.ph.i.i.i.i171:                                ; preds = %.lr.ph.i.i.i.i171.preheader, %.lr.ph.i.i.i.i171
-  %.012.i.i.i.i172 = phi ptr [ %.1.i.i.i.i177, %.lr.ph.i.i.i.i171 ], [ %.pr263303, %.lr.ph.i.i.i.i171.preheader ]
+  %.012.i.i.i.i172 = phi ptr [ %.1.i.i.i.i177, %.lr.ph.i.i.i.i171 ], [ %.pr260300, %.lr.ph.i.i.i.i171.preheader ]
   %.0811.i.i.i.i173 = phi ptr [ %.19.i.i.i.i174, %.lr.ph.i.i.i.i171 ], [ %145, %.lr.ph.i.i.i.i171.preheader ]
   %253 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i172, i64 32
   %254 = load i16, ptr %253, align 2, !tbaa !196
@@ -5435,7 +5435,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181: ; preds = %_ZNKSt8_Rb_treeI
   br label %331
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181.thread: ; preds = %141, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i179, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread, %270, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181
-  %280 = phi ptr [ null, %141 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread ], [ %.pr263303, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i179 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread ], [ %.pre, %270 ], [ %.pr263303, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181 ]
+  %280 = phi ptr [ null, %141 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit157.thread ], [ %.pr260300, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i179 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit169.thread ], [ %.pre, %270 ], [ %.pr260300, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit181 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %7, align 8, !tbaa !43
   %281 = getelementptr inbounds nuw i8, ptr %7, i64 56
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %281, ptr noundef %280)

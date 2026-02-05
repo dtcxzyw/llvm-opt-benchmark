@@ -557,9 +557,9 @@ _ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6
   %entries.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
   %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
-  %call23151 = tail call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #22
-  %cmp153.not = icmp eq i32 %call23151, 0
-  br i1 %cmp153.not, label %for.end, label %for.body.lr.ph
+  %call23147 = tail call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #22
+  %cmp149.not = icmp eq i32 %call23147, 0
+  br i1 %cmp149.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EEC2EmRKS7_.exit
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2728
@@ -567,13 +567,13 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorISt10un
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0154 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0150 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %24 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %24, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %25 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %24) #22
-  %conv32 = trunc nuw i64 %i.0154 to i32
+  %conv32 = trunc nuw i64 %i.0150 to i32
   %call36 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, ptr %call2.i, i32 noundef %conv32) #22
   %cmp.i.i326 = icmp eq ptr %call36, null
   br i1 %cmp.i.i326, label %cleanup, label %if.end44
@@ -585,7 +585,7 @@ if.end44:                                         ; preds = %for.body
 if.then47:                                        ; preds = %if.end44
   %call55 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
   call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %ref.tmp52, ptr nonnull %retval.0.i.i, ptr nonnull %call36, i64 noundef %call55, i64 noundef 0)
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0154
+  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0150
   %26 = load ptr, ptr %ref.tmp52, align 8
   store ptr null, ptr %ref.tmp52, align 8
   %27 = load ptr, ptr %add.ptr.i, align 8
@@ -622,7 +622,7 @@ if.then63:                                        ; preds = %if.else
   %call76 = call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
   %call78 = call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
   call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %ref.tmp68, ptr nonnull %retval.0.i.i, ptr %call71, i64 noundef %call76, i64 noundef %call78)
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0154
+  %add.ptr.i30 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0150
   %30 = load ptr, ptr %ref.tmp68, align 8
   store ptr null, ptr %ref.tmp68, align 8
   %31 = load ptr, ptr %add.ptr.i30, align 8
@@ -635,15 +635,15 @@ _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit35:
   %vfn.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i33, i64 8
   %32 = load ptr, ptr %vfn.i.i.i.i.i34, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31) #22
-  %.pr133 = load ptr, ptr %ref.tmp68, align 8
-  %cmp.not.i36 = icmp eq ptr %.pr133, null
+  %.pr129 = load ptr, ptr %ref.tmp68, align 8
+  %cmp.not.i36 = icmp eq ptr %.pr129, null
   br i1 %cmp.not.i36, label %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit41, label %_ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i37
 
 _ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i37: ; preds = %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit35
-  %vtable.i.i38 = load ptr, ptr %.pr133, align 8
+  %vtable.i.i38 = load ptr, ptr %.pr129, align 8
   %vfn.i.i39 = getelementptr inbounds nuw i8, ptr %vtable.i.i38, i64 8
   %33 = load ptr, ptr %vfn.i.i39, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %.pr133) #22
+  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %.pr129) #22
   br label %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit41: ; preds = %if.then63, %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit35, %_ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i37
@@ -713,7 +713,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN4node9DataQueueEEC2ERKS2_.exit: ; preds = %do.end100, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   call void @_ZN4node9DataQueue20CreateDataQueueEntryESt10shared_ptrIS0_E(ptr nonnull sret(%"class.std::unique_ptr.349") align 8 %ref.tmp101, ptr noundef nonnull %agg.tmp102) #22
-  %add.ptr.i45 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0154
+  %add.ptr.i45 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0150
   %49 = load ptr, ptr %ref.tmp101, align 8
   store ptr null, ptr %ref.tmp101, align 8
   %50 = load ptr, ptr %add.ptr.i45, align 8
@@ -726,15 +726,15 @@ _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit50:
   %vfn.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i48, i64 8
   %51 = load ptr, ptr %vfn.i.i.i.i.i49, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %50) #22
-  %.pr135 = load ptr, ptr %ref.tmp101, align 8
-  %cmp.not.i51 = icmp eq ptr %.pr135, null
+  %.pr131 = load ptr, ptr %ref.tmp101, align 8
+  %cmp.not.i51 = icmp eq ptr %.pr131, null
   br i1 %cmp.not.i51, label %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit56, label %_ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i52
 
 _ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i52: ; preds = %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit50
-  %vtable.i.i53 = load ptr, ptr %.pr135, align 8
+  %vtable.i.i53 = load ptr, ptr %.pr131, align 8
   %vfn.i.i54 = getelementptr inbounds nuw i8, ptr %vtable.i.i53, i64 8
   %52 = load ptr, ptr %vfn.i.i54, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr135) #22
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr131) #22
   br label %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit56
 
 _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit56: ; preds = %_ZNSt10shared_ptrIN4node9DataQueueEEC2ERKS2_.exit, %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EEaSEOS5_.exit50, %_ZNKSt14default_deleteIN4node9DataQueue5EntryEEclEPS2_.exit.i52
@@ -817,7 +817,7 @@ do.body106:                                       ; preds = %if.else84
   unreachable
 
 for.inc:                                          ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit56, %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit41
-  %inc = add nuw nsw i64 %i.0154, 1
+  %inc = add nuw nsw i64 %i.0150, 1
   %call23 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #22
   %conv24 = zext i32 %call23 to i64
   %cmp = icmp samesign ult i64 %inc, %conv24
@@ -986,12 +986,12 @@ if.end129:                                        ; preds = %_ZNK4node10BaseObje
   %storemerge.in = phi ptr [ %91, %if.then.i204 ], [ %call.i.i.i.i, %_ZNK4node10BaseObject6objectEv.exit ], [ %85, %if.end.i.i.i100 ]
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
-  %.pr143 = load ptr, ptr %blob112, align 8
-  %cmp.not.i103 = icmp eq ptr %.pr143, null
+  %.pr139 = load ptr, ptr %blob112, align 8
+  %cmp.not.i103 = icmp eq ptr %.pr139, null
   br i1 %cmp.not.i103, label %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EED2Ev.exit122, label %if.then.i104
 
 if.then.i104:                                     ; preds = %if.end129
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr143) #22
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr139) #22
   br label %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EED2Ev.exit122
 
 cleanup:                                          ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %for.body

@@ -1882,13 +1882,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17HdBlockDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %97, %53, %75, %88, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %147 = load ptr, ptr %146, align 8
-  %.not74 = icmp eq ptr %147, null
-  br i1 %.not74, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj4EE9push_backERKS1_.exit, label %148
+  %.not72 = icmp eq ptr %147, null
+  br i1 %.not72, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj4EE9push_backERKS1_.exit, label %148
 
 148:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17HdBlockDataSourceEED2Ev.exit
   %149 = load ptr, ptr %2, align 8
-  %.not75 = icmp eq ptr %149, null
-  br i1 %.not75, label %.thread.thread, label %150
+  %.not73 = icmp eq ptr %149, null
+  br i1 %.not73, label %.thread.thread, label %150
 
 150:                                              ; preds = %148
   %151 = call ptr @__dynamic_cast(ptr nonnull %149, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceE, i64 0) #21, !noalias !13

@@ -4280,7 +4280,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %28, %.sink.split.i.
   br i1 %exitcond.not.i.i20, label %_ZNK4llvm9BitVector9find_nextEj.exit.thread, label %.lr.ph.i.split.i, !llvm.loop !218
 
 _ZNK4llvm9BitVector9find_nextEj.exit.thread:      ; preds = %82, %76, %_ZN4llvm9BitVectorC2ERKS0_.exit, %55
-  %.pre108.pre109125 = load ptr, ptr %2, align 8, !tbaa !56
+  %.pre106.pre107123 = load ptr, ptr %2, align 8, !tbaa !56
   br label %._crit_edge
 
 _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %.lr.ph.i.split.i, %.lr.ph.i.split.us.i
@@ -4289,7 +4289,7 @@ _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %.lr.ph.i.split.i, %
   %83 = trunc nuw nsw i64 %.us-phi.i to i32
   %84 = shl nuw i32 %83, 6
   %85 = icmp sgt i32 %84, -1
-  %.pre108.pre109 = load ptr, ptr %2, align 8, !tbaa !56
+  %.pre106.pre107 = load ptr, ptr %2, align 8, !tbaa !56
   br i1 %85, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9BitVector9find_nextEj.exit
@@ -4312,8 +4312,8 @@ _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %.lr.ph.i.split.i, %
   br label %101
 
 101:                                              ; preds = %.lr.ph, %_ZNK4llvm9BitVector9find_nextEj.exit44
-  %.085 = phi i32 [ %88, %.lr.ph ], [ %142, %_ZNK4llvm9BitVector9find_nextEj.exit44 ]
-  %102 = zext nneg i32 %.085 to i64
+  %.083 = phi i32 [ %88, %.lr.ph ], [ %142, %_ZNK4llvm9BitVector9find_nextEj.exit44 ]
+  %102 = zext nneg i32 %.083 to i64
   %103 = getelementptr inbounds nuw %"struct.llvm::rdf::PhysicalRegisterInfo::AliasInfo", ptr %91, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !59
@@ -4334,7 +4334,7 @@ _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %.lr.ph.i.split.i, %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %108 ]
   %109 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv.i
   %110 = load i64, ptr %109, align 8, !tbaa !60
-  %111 = getelementptr inbounds nuw i64, ptr %.pre108.pre109, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw i64, ptr %.pre106.pre107, i64 %indvars.iv.i
   %112 = load i64, ptr %111, align 8, !tbaa !60
   %113 = and i64 %112, %110
   store i64 %113, ptr %111, align 8, !tbaa !60
@@ -4345,14 +4345,14 @@ _ZNK4llvm9BitVector9find_nextEj.exit:             ; preds = %.lr.ph.i.split.i, %
 .lr.ph18.i:                                       ; preds = %.preheader.i, %.lr.ph18.i
   %.117.i = phi i32 [ %116, %.lr.ph18.i ], [ %.sroa.speculated.i, %.preheader.i ]
   %114 = zext i32 %.117.i to i64
-  %115 = getelementptr inbounds nuw i64, ptr %.pre108.pre109, i64 %114
+  %115 = getelementptr inbounds nuw i64, ptr %.pre106.pre107, i64 %114
   store i64 0, ptr %115, align 8, !tbaa !60
   %116 = add i32 %.117.i, 1
   %.not9.i = icmp eq i32 %116, %48
   br i1 %.not9.i, label %_ZN4llvm9BitVectoraNERKS0_.exit, label %.lr.ph18.i, !llvm.loop !232
 
 _ZN4llvm9BitVectoraNERKS0_.exit:                  ; preds = %.lr.ph18.i, %.preheader.i
-  %117 = add nuw i32 %.085, 1
+  %117 = add nuw i32 %.083, 1
   %118 = icmp eq i32 %117, %49
   br i1 %118, label %._crit_edge, label %119
 
@@ -4416,7 +4416,7 @@ _ZNK4llvm9BitVector9find_nextEj.exit44:           ; preds = %.lr.ph.i.split.i26,
   br i1 %143, label %101, label %._crit_edge, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %119, %_ZN4llvm9BitVectoraNERKS0_.exit, %_ZNK4llvm9BitVector9find_nextEj.exit44, %137, %131, %_ZNK4llvm9BitVector9find_nextEj.exit.thread, %_ZNK4llvm9BitVector9find_nextEj.exit
-  %.pre108.pre109126 = phi ptr [ %.pre108.pre109125, %_ZNK4llvm9BitVector9find_nextEj.exit.thread ], [ %.pre108.pre109, %_ZNK4llvm9BitVector9find_nextEj.exit ], [ %.pre108.pre109, %131 ], [ %.pre108.pre109, %137 ], [ %.pre108.pre109, %_ZNK4llvm9BitVector9find_nextEj.exit44 ], [ %.pre108.pre109, %_ZN4llvm9BitVectoraNERKS0_.exit ], [ %.pre108.pre109, %119 ]
+  %.pre106.pre107124 = phi ptr [ %.pre106.pre107123, %_ZNK4llvm9BitVector9find_nextEj.exit.thread ], [ %.pre106.pre107, %_ZNK4llvm9BitVector9find_nextEj.exit ], [ %.pre106.pre107, %131 ], [ %.pre106.pre107, %137 ], [ %.pre106.pre107, %_ZNK4llvm9BitVector9find_nextEj.exit44 ], [ %.pre106.pre107, %_ZN4llvm9BitVectoraNERKS0_.exit ], [ %.pre106.pre107, %119 ]
   %144 = icmp eq i32 %52, 0
   br i1 %144, label %_ZNK4llvm9BitVector10find_firstEv.exit52.thread, label %145
 
@@ -4434,7 +4434,7 @@ _ZNK4llvm9BitVector9find_nextEj.exit44:           ; preds = %.lr.ph.i.split.i26,
 
 154:                                              ; preds = %159, %145
   %indvars.iv.i.i46 = phi i64 [ 0, %145 ], [ %indvars.iv.next.i.i50, %159 ]
-  %155 = getelementptr inbounds nuw i64, ptr %.pre108.pre109126, i64 %indvars.iv.i.i46
+  %155 = getelementptr inbounds nuw i64, ptr %.pre106.pre107124, i64 %indvars.iv.i.i46
   %156 = load i64, ptr %155, align 8, !tbaa !60
   %157 = icmp eq i64 %indvars.iv.i.i46, %152
   %158 = select i1 %157, i64 %151, i64 -1
@@ -4461,8 +4461,8 @@ _ZNK4llvm9BitVector10find_firstEv.exit52:         ; preds = %154
   %168 = load ptr, ptr %167, align 8, !tbaa !30
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 56
   %170 = load ptr, ptr %169, align 8, !tbaa !100
-  %.not86 = icmp eq ptr %170, null
-  br i1 %.not86, label %._crit_edge91, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph
+  %.not84 = icmp eq ptr %170, null
+  br i1 %.not84, label %._crit_edge89, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph
 
 _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph:   ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -4484,45 +4484,45 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph:   ; preds = %166
   %187 = load ptr, ptr %0, align 8, !tbaa !56
   br label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit
 
-._crit_edge91:                                    ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit, %166
+._crit_edge89:                                    ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit, %166
   %.sroa.060.0.lcssa = phi i64 [ 0, %166 ], [ %spec.select, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
   %188 = icmp samesign ult i64 %indvars.iv.i.i46, 16777216
   %spec.select.i53 = select i1 %188, i64 %.sroa.060.0.lcssa, i64 0
   br label %_ZNK4llvm9BitVector10find_firstEv.exit52.thread
 
 _ZN4llvm21MCRegUnitMaskIteratorppEv.exit:         ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit
-  %.sroa.556.090 = phi ptr [ %179, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %200, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
-  %.sroa.10.089 = phi i32 [ %186, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %203, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
-  %.sroa.1358.088 = phi ptr [ %185, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %199, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
-  %.sroa.060.087 = phi i64 [ 0, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %spec.select, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
-  %189 = load i64, ptr %.sroa.1358.088, align 8, !tbaa !60
-  %190 = and i32 %.sroa.10.089, 63
+  %.sroa.556.088 = phi ptr [ %179, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %200, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
+  %.sroa.10.087 = phi i32 [ %186, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %203, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
+  %.sroa.1358.086 = phi ptr [ %185, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %199, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
+  %.sroa.060.085 = phi i64 [ 0, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.lr.ph ], [ %spec.select, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit ]
+  %189 = load i64, ptr %.sroa.1358.086, align 8, !tbaa !60
+  %190 = and i32 %.sroa.10.087, 63
   %191 = zext nneg i32 %190 to i64
   %192 = shl nuw i64 1, %191
-  %193 = lshr i32 %.sroa.10.089, 6
+  %193 = lshr i32 %.sroa.10.087, 6
   %194 = zext nneg i32 %193 to i64
   %195 = getelementptr inbounds nuw i64, ptr %187, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !60
   %197 = and i64 %196, %192
-  %.not68 = icmp eq i64 %197, 0
-  %198 = select i1 %.not68, i64 0, i64 %189
-  %spec.select = or i64 %198, %.sroa.060.087
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.1358.088, i64 8
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.556.090, i64 2
-  %201 = load i16, ptr %.sroa.556.090, align 2, !tbaa !91
+  %.not66 = icmp eq i64 %197, 0
+  %198 = select i1 %.not66, i64 0, i64 %189
+  %spec.select = or i64 %198, %.sroa.060.085
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.1358.086, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.556.088, i64 2
+  %201 = load i16, ptr %.sroa.556.088, align 2, !tbaa !91
   %202 = sext i16 %201 to i32
-  %203 = add i32 %.sroa.10.089, %202
+  %203 = add i32 %.sroa.10.087, %202
   %.not.i.i.i54 = icmp eq i16 %201, 0
-  br i1 %.not.i.i.i54, label %._crit_edge91, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit, !llvm.loop !234
+  br i1 %.not.i.i.i54, label %._crit_edge89, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit, !llvm.loop !234
 
-_ZNK4llvm9BitVector10find_firstEv.exit52.thread:  ; preds = %159, %._crit_edge, %_ZNK4llvm9BitVector10find_firstEv.exit52, %._crit_edge91
-  %.sroa.663.1 = phi i64 [ %spec.select.i53, %._crit_edge91 ], [ 0, %_ZNK4llvm9BitVector10find_firstEv.exit52 ], [ 0, %._crit_edge ], [ 0, %159 ]
-  %.sroa.062.1 = phi i32 [ %164, %._crit_edge91 ], [ 0, %_ZNK4llvm9BitVector10find_firstEv.exit52 ], [ 0, %._crit_edge ], [ 0, %159 ]
-  %204 = icmp eq ptr %.pre108.pre109126, %35
+_ZNK4llvm9BitVector10find_firstEv.exit52.thread:  ; preds = %159, %._crit_edge, %_ZNK4llvm9BitVector10find_firstEv.exit52, %._crit_edge89
+  %.sroa.663.1 = phi i64 [ %spec.select.i53, %._crit_edge89 ], [ 0, %_ZNK4llvm9BitVector10find_firstEv.exit52 ], [ 0, %._crit_edge ], [ 0, %159 ]
+  %.sroa.062.1 = phi i32 [ %164, %._crit_edge89 ], [ 0, %_ZNK4llvm9BitVector10find_firstEv.exit52 ], [ 0, %._crit_edge ], [ 0, %159 ]
+  %204 = icmp eq ptr %.pre106.pre107124, %35
   br i1 %204, label %_ZN4llvm9BitVectorD2Ev.exit, label %205
 
 205:                                              ; preds = %_ZNK4llvm9BitVector10find_firstEv.exit52.thread
-  call void @free(ptr noundef %.pre108.pre109126) #20
+  call void @free(ptr noundef %.pre106.pre107124) #20
   br label %_ZN4llvm9BitVectorD2Ev.exit
 
 _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZNK4llvm9BitVector10find_firstEv.exit52.thread, %205

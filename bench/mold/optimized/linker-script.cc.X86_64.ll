@@ -2309,8 +2309,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30: ; preds = %_ZNSt11char_traitsI
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30, %18
-  %.sroa.6.1 = phi ptr [ %.sroa.225.0.copyload, %18 ], [ @.str.31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
-  %.sroa.049.1 = phi i64 [ %.sroa.024.0.copyload, %18 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.225.0.copyload, %18 ], [ @.str.31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
+  %.sroa.049.0 = phi i64 [ %.sroa.024.0.copyload, %18 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
   %.sroa.052.1 = phi ptr [ %24, %18 ], [ %.sroa.052.065, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
   %.sroa.17.1 = phi i64 [ %23, %18 ], [ %.sroa.17.066, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
   %.029 = phi i16 [ %.067, %18 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
@@ -2318,7 +2318,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %25 = tail call { ptr, i64 } @_ZN4mold6ScriptINS_6X86_64EE4skipESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EES7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %.sroa.052.1, i64 %.sroa.17.1, i64 1, ptr nonnull @.str.9)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
-  %28 = tail call { ptr, i64 } @_ZN4mold6ScriptINS_6X86_64EE28read_version_script_commandsESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EES7_tbb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %26, i64 %27, i64 %.sroa.049.1, ptr %.sroa.6.1, i16 noundef zeroext %.029, i1 noundef zeroext true, i1 noundef zeroext false)
+  %28 = tail call { ptr, i64 } @_ZN4mold6ScriptINS_6X86_64EE28read_version_script_commandsESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EES7_tbb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %26, i64 %27, i64 %.sroa.049.0, ptr %.sroa.6.0, i16 noundef zeroext %.029, i1 noundef zeroext true, i1 noundef zeroext false)
   %29 = extractvalue { ptr, i64 } %28, 0
   %30 = extractvalue { ptr, i64 } %28, 1
   %31 = tail call { ptr, i64 } @_ZN4mold6ScriptINS_6X86_64EE4skipESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EES7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %29, i64 %30, i64 1, ptr nonnull @.str.10)

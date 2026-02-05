@@ -6130,8 +6130,8 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %89, label %.lr.ph187, label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %.critedge8, %.critedge4
-  %.sroa.0.1.lcssa = phi i32 [ 0, %.critedge4 ], [ %.sroa.0.3, %.critedge8 ]
-  %.sroa.7.1.lcssa = phi i32 [ 0, %.critedge4 ], [ %.sroa.7.3, %.critedge8 ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge4 ], [ %.sroa.0.2, %.critedge8 ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %.critedge4 ], [ %.sroa.7.2, %.critedge8 ]
   %90 = getelementptr i8, ptr %.0118, i64 64
   %.0118.val153189 = load ptr, ptr %90, align 8, !tbaa !159
   %91 = getelementptr i8, ptr %.0118.val153189, i64 4
@@ -6146,8 +6146,8 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .lr.ph187:                                        ; preds = %.critedge4, %.critedge8
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %.critedge8 ], [ 0, %.critedge4 ]
   %94 = phi ptr [ %130, %.critedge8 ], [ %87, %.critedge4 ]
-  %.sroa.7.1185 = phi i32 [ %.sroa.7.3, %.critedge8 ], [ 0, %.critedge4 ]
-  %.sroa.0.1184 = phi i32 [ %.sroa.0.3, %.critedge8 ], [ 0, %.critedge4 ]
+  %.sroa.7.0185 = phi i32 [ %.sroa.7.2, %.critedge8 ], [ 0, %.critedge4 ]
+  %.sroa.0.0184 = phi i32 [ %.sroa.0.2, %.critedge8 ], [ 0, %.critedge4 ]
   %95 = getelementptr i8, ptr %94, i64 8
   %.0118.val148.val = load ptr, ptr %95, align 8, !tbaa !153
   %96 = getelementptr inbounds nuw ptr, ptr %.0118.val148.val, i64 %indvars.iv209
@@ -6177,8 +6177,8 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %112 = lshr i32 %111, 9
   %.lobit = and i32 %112, 1
   %113 = xor i32 %.lobit, 1
-  %.sroa.0.2 = add nsw i32 %113, %.sroa.0.1184
-  %.sroa.7.2 = add nsw i32 %.lobit, %.sroa.7.1185
+  %.sroa.0.1 = add nsw i32 %113, %.sroa.0.0184
+  %.sroa.7.1 = add nsw i32 %.lobit, %.sroa.7.0185
   %114 = getelementptr i8, ptr %97, i64 28
   %.val150179 = load i32, ptr %114, align 4, !tbaa !160
   %115 = icmp sgt i32 %.val150179, 0
@@ -6212,8 +6212,8 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %129, label %117, label %.critedge8, !llvm.loop !165
 
 .critedge8:                                       ; preds = %117, %102, %99, %.lr.ph187
-  %.sroa.0.3 = phi i32 [ %.sroa.0.1184, %.lr.ph187 ], [ %.sroa.0.1184, %99 ], [ %.sroa.0.2, %102 ], [ %.sroa.0.2, %117 ]
-  %.sroa.7.3 = phi i32 [ %.sroa.7.1185, %.lr.ph187 ], [ %.sroa.7.1185, %99 ], [ %.sroa.7.2, %102 ], [ %.sroa.7.2, %117 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0184, %.lr.ph187 ], [ %.sroa.0.0184, %99 ], [ %.sroa.0.1, %102 ], [ %.sroa.0.1, %117 ]
+  %.sroa.7.2 = phi i32 [ %.sroa.7.0185, %.lr.ph187 ], [ %.sroa.7.0185, %99 ], [ %.sroa.7.1, %102 ], [ %.sroa.7.1, %117 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %130 = load ptr, ptr %86, align 8, !tbaa !157
   %131 = getelementptr i8, ptr %130, i64 4
@@ -6264,15 +6264,15 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 152:                                              ; preds = %.critedge10
   %153 = trunc nuw nsw i64 %indvars.iv215 to i32
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %153, i32 noundef %9)
-  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.sroa.0.1.lcssa)
-  %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %.sroa.7.1.lcssa)
+  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.sroa.0.0.lcssa)
+  %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %.sroa.7.0.lcssa)
   %157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef 0)
   %putchar = call i32 @putchar(i32 10)
   br label %158
 
 158:                                              ; preds = %152, %.critedge10
-  %159 = add nsw i32 %.sroa.0.1.lcssa, %.sroa.059.0195
-  %160 = add nsw i32 %.sroa.7.1.lcssa, %.sroa.6.0194
+  %159 = add nsw i32 %.sroa.0.0.lcssa, %.sroa.059.0195
+  %160 = add nsw i32 %.sroa.7.0.lcssa, %.sroa.6.0194
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218

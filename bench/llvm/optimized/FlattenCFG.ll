@@ -868,8 +868,8 @@ _ZN12_GLOBAL__N_113FlattenCFGOpt20FlattenParallelAndOrEPN4llvm10BasicBlockERNS1_
 371:                                              ; preds = %_ZN12_GLOBAL__N_113FlattenCFGOpt20FlattenParallelAndOrEPN4llvm10BasicBlockERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE.exit.i
   %.pre.i = load ptr, ptr %38, align 8, !tbaa !45
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -24
-  %.pre37.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !48
-  %372 = icmp eq i8 %.pre37.i, 84
+  %.pre35.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !48
+  %372 = icmp eq i8 %.pre35.i, 84
   br i1 %372, label %_ZN12_GLOBAL__N_113FlattenCFGOpt13MergeIfRegionEPN4llvm10BasicBlockERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE.exit.i, label %373
 
 373:                                              ; preds = %371

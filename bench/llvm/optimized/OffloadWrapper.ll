@@ -1125,9 +1125,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4
   %101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %100, i1 false)
   %102 = trunc nuw nsw i64 %101 to i16
   %103 = sub nsw i16 63, %102
-  %.sroa.016.0.insert.ext = and i16 %103, 255
-  %.sroa.016.0.insert.insert = or disjoint i16 %.sroa.016.0.insert.ext, 256
-  %104 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef %96, ptr noundef nonnull %66, i16 %.sroa.016.0.insert.insert, i1 noundef zeroext false)
+  %.sroa.014.0.insert.ext = and i16 %103, 255
+  %.sroa.014.0.insert.insert = or disjoint i16 %.sroa.014.0.insert.ext, 256
+  %104 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef %96, ptr noundef nonnull %66, i16 %.sroa.014.0.insert.insert, i1 noundef zeroext false)
   %105 = call fastcc noundef ptr @_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(841) %0, i1 noundef zeroext %2, ptr %3, ptr %4, i1 noundef zeroext %5)
   %.not.i = icmp eq ptr %105, null
   br i1 %.not.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %106

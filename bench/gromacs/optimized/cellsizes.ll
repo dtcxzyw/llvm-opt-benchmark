@@ -292,12 +292,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %83
-  %.sroa.16.2 = phi i64 [ 0, %83 ], [ %96, %.noexc ]
-  %.sroa.0150.2 = phi ptr [ null, %83 ], [ %91, %.noexc ]
-  %.sroa.0159.2 = phi ptr [ %85, %83 ], [ %91, %.noexc ]
+  %.sroa.16.0 = phi i64 [ 0, %83 ], [ %96, %.noexc ]
+  %.sroa.0150.0 = phi ptr [ null, %83 ], [ %91, %.noexc ]
+  %.sroa.0159.0 = phi ptr [ %85, %83 ], [ %91, %.noexc ]
   %97 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv207
   %98 = load float, ptr %97, align 4, !tbaa !109
-  store float %98, ptr %.sroa.0159.2, align 4, !tbaa !109
+  store float %98, ptr %.sroa.0159.0, align 4, !tbaa !109
   %99 = icmp sgt i32 %39, 0
   br i1 %99, label %.lr.ph, label %102
 
@@ -326,7 +326,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %83
   %109 = fmul float %106, %108
   %110 = fadd float %104, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %111 = getelementptr inbounds nuw float, ptr %.sroa.0159.2, i64 %indvars.iv.next
+  %111 = getelementptr inbounds nuw float, ptr %.sroa.0159.0, i64 %indvars.iv.next
   store float %110, ptr %111, align 4, !tbaa !109
   %112 = load float, ptr %34, align 4, !tbaa !109
   %113 = fmul float %109, %112
@@ -353,7 +353,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %83
   %123 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv207
   %124 = load i32, ptr %123, align 4, !tbaa !119
   %125 = sext i32 %124 to i64
-  %126 = getelementptr float, ptr %.sroa.0159.2, i64 %125
+  %126 = getelementptr float, ptr %.sroa.0159.0, i64 %125
   %127 = load float, ptr %126, align 4, !tbaa !109
   %128 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv207
   store float %127, ptr %128, align 4, !tbaa !109
@@ -364,13 +364,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %83
   br label %132
 
 132:                                              ; preds = %122, %102
-  %.not.i.i.i142 = icmp eq ptr %.sroa.0150.2, null
+  %.not.i.i.i142 = icmp eq ptr %.sroa.0150.0, null
   br i1 %.not.i.i.i142, label %_ZNSt6vectorIfSaIfEED2Ev.exit143, label %133
 
 133:                                              ; preds = %132
-  %134 = ptrtoint ptr %.sroa.0150.2 to i64
-  %135 = sub i64 %.sroa.16.2, %134
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0150.2, i64 noundef %135) #20
+  %134 = ptrtoint ptr %.sroa.0150.0 to i64
+  %135 = sub i64 %.sroa.16.0, %134
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0150.0, i64 noundef %135) #20
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit143
 
 _ZNSt6vectorIfSaIfEED2Ev.exit143:                 ; preds = %133, %132, %81
@@ -1612,13 +1612,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 
 467:                                              ; preds = %152
   %468 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %.sroa.046.2.pre.i.i = load ptr, ptr %468, align 8, !tbaa !122
+  %.sroa.046.0.pre.i.i = load ptr, ptr %468, align 8, !tbaa !122
   %.pre.i.i = sext i32 %141 to i64
   br label %_ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tbbl.exit.i.i
 
 _ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tbbl.exit.i.i: ; preds = %467, %460, %453
   %.pre-phi.i.i = phi i64 [ %164, %460 ], [ %164, %453 ], [ %.pre.i.i, %467 ]
-  %.sroa.046.2.i.i = phi ptr [ %454, %460 ], [ %454, %453 ], [ %.sroa.046.2.pre.i.i, %467 ]
+  %.sroa.046.0.i.i = phi ptr [ %454, %460 ], [ %454, %453 ], [ %.sroa.046.0.pre.i.i, %467 ]
   %469 = load ptr, ptr %13, align 8, !tbaa !114
   %470 = load i32, ptr %140, align 4, !tbaa !119
   %471 = sext i32 %470 to i64
@@ -1633,11 +1633,11 @@ _ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_t
   %480 = load ptr, ptr %479, align 8, !tbaa !306
   %481 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv.i.i
   %482 = load ptr, ptr %481, align 8, !tbaa !307
-  %483 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %.sroa.046.2.i.i, i32 noundef %478, ptr noundef %135, i32 noundef 0, ptr noundef %482)
+  %483 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %.sroa.046.0.i.i, i32 noundef %478, ptr noundef %135, i32 noundef 0, ptr noundef %482)
   %484 = getelementptr inbounds i32, ptr %130, i64 %.pre-phi.i.i
   %485 = load i32, ptr %484, align 4, !tbaa !119
   %486 = sext i32 %485 to i64
-  %487 = getelementptr float, ptr %.sroa.046.2.i.i, i64 %486
+  %487 = getelementptr float, ptr %.sroa.046.0.i.i, i64 %486
   %488 = load float, ptr %487, align 4, !tbaa !109
   %489 = getelementptr inbounds nuw i8, ptr %469, i64 1456
   %490 = load ptr, ptr %489, align 8, !tbaa !272
@@ -1661,7 +1661,7 @@ _ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_t
 
 ._crit_edge.i42.i.i:                              ; preds = %_ZL32relative_to_absolute_cell_boundsP12gmx_domdec_tPK11gmx_ddbox_ti.exit.i.i.i
   %505 = sext i32 %.1.i.i.i to i64
-  %506 = getelementptr float, ptr %.sroa.046.2.i.i, i64 %505
+  %506 = getelementptr float, ptr %.sroa.046.0.i.i, i64 %505
   %507 = load float, ptr %506, align 4, !tbaa !109
   %508 = call float @llvm.rint.f32(float %507)
   %509 = fptosi float %508 to i32
@@ -1678,7 +1678,7 @@ _ZL26set_dd_cell_sizes_dlb_rootP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_t
 
 513:                                              ; preds = %511
   %514 = sext i32 %.03342.i.i.i to i64
-  %515 = getelementptr float, ptr %.sroa.046.2.i.i, i64 %514
+  %515 = getelementptr float, ptr %.sroa.046.0.i.i, i64 %514
   %516 = load float, ptr %515, align 4, !tbaa !109
   %517 = getelementptr inbounds nuw %struct.DDCellsizesWithDlb, ptr %490, i64 %indvars.iv.i38.i.i
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 32

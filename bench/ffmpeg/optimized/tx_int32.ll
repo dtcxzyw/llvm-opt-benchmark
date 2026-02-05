@@ -4422,8 +4422,8 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
 
 15:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %.sroa.015.144.us = phi i32 [ 0, %.preheader.us ], [ %47, %15 ]
-  %.sroa.6.143.us = phi i32 [ 0, %.preheader.us ], [ %48, %15 ]
+  %.sroa.015.044.us = phi i32 [ 0, %.preheader.us ], [ %47, %15 ]
+  %.sroa.6.043.us = phi i32 [ 0, %.preheader.us ], [ %48, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = uitofp nneg i32 %16 to double
   %18 = fmul nsz double %14, %17
@@ -4457,8 +4457,8 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
   %44 = add i64 %43, %42
   %45 = lshr i64 %44, 31
   %46 = trunc i64 %45 to i32
-  %47 = add nsw i32 %.sroa.015.144.us, %40
-  %48 = add nsw i32 %.sroa.6.143.us, %46
+  %47 = add nsw i32 %.sroa.015.044.us, %40
+  %48 = add nsw i32 %.sroa.6.043.us, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
   br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !75
@@ -4496,8 +4496,8 @@ define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly capture
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %.sroa.014.136.us = phi i32 [ 0, %.preheader.us ], [ %33, %10 ]
-  %.sroa.6.135.us = phi i32 [ 0, %.preheader.us ], [ %34, %10 ]
+  %.sroa.014.036.us = phi i32 [ 0, %.preheader.us ], [ %33, %10 ]
+  %.sroa.6.035.us = phi i32 [ 0, %.preheader.us ], [ %34, %10 ]
   %11 = mul nuw nsw i64 %indvars.iv, %indvars.iv42
   %12 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %9, i64 %11
   %.sroa.0.0.copyload.us = load i32, ptr %12, align 4, !tbaa !11
@@ -4523,8 +4523,8 @@ define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly capture
   %30 = add i64 %29, %28
   %31 = lshr i64 %30, 31
   %32 = trunc i64 %31 to i32
-  %33 = add nsw i32 %.sroa.014.136.us, %26
-  %34 = add nsw i32 %.sroa.6.135.us, %32
+  %33 = add nsw i32 %.sroa.014.036.us, %26
+  %34 = add nsw i32 %.sroa.6.035.us, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !77

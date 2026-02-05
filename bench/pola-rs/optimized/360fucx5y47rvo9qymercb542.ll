@@ -51163,10 +51163,10 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 
 .lr.ph:                                           ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.6.8..sroa_idx225 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
+  %.sroa.6.8..sroa_idx224 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
-  %.sroa.6.8..sroa_idx226 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
-  %.sroa.6.4..sroa_idx224 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
+  %.sroa.6.8..sroa_idx225 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
+  %.sroa.6.4..sroa_idx223 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
   br label %66
 
 .body:                                            ; preds = %.loopexit.split-lp, %138, %142, %136
@@ -51176,7 +51176,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
   %65 = trunc nuw i8 %.sroa.014.1 to i1
   br i1 %65, label %.body.thread, label %39
 
-.body.thread178:                                  ; preds = %169
+.body.thread177:                                  ; preds = %169
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -51282,10 +51282,10 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
   br label %98
 
 98:                                               ; preds = %101, %97
-  %.sink201 = phi ptr [ %94, %101 ], [ %86, %97 ]
+  %.sink200 = phi ptr [ %94, %101 ], [ %86, %97 ]
   %.sink = phi i64 [ %102, %101 ], [ 0, %97 ]
   %.sroa.014.2 = phi i8 [ 0, %101 ], [ 1, %97 ]
-  store ptr %.sink201, ptr %12, align 8
+  store ptr %.sink200, ptr %12, align 8
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sink, ptr %99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -51313,7 +51313,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 106:                                              ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %.sink201, ptr %8, align 8
+  store ptr %.sink200, ptr %8, align 8
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink, ptr %107, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.596)
@@ -51339,7 +51339,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 .preheader.i:                                     ; preds = %111, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %115, %.preheader.i ], [ 0, %111 ]
   %.sroa.09.0.i.i = phi i64 [ %116, %.preheader.i ], [ 0, %111 ]
-  %113 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %.sink201, i64 %.sroa.09.0.i.i
+  %113 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %.sink200, i64 %.sroa.09.0.i.i
   %114 = getelementptr i8, ptr %113, i64 32
   %.val.i.i = load i64, ptr %114, align 8, !noalias !3342, !noundef !3
   %115 = add i64 %.val.i.i, %.sroa.07.0.i.i
@@ -51364,7 +51364,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
   %.sroa.596.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.596.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.596, i64 24, i1 false), !alias.scope !3347, !noalias !3348
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink201, ptr %121, align 8, !alias.scope !3333, !noalias !3349
+  store ptr %.sink200, ptr %121, align 8, !alias.scope !3333, !noalias !3349
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink, ptr %122, align 8, !alias.scope !3333, !noalias !3349
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -51396,7 +51396,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 129:                                              ; preds = %110
   %130 = landingpad { ptr, i32 }
           cleanup
-  %131 = atomicrmw sub ptr %.sink201, i64 1 release, align 8, !noalias !3350
+  %131 = atomicrmw sub ptr %.sink200, i64 1 release, align 8, !noalias !3350
   %132 = icmp eq i64 %131, 1
   br i1 %132, label %133, label %.noexc44
 
@@ -51459,7 +51459,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 
 155:                                              ; preds = %145
   %156 = trunc nuw i64 %147 to i32
-  store i32 %156, ptr %.sroa.6.8..sroa_idx225, align 4
+  store i32 %156, ptr %.sroa.6.8..sroa_idx224, align 4
   store i32 %.sroa.07.0139, ptr %.sroa.6.4..sroa_idx, align 4
   br label %157
 
@@ -51505,7 +51505,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
   %170 = ptrtoint ptr %167 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN14polars_compute4cast7utf8_to15truncate_buffer17h8b01beaa8fc3f3aaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-          to label %171 unwind label %.body.thread178
+          to label %171 unwind label %.body.thread177
 
 171:                                              ; preds = %169
   %172 = load i64, ptr %60, align 8, !alias.scope !3368, !noalias !3371, !noundef !3
@@ -51548,17 +51548,17 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h0b1b91
 
 186:                                              ; preds = %180
   %187 = add nuw i32 %.sroa.07.0139, 1
-  store i32 0, ptr %.sroa.6.8..sroa_idx226, align 4
-  store i32 %187, ptr %.sroa.6.4..sroa_idx224, align 4
+  store i32 0, ptr %.sroa.6.8..sroa_idx225, align 4
+  store i32 %187, ptr %.sroa.6.4..sroa_idx223, align 4
   br label %157
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfba91ebae4b1c311E.exit74": ; preds = %143
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.6, ptr nonnull readonly align 1 %78, i64 %77, i1 false)
   br label %157
 
-.body.thread:                                     ; preds = %.body.thread178, %176, %.thread, %.body
-  %.sroa.020.3104 = phi i1 [ true, %.thread ], [ %.sroa.020.3, %.body ], [ true, %176 ], [ true, %.body.thread178 ]
-  %.pn36103 = phi { ptr, i32 } [ %168, %.thread ], [ %.pn36, %.body ], [ %177, %176 ], [ %lpad.loopexit, %.body.thread178 ]
+.body.thread:                                     ; preds = %.body.thread177, %176, %.thread, %.body
+  %.sroa.020.3104 = phi i1 [ true, %.thread ], [ %.sroa.020.3, %.body ], [ true, %176 ], [ true, %.body.thread177 ]
+  %.pn36103 = phi { ptr, i32 } [ %168, %.thread ], [ %.pn36, %.body ], [ %177, %176 ], [ %lpad.loopexit, %.body.thread177 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$$GT$17h0cac322f2e81c074E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #32
           to label %39 unwind label %134
 
@@ -51689,10 +51689,10 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 
 .lr.ph:                                           ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.6.8..sroa_idx225 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
+  %.sroa.6.8..sroa_idx224 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
-  %.sroa.6.8..sroa_idx226 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
-  %.sroa.6.4..sroa_idx224 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
+  %.sroa.6.8..sroa_idx225 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
+  %.sroa.6.4..sroa_idx223 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
   br label %66
 
 .body:                                            ; preds = %.loopexit.split-lp, %136, %140, %134
@@ -51702,7 +51702,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
   %65 = trunc nuw i8 %.sroa.014.1 to i1
   br i1 %65, label %.body.thread, label %39
 
-.body.thread178:                                  ; preds = %167
+.body.thread177:                                  ; preds = %167
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -51806,10 +51806,10 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
   br label %96
 
 96:                                               ; preds = %99, %95
-  %.sink201 = phi ptr [ %92, %99 ], [ %84, %95 ]
+  %.sink200 = phi ptr [ %92, %99 ], [ %84, %95 ]
   %.sink = phi i64 [ %100, %99 ], [ 0, %95 ]
   %.sroa.014.2 = phi i8 [ 0, %99 ], [ 1, %95 ]
-  store ptr %.sink201, ptr %12, align 8
+  store ptr %.sink200, ptr %12, align 8
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sink, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -51837,7 +51837,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 104:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %.sink201, ptr %8, align 8
+  store ptr %.sink200, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink, ptr %105, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.596)
@@ -51863,7 +51863,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 .preheader.i:                                     ; preds = %109, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %113, %.preheader.i ], [ 0, %109 ]
   %.sroa.09.0.i.i = phi i64 [ %114, %.preheader.i ], [ 0, %109 ]
-  %111 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %.sink201, i64 %.sroa.09.0.i.i
+  %111 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %.sink200, i64 %.sroa.09.0.i.i
   %112 = getelementptr i8, ptr %111, i64 32
   %.val.i.i = load i64, ptr %112, align 8, !noalias !3390, !noundef !3
   %113 = add i64 %.val.i.i, %.sroa.07.0.i.i
@@ -51888,7 +51888,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
   %.sroa.596.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.596.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.596, i64 24, i1 false), !alias.scope !3395, !noalias !3396
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink201, ptr %119, align 8, !alias.scope !3381, !noalias !3397
+  store ptr %.sink200, ptr %119, align 8, !alias.scope !3381, !noalias !3397
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink, ptr %120, align 8, !alias.scope !3381, !noalias !3397
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -51920,7 +51920,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 127:                                              ; preds = %108
   %128 = landingpad { ptr, i32 }
           cleanup
-  %129 = atomicrmw sub ptr %.sink201, i64 1 release, align 8, !noalias !3398
+  %129 = atomicrmw sub ptr %.sink200, i64 1 release, align 8, !noalias !3398
   %130 = icmp eq i64 %129, 1
   br i1 %130, label %131, label %.noexc44
 
@@ -51983,7 +51983,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 
 153:                                              ; preds = %143
   %154 = trunc nuw i64 %145 to i32
-  store i32 %154, ptr %.sroa.6.8..sroa_idx225, align 4
+  store i32 %154, ptr %.sroa.6.8..sroa_idx224, align 4
   store i32 %.sroa.07.0139, ptr %.sroa.6.4..sroa_idx, align 4
   br label %155
 
@@ -52029,7 +52029,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
   %168 = ptrtoint ptr %165 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN14polars_compute4cast7utf8_to15truncate_buffer17h8b01beaa8fc3f3aaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-          to label %169 unwind label %.body.thread178
+          to label %169 unwind label %.body.thread177
 
 169:                                              ; preds = %167
   %170 = load i64, ptr %60, align 8, !alias.scope !3416, !noalias !3419, !noundef !3
@@ -52072,17 +52072,17 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h733421
 
 184:                                              ; preds = %178
   %185 = add nuw i32 %.sroa.07.0139, 1
-  store i32 0, ptr %.sroa.6.8..sroa_idx226, align 4
-  store i32 %185, ptr %.sroa.6.4..sroa_idx224, align 4
+  store i32 0, ptr %.sroa.6.8..sroa_idx225, align 4
+  store i32 %185, ptr %.sroa.6.4..sroa_idx223, align 4
   br label %155
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfba91ebae4b1c311E.exit74": ; preds = %141
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.6, ptr nonnull readonly align 1 %76, i64 %75, i1 false)
   br label %155
 
-.body.thread:                                     ; preds = %.body.thread178, %174, %.thread, %.body
-  %.sroa.020.3104 = phi i1 [ true, %.thread ], [ %.sroa.020.3, %.body ], [ true, %174 ], [ true, %.body.thread178 ]
-  %.pn36103 = phi { ptr, i32 } [ %166, %.thread ], [ %.pn36, %.body ], [ %175, %174 ], [ %lpad.loopexit, %.body.thread178 ]
+.body.thread:                                     ; preds = %.body.thread177, %174, %.thread, %.body
+  %.sroa.020.3104 = phi i1 [ true, %.thread ], [ %.sroa.020.3, %.body ], [ true, %174 ], [ true, %.body.thread177 ]
+  %.pn36103 = phi { ptr, i32 } [ %166, %.thread ], [ %.pn36, %.body ], [ %175, %174 ], [ %lpad.loopexit, %.body.thread177 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$$GT$17h0cac322f2e81c074E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #32
           to label %39 unwind label %132
 

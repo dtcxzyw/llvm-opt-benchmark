@@ -14477,14 +14477,14 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %.loopexit.sink.split
 
 32:                                               ; preds = %47
-  %33 = getelementptr inbounds nuw i8, ptr %.02593, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.02587, i64 1
   %.not = icmp eq ptr %33, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !281
 
 .lr.ph:                                           ; preds = %20, %32
-  %.02593 = phi ptr [ %33, %32 ], [ %4, %20 ]
-  %.02892 = phi i64 [ %50, %32 ], [ 0, %20 ]
-  %34 = load i8, ptr %.02593, align 1, !tbaa !15
+  %.02587 = phi ptr [ %33, %32 ], [ %4, %20 ]
+  %.02886 = phi i64 [ %50, %32 ], [ 0, %20 ]
+  %34 = load i8, ptr %.02587, align 1, !tbaa !15
   %35 = sext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
@@ -14512,11 +14512,11 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %.loopexit.sink.split
 
 47:                                               ; preds = %.lr.ph
-  %48 = mul i64 %.02892, 10
+  %48 = mul i64 %.02886, 10
   %49 = zext nneg i32 %36 to i64
   %50 = add i64 %48, %49
-  %.not88 = icmp ult i64 %50, %.02892
-  br i1 %.not88, label %51, label %32
+  %.not82 = icmp ult i64 %50, %.02886
+  br i1 %.not82, label %51, label %32
 
 51:                                               ; preds = %47
   %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !285
@@ -14540,9 +14540,9 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %17, %29, %44, %58
-  %.sink100 = phi i64 [ 24, %58 ], [ 21, %44 ], [ 25, %29 ], [ 21, %17 ]
+  %.sink94 = phi i64 [ 24, %58 ], [ 21, %44 ], [ 25, %29 ], [ 21, %17 ]
   %.sink = phi i64 [ %60, %58 ], [ %46, %44 ], [ %31, %29 ], [ %19, %17 ]
-  store i64 %.sink100, ptr %2, align 8
+  store i64 %.sink94, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -14595,21 +14595,21 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.053.0.copyload, i64 %4
-  %.068 = getelementptr inbounds nuw i8, ptr %.sroa.053.0.copyload, i64 1
-  %.not73 = icmp eq i64 %4, 1
-  br i1 %.not73, label %.thread, label %.lr.ph
+  %.062 = getelementptr inbounds nuw i8, ptr %.sroa.053.0.copyload, i64 1
+  %.not67 = icmp eq i64 %4, 1
+  br i1 %.not67, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %47
-  %.070 = phi ptr [ %.0, %47 ], [ %.068, %18 ]
-  %.pn69 = phi ptr [ %.2, %47 ], [ %.sroa.053.0.copyload, %18 ]
-  %20 = load i8, ptr %.070, align 1, !tbaa !15
+  %.064 = phi ptr [ %.0, %47 ], [ %.062, %18 ]
+  %.pn63 = phi ptr [ %.2, %47 ], [ %.sroa.053.0.copyload, %18 ]
+  %20 = load i8, ptr %.064, align 1, !tbaa !15
   switch i8 %20, label %47 [
     i8 47, label %.thread
     i8 126, label %21
   ]
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.pn69, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.pn63, i64 2
   %23 = icmp eq ptr %22, %19
   br i1 %23, label %24, label %34
 
@@ -14662,7 +14662,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %.thread.sink.split
 
 47:                                               ; preds = %.lr.ph, %34
-  %.2 = phi ptr [ %22, %34 ], [ %.070, %.lr.ph ]
+  %.2 = phi ptr [ %22, %34 ], [ %.064, %.lr.ph ]
   %.0 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %48 = icmp ult ptr %.0, %19
   br i1 %48, label %.lr.ph, label %.thread, !llvm.loop !299
@@ -14678,7 +14678,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %.thread
 
 .thread:                                          ; preds = %47, %.lr.ph, %.thread.sink.split, %18
-  %.1 = phi ptr [ %.068, %18 ], [ %.1.ph, %.thread.sink.split ], [ %.0, %47 ], [ %.070, %.lr.ph ]
+  %.1 = phi ptr [ %.062, %18 ], [ %.1.ph, %.thread.sink.split ], [ %.0, %47 ], [ %.064, %.lr.ph ]
   %49 = ptrtoint ptr %.1 to i64
   %50 = ptrtoint ptr %.sroa.053.0.copyload to i64
   %51 = sub i64 %49, %50
@@ -63211,14 +63211,14 @@ _ZN5boost4json6detail8charconv6detail10fast_float29compute_product_approximation
   %.sroa.19.0 = add nuw nsw i32 %243, %268
   %269 = and i64 %267, 9218868437227405311
   %.not22.i = icmp samesign ugt i32 %.sroa.19.0, 2046
-  %spec.select196 = tail call i32 @llvm.umin.i32(i32 %.sroa.19.0, i32 2047)
   %.not205 = select i1 %.not22.i, i1 true, i1 %.not21.i
-  %spec.select197 = select i1 %.not205, i64 0, i64 %269
+  %spec.select196 = select i1 %.not205, i64 0, i64 %269
+  %spec.select197 = select i1 %.not22.i, i32 2047, i32 %.sroa.19.0
   br label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit: ; preds = %256, %245, %207, %203, %248
-  %.sroa.19.1 = phi i32 [ 0, %245 ], [ 0, %203 ], [ 2047, %207 ], [ %255, %248 ], [ %spec.select196, %256 ]
-  %.sroa.0138.2 = phi i64 [ 0, %245 ], [ 0, %203 ], [ 0, %207 ], [ %253, %248 ], [ %spec.select197, %256 ]
+  %.sroa.0138.2 = phi i64 [ 0, %245 ], [ 0, %203 ], [ 0, %207 ], [ %253, %248 ], [ %spec.select196, %256 ]
+  %.sroa.19.1 = phi i32 [ 0, %245 ], [ 0, %203 ], [ 2047, %207 ], [ %255, %248 ], [ %spec.select197, %256 ]
   br i1 %162, label %270, label %.thread177
 
 270:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit
@@ -63315,14 +63315,14 @@ _ZN5boost4json6detail8charconv6detail10fast_float29compute_product_approximation
   %.sroa.19152.0 = add nuw nsw i32 %309, %334
   %335 = and i64 %333, 9218868437227405311
   %.not22.i87 = icmp samesign ugt i32 %.sroa.19152.0, 2046
-  %spec.select198 = tail call i32 @llvm.umin.i32(i32 %.sroa.19152.0, i32 2047)
   %.not211 = select i1 %.not22.i87, i1 true, i1 %.not21.i86
-  %spec.select199 = select i1 %.not211, i64 0, i64 %335
+  %spec.select198 = select i1 %.not211, i64 0, i64 %335
+  %spec.select199 = select i1 %.not22.i87, i32 2047, i32 %.sroa.19152.0
   br label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit96
 
 _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit96: ; preds = %322, %311, %273, %270, %314
-  %.sroa.19152.1 = phi i32 [ 0, %311 ], [ 0, %270 ], [ 2047, %273 ], [ %321, %314 ], [ %spec.select198, %322 ]
-  %.sroa.0146.2 = phi i64 [ 0, %311 ], [ 0, %270 ], [ 0, %273 ], [ %319, %314 ], [ %spec.select199, %322 ]
+  %.sroa.0146.2 = phi i64 [ 0, %311 ], [ 0, %270 ], [ 0, %273 ], [ %319, %314 ], [ %spec.select198, %322 ]
+  %.sroa.19152.1 = phi i32 [ 0, %311 ], [ 0, %270 ], [ 2047, %273 ], [ %321, %314 ], [ %spec.select199, %322 ]
   %.not.i125 = icmp ne i64 %.sroa.0138.2, %.sroa.0146.2
   %336 = icmp ne i32 %.sroa.19.1, %.sroa.19152.1
   %337 = select i1 %.not.i125, i1 true, i1 %336

@@ -4450,8 +4450,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN10ClipperLib12LocalMinimumESt6vectorI
 _ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit: ; preds = %20, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN10ClipperLib12LocalMinimumESt6vectorIS3_SaIS3_EEEENS2_12LocMinSorterEEvT_SA_T0_.exit
   %24 = load ptr, ptr %3, align 8
   %25 = load ptr, ptr %6, align 8
-  %.not2829 = icmp eq ptr %24, %25
-  br i1 %.not2829, label %._crit_edge, label %.lr.ph
+  %.not2526 = icmp eq ptr %24, %25
+  br i1 %.not2526, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %42
   %.pre = load ptr, ptr %3, align 8
@@ -4465,13 +4465,13 @@ _ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit: ; preds = %20, %_Z
   br label %45
 
 .lr.ph:                                           ; preds = %_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit, %42
-  %.sroa.016.030 = phi ptr [ %43, %42 ], [ %24, %_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit ]
-  %28 = load i64, ptr %.sroa.016.030, align 8
+  %.sroa.016.027 = phi ptr [ %43, %42 ], [ %24, %_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit ]
+  %28 = load i64, ptr %.sroa.016.027, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %28, ptr %2, align 8
   call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %35, label %31
@@ -4486,7 +4486,7 @@ _ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit: ; preds = %20, %_Z
   br label %35
 
 35:                                               ; preds = %31, %.lr.ph
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not15 = icmp eq ptr %37, null
   br i1 %.not15, label %42, label %38
@@ -4501,10 +4501,10 @@ _ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEED2Ev.exit: ; preds = %20, %_Z
   br label %42
 
 42:                                               ; preds = %38, %35
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 24
   %44 = load ptr, ptr %6, align 8
-  %.not28 = icmp eq ptr %43, %44
-  br i1 %.not28, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !44
+  %.not25 = icmp eq ptr %43, %44
+  br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !44
 
 45:                                               ; preds = %1, %._crit_edge
   ret void

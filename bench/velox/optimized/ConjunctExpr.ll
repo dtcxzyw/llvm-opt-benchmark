@@ -1076,11 +1076,11 @@ for.body.i.i.i.preheader.i:                       ; preds = %if.end6.i98
   %add.ptr.idx.i = shl nsw i64 %conv.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %117, i8 0, i64 %add.ptr.idx.i, i1 false)
   %.pre.i = load ptr, ptr %errors.i, align 8
-  %.pre52.i = load i32, ptr %end_.i62, align 8
+  %.pre50.i = load i32, ptr %end_.i62, align 8
   br label %_ZSt4fillIPmiEvT_S1_RKT0_.exit.i
 
 _ZSt4fillIPmiEvT_S1_RKT0_.exit.i:                 ; preds = %for.body.i.i.i.preheader.i, %if.end6.i98
-  %119 = phi i32 [ %.pre52.i, %for.body.i.i.i.preheader.i ], [ %118, %if.end6.i98 ]
+  %119 = phi i32 [ %.pre50.i, %for.body.i.i.i.preheader.i ], [ %118, %if.end6.i98 ]
   %120 = phi ptr [ %.pre.i, %for.body.i.i.i.preheader.i ], [ %111, %if.end6.i98 ]
   %121 = load ptr, ptr %45, align 8
   %rawNulls_.i.i = getelementptr inbounds nuw i8, ptr %120, i64 40

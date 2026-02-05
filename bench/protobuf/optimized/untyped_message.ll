@@ -2390,11 +2390,11 @@ if.end48:                                         ; preds = %if.end5.i89
 
 if.end48.if.end.i101_crit_edge:                   ; preds = %if.end48
   %.pre = load ptr, ptr %buffer_end_.i, align 8
-  %.pre339 = load ptr, ptr %stream, align 8
+  %.pre331 = load ptr, ptr %stream, align 8
   br label %if.end.i101
 
 if.end.i101:                                      ; preds = %if.end48.if.end.i101_crit_edge, %if.end48.thread
-  %28 = phi ptr [ %add.ptr.i.i96, %if.end48.thread ], [ %.pre339, %if.end48.if.end.i101_crit_edge ]
+  %28 = phi ptr [ %add.ptr.i.i96, %if.end48.thread ], [ %.pre331, %if.end48.if.end.i101_crit_edge ]
   %29 = phi ptr [ %26, %if.end48.thread ], [ %.pre, %if.end48.if.end.i101_crit_edge ]
   %x43.0258261 = phi i32 [ %conv.i93, %if.end48.thread ], [ %conv6.i, %if.end48.if.end.i101_crit_edge ]
   %sub.ptr.lhs.cast.i.i103 = ptrtoint ptr %29 to i64
@@ -2756,8 +2756,8 @@ sw.epilog:                                        ; preds = %do.body110, %do.bod
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %if.else.i79, %invoke.cont30.thread, %if.else.i, %invoke.cont23.thread, %if.end.i, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
-  %cleanup.dest.slot.0270 = phi i32 [ 2, %invoke.cont30.thread ], [ 2, %if.end4.i ], [ 2, %if.end48 ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.then3.i ], [ 2, %if.else.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.end.i ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
-  %76 = icmp eq i32 %cleanup.dest.slot.0270, 1
+  %cleanup.dest.slot.0265 = phi i32 [ 2, %invoke.cont30.thread ], [ 2, %if.end4.i ], [ 2, %if.end48 ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.then3.i ], [ 2, %if.else.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.end.i ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
+  %76 = icmp eq i32 %cleanup.dest.slot.0265, 1
   br i1 %76, label %return, label %while.body
 
 _ZNSt6vectorIiSaIiEED2Ev.exit233:                 ; preds = %ehcleanup204, %lpad.i55, %lpad.i183, %lpad.i222, %lpad.i152, %lpad.i123, %lpad.i

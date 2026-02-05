@@ -1052,8 +1052,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
 89:                                               ; preds = %75, %69
   %90 = load i32, ptr %11, align 8, !tbaa !29
   %91 = and i32 %90, 16384
-  %.not97 = icmp eq i32 %91, 0
-  br i1 %.not97, label %92, label %101
+  %.not94 = icmp eq i32 %91, 0
+  br i1 %.not94, label %92, label %101
 
 92:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1088,7 +1088,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
 101:                                              ; preds = %95, %89
   %102 = load i32, ptr %8, align 8, !tbaa !29
   %103 = and i32 %102, 7
-  switch i32 %103, label %default.unreachable101 [
+  switch i32 %103, label %default.unreachable98 [
     i32 0, label %104
     i32 1, label %109
     i32 2, label %114
@@ -1100,7 +1100,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
   ]
 
 104:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %105
     i32 1, label %106
     i32 2, label %107
@@ -1124,7 +1124,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 109:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %110
     i32 1, label %111
     i32 2, label %112
@@ -1148,7 +1148,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 114:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %115
     i32 1, label %116
     i32 2, label %117
@@ -1172,7 +1172,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 119:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %120
     i32 1, label %121
     i32 2, label %122
@@ -1196,7 +1196,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 124:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %125
     i32 1, label %126
     i32 2, label %127
@@ -1220,7 +1220,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 129:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %130
     i32 1, label %131
     i32 2, label %132
@@ -1244,7 +1244,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
 134:                                              ; preds = %101
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable98 [
     i32 0, label %135
     i32 1, label %136
     i32 2, label %137
@@ -1267,7 +1267,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
   invoke void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %25)
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %147
 
-default.unreachable101:                           ; preds = %134, %129, %124, %119, %114, %109, %104, %101
+default.unreachable98:                            ; preds = %134, %129, %124, %119, %114, %109, %104, %101
   unreachable
 
 139:                                              ; preds = %101
@@ -1301,7 +1301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %141
   br label %.body
 
 _ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit: ; preds = %105, %106, %107, %108, %110, %111, %112, %113, %115, %116, %117, %118, %120, %121, %122, %123, %125, %126, %127, %128, %130, %131, %132, %133, %135, %136, %137, %138
-  br i1 %.not97, label %146, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not94, label %146, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 146:                                              ; preds = %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)

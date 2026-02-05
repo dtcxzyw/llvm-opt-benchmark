@@ -11713,30 +11713,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit:
   %.0.copyload.i.i = load i64, ptr %2, align 4
   %11 = icmp eq i64 %.0.copyload.i.i, 0
   %12 = trunc i64 %.0.copyload.i.i to i32
-  %.sink122.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink122.sroa.gep129 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink122.sroa.gep131 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink122.sroa.gep132 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink122.sroa.gep133 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink122.sroa.gep134 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink122.sroa.gep136 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink122.sroa.gep137 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink122.sroa.gep139 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink122.sroa.gep140 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink122.sroa.gep141 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink122.sroa.gep142 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink122.sroa.gep144 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink122.sroa.gep145 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink122.sroa.gep147 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink122.sroa.gep148 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink122.sroa.gep149 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink122.sroa.gep150 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink122.sroa.gep152 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink122.sroa.gep153 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink122.sroa.gep155 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink122.sroa.gep156 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink122.sroa.gep157 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink122.sroa.gep158 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink119.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink119.sroa.gep126 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink119.sroa.gep128 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink119.sroa.gep129 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink119.sroa.gep130 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink119.sroa.gep131 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink119.sroa.gep133 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink119.sroa.gep134 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink119.sroa.gep136 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink119.sroa.gep137 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink119.sroa.gep138 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink119.sroa.gep139 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink119.sroa.gep141 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink119.sroa.gep142 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink119.sroa.gep144 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink119.sroa.gep145 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink119.sroa.gep146 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink119.sroa.gep147 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink119.sroa.gep149 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink119.sroa.gep150 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink119.sroa.gep152 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink119.sroa.gep153 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink119.sroa.gep154 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink119.sroa.gep155 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br i1 %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.invoke, label %15
 
 13:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.invoke, %36, %32
@@ -11745,10 +11745,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit:
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.exit
 
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %.sink122.sroa.gep154 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink122.sroa.gep146 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink122.sroa.gep138 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink122.sroa.gep130 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink119.sroa.gep151 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink119.sroa.gep143 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink119.sroa.gep135 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink119.sroa.gep127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.invoke, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit
 
@@ -11820,19 +11820,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exi
   br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.invoke
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.invoke: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit, %40, %41, %26, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit, %15, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %.sink122.sroa.phi = phi ptr [ %.sink122.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink122.sroa.gep129, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink122.sroa.gep130, %15 ], [ %.sink122.sroa.gep131, %26 ], [ %.sink122.sroa.gep132, %41 ], [ %.sink122.sroa.gep133, %40 ], [ %.sink122.sroa.gep134, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
-  %.sink122.sroa.phi135 = phi ptr [ %.sink122.sroa.gep136, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink122.sroa.gep137, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink122.sroa.gep138, %15 ], [ %.sink122.sroa.gep139, %26 ], [ %.sink122.sroa.gep140, %41 ], [ %.sink122.sroa.gep141, %40 ], [ %.sink122.sroa.gep142, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
-  %.sink122.sroa.phi143 = phi ptr [ %.sink122.sroa.gep144, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink122.sroa.gep145, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink122.sroa.gep146, %15 ], [ %.sink122.sroa.gep147, %26 ], [ %.sink122.sroa.gep148, %41 ], [ %.sink122.sroa.gep149, %40 ], [ %.sink122.sroa.gep150, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
-  %.sink122.sroa.phi151 = phi ptr [ %.sink122.sroa.gep152, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink122.sroa.gep153, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink122.sroa.gep154, %15 ], [ %.sink122.sroa.gep155, %26 ], [ %.sink122.sroa.gep156, %41 ], [ %.sink122.sroa.gep157, %40 ], [ %.sink122.sroa.gep158, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
-  %.sink122 = phi ptr [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %4, %15 ], [ %5, %26 ], [ %5, %41 ], [ %5, %40 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
+  %.sink119.sroa.phi = phi ptr [ %.sink119.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink119.sroa.gep126, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink119.sroa.gep127, %15 ], [ %.sink119.sroa.gep128, %26 ], [ %.sink119.sroa.gep129, %41 ], [ %.sink119.sroa.gep130, %40 ], [ %.sink119.sroa.gep131, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
+  %.sink119.sroa.phi132 = phi ptr [ %.sink119.sroa.gep133, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink119.sroa.gep134, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink119.sroa.gep135, %15 ], [ %.sink119.sroa.gep136, %26 ], [ %.sink119.sroa.gep137, %41 ], [ %.sink119.sroa.gep138, %40 ], [ %.sink119.sroa.gep139, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
+  %.sink119.sroa.phi140 = phi ptr [ %.sink119.sroa.gep141, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink119.sroa.gep142, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink119.sroa.gep143, %15 ], [ %.sink119.sroa.gep144, %26 ], [ %.sink119.sroa.gep145, %41 ], [ %.sink119.sroa.gep146, %40 ], [ %.sink119.sroa.gep147, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
+  %.sink119.sroa.phi148 = phi ptr [ %.sink119.sroa.gep149, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %.sink119.sroa.gep150, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %.sink119.sroa.gep151, %15 ], [ %.sink119.sroa.gep152, %26 ], [ %.sink119.sroa.gep153, %41 ], [ %.sink119.sroa.gep154, %40 ], [ %.sink119.sroa.gep155, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
+  %.sink119 = phi ptr [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %4, %15 ], [ %5, %26 ], [ %5, %41 ], [ %5, %40 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
   %.sink = phi i64 [ 1623, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ 1617, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ 1623, %15 ], [ 1630, %26 ], [ 1630, %41 ], [ 1630, %40 ], [ 1630, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
   %52 = phi ptr [ @.str.24, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit ], [ @.str.23, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ @.str.24, %15 ], [ @.str.25, %26 ], [ @.str.25, %41 ], [ @.str.25, %40 ], [ @.str.25, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit ]
-  store ptr @.str.6, ptr %.sink122, align 8
-  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16MakeAbsolutePathERKS0_, ptr %.sink122.sroa.phi, align 8
-  store i64 %.sink, ptr %.sink122.sroa.phi135, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16MakeAbsolutePathERKS0_, ptr %.sink122.sroa.phi143, align 8
-  store i8 0, ptr %.sink122.sroa.phi151, align 8
-  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink122, ptr noundef nonnull %52)
+  store ptr @.str.6, ptr %.sink119, align 8
+  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16MakeAbsolutePathERKS0_, ptr %.sink119.sroa.phi, align 8
+  store i64 %.sink, ptr %.sink119.sroa.phi132, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16MakeAbsolutePathERKS0_, ptr %.sink119.sroa.phi140, align 8
+  store i8 0, ptr %.sink119.sroa.phi148, align 8
+  invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %.sink119, ptr noundef nonnull %52)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit56 unwind label %13
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread: ; preds = %28, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit
@@ -11886,12 +11886,12 @@ _ZSt6fill_nIPPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeEmS3_ET_S5_T0_RK
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02281 = phi i64 [ %79, %.lr.ph ], [ %70, %.lr.ph.preheader ]
-  %.02380 = phi ptr [ %81, %.lr.ph ], [ %63, %.lr.ph.preheader ]
-  %79 = add nsw i64 %.02281, -1
+  %.02278 = phi i64 [ %79, %.lr.ph ], [ %70, %.lr.ph.preheader ]
+  %.02377 = phi ptr [ %81, %.lr.ph ], [ %63, %.lr.ph.preheader ]
+  %79 = add nsw i64 %.02278, -1
   %80 = getelementptr inbounds ptr, ptr %73, i64 %79
-  store ptr %.02380, ptr %80, align 8
-  %81 = load ptr, ptr %.02380, align 8
+  store ptr %.02377, ptr %80, align 8
+  %81 = load ptr, ptr %.02377, align 8
   %.not = icmp eq i64 %79, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !148
 
@@ -11903,13 +11903,13 @@ _ZSt6fill_nIPPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeEmS3_ET_S5_T0_RK
 84:                                               ; preds = %125
   %85 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %.sroa.060.0110, null
+  %.not.i.i.i = icmp eq ptr %.sroa.060.0107, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = ptrtoint ptr %.sroa.060.0110 to i64
-  %88 = sub i64 %.sroa.9.0108, %87
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0110, i64 noundef %88) #29
+  %87 = ptrtoint ptr %.sroa.060.0107 to i64
+  %88 = sub i64 %.sroa.9.0105, %87
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0107, i64 noundef %88) #29
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.exit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -11917,9 +11917,9 @@ _ZSt6fill_nIPPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeEmS3_ET_S5_T0_RK
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %67
-  %.0.i.i.i.i.i112 = phi ptr [ null, %67 ], [ %.0.i.i.i.i.i.ph, %._crit_edge.loopexit ]
-  %.sroa.060.0110 = phi ptr [ null, %67 ], [ %73, %._crit_edge.loopexit ]
-  %.sroa.9.0108 = phi i64 [ 0, %67 ], [ %89, %._crit_edge.loopexit ]
+  %.0.i.i.i.i.i109 = phi ptr [ null, %67 ], [ %.0.i.i.i.i.i.ph, %._crit_edge.loopexit ]
+  %.sroa.060.0107 = phi ptr [ null, %67 ], [ %73, %._crit_edge.loopexit ]
+  %.sroa.9.0105 = phi i64 [ 0, %67 ], [ %89, %._crit_edge.loopexit ]
   %90 = load i32, ptr %0, align 4
   %91 = icmp eq i32 %90, %53
   br i1 %91, label %122, label %92
@@ -11977,16 +11977,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 122:                                              ; preds = %118, %105, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i, %._crit_edge
   %123 = load i32, ptr %27, align 4
   store i32 %123, ptr %10, align 4
-  %.not7582 = icmp eq ptr %.sroa.060.0110, %.0.i.i.i.i.i112
-  br i1 %.not7582, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37._crit_edge, label %.lr.ph85
+  %.not7279 = icmp eq ptr %.sroa.060.0107, %.0.i.i.i.i.i109
+  br i1 %.not7279, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37._crit_edge, label %.lr.ph82
 
-.lr.ph85:                                         ; preds = %122
+.lr.ph82:                                         ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %125
 
-125:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37, %.lr.ph85
-  %.sroa.057.083 = phi ptr [ %.sroa.060.0110, %.lr.ph85 ], [ %167, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37 ]
-  %126 = load ptr, ptr %.sroa.057.083, align 8
+125:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37, %.lr.ph82
+  %.sroa.057.080 = phi ptr [ %.sroa.060.0107, %.lr.ph82 ], [ %167, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37 ]
+  %126 = load ptr, ptr %.sroa.057.080, align 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_AppendNodeERKNS_7SdfPathEPKNS_12Sdf_PathNodeE(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %126)
           to label %127 unwind label %84
 
@@ -12031,16 +12031,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread: ; preds = %127
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %131, %144
-  %.pr71 = load i32, ptr %6, align 4
+  %.pr68 = load i32, ptr %6, align 4
   %148 = load i32, ptr %124, align 4
   store i32 0, ptr %124, align 4
   store i32 %148, ptr %10, align 4
-  %.not.i.i36 = icmp eq i32 %.pr71, 0
+  %.not.i.i36 = icmp eq i32 %.pr68, 0
   br i1 %.not.i.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37, label %149
 
 149:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit
-  %150 = and i32 %.pr71, 255
-  %151 = lshr i32 %.pr71, 8
+  %150 = and i32 %.pr68, 255
+  %151 = lshr i32 %.pr68, 8
   %152 = zext nneg i32 %150 to i64
   %153 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %152
   %154 = load ptr, ptr %153, align 8
@@ -12067,19 +12067,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %131, %144
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit, %149, %162
   %166 = load i32, ptr %0, align 4
   %.not.i38 = icmp eq i32 %166, 0
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.057.083, i64 8
-  %.not75 = icmp eq ptr %167, %.0.i.i.i.i.i112
-  %or.cond = select i1 %.not.i38, i1 true, i1 %.not75
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.057.080, i64 8
+  %.not72 = icmp eq ptr %167, %.0.i.i.i.i.i109
+  %or.cond = select i1 %.not.i38, i1 true, i1 %.not72
   br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37._crit_edge, label %125
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37, %122
-  %.not.i.i.i39 = icmp eq ptr %.sroa.060.0110, null
+  %.not.i.i.i39 = icmp eq ptr %.sroa.060.0107, null
   br i1 %.not.i.i.i39, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.exit40, label %168
 
 168:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37._crit_edge
-  %169 = ptrtoint ptr %.sroa.060.0110 to i64
-  %170 = sub i64 %.sroa.9.0108, %169
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0110, i64 noundef %170) #29
+  %169 = ptrtoint ptr %.sroa.060.0107 to i64
+  %170 = sub i64 %.sroa.9.0105, %169
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0107, i64 noundef %170) #29
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.exit40
 
 171:                                              ; preds = %55
@@ -12259,17 +12259,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit50.thread: ; preds = %2
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit50: ; preds = %238, %251
-  %.pr73 = load i32, ptr %9, align 4
+  %.pr70 = load i32, ptr %9, align 4
   %255 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %256 = load i32, ptr %255, align 4
   store i32 0, ptr %255, align 4
   store i32 %256, ptr %10, align 4
-  %.not.i.i51 = icmp eq i32 %.pr73, 0
+  %.not.i.i51 = icmp eq i32 %.pr70, 0
   br i1 %.not.i.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit52, label %257
 
 257:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit50
-  %258 = and i32 %.pr73, 255
-  %259 = lshr i32 %.pr73, 8
+  %258 = and i32 %.pr70, 255
+  %259 = lshr i32 %.pr70, 8
   %260 = zext nneg i32 %258 to i64
   %261 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %260
   %262 = load ptr, ptr %261, align 8

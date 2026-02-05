@@ -4957,8 +4957,8 @@ declare void @_ZN10cmMakefile16RemoveDefinitionERKNSt7__cxx1112basic_stringIcSt1
 define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_124cmForEachFunctionBlocker6invokeERKSt6vectorI18cmListFileFunctionSaIS2_EER17cmExecutionStatusR10cmMakefile(ptr %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2880) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.cmExecutionStatus, align 8
   %4 = alloca %"class.std::optional.151", align 8
-  %.not23 = icmp eq ptr %.0.val, %.8.val
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %.0.val, %.8.val
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4983,9 +4983,9 @@ define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_124cmForEachFuncti
   br label %24
 
 24:                                               ; preds = %_ZN17cmExecutionStatusD2Ev.exit, %.lr.ph
-  %.sroa.3.026 = phi i8 [ 0, %.lr.ph ], [ %.sroa.3.2, %_ZN17cmExecutionStatusD2Ev.exit ]
-  %.sroa.0.025 = phi i8 [ 1, %.lr.ph ], [ %.sroa.0.2, %_ZN17cmExecutionStatusD2Ev.exit ]
-  %.sroa.010.024 = phi ptr [ %.0.val, %.lr.ph ], [ %107, %_ZN17cmExecutionStatusD2Ev.exit ]
+  %.sroa.3.021 = phi i8 [ 0, %.lr.ph ], [ %.sroa.3.2, %_ZN17cmExecutionStatusD2Ev.exit ]
+  %.sroa.0.020 = phi i8 [ 1, %.lr.ph ], [ %.sroa.0.2, %_ZN17cmExecutionStatusD2Ev.exit ]
+  %.sroa.07.019 = phi ptr [ %.0.val, %.lr.ph ], [ %107, %_ZN17cmExecutionStatusD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !251
   store ptr %6, ptr %5, align 8, !tbaa !9
@@ -4996,7 +4996,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_124cmForEachFuncti
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i32 0, ptr %9, align 8
   store i8 0, ptr %12, align 8, !tbaa !40
-  %25 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.024, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4)
+  %25 = invoke noundef zeroext i1 @_ZN10cmMakefile14ExecuteCommandERK18cmListFileFunctionR17cmExecutionStatusSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(2880) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.019, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4)
           to label %26 unwind label %64
 
 26:                                               ; preds = %24
@@ -5171,9 +5171,9 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit: ; preds = %86
   br label %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread
 
 _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread: ; preds = %83, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit, %88, %76, %73, %82, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %.sroa.0.2 = phi i8 [ %.sroa.0.025, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sroa.0.025, %76 ], [ %.sroa.0.025, %73 ], [ %.sroa.0.025, %82 ], [ %.sroa.0.025, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ 0, %88 ], [ 0, %83 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.020, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sroa.0.020, %76 ], [ %.sroa.0.020, %73 ], [ %.sroa.0.020, %82 ], [ %.sroa.0.020, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ 0, %88 ], [ 0, %83 ]
   %cond.not = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %76 ], [ true, %73 ], [ true, %82 ], [ false, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ true, %88 ], [ true, %83 ]
-  %.sroa.3.2 = phi i8 [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sroa.3.026, %76 ], [ 1, %73 ], [ 1, %82 ], [ %.sroa.3.026, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ 1, %88 ], [ 1, %83 ]
+  %.sroa.3.2 = phi i8 [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sroa.3.021, %76 ], [ 1, %73 ], [ 1, %82 ], [ %.sroa.3.021, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ 1, %88 ], [ 1, %83 ]
   %89 = load ptr, ptr %11, align 8, !tbaa !59
   %90 = load ptr, ptr %18, align 8, !tbaa !55
   %.not4.i.i.i.i.i = icmp eq ptr %89, %90
@@ -5227,7 +5227,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN17cmExecutionStatusD2Ev.exit:                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.010.024, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 16
   %.not = icmp eq ptr %107, %.8.val
   %or.cond = select i1 %cond.not, i1 true, i1 %.not
   br i1 %or.cond, label %._crit_edge.loopexit, label %24

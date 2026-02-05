@@ -15655,8 +15655,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service5clear
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #33
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !130
-  %.not48 = icmp eq ptr %8, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not42 = icmp eq ptr %8, null
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -15689,16 +15689,16 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service5clear
 
 25:                                               ; preds = %20
   %26 = icmp ne i32 %22, 0
-  br label %.thread40
+  br label %.thread38
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %22) #33
-  br label %.thread40
+  br label %.thread38
 
-.thread40:                                        ; preds = %25, %27
+.thread38:                                        ; preds = %25, %27
   %.0.i.i = phi i1 [ %26, %25 ], [ %31, %27 ]
   %32 = select i1 %.0.i.i, i64 3, i64 2
   store i32 %22, ptr %3, align 8
@@ -15719,11 +15719,11 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service5clear
   store i32 0, ptr %36, align 4, !tbaa !538
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %11, align 8, !tbaa !534
-  %.pre51 = sext i32 %.pre to i64
+  %.pre45 = sext i32 %.pre to i64
   br label %37
 
 37:                                               ; preds = %33, %10
-  %.pre-phi = phi i64 [ %.pre51, %33 ], [ %13, %10 ]
+  %.pre-phi = phi i64 [ %.pre45, %33 ], [ %13, %10 ]
   %38 = getelementptr inbounds ptr, ptr %9, i64 %.pre-phi
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = icmp eq ptr %39, %11
@@ -15740,24 +15740,24 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service5clear
   %46 = load ptr, ptr %45, align 8, !tbaa !545
   %.not33 = icmp eq ptr %46, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.pre50 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !544
-  br i1 %.not33, label %._crit_edge49, label %47
+  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !544
+  br i1 %.not33, label %._crit_edge43, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %.pre50, ptr %48, align 8, !tbaa !544
-  br label %._crit_edge49
+  store ptr %.pre44, ptr %48, align 8, !tbaa !544
+  br label %._crit_edge43
 
-._crit_edge49:                                    ; preds = %44, %47
-  %.not34 = icmp eq ptr %.pre50, null
+._crit_edge43:                                    ; preds = %44, %47
+  %.not34 = icmp eq ptr %.pre44, null
   br i1 %.not34, label %51, label %49
 
-49:                                               ; preds = %._crit_edge49
-  %50 = getelementptr inbounds nuw i8, ptr %.pre50, i64 32
+49:                                               ; preds = %._crit_edge43
+  %50 = getelementptr inbounds nuw i8, ptr %.pre44, i64 32
   store ptr %46, ptr %50, align 8, !tbaa !545
   br label %51
 
-51:                                               ; preds = %._crit_edge49, %49
+51:                                               ; preds = %._crit_edge43, %49
   %52 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio6detail16get_signal_stateEvE5state, i64 64), i64 %.pre-phi
   %53 = load i64, ptr %52, align 8, !tbaa !164
   %54 = add i64 %53, -1
@@ -15775,7 +15775,7 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service5clear
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit
 
-_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds = %.thread40, %._crit_edge
+_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds = %.thread38, %._crit_edge
   %58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #33
   ret void
 }

@@ -8633,7 +8633,7 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit:            ; preds = %24, %switch.lookup
 
 _ZN12_GLOBAL__N_131doesDirectiveHaveAssociatedStmtEN5clang20OpenACCDirectiveKindE.exit: ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %_ZN5clang6Parser10ParseScopeD2Ev.exit
   %48 = phi i8 [ %.pre, %_ZN5clang6Parser10ParseScopeD2Ev.exit ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ], [ %22, %21 ]
-  %.sroa.019.0 = phi i64 [ %47, %_ZN5clang6Parser10ParseScopeD2Ev.exit ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ]
+  %.sroa.017.0 = phi i64 [ %47, %_ZN5clang6Parser10ParseScopeD2Ev.exit ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ]
   %49 = load ptr, ptr %9, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 744
   %51 = load ptr, ptr %50, align 8, !tbaa !792
@@ -8664,7 +8664,7 @@ _ZN12_GLOBAL__N_131doesDirectiveHaveAssociatedStmtEN5clang20OpenACCDirectiveKind
   %67 = load i32, ptr %17, align 8, !tbaa !744
   %68 = zext i32 %67 to i64
   store i64 %68, ptr %66, align 8, !tbaa !1085
-  %69 = call i64 @_ZN5clang11SemaOpenACC21ActOnEndStmtDirectiveENS_20OpenACCDirectiveKindENS_14SourceLocationES2_S2_S2_N4llvm8ArrayRefIPNS_4ExprEEENS_17OpenACCAtomicKindES2_S2_NS4_IPNS_13OpenACCClauseEEENS_12ActionResultIPNS_4StmtELb1EEE(ptr noundef nonnull align 8 dereferenceable(192) %51, i8 noundef zeroext %48, i32 %.sroa.06.0.copyload, i32 %.sroa.05.0.copyload, i32 %.sroa.04.0.copyload, i32 %.sroa.03.0.copyload, ptr noundef nonnull byval(%"class.llvm::ArrayRef.776") align 8 %5, i8 noundef zeroext %62, i32 %.sroa.02.0.copyload, i32 %.sroa.01.0.copyload, ptr noundef nonnull byval(%"class.llvm::ArrayRef.710") align 8 %6, i64 %.sroa.019.0) #18
+  %69 = call i64 @_ZN5clang11SemaOpenACC21ActOnEndStmtDirectiveENS_20OpenACCDirectiveKindENS_14SourceLocationES2_S2_S2_N4llvm8ArrayRefIPNS_4ExprEEENS_17OpenACCAtomicKindES2_S2_NS4_IPNS_13OpenACCClauseEEENS_12ActionResultIPNS_4StmtELb1EEE(ptr noundef nonnull align 8 dereferenceable(192) %51, i8 noundef zeroext %48, i32 %.sroa.06.0.copyload, i32 %.sroa.05.0.copyload, i32 %.sroa.04.0.copyload, i32 %.sroa.03.0.copyload, ptr noundef nonnull byval(%"class.llvm::ArrayRef.776") align 8 %5, i8 noundef zeroext %62, i32 %.sroa.02.0.copyload, i32 %.sroa.01.0.copyload, ptr noundef nonnull byval(%"class.llvm::ArrayRef.710") align 8 %6, i64 %.sroa.017.0) #18
   br label %70
 
 70:                                               ; preds = %1, %_ZN12_GLOBAL__N_131doesDirectiveHaveAssociatedStmtEN5clang20OpenACCDirectiveKindE.exit

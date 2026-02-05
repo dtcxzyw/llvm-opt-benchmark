@@ -873,8 +873,8 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo13ge
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load i8, ptr %25, align 16
   %27 = icmp ne i8 %26, 40
-  %.not321 = icmp eq ptr %2, null
-  %.not = or i1 %.not321, %27
+  %.not285 = icmp eq ptr %2, null
+  %.not = or i1 %.not285, %27
   br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %3
@@ -893,7 +893,7 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo13ge
 
 35:                                               ; preds = %3
   %36 = icmp ne i8 %26, 13
-  %.not68 = or i1 %.not321, %36
+  %.not68 = or i1 %.not285, %36
   br i1 %.not68, label %147, label %37
 
 37:                                               ; preds = %35
@@ -1199,8 +1199,8 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo11ge
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i8, ptr %8, align 16
   %10 = icmp ne i8 %9, 27
-  %.not20 = icmp eq ptr %2, null
-  %.not = or i1 %.not20, %10
+  %.not18 = icmp eq ptr %2, null
+  %.not = or i1 %.not18, %10
   br i1 %.not, label %45, label %11
 
 11:                                               ; preds = %3

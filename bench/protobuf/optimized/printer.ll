@@ -3408,10 +3408,10 @@ invoke.cont156:                                   ; preds = %if.end151
 if.end159:                                        ; preds = %if.end151.thread, %invoke.cont156
   %agg.tmp.sroa.2.0.copyload.i16410691085 = phi ptr [ %chunk.sroa.7.0.copyload, %if.end151.thread ], [ %add.ptr.i4.i, %invoke.cont156 ]
   %110 = phi i64 [ %chunk.sroa.0.0.copyload, %if.end151.thread ], [ %.sroa.speculated.i.i, %invoke.cont156 ]
-  %suffix.sroa.4.310701084 = phi ptr [ null, %if.end151.thread ], [ %add.ptr.i150, %invoke.cont156 ]
-  %suffix.sroa.0.310711083 = phi i64 [ 0, %if.end151.thread ], [ %sub.i, %invoke.cont156 ]
-  %prefix.sroa.5.310721082 = phi ptr [ null, %if.end151.thread ], [ %chunk.sroa.7.0.copyload, %invoke.cont156 ]
-  %prefix.sroa.0.310731081 = phi i64 [ 0, %if.end151.thread ], [ %sub.ptr.sub.i124, %invoke.cont156 ]
+  %suffix.sroa.4.010701084 = phi ptr [ null, %if.end151.thread ], [ %add.ptr.i150, %invoke.cont156 ]
+  %suffix.sroa.0.010711083 = phi i64 [ 0, %if.end151.thread ], [ %sub.i, %invoke.cont156 ]
+  %prefix.sroa.5.010721082 = phi ptr [ null, %if.end151.thread ], [ %chunk.sroa.7.0.copyload, %invoke.cont156 ]
+  %prefix.sroa.0.010731081 = phi i64 [ 0, %if.end151.thread ], [ %sub.ptr.sub.i124, %invoke.cont156 ]
   %agg.tmp154.sroa.0.0.copyload10751080 = phi i64 [ %agg.tmp154.sroa.0.0.copyload1066, %if.end151.thread ], [ %agg.tmp154.sroa.0.0.copyload, %invoke.cont156 ]
   %tobool1.i.i10781079 = phi i1 [ %tobool1.i.i1067, %if.end151.thread ], [ %tobool1.i.i, %invoke.cont156 ]
   %cmp.not.i.i167 = icmp ugt i64 %110, 6
@@ -4119,7 +4119,7 @@ if.end336:                                        ; preds = %if.then332, %if.the
   br i1 %cmp.i369, label %land.lhs.true414, label %if.then338
 
 if.then338:                                       ; preds = %land.lhs.true330, %if.end336
-  invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %prefix.sroa.5.310721082, i64 noundef %prefix.sroa.0.310731081)
+  invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %prefix.sroa.5.010721082, i64 noundef %prefix.sroa.0.010731081)
           to label %invoke.cont340 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont340:                                   ; preds = %if.then338
@@ -4132,7 +4132,7 @@ invoke.cont342:                                   ; preds = %invoke.cont340
   %170 = load i64, ptr %bytes_written_.i115, align 8
   %171 = load i64, ptr %sub254, align 8
   %sub347 = sub i64 %170, %171
-  invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %suffix.sroa.4.310701084, i64 noundef %suffix.sroa.0.310711083)
+  invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %suffix.sroa.4.010701084, i64 noundef %suffix.sroa.0.010711083)
           to label %if.end412 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit
 
 cond.false:                                       ; preds = %if.end316
@@ -4144,8 +4144,8 @@ cleanup.action:                                   ; preds = %cond.false
   unreachable
 
 cleanup.done:                                     ; preds = %if.end316
-  %cmp.i382 = icmp eq i64 %prefix.sroa.0.310731081, 0
-  %cmp.i383 = icmp eq i64 %suffix.sroa.0.310711083, 0
+  %cmp.i382 = icmp eq i64 %prefix.sroa.0.010731081, 0
+  %cmp.i383 = icmp eq i64 %suffix.sroa.0.010711083, 0
   %spec.select590 = select i1 %cmp.i382, i1 %cmp.i383, i1 false
   %call376 = invoke noundef zeroext i1 @_ZN6google8protobuf2io7Printer8ValidateEbNS2_12PrintOptionsESt17basic_string_viewIcSt11char_traitsIcEE(i1 noundef zeroext %spec.select590, i64 %agg.tmp154.sroa.0.0.copyload10751080, i8 poison, i64 64, ptr nonnull @.str.20)
           to label %invoke.cont375 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit

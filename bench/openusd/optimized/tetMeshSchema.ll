@@ -2039,8 +2039,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
 
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
   %40 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
-  %.pre51 = load i8, ptr @__libc_single_threaded, align 1
-  %41 = icmp eq i8 %.pre51, 0
+  %.pre49 = load i8, ptr @__libc_single_threaded, align 1
+  %41 = icmp eq i8 %.pre49, 0
   store ptr %25, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %42, align 8

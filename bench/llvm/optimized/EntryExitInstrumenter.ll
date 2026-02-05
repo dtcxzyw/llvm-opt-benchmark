@@ -964,7 +964,7 @@ define internal fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !104
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %43) #17
-  switch i64 %2, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301 [
+  switch i64 %2, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit93
     i64 24, label %_ZN4llvmeqENS_9StringRefES0_.exit97
@@ -976,7 +976,7 @@ define internal fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %6
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
   %49 = icmp eq i32 %bcmp.i, 0
-  br i1 %49, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %49, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit93:              ; preds = %6
   %bcmp.i92 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.8, i64 %2)
@@ -1001,17 +1001,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit105:             ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit109:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit101
   %bcmp.i108 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.12, i64 %2)
   %54 = icmp eq i32 %bcmp.i108, 0
-  br i1 %54, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %54, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit113:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit105
   %bcmp.i112 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.13, i64 %2)
   %55 = icmp eq i32 %bcmp.i112, 0
-  br i1 %55, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %55, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit117:             ; preds = %6
   %bcmp.i116 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.14, i64 %2)
   %56 = icmp eq i32 %bcmp.i116, 0
-  br i1 %56, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %56, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit117, %_ZN4llvmeqENS_9StringRefES0_.exit113, %_ZN4llvmeqENS_9StringRefES0_.exit109, %_ZN4llvmeqENS_9StringRefES0_.exit105, %_ZN4llvmeqENS_9StringRefES0_.exit101, %_ZN4llvmeqENS_9StringRefES0_.exit97, %_ZN4llvmeqENS_9StringRefES0_.exit93, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1029,12 +1029,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %62 = icmp eq i32 %61, 19
   %.not.i118 = icmp eq i64 %2, 8
   %or.cond = select i1 %62, i1 %.not.i118, i1 false
-  br i1 %or.cond, label %_ZN4llvmeqENS_9StringRefES0_.exit121, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288
+  br i1 %or.cond, label %_ZN4llvmeqENS_9StringRefES0_.exit121, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284
 
 _ZN4llvmeqENS_9StringRefES0_.exit121:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %bcmp.i120 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @.str.12, i64 8)
   %63 = icmp eq i32 %bcmp.i120, 0
-  br i1 %63, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288
+  br i1 %63, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284
 
 _ZN4llvmeqENS_9StringRefES0_.exit121.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 288
@@ -1116,7 +1116,7 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %_ZN4llvm8Debug
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %.pr) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit121.thread288:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+_ZN4llvmeqENS_9StringRefES0_.exit121.thread284:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %94 = load i32, ptr %93, align 8, !tbaa !133
   switch i32 %94, label %145 [
@@ -1129,7 +1129,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit121.thread288:   ; preds = %_ZN4llvmeqENS_9Stri
     i32 3, label %95
   ]
 
-95:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288
+95:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284, %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284
   %96 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef nonnull %47, i32 noundef 306, ptr null, i64 0) #17
   %.not.i124 = icmp eq ptr %96, null
   br i1 %.not.i124, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %97
@@ -1196,12 +1196,12 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i132: ; preds = %116, %114
   br label %_ZN4llvm8DebugLocD2Ev.exit136
 
 _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit134: ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit130
-  %.pr291 = load ptr, ptr %21, align 8, !tbaa !39
-  %.not.i.i.i.i135 = icmp eq ptr %.pr291, null
+  %.pr287 = load ptr, ptr %21, align 8, !tbaa !39
+  %.not.i.i.i.i135 = icmp eq ptr %.pr287, null
   br i1 %.not.i.i.i.i135, label %_ZN4llvm8DebugLocD2Ev.exit136, label %120
 
 120:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit134
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %.pr291) #17
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %.pr287) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit136
 
 _ZN4llvm8DebugLocD2Ev.exit136:                    ; preds = %118, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i132, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit134, %120
@@ -1267,15 +1267,15 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i144: ; preds = %140, %138
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit146: ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit142
-  %.pr293 = load ptr, ptr %25, align 8, !tbaa !39
-  %.not.i.i.i.i147 = icmp eq ptr %.pr293, null
+  %.pr289 = load ptr, ptr %25, align 8, !tbaa !39
+  %.not.i.i.i.i147 = icmp eq ptr %.pr289, null
   br i1 %.not.i.i.i.i147, label %_ZN4llvm8DebugLocD2Ev.exit, label %144
 
 144:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit146
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %.pr293) #17
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %.pr289) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-145:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121.thread288
+145:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit121.thread284
   %146 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %48) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %147 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1344,12 +1344,12 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i153: ; preds = %166, %164
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit155: ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit151
-  %.pr295 = load ptr, ptr %27, align 8, !tbaa !39
-  %.not.i.i.i.i156 = icmp eq ptr %.pr295, null
+  %.pr291 = load ptr, ptr %27, align 8, !tbaa !39
+  %.not.i.i.i.i156 = icmp eq ptr %.pr291, null
   br i1 %.not.i.i.i.i156, label %_ZN4llvm8DebugLocD2Ev.exit, label %170
 
 170:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit155
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(8) %.pr295) #17
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(8) %.pr291) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %168, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i153, %142, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i144, %90, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %170, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit155, %144, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit146, %92, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
@@ -1371,12 +1371,12 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZN4llvm8DebugLocD2
 _ZN4llvmeqENS_9StringRefES0_.exit161:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit97
   %bcmp.i160 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.16, i64 %2)
   %176 = icmp eq i32 %bcmp.i160, 0
-  br i1 %176, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %176, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit165:             ; preds = %6
   %bcmp.i164 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.17, i64 %2)
   %177 = icmp eq i32 %bcmp.i164, 0
-  br i1 %177, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread301
+  br i1 %177, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread297
 
 _ZN4llvmeqENS_9StringRefES0_.exit161.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit165, %_ZN4llvmeqENS_9StringRefES0_.exit161
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -1470,7 +1470,7 @@ _ZN4llvm8DebugLocD2Ev.exit177:                    ; preds = %_ZN4llvm8DebugLocC2
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %215
 
-_ZN4llvmeqENS_9StringRefES0_.exit165.thread301:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit161, %_ZN4llvmeqENS_9StringRefES0_.exit117, %_ZN4llvmeqENS_9StringRefES0_.exit113, %_ZN4llvmeqENS_9StringRefES0_.exit109, %_ZN4llvmeqENS_9StringRefES0_.exit, %6, %_ZN4llvmeqENS_9StringRefES0_.exit165
+_ZN4llvmeqENS_9StringRefES0_.exit165.thread297:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit161, %_ZN4llvmeqENS_9StringRefES0_.exit117, %_ZN4llvmeqENS_9StringRefES0_.exit113, %_ZN4llvmeqENS_9StringRefES0_.exit109, %_ZN4llvmeqENS_9StringRefES0_.exit, %6, %_ZN4llvmeqENS_9StringRefES0_.exit165
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)

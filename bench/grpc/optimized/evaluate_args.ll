@@ -1353,10 +1353,10 @@ define { i64, ptr } @_ZNK9grpc_core12EvaluateArgs7GetPathEv(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %3, %1, %6
-  %.sroa.0.2 = phi i64 [ %16, %6 ], [ 0, %1 ], [ 0, %3 ]
-  %.sroa.3.2 = phi ptr [ %12, %6 ], [ null, %1 ], [ null, %3 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
+  %.sroa.0.1 = phi i64 [ %16, %6 ], [ 0, %1 ], [ 0, %3 ]
+  %.sroa.3.1 = phi ptr [ %12, %6 ], [ null, %1 ], [ null, %3 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -1427,10 +1427,10 @@ define { i64, ptr } @_ZNK9grpc_core12EvaluateArgs9GetMethodEv(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %4, %1, %8
-  %.sroa.3.2 = phi ptr [ %15, %8 ], [ null, %1 ], [ null, %4 ]
-  %.sroa.01.2 = phi i64 [ %19, %8 ], [ 0, %1 ], [ 0, %4 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.01.2, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
+  %.sroa.3.1 = phi ptr [ %15, %8 ], [ null, %1 ], [ null, %4 ]
+  %.sroa.01.1 = phi i64 [ %19, %8 ], [ 0, %1 ], [ 0, %4 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.01.1, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { i64, ptr } %.fca.1.insert
 }
 

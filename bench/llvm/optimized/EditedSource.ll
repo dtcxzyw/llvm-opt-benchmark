@@ -561,14 +561,14 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %45
 
 45:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i
-  %.0.i.i.i.i12.i.i = phi ptr [ %35, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %44, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i, ptr align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false)
+  %.0.i.i.i.i10.i.i = phi ptr [ %35, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %44, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i.i, ptr align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false)
   %.pre = load ptr, ptr %3, align 8, !tbaa !52
   br label %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit
 
 _ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %45
   %46 = phi ptr [ %28, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %.pre, %45 ]
-  %.sroa.0.0.i.i = phi ptr [ null, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %.0.i.i.i.i12.i.i, %45 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %.0.i.i.i.i10.i.i, %45 ]
   %47 = icmp eq ptr %46, %4
   br i1 %47, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %48
 
@@ -1148,9 +1148,9 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit
 
 _ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit: ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i
-  %.0.i.i.i.i12.i.i = phi ptr [ %48, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %57, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i, ptr align 1 %3, i64 %4, i1 false)
-  store ptr %.0.i.i.i.i12.i.i, ptr %39, align 8, !tbaa !106
+  %.0.i.i.i.i10.i.i = phi ptr [ %48, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.thread.i.i ], [ %57, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit.i.i ]
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i.i, ptr align 1 %3, i64 %4, i1 false)
+  store ptr %.0.i.i.i.i10.i.i, ptr %39, align 8, !tbaa !106
   store i64 %4, ptr %40, align 8, !tbaa !107
   br label %73
 

@@ -93,9 +93,9 @@ if.end15:                                         ; preds = %if.end15.backedge, 
   %cmp26 = phi i1 [ false, %if.end15.outer ], [ %cmp26.be, %if.end15.backedge ]
   %cmp21 = phi i1 [ %cmp21.ph, %if.end15.outer ], [ %cmp21.be, %if.end15.backedge ]
   %cmp17 = phi i1 [ false, %if.end15.outer ], [ %cmp17.be, %if.end15.backedge ]
-  %incdec.ptr4244 = phi ptr [ %incdec.ptr4244.ph, %if.end15.outer ], [ %incdec.ptr, %if.end15.backedge ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr4244, i64 1
-  %1 = load i8, ptr %incdec.ptr4244, align 1
+  %incdec.ptr3638 = phi ptr [ %incdec.ptr3638.ph, %if.end15.outer ], [ %incdec.ptr, %if.end15.backedge ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr3638, i64 1
+  %1 = load i8, ptr %incdec.ptr3638, align 1
   switch i8 %1, label %sw.default [
     i8 0, label %sw.bb
     i8 105, label %sw.bb20
@@ -176,7 +176,7 @@ sw.epilog50.sink.split:                           ; preds = %if.else33, %if.else
 if.end15.outer:                                   ; preds = %entry, %sw.epilog50.sink.split
   %cmp31.not.ph = phi i1 [ false, %sw.epilog50.sink.split ], [ true, %entry ]
   %cmp21.ph = phi i1 [ true, %sw.epilog50.sink.split ], [ false, %entry ]
-  %incdec.ptr4244.ph = phi ptr [ %incdec.ptr, %sw.epilog50.sink.split ], [ %0, %entry ]
+  %incdec.ptr3638.ph = phi ptr [ %incdec.ptr, %sw.epilog50.sink.split ], [ %0, %entry ]
   %.ph = phi i32 [ %mul, %sw.epilog50.sink.split ], [ %conv, %entry ]
   br label %if.end15
 

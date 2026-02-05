@@ -2266,37 +2266,37 @@ _ZN5Gluco3vecIjE6growToEi.exit:                   ; preds = %19, %._crit_edge.i
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZN5Gluco3vecIjE6growToEi.exit
   %.0.lcssa = phi i64 [ 0, %_ZN5Gluco3vecIjE6growToEi.exit ], [ %41, %.preheader.loopexit ]
   %42 = icmp sgt i32 %15, 0
-  br i1 %42, label %.lr.ph31.preheader, label %_ZN5Gluco3vecIjED2Ev.exit
+  br i1 %42, label %.lr.ph28.preheader, label %_ZN5Gluco3vecIjED2Ev.exit
 
-.lr.ph31.preheader:                               ; preds = %.preheader
-  %wide.trip.count44 = zext nneg i32 %15 to i64
-  br label %.lr.ph31
+.lr.ph28.preheader:                               ; preds = %.preheader
+  %wide.trip.count41 = zext nneg i32 %15 to i64
+  br label %.lr.ph28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv32 = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next33, %.lr.ph ]
+  %indvars.iv29 = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next30, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %43 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv32
+  %43 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv29
   %44 = load i32, ptr %43, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !6
-  %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !112
 
-.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
-  %indvars.iv39 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next40, %.lr.ph31 ]
-  %indvars.iv37 = phi i64 [ %.0.lcssa, %.lr.ph31.preheader ], [ %indvars.iv.next38, %.lr.ph31 ]
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv39
+.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %.lr.ph28
+  %indvars.iv36 = phi i64 [ 0, %.lr.ph28.preheader ], [ %indvars.iv.next37, %.lr.ph28 ]
+  %indvars.iv34 = phi i64 [ %.0.lcssa, %.lr.ph28.preheader ], [ %indvars.iv.next35, %.lr.ph28 ]
+  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv36
   %47 = load i32, ptr %46, align 4, !tbaa !6
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %48 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %indvars.iv37
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %48 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %indvars.iv34
   store i32 %47, ptr %48, align 4, !tbaa !6
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count44
-  br i1 %exitcond45.not, label %_ZN5Gluco3vecIjED2Ev.exit, label %.lr.ph31, !llvm.loop !113
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count41
+  br i1 %exitcond42.not, label %_ZN5Gluco3vecIjED2Ev.exit, label %.lr.ph28, !llvm.loop !113
 
-_ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %.lr.ph31, %.preheader
+_ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %.lr.ph28, %.preheader
   store i32 0, ptr %16, align 8, !tbaa !99
   store i32 %11, ptr %3, align 4, !tbaa !98
   store i32 0, ptr %10, align 8, !tbaa !65
@@ -3500,37 +3500,37 @@ _ZN5Gluco3vecIjE6growToEi.exit.i:                 ; preds = %._crit_edge.i.i12, 
 .preheader.i:                                     ; preds = %.lr.ph.i, %_ZN5Gluco3vecIjE6growToEi.exit.i
   %.0.lcssa.i = phi i64 [ 0, %_ZN5Gluco3vecIjE6growToEi.exit.i ], [ %wide.trip.count.i, %.lr.ph.i ]
   %154 = icmp sgt i32 %129, 0
-  br i1 %154, label %.lr.ph31.preheader.i, label %_ZN5Gluco3vecIjED2Ev.exit.i
+  br i1 %154, label %.lr.ph28.preheader.i, label %_ZN5Gluco3vecIjED2Ev.exit.i
 
-.lr.ph31.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count44.i = zext nneg i32 %129 to i64
-  br label %.lr.ph31.i
+.lr.ph28.preheader.i:                             ; preds = %.preheader.i
+  %wide.trip.count41.i = zext nneg i32 %129 to i64
+  br label %.lr.ph28.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv32.i = phi i64 [ %152, %.lr.ph.preheader.i ], [ %indvars.iv.next33.i, %.lr.ph.i ]
+  %indvars.iv29.i = phi i64 [ %152, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %155 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv32.i
+  %155 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv29.i
   %156 = load i32, ptr %155, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %157 = getelementptr inbounds nuw i32, ptr %.sroa.0.1.i, i64 %indvars.iv.i
   store i32 %156, ptr %157, align 4, !tbaa !6
-  %indvars.iv.next33.i = add nsw i64 %indvars.iv32.i, 1
+  %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !112
 
-.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
-  %indvars.iv39.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next40.i, %.lr.ph31.i ]
-  %indvars.iv37.i = phi i64 [ %.0.lcssa.i, %.lr.ph31.preheader.i ], [ %indvars.iv.next38.i, %.lr.ph31.i ]
-  %158 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv39.i
+.lr.ph28.i:                                       ; preds = %.lr.ph28.i, %.lr.ph28.preheader.i
+  %indvars.iv36.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next37.i, %.lr.ph28.i ]
+  %indvars.iv34.i = phi i64 [ %.0.lcssa.i, %.lr.ph28.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph28.i ]
+  %158 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv36.i
   %159 = load i32, ptr %158, align 4, !tbaa !6
-  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %160 = getelementptr inbounds nuw i32, ptr %.sroa.0.1.i, i64 %indvars.iv37.i
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
+  %160 = getelementptr inbounds nuw i32, ptr %.sroa.0.1.i, i64 %indvars.iv34.i
   store i32 %159, ptr %160, align 4, !tbaa !6
-  %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %exitcond45.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %_ZN5Gluco3vecIjED2Ev.exit.i, label %.lr.ph31.i, !llvm.loop !113
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
+  %exitcond42.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count41.i
+  br i1 %exitcond42.not.i, label %_ZN5Gluco3vecIjED2Ev.exit.i, label %.lr.ph28.i, !llvm.loop !113
 
-_ZN5Gluco3vecIjED2Ev.exit.i:                      ; preds = %.lr.ph31.i, %.preheader.i
+_ZN5Gluco3vecIjED2Ev.exit.i:                      ; preds = %.lr.ph28.i, %.preheader.i
   store i32 0, ptr %7, align 8, !tbaa !99
   store i32 %125, ptr %6, align 4, !tbaa !98
   store i32 0, ptr %8, align 8, !tbaa !65

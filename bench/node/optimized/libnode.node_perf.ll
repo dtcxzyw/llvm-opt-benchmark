@@ -1129,10 +1129,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i12 = load ptr, ptr %7, align 8
-  %vfn.i13 = getelementptr inbounds nuw i8, ptr %vtable.i12, i64 64
-  %8 = load ptr, ptr %vfn.i13, align 8
-  %call2.i14 = tail call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %7) #20
+  %vtable.i11 = load ptr, ptr %7, align 8
+  %vfn.i12 = getelementptr inbounds nuw i8, ptr %vtable.i11, i64 64
+  %8 = load ptr, ptr %vfn.i12, align 8
+  %call2.i13 = tail call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %7) #20
   %9 = load ptr, ptr %isolate_data_.i.i, align 8
   %flags_string_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 984
   %10 = load ptr, ptr %flags_string_.i.i, align 8
@@ -1140,7 +1140,7 @@ if.end:                                           ; preds = %entry
   %flags = getelementptr inbounds nuw i8, ptr %entry1, i64 52
   %12 = load i32, ptr %flags, align 4
   %call60 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %11, i32 noundef %12) #20
-  %call76 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr %call2.i14, ptr %10, ptr %call60) #20
+  %call76 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr %call2.i13, ptr %10, ptr %call60) #20
   %tobool.i = trunc i16 %call76 to i1
   %call2. = select i1 %tobool.i, ptr %call2, ptr null
   br label %return

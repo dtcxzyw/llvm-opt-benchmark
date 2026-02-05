@@ -13525,8 +13525,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit143
 
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit143: ; preds = %482, %485
-  %.sroa.0208.1 = phi ptr [ %486, %485 ], [ null, %482 ]
-  %.sroa.6.1 = phi i64 [ 1, %485 ], [ 0, %482 ]
+  %.sroa.0208.0 = phi ptr [ %486, %485 ], [ null, %482 ]
+  %.sroa.6.0 = phi i64 [ 1, %485 ], [ 0, %482 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %449, ptr %28, align 8, !tbaa !25
   %487 = load ptr, ptr %0, align 8, !tbaa !20
@@ -13673,8 +13673,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   store i64 %531, ptr %456, align 8, !tbaa !10
   store ptr @.str.14, ptr %35, align 8, !tbaa !3
   store i64 2, ptr %457, align 8, !tbaa !10
-  store ptr %.sroa.0208.1, ptr %36, align 8, !tbaa !3
-  store i64 %.sroa.6.1, ptr %458, align 8, !tbaa !10
+  store ptr %.sroa.0208.0, ptr %36, align 8, !tbaa !3
+  store i64 %.sroa.6.0, ptr %458, align 8, !tbaa !10
   invoke void @_ZN11OpenImageIO6v3_1_07Strutil7replaceB5cxx11ENS0_17basic_string_viewIcSt11char_traitsIcEEES5_S5_b(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, i1 noundef zeroext true)
           to label %532 unwind label %603
 

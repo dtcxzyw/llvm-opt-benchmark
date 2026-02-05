@@ -746,7 +746,7 @@ define dso_local void @_ZN4llvm15MetaRenamerPass3runERNS_6ModuleERNS_15AnalysisM
   br label %53
 
 53:                                               ; preds = %70, %._crit_edge.i
-  %storemerge.i.i = phi i64 [ %51, %._crit_edge.i ], [ %.sroa.11.1.i.i, %70 ]
+  %storemerge.i.i = phi i64 [ %51, %._crit_edge.i ], [ %.sroa.11.0.i.i, %70 ]
   store i64 %storemerge.i.i, ptr %52, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 44, ptr %17, align 1, !tbaa !38, !noalias !69
@@ -770,8 +770,8 @@ define dso_local void @_ZN4llvm15MetaRenamerPass3runERNS_6ModuleERNS_15AnalysisM
   br label %_ZNK4llvm9StringRef5splitEc.exit.i.i
 
 _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %57, %56
-  %.sroa.8.1.i.i = phi ptr [ null, %56 ], [ %61, %57 ]
-  %.sroa.11.1.i.i = phi i64 [ 0, %56 ], [ %62, %57 ]
+  %.sroa.8.0.i.i = phi ptr [ null, %56 ], [ %61, %57 ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %56 ], [ %62, %57 ]
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.0.copyload.i.i, %56 ], [ %.sroa.speculated.i.i.i.i.i, %57 ]
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload1.i.i, %56 ], [ %59, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -802,7 +802,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %57, %56
   %75 = load i32, ptr %39, align 8, !tbaa !26
   %76 = add i32 %75, 1
   store i32 %76, ptr %39, align 8, !tbaa !26
-  store ptr %.sroa.8.1.i.i, ptr %18, align 8, !tbaa !46
+  store ptr %.sroa.8.0.i.i, ptr %18, align 8, !tbaa !46
   br label %53
 
 _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit.i: ; preds = %_ZNK4llvm9StringRef5splitEc.exit.i.i
@@ -815,7 +815,7 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %80
 
 80:                                               ; preds = %97, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit.i
-  %storemerge.i58.i = phi i64 [ %78, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit.i ], [ %.sroa.11.1.i63.i, %97 ]
+  %storemerge.i58.i = phi i64 [ %78, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit.i ], [ %.sroa.11.0.i63.i, %97 ]
   store i64 %storemerge.i58.i, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 44, ptr %15, align 1, !tbaa !38, !noalias !77
@@ -839,8 +839,8 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %_ZNK4llvm9StringRef5splitEc.exit.i61.i
 
 _ZNK4llvm9StringRef5splitEc.exit.i61.i:           ; preds = %84, %83
-  %.sroa.8.1.i62.i = phi ptr [ null, %83 ], [ %88, %84 ]
-  %.sroa.11.1.i63.i = phi i64 [ 0, %83 ], [ %89, %84 ]
+  %.sroa.8.0.i62.i = phi ptr [ null, %83 ], [ %88, %84 ]
+  %.sroa.11.0.i63.i = phi i64 [ 0, %83 ], [ %89, %84 ]
   %.sroa.5.0.i64.i = phi i64 [ %.sroa.5.0.copyload.i70.i, %83 ], [ %.sroa.speculated.i.i.i.i59.i, %84 ]
   %.sroa.0.0.i65.i = phi ptr [ %.sroa.0.0.copyload1.i69.i, %83 ], [ %86, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -871,7 +871,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i61.i:           ; preds = %84, %83
   %102 = load i32, ptr %42, align 8, !tbaa !26
   %103 = add i32 %102, 1
   store i32 %103, ptr %42, align 8, !tbaa !26
-  store ptr %.sroa.8.1.i62.i, ptr %16, align 8, !tbaa !46
+  store ptr %.sroa.8.0.i62.i, ptr %16, align 8, !tbaa !46
   br label %80
 
 _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit71.i: ; preds = %_ZNK4llvm9StringRef5splitEc.exit.i61.i
@@ -884,7 +884,7 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %107
 
 107:                                              ; preds = %124, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit71.i
-  %storemerge.i72.i = phi i64 [ %105, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit71.i ], [ %.sroa.11.1.i77.i, %124 ]
+  %storemerge.i72.i = phi i64 [ %105, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit71.i ], [ %.sroa.11.0.i77.i, %124 ]
   store i64 %storemerge.i72.i, ptr %106, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 44, ptr %13, align 1, !tbaa !38, !noalias !83
@@ -908,8 +908,8 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %_ZNK4llvm9StringRef5splitEc.exit.i75.i
 
 _ZNK4llvm9StringRef5splitEc.exit.i75.i:           ; preds = %111, %110
-  %.sroa.8.1.i76.i = phi ptr [ null, %110 ], [ %115, %111 ]
-  %.sroa.11.1.i77.i = phi i64 [ 0, %110 ], [ %116, %111 ]
+  %.sroa.8.0.i76.i = phi ptr [ null, %110 ], [ %115, %111 ]
+  %.sroa.11.0.i77.i = phi i64 [ 0, %110 ], [ %116, %111 ]
   %.sroa.5.0.i78.i = phi i64 [ %.sroa.5.0.copyload.i84.i, %110 ], [ %.sroa.speculated.i.i.i.i73.i, %111 ]
   %.sroa.0.0.i79.i = phi ptr [ %.sroa.0.0.copyload1.i83.i, %110 ], [ %113, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -940,7 +940,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i75.i:           ; preds = %111, %110
   %129 = load i32, ptr %45, align 8, !tbaa !26
   %130 = add i32 %129, 1
   store i32 %130, ptr %45, align 8, !tbaa !26
-  store ptr %.sroa.8.1.i76.i, ptr %14, align 8, !tbaa !46
+  store ptr %.sroa.8.0.i76.i, ptr %14, align 8, !tbaa !46
   br label %107
 
 _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit85.i: ; preds = %_ZNK4llvm9StringRef5splitEc.exit.i75.i
@@ -953,7 +953,7 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %134
 
 134:                                              ; preds = %151, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit85.i
-  %storemerge.i86.i = phi i64 [ %132, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit85.i ], [ %.sroa.11.1.i91.i, %151 ]
+  %storemerge.i86.i = phi i64 [ %132, %_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit85.i ], [ %.sroa.11.0.i91.i, %151 ]
   store i64 %storemerge.i86.i, ptr %133, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 44, ptr %11, align 1, !tbaa !38, !noalias !89
@@ -977,8 +977,8 @@ _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImpl
   br label %_ZNK4llvm9StringRef5splitEc.exit.i89.i
 
 _ZNK4llvm9StringRef5splitEc.exit.i89.i:           ; preds = %138, %137
-  %.sroa.8.1.i90.i = phi ptr [ null, %137 ], [ %142, %138 ]
-  %.sroa.11.1.i91.i = phi i64 [ 0, %137 ], [ %143, %138 ]
+  %.sroa.8.0.i90.i = phi ptr [ null, %137 ], [ %142, %138 ]
+  %.sroa.11.0.i91.i = phi i64 [ 0, %137 ], [ %143, %138 ]
   %.sroa.5.0.i92.i = phi i64 [ %.sroa.5.0.copyload.i98.i, %137 ], [ %.sroa.speculated.i.i.i.i87.i, %138 ]
   %.sroa.0.0.i93.i = phi ptr [ %.sroa.0.0.copyload1.i97.i, %137 ], [ %140, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1009,7 +1009,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i89.i:           ; preds = %138, %137
   %156 = load i32, ptr %48, align 8, !tbaa !26
   %157 = add i32 %156, 1
   store i32 %157, ptr %48, align 8, !tbaa !26
-  store ptr %.sroa.8.1.i90.i, ptr %12, align 8, !tbaa !46
+  store ptr %.sroa.8.0.i90.i, ptr %12, align 8, !tbaa !46
   br label %134
 
 _ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE.exit99.i: ; preds = %_ZNK4llvm9StringRef5splitEc.exit.i89.i

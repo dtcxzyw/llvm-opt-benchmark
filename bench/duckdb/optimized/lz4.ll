@@ -4443,17 +4443,17 @@ define internal fastcc void @_ZN10duckdb_lz4L23LZ4_memcpy_using_offsetEPhPKhS0_m
   store i32 %.sroa.9.0, ptr %0, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 1
-  %.026 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = icmp ult ptr %.026, %2
+  %.025 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = icmp ult ptr %.025, %2
   br i1 %44, label %.lr.ph, label %_ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit
 
 .lr.ph:                                           ; preds = %43, %.lr.ph
-  %.028 = phi ptr [ %.0, %.lr.ph ], [ %.026, %43 ]
-  %.pn27 = phi ptr [ %.028, %.lr.ph ], [ %0, %43 ]
-  store i32 %.sroa.9.0, ptr %.028, align 1
-  %.sroa.9.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %.pn27, i64 12
+  %.027 = phi ptr [ %.0, %.lr.ph ], [ %.025, %43 ]
+  %.pn26 = phi ptr [ %.027, %.lr.ph ], [ %0, %43 ]
+  store i32 %.sroa.9.0, ptr %.027, align 1
+  %.sroa.9.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %.pn26, i64 12
   store i32 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx3, align 1
-  %.0 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %45 = icmp ult ptr %.0, %2
   br i1 %45, label %.lr.ph, label %_ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit, !llvm.loop !51
 

@@ -662,8 +662,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStp
 _ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %50
   %57 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %50 ]
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 %46
-  %.not99 = icmp samesign eq i64 %46, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp samesign eq i64 %46, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %114
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -696,16 +696,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   br label %117
 
 .lr.ph:                                           ; preds = %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit, %114
-  %.0107 = phi i32 [ %.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.033106 = phi i32 [ %.134, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.035105 = phi i32 [ %.136, %114 ], [ undef, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.037104 = phi i32 [ %.138, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.074.0103 = phi ptr [ %.sroa.074.1, %114 ], [ null, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.6.0102 = phi i64 [ %.sroa.6.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.7.0101 = phi i64 [ %115, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.068.0100 = phi ptr [ %116, %114 ], [ %45, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %66 = load i8, ptr %.sroa.068.0100, align 1, !tbaa !60
-  switch i32 %.0107, label %default.unreachable131 [
+  %.0105 = phi i32 [ %.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.033104 = phi i32 [ %.134, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.035103 = phi i32 [ %.136, %114 ], [ undef, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.037102 = phi i32 [ %.138, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.sroa.072.0101 = phi ptr [ %.sroa.072.1, %114 ], [ null, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.sroa.6.0100 = phi i64 [ %.sroa.6.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.sroa.7.099 = phi i64 [ %115, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.sroa.066.098 = phi ptr [ %116, %114 ], [ %45, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %66 = load i8, ptr %.sroa.066.098, align 1, !tbaa !60
+  switch i32 %.0105, label %default.unreachable129 [
     i32 0, label %67
     i32 1, label %86
     i32 2, label %107
@@ -720,16 +720,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   ]
 
 68:                                               ; preds = %67
-  %69 = sext i32 %.033106 to i64
+  %69 = sext i32 %.033104 to i64
   %.sroa.speculated3.i = call i64 @llvm.umin.i64(i64 %46, i64 %69)
-  %70 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i)
+  %70 = icmp ugt i64 %.sroa.7.099, %46
+  %.sroa.speculate.load.false.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.7.099, i64 %.sroa.speculated3.i)
   %.sroa.speculated.i = select i1 %70, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i
   %71 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i
   %72 = sub i64 %.sroa.speculated.i, %.sroa.speculated3.i
-  %73 = trunc i64 %.sroa.7.0101 to i32
+  %73 = trunc i64 %.sroa.7.099 to i32
   %74 = add i32 %73, 1
-  %75 = add nsw i32 %.037104, 1
+  %75 = add nsw i32 %.037102, 1
   br label %114
 
 76:                                               ; preds = %67
@@ -739,15 +739,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   unreachable
 
 79:                                               ; preds = %67, %67
-  %80 = sext i32 %.033106 to i64
+  %80 = sext i32 %.033104 to i64
   %.sroa.speculated3.i53 = call i64 @llvm.umin.i64(i64 %46, i64 %80)
-  %81 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i54 = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i53)
+  %81 = icmp ugt i64 %.sroa.7.099, %46
+  %.sroa.speculate.load.false.sroa.speculated.i54 = call i64 @llvm.umax.i64(i64 %.sroa.7.099, i64 %.sroa.speculated3.i53)
   %.sroa.speculated.i55 = select i1 %81, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i54
   %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i53
   %83 = sub i64 %.sroa.speculated.i55, %.sroa.speculated3.i53
   call void @_ZZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %82, i64 %83, ptr null, i64 0)
-  %84 = trunc i64 %.sroa.7.0101 to i32
+  %84 = trunc i64 %.sroa.7.099 to i32
   %85 = add i32 %84, 1
   br label %114
 
@@ -759,27 +759,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   ]
 
 87:                                               ; preds = %86
-  %88 = add nsw i32 %.037104, 1
+  %88 = add nsw i32 %.037102, 1
   br label %114
 
 89:                                               ; preds = %86
-  %90 = add nsw i32 %.037104, -1
+  %90 = add nsw i32 %.037102, -1
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %89
-  %93 = sext i32 %.035105 to i64
+  %93 = sext i32 %.035103 to i64
   %.sroa.speculated3.i58 = call i64 @llvm.umin.i64(i64 %46, i64 %93)
-  %94 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i59 = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i58)
+  %94 = icmp ugt i64 %.sroa.7.099, %46
+  %.sroa.speculate.load.false.sroa.speculated.i59 = call i64 @llvm.umax.i64(i64 %.sroa.7.099, i64 %.sroa.speculated3.i58)
   %.sroa.speculated.i60 = select i1 %94, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i59
   %95 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i58
   %96 = sub i64 %.sroa.speculated.i60, %.sroa.speculated3.i58
-  call void @_ZZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %.sroa.074.0103, i64 %.sroa.6.0102, ptr %95, i64 %96)
+  call void @_ZZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %.sroa.072.0101, i64 %.sroa.6.0100, ptr %95, i64 %96)
   br label %114
 
 97:                                               ; preds = %89
-  %98 = icmp slt i32 %.037104, 1
+  %98 = icmp slt i32 %.037102, 1
   br i1 %98, label %99, label %114
 
 99:                                               ; preds = %97
@@ -791,7 +791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
 102:                                              ; preds = %86
   %103 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
   %104 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull @.str.11)
-  %105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr %.sroa.074.0103, i64 %.sroa.6.0102)
+  %105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr %.sroa.072.0101, i64 %.sroa.6.0100)
   %106 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull @.str.12)
   call void @exit(i32 noundef 1) #23
   unreachable
@@ -803,7 +803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   ]
 
 108:                                              ; preds = %107, %107
-  %109 = trunc i64 %.sroa.7.0101 to i32
+  %109 = trunc i64 %.sroa.7.099 to i32
   %110 = add i32 %109, 1
   br label %114
 
@@ -813,18 +813,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZ
   call void @exit(i32 noundef 1) #23
   unreachable
 
-default.unreachable131:                           ; preds = %.lr.ph
+default.unreachable129:                           ; preds = %.lr.ph
   unreachable
 
 114:                                              ; preds = %86, %67, %92, %97, %79, %108, %87, %68
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0102, %67 ], [ %72, %68 ], [ %.sroa.6.0102, %79 ], [ %.sroa.6.0102, %86 ], [ %.sroa.6.0102, %87 ], [ %.sroa.6.0102, %92 ], [ %.sroa.6.0102, %97 ], [ %.sroa.6.0102, %108 ]
-  %.sroa.074.1 = phi ptr [ %.sroa.074.0103, %67 ], [ %71, %68 ], [ %.sroa.074.0103, %79 ], [ %.sroa.074.0103, %86 ], [ %.sroa.074.0103, %87 ], [ %.sroa.074.0103, %92 ], [ %.sroa.074.0103, %97 ], [ %.sroa.074.0103, %108 ]
-  %.138 = phi i32 [ %.037104, %67 ], [ %75, %68 ], [ %.037104, %79 ], [ %.037104, %86 ], [ %88, %87 ], [ 0, %92 ], [ %90, %97 ], [ %.037104, %108 ]
-  %.136 = phi i32 [ %.035105, %67 ], [ %74, %68 ], [ %.035105, %79 ], [ %.035105, %86 ], [ %.035105, %87 ], [ %.035105, %92 ], [ %.035105, %97 ], [ %.035105, %108 ]
-  %.134 = phi i32 [ %.033106, %67 ], [ %.033106, %68 ], [ %85, %79 ], [ %.033106, %86 ], [ %.033106, %87 ], [ %.033106, %92 ], [ %.033106, %97 ], [ %110, %108 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0100, %67 ], [ %72, %68 ], [ %.sroa.6.0100, %79 ], [ %.sroa.6.0100, %86 ], [ %.sroa.6.0100, %87 ], [ %.sroa.6.0100, %92 ], [ %.sroa.6.0100, %97 ], [ %.sroa.6.0100, %108 ]
+  %.sroa.072.1 = phi ptr [ %.sroa.072.0101, %67 ], [ %71, %68 ], [ %.sroa.072.0101, %79 ], [ %.sroa.072.0101, %86 ], [ %.sroa.072.0101, %87 ], [ %.sroa.072.0101, %92 ], [ %.sroa.072.0101, %97 ], [ %.sroa.072.0101, %108 ]
+  %.138 = phi i32 [ %.037102, %67 ], [ %75, %68 ], [ %.037102, %79 ], [ %.037102, %86 ], [ %88, %87 ], [ 0, %92 ], [ %90, %97 ], [ %.037102, %108 ]
+  %.136 = phi i32 [ %.035103, %67 ], [ %74, %68 ], [ %.035103, %79 ], [ %.035103, %86 ], [ %.035103, %87 ], [ %.035103, %92 ], [ %.035103, %97 ], [ %.035103, %108 ]
+  %.134 = phi i32 [ %.033104, %67 ], [ %.033104, %68 ], [ %85, %79 ], [ %.033104, %86 ], [ %.033104, %87 ], [ %.033104, %92 ], [ %.033104, %97 ], [ %110, %108 ]
   %.1 = phi i32 [ 0, %67 ], [ 1, %68 ], [ 0, %79 ], [ 1, %86 ], [ 1, %87 ], [ 2, %92 ], [ 1, %97 ], [ 0, %108 ]
-  %115 = add nuw i64 %.sroa.7.0101, 1
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.068.0100, i64 1
+  %115 = add nuw i64 %.sroa.7.099, 1
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.066.098, i64 1
   %.not = icmp eq ptr %116, %58
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 

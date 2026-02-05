@@ -3416,7 +3416,7 @@ for.cond6.preheader.lr.ph:                        ; preds = %invoke.cont5
   br label %for.cond6.preheader
 
 for.cond6.preheader:                              ; preds = %for.cond6.preheader.lr.ph, %_ZN8QuantLib13InterpolationD2Ev.exit
-  %i.083 = phi i64 [ 0, %for.cond6.preheader.lr.ph ], [ %inc39, %_ZN8QuantLib13InterpolationD2Ev.exit ]
+  %i.080 = phi i64 [ 0, %for.cond6.preheader.lr.ph ], [ %inc39, %_ZN8QuantLib13InterpolationD2Ev.exit ]
   br i1 %cmp.not.i.i.i.i22, label %for.cond.cleanup8, label %for.body9
 
 for.cond.cleanup:                                 ; preds = %_ZN8QuantLib13InterpolationD2Ev.exit, %invoke.cont5
@@ -3452,11 +3452,11 @@ for.cond.cleanup8:                                ; preds = %invoke.cont17, %for
           to label %invoke.cont31 unwind label %lpad30
 
 for.body9:                                        ; preds = %for.cond6.preheader, %invoke.cont17
-  %j.081 = phi i64 [ %inc, %invoke.cont17 ], [ 0, %for.cond6.preheader ]
+  %j.078 = phi i64 [ %inc, %invoke.cont17 ], [ 0, %for.cond6.preheader ]
   %7 = load ptr, ptr %volSpreads_, align 8, !tbaa !70
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.53", ptr %7, i64 %j.081
+  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.53", ptr %7, i64 %j.078
   %8 = load ptr, ptr %add.ptr.i, align 8, !tbaa !108
-  %add.ptr.i41 = getelementptr inbounds nuw %"class.QuantLib::Handle.58", ptr %8, i64 %i.083
+  %add.ptr.i41 = getelementptr inbounds nuw %"class.QuantLib::Handle.58", ptr %8, i64 %i.080
   %call14 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i41)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -3482,9 +3482,9 @@ invoke.cont15:                                    ; preds = %.noexc42, %invoke.c
           to label %invoke.cont17 unwind label %lpad12
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %add.ptr.i43 = getelementptr inbounds nuw double, ptr %vols.sroa.0.0, i64 %j.081
+  %add.ptr.i43 = getelementptr inbounds nuw double, ptr %vols.sroa.0.0, i64 %j.078
   store double %call18, ptr %add.ptr.i43, align 8, !tbaa !67
-  %inc = add nuw i64 %j.081, 1
+  %inc = add nuw i64 %j.078, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup8, label %for.body9, !llvm.loop !130
 
@@ -3523,7 +3523,7 @@ _ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i: ; preds = %.
 
 invoke.cont35:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i
   %16 = load ptr, ptr %agg.result, align 8, !tbaa !64
-  %add.ptr.i47 = getelementptr inbounds nuw double, ptr %16, i64 %i.083
+  %add.ptr.i47 = getelementptr inbounds nuw double, ptr %16, i64 %i.080
   store double %call2.i46, ptr %add.ptr.i47, align 8, !tbaa !67
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %interpolator, align 8, !tbaa !49
   %17 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
@@ -3565,9 +3565,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i49
 
 _ZN8QuantLib13InterpolationD2Ev.exit:             ; preds = %invoke.cont35, %if.then.i.i.i48, %.noexc.i.i.i, %if.then.i.i.i.i.i49
   call void @llvm.lifetime.end.p0(ptr nonnull %interpolator)
-  %inc39 = add nuw i64 %i.083, 1
-  %exitcond85.not = icmp eq i64 %inc39, %sub.ptr.div.i18
-  br i1 %exitcond85.not, label %for.cond.cleanup, label %for.cond6.preheader, !llvm.loop !133
+  %inc39 = add nuw i64 %i.080, 1
+  %exitcond82.not = icmp eq i64 %inc39, %sub.ptr.div.i18
+  br i1 %exitcond82.not, label %for.cond.cleanup, label %for.cond6.preheader, !llvm.loop !133
 
 lpad30:                                           ; preds = %for.cond.cleanup8
   %24 = landingpad { ptr, i32 }

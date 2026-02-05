@@ -1407,11 +1407,11 @@ _ZNSt16allocator_traitsISaIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataI
 
 62:                                               ; preds = %58
   %63 = atomicrmw add ptr %59, i32 1 acq_rel, align 4
-  %.pre65 = load ptr, ptr %8, align 8, !tbaa !18
+  %.pre62 = load ptr, ptr %8, align 8, !tbaa !18
   br label %_ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tEEEEESQ_EvT_SS_RSaIT0_E.exit.i: ; preds = %62, %58
-  %64 = phi ptr [ %.pre65, %62 ], [ null, %58 ]
+  %64 = phi ptr [ %.pre62, %62 ], [ null, %58 ]
   %65 = zext i1 %34 to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %65, ptr %66, align 8, !tbaa !34

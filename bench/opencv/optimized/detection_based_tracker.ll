@@ -4945,9 +4945,9 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0212 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %75, %.lr.ph ]
-  %.064211 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %81, %.lr.ph ]
-  %.066210 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %83, %.lr.ph ]
+  %.0203 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %75, %.lr.ph ]
+  %.064202 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %81, %.lr.ph ]
+  %.066201 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %83, %.lr.ph ]
   %66 = xor i64 %indvars.iv, -1
   %67 = getelementptr %"class.cv::Rect_", ptr %63, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -4957,15 +4957,15 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %72 = load float, ptr %71, align 4, !tbaa !121
   %73 = fmul float %72, %70
   %74 = fpext float %73 to double
-  %75 = fadd double %.0212, %74
+  %75 = fadd double %.0203, %74
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %77 = load i32, ptr %76, align 4, !tbaa !132
   %78 = sitofp i32 %77 to float
   %79 = fmul float %72, %78
   %80 = fpext float %79 to double
-  %81 = fadd double %.064211, %80
+  %81 = fadd double %.064202, %80
   %82 = fpext float %72 to double
-  %83 = fadd double %.066210, %82
+  %83 = fadd double %.066201, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !207
@@ -4986,16 +4986,16 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %.165 = phi double [ %65, %._crit_edge ], [ %93, %84 ]
   %.1 = phi double [ %64, %._crit_edge ], [ %90, %84 ]
   %95 = icmp sgt i32 %60, 0
-  br i1 %95, label %.lr.ph218.preheader, label %129
+  br i1 %95, label %.lr.ph209.preheader, label %129
 
-.lr.ph218.preheader:                              ; preds = %94
+.lr.ph209.preheader:                              ; preds = %94
   %96 = and i64 %38, 2147483647
-  %smax229 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
-  %wide.trip.count230 = zext nneg i32 %smax229 to i64
+  %smax220 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
+  %wide.trip.count221 = zext nneg i32 %smax220 to i64
   %97 = getelementptr %"class.cv::Rect_", ptr %34, i64 %96
-  br label %.lr.ph218
+  br label %.lr.ph209
 
-._crit_edge219:                                   ; preds = %.lr.ph218
+._crit_edge210:                                   ; preds = %.lr.ph209
   %98 = fdiv double 1.000000e+00, %128
   %99 = fptrunc double %98 to float
   %100 = fmul float %125, %99
@@ -5004,11 +5004,11 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %.sroa.0169.4.vec.insert183 = insertelement <2 x float> %.sroa.0169.0.vec.insert176, float %101, i64 1
   br label %150
 
-.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %.lr.ph218
-  %indvars.iv226 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next227, %.lr.ph218 ]
-  %.068217 = phi double [ 0.000000e+00, %.lr.ph218.preheader ], [ %128, %.lr.ph218 ]
-  %.sroa.0169.0215 = phi <2 x float> [ zeroinitializer, %.lr.ph218.preheader ], [ %.sroa.0.4.vec.insert.i111, %.lr.ph218 ]
-  %102 = xor i64 %indvars.iv226, -1
+.lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
+  %indvars.iv217 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next218, %.lr.ph209 ]
+  %.068208 = phi double [ 0.000000e+00, %.lr.ph209.preheader ], [ %128, %.lr.ph209 ]
+  %.sroa.0169.0206 = phi <2 x float> [ zeroinitializer, %.lr.ph209.preheader ], [ %.sroa.0.4.vec.insert.i111, %.lr.ph209 ]
+  %102 = xor i64 %indvars.iv217, -1
   %103 = getelementptr %"class.cv::Rect_", ptr %97, i64 %102
   %104 = load i64, ptr %103, align 4
   %.sroa.0167.0.extract.trunc = trunc i64 %104 to i32
@@ -5030,21 +5030,21 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %118 = fmul float %116, 5.000000e-01
   %119 = fadd float %113, %117
   %120 = fadd float %114, %118
-  %121 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv226
+  %121 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv217
   %122 = load float, ptr %121, align 4, !tbaa !121
   %123 = fmul float %122, %119
   %124 = fmul float %122, %120
-  %.sroa.0169.0.vec.extract = extractelement <2 x float> %.sroa.0169.0215, i64 0
-  %.sroa.0169.4.vec.extract = extractelement <2 x float> %.sroa.0169.0215, i64 1
+  %.sroa.0169.0.vec.extract = extractelement <2 x float> %.sroa.0169.0206, i64 0
+  %.sroa.0169.4.vec.extract = extractelement <2 x float> %.sroa.0169.0206, i64 1
   %125 = fadd float %.sroa.0169.0.vec.extract, %123
   %126 = fadd float %.sroa.0169.4.vec.extract, %124
   %.sroa.0.0.vec.insert.i110 = insertelement <2 x float> poison, float %125, i64 0
   %.sroa.0.4.vec.insert.i111 = insertelement <2 x float> %.sroa.0.0.vec.insert.i110, float %126, i64 1
   %127 = fpext float %122 to double
-  %128 = fadd double %.068217, %127
-  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond231.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count230
-  br i1 %exitcond231.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !208
+  %128 = fadd double %.068208, %127
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %exitcond222.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count221
+  br i1 %exitcond222.not, label %._crit_edge210, label %.lr.ph209, !llvm.loop !208
 
 129:                                              ; preds = %94
   %130 = shl i64 %37, 28
@@ -5075,8 +5075,8 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %.sroa.0.4.vec.insert.i125 = insertelement <2 x float> %.sroa.0.0.vec.insert.i124, float %149, i64 1
   br label %150
 
-150:                                              ; preds = %129, %._crit_edge219
-  %.sroa.0169.1 = phi <2 x float> [ %.sroa.0169.4.vec.insert183, %._crit_edge219 ], [ %.sroa.0.4.vec.insert.i125, %129 ]
+150:                                              ; preds = %129, %._crit_edge210
+  %.sroa.0169.1 = phi <2 x float> [ %.sroa.0169.4.vec.insert183, %._crit_edge210 ], [ %.sroa.0.4.vec.insert.i125, %129 ]
   %151 = fptrunc double %.1 to float
   %152 = fmul float %151, 5.000000e-01
   %153 = fptrunc double %.165 to float

@@ -5651,8 +5651,8 @@ _ZN2cv4MatxIdLi3ELi3EE3eyeEv.exit333.i:           ; preds = %297
 306:                                              ; preds = %303
   %307 = icmp eq i32 %168, 1
   %308 = icmp eq i32 %174, 1
-  %or.cond389.i = or i1 %307, %308
-  br i1 %or.cond389.i, label %309, label %317
+  %or.cond380.i = or i1 %307, %308
+  br i1 %or.cond380.i, label %309, label %317
 
 309:                                              ; preds = %306
   %310 = add nuw i32 %159, %154
@@ -6088,7 +6088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348.i: ; preds = %
 
 463:                                              ; preds = %452, %451
   %464 = phi i64 [ %462, %452 ], [ 1, %451 ]
-  br i1 %307, label %.lr.ph406.i, label %465
+  br i1 %307, label %.lr.ph397.i, label %465
 
 465:                                              ; preds = %463
   %466 = lshr i32 %175, 3
@@ -6101,9 +6101,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348.i: ; preds = %
   %473 = mul nuw nsw i32 %472, %468
   %474 = sdiv i32 %181, %473
   %475 = sext i32 %474 to i64
-  br label %.lr.ph406.i
+  br label %.lr.ph397.i
 
-.lr.ph406.i:                                      ; preds = %463, %465
+.lr.ph397.i:                                      ; preds = %463, %465
   %476 = phi i64 [ %475, %465 ], [ 1, %463 ]
   %477 = load double, ptr %12, align 16, !tbaa !67
   %478 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -6120,11 +6120,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348.i: ; preds = %
   %489 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %.sroa.4.0..sroa_idx.i106 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.5363.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.not309393.i = icmp slt i32 %.sroa.2.0.copyload, 1
-  %or.cond320.not391394.i = select i1 %.not.i.i, i1 %.not309393.i, i1 false
+  %.not309384.i = icmp slt i32 %.sroa.2.0.copyload, 1
+  %or.cond320.not382385.i = select i1 %.not.i.i, i1 %.not309384.i, i1 false
   %490 = fcmp ogt double %.sroa.3.0.copyload, 0x7FEFFFFFFFFFFFFF
-  %or.cond323395.i = select i1 %.not2.i.i, i1 %490, i1 false
-  %or.cond390396.i = select i1 %or.cond320.not391394.i, i1 true, i1 %or.cond323395.i
+  %or.cond323386.i = select i1 %.not2.i.i, i1 %490, i1 false
+  %or.cond381387.i = select i1 %or.cond320.not382385.i, i1 true, i1 %or.cond323386.i
   %491 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %492 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %493 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -6153,8 +6153,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348.i: ; preds = %
   %wide.trip.count.i = zext nneg i32 %486 to i64
   br label %513
 
-513:                                              ; preds = %670, %.lr.ph406.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph406.i ], [ %indvars.iv.next.i, %670 ]
+513:                                              ; preds = %670, %.lr.ph397.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph397.i ], [ %indvars.iv.next.i, %670 ]
   %514 = mul nsw i64 %indvars.iv.i, %464
   br i1 %487, label %515, label %522
 
@@ -6181,7 +6181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348.i: ; preds = %
   %529 = fmul double %480, %528
   %530 = fsub double %.0258.i, %485
   %531 = fmul double %481, %530
-  br i1 %.not294.i, label %.thread382.i, label %532
+  br i1 %.not294.i, label %.thread376.i, label %532
 
 532:                                              ; preds = %527
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -6227,7 +6227,7 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   %542 = select i1 %540, double %541, double 1.000000e+00
   %543 = fmul double %.sroa.0.0.copyload.i, %542
   %544 = fmul double %.sroa.4.0.copyload.i, %542
-  br i1 %or.cond390396.i, label %.thread382.i, label %.lr.ph.i
+  br i1 %or.cond381387.i, label %.thread376.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i
   %545 = load double, ptr %491, align 8, !tbaa !67
@@ -6247,12 +6247,12 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br label %559
 
 559:                                              ; preds = %.thread.i, %.lr.ph.i
-  %.2255400.i = phi double [ %543, %.lr.ph.i ], [ %588, %.thread.i ]
-  %.2260399.i = phi double [ %544, %.lr.ph.i ], [ %590, %.thread.i ]
-  %.0263398.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.1264379.i, %.thread.i ]
-  %.0266397.i = phi i32 [ 0, %.lr.ph.i ], [ %637, %.thread.i ]
-  %560 = fmul double %.2260399.i, %.2260399.i
-  %561 = call double @llvm.fmuladd.f64(double %.2255400.i, double %.2255400.i, double %560)
+  %.2255391.i = phi double [ %543, %.lr.ph.i ], [ %588, %.thread.i ]
+  %.2260390.i = phi double [ %544, %.lr.ph.i ], [ %590, %.thread.i ]
+  %.0263389.i = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.1264373.i, %.thread.i ]
+  %.0266388.i = phi i32 [ 0, %.lr.ph.i ], [ %637, %.thread.i ]
+  %560 = fmul double %.2260390.i, %.2260390.i
+  %561 = call double @llvm.fmuladd.f64(double %.2255391.i, double %.2255391.i, double %560)
   %562 = call double @llvm.fmuladd.f64(double %545, double %561, double %546)
   %563 = call double @llvm.fmuladd.f64(double %562, double %561, double %547)
   %564 = call double @llvm.fmuladd.f64(double %563, double %561, double 1.000000e+00)
@@ -6261,21 +6261,21 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   %567 = call double @llvm.fmuladd.f64(double %566, double %561, double 1.000000e+00)
   %568 = fdiv double %564, %567
   %569 = fcmp uge double %568, 0.000000e+00
-  br i1 %569, label %570, label %.thread382.i
+  br i1 %569, label %570, label %.thread376.i
 
 570:                                              ; preds = %559
-  %571 = fmul double %552, %.2255400.i
-  %572 = fmul double %.2255400.i, 2.000000e+00
-  %573 = call double @llvm.fmuladd.f64(double %572, double %.2255400.i, double %561)
+  %571 = fmul double %552, %.2255391.i
+  %572 = fmul double %.2255391.i, 2.000000e+00
+  %573 = call double @llvm.fmuladd.f64(double %572, double %.2255391.i, double %561)
   %574 = fmul double %553, %573
-  %575 = call double @llvm.fmuladd.f64(double %571, double %.2260399.i, double %574)
+  %575 = call double @llvm.fmuladd.f64(double %571, double %.2260390.i, double %574)
   %576 = call double @llvm.fmuladd.f64(double %554, double %561, double %575)
   %577 = fmul double %555, %561
   %578 = call double @llvm.fmuladd.f64(double %577, double %561, double %576)
-  %579 = fmul double %.2260399.i, 2.000000e+00
-  %580 = call double @llvm.fmuladd.f64(double %579, double %.2260399.i, double %561)
-  %581 = fmul double %556, %.2255400.i
-  %582 = fmul double %.2260399.i, %581
+  %579 = fmul double %.2260390.i, 2.000000e+00
+  %580 = call double @llvm.fmuladd.f64(double %579, double %.2260390.i, double %561)
+  %581 = fmul double %556, %.2255391.i
+  %582 = fmul double %.2260390.i, %581
   %583 = call double @llvm.fmuladd.f64(double %551, double %580, double %582)
   %584 = call double @llvm.fmuladd.f64(double %557, double %561, double %583)
   %585 = fmul double %558, %561
@@ -6369,16 +6369,16 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit360.i, %570
-  %.1264379.i = phi double [ %sqrt.i, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit360.i ], [ %.0263398.i, %570 ]
-  %637 = add nuw nsw i32 %.0266397.i, 1
+  %.1264373.i = phi double [ %sqrt.i, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit360.i ], [ %.0263389.i, %570 ]
+  %637 = add nuw nsw i32 %.0266388.i, 1
   %.not309.i = icmp sge i32 %637, %.sroa.2.0.copyload
-  %or.cond320.not391.i = select i1 %.not.i.i, i1 %.not309.i, i1 false
-  %638 = fcmp olt double %.1264379.i, %.sroa.3.0.copyload
+  %or.cond320.not382.i = select i1 %.not.i.i, i1 %.not309.i, i1 false
+  %638 = fcmp olt double %.1264373.i, %.sroa.3.0.copyload
   %or.cond323.i = select i1 %.not2.i.i, i1 %638, i1 false
-  %or.cond390.i = select i1 %or.cond320.not391.i, i1 true, i1 %or.cond323.i
-  br i1 %or.cond390.i, label %.thread382.i, label %559, !llvm.loop !332
+  %or.cond381.i = select i1 %or.cond320.not382.i, i1 true, i1 %or.cond323.i
+  br i1 %or.cond381.i, label %.thread376.i, label %559, !llvm.loop !332
 
-.thread382.i:                                     ; preds = %.thread.i, %559, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i, %527
+.thread376.i:                                     ; preds = %.thread.i, %559, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i, %527
   %.1259.i = phi double [ %531, %527 ], [ %544, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i ], [ %531, %559 ], [ %590, %.thread.i ]
   %.1254.i = phi double [ %529, %527 ], [ %543, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i ], [ %529, %559 ], [ %588, %.thread.i ]
   %639 = load double, ptr %13, align 16, !tbaa !67
@@ -6404,7 +6404,7 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   %659 = fmul double %650, %657
   br i1 %512, label %660, label %666
 
-660:                                              ; preds = %.thread382.i
+660:                                              ; preds = %.thread376.i
   %661 = fptrunc double %658 to float
   %662 = mul nsw i64 %indvars.iv.i, %476
   %663 = getelementptr inbounds %struct.CvPoint2D32f, ptr %177, i64 %662
@@ -6414,7 +6414,7 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   store float %664, ptr %665, align 4, !tbaa !320
   br label %670
 
-666:                                              ; preds = %.thread382.i
+666:                                              ; preds = %.thread376.i
   %667 = mul nsw i64 %indvars.iv.i, %476
   %668 = getelementptr inbounds %struct.CvPoint2D64f, ptr %177, i64 %667
   store double %658, ptr %668, align 8, !tbaa !321
@@ -7269,10 +7269,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   br label %.noexc258.us
 
 .noexc258.us:                                     ; preds = %384, %357
-  %.sroa.12.2.us = phi double [ %388, %384 ], [ %381, %357 ]
-  %.sroa.9.2.us = phi double [ %387, %384 ], [ %379, %357 ]
-  %.sroa.6327.2.us = phi double [ %386, %384 ], [ %377, %357 ]
-  %.sroa.0326.2.us = phi double [ %385, %384 ], [ %375, %357 ]
+  %.sroa.12.0.us = phi double [ %388, %384 ], [ %381, %357 ]
+  %.sroa.9.0.us = phi double [ %387, %384 ], [ %379, %357 ]
+  %.sroa.6327.0.us = phi double [ %386, %384 ], [ %377, %357 ]
+  %.sroa.0326.0.us = phi double [ %385, %384 ], [ %375, %357 ]
   %.sink27.i277.us = phi double [ %390, %384 ], [ %383, %357 ]
   %.sink26.in.i278.us = phi double [ %389, %384 ], [ %382, %357 ]
   %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.us = fptrunc double %.sink26.in.i278.us to float
@@ -7287,12 +7287,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   br i1 %395, label %_ZN2cvmIIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i.us, label %.critedge
 
 .critedge:                                        ; preds = %.noexc258.us
-  %396 = fmul double %.sroa.9.2.us, %.sroa.9.2.us
-  %397 = call double @llvm.fmuladd.f64(double %.sroa.0326.2.us, double %.sroa.0326.2.us, double %396)
-  %398 = fmul double %.sroa.12.2.us, %.sroa.9.2.us
-  %399 = call double @llvm.fmuladd.f64(double %.sroa.0326.2.us, double %.sroa.6327.2.us, double %398)
-  %400 = fmul double %.sroa.12.2.us, %.sroa.12.2.us
-  %401 = call double @llvm.fmuladd.f64(double %.sroa.6327.2.us, double %.sroa.6327.2.us, double %400)
+  %396 = fmul double %.sroa.9.0.us, %.sroa.9.0.us
+  %397 = call double @llvm.fmuladd.f64(double %.sroa.0326.0.us, double %.sroa.0326.0.us, double %396)
+  %398 = fmul double %.sroa.12.0.us, %.sroa.9.0.us
+  %399 = call double @llvm.fmuladd.f64(double %.sroa.0326.0.us, double %.sroa.6327.0.us, double %398)
+  %400 = fmul double %.sroa.12.0.us, %.sroa.12.0.us
+  %401 = call double @llvm.fmuladd.f64(double %.sroa.6327.0.us, double %.sroa.6327.0.us, double %400)
   %402 = fneg double %399
   %403 = fmul double %399, %402
   %404 = call double @llvm.fmuladd.f64(double %397, double %401, double %403)
@@ -7302,10 +7302,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   %408 = fmul double %401, %407
   %409 = fmul double %407, %402
   %410 = fmul double %397, %407
-  %411 = fmul double %.sroa.9.2.us, %392
-  %412 = call double @llvm.fmuladd.f64(double %.sroa.0326.2.us, double %391, double %411)
-  %413 = fmul double %.sroa.12.2.us, %392
-  %414 = call double @llvm.fmuladd.f64(double %.sroa.6327.2.us, double %391, double %413)
+  %411 = fmul double %.sroa.9.0.us, %392
+  %412 = call double @llvm.fmuladd.f64(double %.sroa.0326.0.us, double %391, double %411)
+  %413 = fmul double %.sroa.12.0.us, %392
+  %414 = call double @llvm.fmuladd.f64(double %.sroa.6327.0.us, double %391, double %413)
   %415 = fmul double %409, %414
   %416 = call double @llvm.fmuladd.f64(double %408, double %412, double %415)
   %417 = fmul double %410, %414

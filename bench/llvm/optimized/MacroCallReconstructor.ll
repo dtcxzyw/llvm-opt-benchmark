@@ -337,12 +337,12 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor19createUnwrapped
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !17
   %18 = zext i32 %17 to i64
-  %.idx70 = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx70
-  %.not67 = icmp eq i32 %17, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph69
+  %.idx68 = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx68
+  %.not65 = icmp eq i32 %17, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph67
 
-.lr.ph69:                                         ; preds = %4
+.lr.ph67:                                         ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -352,10 +352,10 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor19createUnwrapped
   %26 = ptrtoint ptr %7 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph69, %.thread53
-  %.068 = phi ptr [ %15, %.lr.ph69 ], [ %178, %.thread53 ]
+27:                                               ; preds = %.lr.ph67, %.thread51
+  %.066 = phi ptr [ %15, %.lr.ph67 ], [ %178, %.thread51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %28 = load ptr, ptr %.068, align 8, !tbaa !23
+  %28 = load ptr, ptr %.066, align 8, !tbaa !23
   %29 = load ptr, ptr %28, align 8, !tbaa !69
   store ptr %29, ptr %5, align 8, !tbaa !31
   store ptr %21, ptr %20, align 8, !tbaa !15
@@ -403,7 +403,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = load ptr, ptr %8, align 8, !tbaa !109
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %.068, align 8, !tbaa !23
+  %51 = load ptr, ptr %.066, align 8, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -412,7 +412,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   %.idx = shl nuw nsw i64 %56, 3
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %.not6.i.i = icmp eq i32 %55, 0
-  br i1 %.not6.i.i, label %.thread53, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.thread51, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6format17UnwrappedLineNodeD2Ev.exit, %.lr.ph.i.i
   %.08.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %_ZN5clang6format17UnwrappedLineNodeD2Ev.exit ]
@@ -430,7 +430,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
 "_ZSt8count_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_1ENSt15iterator_traitsIT_E15difference_typeESD_SD_T0_.exit": ; preds = %.lr.ph.i.i
   switch i64 %spec.select.i.i, label %.thread [
     i64 1, label %61
-    i64 0, label %.thread53
+    i64 0, label %.thread51
   ]
 
 61:                                               ; preds = %"_ZSt8count_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_1ENSt15iterator_traitsIT_E15difference_typeESD_SD_T0_.exit"
@@ -444,8 +444,8 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
 
 65:                                               ; preds = %61, %61
   %66 = lshr i64 %56, 2
-  %.not56 = icmp eq i64 %66, 0
-  br i1 %.not56, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
+  %.not54 = icmp eq i64 %66, 0
+  br i1 %.not54, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %65
   %67 = and i64 %.idx, 34359738336
@@ -554,11 +554,11 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   %100 = add i64 %99, %98
   store i64 %100, ptr %9, align 8, !tbaa !111
   store i64 0, ptr %24, align 8, !tbaa !111
-  %.pre75 = load ptr, ptr %6, align 8, !tbaa !28
+  %.pre73 = load ptr, ptr %6, align 8, !tbaa !28
   br label %_ZNSt7__cxx114listIN5clang6format17UnwrappedLineNodeESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit
 
 _ZNSt7__cxx114listIN5clang6format17UnwrappedLineNodeESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit: ; preds = %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit", %97
-  %101 = phi ptr [ %95, %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit" ], [ %.pre75, %97 ]
+  %101 = phi ptr [ %95, %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit" ], [ %.pre73, %97 ]
   %.not.i1.i.i = icmp eq ptr %101, %6
   br i1 %.not.i1.i.i, label %_ZN5clang6format13UnwrappedLineD2Ev.exit, label %.lr.ph.i.i36
 
@@ -588,7 +588,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7
 
 _ZN5clang6format13UnwrappedLineD2Ev.exit:         ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7destroyIS3_EEvRS5_PT_.exit.i.i, %_ZNSt7__cxx114listIN5clang6format17UnwrappedLineNodeESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread53
+  br label %.thread51
 
 .thread:                                          ; preds = %"_ZSt8count_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_1ENSt15iterator_traitsIT_E15difference_typeESD_SD_T0_.exit", %61
   %.not17.i.i = icmp eq i32 %55, 1
@@ -624,8 +624,8 @@ _ZN5clang6format13UnwrappedLineD2Ev.exit:         ; preds = %_ZNSt16allocator_tr
   br label %124
 
 124:                                              ; preds = %.lr.ph, %176
-  %.03466 = phi ptr [ %53, %.lr.ph ], [ %177, %176 ]
-  %125 = load ptr, ptr %.03466, align 8, !tbaa !46
+  %.03464 = phi ptr [ %53, %.lr.ph ], [ %177, %176 ]
+  %125 = load ptr, ptr %.03464, align 8, !tbaa !46
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load i32, ptr %126, align 8, !tbaa !17
   %.not.i = icmp eq i32 %127, 0
@@ -738,16 +738,16 @@ _ZN5clang6format13UnwrappedLineD2Ev.exit45:       ; preds = %_ZNSt16allocator_tr
   br label %176
 
 176:                                              ; preds = %124, %_ZN5clang6format13UnwrappedLineD2Ev.exit45
-  %177 = getelementptr inbounds nuw i8, ptr %.03466, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.03464, i64 8
   %.not35 = icmp eq ptr %177, %57
-  br i1 %.not35, label %.thread53, label %124
+  br i1 %.not35, label %.thread51, label %124
 
-.thread53:                                        ; preds = %176, %"_ZSt8count_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_1ENSt15iterator_traitsIT_E15difference_typeESD_SD_T0_.exit", %_ZN5clang6format17UnwrappedLineNodeD2Ev.exit, %_ZN5clang6format13UnwrappedLineD2Ev.exit
-  %178 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+.thread51:                                        ; preds = %176, %"_ZSt8count_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_1ENSt15iterator_traitsIT_E15difference_typeESD_SD_T0_.exit", %_ZN5clang6format17UnwrappedLineNodeD2Ev.exit, %_ZN5clang6format13UnwrappedLineD2Ev.exit
+  %178 = getelementptr inbounds nuw i8, ptr %.066, i64 8
   %.not = icmp eq ptr %178, %19
   br i1 %.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %.thread53, %4
+._crit_edge:                                      ; preds = %.thread51, %4
   ret void
 }
 

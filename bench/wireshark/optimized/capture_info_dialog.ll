@@ -2121,8 +2121,8 @@ _ZNSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_in
   br label %_ZN5QListIiED2Ev.exit
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %_ZNSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i, %34, %_ZNSt3mapIi5QListIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
-  %.sroa.036.0 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIi5QListIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit ], [ %43, %_ZNSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i ], [ %.sroa.05.0.i.i, %34 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.036.0, i64 40
+  %.sroa.030.0 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIi5QListIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit ], [ %43, %_ZNSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i ], [ %.sroa.05.0.i.i, %34 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 40
   ret ptr %49
 }
 

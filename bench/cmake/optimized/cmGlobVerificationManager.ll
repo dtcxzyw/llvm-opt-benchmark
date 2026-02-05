@@ -5018,11 +5018,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i:
   store ptr %76, ptr %74, align 8, !tbaa !16
   %82 = load i64, ptr %31, align 8, !tbaa !34
   store i64 %82, ptr %75, align 8, !tbaa !34
-  %.pre36 = load i64, ptr %44, align 8, !tbaa !20
+  %.pre33 = load i64, ptr %44, align 8, !tbaa !20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i
-  %83 = phi i64 [ %79, %78 ], [ %.pre36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i ]
+  %83 = phi i64 [ %79, %78 ], [ %.pre33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i3.i ]
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 %52
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %83, ptr %85, align 8, !tbaa !20

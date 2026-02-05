@@ -10775,9 +10775,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit.threa
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
-  %81 = icmp eq ptr %.pre, %.pre32
+  %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %.pre23 = load ptr, ptr %.phi.trans.insert22, align 8
+  %81 = icmp eq ptr %.pre, %.pre23
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 296
   br i1 %81, label %101, label %83
 

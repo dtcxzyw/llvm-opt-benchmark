@@ -214,12 +214,12 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %15 = phi i64 [ %53, %52 ], [ %4, %.lr.ph.preheader ]
-  %.03177 = phi i64 [ %.132, %52 ], [ 0, %.lr.ph.preheader ]
-  %.03375 = phi i64 [ %54, %52 ], [ 0, %.lr.ph.preheader ]
-  %.03474 = phi i32 [ %.135, %52 ], [ 0, %.lr.ph.preheader ]
-  %.03773 = phi ptr [ %.239, %52 ], [ %10, %.lr.ph.preheader ]
+  %.03174 = phi i64 [ %.132, %52 ], [ 0, %.lr.ph.preheader ]
+  %.03372 = phi i64 [ %54, %52 ], [ 0, %.lr.ph.preheader ]
+  %.03471 = phi i32 [ %.135, %52 ], [ 0, %.lr.ph.preheader ]
+  %.03770 = phi ptr [ %.239, %52 ], [ %10, %.lr.ph.preheader ]
   %16 = load ptr, ptr %1, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.03375
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.03372
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = zext i8 %18 to i32
   %20 = tail call i32 @isspace(i32 noundef %19) #12
@@ -235,23 +235,23 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 25:                                               ; preds = %21
   %26 = zext i8 %24 to i32
-  %27 = shl i32 %.03474, 6
+  %27 = shl i32 %.03471, 6
   %28 = or i32 %27, %26
-  %29 = and i64 %.03177, 3
+  %29 = and i64 %.03174, 3
   %30 = icmp eq i64 %29, 3
   br i1 %30, label %31, label %50
 
 31:                                               ; preds = %25
   %32 = lshr i32 %27, 16
   %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %.03773, i64 1
-  store i8 %33, ptr %.03773, align 1, !tbaa !12
-  %.not42 = icmp eq i64 %.03375, 0
-  %.pre78 = load ptr, ptr %1, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw i8, ptr %.03770, i64 1
+  store i8 %33, ptr %.03770, align 1, !tbaa !12
+  %.not42 = icmp eq i64 %.03372, 0
+  %.pre75 = load ptr, ptr %1, align 8, !tbaa !13
   br i1 %.not42, label %43, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr i8, ptr %.pre78, i64 %.03375
+  %36 = getelementptr i8, ptr %.pre75, i64 %.03372
   %37 = getelementptr i8, ptr %36, i64 -1
   %38 = load i8, ptr %37, align 1, !tbaa !12
   %.not43 = icmp eq i8 %38, 61
@@ -260,15 +260,15 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
 39:                                               ; preds = %35
   %40 = lshr i32 %27, 8
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %.03773, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.03770, i64 2
   store i8 %41, ptr %34, align 1, !tbaa !12
   %.pre = load ptr, ptr %1, align 8, !tbaa !13
   br label %43
 
 43:                                               ; preds = %39, %35, %31
-  %44 = phi ptr [ %.pre, %39 ], [ %.pre78, %35 ], [ %.pre78, %31 ]
+  %44 = phi ptr [ %.pre, %39 ], [ %.pre75, %35 ], [ %.pre75, %31 ]
   %.5 = phi ptr [ %42, %39 ], [ %34, %35 ], [ %34, %31 ]
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.03375
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.03372
   %46 = load i8, ptr %45, align 1, !tbaa !12
   %.not44 = icmp eq i8 %46, 61
   br i1 %.not44, label %50, label %47
@@ -280,17 +280,17 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   br label %50
 
 50:                                               ; preds = %25, %47, %43
-  %.4 = phi ptr [ %49, %47 ], [ %.5, %43 ], [ %.03773, %25 ]
-  %51 = add i64 %.03177, 1
-  %.pre79 = load i64, ptr %3, align 8, !tbaa !9
+  %.4 = phi ptr [ %49, %47 ], [ %.5, %43 ], [ %.03770, %25 ]
+  %51 = add i64 %.03174, 1
+  %.pre76 = load i64, ptr %3, align 8, !tbaa !9
   br label %52
 
 52:                                               ; preds = %50, %.lr.ph
-  %53 = phi i64 [ %15, %.lr.ph ], [ %.pre79, %50 ]
-  %.239 = phi ptr [ %.03773, %.lr.ph ], [ %.4, %50 ]
-  %.135 = phi i32 [ %.03474, %.lr.ph ], [ %28, %50 ]
-  %.132 = phi i64 [ %.03177, %.lr.ph ], [ %51, %50 ]
-  %54 = add nuw i64 %.03375, 1
+  %53 = phi i64 [ %15, %.lr.ph ], [ %.pre76, %50 ]
+  %.239 = phi ptr [ %.03770, %.lr.ph ], [ %.4, %50 ]
+  %.135 = phi i32 [ %.03471, %.lr.ph ], [ %28, %50 ]
+  %.132 = phi i64 [ %.03174, %.lr.ph ], [ %51, %50 ]
+  %54 = add nuw i64 %.03372, 1
   %.not46 = icmp ult i64 %54, %53
   br i1 %.not46, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
@@ -320,12 +320,12 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   %70 = add nsw i64 %62, -1
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.thread68, label %72
+  br i1 %71, label %.thread65, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr i8, ptr %.0.i.i.i.i.i, i64 %62
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %69, i8 0, i64 %70, i1 false)
-  br label %.thread68
+  br label %.thread65
 
 74:                                               ; preds = %61
   %75 = icmp ult i64 %66, %62
@@ -369,19 +369,19 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %85, %_ZSt2
   tail call void @_ZdlPv(ptr noundef nonnull %10) #10
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 %57
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 %78
-  br label %.thread68
+  br label %.thread65
 
 88:                                               ; preds = %._crit_edge
   %89 = icmp ult i64 %57, %59
-  br i1 %89, label %90, label %.thread68
+  br i1 %89, label %90, label %.thread65
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 %57
   %.not.i4.i = icmp eq ptr %.0.i.i.i.i.i, %.239
   %spec.select = select i1 %.not.i4.i, ptr %.0.i.i.i.i.i, ptr %91
-  br label %.thread68
+  br label %.thread65
 
-.thread68:                                        ; preds = %90, %68, %72, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i, %88
+.thread65:                                        ; preds = %90, %68, %72, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i, %88
   %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %.0.i.i.i.i.i, %88 ], [ %spec.select, %90 ], [ %69, %68 ], [ %73, %72 ]
   %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %88 ], [ %11, %90 ], [ %11, %68 ], [ %11, %72 ]
   %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %88 ], [ %10, %90 ], [ %10, %68 ], [ %10, %72 ]
@@ -403,7 +403,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIhSaIh
   tail call void @_ZdlPv(ptr noundef nonnull %10) #10
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit52
 
-_ZNSt6vectorIhSaIhEED2Ev.exit52:                  ; preds = %95, %.thread68, %6
+_ZNSt6vectorIhSaIhEED2Ev.exit52:                  ; preds = %95, %.thread65, %6
   ret void
 }
 

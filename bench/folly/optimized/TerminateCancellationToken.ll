@@ -9716,15 +9716,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not35 = icmp eq i64 %17, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %17, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %.val10 = load ptr, ptr %1, align 8, !tbaa !183
   %19 = getelementptr i8, ptr %1, i64 8
   %.val11 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %.val10, null
-  br i1 %.not.i.i, label %20, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31
+  br i1 %.not.i.i, label %20, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29
 
 20:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %.val11, null
@@ -9734,12 +9734,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerm
   %21 = getelementptr inbounds nuw i8, ptr %.val11, i64 8
   %22 = load atomic i32, ptr %21 monotonic, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31
+  br i1 %23, label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.036 = phi ptr [ %47, %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.036, align 8, !tbaa !20
-  %24 = getelementptr inbounds nuw i8, ptr %.036, i64 8
+  %.034 = phi ptr [ %47, %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.034, align 8, !tbaa !20
+  %24 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !33
   store ptr null, ptr %24, align 8, !tbaa !33
   %.not.i.i.i.i = icmp eq ptr %25, null
@@ -9790,15 +9790,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %43, %4
   br label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %31, %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %.not = icmp eq ptr %47, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br i1 %.not35, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE.exit, label %.lr.ph.i
+  br i1 %.not33, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31
+.lr.ph.i:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29
   %48 = add nsw i64 %17, -1
   br label %49
 
@@ -10025,8 +10025,8 @@ _ZNSt12__shared_ptrISt10shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalH
   %exitcond.not.i = icmp eq i64 %134, %17
   br i1 %exitcond.not.i, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE.exit, label %49, !llvm.loop !472
 
-_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE.exit: ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31
-  %.sroa.3.2 = phi ptr [ %.val11, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread31 ], [ %.sroa.3.1, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
+_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE.exit: ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29
+  %.sroa.3.2 = phi ptr [ %.val11, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEEbRKSt10shared_ptrIT_E.exit.thread29 ], [ %.sroa.3.1, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   %.not.i.i22 = icmp eq ptr %.sroa.3.2, null
   br i1 %.not.i.i22, label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %135
 

@@ -6779,14 +6779,14 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %43, %47, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %10, align 8, !tbaa !225
-  %.pre9 = load ptr, ptr %14, align 8, !tbaa !253
+  %.pre8 = load ptr, ptr %14, align 8, !tbaa !253
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !46
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !46
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %51, %56
-  %57 = phi ptr [ null, %51 ], [ %.pre10, %56 ]
-  %58 = phi ptr [ %31, %51 ], [ %.pre9, %56 ]
+  %57 = phi ptr [ null, %51 ], [ %.pre9, %56 ]
+  %58 = phi ptr [ %31, %51 ], [ %.pre8, %56 ]
   %59 = phi ptr [ %32, %51 ], [ %.pre, %56 ]
   %60 = getelementptr inbounds i8, ptr %58, i64 -32
   %.not.i.i3 = icmp eq ptr %59, %60

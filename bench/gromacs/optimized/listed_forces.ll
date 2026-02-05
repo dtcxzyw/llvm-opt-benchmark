@@ -3338,16 +3338,16 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   br label %71
 
 71:                                               ; preds = %64, %61
-  %.sroa.099.1 = phi ptr [ %62, %61 ], [ %67, %64 ]
-  %.sroa.7101.1 = phi ptr [ %.sroa.7101.0.copyload, %61 ], [ %70, %64 ]
-  %.sroa.0100.1 = phi ptr [ %.sroa.0100.0.copyload, %61 ], [ %69, %64 ]
+  %.sroa.099.0 = phi ptr [ %62, %61 ], [ %67, %64 ]
+  %.sroa.7101.0 = phi ptr [ %.sroa.7101.0.copyload, %61 ], [ %70, %64 ]
+  %.sroa.0100.0 = phi ptr [ %.sroa.0100.0.copyload, %61 ], [ %69, %64 ]
   %.064 = phi ptr [ %63, %61 ], [ %68, %64 ]
   %.058.in = phi ptr [ %4, %61 ], [ %65, %64 ]
   %.058 = load ptr, ptr %.058.in, align 8, !tbaa !335
-  %72 = ptrtoint ptr %.sroa.7101.1 to i64
-  %73 = ptrtoint ptr %.sroa.0100.1 to i64
+  %72 = ptrtoint ptr %.sroa.7101.0 to i64
+  %73 = ptrtoint ptr %.sroa.0100.0 to i64
   %74 = sub i64 %72, %73
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0100.1, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0, i64 %74
   %76 = trunc nsw i64 %indvars.iv106 to i32
   br label %80
 
@@ -3404,7 +3404,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   %110 = sub i64 %108, %109
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 %110
   store ptr %111, ptr %39, align 8, !tbaa !262
-  store ptr %.sroa.0100.1, ptr %27, align 8, !tbaa !317
+  store ptr %.sroa.0100.0, ptr %27, align 8, !tbaa !317
   store ptr %75, ptr %41, align 8, !tbaa !317
   %112 = load ptr, ptr %13, align 8, !tbaa !262
   %113 = load ptr, ptr %42, align 8, !tbaa !262
@@ -3440,7 +3440,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
           to label %141 unwind label %145
 
 141:                                              ; preds = %93
-  %142 = getelementptr inbounds nuw float, ptr %.sroa.099.1, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw float, ptr %.sroa.099.0, i64 %indvars.iv
   %143 = load float, ptr %142, align 4, !tbaa !85
   %144 = fadd float %140, %143
   store float %144, ptr %142, align 4, !tbaa !85

@@ -269,9 +269,9 @@ window_sum.exit:                                  ; preds = %100
   br i1 %or.cond, label %123, label %window_sum.exit.thread
 
 window_sum.exit.thread:                           ; preds = %91, %window_sum.exit
-  %.sroa.11.1123 = phi i32 [ %112, %window_sum.exit ], [ 0, %91 ]
-  %.sroa.0.1122 = phi i64 [ %106, %window_sum.exit ], [ 0, %91 ]
-  %.not103 = icmp ult i32 %.sroa.11.1123, %99
+  %.sroa.11.0123 = phi i32 [ %112, %window_sum.exit ], [ 0, %91 ]
+  %.sroa.0.0122 = phi i64 [ %106, %window_sum.exit ], [ 0, %91 ]
+  %.not103 = icmp ult i32 %.sroa.11.0123, %99
   br i1 %.not103, label %115, label %114
 
 114:                                              ; preds = %window_sum.exit.thread
@@ -286,7 +286,7 @@ window_sum.exit.thread:                           ; preds = %91, %window_sum.exi
 116:                                              ; preds = %115
   %117 = load i32, ptr %35, align 8, !tbaa !20
   %118 = zext i32 %117 to i64
-  %119 = udiv i64 %.sroa.0.1122, %118
+  %119 = udiv i64 %.sroa.0.0122, %118
   %120 = icmp ugt i64 %119, %.090130
   br i1 %120, label %121, label %123
 

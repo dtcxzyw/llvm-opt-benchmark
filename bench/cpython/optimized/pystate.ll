@@ -1348,11 +1348,11 @@ define hidden void @_PyRuntimeState_ReInitThreads(ptr dead_on_unwind noalias wri
   br i1 %.not9.i, label %40, label %tstate_tss_reinit.exit
 
 36:                                               ; preds = %2, %36
-  %.032 = phi i64 [ 0, %2 ], [ %39, %36 ]
-  %37 = getelementptr ptr, ptr %3, i64 %.032
+  %.026 = phi i64 [ 0, %2 ], [ %39, %36 ]
+  %37 = getelementptr ptr, ptr %3, i64 %.026
   %38 = load ptr, ptr %37, align 8, !tbaa !186
   store i8 0, ptr %38, align 1
-  %39 = add nuw nsw i64 %.032, 1
+  %39 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %39, 11
   br i1 %exitcond.not, label %27, label %36, !llvm.loop !191
 

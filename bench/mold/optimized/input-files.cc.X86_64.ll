@@ -7288,7 +7288,7 @@ _ZN4mold4WarnINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZN4mold4WarnINS_7
   %112 = load i8, ptr %111, align 1
   %113 = and i8 %112, 15
   %114 = icmp eq i8 %113, 6
-  %.sroa.6.2 = select i1 %114, i64 1027, i64 3
+  %.sroa.6.0 = select i1 %114, i64 1027, i64 3
   %115 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %116 = load i64, ptr %115, align 1, !tbaa !49
   %117 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -7303,7 +7303,7 @@ _ZN4mold4WarnINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZN4mold4WarnINS_7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !49
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !49
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !49
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 32
@@ -7348,7 +7348,7 @@ _ZNKSt6vectorIN4mold7ElfShdrINS0_6X86_64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
   %.sroa.5.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 8, ptr %.sroa.5.0..sroa_idx27, align 1, !tbaa !49
   %.sroa.6.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store i64 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx29, align 1, !tbaa !49
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx29, align 1, !tbaa !49
   %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %138, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.0..sroa_idx31, i8 0, i64 16, i1 false)
   %.sroa.832.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %138, i64 32

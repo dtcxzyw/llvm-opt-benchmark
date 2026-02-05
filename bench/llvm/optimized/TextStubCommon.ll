@@ -495,18 +495,18 @@ define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_8SmallSetINS_5Mach
   %9 = alloca i32, align 4
   %10 = alloca %"struct.std::pair", align 8
   %.not.i = icmp eq i64 %1, 8
-  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
   %11 = icmp eq i32 %bcmp.i, 0
-  br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread
+  br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %bcmp.i.i.i43 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.10, i64 8)
   %12 = icmp eq i32 %bcmp.i.i.i43, 0
-  br i1 %12, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread255
+  br i1 %12, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread249
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %.not13 = icmp eq ptr %2, null
@@ -529,7 +529,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %33
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread126:      ; preds = %4
+_ZN4llvmeqENS_9StringRefES0_.exit.thread120:      ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -540,32 +540,32 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread126:      ; preds = %4
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %0, ptr noundef nonnull dereferenceable(6) @.str.6, i64 6)
   %18 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %18, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i18:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i18:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.7, i64 3)
   %19 = icmp eq i32 %bcmp.i.i.i19, 0
-  br i1 %19, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread, label %.thread255
+  br i1 %19, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread, label %.thread249
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i26:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i26:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) @.str.8, i64 7)
   %20 = icmp eq i32 %bcmp.i.i.i27, 0
-  br i1 %20, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread255
+  br i1 %20, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread249
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i34:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i34:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i35 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %21 = icmp eq i32 %bcmp.i.i.i35, 0
-  br i1 %21, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread255
+  br i1 %21, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %.thread249
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i50:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %bcmp.i.i.i51 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %0, ptr noundef nonnull dereferenceable(6) @.str.14, i64 6)
   %22 = icmp eq i32 %bcmp.i.i.i51, 0
   br i1 %22, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i58:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i58:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i59 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %0, ptr noundef nonnull dereferenceable(11) @.str.11, i64 11)
   %23 = icmp eq i32 %bcmp.i.i.i59, 0
   br i1 %23, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69, label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread
@@ -574,18 +574,18 @@ _ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.
   %.sroa.20.6.ph = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ]
   br label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i66:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i66:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120
   %bcmp.i.i.i67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %0, ptr noundef nonnull dereferenceable(9) @.str.12, i64 9)
   %24 = icmp eq i32 %bcmp.i.i.i67, 0
   %spec.select = select i1 %24, i64 4294967306, i64 0
   br label %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69
 
-_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126, %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58
-  %.sroa.20.7 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread126 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50 ], [ %.sroa.20.6.ph, %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread ]
+_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120, %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58
+  %.sroa.20.7 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread120 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50 ], [ %.sroa.20.6.ph, %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit61.thread ]
   %25 = and i64 %.sroa.20.7, 4294967296
-  %.not268 = icmp eq i64 %25, 0
+  %.not262 = icmp eq i64 %25, 0
   %.sroa.20.16.extract.trunc = trunc i64 %.sroa.20.7 to i32
-  %spec.select.i = select i1 %.not268, i32 0, i32 %.sroa.20.16.extract.trunc
+  %spec.select.i = select i1 %.not262, i32 0, i32 %.sroa.20.16.extract.trunc
   store i32 %spec.select.i, ptr %9, align 4, !tbaa !26
   %26 = icmp eq i32 %spec.select.i, 6
   %27 = icmp ne ptr %2, null
@@ -596,25 +596,25 @@ _ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load i32, ptr %29, align 8, !tbaa !9
   %.not = icmp eq i32 %30, 32
-  br i1 %.not, label %.thread183, label %.thread255
+  br i1 %.not, label %.thread177, label %.thread249
 
 31:                                               ; preds = %_ZN4llvm12StringSwitchINS_5MachO12PlatformTypeES2_E4CaseENS_13StringLiteralES2_.exit69
   %32 = icmp eq i32 %spec.select.i, 0
-  br i1 %32, label %.thread255, label %.thread183
+  br i1 %32, label %.thread249, label %.thread177
 
-.thread183:                                       ; preds = %28, %31
+.thread177:                                       ; preds = %28, %31
   call void @_ZN4llvm8SmallSetINS_5MachO12PlatformTypeELj3ESt4lessIS2_EE10insertImplIRKS2_EESt4pairINS_16SmallSetIteratorIS2_Lj3ES4_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %10, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  br label %.thread255
+  br label %.thread249
 
-.thread255:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18, %31, %28, %.thread183
-  %.sroa.8.1 = phi i64 [ 16, %28 ], [ 0, %.thread183 ], [ 16, %31 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread ]
-  %.sroa.0118.1 = phi ptr [ @.str.13, %28 ], [ null, %.thread183 ], [ @.str.15, %31 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread126.thread ]
+.thread249:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18, %31, %28, %.thread177
+  %.sroa.8.1 = phi i64 [ 16, %28 ], [ 0, %.thread177 ], [ 16, %31 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread ]
+  %.sroa.0118.1 = phi ptr [ @.str.13, %28 ], [ null, %.thread177 ], [ @.str.15, %31 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ @.str.15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread120.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
 
-33:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %13, %.thread255, %17
-  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %.thread255 ], [ 0, %17 ], [ 16, %13 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
-  %.sroa.0118.0 = phi ptr [ %.sroa.0118.1, %.thread255 ], [ null, %17 ], [ @.str.13, %13 ], [ @.str.13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+33:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %13, %.thread249, %17
+  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %.thread249 ], [ 0, %17 ], [ 16, %13 ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.sroa.0118.0 = phi ptr [ %.sroa.0118.1, %.thread249 ], [ null, %17 ], [ @.str.13, %13 ], [ @.str.13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0118.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -980,9 +980,9 @@ define dso_local void @_ZN4llvm4yaml12ScalarTraitsINS_5MachO13PackedVersionEvE6o
 define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_5MachO13PackedVersionEvE5inputENS_9StringRefEPvRS3_(ptr %0, i64 %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr %0, i64 %1) #13
   %spec.select = select i1 %5, ptr null, ptr @.str.31
-  %spec.select5 = select i1 %5, i64 0, i64 30
+  %spec.select3 = select i1 %5, i64 0, i64 30
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %spec.select, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select5, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %spec.select3, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

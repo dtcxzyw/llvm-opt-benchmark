@@ -805,8 +805,8 @@ strview.exit135:                                  ; preds = %strview.exit130
   br label %51
 
 51:                                               ; preds = %strview.exit135, %strview.exit130
-  %.sroa.05.1 = phi ptr [ %50, %strview.exit135 ], [ null, %strview.exit130 ]
-  %.sroa.10.1 = phi i64 [ %strlen143, %strview.exit135 ], [ 0, %strview.exit130 ]
+  %.sroa.05.0 = phi ptr [ %50, %strview.exit135 ], [ null, %strview.exit130 ]
+  %.sroa.10.0 = phi i64 [ %strlen143, %strview.exit135 ], [ 0, %strview.exit130 ]
   %52 = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i127, i64 %.sroa.3.0.i)
   %53 = tail call i32 @strncmp(ptr noundef nonnull readonly %39, ptr noundef nonnull readonly %2, i64 noundef %52) #24
   %.not.i.i = icmp eq i32 %53, 0
@@ -820,21 +820,21 @@ strview.exit135:                                  ; preds = %strview.exit130
   br label %79
 
 57:                                               ; preds = %51
-  %58 = icmp ne ptr %.sroa.05.1, null
+  %58 = icmp ne ptr %.sroa.05.0, null
   %or.cond4 = and i1 %35, %58
   br i1 %or.cond4, label %59, label %65
 
 59:                                               ; preds = %57
-  %60 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.1, i64 %.sroa.9.0)
-  %61 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.1, ptr noundef nonnull readonly %.sroa.026.0, i64 noundef %60) #24
+  %60 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 %.sroa.9.0)
+  %61 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly %.sroa.026.0, i64 noundef %60) #24
   %.not.i.i136 = icmp eq i32 %61, 0
-  %62 = icmp eq i64 %.sroa.10.1, %.sroa.9.0
+  %62 = icmp eq i64 %.sroa.10.0, %.sroa.9.0
   %spec.select.i137 = and i1 %62, %.not.i.i136
   br i1 %spec.select.i137, label %65, label %63
 
 63:                                               ; preds = %59
-  %64 = trunc i64 %.sroa.10.1 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, i32 noundef %64, ptr noundef nonnull %.sroa.05.1, i32 noundef %36, ptr noundef nonnull %.sroa.026.0)
+  %64 = trunc i64 %.sroa.10.0 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, i32 noundef %64, ptr noundef nonnull %.sroa.05.0, i32 noundef %36, ptr noundef nonnull %.sroa.026.0)
   br label %79
 
 65:                                               ; preds = %59, %57
@@ -858,13 +858,13 @@ strview.exit135:                                  ; preds = %strview.exit130
   br i1 %or.cond113.not, label %75, label %80
 
 75:                                               ; preds = %74
-  %76 = tail call ptr @gvplugin_load(ptr noundef %0, i32 noundef %., ptr noundef nonnull %.sroa.05.1, ptr noundef %3)
+  %76 = tail call ptr @gvplugin_load(ptr noundef %0, i32 noundef %., ptr noundef nonnull %.sroa.05.0, ptr noundef %3)
   %.not105 = icmp eq ptr %76, null
   br i1 %.not105, label %77, label %80
 
 77:                                               ; preds = %75
-  %78 = trunc i64 %.sroa.10.1 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, i32 noundef %78, ptr noundef nonnull %.sroa.05.1)
+  %78 = trunc i64 %.sroa.10.0 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, i32 noundef %78, ptr noundef nonnull %.sroa.05.0)
   br label %79
 
 79:                                               ; preds = %66, %77, %63, %55
@@ -1445,15 +1445,15 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %strs_detach.exit, label %.preheader
 
 .preheader:                                       ; preds = %3, %7
-  %.01951 = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.01951
+  %.01947 = phi i64 [ %8, %7 ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.01947
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef %5) #24
   %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %.thread, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = add nuw nsw i64 %.01951, 1
+  %8 = add nuw nsw i64 %.01947, 1
   %exitcond.not = icmp eq i64 %8, 5
   br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !62
 
@@ -1463,24 +1463,24 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01951
-  %.02052 = load ptr, ptr %11, align 8, !tbaa !10
-  %.not2353 = icmp eq ptr %.02052, null
-  br i1 %.not2353, label %._crit_edge.thread, label %.lr.ph
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01947
+  %.02048 = load ptr, ptr %11, align 8, !tbaa !10
+  %.not2349 = icmp eq ptr %.02048, null
+  br i1 %.not2349, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.thread
   store i32 0, ptr %2, align 4, !tbaa !63
   br label %strs_detach.exit
 
 .lr.ph:                                           ; preds = %.thread, %57
-  %.02060 = phi ptr [ %.020, %57 ], [ %.02052, %.thread ]
-  %.sroa.65.059 = phi i64 [ %.sroa.3.0.i, %57 ], [ 0, %.thread ]
-  %.sroa.03.058 = phi ptr [ %13, %57 ], [ null, %.thread ]
-  %.sroa.16.057 = phi i64 [ %.sroa.16.1, %57 ], [ 0, %.thread ]
-  %.sroa.12.056 = phi i64 [ %.sroa.12.1, %57 ], [ 0, %.thread ]
-  %.sroa.8.055 = phi i64 [ %.sroa.8.1, %57 ], [ 0, %.thread ]
-  %.sroa.0.054 = phi ptr [ %.sroa.0.1, %57 ], [ null, %.thread ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02060, i64 8
+  %.02056 = phi ptr [ %.020, %57 ], [ %.02048, %.thread ]
+  %.sroa.65.055 = phi i64 [ %.sroa.3.0.i, %57 ], [ 0, %.thread ]
+  %.sroa.03.054 = phi ptr [ %13, %57 ], [ null, %.thread ]
+  %.sroa.16.053 = phi i64 [ %.sroa.16.1, %57 ], [ 0, %.thread ]
+  %.sroa.12.052 = phi i64 [ %.sroa.12.1, %57 ], [ 0, %.thread ]
+  %.sroa.8.051 = phi i64 [ %.sroa.8.1, %57 ], [ 0, %.thread ]
+  %.sroa.0.050 = phi ptr [ %.sroa.0.1, %57 ], [ null, %.thread ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02056, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 58) #24
   %.not.i = icmp eq ptr %14, null
@@ -1498,13 +1498,13 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
 
 strview.exit:                                     ; preds = %15, %19
   %.sroa.3.0.i = phi i64 [ %18, %15 ], [ %20, %19 ]
-  %.not24 = icmp ne ptr %.sroa.03.058, null
-  %.not.i25 = icmp eq i64 %.sroa.65.059, %.sroa.3.0.i
+  %.not24 = icmp ne ptr %.sroa.03.054, null
+  %.not.i25 = icmp eq i64 %.sroa.65.055, %.sroa.3.0.i
   %or.cond = select i1 %.not24, i1 %.not.i25, i1 false
   br i1 %or.cond, label %strview_case_eq.exit, label %strview_case_eq.exit.thread
 
 strview_case_eq.exit:                             ; preds = %strview.exit
-  %21 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.058, ptr noundef nonnull readonly %13, i64 noundef %.sroa.65.059) #24
+  %21 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.054, ptr noundef nonnull readonly %13, i64 noundef %.sroa.65.055) #24
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %57, label %strview_case_eq.exit.thread
 
@@ -1521,36 +1521,36 @@ strview_case_eq.exit.thread:                      ; preds = %strview_case_eq.exi
   unreachable
 
 strview_str.exit:                                 ; preds = %strview_case_eq.exit.thread
-  %29 = icmp eq i64 %.sroa.12.056, %.sroa.16.057
+  %29 = icmp eq i64 %.sroa.12.052, %.sroa.16.053
   br i1 %29, label %30, label %strs_append.exit
 
 30:                                               ; preds = %strview_str.exit
-  %31 = icmp eq i64 %.sroa.16.057, 0
-  %32 = shl i64 %.sroa.16.057, 1
+  %31 = icmp eq i64 %.sroa.16.053, 0
+  %32 = shl i64 %.sroa.16.053, 1
   %spec.select.i.i = select i1 %31, i64 1, i64 %32
   %mul.ov.i.i = icmp ugt i64 %spec.select.i.i, 2305843009213693951
   br i1 %mul.ov.i.i, label %49, label %33
 
 33:                                               ; preds = %30
   %34 = shl nuw i64 %spec.select.i.i, 3
-  %35 = tail call ptr @realloc(ptr noundef %.sroa.0.054, i64 noundef %34) #29
+  %35 = tail call ptr @realloc(ptr noundef %.sroa.0.050, i64 noundef %34) #29
   %36 = icmp eq ptr %35, null
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.16.057
-  %39 = sub i64 %spec.select.i.i, %.sroa.16.057
+  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.16.053
+  %39 = sub i64 %spec.select.i.i, %.sroa.16.053
   %40 = shl i64 %39, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %38, i8 0, i64 %40, i1 false)
-  %41 = add i64 %.sroa.16.057, %.sroa.8.055
-  %42 = icmp ugt i64 %41, %.sroa.16.057
+  %41 = add i64 %.sroa.16.053, %.sroa.8.051
+  %42 = icmp ugt i64 %41, %.sroa.16.053
   br i1 %42, label %43, label %strs_append.exit
 
 43:                                               ; preds = %37
-  %44 = sub i64 %.sroa.16.057, %.sroa.8.055
+  %44 = sub i64 %.sroa.16.053, %.sroa.8.051
   %45 = sub i64 %spec.select.i.i, %44
   %46 = getelementptr inbounds nuw ptr, ptr %35, i64 %45
-  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.8.055
+  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.8.051
   %48 = shl i64 %44, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %47, i64 %48, i1 false)
   br label %strs_append.exit
@@ -1564,22 +1564,22 @@ strview_str.exit:                                 ; preds = %strview_case_eq.exi
   unreachable
 
 strs_append.exit:                                 ; preds = %37, %43, %strview_str.exit
-  %.sroa.0.2 = phi ptr [ %.sroa.0.054, %strview_str.exit ], [ %35, %43 ], [ %35, %37 ]
-  %.sroa.8.3 = phi i64 [ %.sroa.8.055, %strview_str.exit ], [ %45, %43 ], [ %.sroa.8.055, %37 ]
-  %.sroa.16.2 = phi i64 [ %.sroa.16.057, %strview_str.exit ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %37 ]
-  %53 = add i64 %.sroa.8.3, %.sroa.12.056
+  %.sroa.0.2 = phi ptr [ %.sroa.0.050, %strview_str.exit ], [ %35, %43 ], [ %35, %37 ]
+  %.sroa.8.3 = phi i64 [ %.sroa.8.051, %strview_str.exit ], [ %45, %43 ], [ %.sroa.8.051, %37 ]
+  %.sroa.16.2 = phi i64 [ %.sroa.16.053, %strview_str.exit ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %37 ]
+  %53 = add i64 %.sroa.8.3, %.sroa.12.052
   %54 = urem i64 %53, %.sroa.16.2
   %55 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %54
   store ptr %23, ptr %55, align 8, !tbaa !3
-  %56 = add i64 %.sroa.12.056, 1
+  %56 = add i64 %.sroa.12.052, 1
   br label %57
 
 57:                                               ; preds = %strs_append.exit, %strview_case_eq.exit
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %strs_append.exit ], [ %.sroa.0.054, %strview_case_eq.exit ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.3, %strs_append.exit ], [ %.sroa.8.055, %strview_case_eq.exit ]
-  %.sroa.12.1 = phi i64 [ %56, %strs_append.exit ], [ %.sroa.12.056, %strview_case_eq.exit ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.2, %strs_append.exit ], [ %.sroa.16.057, %strview_case_eq.exit ]
-  %.020 = load ptr, ptr %.02060, align 8, !tbaa !10
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %strs_append.exit ], [ %.sroa.0.050, %strview_case_eq.exit ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.3, %strs_append.exit ], [ %.sroa.8.051, %strview_case_eq.exit ]
+  %.sroa.12.1 = phi i64 [ %56, %strs_append.exit ], [ %.sroa.12.052, %strview_case_eq.exit ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.2, %strs_append.exit ], [ %.sroa.16.053, %strview_case_eq.exit ]
+  %.020 = load ptr, ptr %.02056, align 8, !tbaa !10
   %.not23 = icmp eq ptr %.020, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
@@ -1588,8 +1588,8 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
   store i32 %58, ptr %2, align 4, !tbaa !63
   %.not16.i.i = icmp eq i64 %.sroa.8.1, 0
   %.not1213.i.i = icmp eq i64 %.sroa.16.1, 0
-  %or.cond39 = select i1 %.not16.i.i, i1 true, i1 %.not1213.i.i
-  br i1 %or.cond39, label %strs_detach.exit, label %.lr.ph.i.i
+  %or.cond35 = select i1 %.not16.i.i, i1 true, i1 %.not1213.i.i
+  br i1 %or.cond35, label %strs_detach.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %._crit_edge.i.i26
   %59 = phi i64 [ %61, %._crit_edge.i.i26 ], [ %.sroa.8.1, %._crit_edge ]

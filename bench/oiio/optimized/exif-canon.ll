@@ -907,22 +907,22 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph.i
-  %.02151.ph.i = phi i1 [ true, %.thread.i ], [ false, %.lr.ph.i ]
-  %.02350.ph.i.idx = phi i64 [ %.02350.i.add, %.thread.i ], [ 0, %.lr.ph.i ]
+  %.02148.ph.i = phi i1 [ true, %.thread.i ], [ false, %.lr.ph.i ]
+  %.02347.ph.i.idx = phi i64 [ %.02347.i.add, %.thread.i ], [ 0, %.lr.ph.i ]
   br label %24
 
 ._crit_edge.i:                                    ; preds = %37
-  br i1 %.02151.ph.i, label %._crit_edge.thread.i, label %.critedge.i
+  br i1 %.02148.ph.i, label %._crit_edge.thread.i, label %.critedge.i
 
 24:                                               ; preds = %37, %.outer.i
-  %.02350.i.idx = phi i64 [ %.02350.i.add58, %37 ], [ %.02350.ph.i.idx, %.outer.i ]
-  %.02350.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL25canon_focallength_indicesE, i64 %.02350.i.idx
-  %25 = load i32, ptr %.02350.i.ptr, align 8, !tbaa !12
+  %.02347.i.idx = phi i64 [ %.02347.i.add58, %37 ], [ %.02347.ph.i.idx, %.outer.i ]
+  %.02347.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL25canon_focallength_indicesE, i64 %.02347.i.idx
+  %25 = load i32, ptr %.02347.i.ptr, align 8, !tbaa !12
   %26 = icmp slt i32 %25, %22
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.02350.i.ptr, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02347.i.ptr, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   store ptr %29, ptr %5, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %29, null
@@ -957,19 +957,19 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i: ; 
   br label %47
 
 37:                                               ; preds = %34, %24
-  %.02350.i.add58 = add nuw nsw i64 %.02350.i.idx, 16
-  %.not.i = icmp samesign eq i64 %.02350.i.add58, 64
+  %.02347.i.add58 = add nuw nsw i64 %.02347.i.idx, 16
+  %.not.i = icmp samesign eq i64 %.02347.i.add58, 64
   br i1 %.not.i, label %._crit_edge.i, label %24
 
 .thread.i:                                        ; preds = %35
   %38 = trunc i32 %36 to i16
-  %39 = load i32, ptr %.02350.i.ptr, align 8, !tbaa !12
+  %39 = load i32, ptr %.02347.i.ptr, align 8, !tbaa !12
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i16, ptr %.sroa.032.0.i, i64 %40
   store i16 %38, ptr %41, align 2, !tbaa !15
-  %.02350.i.add = add nuw nsw i64 %.02350.i.idx, 16
-  %.not55.i = icmp eq i64 %.02350.i.add, 64
-  br i1 %.not55.i, label %._crit_edge.thread.i, label %.outer.i
+  %.02347.i.add = add nuw nsw i64 %.02347.i.idx, 16
+  %.not52.i = icmp eq i64 %.02347.i.add, 64
+  br i1 %.not52.i, label %._crit_edge.thread.i, label %.outer.i
 
 ._crit_edge.thread.i:                             ; preds = %.thread.i, %._crit_edge.i
   %42 = ashr exact i64 %20, 1
@@ -1117,8 +1117,8 @@ _ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %.sroa.15.0 = phi i64 [ 0, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %20, %.noexc28 ]
   %.sroa.032.0 = phi ptr [ null, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %.noexc28 ]
   %.0.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i ], [ %19, %.noexc28 ]
-  %.not49 = icmp eq i64 %.idx, 0
-  br i1 %.not49, label %.critedge, label %.lr.ph
+  %.not46 = icmp eq i64 %.idx, 0
+  br i1 %.not46, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit
   %21 = ptrtoint ptr %.sroa.032.0 to i64
@@ -1129,21 +1129,21 @@ _ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph
-  %.02151.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
-  %.02350.ph = phi ptr [ %45, %.thread ], [ %1, %.lr.ph ]
+  %.02148.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
+  %.02347.ph = phi ptr [ %45, %.thread ], [ %1, %.lr.ph ]
   br label %26
 
 ._crit_edge:                                      ; preds = %39
-  br i1 %.02151.ph, label %._crit_edge.thread, label %.critedge
+  br i1 %.02148.ph, label %._crit_edge.thread, label %.critedge
 
 26:                                               ; preds = %.outer, %39
-  %.02350 = phi ptr [ %40, %39 ], [ %.02350.ph, %.outer ]
-  %27 = load i32, ptr %.02350, align 8, !tbaa !12
+  %.02347 = phi ptr [ %40, %39 ], [ %.02347.ph, %.outer ]
+  %27 = load i32, ptr %.02347, align 8, !tbaa !12
   %28 = icmp slt i32 %27, %24
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %.02350, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.02347, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   store ptr %31, ptr %8, align 8, !tbaa !4
   %.not.i = icmp eq ptr %31, null
@@ -1178,19 +1178,19 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   br label %52
 
 39:                                               ; preds = %36, %26
-  %40 = getelementptr inbounds nuw i8, ptr %.02350, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.02347, i64 16
   %.not = icmp eq ptr %40, %9
   br i1 %.not, label %._crit_edge, label %26
 
 .thread:                                          ; preds = %37
   %41 = trunc i32 %38 to i16
-  %42 = load i32, ptr %.02350, align 8, !tbaa !12
+  %42 = load i32, ptr %.02347, align 8, !tbaa !12
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds nuw i16, ptr %.sroa.032.0, i64 %43
   store i16 %41, ptr %44, align 2, !tbaa !15
-  %45 = getelementptr inbounds nuw i8, ptr %.02350, i64 16
-  %.not55 = icmp eq ptr %45, %9
-  br i1 %.not55, label %._crit_edge.thread, label %.outer
+  %45 = getelementptr inbounds nuw i8, ptr %.02347, i64 16
+  %.not52 = icmp eq ptr %45, %9
+  br i1 %.not52, label %._crit_edge.thread, label %.outer
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   %46 = ashr exact i64 %22, 1

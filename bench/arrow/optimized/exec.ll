@@ -6595,12 +6595,12 @@ _ZN5arrow7compute6detail12_GLOBAL__N_114NullPropagatorC2EPNS0_13KernelContextERK
           to label %_ZN5arrow7compute6detail12_GLOBAL__N_114NullPropagator19AllNullShortCircuitEv.exit.sink.split.i unwind label %.loopexit.split-lp
 
 118:                                              ; preds = %105
-  %.not2526.i.i = icmp eq ptr %37, %36
-  br i1 %.not2526.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %.lr.ph.i.i
+  %.not2324.i.i = icmp eq ptr %37, %36
+  br i1 %.not2324.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %118, %165
-  %.sroa.021.027.i.i = phi ptr [ %166, %165 ], [ %37, %118 ]
-  %119 = load ptr, ptr %.sroa.021.027.i.i, align 8, !tbaa !319, !noalias !334
+  %.sroa.019.025.i.i = phi ptr [ %166, %165 ], [ %37, %118 ]
+  %119 = load ptr, ptr %.sroa.019.025.i.i, align 8, !tbaa !319, !noalias !334
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8, !tbaa !297, !noalias !334
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -6694,9 +6694,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %16
   br label %_ZN5arrow7compute6detail12_GLOBAL__N_114NullPropagator19AllNullShortCircuitEv.exit.sink.split.i
 
 165:                                              ; preds = %125, %.lr.ph.i.i
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.021.027.i.i, i64 8
-  %.not25.i.i = icmp eq ptr %166, %36
-  br i1 %.not25.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %.lr.ph.i.i
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.019.025.i.i, i64 8
+  %.not23.i.i = icmp eq ptr %166, %36
+  br i1 %.not23.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %.lr.ph.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %165, %118
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !334

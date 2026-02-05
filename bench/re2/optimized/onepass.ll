@@ -1745,21 +1745,21 @@ for.inc.i.i51:                                    ; preds = %for.inc.i.i51.prehe
   br i1 %exitcond.not.i.i56, label %invoke.cont64, label %for.inc.i.i51, !llvm.loop !18
 
 invoke.cont64:                                    ; preds = %for.inc.i.i51, %if.else
-  %cmp72109.not = icmp sgt i64 %.sroa.speculated, %add
-  br i1 %cmp72109.not, label %if.end.preheader, label %for.end
+  %cmp72101.not = icmp sgt i64 %.sroa.speculated, %add
+  br i1 %cmp72101.not, label %if.end.preheader, label %for.end
 
 if.end.preheader:                                 ; preds = %invoke.cont64
-  %incdec.ptr108 = getelementptr i8, ptr %add.ptr49, i64 -1
+  %incdec.ptr100 = getelementptr i8, ptr %add.ptr49, i64 -1
   %add.ptr70 = getelementptr inbounds i8, ptr %add.ptr52, i64 %sub55
   br label %if.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.end
-  %incdec.ptr111 = phi ptr [ %incdec.ptr, %if.end ], [ %incdec.ptr108, %if.end.preheader ]
-  %source.0110 = phi ptr [ %incdec.ptr71, %if.end ], [ %add.ptr70, %if.end.preheader ]
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %source.0110, i64 -1
+  %incdec.ptr103 = phi ptr [ %incdec.ptr, %if.end ], [ %incdec.ptr100, %if.end.preheader ]
+  %source.0102 = phi ptr [ %incdec.ptr71, %if.end ], [ %add.ptr70, %if.end.preheader ]
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %source.0102, i64 -1
   %7 = load i8, ptr %incdec.ptr71, align 1
-  store i8 %7, ptr %incdec.ptr111, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr111, i64 -1
+  store i8 %7, ptr %incdec.ptr103, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr103, i64 -1
   %cmp72 = icmp ult ptr %incdec.ptr, %add.ptr54
   br i1 %cmp72, label %for.end, label %if.end, !llvm.loop !19
 
@@ -1783,13 +1783,13 @@ invoke.cont77:                                    ; preds = %for.body.i, %for.en
   br i1 %cmp3.not.i66, label %invoke.cont83, label %for.body.i67.preheader
 
 for.body.i67.preheader:                           ; preds = %invoke.cont77
-  %.pre113 = load i8, ptr %values.coerce, align 1
+  %.pre105 = load i8, ptr %values.coerce, align 1
   br label %for.body.i67
 
 for.body.i67:                                     ; preds = %for.body.i67.preheader, %for.body.i67
   %i.04.i68 = phi i64 [ %inc.i70, %for.body.i67 ], [ 0, %for.body.i67.preheader ]
   %add.ptr.i69 = getelementptr inbounds i8, ptr %add.ptr59, i64 %i.04.i68
-  store i8 %.pre113, ptr %add.ptr.i69, align 1
+  store i8 %.pre105, ptr %add.ptr.i69, align 1
   %inc.i70 = add nuw i64 %i.04.i68, 1
   %exitcond.not.i71 = icmp eq i64 %inc.i70, %sub61
   br i1 %exitcond.not.i71, label %invoke.cont83, label %for.body.i67, !llvm.loop !21

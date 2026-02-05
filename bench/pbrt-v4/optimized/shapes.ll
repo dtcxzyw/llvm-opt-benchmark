@@ -10299,8 +10299,8 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
   %559 = load ptr, ptr %331, align 8, !tbaa !191
   %560 = icmp eq ptr %558, %559
   %561 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %558, i64 %indvars.iv
-  %.sroa.6.1 = select i1 %560, i64 0, i64 2
-  %.sroa.0383.1 = select i1 %560, ptr null, ptr %561
+  %.sroa.6.0 = select i1 %560, i64 0, i64 2
+  %.sroa.0383.0 = select i1 %560, ptr null, ptr %561
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %562 = trunc nuw nsw i64 %indvars.iv to i32
   %563 = uitofp nneg i32 %562 to float
@@ -10319,8 +10319,8 @@ _ZN4pstd5arrayIN4pbrt6Point3IfEELi4EEC2Ev.exit:   ; preds = %.lr.ph, %_ZN4pstd6v
   %575 = fmul float %52, %574
   %576 = fmul float %61, %573
   %577 = fadd float %576, %575
-  store ptr %.sroa.0383.1, ptr %39, align 8, !tbaa !191
-  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !59
+  store ptr %.sroa.0383.0, ptr %39, align 8, !tbaa !191
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !59
   invoke void @_ZN4pbrt11CreateCurveEPKNS_9TransformES2_bN4pstd4spanIKNS_6Point3IfEEEEffNS_9CurveTypeENS4_IKNS_7Normal3IfEEEEiNS3_3pmr21polymorphic_allocatorISt4byteEE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::vector") align 8 %38, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nonnull %37, i64 4, float noundef %570, float noundef %577, i32 noundef %.091, ptr noundef nonnull byval(%"class.pstd::span.62") align 8 %39, i32 noundef %411, i64 %6)
           to label %578 unwind label %601
 

@@ -7316,11 +7316,11 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5Vi
 
 37:                                               ; preds = %31
   %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4
-  %.pre8 = load ptr, ptr %6, align 8, !tbaa !147
+  %.pre5 = load ptr, ptr %6, align 8, !tbaa !147
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %25, %34, %37
-  %39 = phi ptr [ %27, %25 ], [ %27, %34 ], [ %.pre8, %37 ]
+  %39 = phi ptr [ %27, %25 ], [ %27, %34 ], [ %.pre5, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = getelementptr inbounds nuw i8, ptr %.035, i64 88
   %41 = load ptr, ptr %40, align 8, !tbaa !123

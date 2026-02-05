@@ -886,9 +886,9 @@ define internal void @"_ZZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_
   br i1 %22, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us"
-  %.03382.us = phi i32 [ %52, %"_ZZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us" ], [ %16, %.lr.ph ]
+  %.03379.us = phi i32 [ %52, %"_ZZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us" ], [ %16, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 %.03382.us, ptr %3, align 4, !tbaa !47
+  store i32 %.03379.us, ptr %3, align 4, !tbaa !47
   store i32 0, ptr %20, align 4, !tbaa !47
   %24 = load ptr, ptr %4, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -941,7 +941,7 @@ _ZN2cv3Mat2atIhEERT_PKi.exit.i.us:                ; preds = %32, %.lr.ph.split.u
 
 "_ZZN2cv3Mat12forEach_implIhZNS_6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiiiE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us": ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %52 = add nsw i32 %.03382.us, 1
+  %52 = add nsw i32 %.03379.us, 1
   %53 = load i32, ptr %17, align 4, !tbaa !50
   %54 = icmp slt i32 %52, %53
   br i1 %54, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !81
@@ -974,9 +974,9 @@ _ZN2cv3Mat2atIhEERT_PKi.exit.i.us:                ; preds = %32, %.lr.ph.split.u
   %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %58, i64 %72
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.loopexit60.us
-  %73 = phi i32 [ %118, %.loopexit60.us ], [ %66, %.lr.ph.us.preheader ]
-  %.03064.us = phi i32 [ %119, %.loopexit60.us ], [ %60, %.lr.ph.us.preheader ]
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.loopexit57.us
+  %73 = phi i32 [ %118, %.loopexit57.us ], [ %66, %.lr.ph.us.preheader ]
+  %.03061.us = phi i32 [ %119, %.loopexit57.us ], [ %60, %.lr.ph.us.preheader ]
   %74 = load i32, ptr %64, align 4, !tbaa !47
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %64, align 4, !tbaa !47
@@ -1038,7 +1038,7 @@ _ZN2cv3Mat2atIhEERT_PKi.exit.i.us:                ; preds = %32, %.lr.ph.split.u
 
 _ZN2cv3Mat2atIhEERT_PKi.exit.i36.us:              ; preds = %98, %._crit_edge.us
   %.0.lcssa.i.i.i37.us = phi ptr [ %94, %._crit_edge.us ], [ %105, %98 ]
-  br i1 %70, label %.lr.ph.i38.us, label %.loopexit60.us
+  br i1 %70, label %.lr.ph.i38.us, label %.loopexit57.us
 
 .lr.ph.i38.us:                                    ; preds = %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us, %.lr.ph.i38.us
   %106 = phi i32 [ %116, %.lr.ph.i38.us ], [ 0, %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us ]
@@ -1056,20 +1056,20 @@ _ZN2cv3Mat2atIhEERT_PKi.exit.i36.us:              ; preds = %98, %._crit_edge.us
   %115 = getelementptr inbounds nuw i8, ptr %.011.i.us, i64 1
   %116 = add nuw nsw i32 %106, 1
   %117 = icmp slt i32 %116, %13
-  br i1 %117, label %.lr.ph.i38.us, label %.loopexit60.us.loopexit, !llvm.loop !83
+  br i1 %117, label %.lr.ph.i38.us, label %.loopexit57.us.loopexit, !llvm.loop !83
 
-.loopexit60.us.loopexit:                          ; preds = %.lr.ph.i38.us
-  %.pre98 = load i32, ptr %65, align 4, !tbaa !50
-  br label %.loopexit60.us
+.loopexit57.us.loopexit:                          ; preds = %.lr.ph.i38.us
+  %.pre95 = load i32, ptr %65, align 4, !tbaa !50
+  br label %.loopexit57.us
 
-.loopexit60.us:                                   ; preds = %.loopexit60.us.loopexit, %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us
-  %118 = phi i32 [ %.pre98, %.loopexit60.us.loopexit ], [ %73, %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us ]
+.loopexit57.us:                                   ; preds = %.loopexit57.us.loopexit, %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us
+  %118 = phi i32 [ %.pre95, %.loopexit57.us.loopexit ], [ %73, %_ZN2cv3Mat2atIhEERT_PKi.exit.i36.us ]
   store i32 0, ptr %69, align 4, !tbaa !47
-  %119 = add nsw i32 %.03064.us, 1
+  %119 = add nsw i32 %.03061.us, 1
   %120 = icmp slt i32 %119, %118
   br i1 %120, label %.lr.ph.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !84
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit60.us, %55
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit57.us, %55
   tail call void @_ZdlPv(ptr noundef nonnull %58) #20
   br label %.loopexit
 

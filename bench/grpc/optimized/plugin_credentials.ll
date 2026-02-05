@@ -6048,12 +6048,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %39, ptr %36, align 8, !tbaa !22
   %47 = load i64, ptr %40, align 8, !tbaa !24
   store i64 %47, ptr %38, align 8, !tbaa !24
-  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
-  %.pre36 = load i64, ptr %.phi.trans.insert35, align 8, !tbaa !25
+  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
+  %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !25
   br label %48
 
 48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %42
-  %49 = phi i64 [ %.pre36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %44, %42 ]
+  %49 = phi i64 [ %.pre34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %44, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %49, ptr %51, align 8, !tbaa !25
@@ -6095,11 +6095,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17
   %66 = load i64, ptr %7, align 8, !tbaa !24
   %67 = mul i64 %66, 40
   tail call void @_ZdlPvm(ptr noundef %65, i64 noundef %67) #34
-  %.pre37 = load i64, ptr %0, align 8, !tbaa !21
+  %.pre35 = load i64, ptr %0, align 8, !tbaa !21
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEED2Ev.exit: ; preds = %64, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit
-  %68 = phi i64 [ %.pre37, %64 ], [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit ]
+  %68 = phi i64 [ %.pre35, %64 ], [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit ]
   store ptr %15, ptr %5, align 8, !tbaa !24
   store i64 %10, ptr %7, align 8, !tbaa !24
   %69 = or i64 %68, 1

@@ -1590,9 +1590,9 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEE
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   switch i8 %8, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread [
     i8 1, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread
-    i8 2, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23
-    i8 3, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26
-    i8 4, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29
+    i8 2, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread17
+    i8 3, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread20
+    i8 4, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23
   ]
 
 _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread: ; preds = %6
@@ -1607,7 +1607,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread: ; preds = %6
   %18 = zext i8 %17 to i32
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
 
-_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23: ; preds = %6
+_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread17: ; preds = %6
   %19 = zext nneg i32 %1 to i64
   %20 = getelementptr inbounds nuw %"struct.OT::IntType.8", ptr %9, i64 %19
   %21 = load i16, ptr %20, align 1, !tbaa !57
@@ -1621,7 +1621,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23: ; preds = %6
   %29 = zext i16 %28 to i32
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
 
-_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26: ; preds = %6
+_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread20: ; preds = %6
   %30 = zext nneg i32 %1 to i64
   %31 = getelementptr inbounds nuw %"struct.OT::IntType.33", ptr %9, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
@@ -1653,7 +1653,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26: ; preds = %6
   %58 = or disjoint i32 %54, %57
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
 
-_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29: ; preds = %6
+_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23: ; preds = %6
   %59 = zext nneg i32 %1 to i64
   %60 = getelementptr inbounds nuw %"struct.OT::IntType.27", ptr %9, i64 %59
   %61 = load i32, ptr %60, align 1, !tbaa !192
@@ -1665,15 +1665,15 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29: ; preds = %6
   %67 = tail call noundef i32 @llvm.bswap.i32(i32 %66)
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
 
-_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11: ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29
-  %.0.i22 = phi i32 [ %62, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ], [ %13, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %43, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ]
-  %.0.i10 = phi i32 [ %67, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ], [ %18, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %29, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %58, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ]
-  %68 = icmp ult i32 %.0.i10, %.0.i22
+_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11: ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread17, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread20, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23
+  %.0.i16 = phi i32 [ %62, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %13, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread17 ], [ %43, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread20 ]
+  %.0.i10 = phi i32 [ %67, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %18, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %29, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread17 ], [ %58, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread20 ]
+  %68 = icmp ult i32 %.0.i10, %.0.i16
   br i1 %68, label %.critedge, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread, !prof !194
 
 _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread: ; preds = %6, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
-  %.0.i1035 = phi i32 [ %.0.i10, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11 ], [ 0, %6 ]
-  %.0.i2234 = phi i32 [ %.0.i22, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11 ], [ 0, %6 ]
+  %.0.i1029 = phi i32 [ %.0.i10, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11 ], [ 0, %6 ]
+  %.0.i1628 = phi i32 [ %.0.i16, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11 ], [ 0, %6 ]
   %69 = load i16, ptr %0, align 1, !tbaa !57
   %70 = tail call noundef i16 @llvm.bswap.i16(i16 %69)
   switch i8 %8, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13 [
@@ -1724,7 +1724,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread: ; preds = %6, %
 
 _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13: ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread, %71, %76, %82, %97
   %.0.i12 = phi i32 [ %101, %97 ], [ %75, %71 ], [ %81, %76 ], [ %96, %82 ], [ 0, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread ]
-  %102 = icmp ugt i32 %.0.i1035, %.0.i12
+  %102 = icmp ugt i32 %.0.i1029, %.0.i12
   br i1 %102, label %.critedge, label %103, !prof !50
 
 103:                                              ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13
@@ -1733,9 +1733,9 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13: ; preds = %_ZNK2OT8CFF
   %106 = add nuw nsw i64 %105, 1
   %107 = mul nuw nsw i64 %106, %104
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 %107
-  %109 = zext i32 %.0.i2234 to i64
+  %109 = zext i32 %.0.i1628 to i64
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
-  %111 = sub i32 %.0.i1035, %.0.i2234
+  %111 = sub i32 %.0.i1029, %.0.i1628
   %.sroa.6.8.insert.ext = zext i32 %111 to i64
   br label %.critedge
 
@@ -2488,8 +2488,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %107 = load i16, ptr %105, align 1, !tbaa !57
   %108 = tail call noundef i16 @llvm.bswap.i16(i16 %107)
   %109 = zext i16 %108 to i32
-  %.not4.i.i = icmp samesign ult i32 %84, %109
-  br i1 %.not4.i.i, label %110, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
+  %.not2.i.i = icmp samesign ult i32 %84, %109
+  br i1 %.not2.i.i, label %110, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
 
 110:                                              ; preds = %106
   %111 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %105, i32 noundef %84)
@@ -2587,8 +2587,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i138: ; preds = 
   %156 = load i16, ptr %154, align 1, !tbaa !57
   %157 = tail call noundef i16 @llvm.bswap.i16(i16 %156)
   %158 = zext i16 %157 to i32
-  %.not4.i.i140 = icmp samesign ult i32 %133, %158
-  br i1 %.not4.i.i140, label %159, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
+  %.not2.i.i140 = icmp samesign ult i32 %133, %158
+  br i1 %.not2.i.i140, label %159, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
 
 159:                                              ; preds = %155
   %160 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %154, i32 noundef %133)
@@ -7705,8 +7705,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %111 = load i16, ptr %109, align 1, !tbaa !57
   %112 = tail call noundef i16 @llvm.bswap.i16(i16 %111)
   %113 = zext i16 %112 to i32
-  %.not4.i.i = icmp samesign ult i32 %88, %113
-  br i1 %.not4.i.i, label %114, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
+  %.not2.i.i = icmp samesign ult i32 %88, %113
+  br i1 %.not2.i.i, label %114, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
 
 114:                                              ; preds = %110
   %115 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %109, i32 noundef %88)
@@ -7804,8 +7804,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i138: ; preds = 
   %160 = load i16, ptr %158, align 1, !tbaa !57
   %161 = tail call noundef i16 @llvm.bswap.i16(i16 %160)
   %162 = zext i16 %161 to i32
-  %.not4.i.i140 = icmp samesign ult i32 %137, %162
-  br i1 %.not4.i.i140, label %163, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
+  %.not2.i.i140 = icmp samesign ult i32 %137, %162
+  br i1 %.not2.i.i140, label %163, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
 
 163:                                              ; preds = %159
   %164 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %158, i32 noundef %137)
@@ -11893,8 +11893,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %107 = load i16, ptr %105, align 1, !tbaa !57
   %108 = tail call noundef i16 @llvm.bswap.i16(i16 %107)
   %109 = zext i16 %108 to i32
-  %.not4.i.i = icmp samesign ult i32 %84, %109
-  br i1 %.not4.i.i, label %110, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
+  %.not2.i.i = icmp samesign ult i32 %84, %109
+  br i1 %.not2.i.i, label %110, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i, !prof !52
 
 110:                                              ; preds = %106
   %111 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %105, i32 noundef %84)
@@ -11992,8 +11992,8 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i138: ; preds = 
   %156 = load i16, ptr %154, align 1, !tbaa !57
   %157 = tail call noundef i16 @llvm.bswap.i16(i16 %156)
   %158 = zext i16 %157 to i32
-  %.not4.i.i140 = icmp samesign ult i32 %133, %158
-  br i1 %.not4.i.i140, label %159, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
+  %.not2.i.i140 = icmp samesign ult i32 %133, %158
+  br i1 %.not2.i.i140, label %159, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141, !prof !52
 
 159:                                              ; preds = %155
   %160 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %154, i32 noundef %133)

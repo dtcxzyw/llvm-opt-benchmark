@@ -5922,15 +5922,15 @@ default.unreachable:                              ; preds = %121
   unreachable
 
 172:                                              ; preds = %159, %146, %135, %124
-  %.sroa.8.1 = phi double [ %171, %159 ], [ %134, %124 ], [ %145, %135 ], [ %158, %146 ]
-  %.sroa.041.1 = phi double [ %161, %159 ], [ %123, %124 ], [ %123, %135 ], [ %148, %146 ]
+  %.sroa.8.0 = phi double [ %171, %159 ], [ %134, %124 ], [ %145, %135 ], [ %158, %146 ]
+  %.sroa.041.0 = phi double [ %161, %159 ], [ %123, %124 ], [ %123, %135 ], [ %148, %146 ]
   %173 = getelementptr ptr, ptr %63, i64 %indvars.iv48
   %174 = load ptr, ptr %173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %175 = fsub double %.sroa.041.1, %110
-  %176 = fadd double %111, %.sroa.8.1
-  %177 = fadd double %.sroa.041.1, %110
-  %178 = fsub double %.sroa.8.1, %111
+  %175 = fsub double %.sroa.041.0, %110
+  %176 = fadd double %111, %.sroa.8.0
+  %177 = fadd double %.sroa.041.0, %110
+  %178 = fsub double %.sroa.8.0, %111
   store double %175, ptr %7, align 8, !alias.scope !62
   store double %176, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !62
   store double %177, ptr %113, align 8, !alias.scope !62

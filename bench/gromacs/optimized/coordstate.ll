@@ -197,8 +197,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i59.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %25, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %25, %.lr.ph.i ]
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i59.i, i64 -8
+  %.0.i.i.i.i.i56.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %25, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %25, %.lr.ph.i ]
+  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i56.i, i64 -8
   %29 = load double, ptr %28, align 8, !tbaa !28
   %30 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %29, double noundef 1.000000e+00, double noundef 1.000000e-02)
           to label %38 unwind label %31
@@ -210,13 +210,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.01453.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %33 = getelementptr double, ptr %20, i64 %.01453.i
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.01453.i
+  %.01450.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
+  %33 = getelementptr double, ptr %20, i64 %.01450.i
+  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.01450.i
   %35 = load double, ptr %34, align 8, !tbaa !28
   %36 = fadd double %store_forwarded, %35
   store double %36, ptr %33, align 8, !tbaa !28
-  %37 = add nuw nsw i64 %.01453.i, 1
+  %37 = add nuw nsw i64 %.01450.i, 1
   %exitcond.not.i = icmp eq i64 %37, %18
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 

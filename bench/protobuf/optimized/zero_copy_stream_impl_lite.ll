@@ -3247,9 +3247,9 @@ _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit: ; preds = %if.end
 _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread: ; preds = %if.end
   %2 = load ptr, ptr %buffer_, align 8
   %3 = load i64, ptr %2, align 8
-  %conv16 = trunc i64 %3 to i32
-  %cmp2.not17 = icmp sgt i32 %count, %conv16
-  br i1 %cmp2.not17, label %if.then.i7, label %if.else.i
+  %conv15 = trunc i64 %3 to i32
+  %cmp2.not16 = icmp sgt i32 %count, %conv15
+  br i1 %cmp2.not16, label %if.then.i7, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit
   %4 = trunc i32 %count to i8
@@ -3260,9 +3260,9 @@ if.then.i:                                        ; preds = %_ZNK4absl12lts_2023
   br label %if.end10.sink.split
 
 if.else.i:                                        ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread
-  %sub20 = sub nsw i32 %conv16, %count
-  %conv521 = zext nneg i32 %sub20 to i64
-  store i64 %conv521, ptr %2, align 8
+  %sub19 = sub nsw i32 %conv15, %count
+  %conv520 = zext nneg i32 %sub19 to i64
+  store i64 %conv520, ptr %2, align 8
   br label %if.end10.sink.split
 
 if.then.i7:                                       ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread

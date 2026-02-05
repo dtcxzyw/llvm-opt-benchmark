@@ -335,9 +335,9 @@ invoke.cont85:                                    ; preds = %while.body.i.i, %in
   br i1 %cmp.not.i.i.i.i, label %for.cond.cleanup90, label %invoke.cont93
 
 for.cond.cleanup90:                               ; preds = %invoke.cont105, %invoke.cont85
-  %distances.sroa.13.1.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.13.2, %invoke.cont105 ]
-  %distances.sroa.9.1.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.9.2, %invoke.cont105 ]
-  %distances.sroa.0.1.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.0.2, %invoke.cont105 ]
+  %distances.sroa.13.0.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.13.1, %invoke.cont105 ]
+  %distances.sroa.9.0.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.9.1, %invoke.cont105 ]
+  %distances.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont85 ], [ %distances.sroa.0.1, %invoke.cont105 ]
   %call114 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %newCorrels)
           to label %invoke.cont113 unwind label %lpad112
 
@@ -348,9 +348,9 @@ lpad70:                                           ; preds = %for.cond.cleanup59
 
 invoke.cont93:                                    ; preds = %invoke.cont85, %invoke.cont105
   %iCol87.0250 = phi i64 [ %inc109, %invoke.cont105 ], [ 0, %invoke.cont85 ]
-  %distances.sroa.0.1249 = phi ptr [ %distances.sroa.0.2, %invoke.cont105 ], [ null, %invoke.cont85 ]
-  %distances.sroa.9.1248 = phi ptr [ %distances.sroa.9.2, %invoke.cont105 ], [ null, %invoke.cont85 ]
-  %distances.sroa.13.1247 = phi ptr [ %distances.sroa.13.2, %invoke.cont105 ], [ null, %invoke.cont85 ]
+  %distances.sroa.0.0249 = phi ptr [ %distances.sroa.0.1, %invoke.cont105 ], [ null, %invoke.cont85 ]
+  %distances.sroa.9.0248 = phi ptr [ %distances.sroa.9.1, %invoke.cont105 ], [ null, %invoke.cont85 ]
+  %distances.sroa.13.0247 = phi ptr [ %distances.sroa.13.1, %invoke.cont105 ], [ null, %invoke.cont85 ]
   %33 = load ptr, ptr %mtrx, align 8, !tbaa !26
   %34 = load i64, ptr %columns_.i, align 8, !tbaa !15
   %mul.i.i81 = mul i64 %34, %sub.ptr.div.i.i
@@ -429,16 +429,16 @@ invoke.cont96:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub99 = fsub double %35, %41
   %42 = call noundef double @llvm.fabs.f64(double %sub99)
   %div104 = fdiv double %42, %41
-  %cmp.not.i.i = icmp eq ptr %distances.sroa.9.1248, %distances.sroa.13.1247
+  %cmp.not.i.i = icmp eq ptr %distances.sroa.9.0248, %distances.sroa.13.0247
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i91
 
 if.then.i.i91:                                    ; preds = %invoke.cont96
-  store double %div104, ptr %distances.sroa.9.1248, align 8, !tbaa !23
+  store double %div104, ptr %distances.sroa.9.0248, align 8, !tbaa !23
   br label %invoke.cont105
 
 if.else.i.i:                                      ; preds = %invoke.cont96
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %distances.sroa.9.1248 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %distances.sroa.0.1249 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %distances.sroa.9.0248 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %distances.sroa.0.0249 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
@@ -470,15 +470,15 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIdSaId
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call5.i.i.i.i.i.i.noexc
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i97, ptr align 8 %distances.sroa.0.1249, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i97, ptr align 8 %distances.sroa.0.0249, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
-  %tobool.not.i.i.i.i = icmp eq ptr %distances.sroa.0.1249, null
+  %tobool.not.i.i.i.i = icmp eq ptr %distances.sroa.0.0249, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.1249, i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
+  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.0249, i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
@@ -486,10 +486,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
   br label %invoke.cont105
 
 invoke.cont105:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i91
-  %distances.sroa.13.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.13.1247, %if.then.i.i91 ]
-  %add.ptr.i.i.i95.pn = phi ptr [ %add.ptr.i.i.i95, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.9.1248, %if.then.i.i91 ]
-  %distances.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i.i97, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.0.1249, %if.then.i.i91 ]
-  %distances.sroa.9.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i95.pn, i64 8
+  %distances.sroa.13.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.13.0247, %if.then.i.i91 ]
+  %add.ptr.i.i.i95.pn = phi ptr [ %add.ptr.i.i.i95, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.9.0248, %if.then.i.i91 ]
+  %distances.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i.i97, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %distances.sroa.0.0249, %if.then.i.i91 ]
+  %distances.sroa.9.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i95.pn, i64 8
   %inc109 = add nuw i64 %iCol87.0250, 1
   %exitcond265.not = icmp eq i64 %inc109, %0
   br i1 %exitcond265.not, label %for.cond.cleanup90, label %invoke.cont93, !llvm.loop !36
@@ -515,35 +515,35 @@ lpad100.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i
   br label %ehcleanup128
 
 invoke.cont113:                                   ; preds = %for.cond.cleanup90
-  %cmp.i.i.i99 = icmp eq ptr %distances.sroa.0.1.lcssa, %distances.sroa.9.1.lcssa
-  %incdec.ptr.i8.i.i = getelementptr inbounds nuw i8, ptr %distances.sroa.0.1.lcssa, i64 8
-  %cmp.i3.not9.i.i = icmp eq ptr %incdec.ptr.i8.i.i, %distances.sroa.9.1.lcssa
+  %cmp.i.i.i99 = icmp eq ptr %distances.sroa.0.0.lcssa, %distances.sroa.9.0.lcssa
+  %incdec.ptr.i8.i.i = getelementptr inbounds nuw i8, ptr %distances.sroa.0.0.lcssa, i64 8
+  %cmp.i3.not9.i.i = icmp eq ptr %incdec.ptr.i8.i.i, %distances.sroa.9.0.lcssa
   %or.cond.i.i100 = select i1 %cmp.i.i.i99, i1 true, i1 %cmp.i3.not9.i.i
   br i1 %or.cond.i.i100, label %if.then.i.i.i107, label %while.body.preheader.i.i101
 
 while.body.preheader.i.i101:                      ; preds = %invoke.cont113
-  %.pre.i.i102 = load double, ptr %distances.sroa.0.1.lcssa, align 8, !tbaa !23
+  %.pre.i.i102 = load double, ptr %distances.sroa.0.0.lcssa, align 8, !tbaa !23
   br label %while.body.i.i103
 
 while.body.i.i103:                                ; preds = %while.body.i.i103, %while.body.preheader.i.i101
   %44 = phi double [ %46, %while.body.i.i103 ], [ %.pre.i.i102, %while.body.preheader.i.i101 ]
   %incdec.ptr.i11.i.i = phi ptr [ %incdec.ptr.i.i.i105, %while.body.i.i103 ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i101 ]
-  %retval.sroa.0.110.i.i = phi ptr [ %spec.select.i.i104, %while.body.i.i103 ], [ %distances.sroa.0.1.lcssa, %while.body.preheader.i.i101 ]
+  %retval.sroa.0.110.i.i = phi ptr [ %spec.select.i.i104, %while.body.i.i103 ], [ %distances.sroa.0.0.lcssa, %while.body.preheader.i.i101 ]
   %45 = load double, ptr %incdec.ptr.i11.i.i, align 8, !tbaa !23
   %cmp.i4.i.i = fcmp olt double %44, %45
   %46 = select i1 %cmp.i4.i.i, double %45, double %44
   %spec.select.i.i104 = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i105 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i11.i.i, i64 8
-  %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i105, %distances.sroa.9.1.lcssa
+  %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i105, %distances.sroa.9.0.lcssa
   br i1 %cmp.i3.not.i.i, label %if.then.i.i.i107, label %while.body.i.i103, !llvm.loop !37
 
 if.then.i.i.i107:                                 ; preds = %while.body.i.i103, %invoke.cont113
-  %.in = phi ptr [ %distances.sroa.0.1.lcssa, %invoke.cont113 ], [ %spec.select.i.i104, %while.body.i.i103 ]
+  %.in = phi ptr [ %distances.sroa.0.0.lcssa, %invoke.cont113 ], [ %spec.select.i.i104, %while.body.i.i103 ]
   %47 = load double, ptr %.in, align 8, !tbaa !23
-  %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %distances.sroa.13.1.lcssa to i64
-  %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %distances.sroa.0.1.lcssa to i64
+  %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %distances.sroa.13.0.lcssa to i64
+  %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %distances.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i.i111 = sub i64 %sub.ptr.lhs.cast.i.i109, %sub.ptr.rhs.cast.i.i110
-  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.1.lcssa, i64 noundef %sub.ptr.sub.i.i111) #21
+  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.0.lcssa, i64 noundef %sub.ptr.sub.i.i111) #21
   %48 = fcmp ogt double %47, 0x3EB0C6F7A0B5ED8D
   %49 = load ptr, ptr %newCorrels, align 8, !tbaa !20
   %tobool.not.i.i.i112 = icmp eq ptr %49, null
@@ -640,17 +640,17 @@ lpad112:                                          ; preds = %for.cond.cleanup90
   br label %ehcleanup128
 
 ehcleanup128:                                     ; preds = %lpad100.loopexit, %lpad100.loopexit.split-lp, %lpad92.loopexit, %lpad92.loopexit.split-lp, %lpad112
-  %distances.sroa.13.1237 = phi ptr [ %distances.sroa.13.1.lcssa, %lpad112 ], [ %distances.sroa.13.1247, %lpad92.loopexit.split-lp ], [ %distances.sroa.13.1247, %lpad92.loopexit ], [ %distances.sroa.9.1248, %lpad100.loopexit ], [ %distances.sroa.9.1248, %lpad100.loopexit.split-lp ]
-  %distances.sroa.0.1225 = phi ptr [ %distances.sroa.0.1.lcssa, %lpad112 ], [ %distances.sroa.0.1249, %lpad92.loopexit.split-lp ], [ %distances.sroa.0.1249, %lpad92.loopexit ], [ %distances.sroa.0.1249, %lpad100.loopexit ], [ %distances.sroa.0.1249, %lpad100.loopexit.split-lp ]
+  %distances.sroa.13.0237 = phi ptr [ %distances.sroa.13.0.lcssa, %lpad112 ], [ %distances.sroa.13.0247, %lpad92.loopexit.split-lp ], [ %distances.sroa.13.0247, %lpad92.loopexit ], [ %distances.sroa.9.0248, %lpad100.loopexit ], [ %distances.sroa.9.0248, %lpad100.loopexit.split-lp ]
+  %distances.sroa.0.0225 = phi ptr [ %distances.sroa.0.0.lcssa, %lpad112 ], [ %distances.sroa.0.0249, %lpad92.loopexit.split-lp ], [ %distances.sroa.0.0249, %lpad92.loopexit ], [ %distances.sroa.0.0249, %lpad100.loopexit ], [ %distances.sroa.0.0249, %lpad100.loopexit.split-lp ]
   %.pn38.pn = phi { ptr, i32 } [ %53, %lpad112 ], [ %lpad.loopexit.split-lp, %lpad92.loopexit.split-lp ], [ %lpad.loopexit, %lpad92.loopexit ], [ %lpad.loopexit218, %lpad100.loopexit ], [ %lpad.loopexit.split-lp219, %lpad100.loopexit.split-lp ]
-  %tobool.not.i.i.i129 = icmp eq ptr %distances.sroa.0.1225, null
+  %tobool.not.i.i.i129 = icmp eq ptr %distances.sroa.0.0225, null
   br i1 %tobool.not.i.i.i129, label %_ZNSt6vectorIdSaIdEED2Ev.exit135, label %if.then.i.i.i130
 
 if.then.i.i.i130:                                 ; preds = %ehcleanup128
-  %sub.ptr.lhs.cast.i.i132 = ptrtoint ptr %distances.sroa.13.1237 to i64
-  %sub.ptr.rhs.cast.i.i133 = ptrtoint ptr %distances.sroa.0.1225 to i64
+  %sub.ptr.lhs.cast.i.i132 = ptrtoint ptr %distances.sroa.13.0237 to i64
+  %sub.ptr.rhs.cast.i.i133 = ptrtoint ptr %distances.sroa.0.0225 to i64
   %sub.ptr.sub.i.i134 = sub i64 %sub.ptr.lhs.cast.i.i132, %sub.ptr.rhs.cast.i.i133
-  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.1225, i64 noundef %sub.ptr.sub.i.i134) #21
+  call void @_ZdlPvm(ptr noundef nonnull %distances.sroa.0.0225, i64 noundef %sub.ptr.sub.i.i134) #21
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit135
 
 _ZNSt6vectorIdSaIdEED2Ev.exit135:                 ; preds = %ehcleanup128, %if.then.i.i.i130

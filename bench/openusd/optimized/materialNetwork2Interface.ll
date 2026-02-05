@@ -3630,8 +3630,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface
   %9 = tail call ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_21HdMaterialConnection2EESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %.not15 = icmp eq ptr %9, %11
-  br i1 %.not15, label %_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit7, label %12
+  %.not13 = icmp eq ptr %9, %11
+  br i1 %.not13, label %_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialNetworkInterface15InputConnectionD2Ev.exit7, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40

@@ -4079,8 +4079,8 @@ define dso_local void @_ZN5clang7CodeGen10CodeGenPGO12valueProfileERNS0_11CGBuil
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
-  %or.cond37 = select i1 %28, i1 %31, i1 false
-  br i1 %or.cond37, label %32, label %63
+  %or.cond35 = select i1 %28, i1 %31, i1 false
+  br i1 %or.cond35, label %32, label %63
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4157,8 +4157,8 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %68 = load ptr, ptr %67, align 8, !tbaa !891
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = load ptr, ptr %69, align 8, !tbaa !891
-  %.not38 = icmp eq ptr %68, %70
-  br i1 %.not38, label %_ZNK4llvm15InstrProfRecord16getNumValueSitesEj.exit.thread, label %71
+  %.not36 = icmp eq ptr %68, %70
+  br i1 %.not36, label %_ZNK4llvm15InstrProfRecord16getNumValueSitesEj.exit.thread, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10676,12 +10676,12 @@ _ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %_ZNSt12_Vector_base
   br i1 %41, label %.critedge43.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %36
-  %.not7174 = icmp eq ptr %.sroa.055.0, %.sroa.14.0
-  br i1 %.not7174, label %.critedge43, label %.lr.ph
+  %.not6972 = icmp eq ptr %.sroa.055.0, %.sroa.14.0
+  br i1 %.not6972, label %.critedge43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.critedge
-  %.sroa.052.075 = phi ptr [ %56, %.critedge ], [ %.sroa.055.0, %.thread ]
-  %42 = load ptr, ptr %.sroa.052.075, align 8, !tbaa !1464
+  %.sroa.052.073 = phi ptr [ %56, %.critedge ], [ %.sroa.055.0, %.thread ]
+  %42 = load ptr, ptr %.sroa.052.073, align 8, !tbaa !1464
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 127
@@ -10704,21 +10704,21 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreCh
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 2097152
-  %.not72 = icmp eq i32 %54, 0
-  br i1 %.not72, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %.critedge
+  %.not70 = icmp eq i32 %54, 0
+  br i1 %.not70, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %.critedge
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread: ; preds = %49, %46, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
   %55 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
   br i1 %55, label %.critedge, label %.critedge45
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.052.075, i64 8
-  %.not71 = icmp eq ptr %56, %.sroa.14.0
-  br i1 %.not71, label %.critedge43, label %.lr.ph
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.052.073, i64 8
+  %.not69 = icmp eq ptr %56, %.sroa.14.0
+  br i1 %.not69, label %.critedge43, label %.lr.ph
 
 .critedge43:                                      ; preds = %.critedge, %.thread
   %.not.i.i.i = icmp eq ptr %.sroa.055.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.critedge73
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.critedge71
 
 .critedge43.thread:                               ; preds = %36
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef 8) #23
@@ -10744,8 +10744,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreCh
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %67 = load ptr, ptr %66, align 8, !tbaa !935
-  %.not.i.i.i89 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i89, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i87 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i87, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -10766,11 +10766,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreCh
   %.not20.i = icmp eq i64 %73, 0
   br i1 %.not20.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.lr.ph.i
 
-.critedge73:                                      ; preds = %.critedge43
+.critedge71:                                      ; preds = %.critedge43
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %35) #23
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %.critedge.i, %.critedge43.thread, %.critedge43, %.critedge73
+_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %.critedge.i, %.critedge43.thread, %.critedge43, %.critedge71
   %75 = load i32, ptr %4, align 4
   %76 = and i32 %75, 256
   %.not.i.i48 = icmp eq i32 %76, 0
@@ -10795,17 +10795,17 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZNSt6vectorIPN5cla
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %80
   %87 = phi ptr [ %86, %80 ], [ null, %_ZNK5clang4Decl10attr_beginEv.exit.i ]
-  %.not4176 = icmp eq ptr %78, %87
-  br i1 %.not4176, label %.critedge47, label %.lr.ph78
+  %.not4174 = icmp eq ptr %78, %87
+  br i1 %.not4174, label %.critedge47, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %_ZNK5clang4Decl5attrsEv.exit, %.lr.ph78
-  %.03577 = phi ptr [ %90, %.lr.ph78 ], [ %78, %_ZNK5clang4Decl5attrsEv.exit ]
-  %88 = load ptr, ptr %.03577, align 8, !tbaa !434
+.lr.ph76:                                         ; preds = %_ZNK5clang4Decl5attrsEv.exit, %.lr.ph76
+  %.03575 = phi ptr [ %90, %.lr.ph76 ], [ %78, %_ZNK5clang4Decl5attrsEv.exit ]
+  %88 = load ptr, ptr %.03575, align 8, !tbaa !434
   %89 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %88)
-  %90 = getelementptr inbounds nuw i8, ptr %.03577, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.03575, i64 8
   %.not41 = icmp ne ptr %90, %87
   %or.cond.not = select i1 %89, i1 %.not41, i1 false
-  br i1 %or.cond.not, label %.lr.ph78, label %.critedge47
+  br i1 %or.cond.not, label %.lr.ph76, label %.critedge47
 
 .critedge45:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
   %.not.i.i.i49 = icmp eq ptr %.sroa.055.0, null
@@ -10815,8 +10815,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %35) #23
   br label %.critedge47
 
-.critedge47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph78, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %91, %.critedge45
-  %.0 = phi i1 [ false, %.critedge45 ], [ false, %91 ], [ %89, %.lr.ph78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+.critedge47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph76, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %91, %.critedge45
+  %.0 = phi i1 [ false, %.critedge45 ], [ false, %91 ], [ %89, %.lr.ph76 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 

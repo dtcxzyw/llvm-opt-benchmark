@@ -6457,17 +6457,17 @@ define void @_ZN7rocksdb17CompactionOutputsC2EPKNS_10CompactionEb(ptr noundef no
 
 35:                                               ; preds = %34
   %.pre = load ptr, ptr %4, align 8, !tbaa !403
-  %.pre28 = load ptr, ptr %16, align 8, !tbaa !403
+  %.pre22 = load ptr, ptr %16, align 8, !tbaa !403
   store ptr null, ptr %4, align 8, !tbaa !403
   store ptr %.pre, ptr %16, align 8, !tbaa !403
-  %.not.i.i.i.i = icmp eq ptr %.pre28, null
+  %.not.i.i.i.i = icmp eq ptr %.pre22, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN7rocksdb14SstPartitionerESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN7rocksdb14SstPartitionerESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN7rocksdb14SstPartitionerESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %35
-  %36 = load ptr, ptr %.pre28, align 8, !tbaa !21
+  %36 = load ptr, ptr %.pre22, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.pre28) #24
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.pre22) #24
   %.pr = load ptr, ptr %4, align 8, !tbaa !403
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN7rocksdb14SstPartitionerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14SstPartitionerEEclEPS1_.exit.i

@@ -1746,8 +1746,8 @@ _ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit: ; preds = %2
   br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit
-  %.sroa.0.0.i12 = phi i32 [ %7, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit ]
-  %19 = sext i32 %.sroa.0.0.i12 to i64
+  %.sroa.0.0.i10 = phi i32 [ %7, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit ]
+  %19 = sext i32 %.sroa.0.0.i10 to i64
   %20 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %19
   %.val.i2 = load i16, ptr %20, align 8, !tbaa !133
   %21 = zext i16 %.val.i2 to i64

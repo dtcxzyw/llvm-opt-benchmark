@@ -39538,12 +39538,12 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_
   br label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit25
 
 _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit25: ; preds = %56, %53, %47, %45, %42
-  %.sroa.084.0 = phi ptr [ %46, %53 ], [ %46, %47 ], [ %46, %56 ], [ null, %45 ], [ null, %42 ]
-  %.sroa.785.0 = phi ptr [ %49, %53 ], [ null, %47 ], [ %49, %56 ], [ null, %45 ], [ null, %42 ]
-  store ptr %.sroa.084.0, ptr %0, align 8, !tbaa !967
+  %.sroa.080.0 = phi ptr [ %46, %53 ], [ %46, %47 ], [ %46, %56 ], [ null, %45 ], [ null, %42 ]
+  %.sroa.781.0 = phi ptr [ %49, %53 ], [ null, %47 ], [ %49, %56 ], [ null, %45 ], [ null, %42 ]
+  store ptr %.sroa.080.0, ptr %0, align 8, !tbaa !967
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !38
-  store ptr %.sroa.785.0, ptr %58, align 8, !tbaa !38
+  store ptr %.sroa.781.0, ptr %58, align 8, !tbaa !38
   %.not.i.i.i.i26 = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i26, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %60
 
@@ -39592,13 +39592,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %77, %7
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split: ; preds = %65, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %80
-  %.pr90 = load ptr, ptr %0, align 8, !tbaa !635
+  %.pr84 = load ptr, ptr %0, align 8, !tbaa !635
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit25
-  %81 = phi ptr [ %.pr90, %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.084.0, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit25 ]
-  %.not95 = icmp eq ptr %81, null
-  br i1 %.not95, label %82, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs8BoundCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %81 = phi ptr [ %.pr84, %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exitthread-pre-split ], [ %.sroa.080.0, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit25 ]
+  %.not89 = icmp eq ptr %81, null
+  br i1 %.not89, label %82, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs8BoundCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 82:                                               ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %83 = load ptr, ptr %37, align 8, !tbaa !729
@@ -39667,11 +39667,11 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2
   br label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit34
 
 _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit34: ; preds = %115, %112, %106, %104, %100
-  %.sroa.079.0 = phi ptr [ %105, %112 ], [ %105, %106 ], [ %105, %115 ], [ null, %104 ], [ null, %100 ]
-  %.sroa.780.0 = phi ptr [ %108, %112 ], [ null, %106 ], [ %108, %115 ], [ null, %104 ], [ null, %100 ]
-  store ptr %.sroa.079.0, ptr %0, align 8, !tbaa !967
+  %.sroa.077.0 = phi ptr [ %105, %112 ], [ %105, %106 ], [ %105, %115 ], [ null, %104 ], [ null, %100 ]
+  %.sroa.778.0 = phi ptr [ %108, %112 ], [ null, %106 ], [ %108, %115 ], [ null, %104 ], [ null, %100 ]
+  store ptr %.sroa.077.0, ptr %0, align 8, !tbaa !967
   %117 = load ptr, ptr %58, align 8, !tbaa !38
-  store ptr %.sroa.780.0, ptr %58, align 8, !tbaa !38
+  store ptr %.sroa.778.0, ptr %58, align 8, !tbaa !38
   %.not.i.i.i.i35 = icmp eq ptr %117, null
   br i1 %.not.i.i.i.i35, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit44, label %118
 

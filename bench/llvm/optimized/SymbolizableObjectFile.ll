@@ -1714,8 +1714,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN4llvm9StringRefEESt6vect
 .thread.i.i.i.i.i.i.i:                            ; preds = %112
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %109, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !24
-  %.not54 = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i.i, 0
-  br i1 %.not54, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread12.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i
+  %.not52 = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i.i, 0
+  br i1 %.not52, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread12.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread12.i.i.i: ; preds = %.thread.i.i.i.i.i.i.i, %112
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 24
@@ -1730,8 +1730,8 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal
   br i1 %117, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN4llvm9StringRefEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11upper_boundIRKSt6vectorISt4pairIjNS_9StringRefEESaIS4_EES4_EEDaOT_OT0_.exit, !llvm.loop !202
 
 _ZN4llvm11upper_boundIRKSt6vectorISt4pairIjNS_9StringRefEESaIS4_EES4_EEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKSt4pairIjN4llvm9StringRefEENS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i.i
-  %.not55 = icmp eq ptr %.sroa.011.1.i.i.i13, %100
-  br i1 %.not55, label %_ZN4llvm11upper_boundIRKSt6vectorINS_9symbolize22SymbolizableObjectFile10SymbolDescESaIS4_EERS4_EEDaOT_OT0_.exit.thread, label %118
+  %.not53 = icmp eq ptr %.sroa.011.1.i.i.i13, %100
+  br i1 %.not53, label %_ZN4llvm11upper_boundIRKSt6vectorINS_9symbolize22SymbolizableObjectFile10SymbolDescESaIS4_EERS4_EEDaOT_OT0_.exit.thread, label %118
 
 118:                                              ; preds = %_ZN4llvm11upper_boundIRKSt6vectorISt4pairIjNS_9StringRefEESaIS4_EES4_EEDaOT_OT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

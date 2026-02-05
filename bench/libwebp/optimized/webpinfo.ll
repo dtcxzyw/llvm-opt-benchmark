@@ -479,12 +479,12 @@ ParseRIFFHeader.exit.i:                           ; preds = %135, %132
   br label %139
 
 139:                                              ; preds = %ProcessChunk.exit.i, %ParseRIFFHeader.exit.i
-  %.sroa.0.177.i = phi i64 [ 12, %ParseRIFFHeader.exit.i ], [ %.sroa.0.264.i, %ProcessChunk.exit.i ]
-  %.not19.i = icmp eq i64 %.sroa.12.1.i, %.sroa.0.177.i
+  %.sroa.0.174.i = phi i64 [ 12, %ParseRIFFHeader.exit.i ], [ %.sroa.0.262.i, %ProcessChunk.exit.i ]
+  %.not19.i = icmp eq i64 %.sroa.12.1.i, %.sroa.0.174.i
   br i1 %.not19.i, label %.critedge.i, label %140
 
 140:                                              ; preds = %139
-  %141 = sub i64 %.sroa.12.1.i, %.sroa.0.177.i
+  %141 = sub i64 %.sroa.12.1.i, %.sroa.0.174.i
   %142 = icmp ult i64 %141, 8
   br i1 %142, label %143, label %145
 
@@ -494,11 +494,11 @@ ParseRIFFHeader.exit.i:                           ; preds = %135, %132
   br i1 %.not39.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
 145:                                              ; preds = %140
-  %146 = getelementptr i8, ptr %95, i64 %.sroa.0.177.i
+  %146 = getelementptr i8, ptr %95, i64 %.sroa.0.174.i
   %.val.i.i.i.i = load i32, ptr %146, align 1
   %147 = getelementptr i8, ptr %146, i64 4
   %.val.i.i45.i.i = load i32, ptr %147, align 1
-  %148 = add i64 %.sroa.0.177.i, 8
+  %148 = add i64 %.sroa.0.174.i, 8
   %149 = and i32 %.val.i.i45.i.i, 1
   %150 = add i32 %149, %.val.i.i45.i.i
   %151 = add i32 %150, 8
@@ -522,7 +522,7 @@ ParseRIFFHeader.exit.i:                           ; preds = %135, %132
   %.not37.i.i = icmp eq i32 %161, 0
   br i1 %.not37.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
-ParseChunk.exit.thread67.i:                       ; preds = %166
+ParseChunk.exit.thread65.i:                       ; preds = %166
   %162 = add i64 %148, %157
   br label %177
 
@@ -536,7 +536,7 @@ ParseChunk.exit.thread67.i:                       ; preds = %166
 166:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %ParseChunk.exit.thread67.i, label %.preheader.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %ParseChunk.exit.thread65.i, label %.preheader.i.i, !llvm.loop !23
 
 167:                                              ; preds = %.preheader.i.i
   %168 = getelementptr inbounds nuw i8, ptr %95, i64 %148
@@ -553,7 +553,7 @@ ParseChunk.exit.thread67.i:                       ; preds = %166
   br i1 %.not36.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
 ParseChunk.exit.thread50.i:                       ; preds = %170
-  %173 = add i64 %.sroa.0.177.i, 24
+  %173 = add i64 %.sroa.0.174.i, 24
   br label %187
 
 ParseChunk.exit.i:                                ; preds = %167
@@ -562,10 +562,10 @@ ParseChunk.exit.i:                                ; preds = %167
   %176 = icmp eq i64 %indvars.iv.i.i, 9
   br i1 %176, label %177, label %187
 
-177:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread67.i
-  %178 = phi i64 [ %162, %ParseChunk.exit.thread67.i ], [ %175, %ParseChunk.exit.i ]
+177:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread65.i
+  %178 = phi i64 [ %162, %ParseChunk.exit.thread65.i ], [ %175, %ParseChunk.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %179 = trunc i64 %.sroa.0.177.i to i32
+  %179 = trunc i64 %.sroa.0.174.i to i32
   %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.32, i32 noundef %179, i32 noundef %151) #12
   %181 = load i32, ptr %53, align 8, !tbaa !15
   %.not46.i.i = icmp eq i32 %181, 0
@@ -584,14 +584,14 @@ ParseChunk.exit.i:                                ; preds = %167
   br label %ProcessVP8XChunk.exit.i.i
 
 187:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread50.i
-  %.sroa.0.266.i = phi i64 [ %173, %ParseChunk.exit.thread50.i ], [ %175, %ParseChunk.exit.i ]
-  %.sroa.27.260.i = phi i32 [ 5, %ParseChunk.exit.thread50.i ], [ %174, %ParseChunk.exit.i ]
+  %.sroa.0.264.i = phi i64 [ %173, %ParseChunk.exit.thread50.i ], [ %175, %ParseChunk.exit.i ]
+  %.sroa.27.158.i = phi i32 [ 5, %ParseChunk.exit.thread50.i ], [ %174, %ParseChunk.exit.i ]
   %188 = load i32, ptr %52, align 4, !tbaa !11
   %.not.i29.i = icmp eq i32 %188, 0
   br i1 %.not.i29.i, label %189, label %201
 
 189:                                              ; preds = %187
-  %190 = zext i32 %.sroa.27.260.i to i64
+  %190 = zext i32 %.sroa.27.158.i to i64
   %191 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !22
   %sext.i.i = shl i32 %192, 24
@@ -601,12 +601,12 @@ ParseChunk.exit.i:                                ; preds = %167
   %196 = shl i32 %192, 8
   %197 = ashr i32 %196, 24
   %198 = ashr i32 %192, 24
-  %199 = trunc i64 %.sroa.0.177.i to i32
+  %199 = trunc i64 %.sroa.0.174.i to i32
   %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %193, i32 noundef %195, i32 noundef %197, i32 noundef %198, i32 noundef %199, i32 noundef %151)
   br label %201
 
 201:                                              ; preds = %189, %187
-  switch i32 %.sroa.27.260.i, label %ProcessVP8XChunk.exit.i.i [
+  switch i32 %.sroa.27.158.i, label %ProcessVP8XChunk.exit.i.i [
     i32 0, label %202
     i32 1, label %202
     i32 2, label %332
@@ -657,12 +657,12 @@ ParseChunk.exit.i:                                ; preds = %167
   br i1 %.not60.i.i.i, label %252, label %223
 
 223:                                              ; preds = %221
-  %.not98 = icmp eq i32 %.sroa.27.260.i, 0
+  %.not98 = icmp eq i32 %.sroa.27.158.i, 0
   %.sroa.sel = select i1 %.not98, ptr %80, ptr %.sroa.gep
   %224 = load i32, ptr %.sroa.sel, align 4, !tbaa !22
   %225 = add nsw i32 %224, 1
   store i32 %225, ptr %.sroa.sel, align 4, !tbaa !22
-  %226 = icmp ne i32 %.sroa.27.260.i, 1
+  %226 = icmp ne i32 %.sroa.27.158.i, 1
   %227 = load i32, ptr %65, align 4
   %.not74.i.i.i = icmp eq i32 %227, 0
   %or.cond = select i1 %226, i1 true, i1 %.not74.i.i.i
@@ -738,7 +738,7 @@ ParseChunk.exit.i:                                ; preds = %167
   br label %ProcessImageChunk.exit.i.i
 
 260:                                              ; preds = %252
-  %261 = icmp ne i32 %.sroa.27.260.i, 1
+  %261 = icmp ne i32 %.sroa.27.158.i, 1
   %262 = load i32, ptr %73, align 4
   %.not63.i.i.i = icmp eq i32 %262, 0
   %or.cond77 = select i1 %261, i1 true, i1 %.not63.i.i.i
@@ -839,7 +839,7 @@ ParseChunk.exit.i:                                ; preds = %167
   br label %311
 
 311:                                              ; preds = %308, %292, %284
-  %312 = zext nneg i32 %.sroa.27.260.i to i64
+  %312 = zext nneg i32 %.sroa.27.158.i to i64
   %313 = getelementptr inbounds nuw i32, ptr %57, i64 %312
   %314 = load i32, ptr %313, align 4, !tbaa !22
   %315 = add nsw i32 %314, 1
@@ -859,7 +859,7 @@ ParseChunk.exit.i:                                ; preds = %167
   br i1 %.not78.i.i.i, label %331, label %323
 
 323:                                              ; preds = %316
-  %324 = icmp eq i32 %.sroa.27.260.i, 0
+  %324 = icmp eq i32 %.sroa.27.158.i, 0
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %323
@@ -1481,7 +1481,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %506, %504
   br label %ProcessVP8XChunk.exit.i.i
 
 644:                                              ; preds = %201, %201
-  %645 = zext nneg i32 %.sroa.27.260.i to i64
+  %645 = zext nneg i32 %.sroa.27.158.i to i64
   %646 = getelementptr inbounds nuw i32, ptr %57, i64 %645
   %647 = load i32, ptr %646, align 4, !tbaa !22
   %648 = add nsw i32 %647, 1
@@ -1489,7 +1489,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %506, %504
   br label %ProcessVP8XChunk.exit.i.i
 
 ProcessVP8XChunk.exit.i.i:                        ; preds = %644, %641, %638, %636, %629, %627, %545, %529, %523, %520, %518, %514, %512, %ParseAlphaHeader.exit.i.i.i, %506, %492, %490, %485, %483, %465, %463, %458, %454, %452, %447, %445, %440, %438, %433, %431, %425, %423, %418, %416, %407, %.thread49.i.i.i, %344, %342, %338, %336, %ProcessImageChunk.exit.i.i, %201, %.thread.i33.i
-  %.sroa.0.265.i = phi i64 [ %.sroa.0.266.i, %201 ], [ %.sroa.0.266.i, %ProcessImageChunk.exit.i.i ], [ %178, %.thread.i33.i ], [ %.sroa.0.266.i, %.thread49.i.i.i ], [ %.sroa.0.266.i, %465 ], [ %.sroa.0.266.i, %523 ], [ %.sroa.0.266.i, %638 ], [ %.sroa.0.266.i, %644 ], [ %.sroa.0.266.i, %342 ], [ %.sroa.0.266.i, %336 ], [ %.sroa.0.266.i, %338 ], [ %.sroa.0.266.i, %344 ], [ %.sroa.0.266.i, %407 ], [ %.sroa.0.266.i, %433 ], [ %.sroa.0.266.i, %418 ], [ %.sroa.0.266.i, %454 ], [ %.sroa.0.266.i, %458 ], [ %.sroa.0.266.i, %425 ], [ %.sroa.0.266.i, %440 ], [ %.sroa.0.266.i, %447 ], [ %.sroa.0.266.i, %416 ], [ %.sroa.0.266.i, %423 ], [ %.sroa.0.266.i, %431 ], [ %.sroa.0.266.i, %438 ], [ %.sroa.0.266.i, %445 ], [ %.sroa.0.266.i, %452 ], [ %.sroa.0.266.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.266.i, %492 ], [ %.sroa.0.266.i, %485 ], [ %.sroa.0.266.i, %490 ], [ %.sroa.0.266.i, %483 ], [ %.sroa.0.266.i, %506 ], [ %.sroa.0.266.i, %463 ], [ %.sroa.0.266.i, %512 ], [ %.sroa.0.266.i, %518 ], [ %.sroa.0.266.i, %514 ], [ %.sroa.0.266.i, %520 ], [ %.sroa.0.266.i, %545 ], [ %.sroa.0.266.i, %529 ], [ %.sroa.0.266.i, %629 ], [ %.sroa.0.266.i, %641 ], [ %.sroa.0.266.i, %627 ], [ %.sroa.0.266.i, %636 ]
+  %.sroa.0.263.i = phi i64 [ %.sroa.0.264.i, %201 ], [ %.sroa.0.264.i, %ProcessImageChunk.exit.i.i ], [ %178, %.thread.i33.i ], [ %.sroa.0.264.i, %.thread49.i.i.i ], [ %.sroa.0.264.i, %465 ], [ %.sroa.0.264.i, %523 ], [ %.sroa.0.264.i, %638 ], [ %.sroa.0.264.i, %644 ], [ %.sroa.0.264.i, %342 ], [ %.sroa.0.264.i, %336 ], [ %.sroa.0.264.i, %338 ], [ %.sroa.0.264.i, %344 ], [ %.sroa.0.264.i, %407 ], [ %.sroa.0.264.i, %433 ], [ %.sroa.0.264.i, %418 ], [ %.sroa.0.264.i, %454 ], [ %.sroa.0.264.i, %458 ], [ %.sroa.0.264.i, %425 ], [ %.sroa.0.264.i, %440 ], [ %.sroa.0.264.i, %447 ], [ %.sroa.0.264.i, %416 ], [ %.sroa.0.264.i, %423 ], [ %.sroa.0.264.i, %431 ], [ %.sroa.0.264.i, %438 ], [ %.sroa.0.264.i, %445 ], [ %.sroa.0.264.i, %452 ], [ %.sroa.0.264.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.264.i, %492 ], [ %.sroa.0.264.i, %485 ], [ %.sroa.0.264.i, %490 ], [ %.sroa.0.264.i, %483 ], [ %.sroa.0.264.i, %506 ], [ %.sroa.0.264.i, %463 ], [ %.sroa.0.264.i, %512 ], [ %.sroa.0.264.i, %518 ], [ %.sroa.0.264.i, %514 ], [ %.sroa.0.264.i, %520 ], [ %.sroa.0.264.i, %545 ], [ %.sroa.0.264.i, %529 ], [ %.sroa.0.264.i, %629 ], [ %.sroa.0.264.i, %641 ], [ %.sroa.0.264.i, %627 ], [ %.sroa.0.264.i, %636 ]
   %.039.i.i = phi i32 [ 0, %201 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i33.i ], [ 0, %.thread49.i.i.i ], [ 1, %465 ], [ 0, %523 ], [ 2, %638 ], [ 0, %644 ], [ 2, %342 ], [ 2, %336 ], [ 2, %338 ], [ 2, %344 ], [ 0, %407 ], [ 2, %433 ], [ 2, %418 ], [ 2, %454 ], [ 0, %458 ], [ 2, %425 ], [ 2, %440 ], [ 2, %447 ], [ 2, %416 ], [ 2, %423 ], [ 2, %431 ], [ 2, %438 ], [ 2, %445 ], [ 2, %452 ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 4, %492 ], [ 4, %485 ], [ 4, %490 ], [ 4, %483 ], [ %.fr.i.i.i.i, %506 ], [ 1, %463 ], [ 2, %512 ], [ 2, %518 ], [ 2, %514 ], [ 2, %520 ], [ 0, %545 ], [ 0, %529 ], [ 2, %629 ], [ 0, %641 ], [ 2, %627 ], [ 2, %636 ]
   %649 = load i32, ptr %62, align 8, !tbaa !30
   %.not72.i.i = icmp eq i32 %649, 0
@@ -1529,7 +1529,7 @@ ProcessVP8XChunk.exit.i.i:                        ; preds = %644, %641, %638, %6
   br i1 %.not47.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
 ProcessChunk.exit.i:                              ; preds = %660, %657, %ProcessVP8XChunk.exit.i.i, %623
-  %.sroa.0.264.i = phi i64 [ %.sroa.0.265.i, %657 ], [ %.sroa.0.265.i, %660 ], [ %.sroa.0.265.i, %ProcessVP8XChunk.exit.i.i ], [ %.sroa.0.266.i, %623 ]
+  %.sroa.0.262.i = phi i64 [ %.sroa.0.263.i, %657 ], [ %.sroa.0.263.i, %660 ], [ %.sroa.0.263.i, %ProcessVP8XChunk.exit.i.i ], [ %.sroa.0.264.i, %623 ]
   %.0.i30.i = phi i32 [ %.039.i.i, %657 ], [ %.039.i.i, %660 ], [ %.039.i.i, %ProcessVP8XChunk.exit.i.i ], [ 0, %623 ]
   %cond.i = icmp eq i32 %.0.i30.i, 0
   br i1 %cond.i, label %139, label %Validate.exit.i, !llvm.loop !44

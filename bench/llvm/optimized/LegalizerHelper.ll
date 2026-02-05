@@ -47203,8 +47203,8 @@ _ZN4llvm5APIntD2Ev.exit71:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 151:                                              ; preds = %141, %131
   %.pn = phi { ptr, ptr } [ %140, %131 ], [ %150, %141 ]
-  %.sroa.0133.1 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.9.1 = extractvalue { ptr, ptr } %.pn, 1
+  %.sroa.0133.0 = extractvalue { ptr, ptr } %.pn, 0
+  %.sroa.9.0 = extractvalue { ptr, ptr } %.pn, 1
   %152 = load ptr, ptr %0, align 8, !tbaa !139
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %.sroa.04.0.i, ptr %24, align 8, !tbaa !173
@@ -47219,8 +47219,8 @@ _ZN4llvm5APIntD2Ev.exit71:                        ; preds = %_ZN4llvm5APIntD2Ev.
   store i64 %.sroa.04.0.i, ptr %5, align 8
   store i32 0, ptr %.sroa.489.0..sroa_idx, align 8, !tbaa !223
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %.sroa.0133.1, ptr %6, align 8
-  store ptr %.sroa.9.1, ptr %.sroa.084.sroa.4.0..sroa_idx, align 8, !tbaa !173
+  store ptr %.sroa.0133.0, ptr %6, align 8
+  store ptr %.sroa.9.0, ptr %.sroa.084.sroa.4.0..sroa_idx, align 8, !tbaa !173
   store i32 1, ptr %.sroa.485.0..sroa_idx, align 8, !tbaa !224
   store ptr %155, ptr %56, align 8
   store ptr %156, ptr %.sroa.081.sroa.4.0..sroa_idx, align 8, !tbaa !173

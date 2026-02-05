@@ -73,8 +73,8 @@ define dso_local void @_ZN4llvm19formatv_object_base17parseFormatStringENS_9Stri
 
 23:                                               ; preds = %.lr.ph, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
-  %.sroa.0.014 = phi ptr [ %1, %.lr.ph ], [ %.sroa.487.1, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
-  %.sroa.3.013 = phi i64 [ %2, %.lr.ph ], [ %.sroa.54.1, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
+  %.sroa.0.014 = phi ptr [ %1, %.lr.ph ], [ %.sroa.487.0, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
+  %.sroa.3.013 = phi i64 [ %2, %.lr.ph ], [ %.sroa.54.0, %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %18, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.38)
@@ -389,8 +389,8 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
   %.sroa.43.0 = phi i8 [ 1, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ 1, %41 ], [ %.sroa.11.0.i, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ 1, %58 ], [ 1, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
   %133 = phi i1 [ false, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ false, %41 ], [ true, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ false, %58 ], [ false, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
   %.sroa.02.0 = phi i32 [ 1, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ 1, %41 ], [ 0, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ 1, %58 ], [ 1, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
-  %.sroa.54.1 = phi i64 [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ %45, %41 ], [ %66, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ %60, %58 ], [ %32, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
-  %.sroa.487.1 = phi ptr [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ %44, %41 ], [ %65, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ %59, %58 ], [ %31, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
+  %.sroa.54.0 = phi i64 [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ %45, %41 ], [ %66, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ %60, %58 ], [ %32, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
+  %.sroa.487.0 = phi ptr [ null, %_ZNK4llvm9StringRef13find_first_ofEcm.exit31.thread.i ], [ %44, %41 ], [ %65, %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i ], [ %59, %58 ], [ %31, %_ZNK4llvm9StringRef13find_first_ofEcm.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   store i32 %.sroa.02.0, ptr %13, align 8
   store ptr %.sroa.83.0, ptr %.sroa.83.0..sroa.4.8..sroa_idx, align 8
@@ -439,7 +439,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
 _ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit: ; preds = %144, %142, %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
   %.1 = phi i32 [ %.015, %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit ], [ %.2, %142 ], [ %.2, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %150 = icmp eq i64 %.sroa.54.1, 0
+  %150 = icmp eq i64 %.sroa.54.0, 0
   br i1 %150, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SmallVectorImplINS_15ReplacementItemEE12emplace_backIJRS1_EEES4_DpOT_.exit, %5

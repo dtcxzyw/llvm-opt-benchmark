@@ -911,8 +911,8 @@ _ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit:         ; preds = %._crit_edge476
 
 ._crit_edge484:                                   ; preds = %.lr.ph489.._crit_edge484_crit_edge, %._crit_edge484.loopexit
   %191 = phi ptr [ %.pre601, %.lr.ph489.._crit_edge484_crit_edge ], [ %273, %._crit_edge484.loopexit ]
-  %.sroa.0224.1.lcssa = phi ptr [ null, %.lr.ph489.._crit_edge484_crit_edge ], [ %.sroa.0224.10.sink, %._crit_edge484.loopexit ]
-  %.sroa.15229.1.lcssa = phi i32 [ 0, %.lr.ph489.._crit_edge484_crit_edge ], [ %190, %._crit_edge484.loopexit ]
+  %.sroa.0224.0.lcssa = phi ptr [ null, %.lr.ph489.._crit_edge484_crit_edge ], [ %.sroa.0224.9.sink, %._crit_edge484.loopexit ]
+  %.sroa.15229.0.lcssa = phi i32 [ 0, %.lr.ph489.._crit_edge484_crit_edge ], [ %190, %._crit_edge484.loopexit ]
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 800
   %193 = load ptr, ptr %192, align 8, !tbaa !126
   %.not.i.i.i = icmp eq ptr %193, null
@@ -924,21 +924,21 @@ _ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit:         ; preds = %._crit_edge476
   br label %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i.i
 
 _ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i.i:      ; preds = %.preheader.i.i.i, %._crit_edge484
-  invoke void @_ZN7Minisat3vecINS_3LitEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %192, i32 noundef %.sroa.15229.1.lcssa)
+  invoke void @_ZN7Minisat3vecINS_3LitEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %192, i32 noundef %.sroa.15229.0.lcssa)
           to label %.noexc126 unwind label %290
 
 .noexc126:                                        ; preds = %_ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i.i
-  %.not298 = icmp eq i32 %.sroa.15229.1.lcssa, 0
+  %.not298 = icmp eq i32 %.sroa.15229.0.lcssa, 0
   br i1 %.not298, label %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc126
   %195 = load ptr, ptr %192, align 8, !tbaa !126
-  %196 = zext nneg i32 %.sroa.15229.1.lcssa to i64
+  %196 = zext nneg i32 %.sroa.15229.0.lcssa to i64
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %197 ]
-  %198 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.1.lcssa, i64 %indvars.iv.i.i
+  %198 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.0.lcssa, i64 %indvars.iv.i.i
   %199 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %195, i64 %indvars.iv.i.i
   %200 = load i32, ptr %198, align 4, !tbaa !63
   store i32 %200, ptr %199, align 4, !tbaa !63
@@ -953,8 +953,8 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 .lr.ph483:                                        ; preds = %.lr.ph489, %188
   %indvars.iv = phi i64 [ %indvars.iv.next, %188 ], [ 0, %.lr.ph489 ]
   %.sroa.0221.0481 = phi ptr [ %189, %188 ], [ %185, %.lr.ph489 ]
-  %.sroa.26236.1480 = phi i32 [ %.sroa.26236.2, %188 ], [ 0, %.lr.ph489 ]
-  %.sroa.0224.1478 = phi ptr [ %.sroa.0224.10.sink, %188 ], [ null, %.lr.ph489 ]
+  %.sroa.26236.0480 = phi i32 [ %.sroa.26236.1, %188 ], [ 0, %.lr.ph489 ]
+  %.sroa.0224.0478 = phi ptr [ %.sroa.0224.9.sink, %188 ], [ null, %.lr.ph489 ]
   %202 = load i32, ptr %.sroa.0221.0481, align 4, !tbaa !63
   %203 = icmp sgt i32 %202, 0
   %204 = load ptr, ptr %93, align 8, !tbaa !66
@@ -982,7 +982,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   %215 = getelementptr inbounds nuw i32, ptr %205, i64 %212
   %216 = load i32, ptr %215, align 4, !tbaa !63
   %217 = shl nsw i32 %216, 1
-  %218 = zext i32 %.sroa.26236.1480 to i64
+  %218 = zext i32 %.sroa.26236.0480 to i64
   %219 = icmp eq i64 %indvars.iv, %218
   br i1 %219, label %220, label %261
 
@@ -998,12 +998,12 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 227:                                              ; preds = %220
   %228 = add nuw nsw i32 %224, %221
   %229 = zext nneg i32 %228 to i64
-  %230 = call ptr @reallocarray(ptr noundef %.sroa.0224.1478, i64 noundef %229, i64 noundef 4) #22
+  %230 = call ptr @reallocarray(ptr noundef %.sroa.0224.0478, i64 noundef %229, i64 noundef 4) #22
   %231 = icmp eq ptr %230, null
   br i1 %231, label %.loopexit304, label %261
 
 .loopexit304:                                     ; preds = %220, %227
-  %.sroa.0224.7 = phi ptr [ null, %227 ], [ %.sroa.0224.1478, %220 ]
+  %.sroa.0224.6 = phi ptr [ null, %227 ], [ %.sroa.0224.0478, %220 ]
   %232 = call ptr @__cxa_allocate_exception(i64 1) #22
   invoke void @__cxa_throw(ptr %232, ptr nonnull @_ZTIN7Minisat20OutOfMemoryExceptionE, ptr null) #27
           to label %.noexc131 unwind label %233
@@ -1012,7 +1012,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   unreachable
 
 233:                                              ; preds = %.loopexit304, %213
-  %.sroa.0224.2 = phi ptr [ %.sroa.0224.7, %.loopexit304 ], [ %.sroa.0224.1478, %213 ]
+  %.sroa.0224.1 = phi ptr [ %.sroa.0224.6, %.loopexit304 ], [ %.sroa.0224.0478, %213 ]
   %234 = landingpad { ptr, i32 }
           cleanup
   br label %292
@@ -1035,7 +1035,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   %241 = load i32, ptr %240, align 4, !tbaa !63
   %242 = shl nsw i32 %241, 1
   %243 = or disjoint i32 %242, 1
-  %244 = zext i32 %.sroa.26236.1480 to i64
+  %244 = zext i32 %.sroa.26236.0480 to i64
   %245 = icmp eq i64 %indvars.iv, %244
   br i1 %245, label %246, label %261
 
@@ -1051,12 +1051,12 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 253:                                              ; preds = %246
   %254 = add nuw nsw i32 %250, %247
   %255 = zext nneg i32 %254 to i64
-  %256 = call ptr @reallocarray(ptr noundef %.sroa.0224.1478, i64 noundef %255, i64 noundef 4) #22
+  %256 = call ptr @reallocarray(ptr noundef %.sroa.0224.0478, i64 noundef %255, i64 noundef 4) #22
   %257 = icmp eq ptr %256, null
   br i1 %257, label %.loopexit303, label %261
 
 .loopexit303:                                     ; preds = %246, %253
-  %.sroa.0224.9 = phi ptr [ null, %253 ], [ %.sroa.0224.1478, %246 ]
+  %.sroa.0224.8 = phi ptr [ null, %253 ], [ %.sroa.0224.0478, %246 ]
   %258 = call ptr @__cxa_allocate_exception(i64 1) #22
   invoke void @__cxa_throw(ptr %258, ptr nonnull @_ZTIN7Minisat20OutOfMemoryExceptionE, ptr null) #27
           to label %.noexc137 unwind label %259
@@ -1065,17 +1065,17 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   unreachable
 
 259:                                              ; preds = %.loopexit303, %238
-  %.sroa.0224.5 = phi ptr [ %.sroa.0224.9, %.loopexit303 ], [ %.sroa.0224.1478, %238 ]
+  %.sroa.0224.4 = phi ptr [ %.sroa.0224.8, %.loopexit303 ], [ %.sroa.0224.0478, %238 ]
   %260 = landingpad { ptr, i32 }
           cleanup
   br label %292
 
 261:                                              ; preds = %239, %253, %214, %227
-  %.sroa.0224.10.sink = phi ptr [ %.sroa.0224.1478, %214 ], [ %230, %227 ], [ %256, %253 ], [ %.sroa.0224.1478, %239 ]
+  %.sroa.0224.9.sink = phi ptr [ %.sroa.0224.0478, %214 ], [ %230, %227 ], [ %256, %253 ], [ %.sroa.0224.0478, %239 ]
   %.sink = phi i32 [ %217, %214 ], [ %217, %227 ], [ %243, %253 ], [ %243, %239 ]
   %262 = phi i32 [ %211, %214 ], [ %211, %227 ], [ %236, %253 ], [ %236, %239 ]
-  %.sroa.26236.2 = phi i32 [ %.sroa.26236.1480, %214 ], [ %228, %227 ], [ %254, %253 ], [ %.sroa.26236.1480, %239 ]
-  %263 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.10.sink, i64 %indvars.iv
+  %.sroa.26236.1 = phi i32 [ %.sroa.26236.0480, %214 ], [ %228, %227 ], [ %254, %253 ], [ %.sroa.26236.0480, %239 ]
+  %263 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.9.sink, i64 %indvars.iv
   store i32 %.sink, ptr %263, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %264 = sext i32 %262 to i64
@@ -1133,11 +1133,11 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   br label %.preheader.i.i144
 
 _ZN7Minisat10SimpSolver9addClauseERKNS_3vecINS_3LitEiEE.exit: ; preds = %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i
-  %.not.i.i142 = icmp eq ptr %.sroa.0224.1.lcssa, null
+  %.not.i.i142 = icmp eq ptr %.sroa.0224.0.lcssa, null
   br i1 %.not.i.i142, label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN7Minisat10SimpSolver9addClauseERKNS_3vecINS_3LitEiEE.exit
-  call void @free(ptr noundef nonnull %.sroa.0224.1.lcssa) #22
+  call void @free(ptr noundef nonnull %.sroa.0224.0.lcssa) #22
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSolver9addClauseERKNS_3vecINS_3LitEiEE.exit, %.preheader.i.i
@@ -1149,15 +1149,15 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
   br label %292
 
 292:                                              ; preds = %233, %259, %290
-  %.sroa.0224.6 = phi ptr [ %.sroa.0224.1.lcssa, %290 ], [ %.sroa.0224.2, %233 ], [ %.sroa.0224.5, %259 ]
+  %.sroa.0224.5 = phi ptr [ %.sroa.0224.0.lcssa, %290 ], [ %.sroa.0224.1, %233 ], [ %.sroa.0224.4, %259 ]
   %.pn94.pn = phi { ptr, i32 } [ %291, %290 ], [ %234, %233 ], [ %260, %259 ]
-  %.not.i.i143 = icmp eq ptr %.sroa.0224.6, null
+  %.not.i.i143 = icmp eq ptr %.sroa.0224.5, null
   br i1 %.not.i.i143, label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145, label %.preheader.i.i144
 
 .preheader.i.i144:                                ; preds = %286, %288, %292
   %.pn94.pn682 = phi { ptr, i32 } [ %.pn94.pn, %292 ], [ %287, %286 ], [ %289, %288 ]
-  %.sroa.0224.6681 = phi ptr [ %.sroa.0224.6, %292 ], [ %.sroa.0224.10.sink, %286 ], [ %.sroa.0224.10.sink, %288 ]
-  call void @free(ptr noundef nonnull %.sroa.0224.6681) #22
+  %.sroa.0224.5681 = phi ptr [ %.sroa.0224.5, %292 ], [ %.sroa.0224.9.sink, %286 ], [ %.sroa.0224.9.sink, %288 ]
+  call void @free(ptr noundef nonnull %.sroa.0224.5681) #22
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145
 
 ._crit_edge490:                                   ; preds = %183

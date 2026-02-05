@@ -1170,15 +1170,15 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableInitOpERNS_7Runtime12StackM
   %12 = getelementptr inbounds i8, ptr %11, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 16
   store ptr %12, ptr %10, align 8
-  %.sroa.055.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.049.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %13 = getelementptr inbounds i8, ptr %11, i64 -32
   %.sroa.0.0.copyload.i11 = load i64, ptr %13, align 16
   store ptr %13, ptr %10, align 8
-  %.sroa.050.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i11 to i32
+  %.sroa.044.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i11 to i32
   %14 = getelementptr inbounds i8, ptr %11, i64 -48
   %.sroa.0.0.copyload.i16 = load i64, ptr %14, align 16
   store ptr %14, ptr %10, align 8
-  %.sroa.049.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i16 to i32
+  %.sroa.043.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i16 to i32
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1187,7 +1187,7 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableInitOpERNS_7Runtime12StackM
   %20 = ptrtoint ptr %16 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 4
-  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance7setRefsEN5cxx204spanIKNS_10RefVariantELm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %8, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr %16, i64 %22, i32 noundef %.sroa.049.0.extract.trunc, i32 noundef %.sroa.050.0.extract.trunc, i32 noundef %.sroa.055.0.extract.trunc) #20
+  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance7setRefsEN5cxx204spanIKNS_10RefVariantELm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %8, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr %16, i64 %22, i32 noundef %.sroa.043.0.extract.trunc, i32 noundef %.sroa.044.0.extract.trunc, i32 noundef %.sroa.049.0.extract.trunc) #20
   %23 = load i8, ptr %8, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit
@@ -1454,27 +1454,27 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableCopyOpERNS_7Runtime12StackM
   %15 = getelementptr inbounds i8, ptr %14, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 16
   store ptr %15, ptr %13, align 8
-  %.sroa.0113.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0101.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %16 = getelementptr inbounds i8, ptr %14, i64 -32
   %.sroa.0.0.copyload.i17 = load i64, ptr %16, align 16
   store ptr %16, ptr %13, align 8
-  %.sroa.0111.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i17 to i32
+  %.sroa.099.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i17 to i32
   %17 = getelementptr inbounds i8, ptr %14, i64 -48
   %.sroa.0.0.copyload.i22 = load i64, ptr %17, align 16
   store ptr %17, ptr %13, align 8
-  %18 = add i32 %.sroa.0111.0.extract.trunc, %.sroa.0113.0.extract.trunc
+  %18 = add i32 %.sroa.099.0.extract.trunc, %.sroa.0101.0.extract.trunc
   call void @_ZNK8WasmEdge7Runtime8Instance13TableInstance7getRefsEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.59") align 8 %9, ptr noundef nonnull align 16 dereferenceable(64) %4, i32 noundef 0, i32 noundef %18) #20
   %19 = load i8, ptr %9, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit49
 
 21:                                               ; preds = %6
-  %.sroa.0109.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i22 to i32
+  %.sroa.097.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i22 to i32
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load i64, ptr %24, align 8
-  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance7setRefsEN5cxx204spanIKNS_10RefVariantELm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %10, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr %23, i64 %25, i32 noundef %.sroa.0109.0.extract.trunc, i32 noundef %.sroa.0111.0.extract.trunc, i32 noundef %.sroa.0113.0.extract.trunc) #20
+  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance7setRefsEN5cxx204spanIKNS_10RefVariantELm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %10, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr %23, i64 %25, i32 noundef %.sroa.097.0.extract.trunc, i32 noundef %.sroa.099.0.extract.trunc, i32 noundef %.sroa.0101.0.extract.trunc) #20
   %26 = load i8, ptr %10, align 4
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit
@@ -1881,7 +1881,7 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableFillOpERNS_7Runtime12StackM
   %12 = getelementptr inbounds i8, ptr %11, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 16
   store ptr %12, ptr %10, align 8
-  %.sroa.047.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.041.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %13 = getelementptr inbounds i8, ptr %11, i64 -32
   %.sroa.0.0.copyload.i9 = load i64, ptr %13, align 16
   %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %11, i64 -24
@@ -1893,8 +1893,8 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableFillOpERNS_7Runtime12StackM
   %14 = getelementptr inbounds i8, ptr %11, i64 -48
   %.sroa.0.0.copyload.i14 = load i64, ptr %14, align 16
   store ptr %14, ptr %10, align 8
-  %.sroa.045.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i14 to i32
-  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance8fillRefsERKNS_10RefVariantEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %8, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %7, i32 noundef %.sroa.045.0.extract.trunc, i32 noundef %.sroa.047.0.extract.trunc) #20
+  %.sroa.039.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i14 to i32
+  call void @_ZN8WasmEdge7Runtime8Instance13TableInstance8fillRefsERKNS_10RefVariantEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %8, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %7, i32 noundef %.sroa.039.0.extract.trunc, i32 noundef %.sroa.041.0.extract.trunc) #20
   %15 = load i8, ptr %8, align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit

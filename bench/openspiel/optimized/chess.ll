@@ -5418,7 +5418,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.080.0 = phi ptr [ %54, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %54, %.noexc50 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.077.0 = phi ptr [ %54, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %54, %.noexc50 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.11.0 = phi ptr [ %55, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %55, %.noexc50 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i = phi ptr [ %59, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %56, %.noexc50 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %60 = load i8, ptr %37, align 2
@@ -5458,7 +5458,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
 .body51:                                          ; preds = %67, %65
   %.pn.i = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
-  %.not.i.i.i56 = icmp eq ptr %.sroa.080.0, null
+  %.not.i.i.i56 = icmp eq ptr %.sroa.077.0, null
   br i1 %.not.i.i.i56, label %.body, label %75
 
 _ZNSt6vectorIdSaIdEED2Ev.exit55:                  ; preds = %61, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
@@ -5466,13 +5466,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit55:                  ; preds = %61, %_ZNSt6vectorId
   %.05.i = phi i64 [ 1, %61 ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %70 = getelementptr inbounds nuw double, ptr %.sroa.080.0, i64 %.05.i
+  %70 = getelementptr inbounds nuw double, ptr %.sroa.077.0, i64 %.05.i
   store double -1.000000e+00, ptr %70, align 8
-  %71 = getelementptr inbounds nuw double, ptr %.sroa.080.0, i64 %69
+  %71 = getelementptr inbounds nuw double, ptr %.sroa.077.0, i64 %69
   store double 1.000000e+00, ptr %71, align 8
   store i8 1, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.080.0, ptr %72, align 8
+  store ptr %.sroa.077.0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i.i.i.i, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5481,9 +5481,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit55:                  ; preds = %61, %_ZNSt6vectorId
 
 75:                                               ; preds = %.body51
   %76 = ptrtoint ptr %.sroa.11.0 to i64
-  %77 = ptrtoint ptr %.sroa.080.0 to i64
+  %77 = ptrtoint ptr %.sroa.077.0 to i64
   %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.080.0, i64 noundef %78) #35
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.077.0, i64 noundef %78) #35
   br label %.body
 
 79:                                               ; preds = %_ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit

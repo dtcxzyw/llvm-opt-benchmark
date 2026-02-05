@@ -330,8 +330,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   %16 = zext i32 %15 to i64
   %.idx = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %.not87 = icmp eq i32 %15, 0
-  br i1 %.not87, label %.critedge44, label %.lr.ph
+  %.not83 = icmp eq i32 %15, 0
+  br i1 %.not83, label %.critedge44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -343,9 +343,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.critedge
-  %.03589 = phi ptr [ %13, %.lr.ph ], [ %123, %.critedge ]
-  %.sroa.058.088 = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.058.1, %.critedge ]
-  %23 = load ptr, ptr %.03589, align 8, !tbaa !205
+  %.03585 = phi ptr [ %13, %.lr.ph ], [ %123, %.critedge ]
+  %.sroa.058.084 = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.058.1, %.critedge ]
+  %23 = load ptr, ptr %.03585, align 8, !tbaa !205
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %24, align 8
   %25 = icmp ult i64 %.0.copyload.i.i.i.i.i, 8
@@ -357,9 +357,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm14VirtRegAuxInfo18isRematerializabl
   br i1 %28, label %.critedge44, label %.preheader
 
 .preheader:                                       ; preds = %26, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
-  %.sroa.058.2 = phi i32 [ %53, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.sroa.058.088, %26 ]
+  %.sroa.058.2 = phi i32 [ %53, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.sroa.058.084, %26 ]
   %.pn.in.in = phi i64 [ %.0.copyload.i.i.i.i.i.i53, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %.0.copyload.i.i.i.i.i, %26 ]
-  %.040 = phi ptr [ %.sroa.0.3, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %23, %26 ]
+  %.040 = phi ptr [ %.sroa.0.0, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ %23, %26 ]
   %.pn.in = and i64 %.pn.in.in, -8
   %.pn = inttoptr i64 %.pn.in to ptr
   %.041.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
@@ -417,8 +417,8 @@ _ZNK4llvm15TargetInstrInfo15isFullCopyInstrERKNS_12MachineInstrE.exit: ; preds =
   %48 = load ptr, ptr %47, align 8, !tbaa !177
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !136
-  %.not71 = icmp eq i32 %50, %.sroa.058.2
-  br i1 %.not71, label %51, label %.critedge44
+  %.not67 = icmp eq i32 %50, %.sroa.058.2
+  br i1 %.not67, label %51, label %.critedge44
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 36
@@ -434,8 +434,8 @@ _ZNK4llvm15TargetInstrInfo15isFullCopyInstrERKNS_12MachineInstrE.exit: ; preds =
   %.sroa.02.0.copyload.i.i46 = load i32, ptr %59, align 4, !tbaa !204
   %.not.i47 = icmp eq i32 %.sroa.02.0.copyload.i.i46, 0
   %.sroa.01.0.copyload.i48 = select i1 %.not.i47, i32 %53, i32 %.sroa.02.0.copyload.i.i46
-  %.not72 = icmp eq i32 %.sroa.01.0.copyload.i48, %.sroa.01.0.copyload.i
-  br i1 %.not72, label %60, label %.critedge44
+  %.not68 = icmp eq i32 %.sroa.01.0.copyload.i48, %.sroa.01.0.copyload.i
+  br i1 %.not68, label %60, label %.critedge44
 
 60:                                               ; preds = %55
   %61 = load i32, ptr %18, align 8, !tbaa !133
@@ -527,8 +527,8 @@ _ZNK4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13
   br label %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit
 
 _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit:    ; preds = %_ZNK4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %._crit_edge.i
-  %.sroa.0.3 = phi ptr [ %95, %_ZNK4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ %spec.select.i, %._crit_edge.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 8
+  %.sroa.0.0 = phi ptr [ %95, %_ZNK4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ %spec.select.i, %._crit_edge.i ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   %.0.copyload.i.i.i.i.i.i53 = load i64, ptr %104, align 8
   %105 = and i64 %.0.copyload.i.i.i.i.i.i53, 6
   %106 = icmp eq i64 %105, 0
@@ -561,14 +561,14 @@ _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exi
   br i1 %122, label %.critedge, label %.critedge44
 
 .critedge:                                        ; preds = %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit, %.loopexit, %22
-  %.sroa.058.1 = phi i32 [ %.sroa.058.088, %22 ], [ %.sroa.058.2, %.loopexit ], [ %.sroa.058.2, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ]
-  %123 = getelementptr inbounds nuw i8, ptr %.03589, i64 8
+  %.sroa.058.1 = phi i32 [ %.sroa.058.084, %22 ], [ %.sroa.058.2, %.loopexit ], [ %.sroa.058.2, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ]
+  %123 = getelementptr inbounds nuw i8, ptr %.03585, i64 8
   %.not = icmp eq ptr %123, %17
   br i1 %.not, label %.critedge44, label %22, !llvm.loop !236
 
 .critedge44:                                      ; preds = %.critedge, %26, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit, %113, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit, %55, %46, %51, %4
-  %.not84 = phi i1 [ true, %4 ], [ false, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ false, %51 ], [ false, %46 ], [ false, %55 ], [ true, %.critedge ], [ false, %26 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ false, %113 ]
-  ret i1 %.not84
+  %.not80 = phi i1 [ true, %4 ], [ false, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit ], [ false, %51 ], [ false, %46 ], [ false, %55 ], [ true, %.critedge ], [ false, %26 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit ], [ false, %113 ]
+  ret i1 %.not80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

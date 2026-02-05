@@ -178,9 +178,9 @@ define hidden noundef zeroext i1 @_ZN3ue226removeCyclicPathRedundancyERNS_8NGHol
   %36 = alloca %"class.std::allocator.68", align 1
   %37 = alloca %"class.std::vector", align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.046.0147.i = load ptr, ptr %38, align 8
-  %.not148.i = icmp eq ptr %.sroa.046.0147.i, %38
-  br i1 %.not148.i, label %_ZN3ue2L24cyclicPathRedundancyPassINS_8NGHolderEEEbRT_RS1_.exit.thread, label %.lr.ph.i
+  %.sroa.046.0142.i = load ptr, ptr %38, align 8
+  %.not143.i = icmp eq ptr %.sroa.046.0142.i, %38
+  br i1 %.not143.i, label %_ZN3ue2L24cyclicPathRedundancyPassINS_8NGHolderEEEbRT_RS1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -217,23 +217,23 @@ define hidden noundef zeroext i1 @_ZN3ue226removeCyclicPathRedundancyERNS_8NGHol
   br label %68
 
 68:                                               ; preds = %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i, %.lr.ph.i
-  %.sroa.046.0150.i = phi ptr [ %.sroa.046.0147.i, %.lr.ph.i ], [ %.sroa.046.0.i, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i ]
-  %.0149.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 80
+  %.sroa.046.0145.i = phi ptr [ %.sroa.046.0142.i, %.lr.ph.i ], [ %.sroa.046.0.i, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i ]
+  %.0144.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 80
   %70 = load i64, ptr %69, align 8
   %71 = icmp ult i64 %70, 4
   br i1 %71, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 104
   %74 = load i64, ptr %73, align 8, !noalias !5
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 128
   %76 = load i64, ptr %75, align 8, !noalias !5
   %77 = icmp ult i64 %74, %76
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 112
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %80, %78
@@ -245,11 +245,11 @@ define hidden noundef zeroext i1 @_ZN3ue226removeCyclicPathRedundancyERNS_8NGHol
 80:                                               ; preds = %.critedge.i.i.i
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i, i64 16
   %82 = load ptr, ptr %81, align 8, !noalias !5
-  %83 = icmp eq ptr %82, %.sroa.046.0150.i
-  br i1 %83, label %.loopexit84.i, label %.critedge.i.i.i
+  %83 = icmp eq ptr %82, %.sroa.046.0145.i
+  br i1 %83, label %.loopexit79.i, label %.critedge.i.i.i
 
 84:                                               ; preds = %72
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 136
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 136
   br label %.critedge24.i.i.i
 
 .critedge24.i.i.i:                                ; preds = %86, %84
@@ -261,12 +261,12 @@ define hidden noundef zeroext i1 @_ZN3ue226removeCyclicPathRedundancyERNS_8NGHol
 86:                                               ; preds = %.critedge24.i.i.i
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i, i64 40
   %88 = load ptr, ptr %87, align 8, !noalias !5
-  %89 = icmp eq ptr %88, %.sroa.046.0150.i
-  br i1 %89, label %.loopexit84.i, label %.critedge24.i.i.i
+  %89 = icmp eq ptr %88, %.sroa.046.0145.i
+  br i1 %89, label %.loopexit79.i, label %.critedge24.i.i.i
 
-.loopexit84.i:                                    ; preds = %86, %80
+.loopexit79.i:                                    ; preds = %86, %80
   %.val.i = load i64, ptr %39, align 8, !noalias !10
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   store i64 %.val.i, ptr %30, align 8, !alias.scope !13
@@ -277,7 +277,7 @@ define hidden noundef zeroext i1 @_ZN3ue226removeCyclicPathRedundancyERNS_8NGHol
   %93 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
           to label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %105, !noalias !13
 
-_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.loopexit84.i
+_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.loopexit79.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 1, ptr %94, align 8, !noalias !16
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 12
@@ -313,7 +313,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   call void @_ZdlPv(ptr noundef nonnull %93) #22, !noalias !16
   br label %.body.i.i.i.i
 
-105:                                              ; preds = %.loopexit84.i
+105:                                              ; preds = %.loopexit79.i
   %106 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i
@@ -347,7 +347,7 @@ _ZN3ue220make_small_color_mapINS_8NGHolderEEENS_15small_color_mapIDTcl3getLN5boo
 113:                                              ; preds = %_ZN3ue220make_small_color_mapINS_8NGHolderEEENS_15small_color_mapIDTcl3getLN5boost14vertex_index_tE0Efp_EEEERKT_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 136
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 136
   %115 = load ptr, ptr %114, align 8, !noalias !19
   %.not1.i.i.i.i = icmp eq ptr %115, %114
   br i1 %.not1.i.i.i.i, label %_ZN3ue26insertINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEENS8_18adjacency_iteratorEEEvPT_RKSt4pairIT0_SI_E.exit.i.i, label %.lr.ph.i.i.i.i
@@ -375,8 +375,8 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descri
   %125 = lshr i64 %.012.i.i.i.i, 1
   %126 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %124, i64 %125
   %127 = load ptr, ptr %126, align 8, !noalias !36
-  %.not83.i = icmp eq ptr %127, null
-  br i1 %.not83.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEEEEclIN5boost9container12vec_iteratorIPSB_Lb0EEEKSB_EEbT_RT0_.exit.i.i.i.i, label %128
+  %.not78.i = icmp eq ptr %127, null
+  br i1 %.not78.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEEEEclIN5boost9container12vec_iteratorIPSB_Lb0EEEKSB_EEbT_RT0_.exit.i.i.i.i, label %128
 
 128:                                              ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb0EEElEvRT_T0_.exit.i.i.i.i
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -490,15 +490,15 @@ _ZN3ue26insertINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIN
 164:                                              ; preds = %_ZN3ue26insertINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEENS8_18adjacency_iteratorEEEvPT_RKSt4pairIT0_SI_E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 112
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 112
   %.sroa.021.064.i.i = load ptr, ptr %165, align 8
   %.not65.i.i = icmp eq ptr %.sroa.021.064.i.i, %165
   br i1 %.not65.i.i, label %._crit_edge70.i.i, label %.lr.ph69.i.i
 
 .lr.ph69.i.i:                                     ; preds = %164
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 24
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 32
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.046.0150.i, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.046.0145.i, i64 40
   br label %207
 
 ._crit_edge70.i.i:                                ; preds = %789, %164
@@ -605,7 +605,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %197,
   %.066.i.i = phi i1 [ false, %.lr.ph69.i.i ], [ %.1.i.i, %789 ]
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.021.067.i.i, i64 16
   %209 = load ptr, ptr %208, align 8
-  %210 = icmp eq ptr %209, %.sroa.046.0150.i
+  %210 = icmp eq ptr %209, %.sroa.046.0145.i
   br i1 %210, label %789, label %211
 
 211:                                              ; preds = %207
@@ -1087,14 +1087,14 @@ _ZN3ue28containsINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graph
   %394 = atomicrmw volatile add ptr %389, i32 1 acq_rel, align 4
   %.pre77.i.i = load i8, ptr @__libc_single_threaded, align 1
   %395 = icmp eq i8 %.pre77.i.i, 0
-  br i1 %395, label %399, label %._crit_edge173.i
+  br i1 %395, label %399, label %._crit_edge168.i
 
-._crit_edge173.i:                                 ; preds = %393
+._crit_edge168.i:                                 ; preds = %393
   %.pre.i = load i32, ptr %389, align 4
   br label %396
 
-396:                                              ; preds = %._crit_edge173.i, %.thread.i.i
-  %397 = phi i32 [ %.pre.i, %._crit_edge173.i ], [ %392, %.thread.i.i ]
+396:                                              ; preds = %._crit_edge168.i, %.thread.i.i
+  %397 = phi i32 [ %.pre.i, %._crit_edge168.i ], [ %392, %.thread.i.i ]
   %398 = add nsw i32 %397, 1
   store i32 %398, ptr %389, align 4
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i.i.i
@@ -2103,12 +2103,12 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
 
 _ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i: ; preds = %200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %185, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit95.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %823 = or i1 %.0149.i, %.0.lcssa.i.i
+  %823 = or i1 %.0144.i, %.0.lcssa.i.i
   br label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i
 
 _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i: ; preds = %.critedge24.i.i.i, %.critedge.i.i.i, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i, %68
-  %.1.i = phi i1 [ %823, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i ], [ %.0149.i, %.critedge.i.i.i ], [ %.0149.i, %68 ], [ %.0149.i, %.critedge24.i.i.i ]
-  %.sroa.046.0.i = load ptr, ptr %.sroa.046.0150.i, align 8
+  %.1.i = phi i1 [ %823, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i ], [ %.0144.i, %.critedge.i.i.i ], [ %.0144.i, %68 ], [ %.0144.i, %.critedge24.i.i.i ]
+  %.sroa.046.0.i = load ptr, ptr %.sroa.046.0145.i, align 8
   %.not.i = icmp eq ptr %.sroa.046.0.i, %38
   br i1 %.not.i, label %_ZN3ue2L24cyclicPathRedundancyPassINS_8NGHolderEEEbRT_RS1_.exit, label %68
 

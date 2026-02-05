@@ -2803,11 +2803,11 @@ _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit: ; preds = %_ZN6du
 
 _ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit: ; preds = %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit, %149, %151, %153
   %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i39 = phi i32 [ %154, %153 ], [ 0, %149 ], [ %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i39.pre, %151 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ]
-  %.sroa.0.i.sroa.0.1 = phi i32 [ %147, %153 ], [ %147, %149 ], [ %147, %151 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ]
+  %.sroa.0.i.sroa.0.0 = phi i32 [ %147, %153 ], [ %147, %149 ], [ %147, %151 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ]
   %.sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.i = phi ptr [ %146, %153 ], [ null, %149 ], [ %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i, %151 ], [ null, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.5)
   %155 = getelementptr inbounds nuw %"struct.duckdb::string_t", ptr %125, i64 %indvars.iv
-  store i32 %.sroa.0.i.sroa.0.1, ptr %155, align 8
+  store i32 %.sroa.0.i.sroa.0.0, ptr %155, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i39, ptr %.sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
@@ -3175,12 +3175,12 @@ _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread: ; preds = 
 
 _ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit: ; preds = %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit, %136, %138, %140
   %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i36 = phi i32 [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ], [ 0, %136 ], [ %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i36.pre, %138 ], [ %141, %140 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread ]
-  %.sroa.0.i.sroa.0.1.shrunk = phi i32 [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ], [ 0, %136 ], [ %124, %138 ], [ %124, %140 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread ]
+  %.sroa.0.i.sroa.0.0.shrunk = phi i32 [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ], [ 0, %136 ], [ %124, %138 ], [ %124, %140 ], [ 0, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread ]
   %.sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.i = phi ptr [ null, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit ], [ null, %136 ], [ %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i, %138 ], [ %134, %140 ], [ null, %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread ]
-  %.sroa.0.i.sroa.0.1 = and i32 %.sroa.0.i.sroa.0.1.shrunk, 65535
+  %.sroa.0.i.sroa.0.0 = and i32 %.sroa.0.i.sroa.0.0.shrunk, 65535
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.5)
   %142 = getelementptr %"struct.duckdb::string_t", ptr %103, i64 %.034
-  store i32 %.sroa.0.i.sroa.0.1, ptr %142, align 8
+  store i32 %.sroa.0.i.sroa.0.0, ptr %142, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i36, ptr %.sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8

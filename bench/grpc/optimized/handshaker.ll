@@ -3177,11 +3177,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core13
   %38 = load i64, ptr %7, align 8, !tbaa !32
   %39 = shl i64 %38, 3
   tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %39) #28
-  %.pre35 = load i64, ptr %0, align 8, !tbaa !60
+  %.pre33 = load i64, ptr %0, align 8, !tbaa !60
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEEED2Ev.exit: ; preds = %36, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE15DestroyElementsERS7_PS6_m.exit
-  %40 = phi i64 [ %.pre35, %36 ], [ %34, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE15DestroyElementsERS7_PS6_m.exit ]
+  %40 = phi i64 [ %.pre33, %36 ], [ %34, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE15DestroyElementsERS7_PS6_m.exit ]
   store ptr %15, ptr %5, align 8, !tbaa !32
   store i64 %10, ptr %7, align 8, !tbaa !32
   %41 = or i64 %40, 1

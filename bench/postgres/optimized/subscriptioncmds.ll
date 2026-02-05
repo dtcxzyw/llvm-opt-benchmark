@@ -175,24 +175,24 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %16, label %.lr.ph, label %parse_subscription_options.specialized.6.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %173
-  %indvars.iv.i648 = phi i64 [ %indvars.iv.next.i, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.94149.0647 = phi ptr [ %.sroa.94149.2, %173 ], [ %12, %.lr.ph.i ]
-  %.sroa.0.0646 = phi i32 [ %.sroa.0.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.90.0645 = phi i8 [ %.sroa.90.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.88.0644 = phi i8 [ %.sroa.88.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.82.0643 = phi i8 [ %.sroa.82.2, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.79.0642 = phi i8 [ %.sroa.79.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.76.0641 = phi i1 [ %.sroa.76.2, %173 ], [ false, %.lr.ph.i ]
-  %.sroa.73.0640 = phi i8 [ %.sroa.73.2, %173 ], [ 112, %.lr.ph.i ]
-  %.sroa.71143.0639 = phi i8 [ %.sroa.71143.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.37112.1638 = phi ptr [ %.sroa.37112.3, %173 ], [ null, %.lr.ph.i ]
-  %.sroa.49.sroa.20.0637 = phi i8 [ %.sroa.49.sroa.20.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.14.0636 = phi i8 [ %.sroa.49.sroa.14.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.8.0635 = phi i8 [ %.sroa.49.sroa.8.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.0.0634 = phi i1 [ %.sroa.49.sroa.0.2, %173 ], [ true, %.lr.ph.i ]
-  %.sroa.45.1633 = phi ptr [ %.sroa.45.3, %173 ], [ null, %.lr.ph.i ]
+  %indvars.iv.i632 = phi i64 [ %indvars.iv.next.i, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.0.0631 = phi i32 [ %.sroa.0.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.94149.0630 = phi ptr [ %.sroa.94149.2, %173 ], [ %12, %.lr.ph.i ]
+  %.sroa.37112.1629 = phi ptr [ %.sroa.37112.3, %173 ], [ null, %.lr.ph.i ]
+  %.sroa.90.0628 = phi i8 [ %.sroa.90.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.88.0627 = phi i8 [ %.sroa.88.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.82.0626 = phi i8 [ %.sroa.82.2, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.79.0625 = phi i8 [ %.sroa.79.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.76.0624 = phi i1 [ %.sroa.76.2, %173 ], [ false, %.lr.ph.i ]
+  %.sroa.73.0623 = phi i8 [ %.sroa.73.2, %173 ], [ 112, %.lr.ph.i ]
+  %.sroa.71143.0622 = phi i8 [ %.sroa.71143.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.45.1621 = phi ptr [ %.sroa.45.3, %173 ], [ null, %.lr.ph.i ]
+  %.sroa.49.sroa.20.0620 = phi i8 [ %.sroa.49.sroa.20.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.14.0619 = phi i8 [ %.sroa.49.sroa.14.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.8.0618 = phi i8 [ %.sroa.49.sroa.8.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.0.0617 = phi i1 [ %.sroa.49.sroa.0.2, %173 ], [ true, %.lr.ph.i ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv.i648
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv.i632
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -204,7 +204,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %.sroa.49.sroa.0.2, label %198, label %177
 
 24:                                               ; preds = %.lr.ph
-  %25 = and i32 %.sroa.0.0646, 1
+  %25 = and i32 %.sroa.0.0631, 1
   %.not24.i = icmp eq i32 %25, 0
   br i1 %.not24.i, label %27, label %26
 
@@ -213,7 +213,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 27:                                               ; preds = %24
-  %28 = or disjoint i32 %.sroa.0.0646, 1
+  %28 = or disjoint i32 %.sroa.0.0631, 1
   %29 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   br label %173
 
@@ -223,7 +223,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = and i32 %.sroa.0.0646, 2
+  %34 = and i32 %.sroa.0.0631, 2
   %.not23.i = icmp eq i32 %34, 0
   br i1 %.not23.i, label %36, label %35
 
@@ -232,7 +232,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 36:                                               ; preds = %33
-  %37 = or disjoint i32 %.sroa.0.0646, 2
+  %37 = or disjoint i32 %.sroa.0.0631, 2
   %38 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %39 = zext i1 %38 to i8
   br label %173
@@ -243,7 +243,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %42, label %43, label %50
 
 43:                                               ; preds = %40
-  %44 = and i32 %.sroa.0.0646, 4
+  %44 = and i32 %.sroa.0.0631, 4
   %.not22.i = icmp eq i32 %44, 0
   br i1 %.not22.i, label %46, label %45
 
@@ -252,7 +252,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 46:                                               ; preds = %43
-  %47 = or disjoint i32 %.sroa.0.0646, 4
+  %47 = or disjoint i32 %.sroa.0.0631, 4
   %48 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %49 = zext i1 %48 to i8
   br label %173
@@ -263,7 +263,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %50
-  %54 = and i32 %.sroa.0.0646, 8
+  %54 = and i32 %.sroa.0.0631, 8
   %.not21.i = icmp eq i32 %54, 0
   br i1 %.not21.i, label %56, label %55
 
@@ -272,7 +272,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 56:                                               ; preds = %53
-  %57 = or disjoint i32 %.sroa.0.0646, 8
+  %57 = or disjoint i32 %.sroa.0.0631, 8
   %58 = call ptr @defGetString(ptr noundef nonnull %19) #9
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(5) @.str.58) #10
   %60 = icmp eq i32 %59, 0
@@ -288,7 +288,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %63
-  %67 = and i32 %.sroa.0.0646, 16
+  %67 = and i32 %.sroa.0.0631, 16
   %.not20.i = icmp eq i32 %67, 0
   br i1 %.not20.i, label %69, label %68
 
@@ -297,7 +297,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 69:                                               ; preds = %66
-  %70 = or disjoint i32 %.sroa.0.0646, 16
+  %70 = or disjoint i32 %.sroa.0.0631, 16
   %71 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %72 = zext i1 %71 to i8
   br label %173
@@ -308,7 +308,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %73
-  %77 = and i32 %.sroa.0.0646, 32
+  %77 = and i32 %.sroa.0.0631, 32
   %.not19.i = icmp eq i32 %77, 0
   br i1 %.not19.i, label %79, label %78
 
@@ -317,7 +317,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 79:                                               ; preds = %76
-  %80 = or disjoint i32 %.sroa.0.0646, 32
+  %80 = or disjoint i32 %.sroa.0.0631, 32
   %81 = call ptr @defGetString(ptr noundef nonnull %19) #9
   %82 = call i32 @set_config_option(ptr noundef nonnull @.str.60, ptr noundef %81, i32 noundef 4, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false) #9
   br label %173
@@ -328,7 +328,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %83
-  %87 = and i32 %.sroa.0.0646, 128
+  %87 = and i32 %.sroa.0.0631, 128
   %.not18.i = icmp eq i32 %87, 0
   br i1 %.not18.i, label %89, label %88
 
@@ -337,7 +337,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 89:                                               ; preds = %86
-  %90 = or disjoint i32 %.sroa.0.0646, 128
+  %90 = or disjoint i32 %.sroa.0.0631, 128
   %91 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %92 = zext i1 %91 to i8
   br label %173
@@ -348,7 +348,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %93
-  %97 = and i32 %.sroa.0.0646, 256
+  %97 = and i32 %.sroa.0.0631, 256
   %.not17.i = icmp eq i32 %97, 0
   br i1 %.not17.i, label %99, label %98
 
@@ -357,7 +357,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 99:                                               ; preds = %96
-  %100 = or disjoint i32 %.sroa.0.0646, 256
+  %100 = or disjoint i32 %.sroa.0.0631, 256
   %101 = call signext i8 @defGetStreamingMode(ptr noundef nonnull %19)
   br label %173
 
@@ -367,7 +367,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %102
-  %106 = and i32 %.sroa.0.0646, 512
+  %106 = and i32 %.sroa.0.0631, 512
   %.not16.i = icmp eq i32 %106, 0
   br i1 %.not16.i, label %108, label %107
 
@@ -376,7 +376,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 108:                                              ; preds = %105
-  %109 = or disjoint i32 %.sroa.0.0646, 512
+  %109 = or disjoint i32 %.sroa.0.0631, 512
   %110 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   br label %173
 
@@ -386,7 +386,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %113, label %114, label %121
 
 114:                                              ; preds = %111
-  %115 = and i32 %.sroa.0.0646, 1024
+  %115 = and i32 %.sroa.0.0631, 1024
   %.not15.i = icmp eq i32 %115, 0
   br i1 %.not15.i, label %117, label %116
 
@@ -395,7 +395,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 117:                                              ; preds = %114
-  %118 = or disjoint i32 %.sroa.0.0646, 1024
+  %118 = or disjoint i32 %.sroa.0.0631, 1024
   %119 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %120 = zext i1 %119 to i8
   br label %173
@@ -406,7 +406,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %123, label %124, label %131
 
 124:                                              ; preds = %121
-  %125 = and i32 %.sroa.0.0646, 2048
+  %125 = and i32 %.sroa.0.0631, 2048
   %.not14.i = icmp eq i32 %125, 0
   br i1 %.not14.i, label %127, label %126
 
@@ -415,7 +415,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 127:                                              ; preds = %124
-  %128 = or disjoint i32 %.sroa.0.0646, 2048
+  %128 = or disjoint i32 %.sroa.0.0631, 2048
   %129 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %130 = zext i1 %129 to i8
   br label %173
@@ -426,7 +426,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %133, label %134, label %141
 
 134:                                              ; preds = %131
-  %135 = and i32 %.sroa.0.0646, 4096
+  %135 = and i32 %.sroa.0.0631, 4096
   %.not13.i = icmp eq i32 %135, 0
   br i1 %.not13.i, label %137, label %136
 
@@ -435,7 +435,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 137:                                              ; preds = %134
-  %138 = or disjoint i32 %.sroa.0.0646, 4096
+  %138 = or disjoint i32 %.sroa.0.0631, 4096
   %139 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %140 = zext i1 %139 to i8
   br label %173
@@ -446,7 +446,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %143, label %144, label %151
 
 144:                                              ; preds = %141
-  %145 = and i32 %.sroa.0.0646, 8192
+  %145 = and i32 %.sroa.0.0631, 8192
   %.not12.i = icmp eq i32 %145, 0
   br i1 %.not12.i, label %147, label %146
 
@@ -455,7 +455,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 147:                                              ; preds = %144
-  %148 = or disjoint i32 %.sroa.0.0646, 8192
+  %148 = or disjoint i32 %.sroa.0.0631, 8192
   %149 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #9
   %150 = zext i1 %149 to i8
   br label %173
@@ -466,7 +466,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %153, label %154, label %167
 
 154:                                              ; preds = %151
-  %155 = and i32 %.sroa.0.0646, 32768
+  %155 = and i32 %.sroa.0.0631, 32768
   %.not9.i = icmp eq i32 %155, 0
   br i1 %.not9.i, label %157, label %156
 
@@ -475,8 +475,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 157:                                              ; preds = %154
-  %158 = or disjoint i32 %.sroa.0.0646, 32768
-  call void @pfree(ptr noundef %.sroa.94149.0647) #9
+  %158 = or disjoint i32 %.sroa.0.0631, 32768
+  call void @pfree(ptr noundef %.sroa.94149.0630) #9
   %159 = call ptr @defGetString(ptr noundef nonnull %19) #9
   %160 = call i32 @pg_strcasecmp(ptr noundef %159, ptr noundef nonnull @.str.58) #9
   %.not10.i = icmp eq i32 %160, 0
@@ -504,22 +504,22 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 173:                                              ; preds = %56, %161, %157, %147, %137, %127, %117, %108, %99, %89, %79, %69, %61, %46, %36, %27
-  %.sroa.45.3 = phi ptr [ %.sroa.45.1633, %27 ], [ %.sroa.45.1633, %36 ], [ %.sroa.45.1633, %46 ], [ %.sroa.45.1633, %161 ], [ %.sroa.45.1633, %61 ], [ %.sroa.45.1633, %69 ], [ %81, %79 ], [ %.sroa.45.1633, %89 ], [ %.sroa.45.1633, %99 ], [ %.sroa.45.1633, %108 ], [ %.sroa.45.1633, %117 ], [ %.sroa.45.1633, %127 ], [ %.sroa.45.1633, %137 ], [ %.sroa.45.1633, %147 ], [ %.sroa.45.1633, %157 ], [ %.sroa.45.1633, %56 ]
-  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0634, %36 ], [ %.sroa.49.sroa.0.0634, %46 ], [ %.sroa.49.sroa.0.0634, %161 ], [ %.sroa.49.sroa.0.0634, %61 ], [ %.sroa.49.sroa.0.0634, %69 ], [ %.sroa.49.sroa.0.0634, %79 ], [ %.sroa.49.sroa.0.0634, %89 ], [ %.sroa.49.sroa.0.0634, %99 ], [ %.sroa.49.sroa.0.0634, %108 ], [ %.sroa.49.sroa.0.0634, %117 ], [ %.sroa.49.sroa.0.0634, %127 ], [ %.sroa.49.sroa.0.0634, %137 ], [ %.sroa.49.sroa.0.0634, %147 ], [ %.sroa.49.sroa.0.0634, %157 ], [ %.sroa.49.sroa.0.0634, %56 ]
-  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0635, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0635, %46 ], [ %.sroa.49.sroa.8.0635, %161 ], [ %.sroa.49.sroa.8.0635, %61 ], [ %.sroa.49.sroa.8.0635, %69 ], [ %.sroa.49.sroa.8.0635, %79 ], [ %.sroa.49.sroa.8.0635, %89 ], [ %.sroa.49.sroa.8.0635, %99 ], [ %.sroa.49.sroa.8.0635, %108 ], [ %.sroa.49.sroa.8.0635, %117 ], [ %.sroa.49.sroa.8.0635, %127 ], [ %.sroa.49.sroa.8.0635, %137 ], [ %.sroa.49.sroa.8.0635, %147 ], [ %.sroa.49.sroa.8.0635, %157 ], [ %.sroa.49.sroa.8.0635, %56 ]
-  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0636, %27 ], [ %.sroa.49.sroa.14.0636, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0636, %161 ], [ %.sroa.49.sroa.14.0636, %61 ], [ %.sroa.49.sroa.14.0636, %69 ], [ %.sroa.49.sroa.14.0636, %79 ], [ %.sroa.49.sroa.14.0636, %89 ], [ %.sroa.49.sroa.14.0636, %99 ], [ %.sroa.49.sroa.14.0636, %108 ], [ %.sroa.49.sroa.14.0636, %117 ], [ %.sroa.49.sroa.14.0636, %127 ], [ %.sroa.49.sroa.14.0636, %137 ], [ %.sroa.49.sroa.14.0636, %147 ], [ %.sroa.49.sroa.14.0636, %157 ], [ %.sroa.49.sroa.14.0636, %56 ]
-  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0637, %27 ], [ %.sroa.49.sroa.20.0637, %36 ], [ %.sroa.49.sroa.20.0637, %46 ], [ %.sroa.49.sroa.20.0637, %161 ], [ %.sroa.49.sroa.20.0637, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0637, %79 ], [ %.sroa.49.sroa.20.0637, %89 ], [ %.sroa.49.sroa.20.0637, %99 ], [ %.sroa.49.sroa.20.0637, %108 ], [ %.sroa.49.sroa.20.0637, %117 ], [ %.sroa.49.sroa.20.0637, %127 ], [ %.sroa.49.sroa.20.0637, %137 ], [ %.sroa.49.sroa.20.0637, %147 ], [ %.sroa.49.sroa.20.0637, %157 ], [ %.sroa.49.sroa.20.0637, %56 ]
-  %.sroa.37112.3 = phi ptr [ %.sroa.37112.1638, %27 ], [ %.sroa.37112.1638, %36 ], [ %.sroa.37112.1638, %46 ], [ %.sroa.37112.1638, %161 ], [ %58, %61 ], [ %.sroa.37112.1638, %69 ], [ %.sroa.37112.1638, %79 ], [ %.sroa.37112.1638, %89 ], [ %.sroa.37112.1638, %99 ], [ %.sroa.37112.1638, %108 ], [ %.sroa.37112.1638, %117 ], [ %.sroa.37112.1638, %127 ], [ %.sroa.37112.1638, %137 ], [ %.sroa.37112.1638, %147 ], [ %.sroa.37112.1638, %157 ], [ null, %56 ]
-  %.sroa.71143.2 = phi i8 [ %.sroa.71143.0639, %27 ], [ %.sroa.71143.0639, %36 ], [ %.sroa.71143.0639, %46 ], [ %.sroa.71143.0639, %161 ], [ %.sroa.71143.0639, %61 ], [ %.sroa.71143.0639, %69 ], [ %.sroa.71143.0639, %79 ], [ %92, %89 ], [ %.sroa.71143.0639, %99 ], [ %.sroa.71143.0639, %108 ], [ %.sroa.71143.0639, %117 ], [ %.sroa.71143.0639, %127 ], [ %.sroa.71143.0639, %137 ], [ %.sroa.71143.0639, %147 ], [ %.sroa.71143.0639, %157 ], [ %.sroa.71143.0639, %56 ]
-  %.sroa.73.2 = phi i8 [ %.sroa.73.0640, %27 ], [ %.sroa.73.0640, %36 ], [ %.sroa.73.0640, %46 ], [ %.sroa.73.0640, %161 ], [ %.sroa.73.0640, %61 ], [ %.sroa.73.0640, %69 ], [ %.sroa.73.0640, %79 ], [ %.sroa.73.0640, %89 ], [ %101, %99 ], [ %.sroa.73.0640, %108 ], [ %.sroa.73.0640, %117 ], [ %.sroa.73.0640, %127 ], [ %.sroa.73.0640, %137 ], [ %.sroa.73.0640, %147 ], [ %.sroa.73.0640, %157 ], [ %.sroa.73.0640, %56 ]
-  %.sroa.76.2 = phi i1 [ %.sroa.76.0641, %27 ], [ %.sroa.76.0641, %36 ], [ %.sroa.76.0641, %46 ], [ %.sroa.76.0641, %161 ], [ %.sroa.76.0641, %61 ], [ %.sroa.76.0641, %69 ], [ %.sroa.76.0641, %79 ], [ %.sroa.76.0641, %89 ], [ %.sroa.76.0641, %99 ], [ %110, %108 ], [ %.sroa.76.0641, %117 ], [ %.sroa.76.0641, %127 ], [ %.sroa.76.0641, %137 ], [ %.sroa.76.0641, %147 ], [ %.sroa.76.0641, %157 ], [ %.sroa.76.0641, %56 ]
-  %.sroa.79.2 = phi i8 [ %.sroa.79.0642, %27 ], [ %.sroa.79.0642, %36 ], [ %.sroa.79.0642, %46 ], [ %.sroa.79.0642, %161 ], [ %.sroa.79.0642, %61 ], [ %.sroa.79.0642, %69 ], [ %.sroa.79.0642, %79 ], [ %.sroa.79.0642, %89 ], [ %.sroa.79.0642, %99 ], [ %.sroa.79.0642, %108 ], [ %120, %117 ], [ %.sroa.79.0642, %127 ], [ %.sroa.79.0642, %137 ], [ %.sroa.79.0642, %147 ], [ %.sroa.79.0642, %157 ], [ %.sroa.79.0642, %56 ]
-  %.sroa.82.2 = phi i8 [ %.sroa.82.0643, %27 ], [ %.sroa.82.0643, %36 ], [ %.sroa.82.0643, %46 ], [ %.sroa.82.0643, %161 ], [ %.sroa.82.0643, %61 ], [ %.sroa.82.0643, %69 ], [ %.sroa.82.0643, %79 ], [ %.sroa.82.0643, %89 ], [ %.sroa.82.0643, %99 ], [ %.sroa.82.0643, %108 ], [ %.sroa.82.0643, %117 ], [ %130, %127 ], [ %.sroa.82.0643, %137 ], [ %.sroa.82.0643, %147 ], [ %.sroa.82.0643, %157 ], [ %.sroa.82.0643, %56 ]
-  %.sroa.88.2 = phi i8 [ %.sroa.88.0644, %27 ], [ %.sroa.88.0644, %36 ], [ %.sroa.88.0644, %46 ], [ %.sroa.88.0644, %161 ], [ %.sroa.88.0644, %61 ], [ %.sroa.88.0644, %69 ], [ %.sroa.88.0644, %79 ], [ %.sroa.88.0644, %89 ], [ %.sroa.88.0644, %99 ], [ %.sroa.88.0644, %108 ], [ %.sroa.88.0644, %117 ], [ %.sroa.88.0644, %127 ], [ %140, %137 ], [ %.sroa.88.0644, %147 ], [ %.sroa.88.0644, %157 ], [ %.sroa.88.0644, %56 ]
-  %.sroa.90.2 = phi i8 [ %.sroa.90.0645, %27 ], [ %.sroa.90.0645, %36 ], [ %.sroa.90.0645, %46 ], [ %.sroa.90.0645, %161 ], [ %.sroa.90.0645, %61 ], [ %.sroa.90.0645, %69 ], [ %.sroa.90.0645, %79 ], [ %.sroa.90.0645, %89 ], [ %.sroa.90.0645, %99 ], [ %.sroa.90.0645, %108 ], [ %.sroa.90.0645, %117 ], [ %.sroa.90.0645, %127 ], [ %.sroa.90.0645, %137 ], [ %150, %147 ], [ %.sroa.90.0645, %157 ], [ %.sroa.90.0645, %56 ]
+  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0617, %36 ], [ %.sroa.49.sroa.0.0617, %46 ], [ %.sroa.49.sroa.0.0617, %161 ], [ %.sroa.49.sroa.0.0617, %61 ], [ %.sroa.49.sroa.0.0617, %69 ], [ %.sroa.49.sroa.0.0617, %79 ], [ %.sroa.49.sroa.0.0617, %89 ], [ %.sroa.49.sroa.0.0617, %99 ], [ %.sroa.49.sroa.0.0617, %108 ], [ %.sroa.49.sroa.0.0617, %117 ], [ %.sroa.49.sroa.0.0617, %127 ], [ %.sroa.49.sroa.0.0617, %137 ], [ %.sroa.49.sroa.0.0617, %147 ], [ %.sroa.49.sroa.0.0617, %157 ], [ %.sroa.49.sroa.0.0617, %56 ]
+  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0618, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0618, %46 ], [ %.sroa.49.sroa.8.0618, %161 ], [ %.sroa.49.sroa.8.0618, %61 ], [ %.sroa.49.sroa.8.0618, %69 ], [ %.sroa.49.sroa.8.0618, %79 ], [ %.sroa.49.sroa.8.0618, %89 ], [ %.sroa.49.sroa.8.0618, %99 ], [ %.sroa.49.sroa.8.0618, %108 ], [ %.sroa.49.sroa.8.0618, %117 ], [ %.sroa.49.sroa.8.0618, %127 ], [ %.sroa.49.sroa.8.0618, %137 ], [ %.sroa.49.sroa.8.0618, %147 ], [ %.sroa.49.sroa.8.0618, %157 ], [ %.sroa.49.sroa.8.0618, %56 ]
+  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0619, %27 ], [ %.sroa.49.sroa.14.0619, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0619, %161 ], [ %.sroa.49.sroa.14.0619, %61 ], [ %.sroa.49.sroa.14.0619, %69 ], [ %.sroa.49.sroa.14.0619, %79 ], [ %.sroa.49.sroa.14.0619, %89 ], [ %.sroa.49.sroa.14.0619, %99 ], [ %.sroa.49.sroa.14.0619, %108 ], [ %.sroa.49.sroa.14.0619, %117 ], [ %.sroa.49.sroa.14.0619, %127 ], [ %.sroa.49.sroa.14.0619, %137 ], [ %.sroa.49.sroa.14.0619, %147 ], [ %.sroa.49.sroa.14.0619, %157 ], [ %.sroa.49.sroa.14.0619, %56 ]
+  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0620, %27 ], [ %.sroa.49.sroa.20.0620, %36 ], [ %.sroa.49.sroa.20.0620, %46 ], [ %.sroa.49.sroa.20.0620, %161 ], [ %.sroa.49.sroa.20.0620, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0620, %79 ], [ %.sroa.49.sroa.20.0620, %89 ], [ %.sroa.49.sroa.20.0620, %99 ], [ %.sroa.49.sroa.20.0620, %108 ], [ %.sroa.49.sroa.20.0620, %117 ], [ %.sroa.49.sroa.20.0620, %127 ], [ %.sroa.49.sroa.20.0620, %137 ], [ %.sroa.49.sroa.20.0620, %147 ], [ %.sroa.49.sroa.20.0620, %157 ], [ %.sroa.49.sroa.20.0620, %56 ]
+  %.sroa.45.3 = phi ptr [ %.sroa.45.1621, %27 ], [ %.sroa.45.1621, %36 ], [ %.sroa.45.1621, %46 ], [ %.sroa.45.1621, %161 ], [ %.sroa.45.1621, %61 ], [ %.sroa.45.1621, %69 ], [ %81, %79 ], [ %.sroa.45.1621, %89 ], [ %.sroa.45.1621, %99 ], [ %.sroa.45.1621, %108 ], [ %.sroa.45.1621, %117 ], [ %.sroa.45.1621, %127 ], [ %.sroa.45.1621, %137 ], [ %.sroa.45.1621, %147 ], [ %.sroa.45.1621, %157 ], [ %.sroa.45.1621, %56 ]
+  %.sroa.71143.2 = phi i8 [ %.sroa.71143.0622, %27 ], [ %.sroa.71143.0622, %36 ], [ %.sroa.71143.0622, %46 ], [ %.sroa.71143.0622, %161 ], [ %.sroa.71143.0622, %61 ], [ %.sroa.71143.0622, %69 ], [ %.sroa.71143.0622, %79 ], [ %92, %89 ], [ %.sroa.71143.0622, %99 ], [ %.sroa.71143.0622, %108 ], [ %.sroa.71143.0622, %117 ], [ %.sroa.71143.0622, %127 ], [ %.sroa.71143.0622, %137 ], [ %.sroa.71143.0622, %147 ], [ %.sroa.71143.0622, %157 ], [ %.sroa.71143.0622, %56 ]
+  %.sroa.73.2 = phi i8 [ %.sroa.73.0623, %27 ], [ %.sroa.73.0623, %36 ], [ %.sroa.73.0623, %46 ], [ %.sroa.73.0623, %161 ], [ %.sroa.73.0623, %61 ], [ %.sroa.73.0623, %69 ], [ %.sroa.73.0623, %79 ], [ %.sroa.73.0623, %89 ], [ %101, %99 ], [ %.sroa.73.0623, %108 ], [ %.sroa.73.0623, %117 ], [ %.sroa.73.0623, %127 ], [ %.sroa.73.0623, %137 ], [ %.sroa.73.0623, %147 ], [ %.sroa.73.0623, %157 ], [ %.sroa.73.0623, %56 ]
+  %.sroa.76.2 = phi i1 [ %.sroa.76.0624, %27 ], [ %.sroa.76.0624, %36 ], [ %.sroa.76.0624, %46 ], [ %.sroa.76.0624, %161 ], [ %.sroa.76.0624, %61 ], [ %.sroa.76.0624, %69 ], [ %.sroa.76.0624, %79 ], [ %.sroa.76.0624, %89 ], [ %.sroa.76.0624, %99 ], [ %110, %108 ], [ %.sroa.76.0624, %117 ], [ %.sroa.76.0624, %127 ], [ %.sroa.76.0624, %137 ], [ %.sroa.76.0624, %147 ], [ %.sroa.76.0624, %157 ], [ %.sroa.76.0624, %56 ]
+  %.sroa.79.2 = phi i8 [ %.sroa.79.0625, %27 ], [ %.sroa.79.0625, %36 ], [ %.sroa.79.0625, %46 ], [ %.sroa.79.0625, %161 ], [ %.sroa.79.0625, %61 ], [ %.sroa.79.0625, %69 ], [ %.sroa.79.0625, %79 ], [ %.sroa.79.0625, %89 ], [ %.sroa.79.0625, %99 ], [ %.sroa.79.0625, %108 ], [ %120, %117 ], [ %.sroa.79.0625, %127 ], [ %.sroa.79.0625, %137 ], [ %.sroa.79.0625, %147 ], [ %.sroa.79.0625, %157 ], [ %.sroa.79.0625, %56 ]
+  %.sroa.82.2 = phi i8 [ %.sroa.82.0626, %27 ], [ %.sroa.82.0626, %36 ], [ %.sroa.82.0626, %46 ], [ %.sroa.82.0626, %161 ], [ %.sroa.82.0626, %61 ], [ %.sroa.82.0626, %69 ], [ %.sroa.82.0626, %79 ], [ %.sroa.82.0626, %89 ], [ %.sroa.82.0626, %99 ], [ %.sroa.82.0626, %108 ], [ %.sroa.82.0626, %117 ], [ %130, %127 ], [ %.sroa.82.0626, %137 ], [ %.sroa.82.0626, %147 ], [ %.sroa.82.0626, %157 ], [ %.sroa.82.0626, %56 ]
+  %.sroa.88.2 = phi i8 [ %.sroa.88.0627, %27 ], [ %.sroa.88.0627, %36 ], [ %.sroa.88.0627, %46 ], [ %.sroa.88.0627, %161 ], [ %.sroa.88.0627, %61 ], [ %.sroa.88.0627, %69 ], [ %.sroa.88.0627, %79 ], [ %.sroa.88.0627, %89 ], [ %.sroa.88.0627, %99 ], [ %.sroa.88.0627, %108 ], [ %.sroa.88.0627, %117 ], [ %.sroa.88.0627, %127 ], [ %140, %137 ], [ %.sroa.88.0627, %147 ], [ %.sroa.88.0627, %157 ], [ %.sroa.88.0627, %56 ]
+  %.sroa.90.2 = phi i8 [ %.sroa.90.0628, %27 ], [ %.sroa.90.0628, %36 ], [ %.sroa.90.0628, %46 ], [ %.sroa.90.0628, %161 ], [ %.sroa.90.0628, %61 ], [ %.sroa.90.0628, %69 ], [ %.sroa.90.0628, %79 ], [ %.sroa.90.0628, %89 ], [ %.sroa.90.0628, %99 ], [ %.sroa.90.0628, %108 ], [ %.sroa.90.0628, %117 ], [ %.sroa.90.0628, %127 ], [ %.sroa.90.0628, %137 ], [ %150, %147 ], [ %.sroa.90.0628, %157 ], [ %.sroa.90.0628, %56 ]
+  %.sroa.37112.3 = phi ptr [ %.sroa.37112.1629, %27 ], [ %.sroa.37112.1629, %36 ], [ %.sroa.37112.1629, %46 ], [ %.sroa.37112.1629, %161 ], [ %58, %61 ], [ %.sroa.37112.1629, %69 ], [ %.sroa.37112.1629, %79 ], [ %.sroa.37112.1629, %89 ], [ %.sroa.37112.1629, %99 ], [ %.sroa.37112.1629, %108 ], [ %.sroa.37112.1629, %117 ], [ %.sroa.37112.1629, %127 ], [ %.sroa.37112.1629, %137 ], [ %.sroa.37112.1629, %147 ], [ %.sroa.37112.1629, %157 ], [ null, %56 ]
+  %.sroa.94149.2 = phi ptr [ %.sroa.94149.0630, %27 ], [ %.sroa.94149.0630, %36 ], [ %.sroa.94149.0630, %46 ], [ %159, %161 ], [ %.sroa.94149.0630, %61 ], [ %.sroa.94149.0630, %69 ], [ %.sroa.94149.0630, %79 ], [ %.sroa.94149.0630, %89 ], [ %.sroa.94149.0630, %99 ], [ %.sroa.94149.0630, %108 ], [ %.sroa.94149.0630, %117 ], [ %.sroa.94149.0630, %127 ], [ %.sroa.94149.0630, %137 ], [ %.sroa.94149.0630, %147 ], [ %159, %157 ], [ %.sroa.94149.0630, %56 ]
   %.sroa.0.2 = phi i32 [ %28, %27 ], [ %37, %36 ], [ %47, %46 ], [ %158, %161 ], [ %57, %61 ], [ %70, %69 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %109, %108 ], [ %118, %117 ], [ %128, %127 ], [ %138, %137 ], [ %148, %147 ], [ %158, %157 ], [ %57, %56 ]
-  %.sroa.94149.2 = phi ptr [ %.sroa.94149.0647, %27 ], [ %.sroa.94149.0647, %36 ], [ %.sroa.94149.0647, %46 ], [ %159, %161 ], [ %.sroa.94149.0647, %61 ], [ %.sroa.94149.0647, %69 ], [ %.sroa.94149.0647, %79 ], [ %.sroa.94149.0647, %89 ], [ %.sroa.94149.0647, %99 ], [ %.sroa.94149.0647, %108 ], [ %.sroa.94149.0647, %117 ], [ %.sroa.94149.0647, %127 ], [ %.sroa.94149.0647, %137 ], [ %.sroa.94149.0647, %147 ], [ %159, %157 ], [ %.sroa.94149.0647, %56 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i648, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i632, 1
   %174 = load i32, ptr %13, align 4
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next.i, %175
@@ -529,8 +529,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %178 = trunc nuw i8 %.sroa.49.sroa.8.3 to i1
   %179 = and i32 %.sroa.0.2, 2
   %.not2.i = icmp ne i32 %179, 0
-  %or.cond351.not = select i1 %178, i1 %.not2.i, i1 false
-  br i1 %or.cond351.not, label %180, label %184
+  %or.cond335.not = select i1 %178, i1 %.not2.i, i1 false
+  br i1 %or.cond335.not, label %180, label %184
 
 180:                                              ; preds = %177
   %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -543,8 +543,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %185 = trunc nuw i8 %.sroa.49.sroa.14.3 to i1
   %186 = and i32 %.sroa.0.2, 4
   %.not3.i = icmp ne i32 %186, 0
-  %or.cond353.not = select i1 %185, i1 %.not3.i, i1 false
-  br i1 %or.cond353.not, label %187, label %191
+  %or.cond337.not = select i1 %185, i1 %.not3.i, i1 false
+  br i1 %or.cond337.not, label %187, label %191
 
 187:                                              ; preds = %184
   %188 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -557,8 +557,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %192 = trunc nuw i8 %.sroa.49.sroa.20.3 to i1
   %193 = and i32 %.sroa.0.2, 16
   %.not4.i = icmp ne i32 %193, 0
-  %or.cond355.not = select i1 %192, i1 %.not4.i, i1 false
-  br i1 %or.cond355.not, label %194, label %198
+  %or.cond339.not = select i1 %192, i1 %.not4.i, i1 false
+  br i1 %or.cond339.not, label %194, label %198
 
 194:                                              ; preds = %191
   %195 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -574,8 +574,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %.not5.i = icmp eq ptr %.sroa.37112.3, null
   %199 = and i32 %.sroa.0.2, 8
   %.not6.i = icmp ne i32 %199, 0
-  %or.cond358.not = select i1 %.not5.i, i1 %.not6.i, i1 false
-  br i1 %or.cond358.not, label %200, label %parse_subscription_options.specialized.6.exit
+  %or.cond342.not = select i1 %.not5.i, i1 %.not6.i, i1 false
+  br i1 %or.cond342.not, label %200, label %parse_subscription_options.specialized.6.exit
 
 200:                                              ; preds = %198
   %201 = trunc nuw i8 %.sroa.49.sroa.8.2 to i1
@@ -600,7 +600,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
 
 210:                                              ; preds = %200
   %211 = trunc nuw i8 %.sroa.49.sroa.14.2 to i1
-  br i1 %211, label %212, label %parse_subscription_options.specialized.6.exit.thread334
+  br i1 %211, label %212, label %parse_subscription_options.specialized.6.exit.thread318
 
 212:                                              ; preds = %210
   %213 = and i32 %.sroa.0.2, 4
@@ -621,48 +621,48 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
 
 parse_subscription_options.specialized.6.exit:    ; preds = %198
   %220 = trunc nuw i8 %.sroa.49.sroa.14.2 to i1
-  br i1 %220, label %parse_subscription_options.specialized.6.exit.thread, label %parse_subscription_options.specialized.6.exit.thread334
+  br i1 %220, label %parse_subscription_options.specialized.6.exit.thread, label %parse_subscription_options.specialized.6.exit.thread318
 
 parse_subscription_options.specialized.6.exit.thread: ; preds = %.lr.ph.i, %3, %parse_subscription_options.specialized.6.exit
   %221 = phi i1 [ %.sroa.49.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
-  %.sroa.94149.1228244333 = phi ptr [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %12, %3 ], [ %12, %.lr.ph.i ]
-  %.sroa.0.1227247331 = phi i32 [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.90.1226248329 = phi i8 [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.88.1225250327 = phi i8 [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.82.1224252325 = phi i8 [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.sroa.79.1223254323 = phi i8 [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.76.1222256321 = phi i1 [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ false, %3 ], [ false, %.lr.ph.i ]
-  %.sroa.73.1221258319 = phi i8 [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ 112, %3 ], [ 112, %.lr.ph.i ]
-  %.sroa.71143.1220260317 = phi i8 [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.37112.2219262315 = phi ptr [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
-  %.sroa.45.2218264313 = phi ptr [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
-  %.sroa.49.sroa.8.2266311 = phi i8 [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.20.2270309 = phi i8 [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.not5.i272307 = phi i1 [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
+  %.sroa.0.1212229317 = phi i32 [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.94149.1211230315 = phi ptr [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %12, %3 ], [ %12, %.lr.ph.i ]
+  %.sroa.37112.2210232313 = phi ptr [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
+  %.sroa.90.1209234311 = phi i8 [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.88.1208236309 = phi i8 [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.82.1207238307 = phi i8 [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.sroa.79.1206240305 = phi i8 [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.76.1205242303 = phi i1 [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ false, %3 ], [ false, %.lr.ph.i ]
+  %.sroa.73.1204244301 = phi i8 [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ 112, %3 ], [ 112, %.lr.ph.i ]
+  %.sroa.71143.1203246299 = phi i8 [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.45.2202248297 = phi ptr [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
+  %.sroa.49.sroa.8.2250295 = phi i8 [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.20.2254293 = phi i8 [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.not5.i256291 = phi i1 [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
   call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str) #9
-  br label %parse_subscription_options.specialized.6.exit.thread334
+  br label %parse_subscription_options.specialized.6.exit.thread318
 
-parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_subscription_options.specialized.6.exit.thread, %parse_subscription_options.specialized.6.exit
+parse_subscription_options.specialized.6.exit.thread318: ; preds = %210, %parse_subscription_options.specialized.6.exit.thread, %parse_subscription_options.specialized.6.exit
   %222 = phi i1 [ true, %parse_subscription_options.specialized.6.exit.thread ], [ false, %parse_subscription_options.specialized.6.exit ], [ false, %210 ]
   %223 = phi i1 [ %221, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.0.2, %210 ]
-  %.sroa.94149.1228244332 = phi ptr [ %.sroa.94149.1228244333, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.94149.2, %210 ]
-  %.sroa.0.1227247330 = phi i32 [ %.sroa.0.1227247331, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.0.2, %210 ]
-  %.sroa.90.1226248328 = phi i8 [ %.sroa.90.1226248329, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.90.2, %210 ]
-  %.sroa.88.1225250326 = phi i8 [ %.sroa.88.1225250327, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.88.2, %210 ]
-  %.sroa.82.1224252324 = phi i8 [ %.sroa.82.1224252325, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.82.2, %210 ]
-  %.sroa.79.1223254322 = phi i8 [ %.sroa.79.1223254323, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.79.2, %210 ]
-  %.sroa.76.1222256320 = phi i1 [ %.sroa.76.1222256321, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.76.2, %210 ]
-  %.sroa.73.1221258318 = phi i8 [ %.sroa.73.1221258319, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.73.2, %210 ]
-  %.sroa.71143.1220260316 = phi i8 [ %.sroa.71143.1220260317, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.71143.2, %210 ]
-  %.sroa.37112.2219262314 = phi ptr [ %.sroa.37112.2219262315, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %210 ]
-  %.sroa.45.2218264312 = phi ptr [ %.sroa.45.2218264313, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ %.sroa.45.3, %210 ]
-  %.sroa.49.sroa.8.2266310 = phi i8 [ %.sroa.49.sroa.8.2266311, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 0, %210 ]
-  %.sroa.49.sroa.20.2270308 = phi i8 [ %.sroa.49.sroa.20.2270309, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.20.2, %210 ]
-  %.not5.i272306 = phi i1 [ %.not5.i272307, %parse_subscription_options.specialized.6.exit.thread ], [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %210 ]
+  %.sroa.0.1212229316 = phi i32 [ %.sroa.0.1212229317, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.0.2, %210 ]
+  %.sroa.94149.1211230314 = phi ptr [ %.sroa.94149.1211230315, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.94149.2, %210 ]
+  %.sroa.37112.2210232312 = phi ptr [ %.sroa.37112.2210232313, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %210 ]
+  %.sroa.90.1209234310 = phi i8 [ %.sroa.90.1209234311, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.90.2, %210 ]
+  %.sroa.88.1208236308 = phi i8 [ %.sroa.88.1208236309, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.88.2, %210 ]
+  %.sroa.82.1207238306 = phi i8 [ %.sroa.82.1207238307, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.82.2, %210 ]
+  %.sroa.79.1206240304 = phi i8 [ %.sroa.79.1206240305, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.79.2, %210 ]
+  %.sroa.76.1205242302 = phi i1 [ %.sroa.76.1205242303, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.76.2, %210 ]
+  %.sroa.73.1204244300 = phi i8 [ %.sroa.73.1204244301, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.73.2, %210 ]
+  %.sroa.71143.1203246298 = phi i8 [ %.sroa.71143.1203246299, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.71143.2, %210 ]
+  %.sroa.45.2202248296 = phi ptr [ %.sroa.45.2202248297, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ %.sroa.45.3, %210 ]
+  %.sroa.49.sroa.8.2250294 = phi i8 [ %.sroa.49.sroa.8.2250295, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 0, %210 ]
+  %.sroa.49.sroa.20.2254292 = phi i8 [ %.sroa.49.sroa.20.2254293, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.20.2, %210 ]
+  %.not5.i256290 = phi i1 [ %.not5.i256291, %parse_subscription_options.specialized.6.exit.thread ], [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %210 ]
   %224 = call zeroext i1 @has_privs_of_role(i32 noundef %9, i32 noundef 6304) #9
   br i1 %224, label %230, label %225
 
-225:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread334
+225:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread318
   %226 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %227 = call i32 @errcode(i32 noundef 16797828) #9
   %228 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #9
@@ -670,7 +670,7 @@ parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 588, ptr noundef nonnull @__func__.CreateSubscription) #9
   unreachable
 
-230:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread334
+230:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread318
   %231 = load i32, ptr @MyDatabaseId, align 4
   %232 = call i32 @object_aclcheck(i32 noundef 1262, i32 noundef %231, i32 noundef %9, i64 noundef 512) #9
   %.not85 = icmp eq i32 %232, 0
@@ -683,7 +683,7 @@ parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_
   br label %236
 
 236:                                              ; preds = %233, %230
-  %237 = trunc nuw i8 %.sroa.82.1224252324 to i1
+  %237 = trunc nuw i8 %.sroa.82.1207238306 to i1
   br i1 %237, label %245, label %238
 
 238:                                              ; preds = %236
@@ -718,9 +718,9 @@ parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_
   unreachable
 
 258:                                              ; preds = %245
-  %259 = and i32 %.sroa.0.1227247330, 8
+  %259 = and i32 %.sroa.0.1212229316, 8
   %260 = icmp eq i32 %259, 0
-  %or.cond = and i1 %260, %.not5.i272306
+  %or.cond = and i1 %260, %.not5.i256290
   br i1 %or.cond, label %261, label %263
 
 261:                                              ; preds = %258
@@ -728,9 +728,9 @@ parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_
   br label %263
 
 263:                                              ; preds = %261, %258
-  %.sroa.37112.0 = phi ptr [ %262, %261 ], [ %.sroa.37112.2219262314, %258 ]
-  %264 = icmp eq ptr %.sroa.45.2218264312, null
-  %spec.select = select i1 %264, ptr @.str.8, ptr %.sroa.45.2218264312
+  %.sroa.37112.0 = phi ptr [ %262, %261 ], [ %.sroa.37112.2210232312, %258 ]
+  %264 = icmp eq ptr %.sroa.45.2202248296, null
+  %spec.select = select i1 %264, ptr @.str.8, ptr %.sroa.45.2202248296
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -769,34 +769,34 @@ parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_
   %288 = zext i32 %9 to i64
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %288, ptr %289, align 16
-  %290 = trunc nuw i8 %.sroa.49.sroa.8.2266310 to i1
-  %291 = zext nneg i8 %.sroa.49.sroa.8.2266310 to i64
+  %290 = trunc nuw i8 %.sroa.49.sroa.8.2250294 to i1
+  %291 = zext nneg i8 %.sroa.49.sroa.8.2250294 to i64
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %291, ptr %292, align 8
-  %293 = and i8 %.sroa.71143.1220260316, 1
+  %293 = and i8 %.sroa.71143.1203246298, 1
   %294 = zext nneg i8 %293 to i64
   %295 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %294, ptr %295, align 16
-  %296 = sext i8 %.sroa.73.1221258318 to i64
+  %296 = sext i8 %.sroa.73.1204244300 to i64
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %296, ptr %297, align 8
-  %298 = select i1 %.sroa.76.1222256320, i64 112, i64 100
+  %298 = select i1 %.sroa.76.1205242302, i64 112, i64 100
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %298, ptr %299, align 16
-  %300 = and i8 %.sroa.79.1223254322, 1
+  %300 = and i8 %.sroa.79.1206240304, 1
   %301 = zext nneg i8 %300 to i64
   %302 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 %301, ptr %302, align 8
-  %303 = zext nneg i8 %.sroa.82.1224252324 to i64
+  %303 = zext nneg i8 %.sroa.82.1207238306 to i64
   %304 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %303, ptr %304, align 16
-  %305 = and i8 %.sroa.88.1225250326, 1
+  %305 = and i8 %.sroa.88.1208236308, 1
   %306 = zext nneg i8 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %306, ptr %307, align 8
-  %308 = trunc nuw i8 %.sroa.90.1226248328 to i1
-  %.mask357 = and i8 %.sroa.90.1226248328, 1
-  %309 = zext nneg i8 %.mask357 to i64
+  %308 = trunc nuw i8 %.sroa.90.1209234310 to i1
+  %.mask341 = and i8 %.sroa.90.1209234310, 1
+  %309 = zext nneg i8 %.mask341 to i64
   %310 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %309, ptr %310, align 16
   %311 = call ptr @cstring_to_text(ptr noundef %266) #9
@@ -856,7 +856,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %339 = ptrtoint ptr %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i64 %339, ptr %340, align 16
-  %341 = call ptr @cstring_to_text(ptr noundef %.sroa.94149.1228244332) #9
+  %341 = call ptr @cstring_to_text(ptr noundef %.sroa.94149.1211230314) #9
   %342 = ptrtoint ptr %341 to i64
   %343 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i64 %342, ptr %343, align 8
@@ -902,23 +902,23 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
 365:                                              ; preds = %361
   store ptr %8, ptr @PG_exception_stack, align 8
   call fastcc void @check_publications(ptr noundef %354, ptr noundef %268)
-  %366 = trunc nuw i8 %.sroa.49.sroa.20.2270308 to i1
+  %366 = trunc nuw i8 %.sroa.49.sroa.20.2254292 to i1
   %367 = load ptr, ptr %249, align 8
-  call fastcc void @check_publications_origin(ptr noundef %354, ptr noundef %268, i1 noundef zeroext %366, ptr noundef %.sroa.94149.1228244332, ptr noundef null, i32 noundef 0, ptr noundef %367)
+  call fastcc void @check_publications_origin(ptr noundef %354, ptr noundef %268, i1 noundef zeroext %366, ptr noundef %.sroa.94149.1211230314, ptr noundef null, i32 noundef 0, ptr noundef %367)
   %368 = select i1 %366, i8 105, i8 114
   %369 = call fastcc ptr @fetch_table_list(ptr noundef %354, ptr noundef %268)
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 4
-  %.not671 = icmp ne ptr %369, null
-  br i1 %.not671, label %.lr.ph664, label %.critedge
+  %.not655 = icmp ne ptr %369, null
+  br i1 %.not655, label %.lr.ph648, label %.critedge
 
-.lr.ph664:                                        ; preds = %365
+.lr.ph648:                                        ; preds = %365
   %371 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %372 = load i32, ptr %370, align 4
   %373 = icmp sgt i32 %372, 0
-  br i1 %373, label %.lr.ph669, label %.critedge
+  br i1 %373, label %.lr.ph653, label %.critedge
 
-.lr.ph669:                                        ; preds = %.lr.ph664, %.lr.ph669
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph669 ], [ 0, %.lr.ph664 ]
+.lr.ph653:                                        ; preds = %.lr.ph648, %.lr.ph653
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph653 ], [ 0, %.lr.ph648 ]
   %374 = load ptr, ptr %371, align 8
   %375 = getelementptr inbounds nuw %union.ListCell, ptr %374, i64 %indvars.iv
   %376 = load ptr, ptr %375, align 8
@@ -934,15 +934,15 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %383 = load i32, ptr %370, align 4
   %384 = sext i32 %383 to i64
   %385 = icmp slt i64 %indvars.iv.next, %384
-  br i1 %385, label %.lr.ph669, label %.critedge
+  br i1 %385, label %.lr.ph653, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph669, %.lr.ph664, %365
+.critedge:                                        ; preds = %.lr.ph653, %.lr.ph648, %365
   br i1 %222, label %386, label %400
 
 386:                                              ; preds = %.critedge
   %.not90 = xor i1 %366, true
-  %or.cond5.not = and i1 %.sroa.76.1222256320, %.not90
-  %or.cond7 = and i1 %or.cond5.not, %.not671
+  %or.cond5.not = and i1 %.sroa.76.1205242302, %.not90
+  %or.cond7 = and i1 %or.cond5.not, %.not655
   %387 = load ptr, ptr @WalReceiverFunctions, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 96
   %389 = load ptr, ptr %388, align 8

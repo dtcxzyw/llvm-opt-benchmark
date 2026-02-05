@@ -236,32 +236,32 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.058.0120 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %61, %.lr.ph ]
+  %.sroa.058.0117 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %61, %.lr.ph ]
   %65 = icmp sgt i32 %2, 0
-  br i1 %65, label %.lr.ph92, label %._crit_edge
+  br i1 %65, label %.lr.ph89, label %._crit_edge
 
-.lr.ph92:                                         ; preds = %.preheader
+.lr.ph89:                                         ; preds = %.preheader
   %66 = load ptr, ptr %3, align 8, !tbaa !41
   %67 = load ptr, ptr %0, align 8, !tbaa !34
   %68 = load ptr, ptr %67, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %wide.trip.count103 = zext nneg i32 %2 to i64
+  %wide.trip.count100 = zext nneg i32 %2 to i64
   br label %77
 
 _ZNSt6vectorIiSaIiEED2Ev.exit50.thread:           ; preds = %.noexc.i.i, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76
 
 .body:                                            ; preds = %45, %48
   %.not.i.i.i49 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i49, label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79, label %72
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76, label %72
 
 .body.thread:                                     ; preds = %_ZN2cv3hfs9RegionSetC2EiSt6vectorIiSaIiEE.exit
   %71 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i4974 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i4974, label %_ZNSt6vectorIiSaIiEED2Ev.exit50, label %.thread
+  %.not.i.i.i4971 = icmp eq ptr %28, null
+  br i1 %.not.i.i.i4971, label %_ZNSt6vectorIiSaIiEED2Ev.exit50, label %.thread
 
 .thread:                                          ; preds = %.body.thread
   tail call void @_ZdlPv(ptr noundef nonnull %28) #15
@@ -269,10 +269,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit50.thread:           ; preds = %.noexc.i.i, %_ZNSt1
 
 72:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %28) #15
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76
 
-_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79:         ; preds = %.body, %72, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread
-  %.pn71 = phi { ptr, i32 } [ %70, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread ], [ %46, %72 ], [ %46, %.body ]
+_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76:         ; preds = %.body, %72, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread
+  %.pn68 = phi { ptr, i32 } [ %70, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread ], [ %46, %72 ], [ %46, %.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %18) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit50
 
@@ -291,19 +291,19 @@ _ZNSt6vectorIiSaIiEED2Ev.exit50.thread79:         ; preds = %.body, %72, %_ZNSt6
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %152, %.preheader
-  %.not.i.i.i51 = icmp eq ptr %.sroa.058.0120, null
+  %.not.i.i.i51 = icmp eq ptr %.sroa.058.0117, null
   br i1 %.not.i.i.i51, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %76
 
 76:                                               ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.058.0120) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.058.0117) #15
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %76
   ret void
 
-77:                                               ; preds = %.lr.ph92, %152
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next101, %152 ]
-  %78 = getelementptr inbounds nuw %"class.cv::hfs::Edge", ptr %66, i64 %indvars.iv100
+77:                                               ; preds = %.lr.ph89, %152
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next98, %152 ]
+  %78 = getelementptr inbounds nuw %"class.cv::hfs::Edge", ptr %66, i64 %indvars.iv97
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !44
   br label %81
@@ -347,13 +347,13 @@ _ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
 
 101:                                              ; preds = %_ZN2cv3hfs9RegionSet4findEi.exit54
   %102 = load float, ptr %78, align 4, !tbaa !48
-  %103 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %82
+  %103 = getelementptr inbounds nuw float, ptr %.sroa.058.0117, i64 %82
   %104 = load float, ptr %103, align 4, !tbaa !39
   %105 = fcmp ugt float %102, %104
   br i1 %105, label %152, label %106
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %93
+  %107 = getelementptr inbounds nuw float, ptr %.sroa.058.0117, i64 %93
   %108 = load float, ptr %107, align 4, !tbaa !39
   %109 = fcmp ugt float %102, %108
   br i1 %109, label %152, label %110
@@ -424,17 +424,17 @@ _ZN2cv3hfs9RegionSet4findEi.exit57:               ; preds = %141
   %148 = sitofp i32 %147 to float
   %149 = fdiv float %4, %148
   %150 = fadd float %102, %149
-  %151 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %142
+  %151 = getelementptr inbounds nuw float, ptr %.sroa.058.0117, i64 %142
   store float %150, ptr %151, align 4, !tbaa !39
   br label %152
 
 152:                                              ; preds = %101, %106, %_ZN2cv3hfs9RegionSet4findEi.exit57, %_ZN2cv3hfs9RegionSet4findEi.exit54
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge, label %77, !llvm.loop !49
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
+  br i1 %exitcond101.not, label %._crit_edge, label %77, !llvm.loop !49
 
-_ZNSt6vectorIiSaIiEED2Ev.exit50:                  ; preds = %.body.thread, %.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79, %73
-  %.pn42 = phi { ptr, i32 } [ %74, %73 ], [ %.pn71, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79 ], [ %71, %.thread ], [ %71, %.body.thread ]
+_ZNSt6vectorIiSaIiEED2Ev.exit50:                  ; preds = %.body.thread, %.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76, %73
+  %.pn42 = phi { ptr, i32 } [ %74, %73 ], [ %.pn68, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread76 ], [ %71, %.thread ], [ %71, %.body.thread ]
   resume { ptr, i32 } %.pn42
 }
 

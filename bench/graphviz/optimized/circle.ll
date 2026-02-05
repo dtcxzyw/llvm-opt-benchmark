@@ -180,24 +180,24 @@ node_queue_push_back.exit.i.i:                    ; preds = %findCenterNode.exit
   br label %75
 
 .loopexit.i.i:                                    ; preds = %152, %75
-  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.082.i.i, %75 ], [ %.sroa.0.2.i.i, %152 ]
+  %.sroa.0.1.lcssa.i.i = phi ptr [ %.sroa.0.076.i.i, %75 ], [ %.sroa.0.2.i.i, %152 ]
   %.sroa.12.1.lcssa.i.i = phi i64 [ %80, %75 ], [ %.sroa.12.2.i.i, %152 ]
   %.sroa.21.1.lcssa.i.i = phi i64 [ %81, %75 ], [ %.sroa.21.2.i.i, %152 ]
-  %.sroa.30.1.lcssa.i.i = phi i64 [ %.sroa.30.085.i.i, %75 ], [ %.sroa.30.2.i.i, %152 ]
+  %.sroa.30.1.lcssa.i.i = phi i64 [ %.sroa.30.079.i.i, %75 ], [ %.sroa.30.2.i.i, %152 ]
   %74 = icmp eq i64 %.sroa.21.1.lcssa.i.i, 0
   br i1 %74, label %setNStepsToCenter.exit.i, label %75, !llvm.loop !45
 
 75:                                               ; preds = %.loopexit.i.i, %node_queue_push_back.exit.i.i
-  %.sroa.30.085.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.30.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.21.084.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.21.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.12.083.i.i = phi i64 [ 0, %node_queue_push_back.exit.i.i ], [ %.sroa.12.1.lcssa.i.i, %.loopexit.i.i ]
-  %.sroa.0.082.i.i = phi ptr [ %malloc.i.i, %node_queue_push_back.exit.i.i ], [ %.sroa.0.1.lcssa.i.i, %.loopexit.i.i ]
-  %76 = urem i64 %.sroa.12.083.i.i, %.sroa.30.085.i.i
-  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.082.i.i, i64 %76
+  %.sroa.30.079.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.30.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.21.078.i.i = phi i64 [ 1, %node_queue_push_back.exit.i.i ], [ %.sroa.21.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.12.077.i.i = phi i64 [ 0, %node_queue_push_back.exit.i.i ], [ %.sroa.12.1.lcssa.i.i, %.loopexit.i.i ]
+  %.sroa.0.076.i.i = phi ptr [ %malloc.i.i, %node_queue_push_back.exit.i.i ], [ %.sroa.0.1.lcssa.i.i, %.loopexit.i.i ]
+  %76 = urem i64 %.sroa.12.077.i.i, %.sroa.30.079.i.i
+  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.076.i.i, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !44
-  %79 = add i64 %.sroa.12.083.i.i, 1
-  %80 = urem i64 %79, %.sroa.30.085.i.i
-  %81 = add i64 %.sroa.21.084.i.i, -1
+  %79 = add i64 %.sroa.12.077.i.i, 1
+  %80 = urem i64 %79, %.sroa.30.079.i.i
+  %81 = add i64 %.sroa.21.078.i.i, -1
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !3
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 152
@@ -206,19 +206,19 @@ node_queue_push_back.exit.i.i:                    ; preds = %findCenterNode.exit
   %87 = load i64, ptr %86, align 8, !tbaa !29
   %88 = add i64 %87, 1
   %89 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %78) #18
-  %.not72.i.i = icmp eq ptr %89, null
-  br i1 %.not72.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28
+  %.not66.i.i = icmp eq ptr %89, null
+  br i1 %.not66.i.i, label %.loopexit.i.i, label %.lr.ph.i.i28
 
 .lr.ph.i.i28:                                     ; preds = %75, %152
-  %.077.i.i = phi ptr [ %153, %152 ], [ %89, %75 ]
-  %.sroa.30.176.i.i = phi i64 [ %.sroa.30.2.i.i, %152 ], [ %.sroa.30.085.i.i, %75 ]
-  %.sroa.21.175.i.i = phi i64 [ %.sroa.21.2.i.i, %152 ], [ %81, %75 ]
-  %.sroa.12.174.i.i = phi i64 [ %.sroa.12.2.i.i, %152 ], [ %80, %75 ]
-  %.sroa.0.173.i.i = phi ptr [ %.sroa.0.2.i.i, %152 ], [ %.sroa.0.082.i.i, %75 ]
+  %.071.i.i = phi ptr [ %153, %152 ], [ %89, %75 ]
+  %.sroa.30.170.i.i = phi i64 [ %.sroa.30.2.i.i, %152 ], [ %.sroa.30.079.i.i, %75 ]
+  %.sroa.21.169.i.i = phi i64 [ %.sroa.21.2.i.i, %152 ], [ %81, %75 ]
+  %.sroa.12.168.i.i = phi i64 [ %.sroa.12.2.i.i, %152 ], [ %80, %75 ]
+  %.sroa.0.167.i.i = phi ptr [ %.sroa.0.2.i.i, %152 ], [ %.sroa.0.076.i.i, %75 ]
   br i1 %.not30.i.i, label %streq.exit.thread.i.i, label %90
 
 90:                                               ; preds = %.lr.ph.i.i28
-  %91 = tail call ptr @agxget(ptr noundef nonnull %.077.i.i, ptr noundef nonnull %68) #18
+  %91 = tail call ptr @agxget(ptr noundef nonnull %.071.i.i, ptr noundef nonnull %68) #18
   %92 = load i8, ptr %91, align 1
   %.not.i.i.i = icmp eq i8 %92, 48
   br i1 %.not.i.i.i, label %streq.exit.i.i, label %streq.exit.thread.i.i
@@ -230,11 +230,11 @@ streq.exit.i.i:                                   ; preds = %90
   br i1 %95, label %152, label %streq.exit.thread.i.i
 
 streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90, %.lr.ph.i.i28
-  %96 = load i32, ptr %.077.i.i, align 8
+  %96 = load i32, ptr %.071.i.i, align 8
   %97 = and i32 %96, 3
   %98 = icmp eq i32 %97, 3
   %99 = select i1 %98, i64 56, i64 120
-  %100 = getelementptr inbounds nuw i8, ptr %.077.i.i, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %.071.i.i, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !32
   %102 = icmp eq ptr %101, %78
   br i1 %102, label %103, label %108
@@ -242,7 +242,7 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
 103:                                              ; preds = %streq.exit.thread.i.i
   %104 = icmp eq i32 %97, 2
   %105 = select i1 %104, i64 56, i64 -8
-  %106 = getelementptr inbounds i8, ptr %.077.i.i, i64 %105
+  %106 = getelementptr inbounds i8, ptr %.071.i.i, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !32
   br label %108
 
@@ -268,36 +268,36 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
   %122 = load i64, ptr %121, align 8, !tbaa !47
   %123 = add i64 %122, 1
   store i64 %123, ptr %121, align 8, !tbaa !47
-  %124 = icmp eq i64 %.sroa.21.175.i.i, %.sroa.30.176.i.i
+  %124 = icmp eq i64 %.sroa.21.169.i.i, %.sroa.30.170.i.i
   br i1 %124, label %125, label %node_queue_push_back.exit38.i.i
 
 125:                                              ; preds = %116
-  %126 = icmp eq i64 %.sroa.30.176.i.i, 0
-  %127 = shl i64 %.sroa.30.176.i.i, 1
+  %126 = icmp eq i64 %.sroa.30.170.i.i, 0
+  %127 = shl i64 %.sroa.30.170.i.i, 1
   %spec.select.i.i.i35.i.i = select i1 %126, i64 1, i64 %127
   %mul.ov.i.i.i36.i.i = icmp ugt i64 %spec.select.i.i.i35.i.i, 2305843009213693951
   br i1 %mul.ov.i.i.i36.i.i, label %144, label %128
 
 128:                                              ; preds = %125
   %129 = shl nuw i64 %spec.select.i.i.i35.i.i, 3
-  %130 = tail call ptr @realloc(ptr noundef %.sroa.0.173.i.i, i64 noundef %129) #21
+  %130 = tail call ptr @realloc(ptr noundef %.sroa.0.167.i.i, i64 noundef %129) #21
   %131 = icmp eq ptr %130, null
   br i1 %131, label %144, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.30.176.i.i
-  %134 = sub i64 %spec.select.i.i.i35.i.i, %.sroa.30.176.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.30.170.i.i
+  %134 = sub i64 %spec.select.i.i.i35.i.i, %.sroa.30.170.i.i
   %135 = shl i64 %134, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %135, i1 false)
-  %136 = add i64 %.sroa.12.174.i.i, %.sroa.30.176.i.i
-  %137 = icmp ugt i64 %136, %.sroa.30.176.i.i
+  %136 = add i64 %.sroa.12.168.i.i, %.sroa.30.170.i.i
+  %137 = icmp ugt i64 %136, %.sroa.30.170.i.i
   br i1 %137, label %138, label %node_queue_push_back.exit38.i.i
 
 138:                                              ; preds = %132
-  %139 = sub i64 %.sroa.30.176.i.i, %.sroa.12.174.i.i
+  %139 = sub i64 %.sroa.30.170.i.i, %.sroa.12.168.i.i
   %140 = sub i64 %spec.select.i.i.i35.i.i, %139
   %141 = getelementptr inbounds nuw ptr, ptr %130, i64 %140
-  %142 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.12.174.i.i
+  %142 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.12.168.i.i
   %143 = shl i64 %139, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %141, ptr nonnull align 8 %142, i64 %143, i1 false)
   br label %node_queue_push_back.exit38.i.i
@@ -311,22 +311,22 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
   unreachable
 
 node_queue_push_back.exit38.i.i:                  ; preds = %138, %132, %116
-  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.173.i.i, %116 ], [ %130, %138 ], [ %130, %132 ]
-  %.sroa.12.6.i.i = phi i64 [ %.sroa.12.174.i.i, %116 ], [ %140, %138 ], [ %.sroa.12.174.i.i, %132 ]
-  %.sroa.30.4.i.i = phi i64 [ %.sroa.30.176.i.i, %116 ], [ %spec.select.i.i.i35.i.i, %138 ], [ %spec.select.i.i.i35.i.i, %132 ]
-  %148 = add i64 %.sroa.12.6.i.i, %.sroa.21.175.i.i
+  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.167.i.i, %116 ], [ %130, %138 ], [ %130, %132 ]
+  %.sroa.12.6.i.i = phi i64 [ %.sroa.12.168.i.i, %116 ], [ %140, %138 ], [ %.sroa.12.168.i.i, %132 ]
+  %.sroa.30.4.i.i = phi i64 [ %.sroa.30.170.i.i, %116 ], [ %spec.select.i.i.i35.i.i, %138 ], [ %spec.select.i.i.i35.i.i, %132 ]
+  %148 = add i64 %.sroa.12.6.i.i, %.sroa.21.169.i.i
   %149 = urem i64 %148, %.sroa.30.4.i.i
   %150 = getelementptr inbounds nuw ptr, ptr %.sroa.0.4.i.i, i64 %149
   store ptr %.026.i.i, ptr %150, align 8, !tbaa !44
-  %151 = add i64 %.sroa.21.175.i.i, 1
+  %151 = add i64 %.sroa.21.169.i.i, 1
   br label %152
 
 152:                                              ; preds = %node_queue_push_back.exit38.i.i, %108, %streq.exit.i.i
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.0.173.i.i, %108 ], [ %.sroa.0.173.i.i, %streq.exit.i.i ]
-  %.sroa.12.2.i.i = phi i64 [ %.sroa.12.6.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.12.174.i.i, %108 ], [ %.sroa.12.174.i.i, %streq.exit.i.i ]
-  %.sroa.21.2.i.i = phi i64 [ %151, %node_queue_push_back.exit38.i.i ], [ %.sroa.21.175.i.i, %108 ], [ %.sroa.21.175.i.i, %streq.exit.i.i ]
-  %.sroa.30.2.i.i = phi i64 [ %.sroa.30.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.30.176.i.i, %108 ], [ %.sroa.30.176.i.i, %streq.exit.i.i ]
-  %153 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.077.i.i, ptr noundef %78) #18
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.0.167.i.i, %108 ], [ %.sroa.0.167.i.i, %streq.exit.i.i ]
+  %.sroa.12.2.i.i = phi i64 [ %.sroa.12.6.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.12.168.i.i, %108 ], [ %.sroa.12.168.i.i, %streq.exit.i.i ]
+  %.sroa.21.2.i.i = phi i64 [ %151, %node_queue_push_back.exit38.i.i ], [ %.sroa.21.169.i.i, %108 ], [ %.sroa.21.169.i.i, %streq.exit.i.i ]
+  %.sroa.30.2.i.i = phi i64 [ %.sroa.30.4.i.i, %node_queue_push_back.exit38.i.i ], [ %.sroa.30.170.i.i, %108 ], [ %.sroa.30.170.i.i, %streq.exit.i.i ]
+  %153 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.071.i.i, ptr noundef %78) #18
   %.not.i.i29 = icmp eq ptr %153, null
   br i1 %.not.i.i29, label %.loopexit.i.i, label %.lr.ph.i.i28, !llvm.loop !48
 

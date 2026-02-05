@@ -1798,8 +1798,8 @@ _ZN5clang8comments6Parser17isTokBlockCommandEv.exit: ; preds = %_ZN5clang8commen
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 33554432
-  %.not88 = icmp eq i64 %59, 0
-  br i1 %.not88, label %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit.thread, label %60
+  %.not84 = icmp eq i64 %59, 0
+  br i1 %.not84, label %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit.thread, label %60
 
 60:                                               ; preds = %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1963,8 +1963,8 @@ _ZN5clang8comments6Parser17isTokBlockCommandEv.exit77: ; preds = %133
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %140, 33554432
-  %.not89 = icmp eq i64 %141, 0
-  br i1 %.not89, label %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit77._ZN5clang8comments6Parser17isTokBlockCommandEv.exit77.thread_crit_edge, label %.critedge68
+  %.not85 = icmp eq i64 %141, 0
+  br i1 %.not85, label %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit77._ZN5clang8comments6Parser17isTokBlockCommandEv.exit77.thread_crit_edge, label %.critedge68
 
 _ZN5clang8comments6Parser17isTokBlockCommandEv.exit77._ZN5clang8comments6Parser17isTokBlockCommandEv.exit77.thread_crit_edge: ; preds = %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit77
   %.pre = load i32, ptr %13, align 4, !tbaa !78

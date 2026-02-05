@@ -2778,13 +2778,13 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i415: ; preds = %403
 
 ._crit_edge.i.i.i.i.i.i.i235:                     ; preds = %.lr.ph.i.i.i.i.i.i.i239, %.sink.split.i.i413.thread, %.sink.split.i.i413
   %412 = phi i64 [ %410, %.sink.split.i.i413.thread ], [ %411, %.sink.split.i.i413 ], [ %411, %.lr.ph.i.i.i.i.i.i.i239 ]
-  %.sroa.0752.2833 = phi ptr [ null, %.sink.split.i.i413.thread ], [ %406, %.sink.split.i.i413 ], [ %406, %.lr.ph.i.i.i.i.i.i.i239 ]
+  %.sroa.0752.0833 = phi ptr [ null, %.sink.split.i.i413.thread ], [ %406, %.sink.split.i.i413 ], [ %406, %.lr.ph.i.i.i.i.i.i.i239 ]
   %413 = icmp slt i64 %412, %399
   br i1 %413, label %.lr.ph.i.i.i.i.i.i.i.i236, label %.loopexit667
 
 .lr.ph.i.i.i.i.i.i.i.i236:                        ; preds = %._crit_edge.i.i.i.i.i.i.i235, %.lr.ph.i.i.i.i.i.i.i.i236
   %.05.i.i.i.i.i.i.i.i237 = phi i64 [ %417, %.lr.ph.i.i.i.i.i.i.i.i236 ], [ %412, %._crit_edge.i.i.i.i.i.i.i235 ]
-  %414 = getelementptr inbounds double, ptr %.sroa.0752.2833, i64 %.05.i.i.i.i.i.i.i.i237
+  %414 = getelementptr inbounds double, ptr %.sroa.0752.0833, i64 %.05.i.i.i.i.i.i.i.i237
   %415 = getelementptr inbounds double, ptr %401, i64 %.05.i.i.i.i.i.i.i.i237
   %416 = load double, ptr %415, align 8, !tbaa !53
   store double %416, ptr %414, align 8, !tbaa !53
@@ -2838,7 +2838,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i:
   %.05.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %447, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i243 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i ]
   %441 = getelementptr inbounds nuw double, ptr %428, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
   %442 = getelementptr inbounds nuw double, ptr %429, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
-  %443 = getelementptr inbounds nuw double, ptr %.sroa.0752.2833, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
+  %443 = getelementptr inbounds nuw double, ptr %.sroa.0752.0833, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
   %444 = load double, ptr %442, align 8, !tbaa !53
   %445 = load double, ptr %443, align 8, !tbaa !53
   %446 = fmul double %444, %445
@@ -2859,7 +2859,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.05.i18.i.i.i.i.i.i.i.i.i.i = phi i64 [ %456, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i ], [ %439, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %450 = getelementptr inbounds double, ptr %428, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
   %451 = getelementptr inbounds double, ptr %429, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
-  %452 = getelementptr inbounds double, ptr %.sroa.0752.2833, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
+  %452 = getelementptr inbounds double, ptr %.sroa.0752.0833, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i
   %453 = load double, ptr %451, align 8, !tbaa !53
   %454 = load double, ptr %452, align 8, !tbaa !53
   %455 = fmul double %453, %454
@@ -2873,7 +2873,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %457 = getelementptr inbounds double, ptr %428, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %458 = getelementptr inbounds double, ptr %429, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %459 = load <2 x double>, ptr %458, align 1, !tbaa !57
-  %460 = getelementptr inbounds double, ptr %.sroa.0752.2833, i64 %.021.i.i.i.i.i.i.i.i.i.i
+  %460 = getelementptr inbounds double, ptr %.sroa.0752.0833, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %461 = load <2 x double>, ptr %460, align 1, !tbaa !57
   %462 = fmul <2 x double> %459, %461
   store <2 x double> %462, ptr %457, align 16, !tbaa !57
@@ -2882,7 +2882,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %464, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, !llvm.loop !226
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_12ArrayWrapperINS1_IdLin1ELi1ELi0ELin1ELi1EEEEESC_EEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
-  call void @free(ptr noundef %.sroa.0752.2833) #25
+  call void @free(ptr noundef %.sroa.0752.0833) #25
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %exitcond722.not = icmp eq i64 %indvars.iv.next720, 10
   br i1 %exitcond722.not, label %396, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i411, !llvm.loop !227

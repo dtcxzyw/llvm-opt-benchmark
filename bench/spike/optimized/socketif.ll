@@ -16403,8 +16403,8 @@ define linkonce_odr noundef i64 @_ZN5boost4asio10read_untilINS0_19basic_stream_s
 
 ._crit_edge64.i:                                  ; preds = %._crit_edge64.i.loopexit, %.preheader.i21
   %.sroa.18.4 = phi ptr [ %spec.select.i.idx.sroa.sel, %.preheader.i21 ], [ %38, %._crit_edge64.i.loopexit ]
-  %.sroa.743.5 = phi i64 [ %27, %.preheader.i21 ], [ %.sroa.743.0.copyload47, %._crit_edge64.i.loopexit ]
-  %.sroa.040.5 = phi ptr [ %24, %.preheader.i21 ], [ %.sroa.040.0.copyload42.le, %._crit_edge64.i.loopexit ]
+  %.sroa.743.4 = phi i64 [ %27, %.preheader.i21 ], [ %.sroa.743.0.copyload47, %._crit_edge64.i.loopexit ]
+  %.sroa.040.4 = phi ptr [ %24, %.preheader.i21 ], [ %.sroa.040.0.copyload42.le, %._crit_edge64.i.loopexit ]
   %30 = phi i64 [ 0, %.preheader.i21 ], [ %35, %._crit_edge64.i.loopexit ]
   %.0.lcssa.i = phi i64 [ %.011, %.preheader.i21 ], [ %39, %._crit_edge64.i.loopexit ]
   %31 = add i64 %.0.lcssa.i, %30
@@ -16482,8 +16482,8 @@ _ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit: ; pred
   %.sroa.10.0 = phi i64 [ %.0.lcssa.i, %._crit_edge64.i ], [ 0, %41 ], [ 0, %.lr.ph63.i ], [ %45, %._crit_edge.i ], [ 0, %46 ]
   %.sroa.18.5 = phi ptr [ %.sroa.18.4, %._crit_edge64.i ], [ %spec.select.i.idx.sroa.sel, %41 ], [ %scevgep, %.lr.ph63.i ], [ %.sroa.18.3, %._crit_edge.i ], [ %.sroa.18.2, %46 ]
   %.sroa.23.1 = phi i64 [ %31, %._crit_edge64.i ], [ 0, %41 ], [ %35, %.lr.ph63.i ], [ %44, %._crit_edge.i ], [ %51, %46 ]
-  %.sroa.743.6 = phi i64 [ %.sroa.743.5, %._crit_edge64.i ], [ %27, %41 ], [ 0, %.lr.ph63.i ], [ %.sroa.743.3, %._crit_edge.i ], [ %.sroa.743.2, %46 ]
-  %.sroa.040.6 = phi ptr [ %.sroa.040.5, %._crit_edge64.i ], [ %24, %41 ], [ null, %.lr.ph63.i ], [ %.sroa.040.3, %._crit_edge.i ], [ %.sroa.040.2, %46 ]
+  %.sroa.743.5 = phi i64 [ %.sroa.743.4, %._crit_edge64.i ], [ %27, %41 ], [ 0, %.lr.ph63.i ], [ %.sroa.743.3, %._crit_edge.i ], [ %.sroa.743.2, %46 ]
+  %.sroa.040.5 = phi ptr [ %.sroa.040.4, %._crit_edge64.i ], [ %24, %41 ], [ null, %.lr.ph63.i ], [ %.sroa.040.3, %._crit_edge.i ], [ %.sroa.040.2, %46 ]
   %.not6088.i = icmp eq i64 %.sroa.23.1, %27
   br i1 %.not6088.i, label %_ZN5boost4asio6detail14partial_searchINS0_16buffers_iteratorINS0_15const_buffers_1EcEEPKcEESt4pairIT_bES9_S9_T0_SB_.exit.thread, label %.preheader.lr.ph.i
 
@@ -16494,8 +16494,8 @@ _ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit: ; pred
   %.sroa.21.093.i = phi i64 [ %73, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.23.1, %.preheader.lr.ph.i ]
   %.sroa.1544.092.i = phi ptr [ %.sroa.1544.2.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.18.5, %.preheader.lr.ph.i ]
   %.sroa.10.091.i = phi i64 [ %.sroa.10.1.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.10.0, %.preheader.lr.ph.i ]
-  %.sroa.7.090.i = phi i64 [ %.sroa.7.1.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.743.6, %.preheader.lr.ph.i ]
-  %.sroa.025.089.i = phi ptr [ %.sroa.025.1.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.040.6, %.preheader.lr.ph.i ]
+  %.sroa.7.090.i = phi i64 [ %.sroa.7.1.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.743.5, %.preheader.lr.ph.i ]
+  %.sroa.025.089.i = phi ptr [ %.sroa.025.1.i, %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit15.i ], [ %.sroa.040.5, %.preheader.lr.ph.i ]
   br label %57
 
 57:                                               ; preds = %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcEppEv.exit.i, %.preheader.i
@@ -29275,17 +29275,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %133
 
 147:                                              ; preds = %146
   tail call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %144, i1 false)
-  %.pre17.i = load ptr, ptr %141, align 8, !tbaa !1092
-  %.pre18.i = load ptr, ptr %122, align 8, !tbaa !883
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %141, align 8, !tbaa !1092
+  %.pre15.i = load ptr, ptr %122, align 8, !tbaa !883
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %147, %146
-  %.pre-phi21.i = phi i64 [ %130, %146 ], [ %.pre20.i, %147 ]
-  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre19.i, %147 ]
-  %148 = phi ptr [ %142, %146 ], [ %.pre17.i, %147 ]
-  %.neg.i19 = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %130, %146 ], [ %.pre17.i, %147 ]
+  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre16.i, %147 ]
+  %148 = phi ptr [ %142, %146 ], [ %.pre14.i, %147 ]
+  %.neg.i19 = sub i64 %.pre-phi18.i, %.pre-phi.i
   %149 = add i64 %.neg.i19, %125
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %151
@@ -50430,17 +50430,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %96
 
 108:                                              ; preds = %107
   call void @llvm.memset.p0.i64(ptr align 1 %91, i8 0, i64 %105, i1 false)
-  %.pre17.i = load ptr, ptr %12, align 8, !tbaa !1092
-  %.pre18.i = load ptr, ptr %10, align 8, !tbaa !883
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %12, align 8, !tbaa !1092
+  %.pre15.i = load ptr, ptr %10, align 8, !tbaa !883
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %108, %107
-  %.pre-phi21.i = phi i64 [ %93, %107 ], [ %.pre20.i, %108 ]
-  %.pre-phi.i = phi i64 [ %104, %107 ], [ %.pre19.i, %108 ]
-  %109 = phi ptr [ %103, %107 ], [ %.pre17.i, %108 ]
-  %.neg.i = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %93, %107 ], [ %.pre17.i, %108 ]
+  %.pre-phi.i = phi i64 [ %104, %107 ], [ %.pre16.i, %108 ]
+  %109 = phi ptr [ %103, %107 ], [ %.pre14.i, %108 ]
+  %.neg.i = sub i64 %.pre-phi18.i, %.pre-phi.i
   %110 = add i64 %.neg.i, %89
   %111 = icmp eq i64 %110, 0
   br i1 %111, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %112
@@ -50559,17 +50559,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i49:        ; preds = %142
 
 154:                                              ; preds = %153
   call void @llvm.memset.p0.i64(ptr align 1 %137, i8 0, i64 %151, i1 false)
-  %.pre17.i39 = load ptr, ptr %12, align 8, !tbaa !1092
-  %.pre18.i40 = load ptr, ptr %10, align 8, !tbaa !883
-  %.pre19.i41 = ptrtoint ptr %.pre17.i39 to i64
-  %.pre20.i42 = ptrtoint ptr %.pre18.i40 to i64
+  %.pre14.i39 = load ptr, ptr %12, align 8, !tbaa !1092
+  %.pre15.i40 = load ptr, ptr %10, align 8, !tbaa !883
+  %.pre16.i41 = ptrtoint ptr %.pre14.i39 to i64
+  %.pre17.i42 = ptrtoint ptr %.pre15.i40 to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i43
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i43: ; preds = %154, %153
-  %.pre-phi21.i44 = phi i64 [ %139, %153 ], [ %.pre20.i42, %154 ]
-  %.pre-phi.i45 = phi i64 [ %150, %153 ], [ %.pre19.i41, %154 ]
-  %155 = phi ptr [ %149, %153 ], [ %.pre17.i39, %154 ]
-  %.neg.i46 = sub i64 %.pre-phi21.i44, %.pre-phi.i45
+  %.pre-phi18.i44 = phi i64 [ %139, %153 ], [ %.pre17.i42, %154 ]
+  %.pre-phi.i45 = phi i64 [ %150, %153 ], [ %.pre16.i41, %154 ]
+  %155 = phi ptr [ %149, %153 ], [ %.pre14.i39, %154 ]
+  %.neg.i46 = sub i64 %.pre-phi18.i44, %.pre-phi.i45
   %156 = add i64 %.neg.i46, %135
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i47, label %158

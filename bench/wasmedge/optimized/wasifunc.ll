@@ -3001,8 +3001,8 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11c
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit
-  %.0.lcssa.i29 = phi i32 [ %.0.lcssa.i.ph, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  ret i32 %.0.lcssa.i29
+  %.0.lcssa.i26 = phi i32 [ %.0.lcssa.i.ph, %.loopexit ], [ 0, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  ret i32 %.0.lcssa.i26
 
 22:                                               ; preds = %7, %6
   %23 = landingpad { ptr, i32 }

@@ -45288,9 +45288,9 @@ _ZN5clang8SemaObjC33CollectIvarsToConstructOrDestructEPNS_17ObjCInterfaceDeclERN
   br label %71
 
 ._crit_edge:                                      ; preds = %194
-  %.pre72 = load i32, ptr %52, align 8, !tbaa !725
-  %.pre71 = load ptr, ptr %4, align 8, !tbaa !724
-  call void @_ZN5clang22ObjCImplementationDecl19setIvarInitializersERNS_10ASTContextEPPNS_18CXXCtorInitializerEj(ptr noundef nonnull align 8 dereferenceable(133) %1, ptr noundef nonnull align 8 dereferenceable(23216) %16, ptr noundef %.pre71, i32 noundef %.pre72) #22
+  %.pre68 = load i32, ptr %52, align 8, !tbaa !725
+  %.pre67 = load ptr, ptr %4, align 8, !tbaa !724
+  call void @_ZN5clang22ObjCImplementationDecl19setIvarInitializersERNS_10ASTContextEPPNS_18CXXCtorInitializerEj(ptr noundef nonnull align 8 dereferenceable(133) %1, ptr noundef nonnull align 8 dereferenceable(23216) %16, ptr noundef %.pre67, i32 noundef %.pre68) #22
   %66 = load ptr, ptr %4, align 8, !tbaa !724
   %67 = icmp eq ptr %66, %51
   br i1 %67, label %_ZN4llvm11SmallVectorIPN5clang18CXXCtorInitializerELj32EED2Ev.exit, label %68
@@ -45314,8 +45314,8 @@ _ZN4llvm11SmallVectorIPN5clang18CXXCtorInitializerELj32EED2Ev.exit: ; preds = %.
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 128
-  %.not66 = icmp eq i32 %78, 0
-  br i1 %.not66, label %79, label %194
+  %.not62 = icmp eq i32 %78, 0
+  br i1 %.not62, label %79, label %194
 
 79:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -45413,8 +45413,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang18CXXCtorInitializerELb1EE9push_backES
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i8, ptr %125, align 16
   %127 = icmp ne i8 %126, 47
-  %.not4167 = icmp eq ptr %124, null
-  %.not41 = or i1 %.not4167, %127
+  %.not4163 = icmp eq ptr %124, null
+  %.not41 = or i1 %.not4163, %127
   br i1 %.not41, label %193, label %128
 
 128:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang18CXXCtorInitializerELb1EE9push_backES3_.exit

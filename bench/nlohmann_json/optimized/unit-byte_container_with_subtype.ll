@@ -815,8 +815,8 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %263
   store i8 -2, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 2
   store i8 -70, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 3
-  store i8 -66, ptr %.sroa.7352.0..sroa_idx, align 1
+  %.sroa.7346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 3
+  store i8 -66, ptr %.sroa.7346.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %42, i8 0, i64 33, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)

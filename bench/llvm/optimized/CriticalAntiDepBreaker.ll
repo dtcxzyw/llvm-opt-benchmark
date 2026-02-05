@@ -490,8 +490,8 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit: ; preds = %_ZN4llvm9BitVecto
   br i1 %.not59, label %._crit_edge76, label %.lr.ph75
 
 93:                                               ; preds = %.lr.ph70, %93
-  %.sroa.048.268 = phi ptr [ %86, %.lr.ph70 ], [ %99, %93 ]
-  %94 = load i16, ptr %.sroa.048.268, align 2, !tbaa !222
+  %.sroa.048.068 = phi ptr [ %86, %.lr.ph70 ], [ %99, %93 ]
+  %94 = load i16, ptr %.sroa.048.068, align 2, !tbaa !222
   %95 = zext i16 %94 to i64
   %96 = getelementptr inbounds nuw ptr, ptr %89, i64 %95
   store ptr inttoptr (i64 -1 to ptr), ptr %96, align 8, !tbaa !181
@@ -499,7 +499,7 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit: ; preds = %_ZN4llvm9BitVecto
   store i32 %.0.lcssa.i.i.i.i, ptr %97, align 4, !tbaa !191
   %98 = getelementptr inbounds nuw i32, ptr %91, i64 %95
   store i32 -1, ptr %98, align 4, !tbaa !191
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.048.268, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.048.068, i64 2
   %.not60 = icmp eq ptr %99, %88
   br i1 %.not60, label %._crit_edge71, label %93, !llvm.loop !226
 
@@ -553,8 +553,8 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %._crit_edge89, %103
   br label %124
 
 124:                                              ; preds = %.lr.ph84, %124
-  %.sroa.044.282 = phi ptr [ %118, %.lr.ph84 ], [ %130, %124 ]
-  %125 = load i16, ptr %.sroa.044.282, align 2, !tbaa !222
+  %.sroa.044.082 = phi ptr [ %118, %.lr.ph84 ], [ %130, %124 ]
+  %125 = load i16, ptr %.sroa.044.082, align 2, !tbaa !222
   %126 = zext i16 %125 to i64
   %127 = getelementptr inbounds nuw ptr, ptr %121, i64 %126
   store ptr inttoptr (i64 -1 to ptr), ptr %127, align 8, !tbaa !181
@@ -562,7 +562,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %._crit_edge89, %103
   store i32 %.0.lcssa.i.i.i.i, ptr %128, align 4, !tbaa !191
   %129 = getelementptr inbounds nuw i32, ptr %123, i64 %126
   store i32 -1, ptr %129, align 4, !tbaa !191
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.044.282, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.044.082, i64 2
   %.not62 = icmp eq ptr %130, %120
   br i1 %.not62, label %.loopexit, label %124, !llvm.loop !227
 
@@ -867,8 +867,8 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   br i1 %.not54, label %129, label %118
 
 110:                                              ; preds = %.lr.ph, %116
-  %.sroa.0114.3147 = phi ptr [ %104, %.lr.ph ], [ %117, %116 ]
-  %111 = load i16, ptr %.sroa.0114.3147, align 2, !tbaa !222
+  %.sroa.0114.0147 = phi ptr [ %104, %.lr.ph ], [ %117, %116 ]
+  %111 = load i16, ptr %.sroa.0114.0147, align 2, !tbaa !222
   %112 = zext i16 %111 to i64
   %113 = getelementptr inbounds nuw ptr, ptr %.pre172, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !181
@@ -881,7 +881,7 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   br label %116
 
 116:                                              ; preds = %115, %110
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0114.3147, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0147, i64 2
   %.not139 = icmp eq ptr %117, %spec.select.i
   br i1 %.not139, label %._crit_edge, label %110, !llvm.loop !234
 
@@ -1584,8 +1584,8 @@ _ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE6insertIS5_
   br label %251
 
 251:                                              ; preds = %.lr.ph159, %259
-  %.sroa.069.3158 = phi ptr [ %246, %.lr.ph159 ], [ %260, %259 ]
-  %252 = load i16, ptr %.sroa.069.3158, align 2, !tbaa !222
+  %.sroa.069.0158 = phi ptr [ %246, %.lr.ph159 ], [ %260, %259 ]
+  %252 = load i16, ptr %.sroa.069.0158, align 2, !tbaa !222
   %253 = zext i16 %252 to i64
   %254 = getelementptr inbounds nuw i32, ptr %249, i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !191
@@ -1599,7 +1599,7 @@ _ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE6insertIS5_
   br label %259
 
 259:                                              ; preds = %257, %251
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.069.3158, i64 2
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.069.0158, i64 2
   %.not135 = icmp eq ptr %260, %248
   br i1 %.not135, label %.loopexit, label %251, !llvm.loop !285
 

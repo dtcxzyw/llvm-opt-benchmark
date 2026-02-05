@@ -557,8 +557,8 @@ _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread: ; preds = %71, %_ZN4llvm23S
   br label %77
 
 77:                                               ; preds = %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread
-  %.sroa.02.sroa.4.1.in = phi i64 [ %63, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread ], [ %.0614.i, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit ]
-  %.sroa.02.sroa.4.0.insert.ext = shl i64 %.sroa.02.sroa.4.1.in, 32
+  %.sroa.02.sroa.4.0.in = phi i64 [ %63, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread ], [ %.0614.i, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit ]
+  %.sroa.02.sroa.4.0.insert.ext = shl i64 %.sroa.02.sroa.4.0.in, 32
   %78 = load i32, ptr %12, align 8, !tbaa !7
   %79 = load i32, ptr %13, align 4, !tbaa !53
   %.not.i.i.not.i60 = icmp ult i32 %78, %79

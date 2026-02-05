@@ -1331,8 +1331,8 @@ Rtl_NtkCountPio.exit:                             ; preds = %29, %3, %.lr.ph.i
   br label %.lr.ph.split.i26
 
 .lr.ph.split.i26:                                 ; preds = %.lr.ph.split.i26.preheader, %61
-  %.sroa.5.2 = phi i32 [ %.sroa.5.3, %61 ], [ 0, %.lr.ph.split.i26.preheader ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.3, %61 ], [ 0, %.lr.ph.split.i26.preheader ]
+  %.sroa.5.0 = phi i32 [ %.sroa.5.1, %61 ], [ 0, %.lr.ph.split.i26.preheader ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.1, %61 ], [ 0, %.lr.ph.split.i26.preheader ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i32, %61 ], [ 0, %.lr.ph.split.i26.preheader ]
   %.idx.i28 = mul nuw nsw i64 %indvars.iv.i27, 20
   %48 = getelementptr inbounds nuw i8, ptr %.val15.i24, i64 %.idx.i28
@@ -1344,11 +1344,11 @@ Rtl_NtkCountPio.exit:                             ; preds = %29, %3, %.lr.ph.i
 51:                                               ; preds = %.lr.ph.split.i26
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !38
-  %54 = add nsw i32 %53, %.sroa.5.2
+  %54 = add nsw i32 %53, %.sroa.5.0
   br label %55
 
 55:                                               ; preds = %51, %.lr.ph.split.i26
-  %.sroa.5.3 = phi i32 [ %.sroa.5.2, %.lr.ph.split.i26 ], [ %54, %51 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %.lr.ph.split.i26 ], [ %54, %51 ]
   %56 = and i32 %49, 2
   %.not14.i31 = icmp eq i32 %56, 0
   br i1 %.not14.i31, label %61, label %57
@@ -1356,20 +1356,20 @@ Rtl_NtkCountPio.exit:                             ; preds = %29, %3, %.lr.ph.i
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !38
-  %60 = add nsw i32 %59, %.sroa.10.2
+  %60 = add nsw i32 %59, %.sroa.10.0
   br label %61
 
 61:                                               ; preds = %57, %55
-  %.sroa.10.3 = phi i32 [ %.sroa.10.2, %55 ], [ %60, %57 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %55 ], [ %60, %57 ]
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next.i32, %47
   br i1 %exitcond50.not, label %Rtl_NtkCountPio.exit34, label %.lr.ph.split.i26, !llvm.loop !39
 
 Rtl_NtkCountPio.exit34:                           ; preds = %61, %42, %.lr.ph.i23
-  %.sroa.5.4 = phi i32 [ 0, %.lr.ph.i23 ], [ 0, %42 ], [ %.sroa.5.3, %61 ]
-  %.sroa.10.4 = phi i32 [ 0, %.lr.ph.i23 ], [ 0, %42 ], [ %.sroa.10.3, %61 ]
-  %62 = icmp eq i32 %.sroa.5.4, %.sroa.539.2
-  %63 = icmp eq i32 %.sroa.10.4, %.sroa.1042.2
+  %.sroa.5.2 = phi i32 [ 0, %.lr.ph.i23 ], [ 0, %42 ], [ %.sroa.5.1, %61 ]
+  %.sroa.10.2 = phi i32 [ 0, %.lr.ph.i23 ], [ 0, %42 ], [ %.sroa.10.1, %61 ]
+  %62 = icmp eq i32 %.sroa.5.2, %.sroa.539.2
+  %63 = icmp eq i32 %.sroa.10.2, %.sroa.1042.2
   %or.cond = select i1 %62, i1 %63, i1 false
   br i1 %or.cond, label %.critedge.loopexit.split.loop.exit, label %.thread
 

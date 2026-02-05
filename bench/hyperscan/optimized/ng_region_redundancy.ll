@@ -663,11 +663,11 @@ _ZN3ue2L18buildRegionInfoMapERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detai
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload.i.i = load ptr, ptr %248, align 8, !noalias !13
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 136
-  %.sroa.014.027.i = load ptr, ptr %249, align 8
-  %.not28.i = icmp eq ptr %.sroa.014.027.i, %249
+  %.sroa.014.025.i = load ptr, ptr %249, align 8
+  %.not26.i = icmp eq ptr %.sroa.014.025.i, %249
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.014.0.copyload.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not28.i, label %.loopexit180, label %.lr.ph.i57
+  br i1 %.not26.i, label %.loopexit180, label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %247
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload.pre, i64 128
@@ -676,8 +676,8 @@ _ZN3ue2L18buildRegionInfoMapERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detai
   br label %253
 
 253:                                              ; preds = %.loopexit.i59, %.lr.ph.i57
-  %.sroa.014.029.i = phi ptr [ %.sroa.014.027.i, %.lr.ph.i57 ], [ %.sroa.014.0.i, %.loopexit.i59 ]
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.014.029.i, i64 40
+  %.sroa.014.027.i = phi ptr [ %.sroa.014.025.i, %.lr.ph.i57 ], [ %.sroa.014.0.i, %.loopexit.i59 ]
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.014.027.i, i64 40
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 104
   %257 = load i64, ptr %256, align 8, !noalias !16
@@ -713,7 +713,7 @@ _ZN3ue2L18buildRegionInfoMapERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detai
   br i1 %268, label %.loopexit.i59, label %.critedge24.i.i.i
 
 .loopexit.i59:                                    ; preds = %265, %261
-  %.sroa.014.0.i = load ptr, ptr %.sroa.014.029.i, align 8
+  %.sroa.014.0.i = load ptr, ptr %.sroa.014.027.i, align 8
   %.not.i60 = icmp eq ptr %.sroa.014.0.i, %249
   br i1 %.not.i60, label %.loopexit180, label %253
 

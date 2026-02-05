@@ -10354,7 +10354,7 @@ _ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Dest
   br label %139
 
 83:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EE9push_backERKS1_.exit
-  %.02468 = phi i64 [ 0, %.lr.ph ], [ %92, %_ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EE9push_backERKS1_.exit ]
+  %.02462 = phi i64 [ 0, %.lr.ph ], [ %92, %_ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EE9push_backERKS1_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %62, ptr %7, align 8, !tbaa !72
   store i64 0, ptr %63, align 8, !tbaa !77
@@ -10367,7 +10367,7 @@ _ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Dest
   store i64 -1, ptr %70, align 8, !tbaa !602
   store i32 0, ptr %71, align 8, !tbaa !604
   store i32 0, ptr %72, align 4, !tbaa !605
-  %84 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_12BlockPointerELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %.02468)
+  %84 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_12BlockPointerELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %.02462)
           to label %85 unwind label %100
 
 85:                                               ; preds = %83
@@ -10394,7 +10394,7 @@ _ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Dest
 _ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc44, %91
   call void @_ZN6duckdb16IndexStorageInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %92 = add nuw i64 %.02468, 1
+  %92 = add nuw i64 %.02462, 1
   %93 = load ptr, ptr %59, align 8, !tbaa !743
   %94 = load ptr, ptr %4, align 8, !tbaa !736
   %95 = ptrtoint ptr %93 to i64
@@ -10540,9 +10540,9 @@ _ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit56: ; preds = %_ZNSt6vector
   br i1 %.not.i.i.i57, label %_ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43, label %_ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43.sink.split
 
 _ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43.sink.split: ; preds = %139, %45
-  %.sink83 = phi ptr [ %47, %45 ], [ %140, %139 ]
+  %.sink77 = phi ptr [ %47, %45 ], [ %140, %139 ]
   %.pn32.pn.pn.pn.ph = phi { ptr, i32 } [ %46, %45 ], [ %.pn32.pn.pn, %139 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink83) #43
+  call void @_ZdlPv(ptr noundef nonnull %.sink77) #43
   br label %_ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43
 
 _ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43: ; preds = %_ZNSt6vectorIN6duckdb12BlockPointerESaIS1_EED2Ev.exit43.sink.split, %139, %45

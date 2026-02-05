@@ -279,10 +279,10 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br label %127
 
 127:                                              ; preds = %try_lcs.exit.i, %.lr.ph.i
-  %.sroa.0.2 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.5, %try_lcs.exit.i ]
-  %.sroa.6.2 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.6.5, %try_lcs.exit.i ]
-  %.sroa.9.2 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.9.5, %try_lcs.exit.i ]
-  %.sroa.11.2 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.11.5, %try_lcs.exit.i ]
+  %.sroa.0.1 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.4, %try_lcs.exit.i ]
+  %.sroa.6.1 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.6.4, %try_lcs.exit.i ]
+  %.sroa.9.1 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.9.4, %try_lcs.exit.i ]
+  %.sroa.11.1 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.11.4, %try_lcs.exit.i ]
   %.01858.i = phi i32 [ %.050117, %.lr.ph.i ], [ %.0110.lcssa.i.i, %try_lcs.exit.i ]
   %.promoted172.i5457.i = phi i32 [ %111, %.lr.ph.i ], [ %.promoted172.i53.i, %try_lcs.exit.i ]
   %128 = add nsw i32 %.01858.i, 1
@@ -308,10 +308,10 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br label %142
 
 142:                                              ; preds = %.thread.i.i, %.lr.ph170.i.i
-  %.sroa.0.3 = phi i32 [ %.sroa.0.2, %.lr.ph170.i.i ], [ %.sroa.0.4, %.thread.i.i ]
-  %.sroa.6.3 = phi i32 [ %.sroa.6.2, %.lr.ph170.i.i ], [ %.sroa.6.4, %.thread.i.i ]
-  %.sroa.9.3 = phi i32 [ %.sroa.9.2, %.lr.ph170.i.i ], [ %.sroa.9.4, %.thread.i.i ]
-  %.sroa.11.3 = phi i32 [ %.sroa.11.2, %.lr.ph170.i.i ], [ %.sroa.11.4, %.thread.i.i ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %.lr.ph170.i.i ], [ %.sroa.0.3, %.thread.i.i ]
+  %.sroa.6.2 = phi i32 [ %.sroa.6.1, %.lr.ph170.i.i ], [ %.sroa.6.3, %.thread.i.i ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.1, %.lr.ph170.i.i ], [ %.sroa.9.3, %.thread.i.i ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.1, %.lr.ph170.i.i ], [ %.sroa.11.3, %.thread.i.i ]
   %.promoted172.i52.i = phi i32 [ %.promoted172.i5457.i, %.lr.ph170.i.i ], [ %.promoted172.i49.i, %.thread.i.i ]
   %143 = phi i32 [ %.promoted.i, %.lr.ph170.i.i ], [ %236, %.thread.i.i ]
   %144 = phi i32 [ %.promoted172.i5457.i, %.lr.ph170.i.i ], [ %237, %.thread.i.i ]
@@ -357,14 +357,14 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %167
-  %.sroa.0.6 = phi i32 [ %.sroa.0.3, %167 ], [ %.sroa.0.7, %.preheader.i.i ]
-  %.sroa.6.6 = phi i32 [ %.sroa.6.3, %167 ], [ %.sroa.6.7, %.preheader.i.i ]
-  %.sroa.9.6 = phi i32 [ %.sroa.9.3, %167 ], [ %.sroa.9.7, %.preheader.i.i ]
-  %.sroa.11.6 = phi i32 [ %.sroa.11.3, %167 ], [ %.sroa.11.7, %.preheader.i.i ]
+  %.sroa.0.5 = phi i32 [ %.sroa.0.2, %167 ], [ %.sroa.0.6, %.preheader.i.i ]
+  %.sroa.6.5 = phi i32 [ %.sroa.6.2, %167 ], [ %.sroa.6.6, %.preheader.i.i ]
+  %.sroa.9.5 = phi i32 [ %.sroa.9.2, %167 ], [ %.sroa.9.6, %.preheader.i.i ]
+  %.sroa.11.5 = phi i32 [ %.sroa.11.2, %167 ], [ %.sroa.11.6, %.preheader.i.i ]
   %.promoted172.i51.i = phi i32 [ %.promoted172.i52.i, %167 ], [ %.promoted172.i50.i, %.preheader.i.i ]
   %168 = phi i32 [ %144, %167 ], [ %227, %.preheader.i.i ]
-  %.1108.lcssa165.i.i = phi i32 [ %.sroa.0.3, %167 ], [ %.1108.lcssa164.i.i, %.preheader.i.i ]
-  %169 = phi i32 [ %.sroa.6.3, %167 ], [ %228, %.preheader.i.i ]
+  %.1108.lcssa165.i.i = phi i32 [ %.sroa.0.2, %167 ], [ %.1108.lcssa164.i.i, %.preheader.i.i ]
+  %169 = phi i32 [ %.sroa.6.2, %167 ], [ %228, %.preheader.i.i ]
   %.2112.i.i = phi i32 [ %.0110168.i.i, %167 ], [ %spec.select.i.i, %.preheader.i.i ]
   %.0107.i.i = phi i32 [ %160, %167 ], [ %.0102.i.i, %.preheader.i.i ]
   %170 = sub i32 %.0107.i.i, %125
@@ -510,10 +510,10 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br label %226
 
 226:                                              ; preds = %225, %.critedge2.i.i
-  %.sroa.0.7 = phi i32 [ %.1108.lcssa.i.i, %225 ], [ %.sroa.0.6, %.critedge2.i.i ]
-  %.sroa.6.7 = phi i32 [ %.0106.lcssa.i.i, %225 ], [ %.sroa.6.6, %.critedge2.i.i ]
-  %.sroa.9.7 = phi i32 [ %.0105.lcssa.i.i, %225 ], [ %.sroa.9.6, %.critedge2.i.i ]
-  %.sroa.11.7 = phi i32 [ %.0104.lcssa.i.i, %225 ], [ %.sroa.11.6, %.critedge2.i.i ]
+  %.sroa.0.6 = phi i32 [ %.1108.lcssa.i.i, %225 ], [ %.sroa.0.5, %.critedge2.i.i ]
+  %.sroa.6.6 = phi i32 [ %.0106.lcssa.i.i, %225 ], [ %.sroa.6.5, %.critedge2.i.i ]
+  %.sroa.9.6 = phi i32 [ %.0105.lcssa.i.i, %225 ], [ %.sroa.9.5, %.critedge2.i.i ]
+  %.sroa.11.6 = phi i32 [ %.0104.lcssa.i.i, %225 ], [ %.sroa.11.5, %.critedge2.i.i ]
   %.promoted172.i50.i = phi i32 [ %.2.lcssa.i.i, %225 ], [ %.promoted172.i51.i, %.critedge2.i.i ]
   %227 = phi i32 [ %.2.lcssa.i.i, %225 ], [ %168, %.critedge2.i.i ]
   %.1108.lcssa164.i.i = phi i32 [ %.1108.lcssa.i.i, %225 ], [ %.1108.lcssa165.i.i, %.critedge2.i.i ]
@@ -535,10 +535,10 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %235, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !60
 
 .thread.i.i:                                      ; preds = %226, %230, %159, %149, %148
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %149 ], [ %.sroa.0.3, %148 ], [ %.sroa.0.7, %230 ], [ %.sroa.0.3, %159 ], [ %.sroa.0.7, %226 ]
-  %.sroa.6.4 = phi i32 [ %.sroa.6.3, %149 ], [ %.sroa.6.3, %148 ], [ %.sroa.6.7, %230 ], [ %.sroa.6.3, %159 ], [ %.sroa.6.7, %226 ]
-  %.sroa.9.4 = phi i32 [ %.sroa.9.3, %149 ], [ %.sroa.9.3, %148 ], [ %.sroa.9.7, %230 ], [ %.sroa.9.3, %159 ], [ %.sroa.9.7, %226 ]
-  %.sroa.11.4 = phi i32 [ %.sroa.11.3, %149 ], [ %.sroa.11.3, %148 ], [ %.sroa.11.7, %230 ], [ %.sroa.11.3, %159 ], [ %.sroa.11.7, %226 ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.2, %149 ], [ %.sroa.0.2, %148 ], [ %.sroa.0.6, %230 ], [ %.sroa.0.2, %159 ], [ %.sroa.0.6, %226 ]
+  %.sroa.6.3 = phi i32 [ %.sroa.6.2, %149 ], [ %.sroa.6.2, %148 ], [ %.sroa.6.6, %230 ], [ %.sroa.6.2, %159 ], [ %.sroa.6.6, %226 ]
+  %.sroa.9.3 = phi i32 [ %.sroa.9.2, %149 ], [ %.sroa.9.2, %148 ], [ %.sroa.9.6, %230 ], [ %.sroa.9.2, %159 ], [ %.sroa.9.6, %226 ]
+  %.sroa.11.3 = phi i32 [ %.sroa.11.2, %149 ], [ %.sroa.11.2, %148 ], [ %.sroa.11.6, %230 ], [ %.sroa.11.2, %159 ], [ %.sroa.11.6, %226 ]
   %.promoted172.i49.i = phi i32 [ %.promoted172.i52.i, %149 ], [ %.promoted172.i52.i, %148 ], [ %.promoted172.i50.i, %230 ], [ %.promoted172.i52.i, %159 ], [ %.promoted172.i50.i, %226 ]
   %236 = phi i32 [ %158, %149 ], [ %143, %148 ], [ 1, %230 ], [ %143, %159 ], [ 1, %226 ]
   %237 = phi i32 [ %144, %149 ], [ %144, %148 ], [ %227, %230 ], [ %144, %159 ], [ %227, %226 ]
@@ -549,20 +549,20 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not.i25.i, label %try_lcs.exit.i, label %142, !llvm.loop !61
 
 try_lcs.exit.i:                                   ; preds = %.thread.i.i, %127
-  %.sroa.0.5 = phi i32 [ %.sroa.0.2, %127 ], [ %.sroa.0.4, %.thread.i.i ]
-  %.sroa.6.5 = phi i32 [ %.sroa.6.2, %127 ], [ %.sroa.6.4, %.thread.i.i ]
-  %.sroa.9.5 = phi i32 [ %.sroa.9.2, %127 ], [ %.sroa.9.4, %.thread.i.i ]
-  %.sroa.11.5 = phi i32 [ %.sroa.11.2, %127 ], [ %.sroa.11.4, %.thread.i.i ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.1, %127 ], [ %.sroa.0.3, %.thread.i.i ]
+  %.sroa.6.4 = phi i32 [ %.sroa.6.1, %127 ], [ %.sroa.6.3, %.thread.i.i ]
+  %.sroa.9.4 = phi i32 [ %.sroa.9.1, %127 ], [ %.sroa.9.3, %.thread.i.i ]
+  %.sroa.11.4 = phi i32 [ %.sroa.11.1, %127 ], [ %.sroa.11.3, %.thread.i.i ]
   %.promoted172.i53.i = phi i32 [ %.promoted172.i5457.i, %127 ], [ %.promoted172.i49.i, %.thread.i.i ]
   %.0110.lcssa.i.i = phi i32 [ %128, %127 ], [ %.1111.i.i, %.thread.i.i ]
   %.not22.not.i = icmp slt i32 %.0110.lcssa.i.i, %112
   br i1 %.not22.not.i, label %127, label %._crit_edge.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %try_lcs.exit.i, %.loopexit.i
-  %.sroa.0.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.0.5, %try_lcs.exit.i ]
-  %.sroa.6.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.6.5, %try_lcs.exit.i ]
-  %.sroa.9.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.9.5, %try_lcs.exit.i ]
-  %.sroa.11.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.11.5, %try_lcs.exit.i ]
+  %.sroa.0.0 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.0.4, %try_lcs.exit.i ]
+  %.sroa.6.0 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.6.4, %try_lcs.exit.i ]
+  %.sroa.9.0 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.9.4, %try_lcs.exit.i ]
+  %.sroa.11.0 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.11.4, %try_lcs.exit.i ]
   %239 = phi i32 [ %111, %.loopexit.i ], [ %.promoted172.i53.i, %try_lcs.exit.i ]
   %240 = load i32, ptr %23, align 4, !tbaa !57
   %.not23.i = icmp ne i32 %240, 0
@@ -572,10 +572,10 @@ try_lcs.exit.i:                                   ; preds = %.thread.i.i, %127
   br label %find_lcs.exit
 
 find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %98, %43, %48, %51, %53, %._crit_edge.i
-  %.sroa.0.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.0.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
-  %.sroa.6.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.6.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
-  %.sroa.9.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.9.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
-  %.sroa.11.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.11.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.0.7 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.0.0, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.6.7 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.6.0, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.9.7 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.9.0, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.11.7 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.11.0, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
   %.0.i = phi i32 [ -1, %43 ], [ -1, %48 ], [ -1, %51 ], [ -1, %53 ], [ %spec.select.i, %._crit_edge.i ], [ -1, %98 ], [ -1, %._crit_edge.i.i ]
   %242 = load ptr, ptr %8, align 8, !tbaa !35
   call void @free(ptr noundef %242) #6
@@ -604,8 +604,8 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   br label %.loopexit
 
 251:                                              ; preds = %246
-  %252 = icmp eq i32 %.sroa.0.8, 0
-  %253 = icmp eq i32 %.sroa.9.8, 0
+  %252 = icmp eq i32 %.sroa.0.7, 0
+  %253 = icmp eq i32 %.sroa.9.7, 0
   %or.cond4 = select i1 %252, i1 %253, i1 false
   br i1 %or.cond4, label %.preheader75, label %268
 
@@ -644,20 +644,20 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   br i1 %.not68, label %.loopexit, label %263, !llvm.loop !68
 
 268:                                              ; preds = %251
-  %269 = sub i32 %.sroa.0.8, %.056115
-  %270 = sub i32 %.sroa.9.8, %.050117
+  %269 = sub i32 %.sroa.0.7, %.056115
+  %270 = sub i32 %.sroa.9.7, %.050117
   %271 = call fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 noundef %.056115, i32 noundef %269, i32 noundef %.050117, i32 noundef %270)
   %.not66 = icmp eq i32 %271, 0
   br i1 %.not66, label %272, label %.loopexit
 
 272:                                              ; preds = %268
-  %273 = xor i32 %.sroa.6.8, -1
+  %273 = xor i32 %.sroa.6.7, -1
   %274 = add i32 %25, %273
-  %275 = add i32 %.sroa.6.8, 1
+  %275 = add i32 %.sroa.6.7, 1
   %276 = add nsw i32 %.049118, %.050117
-  %277 = xor i32 %.sroa.11.8, -1
+  %277 = xor i32 %.sroa.11.7, -1
   %278 = add i32 %276, %277
-  %279 = add i32 %.sroa.11.8, 1
+  %279 = add i32 %.sroa.11.7, 1
   %280 = icmp slt i32 %274, 1
   %281 = icmp slt i32 %278, 1
   %or.cond = select i1 %280, i1 %281, i1 false

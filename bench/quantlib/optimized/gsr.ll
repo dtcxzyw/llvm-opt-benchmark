@@ -11437,7 +11437,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
-  %add.ptr.i.i.i59 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i56 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -11461,15 +11461,15 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
-  %add.ptr.i.i.i61 = phi ptr [ %add.ptr.i.i.i59, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %cond.i.i.i.i60 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i4, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i58 = phi ptr [ %add.ptr.i.i.i56, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %cond.i.i.i.i57 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i4, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26PiecewiseConstantParameter4ImplE, i64 16), ptr %call2, align 8, !tbaa !14
   %times_.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
-  store ptr %cond.i.i.i.i60, ptr %times_.i, align 8, !tbaa !61
+  store ptr %cond.i.i.i.i57, ptr %times_.i, align 8, !tbaa !61
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
-  store ptr %add.ptr.i.i.i61, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !59
+  store ptr %add.ptr.i.i.i58, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !59
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
-  store ptr %add.ptr.i.i.i61, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !74
+  store ptr %add.ptr.i.i.i58, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !74
   store ptr %call2, ptr %agg.tmp, align 8, !tbaa !134
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !16
@@ -11572,8 +11572,8 @@ cleanup.action:                                   ; preds = %_ZNSt16allocator_tr
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad.i.body, %lpad.i8, %cleanup.action
-  %.pn.pn64 = phi { ptr, i32 } [ %16, %cleanup.action ], [ %5, %lpad.i.body ], [ %15, %lpad.i8 ]
-  resume { ptr, i32 } %.pn.pn64
+  %.pn.pn61 = phi { ptr, i32 } [ %16, %cleanup.action ], [ %5, %lpad.i.body ], [ %15, %lpad.i8 ]
+  resume { ptr, i32 } %.pn.pn61
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

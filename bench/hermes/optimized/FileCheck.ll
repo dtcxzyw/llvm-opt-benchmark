@@ -2593,8 +2593,8 @@ _ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit: ; preds = %for.body
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i.i, align 4
   %35 = load i64, ptr %0, align 8
-  %cmp.i31.not95.i587 = icmp eq i64 %35, 0
-  br i1 %cmp.i31.not95.i587, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit.thread, label %while.body.preheader.i.lr.ph
+  %cmp.i31.not89.i587 = icmp eq i64 %35, 0
+  br i1 %cmp.i31.not89.i587, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit.thread, label %while.body.preheader.i.lr.ph
 
 while.body.preheader.i.lr.ph:                     ; preds = %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit
   %36 = getelementptr inbounds nuw i8, ptr %UsedPrefix, i64 8
@@ -2845,9 +2845,9 @@ while.body.i.i:                                   ; preds = %switch.early.test.i
 
 _ZL8SkipWordN4llvh9StringRefEm.exit.i:            ; preds = %while.body.i.i, %switch.early.test.i.i, %if.end18.i
   %Loc.addr.0.lcssa.i.i = phi i64 [ %retval.sroa.7.0.copyload.i, %if.end18.i ], [ %Loc.addr.05.i.i, %switch.early.test.i.i ], [ %sub.i.i65.i, %while.body.i.i ]
-  %.sroa.speculated82.i = call i64 @llvm.umin.i64(i64 %sub.i.i65.i, i64 %Loc.addr.0.lcssa.i.i)
-  %add.ptr.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i63.i, i64 %.sroa.speculated82.i
-  %sub.i.i.i = sub i64 %sub.i.i65.i, %.sroa.speculated82.i
+  %.sroa.speculated76.i = call i64 @llvm.umin.i64(i64 %sub.i.i65.i, i64 %Loc.addr.0.lcssa.i.i)
+  %add.ptr.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i63.i, i64 %.sroa.speculated76.i
+  %sub.i.i.i = sub i64 %sub.i.i65.i, %.sroa.speculated76.i
   store ptr %add.ptr.i.i.i94, ptr %Buffer, align 8
   store i64 %sub.i.i.i, ptr %0, align 8
   %cmp.i31.not.i = icmp eq i64 %sub.i.i.i, 0
@@ -2856,8 +2856,8 @@ _ZL8SkipWordN4llvh9StringRefEm.exit.i:            ; preds = %while.body.i.i, %sw
 cleanup.i:                                        ; preds = %if.end.i.i, %if.end.i.i.i, %if.end.i359.i.i, %if.end.i368.i.i, %if.end.i377.i.i, %if.end.i386.i.i, %if.end.i395.i.i, %if.end.i404.i.i, %if.end.i413.i.i, %if.end.i422.i.i, %if.end.i431.i.i, %if.end.i440.i.i, %if.end.i449.i.i, %if.end.i458.i.i, %if.end.i467.i.i, %_ZL8SkipWordN4llvh9StringRefEm.exit.i, %while.body.i
   %CheckTy.2 = phi i32 [ %CheckTy.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %CheckTy.1, %while.body.i ], [ 9, %if.end.i404.i.i ], [ 9, %if.end.i413.i.i ], [ 9, %if.end.i422.i.i ], [ 9, %if.end.i431.i.i ], [ 9, %if.end.i440.i.i ], [ 9, %if.end.i449.i.i ], [ 9, %if.end.i458.i.i ], [ 9, %if.end.i467.i.i ], [ 7, %if.end.i395.i.i ], [ 6, %if.end.i386.i.i ], [ 5, %if.end.i377.i.i ], [ 4, %if.end.i368.i.i ], [ 3, %if.end.i359.i.i ], [ 2, %if.end.i.i.i ], [ 1, %if.end.i.i ]
   %LineNumber.2 = phi i32 [ %LineNumber.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %LineNumber.1, %while.body.i ], [ %LineNumber.4, %if.end.i404.i.i ], [ %LineNumber.4, %if.end.i413.i.i ], [ %LineNumber.4, %if.end.i422.i.i ], [ %LineNumber.4, %if.end.i431.i.i ], [ %LineNumber.4, %if.end.i440.i.i ], [ %LineNumber.4, %if.end.i449.i.i ], [ %LineNumber.4, %if.end.i458.i.i ], [ %LineNumber.4, %if.end.i467.i.i ], [ %LineNumber.4, %if.end.i395.i.i ], [ %LineNumber.4, %if.end.i386.i.i ], [ %LineNumber.4, %if.end.i377.i.i ], [ %LineNumber.4, %if.end.i368.i.i ], [ %LineNumber.4, %if.end.i359.i.i ], [ %LineNumber.4, %if.end.i.i.i ], [ %LineNumber.4, %if.end.i.i ]
-  %retval.sroa.7.1.i = phi i64 [ 0, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ 0, %while.body.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i ]
-  %retval.sroa.0.1.i = phi ptr [ null, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ null, %while.body.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i ]
+  %retval.sroa.7.0.i = phi i64 [ 0, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ 0, %while.body.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ null, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ null, %while.body.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i ]
   %cmp.i.i.i.i = icmp eq ptr %.pre.pre.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit, label %if.then.i.i.i89
 
@@ -2867,16 +2867,16 @@ if.then.i.i.i89:                                  ; preds = %cleanup.i
 
 _ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit: ; preds = %cleanup.i, %if.then.i.i.i89
   call void @llvm.lifetime.end.p0(ptr nonnull %Matches.i)
-  store ptr %retval.sroa.0.1.i, ptr %UsedPrefix, align 8
-  store i64 %retval.sroa.7.1.i, ptr %36, align 8
-  %cmp.i = icmp eq i64 %retval.sroa.7.1.i, 0
+  store ptr %retval.sroa.0.0.i, ptr %UsedPrefix, align 8
+  store i64 %retval.sroa.7.0.i, ptr %36, align 8
+  %cmp.i = icmp eq i64 %retval.sroa.7.0.i, 0
   br i1 %cmp.i, label %while.end, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit
   %60 = zext nneg i32 %CheckTy.2 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE, i64 %60
   %switch.load = load i64, ptr %switch.gep, align 8
-  %add = add i64 %switch.load, %retval.sroa.7.1.i
+  %add = add i64 %switch.load, %retval.sroa.7.0.i
   %61 = load i64, ptr %0, align 8
   %.sroa.speculated562 = call i64 @llvm.umin.i64(i64 %61, i64 %add)
   %62 = load ptr, ptr %Buffer, align 8
@@ -2980,7 +2980,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit157:               ; preds = %land.lhs.true68
   store i8 2, ptr %LHSKind5.i.i.i150, align 8, !alias.scope !79
   store i8 3, ptr %RHSKind6.i.i.i151, align 1, !alias.scope !79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp78, i8 0, i64 16, i1 false)
-  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %retval.sroa.0.1.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp74, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvh::ArrayRef.24") align 8 %agg.tmp78, i1 noundef zeroext true) #18
+  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %retval.sroa.0.0.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp74, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvh::ArrayRef.24") align 8 %agg.tmp78, i1 noundef zeroext true) #18
   br label %cleanup
 
 if.end80:                                         ; preds = %if.end66
@@ -3036,7 +3036,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit323:               ; preds = %land.lhs.true87
   store i8 2, ptr %LHSKind.i.i.i321, align 8, !alias.scope !107
   store i8 3, ptr %RHSKind.i.i.i322, align 1, !alias.scope !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp108, i8 0, i64 16, i1 false)
-  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %retval.sroa.0.1.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp96, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvh::ArrayRef.24") align 8 %agg.tmp108, i1 noundef zeroext true) #18
+  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %retval.sroa.0.0.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp96, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvh::ArrayRef.24") align 8 %agg.tmp108, i1 noundef zeroext true) #18
   br label %cleanup
 
 if.end110:                                        ; preds = %if.end80, %land.lhs.true87
@@ -3135,8 +3135,8 @@ while.cond.backedge:                              ; preds = %_ZN4llvh16FileCheck
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i.i, align 4
   %95 = load i64, ptr %0, align 8
-  %cmp.i31.not95.i = icmp eq i64 %95, 0
-  br i1 %cmp.i31.not95.i, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit.thread, label %while.body.preheader.i, !llvm.loop !112
+  %cmp.i31.not89.i = icmp eq i64 %95, 0
+  br i1 %cmp.i31.not89.i, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit.thread, label %while.body.preheader.i, !llvm.loop !112
 
 while.end:                                        ; preds = %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit, %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit.thread
   %96 = load ptr, ptr %DagNotMatches, align 8
@@ -4930,16 +4930,16 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_ZNK4llvh9StringRef5splitEc.exit
 
 _ZNK4llvh9StringRef5splitEc.exit:                 ; preds = %if.then.i.i, %if.end.i.i
-  %agg.tmp.sroa.4.1 = phi ptr [ null, %if.then.i.i ], [ %add.ptr.i.i.i, %if.end.i.i ]
-  %agg.tmp.sroa.6.1 = phi i64 [ 0, %if.then.i.i ], [ %sub.i.i.i, %if.end.i.i ]
+  %agg.tmp.sroa.4.0 = phi ptr [ null, %if.then.i.i ], [ %add.ptr.i.i.i, %if.end.i.i ]
+  %agg.tmp.sroa.6.0 = phi i64 [ 0, %if.then.i.i ], [ %sub.i.i.i, %if.end.i.i ]
   %agg.tmp.sroa.3.0 = phi i64 [ %agg.tmp.sroa.3.0.copyload63, %if.then.i.i ], [ %3, %if.end.i.i ]
   %agg.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.0.copyload62, %if.then.i.i ], [ %4, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %Separator.addr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp29)
   store ptr %agg.tmp.sroa.0.0, ptr %agg.tmp29, align 8
   store i64 %agg.tmp.sroa.3.0, ptr %agg.tmp.sroa.3.0.agg.tmp29.sroa_idx, align 8
-  store ptr %agg.tmp.sroa.4.1, ptr %agg.tmp.sroa.4.0.agg.tmp29.sroa_idx, align 8
-  store i64 %agg.tmp.sroa.6.1, ptr %agg.tmp.sroa.6.0.agg.tmp29.sroa_idx, align 8
+  store ptr %agg.tmp.sroa.4.0, ptr %agg.tmp.sroa.4.0.agg.tmp29.sroa_idx, align 8
+  store i64 %agg.tmp.sroa.6.0, ptr %agg.tmp.sroa.6.0.agg.tmp29.sroa_idx, align 8
   %call.i30 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringRefENS_15MallocAllocatorEE11try_emplaceIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbES1_DpOT_(ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr %agg.tmp.sroa.0.0, i64 %agg.tmp.sroa.3.0, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0.agg.tmp29.sroa_idx)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp29)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.099, i64 32
@@ -5149,11 +5149,11 @@ if.end29:                                         ; preds = %_ZL14ClearLocalVars
 for.body32:                                       ; preds = %if.end29, %if.end40
   %i.1105 = phi i32 [ %inc45, %if.end40 ], [ %i.0.ph, %if.end29 ]
   %CheckRegion.sroa.6.1104 = phi i64 [ %sub.i, %if.end40 ], [ %CheckRegion.sroa.6.0, %if.end29 ]
-  %CheckRegion.sroa.0.2103 = phi ptr [ %add.ptr.i, %if.end40 ], [ %Buffer.sroa.0.0.ph, %if.end29 ]
+  %CheckRegion.sroa.0.1103 = phi ptr [ %add.ptr.i, %if.end40 ], [ %Buffer.sroa.0.0.ph, %if.end29 ]
   %conv33 = zext i32 %i.1105 to i64
   %arrayidx.i46 = getelementptr inbounds nuw %"struct.llvh::FileCheckString", ptr %CheckStrings.coerce0, i64 %conv33
   store i64 0, ptr %MatchLen, align 8
-  %call37 = call noundef i64 @_ZNK4llvh15FileCheckString5CheckERKNS_9SourceMgrENS_9StringRefEbRmRNS_9StringMapIS4_NS_15MallocAllocatorEEERNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(184) %arrayidx.i46, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %CheckRegion.sroa.0.2103, i64 %CheckRegion.sroa.6.1104, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %MatchLen, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr noundef nonnull align 8 dereferenceable(86) %this)
+  %call37 = call noundef i64 @_ZNK4llvh15FileCheckString5CheckERKNS_9SourceMgrENS_9StringRefEbRmRNS_9StringMapIS4_NS_15MallocAllocatorEEERNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(184) %arrayidx.i46, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %CheckRegion.sroa.0.1103, i64 %CheckRegion.sroa.6.1104, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %MatchLen, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr noundef nonnull align 8 dereferenceable(86) %this)
   %cmp38 = icmp eq i64 %call37, -1
   br i1 %cmp38, label %for.end46, label %if.end40
 
@@ -5161,7 +5161,7 @@ if.end40:                                         ; preds = %for.body32
   %26 = load i64, ptr %MatchLen, align 8
   %add42 = add i64 %26, %call37
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %CheckRegion.sroa.6.1104, i64 %add42)
-  %add.ptr.i = getelementptr inbounds i8, ptr %CheckRegion.sroa.0.2103, i64 %.sroa.speculated
+  %add.ptr.i = getelementptr inbounds i8, ptr %CheckRegion.sroa.0.1103, i64 %.sroa.speculated
   %sub.i = sub i64 %CheckRegion.sroa.6.1104, %.sroa.speculated
   %inc45 = add i32 %i.1105, 1
   %cmp31.not = icmp eq i32 %inc45, %j.1

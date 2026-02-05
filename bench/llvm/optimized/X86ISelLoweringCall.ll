@@ -7829,9 +7829,9 @@ _ZL18shouldGuaranteeTCOjb.exit.thread:            ; preds = %382, %382, %382, %3
   %424 = getelementptr inbounds nuw i8, ptr %400, i64 320
   %425 = load i32, ptr %424, align 8
   %426 = icmp slt i32 %425, 1
-  %or.cond11.not.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %426
-  %.sroa.0.0.i.i.i = select i1 %or.cond11.not.i.i.i, ptr null, ptr @_ZZNK4llvm17X86TargetLowering9LowerCallERNS_14TargetLowering16CallLoweringInfoERNS_15SmallVectorImplINS_7SDValueEEEE10XMMArgRegs
-  %.sroa.6.0.i.i.i = select i1 %or.cond11.not.i.i.i, i64 0, i64 8
+  %or.cond5.not.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %426
+  %.sroa.0.0.i.i.i = select i1 %or.cond5.not.i.i.i, ptr null, ptr @_ZZNK4llvm17X86TargetLowering9LowerCallERNS_14TargetLowering16CallLoweringInfoERNS_15SmallVectorImplINS_7SDValueEEEE10XMMArgRegs
+  %.sroa.6.0.i.i.i = select i1 %or.cond5.not.i.i.i, i64 0, i64 8
   %427 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %428 = load ptr, ptr %427, align 8, !tbaa !582
   br label %429
@@ -7859,7 +7859,7 @@ _ZL18shouldGuaranteeTCOjb.exit.thread:            ; preds = %382, %382, %382, %3
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i.i: ; preds = %440, %429
   %.1.i.in.i.i = phi i64 [ %spec.select.i.i.i443, %440 ], [ %indvars.iv.i.i, %429 ]
   %.1.i.i.i445 = trunc i64 %.1.i.in.i.i to i32
-  br i1 %or.cond11.not.i.i.i, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit152.i.i, label %.lr.ph.i147.i.i
+  br i1 %or.cond5.not.i.i.i, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit152.i.i, label %.lr.ph.i147.i.i
 
 .lr.ph.i147.i.i:                                  ; preds = %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i.i, %451
   %indvars.iv265.i.i = phi i64 [ %indvars.iv.next266.i.i, %451 ], [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i.i ]
@@ -8464,8 +8464,8 @@ _ZN12_GLOBAL__N_121VarArgsLoweringHelper33createVarArgAreaAndStoreRegistersERN4l
   %699 = getelementptr inbounds nuw i8, ptr %400, i64 616
   %700 = load i32, ptr %699, align 8
   %701 = icmp ult i32 %700, 512
-  %or.cond5.not.i.i.i = select i1 %698, i1 %701, i1 false
-  br i1 %or.cond5.not.i.i.i, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i
+  %or.cond5.not.i.i17.i = select i1 %698, i1 %701, i1 false
+  br i1 %or.cond5.not.i.i17.i, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i, label %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i
 
 _ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i: ; preds = %695
   %702 = getelementptr inbounds nuw i8, ptr %400, i64 620
@@ -8475,8 +8475,8 @@ _ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i: ; preds = %695
 
 _ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i: ; preds = %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i, %695
   %705 = getelementptr i8, ptr %400, i64 477
-  %.val.val.i17.i = load i8, ptr %705, align 1, !tbaa !152, !range !153, !noundef !154
-  %706 = trunc nuw i8 %.val.val.i17.i to i1
+  %.val.val.i18.i = load i8, ptr %705, align 1, !tbaa !152, !range !153, !noundef !154
+  %706 = trunc nuw i8 %.val.val.i18.i to i1
   br i1 %706, label %_ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit.i.i, label %707
 
 707:                                              ; preds = %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i

@@ -1037,7 +1037,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJEEENS_14FunctionCalleeENS_9StringRefENS_13
 
 361:                                              ; preds = %326
   %.sroa.0.0.copyload.i21.i.i = load i16, ptr %267, align 1
-  %.sroa.021.0.extract.trunc.i.i.i.i = zext i16 %.sroa.0.0.copyload.i21.i.i to i64
+  %.sroa.015.0.extract.trunc.i.i.i.i = zext i16 %.sroa.0.0.copyload.i21.i.i to i64
   br i1 %331, label %_ZL10InsertTrapR9BuilderTybSt8optionalIaE.exit.thread.i.i.i, label %363
 
 _ZL10InsertTrapR9BuilderTybSt8optionalIaE.exit.thread.i.i.i: ; preds = %361
@@ -1056,7 +1056,7 @@ _ZL10InsertTrapR9BuilderTybSt8optionalIaE.exit.thread.i.i.i: ; preds = %361
   br i1 %.not.i.i22.i.i, label %368, label %_ZNRSt8optionalIaE5valueEv.exit.i.i.i.i
 
 _ZNRSt8optionalIaE5valueEv.exit.i.i.i.i:          ; preds = %363
-  %sext.i.i.i.i = shl i64 %.sroa.021.0.extract.trunc.i.i.i.i, 56
+  %sext.i.i.i.i = shl i64 %.sroa.015.0.extract.trunc.i.i.i.i, 56
   %367 = ashr exact i64 %sext.i.i.i.i, 56
   br label %_ZL10InsertTrapR9BuilderTybSt8optionalIaE.exit.thread42.i.i.i
 

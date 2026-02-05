@@ -7007,8 +7007,8 @@ define dso_local void @_ZN5clang14ObjCMethodDecl15setMethodParamsERNS_10ASTConte
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 512
-  %.not52 = icmp eq i32 %9, 0
-  br i1 %.not52, label %37, label %10
+  %.not48 = icmp eq i32 %9, 0
+  br i1 %.not48, label %37, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96

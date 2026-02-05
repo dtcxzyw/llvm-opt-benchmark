@@ -17489,7 +17489,7 @@ _ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit: ; preds = %_ZN7xgboost13Batc
 
 ._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge:    ; preds = %125
   %.pre = load ptr, ptr %8, align 8, !tbaa !488
-  %.pre74 = load ptr, ptr %6, align 8, !tbaa !285
+  %.pre71 = load ptr, ptr %6, align 8, !tbaa !285
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 127:                                              ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit
@@ -17506,10 +17506,10 @@ _ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit: ; preds = %_ZN7xgboost13Batc
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge, %127, %129, %131
-  %132 = phi ptr [ %.pre74, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %119, %127 ], [ %119, %129 ], [ %119, %131 ]
+  %132 = phi ptr [ %.pre71, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %119, %127 ], [ %119, %129 ], [ %119, %131 ]
   %133 = phi ptr [ %.pre, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %118, %127 ], [ %118, %129 ], [ %130, %131 ]
-  %.not72 = icmp eq ptr %133, %132
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not69 = icmp eq ptr %133, %132
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 134:                                              ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   %135 = landingpad { ptr, i32 }
@@ -17538,8 +17538,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 
 _ZNK7xgboost10SparsePage7GetViewEv.exit:          ; preds = %.noexc52
   %146 = load ptr, ptr %145, align 8, !tbaa !493, !noalias !490
-  %.fr71 = freeze ptr %146
-  %.not = icmp eq ptr %.fr71, null
+  %.fr68 = freeze ptr %146
+  %.not = icmp eq ptr %.fr68, null
   br i1 %.not, label %_ZNK7xgboost10SparsePage7GetViewEv.exit.split, label %_ZNK7xgboost10SparsePage7GetViewEv.exit.split.us
 
 _ZNK7xgboost10SparsePage7GetViewEv.exit.split.us: ; preds = %_ZNK7xgboost10SparsePage7GetViewEv.exit, %154
@@ -17661,7 +17661,7 @@ _ZNK7xgboost10SparsePage4SizeEv.exit.thread:      ; preds = %.noexc54.us, %_ZNK7
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %202
   %191 = phi i64 [ %212, %202 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %.01970 = phi i32 [ %211, %202 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
+  %.01967 = phi i32 [ %211, %202 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %192 = load ptr, ptr %1, align 8, !tbaa !50
   %193 = load ptr, ptr %192, align 8
   %194 = invoke noundef nonnull align 8 dereferenceable(233) ptr %193(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -17686,7 +17686,7 @@ _ZNK7xgboost10SparsePage4SizeEv.exit.thread:      ; preds = %.noexc54.us, %_ZNK7
   %209 = load ptr, ptr %6, align 8, !tbaa !285
   %210 = getelementptr inbounds nuw float, ptr %209, i64 %191
   store float %208, ptr %210, align 4, !tbaa !105
-  %211 = add i32 %.01970, 1
+  %211 = add i32 %.01967, 1
   %212 = zext i32 %211 to i64
   %213 = load ptr, ptr %8, align 8, !tbaa !488
   %214 = ptrtoint ptr %213 to i64
@@ -24888,15 +24888,15 @@ _ZN7xgboost4tree8ColMaker9NodeEntryD2Ev.exit42:   ; preds = %139, %142
 
 152:                                              ; preds = %.lr.ph69, %152
   %.sroa.047.067 = phi ptr [ %105, %.lr.ph69 ], [ %160, %152 ]
-  %.sroa.6.166 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %159, %152 ]
-  %.sroa.050.165 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %156, %152 ]
+  %.sroa.6.066 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %159, %152 ]
+  %.sroa.050.065 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %156, %152 ]
   %153 = load ptr, ptr %.sroa.047.067, align 8, !tbaa !605
   %154 = getelementptr inbounds nuw %"struct.xgboost::tree::ColMaker::ThreadEntry", ptr %153, i64 %149
   %155 = load double, ptr %154, align 8, !tbaa !751
-  %156 = fadd double %.sroa.050.165, %155
+  %156 = fadd double %.sroa.050.065, %155
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load double, ptr %157, align 8, !tbaa !752
-  %159 = fadd double %.sroa.6.166, %158
+  %159 = fadd double %.sroa.6.066, %158
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.047.067, i64 24
   %.not61 = icmp eq ptr %160, %106
   br i1 %.not61, label %._crit_edge70, label %152

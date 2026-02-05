@@ -560,8 +560,8 @@ _ZNK4llvm9StringRef5splitEc.exit.thread:          ; preds = %15
   br label %_ZNK4llvm9StringRef5splitEc.exit15
 
 _ZNK4llvm9StringRef5splitEc.exit15:               ; preds = %33, %34
-  %.sroa.10.1 = phi ptr [ null, %33 ], [ %38, %34 ]
-  %.sroa.13.1 = phi i64 [ 0, %33 ], [ %39, %34 ]
+  %.sroa.10.0 = phi ptr [ null, %33 ], [ %38, %34 ]
+  %.sroa.13.0 = phi i64 [ 0, %33 ], [ %39, %34 ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %33 ], [ %.sroa.speculated.i.i.i11, %34 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %33 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -598,10 +598,10 @@ _ZNK4llvm9StringRef5splitEc.exit15:               ; preds = %33, %34
   br label %55
 
 52:                                               ; preds = %44
-  store ptr %.sroa.10.1, ptr %8, align 8, !tbaa !35
-  store i64 %.sroa.13.1, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !34
+  store ptr %.sroa.10.0, ptr %8, align 8, !tbaa !35
+  store i64 %.sroa.13.0, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %53 = icmp eq i64 %.sroa.13.1, 0
+  %53 = icmp eq i64 %.sroa.13.0, 0
   br i1 %53, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %52

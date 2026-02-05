@@ -1676,7 +1676,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i: ; preds = %70, %_ZSt27_
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %71, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 %44
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %.pre58 = ptrtoint ptr %64 to i64
+  %.pre55 = ptrtoint ptr %64 to i64
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 75:                                               ; preds = %42
@@ -1690,7 +1690,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %71, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %77, %75, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %57, %53
-  %.pre-phi = phi i64 [ %34, %77 ], [ %34, %75 ], [ %.pre58, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %34, %57 ], [ %34, %53 ]
+  %.pre-phi = phi i64 [ %34, %77 ], [ %34, %75 ], [ %.pre55, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %34, %57 ], [ %34, %53 ]
   %.sroa.22.4 = phi ptr [ %.sroa.22.3, %77 ], [ %.sroa.22.3, %75 ], [ %74, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.22.3, %57 ], [ %.sroa.22.3, %53 ]
   %.sroa.15.0 = phi ptr [ %spec.select, %77 ], [ %.0.i.i.i.i.i, %75 ], [ %73, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %58, %57 ], [ %54, %53 ]
   %.sroa.041.4 = phi ptr [ %.sroa.041.3, %77 ], [ %.sroa.041.3, %75 ], [ %64, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.041.3, %57 ], [ %.sroa.041.3, %53 ]
@@ -1775,13 +1775,13 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit._crit_edge:    ; preds = %_ZNSt6vectorIcSaIcE
 
 105:                                              ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %.sroa.041.1, i64 %89, i1 false)
-  %.pre56 = load i64, ptr %6, align 8, !tbaa !23
-  %.pre57 = load ptr, ptr %0, align 8, !tbaa !24
+  %.pre53 = load i64, ptr %6, align 8, !tbaa !23
+  %.pre54 = load ptr, ptr %0, align 8, !tbaa !24
   br label %106
 
 106:                                              ; preds = %105, %._crit_edge.i.i
-  %107 = phi ptr [ %.pre57, %105 ], [ %99, %._crit_edge.i.i ]
-  %108 = phi i64 [ %.pre56, %105 ], [ %98, %._crit_edge.i.i ]
+  %107 = phi ptr [ %.pre54, %105 ], [ %99, %._crit_edge.i.i ]
+  %108 = phi i64 [ %.pre53, %105 ], [ %98, %._crit_edge.i.i ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %108, ptr %109, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 %108
@@ -2010,7 +2010,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i: ; preds = %70, %_ZSt27_
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %71, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 %44
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %.pre58 = ptrtoint ptr %64 to i64
+  %.pre55 = ptrtoint ptr %64 to i64
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 75:                                               ; preds = %42
@@ -2024,7 +2024,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %71, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %77, %75, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %57, %53
-  %.pre-phi = phi i64 [ %34, %77 ], [ %34, %75 ], [ %.pre58, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %34, %57 ], [ %34, %53 ]
+  %.pre-phi = phi i64 [ %34, %77 ], [ %34, %75 ], [ %.pre55, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %34, %57 ], [ %34, %53 ]
   %.sroa.22.4 = phi ptr [ %.sroa.22.3, %77 ], [ %.sroa.22.3, %75 ], [ %74, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.22.3, %57 ], [ %.sroa.22.3, %53 ]
   %.sroa.15.0 = phi ptr [ %spec.select, %77 ], [ %.0.i.i.i.i.i, %75 ], [ %73, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %58, %57 ], [ %54, %53 ]
   %.sroa.041.4 = phi ptr [ %.sroa.041.3, %77 ], [ %.sroa.041.3, %75 ], [ %64, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.041.3, %57 ], [ %.sroa.041.3, %53 ]
@@ -2109,13 +2109,13 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit._crit_edge:    ; preds = %_ZNSt6vectorIcSaIcE
 
 105:                                              ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %.sroa.041.1, i64 %89, i1 false)
-  %.pre56 = load i64, ptr %6, align 8, !tbaa !23
-  %.pre57 = load ptr, ptr %0, align 8, !tbaa !24
+  %.pre53 = load i64, ptr %6, align 8, !tbaa !23
+  %.pre54 = load ptr, ptr %0, align 8, !tbaa !24
   br label %106
 
 106:                                              ; preds = %105, %._crit_edge.i.i
-  %107 = phi ptr [ %.pre57, %105 ], [ %99, %._crit_edge.i.i ]
-  %108 = phi i64 [ %.pre56, %105 ], [ %98, %._crit_edge.i.i ]
+  %107 = phi ptr [ %.pre54, %105 ], [ %99, %._crit_edge.i.i ]
+  %108 = phi i64 [ %.pre53, %105 ], [ %98, %._crit_edge.i.i ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %108, ptr %109, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 %108

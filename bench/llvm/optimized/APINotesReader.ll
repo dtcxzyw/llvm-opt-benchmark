@@ -490,10 +490,10 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread: ; preds = %.critedge.i.i, %23, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit, %5, %3
-  %.sroa.019.0 = phi i64 [ undef, %3 ], [ 0, %5 ], [ %38, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ undef, %23 ], [ undef, %.critedge.i.i ]
-  %.sroa.320.0 = phi i8 [ 0, %3 ], [ 1, %5 ], [ 1, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ 0, %23 ], [ 0, %.critedge.i.i ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.019.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.320.0, 1
+  %.sroa.015.0 = phi i64 [ undef, %3 ], [ 0, %5 ], [ %38, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ undef, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ undef, %23 ], [ undef, %.critedge.i.i ]
+  %.sroa.316.0 = phi i8 [ 0, %3 ], [ 1, %5 ], [ 1, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i ], [ 0, %23 ], [ 0, %.critedge.i.i ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.015.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.316.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -649,7 +649,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %66
 
 66:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %32
-  %.sroa.019.0.i = phi i64 [ %65, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %32 ]
+  %.sroa.015.0.i = phi i64 [ %65, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %32 ]
   %67 = load i32, ptr %20, align 4, !tbaa !29
   %.not.i.i.not.i = icmp ult i32 %31, %67
   br i1 %.not.i.i.not.i, label %71, label %68, !prof !55
@@ -666,7 +666,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %73 = load ptr, ptr %17, align 8, !tbaa !26
   %74 = zext i32 %72 to i64
   %75 = getelementptr inbounds nuw %"class.llvm::PointerEmbeddedInt", ptr %73, i64 %74
-  store i64 %.sroa.019.0.i, ptr %75, align 1
+  store i64 %.sroa.015.0.i, ptr %75, align 1
   %76 = load i32, ptr %19, align 8, !tbaa !28
   %77 = add i32 %76, 1
   store i32 %77, ptr %19, align 8, !tbaa !28
@@ -7855,13 +7855,13 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %41
 
 41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
+  %.sroa.015.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !638
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
   store i8 0, ptr %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !638
   %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 5
-  store i32 %.sroa.019.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !638
+  store i32 %.sroa.015.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !638
   %.sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !638
   %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 1
   %.sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.1..sroa.0.i.i.1..sroa.0.i.1..sroa.0.i.1..sroa.0.1..sroa.0.1..0.copyload.i8.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !noalias !638
@@ -7932,7 +7932,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.copyload.i.i.i.i51.i.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i55.i.i, 4294967295
-  %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
+  %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.015.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %79, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %.critedge.i.i
 
@@ -8749,13 +8749,13 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %41
 
 41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
+  %.sroa.015.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !679
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
   store i8 1, ptr %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !679
   %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 5
-  store i32 %.sroa.019.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !679
+  store i32 %.sroa.015.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !679
   %.sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !679
   %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 1
   %.sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.1..sroa.0.i.i.1..sroa.0.i.1..sroa.0.i.1..sroa.0.1..sroa.0.1..0.copyload.i8.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !noalias !679
@@ -8826,7 +8826,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.copyload.i.i.i.i51.i.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i55.i.i, 8589934591
-  %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
+  %79 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.015.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %79, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %.critedge.i.i
 
@@ -9131,11 +9131,11 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %22
-  %.sroa.019.0.i = phi i32 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %22 ]
+  %.sroa.015.0.i = phi i32 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   store i32 %2, ptr %.sroa.0.i.i.i.i.i.i, align 8, !noalias !698
   %.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i, i64 4
-  store i32 %.sroa.019.0.i, ptr %.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !698
+  store i32 %.sroa.015.0.i, ptr %.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !698
   %.sroa.0.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i, i64 8
   store i8 %12, ptr %.sroa.0.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !698
   %.sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i, align 8, !noalias !698
@@ -9207,7 +9207,7 @@ _ZN5clang9api_notes12_GLOBAL__N_118VersionedTableInfoINS1_21ObjCPropertyTableInf
   %.0.copyload.i.i.i2.i37.i.i = load i8, ptr %96, align 1, !noalias !704
   %97 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %.0.copyload.i.i.i1.i.i.i = load i32, ptr %97, align 1, !noalias !704
-  %98 = icmp eq i32 %.0.copyload.i.i.i1.i.i.i, %.sroa.019.0.i
+  %98 = icmp eq i32 %.0.copyload.i.i.i1.i.i.i, %.sroa.015.0.i
   %99 = icmp eq i8 %.0.copyload.i.i.i2.i37.i.i, %12
   %100 = select i1 %98, i1 %99, i1 false
   br i1 %100, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit, label %.critedge.i.i
@@ -10459,10 +10459,10 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
+  %.sroa.015.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
   %.sroa.028.0.insert.ext = zext i32 %2 to i64
-  %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.028.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.028.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %60 = shl nuw nsw i64 %.sroa.028.0.insert.ext, 3
   %61 = add nuw nsw i64 %60, 8
   %62 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -11098,10 +11098,10 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
+  %.sroa.015.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
   %.sroa.022.0.insert.ext = zext i32 %2 to i64
-  %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.022.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.022.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %60 = shl nuw nsw i64 %.sroa.022.0.insert.ext, 3
   %61 = add nuw nsw i64 %60, 8
   %62 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -11790,12 +11790,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
+  %.sroa.015.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.047.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
-  %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.047.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.047.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %63 = shl nuw nsw i64 %.sroa.047.0.insert.ext, 3
   %64 = add nuw nsw i64 %63, 8
   %65 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -12431,12 +12431,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
+  %.sroa.015.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.037.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
-  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.037.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.037.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %63 = shl nuw nsw i64 %.sroa.037.0.insert.ext, 3
   %64 = add nuw nsw i64 %63, 8
   %65 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -13253,8 +13253,8 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit
 
 57:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i32 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
-  %58 = zext nneg i32 %.sroa.019.0.i to i64
+  %.sroa.015.0.i = phi i32 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
+  %58 = zext nneg i32 %.sroa.015.0.i to i64
   %59 = mul i64 %58, -1225172306242737336
   %60 = add i64 %59, -4650441984963589867
   %61 = lshr i64 %60, 47
@@ -13307,7 +13307,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
 
 87:                                               ; preds = %.lr.ph.i.i
   %.0.copyload.i.i.i.i37.i.i = load i32, ptr %86, align 1, !noalias !868
-  %88 = icmp eq i32 %.0.copyload.i.i.i.i37.i.i, %.sroa.019.0.i
+  %88 = icmp eq i32 %.0.copyload.i.i.i.i37.i.i, %.sroa.015.0.i
   br i1 %88, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %87, %.lr.ph.i.i
@@ -13813,7 +13813,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %43
 
 43:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %10
-  %.sroa.019.0.i = phi i32 [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %10 ]
+  %.sroa.015.0.i = phi i32 [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %10 ]
   %44 = trunc nuw i8 %4 to i1
   %45 = and i64 %3, 4294967295
   %46 = or disjoint i64 %45, 12884901888
@@ -13824,7 +13824,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
   store i8 3, ptr %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !893
   %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 5
-  store i32 %.sroa.019.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !893
+  store i32 %.sroa.015.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !893
   %.sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !893
   %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 1
   %.sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.1..sroa.0.i.i.1..sroa.0.i.1..sroa.0.i.1..sroa.0.1..sroa.0.1..0.copyload.i8.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !noalias !893
@@ -13895,7 +13895,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.copyload.i.i.i.i51.i.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   %or.cond.i.i.i20 = icmp eq i64 %.sroa.0.0.insert.insert.i55.i.i, %.sroa.026.4.insert.insert
-  %84 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
+  %84 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.015.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i20, i1 %84, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %.critedge.i.i
 
@@ -14050,12 +14050,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit
 
 67:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %28
-  %.sroa.019.0.i = phi i64 [ %62, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %28 ]
+  %.sroa.015.0.i = phi i64 [ %62, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %28 ]
   %68 = trunc nuw i8 %5 to i1
   %69 = and i64 %4, 4294967295
   %.sroa.042.0.insert.ext = select i1 %68, i64 %69, i64 4294967295
-  %.sroa.042.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.042.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.042.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.042.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %70 = shl nuw nsw i64 %.sroa.042.0.insert.ext, 3
   %71 = add nuw nsw i64 %70, 8
   %72 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -15364,12 +15364,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
+  %.sroa.015.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.037.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
-  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.037.0.insert.ext
-  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
+  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.015.0.i, %.sroa.037.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.015.0.i, 32
   %63 = shl nuw nsw i64 %.sroa.037.0.insert.ext, 3
   %64 = add nuw nsw i64 %63, 8
   %65 = xor i64 %.sroa.2.0.extract.shift.i.i, -49064778989728563
@@ -16059,7 +16059,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %42
 
 42:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %9
-  %.sroa.019.0.i = phi i32 [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %9 ]
+  %.sroa.015.0.i = phi i32 [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %9 ]
   %43 = and i64 %3, 4294967296
   %.not40 = icmp eq i64 %43, 0
   %44 = and i64 %3, 4294967295
@@ -16071,7 +16071,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
   store i8 2, ptr %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !noalias !961
   %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 5
-  store i32 %.sroa.019.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !961
+  store i32 %.sroa.015.0.i, ptr %.sroa.0.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx, align 1, !noalias !961
   %.sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !961
   %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 1
   %.sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.i.1..sroa.0.i.i.1..sroa.0.i.i.1..sroa.0.i.1..sroa.0.i.1..sroa.0.1..sroa.0.1..0.copyload.i8.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !noalias !961
@@ -16142,7 +16142,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.copyload.i.i.i.i51.i.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   %or.cond.i.i.i10 = icmp eq i64 %.sroa.0.0.insert.insert.i55.i.i, %.sroa.016.4.insert.insert
-  %83 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.019.0.i
+  %83 = icmp eq i32 %.0.copyload.i.i.i4.i.i.i, %.sroa.015.0.i
   %spec.select.i.i.i = select i1 %or.cond.i.i.i10, i1 %83, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, label %.critedge.i.i
 

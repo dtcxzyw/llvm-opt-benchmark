@@ -1044,12 +1044,12 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %93 = phi i32 [ %135, %._crit_edge ], [ %3, %.preheader.preheader ]
   %94 = phi i32 [ %136, %._crit_edge ], [ %3, %.preheader.preheader ]
-  %.01744 = phi i32 [ %137, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %.01738 = phi i32 [ %137, %._crit_edge ], [ 0, %.preheader.preheader ]
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  switch i32 %.01744, label %.lr.ph.split.split.us [
+  switch i32 %.01738, label %.lr.ph.split.split.us [
     i32 0, label %.split.us
     i32 1, label %.lr.ph.split.split
   ]
@@ -1068,22 +1068,22 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %116
   %101 = phi i32 [ %117, %116 ], [ %93, %.lr.ph ]
   %102 = phi i32 [ %117, %116 ], [ %94, %.lr.ph ]
-  %.042.us43 = phi i32 [ %118, %116 ], [ 0, %.lr.ph ]
+  %.036.us37 = phi i32 [ %118, %116 ], [ 0, %.lr.ph ]
   %103 = load i32, ptr %65, align 8
   %104 = add nsw i32 %103, -1
-  %105 = icmp eq i32 %.01744, %104
+  %105 = icmp eq i32 %.01738, %104
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %.lr.ph.split.split.us
   %107 = icmp sgt i32 %103, 5
   %108 = add nsw i32 %103, -2
-  %109 = icmp eq i32 %.01744, %108
+  %109 = icmp eq i32 %.01738, %108
   %or.cond26.us = select i1 %107, i1 %109, i1 false
   br i1 %or.cond26.us, label %110, label %116
 
 110:                                              ; preds = %106, %.lr.ph.split.split.us
-  %111 = mul nsw i32 %102, %.01744
-  %112 = add nsw i32 %111, %.042.us43
+  %111 = mul nsw i32 %102, %.01738
+  %112 = add nsw i32 %111, %.036.us37
   %113 = sext i32 %112 to i64
   %114 = load ptr, ptr %67, align 8
   %115 = getelementptr inbounds i32, ptr %114, i64 %113
@@ -1093,13 +1093,13 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 
 116:                                              ; preds = %110, %106
   %117 = phi i32 [ %.pre, %110 ], [ %101, %106 ]
-  %118 = add nuw nsw i32 %.042.us43, 1
+  %118 = add nuw nsw i32 %.036.us37, 1
   %119 = icmp slt i32 %118, %117
   br i1 %119, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %131
   %120 = phi i32 [ %133, %131 ], [ %94, %.lr.ph ]
-  %.042 = phi i32 [ %132, %131 ], [ 0, %.lr.ph ]
+  %.036 = phi i32 [ %132, %131 ], [ 0, %.lr.ph ]
   %121 = load i32, ptr %65, align 8
   %122 = icmp sgt i32 %121, 5
   br i1 %122, label %.sink.split, label %125
@@ -1115,7 +1115,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 
 .sink.split:                                      ; preds = %125, %.lr.ph.split.split
   %.sink = phi i32 [ 1, %.lr.ph.split.split ], [ 2, %125 ]
-  %127 = add nsw i32 %120, %.042
+  %127 = add nsw i32 %120, %.036
   %128 = sext i32 %127 to i64
   %129 = load ptr, ptr %67, align 8
   %130 = getelementptr inbounds i32, ptr %129, i64 %128
@@ -1123,7 +1123,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   br label %131
 
 131:                                              ; preds = %.sink.split, %125
-  %132 = add nuw nsw i32 %.042, 1
+  %132 = add nuw nsw i32 %.036, 1
   %133 = load i32, ptr %66, align 4
   %134 = icmp slt i32 %132, %133
   br i1 %134, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
@@ -1131,12 +1131,12 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 ._crit_edge:                                      ; preds = %131, %.split.us, %116, %.preheader
   %135 = phi i32 [ %117, %116 ], [ %98, %.split.us ], [ %93, %.preheader ], [ %133, %131 ]
   %136 = phi i32 [ %117, %116 ], [ %98, %.split.us ], [ %94, %.preheader ], [ %133, %131 ]
-  %137 = add nuw nsw i32 %.01744, 1
+  %137 = add nuw nsw i32 %.01738, 1
   %138 = load i32, ptr %65, align 8
   %139 = icmp slt i32 %137, %138
-  br i1 %139, label %.preheader, label %._crit_edge47, !llvm.loop !6
+  br i1 %139, label %.preheader, label %._crit_edge41, !llvm.loop !6
 
-._crit_edge47:                                    ; preds = %._crit_edge
+._crit_edge41:                                    ; preds = %._crit_edge
   store i32 -3, ptr %63, align 8
   %140 = icmp sgt i32 %138, 5
   %141 = zext i1 %140 to i32

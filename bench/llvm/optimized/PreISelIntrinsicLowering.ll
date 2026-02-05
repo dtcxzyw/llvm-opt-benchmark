@@ -723,25 +723,25 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124PreISelIntrinsicL
 75:                                               ; preds = %71, %71, %71, %71, %71, %71
   %76 = getelementptr i8, ptr %.sroa.067.0110, i64 -40
   %.val = load ptr, ptr %76, align 8, !tbaa !102
-  %.not3944.i = icmp eq ptr %.val, null
-  br i1 %.not3944.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.i
+  %.not2934.i = icmp eq ptr %.val, null
+  br i1 %.not2934.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %75
   switch i32 %74, label %.lr.ph.split.i [
     i32 238, label %.lr.ph.split.us.i
-    i32 240, label %.lr.ph.split.us47.i
-    i32 241, label %.lr.ph.split.us55.i
-    i32 243, label %.lr.ph.split.us63.i
-    i32 245, label %.lr.ph.split.us71.i
-    i32 154, label %.lr.ph.split.us79.i
+    i32 240, label %.lr.ph.split.us37.i
+    i32 241, label %.lr.ph.split.us45.i
+    i32 243, label %.lr.ph.split.us53.i
+    i32 245, label %.lr.ph.split.us61.i
+    i32 154, label %.lr.ph.split.us69.i
   ]
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i
-  %.046.us.i = phi i1 [ %.3.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ false, %.lr.ph.i ]
-  %.sroa.010.045.us.i = phi ptr [ %78, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ %.val, %.lr.ph.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us.i, i64 8
+  %.036.us.i = phi i1 [ %.3.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ false, %.lr.ph.i ]
+  %.sroa.08.035.us.i = phi ptr [ %78, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ %.val, %.lr.ph.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us.i, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !103
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us.i, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us.i, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !108
   %81 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %80) #17
   %82 = load ptr, ptr %30, align 8, !tbaa !109
@@ -807,8 +807,8 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(304) %116) #17
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 404544
   %122 = load ptr, ptr %121, align 8, !tbaa !38
-  %.not42.us.i = icmp eq ptr %122, null
-  br i1 %.not42.us.i, label %123, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i
+  %.not32.us.i = icmp eq ptr %122, null
+  br i1 %.not32.us.i, label %123, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i
 
 123:                                              ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.thread.us.i
   call void @_ZN4llvm18expandMemCpyAsLoopEPNS_10MemCpyInstERKNS_19TargetTransformInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef null) #17
@@ -816,16 +816,16 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i
 
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i: ; preds = %123, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i, %111, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.us.i
-  %.3.us.i = phi i1 [ true, %123 ], [ %.046.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.us.i ], [ %.046.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i ], [ %.046.us.i, %111 ]
-  %.not39.us.i = icmp eq ptr %78, null
-  br i1 %.not39.us.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us.i
+  %.3.us.i = phi i1 [ true, %123 ], [ %.036.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit.us.i ], [ %.036.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.us.i ], [ %.036.us.i, %111 ]
+  %.not29.us.i = icmp eq ptr %78, null
+  br i1 %.not29.us.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us.i
 
-.lr.ph.split.us47.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i
-  %.046.us48.i = phi i1 [ %.3.us51.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i ], [ false, %.lr.ph.i ]
-  %.sroa.010.045.us49.i = phi ptr [ %126, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i ], [ %.val, %.lr.ph.i ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us49.i, i64 8
+.lr.ph.split.us37.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i
+  %.036.us38.i = phi i1 [ %.3.us41.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i ], [ false, %.lr.ph.i ]
+  %.sroa.08.035.us39.i = phi ptr [ %126, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i ], [ %.val, %.lr.ph.i ]
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us39.i, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !103
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us49.i, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us39.i, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !108
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %130 = load i32, ptr %129, align 4
@@ -837,28 +837,28 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %136 = load ptr, ptr %135, align 8, !tbaa !111
   %137 = load i8, ptr %136, align 8, !tbaa !112
   %138 = icmp eq i8 %137, 17
-  br i1 %138, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i, label %139
+  br i1 %138, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i, label %139
 
-139:                                              ; preds = %.lr.ph.split.us47.i
+139:                                              ; preds = %.lr.ph.split.us37.i
   %140 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %128) #17
   %141 = load ptr, ptr %30, align 8, !tbaa !109
   %142 = load i64, ptr %31, align 8, !tbaa !110
   %143 = call noundef nonnull align 8 dereferenceable(8) ptr %141(i64 noundef %142, ptr noundef nonnull align 8 dereferenceable(136) %140) #17
   call void @_ZN4llvm18expandMemCpyAsLoopEPNS_10MemCpyInstERKNS_19TargetTransformInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull %128, ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef null) #17
   %144 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %128) #17
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i
 
-_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i: ; preds = %139, %.lr.ph.split.us47.i
-  %.3.us51.i = phi i1 [ %.046.us48.i, %.lr.ph.split.us47.i ], [ true, %139 ]
-  %.not39.us52.i = icmp eq ptr %126, null
-  br i1 %.not39.us52.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us47.i
+_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i: ; preds = %139, %.lr.ph.split.us37.i
+  %.3.us41.i = phi i1 [ %.036.us38.i, %.lr.ph.split.us37.i ], [ true, %139 ]
+  %.not29.us42.i = icmp eq ptr %126, null
+  br i1 %.not29.us42.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us37.i
 
-.lr.ph.split.us55.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i
-  %.046.us56.i = phi i1 [ %.3.us59.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i ], [ false, %.lr.ph.i ]
-  %.sroa.010.045.us57.i = phi ptr [ %146, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i ], [ %.val, %.lr.ph.i ]
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us57.i, i64 8
+.lr.ph.split.us45.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i
+  %.036.us46.i = phi i1 [ %.3.us49.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i ], [ false, %.lr.ph.i ]
+  %.sroa.08.035.us47.i = phi ptr [ %146, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i ], [ %.val, %.lr.ph.i ]
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us47.i, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !103
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us57.i, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us47.i, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !108
   %149 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %148) #17
   %150 = load ptr, ptr %30, align 8, !tbaa !109
@@ -876,7 +876,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %.not.i106.us.i = icmp eq i8 %161, 17
   br i1 %.not.i106.us.i, label %162, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i
 
-162:                                              ; preds = %.lr.ph.split.us55.i
+162:                                              ; preds = %.lr.ph.split.us45.i
   %163 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL34MemIntrinsicExpandSizeThresholdOpt, i64 8), align 8, !tbaa !6
   %.not8.i108.us.i = icmp eq i16 %163, 0
   br i1 %.not8.i108.us.i, label %166, label %164
@@ -901,9 +901,9 @@ _ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN
   %174 = icmp ugt i64 %.0.i.i.i110.us.i, %168
   %175 = icmp eq i64 %168, 0
   %176 = or i1 %175, %174
-  br i1 %176, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i
+  br i1 %176, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i
 
-_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i: ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i, %.lr.ph.split.us55.i
+_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i: ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i, %.lr.ph.split.us45.i
   %177 = load i8, ptr %70, align 8, !tbaa !81, !range !54, !noundef !55
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %179, label %191
@@ -911,7 +911,7 @@ _ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN
 179:                                              ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i
   %180 = load ptr, ptr %0, align 8, !tbaa !77
   %.not.i112.us.i = icmp eq ptr %180, null
-  br i1 %.not.i112.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i
+  br i1 %.not.i112.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i
 
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i: ; preds = %179
   %181 = load ptr, ptr %180, align 8, !tbaa !3
@@ -924,28 +924,28 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %188 = call noundef ptr %187(ptr noundef nonnull align 8 dereferenceable(304) %184) #17
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 404552
   %190 = load ptr, ptr %189, align 8, !tbaa !38
-  %.not41.us.i = icmp eq ptr %190, null
-  br i1 %.not41.us.i, label %191, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i
+  %.not31.us.i = icmp eq ptr %190, null
+  br i1 %.not31.us.i, label %191, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i
 
 191:                                              ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.thread.us.i
   %192 = call noundef zeroext i1 @_ZN4llvm19expandMemMoveAsLoopEPNS_11MemMoveInstERKNS_19TargetTransformInfoE(ptr noundef nonnull %148, ptr noundef nonnull align 8 dereferenceable(8) %152) #17
-  br i1 %192, label %193, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i
+  br i1 %192, label %193, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i
 
 193:                                              ; preds = %191
   %194 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %148) #17
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i
 
-_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i: ; preds = %193, %191, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i, %179, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i
-  %.3.us59.i = phi i1 [ %.046.us56.i, %179 ], [ %.046.us56.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i ], [ %.046.us56.i, %191 ], [ %.046.us56.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i ], [ true, %193 ]
-  %.not39.us60.i = icmp eq ptr %146, null
-  br i1 %.not39.us60.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us55.i
+_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i: ; preds = %193, %191, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i, %179, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i
+  %.3.us49.i = phi i1 [ %.036.us46.i, %179 ], [ %.036.us46.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit114.us.i ], [ %.036.us46.i, %191 ], [ %.036.us46.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit111.us.i ], [ true, %193 ]
+  %.not29.us50.i = icmp eq ptr %146, null
+  br i1 %.not29.us50.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us45.i
 
-.lr.ph.split.us63.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i
-  %.046.us64.i = phi i1 [ %.3.us67.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i ], [ false, %.lr.ph.i ]
-  %.sroa.010.045.us65.i = phi ptr [ %196, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i ], [ %.val, %.lr.ph.i ]
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us65.i, i64 8
+.lr.ph.split.us53.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i
+  %.036.us54.i = phi i1 [ %.3.us57.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i ], [ false, %.lr.ph.i ]
+  %.sroa.08.035.us55.i = phi ptr [ %196, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i ], [ %.val, %.lr.ph.i ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us55.i, i64 8
   %196 = load ptr, ptr %195, align 8, !tbaa !103
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us65.i, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us55.i, i64 24
   %198 = load ptr, ptr %197, align 8, !tbaa !108
   %199 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %198) #17
   %200 = load ptr, ptr %30, align 8, !tbaa !109
@@ -963,7 +963,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %.not.i115.us.i = icmp eq i8 %211, 17
   br i1 %.not.i115.us.i, label %212, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i
 
-212:                                              ; preds = %.lr.ph.split.us63.i
+212:                                              ; preds = %.lr.ph.split.us53.i
   %213 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL34MemIntrinsicExpandSizeThresholdOpt, i64 8), align 8, !tbaa !6
   %.not8.i117.us.i = icmp eq i16 %213, 0
   br i1 %.not8.i117.us.i, label %216, label %214
@@ -988,9 +988,9 @@ _ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN
   %224 = icmp ugt i64 %.0.i.i.i119.us.i, %218
   %225 = icmp eq i64 %218, 0
   %226 = or i1 %225, %224
-  br i1 %226, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i
+  br i1 %226, label %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i
 
-_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i: ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i, %.lr.ph.split.us63.i
+_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i: ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i, %.lr.ph.split.us53.i
   %227 = load i8, ptr %70, align 8, !tbaa !81, !range !54, !noundef !55
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %241
@@ -998,7 +998,7 @@ _ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN
 229:                                              ; preds = %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i
   %230 = load ptr, ptr %0, align 8, !tbaa !77
   %.not.i121.us.i = icmp eq ptr %230, null
-  br i1 %.not.i121.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i
+  br i1 %.not.i121.us.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i
 
 _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i: ; preds = %229
   %231 = load ptr, ptr %230, align 8, !tbaa !3
@@ -1011,25 +1011,25 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %238 = call noundef ptr %237(ptr noundef nonnull align 8 dereferenceable(304) %234) #17
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 404560
   %240 = load ptr, ptr %239, align 8, !tbaa !38
-  %.not40.us.i = icmp eq ptr %240, null
-  br i1 %.not40.us.i, label %241, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i
+  %.not30.us.i = icmp eq ptr %240, null
+  br i1 %.not30.us.i, label %241, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i
 
 241:                                              ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.thread.us.i
   call void @_ZN4llvm18expandMemSetAsLoopEPNS_10MemSetInstE(ptr noundef nonnull %198) #17
   %242 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %198) #17
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i
 
-_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i: ; preds = %241, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i, %229, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i
-  %.3.us67.i = phi i1 [ %.046.us64.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i ], [ true, %241 ], [ %.046.us64.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i ], [ %.046.us64.i, %229 ]
-  %.not39.us68.i = icmp eq ptr %196, null
-  br i1 %.not39.us68.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us63.i
+_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i: ; preds = %241, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i, %229, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i
+  %.3.us57.i = phi i1 [ %.036.us54.i, %_ZN12_GLOBAL__N_124PreISelIntrinsicLowering32shouldExpandMemIntrinsicWithSizeEPN4llvm5ValueERKNS1_19TargetTransformInfoE.exit120.us.i ], [ true, %241 ], [ %.036.us54.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit123.us.i ], [ %.036.us54.i, %229 ]
+  %.not29.us58.i = icmp eq ptr %196, null
+  br i1 %.not29.us58.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us53.i
 
-.lr.ph.split.us71.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i
-  %.046.us72.i = phi i1 [ %.3.us75.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i ], [ false, %.lr.ph.i ]
-  %.sroa.010.045.us73.i = phi ptr [ %244, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i ], [ %.val, %.lr.ph.i ]
-  %243 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us73.i, i64 8
+.lr.ph.split.us61.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i
+  %.036.us62.i = phi i1 [ %.3.us65.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i ], [ false, %.lr.ph.i ]
+  %.sroa.08.035.us63.i = phi ptr [ %244, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i ], [ %.val, %.lr.ph.i ]
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us63.i, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !103
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us73.i, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us63.i, i64 24
   %246 = load ptr, ptr %245, align 8, !tbaa !108
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %248 = load i32, ptr %247, align 4
@@ -1041,23 +1041,23 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %254 = load ptr, ptr %253, align 8, !tbaa !111
   %255 = load i8, ptr %254, align 8, !tbaa !112
   %256 = icmp eq i8 %255, 17
-  br i1 %256, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i, label %257
+  br i1 %256, label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i, label %257
 
-257:                                              ; preds = %.lr.ph.split.us71.i
+257:                                              ; preds = %.lr.ph.split.us61.i
   call void @_ZN4llvm18expandMemSetAsLoopEPNS_10MemSetInstE(ptr noundef nonnull %246) #17
   %258 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %246) #17
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i
 
-_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i: ; preds = %257, %.lr.ph.split.us71.i
-  %.3.us75.i = phi i1 [ %.046.us72.i, %.lr.ph.split.us71.i ], [ true, %257 ]
-  %.not39.us76.i = icmp eq ptr %244, null
-  br i1 %.not39.us76.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us71.i
+_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i: ; preds = %257, %.lr.ph.split.us61.i
+  %.3.us65.i = phi i1 [ %.036.us62.i, %.lr.ph.split.us61.i ], [ true, %257 ]
+  %.not29.us66.i = icmp eq ptr %244, null
+  br i1 %.not29.us66.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us61.i
 
-.lr.ph.split.us79.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i
-  %.sroa.010.045.us81.i = phi ptr [ %260, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i ], [ %.val, %.lr.ph.i ]
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us81.i, i64 8
+.lr.ph.split.us69.i:                              ; preds = %.lr.ph.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i
+  %.sroa.08.035.us71.i = phi ptr [ %260, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i ], [ %.val, %.lr.ph.i ]
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us71.i, i64 8
   %260 = load ptr, ptr %259, align 8, !tbaa !103
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.010.045.us81.i, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.us71.i, i64 24
   %262 = load ptr, ptr %261, align 8, !tbaa !108
   %263 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %262) #17
   %264 = load ptr, ptr %32, align 8, !tbaa !116
@@ -1079,7 +1079,7 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %spec.select.i.i.i.i.us.i = icmp ult i32 %279, 2
   br i1 %spec.select.i.i.i.i.us.i, label %280, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i
 
-280:                                              ; preds = %.lr.ph.split.us79.i
+280:                                              ; preds = %.lr.ph.split.us69.i
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %282 = load ptr, ptr %281, align 8, !tbaa !119
   %283 = load ptr, ptr %282, align 8, !tbaa !124
@@ -1087,8 +1087,8 @@ _ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit
   %.pre.i.i.us.i = load i32, ptr %.phi.trans.insert.i.i.us.i, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i: ; preds = %280, %.lr.ph.split.us79.i
-  %284 = phi i32 [ %.pre.i.i.us.i, %280 ], [ %277, %.lr.ph.split.us79.i ]
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i: ; preds = %280, %.lr.ph.split.us69.i
+  %284 = phi i32 [ %.pre.i.i.us.i, %280 ], [ %277, %.lr.ph.split.us69.i ]
   %.not.i124.us.i = icmp ult i32 %284, 256
   br i1 %.not.i124.us.i, label %285, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i
 
@@ -1151,7 +1151,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i: ; preds = %280, %.lr.ph.sp
 
 315:                                              ; preds = %312
   %316 = icmp eq i64 %313, 16
-  br i1 %316, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread31.us.i, label %317
+  br i1 %316, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread25.us.i, label %317
 
 317:                                              ; preds = %315
   %318 = udiv i64 16, %313
@@ -1173,10 +1173,10 @@ _ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i: ; preds = %.lr.p
   %325 = call noundef ptr @_ZN4llvm13ConstantArray3getEPNS_9ArrayTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %320, ptr nonnull %322, i64 %318) #17
   call void @_ZdlPvm(ptr noundef nonnull %322, i64 noundef %321) #20
   %.not.us.i = icmp eq ptr %325, null
-  br i1 %.not.us.i, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread31.us.i
+  br i1 %.not.us.i, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i, label %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread25.us.i
 
-_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread31.us.i: ; preds = %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i, %315
-  %.0.i12538.us.i = phi ptr [ %325, %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i ], [ %287, %315 ]
+_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread25.us.i: ; preds = %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i, %315
+  %.0.i12528.us.i = phi ptr [ %325, %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i ], [ %287, %315 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef nonnull %262, ptr noundef null, ptr null, i64 0)
   %326 = call noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72) %262) #17
@@ -1215,23 +1215,23 @@ _ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE
   %352 = icmp eq ptr %351, %50
   br i1 %352, label %_ZN4llvm18getOrInsertLibFuncIJPNS_4TypeEPNS_11PointerTypeES2_EEENS_14FunctionCalleeEPNS_6ModuleERKNS_17TargetLibraryInfoENS_7LibFuncES2_DpT_.exit.us.i, label %353
 
-353:                                              ; preds = %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread31.us.i
+353:                                              ; preds = %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread25.us.i
   call void @free(ptr noundef %351) #17
   br label %_ZN4llvm18getOrInsertLibFuncIJPNS_4TypeEPNS_11PointerTypeES2_EEENS_14FunctionCalleeEPNS_6ModuleERKNS_17TargetLibraryInfoENS_7LibFuncES2_DpT_.exit.us.i
 
-_ZN4llvm18getOrInsertLibFuncIJPNS_4TypeEPNS_11PointerTypeES2_EEENS_14FunctionCalleeEPNS_6ModuleERKNS_17TargetLibraryInfoENS_7LibFuncES2_DpT_.exit.us.i: ; preds = %353, %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread31.us.i
+_ZN4llvm18getOrInsertLibFuncIJPNS_4TypeEPNS_11PointerTypeES2_EEENS_14FunctionCalleeEPNS_6ModuleERKNS_17TargetLibraryInfoENS_7LibFuncES2_DpT_.exit.us.i: ; preds = %353, %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread25.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %354 = extractvalue { ptr, ptr } %350, 0
   %355 = extractvalue { ptr, ptr } %350, 1
   %356 = call noundef zeroext i1 @_ZN4llvm29inferNonMandatoryLibFuncAttrsEPNS_6ModuleENS_9StringRefERKNS_17TargetLibraryInfoE(ptr noundef %326, ptr nonnull @.str.29, i64 16, ptr noundef nonnull align 8 dereferenceable(80) %266) #17
   %357 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 88, i32 1) #17
-  %358 = getelementptr inbounds nuw i8, ptr %.0.i12538.us.i, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %.0.i12528.us.i, i64 8
   %359 = load ptr, ptr %358, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %54, align 1, !tbaa !179
   store ptr @.str.30, ptr %19, align 8, !tbaa !115
   store i8 3, ptr %53, align 8, !tbaa !182
-  call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %357, ptr noundef nonnull align 8 dereferenceable(841) %326, ptr noundef %359, i1 noundef zeroext true, i32 noundef 8, ptr noundef nonnull %.0.i12538.us.i, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #17
+  call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %357, ptr noundef nonnull align 8 dereferenceable(841) %326, ptr noundef %359, i1 noundef zeroext true, i32 noundef 8, ptr noundef nonnull %.0.i12528.us.i, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 32
   %361 = load i32, ptr %360, align 8
@@ -1373,22 +1373,22 @@ _ZN4llvm11AttrBuilderD2Ev.exit.us.i:              ; preds = %421, %_ZN4llvm13IRB
 
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.us.i: ; preds = %424, %_ZN4llvm11AttrBuilderD2Ev.exit.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i
 
 _ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i: ; preds = %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EEC2EmRKS2_RKS3_.exit.us.i, %312, %309, %297, %293, %285, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.us.i
   call void @_ZN4llvm25expandMemSetPatternAsLoopEPNS_17MemSetPatternInstE(ptr noundef nonnull %262) #17
   %425 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %262) #17
-  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i
+  br label %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i
 
-_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i: ; preds = %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.us.i
-  %.not39.us84.i = icmp eq ptr %260, null
-  br i1 %.not39.us84.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us79.i
+_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i: ; preds = %_ZL23getMemSetPattern16ValuePN4llvm17MemSetPatternInstERKNS_17TargetLibraryInfoE.exit.thread.us.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.us.i
+  %.not29.us74.i = icmp eq ptr %260, null
+  br i1 %.not29.us74.i, label %_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit, label %.lr.ph.split.us69.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   unreachable
 
-_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit: ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i, %75
-  %.0.lcssa.i = phi i1 [ false, %75 ], [ %.3.us51.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us50.i ], [ %.3.us59.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us58.i ], [ %.3.us67.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us66.i ], [ %.3.us75.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us74.i ], [ %.3.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ true, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us82.i ]
+_ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8FunctionE.exit: ; preds = %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i, %75
+  %.0.lcssa.i = phi i1 [ false, %75 ], [ %.3.us41.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us40.i ], [ %.3.us49.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us48.i ], [ %.3.us57.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us56.i ], [ %.3.us65.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us64.i ], [ %.3.us.i, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us.i ], [ true, %_ZL14canEmitLibcallPKN4llvm13TargetMachineEPNS_8FunctionENS_5RTLIB7LibcallE.exit.thread.us72.i ]
   %426 = or i1 %.0109, %.0.lcssa.i
   br label %"_ZL11forEachCallIZNK12_GLOBAL__N_124PreISelIntrinsicLowering15lowerIntrinsicsERN4llvm6ModuleEE3$_1EbRNS2_8FunctionET_.exit"
 
@@ -1402,15 +1402,15 @@ _ZNK12_GLOBAL__N_124PreISelIntrinsicLowering22expandMemIntrinsicUsesERN4llvm8Fun
   %432 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %72) #17
   %433 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %432) #17
   %434 = load ptr, ptr %428, align 8, !tbaa !102
-  %.not5052.i = icmp eq ptr %434, null
-  br i1 %.not5052.i, label %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, label %.lr.ph.i39
+  %.not4850.i = icmp eq ptr %434, null
+  br i1 %.not4850.i, label %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %431, %518
-  %.02354.i = phi i1 [ %.1.i, %518 ], [ false, %431 ]
-  %.sroa.046.053.i = phi ptr [ %436, %518 ], [ %434, %431 ]
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.046.053.i, i64 8
+  %.02352.i = phi i1 [ %.1.i, %518 ], [ false, %431 ]
+  %.sroa.044.051.i = phi ptr [ %436, %518 ], [ %434, %431 ]
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.044.051.i, i64 8
   %436 = load ptr, ptr %435, align 8, !tbaa !103
-  %437 = getelementptr inbounds nuw i8, ptr %.sroa.046.053.i, i64 24
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.044.051.i, i64 24
   %438 = load ptr, ptr %437, align 8, !tbaa !108
   %439 = load i8, ptr %438, align 8, !tbaa !112
   %.not.i = icmp eq i8 %439, 85
@@ -1605,9 +1605,9 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br label %518
 
 518:                                              ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i, %440, %.lr.ph.i39
-  %.1.i = phi i1 [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ %.02354.i, %440 ], [ %.02354.i, %.lr.ph.i39 ]
-  %.not50.i = icmp eq ptr %436, null
-  br i1 %.not50.i, label %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, label %.lr.ph.i39
+  %.1.i = phi i1 [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i ], [ %.02352.i, %440 ], [ %.02352.i, %.lr.ph.i39 ]
+  %.not48.i = icmp eq ptr %436, null
+  br i1 %.not48.i, label %_ZL17lowerLoadRelativeRN4llvm8FunctionE.exit, label %.lr.ph.i39
 
 _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %518, %427, %431
   %.0.i = phi i1 [ false, %427 ], [ false, %431 ], [ %.1.i, %518 ]

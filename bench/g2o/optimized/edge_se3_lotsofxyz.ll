@@ -641,8 +641,8 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i:
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
   %16 = mul nuw nsw i64 %14, 48
-  %calloc185 = tail call ptr @calloc(i64 1, i64 %16)
-  %17 = icmp eq ptr %calloc185, null
+  %calloc184 = tail call ptr @calloc(i64 1, i64 %16)
+  %17 = icmp eq ptr %calloc184, null
   br i1 %17, label %18, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.thread
 
 18:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
@@ -655,7 +655,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %_ZN5Eigen
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.thread: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
-  %.sroa.0.1166 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %calloc185, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
+  %.sroa.0.1165 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %calloc184, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -756,7 +756,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.l
   %87 = mul nuw nsw i64 %14, 5
   %88 = mul nuw nsw i64 %14, 24
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx186 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
+  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx185 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
@@ -793,7 +793,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
 
 .lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i
   %109 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %92, ptr align 8 %.sroa.0.1166, i64 %109, i1 false), !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %92, ptr align 8 %.sroa.0.1165, i64 %109, i1 false), !tbaa !62
   br label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i
 
 _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i
@@ -802,16 +802,16 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i
   %111 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i, 3
-  %scevgep177 = getelementptr i8, ptr %92, i64 %111
-  %scevgep178 = getelementptr i8, ptr %.sroa.0.1166, i64 %111
+  %scevgep176 = getelementptr i8, ptr %92, i64 %111
+  %scevgep177 = getelementptr i8, ptr %.sroa.0.1165, i64 %111
   %112 = add i64 %.0.i.i.i.i.i.i.i.i.i, 2
-  %smax179 = tail call i64 @llvm.smax.i64(i64 %107, i64 %112)
+  %smax178 = tail call i64 @llvm.smax.i64(i64 %107, i64 %112)
   %113 = xor i64 %.0.i.i.i.i.i.i.i.i.i, -1
-  %114 = add i64 %smax179, %113
+  %114 = add i64 %smax178, %113
   %115 = shl i64 %114, 3
   %116 = and i64 %115, -16
   %117 = add i64 %116, 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep177, ptr align 1 %scevgep178, i64 %117, i1 false), !tbaa !68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep176, ptr align 1 %scevgep177, i64 %117, i1 false), !tbaa !68
   br label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i
@@ -822,11 +822,11 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %119 = shl i64 %105, 4
   %120 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i, 3
   %121 = add i64 %119, %120
-  %scevgep180 = getelementptr i8, ptr %92, i64 %121
-  %scevgep181 = getelementptr i8, ptr %.sroa.0.1166, i64 %121
+  %scevgep179 = getelementptr i8, ptr %92, i64 %121
+  %scevgep180 = getelementptr i8, ptr %.sroa.0.1165, i64 %121
   %122 = sub i64 %104, %106
   %123 = shl nuw i64 %122, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep180, ptr align 8 %scevgep181, i64 %123, i1 false), !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep179, ptr align 8 %scevgep180, i64 %123, i1 false), !tbaa !62
   br label %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit
 
 124:                                              ; preds = %18
@@ -837,7 +837,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.lr.ph, %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61
   %126 = phi ptr [ %4, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.lr.ph ], [ %268, %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61 ]
   %127 = phi i64 [ 1, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.lr.ph ], [ %266, %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61 ]
-  %.030173 = phi i32 [ 1, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.lr.ph ], [ %265, %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61 ]
+  %.030172 = phi i32 [ 1, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41.lr.ph ], [ %265, %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61 ]
   %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !60
   %130 = load double, ptr %20, align 8, !tbaa !62, !noalias !95
@@ -882,7 +882,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41: 
   store <2 x double> %161, ptr %.sroa.0.i.i, align 16, !tbaa !68, !noalias !98
   %162 = getelementptr inbounds nuw i8, ptr %129, i64 184
   %163 = load double, ptr %162, align 8, !tbaa !62, !noalias !98
-  store double %163, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx186, align 16, !tbaa !62, !noalias !98
+  store double %163, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx185, align 16, !tbaa !62, !noalias !98
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !62, !noalias !98
   %164 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> zeroinitializer
   %165 = fmul <2 x double> %.sroa.079.8.vec.insert, %164
@@ -909,10 +909,10 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41: 
   %184 = fadd double %181, %183
   %.sroa.4.16.vec.extract.i.i = fadd double %176, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
-  %185 = mul i32 %.030173, 3
+  %185 = mul i32 %.030172, 3
   %186 = add i32 %185, -3
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw double, ptr %.sroa.0.1166, i64 %187
+  %188 = getelementptr inbounds nuw double, ptr %.sroa.0.1165, i64 %187
   store double -1.000000e+00, ptr %188, align 8, !tbaa !62
   %189 = getelementptr i8, ptr %188, i64 8
   store double -0.000000e+00, ptr %189, align 8, !tbaa !62
@@ -941,7 +941,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41: 
   store double %201, ptr %200, align 8, !tbaa !62
   %202 = add i32 %185, -2
   %203 = zext i32 %202 to i64
-  %204 = getelementptr double, ptr %.sroa.0.1166, i64 %203
+  %204 = getelementptr double, ptr %.sroa.0.1165, i64 %203
   %205 = getelementptr double, ptr %204, i64 %85
   %206 = fmul double %.sroa.4.16.vec.extract.i.i, 2.000000e+00
   store double %206, ptr %205, align 8, !tbaa !62
@@ -953,7 +953,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41: 
   store double %209, ptr %208, align 8, !tbaa !62
   %210 = add i32 %185, -1
   %211 = zext i32 %210 to i64
-  %212 = getelementptr double, ptr %.sroa.0.1166, i64 %211
+  %212 = getelementptr double, ptr %.sroa.0.1165, i64 %211
   %213 = getelementptr double, ptr %212, i64 %85
   %214 = fmul double %.sroa.099.8.vec.extract, -2.000000e+00
   store double %214, ptr %213, align 8, !tbaa !62
@@ -979,8 +979,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i66: ; preds = %_ZN5Eig
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit42.thread: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i66, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41
-  %.sroa.0151.1172 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41 ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i66 ]
-  %221 = getelementptr inbounds nuw double, ptr %.sroa.0151.1172, i64 %187
+  %.sroa.0151.0171 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i41 ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i66 ]
+  %221 = getelementptr inbounds nuw double, ptr %.sroa.0151.0171, i64 %187
   br label %222
 
 222:                                              ; preds = %222, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit42.thread
@@ -1030,7 +1030,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i49: ;
 
 .lr.ph.i.i.i.i.i.i.i.i.i58.preheader:             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i49
   %250 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i50, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %233, ptr nonnull align 8 %.sroa.0151.1172, i64 %250, i1 false), !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %233, ptr nonnull align 8 %.sroa.0151.0171, i64 %250, i1 false), !tbaa !62
   br label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i51
 
 _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i51: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i58.preheader, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i49
@@ -1040,7 +1040,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i56.preheader:               ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i51
   %252 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i50, 3
   %scevgep = getelementptr i8, ptr %233, i64 %252
-  %scevgep174 = getelementptr i8, ptr %.sroa.0151.1172, i64 %252
+  %scevgep173 = getelementptr i8, ptr %.sroa.0151.0171, i64 %252
   %253 = add i64 %.0.i.i.i.i.i.i.i.i.i50, 2
   %smax = tail call i64 @llvm.smax.i64(i64 %248, i64 %253)
   %254 = xor i64 %.0.i.i.i.i.i.i.i.i.i50, -1
@@ -1048,7 +1048,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %256 = shl i64 %255, 3
   %257 = and i64 %256, -16
   %258 = add i64 %257, 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep, ptr align 1 %scevgep174, i64 %258, i1 false), !tbaa !68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep, ptr align 1 %scevgep173, i64 %258, i1 false), !tbaa !68
   br label %._crit_edge.i.i.i.i.i.i.i.i52
 
 ._crit_edge.i.i.i.i.i.i.i.i52:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i56.preheader, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_IS8_EENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i51
@@ -1059,16 +1059,16 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %260 = shl i64 %246, 4
   %261 = shl nuw i64 %.0.i.i.i.i.i.i.i.i.i50, 3
   %262 = add i64 %260, %261
-  %scevgep175 = getelementptr i8, ptr %233, i64 %262
-  %scevgep176 = getelementptr i8, ptr %.sroa.0151.1172, i64 %262
+  %scevgep174 = getelementptr i8, ptr %233, i64 %262
+  %scevgep175 = getelementptr i8, ptr %.sroa.0151.0171, i64 %262
   %263 = sub i64 %245, %247
   %264 = shl nuw i64 %263, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep175, ptr align 8 %scevgep176, i64 %264, i1 false), !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep174, ptr align 8 %scevgep175, i64 %264, i1 false), !tbaa !62
   br label %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61
 
 _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit61: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i53.preheader, %._crit_edge.i.i.i.i.i.i.i.i52
-  tail call void @free(ptr noundef nonnull %.sroa.0151.1172) #34
-  %265 = add i32 %.030173, 1
+  tail call void @free(ptr noundef nonnull %.sroa.0151.0171) #34
+  %265 = add i32 %.030172, 1
   %266 = zext i32 %265 to i64
   %267 = load ptr, ptr %6, align 8, !tbaa !85
   %268 = load ptr, ptr %3, align 8, !tbaa !59
@@ -1087,11 +1087,11 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaS
 
 _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSIS2_EERS5_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.preheader, %._crit_edge.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  tail call void @free(ptr noundef %.sroa.0.1166) #34
+  tail call void @free(ptr noundef %.sroa.0.1165) #34
   ret void
 
 276:                                              ; preds = %274, %124
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1166, %274 ], [ null, %124 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1165, %274 ], [ null, %124 ]
   %.pn33.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %275, %274 ], [ %125, %124 ]
   tail call void @free(ptr noundef %.sroa.0.0) #34
   resume { ptr, i32 } %.pn33.pn.pn.pn.pn.pn

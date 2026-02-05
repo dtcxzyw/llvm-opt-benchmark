@@ -2763,7 +2763,7 @@ _ZN3gmx26AnalysisNeighborhoodSearchD2Ev.exit.i.i: ; preds = %235, %_ZN9__gnu_cxx
   br label %common.resume
 
 common.resume:                                    ; preds = %243, %244, %_ZNSt6vectorImSaImEED2Ev.exit162.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit151.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ], [ %.pn75.pn211.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit151.i.i ], [ %lpad.phi.i.i, %_ZNSt6vectorImSaImEED2Ev.exit162.i.i ], [ %.pn72.i.i, %244 ], [ %.pn72.i.i, %243 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ], [ %.pn75.pn205.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit151.i.i ], [ %lpad.phi.i.i, %_ZNSt6vectorImSaImEED2Ev.exit162.i.i ], [ %.pn72.i.i, %244 ], [ %.pn72.i.i, %243 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit109.i.i:                                 ; preds = %269, %.preheader108.i.i
@@ -4773,7 +4773,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .preheader.i115.i:                                ; preds = %1176
   %1127 = icmp ugt i64 %1181, 4
-  br i1 %1127, label %.lr.ph238.i.i, label %._crit_edge.thread.i.i
+  br i1 %1127, label %.lr.ph232.i.i, label %._crit_edge.thread.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135.i.i
   %1128 = landingpad { ptr, i32 }
@@ -4781,10 +4781,10 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit151.i.i
 
 .lr.ph.i110.i:                                    ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i, %1176
-  %.val80241.i.i = phi ptr [ %.val80.i113.i, %1176 ], [ %.val84.i108.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i ]
+  %.val80235.i.i = phi ptr [ %.val80.i113.i, %1176 ], [ %.val84.i108.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i ]
   %1129 = phi i64 [ %1177, %1176 ], [ 2, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i ]
-  %.067233.i.i = phi i64 [ %1129, %1176 ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i ]
-  %1130 = getelementptr %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80241.i.i, i64 %.067233.i.i
+  %.067227.i.i = phi i64 [ %1129, %1176 ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit144.i.i ]
+  %1130 = getelementptr %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80235.i.i, i64 %.067227.i.i
   %1131 = getelementptr i8, ptr %1130, i64 -88
   %.val109.i111.i = load i64, ptr %1131, align 8, !tbaa !208, !noalias !229
   %1132 = and i64 %.val109.i111.i, 2
@@ -4795,8 +4795,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %1134 = getelementptr i8, ptr %1130, i64 48
   %.val108.i.i = load i64, ptr %1134, align 8, !tbaa !208, !noalias !229
   %1135 = and i64 %.val108.i.i, 11
-  %or.cond215.i.i = icmp eq i64 %1135, 11
-  br i1 %or.cond215.i.i, label %1136, label %1153
+  %or.cond209.i.i = icmp eq i64 %1135, 11
+  br i1 %or.cond209.i.i, label %1136, label %1153
 
 1136:                                             ; preds = %1133
   %1137 = getelementptr i8, ptr %1130, i64 -128
@@ -4814,7 +4814,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
           to label %1149 unwind label %1151, !noalias !229
 
 1149:                                             ; preds = %1136
-  %1150 = getelementptr inbounds nuw float, ptr %1120, i64 %.067233.i.i
+  %1150 = getelementptr inbounds nuw float, ptr %1120, i64 %.067227.i.i
   store float %1148, ptr %1150, align 4, !tbaa !149, !noalias !229
   %.val93.pre.i121.i = load ptr, ptr %44, align 8, !tbaa !190, !noalias !229
   br label %1153
@@ -4825,21 +4825,21 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit149.i.i
 
 1153:                                             ; preds = %1149, %1133, %.lr.ph.i110.i
-  %.val80240.i.i = phi ptr [ %.val80241.i.i, %.lr.ph.i110.i ], [ %.val80241.i.i, %1133 ], [ %.val93.pre.i121.i, %1149 ]
-  %1154 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80240.i.i, i64 %.067233.i.i
+  %.val80234.i.i = phi ptr [ %.val80235.i.i, %.lr.ph.i110.i ], [ %.val80235.i.i, %1133 ], [ %.val93.pre.i121.i, %1149 ]
+  %1154 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80234.i.i, i64 %.067227.i.i
   %1155 = getelementptr i8, ptr %1154, i64 48
   %.val105.i.i = load i64, ptr %1155, align 8, !tbaa !208, !noalias !229
   %1156 = and i64 %.val105.i.i, 11
-  %or.cond219.i.i = icmp eq i64 %1156, 11
-  br i1 %or.cond219.i.i, label %1157, label %1176
+  %or.cond213.i.i = icmp eq i64 %1156, 11
+  br i1 %or.cond213.i.i, label %1157, label %1176
 
 1157:                                             ; preds = %1153
-  %1158 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80240.i.i, i64 %1129
+  %1158 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val80234.i.i, i64 %1129
   %1159 = getelementptr i8, ptr %1158, i64 48
   %.val102.i.i = load i64, ptr %1159, align 8, !tbaa !208, !noalias !229
   %1160 = and i64 %.val102.i.i, 8
-  %.not230.i.i = icmp eq i64 %1160, 0
-  br i1 %.not230.i.i, label %1176, label %1161
+  %.not224.i.i = icmp eq i64 %1160, 0
+  br i1 %.not224.i.i, label %1176, label %1161
 
 1161:                                             ; preds = %1157
   %1162 = getelementptr inbounds nuw i8, ptr %1154, i64 24
@@ -4857,13 +4857,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
           to label %1174 unwind label %1151, !noalias !229
 
 1174:                                             ; preds = %1161
-  %1175 = getelementptr inbounds nuw float, ptr %1123, i64 %.067233.i.i
+  %1175 = getelementptr inbounds nuw float, ptr %1123, i64 %.067227.i.i
   store float %1173, ptr %1175, align 4, !tbaa !149, !noalias !229
   %.val80.pre.i.i = load ptr, ptr %44, align 8, !tbaa !190, !noalias !229
   br label %1176
 
 1176:                                             ; preds = %1174, %1157, %1153
-  %.val80.i113.i = phi ptr [ %.val80240.i.i, %1153 ], [ %.val80240.i.i, %1157 ], [ %.val80.pre.i.i, %1174 ]
+  %.val80.i113.i = phi ptr [ %.val80234.i.i, %1153 ], [ %.val80234.i.i, %1157 ], [ %.val80.pre.i.i, %1174 ]
   %1177 = add nuw i64 %1129, 1
   %.val81.i114.i = load ptr, ptr %77, align 8, !tbaa !188, !noalias !229
   %1178 = ptrtoint ptr %.val81.i114.i to i64
@@ -4880,50 +4880,50 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %.val41188.pre.pre.i = load ptr, ptr %432, align 8, !tbaa !86, !noalias !229
   br label %.preheader129.i.preheader
 
-.lr.ph238.i.i:                                    ; preds = %.preheader.i115.i, %1279
-  %.0237.i.i = phi i64 [ %1280, %1279 ], [ 1, %.preheader.i115.i ]
+.lr.ph232.i.i:                                    ; preds = %.preheader.i115.i, %1279
+  %.0231.i.i = phi i64 [ %1280, %1279 ], [ 1, %.preheader.i115.i ]
   %1183 = load i64, ptr %79, align 8, !tbaa !75, !noalias !229
   switch i64 %1183, label %1278 [
     i64 0, label %1184
     i64 1, label %1222
   ]
 
-1184:                                             ; preds = %.lr.ph238.i.i
-  %1185 = getelementptr inbounds nuw float, ptr %1120, i64 %.0237.i.i
+1184:                                             ; preds = %.lr.ph232.i.i
+  %1185 = getelementptr inbounds nuw float, ptr %1120, i64 %.0231.i.i
   %1186 = load float, ptr %1185, align 4, !tbaa !149, !noalias !229
   %1187 = fcmp olt float %1186, -1.040000e+02
   %1188 = fcmp ogt float %1186, -4.600000e+01
-  %or.cond220.i.i = or i1 %1187, %1188
-  br i1 %or.cond220.i.i, label %1279, label %1189
+  %or.cond214.i.i = or i1 %1187, %1188
+  br i1 %or.cond214.i.i, label %1279, label %1189
 
 1189:                                             ; preds = %1184
-  %1190 = add nuw i64 %.0237.i.i, 1
+  %1190 = add nuw i64 %.0231.i.i, 1
   %1191 = getelementptr inbounds nuw float, ptr %1120, i64 %1190
   %1192 = load float, ptr %1191, align 4, !tbaa !149, !noalias !229
   %1193 = fcmp olt float %1192, -1.040000e+02
   %1194 = fcmp ogt float %1192, -4.600000e+01
-  %or.cond221.i.i = or i1 %1193, %1194
-  br i1 %or.cond221.i.i, label %1279, label %1195
+  %or.cond215.i.i = or i1 %1193, %1194
+  br i1 %or.cond215.i.i, label %1279, label %1195
 
 1195:                                             ; preds = %1189
-  %1196 = getelementptr inbounds nuw float, ptr %1123, i64 %.0237.i.i
+  %1196 = getelementptr inbounds nuw float, ptr %1123, i64 %.0231.i.i
   %1197 = load float, ptr %1196, align 4, !tbaa !149, !noalias !229
   %1198 = fcmp olt float %1197, 1.160000e+02
   %1199 = fcmp ogt float %1197, 1.740000e+02
-  %or.cond222.i.i = or i1 %1198, %1199
-  br i1 %or.cond222.i.i, label %1279, label %1200
+  %or.cond216.i.i = or i1 %1198, %1199
+  br i1 %or.cond216.i.i, label %1279, label %1200
 
 1200:                                             ; preds = %1195
   %1201 = getelementptr inbounds nuw float, ptr %1123, i64 %1190
   %1202 = load float, ptr %1201, align 4, !tbaa !149, !noalias !229
   %1203 = fcmp olt float %1202, 1.160000e+02
   %1204 = fcmp ogt float %1202, 1.740000e+02
-  %or.cond223.i.i = or i1 %1203, %1204
-  br i1 %or.cond223.i.i, label %1279, label %1205
+  %or.cond217.i.i = or i1 %1203, %1204
+  br i1 %or.cond217.i.i, label %1279, label %1205
 
 1205:                                             ; preds = %1200
   %.val110.i.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229
-  %1206 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val110.i.i, i64 %.0237.i.i
+  %1206 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val110.i.i, i64 %.0231.i.i
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 104
   %1208 = load i64, ptr %1207, align 8, !tbaa !70, !noalias !229
   switch i64 %1208, label %1210 [
@@ -4946,7 +4946,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 104
   store i64 3, ptr %1212, align 8, !tbaa !70, !noalias !229
   %.val114.i.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229
-  %1213 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val114.i.i, i64 %.0237.i.i
+  %1213 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val114.i.i, i64 %.0231.i.i
   %1214 = getelementptr i8, ptr %1213, i64 64
   %.val130.i.i = load i64, ptr %1214, align 8, !tbaa !263, !noalias !229
   %1215 = icmp eq i64 %.val130.i.i, 0
@@ -4967,77 +4967,77 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   store i64 4, ptr %1219, align 8, !tbaa !263, !noalias !229
   br label %1279
 
-1222:                                             ; preds = %.lr.ph238.i.i
-  %1223 = getelementptr inbounds nuw float, ptr %1120, i64 %.0237.i.i
+1222:                                             ; preds = %.lr.ph232.i.i
+  %1223 = getelementptr inbounds nuw float, ptr %1120, i64 %.0231.i.i
   %1224 = load float, ptr %1223, align 4, !tbaa !149, !noalias !229
   %1225 = fcmp olt float %1224, -1.040000e+02
   %1226 = fcmp ogt float %1224, -4.600000e+01
-  %or.cond224.i.i = or i1 %1225, %1226
-  br i1 %or.cond224.i.i, label %1279, label %1227
+  %or.cond218.i.i = or i1 %1225, %1226
+  br i1 %or.cond218.i.i, label %1279, label %1227
 
 1227:                                             ; preds = %1222
-  %1228 = add nuw i64 %.0237.i.i, 1
+  %1228 = add nuw i64 %.0231.i.i, 1
   %1229 = getelementptr inbounds nuw float, ptr %1120, i64 %1228
   %1230 = load float, ptr %1229, align 4, !tbaa !149, !noalias !229
   %1231 = fcmp olt float %1230, -1.040000e+02
   %1232 = fcmp ogt float %1230, -4.600000e+01
-  %or.cond225.i.i = or i1 %1231, %1232
-  br i1 %or.cond225.i.i, label %1279, label %1233
+  %or.cond219.i.i = or i1 %1231, %1232
+  br i1 %or.cond219.i.i, label %1279, label %1233
 
 1233:                                             ; preds = %1227
-  %1234 = add nuw i64 %.0237.i.i, 2
+  %1234 = add nuw i64 %.0231.i.i, 2
   %1235 = getelementptr inbounds nuw float, ptr %1120, i64 %1234
   %1236 = load float, ptr %1235, align 4, !tbaa !149, !noalias !229
   %1237 = fcmp olt float %1236, -1.040000e+02
   %1238 = fcmp ogt float %1236, -4.600000e+01
-  %or.cond226.i.i = or i1 %1237, %1238
-  br i1 %or.cond226.i.i, label %1279, label %1239
+  %or.cond220.i.i = or i1 %1237, %1238
+  br i1 %or.cond220.i.i, label %1279, label %1239
 
 1239:                                             ; preds = %1233
-  %1240 = getelementptr inbounds nuw float, ptr %1123, i64 %.0237.i.i
+  %1240 = getelementptr inbounds nuw float, ptr %1123, i64 %.0231.i.i
   %1241 = load float, ptr %1240, align 4, !tbaa !149, !noalias !229
   %1242 = fcmp olt float %1241, 1.160000e+02
   %1243 = fcmp ogt float %1241, 1.740000e+02
-  %or.cond227.i.i = or i1 %1242, %1243
-  br i1 %or.cond227.i.i, label %1279, label %1244
+  %or.cond221.i.i = or i1 %1242, %1243
+  br i1 %or.cond221.i.i, label %1279, label %1244
 
 1244:                                             ; preds = %1239
   %1245 = getelementptr inbounds nuw float, ptr %1123, i64 %1228
   %1246 = load float, ptr %1245, align 4, !tbaa !149, !noalias !229
   %1247 = fcmp olt float %1246, 1.160000e+02
   %1248 = fcmp ogt float %1246, 1.740000e+02
-  %or.cond228.i.i = or i1 %1247, %1248
-  br i1 %or.cond228.i.i, label %1279, label %1249
+  %or.cond222.i.i = or i1 %1247, %1248
+  br i1 %or.cond222.i.i, label %1279, label %1249
 
 1249:                                             ; preds = %1244
   %1250 = getelementptr inbounds nuw float, ptr %1123, i64 %1234
   %1251 = load float, ptr %1250, align 4, !tbaa !149, !noalias !229
   %1252 = fcmp olt float %1251, 1.160000e+02
   %1253 = fcmp ogt float %1251, 1.740000e+02
-  %or.cond229.i.i = or i1 %1252, %1253
-  br i1 %or.cond229.i.i, label %1279, label %1254
+  %or.cond223.i.i = or i1 %1252, %1253
+  br i1 %or.cond223.i.i, label %1279, label %1254
 
 1254:                                             ; preds = %1249
   %.val118.i.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229
-  %1255 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val118.i.i, i64 %.0237.i.i
+  %1255 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val118.i.i, i64 %.0231.i.i
   %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 104
   %1257 = load i64, ptr %1256, align 8, !tbaa !70, !noalias !229
   switch i64 %1257, label %1259 [
-    i64 0, label %.sink.split291.i.i
+    i64 0, label %.sink.split285.i.i
     i64 3, label %1258
   ]
 
 1258:                                             ; preds = %1254
-  br label %.sink.split291.i.i
+  br label %.sink.split285.i.i
 
-.sink.split291.i.i:                               ; preds = %1258, %1254
-  %.sink292.i.i = phi i64 [ 4, %1258 ], [ 1, %1254 ]
-  store i64 %.sink292.i.i, ptr %1256, align 8, !tbaa !70, !noalias !229
+.sink.split285.i.i:                               ; preds = %1258, %1254
+  %.sink286.i.i = phi i64 [ 4, %1258 ], [ 1, %1254 ]
+  store i64 %.sink286.i.i, ptr %1256, align 8, !tbaa !70, !noalias !229
   %.val121.i116.pre.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229
   br label %1259
 
-1259:                                             ; preds = %.sink.split291.i.i, %1254
-  %.val121.i116.i = phi ptr [ %.val121.i116.pre.i, %.sink.split291.i.i ], [ %.val118.i.i, %1254 ]
+1259:                                             ; preds = %.sink.split285.i.i, %1254
+  %.val121.i116.i = phi ptr [ %.val121.i116.pre.i, %.sink.split285.i.i ], [ %.val118.i.i, %1254 ]
   %1260 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val121.i116.i, i64 %1228
   %1261 = getelementptr inbounds nuw i8, ptr %1260, i64 104
   store i64 2, ptr %1261, align 8, !tbaa !70, !noalias !229
@@ -5046,7 +5046,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 104
   store i64 3, ptr %1263, align 8, !tbaa !70, !noalias !229
   %.val123.i.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229
-  %1264 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val123.i.i, i64 %.0237.i.i
+  %1264 = getelementptr inbounds nuw %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val123.i.i, i64 %.0231.i.i
   %1265 = getelementptr i8, ptr %1264, i64 64
   %.val133.i.i = load i64, ptr %1265, align 8, !tbaa !263, !noalias !229
   %1266 = icmp eq i64 %.val133.i.i, 0
@@ -5078,7 +5078,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   store i64 4, ptr %1275, align 8, !tbaa !263, !noalias !229
   br label %1279
 
-1278:                                             ; preds = %.lr.ph238.i.i
+1278:                                             ; preds = %.lr.ph232.i.i
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures18calculateDihedralsERK10t_trxframePK5t_pbcENK3$_0clEv", ptr noundef nonnull @.str.37, i32 noundef 1262) #33
           to label %.noexc147.i.i unwind label %1287, !noalias !229
 
@@ -5086,8 +5086,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   unreachable
 
 1279:                                             ; preds = %1277, %1273, %1249, %1244, %1239, %1233, %1227, %1222, %1221, %1217, %1200, %1195, %1189, %1184
-  %1280 = add nuw i64 %.0237.i.i, 1
-  %1281 = add nuw i64 %.0237.i.i, 4
+  %1280 = add nuw i64 %.0231.i.i, 1
+  %1281 = add nuw i64 %.0231.i.i, 4
   %.val.i117.i = load ptr, ptr %44, align 8, !tbaa !190, !noalias !229
   %.val79.i118.i = load ptr, ptr %77, align 8, !tbaa !188, !noalias !229
   %1282 = ptrtoint ptr %.val79.i118.i to i64
@@ -5095,7 +5095,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i:      ; preds = %_ZNSt6vectorIfSaIfE
   %1284 = sub i64 %1282, %1283
   %1285 = sdiv exact i64 %1284, 136
   %1286 = icmp ult i64 %1281, %1285
-  br i1 %1286, label %.lr.ph238.i.i, label %._crit_edge.thread.i.i, !llvm.loop !287
+  br i1 %1286, label %.lr.ph232.i.i, label %._crit_edge.thread.i.i, !llvm.loop !287
 
 1287:                                             ; preds = %1278
   %1288 = landingpad { ptr, i32 }
@@ -5108,7 +5108,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149.i.i:             ; preds = %1287, %1151
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit151.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit151.i.i:             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit149.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i
-  %.pn75.pn211.i.i = phi { ptr, i32 } [ %1128, %_ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i ], [ %.pn75.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit149.i.i ]
+  %.pn75.pn205.i.i = phi { ptr, i32 } [ %1128, %_ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i ], [ %.pn75.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit149.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %1120, i64 noundef %1119) #32, !noalias !229
   br label %common.resume
 

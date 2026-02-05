@@ -1020,7 +1020,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   br label %164
 
 164:                                              ; preds = %155, %153
-  %.sroa.011.sroa.0.4 = phi i32 [ %163, %155 ], [ 0, %153 ]
+  %.sroa.011.sroa.0.1 = phi i32 [ %163, %155 ], [ 0, %153 ]
   %165 = icmp sgt i32 %.sroa.10.0, %105
   br i1 %165, label %166, label %177
 
@@ -1039,9 +1039,9 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   br label %177
 
 177:                                              ; preds = %164, %166, %152
-  %.sroa.011.sroa.0.3 = phi i32 [ %.sroa.011.sroa.0.4, %166 ], [ %.sroa.011.sroa.0.4, %164 ], [ 0, %152 ]
-  %.sroa.011.sroa.7.3 = phi i64 [ %176, %166 ], [ 0, %164 ], [ 0, %152 ]
-  %.sroa.8.3 = phi i64 [ %.val, %166 ], [ %.val, %164 ], [ 0, %152 ]
+  %.sroa.011.sroa.0.0 = phi i32 [ %.sroa.011.sroa.0.1, %166 ], [ %.sroa.011.sroa.0.1, %164 ], [ 0, %152 ]
+  %.sroa.011.sroa.7.0 = phi i64 [ %176, %166 ], [ 0, %164 ], [ 0, %152 ]
+  %.sroa.8.0 = phi i64 [ %.val, %166 ], [ %.val, %164 ], [ 0, %152 ]
   br i1 %114, label %178, label %198
 
 178:                                              ; preds = %177
@@ -1073,9 +1073,9 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %195 = load ptr, ptr %194, align 8, !tbaa !45
   %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0129203
   %197 = load ptr, ptr %196, align 8, !tbaa !89
-  %.sroa.011.sroa.0.0.insert.ext13 = zext i32 %.sroa.011.sroa.0.3 to i64
-  %.sroa.011.sroa.0.0.insert.insert15 = or disjoint i64 %.sroa.011.sroa.7.3, %.sroa.011.sroa.0.0.insert.ext13
-  invoke void @cvSetImageROI(ptr noundef %197, i64 %.sroa.011.sroa.0.0.insert.insert15, i64 %.sroa.8.3)
+  %.sroa.011.sroa.0.0.insert.ext13 = zext i32 %.sroa.011.sroa.0.0 to i64
+  %.sroa.011.sroa.0.0.insert.insert15 = or disjoint i64 %.sroa.011.sroa.7.0, %.sroa.011.sroa.0.0.insert.ext13
+  invoke void @cvSetImageROI(ptr noundef %197, i64 %.sroa.011.sroa.0.0.insert.insert15, i64 %.sroa.8.0)
           to label %217 unwind label %135
 
 198:                                              ; preds = %177
@@ -1097,9 +1097,9 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %208 = load ptr, ptr %207, align 8, !tbaa !45
   %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %.0129203
   %210 = load ptr, ptr %209, align 8, !tbaa !89
-  %.sroa.011.sroa.0.0.insert.ext = zext i32 %.sroa.011.sroa.0.3 to i64
-  %.sroa.011.sroa.0.0.insert.insert = or disjoint i64 %.sroa.011.sroa.7.3, %.sroa.011.sroa.0.0.insert.ext
-  %211 = invoke ptr @cvGetSubRect(ptr noundef %210, ptr noundef nonnull %6, i64 %.sroa.011.sroa.0.0.insert.insert, i64 %.sroa.8.3)
+  %.sroa.011.sroa.0.0.insert.ext = zext i32 %.sroa.011.sroa.0.0 to i64
+  %.sroa.011.sroa.0.0.insert.insert = or disjoint i64 %.sroa.011.sroa.7.0, %.sroa.011.sroa.0.0.insert.ext
+  %211 = invoke ptr @cvGetSubRect(ptr noundef %210, ptr noundef nonnull %6, i64 %.sroa.011.sroa.0.0.insert.insert, i64 %.sroa.8.0)
           to label %212 unwind label %215
 
 212:                                              ; preds = %205

@@ -32752,8 +32752,8 @@ _ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit:
 
 if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, %if.then22.i, %if.then.i155
   %retval.0.i.i.i.i.i.i.i.sink.ph = phi ptr [ %185, %if.then22.i ], [ %155, %if.then.i155 ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  %hermesCallName.i.sroa.0.1.ph = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  %hermesCallName.i.sroa.6.1.ph = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %hermesCallName.i.sroa.0.0.ph = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %hermesCallName.i.sroa.6.0.ph = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   %srcNode.0.i.ph = phi ptr [ %182, %if.then22.i ], [ %151, %if.then.i155 ], [ %159, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i272 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
@@ -32762,8 +32762,8 @@ if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6Clas
 if.end31.i:                                       ; preds = %if.end31.i.sink.split, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, %if.then22.i, %if.then.i155
   %.sink443 = phi i32 [ %186, %if.then22.i ], [ %156, %if.then.i155 ], [ %201, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %.pre.i.i272, %if.end31.i.sink.split ]
   %retval.0.i.i.i.i.i.i.i.sink = phi ptr [ %185, %if.then22.i ], [ %155, %if.then.i155 ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %retval.0.i.i.i.i.i.i.i.sink.ph, %if.end31.i.sink.split ]
-  %hermesCallName.i.sroa.0.1 = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.0.1.ph, %if.end31.i.sink.split ]
-  %hermesCallName.i.sroa.6.1 = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.6.1.ph, %if.end31.i.sink.split ]
+  %hermesCallName.i.sroa.0.0 = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.0.0.ph, %if.end31.i.sink.split ]
+  %hermesCallName.i.sroa.6.0 = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.6.0.ph, %if.end31.i.sink.split ]
   %srcNode.0.i = phi ptr [ %182, %if.then22.i ], [ %151, %if.then.i155 ], [ %159, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %srcNode.0.i.ph, %if.end31.i.sink.split ]
   %203 = load ptr, ptr %parameters.i, align 8
   %conv.i3.i.i273 = zext i32 %.sink443 to i64
@@ -32772,7 +32772,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   %204 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %add.i.i275 = add i32 %204, 1
   store i32 %add.i.i275, ptr %Size.i.i.i.i.i.i411, align 8
-  %call33.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %srcNode.0.i, ptr nonnull %hermesCallName.i.sroa.0.1, i64 %hermesCallName.i.sroa.6.1, ptr noundef nonnull align 8 dereferenceable(80) %parameters.i)
+  %call33.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %srcNode.0.i, ptr nonnull %hermesCallName.i.sroa.0.0, i64 %hermesCallName.i.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(80) %parameters.i)
   %205 = load ptr, ptr %this, align 8
   %state_.i.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %206 = load ptr, ptr %state_.i.i.i.i.i235, align 8

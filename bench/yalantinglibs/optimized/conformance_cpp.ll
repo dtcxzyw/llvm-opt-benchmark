@@ -2280,7 +2280,7 @@ invoke.cont51.i:                                  ; preds = %invoke.cont45.i
 
 if.then56.i:                                      ; preds = %invoke.cont51.i
   %is_done.sroa.0.0.copyload65 = load i64, ptr %_status50.i, align 8
-  %is_done.sroa.0.sroa.0.0.extract.trunc73 = trunc i64 %is_done.sroa.0.0.copyload65 to i32
+  %is_done.sroa.0.sroa.0.0.extract.trunc71 = trunc i64 %is_done.sroa.0.0.copyload65 to i32
   %is_done.sroa.9.0.copyload67 = load i64, ptr %is_done.sroa.9.0._status50.i.sroa_idx, align 8
   %is_done.sroa.12.0.copyload69 = load ptr, ptr %is_done.sroa.12.0._status50.i.sroa_idx, align 8
   br label %cleanup.i
@@ -2303,7 +2303,7 @@ invoke.cont66.i:                                  ; preds = %do.body62.i
 
 if.then71.i:                                      ; preds = %invoke.cont66.i
   %is_done.sroa.0.0.copyload66 = load i64, ptr %_status63.i, align 8
-  %is_done.sroa.0.sroa.0.0.extract.trunc74 = trunc i64 %is_done.sroa.0.0.copyload66 to i32
+  %is_done.sroa.0.sroa.0.0.extract.trunc72 = trunc i64 %is_done.sroa.0.0.copyload66 to i32
   %is_done.sroa.9.0.copyload68 = load i64, ptr %is_done.sroa.9.0._status63.i.sroa_idx, align 8
   %is_done.sroa.12.0.copyload70 = load ptr, ptr %is_done.sroa.12.0._status63.i.sroa_idx, align 8
   br label %cleanup.i
@@ -2396,9 +2396,9 @@ ehcleanup99.i:                                    ; preds = %ehcleanup.i17, %lpa
   br label %ehcleanup103.i
 
 cleanup.i:                                        ; preds = %do.end76.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %if.then71.i, %if.then56.i
-  %is_done.sroa.12.3 = phi ptr [ %is_done.sroa.12.0.copyload69, %if.then56.i ], [ %is_done.sroa.12.0.copyload70, %if.then71.i ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ null, %do.end76.i ]
-  %is_done.sroa.9.3 = phi i64 [ %is_done.sroa.9.0.copyload67, %if.then56.i ], [ %is_done.sroa.9.0.copyload68, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
-  %is_done.sroa.0.sroa.0.2 = phi i32 [ %is_done.sroa.0.sroa.0.0.extract.trunc73, %if.then56.i ], [ %is_done.sroa.0.sroa.0.0.extract.trunc74, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
+  %is_done.sroa.12.2 = phi ptr [ %is_done.sroa.12.0.copyload69, %if.then56.i ], [ %is_done.sroa.12.0.copyload70, %if.then71.i ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ null, %do.end76.i ]
+  %is_done.sroa.9.2 = phi i64 [ %is_done.sroa.9.0.copyload67, %if.then56.i ], [ %is_done.sroa.9.0.copyload68, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
+  %is_done.sroa.0.sroa.0.2 = phi i32 [ %is_done.sroa.0.sroa.0.0.extract.trunc71, %if.then56.i ], [ %is_done.sroa.0.sroa.0.0.extract.trunc72, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
   %173 = load ptr, ptr %serialized_output.i, align 8, !noalias !8
   %cmp.i.i.i41.i = icmp eq ptr %173, %40
   br i1 %cmp.i.i.i41.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14, label %if.then.i.i42.i
@@ -2418,8 +2418,8 @@ ehcleanup103.i:                                   ; preds = %ehcleanup99.i, %lpa
   br label %ehcleanup107.i
 
 cleanup104.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14, %if.then36.i
-  %is_done.sroa.12.2 = phi ptr [ %is_done.sroa.12.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14 ], [ %is_done.sroa.12.4.copyload, %if.then36.i ]
-  %is_done.sroa.9.2 = phi i64 [ %is_done.sroa.9.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14 ], [ %is_done.sroa.9.4.copyload, %if.then36.i ]
+  %is_done.sroa.12.1 = phi ptr [ %is_done.sroa.12.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14 ], [ %is_done.sroa.12.4.copyload, %if.then36.i ]
+  %is_done.sroa.9.1 = phi i64 [ %is_done.sroa.9.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14 ], [ %is_done.sroa.9.4.copyload, %if.then36.i ]
   %is_done.sroa.0.sroa.0.1 = phi i32 [ %is_done.sroa.0.sroa.0.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14 ], [ %_status29.sroa.0.0.copyload68.i, %if.then36.i ]
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i66.i.i) #25, !noalias !8
   call void @_ZN11conformance18ConformanceRequestD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %request.i) #25, !noalias !8
@@ -2431,8 +2431,8 @@ ehcleanup107.i:                                   ; preds = %ehcleanup103.i, %lp
   br label %ehcleanup109.i
 
 cleanup108.i:                                     ; preds = %cleanup104.i, %if.then10.i
-  %is_done.sroa.12.1 = phi ptr [ %is_done.sroa.12.2, %cleanup104.i ], [ %is_done.sroa.12.0.copyload, %if.then10.i ]
-  %is_done.sroa.9.1 = phi i64 [ %is_done.sroa.9.2, %cleanup104.i ], [ %is_done.sroa.9.0.copyload, %if.then10.i ]
+  %is_done.sroa.12.0 = phi ptr [ %is_done.sroa.12.1, %cleanup104.i ], [ %is_done.sroa.12.0.copyload, %if.then10.i ]
+  %is_done.sroa.9.0 = phi i64 [ %is_done.sroa.9.1, %cleanup104.i ], [ %is_done.sroa.9.0.copyload, %if.then10.i ]
   %is_done.sroa.0.sroa.0.0 = phi i32 [ %is_done.sroa.0.sroa.0.1, %cleanup104.i ], [ %is_done.sroa.0.sroa.0.0.extract.trunc, %if.then10.i ]
   %174 = load ptr, ptr %serialized_input.i, align 8, !noalias !8
   %cmp.i.i.i47.i = icmp eq ptr %174, %28
@@ -2475,7 +2475,7 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %if.then
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i23)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i23) #25, !noalias !18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %is_done.sroa.12.1, i64 noundef %is_done.sroa.9.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i23)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %is_done.sroa.12.0, i64 noundef %is_done.sroa.9.0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i23)
           to label %invoke.cont7 unwind label %lpad.i24
 
 lpad.i24:                                         ; preds = %invoke.cont2
@@ -2509,12 +2509,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   br label %if.end16
 
 lpad.loopexit:                                    ; preds = %while.cond, %if.then
-  %lpad.loopexit92 = landingpad { ptr, i32 }
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 lpad.loopexit.split-lp:                           ; preds = %while.end
-  %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
@@ -2602,7 +2602,7 @@ lpad19:                                           ; preds = %invoke.cont24, %inv
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup109.i, %lpad19, %ehcleanup
-  %.pn3 = phi { ptr, i32 } [ %181, %lpad19 ], [ %.pn, %ehcleanup ], [ %.pn3.pn.pn.i, %ehcleanup109.i ], [ %lpad.loopexit92, %lpad.loopexit ], [ %lpad.loopexit.split-lp93, %lpad.loopexit.split-lp ]
+  %.pn3 = phi { ptr, i32 } [ %181, %lpad19 ], [ %.pn, %ehcleanup ], [ %.pn3.pn.pn.i, %ehcleanup109.i ], [ %lpad.loopexit88, %lpad.loopexit ], [ %lpad.loopexit.split-lp89, %lpad.loopexit.split-lp ]
   call fastcc void @_ZN6google8protobuf12_GLOBAL__N_17HarnessD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %harness) #25
   br label %common.resume
 }

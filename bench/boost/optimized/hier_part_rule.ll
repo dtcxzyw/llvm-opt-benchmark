@@ -452,16 +452,16 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %4
-  %.promoted142 = phi ptr [ %6, %4 ], [ %100, %select.unfold ]
+  %.promoted106 = phi ptr [ %6, %4 ], [ %100, %select.unfold ]
   %.031 = phi i64 [ 0, %4 ], [ %99, %select.unfold ]
-  %8 = ptrtoint ptr %.promoted142 to i64
+  %8 = ptrtoint ptr %.promoted106 to i64
   %9 = sub i64 %7, %8
   %10 = icmp sgt i64 %9, 15
   br i1 %10, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %32, %.loopexit
   %.021.lcssa44.pre-phi.i.i.i.i = phi i64 [ %8, %.loopexit ], [ %34, %32 ]
-  %.021.lcssa.i.i.i.i = phi ptr [ %.promoted142, %.loopexit ], [ %33, %32 ]
+  %.021.lcssa.i.i.i.i = phi ptr [ %.promoted106, %.loopexit ], [ %33, %32 ]
   %.not34.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %2
   br i1 %.not34.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph36.preheader.i.i.i.i
 
@@ -471,7 +471,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   br label %.lr.ph36.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %32
-  %.02133.i.i.i.i = phi ptr [ %33, %32 ], [ %.promoted142, %.loopexit ]
+  %.02133.i.i.i.i = phi ptr [ %33, %32 ], [ %.promoted106, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %16
@@ -544,12 +544,12 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   %49 = sub i64 %48, %8
   %50 = add i64 %49, %.031
   %51 = icmp eq ptr %.2.i.i.i.i, %2
-  br i1 %51, label %.thread107, label %52
+  br i1 %51, label %.thread89, label %52
 
 52:                                               ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
   %53 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !10
   %.not = icmp eq i8 %53, 37
-  br i1 %.not, label %.preheader, label %.thread107
+  br i1 %.not, label %.preheader, label %.thread89
 
 .preheader:                                       ; preds = %52, %select.unfold
   %54 = phi ptr [ %100, %select.unfold ], [ %.2.i.i.i.i, %52 ]
@@ -720,14 +720,14 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57: ; preds = %_
   %100 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store ptr %100, ptr %1, align 8, !tbaa !3
   %101 = icmp eq ptr %100, %2
-  br i1 %101, label %.thread107, label %select.unfold
+  br i1 %101, label %.thread89, label %select.unfold
 
 select.unfold:                                    ; preds = %98
   %102 = load i8, ptr %100, align 1, !tbaa !10
   %.not37 = icmp eq i8 %102, 37
   br i1 %.not37, label %.preheader, label %.loopexit
 
-.thread107:                                       ; preds = %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, %98
+.thread89:                                        ; preds = %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, %98
   %.pre-phi = phi i64 [ %7, %98 ], [ %48, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit ], [ %48, %52 ]
   %.1 = phi i64 [ %99, %98 ], [ %50, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit ], [ %50, %52 ]
   %103 = ptrtoint ptr %6 to i64
@@ -737,11 +737,11 @@ select.unfold:                                    ; preds = %98
   store i64 %104, ptr %.sroa.4.0..sroa_idx, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43, %.thread107, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink188 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ 1, %.thread107 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+.thread:                                          ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43, %.thread89, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
+  %.sink152 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread89 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ 1, %.thread89 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sroa.662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink188, ptr %.sroa.662.0..sroa_idx, align 8
+  store i64 %.sink152, ptr %.sroa.662.0..sroa_idx, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %105, align 8, !tbaa !24
   ret void

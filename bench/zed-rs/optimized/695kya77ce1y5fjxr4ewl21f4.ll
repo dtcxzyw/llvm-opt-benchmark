@@ -74189,15 +74189,15 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   br i1 %.not, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h9c1f874243637e75E.exit53", label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
-  %.pre86 = load ptr, ptr %9, align 8, !alias.scope !13115
+  %.pre85 = load ptr, ptr %9, align 8, !alias.scope !13115
   br label %54
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !13114, !nonnull !7, !noundef !7
   %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(17) %22, ptr noundef nonnull dereferenceable(17) @anon.05b13e52f826c56db84bc771daf91b77.440.llvm.15681087171329068630, i64 17), !alias.scope !13118, !noalias !13122
-  %.not82 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not82, label %24, label %.thread64
+  %.not81 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not81, label %24, label %.thread64
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5fc87021631d88fdE.exit": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h888a6d4632e9902cE.exit.thread"
   %23 = trunc nuw i64 %45 to i1
@@ -74236,13 +74236,13 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
 .noexc50:                                         ; preds = %30
   %31 = load ptr, ptr %3, align 8, !noalias !13170, !noundef !7
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %40, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77"
+  br i1 %32, label %40, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76"
 
-"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77": ; preds = %.noexc50
+"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76": ; preds = %.noexc50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12.8..sroa_idx, i64 40, i1 false), !noalias !13174
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13170
   %.pre = load i64, ptr %4, align 8, !range !47, !alias.scope !13175
-  %.pre85 = load ptr, ptr %9, align 8
+  %.pre84 = load ptr, ptr %9, align 8
   %33 = icmp eq i64 %.pre, 0
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread"
 
@@ -74252,10 +74252,10 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   store i64 1, ptr %0, align 8
   br label %47
 
-"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread": ; preds = %27, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77"
-  %36 = phi ptr [ %.pre85, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77" ], [ %12, %27 ]
-  %37 = phi i1 [ %33, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77" ], [ true, %27 ]
-  %.sroa.757.370 = phi ptr [ %31, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread77" ], [ null, %27 ]
+"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread": ; preds = %27, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76"
+  %36 = phi ptr [ %.pre84, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76" ], [ %12, %27 ]
+  %37 = phi i1 [ %33, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76" ], [ true, %27 ]
+  %.sroa.757.170 = phi ptr [ %31, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread76" ], [ null, %27 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.68.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %38 = icmp eq ptr %36, null
@@ -74280,19 +74280,19 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   %43 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %4, align 8
-  store ptr %.sroa.757.370, ptr %9, align 8
+  store ptr %.sroa.757.170, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.68.sroa.6.0..sroa.68.0..sroa_idx9.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.68.sroa.6, i64 40, i1 false)
   br label %54
 
 "_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$$GT$17hf6189cefef8c4785E.exit": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h6a4d7f7f02dc87f2E.exit.thread", %39
   store i64 1, ptr %4, align 8
-  store ptr %.sroa.757.370, ptr %9, align 8
+  store ptr %.sroa.757.170, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.68.sroa.6.0..sroa.68.0..sroa_idx9.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.68.sroa.6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68.sroa.6)
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h888a6d4632e9902cE.exit.thread"
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h888a6d4632e9902cE.exit.thread": ; preds = %.thread64, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$$GT$17hf6189cefef8c4785E.exit"
-  %44 = phi ptr [ %12, %.thread64 ], [ %.sroa.757.370, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$$GT$17hf6189cefef8c4785E.exit" ]
+  %44 = phi ptr [ %12, %.thread64 ], [ %.sroa.757.170, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$$GT$17hf6189cefef8c4785E.exit" ]
   %45 = phi i64 [ %13, %.thread64 ], [ 1, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$$GT$17hf6189cefef8c4785E.exit" ]
   %46 = icmp eq ptr %15, %6
   br i1 %46, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5fc87021631d88fdE.exit", label %11
@@ -74302,8 +74302,8 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   %trunc38 = trunc nuw i64 %48 to i1
   %49 = load ptr, ptr %9, align 8
   %50 = icmp ne ptr %49, null
-  %or.cond94.not = select i1 %trunc38, i1 %50, i1 false
-  br i1 %or.cond94.not, label %53, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h9c1f874243637e75E.exit"
+  %or.cond93.not = select i1 %trunc38, i1 %50, i1 false
+  br i1 %or.cond93.not, label %53, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h9c1f874243637e75E.exit"
 
 51:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5fc87021631d88fdE.exit"
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -74332,7 +74332,7 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   resume { ptr, i32 } %.pn61
 
 54:                                               ; preds = %._crit_edge, %.thread
-  %55 = phi ptr [ %.sroa.757.370, %.thread ], [ %.pre86, %._crit_edge ]
+  %55 = phi ptr [ %.sroa.757.170, %.thread ], [ %.pre85, %._crit_edge ]
   %.pn60 = phi { ptr, i32 } [ %43, %.thread ], [ %lpad.phi, %._crit_edge ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h9c1f874243637e75E.exit53", label %57

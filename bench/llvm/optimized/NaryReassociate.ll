@@ -2858,13 +2858,13 @@ define dso_local noundef ptr @_ZN4llvm19NaryReassociatePass24tryReassociateGEPAt
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = shl i32 %23, 5
-  %.not82 = icmp eq i32 %24, 32
-  br i1 %.not82, label %._crit_edge, label %.lr.ph
+  %.not80 = icmp eq i32 %24, 32
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %25 = zext i32 %24 to i64
   %26 = sub nsw i64 32, %25
-  %.05881 = getelementptr inbounds i8, ptr %1, i64 %26
+  %.05879 = getelementptr inbounds i8, ptr %1, i64 %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %47
 
@@ -2901,9 +2901,9 @@ define dso_local noundef ptr @_ZN4llvm19NaryReassociatePass24tryReassociateGEPAt
   br i1 %46, label %63, label %.critedge
 
 47:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit
-  %.05883 = phi ptr [ %.05881, %.lr.ph ], [ %.058, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit ]
+  %.05881 = phi ptr [ %.05879, %.lr.ph ], [ %.058, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit ]
   %48 = load ptr, ptr %27, align 8, !tbaa !40
-  %49 = load ptr, ptr %.05883, align 8, !tbaa !167
+  %49 = load ptr, ptr %.05881, align 8, !tbaa !167
   %50 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %48, ptr noundef %49) #18
   %51 = load i32, ptr %20, align 8, !tbaa !64
   %52 = load i32, ptr %21, align 4, !tbaa !65
@@ -2927,7 +2927,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   %61 = load i32, ptr %20, align 8, !tbaa !64
   %62 = add i32 %61, 1
   store i32 %62, ptr %20, align 8, !tbaa !64
-  %.058 = getelementptr inbounds nuw i8, ptr %.05883, i64 32
+  %.058 = getelementptr inbounds nuw i8, ptr %.05881, i64 32
   %.not = icmp eq ptr %.058, %1
   br i1 %.not, label %._crit_edge, label %47
 

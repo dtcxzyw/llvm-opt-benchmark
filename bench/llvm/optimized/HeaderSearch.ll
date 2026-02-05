@@ -2516,8 +2516,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %_ZNK4llvm9StringRef
   br label %_ZNK4llvm9StringRef5splitEc.exit18
 
 _ZNK4llvm9StringRef5splitEc.exit18:               ; preds = %_ZNK4llvm9StringRef5splitEc.exit, %121
-  %.sroa.5.2 = phi ptr [ %125, %121 ], [ null, %_ZNK4llvm9StringRef5splitEc.exit ]
-  %.sroa.8.2 = phi i64 [ %126, %121 ], [ 0, %_ZNK4llvm9StringRef5splitEc.exit ]
+  %.sroa.5.0 = phi ptr [ %125, %121 ], [ null, %_ZNK4llvm9StringRef5splitEc.exit ]
+  %.sroa.8.0 = phi i64 [ %126, %121 ], [ 0, %_ZNK4llvm9StringRef5splitEc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !401)
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
@@ -2542,21 +2542,21 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm9StringRef
   %.sroa.56.0.i.i = select i1 %129, i64 %.sroa.56.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %17, align 8, !alias.scope !407
   store i64 %.sroa.56.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !257, !alias.scope !407
-  store ptr %.sroa.5.2, ptr %80, align 8, !alias.scope !407
-  store i64 %.sroa.8.2, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !257, !alias.scope !407
+  store ptr %.sroa.5.0, ptr %80, align 8, !alias.scope !407
+  store i64 %.sroa.8.0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !257, !alias.scope !407
   br label %131
 
 130:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit18
-  store ptr %.sroa.5.2, ptr %17, align 8
-  store i64 %.sroa.8.2, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !257
+  store ptr %.sroa.5.0, ptr %17, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !257
   br label %131
 
 131:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %130
   %storemerge88 = phi i8 [ 5, %130 ], [ %.014.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %storemerge = phi i8 [ 1, %130 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %132 = phi ptr [ %.sroa.5.2, %130 ], [ %17, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %132 = phi ptr [ %.sroa.5.0, %130 ], [ %17, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %133 = phi i8 [ 5, %130 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %134 = phi i64 [ %.sroa.8.2, %130 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %134 = phi i64 [ %.sroa.8.0, %130 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   store i8 %storemerge88, ptr %78, align 8, !tbaa !408
   store i8 %storemerge, ptr %79, align 1, !tbaa !408
   store ptr %132, ptr %16, align 8, !alias.scope !409

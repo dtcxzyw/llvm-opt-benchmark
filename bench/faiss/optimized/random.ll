@@ -1785,15 +1785,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc17, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.1371.0 = phi i64 [ %42, %.noexc17 ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.065.0 = phi ptr [ %37, %.noexc17 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.1368.0 = phi i64 [ %42, %.noexc17 ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.062.0 = phi ptr [ %37, %.noexc17 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i = phi i64 [ %41, %.noexc17 ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %43 = ptrtoint ptr %.sroa.065.0 to i64
+  %43 = ptrtoint ptr %.sroa.062.0 to i64
   %44 = sub i64 %.0.i.i.i.i.i, %43
   %45 = ashr exact i64 %44, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr %.sroa.065.0, ptr %17, align 8, !tbaa !16
+  store ptr %.sroa.062.0, ptr %17, align 8, !tbaa !16
   store i64 %45, ptr %18, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %46 = icmp ult i64 %45, 1024
@@ -1914,7 +1914,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28:             ; preds = %.noexc27, %_ZNSt6ve
   store float 1.000000e+00, ptr %29, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !21
-  %81 = invoke i32 @sgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %.sroa.055.0, ptr noundef nonnull %26, ptr noundef %.sroa.065.0, ptr noundef nonnull %27, ptr noundef nonnull %30, ptr noundef %2, ptr noundef nonnull %26)
+  %81 = invoke i32 @sgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %.sroa.055.0, ptr noundef nonnull %26, ptr noundef %.sroa.062.0, ptr noundef nonnull %27, ptr noundef nonnull %30, ptr noundef %2, ptr noundef nonnull %26)
           to label %82 unwind label %117
 
 82:                                               ; preds = %76
@@ -2091,12 +2091,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit45:                  ; preds = %128, %130
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit47
 
 _ZNSt6vectorIfSaIfEED2Ev.exit47:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit45, %136
-  %.not.i.i.i48 = icmp eq ptr %.sroa.065.0, null
+  %.not.i.i.i48 = icmp eq ptr %.sroa.062.0, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIfSaIfEED2Ev.exit49, label %138
 
 138:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit47
-  %139 = sub i64 %.sroa.1371.0, %43
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.0, i64 noundef %139) #21
+  %139 = sub i64 %.sroa.1368.0, %43
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.062.0, i64 noundef %139) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit49
 
 _ZNSt6vectorIfSaIfEED2Ev.exit49:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit47, %138
@@ -2119,12 +2119,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %123, %121, %119
 
 _ZNSt6vectorIfSaIfEED2Ev.exit51:                  ; preds = %113, %140, %141, %111
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %.pn.pn, %140 ], [ %.pn.pn, %141 ]
-  %.not.i.i.i52 = icmp eq ptr %.sroa.065.0, null
+  %.not.i.i.i52 = icmp eq ptr %.sroa.062.0, null
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIfSaIfEED2Ev.exit53, label %143
 
 143:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit51
-  %144 = sub i64 %.sroa.1371.0, %43
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.0, i64 noundef %144) #21
+  %144 = sub i64 %.sroa.1368.0, %43
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.062.0, i64 noundef %144) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit53
 
 _ZNSt6vectorIfSaIfEED2Ev.exit53:                  ; preds = %143, %_ZNSt6vectorIfSaIfEED2Ev.exit51

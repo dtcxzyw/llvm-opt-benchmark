@@ -335,8 +335,8 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
           to label %53 unwind label %54
 
 29:                                               ; preds = %.lr.ph, %51
-  %.046 = phi i64 [ 0, %.lr.ph ], [ %52, %51 ]
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %.046
+  %.044 = phi i64 [ 0, %.lr.ph ], [ %52, %51 ]
+  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %.044
   %31 = load i64, ptr %30, align 8, !tbaa !47
   %32 = icmp slt i64 %31, 0
   br i1 %32, label %33, label %41
@@ -344,7 +344,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
 33:                                               ; preds = %29
   %34 = load i32, ptr %12, align 8, !tbaa !43
   %35 = sext i32 %34 to i64
-  %36 = mul i64 %.046, %35
+  %36 = mul i64 %.044, %35
   %37 = getelementptr inbounds nuw float, ptr %.sroa.0.0, i64 %36
   %38 = shl nsw i64 %35, 2
   call void @llvm.memset.p0.i64(ptr align 4 %37, i8 0, i64 %38, i1 false)
@@ -359,7 +359,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
   %42 = load ptr, ptr %27, align 8, !tbaa !48
   %43 = load i32, ptr %12, align 8, !tbaa !43
   %44 = sext i32 %43 to i64
-  %45 = mul i64 %.046, %44
+  %45 = mul i64 %.044, %44
   %46 = getelementptr inbounds nuw float, ptr %2, i64 %45
   %47 = getelementptr inbounds nuw float, ptr %.sroa.0.0, i64 %45
   %48 = load ptr, ptr %42, align 8, !tbaa !4
@@ -369,7 +369,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
           to label %51 unwind label %39
 
 51:                                               ; preds = %33, %41
-  %52 = add nuw i64 %.046, 1
+  %52 = add nuw i64 %.044, 1
   %exitcond.not = icmp eq i64 %52, %1
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !49
 
@@ -399,15 +399,15 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = call noundef i64 @_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %61)
   %63 = icmp sgt i64 %1, 0
-  br i1 %63, label %.lr.ph49, label %.loopexit
+  br i1 %63, label %.lr.ph47, label %.loopexit
 
-.lr.ph49:                                         ; preds = %60
+.lr.ph47:                                         ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %65
 
-65:                                               ; preds = %.lr.ph49, %65
-  %.033.in47 = phi i64 [ %1, %.lr.ph49 ], [ %.033, %65 ]
-  %.033 = add nsw i64 %.033.in47, -1
+65:                                               ; preds = %.lr.ph47, %65
+  %.033.in45 = phi i64 [ %1, %.lr.ph47 ], [ %.033, %65 ]
+  %.033 = add nsw i64 %.033.in45, -1
   %66 = load i64, ptr %64, align 8, !tbaa !50
   %67 = add i64 %66, %62
   %68 = mul i64 %67, %.033
@@ -419,7 +419,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %11, %25
   %73 = getelementptr inbounds nuw i64, ptr %3, i64 %.033
   %74 = load i64, ptr %73, align 8, !tbaa !47
   call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(80) %61, i64 noundef %74, ptr noundef %69)
-  %75 = icmp samesign ugt i64 %.033.in47, 1
+  %75 = icmp samesign ugt i64 %.033.in45, 1
   br i1 %75, label %65, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %65, %60, %59
@@ -1731,8 +1731,8 @@ define internal void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi.omp_ou
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %8, align 8, !tbaa !47
   %18 = load i64, ptr %7, align 8, !tbaa !47
-  %.not42 = icmp ugt i64 %18, %17
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp ugt i64 %18, %17
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -1742,12 +1742,12 @@ define internal void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi.omp_ou
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit
-  %.038 = phi i64 [ %18, %.lr.ph ], [ %83, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit ]
+  %.036 = phi i64 [ %18, %.lr.ph ], [ %83, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit ]
   %24 = load ptr, ptr %19, align 8, !tbaa !93
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(25) %24, i64 noundef %.038)
+  %28 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(25) %24, i64 noundef %.036)
           to label %29 unwind label %.loopexit
 
 29:                                               ; preds = %23
@@ -1795,12 +1795,12 @@ define internal void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi.omp_ou
   br label %_ZN5faiss12AlignedTableIhLi32EEC2Em.exit
 
 _ZN5faiss12AlignedTableIhLi32EEC2Em.exit:         ; preds = %47, %29
-  %.sroa.031.1 = phi ptr [ %48, %47 ], [ null, %29 ]
+  %.sroa.031.0 = phi ptr [ %48, %47 ], [ null, %29 ]
   %49 = load ptr, ptr %19, align 8, !tbaa !93
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = invoke noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(25) %49, i64 noundef %.038)
+  %53 = invoke noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(25) %49, i64 noundef %.036)
           to label %54 unwind label %.loopexit
 
 54:                                               ; preds = %_ZN5faiss12AlignedTableIhLi32EEC2Em.exit
@@ -1808,14 +1808,14 @@ _ZN5faiss12AlignedTableIhLi32EEC2Em.exit:         ; preds = %47, %29
   %56 = load i32, ptr %4, align 4, !tbaa !75
   %57 = load i64, ptr %20, align 8, !tbaa !84
   %58 = sext i32 %56 to i64
-  invoke void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef %53, i64 noundef %28, i64 noundef %55, i64 noundef %35, i64 noundef %58, i64 noundef %57, ptr noundef %.sroa.031.1)
+  invoke void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef %53, i64 noundef %28, i64 noundef %55, i64 noundef %35, i64 noundef %58, i64 noundef %57, ptr noundef %.sroa.031.0)
           to label %59 unwind label %.loopexit
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %49, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(25) %49, i64 noundef %.038, ptr noundef %53)
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(25) %49, i64 noundef %.036, ptr noundef %53)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit unwind label %63
 
 63:                                               ; preds = %59
@@ -1831,21 +1831,21 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %59
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load ptr, ptr %69, align 8
-  %71 = invoke noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(25) %67, i64 noundef %.038)
+  %71 = invoke noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(25) %67, i64 noundef %.036)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit unwind label %.loopexit
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit
   %72 = load ptr, ptr %66, align 8, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
-  %75 = invoke noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(25) %66, i64 noundef %.038, i64 noundef %28, ptr noundef %71, ptr noundef %.sroa.031.1)
+  %75 = invoke noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(25) %66, i64 noundef %.036, i64 noundef %28, ptr noundef %71, ptr noundef %.sroa.031.0)
           to label %76 unwind label %.loopexit
 
 76:                                               ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit
   %77 = load ptr, ptr %67, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(25) %67, i64 noundef %.038, ptr noundef %71)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(25) %67, i64 noundef %.036, ptr noundef %71)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit unwind label %80
 
 80:                                               ; preds = %76
@@ -1856,8 +1856,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit: ; preds = %_ZN5faiss13Inverted
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit:      ; preds = %76
-  call void @free(ptr noundef %.sroa.031.1) #17
-  %83 = add nuw i64 %.038, 1
+  call void @free(ptr noundef %.sroa.031.0) #17
+  %83 = add nuw i64 %.036, 1
   %84 = load i64, ptr %8, align 8, !tbaa !47
   %85 = add i64 %84, 1
   %86 = icmp ult i64 %83, %85

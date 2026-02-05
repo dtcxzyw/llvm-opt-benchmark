@@ -103,13 +103,13 @@ for.body.i.preheader:                             ; preds = %_ZNSt6vectorIPN6her
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i
-  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.4, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %call5.i.i.i.i.i, %for.body.i.preheader ]
-  %ref.tmp.sroa.10.3 = phi ptr [ %ref.tmp.sroa.10.4, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %add.ptr21.i.i, %for.body.i.preheader ]
-  %5 = phi ptr [ %ref.tmp.sroa.6.3, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %call5.i.i.i.i.i, %for.body.i.preheader ]
+  %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.1, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %call5.i.i.i.i.i, %for.body.i.preheader ]
+  %ref.tmp.sroa.10.0 = phi ptr [ %ref.tmp.sroa.10.1, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %add.ptr21.i.i, %for.body.i.preheader ]
+  %5 = phi ptr [ %ref.tmp.sroa.6.0, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %call5.i.i.i.i.i, %for.body.i.preheader ]
   %i.011.i = phi i32 [ %inc.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ 1, %for.body.i.preheader ]
   %add.i.i = add i32 %i.011.i, 2
   %call.i5.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036, i32 noundef %add.i.i) #10, !noalias !4
-  %cmp.not.i.i.i = icmp eq ptr %5, %ref.tmp.sroa.10.3
+  %cmp.not.i.i.i = icmp eq ptr %5, %ref.tmp.sroa.10.0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i8.i
 
 if.then.i.i8.i:                                   ; preds = %for.body.i
@@ -117,8 +117,8 @@ if.then.i.i8.i:                                   ; preds = %for.body.i
   br label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.10.3 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.0.3 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.10.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIPN6hermes5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -144,36 +144,36 @@ _ZNKSt6vectorIPN6hermes5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds 
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorIPN6hermes5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i, ptr align 8 %ref.tmp.sroa.0.3, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !4
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i, ptr align 8 %ref.tmp.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !4
   br label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt6vectorIPN6hermes5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.3) #13, !noalias !4
+  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.0) #13, !noalias !4
   %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   br label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i
 
 _ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i8.i
-  %ref.tmp.sroa.0.4 = phi ptr [ %call5.i.i.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.0.3, %if.then.i.i8.i ]
+  %ref.tmp.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.0.0, %if.then.i.i8.i ]
   %add.ptr.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %5, %if.then.i.i8.i ]
-  %ref.tmp.sroa.10.4 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.10.3, %if.then.i.i8.i ]
-  %ref.tmp.sroa.6.3 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.pn, i64 8
+  %ref.tmp.sroa.10.1 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.10.0, %if.then.i.i8.i ]
+  %ref.tmp.sroa.6.0 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.pn, i64 8
   %inc.i = add nuw i32 %i.011.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sub.i.i
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE.exit, label %for.body.i, !llvm.loop !7
 
 _ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE.exit: ; preds = %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i, %if.then20, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i
-  %ref.tmp.sroa.0.5 = phi ptr [ null, %if.then20 ], [ %call5.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.0.4, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ]
-  %ref.tmp.sroa.6.4 = phi ptr [ null, %if.then20 ], [ %call5.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.6.3, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ref.tmp.sroa.6.4 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %ref.tmp.sroa.0.5 to i64
+  %ref.tmp.sroa.0.2 = phi ptr [ null, %if.then20 ], [ %call5.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.0.1, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ]
+  %ref.tmp.sroa.6.1 = phi ptr [ null, %if.then20 ], [ %call5.i.i.i.i.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.6.0, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ref.tmp.sroa.6.1 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %ref.tmp.sroa.0.2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %call29 = call noundef ptr @_ZN6hermes9IRBuilder18createHBCCallNInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %4, ptr noundef %call.i17, ptr noundef %call.i18, ptr %ref.tmp.sroa.0.5, i64 %sub.ptr.div.i.i) #10
-  %tobool.not.i.i.i = icmp eq ptr %ref.tmp.sroa.0.5, null
+  %call29 = call noundef ptr @_ZN6hermes9IRBuilder18createHBCCallNInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %4, ptr noundef %call.i17, ptr noundef %call.i18, ptr %ref.tmp.sroa.0.2, i64 %sub.ptr.div.i.i) #10
+  %tobool.not.i.i.i = icmp eq ptr %ref.tmp.sroa.0.2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE.exit
-  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.5) #13
+  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.2) #13
   br label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE.exit, %if.then.i.i.i

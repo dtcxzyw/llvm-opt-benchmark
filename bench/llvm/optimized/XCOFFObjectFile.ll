@@ -4501,8 +4501,8 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15XCOFFObjectFile17section_rel_be
 _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEE9takeErrorEv.exit: ; preds = %16
   %20 = load i64, ptr %9, align 8, !tbaa !11, !noalias !518
   store ptr null, ptr %9, align 8, !tbaa !11, !noalias !518
-  %.not73 = icmp eq i64 %20, 0
-  br i1 %.not73, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25, label %.critedge14
+  %.not69 = icmp eq i64 %20, 0
+  br i1 %.not69, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25, label %.critedge14
 
 .critedge14:                                      ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEE9takeErrorEv.exit
   %21 = inttoptr i64 %20 to ptr
@@ -4613,8 +4613,8 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit: ; pre
   br label %58
 
 _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %37
-  %.pr69 = load ptr, ptr %10, align 8, !tbaa !526
-  %56 = ptrtoint ptr %.pr69 to i64
+  %.pr65 = load ptr, ptr %10, align 8, !tbaa !526
+  %56 = ptrtoint ptr %.pr65 to i64
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40
 
 _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40: ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEE9takeErrorEv.exit, %_ZN4llvm5ErrorD2Ev.exit36
@@ -4623,9 +4623,9 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40: ; p
   br label %58
 
 58:                                               ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit
-  %.sroa.062.0 = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %36, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %57, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
+  %.sroa.058.0 = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %36, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %57, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
   %.sroa.4.0 = phi ptr [ null, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ null, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.062.0, 0
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.058.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
@@ -4658,8 +4658,8 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15XCOFFObjectFile15section_rel_en
 _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEE9takeErrorEv.exit: ; preds = %16
   %20 = load i64, ptr %9, align 8, !tbaa !11, !noalias !528
   store ptr null, ptr %9, align 8, !tbaa !11, !noalias !528
-  %.not73 = icmp eq i64 %20, 0
-  br i1 %.not73, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24, label %.critedge14
+  %.not69 = icmp eq i64 %20, 0
+  br i1 %.not69, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24, label %.critedge14
 
 .critedge14:                                      ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEE9takeErrorEv.exit
   %21 = inttoptr i64 %20 to ptr
@@ -4714,11 +4714,11 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %16
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24: ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEE9takeErrorEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !531
-  %.idx74 = mul nuw nsw i64 %40, 14
+  %.idx70 = mul nuw nsw i64 %40, 14
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25
 
 _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25: ; preds = %_ZN4llvm5ErrorD2Ev.exit21, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24
-  %41 = phi i64 [ %.idx74, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24 ], [ %38, %_ZN4llvm5ErrorD2Ev.exit21 ]
+  %41 = phi i64 [ %.idx70, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24 ], [ %38, %_ZN4llvm5ErrorD2Ev.exit21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %68
 
@@ -4779,10 +4779,10 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit: ; pre
   br label %68
 
 _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %42
-  %.pr69 = load ptr, ptr %10, align 8, !tbaa !526
+  %.pr65 = load ptr, ptr %10, align 8, !tbaa !526
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !535
-  %63 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation32", ptr %.pr69, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation32", ptr %.pr65, i64 %62
   %64 = ptrtoint ptr %63 to i64
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40
 
@@ -4798,9 +4798,9 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40: ; p
   br label %68
 
 68:                                               ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit
-  %.sroa.062.0 = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %41, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %67, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
+  %.sroa.058.0 = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %41, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %67, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
   %.sroa.4.0 = phi ptr [ null, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit ], [ null, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit ], [ %0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25 ], [ %0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.062.0, 0
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.058.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
 }

@@ -2317,8 +2317,8 @@ define void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv16prepareVideoMetaEv(ptr n
   %24 = tail call i64 @gst_app_sink_get_type()
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %24)
   %26 = tail call ptr @gst_app_sink_try_pull_preroll(ptr noundef %25, i64 noundef 5000000000)
-  %.not75 = icmp eq ptr %26, null
-  br i1 %.not75, label %27, label %37
+  %.not72 = icmp eq ptr %26, null
+  br i1 %.not72, label %27, label %37
 
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2522,10 +2522,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %47,
   %94 = load i32, ptr %7, align 4, !tbaa !88
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 1, ptr %95, align 8, !tbaa !131
-  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 %93, ptr %.sroa.463.0..sroa_idx, align 4, !tbaa !88
-  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 %94, ptr %.sroa.564.0..sroa_idx, align 8, !tbaa !88
+  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i32 %93, ptr %.sroa.460.0..sroa_idx, align 4, !tbaa !88
+  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i32 %94, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !88
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 84
   %97 = load i32, ptr %96, align 4, !tbaa !118
   %98 = icmp eq i32 %97, 2
@@ -2572,10 +2572,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %104
   %111 = load i32, ptr %7, align 4, !tbaa !88
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 2, ptr %112, align 8, !tbaa !131
-  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 %110, ptr %.sroa.460.0..sroa_idx, align 4, !tbaa !88
-  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 %111, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !88
+  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i32 %110, ptr %.sroa.457.0..sroa_idx, align 4, !tbaa !88
+  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i32 %111, ptr %.sroa.558.0..sroa_idx, align 8, !tbaa !88
   %113 = getelementptr inbounds nuw i8, ptr %85, i64 84
   %114 = load i32, ptr %113, align 4, !tbaa !118
   %115 = icmp eq i32 %114, 1
@@ -2717,8 +2717,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   unreachable
 
 _ZNSt10unique_ptrI10_GstSamplePFvPS0_EED2Ev.exit52: ; preds = %148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn33.pn.pn.pn.pn74 = phi { ptr, i32 } [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn33.pn.pn.pn.pn.ph, %148 ]
-  resume { ptr, i32 } %.pn33.pn.pn.pn.pn74
+  %.pn33.pn.pn.pn.pn71 = phi { ptr, i32 } [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn33.pn.pn.pn.pn.ph, %148 ]
+  resume { ptr, i32 } %.pn33.pn.pn.pn.pn71
 
 _ZNSt10unique_ptrI10_GstSamplePFvPS0_EED2Ev.exit: ; preds = %143, %1
   ret void

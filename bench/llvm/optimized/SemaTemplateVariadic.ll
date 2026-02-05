@@ -8289,8 +8289,8 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
   %30 = load i24, ptr %6, align 8
   %31 = xor i24 %30, %29
   %32 = and i24 %31, 16384
-  %.not82 = icmp eq i24 %32, 0
-  br i1 %.not82, label %33, label %.thread
+  %.not80 = icmp eq i24 %32, 0
+  br i1 %.not80, label %33, label %.thread
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -8305,8 +8305,8 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i24, ptr %3, align 8
   %40 = and i24 %39, 16384
-  %.not83 = icmp eq i24 %40, 0
-  %41 = select i1 %.not83, i32 4488, i32 3550
+  %.not81 = icmp eq i24 %40, 0
+  %41 = select i1 %.not81, i32 4488, i32 3550
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %38, i32 %5, i32 noundef %41, i1 noundef zeroext false) #16
   %42 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 120

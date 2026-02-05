@@ -2024,10 +2024,10 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %_ZNSt6vectorIhSaIhE
 
 569:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit606
   store i8 1, ptr %567, align 1
-  %.sroa.5805.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 1
-  store i8 2, ptr %.sroa.5805.0..sroa_idx, align 1
-  %.sroa.6806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 2
-  store i8 3, ptr %.sroa.6806.0..sroa_idx, align 1
+  %.sroa.5799.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 1
+  store i8 2, ptr %.sroa.5799.0..sroa_idx, align 1
+  %.sroa.6800.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 2
+  store i8 3, ptr %.sroa.6800.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %570 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %570, align 8, !tbaa !20, !alias.scope !41
@@ -2145,10 +2145,10 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i644:        ; preds = %_ZNSt6vectorIhSaIhE
 
 609:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit642
   store i8 1, ptr %607, align 1
-  %.sroa.5790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 1
-  store i8 2, ptr %.sroa.5790.0..sroa_idx, align 1
-  %.sroa.6791.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 2
-  store i8 3, ptr %.sroa.6791.0..sroa_idx, align 1
+  %.sroa.5787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 1
+  store i8 2, ptr %.sroa.5787.0..sroa_idx, align 1
+  %.sroa.6788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 2
+  store i8 3, ptr %.sroa.6788.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %610 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %610, align 8, !tbaa !20, !alias.scope !56
@@ -2637,31 +2637,31 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %716
 759:                                              ; preds = %425
   %760 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit904
+  br label %.loopexit877
 
 761:                                              ; preds = %427
   %762 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit904.loopexit
+  br label %.loopexit877.loopexit
 
 763:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i498, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6objectESt16initializer_listINS0_6detail8json_refISD_EEE.exit477
   %764 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
-  br label %.loopexit904.loopexit
+  br label %.loopexit877.loopexit
 
-.loopexit904.loopexit:                            ; preds = %763, %761
+.loopexit877.loopexit:                            ; preds = %763, %761
   %.pn98 = phi { ptr, i32 } [ %764, %763 ], [ %762, %761 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
-  br label %.loopexit904
+  br label %.loopexit877
 
-.loopexit904:                                     ; preds = %.loopexit904.loopexit, %759
-  %.pn98.pn = phi { ptr, i32 } [ %760, %759 ], [ %.pn98, %.loopexit904.loopexit ]
+.loopexit877:                                     ; preds = %.loopexit877.loopexit, %759
+  %.pn98.pn = phi { ptr, i32 } [ %760, %759 ], [ %.pn98, %.loopexit877.loopexit ]
   %765 = getelementptr inbounds nuw i8, ptr %18, i64 48
   br label %766
 
-766:                                              ; preds = %766, %.loopexit904
-  %767 = phi ptr [ %765, %.loopexit904 ], [ %768, %766 ]
+766:                                              ; preds = %766, %.loopexit877
+  %767 = phi ptr [ %765, %.loopexit877 ], [ %768, %766 ]
   %768 = getelementptr inbounds i8, ptr %767, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %768) #26
   %769 = icmp eq ptr %768, %18
@@ -4504,10 +4504,10 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %_ZNSt6vectorIhSaIhE
 
 569:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit606
   store i8 1, ptr %567, align 1
-  %.sroa.5805.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 1
-  store i8 2, ptr %.sroa.5805.0..sroa_idx, align 1
-  %.sroa.6806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 2
-  store i8 3, ptr %.sroa.6806.0..sroa_idx, align 1
+  %.sroa.5799.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 1
+  store i8 2, ptr %.sroa.5799.0..sroa_idx, align 1
+  %.sroa.6800.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 2
+  store i8 3, ptr %.sroa.6800.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %570 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %570, align 8, !tbaa !20, !alias.scope !85
@@ -4625,10 +4625,10 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i644:        ; preds = %_ZNSt6vectorIhSaIhE
 
 609:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit642
   store i8 1, ptr %607, align 1
-  %.sroa.5790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 1
-  store i8 2, ptr %.sroa.5790.0..sroa_idx, align 1
-  %.sroa.6791.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 2
-  store i8 3, ptr %.sroa.6791.0..sroa_idx, align 1
+  %.sroa.5787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 1
+  store i8 2, ptr %.sroa.5787.0..sroa_idx, align 1
+  %.sroa.6788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %607, i64 2
+  store i8 3, ptr %.sroa.6788.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %610 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %610, align 8, !tbaa !20, !alias.scope !88
@@ -5117,31 +5117,31 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %716
 759:                                              ; preds = %425
   %760 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit904
+  br label %.loopexit877
 
 761:                                              ; preds = %427
   %762 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit904.loopexit
+  br label %.loopexit877.loopexit
 
 763:                                              ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i498, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6objectESt16initializer_listINS0_6detail8json_refISD_EEE.exit477
   %764 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
-  br label %.loopexit904.loopexit
+  br label %.loopexit877.loopexit
 
-.loopexit904.loopexit:                            ; preds = %763, %761
+.loopexit877.loopexit:                            ; preds = %763, %761
   %.pn98 = phi { ptr, i32 } [ %764, %763 ], [ %762, %761 ]
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
-  br label %.loopexit904
+  br label %.loopexit877
 
-.loopexit904:                                     ; preds = %.loopexit904.loopexit, %759
-  %.pn98.pn = phi { ptr, i32 } [ %760, %759 ], [ %.pn98, %.loopexit904.loopexit ]
+.loopexit877:                                     ; preds = %.loopexit877.loopexit, %759
+  %.pn98.pn = phi { ptr, i32 } [ %760, %759 ], [ %.pn98, %.loopexit877.loopexit ]
   %765 = getelementptr inbounds nuw i8, ptr %18, i64 48
   br label %766
 
-766:                                              ; preds = %766, %.loopexit904
-  %767 = phi ptr [ %765, %.loopexit904 ], [ %768, %766 ]
+766:                                              ; preds = %766, %.loopexit877
+  %767 = phi ptr [ %765, %.loopexit877 ], [ %768, %766 ]
   %768 = getelementptr inbounds i8, ptr %767, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %768) #26
   %769 = icmp eq ptr %768, %18

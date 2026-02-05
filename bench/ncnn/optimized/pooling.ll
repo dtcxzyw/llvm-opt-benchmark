@@ -459,35 +459,35 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %196 = sub i32 %195, %182
   %197 = icmp sgt i32 %183, 0
   %198 = icmp sgt i32 %182, 0
-  %or.cond136 = and i1 %197, %198
-  br i1 %or.cond136, label %.preheader.us, label %._crit_edge113
+  %or.cond133 = and i1 %197, %198
+  br i1 %or.cond133, label %.preheader.us, label %._crit_edge110
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
-  %.053112.us = phi i32 [ %205, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.055111.us = phi i32 [ %204, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %.057110.us = phi i32 [ %200, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %199 = sext i32 %.057110.us to i64
-  %200 = add i32 %182, %.057110.us
+  %.053109.us = phi i32 [ %205, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.055108.us = phi i32 [ %204, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %.057107.us = phi i32 [ %200, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
+  %199 = sext i32 %.057107.us to i64
+  %200 = add i32 %182, %.057107.us
   br label %201
 
 201:                                              ; preds = %.preheader.us, %201
   %indvars.iv = phi i64 [ %199, %.preheader.us ], [ %indvars.iv.next, %201 ]
-  %.156107.us = phi i32 [ %.055111.us, %.preheader.us ], [ %203, %201 ]
+  %.156104.us = phi i32 [ %.055108.us, %.preheader.us ], [ %203, %201 ]
   %202 = getelementptr inbounds i32, ptr %.sroa.091.0, i64 %indvars.iv
-  store i32 %.156107.us, ptr %202, align 4, !tbaa !43
+  store i32 %.156104.us, ptr %202, align 4, !tbaa !43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %203 = add nsw i32 %.156107.us, 1
+  %203 = add nsw i32 %.156104.us, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %200, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge.us, label %201, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %201
   %204 = add nsw i32 %196, %203
-  %205 = add nuw nsw i32 %.053112.us, 1
-  %exitcond117.not = icmp eq i32 %205, %183
-  br i1 %exitcond117.not, label %._crit_edge113, label %.preheader.us, !llvm.loop !62
+  %205 = add nuw nsw i32 %.053109.us, 1
+  %exitcond114.not = icmp eq i32 %205, %183
+  br i1 %exitcond114.not, label %._crit_edge110, label %.preheader.us, !llvm.loop !62
 
-._crit_edge113:                                   ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
+._crit_edge110:                                   ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %207 = load i32, ptr %206, align 8, !tbaa !4
   switch i32 %207, label %246 [
@@ -501,14 +501,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %251
 
-210:                                              ; preds = %._crit_edge113
+210:                                              ; preds = %._crit_edge110
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %212 = load i32, ptr %211, align 4, !tbaa !51
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %18, i32 %212)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, ptr nonnull %7, ptr nonnull %11, ptr nonnull %2, ptr nonnull %13, ptr nonnull %12, ptr nonnull %0, ptr nonnull %14, ptr nonnull %15)
   br label %246
 
-213:                                              ; preds = %._crit_edge113
+213:                                              ; preds = %._crit_edge110
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %215 = load i32, ptr %214, align 4, !tbaa !36
   %216 = icmp eq i32 %215, 0
@@ -563,7 +563,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6, ptr nonnull %7, ptr nonnull %11, ptr nonnull %2, ptr nonnull %13, ptr nonnull %12, ptr nonnull %0, ptr nonnull %14, ptr nonnull %15)
   br label %246
 
-246:                                              ; preds = %._crit_edge113, %243, %240, %210
+246:                                              ; preds = %._crit_edge110, %243, %240, %210
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not.i.i.i = icmp eq ptr %.sroa.091.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %247

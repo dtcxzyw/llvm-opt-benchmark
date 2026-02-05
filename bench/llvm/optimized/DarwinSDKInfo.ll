@@ -401,12 +401,12 @@ define dso_local void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9par
   %.fca.1.load.pre.i3.i.i = load ptr, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %1, align 8, !tbaa !24
-  %.pre105 = load i32, ptr %15, align 8, !tbaa !25
-  %.pre107 = zext i32 %.pre105 to i64
+  %.pre102 = load i32, ptr %15, align 8, !tbaa !25
+  %.pre104 = zext i32 %.pre102 to i64
   br label %_ZNK4llvm4json6Object5beginEv.exit
 
 _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
-  %.pre-phi = phi i64 [ %17, %4 ], [ %.pre107, %19 ]
+  %.pre-phi = phi i64 [ %17, %4 ], [ %.pre104, %19 ]
   %21 = phi ptr [ %14, %4 ], [ %.pre, %19 ]
   %.pn8.i.i = phi ptr [ %18, %4 ], [ %.fca.0.load.pre.i2.i.i, %19 ]
   %.pn6.i.i = phi ptr [ %18, %4 ], [ %.fca.1.load.pre.i3.i.i, %19 ]
@@ -414,8 +414,8 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.pn6.i.i, ptr %22, align 8
   %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.22", ptr %21, i64 %.pre-phi
-  %.not93 = icmp eq ptr %.pn8.i.i, %23
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+  %.not90 = icmp eq ptr %.pn8.i.i, %23
+  br i1 %.not90, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm4json6Object5beginEv.exit
   %.sroa.5.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -425,12 +425,12 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
 
 26:                                               ; preds = %.lr.ph, %_ZNK4llvm4json5Value11getAsStringEv.exit
   %27 = phi ptr [ %.pn8.i.i, %.lr.ph ], [ %132, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.767.099 = phi i64 [ 0, %.lr.ph ], [ %.sroa.767.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.066.098 = phi i64 [ 4294967295, %.lr.ph ], [ %.sroa.066.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.664.097 = phi i64 [ 0, %.lr.ph ], [ %.sroa.664.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.063.096 = phi i64 [ 0, %.lr.ph ], [ %.sroa.063.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.656.095 = phi i64 [ 0, %.lr.ph ], [ %.sroa.656.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.053.094 = phi i64 [ 4294967295, %.lr.ph ], [ %.sroa.053.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.764.096 = phi i64 [ 0, %.lr.ph ], [ %.sroa.764.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.063.095 = phi i64 [ 4294967295, %.lr.ph ], [ %.sroa.063.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.661.094 = phi i64 [ 0, %.lr.ph ], [ %.sroa.661.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.060.093 = phi i64 [ 0, %.lr.ph ], [ %.sroa.060.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.653.092 = phi i64 [ 0, %.lr.ph ], [ %.sroa.653.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.050.091 = phi i64 [ 4294967295, %.lr.ph ], [ %.sroa.050.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i16, ptr %28, align 8, !tbaa !29, !noalias !33
   %.off = add i16 %29, -5
@@ -438,10 +438,10 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
   br i1 %switch, label %30, label %_ZNK4llvm4json5Value11getAsStringEv.exit, !prof !36
 
 30:                                               ; preds = %26
-  %.sroa.649.1.ph.in = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %.sroa.649.1.ph = load i64, ptr %.sroa.649.1.ph.in, align 8, !tbaa !37
-  %.sroa.048.1.ph.in = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.sroa.048.1.ph = load ptr, ptr %.sroa.048.1.ph.in, align 8, !tbaa !39
+  %.sroa.646.1.ph.in = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.sroa.646.1.ph = load i64, ptr %.sroa.646.1.ph.in, align 8, !tbaa !37
+  %.sroa.045.1.ph.in = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.sroa.045.1.ph = load ptr, ptr %.sroa.045.1.ph.in, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -454,7 +454,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
   br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
-  %34 = call noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr %.sroa.048.1.ph, i64 %.sroa.649.1.ph) #14
+  %34 = call noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr %.sroa.045.1.ph, i64 %.sroa.646.1.ph) #14
   br i1 %34, label %.critedge, label %36
 
 .critedge:                                        ; preds = %33, %30
@@ -505,13 +505,13 @@ _ZNK4llvm12VersionTuple9normalizeEv.exit:         ; preds = %36, %39, %43
   %56 = lshr i64 %53, 32
   %57 = trunc nuw i64 %56 to i32
   %58 = and i32 %57, 2147483647
-  %59 = trunc i64 %.sroa.066.098 to i32
-  %60 = lshr i64 %.sroa.066.098, 32
+  %59 = trunc i64 %.sroa.063.095 to i32
+  %60 = lshr i64 %.sroa.063.095, 32
   %61 = trunc nuw i64 %60 to i32
   %62 = and i32 %61, 2147483647
-  %63 = trunc i64 %.sroa.767.099 to i32
+  %63 = trunc i64 %.sroa.764.096 to i32
   %64 = and i32 %63, 2147483647
-  %65 = lshr i64 %.sroa.767.099, 32
+  %65 = lshr i64 %.sroa.764.096, 32
   %66 = trunc nuw i64 %65 to i32
   %67 = and i32 %66, 2147483647
   %68 = icmp ult i32 %49, %59
@@ -519,7 +519,7 @@ _ZNK4llvm12VersionTuple9normalizeEv.exit:         ; preds = %36, %39, %43
 
 69:                                               ; preds = %_ZNK4llvm12VersionTuple9normalizeEv.exit
   %70 = icmp ult i32 %59, %49
-  br i1 %70, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82, label %71
+  br i1 %70, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79, label %71
 
 71:                                               ; preds = %69
   %72 = icmp samesign ult i32 %52, %62
@@ -527,7 +527,7 @@ _ZNK4llvm12VersionTuple9normalizeEv.exit:         ; preds = %36, %39, %43
 
 73:                                               ; preds = %71
   %74 = icmp samesign ult i32 %62, %52
-  br i1 %74, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82, label %75
+  br i1 %74, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79, label %75
 
 75:                                               ; preds = %73
   %76 = icmp samesign ult i32 %55, %64
@@ -537,29 +537,29 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %75
   %77 = icmp samesign uge i32 %64, %55
   %78 = icmp samesign ult i32 %58, %67
   %spec.select.i26 = select i1 %77, i1 %78, i1 false
-  br i1 %spec.select.i26, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82
+  br i1 %spec.select.i26, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread:   ; preds = %75, %71, %_ZNK4llvm12VersionTuple9normalizeEv.exit, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
-  br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82
+  br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82: ; preds = %69, %73, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
-  %.sroa.066.1 = phi i64 [ %48, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.066.098, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.066.098, %73 ], [ %.sroa.066.098, %69 ]
-  %.sroa.767.1 = phi i64 [ %53, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.767.099, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.767.099, %73 ], [ %.sroa.767.099, %69 ]
-  %79 = trunc i64 %.sroa.063.096 to i32
-  %80 = lshr i64 %.sroa.063.096, 32
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79: ; preds = %69, %73, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
+  %.sroa.063.1 = phi i64 [ %48, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.063.095, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.063.095, %73 ], [ %.sroa.063.095, %69 ]
+  %.sroa.764.1 = phi i64 [ %53, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.764.096, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.764.096, %73 ], [ %.sroa.764.096, %69 ]
+  %79 = trunc i64 %.sroa.060.093 to i32
+  %80 = lshr i64 %.sroa.060.093, 32
   %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 2147483647
-  %83 = trunc i64 %.sroa.664.097 to i32
+  %83 = trunc i64 %.sroa.661.094 to i32
   %84 = and i32 %83, 2147483647
-  %85 = lshr i64 %.sroa.664.097, 32
+  %85 = lshr i64 %.sroa.661.094, 32
   %86 = trunc nuw i64 %85 to i32
   %87 = and i32 %86, 2147483647
   %88 = icmp ult i32 %79, %49
   br i1 %88, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %89
 
-89:                                               ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82
+89:                                               ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79
   %90 = icmp ult i32 %49, %79
-  br i1 %90, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84, label %91
+  br i1 %90, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81, label %91
 
 91:                                               ; preds = %89
   %92 = icmp samesign ult i32 %82, %52
@@ -567,7 +567,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82: ; preds = %69, %73, %_ZN4llvml
 
 93:                                               ; preds = %91
   %94 = icmp samesign ult i32 %52, %82
-  br i1 %94, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84, label %95
+  br i1 %94, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81, label %95
 
 95:                                               ; preds = %93
   %96 = icmp samesign ult i32 %84, %55
@@ -577,14 +577,14 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %95
   %97 = icmp samesign uge i32 %55, %84
   %98 = icmp samesign ult i32 %87, %58
   %spec.select.i.i = select i1 %97, i1 %98, i1 false
-  br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84
+  br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %95, %91, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
-  br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %95, %91, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread79, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+  br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84: ; preds = %89, %93, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
-  %.sroa.063.1 = phi i64 [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.063.096, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.063.096, %93 ], [ %.sroa.063.096, %89 ]
-  %.sroa.664.1 = phi i64 [ %53, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.664.097, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.664.097, %93 ], [ %.sroa.664.097, %89 ]
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81: ; preds = %89, %93, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+  %.sroa.060.1 = phi i64 [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.060.093, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.060.093, %93 ], [ %.sroa.060.093, %89 ]
+  %.sroa.661.1 = phi i64 [ %53, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.661.094, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.661.094, %93 ], [ %.sroa.661.094, %89 ]
   %99 = load i64, ptr %9, align 8
   %100 = trunc i64 %99 to i32
   %101 = lshr i64 %99, 32
@@ -596,21 +596,21 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84: ; preds = %89, %93, %_ZN4llvmg
   %107 = lshr i64 %104, 32
   %108 = trunc nuw i64 %107 to i32
   %109 = and i32 %108, 2147483647
-  %110 = trunc i64 %.sroa.053.094 to i32
-  %111 = lshr i64 %.sroa.053.094, 32
+  %110 = trunc i64 %.sroa.050.091 to i32
+  %111 = lshr i64 %.sroa.050.091, 32
   %112 = trunc nuw i64 %111 to i32
   %113 = and i32 %112, 2147483647
-  %114 = trunc i64 %.sroa.656.095 to i32
+  %114 = trunc i64 %.sroa.653.092 to i32
   %115 = and i32 %114, 2147483647
-  %116 = lshr i64 %.sroa.656.095, 32
+  %116 = lshr i64 %.sroa.653.092, 32
   %117 = trunc nuw i64 %116 to i32
   %118 = and i32 %117, 2147483647
   %119 = icmp ult i32 %100, %110
   br i1 %119, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread, label %120
 
-120:                                              ; preds = %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84
+120:                                              ; preds = %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81
   %121 = icmp ult i32 %110, %100
-  br i1 %121, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86, label %122
+  br i1 %121, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83, label %122
 
 122:                                              ; preds = %120
   %123 = icmp samesign ult i32 %103, %113
@@ -618,7 +618,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84: ; preds = %89, %93, %_ZN4llvmg
 
 124:                                              ; preds = %122
   %125 = icmp samesign ult i32 %113, %103
-  br i1 %125, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86, label %126
+  br i1 %125, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83, label %126
 
 126:                                              ; preds = %124
   %127 = icmp samesign ult i32 %106, %115
@@ -628,27 +628,27 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit28:        ; preds = %126
   %128 = icmp samesign uge i32 %115, %106
   %129 = icmp samesign ult i32 %109, %118
   %spec.select.i27 = select i1 %128, i1 %129, i1 false
-  br i1 %spec.select.i27, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86
+  br i1 %spec.select.i27, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread: ; preds = %126, %122, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28
-  br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86
+_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread: ; preds = %126, %122, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread81, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28
+  br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86: ; preds = %120, %124, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread
-  %.sroa.053.1 = phi i64 [ %99, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.053.094, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.053.094, %124 ], [ %.sroa.053.094, %120 ]
-  %.sroa.656.1 = phi i64 [ %104, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.656.095, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.656.095, %124 ], [ %.sroa.656.095, %120 ]
+_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83: ; preds = %120, %124, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread
+  %.sroa.050.1 = phi i64 [ %99, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.050.091, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.050.091, %124 ], [ %.sroa.050.091, %120 ]
+  %.sroa.653.1 = phi i64 [ %104, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.653.092, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.653.092, %124 ], [ %.sroa.653.092, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre106 = load ptr, ptr %7, align 8, !tbaa !26
+  %.pre103 = load ptr, ptr %7, align 8, !tbaa !26
   br label %_ZNK4llvm4json5Value11getAsStringEv.exit
 
-_ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %26, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86
-  %130 = phi ptr [ %.pre106, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %27, %26 ]
-  %.sroa.053.2 = phi i64 [ %.sroa.053.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.053.094, %26 ]
-  %.sroa.656.2 = phi i64 [ %.sroa.656.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.656.095, %26 ]
-  %.sroa.063.2 = phi i64 [ %.sroa.063.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.063.096, %26 ]
-  %.sroa.664.2 = phi i64 [ %.sroa.664.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.664.097, %26 ]
-  %.sroa.066.2 = phi i64 [ %.sroa.066.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.066.098, %26 ]
-  %.sroa.767.2 = phi i64 [ %.sroa.767.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86 ], [ %.sroa.767.099, %26 ]
+_ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %26, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83
+  %130 = phi ptr [ %.pre103, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %27, %26 ]
+  %.sroa.050.2 = phi i64 [ %.sroa.050.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.050.091, %26 ]
+  %.sroa.653.2 = phi i64 [ %.sroa.653.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.653.092, %26 ]
+  %.sroa.060.2 = phi i64 [ %.sroa.060.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.060.093, %26 ]
+  %.sroa.661.2 = phi i64 [ %.sroa.661.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.661.094, %26 ]
+  %.sroa.063.2 = phi i64 [ %.sroa.063.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.063.095, %26 ]
+  %.sroa.764.2 = phi i64 [ %.sroa.764.1, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread83 ], [ %.sroa.764.096, %26 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 64
   store ptr %131, ptr %7, align 8, !tbaa !26
   call void @_ZN4llvm16DenseMapIteratorINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS2_S3_EELb1EE23AdvancePastEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -657,12 +657,12 @@ _ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %26, %_ZN4llvmltERKN
   br i1 %.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm4json5Value11getAsStringEv.exit, %_ZNK4llvm4json6Object5beginEv.exit
-  %.sroa.053.0.lcssa = phi i64 [ 4294967295, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.053.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.656.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.656.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.063.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.063.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.664.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.664.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.066.0.lcssa = phi i64 [ 4294967295, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.066.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %.sroa.767.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.767.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.050.0.lcssa = phi i64 [ 4294967295, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.050.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.653.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.653.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.060.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.060.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.661.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.661.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.063.0.lcssa = phi i64 [ 4294967295, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.063.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %.sroa.764.0.lcssa = phi i64 [ 0, %_ZNK4llvm4json6Object5beginEv.exit ], [ %.sroa.764.2, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %134 = load i32, ptr %133, align 8, !tbaa !43
@@ -696,21 +696,21 @@ _ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %26, %_ZN4llvmltERKN
   br label %_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMappingC2EN4llvm12VersionTupleES3_S3_S3_NS2_8DenseMapIS3_S3_NS2_12DenseMapInfoIS3_vEENS2_6detail12DenseMapPairIS3_S3_EEEE.exit
 
 _ZN5clang13DarwinSDKInfo27RelatedTargetVersionMappingC2EN4llvm12VersionTupleES3_S3_S3_NS2_8DenseMapIS3_S3_NS2_12DenseMapInfoIS3_vEENS2_6detail12DenseMapPairIS3_S3_EEEE.exit: ; preds = %138, %144
-  %.pre-phi111 = phi i64 [ %146, %144 ], [ 0, %138 ]
+  %.pre-phi108 = phi i64 [ %146, %144 ], [ 0, %138 ]
   %.sroa.941.0 = phi ptr [ %147, %144 ], [ null, %138 ]
   %.sroa.15.0 = phi i32 [ %134, %144 ], [ 0, %138 ]
   %.sroa.18.0 = phi i32 [ %141, %144 ], [ 0, %138 ]
-  store i64 %.sroa.066.0.lcssa, ptr %0, align 8
+  store i64 %.sroa.063.0.lcssa, ptr %0, align 8
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.767.0.lcssa, ptr %.sroa.439.0..sroa_idx, align 8
+  store i64 %.sroa.764.0.lcssa, ptr %.sroa.439.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.063.0.lcssa, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.060.0.lcssa, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.664.0.lcssa, ptr %.sroa.640.0..sroa_idx, align 8
+  store i64 %.sroa.661.0.lcssa, ptr %.sroa.640.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.053.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.050.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.656.0.lcssa, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.653.0.lcssa, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -726,7 +726,7 @@ _ZN5clang13DarwinSDKInfo27RelatedTargetVersionMappingC2EN4llvm12VersionTupleES3_
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 1, ptr %152, align 8, !tbaa !41
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #14
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %139, i64 noundef %.pre-phi111, i64 noundef 4) #14
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %139, i64 noundef %.pre-phi108, i64 noundef 4) #14
   br label %153
 
 153:                                              ; preds = %.critedge, %_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMappingC2EN4llvm12VersionTupleES3_S3_S3_NS2_8DenseMapIS3_S3_NS2_12DenseMapInfoIS3_vEENS2_6detail12DenseMapPairIS3_S3_EEEE.exit, %136

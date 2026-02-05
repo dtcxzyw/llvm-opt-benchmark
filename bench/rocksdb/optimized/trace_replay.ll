@@ -1785,7 +1785,7 @@ _ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exi
   br i1 %55, label %56, label %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge
 
 ._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge: ; preds = %53
-  %.pre490 = load i64, ptr %54, align 8, !tbaa !92
+  %.pre487 = load i64, ptr %54, align 8, !tbaa !92
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit
 
 56:                                               ; preds = %53
@@ -1796,50 +1796,50 @@ _ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exi
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit:       ; preds = %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge, %56
-  %59 = phi i64 [ %.0.copyload.i.i, %56 ], [ %.pre490, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge ]
-  %.sroa.0347.2 = phi ptr [ %57, %56 ], [ %46, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge ]
+  %59 = phi i64 [ %.0.copyload.i.i, %56 ], [ %.pre487, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge ]
+  %.sroa.0344.2 = phi ptr [ %57, %56 ], [ %46, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge ]
   %.sroa.10.2 = phi i64 [ %58, %56 ], [ %48, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit_crit_edge ]
-  %.not104462 = icmp eq i64 %59, 0
-  br i1 %.not104462, label %._crit_edge469, label %.lr.ph468
+  %.not104459 = icmp eq i64 %59, 0
+  br i1 %.not104459, label %._crit_edge466, label %.lr.ph465
 
-.lr.ph468:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit, %87
-  %.080467 = phi i64 [ %89, %87 ], [ %59, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
-  %.sroa.10.0466 = phi i64 [ %.sroa.10.1, %87 ], [ %.sroa.10.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
-  %.sroa.0347.0465 = phi ptr [ %.sroa.0347.1, %87 ], [ %.sroa.0347.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
-  %.sroa.0345.0464 = phi ptr [ %.sroa.0345.1, %87 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
-  %.sroa.6346.0463 = phi i64 [ %.sroa.6346.1, %87 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
-  %60 = sub nsw i64 0, %.080467
-  %61 = and i64 %.080467, %60
+.lr.ph465:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit, %87
+  %.080464 = phi i64 [ %89, %87 ], [ %59, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
+  %.sroa.10.0463 = phi i64 [ %.sroa.10.1, %87 ], [ %.sroa.10.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
+  %.sroa.0344.0462 = phi ptr [ %.sroa.0344.1, %87 ], [ %.sroa.0344.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
+  %.sroa.0342.0461 = phi ptr [ %.sroa.0342.1, %87 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
+  %.sroa.6343.0460 = phi i64 [ %.sroa.6343.1, %87 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ]
+  %60 = sub nsw i64 0, %.080464
+  %61 = and i64 %.080464, %60
   %62 = sitofp i64 %61 to double
   %63 = call double @log2(double noundef %62) #24, !tbaa !23
   %64 = fptoui double %63 to i32
   %cond = icmp eq i32 %64, 1
   br i1 %cond, label %67, label %87
 
-65:                                               ; preds = %._crit_edge469
+65:                                               ; preds = %._crit_edge466
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %115
 
-67:                                               ; preds = %.lr.ph468
+67:                                               ; preds = %.lr.ph465
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !23
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0347.0465, i64 %.sroa.10.0466
-  %.not.i.i114 = icmp eq i64 %.sroa.10.0466, 0
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0344.0462, i64 %.sroa.10.0463
+  %.not.i.i114 = icmp eq i64 %.sroa.10.0463, 0
   br i1 %.not.i.i114, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i, label %69
 
 69:                                               ; preds = %67
-  %70 = load i8, ptr %.sroa.0347.0465, align 1, !tbaa !16
+  %70 = load i8, ptr %.sroa.0344.0462, align 1, !tbaa !16
   %71 = icmp sgt i8 %70, -1
   br i1 %71, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i: ; preds = %69
   %72 = zext nneg i8 %70 to i32
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0347.0465, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0344.0462, i64 1
   br label %75
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i:    ; preds = %69, %67
-  %74 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0347.0465, ptr noundef %68, ptr noundef nonnull %14)
+  %74 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0344.0462, ptr noundef %68, ptr noundef nonnull %14)
           to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
@@ -1866,10 +1866,10 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i: ; preds = %.noexc
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %.noexc, %75, %82
-  %.sroa.6346.2 = phi i64 [ %.sroa.6346.0463, %.noexc ], [ %.sroa.6346.0463, %75 ], [ %81, %82 ]
-  %.sroa.0345.2 = phi ptr [ %.sroa.0345.0464, %.noexc ], [ %.sroa.0345.0464, %75 ], [ %77, %82 ]
-  %.sroa.0347.3 = phi ptr [ %.sroa.0347.0465, %.noexc ], [ %77, %75 ], [ %83, %82 ]
-  %.sroa.10.3 = phi i64 [ %.sroa.10.0466, %.noexc ], [ %80, %75 ], [ %84, %82 ]
+  %.sroa.6343.2 = phi i64 [ %.sroa.6343.0460, %.noexc ], [ %.sroa.6343.0460, %75 ], [ %81, %82 ]
+  %.sroa.0342.2 = phi ptr [ %.sroa.0342.0461, %.noexc ], [ %.sroa.0342.0461, %75 ], [ %77, %82 ]
+  %.sroa.0344.3 = phi ptr [ %.sroa.0344.0462, %.noexc ], [ %77, %75 ], [ %83, %82 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.0463, %.noexc ], [ %80, %75 ], [ %84, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %87
 
@@ -1878,33 +1878,33 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %.noexc, %75,
           cleanup
   br label %115
 
-87:                                               ; preds = %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit, %.lr.ph468
-  %.sroa.6346.1 = phi i64 [ %.sroa.6346.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.6346.0463, %.lr.ph468 ]
-  %.sroa.0345.1 = phi ptr [ %.sroa.0345.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.0345.0464, %.lr.ph468 ]
-  %.sroa.0347.1 = phi ptr [ %.sroa.0347.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.0347.0465, %.lr.ph468 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.10.0466, %.lr.ph468 ]
-  %88 = add nsw i64 %.080467, -1
-  %89 = and i64 %88, %.080467
+87:                                               ; preds = %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit, %.lr.ph465
+  %.sroa.6343.1 = phi i64 [ %.sroa.6343.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.6343.0460, %.lr.ph465 ]
+  %.sroa.0342.1 = phi ptr [ %.sroa.0342.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.0342.0461, %.lr.ph465 ]
+  %.sroa.0344.1 = phi ptr [ %.sroa.0344.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.0344.0462, %.lr.ph465 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %.sroa.10.0463, %.lr.ph465 ]
+  %88 = add nsw i64 %.080464, -1
+  %89 = and i64 %88, %.080464
   %.not104 = icmp eq i64 %89, 0
-  br i1 %.not104, label %._crit_edge469.loopexit, label %.lr.ph468, !llvm.loop !93
+  br i1 %.not104, label %._crit_edge466.loopexit, label %.lr.ph465, !llvm.loop !93
 
-._crit_edge469.loopexit:                          ; preds = %87
-  %.pre491 = load ptr, ptr %43, align 8, !tbaa !91
-  br label %._crit_edge469
+._crit_edge466.loopexit:                          ; preds = %87
+  %.pre488 = load ptr, ptr %43, align 8, !tbaa !91
+  br label %._crit_edge466
 
-._crit_edge469:                                   ; preds = %._crit_edge469.loopexit, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit
-  %90 = phi ptr [ %39, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.pre491, %._crit_edge469.loopexit ]
-  %.sroa.6346.0.lcssa = phi i64 [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.sroa.6346.1, %._crit_edge469.loopexit ]
-  %.sroa.0345.0.lcssa = phi ptr [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.sroa.0345.1, %._crit_edge469.loopexit ]
+._crit_edge466:                                   ; preds = %._crit_edge466.loopexit, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit
+  %90 = phi ptr [ %39, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.pre488, %._crit_edge466.loopexit ]
+  %.sroa.6343.0.lcssa = phi i64 [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.sroa.6343.1, %._crit_edge466.loopexit ]
+  %.sroa.0342.0.lcssa = phi ptr [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit ], [ %.sroa.0342.1, %._crit_edge466.loopexit ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !17
-  %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %90, i64 noundef 0, i64 noundef %92, ptr noundef %.sroa.0345.0.lcssa, i64 noundef %.sroa.6346.0.lcssa)
+  %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %90, i64 noundef 0, i64 noundef %92, ptr noundef %.sroa.0342.0.lcssa, i64 noundef %.sroa.6343.0.lcssa)
           to label %94 unwind label %65
 
-94:                                               ; preds = %._crit_edge469, %49
+94:                                               ; preds = %._crit_edge466, %49
   %95 = load ptr, ptr %43, align 8, !tbaa !91
-  %storemerge383 = load ptr, ptr %95, align 8, !tbaa !11
-  store ptr %storemerge383, ptr %15, align 8, !tbaa !18
+  %storemerge380 = load ptr, ptr %95, align 8, !tbaa !11
+  store ptr %storemerge380, ptr %15, align 8, !tbaa !18
   %storemerge.in = getelementptr inbounds nuw i8, ptr %95, i64 8
   %storemerge = load i64, ptr %storemerge.in, align 8, !tbaa !17
   store i64 %storemerge, ptr %37, align 8, !tbaa !20
@@ -1987,7 +1987,7 @@ _ZN7rocksdb13PinnableSliceD2Ev.exit:              ; preds = %109, %_ZNKSt7__cxx1
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit.i
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit.i:     ; preds = %122, %120
-  %.3363 = phi i32 [ %.0.copyload.i.i.i, %122 ], [ 0, %120 ]
+  %.3360 = phi i32 [ %.0.copyload.i.i.i, %122 ], [ 0, %120 ]
   %.sroa.9.0.i = phi i64 [ %124, %122 ], [ %.val111, %120 ]
   %.sroa.0.0.i = phi ptr [ %123, %122 ], [ %.val, %120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2024,12 +2024,12 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i.i: ; preds = %_ZN7rocks
   %138 = zext i32 %133 to i64
   %.not.i.i120 = icmp ult i64 %137, %138
   %spec.select = select i1 %.not.i.i120, i64 0, i64 %138
-  %spec.select378 = select i1 %.not.i.i120, ptr @.str, ptr %134
+  %spec.select375 = select i1 %.not.i.i120, ptr @.str, ptr %134
   br label %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit
 
 _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit: ; preds = %132, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i
-  %.sroa.7343.3 = phi i64 [ 0, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i ], [ %spec.select, %132 ]
-  %.sroa.0342.3 = phi ptr [ @.str, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i ], [ %spec.select378, %132 ]
+  %.sroa.7340.3 = phi i64 [ 0, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i ], [ %spec.select, %132 ]
+  %.sroa.0339.3 = phi ptr [ @.str, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i ], [ %spec.select375, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
@@ -2039,7 +2039,7 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %141, label %142, label %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge
 
 ._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge: ; preds = %139
-  %.pre489 = load i64, ptr %140, align 8, !tbaa !92
+  %.pre486 = load i64, ptr %140, align 8, !tbaa !92
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122
 
 142:                                              ; preds = %139
@@ -2050,21 +2050,21 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122:    ; preds = %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge, %142
-  %145 = phi i64 [ %.0.copyload.i.i121, %142 ], [ %.pre489, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge ]
+  %145 = phi i64 [ %.0.copyload.i.i121, %142 ], [ %.pre486, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge ]
   %.sroa.11.2 = phi i64 [ %144, %142 ], [ %.val111, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge ]
-  %.sroa.0334.2 = phi ptr [ %143, %142 ], [ %.val, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge ]
-  %.not101451 = icmp eq i64 %145, 0
-  br i1 %.not101451, label %.loopexit, label %.lr.ph458
+  %.sroa.0331.2 = phi ptr [ %143, %142 ], [ %.val, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122_crit_edge ]
+  %.not101448 = icmp eq i64 %145, 0
+  br i1 %.not101448, label %.loopexit, label %.lr.ph455
 
-.lr.ph458:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit
-  %.081457 = phi i64 [ %175, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %145, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %.sroa.0334.0456 = phi ptr [ %.sroa.0334.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %.sroa.0334.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %.sroa.11.0455 = phi i64 [ %.sroa.11.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %.sroa.11.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %.sroa.0342.1454 = phi ptr [ %.sroa.0342.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %.sroa.7343.1453 = phi i64 [ %.sroa.7343.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %.1361452 = phi i32 [ %.2362, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
-  %146 = sub nsw i64 0, %.081457
-  %147 = and i64 %.081457, %146
+.lr.ph455:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit
+  %.081454 = phi i64 [ %175, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %145, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %.sroa.0331.0453 = phi ptr [ %.sroa.0331.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %.sroa.0331.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %.sroa.11.0452 = phi i64 [ %.sroa.11.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ %.sroa.11.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %.sroa.0339.1451 = phi ptr [ %.sroa.0339.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %.sroa.7340.1450 = phi i64 [ %.sroa.7340.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %.1358449 = phi i32 [ %.2359, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ]
+  %146 = sub nsw i64 0, %.081454
+  %147 = and i64 %.081454, %146
   %148 = sitofp i64 %147 to double
   %149 = call double @log2(double noundef %148) #24, !tbaa !23
   %150 = fptoui double %149 to i32
@@ -2073,35 +2073,35 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122:    ; preds = %._ZN7rocksdb10GetFi
     i32 3, label %156
   ]
 
-151:                                              ; preds = %.lr.ph458
-  %152 = icmp ugt i64 %.sroa.11.0455, 3
+151:                                              ; preds = %.lr.ph455
+  %152 = icmp ugt i64 %.sroa.11.0452, 3
   br i1 %152, label %153, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit
 
 153:                                              ; preds = %151
-  %.0.copyload.i.i123 = load i32, ptr %.sroa.0334.0456, align 1
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0334.0456, i64 4
-  %155 = add i64 %.sroa.11.0455, -4
+  %.0.copyload.i.i123 = load i32, ptr %.sroa.0331.0453, align 1
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0331.0453, i64 4
+  %155 = add i64 %.sroa.11.0452, -4
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit
 
-156:                                              ; preds = %.lr.ph458
+156:                                              ; preds = %.lr.ph455
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !23
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0334.0456, i64 %.sroa.11.0455
-  %.not.i.i124 = icmp eq i64 %.sroa.11.0455, 0
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0331.0453, i64 %.sroa.11.0452
+  %.not.i.i124 = icmp eq i64 %.sroa.11.0452, 0
   br i1 %.not.i.i124, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125, label %158
 
 158:                                              ; preds = %156
-  %159 = load i8, ptr %.sroa.0334.0456, align 1, !tbaa !16
+  %159 = load i8, ptr %.sroa.0331.0453, align 1, !tbaa !16
   %160 = icmp sgt i8 %159, -1
   br i1 %160, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i132, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i132: ; preds = %158
   %161 = zext nneg i8 %159 to i32
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0334.0456, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0331.0453, i64 1
   br label %164
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125: ; preds = %158, %156
-  %163 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0334.0456, ptr noundef %157, ptr noundef nonnull %12)
+  %163 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0331.0453, ptr noundef %157, ptr noundef nonnull %12)
   %.not15.i.i126 = icmp eq ptr %163, null
   br i1 %.not15.i.i126, label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i127
 
@@ -2125,28 +2125,28 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i127: ; preds = %_ZN7rock
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125, %164, %171
-  %.sroa.7343.4 = phi i64 [ %.sroa.7343.1453, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %.sroa.7343.1453, %164 ], [ %170, %171 ]
-  %.sroa.0342.4 = phi ptr [ %.sroa.0342.1454, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %.sroa.0342.1454, %164 ], [ %166, %171 ]
-  %.sroa.11.4 = phi i64 [ %.sroa.11.0455, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %169, %164 ], [ %173, %171 ]
-  %.sroa.0334.4 = phi ptr [ %.sroa.0334.0456, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %166, %164 ], [ %172, %171 ]
+  %.sroa.7340.4 = phi i64 [ %.sroa.7340.1450, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %.sroa.7340.1450, %164 ], [ %170, %171 ]
+  %.sroa.0339.4 = phi ptr [ %.sroa.0339.1451, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %.sroa.0339.1451, %164 ], [ %166, %171 ]
+  %.sroa.11.4 = phi i64 [ %.sroa.11.0452, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %169, %164 ], [ %173, %171 ]
+  %.sroa.0331.4 = phi ptr [ %.sroa.0331.0453, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i125 ], [ %166, %164 ], [ %172, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit
 
-_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %153, %151, %.lr.ph458, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133
-  %.2362 = phi i32 [ %.1361452, %.lr.ph458 ], [ %.1361452, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.0.copyload.i.i123, %153 ], [ %.1361452, %151 ]
-  %.sroa.7343.2 = phi i64 [ %.sroa.7343.1453, %.lr.ph458 ], [ %.sroa.7343.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.sroa.7343.1453, %153 ], [ %.sroa.7343.1453, %151 ]
-  %.sroa.0342.2 = phi ptr [ %.sroa.0342.1454, %.lr.ph458 ], [ %.sroa.0342.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.sroa.0342.1454, %153 ], [ %.sroa.0342.1454, %151 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0455, %.lr.ph458 ], [ %.sroa.11.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %155, %153 ], [ %.sroa.11.0455, %151 ]
-  %.sroa.0334.1 = phi ptr [ %.sroa.0334.0456, %.lr.ph458 ], [ %.sroa.0334.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %154, %153 ], [ %.sroa.0334.0456, %151 ]
-  %174 = add nsw i64 %.081457, -1
-  %175 = and i64 %174, %.081457
+_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %153, %151, %.lr.ph455, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133
+  %.2359 = phi i32 [ %.1358449, %.lr.ph455 ], [ %.1358449, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.0.copyload.i.i123, %153 ], [ %.1358449, %151 ]
+  %.sroa.7340.2 = phi i64 [ %.sroa.7340.1450, %.lr.ph455 ], [ %.sroa.7340.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.sroa.7340.1450, %153 ], [ %.sroa.7340.1450, %151 ]
+  %.sroa.0339.2 = phi ptr [ %.sroa.0339.1451, %.lr.ph455 ], [ %.sroa.0339.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %.sroa.0339.1451, %153 ], [ %.sroa.0339.1451, %151 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0452, %.lr.ph455 ], [ %.sroa.11.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %155, %153 ], [ %.sroa.11.0452, %151 ]
+  %.sroa.0331.1 = phi ptr [ %.sroa.0331.0453, %.lr.ph455 ], [ %.sroa.0331.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit133 ], [ %154, %153 ], [ %.sroa.0331.0453, %151 ]
+  %174 = add nsw i64 %.081454, -1
+  %175 = and i64 %174, %.081454
   %.not101 = icmp eq i64 %175, 0
-  br i1 %.not101, label %.loopexit, label %.lr.ph458, !llvm.loop !97
+  br i1 %.not101, label %.loopexit, label %.lr.ph455, !llvm.loop !97
 
 .loopexit:                                        ; preds = %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit
-  %.0360 = phi i32 [ %.3363, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.2362, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
-  %.sroa.7343.0 = phi i64 [ %.sroa.7343.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.sroa.7343.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
-  %.sroa.0342.0 = phi ptr [ %.sroa.0342.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.sroa.0342.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
+  %.0357 = phi i32 [ %.3360, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.2359, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
+  %.sroa.7340.0 = phi i64 [ %.sroa.7340.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.sroa.7340.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
+  %.sroa.0339.0 = phi ptr [ %.sroa.0339.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit122 ], [ %.sroa.0339.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit ]
   br i1 %.not, label %207, label %176
 
 176:                                              ; preds = %.loopexit
@@ -2166,7 +2166,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %153, %151, %.lr.ph4
   store i8 0, ptr %182, align 8, !tbaa !86
   %183 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr %179, ptr %183, align 8, !tbaa !91
-  %184 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %179, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0342.0, i64 noundef %.sroa.7343.0)
+  %184 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %179, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0339.0, i64 noundef %.sroa.7340.0)
           to label %185 unwind label %202
 
 185:                                              ; preds = %176
@@ -2181,7 +2181,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %153, %151, %.lr.ph4
 
 191:                                              ; preds = %185
   %192 = load i64, ptr %1, align 8, !tbaa !71
-  invoke void @_ZN7rocksdb19GetQueryTraceRecordC1EjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(120) %190, i32 noundef %.0360, ptr noundef nonnull align 8 dereferenceable(89) %16, i64 noundef %192)
+  invoke void @_ZN7rocksdb19GetQueryTraceRecordC1EjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(120) %190, i32 noundef %.0357, ptr noundef nonnull align 8 dereferenceable(89) %16, i64 noundef %192)
           to label %193 unwind label %204
 
 193:                                              ; preds = %191
@@ -2291,15 +2291,15 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i.i148: ; preds = %_ZN7ro
   %230 = sub i64 %228, %229
   %231 = zext i32 %226 to i64
   %.not.i.i150 = icmp ult i64 %230, %231
-  %spec.select379 = select i1 %.not.i.i150, i64 0, i64 %231
-  %spec.select380 = select i1 %.not.i.i150, ptr @.str, ptr %227
+  %spec.select376 = select i1 %.not.i.i150, i64 0, i64 %231
+  %spec.select377 = select i1 %.not.i.i150, ptr @.str, ptr %227
   br label %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154
 
 _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154: ; preds = %225, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i146
-  %.sroa.7332.3 = phi i64 [ 0, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i146 ], [ %spec.select379, %225 ]
-  %.sroa.0331.3 = phi ptr [ @.str, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i146 ], [ %spec.select380, %225 ]
+  %.sroa.7329.3 = phi i64 [ 0, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i146 ], [ %spec.select376, %225 ]
+  %.sroa.0328.3 = phi ptr [ @.str, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.i146 ], [ %spec.select377, %225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit384
+  br label %.loopexit381
 
 232:                                              ; preds = %209
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2307,7 +2307,7 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %234, label %235, label %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge
 
 ._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge: ; preds = %232
-  %.pre488 = load i64, ptr %233, align 8, !tbaa !92
+  %.pre485 = load i64, ptr %233, align 8, !tbaa !92
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156
 
 235:                                              ; preds = %232
@@ -2318,25 +2318,25 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156:    ; preds = %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge, %235
-  %238 = phi i64 [ %.0.copyload.i.i155, %235 ], [ %.pre488, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge ]
+  %238 = phi i64 [ %.0.copyload.i.i155, %235 ], [ %.pre485, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge ]
   %.sroa.19.2 = phi i64 [ %237, %235 ], [ %.val113, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge ]
-  %.sroa.0311.2 = phi ptr [ %236, %235 ], [ %.val112, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge ]
-  %.not94432 = icmp eq i64 %238, 0
-  br i1 %.not94432, label %.loopexit384, label %.lr.ph443
+  %.sroa.0308.2 = phi ptr [ %236, %235 ], [ %.val112, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156_crit_edge ]
+  %.not94429 = icmp eq i64 %238, 0
+  br i1 %.not94429, label %.loopexit381, label %.lr.ph440
 
-.lr.ph443:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
-  %.079442 = phi i64 [ %304, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %238, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.0311.0441 = phi ptr [ %.sroa.0311.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %.sroa.0311.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.19.0440 = phi i64 [ %.sroa.19.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %.sroa.19.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.0327.1439 = phi ptr [ %.sroa.0327.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.6328.1438 = phi i64 [ %.sroa.6328.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.0329.1437 = phi ptr [ %.sroa.0329.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.6330.1436 = phi i64 [ %.sroa.6330.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.0331.1435 = phi ptr [ %.sroa.0331.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.sroa.7332.1434 = phi i64 [ %.sroa.7332.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %.1358433 = phi i32 [ %.2359, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
-  %239 = sub nsw i64 0, %.079442
-  %240 = and i64 %.079442, %239
+.lr.ph440:                                        ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
+  %.079439 = phi i64 [ %304, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %238, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.0308.0438 = phi ptr [ %.sroa.0308.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %.sroa.0308.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.19.0437 = phi i64 [ %.sroa.19.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ %.sroa.19.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.0324.1436 = phi ptr [ %.sroa.0324.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.6325.1435 = phi i64 [ %.sroa.6325.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.0326.1434 = phi ptr [ %.sroa.0326.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.6327.1433 = phi i64 [ %.sroa.6327.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.0328.1432 = phi ptr [ %.sroa.0328.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.sroa.7329.1431 = phi i64 [ %.sroa.7329.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %.1355430 = phi i32 [ %.2356, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ]
+  %239 = sub nsw i64 0, %.079439
+  %240 = and i64 %.079439, %239
   %241 = sitofp i64 %240 to double
   %242 = call double @log2(double noundef %241) #24, !tbaa !23
   %243 = fptoui double %242 to i32
@@ -2347,35 +2347,35 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156:    ; preds = %._ZN7rocksdb10GetFi
     i32 7, label %285
   ]
 
-244:                                              ; preds = %.lr.ph443
-  %245 = icmp ugt i64 %.sroa.19.0440, 3
+244:                                              ; preds = %.lr.ph440
+  %245 = icmp ugt i64 %.sroa.19.0437, 3
   br i1 %245, label %246, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
 246:                                              ; preds = %244
-  %.0.copyload.i.i157 = load i32, ptr %.sroa.0311.0441, align 1
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 4
-  %248 = add i64 %.sroa.19.0440, -4
+  %.0.copyload.i.i157 = load i32, ptr %.sroa.0308.0438, align 1
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 4
+  %248 = add i64 %.sroa.19.0437, -4
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
-249:                                              ; preds = %.lr.ph443
+249:                                              ; preds = %.lr.ph440
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !23
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 %.sroa.19.0440
-  %.not.i.i159 = icmp eq i64 %.sroa.19.0440, 0
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 %.sroa.19.0437
+  %.not.i.i159 = icmp eq i64 %.sroa.19.0437, 0
   br i1 %.not.i.i159, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160, label %251
 
 251:                                              ; preds = %249
-  %252 = load i8, ptr %.sroa.0311.0441, align 1, !tbaa !16
+  %252 = load i8, ptr %.sroa.0308.0438, align 1, !tbaa !16
   %253 = icmp sgt i8 %252, -1
   br i1 %253, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i167, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i167: ; preds = %251
   %254 = zext nneg i8 %252 to i32
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 1
   br label %257
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160: ; preds = %251, %249
-  %256 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0311.0441, ptr noundef %250, ptr noundef nonnull %10)
+  %256 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0308.0438, ptr noundef %250, ptr noundef nonnull %10)
   %.not15.i.i161 = icmp eq ptr %256, null
   br i1 %.not15.i.i161, label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i162
 
@@ -2399,32 +2399,32 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i162: ; preds = %_ZN7rock
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160, %257, %264
-  %.sroa.7332.4 = phi i64 [ %.sroa.7332.1434, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %.sroa.7332.1434, %257 ], [ %263, %264 ]
-  %.sroa.0331.4 = phi ptr [ %.sroa.0331.1435, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %.sroa.0331.1435, %257 ], [ %259, %264 ]
-  %.sroa.19.4 = phi i64 [ %.sroa.19.0440, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %262, %257 ], [ %266, %264 ]
-  %.sroa.0311.4 = phi ptr [ %.sroa.0311.0441, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %259, %257 ], [ %265, %264 ]
+  %.sroa.7329.4 = phi i64 [ %.sroa.7329.1431, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %.sroa.7329.1431, %257 ], [ %263, %264 ]
+  %.sroa.0328.4 = phi ptr [ %.sroa.0328.1432, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %.sroa.0328.1432, %257 ], [ %259, %264 ]
+  %.sroa.19.4 = phi i64 [ %.sroa.19.0437, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %262, %257 ], [ %266, %264 ]
+  %.sroa.0308.4 = phi ptr [ %.sroa.0308.0438, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i160 ], [ %259, %257 ], [ %265, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
-267:                                              ; preds = %.lr.ph443
+267:                                              ; preds = %.lr.ph440
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !23
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 %.sroa.19.0440
-  %.not.i.i169 = icmp eq i64 %.sroa.19.0440, 0
+  %268 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 %.sroa.19.0437
+  %.not.i.i169 = icmp eq i64 %.sroa.19.0437, 0
   br i1 %.not.i.i169, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170, label %269
 
 269:                                              ; preds = %267
-  %270 = load i8, ptr %.sroa.0311.0441, align 1, !tbaa !16
+  %270 = load i8, ptr %.sroa.0308.0438, align 1, !tbaa !16
   %271 = icmp sgt i8 %270, -1
   br i1 %271, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i177, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i177: ; preds = %269
   %272 = zext nneg i8 %270 to i32
-  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 1
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 1
   br label %275
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170: ; preds = %269, %267
-  %274 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0311.0441, ptr noundef %268, ptr noundef nonnull %9)
+  %274 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0308.0438, ptr noundef %268, ptr noundef nonnull %9)
   %.not15.i.i171 = icmp eq ptr %274, null
   br i1 %.not15.i.i171, label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i172
 
@@ -2448,32 +2448,32 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i172: ; preds = %_ZN7rock
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170, %275, %282
-  %.sroa.6330.3 = phi i64 [ %.sroa.6330.1436, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %.sroa.6330.1436, %275 ], [ %281, %282 ]
-  %.sroa.0329.3 = phi ptr [ %.sroa.0329.1437, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %.sroa.0329.1437, %275 ], [ %277, %282 ]
-  %.sroa.19.5 = phi i64 [ %.sroa.19.0440, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %280, %275 ], [ %284, %282 ]
-  %.sroa.0311.5 = phi ptr [ %.sroa.0311.0441, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %277, %275 ], [ %283, %282 ]
+  %.sroa.6327.3 = phi i64 [ %.sroa.6327.1433, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %.sroa.6327.1433, %275 ], [ %281, %282 ]
+  %.sroa.0326.3 = phi ptr [ %.sroa.0326.1434, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %.sroa.0326.1434, %275 ], [ %277, %282 ]
+  %.sroa.19.5 = phi i64 [ %.sroa.19.0437, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %280, %275 ], [ %284, %282 ]
+  %.sroa.0308.5 = phi ptr [ %.sroa.0308.0438, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i170 ], [ %277, %275 ], [ %283, %282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
-285:                                              ; preds = %.lr.ph443
+285:                                              ; preds = %.lr.ph440
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !23
-  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 %.sroa.19.0440
-  %.not.i.i179 = icmp eq i64 %.sroa.19.0440, 0
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 %.sroa.19.0437
+  %.not.i.i179 = icmp eq i64 %.sroa.19.0437, 0
   br i1 %.not.i.i179, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180, label %287
 
 287:                                              ; preds = %285
-  %288 = load i8, ptr %.sroa.0311.0441, align 1, !tbaa !16
+  %288 = load i8, ptr %.sroa.0308.0438, align 1, !tbaa !16
   %289 = icmp sgt i8 %288, -1
   br i1 %289, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i187, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i187: ; preds = %287
   %290 = zext nneg i8 %288 to i32
-  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0441, i64 1
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0438, i64 1
   br label %293
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180: ; preds = %287, %285
-  %292 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0311.0441, ptr noundef %286, ptr noundef nonnull %8)
+  %292 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0308.0438, ptr noundef %286, ptr noundef nonnull %8)
   %.not15.i.i181 = icmp eq ptr %292, null
   br i1 %.not15.i.i181, label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i182
 
@@ -2497,39 +2497,39 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i182: ; preds = %_ZN7rock
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180, %293, %300
-  %.sroa.6328.3 = phi i64 [ %.sroa.6328.1438, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %.sroa.6328.1438, %293 ], [ %299, %300 ]
-  %.sroa.0327.3 = phi ptr [ %.sroa.0327.1439, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %.sroa.0327.1439, %293 ], [ %295, %300 ]
-  %.sroa.19.6 = phi i64 [ %.sroa.19.0440, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %298, %293 ], [ %302, %300 ]
-  %.sroa.0311.6 = phi ptr [ %.sroa.0311.0441, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %295, %293 ], [ %301, %300 ]
+  %.sroa.6325.3 = phi i64 [ %.sroa.6325.1435, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %.sroa.6325.1435, %293 ], [ %299, %300 ]
+  %.sroa.0324.3 = phi ptr [ %.sroa.0324.1436, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %.sroa.0324.1436, %293 ], [ %295, %300 ]
+  %.sroa.19.6 = phi i64 [ %.sroa.19.0437, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %298, %293 ], [ %302, %300 ]
+  %.sroa.0308.6 = phi ptr [ %.sroa.0308.0438, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i180 ], [ %295, %293 ], [ %301, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
-_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph443, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168
-  %.2359 = phi i32 [ %.1358433, %.lr.ph443 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.0.copyload.i.i157, %246 ], [ %.1358433, %244 ]
-  %.sroa.7332.2 = phi i64 [ %.sroa.7332.1434, %.lr.ph443 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.7332.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.7332.1434, %246 ], [ %.sroa.7332.1434, %244 ]
-  %.sroa.0331.2 = phi ptr [ %.sroa.0331.1435, %.lr.ph443 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0331.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0331.1435, %246 ], [ %.sroa.0331.1435, %244 ]
-  %.sroa.6330.2 = phi i64 [ %.sroa.6330.1436, %.lr.ph443 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6330.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6330.1436, %246 ], [ %.sroa.6330.1436, %244 ]
-  %.sroa.0329.2 = phi ptr [ %.sroa.0329.1437, %.lr.ph443 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0329.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0329.1437, %246 ], [ %.sroa.0329.1437, %244 ]
-  %.sroa.6328.2 = phi i64 [ %.sroa.6328.1438, %.lr.ph443 ], [ %.sroa.6328.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6328.1438, %246 ], [ %.sroa.6328.1438, %244 ]
-  %.sroa.0327.2 = phi ptr [ %.sroa.0327.1439, %.lr.ph443 ], [ %.sroa.0327.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0327.1439, %246 ], [ %.sroa.0327.1439, %244 ]
-  %.sroa.19.1 = phi i64 [ %.sroa.19.0440, %.lr.ph443 ], [ %.sroa.19.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.19.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.19.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %248, %246 ], [ %.sroa.19.0440, %244 ]
-  %.sroa.0311.1 = phi ptr [ %.sroa.0311.0441, %.lr.ph443 ], [ %.sroa.0311.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0311.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0311.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %247, %246 ], [ %.sroa.0311.0441, %244 ]
-  %303 = add nsw i64 %.079442, -1
-  %304 = and i64 %303, %.079442
+_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph440, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168
+  %.2356 = phi i32 [ %.1355430, %.lr.ph440 ], [ %.1355430, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.1355430, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.1355430, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.0.copyload.i.i157, %246 ], [ %.1355430, %244 ]
+  %.sroa.7329.2 = phi i64 [ %.sroa.7329.1431, %.lr.ph440 ], [ %.sroa.7329.1431, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.7329.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.7329.1431, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.7329.1431, %246 ], [ %.sroa.7329.1431, %244 ]
+  %.sroa.0328.2 = phi ptr [ %.sroa.0328.1432, %.lr.ph440 ], [ %.sroa.0328.1432, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0328.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0328.1432, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0328.1432, %246 ], [ %.sroa.0328.1432, %244 ]
+  %.sroa.6327.2 = phi i64 [ %.sroa.6327.1433, %.lr.ph440 ], [ %.sroa.6327.1433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6327.1433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6327.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6327.1433, %246 ], [ %.sroa.6327.1433, %244 ]
+  %.sroa.0326.2 = phi ptr [ %.sroa.0326.1434, %.lr.ph440 ], [ %.sroa.0326.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0326.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0326.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0326.1434, %246 ], [ %.sroa.0326.1434, %244 ]
+  %.sroa.6325.2 = phi i64 [ %.sroa.6325.1435, %.lr.ph440 ], [ %.sroa.6325.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6325.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6325.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6325.1435, %246 ], [ %.sroa.6325.1435, %244 ]
+  %.sroa.0324.2 = phi ptr [ %.sroa.0324.1436, %.lr.ph440 ], [ %.sroa.0324.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0324.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0324.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0324.1436, %246 ], [ %.sroa.0324.1436, %244 ]
+  %.sroa.19.1 = phi i64 [ %.sroa.19.0437, %.lr.ph440 ], [ %.sroa.19.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.19.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.19.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %248, %246 ], [ %.sroa.19.0437, %244 ]
+  %.sroa.0308.1 = phi ptr [ %.sroa.0308.0438, %.lr.ph440 ], [ %.sroa.0308.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0308.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0308.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %247, %246 ], [ %.sroa.0308.0438, %244 ]
+  %303 = add nsw i64 %.079439, -1
+  %304 = and i64 %303, %.079439
   %.not94 = icmp eq i64 %304, 0
-  br i1 %.not94, label %.loopexit384, label %.lr.ph443, !llvm.loop !101
+  br i1 %.not94, label %.loopexit381, label %.lr.ph440, !llvm.loop !101
 
-.loopexit384:                                     ; preds = %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154
-  %.0357 = phi i32 [ %.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.2359, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.7332.0 = phi i64 [ %.sroa.7332.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.7332.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.0331.0 = phi ptr [ %.sroa.0331.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0331.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.6330.0 = phi i64 [ 0, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.6330.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.0329.0 = phi ptr [ @.str, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0329.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.6328.0 = phi i64 [ 0, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.6328.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
-  %.sroa.0327.0 = phi ptr [ @.str, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0327.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+.loopexit381:                                     ; preds = %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154
+  %.0354 = phi i32 [ %.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.2356, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.7329.0 = phi i64 [ %.sroa.7329.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.7329.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.0328.0 = phi ptr [ %.sroa.0328.3, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0328.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.6327.0 = phi i64 [ 0, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.6327.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.0326.0 = phi ptr [ @.str, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0326.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.6325.0 = phi i64 [ 0, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.6325.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
+  %.sroa.0324.0 = phi ptr [ @.str, %_ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPjPNS_5SliceE.exit154 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit156 ], [ %.sroa.0324.2, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158 ]
   br i1 %.not, label %386, label %305
 
-305:                                              ; preds = %.loopexit384
+305:                                              ; preds = %.loopexit381
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @.str, ptr %17, align 8, !tbaa !18
   %306 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2546,7 +2546,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph4
   store i8 0, ptr %311, align 8, !tbaa !86
   %312 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store ptr %308, ptr %312, align 8, !tbaa !91
-  %313 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %308, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0331.0, i64 noundef %.sroa.7332.0)
+  %313 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %308, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0328.0, i64 noundef %.sroa.7329.0)
           to label %314 unwind label %369
 
 314:                                              ; preds = %305
@@ -2575,7 +2575,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph4
   store i8 0, ptr %325, align 8, !tbaa !86
   %326 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store ptr %322, ptr %326, align 8, !tbaa !91
-  %327 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %322, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0329.0, i64 noundef %.sroa.6330.0)
+  %327 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %322, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0326.0, i64 noundef %.sroa.6327.0)
           to label %328 unwind label %373
 
 328:                                              ; preds = %321
@@ -2604,7 +2604,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph4
   store i8 0, ptr %339, align 8, !tbaa !86
   %340 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store ptr %336, ptr %340, align 8, !tbaa !91
-  %341 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %336, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0327.0, i64 noundef %.sroa.6328.0)
+  %341 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %336, i64 noundef 0, i64 noundef 0, ptr noundef %.sroa.0324.0, i64 noundef %.sroa.6325.0)
           to label %342 unwind label %377
 
 342:                                              ; preds = %335
@@ -2621,7 +2621,7 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph4
   %349 = load i8, ptr %34, align 8, !tbaa !74
   %350 = sext i8 %349 to i32
   %351 = load i64, ptr %1, align 8, !tbaa !71
-  invoke void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC1ENS0_8SeekTypeEjONS_13PinnableSliceES3_S3_m(ptr noundef nonnull align 8 dereferenceable(312) %347, i32 noundef %350, i32 noundef %.0357, ptr noundef nonnull align 8 dereferenceable(89) %17, ptr noundef nonnull align 8 dereferenceable(89) %18, ptr noundef nonnull align 8 dereferenceable(89) %19, i64 noundef %351)
+  invoke void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC1ENS0_8SeekTypeEjONS_13PinnableSliceES3_S3_m(ptr noundef nonnull align 8 dereferenceable(312) %347, i32 noundef %350, i32 noundef %.0354, ptr noundef nonnull align 8 dereferenceable(89) %17, ptr noundef nonnull align 8 dereferenceable(89) %18, ptr noundef nonnull align 8 dereferenceable(89) %19, i64 noundef %351)
           to label %352 unwind label %379
 
 352:                                              ; preds = %348
@@ -2736,7 +2736,7 @@ _ZN7rocksdb13PinnableSliceD2Ev.exit209:           ; preds = %_ZN7rocksdb13Pinnab
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit275
 
-386:                                              ; preds = %_ZN7rocksdb13PinnableSliceD2Ev.exit209, %.loopexit384
+386:                                              ; preds = %_ZN7rocksdb13PinnableSliceD2Ev.exit209, %.loopexit381
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %387, align 8, !tbaa !25, !alias.scope !102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !102
@@ -2786,20 +2786,20 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211:    ; preds = %._ZN7rocksdb10GetFi
   %403 = phi i64 [ %.0.copyload.i.i210, %400 ], [ %.pre, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211_crit_edge ]
   %.sroa.16.2 = phi i64 [ %402, %400 ], [ %397, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211_crit_edge ]
   %.sroa.0278.2 = phi ptr [ %401, %400 ], [ %395, %._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211_crit_edge ]
-  %.not88411 = icmp eq i64 %403, 0
-  br i1 %.not88411, label %._crit_edge.thread, label %.lr.ph
+  %.not88408 = icmp eq i64 %403, 0
+  br i1 %.not88408, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
-  %.064419 = phi i64 [ %453, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %403, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.0278.0418 = phi ptr [ %.sroa.0278.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %.sroa.0278.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.16.0417 = phi i64 [ %.sroa.16.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %.sroa.16.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.0290.0416 = phi ptr [ %.sroa.0290.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.9.0415 = phi i64 [ %.sroa.9.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.0293.0414 = phi ptr [ %.sroa.0293.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.sroa.7.0413 = phi i64 [ %.sroa.7.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %.0356412 = phi i32 [ %.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
-  %404 = sub nsw i64 0, %.064419
-  %405 = and i64 %.064419, %404
+  %.064416 = phi i64 [ %453, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %403, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.0278.0415 = phi ptr [ %.sroa.0278.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %.sroa.0278.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.16.0414 = phi i64 [ %.sroa.16.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ %.sroa.16.2, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.0290.0413 = phi ptr [ %.sroa.0290.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.9.0412 = phi i64 [ %.sroa.9.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.0293.0411 = phi ptr [ %.sroa.0293.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ @.str, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.sroa.7.0410 = phi i64 [ %.sroa.7.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %.0353409 = phi i32 [ %.1, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213 ], [ 0, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211 ]
+  %404 = sub nsw i64 0, %.064416
+  %405 = and i64 %.064416, %404
   %406 = sitofp i64 %405 to double
   %407 = call double @log2(double noundef %406) #24, !tbaa !23
   %408 = fptoui double %407 to i32
@@ -2810,13 +2810,13 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211:    ; preds = %._ZN7rocksdb10GetFi
   ]
 
 409:                                              ; preds = %.lr.ph
-  %410 = icmp ugt i64 %.sroa.16.0417, 3
+  %410 = icmp ugt i64 %.sroa.16.0414, 3
   br i1 %410, label %411, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
 
 411:                                              ; preds = %409
-  %.0.copyload.i.i212 = load i32, ptr %.sroa.0278.0418, align 1
-  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0418, i64 4
-  %413 = add i64 %.sroa.16.0417, -4
+  %.0.copyload.i.i212 = load i32, ptr %.sroa.0278.0415, align 1
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0415, i64 4
+  %413 = add i64 %.sroa.16.0414, -4
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
 
 414:                                              ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i226, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i215
@@ -2827,22 +2827,22 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit211:    ; preds = %._ZN7rocksdb10GetFi
 416:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !23
-  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0418, i64 %.sroa.16.0417
-  %.not.i.i214 = icmp eq i64 %.sroa.16.0417, 0
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0415, i64 %.sroa.16.0414
+  %.not.i.i214 = icmp eq i64 %.sroa.16.0414, 0
   br i1 %.not.i.i214, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i215, label %418
 
 418:                                              ; preds = %416
-  %419 = load i8, ptr %.sroa.0278.0418, align 1, !tbaa !16
+  %419 = load i8, ptr %.sroa.0278.0415, align 1, !tbaa !16
   %420 = icmp sgt i8 %419, -1
   br i1 %420, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i222, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i215
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i222: ; preds = %418
   %421 = zext nneg i8 %419 to i32
-  %422 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0418, i64 1
+  %422 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0415, i64 1
   br label %424
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i215: ; preds = %418, %416
-  %423 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0278.0418, ptr noundef %417, ptr noundef nonnull %7)
+  %423 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0278.0415, ptr noundef %417, ptr noundef nonnull %7)
           to label %.noexc223 unwind label %414
 
 .noexc223:                                        ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i215
@@ -2869,32 +2869,32 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i217: ; preds = %.noexc22
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224: ; preds = %.noexc223, %424, %431
-  %.sroa.7.3 = phi i64 [ %.sroa.7.0413, %.noexc223 ], [ %.sroa.7.0413, %424 ], [ %430, %431 ]
-  %.sroa.0293.3 = phi ptr [ %.sroa.0293.0414, %.noexc223 ], [ %.sroa.0293.0414, %424 ], [ %426, %431 ]
-  %.sroa.16.4 = phi i64 [ %.sroa.16.0417, %.noexc223 ], [ %429, %424 ], [ %433, %431 ]
-  %.sroa.0278.4 = phi ptr [ %.sroa.0278.0418, %.noexc223 ], [ %426, %424 ], [ %432, %431 ]
+  %.sroa.7.3 = phi i64 [ %.sroa.7.0410, %.noexc223 ], [ %.sroa.7.0410, %424 ], [ %430, %431 ]
+  %.sroa.0293.3 = phi ptr [ %.sroa.0293.0411, %.noexc223 ], [ %.sroa.0293.0411, %424 ], [ %426, %431 ]
+  %.sroa.16.4 = phi i64 [ %.sroa.16.0414, %.noexc223 ], [ %429, %424 ], [ %433, %431 ]
+  %.sroa.0278.4 = phi ptr [ %.sroa.0278.0415, %.noexc223 ], [ %426, %424 ], [ %432, %431 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
 
 434:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !23
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0418, i64 %.sroa.16.0417
-  %.not.i.i225 = icmp eq i64 %.sroa.16.0417, 0
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0415, i64 %.sroa.16.0414
+  %.not.i.i225 = icmp eq i64 %.sroa.16.0414, 0
   br i1 %.not.i.i225, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i226, label %436
 
 436:                                              ; preds = %434
-  %437 = load i8, ptr %.sroa.0278.0418, align 1, !tbaa !16
+  %437 = load i8, ptr %.sroa.0278.0415, align 1, !tbaa !16
   %438 = icmp sgt i8 %437, -1
   br i1 %438, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i233, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i226
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i233: ; preds = %436
   %439 = zext nneg i8 %437 to i32
-  %440 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0418, i64 1
+  %440 = getelementptr inbounds nuw i8, ptr %.sroa.0278.0415, i64 1
   br label %442
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i226: ; preds = %436, %434
-  %441 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0278.0418, ptr noundef %435, ptr noundef nonnull %6)
+  %441 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0278.0415, ptr noundef %435, ptr noundef nonnull %6)
           to label %.noexc234 unwind label %414
 
 .noexc234:                                        ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i226
@@ -2921,23 +2921,23 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i228: ; preds = %.noexc23
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235: ; preds = %.noexc234, %442, %449
-  %.sroa.9.3 = phi i64 [ %.sroa.9.0415, %.noexc234 ], [ %.sroa.9.0415, %442 ], [ %448, %449 ]
-  %.sroa.0290.3 = phi ptr [ %.sroa.0290.0416, %.noexc234 ], [ %.sroa.0290.0416, %442 ], [ %444, %449 ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.0417, %.noexc234 ], [ %447, %442 ], [ %451, %449 ]
-  %.sroa.0278.5 = phi ptr [ %.sroa.0278.0418, %.noexc234 ], [ %444, %442 ], [ %450, %449 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.0412, %.noexc234 ], [ %.sroa.9.0412, %442 ], [ %448, %449 ]
+  %.sroa.0290.3 = phi ptr [ %.sroa.0290.0413, %.noexc234 ], [ %.sroa.0290.0413, %442 ], [ %444, %449 ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.0414, %.noexc234 ], [ %447, %442 ], [ %451, %449 ]
+  %.sroa.0278.5 = phi ptr [ %.sroa.0278.0415, %.noexc234 ], [ %444, %442 ], [ %450, %449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213:    ; preds = %411, %409, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224, %.lr.ph
-  %.1 = phi i32 [ %.0356412, %.lr.ph ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.0.copyload.i.i212, %411 ], [ %.0356412, %409 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0413, %.lr.ph ], [ %.sroa.7.0413, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.7.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.7.0413, %411 ], [ %.sroa.7.0413, %409 ]
-  %.sroa.0293.1 = phi ptr [ %.sroa.0293.0414, %.lr.ph ], [ %.sroa.0293.0414, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0293.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0293.0414, %411 ], [ %.sroa.0293.0414, %409 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.0415, %.lr.ph ], [ %.sroa.9.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.9.0415, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.9.0415, %411 ], [ %.sroa.9.0415, %409 ]
-  %.sroa.0290.1 = phi ptr [ %.sroa.0290.0416, %.lr.ph ], [ %.sroa.0290.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0290.0416, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0290.0416, %411 ], [ %.sroa.0290.0416, %409 ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0417, %.lr.ph ], [ %.sroa.16.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.16.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %413, %411 ], [ %.sroa.16.0417, %409 ]
-  %.sroa.0278.1 = phi ptr [ %.sroa.0278.0418, %.lr.ph ], [ %.sroa.0278.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0278.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %412, %411 ], [ %.sroa.0278.0418, %409 ]
-  %452 = add nsw i64 %.064419, -1
-  %453 = and i64 %452, %.064419
+  %.1 = phi i32 [ %.0353409, %.lr.ph ], [ %.0353409, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.0353409, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.0.copyload.i.i212, %411 ], [ %.0353409, %409 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0410, %.lr.ph ], [ %.sroa.7.0410, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.7.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.7.0410, %411 ], [ %.sroa.7.0410, %409 ]
+  %.sroa.0293.1 = phi ptr [ %.sroa.0293.0411, %.lr.ph ], [ %.sroa.0293.0411, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0293.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0293.0411, %411 ], [ %.sroa.0293.0411, %409 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.0412, %.lr.ph ], [ %.sroa.9.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.9.0412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.9.0412, %411 ], [ %.sroa.9.0412, %409 ]
+  %.sroa.0290.1 = phi ptr [ %.sroa.0290.0413, %.lr.ph ], [ %.sroa.0290.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0290.0413, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0290.0413, %411 ], [ %.sroa.0290.0413, %409 ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0414, %.lr.ph ], [ %.sroa.16.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.16.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %413, %411 ], [ %.sroa.16.0414, %409 ]
+  %.sroa.0278.1 = phi ptr [ %.sroa.0278.0415, %.lr.ph ], [ %.sroa.0278.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0278.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %412, %411 ], [ %.sroa.0278.0415, %409 ]
+  %452 = add nsw i64 %.064416, -1
+  %453 = and i64 %452, %.064416
   %.not88 = icmp eq i64 %453, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
@@ -3003,46 +3003,46 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %._crit_edge
   br label %589
 
 476:                                              ; preds = %.preheader, %_ZN7rocksdb13PinnableSliceD2Ev.exit264
-  %.0431 = phi i32 [ 0, %.preheader ], [ %534, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.0290.2430 = phi ptr [ %.sroa.0290.1, %.preheader ], [ %.sroa.0290.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.9.2429 = phi i64 [ %.sroa.9.1, %.preheader ], [ %.sroa.9.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.0293.2428 = phi ptr [ %.sroa.0293.1, %.preheader ], [ %.sroa.0293.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.7.2427 = phi i64 [ %.sroa.7.1, %.preheader ], [ %.sroa.7.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.18.3426 = phi ptr [ %463, %.preheader ], [ %.sroa.18.7, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.12.0425 = phi ptr [ %461, %.preheader ], [ %.sroa.12.2, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %.sroa.0294.3424 = phi ptr [ %461, %.preheader ], [ %.sroa.0294.7, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
-  %477 = icmp ugt i64 %.sroa.7.2427, 3
+  %.0428 = phi i32 [ 0, %.preheader ], [ %534, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.0290.2427 = phi ptr [ %.sroa.0290.1, %.preheader ], [ %.sroa.0290.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.9.2426 = phi i64 [ %.sroa.9.1, %.preheader ], [ %.sroa.9.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.0293.2425 = phi ptr [ %.sroa.0293.1, %.preheader ], [ %.sroa.0293.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.7.2424 = phi i64 [ %.sroa.7.1, %.preheader ], [ %.sroa.7.4, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.18.3423 = phi ptr [ %463, %.preheader ], [ %.sroa.18.7, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.12.0422 = phi ptr [ %461, %.preheader ], [ %.sroa.12.2, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %.sroa.0294.3421 = phi ptr [ %461, %.preheader ], [ %.sroa.0294.7, %_ZN7rocksdb13PinnableSliceD2Ev.exit264 ]
+  %477 = icmp ugt i64 %.sroa.7.2424, 3
   br i1 %477, label %478, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit239
 
 478:                                              ; preds = %476
-  %.0.copyload.i.i238 = load i32, ptr %.sroa.0293.2428, align 1
-  %479 = getelementptr inbounds nuw i8, ptr %.sroa.0293.2428, i64 4
-  %480 = add nsw i64 %.sroa.7.2427, -4
+  %.0.copyload.i.i238 = load i32, ptr %.sroa.0293.2425, align 1
+  %479 = getelementptr inbounds nuw i8, ptr %.sroa.0293.2425, i64 4
+  %480 = add nsw i64 %.sroa.7.2424, -4
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit239
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit239:    ; preds = %478, %476
-  %.sroa.7.4 = phi i64 [ %480, %478 ], [ %.sroa.7.2427, %476 ]
-  %.sroa.0293.4 = phi ptr [ %479, %478 ], [ %.sroa.0293.2428, %476 ]
-  %.0355 = phi i32 [ %.0.copyload.i.i238, %478 ], [ 0, %476 ]
+  %.sroa.7.4 = phi i64 [ %480, %478 ], [ %.sroa.7.2424, %476 ]
+  %.sroa.0293.4 = phi ptr [ %479, %478 ], [ %.sroa.0293.2425, %476 ]
+  %.0352 = phi i32 [ %.0.copyload.i.i238, %478 ], [ 0, %476 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !23
-  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0290.2430, i64 %.sroa.9.2429
-  %.not.i.i240 = icmp eq i64 %.sroa.9.2429, 0
+  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0290.2427, i64 %.sroa.9.2426
+  %.not.i.i240 = icmp eq i64 %.sroa.9.2426, 0
   br i1 %.not.i.i240, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241, label %482
 
 482:                                              ; preds = %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit239
-  %483 = load i8, ptr %.sroa.0290.2430, align 1, !tbaa !16
+  %483 = load i8, ptr %.sroa.0290.2427, align 1, !tbaa !16
   %484 = icmp sgt i8 %483, -1
   br i1 %484, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i248, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i248: ; preds = %482
   %485 = zext nneg i8 %483 to i32
-  %486 = getelementptr inbounds nuw i8, ptr %.sroa.0290.2430, i64 1
+  %486 = getelementptr inbounds nuw i8, ptr %.sroa.0290.2427, i64 1
   br label %488
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241: ; preds = %482, %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit239
-  %487 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0290.2430, ptr noundef %481, ptr noundef nonnull %5)
-          to label %.noexc249 unwind label %.loopexit385
+  %487 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %.sroa.0290.2427, ptr noundef %481, ptr noundef nonnull %5)
+          to label %.noexc249 unwind label %.loopexit382
 
 .noexc249:                                        ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241
   %.not15.i.i242 = icmp eq ptr %487, null
@@ -3068,21 +3068,21 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i243: ; preds = %.noexc24
   br label %498
 
 498:                                              ; preds = %495, %488, %.noexc249
-  %.sroa.9.4 = phi i64 [ %.sroa.9.2429, %.noexc249 ], [ %493, %488 ], [ %497, %495 ]
-  %.sroa.0290.4 = phi ptr [ %.sroa.0290.2430, %.noexc249 ], [ %490, %488 ], [ %496, %495 ]
+  %.sroa.9.4 = phi i64 [ %.sroa.9.2426, %.noexc249 ], [ %493, %488 ], [ %497, %495 ]
+  %.sroa.0290.4 = phi ptr [ %.sroa.0290.2427, %.noexc249 ], [ %490, %488 ], [ %496, %495 ]
   %.sroa.6.0 = phi i64 [ 0, %.noexc249 ], [ 0, %488 ], [ %494, %495 ]
   %.sroa.0276.0 = phi ptr [ @.str, %.noexc249 ], [ @.str, %488 ], [ %490, %495 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i251 = icmp eq ptr %.sroa.12.0425, %.sroa.18.3426
+  %.not.i251 = icmp eq ptr %.sroa.12.0422, %.sroa.18.3423
   br i1 %.not.i251, label %500, label %499
 
 499:                                              ; preds = %498
-  store i32 %.0355, ptr %.sroa.12.0425, align 4, !tbaa !23
+  store i32 %.0352, ptr %.sroa.12.0422, align 4, !tbaa !23
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 500:                                              ; preds = %498
-  %501 = ptrtoint ptr %.sroa.18.3426 to i64
-  %502 = ptrtoint ptr %.sroa.0294.3424 to i64
+  %501 = ptrtoint ptr %.sroa.18.3423 to i64
+  %502 = ptrtoint ptr %.sroa.0294.3421 to i64
   %503 = sub i64 %501, %502
   %504 = icmp eq i64 %503, 9223372036854775804
   br i1 %504, label %505, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -3105,28 +3105,28 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %500
   call void @llvm.assume(i1 %.not.i.i.i252)
   %511 = shl nuw nsw i64 %510, 2
   %512 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %511) #26
-          to label %.noexc254 unwind label %.loopexit385
+          to label %.noexc254 unwind label %.loopexit382
 
 .noexc254:                                        ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %513 = getelementptr inbounds i8, ptr %512, i64 %503
-  store i32 %.0355, ptr %513, align 4, !tbaa !23
+  store i32 %.0352, ptr %513, align 4, !tbaa !23
   %514 = icmp sgt i64 %503, 0
   br i1 %514, label %515, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 515:                                              ; preds = %.noexc254
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %512, ptr align 4 %.sroa.0294.3424, i64 %503, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %512, ptr align 4 %.sroa.0294.3421, i64 %503, i1 false)
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %515, %.noexc254
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0294.3424, i64 noundef %503) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0294.3421, i64 noundef %503) #23
   %516 = getelementptr inbounds nuw i32, ptr %512, i64 %510
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %499
-  %.sroa.0294.7 = phi ptr [ %512, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.0294.3424, %499 ]
-  %.pn381 = phi ptr [ %513, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.12.0425, %499 ]
-  %.sroa.18.7 = phi ptr [ %516, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.18.3426, %499 ]
-  %.sroa.12.2 = getelementptr inbounds nuw i8, ptr %.pn381, i64 4
+  %.sroa.0294.7 = phi ptr [ %512, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.0294.3421, %499 ]
+  %.pn378 = phi ptr [ %513, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.12.0422, %499 ]
+  %.sroa.18.7 = phi ptr [ %516, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.18.3423, %499 ]
+  %.sroa.12.2 = getelementptr inbounds nuw i8, ptr %.pn378, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr @.str, ptr %25, align 8, !tbaa !18
   store i64 0, ptr %464, align 8, !tbaa !20
@@ -3182,11 +3182,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN7rocksdb13PinnableSliceD2Ev.exit264:           ; preds = %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE9push_backEOS1_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i262
   call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %465) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %534 = add nuw i32 %.0431, 1
+  %534 = add nuw i32 %.0428, 1
   %exitcond.not = icmp eq i32 %534, %.1
   br i1 %exitcond.not, label %473, label %476, !llvm.loop !110
 
-.loopexit385:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+.loopexit382:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i241, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %589
@@ -3345,10 +3345,10 @@ _ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit275
 
-589:                                              ; preds = %.loopexit385, %.loopexit.split-lp, %539, %474
-  %.sroa.0294.0 = phi ptr [ %.sroa.0294.7, %539 ], [ %.sroa.0294.2, %474 ], [ %.sroa.0294.3424, %.loopexit385 ], [ %.sroa.0294.3424, %.loopexit.split-lp ]
-  %.sroa.18.0 = phi ptr [ %.sroa.18.7, %539 ], [ %.sroa.18.2, %474 ], [ %.sroa.18.3426, %.loopexit385 ], [ %.sroa.18.3426, %.loopexit.split-lp ]
-  %.pn91.pn = phi { ptr, i32 } [ %.pn, %539 ], [ %475, %474 ], [ %lpad.loopexit, %.loopexit385 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+589:                                              ; preds = %.loopexit382, %.loopexit.split-lp, %539, %474
+  %.sroa.0294.0 = phi ptr [ %.sroa.0294.7, %539 ], [ %.sroa.0294.2, %474 ], [ %.sroa.0294.3421, %.loopexit382 ], [ %.sroa.0294.3421, %.loopexit.split-lp ]
+  %.sroa.18.0 = phi ptr [ %.sroa.18.7, %539 ], [ %.sroa.18.2, %474 ], [ %.sroa.18.3423, %.loopexit382 ], [ %.sroa.18.3423, %.loopexit.split-lp ]
+  %.pn91.pn = phi { ptr, i32 } [ %.pn, %539 ], [ %475, %474 ], [ %lpad.loopexit, %.loopexit382 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.not.i.i.i274 = icmp eq ptr %.sroa.0294.0, null

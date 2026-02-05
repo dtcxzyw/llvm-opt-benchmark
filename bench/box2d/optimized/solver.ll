@@ -1116,8 +1116,8 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .outer:                                           ; preds = %.thread, %.lr.ph854
   %indvars.iv1004.ph = phi i64 [ %indvars.iv.next10051089, %.thread ], [ 0, %.lr.ph854 ]
   %.0720852.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph854 ]
-  %.sroa.12.3850.ph = phi float [ %530, %.thread ], [ %496, %.lr.ph854 ]
-  %.sroa.10.3849.ph = phi i64 [ %537, %.thread ], [ 0, %.lr.ph854 ]
+  %.sroa.12.0850.ph = phi float [ %530, %.thread ], [ %496, %.lr.ph854 ]
+  %.sroa.10.0849.ph = phi i64 [ %537, %.thread ], [ 0, %.lr.ph854 ]
   br label %526
 
 ._crit_edge855:                                   ; preds = %536
@@ -1129,7 +1129,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 40
   %529 = load float, ptr %528, align 4, !tbaa !165
   %530 = fneg float %529
-  %531 = fcmp olt float %.sroa.12.3850.ph, %530
+  %531 = fcmp olt float %.sroa.12.0850.ph, %530
   br i1 %531, label %532, label %536
 
 532:                                              ; preds = %526
@@ -1150,8 +1150,8 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond1007.not1090, label %._crit_edge855.thread, label %.outer, !llvm.loop !168
 
 ._crit_edge855.thread:                            ; preds = %.thread, %._crit_edge855
-  %.sroa.10.410911098 = phi i64 [ %.sroa.10.3849.ph, %._crit_edge855 ], [ %537, %.thread ]
-  %.sroa.12.410921097 = phi float [ %.sroa.12.3850.ph, %._crit_edge855 ], [ %530, %.thread ]
+  %.sroa.10.110911098 = phi i64 [ %.sroa.10.0849.ph, %._crit_edge855 ], [ %537, %.thread ]
+  %.sroa.12.110921097 = phi float [ %.sroa.12.0850.ph, %._crit_edge855 ], [ %530, %.thread ]
   %538 = load i64, ptr %521, align 4
   %539 = getelementptr inbounds nuw i8, ptr %515, i64 12
   %540 = load i32, ptr %539, align 4, !tbaa !169
@@ -1202,11 +1202,11 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
   %.sroa.8760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 14
   store i16 %555, ptr %.sroa.8760.0..sroa_idx, align 2, !tbaa !181
   %.sroa.9761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 16
-  store i64 %.sroa.10.410911098, ptr %.sroa.9761.0..sroa_idx, align 4
+  store i64 %.sroa.10.110911098, ptr %.sroa.9761.0..sroa_idx, align 4
   %.sroa.10762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 24
   store i64 %538, ptr %.sroa.10762.0..sroa_idx, align 4
   %.sroa.11763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 32
-  store float %.sroa.12.410921097, ptr %.sroa.11763.0..sroa_idx, align 4, !tbaa !182
+  store float %.sroa.12.110921097, ptr %.sroa.11763.0..sroa_idx, align 4, !tbaa !182
   %568 = load i32, ptr %500, align 8, !tbaa !178
   %569 = add nsw i32 %568, 1
   store i32 %569, ptr %500, align 8, !tbaa !178

@@ -9167,30 +9167,30 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   br i1 %91, label %.lr.ph550, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
-  %92 = ptrtoint ptr %.sroa.25.12 to i64
+  %92 = ptrtoint ptr %.sroa.25.10 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
-  %.sroa.25.2.lcssa = phi i64 [ 0, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %92, %._crit_edge.loopexit ]
-  %.sroa.0356.2.lcssa = phi ptr [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %.sroa.0356.3, %._crit_edge.loopexit ]
+  %.sroa.25.0.lcssa = phi i64 [ 0, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %92, %._crit_edge.loopexit ]
+  %.sroa.0356.0.lcssa = phi ptr [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %.sroa.0356.1, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %93 = load ptr, ptr %6, align 8, !tbaa !309
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %93, ptr %4, align 8, !tbaa !335, !noalias !336
-  %94 = ptrtoint ptr %.sroa.0356.2.lcssa to i64
-  %95 = sub i64 %.sroa.25.2.lcssa, %94
+  %94 = ptrtoint ptr %.sroa.0356.0.lcssa to i64
+  %95 = sub i64 %.sroa.25.0.lcssa, %94
   %96 = lshr exact i64 %95, 5
   %97 = and i64 %96, 4294967295
   %98 = or disjoint i64 %97, -9223372036854775808
-  invoke void @_ZN10duckdb_fmt2v68vsprintfIPKccEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextISt20back_insert_iteratorINS0_8internal6bufferIS6_EEES6_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %98, ptr %.sroa.0356.2.lcssa)
+  invoke void @_ZN10duckdb_fmt2v68vsprintfIPKccEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextISt20back_insert_iteratorINS0_8internal6bufferIS6_EEES6_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %98, ptr %.sroa.0356.0.lcssa)
           to label %349 unwind label %367
 
 .lr.ph550:                                        ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
   %99 = phi ptr [ %343, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ %86, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
   %.083549 = phi i64 [ %341, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ 1, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.0356.2548 = phi ptr [ %.sroa.0356.3, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.25.2547 = phi ptr [ %.sroa.25.12, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.62.2546 = phi ptr [ %.sroa.62.3, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.0356.0548 = phi ptr [ %.sroa.0356.1, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.25.0547 = phi ptr [ %.sroa.25.10, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.62.0546 = phi ptr [ %.sroa.62.1, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
   %100 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %99, i64 %.083549
   %101 = load i8, ptr %100, align 8, !tbaa !68
   %102 = icmp eq i8 %101, 2
@@ -9214,19 +9214,19 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   %108 = load ptr, ptr %107, align 8, !tbaa !82
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 %103
   %110 = load i8, ptr %109, align 1, !tbaa !339, !range !341, !noalias !342, !noundef !345
-  %.not.i = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i, label %112, label %111
 
 111:                                              ; preds = %106
   %.sroa.0339.sroa.0.0.insert.ext = zext nneg i8 %110 to i32
-  store i32 %.sroa.0339.sroa.0.0.insert.ext, ptr %.sroa.25.2547, align 16
-  %.sroa.7343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %.sroa.0339.sroa.0.0.insert.ext, ptr %.sroa.25.0547, align 16
+  %.sroa.7343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 8, ptr %.sroa.7343.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 112:                                              ; preds = %106
-  %113 = ptrtoint ptr %.sroa.25.2547 to i64
-  %114 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %113 = ptrtoint ptr %.sroa.25.0547 to i64
+  %114 = ptrtoint ptr %.sroa.0356.0548 to i64
   %115 = sub i64 %113, %114
   %116 = icmp eq i64 %115, 9223372036854775776
   br i1 %116, label %117, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i
@@ -9257,25 +9257,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i32 %.sroa.0339.sroa.0.0.insert.ext348, ptr %125, align 16
   %.sroa.7343.0..sroa_idx344 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i32 8, ptr %.sroa.7343.0..sroa_idx344, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc118, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i.i ], [ %124, %.noexc118 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0356.2548, %.noexc118 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0356.0548, %.noexc118 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !348, !alias.scope !349
   %126 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i = icmp eq ptr %126, %.sroa.25.2547
+  %.not.i.i.i.i.i.i = icmp eq ptr %126, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc118
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %124, %.noexc118 ], [ %127, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i23.i.i = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i, label %128
 
 128:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %128, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i
@@ -9298,18 +9298,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %103
   %134 = load i8, ptr %133, align 1, !tbaa !65, !noalias !354
   %135 = sext i8 %134 to i32
-  %.not.i119 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i119 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i119, label %137, label %136
 
 136:                                              ; preds = %130
-  store i32 %135, ptr %.sroa.25.2547, align 16
-  %.sroa.6334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %135, ptr %.sroa.25.0547, align 16
+  %.sroa.6334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6334.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 137:                                              ; preds = %130
-  %138 = ptrtoint ptr %.sroa.25.2547 to i64
-  %139 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %138 = ptrtoint ptr %.sroa.25.0547 to i64
+  %139 = ptrtoint ptr %.sroa.0356.0548 to i64
   %140 = sub i64 %138, %139
   %141 = icmp eq i64 %140, 9223372036854775776
   br i1 %141, label %142, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i120
@@ -9339,25 +9339,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i32 %135, ptr %150, align 16
   %.sroa.6334.0..sroa_idx335 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store i32 2, ptr %.sroa.6334.0..sroa_idx335, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i123 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i123 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i123, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128, label %.lr.ph.i.i.i.i.i.i124
 
 .lr.ph.i.i.i.i.i.i124:                            ; preds = %.noexc133, %.lr.ph.i.i.i.i.i.i124
   %.012.i.i.i.i.i.i125 = phi ptr [ %152, %.lr.ph.i.i.i.i.i.i124 ], [ %149, %.noexc133 ]
-  %.0911.i.i.i.i.i.i126 = phi ptr [ %151, %.lr.ph.i.i.i.i.i.i124 ], [ %.sroa.0356.2548, %.noexc133 ]
+  %.0911.i.i.i.i.i.i126 = phi ptr [ %151, %.lr.ph.i.i.i.i.i.i124 ], [ %.sroa.0356.0548, %.noexc133 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i125, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i126, i64 32, i1 false), !tbaa.struct !348, !alias.scope !357
   %151 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i126, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i125, i64 32
-  %.not.i.i.i.i.i.i127 = icmp eq ptr %151, %.sroa.25.2547
+  %.not.i.i.i.i.i.i127 = icmp eq ptr %151, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i127, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128, label %.lr.ph.i.i.i.i.i.i124, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128: ; preds = %.lr.ph.i.i.i.i.i.i124, %.noexc133
   %.0.lcssa.i.i.i.i.i.i129 = phi ptr [ %149, %.noexc133 ], [ %152, %.lr.ph.i.i.i.i.i.i124 ]
-  %.not.i23.i.i130 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i130 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i130, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131, label %153
 
 153:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131: ; preds = %153, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128
@@ -9380,18 +9380,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %158 = getelementptr inbounds nuw i16, ptr %157, i64 %103
   %159 = load i16, ptr %158, align 2, !tbaa !361, !noalias !363
   %160 = sext i16 %159 to i32
-  %.not.i135 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i135 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i135, label %162, label %161
 
 161:                                              ; preds = %155
-  store i32 %160, ptr %.sroa.25.2547, align 16
-  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %160, ptr %.sroa.25.0547, align 16
+  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6325.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 162:                                              ; preds = %155
-  %163 = ptrtoint ptr %.sroa.25.2547 to i64
-  %164 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %163 = ptrtoint ptr %.sroa.25.0547 to i64
+  %164 = ptrtoint ptr %.sroa.0356.0548 to i64
   %165 = sub i64 %163, %164
   %166 = icmp eq i64 %165, 9223372036854775776
   br i1 %166, label %167, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i136
@@ -9421,25 +9421,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i32 %160, ptr %175, align 16
   %.sroa.6325.0..sroa_idx326 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i32 2, ptr %.sroa.6325.0..sroa_idx326, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i139 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i139 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i139, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144, label %.lr.ph.i.i.i.i.i.i140
 
 .lr.ph.i.i.i.i.i.i140:                            ; preds = %.noexc149, %.lr.ph.i.i.i.i.i.i140
   %.012.i.i.i.i.i.i141 = phi ptr [ %177, %.lr.ph.i.i.i.i.i.i140 ], [ %174, %.noexc149 ]
-  %.0911.i.i.i.i.i.i142 = phi ptr [ %176, %.lr.ph.i.i.i.i.i.i140 ], [ %.sroa.0356.2548, %.noexc149 ]
+  %.0911.i.i.i.i.i.i142 = phi ptr [ %176, %.lr.ph.i.i.i.i.i.i140 ], [ %.sroa.0356.0548, %.noexc149 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i141, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i142, i64 32, i1 false), !tbaa.struct !348, !alias.scope !366
   %176 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i142, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i141, i64 32
-  %.not.i.i.i.i.i.i143 = icmp eq ptr %176, %.sroa.25.2547
+  %.not.i.i.i.i.i.i143 = icmp eq ptr %176, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i143, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144, label %.lr.ph.i.i.i.i.i.i140, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144: ; preds = %.lr.ph.i.i.i.i.i.i140, %.noexc149
   %.0.lcssa.i.i.i.i.i.i145 = phi ptr [ %174, %.noexc149 ], [ %177, %.lr.ph.i.i.i.i.i.i140 ]
-  %.not.i23.i.i146 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i146 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i146, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147, label %178
 
 178:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147: ; preds = %178, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144
@@ -9461,18 +9461,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %182 = load ptr, ptr %181, align 8, !tbaa !82
   %183 = getelementptr inbounds nuw i32, ptr %182, i64 %103
   %184 = load i32, ptr %183, align 4, !tbaa !66, !noalias !370
-  %.not.i151 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i151 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i151, label %186, label %185
 
 185:                                              ; preds = %180
-  store i32 %184, ptr %.sroa.25.2547, align 16
-  %.sroa.6316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %184, ptr %.sroa.25.0547, align 16
+  %.sroa.6316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6316.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 186:                                              ; preds = %180
-  %187 = ptrtoint ptr %.sroa.25.2547 to i64
-  %188 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %187 = ptrtoint ptr %.sroa.25.0547 to i64
+  %188 = ptrtoint ptr %.sroa.0356.0548 to i64
   %189 = sub i64 %187, %188
   %190 = icmp eq i64 %189, 9223372036854775776
   br i1 %190, label %191, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i152
@@ -9502,25 +9502,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i32 %184, ptr %199, align 16
   %.sroa.6316.0..sroa_idx317 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i32 2, ptr %.sroa.6316.0..sroa_idx317, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i155 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i155 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i155, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160, label %.lr.ph.i.i.i.i.i.i156
 
 .lr.ph.i.i.i.i.i.i156:                            ; preds = %.noexc165, %.lr.ph.i.i.i.i.i.i156
   %.012.i.i.i.i.i.i157 = phi ptr [ %201, %.lr.ph.i.i.i.i.i.i156 ], [ %198, %.noexc165 ]
-  %.0911.i.i.i.i.i.i158 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i156 ], [ %.sroa.0356.2548, %.noexc165 ]
+  %.0911.i.i.i.i.i.i158 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i156 ], [ %.sroa.0356.0548, %.noexc165 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i157, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i158, i64 32, i1 false), !tbaa.struct !348, !alias.scope !373
   %200 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i158, i64 32
   %201 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i157, i64 32
-  %.not.i.i.i.i.i.i159 = icmp eq ptr %200, %.sroa.25.2547
+  %.not.i.i.i.i.i.i159 = icmp eq ptr %200, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i159, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160, label %.lr.ph.i.i.i.i.i.i156, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160: ; preds = %.lr.ph.i.i.i.i.i.i156, %.noexc165
   %.0.lcssa.i.i.i.i.i.i161 = phi ptr [ %198, %.noexc165 ], [ %201, %.lr.ph.i.i.i.i.i.i156 ]
-  %.not.i23.i.i162 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i162 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i162, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163, label %202
 
 202:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163: ; preds = %202, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160
@@ -9542,18 +9542,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %206 = load ptr, ptr %205, align 8, !tbaa !82
   %207 = getelementptr inbounds nuw i64, ptr %206, i64 %103
   %208 = load i64, ptr %207, align 8, !tbaa !84, !noalias !377
-  %.not.i167 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i167 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i167, label %210, label %209
 
 209:                                              ; preds = %204
-  store i64 %208, ptr %.sroa.25.2547, align 16
-  %.sroa.6307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i64 %208, ptr %.sroa.25.0547, align 16
+  %.sroa.6307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 4, ptr %.sroa.6307.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 210:                                              ; preds = %204
-  %211 = ptrtoint ptr %.sroa.25.2547 to i64
-  %212 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %211 = ptrtoint ptr %.sroa.25.0547 to i64
+  %212 = ptrtoint ptr %.sroa.0356.0548 to i64
   %213 = sub i64 %211, %212
   %214 = icmp eq i64 %213, 9223372036854775776
   br i1 %214, label %215, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i168
@@ -9583,25 +9583,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i64 %208, ptr %223, align 16
   %.sroa.6307.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store i32 4, ptr %.sroa.6307.0..sroa_idx308, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i171 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i171 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i171, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176, label %.lr.ph.i.i.i.i.i.i172
 
 .lr.ph.i.i.i.i.i.i172:                            ; preds = %.noexc181, %.lr.ph.i.i.i.i.i.i172
   %.012.i.i.i.i.i.i173 = phi ptr [ %225, %.lr.ph.i.i.i.i.i.i172 ], [ %222, %.noexc181 ]
-  %.0911.i.i.i.i.i.i174 = phi ptr [ %224, %.lr.ph.i.i.i.i.i.i172 ], [ %.sroa.0356.2548, %.noexc181 ]
+  %.0911.i.i.i.i.i.i174 = phi ptr [ %224, %.lr.ph.i.i.i.i.i.i172 ], [ %.sroa.0356.0548, %.noexc181 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i173, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i174, i64 32, i1 false), !tbaa.struct !348, !alias.scope !380
   %224 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i174, i64 32
   %225 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i173, i64 32
-  %.not.i.i.i.i.i.i175 = icmp eq ptr %224, %.sroa.25.2547
+  %.not.i.i.i.i.i.i175 = icmp eq ptr %224, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i175, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176, label %.lr.ph.i.i.i.i.i.i172, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176: ; preds = %.lr.ph.i.i.i.i.i.i172, %.noexc181
   %.0.lcssa.i.i.i.i.i.i177 = phi ptr [ %222, %.noexc181 ], [ %225, %.lr.ph.i.i.i.i.i.i172 ]
-  %.not.i23.i.i178 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i178 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i178, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179, label %226
 
 226:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179: ; preds = %226, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176
@@ -9623,18 +9623,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %230 = load ptr, ptr %229, align 8, !tbaa !82
   %231 = getelementptr inbounds nuw i64, ptr %230, i64 %103
   %232 = load i64, ptr %231, align 8, !tbaa !84, !noalias !384
-  %.not.i183 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i183 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i183, label %234, label %233
 
 233:                                              ; preds = %228
-  store i64 %232, ptr %.sroa.25.2547, align 16
-  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i64 %232, ptr %.sroa.25.0547, align 16
+  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 5, ptr %.sroa.6297.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 234:                                              ; preds = %228
-  %235 = ptrtoint ptr %.sroa.25.2547 to i64
-  %236 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %235 = ptrtoint ptr %.sroa.25.0547 to i64
+  %236 = ptrtoint ptr %.sroa.0356.0548 to i64
   %237 = sub i64 %235, %236
   %238 = icmp eq i64 %237, 9223372036854775776
   br i1 %238, label %239, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i184
@@ -9664,25 +9664,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i64 %232, ptr %247, align 16
   %.sroa.6297.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store i32 5, ptr %.sroa.6297.0..sroa_idx298, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i187 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i187 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i187, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192, label %.lr.ph.i.i.i.i.i.i188
 
 .lr.ph.i.i.i.i.i.i188:                            ; preds = %.noexc197, %.lr.ph.i.i.i.i.i.i188
   %.012.i.i.i.i.i.i189 = phi ptr [ %249, %.lr.ph.i.i.i.i.i.i188 ], [ %246, %.noexc197 ]
-  %.0911.i.i.i.i.i.i190 = phi ptr [ %248, %.lr.ph.i.i.i.i.i.i188 ], [ %.sroa.0356.2548, %.noexc197 ]
+  %.0911.i.i.i.i.i.i190 = phi ptr [ %248, %.lr.ph.i.i.i.i.i.i188 ], [ %.sroa.0356.0548, %.noexc197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i189, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i190, i64 32, i1 false), !tbaa.struct !348, !alias.scope !387
   %248 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i190, i64 32
   %249 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i189, i64 32
-  %.not.i.i.i.i.i.i191 = icmp eq ptr %248, %.sroa.25.2547
+  %.not.i.i.i.i.i.i191 = icmp eq ptr %248, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i191, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192, label %.lr.ph.i.i.i.i.i.i188, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192: ; preds = %.lr.ph.i.i.i.i.i.i188, %.noexc197
   %.0.lcssa.i.i.i.i.i.i193 = phi ptr [ %246, %.noexc197 ], [ %249, %.lr.ph.i.i.i.i.i.i188 ]
-  %.not.i23.i.i194 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i194 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i194, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195, label %250
 
 250:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195: ; preds = %250, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192
@@ -9704,18 +9704,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %254 = load ptr, ptr %253, align 8, !tbaa !82
   %255 = getelementptr inbounds nuw float, ptr %254, i64 %103
   %256 = load float, ptr %255, align 4, !tbaa !391, !noalias !393
-  %.not.i199 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i199 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i199, label %258, label %257
 
 257:                                              ; preds = %252
-  store float %256, ptr %.sroa.25.2547, align 16
-  %.sroa.6287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store float %256, ptr %.sroa.25.0547, align 16
+  %.sroa.6287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 10, ptr %.sroa.6287.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 258:                                              ; preds = %252
-  %259 = ptrtoint ptr %.sroa.25.2547 to i64
-  %260 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %259 = ptrtoint ptr %.sroa.25.0547 to i64
+  %260 = ptrtoint ptr %.sroa.0356.0548 to i64
   %261 = sub i64 %259, %260
   %262 = icmp eq i64 %261, 9223372036854775776
   br i1 %262, label %263, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i200
@@ -9745,25 +9745,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store float %256, ptr %271, align 16
   %.sroa.6287.0..sroa_idx288 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store i32 10, ptr %.sroa.6287.0..sroa_idx288, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i203 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i203 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i203, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208, label %.lr.ph.i.i.i.i.i.i204
 
 .lr.ph.i.i.i.i.i.i204:                            ; preds = %.noexc213, %.lr.ph.i.i.i.i.i.i204
   %.012.i.i.i.i.i.i205 = phi ptr [ %273, %.lr.ph.i.i.i.i.i.i204 ], [ %270, %.noexc213 ]
-  %.0911.i.i.i.i.i.i206 = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i204 ], [ %.sroa.0356.2548, %.noexc213 ]
+  %.0911.i.i.i.i.i.i206 = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i204 ], [ %.sroa.0356.0548, %.noexc213 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i205, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i206, i64 32, i1 false), !tbaa.struct !348, !alias.scope !396
   %272 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i206, i64 32
   %273 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i205, i64 32
-  %.not.i.i.i.i.i.i207 = icmp eq ptr %272, %.sroa.25.2547
+  %.not.i.i.i.i.i.i207 = icmp eq ptr %272, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i207, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208, label %.lr.ph.i.i.i.i.i.i204, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208: ; preds = %.lr.ph.i.i.i.i.i.i204, %.noexc213
   %.0.lcssa.i.i.i.i.i.i209 = phi ptr [ %270, %.noexc213 ], [ %273, %.lr.ph.i.i.i.i.i.i204 ]
-  %.not.i23.i.i210 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i210 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i210, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211, label %274
 
 274:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211: ; preds = %274, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208
@@ -9785,18 +9785,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %278 = load ptr, ptr %277, align 8, !tbaa !82
   %279 = getelementptr inbounds nuw double, ptr %278, i64 %103
   %280 = load double, ptr %279, align 8, !tbaa !85, !noalias !400
-  %.not.i215 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i215 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i215, label %282, label %281
 
 281:                                              ; preds = %276
-  store double %280, ptr %.sroa.25.2547, align 16
-  %.sroa.6278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store double %280, ptr %.sroa.25.0547, align 16
+  %.sroa.6278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 11, ptr %.sroa.6278.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 282:                                              ; preds = %276
-  %283 = ptrtoint ptr %.sroa.25.2547 to i64
-  %284 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %283 = ptrtoint ptr %.sroa.25.0547 to i64
+  %284 = ptrtoint ptr %.sroa.0356.0548 to i64
   %285 = sub i64 %283, %284
   %286 = icmp eq i64 %285, 9223372036854775776
   br i1 %286, label %287, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i216
@@ -9826,25 +9826,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store double %280, ptr %295, align 16
   %.sroa.6278.0..sroa_idx279 = getelementptr inbounds nuw i8, ptr %295, i64 16
   store i32 11, ptr %.sroa.6278.0..sroa_idx279, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i219 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i219 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i219, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224, label %.lr.ph.i.i.i.i.i.i220
 
 .lr.ph.i.i.i.i.i.i220:                            ; preds = %.noexc229, %.lr.ph.i.i.i.i.i.i220
   %.012.i.i.i.i.i.i221 = phi ptr [ %297, %.lr.ph.i.i.i.i.i.i220 ], [ %294, %.noexc229 ]
-  %.0911.i.i.i.i.i.i222 = phi ptr [ %296, %.lr.ph.i.i.i.i.i.i220 ], [ %.sroa.0356.2548, %.noexc229 ]
+  %.0911.i.i.i.i.i.i222 = phi ptr [ %296, %.lr.ph.i.i.i.i.i.i220 ], [ %.sroa.0356.0548, %.noexc229 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i221, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i222, i64 32, i1 false), !tbaa.struct !348, !alias.scope !403
   %296 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i222, i64 32
   %297 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i221, i64 32
-  %.not.i.i.i.i.i.i223 = icmp eq ptr %296, %.sroa.25.2547
+  %.not.i.i.i.i.i.i223 = icmp eq ptr %296, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i223, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224, label %.lr.ph.i.i.i.i.i.i220, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224: ; preds = %.lr.ph.i.i.i.i.i.i220, %.noexc229
   %.0.lcssa.i.i.i.i.i.i225 = phi ptr [ %294, %.noexc229 ], [ %297, %.lr.ph.i.i.i.i.i.i220 ]
-  %.not.i23.i.i226 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i226 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i226, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227, label %298
 
 298:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227: ; preds = %298, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224
@@ -9872,20 +9872,20 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20b
   %308 = load ptr, ptr %307, align 8
   %309 = select i1 %305, ptr %306, ptr %308
   %310 = zext i32 %304 to i64
-  %.not.i231 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i231 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i231, label %312, label %311
 
 311:                                              ; preds = %300
-  store ptr %309, ptr %.sroa.25.2547, align 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 8
+  store ptr %309, ptr %.sroa.25.0547, align 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 8
   store i64 %310, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !65
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 14, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 312:                                              ; preds = %300
-  %313 = ptrtoint ptr %.sroa.25.2547 to i64
-  %314 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %313 = ptrtoint ptr %.sroa.25.0547 to i64
+  %314 = ptrtoint ptr %.sroa.0356.0548 to i64
   %315 = sub i64 %313, %314
   %316 = icmp eq i64 %315, 9223372036854775776
   br i1 %316, label %317, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i232
@@ -9917,25 +9917,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20
   store i64 %310, ptr %.sroa.6.0..sroa_idx267, align 8, !tbaa !65
   %.sroa.7.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %325, i64 16
   store i32 14, ptr %.sroa.7.0..sroa_idx269, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i235 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i235 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i235, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240, label %.lr.ph.i.i.i.i.i.i236
 
 .lr.ph.i.i.i.i.i.i236:                            ; preds = %.noexc245, %.lr.ph.i.i.i.i.i.i236
   %.012.i.i.i.i.i.i237 = phi ptr [ %327, %.lr.ph.i.i.i.i.i.i236 ], [ %324, %.noexc245 ]
-  %.0911.i.i.i.i.i.i238 = phi ptr [ %326, %.lr.ph.i.i.i.i.i.i236 ], [ %.sroa.0356.2548, %.noexc245 ]
+  %.0911.i.i.i.i.i.i238 = phi ptr [ %326, %.lr.ph.i.i.i.i.i.i236 ], [ %.sroa.0356.0548, %.noexc245 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i237, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i238, i64 32, i1 false), !tbaa.struct !348, !alias.scope !407
   %326 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i238, i64 32
   %327 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i237, i64 32
-  %.not.i.i.i.i.i.i239 = icmp eq ptr %326, %.sroa.25.2547
+  %.not.i.i.i.i.i.i239 = icmp eq ptr %326, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i239, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240, label %.lr.ph.i.i.i.i.i.i236, !llvm.loop !353
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240: ; preds = %.lr.ph.i.i.i.i.i.i236, %.noexc245
   %.0.lcssa.i.i.i.i.i.i241 = phi ptr [ %324, %.noexc245 ], [ %327, %.lr.ph.i.i.i.i.i.i236 ]
-  %.not.i23.i.i242 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i242 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i242, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243, label %328
 
 328:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243: ; preds = %328, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240
@@ -10000,10 +10000,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %335
   br label %.body
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit: ; preds = %311, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243, %281, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227, %257, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211, %233, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195, %209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179, %185, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163, %161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147, %136, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131, %111, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
-  %.0.lcssa.i.i.i.i.i.i241.pn.sink = phi ptr [ %.sroa.25.2547, %281 ], [ %.sroa.25.2547, %257 ], [ %.sroa.25.2547, %233 ], [ %.sroa.25.2547, %209 ], [ %.sroa.25.2547, %185 ], [ %.sroa.25.2547, %161 ], [ %.sroa.25.2547, %136 ], [ %.sroa.25.2547, %111 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %.0.lcssa.i.i.i.i.i.i129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %.0.lcssa.i.i.i.i.i.i145, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %.0.lcssa.i.i.i.i.i.i161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %.0.lcssa.i.i.i.i.i.i177, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %.0.lcssa.i.i.i.i.i.i193, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %.0.lcssa.i.i.i.i.i.i209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %.0.lcssa.i.i.i.i.i.i225, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %.0.lcssa.i.i.i.i.i.i241, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.25.2547, %311 ]
-  %.sroa.62.3 = phi ptr [ %.sroa.62.2546, %281 ], [ %.sroa.62.2546, %257 ], [ %.sroa.62.2546, %233 ], [ %.sroa.62.2546, %209 ], [ %.sroa.62.2546, %185 ], [ %.sroa.62.2546, %161 ], [ %.sroa.62.2546, %136 ], [ %.sroa.62.2546, %111 ], [ %129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %154, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %179, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %203, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %227, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %251, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %275, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %299, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %329, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.62.2546, %311 ]
-  %.sroa.0356.3 = phi ptr [ %.sroa.0356.2548, %281 ], [ %.sroa.0356.2548, %257 ], [ %.sroa.0356.2548, %233 ], [ %.sroa.0356.2548, %209 ], [ %.sroa.0356.2548, %185 ], [ %.sroa.0356.2548, %161 ], [ %.sroa.0356.2548, %136 ], [ %.sroa.0356.2548, %111 ], [ %124, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %149, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %174, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %198, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %222, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %246, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %270, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %294, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %324, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.0356.2548, %311 ]
-  %.sroa.25.12 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i241.pn.sink, i64 32
+  %.0.lcssa.i.i.i.i.i.i241.pn.sink = phi ptr [ %.sroa.25.0547, %281 ], [ %.sroa.25.0547, %257 ], [ %.sroa.25.0547, %233 ], [ %.sroa.25.0547, %209 ], [ %.sroa.25.0547, %185 ], [ %.sroa.25.0547, %161 ], [ %.sroa.25.0547, %136 ], [ %.sroa.25.0547, %111 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %.0.lcssa.i.i.i.i.i.i129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %.0.lcssa.i.i.i.i.i.i145, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %.0.lcssa.i.i.i.i.i.i161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %.0.lcssa.i.i.i.i.i.i177, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %.0.lcssa.i.i.i.i.i.i193, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %.0.lcssa.i.i.i.i.i.i209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %.0.lcssa.i.i.i.i.i.i225, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %.0.lcssa.i.i.i.i.i.i241, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.25.0547, %311 ]
+  %.sroa.62.1 = phi ptr [ %.sroa.62.0546, %281 ], [ %.sroa.62.0546, %257 ], [ %.sroa.62.0546, %233 ], [ %.sroa.62.0546, %209 ], [ %.sroa.62.0546, %185 ], [ %.sroa.62.0546, %161 ], [ %.sroa.62.0546, %136 ], [ %.sroa.62.0546, %111 ], [ %129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %154, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %179, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %203, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %227, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %251, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %275, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %299, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %329, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.62.0546, %311 ]
+  %.sroa.0356.1 = phi ptr [ %.sroa.0356.0548, %281 ], [ %.sroa.0356.0548, %257 ], [ %.sroa.0356.0548, %233 ], [ %.sroa.0356.0548, %209 ], [ %.sroa.0356.0548, %185 ], [ %.sroa.0356.0548, %161 ], [ %.sroa.0356.0548, %136 ], [ %.sroa.0356.0548, %111 ], [ %124, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %149, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %174, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %198, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %222, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %246, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %270, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %294, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %324, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.0356.0548, %311 ]
+  %.sroa.25.10 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i241.pn.sink, i64 32
   %341 = add nuw i64 %.083549, 1
   %342 = load ptr, ptr %15, align 8, !tbaa !303
   %343 = load ptr, ptr %0, align 8, !tbaa !304
@@ -10067,11 +10067,11 @@ _ZSt8_DestroyIPN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEES5_EvT_S7_RSaI
 
 _ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEES5_EvT_S7_RSaIT0_E.exit.i, %361
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not.i.i.i252 = icmp eq ptr %.sroa.0356.2.lcssa, null
+  %.not.i.i.i252 = icmp eq ptr %.sroa.0356.0.lcssa, null
   br i1 %.not.i.i.i252, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit, label %362
 
 362:                                              ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2.lcssa) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0.lcssa) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit, %362
@@ -10114,15 +10114,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %36
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit400, %.loopexit.split-lp401, %.loopexit405, %.loopexit.split-lp406, %.loopexit410, %.loopexit.split-lp411, %.loopexit415, %.loopexit.split-lp416, %.loopexit420, %.loopexit.split-lp421, %.loopexit425, %.loopexit.split-lp426, %.loopexit430, %.loopexit.split-lp431, %.loopexit435, %.loopexit.split-lp436, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
-  %.sroa.0356.2468 = phi ptr [ %.sroa.0356.2.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %.sroa.0356.2548, %.loopexit.split-lp416 ], [ %.sroa.0356.2548, %340 ], [ %.sroa.0356.2548, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0356.2548, %.loopexit.split-lp436 ], [ %.sroa.0356.2548, %.loopexit.split-lp411 ], [ %.sroa.0356.2548, %.loopexit.split-lp431 ], [ %.sroa.0356.2548, %.loopexit.split-lp426 ], [ %.sroa.0356.2548, %.loopexit.split-lp421 ], [ %.sroa.0356.2548, %.loopexit.split-lp401 ], [ %.sroa.0356.2548, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.sroa.0356.2548, %.loopexit.split-lp406 ], [ %.sroa.0356.2548, %.loopexit435 ], [ %.sroa.0356.2548, %.loopexit430 ], [ %.sroa.0356.2548, %.loopexit425 ], [ %.sroa.0356.2548, %.loopexit420 ], [ %.sroa.0356.2548, %.loopexit415 ], [ %.sroa.0356.2548, %.loopexit410 ], [ %.sroa.0356.2548, %.loopexit405 ], [ %.sroa.0356.2548, %.loopexit400 ], [ %.sroa.0356.2548, %.loopexit ], [ %.sroa.0356.2548, %.loopexit.split-lp ]
+  %.sroa.0356.0468 = phi ptr [ %.sroa.0356.0.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %.sroa.0356.0548, %.loopexit.split-lp416 ], [ %.sroa.0356.0548, %340 ], [ %.sroa.0356.0548, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0356.0548, %.loopexit.split-lp436 ], [ %.sroa.0356.0548, %.loopexit.split-lp411 ], [ %.sroa.0356.0548, %.loopexit.split-lp431 ], [ %.sroa.0356.0548, %.loopexit.split-lp426 ], [ %.sroa.0356.0548, %.loopexit.split-lp421 ], [ %.sroa.0356.0548, %.loopexit.split-lp401 ], [ %.sroa.0356.0548, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.sroa.0356.0548, %.loopexit.split-lp406 ], [ %.sroa.0356.0548, %.loopexit435 ], [ %.sroa.0356.0548, %.loopexit430 ], [ %.sroa.0356.0548, %.loopexit425 ], [ %.sroa.0356.0548, %.loopexit420 ], [ %.sroa.0356.0548, %.loopexit415 ], [ %.sroa.0356.0548, %.loopexit410 ], [ %.sroa.0356.0548, %.loopexit405 ], [ %.sroa.0356.0548, %.loopexit400 ], [ %.sroa.0356.0548, %.loopexit ], [ %.sroa.0356.0548, %.loopexit.split-lp ]
   %.pn109.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %lpad.loopexit.split-lp418, %.loopexit.split-lp416 ], [ %.pn109399, %340 ], [ %336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %lpad.loopexit.split-lp438, %.loopexit.split-lp436 ], [ %lpad.loopexit.split-lp413, %.loopexit.split-lp411 ], [ %lpad.loopexit.split-lp433, %.loopexit.split-lp431 ], [ %lpad.loopexit.split-lp428, %.loopexit.split-lp426 ], [ %lpad.loopexit.split-lp423, %.loopexit.split-lp421 ], [ %lpad.loopexit.split-lp403, %.loopexit.split-lp401 ], [ %336, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %lpad.loopexit.split-lp408, %.loopexit.split-lp406 ], [ %lpad.loopexit437, %.loopexit435 ], [ %lpad.loopexit432, %.loopexit430 ], [ %lpad.loopexit427, %.loopexit425 ], [ %lpad.loopexit422, %.loopexit420 ], [ %lpad.loopexit417, %.loopexit415 ], [ %lpad.loopexit412, %.loopexit410 ], [ %lpad.loopexit407, %.loopexit405 ], [ %lpad.loopexit402, %.loopexit400 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not.i.i.i259 = icmp eq ptr %.sroa.0356.2468, null
+  %.not.i.i.i259 = icmp eq ptr %.sroa.0356.0468, null
   br i1 %.not.i.i.i259, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260, label %373
 
 373:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2468) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0468) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_printf_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260: ; preds = %.body, %373
@@ -10564,29 +10564,29 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   br i1 %90, label %.lr.ph550, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
-  %91 = ptrtoint ptr %.sroa.25.12 to i64
+  %91 = ptrtoint ptr %.sroa.25.10 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
-  %.sroa.25.2.lcssa = phi i64 [ 0, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %91, %._crit_edge.loopexit ]
-  %.sroa.0356.2.lcssa = phi ptr [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %.sroa.0356.3, %._crit_edge.loopexit ]
+  %.sroa.25.0.lcssa = phi i64 [ 0, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %91, %._crit_edge.loopexit ]
+  %.sroa.0356.0.lcssa = phi ptr [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ], [ %.sroa.0356.1, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %92 = load ptr, ptr %5, align 8, !tbaa !309
-  %93 = ptrtoint ptr %.sroa.0356.2.lcssa to i64
-  %94 = sub i64 %.sroa.25.2.lcssa, %93
+  %93 = ptrtoint ptr %.sroa.0356.0.lcssa to i64
+  %94 = sub i64 %.sroa.25.0.lcssa, %93
   %95 = lshr exact i64 %94, 5
   %96 = and i64 %95, 4294967295
   %97 = or disjoint i64 %96, -9223372036854775808
   %98 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #30, !noalias !425
-  invoke void @_ZN10duckdb_fmt2v68internal7vformatIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIS5_EEES5_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %92, i64 %98, i64 %97, ptr %.sroa.0356.2.lcssa)
+  invoke void @_ZN10duckdb_fmt2v68internal7vformatIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIS5_EEES5_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull %92, i64 %98, i64 %97, ptr %.sroa.0356.0.lcssa)
           to label %_ZN6duckdb9FMTFormat2OPIN10duckdb_fmt2v620basic_format_contextISt20back_insert_iteratorINS3_8internal6bufferIcEEEcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRNS_6vectorINS3_16basic_format_argIT_EELb1EEE.exit unwind label %366
 
 .lr.ph550:                                        ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
   %99 = phi ptr [ %343, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ %85, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
   %.083549 = phi i64 [ %341, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ 1, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.0356.2548 = phi ptr [ %.sroa.0356.3, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.25.2547 = phi ptr [ %.sroa.25.12, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
-  %.sroa.62.2546 = phi ptr [ %.sroa.62.3, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.0356.0548 = phi ptr [ %.sroa.0356.1, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.25.0547 = phi ptr [ %.sroa.25.10, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
+  %.sroa.62.0546 = phi ptr [ %.sroa.62.1, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit ], [ null, %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit ]
   %100 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %99, i64 %.083549
   %101 = load i8, ptr %100, align 8, !tbaa !68
   %102 = icmp eq i8 %101, 2
@@ -10610,19 +10610,19 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   %108 = load ptr, ptr %107, align 8, !tbaa !82
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 %103
   %110 = load i8, ptr %109, align 1, !tbaa !339, !range !341, !noalias !430, !noundef !345
-  %.not.i = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i, label %112, label %111
 
 111:                                              ; preds = %106
   %.sroa.0339.sroa.0.0.insert.ext = zext nneg i8 %110 to i32
-  store i32 %.sroa.0339.sroa.0.0.insert.ext, ptr %.sroa.25.2547, align 16
-  %.sroa.7343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %.sroa.0339.sroa.0.0.insert.ext, ptr %.sroa.25.0547, align 16
+  %.sroa.7343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 8, ptr %.sroa.7343.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 112:                                              ; preds = %106
-  %113 = ptrtoint ptr %.sroa.25.2547 to i64
-  %114 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %113 = ptrtoint ptr %.sroa.25.0547 to i64
+  %114 = ptrtoint ptr %.sroa.0356.0548 to i64
   %115 = sub i64 %113, %114
   %116 = icmp eq i64 %115, 9223372036854775776
   br i1 %116, label %117, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i
@@ -10653,25 +10653,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i32 %.sroa.0339.sroa.0.0.insert.ext348, ptr %125, align 16
   %.sroa.7343.0..sroa_idx344 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i32 8, ptr %.sroa.7343.0..sroa_idx344, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc118, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i.i ], [ %124, %.noexc118 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0356.2548, %.noexc118 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0356.0548, %.noexc118 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !348, !alias.scope !433
   %126 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i = icmp eq ptr %126, %.sroa.25.2547
+  %.not.i.i.i.i.i.i = icmp eq ptr %126, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc118
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %124, %.noexc118 ], [ %127, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i23.i.i = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i, label %128
 
 128:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %128, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i
@@ -10694,18 +10694,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %103
   %134 = load i8, ptr %133, align 1, !tbaa !65, !noalias !438
   %135 = sext i8 %134 to i32
-  %.not.i119 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i119 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i119, label %137, label %136
 
 136:                                              ; preds = %130
-  store i32 %135, ptr %.sroa.25.2547, align 16
-  %.sroa.6334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %135, ptr %.sroa.25.0547, align 16
+  %.sroa.6334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6334.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 137:                                              ; preds = %130
-  %138 = ptrtoint ptr %.sroa.25.2547 to i64
-  %139 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %138 = ptrtoint ptr %.sroa.25.0547 to i64
+  %139 = ptrtoint ptr %.sroa.0356.0548 to i64
   %140 = sub i64 %138, %139
   %141 = icmp eq i64 %140, 9223372036854775776
   br i1 %141, label %142, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i120
@@ -10735,25 +10735,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i32 %135, ptr %150, align 16
   %.sroa.6334.0..sroa_idx335 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store i32 2, ptr %.sroa.6334.0..sroa_idx335, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i123 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i123 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i123, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128, label %.lr.ph.i.i.i.i.i.i124
 
 .lr.ph.i.i.i.i.i.i124:                            ; preds = %.noexc133, %.lr.ph.i.i.i.i.i.i124
   %.012.i.i.i.i.i.i125 = phi ptr [ %152, %.lr.ph.i.i.i.i.i.i124 ], [ %149, %.noexc133 ]
-  %.0911.i.i.i.i.i.i126 = phi ptr [ %151, %.lr.ph.i.i.i.i.i.i124 ], [ %.sroa.0356.2548, %.noexc133 ]
+  %.0911.i.i.i.i.i.i126 = phi ptr [ %151, %.lr.ph.i.i.i.i.i.i124 ], [ %.sroa.0356.0548, %.noexc133 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i125, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i126, i64 32, i1 false), !tbaa.struct !348, !alias.scope !441
   %151 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i126, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i125, i64 32
-  %.not.i.i.i.i.i.i127 = icmp eq ptr %151, %.sroa.25.2547
+  %.not.i.i.i.i.i.i127 = icmp eq ptr %151, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i127, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128, label %.lr.ph.i.i.i.i.i.i124, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128: ; preds = %.lr.ph.i.i.i.i.i.i124, %.noexc133
   %.0.lcssa.i.i.i.i.i.i129 = phi ptr [ %149, %.noexc133 ], [ %152, %.lr.ph.i.i.i.i.i.i124 ]
-  %.not.i23.i.i130 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i130 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i130, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131, label %153
 
 153:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131: ; preds = %153, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i128
@@ -10776,18 +10776,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %158 = getelementptr inbounds nuw i16, ptr %157, i64 %103
   %159 = load i16, ptr %158, align 2, !tbaa !361, !noalias !445
   %160 = sext i16 %159 to i32
-  %.not.i135 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i135 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i135, label %162, label %161
 
 161:                                              ; preds = %155
-  store i32 %160, ptr %.sroa.25.2547, align 16
-  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %160, ptr %.sroa.25.0547, align 16
+  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6325.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 162:                                              ; preds = %155
-  %163 = ptrtoint ptr %.sroa.25.2547 to i64
-  %164 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %163 = ptrtoint ptr %.sroa.25.0547 to i64
+  %164 = ptrtoint ptr %.sroa.0356.0548 to i64
   %165 = sub i64 %163, %164
   %166 = icmp eq i64 %165, 9223372036854775776
   br i1 %166, label %167, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i136
@@ -10817,25 +10817,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i32 %160, ptr %175, align 16
   %.sroa.6325.0..sroa_idx326 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i32 2, ptr %.sroa.6325.0..sroa_idx326, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i139 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i139 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i139, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144, label %.lr.ph.i.i.i.i.i.i140
 
 .lr.ph.i.i.i.i.i.i140:                            ; preds = %.noexc149, %.lr.ph.i.i.i.i.i.i140
   %.012.i.i.i.i.i.i141 = phi ptr [ %177, %.lr.ph.i.i.i.i.i.i140 ], [ %174, %.noexc149 ]
-  %.0911.i.i.i.i.i.i142 = phi ptr [ %176, %.lr.ph.i.i.i.i.i.i140 ], [ %.sroa.0356.2548, %.noexc149 ]
+  %.0911.i.i.i.i.i.i142 = phi ptr [ %176, %.lr.ph.i.i.i.i.i.i140 ], [ %.sroa.0356.0548, %.noexc149 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i141, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i142, i64 32, i1 false), !tbaa.struct !348, !alias.scope !448
   %176 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i142, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i141, i64 32
-  %.not.i.i.i.i.i.i143 = icmp eq ptr %176, %.sroa.25.2547
+  %.not.i.i.i.i.i.i143 = icmp eq ptr %176, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i143, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144, label %.lr.ph.i.i.i.i.i.i140, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144: ; preds = %.lr.ph.i.i.i.i.i.i140, %.noexc149
   %.0.lcssa.i.i.i.i.i.i145 = phi ptr [ %174, %.noexc149 ], [ %177, %.lr.ph.i.i.i.i.i.i140 ]
-  %.not.i23.i.i146 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i146 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i146, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147, label %178
 
 178:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147: ; preds = %178, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i144
@@ -10857,18 +10857,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %182 = load ptr, ptr %181, align 8, !tbaa !82
   %183 = getelementptr inbounds nuw i32, ptr %182, i64 %103
   %184 = load i32, ptr %183, align 4, !tbaa !66, !noalias !452
-  %.not.i151 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i151 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i151, label %186, label %185
 
 185:                                              ; preds = %180
-  store i32 %184, ptr %.sroa.25.2547, align 16
-  %.sroa.6316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i32 %184, ptr %.sroa.25.0547, align 16
+  %.sroa.6316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 2, ptr %.sroa.6316.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 186:                                              ; preds = %180
-  %187 = ptrtoint ptr %.sroa.25.2547 to i64
-  %188 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %187 = ptrtoint ptr %.sroa.25.0547 to i64
+  %188 = ptrtoint ptr %.sroa.0356.0548 to i64
   %189 = sub i64 %187, %188
   %190 = icmp eq i64 %189, 9223372036854775776
   br i1 %190, label %191, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i152
@@ -10898,25 +10898,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i32 %184, ptr %199, align 16
   %.sroa.6316.0..sroa_idx317 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i32 2, ptr %.sroa.6316.0..sroa_idx317, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i155 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i155 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i155, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160, label %.lr.ph.i.i.i.i.i.i156
 
 .lr.ph.i.i.i.i.i.i156:                            ; preds = %.noexc165, %.lr.ph.i.i.i.i.i.i156
   %.012.i.i.i.i.i.i157 = phi ptr [ %201, %.lr.ph.i.i.i.i.i.i156 ], [ %198, %.noexc165 ]
-  %.0911.i.i.i.i.i.i158 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i156 ], [ %.sroa.0356.2548, %.noexc165 ]
+  %.0911.i.i.i.i.i.i158 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i156 ], [ %.sroa.0356.0548, %.noexc165 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i157, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i158, i64 32, i1 false), !tbaa.struct !348, !alias.scope !455
   %200 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i158, i64 32
   %201 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i157, i64 32
-  %.not.i.i.i.i.i.i159 = icmp eq ptr %200, %.sroa.25.2547
+  %.not.i.i.i.i.i.i159 = icmp eq ptr %200, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i159, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160, label %.lr.ph.i.i.i.i.i.i156, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160: ; preds = %.lr.ph.i.i.i.i.i.i156, %.noexc165
   %.0.lcssa.i.i.i.i.i.i161 = phi ptr [ %198, %.noexc165 ], [ %201, %.lr.ph.i.i.i.i.i.i156 ]
-  %.not.i23.i.i162 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i162 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i162, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163, label %202
 
 202:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163: ; preds = %202, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i160
@@ -10938,18 +10938,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %206 = load ptr, ptr %205, align 8, !tbaa !82
   %207 = getelementptr inbounds nuw i64, ptr %206, i64 %103
   %208 = load i64, ptr %207, align 8, !tbaa !84, !noalias !459
-  %.not.i167 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i167 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i167, label %210, label %209
 
 209:                                              ; preds = %204
-  store i64 %208, ptr %.sroa.25.2547, align 16
-  %.sroa.6307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i64 %208, ptr %.sroa.25.0547, align 16
+  %.sroa.6307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 4, ptr %.sroa.6307.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 210:                                              ; preds = %204
-  %211 = ptrtoint ptr %.sroa.25.2547 to i64
-  %212 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %211 = ptrtoint ptr %.sroa.25.0547 to i64
+  %212 = ptrtoint ptr %.sroa.0356.0548 to i64
   %213 = sub i64 %211, %212
   %214 = icmp eq i64 %213, 9223372036854775776
   br i1 %214, label %215, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i168
@@ -10979,25 +10979,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i64 %208, ptr %223, align 16
   %.sroa.6307.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store i32 4, ptr %.sroa.6307.0..sroa_idx308, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i171 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i171 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i171, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176, label %.lr.ph.i.i.i.i.i.i172
 
 .lr.ph.i.i.i.i.i.i172:                            ; preds = %.noexc181, %.lr.ph.i.i.i.i.i.i172
   %.012.i.i.i.i.i.i173 = phi ptr [ %225, %.lr.ph.i.i.i.i.i.i172 ], [ %222, %.noexc181 ]
-  %.0911.i.i.i.i.i.i174 = phi ptr [ %224, %.lr.ph.i.i.i.i.i.i172 ], [ %.sroa.0356.2548, %.noexc181 ]
+  %.0911.i.i.i.i.i.i174 = phi ptr [ %224, %.lr.ph.i.i.i.i.i.i172 ], [ %.sroa.0356.0548, %.noexc181 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i173, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i174, i64 32, i1 false), !tbaa.struct !348, !alias.scope !462
   %224 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i174, i64 32
   %225 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i173, i64 32
-  %.not.i.i.i.i.i.i175 = icmp eq ptr %224, %.sroa.25.2547
+  %.not.i.i.i.i.i.i175 = icmp eq ptr %224, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i175, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176, label %.lr.ph.i.i.i.i.i.i172, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176: ; preds = %.lr.ph.i.i.i.i.i.i172, %.noexc181
   %.0.lcssa.i.i.i.i.i.i177 = phi ptr [ %222, %.noexc181 ], [ %225, %.lr.ph.i.i.i.i.i.i172 ]
-  %.not.i23.i.i178 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i178 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i178, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179, label %226
 
 226:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179: ; preds = %226, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i176
@@ -11019,18 +11019,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %230 = load ptr, ptr %229, align 8, !tbaa !82
   %231 = getelementptr inbounds nuw i64, ptr %230, i64 %103
   %232 = load i64, ptr %231, align 8, !tbaa !84, !noalias !466
-  %.not.i183 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i183 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i183, label %234, label %233
 
 233:                                              ; preds = %228
-  store i64 %232, ptr %.sroa.25.2547, align 16
-  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store i64 %232, ptr %.sroa.25.0547, align 16
+  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 5, ptr %.sroa.6297.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 234:                                              ; preds = %228
-  %235 = ptrtoint ptr %.sroa.25.2547 to i64
-  %236 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %235 = ptrtoint ptr %.sroa.25.0547 to i64
+  %236 = ptrtoint ptr %.sroa.0356.0548 to i64
   %237 = sub i64 %235, %236
   %238 = icmp eq i64 %237, 9223372036854775776
   br i1 %238, label %239, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i184
@@ -11060,25 +11060,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i64 %232, ptr %247, align 16
   %.sroa.6297.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store i32 5, ptr %.sroa.6297.0..sroa_idx298, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i187 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i187 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i187, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192, label %.lr.ph.i.i.i.i.i.i188
 
 .lr.ph.i.i.i.i.i.i188:                            ; preds = %.noexc197, %.lr.ph.i.i.i.i.i.i188
   %.012.i.i.i.i.i.i189 = phi ptr [ %249, %.lr.ph.i.i.i.i.i.i188 ], [ %246, %.noexc197 ]
-  %.0911.i.i.i.i.i.i190 = phi ptr [ %248, %.lr.ph.i.i.i.i.i.i188 ], [ %.sroa.0356.2548, %.noexc197 ]
+  %.0911.i.i.i.i.i.i190 = phi ptr [ %248, %.lr.ph.i.i.i.i.i.i188 ], [ %.sroa.0356.0548, %.noexc197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i189, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i190, i64 32, i1 false), !tbaa.struct !348, !alias.scope !469
   %248 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i190, i64 32
   %249 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i189, i64 32
-  %.not.i.i.i.i.i.i191 = icmp eq ptr %248, %.sroa.25.2547
+  %.not.i.i.i.i.i.i191 = icmp eq ptr %248, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i191, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192, label %.lr.ph.i.i.i.i.i.i188, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192: ; preds = %.lr.ph.i.i.i.i.i.i188, %.noexc197
   %.0.lcssa.i.i.i.i.i.i193 = phi ptr [ %246, %.noexc197 ], [ %249, %.lr.ph.i.i.i.i.i.i188 ]
-  %.not.i23.i.i194 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i194 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i194, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195, label %250
 
 250:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195: ; preds = %250, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i192
@@ -11100,18 +11100,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %254 = load ptr, ptr %253, align 8, !tbaa !82
   %255 = getelementptr inbounds nuw float, ptr %254, i64 %103
   %256 = load float, ptr %255, align 4, !tbaa !391, !noalias !473
-  %.not.i199 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i199 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i199, label %258, label %257
 
 257:                                              ; preds = %252
-  store float %256, ptr %.sroa.25.2547, align 16
-  %.sroa.6287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store float %256, ptr %.sroa.25.0547, align 16
+  %.sroa.6287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 10, ptr %.sroa.6287.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 258:                                              ; preds = %252
-  %259 = ptrtoint ptr %.sroa.25.2547 to i64
-  %260 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %259 = ptrtoint ptr %.sroa.25.0547 to i64
+  %260 = ptrtoint ptr %.sroa.0356.0548 to i64
   %261 = sub i64 %259, %260
   %262 = icmp eq i64 %261, 9223372036854775776
   br i1 %262, label %263, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i200
@@ -11141,25 +11141,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store float %256, ptr %271, align 16
   %.sroa.6287.0..sroa_idx288 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store i32 10, ptr %.sroa.6287.0..sroa_idx288, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i203 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i203 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i203, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208, label %.lr.ph.i.i.i.i.i.i204
 
 .lr.ph.i.i.i.i.i.i204:                            ; preds = %.noexc213, %.lr.ph.i.i.i.i.i.i204
   %.012.i.i.i.i.i.i205 = phi ptr [ %273, %.lr.ph.i.i.i.i.i.i204 ], [ %270, %.noexc213 ]
-  %.0911.i.i.i.i.i.i206 = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i204 ], [ %.sroa.0356.2548, %.noexc213 ]
+  %.0911.i.i.i.i.i.i206 = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i204 ], [ %.sroa.0356.0548, %.noexc213 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i205, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i206, i64 32, i1 false), !tbaa.struct !348, !alias.scope !476
   %272 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i206, i64 32
   %273 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i205, i64 32
-  %.not.i.i.i.i.i.i207 = icmp eq ptr %272, %.sroa.25.2547
+  %.not.i.i.i.i.i.i207 = icmp eq ptr %272, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i207, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208, label %.lr.ph.i.i.i.i.i.i204, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208: ; preds = %.lr.ph.i.i.i.i.i.i204, %.noexc213
   %.0.lcssa.i.i.i.i.i.i209 = phi ptr [ %270, %.noexc213 ], [ %273, %.lr.ph.i.i.i.i.i.i204 ]
-  %.not.i23.i.i210 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i210 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i210, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211, label %274
 
 274:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211: ; preds = %274, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i208
@@ -11181,18 +11181,18 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %278 = load ptr, ptr %277, align 8, !tbaa !82
   %279 = getelementptr inbounds nuw double, ptr %278, i64 %103
   %280 = load double, ptr %279, align 8, !tbaa !85, !noalias !480
-  %.not.i215 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i215 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i215, label %282, label %281
 
 281:                                              ; preds = %276
-  store double %280, ptr %.sroa.25.2547, align 16
-  %.sroa.6278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  store double %280, ptr %.sroa.25.0547, align 16
+  %.sroa.6278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 11, ptr %.sroa.6278.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 282:                                              ; preds = %276
-  %283 = ptrtoint ptr %.sroa.25.2547 to i64
-  %284 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %283 = ptrtoint ptr %.sroa.25.0547 to i64
+  %284 = ptrtoint ptr %.sroa.0356.0548 to i64
   %285 = sub i64 %283, %284
   %286 = icmp eq i64 %285, 9223372036854775776
   br i1 %286, label %287, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i216
@@ -11222,25 +11222,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store double %280, ptr %295, align 16
   %.sroa.6278.0..sroa_idx279 = getelementptr inbounds nuw i8, ptr %295, i64 16
   store i32 11, ptr %.sroa.6278.0..sroa_idx279, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i219 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i219 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i219, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224, label %.lr.ph.i.i.i.i.i.i220
 
 .lr.ph.i.i.i.i.i.i220:                            ; preds = %.noexc229, %.lr.ph.i.i.i.i.i.i220
   %.012.i.i.i.i.i.i221 = phi ptr [ %297, %.lr.ph.i.i.i.i.i.i220 ], [ %294, %.noexc229 ]
-  %.0911.i.i.i.i.i.i222 = phi ptr [ %296, %.lr.ph.i.i.i.i.i.i220 ], [ %.sroa.0356.2548, %.noexc229 ]
+  %.0911.i.i.i.i.i.i222 = phi ptr [ %296, %.lr.ph.i.i.i.i.i.i220 ], [ %.sroa.0356.0548, %.noexc229 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i221, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i222, i64 32, i1 false), !tbaa.struct !348, !alias.scope !483
   %296 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i222, i64 32
   %297 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i221, i64 32
-  %.not.i.i.i.i.i.i223 = icmp eq ptr %296, %.sroa.25.2547
+  %.not.i.i.i.i.i.i223 = icmp eq ptr %296, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i223, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224, label %.lr.ph.i.i.i.i.i.i220, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224: ; preds = %.lr.ph.i.i.i.i.i.i220, %.noexc229
   %.0.lcssa.i.i.i.i.i.i225 = phi ptr [ %294, %.noexc229 ], [ %297, %.lr.ph.i.i.i.i.i.i220 ]
-  %.not.i23.i.i226 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i226 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i226, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227, label %298
 
 298:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227: ; preds = %298, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i224
@@ -11268,20 +11268,20 @@ _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20b
   %308 = load ptr, ptr %307, align 8
   %309 = select i1 %305, ptr %306, ptr %308
   %310 = zext i32 %304 to i64
-  %.not.i231 = icmp eq ptr %.sroa.25.2547, %.sroa.62.2546
+  %.not.i231 = icmp eq ptr %.sroa.25.0547, %.sroa.62.0546
   br i1 %.not.i231, label %312, label %311
 
 311:                                              ; preds = %300
-  store ptr %309, ptr %.sroa.25.2547, align 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 8
+  store ptr %309, ptr %.sroa.25.0547, align 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 8
   store i64 %310, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !65
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.2547, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25.0547, i64 16
   store i32 14, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !346
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit
 
 312:                                              ; preds = %300
-  %313 = ptrtoint ptr %.sroa.25.2547 to i64
-  %314 = ptrtoint ptr %.sroa.0356.2548 to i64
+  %313 = ptrtoint ptr %.sroa.25.0547 to i64
+  %314 = ptrtoint ptr %.sroa.0356.0548 to i64
   %315 = sub i64 %313, %314
   %316 = icmp eq i64 %315, 9223372036854775776
   br i1 %316, label %317, label %_ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i232
@@ -11313,25 +11313,25 @@ _ZNKSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20
   store i64 %310, ptr %.sroa.6.0..sroa_idx267, align 8, !tbaa !65
   %.sroa.7.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %325, i64 16
   store i32 14, ptr %.sroa.7.0..sroa_idx269, align 16, !tbaa !346
-  %.not10.i.i.i.i.i.i235 = icmp eq ptr %.sroa.0356.2548, %.sroa.25.2547
+  %.not10.i.i.i.i.i.i235 = icmp eq ptr %.sroa.0356.0548, %.sroa.25.0547
   br i1 %.not10.i.i.i.i.i.i235, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240, label %.lr.ph.i.i.i.i.i.i236
 
 .lr.ph.i.i.i.i.i.i236:                            ; preds = %.noexc245, %.lr.ph.i.i.i.i.i.i236
   %.012.i.i.i.i.i.i237 = phi ptr [ %327, %.lr.ph.i.i.i.i.i.i236 ], [ %324, %.noexc245 ]
-  %.0911.i.i.i.i.i.i238 = phi ptr [ %326, %.lr.ph.i.i.i.i.i.i236 ], [ %.sroa.0356.2548, %.noexc245 ]
+  %.0911.i.i.i.i.i.i238 = phi ptr [ %326, %.lr.ph.i.i.i.i.i.i236 ], [ %.sroa.0356.0548, %.noexc245 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i.i.i.i237, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i.i.i.i238, i64 32, i1 false), !tbaa.struct !348, !alias.scope !487
   %326 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i238, i64 32
   %327 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i237, i64 32
-  %.not.i.i.i.i.i.i239 = icmp eq ptr %326, %.sroa.25.2547
+  %.not.i.i.i.i.i.i239 = icmp eq ptr %326, %.sroa.25.0547
   br i1 %.not.i.i.i.i.i.i239, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240, label %.lr.ph.i.i.i.i.i.i236, !llvm.loop !437
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240: ; preds = %.lr.ph.i.i.i.i.i.i236, %.noexc245
   %.0.lcssa.i.i.i.i.i.i241 = phi ptr [ %324, %.noexc245 ], [ %327, %.lr.ph.i.i.i.i.i.i236 ]
-  %.not.i23.i.i242 = icmp eq ptr %.sroa.0356.2548, null
+  %.not.i23.i.i242 = icmp eq ptr %.sroa.0356.0548, null
   br i1 %.not.i23.i.i242, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243, label %328
 
 328:                                              ; preds = %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2548) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0548) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243: ; preds = %328, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i240
@@ -11396,10 +11396,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %335
   br label %.body
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE12emplace_backIJSA_EEEvDpOT_.exit: ; preds = %311, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243, %281, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227, %257, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211, %233, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195, %209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179, %185, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163, %161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147, %136, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131, %111, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i
-  %.0.lcssa.i.i.i.i.i.i241.pn.sink = phi ptr [ %.sroa.25.2547, %281 ], [ %.sroa.25.2547, %257 ], [ %.sroa.25.2547, %233 ], [ %.sroa.25.2547, %209 ], [ %.sroa.25.2547, %185 ], [ %.sroa.25.2547, %161 ], [ %.sroa.25.2547, %136 ], [ %.sroa.25.2547, %111 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %.0.lcssa.i.i.i.i.i.i129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %.0.lcssa.i.i.i.i.i.i145, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %.0.lcssa.i.i.i.i.i.i161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %.0.lcssa.i.i.i.i.i.i177, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %.0.lcssa.i.i.i.i.i.i193, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %.0.lcssa.i.i.i.i.i.i209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %.0.lcssa.i.i.i.i.i.i225, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %.0.lcssa.i.i.i.i.i.i241, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.25.2547, %311 ]
-  %.sroa.62.3 = phi ptr [ %.sroa.62.2546, %281 ], [ %.sroa.62.2546, %257 ], [ %.sroa.62.2546, %233 ], [ %.sroa.62.2546, %209 ], [ %.sroa.62.2546, %185 ], [ %.sroa.62.2546, %161 ], [ %.sroa.62.2546, %136 ], [ %.sroa.62.2546, %111 ], [ %129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %154, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %179, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %203, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %227, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %251, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %275, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %299, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %329, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.62.2546, %311 ]
-  %.sroa.0356.3 = phi ptr [ %.sroa.0356.2548, %281 ], [ %.sroa.0356.2548, %257 ], [ %.sroa.0356.2548, %233 ], [ %.sroa.0356.2548, %209 ], [ %.sroa.0356.2548, %185 ], [ %.sroa.0356.2548, %161 ], [ %.sroa.0356.2548, %136 ], [ %.sroa.0356.2548, %111 ], [ %124, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %149, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %174, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %198, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %222, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %246, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %270, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %294, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %324, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.0356.2548, %311 ]
-  %.sroa.25.12 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i241.pn.sink, i64 32
+  %.0.lcssa.i.i.i.i.i.i241.pn.sink = phi ptr [ %.sroa.25.0547, %281 ], [ %.sroa.25.0547, %257 ], [ %.sroa.25.0547, %233 ], [ %.sroa.25.0547, %209 ], [ %.sroa.25.0547, %185 ], [ %.sroa.25.0547, %161 ], [ %.sroa.25.0547, %136 ], [ %.sroa.25.0547, %111 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %.0.lcssa.i.i.i.i.i.i129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %.0.lcssa.i.i.i.i.i.i145, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %.0.lcssa.i.i.i.i.i.i161, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %.0.lcssa.i.i.i.i.i.i177, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %.0.lcssa.i.i.i.i.i.i193, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %.0.lcssa.i.i.i.i.i.i209, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %.0.lcssa.i.i.i.i.i.i225, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %.0.lcssa.i.i.i.i.i.i241, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.25.0547, %311 ]
+  %.sroa.62.1 = phi ptr [ %.sroa.62.0546, %281 ], [ %.sroa.62.0546, %257 ], [ %.sroa.62.0546, %233 ], [ %.sroa.62.0546, %209 ], [ %.sroa.62.0546, %185 ], [ %.sroa.62.0546, %161 ], [ %.sroa.62.0546, %136 ], [ %.sroa.62.0546, %111 ], [ %129, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %154, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %179, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %203, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %227, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %251, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %275, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %299, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %329, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.62.0546, %311 ]
+  %.sroa.0356.1 = phi ptr [ %.sroa.0356.0548, %281 ], [ %.sroa.0356.0548, %257 ], [ %.sroa.0356.0548, %233 ], [ %.sroa.0356.0548, %209 ], [ %.sroa.0356.0548, %185 ], [ %.sroa.0356.0548, %161 ], [ %.sroa.0356.0548, %136 ], [ %.sroa.0356.0548, %111 ], [ %124, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i ], [ %149, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i131 ], [ %174, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i147 ], [ %198, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i163 ], [ %222, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i179 ], [ %246, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i195 ], [ %270, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i211 ], [ %294, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i227 ], [ %324, %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i243 ], [ %.sroa.0356.0548, %311 ]
+  %.sroa.25.10 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i241.pn.sink, i64 32
   %341 = add nuw i64 %.083549, 1
   %342 = load ptr, ptr %14, align 8, !tbaa !303
   %343 = load ptr, ptr %0, align 8, !tbaa !304
@@ -11462,11 +11462,11 @@ _ZSt8_DestroyIPN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEES5_EvT_S7_RSaI
 
 _ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEES5_EvT_S7_RSaIT0_E.exit.i, %360
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i.i.i252 = icmp eq ptr %.sroa.0356.2.lcssa, null
+  %.not.i.i.i252 = icmp eq ptr %.sroa.0356.0.lcssa, null
   br i1 %.not.i.i.i252, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit, label %361
 
 361:                                              ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2.lcssa) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0.lcssa) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev.exit, %361
@@ -11509,15 +11509,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %36
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit400, %.loopexit.split-lp401, %.loopexit405, %.loopexit.split-lp406, %.loopexit410, %.loopexit.split-lp411, %.loopexit415, %.loopexit.split-lp416, %.loopexit420, %.loopexit.split-lp421, %.loopexit425, %.loopexit.split-lp426, %.loopexit430, %.loopexit.split-lp431, %.loopexit435, %.loopexit.split-lp436, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
-  %.sroa.0356.2468 = phi ptr [ %.sroa.0356.2.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %.sroa.0356.2548, %.loopexit.split-lp416 ], [ %.sroa.0356.2548, %340 ], [ %.sroa.0356.2548, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0356.2548, %.loopexit.split-lp436 ], [ %.sroa.0356.2548, %.loopexit.split-lp411 ], [ %.sroa.0356.2548, %.loopexit.split-lp431 ], [ %.sroa.0356.2548, %.loopexit.split-lp426 ], [ %.sroa.0356.2548, %.loopexit.split-lp421 ], [ %.sroa.0356.2548, %.loopexit.split-lp401 ], [ %.sroa.0356.2548, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.sroa.0356.2548, %.loopexit.split-lp406 ], [ %.sroa.0356.2548, %.loopexit435 ], [ %.sroa.0356.2548, %.loopexit430 ], [ %.sroa.0356.2548, %.loopexit425 ], [ %.sroa.0356.2548, %.loopexit420 ], [ %.sroa.0356.2548, %.loopexit415 ], [ %.sroa.0356.2548, %.loopexit410 ], [ %.sroa.0356.2548, %.loopexit405 ], [ %.sroa.0356.2548, %.loopexit400 ], [ %.sroa.0356.2548, %.loopexit ], [ %.sroa.0356.2548, %.loopexit.split-lp ]
+  %.sroa.0356.0468 = phi ptr [ %.sroa.0356.0.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %.sroa.0356.0548, %.loopexit.split-lp416 ], [ %.sroa.0356.0548, %340 ], [ %.sroa.0356.0548, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0356.0548, %.loopexit.split-lp436 ], [ %.sroa.0356.0548, %.loopexit.split-lp411 ], [ %.sroa.0356.0548, %.loopexit.split-lp431 ], [ %.sroa.0356.0548, %.loopexit.split-lp426 ], [ %.sroa.0356.0548, %.loopexit.split-lp421 ], [ %.sroa.0356.0548, %.loopexit.split-lp401 ], [ %.sroa.0356.0548, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.sroa.0356.0548, %.loopexit.split-lp406 ], [ %.sroa.0356.0548, %.loopexit435 ], [ %.sroa.0356.0548, %.loopexit430 ], [ %.sroa.0356.0548, %.loopexit425 ], [ %.sroa.0356.0548, %.loopexit420 ], [ %.sroa.0356.0548, %.loopexit415 ], [ %.sroa.0356.0548, %.loopexit410 ], [ %.sroa.0356.0548, %.loopexit405 ], [ %.sroa.0356.0548, %.loopexit400 ], [ %.sroa.0356.0548, %.loopexit ], [ %.sroa.0356.0548, %.loopexit.split-lp ]
   %.pn109.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %lpad.loopexit.split-lp418, %.loopexit.split-lp416 ], [ %.pn109399, %340 ], [ %336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %lpad.loopexit.split-lp438, %.loopexit.split-lp436 ], [ %lpad.loopexit.split-lp413, %.loopexit.split-lp411 ], [ %lpad.loopexit.split-lp433, %.loopexit.split-lp431 ], [ %lpad.loopexit.split-lp428, %.loopexit.split-lp426 ], [ %lpad.loopexit.split-lp423, %.loopexit.split-lp421 ], [ %lpad.loopexit.split-lp403, %.loopexit.split-lp401 ], [ %336, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %lpad.loopexit.split-lp408, %.loopexit.split-lp406 ], [ %lpad.loopexit437, %.loopexit435 ], [ %lpad.loopexit432, %.loopexit430 ], [ %lpad.loopexit427, %.loopexit425 ], [ %lpad.loopexit422, %.loopexit420 ], [ %lpad.loopexit417, %.loopexit415 ], [ %lpad.loopexit412, %.loopexit410 ], [ %lpad.loopexit407, %.loopexit405 ], [ %lpad.loopexit402, %.loopexit400 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN6duckdb10unique_ptrIA_hSt14default_deleteIhELb0EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i.i.i259 = icmp eq ptr %.sroa.0356.2468, null
+  %.not.i.i.i259 = icmp eq ptr %.sroa.0356.0468, null
   br i1 %.not.i.i.i259, label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260, label %372
 
 372:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.2468) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0356.0468) #33
   br label %_ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260
 
 _ZNSt6vectorIN10duckdb_fmt2v616basic_format_argINS1_20basic_format_contextISt20back_insert_iteratorINS1_8internal6bufferIcEEEcEEEESaISA_EED2Ev.exit260: ; preds = %.body, %372
@@ -17377,7 +17377,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.i.i.i: ; preds = %_ZN6duc
   %34 = trunc i64 %33 to i1
   br i1 %34, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.thread.i.i.i, label %.invoke
 
-.invoke:                                          ; preds = %.invoke167, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.i.i.i
+.invoke:                                          ; preds = %.invoke166, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.i.i.i
   invoke void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
           to label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L20ParseDirpathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -17417,9 +17417,9 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.thread.i.i.i: ; preds = %
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i44.i.i: ; preds = %40
   %45 = load i64, ptr %.val40.i.i, align 8, !tbaa !84
   %46 = trunc i64 %45 to i1
-  br i1 %46, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i45.i.i, label %.invoke167
+  br i1 %46, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i45.i.i, label %.invoke166
 
-.invoke167:                                       ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i47.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i44.i.i
+.invoke166:                                       ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i47.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i44.i.i
   invoke void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -17690,7 +17690,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i47.i.i: ; preds = %137
   %142 = load i64, ptr %.val42.i.i, align 8, !tbaa !84
   %143 = trunc i64 %142 to i1
-  br i1 %143, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i48.i.i, label %.invoke167
+  br i1 %143, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i48.i.i, label %.invoke166
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i48.i.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i47.i.i, %137
   invoke void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
@@ -18829,7 +18829,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i27.i.i.i: ; pred
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.thread.i.i.i, %.invoke167, %.invoke, %20, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i45.i.i, %.noexc20, %.noexc21, %.noexc22, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i48.i.i, %.noexc29, %.noexc30, %.noexc31, %234, %.noexc36, %.noexc37, %.noexc38, %282, %.noexc40, %328
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit19.thread.i.i.i, %.invoke166, %.invoke, %20, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i45.i.i, %.noexc20, %.noexc21, %.noexc22, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i48.i.i, %.noexc29, %.noexc30, %.noexc31, %234, %.noexc36, %.noexc37, %.noexc38, %282, %.noexc40, %328
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

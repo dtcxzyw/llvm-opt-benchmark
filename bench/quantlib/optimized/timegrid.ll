@@ -158,13 +158,13 @@ ehcleanup17.thread:                               ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   %14 = load ptr, ptr %ref.tmp, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i24111 = icmp eq ptr %14, %15
-  br i1 %cmp.i.i.i24111, label %cleanup.action.sink.split, label %if.then.i.i25.thread
+  %cmp.i.i.i24102 = icmp eq ptr %14, %15
+  br i1 %cmp.i.i.i24102, label %cleanup.action.sink.split, label %if.then.i.i25.thread
 
 if.then.i.i25.thread:                             ; preds = %ehcleanup17.thread
   %16 = load i64, ptr %15, align 8, !tbaa !10
-  %add.i.i.i26123 = add i64 %16, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %add.i.i.i26123) #21
+  %add.i.i.i26114 = add i64 %16, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %add.i.i.i26114) #21
   br label %cleanup.action.sink.split
 
 if.then.i.i25:                                    ; preds = %ehcleanup17
@@ -181,18 +181,18 @@ ehcleanup21:                                      ; preds = %ehcleanup17
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup25
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup17.thread, %ehcleanup21.thread, %if.then.i.i25.thread
-  %.pn.pn.pn108.ph = phi { ptr, i32 } [ %13, %if.then.i.i25.thread ], [ %2, %ehcleanup21.thread ], [ %13, %ehcleanup17.thread ]
+  %.pn.pn.pn99.ph = phi { ptr, i32 } [ %13, %if.then.i.i25.thread ], [ %2, %ehcleanup21.thread ], [ %13, %ehcleanup17.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i25, %ehcleanup21
-  %.pn.pn.pn108 = phi { ptr, i32 } [ %.pn, %if.then.i.i25 ], [ %.pn, %ehcleanup21 ], [ %.pn.pn.pn108.ph, %cleanup.action.sink.split ]
+  %.pn.pn.pn99 = phi { ptr, i32 } [ %.pn, %if.then.i.i25 ], [ %.pn, %ehcleanup21 ], [ %.pn.pn.pn99.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #19
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %if.then.i.i25, %ehcleanup21, %cleanup.action, %lpad2
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn108, %cleanup.action ], [ %.pn, %ehcleanup21 ], [ %1, %lpad2 ], [ %.pn, %if.then.i.i25 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn99, %cleanup.action ], [ %.pn, %ehcleanup21 ], [ %1, %lpad2 ], [ %.pn, %if.then.i.i25 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #19
   br label %ehcleanup26
 
@@ -252,8 +252,8 @@ for.body:                                         ; preds = %_ZNSt6vectorIdSaIdE
   %21 = phi ptr [ %19, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %25, %invoke.cont35 ]
   %22 = phi ptr [ %18, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %26, %invoke.cont35 ]
   %23 = phi ptr [ %19, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %27, %invoke.cont35 ]
-  %i.0124 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %inc, %invoke.cont35 ]
-  %conv33 = uitofp i64 %i.0124 to double
+  %i.0115 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %inc, %invoke.cont35 ]
+  %conv33 = uitofp i64 %i.0115 to double
   %mul = fmul double %div, %conv33
   %cmp.not.i.i = icmp eq ptr %23, %22
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i36
@@ -321,7 +321,7 @@ invoke.cont35:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %25 = phi ptr [ %call5.i.i.i.i.i.i39, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %21, %if.then.i.i36 ]
   %26 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %22, %if.then.i.i36 ]
   %27 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i36 ]
-  %inc = add i64 %i.0124, 1
+  %inc = add i64 %i.0115, 1
   %cmp30.not = icmp ugt i64 %inc, %steps
   br i1 %cmp30.not, label %for.cond.cleanup, label %for.body, !llvm.loop !17
 

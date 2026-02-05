@@ -4824,7 +4824,7 @@ define internal fastcc void @_capture_current_exception(ptr noundef %0) unnamed_
 
 13:                                               ; preds = %10, %11, %.thread
   %14 = phi i32 [ -1, %.thread ], [ -4, %10 ], [ %8, %11 ]
-  %.024 = phi ptr [ %9, %.thread ], [ null, %10 ], [ %12, %11 ]
+  %.023 = phi ptr [ %9, %.thread ], [ null, %10 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !167
@@ -4833,7 +4833,7 @@ define internal fastcc void @_capture_current_exception(ptr noundef %0) unnamed_
   store ptr %19, ptr %15, align 8, !tbaa !172
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, i8 0, i64 56, i1 false)
-  %20 = icmp eq ptr %.024, null
+  %20 = icmp eq ptr %.023, null
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %13
@@ -4851,7 +4851,7 @@ define internal fastcc void @_capture_current_exception(ptr noundef %0) unnamed_
 
 27:                                               ; preds = %25, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = tail call fastcc ptr @_PyXI_excinfo_InitFromException(ptr noundef nonnull %28, ptr noundef nonnull %.024)
+  %29 = tail call fastcc ptr @_PyXI_excinfo_InitFromException(ptr noundef nonnull %28, ptr noundef nonnull %.023)
   %.not.i29 = icmp eq ptr %29, null
   br i1 %.not.i29, label %33, label %30
 
@@ -4869,18 +4869,18 @@ define internal fastcc void @_capture_current_exception(ptr noundef %0) unnamed_
   br label %_PyXI_InitError.exit
 
 _PyXI_InitError.exit:                             ; preds = %30, %33
-  %34 = load i32, ptr %.024, align 8, !tbaa !110
+  %34 = load i32, ptr %.023, align 8, !tbaa !110
   %.not.i = icmp sgt i32 %34, -1
   br i1 %.not.i, label %35, label %Py_DECREF.exit
 
 35:                                               ; preds = %_PyXI_InitError.exit
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %.024, align 8, !tbaa !110
+  store i32 %36, ptr %.023, align 8, !tbaa !110
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %Py_DECREF.exit
 
 38:                                               ; preds = %35
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.024) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.023) #11
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_PyXI_InitError.exit, %35, %38
@@ -4902,9 +4902,9 @@ Py_DECREF.exit:                                   ; preds = %_PyXI_InitError.exi
   br label %43
 
 43:                                               ; preds = %.thread30, %40, %39
-  %.023 = phi ptr [ null, %40 ], [ %15, %39 ], [ %15, %.thread30 ]
+  %.024 = phi ptr [ null, %40 ], [ %15, %39 ], [ %15, %.thread30 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.023, ptr %44, align 8, !tbaa !165
+  store ptr %.024, ptr %44, align 8, !tbaa !165
   br label %45
 
 45:                                               ; preds = %1, %43

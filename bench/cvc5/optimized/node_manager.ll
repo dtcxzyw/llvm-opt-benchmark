@@ -36072,11 +36072,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashINS0_8TypeNodeEE8IteratorIKS5_NSt8__detail2
           to label %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge unwind label %111
 
 ._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge: ; preds = %97
-  %.pre29 = load i64, ptr %68, align 8
+  %.pre27 = load i64, ptr %68, align 8
   br label %_ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit
 
 _ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit: ; preds = %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge, %95, %89
-  %99 = phi i64 [ %.pre29, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
+  %99 = phi i64 [ %.pre27, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
   %100 = and i64 %99, 1152920405095219200
   %.not.i.i.i4 = icmp eq i64 %100, 1152920405095219200
   br i1 %.not.i.i.i4, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_8TypeNodeEED2Ev.exit, label %101, !prof !16
@@ -36557,11 +36557,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashINS0_8TypeNodeEE8IteratorIKS5_NSt8__detail2
           to label %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge unwind label %111
 
 ._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge: ; preds = %97
-  %.pre29 = load i64, ptr %68, align 8
+  %.pre27 = load i64, ptr %68, align 8
   br label %_ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit
 
 _ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit: ; preds = %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge, %95, %89
-  %99 = phi i64 [ %.pre29, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
+  %99 = phi i64 [ %.pre27, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
   %100 = and i64 %99, 1152920405095219200
   %.not.i.i.i4 = icmp eq i64 %100, 1152920405095219200
   br i1 %.not.i.i.i4, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_8TypeNodeEED2Ev.exit, label %101, !prof !16
@@ -36932,7 +36932,7 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %110, %104, %_ZN4cvc
           to label %._ZN4cvc58internal8TypeNodeD2Ev.exit_crit_edge unwind label %123
 
 ._ZN4cvc58internal8TypeNodeD2Ev.exit_crit_edge:   ; preds = %122
-  %.pre38 = load i64, ptr %57, align 8
+  %.pre36 = load i64, ptr %57, align 8
   br label %_ZN4cvc58internal8TypeNodeD2Ev.exit
 
 123:                                              ; preds = %122
@@ -36943,7 +36943,7 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %110, %104, %_ZN4cvc
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %._ZN4cvc58internal8TypeNodeD2Ev.exit_crit_edge, %_ZN4cvc58internal8TypeNodeaSERKS1_.exit, %116
-  %126 = phi i64 [ %.pre38, %._ZN4cvc58internal8TypeNodeD2Ev.exit_crit_edge ], [ %114, %_ZN4cvc58internal8TypeNodeaSERKS1_.exit ], [ %120, %116 ]
+  %126 = phi i64 [ %.pre36, %._ZN4cvc58internal8TypeNodeD2Ev.exit_crit_edge ], [ %114, %_ZN4cvc58internal8TypeNodeaSERKS1_.exit ], [ %120, %116 ]
   %127 = and i64 %126, 1152920405095219200
   %.not.i.i.i13 = icmp eq i64 %127, 1152920405095219200
   br i1 %.not.i.i.i13, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_8TypeNodeEED2Ev.exit, label %128, !prof !16
@@ -37186,11 +37186,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashINS0_8TypeNodeEE8IteratorIKS5_NSt8__detail2
           to label %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge unwind label %111
 
 ._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge: ; preds = %97
-  %.pre29 = load i64, ptr %68, align 8
+  %.pre27 = load i64, ptr %68, align 8
   br label %_ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit
 
 _ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit: ; preds = %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge, %95, %89
-  %99 = phi i64 [ %.pre29, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
+  %99 = phi i64 [ %.pre27, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_8TypeNodeEvE11convertBackERKS4_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
   %100 = and i64 %99, 1152920405095219200
   %.not.i.i.i4 = icmp eq i64 %100, 1152920405095219200
   br i1 %.not.i.i.i4, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_8TypeNodeEED2Ev.exit, label %101, !prof !16
@@ -47825,11 +47825,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashINS0_12NodeTemplateILb1EEEE8IteratorIKS6_NS
           to label %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge unwind label %111
 
 ._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge: ; preds = %97
-  %.pre29 = load i64, ptr %68, align 8
+  %.pre27 = load i64, ptr %68, align 8
   br label %_ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit
 
 _ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit: ; preds = %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge, %95, %89
-  %99 = phi i64 [ %.pre29, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
+  %99 = phi i64 [ %.pre27, %._ZN4cvc58internal4expr4attr28KindValueToTableValueMappingINS0_12NodeTemplateILb1EEEvE11convertBackERKS5_.exit_crit_edge ], [ %84, %95 ], [ %94, %89 ]
   %100 = and i64 %99, 1152920405095219200
   %.not.i.i.i4 = icmp eq i64 %100, 1152920405095219200
   br i1 %.not.i.i.i4, label %_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev.exit, label %101, !prof !16

@@ -10266,9 +10266,9 @@ define linkonce_odr hidden void @_ZNK11opencv_test18ConvParamGenerator3allEv(ptr
   %.not9 = icmp eq i64 %13, 0
   %14 = trunc i64 %13 to i32
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %14)
-  %.028 = select i1 %.not9, i32 %4, i32 %.sroa.speculated
-  %15 = sext i32 %.028 to i64
-  %16 = icmp slt i32 %.028, 0
+  %.025 = select i1 %.not9, i32 %4, i32 %.sroa.speculated
+  %15 = sext i32 %.025 to i64
+  %16 = icmp slt i32 %.025, 0
   br i1 %16, label %.noexc, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 17:                                               ; preds = %9
@@ -10282,7 +10282,7 @@ define linkonce_odr hidden void @_ZNK11opencv_test18ConvParamGenerator3allEv(ptr
   unreachable
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %12
-  %.not.i.i.i.i = icmp eq i32 %.028, 0
+  %.not.i.i.i.i = icmp eq i32 %.025, 0
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.noexc12
 
 .noexc12:                                         ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -10309,12 +10309,12 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc12
   %.0.i.i.i.i.i.ph = phi ptr [ %21, %.noexc12 ], [ %25, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %27 = load ptr, ptr %1, align 8, !tbaa !295
-  %wide.trip.count = zext nneg i32 %.028 to i64
+  %wide.trip.count = zext nneg i32 %.025 to i64
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.0.i.i.i.i.i40 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %46 ]
-  %.sroa.016.037 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %46 ]
+  %.0.i.i.i.i.i37 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %46 ]
+  %.sroa.016.034 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %46 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %28 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -10324,8 +10324,8 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEEE, i64 16), ptr %28, align 8, !tbaa !19, !noalias !302
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !noalias !302
-  %30 = ptrtoint ptr %.0.i.i.i.i.i40 to i64
-  %31 = ptrtoint ptr %.sroa.016.037 to i64
+  %30 = ptrtoint ptr %.0.i.i.i.i.i37 to i64
+  %31 = ptrtoint ptr %.sroa.016.034 to i64
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 88
   %34 = icmp ugt i64 %33, 104811045873349725
@@ -10339,7 +10339,7 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   unreachable
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %.noexc13
-  %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i40, %.sroa.016.037
+  %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i37, %.sroa.016.034
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i, label %38
 
 _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
@@ -10357,7 +10357,7 @@ _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thr
   %40 = getelementptr inbounds i8, ptr %39, i64 %32
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %40, ptr %41, align 8, !tbaa !303, !noalias !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %.sroa.016.037, i64 %32, i1 false), !noalias !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %.sroa.016.034, i64 %32, i1 false), !noalias !302
   br label %49
 
 42:                                               ; preds = %38, %35
@@ -10391,11 +10391,11 @@ _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thr
   store ptr %28, ptr %0, align 8, !tbaa !184, !alias.scope !302
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %52, ptr %52, align 8, !tbaa !177, !alias.scope !302
-  %.not.i.i.i = icmp eq ptr %.sroa.016.037, null
+  %.not.i.i.i = icmp eq ptr %.sroa.016.034, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit, label %53
 
 53:                                               ; preds = %49
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.037) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.034) #29
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %49, %53
@@ -10408,11 +10408,11 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %49, %53
 
 .body:                                            ; preds = %.body.i.i, %54
   %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %43, %.body.i.i ]
-  %.not.i.i.i14 = icmp eq ptr %.sroa.016.037, null
+  %.not.i.i.i14 = icmp eq ptr %.sroa.016.034, null
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15, label %56
 
 56:                                               ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.037) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.034) #29
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15: ; preds = %.body, %56, %17

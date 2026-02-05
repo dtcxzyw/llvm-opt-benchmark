@@ -19382,8 +19382,8 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %5 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
-  %cmp125.not = icmp eq i64 %5, 0
-  br i1 %cmp125.not, label %for.end, label %for.body.lr.ph
+  %cmp123.not = icmp eq i64 %5, 0
+  br i1 %cmp123.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %_M_refcount.i.i9 = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -19391,8 +19391,8 @@ for.body.lr.ph:                                   ; preds = %_ZN5folly29core_cac
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0126 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr.310", ptr %this, i64 %i.0126
+  %i.0124 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr.310", ptr %this, i64 %i.0124
   store ptr null, ptr %arrayidx.i.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -19496,7 +19496,7 @@ cond.false.i.i:                                   ; preds = %if.then
 
 _ZN5folly16getCoreAllocatorISt10shared_ptrIN8facebook5velox17BaseStatsReporterEELm64EEENS_19CxxAllocatorAdaptorIT_NS_16CoreRawAllocatorIXT0_EE9AllocatorELb0EEEm.exit: ; preds = %if.then, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %if.then ]
-  %arrayidx.i.i11 = getelementptr inbounds %"class.folly::CoreRawAllocator<64>::Allocator", ptr %cond.i.i, i64 %i.0126
+  %arrayidx.i.i11 = getelementptr inbounds %"class.folly::CoreRawAllocator<64>::Allocator", ptr %cond.i.i, i64 %i.0124
   call void @llvm.lifetime.start.p0(ptr nonnull %__a2.i.i.i.i), !noalias !353
   call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i.i.i.i), !noalias !353
   store ptr %arrayidx.i.i11, ptr %__a2.i.i.i.i, align 8, !noalias !353
@@ -19697,7 +19697,7 @@ if.end8.sink.split.i.i.i.i109:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i, %if.end8.sink.split.i.i.i.i109, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i96, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultIN8facebook5velox17BaseStatsReporterEEEbRKSt10shared_ptrIT_E.exit
-  %inc = add nuw i64 %i.0126, 1
+  %inc = add nuw i64 %i.0124, 1
   %52 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %cmp = icmp ult i64 %inc, %52
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !359

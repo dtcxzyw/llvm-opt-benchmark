@@ -3891,8 +3891,8 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.ex
   br i1 %.not3035.i.i.i.i, label %.loopexit33.i.i.i.i, label %.lr.ph.i.i.i83.i
 
 .lr.ph.i.i.i83.i:                                 ; preds = %.lr.ph39.i.i.i.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i
-  %.sroa.019.136.i.i.i.i = phi ptr [ %1531, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i ], [ %1507, %.lr.ph39.i.i.i.i ]
-  %1510 = load i16, ptr %.sroa.019.136.i.i.i.i, align 2, !tbaa !314
+  %.sroa.019.036.i.i.i.i = phi ptr [ %1531, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i ], [ %1507, %.lr.ph39.i.i.i.i ]
+  %1510 = load i16, ptr %.sroa.019.036.i.i.i.i, align 2, !tbaa !314
   %1511 = zext i16 %1510 to i32
   %.not31.i.i.i.i = icmp eq i16 %1510, 0
   br i1 %.not31.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i, label %1512
@@ -3927,7 +3927,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i: ; preds = %1
   br label %.loopexit33.i.i.i.i
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i, %1512, %.lr.ph.i.i.i83.i
-  %1531 = getelementptr inbounds nuw i8, ptr %.sroa.019.136.i.i.i.i, i64 2
+  %1531 = getelementptr inbounds nuw i8, ptr %.sroa.019.036.i.i.i.i, i64 2
   %.not30.i.i.i.i = icmp eq ptr %1531, %1509
   br i1 %.not30.i.i.i.i, label %.loopexit33.i.i.i.i, label %.lr.ph.i.i.i83.i, !llvm.loop !524
 

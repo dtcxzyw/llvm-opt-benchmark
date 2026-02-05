@@ -74,12 +74,12 @@ define void @cvSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 25:                                               ; preds = %5, %25
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %25 ]
-  %.043108 = phi i32 [ 0, %5 ], [ %30, %25 ]
+  %.043105 = phi i32 [ 0, %5 ], [ %30, %25 ]
   %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i32
-  %30 = add nuw nsw i32 %.043108, %29
+  %30 = add nuw nsw i32 %.043105, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %31, label %25, !llvm.loop !7
@@ -166,9 +166,9 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
   br label %58
 
 58:                                               ; preds = %55, %153
-  %indvars.iv113 = phi i64 [ 0, %55 ], [ %indvars.iv.next114, %153 ]
-  %.044110 = phi i32 [ 0, %55 ], [ %.145, %153 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv113
+  %indvars.iv110 = phi i64 [ 0, %55 ], [ %indvars.iv.next111, %153 ]
+  %.044107 = phi i32 [ 0, %55 ], [ %.145, %153 ]
+  %59 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv110
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %.not52 = icmp eq ptr %60, null
   br i1 %.not52, label %153, label %61
@@ -179,7 +179,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
           to label %62 unwind label %86
 
 62:                                               ; preds = %61
-  %63 = sext i32 %.044110 to i64
+  %63 = sext i32 %.044107 to i64
   %64 = load ptr, ptr %10, align 8, !tbaa !14
   %65 = getelementptr inbounds nuw %"class.cv::Mat", ptr %64, i64 %63
   %66 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull align 8 dereferenceable(96) %11)
@@ -360,8 +360,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %127
   %133 = lshr i32 %103, 3
   %134 = and i32 %133, 511
   %135 = zext nneg i32 %134 to i64
-  %.not106 = icmp samesign ugt i64 %indvars.iv113, %135
-  br i1 %.not106, label %136, label %146
+  %.not103 = icmp samesign ugt i64 %indvars.iv110, %135
+  br i1 %.not103, label %136, label %146
 
 136:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -400,21 +400,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %141
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit93
 
 146:                                              ; preds = %132
-  %147 = shl nsw i32 %.044110, 1
+  %147 = shl nsw i32 %.044107, 1
   %148 = sext i32 %147 to i64
   %149 = getelementptr i32, ptr %54, i64 %148
-  %150 = trunc nuw nsw i64 %indvars.iv113 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv110 to i32
   store i32 %150, ptr %149, align 4, !tbaa !20
   %151 = getelementptr i8, ptr %149, i64 4
-  store i32 %.044110, ptr %151, align 4, !tbaa !20
-  %152 = add nsw i32 %.044110, 1
+  store i32 %.044107, ptr %151, align 4, !tbaa !20
+  %152 = add nsw i32 %.044107, 1
   br label %153
 
 153:                                              ; preds = %58, %146
-  %.145 = phi i32 [ %152, %146 ], [ %.044110, %58 ]
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next114, 4
-  br i1 %exitcond116.not, label %154, label %58, !llvm.loop !31
+  %.145 = phi i32 [ %152, %146 ], [ %.044107, %58 ]
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, 4
+  br i1 %exitcond113.not, label %154, label %58, !llvm.loop !31
 
 154:                                              ; preds = %153
   %155 = load i32, ptr %7, align 8, !tbaa !25
@@ -593,12 +593,12 @@ define void @cvMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 19:                                               ; preds = %5, %19
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %19 ]
-  %.03978 = phi i32 [ 0, %5 ], [ %24, %19 ]
+  %.03975 = phi i32 [ 0, %5 ], [ %24, %19 ]
   %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp ne ptr %21, null
   %23 = zext i1 %22 to i32
-  %24 = add nuw nsw i32 %.03978, %23
+  %24 = add nuw nsw i32 %.03975, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %25, label %19, !llvm.loop !39
@@ -685,9 +685,9 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
   br label %52
 
 52:                                               ; preds = %49, %107
-  %indvars.iv83 = phi i64 [ 0, %49 ], [ %indvars.iv.next84, %107 ]
-  %.04080 = phi i32 [ 0, %49 ], [ %.141, %107 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv83
+  %indvars.iv80 = phi i64 [ 0, %49 ], [ %indvars.iv.next81, %107 ]
+  %.04077 = phi i32 [ 0, %49 ], [ %.141, %107 ]
+  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %.not48 = icmp eq ptr %54, null
   br i1 %.not48, label %107, label %55
@@ -698,7 +698,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
           to label %56 unwind label %83
 
 56:                                               ; preds = %55
-  %57 = sext i32 %.04080 to i64
+  %57 = sext i32 %.04077 to i64
   %58 = load ptr, ptr %10, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw %"class.cv::Mat", ptr %58, i64 %57
   %60 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %59, ptr noundef nonnull align 8 dereferenceable(96) %11)
@@ -729,8 +729,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
   %76 = lshr i32 %70, 3
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
-  %.not75 = icmp samesign ugt i64 %indvars.iv83, %78
-  br i1 %.not75, label %90, label %100
+  %.not72 = icmp samesign ugt i64 %indvars.iv80, %78
+  br i1 %.not72, label %90, label %100
 
 79:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
   %80 = landingpad { ptr, i32 }
@@ -800,21 +800,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %95,
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit65
 
 100:                                              ; preds = %75
-  %101 = shl nsw i32 %.04080, 1
+  %101 = shl nsw i32 %.04077, 1
   %102 = sext i32 %101 to i64
   %103 = getelementptr i32, ptr %48, i64 %102
-  store i32 %.04080, ptr %103, align 4, !tbaa !20
+  store i32 %.04077, ptr %103, align 4, !tbaa !20
   %104 = getelementptr i8, ptr %103, i64 4
-  %105 = trunc nuw nsw i64 %indvars.iv83 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv80 to i32
   store i32 %105, ptr %104, align 4, !tbaa !20
-  %106 = add nsw i32 %.04080, 1
+  %106 = add nsw i32 %.04077, 1
   br label %107
 
 107:                                              ; preds = %52, %100
-  %.141 = phi i32 [ %106, %100 ], [ %.04080, %52 ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond86.not, label %108, label %52, !llvm.loop !40
+  %.141 = phi i32 [ %106, %100 ], [ %.04077, %52 ]
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
+  br i1 %exitcond83.not, label %108, label %52, !llvm.loop !40
 
 108:                                              ; preds = %107
   %109 = load i32, ptr %7, align 8, !tbaa !25

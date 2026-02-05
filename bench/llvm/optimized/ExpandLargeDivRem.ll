@@ -891,7 +891,7 @@ _ZN4llvm4User17dropAllReferencesEv.exit.i:        ; preds = %_ZN4llvm3Use3setEPN
 
 279:                                              ; preds = %427, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %427 ]
-  %.055.i = phi ptr [ %250, %.lr.ph.i ], [ %.1.i42.i, %427 ]
+  %.053.i = phi ptr [ %250, %.lr.ph.i ], [ %.1.i42.i, %427 ]
   %280 = load ptr, ptr %251, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 257, ptr %47, align 8
@@ -1188,7 +1188,7 @@ _ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4
   %393 = load ptr, ptr %392, align 8, !tbaa !3
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 104
   %395 = load ptr, ptr %394, align 8
-  %396 = call noundef ptr %395(ptr noundef nonnull align 8 dereferenceable(8) %392, ptr noundef %.055.i, ptr noundef nonnull %.1.i, ptr noundef %391) #17
+  %396 = call noundef ptr %395(ptr noundef nonnull align 8 dereferenceable(8) %392, ptr noundef %.053.i, ptr noundef nonnull %.1.i, ptr noundef %391) #17
   %.not.not.i41.i = icmp eq ptr %396, null
   br i1 %.not.not.i41.i, label %397, label %_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE.exit.i
 
@@ -1198,7 +1198,7 @@ _ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %398 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm17InsertElementInstC1EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %398, ptr noundef %.055.i, ptr noundef nonnull %.1.i, ptr noundef %391, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %3) #17
+  call void @_ZN4llvm17InsertElementInstC1EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %398, ptr noundef %.053.i, ptr noundef nonnull %.1.i, ptr noundef %391, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %399 = load ptr, ptr %51, align 8, !tbaa !150
   %.sroa.0.0.copyload.i.i43.i = load ptr, ptr %52, align 8

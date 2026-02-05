@@ -1088,8 +1088,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %147
   %158 = icmp eq i32 %157, 0
   %159 = load i64, ptr %152, align 8
   %160 = icmp eq i64 %159, 0
-  %or.cond81 = select i1 %158, i1 %160, i1 false
-  br i1 %or.cond81, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit43.thread
+  %or.cond79 = select i1 %158, i1 %160, i1 false
+  br i1 %or.cond79, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit43.thread
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %156, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1349,8 +1349,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %243
   %260 = load i64, ptr %259, align 8, !tbaa !11
   %261 = icmp eq i64 %260, 0
   %262 = load ptr, ptr %12, align 8
-  %spec.select79 = select i1 %261, ptr @.str.8, ptr %262
-  store ptr %spec.select79, ptr %14, align 8, !tbaa !80
+  %spec.select77 = select i1 %261, ptr @.str.8, ptr %262
+  store ptr %spec.select77, ptr %14, align 8, !tbaa !80
   invoke void @_ZNK11OpenImageIO6v3_1_011ImageOutput8errorfmtIJPKcEEEvS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %263 unwind label %271
 
@@ -2522,8 +2522,8 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010HeifOutput5closeEv(pt
   %14 = alloca ptr, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %.not108 = icmp eq ptr %16, null
-  br i1 %.not108, label %284, label %17
+  %.not105 = icmp eq ptr %16, null
+  br i1 %.not105, label %284, label %17
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3074,8 +3074,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %217, 
   %234 = load i64, ptr %233, align 8, !tbaa !11
   %235 = icmp eq i64 %234, 0
   %236 = load ptr, ptr %10, align 8
-  %spec.select107 = select i1 %235, ptr @.str.8, ptr %236
-  store ptr %spec.select107, ptr %12, align 8, !tbaa !80
+  %spec.select104 = select i1 %235, ptr @.str.8, ptr %236
+  store ptr %spec.select104, ptr %12, align 8, !tbaa !80
   invoke void @_ZNK11OpenImageIO6v3_1_011ImageOutput8errorfmtIJPKcEEEvS4_DpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %237 unwind label %245
 

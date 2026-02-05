@@ -94479,13 +94479,13 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %49, %43
   br label %62
 
 62:                                               ; preds = %.lr.ph, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit
-  %.sroa.14.138 = phi ptr [ %59, %.lr.ph ], [ %68, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
-  %.sroa.10.137 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
-  %.not = icmp eq ptr %.sroa.14.138, %61
+  %.sroa.14.038 = phi ptr [ %59, %.lr.ph ], [ %68, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
+  %.sroa.10.037 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit ]
+  %.not = icmp eq ptr %.sroa.14.038, %61
   br i1 %.not, label %70, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %62
-  %63 = add i64 %.sroa.10.137, 1
+  %63 = add i64 %.sroa.10.037, 1
   %64 = icmp ult i64 %63, %58
   br i1 %64, label %65, label %_ZN8pybind116detail18values_and_holders8iteratorppEv.exit
 

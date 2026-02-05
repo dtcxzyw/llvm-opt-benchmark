@@ -2679,8 +2679,8 @@ define dso_local i64 @streamTrim(ptr noundef %0, ptr noundef readonly captures(n
   call void @raxStart(ptr noundef nonnull %19, ptr noundef %35) #17
   %36 = call i32 @raxSeek(ptr noundef nonnull %19, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #17
   %37 = call i32 @raxNext(ptr noundef nonnull %19) #17
-  %.not216 = icmp eq i32 %37, 0
-  br i1 %.not216, label %.loopexit187, label %.lr.ph
+  %.not204 = icmp eq i32 %37, 0
+  br i1 %.not204, label %.loopexit175, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
   %38 = icmp eq i32 %32, 1
@@ -2695,13 +2695,13 @@ define dso_local i64 @streamTrim(ptr noundef %0, ptr noundef readonly captures(n
   br label %46
 
 46:                                               ; preds = %.lr.ph, %211
-  %.094217 = phi i64 [ 0, %.lr.ph ], [ %62, %211 ]
+  %.094205 = phi i64 [ 0, %.lr.ph ], [ %62, %211 ]
   br i1 %38, label %47, label %49
 
 47:                                               ; preds = %46
   %48 = load i64, ptr %39, align 8, !tbaa !21
   %.not112 = icmp ugt i64 %48, %25
-  br i1 %.not112, label %49, label %.loopexit187
+  br i1 %.not112, label %49, label %.loopexit175
 
 49:                                               ; preds = %47, %46
   %50 = load ptr, ptr %40, align 8, !tbaa !27
@@ -2736,10 +2736,10 @@ define dso_local i64 @streamTrim(ptr noundef %0, ptr noundef readonly captures(n
 lpGetIntegerIfValid.exit:                         ; preds = %54, %60
   %.0.i = phi i64 [ %55, %54 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %62 = add nsw i64 %.0.i, %.094217
+  %62 = add nsw i64 %.0.i, %.094205
   %63 = icmp sgt i64 %62, %30
   %or.cond = select i1 %.not113, i1 %63, i1 false
-  br i1 %or.cond, label %.loopexit187.sink.split, label %64
+  br i1 %or.cond, label %.loopexit175.sink.split, label %64
 
 64:                                               ; preds = %lpGetIntegerIfValid.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -2750,7 +2750,7 @@ lpGetIntegerIfValid.exit:                         ; preds = %54, %60
   %66 = load i64, ptr %39, align 8, !tbaa !21
   %67 = sub i64 %66, %.0.i
   %.not115 = icmp ult i64 %67, %25
-  br i1 %.not115, label %.loopexit188, label %211
+  br i1 %.not115, label %.loopexit176, label %211
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %41, align 8, !tbaa !32
@@ -2785,18 +2785,18 @@ lpGetIntegerIfValid.exit:                         ; preds = %54, %60
 
 .thread:                                          ; preds = %78, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.loopexit188
+  br label %.loopexit176
 
 82:                                               ; preds = %78
-  %.not183 = icmp ult i64 %79, %80
+  %.not171 = icmp ult i64 %79, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %.not183, label %211, label %.loopexit188
+  br i1 %.not171, label %211, label %.loopexit176
 
-.loopexit188:                                     ; preds = %65, %82, %.thread
+.loopexit176:                                     ; preds = %65, %82, %.thread
   %.not116 = icmp eq i32 %28, 0
-  br i1 %.not116, label %83, label %.thread178
+  br i1 %.not116, label %83, label %.thread168
 
-83:                                               ; preds = %.loopexit188
+83:                                               ; preds = %.loopexit176
   %84 = call ptr @lpNext(ptr noundef %50, ptr noundef %51) #17
   %85 = call ptr @lpNext(ptr noundef %50, ptr noundef %84) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2830,39 +2830,39 @@ lpGetIntegerIfValid.exit127:                      ; preds = %88, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %96 = call ptr @lpNext(ptr noundef %50, ptr noundef %85) #17
   %97 = icmp sgt i64 %.0.i126, 0
-  br i1 %97, label %.lr.ph221, label %._crit_edge
+  br i1 %97, label %.lr.ph209, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph221, %lpGetIntegerIfValid.exit127
-  %98 = phi ptr [ %96, %lpGetIntegerIfValid.exit127 ], [ %102, %.lr.ph221 ]
+._crit_edge:                                      ; preds = %.lr.ph209, %lpGetIntegerIfValid.exit127
+  %98 = phi ptr [ %96, %lpGetIntegerIfValid.exit127 ], [ %102, %.lr.ph209 ]
   %99 = call ptr @lpNext(ptr noundef %50, ptr noundef %98) #17
   store ptr %99, ptr %20, align 8, !tbaa !115
-  %.not117227 = icmp eq ptr %99, null
-  br i1 %.not117227, label %.loopexit, label %.lr.ph231
+  %.not117215 = icmp eq ptr %99, null
+  br i1 %.not117215, label %.loopexit, label %.lr.ph219
 
-.lr.ph231:                                        ; preds = %._crit_edge
+.lr.ph219:                                        ; preds = %._crit_edge
   %100 = icmp eq i32 %32, 2
   br label %104
 
-.lr.ph221:                                        ; preds = %lpGetIntegerIfValid.exit127, %.lr.ph221
-  %101 = phi ptr [ %102, %.lr.ph221 ], [ %96, %lpGetIntegerIfValid.exit127 ]
-  %.0103220 = phi i64 [ %103, %.lr.ph221 ], [ 0, %lpGetIntegerIfValid.exit127 ]
+.lr.ph209:                                        ; preds = %lpGetIntegerIfValid.exit127, %.lr.ph209
+  %101 = phi ptr [ %102, %.lr.ph209 ], [ %96, %lpGetIntegerIfValid.exit127 ]
+  %.0103208 = phi i64 [ %103, %.lr.ph209 ], [ 0, %lpGetIntegerIfValid.exit127 ]
   %102 = call ptr @lpNext(ptr noundef %50, ptr noundef %101) #17
-  %103 = add nuw nsw i64 %.0103220, 1
+  %103 = add nuw nsw i64 %.0103208, 1
   %exitcond.not = icmp eq i64 %103, %.0.i126
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph221, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph209, !llvm.loop !123
 
-thread-pre-split:                                 ; preds = %177, %._crit_edge226
-  %.pr = phi ptr [ %186, %177 ], [ %175, %._crit_edge226 ]
-  %.2106 = phi i64 [ %183, %177 ], [ %.0104228, %._crit_edge226 ]
-  %.299 = phi ptr [ %182, %177 ], [ %.097229, %._crit_edge226 ]
+thread-pre-split:                                 ; preds = %177, %._crit_edge214
+  %.pr = phi ptr [ %186, %177 ], [ %175, %._crit_edge214 ]
+  %.2106 = phi i64 [ %183, %177 ], [ %.0104216, %._crit_edge214 ]
+  %.299 = phi ptr [ %182, %177 ], [ %.097217, %._crit_edge214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not117 = icmp eq ptr %.pr, null
   br i1 %.not117, label %.loopexit, label %104
 
-104:                                              ; preds = %.lr.ph231, %thread-pre-split
-  %.097229 = phi ptr [ %50, %.lr.ph231 ], [ %.299, %thread-pre-split ]
-  %.0104228 = phi i64 [ 0, %.lr.ph231 ], [ %.2106, %thread-pre-split ]
-  %105 = phi ptr [ %99, %.lr.ph231 ], [ %.pr, %thread-pre-split ]
+104:                                              ; preds = %.lr.ph219, %thread-pre-split
+  %.097217 = phi ptr [ %50, %.lr.ph219 ], [ %.299, %thread-pre-split ]
+  %.0104216 = phi i64 [ 0, %.lr.ph219 ], [ %.2106, %thread-pre-split ]
+  %105 = phi ptr [ %99, %.lr.ph219 ], [ %.pr, %thread-pre-split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %105, ptr %23, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2894,7 +2894,7 @@ thread-pre-split:                                 ; preds = %177, %._crit_edge22
 lpGetIntegerIfValid.exit130:                      ; preds = %108, %114
   %.0.i129 = phi i64 [ %109, %108 ], [ %115, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %116 = call ptr @lpNext(ptr noundef %.097229, ptr noundef nonnull %105) #17
+  %116 = call ptr @lpNext(ptr noundef %.097217, ptr noundef nonnull %105) #17
   store ptr %116, ptr %20, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %117 = call ptr @lpGet(ptr noundef %116, ptr noundef nonnull %11, ptr noundef null) #17
@@ -2925,7 +2925,7 @@ lpGetIntegerIfValid.exit130:                      ; preds = %108, %114
 lpGetIntegerIfValid.exit133:                      ; preds = %119, %125
   %.0.i132 = phi i64 [ %120, %119 ], [ %126, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %127 = call ptr @lpNext(ptr noundef %.097229, ptr noundef %116) #17
+  %127 = call ptr @lpNext(ptr noundef %.097217, ptr noundef %116) #17
   store ptr %127, ptr %20, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %128 = call ptr @lpGet(ptr noundef %127, ptr noundef nonnull %9, ptr noundef null) #17
@@ -2956,21 +2956,21 @@ lpGetIntegerIfValid.exit133:                      ; preds = %119, %125
 lpGetIntegerIfValid.exit136:                      ; preds = %130, %136
   %.0.i135 = phi i64 [ %131, %130 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %138 = call ptr @lpNext(ptr noundef %.097229, ptr noundef %127) #17
+  %138 = call ptr @lpNext(ptr noundef %.097217, ptr noundef %127) #17
   store ptr %138, ptr %20, align 8, !tbaa !115
   br i1 %100, label %143, label %139
 
 139:                                              ; preds = %lpGetIntegerIfValid.exit136
-  br i1 %38, label %141, label %.thread270
+  br i1 %38, label %141, label %.thread258
 
-.thread270:                                       ; preds = %139
+.thread258:                                       ; preds = %139
   %140 = load i64, ptr %26, align 8, !tbaa !23
   br label %150
 
 141:                                              ; preds = %139
   %142 = load i64, ptr %39, align 8, !tbaa !21
-  %.not184 = icmp ugt i64 %142, %25
-  br i1 %.not184, label %.thread163, label %.thread166
+  %.not172 = icmp ugt i64 %142, %25
+  br i1 %.not172, label %.thread157, label %.thread160
 
 143:                                              ; preds = %lpGetIntegerIfValid.exit136
   %144 = load i64, ptr %21, align 8, !tbaa !23
@@ -2979,26 +2979,26 @@ lpGetIntegerIfValid.exit136:                      ; preds = %130, %136
   %147 = add i64 %146, %.0.i135
   %148 = load i64, ptr %26, align 8, !tbaa !23
   %149 = icmp ugt i64 %145, %148
-  br i1 %149, label %.thread166, label %150
+  br i1 %149, label %.thread160, label %150
 
-150:                                              ; preds = %.thread270, %143
-  %151 = phi i64 [ %140, %.thread270 ], [ %148, %143 ]
-  %.sroa.0.5153274 = phi i64 [ 0, %.thread270 ], [ %145, %143 ]
-  %.sroa.5.5155273 = phi i64 [ 0, %.thread270 ], [ %147, %143 ]
-  %152 = icmp ult i64 %.sroa.0.5153274, %151
-  br i1 %152, label %.thread163, label %153
+150:                                              ; preds = %.thread258, %143
+  %151 = phi i64 [ %140, %.thread258 ], [ %148, %143 ]
+  %.sroa.0.0152262 = phi i64 [ 0, %.thread258 ], [ %145, %143 ]
+  %.sroa.5.0153261 = phi i64 [ 0, %.thread258 ], [ %147, %143 ]
+  %152 = icmp ult i64 %.sroa.0.0152262, %151
+  br i1 %152, label %.thread157, label %153
 
 153:                                              ; preds = %150
   %154 = load i64, ptr %44, align 8, !tbaa !22
-  %.not185 = icmp ult i64 %.sroa.5.5155273, %154
-  br i1 %.not185, label %.thread163, label %.thread166
+  %.not173 = icmp ult i64 %.sroa.5.0153261, %154
+  br i1 %.not173, label %.thread157, label %.thread160
 
-.thread163:                                       ; preds = %153, %150, %141
+.thread157:                                       ; preds = %153, %150, %141
   %155 = and i64 %.0.i129, 2
   %.not118 = icmp eq i64 %155, 0
   br i1 %.not118, label %156, label %169
 
-156:                                              ; preds = %.thread163
+156:                                              ; preds = %.thread157
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %157 = call ptr @lpGet(ptr noundef %138, ptr noundef nonnull %7, ptr noundef null) #17
   %158 = icmp eq ptr %157, null
@@ -3028,41 +3028,41 @@ lpGetIntegerIfValid.exit136:                      ; preds = %130, %136
 lpGetIntegerIfValid.exit142:                      ; preds = %159, %165
   %.0.i141 = phi i64 [ %160, %159 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %167 = call ptr @lpNext(ptr noundef %.097229, ptr noundef %138) #17
+  %167 = call ptr @lpNext(ptr noundef %.097217, ptr noundef %138) #17
   store ptr %167, ptr %20, align 8, !tbaa !115
   %168 = shl nsw i64 %.0.i141, 1
   br label %169
 
-169:                                              ; preds = %.thread163, %lpGetIntegerIfValid.exit142
-  %170 = phi ptr [ %167, %lpGetIntegerIfValid.exit142 ], [ %138, %.thread163 ]
-  %.0101 = phi i64 [ %168, %lpGetIntegerIfValid.exit142 ], [ %.0.i126, %.thread163 ]
-  %.not119222 = icmp eq i64 %.0101, 0
-  br i1 %.not119222, label %._crit_edge226, label %.lr.ph225
+169:                                              ; preds = %.thread157, %lpGetIntegerIfValid.exit142
+  %170 = phi ptr [ %167, %lpGetIntegerIfValid.exit142 ], [ %138, %.thread157 ]
+  %.0101 = phi i64 [ %168, %lpGetIntegerIfValid.exit142 ], [ %.0.i126, %.thread157 ]
+  %.not119210 = icmp eq i64 %.0101, 0
+  br i1 %.not119210, label %._crit_edge214, label %.lr.ph213
 
-.lr.ph225:                                        ; preds = %169, %.lr.ph225
-  %171 = phi ptr [ %173, %.lr.ph225 ], [ %170, %169 ]
-  %.1102223 = phi i64 [ %172, %.lr.ph225 ], [ %.0101, %169 ]
-  %172 = add nsw i64 %.1102223, -1
-  %173 = call ptr @lpNext(ptr noundef %.097229, ptr noundef %171) #17
+.lr.ph213:                                        ; preds = %169, %.lr.ph213
+  %171 = phi ptr [ %173, %.lr.ph213 ], [ %170, %169 ]
+  %.1102211 = phi i64 [ %172, %.lr.ph213 ], [ %.0101, %169 ]
+  %172 = add nsw i64 %.1102211, -1
+  %173 = call ptr @lpNext(ptr noundef %.097217, ptr noundef %171) #17
   store ptr %173, ptr %20, align 8, !tbaa !115
   %.not119 = icmp eq i64 %172, 0
-  br i1 %.not119, label %._crit_edge226, label %.lr.ph225, !llvm.loop !124
+  br i1 %.not119, label %._crit_edge214, label %.lr.ph213, !llvm.loop !124
 
-._crit_edge226:                                   ; preds = %.lr.ph225, %169
-  %174 = phi ptr [ %170, %169 ], [ %173, %.lr.ph225 ]
-  %175 = call ptr @lpNext(ptr noundef %.097229, ptr noundef %174) #17
+._crit_edge214:                                   ; preds = %.lr.ph213, %169
+  %174 = phi ptr [ %170, %169 ], [ %173, %.lr.ph213 ]
+  %175 = call ptr @lpNext(ptr noundef %.097217, ptr noundef %174) #17
   store ptr %175, ptr %20, align 8, !tbaa !115
   %176 = and i64 %.0.i129, 1
   %.not120 = icmp eq i64 %176, 0
   br i1 %.not120, label %177, label %thread-pre-split
 
-177:                                              ; preds = %._crit_edge226
+177:                                              ; preds = %._crit_edge214
   %178 = ptrtoint ptr %175 to i64
-  %179 = ptrtoint ptr %.097229 to i64
+  %179 = ptrtoint ptr %.097217 to i64
   %180 = sub i64 %178, %179
   %181 = or disjoint i64 %.0.i129, 1
-  %182 = call ptr @lpReplaceInteger(ptr noundef %.097229, ptr noundef nonnull %23, i64 noundef %181) #17
-  %183 = add nsw i64 %.0104228, 1
+  %182 = call ptr @lpReplaceInteger(ptr noundef %.097217, ptr noundef nonnull %23, i64 noundef %181) #17
+  %183 = add nsw i64 %.0104216, 1
   %184 = load i64, ptr %39, align 8, !tbaa !21
   %185 = add i64 %184, -1
   store i64 %185, ptr %39, align 8, !tbaa !21
@@ -3070,18 +3070,18 @@ lpGetIntegerIfValid.exit142:                      ; preds = %159, %165
   store ptr %186, ptr %20, align 8, !tbaa !115
   br label %thread-pre-split
 
-.thread166:                                       ; preds = %141, %153, %143
+.thread160:                                       ; preds = %141, %153, %143
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %thread-pre-split, %._crit_edge, %.thread166
-  %.0104200 = phi i64 [ %.0104228, %.thread166 ], [ 0, %._crit_edge ], [ %.2106, %thread-pre-split ]
-  %.097194 = phi ptr [ %.097229, %.thread166 ], [ %50, %._crit_edge ], [ %.299, %thread-pre-split ]
-  %187 = add nsw i64 %.0104200, %.094217
-  %188 = call ptr @lpFirst(ptr noundef %.097194) #17
+.loopexit:                                        ; preds = %thread-pre-split, %._crit_edge, %.thread160
+  %.0104188 = phi i64 [ %.0104216, %.thread160 ], [ 0, %._crit_edge ], [ %.2106, %thread-pre-split ]
+  %.097182 = phi ptr [ %.097217, %.thread160 ], [ %50, %._crit_edge ], [ %.299, %thread-pre-split ]
+  %187 = add nsw i64 %.0104188, %.094205
+  %188 = call ptr @lpFirst(ptr noundef %.097182) #17
   store ptr %188, ptr %20, align 8, !tbaa !115
-  %189 = sub nsw i64 %.0.i, %.0104200
-  %190 = call ptr @lpReplaceInteger(ptr noundef %.097194, ptr noundef nonnull %20, i64 noundef %189) #17
+  %189 = sub nsw i64 %.0.i, %.0104188
+  %190 = call ptr @lpReplaceInteger(ptr noundef %.097182, ptr noundef nonnull %20, i64 noundef %189) #17
   %191 = load ptr, ptr %20, align 8, !tbaa !115
   %192 = call ptr @lpNext(ptr noundef %190, ptr noundef %191) #17
   store ptr %192, ptr %20, align 8, !tbaa !115
@@ -3114,7 +3114,7 @@ lpGetIntegerIfValid.exit142:                      ; preds = %159, %165
 lpGetIntegerIfValid.exit145:                      ; preds = %195, %201
   %.0.i144 = phi i64 [ %196, %195 ], [ %202, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %203 = add nsw i64 %.0.i144, %.0104200
+  %203 = add nsw i64 %.0.i144, %.0104188
   %204 = call ptr @lpReplaceInteger(ptr noundef %190, ptr noundef nonnull %20, i64 noundef %203) #17
   %205 = load ptr, ptr %20, align 8, !tbaa !115
   %206 = call ptr @lpNext(ptr noundef %204, ptr noundef %205) #17
@@ -3123,12 +3123,12 @@ lpGetIntegerIfValid.exit145:                      ; preds = %195, %201
   %208 = load ptr, ptr %41, align 8, !tbaa !32
   %209 = load i64, ptr %45, align 8, !tbaa !36
   %210 = call i32 @raxInsert(ptr noundef %207, ptr noundef %208, i64 noundef %209, ptr noundef %204, ptr noundef null) #17
-  br label %.thread178
+  br label %.thread168
 
-.thread178:                                       ; preds = %lpGetIntegerIfValid.exit145, %.loopexit188
-  %.3.ph = phi i64 [ %.094217, %.loopexit188 ], [ %187, %lpGetIntegerIfValid.exit145 ]
+.thread168:                                       ; preds = %lpGetIntegerIfValid.exit145, %.loopexit176
+  %.3.ph = phi i64 [ %.094205, %.loopexit176 ], [ %187, %lpGetIntegerIfValid.exit145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.loopexit187.sink.split
+  br label %.loopexit175.sink.split
 
 211:                                              ; preds = %82, %65, %.thread147
   call void @lpFree(ptr noundef %50) #17
@@ -3146,27 +3146,27 @@ lpGetIntegerIfValid.exit145:                      ; preds = %195, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %221 = call i32 @raxNext(ptr noundef nonnull %19) #17
   %.not = icmp eq i32 %221, 0
-  br i1 %.not, label %.loopexit187, label %46
+  br i1 %.not, label %.loopexit175, label %46
 
-.loopexit187.sink.split:                          ; preds = %lpGetIntegerIfValid.exit, %.thread178
-  %.195.ph = phi i64 [ %.3.ph, %.thread178 ], [ %.094217, %lpGetIntegerIfValid.exit ]
+.loopexit175.sink.split:                          ; preds = %lpGetIntegerIfValid.exit, %.thread168
+  %.195.ph = phi i64 [ %.3.ph, %.thread168 ], [ %.094205, %lpGetIntegerIfValid.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.loopexit187
+  br label %.loopexit175
 
-.loopexit187:                                     ; preds = %211, %47, %.loopexit187.sink.split, %34
-  %.195 = phi i64 [ 0, %34 ], [ %.195.ph, %.loopexit187.sink.split ], [ %62, %211 ], [ %.094217, %47 ]
+.loopexit175:                                     ; preds = %211, %47, %.loopexit175.sink.split, %34
+  %.195 = phi i64 [ 0, %34 ], [ %.195.ph, %.loopexit175.sink.split ], [ %62, %211 ], [ %.094205, %47 ]
   call void @raxStop(ptr noundef nonnull %19) #17
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %223 = load i64, ptr %222, align 8, !tbaa !21
   %224 = icmp eq i64 %223, 0
   br i1 %224, label %225, label %227
 
-225:                                              ; preds = %.loopexit187
+225:                                              ; preds = %.loopexit175
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %226, i8 0, i64 16, i1 false)
   br label %240
 
-227:                                              ; preds = %.loopexit187
+227:                                              ; preds = %.loopexit175
   %.not121 = icmp eq i64 %.195, 0
   br i1 %.not121, label %240, label %228
 

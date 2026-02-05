@@ -751,8 +751,8 @@ _ZN12_GLOBAL__N_119RISCVCodeGenPrepare18expandVPStrideLoadERN4llvm13IntrinsicIns
   %240 = getelementptr inbounds %"class.llvm::Use", ptr %100, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !192
   %242 = load i8, ptr %241, align 8, !tbaa !58
-  %.not71.i.i = icmp eq i8 %242, 84
-  br i1 %.not71.i.i, label %243, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_119RISCVCodeGenPrepareEbE5visitERNS_11InstructionE.exit
+  %.not69.i.i = icmp eq i8 %242, 84
+  br i1 %.not69.i.i, label %243, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_119RISCVCodeGenPrepareEbE5visitERNS_11InstructionE.exit
 
 243:                                              ; preds = %234
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 16
@@ -790,14 +790,14 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %243
 _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %256, %253
   %261 = phi ptr [ %255, %253 ], [ %260, %256 ]
   %.pre-phi2.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i, %253 ], [ %258, %256 ]
-  %.idx73.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx73.i.i
+  %.idx71.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx71.i.i
   %263 = lshr i64 %.pre-phi2.i.i.i.i.i, 2
-  %.not72.i.i = icmp eq i64 %263, 0
-  br i1 %.not72.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %.not70.i.i = icmp eq i64 %263, 0
+  br i1 %.not70.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
-  %264 = and i64 %.idx73.i.i, 68719476608
+  %264 = and i64 %.idx71.i.i, 68719476608
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %261, i64 %264
   br label %265
 
@@ -884,8 +884,8 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i: ; preds = %265, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit95, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit97, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %285
   %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %285 ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %298, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit97 ], [ %297, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit95 ], [ %296, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i.i, %265 ]
-  %.not74.i.i = icmp eq ptr %.028.i.i.i.i.i.i, %262
-  br i1 %.not74.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_119RISCVCodeGenPrepareEbE5visitERNS_11InstructionE.exit, label %299
+  %.not72.i.i = icmp eq ptr %.028.i.i.i.i.i.i, %262
+  br i1 %.not72.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_119RISCVCodeGenPrepareEbE5visitERNS_11InstructionE.exit, label %299
 
 299:                                              ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_RKT0_.exit.i.i
   %300 = getelementptr inbounds nuw i8, ptr %240, i64 32
@@ -909,10 +909,10 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_13IntrinsicInstEEEbOT_
   %313 = load i32, ptr %250, align 4
   %314 = shl i32 %313, 3
   %315 = and i32 %314, 1073741816
-  %.idx85.i.i = zext nneg i32 %315 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %312, i64 %.idx85.i.i
-  %.not3483.i.i = icmp eq i32 %315, 0
-  br i1 %.not3483.i.i, label %._crit_edge.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i
+  %.idx83.i.i = zext nneg i32 %315 to i64
+  %316 = getelementptr inbounds nuw i8, ptr %312, i64 %.idx83.i.i
+  %.not3481.i.i = icmp eq i32 %315, 0
+  br i1 %.not3481.i.i, label %._crit_edge.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i: ; preds = %299
   %317 = getelementptr inbounds nuw i8, ptr %306, i64 4
@@ -1058,8 +1058,8 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_119RISCVCodeGenPrepareEbE5visitERNS_11InstructionE.exit
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i
-  %.03184.i.i = phi ptr [ %312, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i ], [ %470, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ]
-  %375 = load ptr, ptr %.03184.i.i, align 8, !tbaa !296
+  %.03182.i.i = phi ptr [ %312, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph.i.i ], [ %470, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ]
+  %375 = load ptr, ptr %.03182.i.i, align 8, !tbaa !296
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 48
   %377 = load ptr, ptr %376, align 8, !tbaa !297
   %378 = icmp ne ptr %376, %377
@@ -1256,7 +1256,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   %468 = zext i32 %463 to i64
   %469 = getelementptr inbounds nuw ptr, ptr %467, i64 %468
   store ptr %375, ptr %469, align 8, !tbaa !296
-  %470 = getelementptr inbounds nuw i8, ptr %.03184.i.i, i64 8
+  %470 = getelementptr inbounds nuw i8, ptr %.03182.i.i, i64 8
   %.not34.i.i = icmp eq ptr %470, %316
   br i1 %.not34.i.i, label %._crit_edge.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
 

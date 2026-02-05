@@ -1231,14 +1231,14 @@ _ZN9grpc_core15metadata_detail5ValueINS_30EndpointLoadMetricsBinMetadataEvED2Ev.
   br label %_ZN9grpc_core5SliceD2Ev.exit
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %307, %_ZN9grpc_core15metadata_detail5ValueINS_30EndpointLoadMetricsBinMetadataEvED2Ev.exit.i.i.i
-  %.pre77 = load ptr, ptr %16, align 8, !tbaa !65
-  %308 = icmp eq ptr %.pre77, %256
+  %.pre76 = load ptr, ptr %16, align 8, !tbaa !65
+  %308 = icmp eq ptr %.pre76, %256
   br i1 %308, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59: ; preds = %_ZN9grpc_core5SliceD2Ev.exit
   %309 = load i64, ptr %256, align 8, !tbaa !67
   %310 = add i64 %309, 1
-  call void @_ZdlPvm(ptr noundef %.pre77, i64 noundef %310) #37
+  call void @_ZdlPvm(ptr noundef %.pre76, i64 noundef %310) #37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59

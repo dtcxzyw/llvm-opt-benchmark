@@ -37300,8 +37300,8 @@ define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6ve
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not174 = icmp eq ptr %10, %12
-  br i1 %.not174, label %._crit_edge, label %.lr.ph
+  %.not158 = icmp eq ptr %10, %12
+  br i1 %.not158, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37314,62 +37314,62 @@ define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6ve
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.promoted = load float, ptr %0, align 1
-  %.promoted222 = load float, ptr %4, align 1
-  %.promoted225 = load float, ptr %13, align 1
-  %.promoted228 = load float, ptr %14, align 1
-  %.promoted231 = load float, ptr %15, align 1
-  %.promoted234 = load float, ptr %5, align 1
-  %.promoted237 = load float, ptr %6, align 1
-  %.promoted240 = load float, ptr %16, align 1
-  %.promoted243 = load float, ptr %17, align 1
-  %.promoted246 = load float, ptr %18, align 1
-  %.promoted249 = load float, ptr %7, align 1
-  %.promoted252 = load float, ptr %8, align 1
-  %.promoted255 = load float, ptr %19, align 1
-  %.promoted258 = load float, ptr %20, align 1
-  %.promoted261 = load float, ptr %21, align 1
-  %.promoted264 = load float, ptr %9, align 1
+  %.promoted206 = load float, ptr %4, align 1
+  %.promoted209 = load float, ptr %13, align 1
+  %.promoted212 = load float, ptr %14, align 1
+  %.promoted215 = load float, ptr %15, align 1
+  %.promoted218 = load float, ptr %5, align 1
+  %.promoted221 = load float, ptr %6, align 1
+  %.promoted224 = load float, ptr %16, align 1
+  %.promoted227 = load float, ptr %17, align 1
+  %.promoted230 = load float, ptr %18, align 1
+  %.promoted233 = load float, ptr %7, align 1
+  %.promoted236 = load float, ptr %8, align 1
+  %.promoted239 = load float, ptr %19, align 1
+  %.promoted242 = load float, ptr %20, align 1
+  %.promoted245 = load float, ptr %21, align 1
+  %.promoted248 = load float, ptr %9, align 1
   br label %22
 
 ._crit_edge.loopexit:                             ; preds = %.sink.split
-  store float %.sink219221, ptr %0, align 1
-  store float %.sink218224, ptr %4, align 1
-  store float %.sink217227, ptr %13, align 1
-  store float %.sink216230, ptr %14, align 1
-  store float %.sink215233, ptr %15, align 1
-  store float %.sink214236, ptr %5, align 1
-  store float %.sink213239, ptr %6, align 1
-  store float %.sink212242, ptr %16, align 1
-  store float %.sink211245, ptr %17, align 1
-  store float %.sink210248, ptr %18, align 1
-  store float %.sink209251, ptr %7, align 1
-  store float %.sink208254, ptr %8, align 1
-  store float %.sink207257, ptr %19, align 1
-  store float %.sink206260, ptr %20, align 1
-  store float %.sink205263, ptr %21, align 1
-  store float %.sink266, ptr %9, align 1
+  store float %.sink203205, ptr %0, align 1
+  store float %.sink202208, ptr %4, align 1
+  store float %.sink201211, ptr %13, align 1
+  store float %.sink200214, ptr %14, align 1
+  store float %.sink199217, ptr %15, align 1
+  store float %.sink198220, ptr %5, align 1
+  store float %.sink197223, ptr %6, align 1
+  store float %.sink196226, ptr %16, align 1
+  store float %.sink195229, ptr %17, align 1
+  store float %.sink194232, ptr %18, align 1
+  store float %.sink193235, ptr %7, align 1
+  store float %.sink192238, ptr %8, align 1
+  store float %.sink191241, ptr %19, align 1
+  store float %.sink190244, ptr %20, align 1
+  store float %.sink189247, ptr %21, align 1
+  store float %.sink250, ptr %9, align 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   ret void
 
 22:                                               ; preds = %.lr.ph, %.sink.split
-  %.sink265 = phi float [ %.promoted264, %.lr.ph ], [ %.sink266, %.sink.split ]
-  %.sink205262 = phi float [ %.promoted261, %.lr.ph ], [ %.sink205263, %.sink.split ]
-  %.sink206259 = phi float [ %.promoted258, %.lr.ph ], [ %.sink206260, %.sink.split ]
-  %.sink207256 = phi float [ %.promoted255, %.lr.ph ], [ %.sink207257, %.sink.split ]
-  %.sink208253 = phi float [ %.promoted252, %.lr.ph ], [ %.sink208254, %.sink.split ]
-  %.sink209250 = phi float [ %.promoted249, %.lr.ph ], [ %.sink209251, %.sink.split ]
-  %.sink210247 = phi float [ %.promoted246, %.lr.ph ], [ %.sink210248, %.sink.split ]
-  %.sink211244 = phi float [ %.promoted243, %.lr.ph ], [ %.sink211245, %.sink.split ]
-  %.sink212241 = phi float [ %.promoted240, %.lr.ph ], [ %.sink212242, %.sink.split ]
-  %.sink213238 = phi float [ %.promoted237, %.lr.ph ], [ %.sink213239, %.sink.split ]
-  %.sink214235 = phi float [ %.promoted234, %.lr.ph ], [ %.sink214236, %.sink.split ]
-  %.sink215232 = phi float [ %.promoted231, %.lr.ph ], [ %.sink215233, %.sink.split ]
-  %.sink216229 = phi float [ %.promoted228, %.lr.ph ], [ %.sink216230, %.sink.split ]
-  %.sink217226 = phi float [ %.promoted225, %.lr.ph ], [ %.sink217227, %.sink.split ]
-  %.sink218223 = phi float [ %.promoted222, %.lr.ph ], [ %.sink218224, %.sink.split ]
-  %.sink219220 = phi float [ %.promoted, %.lr.ph ], [ %.sink219221, %.sink.split ]
+  %.sink249 = phi float [ %.promoted248, %.lr.ph ], [ %.sink250, %.sink.split ]
+  %.sink189246 = phi float [ %.promoted245, %.lr.ph ], [ %.sink189247, %.sink.split ]
+  %.sink190243 = phi float [ %.promoted242, %.lr.ph ], [ %.sink190244, %.sink.split ]
+  %.sink191240 = phi float [ %.promoted239, %.lr.ph ], [ %.sink191241, %.sink.split ]
+  %.sink192237 = phi float [ %.promoted236, %.lr.ph ], [ %.sink192238, %.sink.split ]
+  %.sink193234 = phi float [ %.promoted233, %.lr.ph ], [ %.sink193235, %.sink.split ]
+  %.sink194231 = phi float [ %.promoted230, %.lr.ph ], [ %.sink194232, %.sink.split ]
+  %.sink195228 = phi float [ %.promoted227, %.lr.ph ], [ %.sink195229, %.sink.split ]
+  %.sink196225 = phi float [ %.promoted224, %.lr.ph ], [ %.sink196226, %.sink.split ]
+  %.sink197222 = phi float [ %.promoted221, %.lr.ph ], [ %.sink197223, %.sink.split ]
+  %.sink198219 = phi float [ %.promoted218, %.lr.ph ], [ %.sink198220, %.sink.split ]
+  %.sink199216 = phi float [ %.promoted215, %.lr.ph ], [ %.sink199217, %.sink.split ]
+  %.sink200213 = phi float [ %.promoted212, %.lr.ph ], [ %.sink200214, %.sink.split ]
+  %.sink201210 = phi float [ %.promoted209, %.lr.ph ], [ %.sink201211, %.sink.split ]
+  %.sink202207 = phi float [ %.promoted206, %.lr.ph ], [ %.sink202208, %.sink.split ]
+  %.sink203204 = phi float [ %.promoted, %.lr.ph ], [ %.sink203205, %.sink.split ]
   %23 = phi float [ 0.000000e+00, %.lr.ph ], [ %478, %.sink.split ]
   %24 = phi float [ 0.000000e+00, %.lr.ph ], [ %479, %.sink.split ]
   %25 = phi float [ 0.000000e+00, %.lr.ph ], [ %480, %.sink.split ]
@@ -37379,7 +37379,7 @@ define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6ve
   %29 = phi float [ 0.000000e+00, %.lr.ph ], [ %484, %.sink.split ]
   %30 = phi float [ 0.000000e+00, %.lr.ph ], [ %485, %.sink.split ]
   %31 = phi float [ 0.000000e+00, %.lr.ph ], [ %486, %.sink.split ]
-  %.sroa.0165.0175 = phi ptr [ %10, %.lr.ph ], [ %494, %.sink.split ]
+  %.sroa.0149.0159 = phi ptr [ %10, %.lr.ph ], [ %494, %.sink.split ]
   %32 = phi float [ 1.000000e+00, %.lr.ph ], [ %493, %.sink.split ]
   %33 = phi float [ 0.000000e+00, %.lr.ph ], [ %492, %.sink.split ]
   %34 = phi float [ 1.000000e+00, %.lr.ph ], [ %491, %.sink.split ]
@@ -37387,7 +37387,7 @@ define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6ve
   %36 = phi float [ 1.000000e+00, %.lr.ph ], [ %489, %.sink.split ]
   %37 = phi float [ 0.000000e+00, %.lr.ph ], [ %488, %.sink.split ]
   %38 = phi float [ 1.000000e+00, %.lr.ph ], [ %487, %.sink.split ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 32
   %40 = load i32, ptr %39, align 8
   switch i32 %40, label %.sink.split [
     i32 0, label %41
@@ -37398,23 +37398,23 @@ define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6ve
   ]
 
 41:                                               ; preds = %22
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 36
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 40
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 44
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 48
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 52
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 56
   %53 = load float, ptr %52, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 60
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 60
   %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 64
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 68
   %59 = load float, ptr %58, align 4
   %60 = fmul float %57, %57
   %61 = tail call float @llvm.fmuladd.f32(float %55, float %55, float %60)
@@ -37431,9 +37431,9 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %41
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit
 
 _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %41, %_ZN10aiVector3tIfEdVEf.exit.i
-  %.sroa.0146.0 = phi float [ %55, %41 ], [ %65, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %.sroa.6147.0 = phi float [ %57, %41 ], [ %66, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %.sroa.9148.0 = phi float [ %59, %41 ], [ %67, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %.sroa.0130.0 = phi float [ %55, %41 ], [ %65, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %.sroa.6131.0 = phi float [ %57, %41 ], [ %66, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %.sroa.9132.0 = phi float [ %59, %41 ], [ %67, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %68 = fsub float %49, %43
   %69 = fsub float %51, %45
   %70 = fsub float %53, %47
@@ -37449,26 +37449,26 @@ _ZN10aiVector3tIfEdVEf.exit.i44:                  ; preds = %_ZN10aiVector3tIfE9
   %sqrt.i.i45 = tail call noundef float @llvm.sqrt.f32(float %73)
   %75 = fdiv float 1.000000e+00, %sqrt.i.i45
   %76 = fmul float %68, %75
-  %.sroa.0136.0.vec.insert = insertelement <2 x float> poison, float %76, i64 0
+  %.sroa.0120.0.vec.insert = insertelement <2 x float> poison, float %76, i64 0
   %77 = fmul float %69, %75
-  %.sroa.0136.4.vec.insert = insertelement <2 x float> %.sroa.0136.0.vec.insert, float %77, i64 1
+  %.sroa.0120.4.vec.insert = insertelement <2 x float> %.sroa.0120.0.vec.insert, float %77, i64 1
   %78 = fmul float %70, %75
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit46
 
 _ZN10aiVector3tIfE9NormalizeEv.exit46:            ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZN10aiVector3tIfEdVEf.exit.i44
-  %.sroa.0136.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %.sroa.0136.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i44 ]
-  %.sroa.8139.0 = phi float [ %70, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %78, %_ZN10aiVector3tIfEdVEf.exit.i44 ]
-  %.sroa.0140.4.vec.extract144 = extractelement <2 x float> %.sroa.0136.0, i64 1
-  %79 = fneg float %.sroa.6147.0
-  %80 = fmul float %.sroa.8139.0, %79
-  %81 = tail call float @llvm.fmuladd.f32(float %.sroa.0140.4.vec.extract144, float %.sroa.9148.0, float %80)
-  %.sroa.0140.0.vec.extract142 = extractelement <2 x float> %.sroa.0136.0, i64 0
-  %82 = fneg float %.sroa.9148.0
-  %83 = fmul float %.sroa.0140.0.vec.extract142, %82
-  %84 = tail call float @llvm.fmuladd.f32(float %.sroa.8139.0, float %.sroa.0146.0, float %83)
-  %85 = fneg float %.sroa.0146.0
-  %86 = fmul float %.sroa.0140.4.vec.extract144, %85
-  %87 = tail call float @llvm.fmuladd.f32(float %.sroa.0140.0.vec.extract142, float %.sroa.6147.0, float %86)
+  %.sroa.0120.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %.sroa.0120.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i44 ]
+  %.sroa.8123.0 = phi float [ %70, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %78, %_ZN10aiVector3tIfEdVEf.exit.i44 ]
+  %.sroa.0124.4.vec.extract128 = extractelement <2 x float> %.sroa.0120.0, i64 1
+  %79 = fneg float %.sroa.6131.0
+  %80 = fmul float %.sroa.8123.0, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %.sroa.0124.4.vec.extract128, float %.sroa.9132.0, float %80)
+  %.sroa.0124.0.vec.extract126 = extractelement <2 x float> %.sroa.0120.0, i64 0
+  %82 = fneg float %.sroa.9132.0
+  %83 = fmul float %.sroa.0124.0.vec.extract126, %82
+  %84 = tail call float @llvm.fmuladd.f32(float %.sroa.8123.0, float %.sroa.0130.0, float %83)
+  %85 = fneg float %.sroa.0130.0
+  %86 = fmul float %.sroa.0124.4.vec.extract128, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %.sroa.0124.0.vec.extract126, float %.sroa.6131.0, float %86)
   %.sroa.0.0.vec.insert.i47 = insertelement <2 x float> poison, float %81, i64 0
   %.sroa.0.4.vec.insert.i48 = insertelement <2 x float> %.sroa.0.0.vec.insert.i47, float %84, i64 1
   %88 = fmul float %84, %84
@@ -37481,27 +37481,27 @@ _ZN10aiVector3tIfEdVEf.exit.i51:                  ; preds = %_ZN10aiVector3tIfE9
   %sqrt.i.i52 = tail call noundef float @llvm.sqrt.f32(float %90)
   %92 = fdiv float 1.000000e+00, %sqrt.i.i52
   %93 = fmul float %81, %92
-  %.sroa.0128.0.vec.insert = insertelement <2 x float> poison, float %93, i64 0
+  %.sroa.0112.0.vec.insert = insertelement <2 x float> poison, float %93, i64 0
   %94 = fmul float %84, %92
-  %.sroa.0128.4.vec.insert = insertelement <2 x float> %.sroa.0128.0.vec.insert, float %94, i64 1
+  %.sroa.0112.4.vec.insert = insertelement <2 x float> %.sroa.0112.0.vec.insert, float %94, i64 1
   %95 = fmul float %87, %92
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit53
 
 _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit46, %_ZN10aiVector3tIfEdVEf.exit.i51
-  %.sroa.0128.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i48, %_ZN10aiVector3tIfE9NormalizeEv.exit46 ], [ %.sroa.0128.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i51 ]
-  %.sroa.9135.0 = phi float [ %87, %_ZN10aiVector3tIfE9NormalizeEv.exit46 ], [ %95, %_ZN10aiVector3tIfEdVEf.exit.i51 ]
-  %.sroa.0128.0.vec.extract131 = extractelement <2 x float> %.sroa.0128.0, i64 0
-  %.sroa.0128.4.vec.extract134 = extractelement <2 x float> %.sroa.0128.0, i64 1
-  %96 = fneg float %.sroa.0140.0.vec.extract142
-  %97 = fneg float %.sroa.0140.4.vec.extract144
-  %98 = fneg float %.sroa.8139.0
-  %99 = fmul float %.sroa.0128.4.vec.extract134, %33
-  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.0128.0.vec.extract131, float %32, float %99)
-  %101 = tail call float @llvm.fmuladd.f32(float %.sroa.9135.0, float %31, float %100)
+  %.sroa.0112.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i48, %_ZN10aiVector3tIfE9NormalizeEv.exit46 ], [ %.sroa.0112.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i51 ]
+  %.sroa.9119.0 = phi float [ %87, %_ZN10aiVector3tIfE9NormalizeEv.exit46 ], [ %95, %_ZN10aiVector3tIfEdVEf.exit.i51 ]
+  %.sroa.0112.0.vec.extract115 = extractelement <2 x float> %.sroa.0112.0, i64 0
+  %.sroa.0112.4.vec.extract118 = extractelement <2 x float> %.sroa.0112.0, i64 1
+  %96 = fneg float %.sroa.0124.0.vec.extract126
+  %97 = fneg float %.sroa.0124.4.vec.extract128
+  %98 = fneg float %.sroa.8123.0
+  %99 = fmul float %.sroa.0112.4.vec.extract118, %33
+  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.0112.0.vec.extract115, float %32, float %99)
+  %101 = tail call float @llvm.fmuladd.f32(float %.sroa.9119.0, float %31, float %100)
   %102 = tail call float @llvm.fmuladd.f32(float %30, float 0.000000e+00, float %101)
-  %103 = fmul float %.sroa.6147.0, %33
-  %104 = tail call float @llvm.fmuladd.f32(float %.sroa.0146.0, float %32, float %103)
-  %105 = tail call float @llvm.fmuladd.f32(float %.sroa.9148.0, float %31, float %104)
+  %103 = fmul float %.sroa.6131.0, %33
+  %104 = tail call float @llvm.fmuladd.f32(float %.sroa.0130.0, float %32, float %103)
+  %105 = tail call float @llvm.fmuladd.f32(float %.sroa.9132.0, float %31, float %104)
   %106 = tail call float @llvm.fmuladd.f32(float %30, float 0.000000e+00, float %105)
   %107 = fmul float %33, %97
   %108 = tail call float @llvm.fmuladd.f32(float %96, float %32, float %107)
@@ -37511,13 +37511,13 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   %112 = tail call float @llvm.fmuladd.f32(float %43, float %32, float %111)
   %113 = tail call float @llvm.fmuladd.f32(float %47, float %31, float %112)
   %114 = fadd float %30, %113
-  %115 = fmul float %.sroa.0128.4.vec.extract134, %34
-  %116 = tail call float @llvm.fmuladd.f32(float %.sroa.0128.0.vec.extract131, float %29, float %115)
-  %117 = tail call float @llvm.fmuladd.f32(float %.sroa.9135.0, float %35, float %116)
+  %115 = fmul float %.sroa.0112.4.vec.extract118, %34
+  %116 = tail call float @llvm.fmuladd.f32(float %.sroa.0112.0.vec.extract115, float %29, float %115)
+  %117 = tail call float @llvm.fmuladd.f32(float %.sroa.9119.0, float %35, float %116)
   %118 = tail call float @llvm.fmuladd.f32(float %28, float 0.000000e+00, float %117)
-  %119 = fmul float %.sroa.6147.0, %34
-  %120 = tail call float @llvm.fmuladd.f32(float %.sroa.0146.0, float %29, float %119)
-  %121 = tail call float @llvm.fmuladd.f32(float %.sroa.9148.0, float %35, float %120)
+  %119 = fmul float %.sroa.6131.0, %34
+  %120 = tail call float @llvm.fmuladd.f32(float %.sroa.0130.0, float %29, float %119)
+  %121 = tail call float @llvm.fmuladd.f32(float %.sroa.9132.0, float %35, float %120)
   %122 = tail call float @llvm.fmuladd.f32(float %28, float 0.000000e+00, float %121)
   %123 = fmul float %34, %97
   %124 = tail call float @llvm.fmuladd.f32(float %96, float %29, float %123)
@@ -37527,13 +37527,13 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   %128 = tail call float @llvm.fmuladd.f32(float %43, float %29, float %127)
   %129 = tail call float @llvm.fmuladd.f32(float %47, float %35, float %128)
   %130 = fadd float %28, %129
-  %131 = fmul float %.sroa.0128.4.vec.extract134, %26
-  %132 = tail call float @llvm.fmuladd.f32(float %.sroa.0128.0.vec.extract131, float %27, float %131)
-  %133 = tail call float @llvm.fmuladd.f32(float %.sroa.9135.0, float %36, float %132)
+  %131 = fmul float %.sroa.0112.4.vec.extract118, %26
+  %132 = tail call float @llvm.fmuladd.f32(float %.sroa.0112.0.vec.extract115, float %27, float %131)
+  %133 = tail call float @llvm.fmuladd.f32(float %.sroa.9119.0, float %36, float %132)
   %134 = tail call float @llvm.fmuladd.f32(float %37, float 0.000000e+00, float %133)
-  %135 = fmul float %.sroa.6147.0, %26
-  %136 = tail call float @llvm.fmuladd.f32(float %.sroa.0146.0, float %27, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %.sroa.9148.0, float %36, float %136)
+  %135 = fmul float %.sroa.6131.0, %26
+  %136 = tail call float @llvm.fmuladd.f32(float %.sroa.0130.0, float %27, float %135)
+  %137 = tail call float @llvm.fmuladd.f32(float %.sroa.9132.0, float %36, float %136)
   %138 = tail call float @llvm.fmuladd.f32(float %37, float 0.000000e+00, float %137)
   %139 = fmul float %26, %97
   %140 = tail call float @llvm.fmuladd.f32(float %96, float %27, float %139)
@@ -37543,13 +37543,13 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   %144 = tail call float @llvm.fmuladd.f32(float %43, float %27, float %143)
   %145 = tail call float @llvm.fmuladd.f32(float %47, float %36, float %144)
   %146 = fadd float %37, %145
-  %147 = fmul float %.sroa.0128.4.vec.extract134, %24
-  %148 = tail call float @llvm.fmuladd.f32(float %.sroa.0128.0.vec.extract131, float %25, float %147)
-  %149 = tail call float @llvm.fmuladd.f32(float %.sroa.9135.0, float %23, float %148)
+  %147 = fmul float %.sroa.0112.4.vec.extract118, %24
+  %148 = tail call float @llvm.fmuladd.f32(float %.sroa.0112.0.vec.extract115, float %25, float %147)
+  %149 = tail call float @llvm.fmuladd.f32(float %.sroa.9119.0, float %23, float %148)
   %150 = tail call float @llvm.fmuladd.f32(float %38, float 0.000000e+00, float %149)
-  %151 = fmul float %.sroa.6147.0, %24
-  %152 = tail call float @llvm.fmuladd.f32(float %.sroa.0146.0, float %25, float %151)
-  %153 = tail call float @llvm.fmuladd.f32(float %.sroa.9148.0, float %23, float %152)
+  %151 = fmul float %.sroa.6131.0, %24
+  %152 = tail call float @llvm.fmuladd.f32(float %.sroa.0130.0, float %25, float %151)
+  %153 = tail call float @llvm.fmuladd.f32(float %.sroa.9132.0, float %23, float %152)
   %154 = tail call float @llvm.fmuladd.f32(float %38, float 0.000000e+00, float %153)
   %155 = fmul float %24, %97
   %156 = tail call float @llvm.fmuladd.f32(float %96, float %25, float %155)
@@ -37562,15 +37562,15 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   br label %.sink.split
 
 163:                                              ; preds = %22
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 36
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 36
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 48
   %166 = load float, ptr %165, align 4
   %167 = fmul float %166, 0x400921FB60000000
   %168 = fdiv float %167, 1.800000e+02
   %169 = load float, ptr %164, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 40
   %171 = load float, ptr %170, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 44
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 44
   %173 = load float, ptr %172, align 4
   %174 = tail call noundef float @cosf(float noundef %168) #36
   %175 = tail call noundef float @sinf(float noundef %168) #36
@@ -37660,11 +37660,11 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   br label %.sink.split
 
 259:                                              ; preds = %22
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 36
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 36
   %261 = load float, ptr %260, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 40
+  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 40
   %263 = load float, ptr %262, align 4
-  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 44
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 44
   %265 = load float, ptr %264, align 4
   %266 = fmul float %33, 0.000000e+00
   %267 = fadd float %32, %266
@@ -37725,11 +37725,11 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   br label %.sink.split
 
 322:                                              ; preds = %22
-  %323 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 36
+  %323 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 36
   %324 = load float, ptr %323, align 4
-  %325 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 40
+  %325 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 40
   %326 = load float, ptr %325, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 44
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 44
   %328 = load float, ptr %327, align 4
   %329 = fmul float %33, 0.000000e+00
   %330 = tail call float @llvm.fmuladd.f32(float %324, float %32, float %329)
@@ -37786,37 +37786,37 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   br label %.sink.split
 
 381:                                              ; preds = %22
-  %382 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 36
+  %382 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 36
   %383 = load float, ptr %382, align 4
-  %384 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 40
+  %384 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 40
   %385 = load float, ptr %384, align 4
-  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 44
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 44
   %387 = load float, ptr %386, align 4
-  %388 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 48
+  %388 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 48
   %389 = load float, ptr %388, align 4
-  %390 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 52
+  %390 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 52
   %391 = load float, ptr %390, align 4
-  %392 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 56
+  %392 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 56
   %393 = load float, ptr %392, align 4
-  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 60
+  %394 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 60
   %395 = load float, ptr %394, align 4
-  %396 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 64
+  %396 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 64
   %397 = load float, ptr %396, align 4
-  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 68
+  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 68
   %399 = load float, ptr %398, align 4
-  %400 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 72
+  %400 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 72
   %401 = load float, ptr %400, align 4
-  %402 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 76
+  %402 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 76
   %403 = load float, ptr %402, align 4
-  %404 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 80
+  %404 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 80
   %405 = load float, ptr %404, align 4
-  %406 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 84
+  %406 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 84
   %407 = load float, ptr %406, align 4
-  %408 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 88
+  %408 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 88
   %409 = load float, ptr %408, align 4
-  %410 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 92
+  %410 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 92
   %411 = load float, ptr %410, align 4
-  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 96
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 96
   %413 = load float, ptr %412, align 4
   %414 = fmul float %391, %33
   %415 = tail call float @llvm.fmuladd.f32(float %383, float %32, float %414)
@@ -37885,22 +37885,22 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %381, %322, %259, %163, %_ZN10aiVector3tIfE9NormalizeEv.exit53, %22
-  %.sink266 = phi float [ %.sink265, %22 ], [ %477, %381 ], [ %380, %322 ], [ %321, %259 ], [ %258, %163 ], [ %162, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink205263 = phi float [ %.sink205262, %22 ], [ %473, %381 ], [ %378, %322 ], [ %317, %259 ], [ %254, %163 ], [ %158, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink206260 = phi float [ %.sink206259, %22 ], [ %469, %381 ], [ %375, %322 ], [ %314, %259 ], [ %250, %163 ], [ %154, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink207257 = phi float [ %.sink207256, %22 ], [ %465, %381 ], [ %371, %322 ], [ %311, %259 ], [ %246, %163 ], [ %150, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink208254 = phi float [ %.sink208253, %22 ], [ %461, %381 ], [ %367, %322 ], [ %307, %259 ], [ %242, %163 ], [ %146, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink209251 = phi float [ %.sink209250, %22 ], [ %457, %381 ], [ %365, %322 ], [ %303, %259 ], [ %238, %163 ], [ %142, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink210248 = phi float [ %.sink210247, %22 ], [ %453, %381 ], [ %362, %322 ], [ %300, %259 ], [ %234, %163 ], [ %138, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink211245 = phi float [ %.sink211244, %22 ], [ %449, %381 ], [ %358, %322 ], [ %297, %259 ], [ %230, %163 ], [ %134, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink212242 = phi float [ %.sink212241, %22 ], [ %445, %381 ], [ %354, %322 ], [ %293, %259 ], [ %226, %163 ], [ %130, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink213239 = phi float [ %.sink213238, %22 ], [ %441, %381 ], [ %352, %322 ], [ %289, %259 ], [ %222, %163 ], [ %126, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink214236 = phi float [ %.sink214235, %22 ], [ %437, %381 ], [ %349, %322 ], [ %286, %259 ], [ %218, %163 ], [ %122, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink215233 = phi float [ %.sink215232, %22 ], [ %433, %381 ], [ %345, %322 ], [ %283, %259 ], [ %214, %163 ], [ %118, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink216230 = phi float [ %.sink216229, %22 ], [ %429, %381 ], [ %341, %322 ], [ %279, %259 ], [ %210, %163 ], [ %114, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink217227 = phi float [ %.sink217226, %22 ], [ %425, %381 ], [ %339, %322 ], [ %275, %259 ], [ %206, %163 ], [ %110, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink218224 = phi float [ %.sink218223, %22 ], [ %421, %381 ], [ %336, %322 ], [ %272, %259 ], [ %202, %163 ], [ %106, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %.sink219221 = phi float [ %.sink219220, %22 ], [ %417, %381 ], [ %332, %322 ], [ %269, %259 ], [ %198, %163 ], [ %102, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink250 = phi float [ %.sink249, %22 ], [ %477, %381 ], [ %380, %322 ], [ %321, %259 ], [ %258, %163 ], [ %162, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink189247 = phi float [ %.sink189246, %22 ], [ %473, %381 ], [ %378, %322 ], [ %317, %259 ], [ %254, %163 ], [ %158, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink190244 = phi float [ %.sink190243, %22 ], [ %469, %381 ], [ %375, %322 ], [ %314, %259 ], [ %250, %163 ], [ %154, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink191241 = phi float [ %.sink191240, %22 ], [ %465, %381 ], [ %371, %322 ], [ %311, %259 ], [ %246, %163 ], [ %150, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink192238 = phi float [ %.sink192237, %22 ], [ %461, %381 ], [ %367, %322 ], [ %307, %259 ], [ %242, %163 ], [ %146, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink193235 = phi float [ %.sink193234, %22 ], [ %457, %381 ], [ %365, %322 ], [ %303, %259 ], [ %238, %163 ], [ %142, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink194232 = phi float [ %.sink194231, %22 ], [ %453, %381 ], [ %362, %322 ], [ %300, %259 ], [ %234, %163 ], [ %138, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink195229 = phi float [ %.sink195228, %22 ], [ %449, %381 ], [ %358, %322 ], [ %297, %259 ], [ %230, %163 ], [ %134, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink196226 = phi float [ %.sink196225, %22 ], [ %445, %381 ], [ %354, %322 ], [ %293, %259 ], [ %226, %163 ], [ %130, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink197223 = phi float [ %.sink197222, %22 ], [ %441, %381 ], [ %352, %322 ], [ %289, %259 ], [ %222, %163 ], [ %126, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink198220 = phi float [ %.sink198219, %22 ], [ %437, %381 ], [ %349, %322 ], [ %286, %259 ], [ %218, %163 ], [ %122, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink199217 = phi float [ %.sink199216, %22 ], [ %433, %381 ], [ %345, %322 ], [ %283, %259 ], [ %214, %163 ], [ %118, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink200214 = phi float [ %.sink200213, %22 ], [ %429, %381 ], [ %341, %322 ], [ %279, %259 ], [ %210, %163 ], [ %114, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink201211 = phi float [ %.sink201210, %22 ], [ %425, %381 ], [ %339, %322 ], [ %275, %259 ], [ %206, %163 ], [ %110, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink202208 = phi float [ %.sink202207, %22 ], [ %421, %381 ], [ %336, %322 ], [ %272, %259 ], [ %202, %163 ], [ %106, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
+  %.sink203205 = phi float [ %.sink203204, %22 ], [ %417, %381 ], [ %332, %322 ], [ %269, %259 ], [ %198, %163 ], [ %102, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
   %478 = phi float [ %23, %22 ], [ %473, %381 ], [ %378, %322 ], [ %317, %259 ], [ %254, %163 ], [ %158, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
   %479 = phi float [ %24, %22 ], [ %469, %381 ], [ %375, %322 ], [ %314, %259 ], [ %250, %163 ], [ %154, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
   %480 = phi float [ %25, %22 ], [ %465, %381 ], [ %371, %322 ], [ %311, %259 ], [ %246, %163 ], [ %150, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
@@ -37917,7 +37917,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit53:            ; preds = %_ZN10aiVector3tIfE9
   %491 = phi float [ %34, %22 ], [ %437, %381 ], [ %349, %322 ], [ %286, %259 ], [ %218, %163 ], [ %122, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
   %492 = phi float [ %33, %22 ], [ %421, %381 ], [ %336, %322 ], [ %272, %259 ], [ %202, %163 ], [ %106, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
   %493 = phi float [ %32, %22 ], [ %417, %381 ], [ %332, %322 ], [ %269, %259 ], [ %198, %163 ], [ %102, %_ZN10aiVector3tIfE9NormalizeEv.exit53 ]
-  %494 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0175, i64 104
+  %494 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0159, i64 104
   %.not = icmp eq ptr %494, %12
   br i1 %.not, label %._crit_edge.loopexit, label %22, !llvm.loop !249
 }

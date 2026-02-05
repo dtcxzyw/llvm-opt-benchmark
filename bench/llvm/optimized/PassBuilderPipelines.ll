@@ -7989,7 +7989,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22LibCallsShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22LibCallsShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit585, %247
-  %.sroa.01127.0.insert.ext1140 = and i64 %2, 4294967295
+  %.sroa.01119.0.insert.ext1132 = and i64 %2, 4294967295
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %273 = load ptr, ptr %272, align 8, !tbaa !32
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -8291,7 +8291,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   store ptr null, ptr %380, align 8, !tbaa !227, !alias.scope !237, !noalias !234
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %380, i64 noundef 8) #22
-  %.pre1310.pre = load i32, ptr %367, align 8, !tbaa !33
+  %.pre1302.pre = load i32, ptr %367, align 8, !tbaa !33
   %.pre.pre = load i32, ptr %369, align 8, !tbaa !220
   store ptr %384, ptr %370, align 8, !tbaa !229
   store ptr %388, ptr %378, align 8, !tbaa !232
@@ -8300,7 +8300,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %391 = load i64, ptr %390, align 8
   %392 = add i32 %.pre.pre, 1
-  %393 = shl i32 %.pre1310.pre, 6
+  %393 = shl i32 %.pre1302.pre, 6
   %394 = icmp ugt i32 %392, %393
   br i1 %394, label %395, label %435
 
@@ -8310,7 +8310,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br i1 %.not.i.i.i258, label %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i274, label %397
 
 ._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i274: ; preds = %395
-  %.pre6.i.i275 = zext i32 %.pre1310.pre to i64
+  %.pre6.i.i275 = zext i32 %.pre1302.pre to i64
   br label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259
 
 397:                                              ; preds = %395
@@ -8318,7 +8318,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %399 = shl nsw i64 -1, %398
   %400 = xor i64 %399, -1
   %401 = load ptr, ptr %23, align 8, !tbaa !32
-  %402 = zext i32 %.pre1310.pre to i64
+  %402 = zext i32 %.pre1302.pre to i64
   %403 = getelementptr inbounds nuw i64, ptr %401, i64 %402
   %404 = getelementptr inbounds i8, ptr %403, i64 -8
   %405 = load i64, ptr %404, align 8, !tbaa !9
@@ -8332,11 +8332,11 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259: ; preds = %397, %._ZN4llvm9Bi
   %407 = add i32 %.pre.pre, 64
   %408 = lshr i32 %407, 6
   %409 = zext nneg i32 %408 to i64
-  %410 = icmp eq i32 %408, %.pre1310.pre
+  %410 = icmp eq i32 %408, %.pre1302.pre
   br i1 %410, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i269, label %411
 
 411:                                              ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259
-  %412 = icmp ult i32 %408, %.pre1310.pre
+  %412 = icmp ult i32 %408, %.pre1302.pre
   br i1 %412, label %.sink.split.i.i.i266, label %413
 
 413:                                              ; preds = %411
@@ -8355,7 +8355,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259: ; preds = %397, %._ZN4llvm9Bi
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i.i262: ; preds = %416, %413
   %.pre4.pre.i.i263 = phi i32 [ %392, %413 ], [ %.pre4.pre.i.pre.i273, %416 ]
   %.pre-phi.i.i.i264 = phi i64 [ %.pre-phi.i.i260, %413 ], [ %.pre.i.i.i272, %416 ]
-  %417 = phi i32 [ %.pre1310.pre, %413 ], [ %.pre.i.i.i.i271, %416 ]
+  %417 = phi i32 [ %.pre1302.pre, %413 ], [ %.pre.i.i.i.i271, %416 ]
   %418 = load ptr, ptr %23, align 8, !tbaa !32
   %419 = getelementptr inbounds nuw i64, ptr %418, i64 %.pre-phi.i.i.i264
   %.idx.i.i.i.i.i.i.i.i265 = shl nuw nsw i64 %414, 3
@@ -8371,7 +8371,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i269
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i269: ; preds = %.sink.split.i.i.i266, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259
-  %422 = phi i32 [ %.pre1310.pre, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259 ], [ %.sink.i.i.i268, %.sink.split.i.i.i266 ]
+  %422 = phi i32 [ %.pre1302.pre, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259 ], [ %.sink.i.i.i268, %.sink.split.i.i.i266 ]
   %423 = phi i32 [ %392, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i259 ], [ %.pre4.i.i267, %.sink.split.i.i.i266 ]
   %424 = and i32 %423, 63
   %.not.i.i.i.i270 = icmp eq i32 %424, 0
@@ -8644,13 +8644,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 542:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692
   call void @_ZdlPvm(ptr noundef nonnull %523, i64 noundef %526) #22
-  %.pre1311.pre = load i32, ptr %369, align 8, !tbaa !220
-  %.pre1312.pre = load i32, ptr %367, align 8, !tbaa !33
+  %.pre1303.pre = load i32, ptr %369, align 8, !tbaa !220
+  %.pre1304.pre = load i32, ptr %367, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692, %542
-  %.pre1312 = phi i32 [ %513, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692 ], [ %.pre1312.pre, %542 ]
-  %.pre1311 = phi i32 [ %514, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692 ], [ %.pre1311.pre, %542 ]
+  %.pre1304 = phi i32 [ %513, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692 ], [ %.pre1304.pre, %542 ]
+  %.pre1303 = phi i32 [ %514, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i692 ], [ %.pre1303.pre, %542 ]
   store ptr %535, ptr %370, align 8, !tbaa !229
   store ptr %541, ptr %378, align 8, !tbaa !232
   %543 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %535, i64 %533
@@ -8658,8 +8658,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_14LoopRotatePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_14LoopRotatePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695, %519
-  %544 = phi i32 [ %.pre1312, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695 ], [ %513, %519 ]
-  %545 = phi i32 [ %.pre1311, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695 ], [ %514, %519 ]
+  %544 = phi i32 [ %.pre1304, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695 ], [ %513, %519 ]
+  %545 = phi i32 [ %.pre1303, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit695 ], [ %514, %519 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %546 = load i64, ptr %390, align 8
   %547 = add i32 %545, 1
@@ -8828,13 +8828,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 620:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711
   call void @_ZdlPvm(ptr noundef nonnull %601, i64 noundef %604) #22
-  %.pre1313.pre = load i32, ptr %369, align 8, !tbaa !220
-  %.pre1314.pre = load i32, ptr %367, align 8, !tbaa !33
+  %.pre1305.pre = load i32, ptr %369, align 8, !tbaa !220
+  %.pre1306.pre = load i32, ptr %367, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711, %620
-  %.pre1314 = phi i32 [ %591, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711 ], [ %.pre1314.pre, %620 ]
-  %.pre1313 = phi i32 [ %592, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711 ], [ %.pre1313.pre, %620 ]
+  %.pre1306 = phi i32 [ %591, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711 ], [ %.pre1306.pre, %620 ]
+  %.pre1305 = phi i32 [ %592, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i711 ], [ %.pre1305.pre, %620 ]
   store ptr %613, ptr %370, align 8, !tbaa !229
   store ptr %619, ptr %378, align 8, !tbaa !232
   %621 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %613, i64 %611
@@ -8842,8 +8842,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_8LICMPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit70
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_8LICMPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit70: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714, %597
-  %622 = phi i32 [ %.pre1314, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714 ], [ %591, %597 ]
-  %623 = phi i32 [ %.pre1313, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714 ], [ %592, %597 ]
+  %622 = phi i32 [ %.pre1306, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714 ], [ %591, %597 ]
+  %623 = phi i32 [ %.pre1305, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit714 ], [ %592, %597 ]
   %624 = add i32 %623, 1
   %625 = shl i32 %622, 6
   %626 = icmp ugt i32 %624, %625
@@ -9265,13 +9265,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 807:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764
   call void @_ZdlPvm(ptr noundef nonnull %788, i64 noundef %791) #22
-  %.pre1315.pre = load i32, ptr %375, align 8, !tbaa !220
-  %.pre1316.pre = load i32, ptr %373, align 8, !tbaa !33
+  %.pre1307.pre = load i32, ptr %375, align 8, !tbaa !220
+  %.pre1308.pre = load i32, ptr %373, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764, %807
-  %.pre1316 = phi i32 [ %777, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764 ], [ %.pre1316.pre, %807 ]
-  %.pre1315 = phi i32 [ %778, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764 ], [ %.pre1315.pre, %807 ]
+  %.pre1308 = phi i32 [ %777, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764 ], [ %.pre1308.pre, %807 ]
+  %.pre1307 = phi i32 [ %778, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i764 ], [ %.pre1307.pre, %807 ]
   store ptr %800, ptr %376, align 8, !tbaa !229
   store ptr %806, ptr %780, align 8, !tbaa !232
   %808 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %800, i64 %798
@@ -9279,8 +9279,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_22LoopIdiomRecognizePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_22LoopIdiomRecognizePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767, %784
-  %809 = phi i32 [ %.pre1316, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767 ], [ %777, %784 ]
-  %810 = phi i32 [ %.pre1315, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767 ], [ %778, %784 ]
+  %809 = phi i32 [ %.pre1308, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767 ], [ %777, %784 ]
+  %810 = phi i32 [ %.pre1307, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit767 ], [ %778, %784 ]
   %811 = add i32 %810, 1
   %812 = shl i32 %809, 6
   %813 = icmp ugt i32 %811, %812
@@ -9864,7 +9864,7 @@ _ZN4llvm9BitVector9push_backEb.exit426:           ; preds = %_ZN4llvm15SmallVect
   %.sroa.4.0.insert.ext = zext nneg i8 %1013 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.01094.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.01127.0.insert.ext1140
+  %.sroa.01094.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.01119.0.insert.ext1132
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_4LoopENS_18LoopFullUnrollPassENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS6_RNS_10LPMUpdaterEEEE, i64 16), ptr %1062, align 8, !tbaa !15
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 8
   store i64 %.sroa.01094.0.insert.insert, ptr %1063, align 8
@@ -10056,9 +10056,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i853 = phi ptr [ %1135, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i844 ], [ %1140, %.lr.ph.i.i.i.i848 ]
   %1141 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i853, i64 8
   %.not.i23.i861 = icmp eq ptr %1123, null
-  br i1 %.not.i23.i861, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1620, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441
+  br i1 %.not.i23.i861, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1612, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1620: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i859
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1612: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i859
   store ptr %1135, ptr %0, align 8, !tbaa !146
   store ptr %1141, ptr %72, align 8, !tbaa !140
   %1142 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1135, i64 %1133
@@ -10067,17 +10067,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1620: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i859
   call void @_ZdlPvm(ptr noundef nonnull %1123, i64 noundef %1126) #22
-  %.pre1317.pre = load ptr, ptr %1105, align 8, !tbaa !146
-  %.pre1318.pre = load ptr, ptr %1107, align 8, !tbaa !140
+  %.pre1309.pre = load ptr, ptr %1105, align 8, !tbaa !146
+  %.pre1310.pre = load ptr, ptr %1107, align 8, !tbaa !140
   store ptr %1135, ptr %0, align 8, !tbaa !146
   store ptr %1141, ptr %72, align 8, !tbaa !140
   %1143 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1135, i64 %1133
   store ptr %1143, ptr %74, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1317.pre, %.pre1318.pre
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1309.pre, %.pre1310.pre
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %1148, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1317.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441 ]
+  %.05.i.i.i.i.i.i = phi ptr [ %1148, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1309.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441 ]
   %1144 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %1144, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -10092,7 +10092,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !144
   %1148 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %1148, %.pre1318.pre
+  %.not.i.i.i.i.i.i = icmp eq ptr %1148, %.pre1310.pre
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -10100,7 +10100,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441
-  %1149 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1317.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441 ]
+  %1149 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1309.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441 ]
   %.not.i.i.i.i.i = icmp eq ptr %1149, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, label %1150
 
@@ -10112,7 +10112,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1149, i64 noundef %1154) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1620, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread, %1150, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread1612, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit441.thread, %1150, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %1155 = load ptr, ptr %26, align 8, !tbaa !227
   %.not.i.i102 = icmp eq ptr %1155, null
   br i1 %.not.i.i102, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i103
@@ -10468,9 +10468,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i910 = phi ptr [ %1305, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i901 ], [ %1310, %.lr.ph.i.i.i.i905 ]
   %1311 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i910, i64 8
   %.not.i23.i918 = icmp eq ptr %1293, null
-  br i1 %.not.i23.i918, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1626, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464
+  br i1 %.not.i23.i918, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1618, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1626: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i916
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1618: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i916
   store ptr %1305, ptr %0, align 8, !tbaa !146
   store ptr %1311, ptr %72, align 8, !tbaa !140
   %1312 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1305, i64 %1303
@@ -10479,17 +10479,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1626: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i916
   call void @_ZdlPvm(ptr noundef nonnull %1293, i64 noundef %1296) #22
-  %.pre1319.pre = load ptr, ptr %1275, align 8, !tbaa !146
-  %.pre1320.pre = load ptr, ptr %1277, align 8, !tbaa !140
+  %.pre1311.pre = load ptr, ptr %1275, align 8, !tbaa !146
+  %.pre1312.pre = load ptr, ptr %1277, align 8, !tbaa !140
   store ptr %1305, ptr %0, align 8, !tbaa !146
   store ptr %1311, ptr %72, align 8, !tbaa !140
   %1313 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1305, i64 %1303
   store ptr %1313, ptr %74, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i115 = icmp eq ptr %.pre1319.pre, %.pre1320.pre
+  %.not4.i.i.i.i.i.i115 = icmp eq ptr %.pre1311.pre, %.pre1312.pre
   br i1 %.not4.i.i.i.i.i.i115, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i124, label %.lr.ph.i.i.i.i.i.i116
 
 .lr.ph.i.i.i.i.i.i116:                            ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120
-  %.05.i.i.i.i.i.i117 = phi ptr [ %1318, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120 ], [ %.pre1319.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464 ]
+  %.05.i.i.i.i.i.i117 = phi ptr [ %1318, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120 ], [ %.pre1311.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464 ]
   %1314 = load ptr, ptr %.05.i.i.i.i.i.i117, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i118 = icmp eq ptr %1314, null
   br i1 %.not.i.i.i.i.i.i.i.i118, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i119
@@ -10504,7 +10504,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i119, %.lr.ph.i.i.i.i.i.i116
   store ptr null, ptr %.05.i.i.i.i.i.i117, align 8, !tbaa !144
   %1318 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i117, i64 8
-  %.not.i.i.i.i.i.i121 = icmp eq ptr %1318, %.pre1320.pre
+  %.not.i.i.i.i.i.i121 = icmp eq ptr %1318, %.pre1312.pre
   br i1 %.not.i.i.i.i.i.i121, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i122, label %.lr.ph.i.i.i.i.i.i116, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i122: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i120
@@ -10512,7 +10512,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i124
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i124: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i122, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464
-  %1319 = phi ptr [ %.pr.i.i.i123, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i122 ], [ %.pre1319.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464 ]
+  %1319 = phi ptr [ %.pr.i.i.i123, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i122 ], [ %.pre1311.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464 ]
   %.not.i.i.i.i.i125 = icmp eq ptr %1319, null
   br i1 %.not.i.i.i.i.i125, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i126, label %1320
 
@@ -10524,7 +10524,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1319, i64 noundef %1324) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i126
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i126: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1626, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread, %1320, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i124
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i126: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread1618, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit464.thread, %1320, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i124
   %1325 = load ptr, ptr %30, align 8, !tbaa !227
   %.not.i.i127 = icmp eq ptr %1325, null
   br i1 %.not.i.i127, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit129, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i128
@@ -11141,13 +11141,13 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JE
   br i1 %.not.i161, label %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit, label %.lr.ph.i157
 
 _ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEclES6_S7_.exit.i160
-  %.pre1321 = load ptr, ptr %72, align 8, !tbaa !140
-  %.pre1322 = load ptr, ptr %74, align 8, !tbaa !143
+  %.pre1313 = load ptr, ptr %72, align 8, !tbaa !140
+  %.pre1314 = load ptr, ptr %74, align 8, !tbaa !143
   br label %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
 
 _ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit: ; preds = %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13CoroElidePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %1571 = phi ptr [ %.pre1322, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit ], [ %1557, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13CoroElidePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
-  %1572 = phi ptr [ %.pre1321, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit ], [ %1558, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13CoroElidePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %1571 = phi ptr [ %.pre1314, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit ], [ %1557, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13CoroElidePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %1572 = phi ptr [ %.pre1313, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.loopexit ], [ %1558, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13CoroElidePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
   %1573 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_8ADCEPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1573, align 8, !tbaa !15
   %.not.i.i481 = icmp eq ptr %1572, %1571
@@ -12102,10 +12102,10 @@ define dso_local void @_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelin
   %45 = alloca %"class.llvm::SimplifyCFGPass", align 8
   %46 = alloca %"struct.llvm::SimplifyCFGOptions", align 8
   %47 = alloca %"class.llvm::InstCombinePass", align 8
-  %.sroa.01818.0.extract.trunc = trunc i64 %2 to i32
-  %.sroa.131841.0.extract.shift = lshr i64 %2, 32
-  %.sroa.131841.0.extract.trunc = trunc nuw i64 %.sroa.131841.0.extract.shift to i32
-  %48 = icmp eq i32 %.sroa.01818.0.extract.trunc, 1
+  %.sroa.01810.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.131833.0.extract.shift = lshr i64 %2, 32
+  %.sroa.131833.0.extract.trunc = trunc nuw i64 %.sroa.131833.0.extract.shift to i32
+  %48 = icmp eq i32 %.sroa.01810.0.extract.trunc, 1
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %4
@@ -13421,7 +13421,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25AggressiveInstCombinePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit940, %542
   %567 = phi ptr [ %566, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit940 ], [ %541, %542 ]
   %568 = phi ptr [ %564, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit940 ], [ %544, %542 ]
-  %569 = icmp ne i64 %.sroa.131841.0.extract.shift, 0
+  %569 = icmp ne i64 %.sroa.131833.0.extract.shift, 0
   br i1 %569, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22LibCallsShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, label %570
 
 570:                                              ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25AggressiveInstCombinePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
@@ -13497,7 +13497,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22LibCallsShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22LibCallsShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %572, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit959, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25AggressiveInstCombinePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %.sroa.01818.0.insert.ext1835 = and i64 %2, 4294967295
+  %.sroa.01810.0.insert.ext1827 = and i64 %2, 4294967295
   %597 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %598 = load ptr, ptr %597, align 8, !tbaa !32
   %599 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -13544,7 +13544,7 @@ _ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionE
 
 _ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge: ; preds = %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
   %.pre = load ptr, ptr %87, align 8, !tbaa !140
-  %.pre2120 = load ptr, ptr %89, align 8, !tbaa !143
+  %.pre2112 = load ptr, ptr %89, align 8, !tbaa !143
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 615:                                              ; preds = %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -13622,7 +13622,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge, %619, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit978
-  %644 = phi ptr [ %.pre2120, %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %618, %619 ], [ %643, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit978 ]
+  %644 = phi ptr [ %.pre2112, %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %618, %619 ], [ %643, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit978 ]
   %645 = phi ptr [ %.pre, %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15PGOMemOPSizeOptEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %621, %619 ], [ %641, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit978 ]
   %646 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_16TailCallElimPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %646, align 8, !tbaa !15
@@ -14043,26 +14043,26 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   store ptr null, ptr %799, align 8, !tbaa !227, !alias.scope !608, !noalias !605
   %807 = getelementptr inbounds nuw i8, ptr %803, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %799, i64 noundef 8) #22
-  %.pre2122.pre = load i32, ptr %786, align 8, !tbaa !33
-  %.pre2121.pre = load i32, ptr %788, align 8, !tbaa !220
+  %.pre2114.pre = load i32, ptr %786, align 8, !tbaa !33
+  %.pre2113.pre = load i32, ptr %788, align 8, !tbaa !220
   store ptr %803, ptr %789, align 8, !tbaa !229
   store ptr %807, ptr %797, align 8, !tbaa !232
   %808 = getelementptr inbounds nuw i8, ptr %803, i64 16
   store ptr %808, ptr %798, align 8, !tbaa !233
   %809 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %810 = load i64, ptr %809, align 8
-  %811 = add i32 %.pre2121.pre, 1
-  %812 = shl i32 %.pre2122.pre, 6
+  %811 = add i32 %.pre2113.pre, 1
+  %812 = shl i32 %.pre2114.pre, 6
   %813 = icmp ugt i32 %811, %812
   br i1 %813, label %814, label %854
 
 814:                                              ; preds = %.lr.ph.i.i.i.i1074.preheader
-  %815 = and i32 %.pre2121.pre, 63
+  %815 = and i32 %.pre2113.pre, 63
   %.not.i.i.i374 = icmp eq i32 %815, 0
   br i1 %.not.i.i.i374, label %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i390, label %816
 
 ._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i390: ; preds = %814
-  %.pre6.i.i391 = zext i32 %.pre2122.pre to i64
+  %.pre6.i.i391 = zext i32 %.pre2114.pre to i64
   br label %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375
 
 816:                                              ; preds = %814
@@ -14070,7 +14070,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %818 = shl nsw i64 -1, %817
   %819 = xor i64 %818, -1
   %820 = load ptr, ptr %31, align 8, !tbaa !32
-  %821 = zext i32 %.pre2122.pre to i64
+  %821 = zext i32 %.pre2114.pre to i64
   %822 = getelementptr inbounds nuw i64, ptr %820, i64 %821
   %823 = getelementptr inbounds i8, ptr %822, i64 -8
   %824 = load i64, ptr %823, align 8, !tbaa !9
@@ -14081,14 +14081,14 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375: ; preds = %816, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i390
   %.pre-phi.i.i376 = phi i64 [ %.pre6.i.i391, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i390 ], [ %821, %816 ]
   store i32 %811, ptr %788, align 8, !tbaa !220
-  %826 = add i32 %.pre2121.pre, 64
+  %826 = add i32 %.pre2113.pre, 64
   %827 = lshr i32 %826, 6
   %828 = zext nneg i32 %827 to i64
-  %829 = icmp eq i32 %827, %.pre2122.pre
+  %829 = icmp eq i32 %827, %.pre2114.pre
   br i1 %829, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i385, label %830
 
 830:                                              ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375
-  %831 = icmp ult i32 %827, %.pre2122.pre
+  %831 = icmp ult i32 %827, %.pre2114.pre
   br i1 %831, label %.sink.split.i.i.i382, label %832
 
 832:                                              ; preds = %830
@@ -14107,7 +14107,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375: ; preds = %816, %._ZN4llvm9Bi
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i.i.i378: ; preds = %835, %832
   %.pre4.pre.i.i379 = phi i32 [ %811, %832 ], [ %.pre4.pre.i.pre.i389, %835 ]
   %.pre-phi.i.i.i380 = phi i64 [ %.pre-phi.i.i376, %832 ], [ %.pre.i.i.i388, %835 ]
-  %836 = phi i32 [ %.pre2122.pre, %832 ], [ %.pre.i.i.i.i387, %835 ]
+  %836 = phi i32 [ %.pre2114.pre, %832 ], [ %.pre.i.i.i.i387, %835 ]
   %837 = load ptr, ptr %31, align 8, !tbaa !32
   %838 = getelementptr inbounds nuw i64, ptr %837, i64 %.pre-phi.i.i.i380
   %.idx.i.i.i.i.i.i.i.i381 = shl nuw nsw i64 %833, 3
@@ -14123,7 +14123,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   br label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i385
 
 _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i385: ; preds = %.sink.split.i.i.i382, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375
-  %841 = phi i32 [ %.pre2122.pre, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375 ], [ %.sink.i.i.i384, %.sink.split.i.i.i382 ]
+  %841 = phi i32 [ %.pre2114.pre, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375 ], [ %.sink.i.i.i384, %.sink.split.i.i.i382 ]
   %842 = phi i32 [ %811, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i375 ], [ %.pre4.i.i383, %.sink.split.i.i.i382 ]
   %843 = and i32 %842, 63
   %.not.i.i.i.i386 = icmp eq i32 %843, 0
@@ -14232,9 +14232,9 @@ _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalys
 
 886:                                              ; preds = %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_8LICMPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
   %887 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2OzE, i64 4), align 4, !tbaa !615
-  %.not.i78 = icmp ne i32 %887, %.sroa.131841.0.extract.trunc
+  %.not.i78 = icmp ne i32 %887, %.sroa.131833.0.extract.trunc
   %888 = load i32, ptr @_ZN4llvm17OptimizationLevel2OzE, align 4
-  %889 = icmp ne i32 %888, %.sroa.01818.0.extract.trunc
+  %889 = icmp ne i32 %888, %.sroa.01810.0.extract.trunc
   %890 = select i1 %.not.i78, i1 true, i1 %889
   br label %891
 
@@ -14410,13 +14410,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 970:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123
   call void @_ZdlPvm(ptr noundef nonnull %951, i64 noundef %954) #22
-  %.pre2123.pre = load i32, ptr %788, align 8, !tbaa !220
-  %.pre2124.pre = load i32, ptr %786, align 8, !tbaa !33
+  %.pre2115.pre = load i32, ptr %788, align 8, !tbaa !220
+  %.pre2116.pre = load i32, ptr %786, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123, %970
-  %.pre2124 = phi i32 [ %941, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123 ], [ %.pre2124.pre, %970 ]
-  %.pre2123 = phi i32 [ %942, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123 ], [ %.pre2123.pre, %970 ]
+  %.pre2116 = phi i32 [ %941, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123 ], [ %.pre2116.pre, %970 ]
+  %.pre2115 = phi i32 [ %942, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1123 ], [ %.pre2115.pre, %970 ]
   store ptr %963, ptr %789, align 8, !tbaa !229
   store ptr %969, ptr %797, align 8, !tbaa !232
   %971 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %963, i64 %961
@@ -14424,8 +14424,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_14LoopRotatePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_14LoopRotatePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126, %947
-  %972 = phi i32 [ %.pre2124, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126 ], [ %941, %947 ]
-  %973 = phi i32 [ %.pre2123, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126 ], [ %942, %947 ]
+  %972 = phi i32 [ %.pre2116, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126 ], [ %941, %947 ]
+  %973 = phi i32 [ %.pre2115, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1126 ], [ %942, %947 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %974 = load i64, ptr %809, align 8
   %975 = add i32 %973, 1
@@ -14594,13 +14594,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 1048:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142
   call void @_ZdlPvm(ptr noundef nonnull %1029, i64 noundef %1032) #22
-  %.pre2125.pre = load i32, ptr %788, align 8, !tbaa !220
-  %.pre2126.pre = load i32, ptr %786, align 8, !tbaa !33
+  %.pre2117.pre = load i32, ptr %788, align 8, !tbaa !220
+  %.pre2118.pre = load i32, ptr %786, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142, %1048
-  %.pre2126 = phi i32 [ %1019, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142 ], [ %.pre2126.pre, %1048 ]
-  %.pre2125 = phi i32 [ %1020, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142 ], [ %.pre2125.pre, %1048 ]
+  %.pre2118 = phi i32 [ %1019, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142 ], [ %.pre2118.pre, %1048 ]
+  %.pre2117 = phi i32 [ %1020, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1142 ], [ %.pre2117.pre, %1048 ]
   store ptr %1041, ptr %789, align 8, !tbaa !229
   store ptr %1047, ptr %797, align 8, !tbaa !232
   %1049 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1041, i64 %1039
@@ -14608,12 +14608,12 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_8LICMPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit93
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_8LICMPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit93: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145, %1025
-  %1050 = phi i32 [ %.pre2126, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145 ], [ %1019, %1025 ]
-  %1051 = phi i32 [ %.pre2125, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145 ], [ %1020, %1025 ]
+  %1050 = phi i32 [ %.pre2118, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145 ], [ %1019, %1025 ]
+  %1051 = phi i32 [ %.pre2117, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1145 ], [ %1020, %1025 ]
   %1052 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O3E, i64 4), align 4, !tbaa !615
-  %1053 = icmp eq i32 %1052, %.sroa.131841.0.extract.trunc
+  %1053 = icmp eq i32 %1052, %.sroa.131833.0.extract.trunc
   %1054 = load i32, ptr @_ZN4llvm17OptimizationLevel2O3E, align 4
-  %1055 = icmp eq i32 %1054, %.sroa.01818.0.extract.trunc
+  %1055 = icmp eq i32 %1054, %.sroa.01810.0.extract.trunc
   %1056 = select i1 %1053, i1 %1055, i1 false
   %1057 = add i32 %1051, 1
   %1058 = shl i32 %1050, 6
@@ -15038,13 +15038,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 1240:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195
   call void @_ZdlPvm(ptr noundef nonnull %1221, i64 noundef %1224) #22
-  %.pre2127.pre = load i32, ptr %794, align 8, !tbaa !220
-  %.pre2128.pre = load i32, ptr %792, align 8, !tbaa !33
+  %.pre2119.pre = load i32, ptr %794, align 8, !tbaa !220
+  %.pre2120.pre = load i32, ptr %792, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195, %1240
-  %.pre2128 = phi i32 [ %1210, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195 ], [ %.pre2128.pre, %1240 ]
-  %.pre2127 = phi i32 [ %1211, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195 ], [ %.pre2127.pre, %1240 ]
+  %.pre2120 = phi i32 [ %1210, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195 ], [ %.pre2120.pre, %1240 ]
+  %.pre2119 = phi i32 [ %1211, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1195 ], [ %.pre2119.pre, %1240 ]
   store ptr %1233, ptr %795, align 8, !tbaa !229
   store ptr %1239, ptr %1213, align 8, !tbaa !232
   %1241 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1233, i64 %1231
@@ -15052,8 +15052,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_22LoopIdiomRecognizePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_22LoopIdiomRecognizePassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198, %1217
-  %1242 = phi i32 [ %.pre2128, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198 ], [ %1210, %1217 ]
-  %1243 = phi i32 [ %.pre2127, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198 ], [ %1211, %1217 ]
+  %1242 = phi i32 [ %.pre2120, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198 ], [ %1210, %1217 ]
+  %1243 = phi i32 [ %.pre2119, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1198 ], [ %1211, %1217 ]
   %1244 = add i32 %1243, 1
   %1245 = shl i32 %1242, 6
   %1246 = icmp ugt i32 %1244, %1245
@@ -15239,9 +15239,9 @@ _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalys
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1321, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1322 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O3E, i64 4), align 4, !tbaa !615
-  %1323 = icmp eq i32 %1322, %.sroa.131841.0.extract.trunc
+  %1323 = icmp eq i32 %1322, %.sroa.131833.0.extract.trunc
   %1324 = load i32, ptr @_ZN4llvm17OptimizationLevel2O3E, align 4
-  %1325 = icmp eq i32 %1324, %.sroa.01818.0.extract.trunc
+  %1325 = icmp eq i32 %1324, %.sroa.01810.0.extract.trunc
   %1326 = select i1 %1323, i1 %1325, i1 false
   %1327 = zext i1 %1326 to i8
   store i8 %1327, ptr %35, align 1, !tbaa !647
@@ -15380,12 +15380,12 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i1241: ; preds = %1380
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248:         ; preds = %1384
   %1386 = zext i32 %1379 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull %1376, i64 noundef %1386, i64 noundef 8) #20
-  %.pre2129 = load i32, ptr %1318, align 8, !tbaa !33
-  %.not.i.i.i1250 = icmp eq i32 %.pre2129, 0
+  %.pre2121 = load i32, ptr %1318, align 8, !tbaa !33
+  %.not.i.i.i1250 = icmp eq i32 %.pre2121, 0
   br i1 %.not.i.i.i1250, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i1253, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248.thread:  ; preds = %1384, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248
-  %1387 = phi i32 [ %.pre2129, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248 ], [ %1379, %1384 ]
+  %1387 = phi i32 [ %.pre2121, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i1248 ], [ %1379, %1384 ]
   %1388 = zext i32 %1387 to i64
   %1389 = load ptr, ptr %34, align 8, !tbaa !32
   %1390 = load ptr, ptr %15, align 8, !tbaa !32
@@ -15463,39 +15463,39 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i: ; preds = %1414
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i:             ; preds = %1418
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(120) %1410, ptr noundef nonnull %1411, i64 noundef %1419, i64 noundef 8) #20
-  %.pre2130 = load i32, ptr %1377, align 8, !tbaa !33
-  %.pre2161 = zext i32 %.pre2130 to i64
-  %.not.i.i.i1239 = icmp eq i32 %.pre2130, 0
+  %.pre2122 = load i32, ptr %1377, align 8, !tbaa !33
+  %.pre2153 = zext i32 %.pre2122 to i64
+  %.not.i.i.i1239 = icmp eq i32 %.pre2122, 0
   br i1 %.not.i.i.i1239, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread:      ; preds = %1418, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i
-  %.pre-phi2621 = phi i64 [ %.pre2161, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %1419, %1418 ]
+  %.pre-phi2613 = phi i64 [ %.pre2153, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i ], [ %1419, %1418 ]
   %1421 = load ptr, ptr %15, align 8, !tbaa !32
   %1422 = load ptr, ptr %1410, align 8, !tbaa !32
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi2621, 3
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi2613, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1422, ptr align 8 %1421, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i: ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i
   store i32 %1379, ptr %1412, align 8, !tbaa !33
   store i32 0, ptr %1377, align 8, !tbaa !33
-  %.pre2131 = load i32, ptr %1391, align 8, !tbaa !220
-  %.pre2132 = load ptr, ptr %1393, align 8, !tbaa !229
-  %.pre2133 = load ptr, ptr %1395, align 8, !tbaa !232
-  %.pre2134 = load ptr, ptr %1398, align 8, !tbaa !233
-  %.pre2135 = load ptr, ptr %1401, align 8, !tbaa !267
-  %.pre2136 = load ptr, ptr %1404, align 8, !tbaa !261
-  %.pre2137 = load ptr, ptr %1407, align 8, !tbaa !264
+  %.pre2123 = load i32, ptr %1391, align 8, !tbaa !220
+  %.pre2124 = load ptr, ptr %1393, align 8, !tbaa !229
+  %.pre2125 = load ptr, ptr %1395, align 8, !tbaa !232
+  %.pre2126 = load ptr, ptr %1398, align 8, !tbaa !233
+  %.pre2127 = load ptr, ptr %1401, align 8, !tbaa !267
+  %.pre2128 = load ptr, ptr %1404, align 8, !tbaa !261
+  %.pre2129 = load ptr, ptr %1407, align 8, !tbaa !264
   br label %_ZN4llvm6detail9PassModelINS_4LoopENS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS8_RNS_10LPMUpdaterEEEC2ES5_.exit
 
 _ZN4llvm6detail9PassModelINS_4LoopENS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS8_RNS_10LPMUpdaterEEEC2ES5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit
-  %1423 = phi ptr [ %.pre2137, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1409, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1409, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1424 = phi ptr [ %.pre2136, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1406, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1406, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1425 = phi ptr [ %.pre2135, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1403, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1403, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1426 = phi ptr [ %.pre2134, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1400, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1400, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1427 = phi ptr [ %.pre2133, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1397, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1397, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1428 = phi ptr [ %.pre2132, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1394, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1394, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
-  %1429 = phi i32 [ %.pre2131, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1392, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1392, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1423 = phi ptr [ %.pre2129, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1409, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1409, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1424 = phi ptr [ %.pre2128, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1406, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1406, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1425 = phi ptr [ %.pre2127, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1403, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1403, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1426 = phi ptr [ %.pre2126, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1400, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1400, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1427 = phi ptr [ %.pre2125, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1397, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1397, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1428 = phi ptr [ %.pre2124, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1394, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1394, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
+  %1429 = phi i32 [ %.pre2123, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %1392, %_ZN4llvm20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEC2EOS2_.exit ], [ %1392, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
   %1430 = getelementptr inbounds nuw i8, ptr %1375, i64 72
   store i32 %1429, ptr %1430, align 8, !tbaa !220
   %1431 = getelementptr inbounds nuw i8, ptr %1375, i64 80
@@ -15570,9 +15570,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   %.0.lcssa.i.i.i.i1227 = phi ptr [ %1454, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE12_M_check_lenEmPKc.exit.i1218 ], [ %1459, %.lr.ph.i.i.i.i1222 ]
   %1460 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1227, i64 8
   %.not.i23.i1235 = icmp eq ptr %1442, null
-  br i1 %.not.i23.i1235, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2623, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit
+  br i1 %.not.i23.i1235, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2615, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit
 
-_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2623: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1233
+_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2615: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1233
   store ptr %1454, ptr %795, align 8, !tbaa !229
   store ptr %1460, ptr %1213, align 8, !tbaa !232
   %1461 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1454, i64 %1452
@@ -15581,17 +15581,17 @@ _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalys
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1233
   call void @_ZdlPvm(ptr noundef nonnull %1442, i64 noundef %1445) #22
-  %.pre2138.pre = load ptr, ptr %1401, align 8, !tbaa !267
-  %.pre2139.pre = load ptr, ptr %1404, align 8, !tbaa !261
+  %.pre2130.pre = load ptr, ptr %1401, align 8, !tbaa !267
+  %.pre2131.pre = load ptr, ptr %1404, align 8, !tbaa !261
   store ptr %1454, ptr %795, align 8, !tbaa !229
   store ptr %1460, ptr %1213, align 8, !tbaa !232
   %1462 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1454, i64 %1452
   store ptr %1462, ptr %1215, align 8, !tbaa !233
-  %.not4.i.i.i.i.i.i499 = icmp eq ptr %.pre2138.pre, %.pre2139.pre
+  %.not4.i.i.i.i.i.i499 = icmp eq ptr %.pre2130.pre, %.pre2131.pre
   br i1 %.not4.i.i.i.i.i.i499, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exit.i.i.i508, label %.lr.ph.i.i.i.i.i.i500
 
 .lr.ph.i.i.i.i.i.i500:                            ; preds = %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504
-  %.05.i.i.i.i.i.i501 = phi ptr [ %1467, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504 ], [ %.pre2138.pre, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit ]
+  %.05.i.i.i.i.i.i501 = phi ptr [ %1467, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504 ], [ %.pre2130.pre, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit ]
   %1463 = load ptr, ptr %.05.i.i.i.i.i.i501, align 8, !tbaa !265
   %.not.i.i.i.i.i.i.i.i502 = icmp eq ptr %1463, null
   br i1 %.not.i.i.i.i.i.i.i.i502, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8LoopNestENS0_15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEJS7_RNS0_10LPMUpdaterEEEEEclEPSB_.exit.i.i.i.i.i.i.i.i503
@@ -15606,7 +15606,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8LoopNestENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8LoopNestENS0_15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEJS7_RNS0_10LPMUpdaterEEEEEclEPSB_.exit.i.i.i.i.i.i.i.i503, %.lr.ph.i.i.i.i.i.i500
   store ptr null, ptr %.05.i.i.i.i.i.i501, align 8, !tbaa !265
   %1467 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i501, i64 8
-  %.not.i.i.i.i.i.i505 = icmp eq ptr %1467, %.pre2139.pre
+  %.not.i.i.i.i.i.i505 = icmp eq ptr %1467, %.pre2131.pre
   br i1 %.not.i.i.i.i.i.i505, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exitthread-pre-split.i.i.i506, label %.lr.ph.i.i.i.i.i.i500, !llvm.loop !466
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exitthread-pre-split.i.i.i506: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EEEvPT_.exit.i.i.i.i.i.i504
@@ -15614,7 +15614,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exit.i.i.i508
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exit.i.i.i508: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exitthread-pre-split.i.i.i506, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit
-  %1468 = phi ptr [ %.pr.i.i.i507, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exitthread-pre-split.i.i.i506 ], [ %.pre2138.pre, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit ]
+  %1468 = phi ptr [ %.pr.i.i.i507, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exitthread-pre-split.i.i.i506 ], [ %.pre2130.pre, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit ]
   %.not.i.i.i.i.i509 = icmp eq ptr %1468, null
   br i1 %.not.i.i.i.i.i509, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESaISF_EED2Ev.exit.i.i510, label %1469
 
@@ -15626,7 +15626,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1468, i64 noundef %1473) #22
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESaISF_EED2Ev.exit.i.i510
 
-_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESaISF_EED2Ev.exit.i.i510: ; preds = %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2623, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread, %1469, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exit.i.i.i508
+_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESaISF_EED2Ev.exit.i.i510: ; preds = %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread2615, %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_20ExtraLoopPassManagerINS_32ShouldRunExtraSimpleLoopUnswitchEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSG_.exit.thread, %1469, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8LoopNestENS1_15AnalysisManagerINS1_4LoopEJRNS1_27LoopStandardAnalysisResultsEEEEJS8_RNS1_10LPMUpdaterEEEESt14default_deleteISC_EESF_EvT_SH_RSaIT0_E.exit.i.i.i508
   %1474 = load ptr, ptr %1393, align 8, !tbaa !229
   %1475 = load ptr, ptr %1395, align 8, !tbaa !232
   %.not4.i.i.i.i1.i.i511 = icmp eq ptr %1474, %1475
@@ -16064,11 +16064,11 @@ _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalys
   %.not = icmp eq i32 %3, 1
   %1639 = load i8, ptr %609, align 8, !range !62
   %1640 = trunc nuw i8 %1639 to i1
-  %or.cond2007 = select i1 %.not, i1 %1640, i1 false
+  %or.cond1999 = select i1 %.not, i1 %1640, i1 false
   %1641 = load i32, ptr %612, align 8
   %.not26 = icmp eq i32 %1641, 3
-  %or.cond2009 = select i1 %or.cond2007, i1 %.not26, i1 false
-  br i1 %or.cond2009, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_18LoopFullUnrollPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit, label %1642
+  %or.cond2001 = select i1 %or.cond1999, i1 %.not26, i1 false
+  br i1 %or.cond2001, label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_18LoopFullUnrollPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit, label %1642
 
 1642:                                             ; preds = %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_19LoopInterchangePassEEENSt9enable_ifIXntsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
   %1643 = getelementptr inbounds nuw i8, ptr %1, i64 11
@@ -16180,7 +16180,7 @@ _ZN4llvm9BitVector9push_backEb.exit590:           ; preds = %_ZN4llvm15SmallVect
   %.sroa.41773.0.insert.ext = zext nneg i8 %1645 to i64
   %.sroa.41773.0.insert.shift = shl nuw nsw i64 %.sroa.41773.0.insert.ext, 32
   %.sroa.41773.0.insert.insert = or disjoint i64 %.sroa.51774.0.insert.shift, %.sroa.41773.0.insert.shift
-  %.sroa.01772.0.insert.insert = or disjoint i64 %.sroa.41773.0.insert.insert, %.sroa.01818.0.insert.ext1835
+  %.sroa.01772.0.insert.insert = or disjoint i64 %.sroa.41773.0.insert.insert, %.sroa.01810.0.insert.ext1827
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_4LoopENS_18LoopFullUnrollPassENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS6_RNS_10LPMUpdaterEEEE, i64 16), ptr %1694, align 8, !tbaa !15
   %1695 = getelementptr inbounds nuw i8, ptr %1694, i64 8
   store i64 %.sroa.01772.0.insert.insert, ptr %1695, align 8
@@ -16372,9 +16372,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i1321 = phi ptr [ %1767, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i1312 ], [ %1772, %.lr.ph.i.i.i.i1316 ]
   %1773 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1321, i64 8
   %.not.i23.i1329 = icmp eq ptr %1755, null
-  br i1 %.not.i23.i1329, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2629, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605
+  br i1 %.not.i23.i1329, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2621, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2629: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1327
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2621: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1327
   store ptr %1767, ptr %0, align 8, !tbaa !146
   store ptr %1773, ptr %87, align 8, !tbaa !140
   %1774 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1767, i64 %1765
@@ -16383,17 +16383,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2629: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1327
   call void @_ZdlPvm(ptr noundef nonnull %1755, i64 noundef %1758) #22
-  %.pre2140.pre = load ptr, ptr %1737, align 8, !tbaa !146
-  %.pre2141.pre = load ptr, ptr %1739, align 8, !tbaa !140
+  %.pre2132.pre = load ptr, ptr %1737, align 8, !tbaa !146
+  %.pre2133.pre = load ptr, ptr %1739, align 8, !tbaa !140
   store ptr %1767, ptr %0, align 8, !tbaa !146
   store ptr %1773, ptr %87, align 8, !tbaa !140
   %1775 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1767, i64 %1765
   store ptr %1775, ptr %89, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i127 = icmp eq ptr %.pre2140.pre, %.pre2141.pre
+  %.not4.i.i.i.i.i.i127 = icmp eq ptr %.pre2132.pre, %.pre2133.pre
   br i1 %.not4.i.i.i.i.i.i127, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i128
 
 .lr.ph.i.i.i.i.i.i128:                            ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i129 = phi ptr [ %1780, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre2140.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605 ]
+  %.05.i.i.i.i.i.i129 = phi ptr [ %1780, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre2132.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605 ]
   %1776 = load ptr, ptr %.05.i.i.i.i.i.i129, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i130 = icmp eq ptr %1776, null
   br i1 %.not.i.i.i.i.i.i.i.i130, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -16408,7 +16408,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i128
   store ptr null, ptr %.05.i.i.i.i.i.i129, align 8, !tbaa !144
   %1780 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i129, i64 8
-  %.not.i.i.i.i.i.i131 = icmp eq ptr %1780, %.pre2141.pre
+  %.not.i.i.i.i.i.i131 = icmp eq ptr %1780, %.pre2133.pre
   br i1 %.not.i.i.i.i.i.i131, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i128, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -16416,7 +16416,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605
-  %1781 = phi ptr [ %.pr.i.i.i132, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre2140.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605 ]
+  %1781 = phi ptr [ %.pr.i.i.i132, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre2132.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605 ]
   %.not.i.i.i.i.i133 = icmp eq ptr %1781, null
   br i1 %.not.i.i.i.i.i133, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, label %1782
 
@@ -16428,7 +16428,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1781, i64 noundef %1786) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2629, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread, %1782, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread2621, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit605.thread, %1782, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %1787 = load ptr, ptr %36, align 8, !tbaa !227
   %.not.i.i134 = icmp eq ptr %1787, null
   br i1 %.not.i.i134, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i135
@@ -16784,9 +16784,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i1378 = phi ptr [ %1937, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i1369 ], [ %1942, %.lr.ph.i.i.i.i1373 ]
   %1943 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1378, i64 8
   %.not.i23.i1386 = icmp eq ptr %1925, null
-  br i1 %.not.i23.i1386, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2635, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628
+  br i1 %.not.i23.i1386, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2627, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2635: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1384
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2627: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1384
   store ptr %1937, ptr %0, align 8, !tbaa !146
   store ptr %1943, ptr %87, align 8, !tbaa !140
   %1944 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1937, i64 %1935
@@ -16795,17 +16795,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2635: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1384
   call void @_ZdlPvm(ptr noundef nonnull %1925, i64 noundef %1928) #22
-  %.pre2142.pre = load ptr, ptr %1907, align 8, !tbaa !146
-  %.pre2143.pre = load ptr, ptr %1909, align 8, !tbaa !140
+  %.pre2134.pre = load ptr, ptr %1907, align 8, !tbaa !146
+  %.pre2135.pre = load ptr, ptr %1909, align 8, !tbaa !140
   store ptr %1937, ptr %0, align 8, !tbaa !146
   store ptr %1943, ptr %87, align 8, !tbaa !140
   %1945 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1937, i64 %1935
   store ptr %1945, ptr %89, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i147 = icmp eq ptr %.pre2142.pre, %.pre2143.pre
+  %.not4.i.i.i.i.i.i147 = icmp eq ptr %.pre2134.pre, %.pre2135.pre
   br i1 %.not4.i.i.i.i.i.i147, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i156, label %.lr.ph.i.i.i.i.i.i148
 
 .lr.ph.i.i.i.i.i.i148:                            ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152
-  %.05.i.i.i.i.i.i149 = phi ptr [ %1950, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152 ], [ %.pre2142.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628 ]
+  %.05.i.i.i.i.i.i149 = phi ptr [ %1950, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152 ], [ %.pre2134.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628 ]
   %1946 = load ptr, ptr %.05.i.i.i.i.i.i149, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i150 = icmp eq ptr %1946, null
   br i1 %.not.i.i.i.i.i.i.i.i150, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i151
@@ -16820,7 +16820,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i151, %.lr.ph.i.i.i.i.i.i148
   store ptr null, ptr %.05.i.i.i.i.i.i149, align 8, !tbaa !144
   %1950 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i149, i64 8
-  %.not.i.i.i.i.i.i153 = icmp eq ptr %1950, %.pre2143.pre
+  %.not.i.i.i.i.i.i153 = icmp eq ptr %1950, %.pre2135.pre
   br i1 %.not.i.i.i.i.i.i153, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i154, label %.lr.ph.i.i.i.i.i.i148, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i154: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i152
@@ -16828,7 +16828,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i156
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i156: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i154, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628
-  %1951 = phi ptr [ %.pr.i.i.i155, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i154 ], [ %.pre2142.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628 ]
+  %1951 = phi ptr [ %.pr.i.i.i155, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i154 ], [ %.pre2134.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628 ]
   %.not.i.i.i.i.i157 = icmp eq ptr %1951, null
   br i1 %.not.i.i.i.i.i157, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i158, label %1952
 
@@ -16840,7 +16840,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1951, i64 noundef %1956) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i158
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i158: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2635, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread, %1952, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i156
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i158: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread2627, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit628.thread, %1952, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i156
   %1957 = load ptr, ptr %40, align 8, !tbaa !227
   %.not.i.i159 = icmp eq ptr %1957, null
   br i1 %.not.i.i159, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit161, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i160
@@ -17318,13 +17318,13 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7G
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN4llvm7GVNPassD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %42) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %.pre2144 = load ptr, ptr %87, align 8, !tbaa !140
-  %.pre2145 = load ptr, ptr %89, align 8, !tbaa !143
+  %.pre2136 = load ptr, ptr %87, align 8, !tbaa !140
+  %.pre2137 = load ptr, ptr %89, align 8, !tbaa !143
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_10NewGVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_10NewGVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %2054, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1463, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %2140 = phi ptr [ %2048, %2054 ], [ %2078, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1463 ], [ %.pre2145, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
-  %2141 = phi ptr [ %2056, %2054 ], [ %2076, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1463 ], [ %.pre2144, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %2140 = phi ptr [ %2048, %2054 ], [ %2078, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1463 ], [ %.pre2137, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %2141 = phi ptr [ %2056, %2054 ], [ %2076, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1463 ], [ %.pre2136, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
   %2142 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_8SCCPPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %2142, align 8, !tbaa !15
   %.not.i.i641 = icmp eq ptr %2141, %2140
@@ -24792,7 +24792,7 @@ define dso_local void @_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineE
   %46 = alloca %"class.llvm::ModuleInlinerWrapperPass", align 8
   %47 = alloca %"class.llvm::DeadArgumentEliminationPass", align 8
   %48 = alloca %"class.llvm::GlobalDCEPass", align 8
-  %.sroa.01161.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.01158.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.13.0.extract.shift = lshr i64 %2, 32
   %.sroa.13.0.extract.trunc = trunc nuw i64 %.sroa.13.0.extract.shift to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -24833,23 +24833,23 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22Sa
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 3
-  %or.cond1313 = select i1 %52, i1 %70, i1 false
+  %or.cond1310 = select i1 %52, i1 %70, i1 false
   %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20FlattenedProfileUsed, i64 120), align 8, !range !62
   %72 = trunc nuw i8 %71 to i1
   %73 = icmp eq i32 %3, 2
   %74 = and i1 %73, %72
   %75 = xor i1 %74, true
-  %76 = select i1 %or.cond1313, i1 %75, i1 false
+  %76 = select i1 %or.cond1310, i1 %75, i1 false
   %77 = icmp ne i32 %3, 2
   %or.cond3 = or i1 %77, %76
   br i1 %or.cond3, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PGOIndirectCallPromotionEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, label %78
 
 78:                                               ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22SampleProfileProbePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %79 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %.sroa.01158.0.insert.insert = select i1 %or.cond1313, i16 257, i16 1
+  %.sroa.01155.0.insert.insert = select i1 %or.cond1310, i16 257, i16 1
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_24PGOIndirectCallPromotionENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %79, align 8, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i16 %.sroa.01158.0.insert.insert, ptr %80, align 8
+  store i16 %.sroa.01155.0.insert.insert, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = ptrtoint ptr %67 to i64
@@ -24970,8 +24970,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22InferFunctionAttrsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %125, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i443
   store ptr %118, ptr %0, align 8, !tbaa !896
   store ptr %124, ptr %105, align 8, !tbaa !890
-  %.idx1675 = shl nuw nsw i64 %116, 3
-  %126 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx1675
+  %.idx1672 = shl nuw nsw i64 %116, 3
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx1672
   store ptr %126, ptr %106, align 8, !tbaa !893
   %127 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_13CoroEarlyPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %127, align 8, !tbaa !15
@@ -25052,7 +25052,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Anal
   br label %.lr.ph.i.i.i.i504
 
 .lr.ph.i.i.i.i504:                                ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i500, %.lr.ph.i.i.i.i504
-  %.012.i.i.i.i505.idx = phi i64 [ %.012.i.i.i.i505.add1676, %.lr.ph.i.i.i.i504 ], [ 0, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i500 ]
+  %.012.i.i.i.i505.idx = phi i64 [ %.012.i.i.i.i505.add1673, %.lr.ph.i.i.i.i504 ], [ 0, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i500 ]
   %.0911.i.i.i.i506.idx = phi i64 [ %.0911.i.i.i.i506.add, %.lr.ph.i.i.i.i504 ], [ 0, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i500 ]
   %.012.i.i.i.i505.ptr = getelementptr inbounds nuw i8, ptr %154, i64 %.012.i.i.i.i505.idx
   %.0911.i.i.i.i506.ptr = getelementptr inbounds nuw i8, ptr %149, i64 %.0911.i.i.i.i506.idx
@@ -25062,12 +25062,12 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Anal
   store i64 %157, ptr %.012.i.i.i.i505.ptr, align 8, !tbaa !144, !alias.scope !1228, !noalias !1231
   store ptr null, ptr %.0911.i.i.i.i506.ptr, align 8, !tbaa !144, !alias.scope !1231, !noalias !1228
   %.0911.i.i.i.i506.add = add nuw nsw i64 %.0911.i.i.i.i506.idx, 8
-  %.012.i.i.i.i505.add1676 = add nuw nsw i64 %.012.i.i.i.i505.idx, 8
+  %.012.i.i.i.i505.add1673 = add nuw nsw i64 %.012.i.i.i.i505.idx, 8
   %.not.i.i.i.i507 = icmp eq i64 %.0911.i.i.i.i506.add, 16
   br i1 %.not.i.i.i.i507, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15SimplifyCFGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, label %.lr.ph.i.i.i.i504, !llvm.loop !152
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15SimplifyCFGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %.lr.ph.i.i.i.i504
-  %.ptr.le = getelementptr inbounds nuw i8, ptr %154, i64 %.012.i.i.i.i505.add1676
+  %.ptr.le = getelementptr inbounds nuw i8, ptr %154, i64 %.012.i.i.i.i505.add1673
   call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef 16) #22
   %.012.i.i.i.i505.add = add nuw nsw i64 %.012.i.i.i.i505.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -25185,7 +25185,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12
   %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O3E, i64 4), align 4, !tbaa !615
   %193 = icmp eq i32 %192, %.sroa.13.0.extract.trunc
   %194 = load i32, ptr @_ZN4llvm17OptimizationLevel2O3E, align 4
-  %195 = icmp eq i32 %194, %.sroa.01161.0.extract.trunc
+  %195 = icmp eq i32 %194, %.sroa.01158.0.extract.trunc
   %196 = select i1 %193, i1 %195, i1 false
   br i1 %196, label %197, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21CallSiteSplittingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
@@ -25489,13 +25489,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i:
   store ptr %313, ptr %310, align 8, !tbaa !11
   %321 = load i64, ptr %314, align 8, !tbaa !13
   store i64 %321, ptr %312, align 8, !tbaa !13
-  %.phi.trans.insert1397 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %.pre1398 = load i64, ptr %.phi.trans.insert1397, align 8, !tbaa !14
+  %.phi.trans.insert1394 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %.pre1395 = load i64, ptr %.phi.trans.insert1394, align 8, !tbaa !14
   br label %_ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit
 
 _ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit:    ; preds = %316, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i
   %322 = phi ptr [ %312, %316 ], [ %313, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
-  %323 = phi i64 [ %318, %316 ], [ %.pre1398, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
+  %323 = phi i64 [ %318, %316 ], [ %.pre1395, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
   %324 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %325 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %323, ptr %325, align 8, !tbaa !14
@@ -25633,9 +25633,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i604 = phi ptr [ %373, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i595 ], [ %378, %.lr.ph.i.i.i.i599 ]
   %379 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i604, i64 8
   %.not.i23.i612 = icmp eq ptr %361, null
-  br i1 %.not.i23.i612, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+  br i1 %.not.i23.i612, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1675, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i610
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1675: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i610
   store ptr %373, ptr %0, align 8, !tbaa !896
   store ptr %379, ptr %354, align 8, !tbaa !890
   %380 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %373, i64 %371
@@ -25644,28 +25644,28 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23Sa
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i610
   call void @_ZdlPvm(ptr noundef nonnull %361, i64 noundef %364) #22
-  %.pre1399.pre = load ptr, ptr %329, align 8, !tbaa !1026
+  %.pre1396.pre = load ptr, ptr %329, align 8, !tbaa !1026
   store ptr %373, ptr %0, align 8, !tbaa !896
   store ptr %379, ptr %354, align 8, !tbaa !890
   %381 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %373, i64 %371
   store ptr %381, ptr %356, align 8, !tbaa !893
-  %.not.i.i.i287 = icmp eq ptr %.pre1399.pre, null
+  %.not.i.i.i287 = icmp eq ptr %.pre1396.pre, null
   br i1 %.not.i.i.i287, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i288, label %382
 
 382:                                              ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %383 = getelementptr inbounds nuw i8, ptr %.pre1399.pre, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %.pre1396.pre, i64 8
   %384 = atomicrmw sub ptr %383, i32 1 acq_rel, align 4
   %385 = icmp eq i32 %384, 1
   br i1 %385, label %386, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i288
 
 386:                                              ; preds = %382
-  %387 = load ptr, ptr %.pre1399.pre, align 8, !tbaa !15
+  %387 = load ptr, ptr %.pre1396.pre, align 8, !tbaa !15
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
-  call void %389(ptr noundef nonnull align 8 dereferenceable(12) %.pre1399.pre) #20
+  call void %389(ptr noundef nonnull align 8 dereferenceable(12) %.pre1396.pre) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i288
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i288: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %386, %382, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i288: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1675, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %386, %382, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %390 = load ptr, ptr %310, align 8, !tbaa !11
   %391 = icmp eq ptr %390, %312
   br i1 %391, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i290, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i289
@@ -26241,7 +26241,7 @@ _ZN4llvm11PassBuilder44invokePipelineEarlySimplificationEPCallbacksERNS_11PassMa
   %607 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2OsE, i64 4), align 4, !tbaa !615
   %.not.i140 = icmp ne i32 %607, %.sroa.13.0.extract.trunc
   %608 = load i32, ptr @_ZN4llvm17OptimizationLevel2OsE, align 4
-  %609 = icmp ne i32 %608, %.sroa.01161.0.extract.trunc
+  %609 = icmp ne i32 %608, %.sroa.01158.0.extract.trunc
   %610 = select i1 %.not.i140, i1 true, i1 %609
   br i1 %610, label %611, label %620
 
@@ -26249,7 +26249,7 @@ _ZN4llvm11PassBuilder44invokePipelineEarlySimplificationEPCallbacksERNS_11PassMa
   %612 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2OzE, i64 4), align 4, !tbaa !615
   %.not.i141 = icmp ne i32 %612, %.sroa.13.0.extract.trunc
   %613 = load i32, ptr @_ZN4llvm17OptimizationLevel2OzE, align 4
-  %614 = icmp ne i32 %613, %.sroa.01161.0.extract.trunc
+  %614 = icmp ne i32 %613, %.sroa.01158.0.extract.trunc
   %615 = select i1 %.not.i141, i1 true, i1 %614
   br i1 %615, label %616, label %620
 
@@ -26723,7 +26723,7 @@ _ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionE
 814:                                              ; preds = %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
   %815 = ptrtoint ptr %810 to i64
   store i64 %815, ptr %812, align 8, !tbaa !144
-  %.pre1400 = load ptr, ptr %30, align 8, !tbaa !146, !noalias !1308
+  %.pre1397 = load ptr, ptr %30, align 8, !tbaa !146, !noalias !1308
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15SimplifyCFGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit161
 
 816:                                              ; preds = %_ZN4llvm11PassBuilder25invokePeepholeEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -26784,7 +26784,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15SimplifyCFGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit161: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit822, %814
   %837 = phi ptr [ %836, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit822 ], [ %813, %814 ]
   %.0.lcssa.i.i.i.i813.pn = phi ptr [ %.0.lcssa.i.i.i.i813, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit822 ], [ %812, %814 ]
-  %838 = phi ptr [ %829, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit822 ], [ %.pre1400, %814 ]
+  %838 = phi ptr [ %829, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit822 ], [ %.pre1397, %814 ]
   %839 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i813.pn, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -27451,8 +27451,8 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PG
   %1106 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %1107 = load i32, ptr %1106, align 4
   %1108 = icmp eq i32 %1107, 1
-  %or.cond1316 = select i1 %879, i1 %1108, i1 false
-  br i1 %or.cond1316, label %1109, label %1203
+  %or.cond1313 = select i1 %879, i1 %1108, i1 false
+  br i1 %or.cond1313, label %1109, label %1203
 
 1109:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PGOIndirectCallPromotionEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit202
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -27560,12 +27560,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   store ptr %1146, ptr %9, align 8, !tbaa !11
   %1152 = load i64, ptr %1128, align 8, !tbaa !13
   store i64 %1152, ptr %1145, align 8, !tbaa !13
-  %.pre1401 = load i64, ptr %1140, align 8, !tbaa !14
+  %.pre1398 = load i64, ptr %1140, align 8, !tbaa !14
   br label %_ZN4llvm30PGOInstrumentationGenCreateVarC2EOS0_.exit
 
 _ZN4llvm30PGOInstrumentationGenCreateVarC2EOS0_.exit: ; preds = %1148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i340
   %1153 = phi ptr [ %1145, %1148 ], [ %1146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i340 ]
-  %1154 = phi i64 [ %1149, %1148 ], [ %.pre1401, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i340 ]
+  %1154 = phi i64 [ %1149, %1148 ], [ %.pre1398, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i340 ]
   %1155 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1128, ptr %40, align 8, !tbaa !11
   store i64 0, ptr %1140, align 8, !tbaa !14
@@ -27658,9 +27658,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i927 = phi ptr [ %1183, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i918 ], [ %1188, %.lr.ph.i.i.i.i922 ]
   %1189 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i927, i64 8
   %.not.i23.i935 = icmp eq ptr %1171, null
-  br i1 %.not.i23.i935, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+  br i1 %.not.i23.i935, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i933
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i933
   store ptr %1183, ptr %0, align 8, !tbaa !896
   store ptr %1189, ptr %496, align 8, !tbaa !890
   %1190 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1183, i64 %1181
@@ -27669,21 +27669,21 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PG
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i933
   call void @_ZdlPvm(ptr noundef nonnull %1171, i64 noundef %1174) #22
-  %.pre1402.pre = load ptr, ptr %9, align 8, !tbaa !11
+  %.pre1399.pre = load ptr, ptr %9, align 8, !tbaa !11
   store ptr %1183, ptr %0, align 8, !tbaa !896
   store ptr %1189, ptr %496, align 8, !tbaa !890
   %1191 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1183, i64 %1181
   store ptr %1191, ptr %497, align 8, !tbaa !893
-  %1192 = icmp eq ptr %.pre1402.pre, %1145
+  %1192 = icmp eq ptr %.pre1399.pre, %1145
   br i1 %1192, label %_ZN4llvm30PGOInstrumentationGenCreateVarD2Ev.exit336, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %1193 = load i64, ptr %1145, align 8, !tbaa !13
   %1194 = add i64 %1193, 1
-  call void @_ZdlPvm(ptr noundef %.pre1402.pre, i64 noundef %1194) #22
+  call void @_ZdlPvm(ptr noundef %.pre1399.pre, i64 noundef %1194) #22
   br label %_ZN4llvm30PGOInstrumentationGenCreateVarD2Ev.exit336
 
-_ZN4llvm30PGOInstrumentationGenCreateVarD2Ev.exit336: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333
+_ZN4llvm30PGOInstrumentationGenCreateVarD2Ev.exit336: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30PGOInstrumentationGenCreateVarEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1678, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1195 = load ptr, ptr %40, align 8, !tbaa !11
   %1196 = icmp eq ptr %1195, %1128
@@ -27791,13 +27791,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   store ptr %1229, ptr %7, align 8, !tbaa !11
   %1237 = load i64, ptr %1230, align 8, !tbaa !13
   store i64 %1237, ptr %1228, align 8, !tbaa !13
-  %.phi.trans.insert1403 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.pre1404 = load i64, ptr %.phi.trans.insert1403, align 8, !tbaa !14
+  %.phi.trans.insert1400 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.pre1401 = load i64, ptr %.phi.trans.insert1400, align 8, !tbaa !14
   br label %_ZN4llvm14MemProfUsePassC2EOS0_.exit
 
 _ZN4llvm14MemProfUsePassC2EOS0_.exit:             ; preds = %1232, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i351
   %1238 = phi ptr [ %1228, %1232 ], [ %1229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i351 ]
-  %1239 = phi i64 [ %1234, %1232 ], [ %.pre1404, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i351 ]
+  %1239 = phi i64 [ %1234, %1232 ], [ %.pre1401, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i351 ]
   %1240 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %1241 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1230, ptr %42, align 8, !tbaa !11
@@ -27895,9 +27895,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i946 = phi ptr [ %1271, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i937 ], [ %1276, %.lr.ph.i.i.i.i941 ]
   %1277 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i946, i64 8
   %.not.i23.i954 = icmp eq ptr %1259, null
-  br i1 %.not.i23.i954, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1684, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+  br i1 %.not.i23.i954, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1684: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i952
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i952
   store ptr %1271, ptr %0, align 8, !tbaa !896
   store ptr %1277, ptr %496, align 8, !tbaa !890
   %1278 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1271, i64 %1269
@@ -27906,28 +27906,28 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14Me
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i952
   call void @_ZdlPvm(ptr noundef nonnull %1259, i64 noundef %1262) #22
-  %.pre1405.pre = load ptr, ptr %1242, align 8, !tbaa !1026
+  %.pre1402.pre = load ptr, ptr %1242, align 8, !tbaa !1026
   store ptr %1271, ptr %0, align 8, !tbaa !896
   store ptr %1277, ptr %496, align 8, !tbaa !890
   %1279 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1271, i64 %1269
   store ptr %1279, ptr %497, align 8, !tbaa !893
-  %.not.i.i.i342 = icmp eq ptr %.pre1405.pre, null
+  %.not.i.i.i342 = icmp eq ptr %.pre1402.pre, null
   br i1 %.not.i.i.i342, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i343, label %1280
 
 1280:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %1281 = getelementptr inbounds nuw i8, ptr %.pre1405.pre, i64 8
+  %1281 = getelementptr inbounds nuw i8, ptr %.pre1402.pre, i64 8
   %1282 = atomicrmw sub ptr %1281, i32 1 acq_rel, align 4
   %1283 = icmp eq i32 %1282, 1
   br i1 %1283, label %1284, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i343
 
 1284:                                             ; preds = %1280
-  %1285 = load ptr, ptr %.pre1405.pre, align 8, !tbaa !15
+  %1285 = load ptr, ptr %.pre1402.pre, align 8, !tbaa !15
   %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 8
   %1287 = load ptr, ptr %1286, align 8
-  call void %1287(ptr noundef nonnull align 8 dereferenceable(12) %.pre1405.pre) #20
+  call void %1287(ptr noundef nonnull align 8 dereferenceable(12) %.pre1402.pre) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i343
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i343: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1684, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %1284, %1280, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i343: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1681, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %1284, %1280, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %1288 = load ptr, ptr %7, align 8, !tbaa !11
   %1289 = icmp eq ptr %1288, %1228
   br i1 %1289, label %_ZN4llvm14MemProfUsePassD2Ev.exit347, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i344
@@ -28177,30 +28177,30 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17Al
   %1388 = load ptr, ptr %45, align 8, !tbaa !1366
   %1389 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %1390 = load ptr, ptr %1389, align 8, !tbaa !1366
-  %.not.i2351353 = icmp eq ptr %1388, %1390
-  br i1 %.not.i2351353, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph
+  %.not.i2351350 = icmp eq ptr %1388, %1390
+  br i1 %.not.i2351350, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1387, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358
-  %.sroa.05.0.i1354 = phi ptr [ %1397, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358 ], [ %1388, %1387 ]
+  %.sroa.05.0.i1351 = phi ptr [ %1397, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358 ], [ %1388, %1387 ]
   %1391 = load ptr, ptr %496, align 8, !tbaa !890
   %1392 = load ptr, ptr %497, align 8, !tbaa !893
   %.not.i.i357 = icmp eq ptr %1391, %1392
   br i1 %.not.i.i357, label %1396, label %1393
 
 1393:                                             ; preds = %.lr.ph
-  %1394 = load i64, ptr %.sroa.05.0.i1354, align 8, !tbaa !894
+  %1394 = load i64, ptr %.sroa.05.0.i1351, align 8, !tbaa !894
   store i64 %1394, ptr %1391, align 8, !tbaa !894
-  store ptr null, ptr %.sroa.05.0.i1354, align 8, !tbaa !894
+  store ptr null, ptr %.sroa.05.0.i1351, align 8, !tbaa !894
   %1395 = getelementptr inbounds nuw i8, ptr %1391, i64 8
   store ptr %1395, ptr %496, align 8, !tbaa !890
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358
 
 1396:                                             ; preds = %.lr.ph
-  call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1391, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.05.0.i1354)
+  call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1391, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.05.0.i1351)
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit358: ; preds = %1393, %1396
-  %1397 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i1354, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i1351, i64 8
   %.not.i235 = icmp eq ptr %1397, %1390
   br i1 %.not.i235, label %.lr.ph.i.i.i.i.i237, label %.lr.ph
 
@@ -28344,9 +28344,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i1003 = phi ptr [ %1456, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i994 ], [ %1461, %.lr.ph.i.i.i.i998 ]
   %1462 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1003, i64 8
   %.not.i23.i1011 = icmp eq ptr %1444, null
-  br i1 %.not.i23.i1011, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1688, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394
+  br i1 %.not.i23.i1011, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1685, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394
 
-_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1688: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1009
+_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1685: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1009
   store ptr %1456, ptr %0, align 8, !tbaa !896
   store ptr %1462, ptr %496, align 8, !tbaa !890
   %1463 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1456, i64 %1454
@@ -28355,17 +28355,17 @@ _ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1688: ; preds = %_ZNSt6vect
 
 _ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394:   ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1009
   call void @_ZdlPvm(ptr noundef nonnull %1444, i64 noundef %1447) #22
-  %.pre1406.pre = load ptr, ptr %1423, align 8, !tbaa !896
-  %.pre1407.pre = load ptr, ptr %1425, align 8, !tbaa !890
+  %.pre1403.pre = load ptr, ptr %1423, align 8, !tbaa !896
+  %.pre1404.pre = load ptr, ptr %1425, align 8, !tbaa !890
   store ptr %1456, ptr %0, align 8, !tbaa !896
   store ptr %1462, ptr %496, align 8, !tbaa !890
   %1464 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1456, i64 %1454
   store ptr %1464, ptr %497, align 8, !tbaa !893
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1406.pre, %.pre1407.pre
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1403.pre, %.pre1404.pre
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %1469, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1406.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394 ]
+  %.05.i.i.i.i.i.i = phi ptr [ %1469, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1403.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394 ]
   %1465 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !894
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %1465, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -28380,7 +28380,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !894
   %1469 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %1469, %.pre1407.pre
+  %.not.i.i.i.i.i.i = icmp eq ptr %1469, %.pre1404.pre
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !986
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -28388,7 +28388,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394
-  %1470 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1406.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394 ]
+  %1470 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1403.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394 ]
   %.not.i.i.i.i.i245 = icmp eq ptr %1470, null
   br i1 %.not.i.i.i.i.i245, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, label %1471
 
@@ -28400,7 +28400,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   call void @_ZdlPvm(ptr noundef nonnull %1470, i64 noundef %1475) #22
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1688, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread, %1471, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread1685, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit394.thread, %1471, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %1476 = load ptr, ptr %1417, align 8, !tbaa !896
   %1477 = load ptr, ptr %1419, align 8, !tbaa !890
   %.not4.i.i.i.i.i1.i = icmp eq ptr %1476, %1477
@@ -28651,11 +28651,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 
 1576:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1028
   call void @_ZdlPvm(ptr noundef nonnull %1557, i64 noundef %1560) #22
-  %.pre1408.pre = load ptr, ptr %1530, align 8, !tbaa !992
+  %.pre1405.pre = load ptr, ptr %1530, align 8, !tbaa !992
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1031
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1031: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1028, %1576
-  %.pre1408 = phi ptr [ null, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1028 ], [ %.pre1408.pre, %1576 ]
+  %.pre1405 = phi ptr [ null, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1028 ], [ %.pre1405.pre, %1576 ]
   store ptr %1569, ptr %0, align 8, !tbaa !896
   store ptr %1575, ptr %496, align 8, !tbaa !890
   %1577 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1569, i64 %1567
@@ -28663,7 +28663,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1031, %1553
-  %1578 = phi ptr [ %.pre1408, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1031 ], [ null, %1553 ]
+  %1578 = phi ptr [ %.pre1405, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1031 ], [ null, %1553 ]
   %1579 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZNSt8_Rb_treeIPKN4llvm8FunctionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %1579, ptr noundef %1578)
   %1580 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -28684,8 +28684,8 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27De
   br i1 %897, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge, label %1588
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %.pre1409 = load ptr, ptr %496, align 8, !tbaa !890
-  %.pre1410 = load ptr, ptr %497, align 8, !tbaa !893
+  %.pre1406 = load ptr, ptr %496, align 8, !tbaa !890
+  %.pre1407 = load ptr, ptr %497, align 8, !tbaa !893
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 1588:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
@@ -28763,8 +28763,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge, %1592, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1050
-  %1617 = phi ptr [ %.pre1410, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %1591, %1592 ], [ %1616, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1050 ]
-  %1618 = phi ptr [ %.pre1409, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %1594, %1592 ], [ %1614, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1050 ]
+  %1617 = phi ptr [ %.pre1407, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %1591, %1592 ], [ %1616, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1050 ]
+  %1618 = phi ptr [ %.pre1406, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CoroCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %1594, %1592 ], [ %1614, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1050 ]
   %1619 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_13GlobalOptPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1619, align 8, !tbaa !15
   %.not.i.i403 = icmp eq ptr %1618, %1617
@@ -29052,9 +29052,9 @@ define dso_local void @_ZN4llvm11PassBuilder15addVectorPassesENS_17OptimizationL
   %28 = alloca %"class.llvm::LoopUnrollAndJamPass", align 4
   %29 = alloca %"class.llvm::SROAPass", align 1
   %30 = alloca %"class.llvm::InstCombinePass", align 8
-  %.sroa.0955.0.extract.trunc = trunc i64 %1 to i32
-  %.sroa.8962.0.extract.shift = lshr i64 %1, 32
-  %.sroa.8962.0.extract.trunc = trunc nuw i64 %.sroa.8962.0.extract.shift to i32
+  %.sroa.0953.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.8960.0.extract.shift = lshr i64 %1, 32
+  %.sroa.8960.0.extract.trunc = trunc nuw i64 %.sroa.8960.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !1411, !range !62, !noundef !63
@@ -29062,11 +29062,11 @@ define dso_local void @_ZN4llvm11PassBuilder15addVectorPassesENS_17OptimizationL
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %35 = load i8, ptr %34, align 1, !tbaa !1412, !range !62, !noundef !63
   %36 = xor i8 %35, 1
-  %.sroa.2954.0.insert.ext = zext nneg i8 %36 to i16
-  %.sroa.2954.0.insert.shift = shl nuw nsw i16 %.sroa.2954.0.insert.ext, 8
-  %.sroa.0953.0.insert.ext = zext nneg i8 %33 to i16
-  %.sroa.0953.0.insert.insert = or disjoint i16 %.sroa.2954.0.insert.shift, %.sroa.0953.0.insert.ext
-  call void @_ZN4llvm17LoopVectorizePassC1ENS_20LoopVectorizeOptionsE(ptr noundef nonnull align 8 dereferenceable(96) %10, i16 %.sroa.0953.0.insert.insert) #20
+  %.sroa.2952.0.insert.ext = zext nneg i8 %36 to i16
+  %.sroa.2952.0.insert.shift = shl nuw nsw i16 %.sroa.2952.0.insert.ext, 8
+  %.sroa.0951.0.insert.ext = zext nneg i8 %33 to i16
+  %.sroa.0951.0.insert.insert = or disjoint i16 %.sroa.2952.0.insert.shift, %.sroa.0951.0.insert.ext
+  call void @_ZN4llvm17LoopVectorizePassC1ENS_20LoopVectorizeOptionsE(ptr noundef nonnull align 8 dereferenceable(96) %10, i16 %.sroa.0951.0.insert.insert) #20
   %37 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false)
@@ -29236,7 +29236,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18
 104:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i32 %.sroa.0955.0.extract.trunc, ptr %12, align 4, !tbaa !1423
+  store i32 %.sroa.0953.0.extract.trunc, ptr %12, align 4, !tbaa !1423
   call void @_ZN4llvm31createFunctionToLoopPassAdaptorINS_20LoopUnrollAndJamPassEEENSt9enable_ifIXntsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueENS_25FunctionToLoopPassAdaptorEE4typeEOS5_bbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::FunctionToLoopPassAdaptor") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %12, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %105 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %106 = load i64, ptr %11, align 8, !tbaa !227
@@ -29319,9 +29319,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i438 = phi ptr [ %137, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i429 ], [ %142, %.lr.ph.i.i.i.i433 ]
   %143 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i438, i64 8
   %.not.i23.i446 = icmp eq ptr %125, null
-  br i1 %.not.i23.i446, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1361, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261
+  br i1 %.not.i23.i446, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1359, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1361: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i444
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1359: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i444
   store ptr %137, ptr %2, align 8, !tbaa !146
   store ptr %143, ptr %39, align 8, !tbaa !140
   %144 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %137, i64 %135
@@ -29331,12 +29331,12 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1361: ; preds = %_ZNSt6vec
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i444
   call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %128) #22
   %.pre.pre = load ptr, ptr %107, align 8, !tbaa !146
-  %.pre1126.pre = load ptr, ptr %109, align 8, !tbaa !140
+  %.pre1124.pre = load ptr, ptr %109, align 8, !tbaa !140
   store ptr %137, ptr %2, align 8, !tbaa !146
   store ptr %143, ptr %39, align 8, !tbaa !140
   %145 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %137, i64 %135
   store ptr %145, ptr %41, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre.pre, %.pre1126.pre
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre.pre, %.pre1124.pre
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -29355,7 +29355,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !144
   %150 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %150, %.pre1126.pre
+  %.not.i.i.i.i.i.i = icmp eq ptr %150, %.pre1124.pre
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -29375,7 +29375,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %156) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1361, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread, %152, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread1359, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit261.thread, %152, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %157 = load ptr, ptr %11, align 8, !tbaa !227
   %.not.i.i74 = icmp eq ptr %157, null
   br i1 %.not.i.i74, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i
@@ -29390,37 +29390,37 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManage
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit:     ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.pre1127 = load i8, ptr %101, align 1, !tbaa !296, !range !62
-  %.pre1128 = load ptr, ptr %39, align 8, !tbaa !140
-  %.pre1129 = load ptr, ptr %41, align 8, !tbaa !143
+  %.pre1125 = load i8, ptr %101, align 1, !tbaa !296, !range !62
+  %.pre1126 = load ptr, ptr %39, align 8, !tbaa !140
+  %.pre1127 = load ptr, ptr %41, align 8, !tbaa !143
   br label %161
 
 161:                                              ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit, %98
-  %162 = phi ptr [ %.pre1129, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %96, %98 ]
-  %163 = phi ptr [ %.pre1128, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %97, %98 ]
-  %164 = phi i8 [ %.pre1127, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %102, %98 ]
+  %162 = phi ptr [ %.pre1127, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %96, %98 ]
+  %163 = phi ptr [ %.pre1126, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %97, %98 ]
+  %164 = phi i8 [ %.pre1125, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit ], [ %102, %98 ]
   %165 = xor i8 %164, 1
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %167 = load i8, ptr %166, align 4, !tbaa !394, !range !62, !noundef !63
   %168 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %.sroa.0951.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 9
-  store i8 0, ptr %.sroa.0951.sroa.4.0..sroa_idx, align 1
-  %.sroa.0951.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 11
-  store i8 0, ptr %.sroa.0951.sroa.6.0..sroa_idx, align 1
-  %.sroa.0951.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 13
-  store i8 0, ptr %.sroa.0951.sroa.8.0..sroa_idx, align 1
-  %.sroa.0951.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 15
-  store i8 0, ptr %.sroa.0951.sroa.10.0..sroa_idx, align 1
-  %.sroa.0951.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 17
-  store i8 0, ptr %.sroa.0951.sroa.12.0..sroa_idx, align 1
-  %.sroa.0951.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store i8 0, ptr %.sroa.0951.sroa.14.0..sroa_idx, align 8
-  %.sroa.0951.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 28
-  store i32 %.sroa.0955.0.extract.trunc, ptr %.sroa.0951.sroa.16.0..sroa_idx, align 4
-  %.sroa.0951.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store i8 %165, ptr %.sroa.0951.sroa.17.0..sroa_idx, align 8
-  %.sroa.0951.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 33
-  store i8 %167, ptr %.sroa.0951.sroa.18.0..sroa_idx, align 1
+  %.sroa.0949.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 9
+  store i8 0, ptr %.sroa.0949.sroa.4.0..sroa_idx, align 1
+  %.sroa.0949.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 11
+  store i8 0, ptr %.sroa.0949.sroa.6.0..sroa_idx, align 1
+  %.sroa.0949.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 13
+  store i8 0, ptr %.sroa.0949.sroa.8.0..sroa_idx, align 1
+  %.sroa.0949.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 15
+  store i8 0, ptr %.sroa.0949.sroa.10.0..sroa_idx, align 1
+  %.sroa.0949.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 17
+  store i8 0, ptr %.sroa.0949.sroa.12.0..sroa_idx, align 1
+  %.sroa.0949.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 24
+  store i8 0, ptr %.sroa.0949.sroa.14.0..sroa_idx, align 8
+  %.sroa.0949.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 28
+  store i32 %.sroa.0953.0.extract.trunc, ptr %.sroa.0949.sroa.16.0..sroa_idx, align 4
+  %.sroa.0949.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 32
+  store i8 %165, ptr %.sroa.0949.sroa.17.0..sroa_idx, align 8
+  %.sroa.0949.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 33
+  store i8 %167, ptr %.sroa.0949.sroa.18.0..sroa_idx, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_14LoopUnrollPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %168, align 8, !tbaa !15
   %.not.i.i264 = icmp eq ptr %163, %162
   br i1 %.not.i.i264, label %172, label %169
@@ -29880,11 +29880,11 @@ _ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_
 
 _ZN4llvm15InstCombinePassD2Ev.exit:               ; preds = %_ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit.i.i, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %353 = icmp ugt i32 %.sroa.0955.0.extract.trunc, 1
+  %353 = icmp ugt i32 %.sroa.0953.0.extract.trunc, 1
   %354 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ExtraVectorizerPasses, i64 120), align 8, !range !62
   %355 = trunc nuw i8 %354 to i1
-  %or.cond1067 = select i1 %353, i1 %355, i1 false
-  br i1 %or.cond1067, label %.lr.ph.i.i.i.i.i91.preheader, label %577
+  %or.cond1065 = select i1 %353, i1 %355, i1 false
+  br i1 %or.cond1065, label %.lr.ph.i.i.i.i.i91.preheader, label %577
 
 .lr.ph.i.i.i.i.i91.preheader:                     ; preds = %_ZN4llvm15InstCombinePassD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -29987,17 +29987,17 @@ _ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_
   store ptr %405, ptr %401, align 8, !tbaa !232
   store ptr %405, ptr %402, align 8, !tbaa !233
   %406 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O3E, i64 4), align 4, !tbaa !615
-  %407 = icmp eq i32 %406, %.sroa.8962.0.extract.trunc
+  %407 = icmp eq i32 %406, %.sroa.8960.0.extract.trunc
   %408 = load i32, ptr @_ZN4llvm17OptimizationLevel2O3E, align 4
-  %409 = icmp eq i32 %408, %.sroa.0955.0.extract.trunc
+  %409 = icmp eq i32 %408, %.sroa.0953.0.extract.trunc
   %410 = select i1 %407, i1 %409, i1 false
   store i32 2, ptr %394, align 8, !tbaa !220
   %411 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %.sroa.0925.0.insert.ext = zext i1 %410 to i16
-  %.sroa.0925.0.insert.insert = or disjoint i16 %.sroa.0925.0.insert.ext, 256
+  %.sroa.0923.0.insert.ext = zext i1 %410 to i16
+  %.sroa.0923.0.insert.insert = or disjoint i16 %.sroa.0923.0.insert.ext, 256
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_4LoopENS_22SimpleLoopUnswitchPassENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS6_RNS_10LPMUpdaterEEEE, i64 16), ptr %411, align 8, !tbaa !15
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store i16 %.sroa.0925.0.insert.insert, ptr %412, align 8
+  store i16 %.sroa.0923.0.insert.insert, ptr %412, align 8
   %413 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %415 = ptrtoint ptr %411 to i64
@@ -31184,12 +31184,12 @@ _ZN4llvm17SLPVectorizerPassD2Ev.exit:             ; preds = %_ZN4llvm23SmallVect
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %880 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ExtraVectorizerPasses, i64 120), align 8, !range !62
   %881 = trunc nuw i8 %880 to i1
-  %or.cond1069 = select i1 %353, i1 %881, i1 false
-  br i1 %or.cond1069, label %882, label %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge
+  %or.cond1067 = select i1 %353, i1 %881, i1 false
+  br i1 %or.cond1067, label %882, label %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge
 
 _ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge: ; preds = %_ZN4llvm17SLPVectorizerPassD2Ev.exit
-  %.pre1130 = load ptr, ptr %39, align 8, !tbaa !140
-  %.pre1131 = load ptr, ptr %41, align 8, !tbaa !143
+  %.pre1128 = load ptr, ptr %39, align 8, !tbaa !140
+  %.pre1129 = load ptr, ptr %41, align 8, !tbaa !143
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 882:                                              ; preds = %_ZN4llvm17SLPVectorizerPassD2Ev.exit
@@ -31269,8 +31269,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge, %887, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit709, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8BDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %912 = phi ptr [ %.pre1131, %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %886, %887 ], [ %911, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit709 ], [ %751, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8BDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
-  %913 = phi ptr [ %.pre1130, %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %889, %887 ], [ %909, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit709 ], [ %752, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8BDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %912 = phi ptr [ %.pre1129, %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %886, %887 ], [ %911, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit709 ], [ %751, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8BDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
+  %913 = phi ptr [ %.pre1128, %_ZN4llvm17SLPVectorizerPassD2Ev.exit._ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12EarlyCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %889, %887 ], [ %909, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit709 ], [ %752, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8BDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ]
   %914 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_17VectorCombinePassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %914, align 8, !tbaa !15
   %915 = getelementptr inbounds nuw i8, ptr %914, i64 8
@@ -31520,7 +31520,7 @@ _ZN4llvm15InstCombinePassD2Ev.exit177:            ; preds = %_ZN4llvm9SetVectorI
 1025:                                             ; preds = %_ZN4llvm15InstCombinePassD2Ev.exit177
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  store i32 %.sroa.0955.0.extract.trunc, ptr %28, align 4, !tbaa !1423
+  store i32 %.sroa.0953.0.extract.trunc, ptr %28, align 4, !tbaa !1423
   call void @_ZN4llvm31createFunctionToLoopPassAdaptorINS_20LoopUnrollAndJamPassEEENSt9enable_ifIXntsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueENS_25FunctionToLoopPassAdaptorEE4typeEOS5_bbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::FunctionToLoopPassAdaptor") align 8 %27, ptr noundef nonnull align 4 dereferenceable(4) %28, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %1026 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %1027 = load i64, ptr %27, align 8, !tbaa !227
@@ -31603,9 +31603,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i757 = phi ptr [ %1058, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i748 ], [ %1063, %.lr.ph.i.i.i.i752 ]
   %1064 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i757, i64 8
   %.not.i23.i765 = icmp eq ptr %1046, null
-  br i1 %.not.i23.i765, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1367, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373
+  br i1 %.not.i23.i765, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1365, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1367: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i763
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1365: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i763
   store ptr %1058, ptr %2, align 8, !tbaa !146
   store ptr %1064, ptr %39, align 8, !tbaa !140
   %1065 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1058, i64 %1056
@@ -31614,17 +31614,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1367: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i763
   call void @_ZdlPvm(ptr noundef nonnull %1046, i64 noundef %1049) #22
-  %.pre1132.pre = load ptr, ptr %1028, align 8, !tbaa !146
-  %.pre1133.pre = load ptr, ptr %1030, align 8, !tbaa !140
+  %.pre1130.pre = load ptr, ptr %1028, align 8, !tbaa !146
+  %.pre1131.pre = load ptr, ptr %1030, align 8, !tbaa !140
   store ptr %1058, ptr %2, align 8, !tbaa !146
   store ptr %1064, ptr %39, align 8, !tbaa !140
   %1066 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %1058, i64 %1056
   store ptr %1066, ptr %41, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i181 = icmp eq ptr %.pre1132.pre, %.pre1133.pre
+  %.not4.i.i.i.i.i.i181 = icmp eq ptr %.pre1130.pre, %.pre1131.pre
   br i1 %.not4.i.i.i.i.i.i181, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i190, label %.lr.ph.i.i.i.i.i.i182
 
 .lr.ph.i.i.i.i.i.i182:                            ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186
-  %.05.i.i.i.i.i.i183 = phi ptr [ %1071, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186 ], [ %.pre1132.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373 ]
+  %.05.i.i.i.i.i.i183 = phi ptr [ %1071, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186 ], [ %.pre1130.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373 ]
   %1067 = load ptr, ptr %.05.i.i.i.i.i.i183, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i184 = icmp eq ptr %1067, null
   br i1 %.not.i.i.i.i.i.i.i.i184, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i185
@@ -31639,7 +31639,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i185, %.lr.ph.i.i.i.i.i.i182
   store ptr null, ptr %.05.i.i.i.i.i.i183, align 8, !tbaa !144
   %1071 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i183, i64 8
-  %.not.i.i.i.i.i.i187 = icmp eq ptr %1071, %.pre1133.pre
+  %.not.i.i.i.i.i.i187 = icmp eq ptr %1071, %.pre1131.pre
   br i1 %.not.i.i.i.i.i.i187, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i188, label %.lr.ph.i.i.i.i.i.i182, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i188: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i186
@@ -31647,7 +31647,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i190
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i190: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i188, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373
-  %1072 = phi ptr [ %.pr.i.i.i189, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i188 ], [ %.pre1132.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373 ]
+  %1072 = phi ptr [ %.pr.i.i.i189, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i188 ], [ %.pre1130.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373 ]
   %.not.i.i.i.i.i191 = icmp eq ptr %1072, null
   br i1 %.not.i.i.i.i.i191, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i192, label %1073
 
@@ -31659,7 +31659,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %1072, i64 noundef %1077) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i192
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i192: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1367, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread, %1073, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i190
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i192: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread1365, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit373.thread, %1073, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i190
   %1078 = load ptr, ptr %27, align 8, !tbaa !227
   %.not.i.i193 = icmp eq ptr %1078, null
   br i1 %.not.i.i193, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit195, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i194
@@ -31674,33 +31674,33 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManage
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit195:  ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i192, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i194
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %.pre1134 = load i8, ptr %1022, align 1, !tbaa !296, !range !62
+  %.pre1132 = load i8, ptr %1022, align 1, !tbaa !296, !range !62
   br label %1082
 
 1082:                                             ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit195, %_ZN4llvm15InstCombinePassD2Ev.exit177
-  %1083 = phi i8 [ %.pre1134, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit195 ], [ %1023, %_ZN4llvm15InstCombinePassD2Ev.exit177 ]
+  %1083 = phi i8 [ %.pre1132, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit195 ], [ %1023, %_ZN4llvm15InstCombinePassD2Ev.exit177 ]
   %1084 = xor i8 %1083, 1
   %1085 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1086 = load i8, ptr %1085, align 4, !tbaa !394, !range !62, !noundef !63
   %1087 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %.sroa.0920.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 9
-  store i8 0, ptr %.sroa.0920.sroa.4.0..sroa_idx, align 1
-  %.sroa.0920.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 11
-  store i8 0, ptr %.sroa.0920.sroa.6.0..sroa_idx, align 1
-  %.sroa.0920.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 13
-  store i8 0, ptr %.sroa.0920.sroa.8.0..sroa_idx, align 1
-  %.sroa.0920.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 15
-  store i8 0, ptr %.sroa.0920.sroa.10.0..sroa_idx, align 1
-  %.sroa.0920.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 17
-  store i8 0, ptr %.sroa.0920.sroa.12.0..sroa_idx, align 1
-  %.sroa.0920.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 24
-  store i8 0, ptr %.sroa.0920.sroa.14.0..sroa_idx, align 8
-  %.sroa.0920.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 28
-  store i32 %.sroa.0955.0.extract.trunc, ptr %.sroa.0920.sroa.16.0..sroa_idx, align 4
-  %.sroa.0920.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 32
-  store i8 %1084, ptr %.sroa.0920.sroa.17.0..sroa_idx, align 8
-  %.sroa.0920.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 33
-  store i8 %1086, ptr %.sroa.0920.sroa.18.0..sroa_idx, align 1
+  %.sroa.0918.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 9
+  store i8 0, ptr %.sroa.0918.sroa.4.0..sroa_idx, align 1
+  %.sroa.0918.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 11
+  store i8 0, ptr %.sroa.0918.sroa.6.0..sroa_idx, align 1
+  %.sroa.0918.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 13
+  store i8 0, ptr %.sroa.0918.sroa.8.0..sroa_idx, align 1
+  %.sroa.0918.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 15
+  store i8 0, ptr %.sroa.0918.sroa.10.0..sroa_idx, align 1
+  %.sroa.0918.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 17
+  store i8 0, ptr %.sroa.0918.sroa.12.0..sroa_idx, align 1
+  %.sroa.0918.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 24
+  store i8 0, ptr %.sroa.0918.sroa.14.0..sroa_idx, align 8
+  %.sroa.0918.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 28
+  store i32 %.sroa.0953.0.extract.trunc, ptr %.sroa.0918.sroa.16.0..sroa_idx, align 4
+  %.sroa.0918.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 32
+  store i8 %1084, ptr %.sroa.0918.sroa.17.0..sroa_idx, align 8
+  %.sroa.0918.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1087, i64 33
+  store i8 %1086, ptr %.sroa.0918.sroa.18.0..sroa_idx, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_14LoopUnrollPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1087, align 8, !tbaa !15
   %1088 = load ptr, ptr %39, align 8, !tbaa !140
   %1089 = load ptr, ptr %41, align 8, !tbaa !143
@@ -37246,8 +37246,8 @@ _ZN4llvm11PassBuilder30invokePipelineStartEPCallbacksERNS_11PassManagerINS_6Modu
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %171 = load i8, ptr %170, align 4, !range !62
   %172 = trunc nuw i8 %171 to i1
-  %or.cond839 = select i1 %169, i1 %172, i1 false
-  br i1 %or.cond839, label %173, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit40
+  %or.cond836 = select i1 %169, i1 %172, i1 false
+  br i1 %or.cond836, label %173, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit40
 
 173:                                              ; preds = %_ZN4llvm11PassBuilder30invokePipelineStartEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
   %174 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1781
@@ -37338,8 +37338,8 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit40: ; preds = %_ZNSt6vectorISt10un
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %209 = load i32, ptr %208, align 8
   %210 = icmp eq i32 %209, 3
-  %or.cond842 = select i1 %207, i1 %210, i1 false
-  br i1 %or.cond842, label %211, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit
+  %or.cond839 = select i1 %207, i1 %210, i1 false
+  br i1 %or.cond839, label %211, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit
 
 211:                                              ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit40
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -37450,12 +37450,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   %255 = load i64, ptr %248, align 8, !tbaa !13
   store i64 %255, ptr %246, align 8, !tbaa !13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.pre879 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !14
+  %.pre876 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318, %250
   %256 = phi ptr [ %247, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318 ], [ %246, %250 ]
-  %257 = phi i64 [ %.pre879, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318 ], [ %252, %250 ]
+  %257 = phi i64 [ %.pre876, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318 ], [ %252, %250 ]
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %259 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %257, ptr %259, align 8, !tbaa !14
@@ -37484,13 +37484,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i:
   store ptr %263, ptr %260, align 8, !tbaa !11
   %271 = load i64, ptr %264, align 8, !tbaa !13
   store i64 %271, ptr %262, align 8, !tbaa !13
-  %.phi.trans.insert880 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %.pre881 = load i64, ptr %.phi.trans.insert880, align 8, !tbaa !14
+  %.phi.trans.insert877 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %.pre878 = load i64, ptr %.phi.trans.insert877, align 8, !tbaa !14
   br label %_ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit
 
 _ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit:    ; preds = %266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i
   %272 = phi ptr [ %262, %266 ], [ %263, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
-  %273 = phi i64 [ %268, %266 ], [ %.pre881, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
+  %273 = phi i64 [ %268, %266 ], [ %.pre878, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
   %274 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %275 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i64 %273, ptr %275, align 8, !tbaa !14
@@ -37626,9 +37626,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i413 = phi ptr [ %321, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i404 ], [ %326, %.lr.ph.i.i.i.i408 ]
   %327 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i413, i64 8
   %.not.i23.i421 = icmp eq ptr %309, null
-  br i1 %.not.i23.i421, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1159, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+  br i1 %.not.i23.i421, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1156, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1159: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i419
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1156: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i419
   store ptr %321, ptr %0, align 8, !tbaa !896
   store ptr %327, ptr %127, align 8, !tbaa !890
   %328 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %321, i64 %319
@@ -37637,28 +37637,28 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23Sa
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i419
   call void @_ZdlPvm(ptr noundef nonnull %309, i64 noundef %312) #22
-  %.pre882.pre = load ptr, ptr %279, align 8, !tbaa !1026
+  %.pre879.pre = load ptr, ptr %279, align 8, !tbaa !1026
   store ptr %321, ptr %0, align 8, !tbaa !896
   store ptr %327, ptr %127, align 8, !tbaa !890
   %329 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %321, i64 %319
   store ptr %329, ptr %129, align 8, !tbaa !893
-  %.not.i.i.i307 = icmp eq ptr %.pre882.pre, null
+  %.not.i.i.i307 = icmp eq ptr %.pre879.pre, null
   br i1 %.not.i.i.i307, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i308, label %330
 
 330:                                              ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %331 = getelementptr inbounds nuw i8, ptr %.pre882.pre, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %.pre879.pre, i64 8
   %332 = atomicrmw sub ptr %331, i32 1 acq_rel, align 4
   %333 = icmp eq i32 %332, 1
   br i1 %333, label %334, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i308
 
 334:                                              ; preds = %330
-  %335 = load ptr, ptr %.pre882.pre, align 8, !tbaa !15
+  %335 = load ptr, ptr %.pre879.pre, align 8, !tbaa !15
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %337 = load ptr, ptr %336, align 8
-  call void %337(ptr noundef nonnull align 8 dereferenceable(12) %.pre882.pre) #20
+  call void %337(ptr noundef nonnull align 8 dereferenceable(12) %.pre879.pre) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i308
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i308: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1159, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %334, %330, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i308: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread1156, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %334, %330, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %338 = load ptr, ptr %260, align 8, !tbaa !11
   %339 = icmp eq ptr %338, %262
   br i1 %339, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i310, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i309
@@ -38155,11 +38155,11 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_13LazyCallGraph3SCCENS0_15AnalysisMan
   br i1 %.not.i82, label %_ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit, label %.lr.ph.i79
 
 _ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS3_JRS2_EEEJS5_RNS0_17CGSCCUpdateResultEEEENS0_17OptimizationLevelEEEclESA_SB_.exit.i
-  %.pre883 = load ptr, ptr %32, align 8, !tbaa !1817
-  %.phi.trans.insert884 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.pre885 = load ptr, ptr %.phi.trans.insert884, align 8, !tbaa !1817
+  %.pre880 = load ptr, ptr %32, align 8, !tbaa !1817
+  %.phi.trans.insert881 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.pre882 = load ptr, ptr %.phi.trans.insert881, align 8, !tbaa !1817
   %529 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %530 = icmp eq ptr %.pre883, %.pre885
+  %530 = icmp eq ptr %.pre880, %.pre882
   br i1 %530, label %_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit, label %531
 
 531:                                              ; preds = %_ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit
@@ -38169,9 +38169,9 @@ _ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !noalias !1818
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_13LazyCallGraph3SCCENS_11PassManagerIS3_NS_15AnalysisManagerIS3_JRS2_EEEJS6_RNS_17CGSCCUpdateResultEEEES7_JS6_S9_EEE, i64 16), ptr %532, align 8, !tbaa !15, !noalias !1818
   %535 = getelementptr inbounds nuw i8, ptr %532, i64 8
-  store ptr %.pre883, ptr %535, align 8, !tbaa !947, !noalias !1818
+  store ptr %.pre880, ptr %535, align 8, !tbaa !947, !noalias !1818
   %536 = getelementptr inbounds nuw i8, ptr %532, i64 16
-  store ptr %.pre885, ptr %536, align 8, !tbaa !941, !noalias !1818
+  store ptr %.pre882, ptr %536, align 8, !tbaa !941, !noalias !1818
   %537 = getelementptr inbounds nuw i8, ptr %532, i64 24
   store ptr %534, ptr %537, align 8, !tbaa !944, !noalias !1818
   %538 = ptrtoint ptr %532 to i64
@@ -38248,11 +38248,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %565, ptr %127, align 8, !tbaa !890
   %567 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %559, i64 %557
   store ptr %567, ptr %129, align 8, !tbaa !893
-  %.pre886 = load ptr, ptr %32, align 8, !tbaa !947
+  %.pre883 = load ptr, ptr %32, align 8, !tbaa !947
   br label %_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit
 
 _ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit517, %543, %_ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit
-  %568 = phi ptr [ %.pre886, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit517 ], [ null, %543 ], [ %.pre883, %_ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit ]
+  %568 = phi ptr [ %.pre883, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit517 ], [ null, %543 ], [ %.pre880, %_ZN4llvm11PassBuilder35invokeCGSCCOptimizerLateEPCallbacksERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEENS_17OptimizationLevelE.exit ]
   %569 = load ptr, ptr %529, align 8, !tbaa !941
   %.not4.i.i.i.i.i = icmp eq ptr %568, %569
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_13LazyCallGraph3SCCENS1_15AnalysisManagerIS5_JRS4_EEEJS7_RNS1_17CGSCCUpdateResultEEEESt14default_deleteISB_EESE_EvT_SG_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -38346,18 +38346,18 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_
   br i1 %.not.i92, label %_ZN4llvm11PassBuilder38invokeLateLoopOptimizationsEPCallbacksERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEENS_17OptimizationLevelE.exit, label %.lr.ph.i89
 
 _ZN4llvm11PassBuilder38invokeLateLoopOptimizationsEPCallbacksERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_27LoopStandardAnalysisResultsEEEEJS5_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEEclESA_SB_.exit.i
-  %.phi.trans.insert892 = getelementptr inbounds nuw i8, ptr %33, i64 104
-  %.pre893 = load ptr, ptr %.phi.trans.insert892, align 8
-  %.phi.trans.insert890 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %.pre891 = load ptr, ptr %.phi.trans.insert890, align 8
-  %.phi.trans.insert888 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %.pre889 = load ptr, ptr %.phi.trans.insert888, align 8, !tbaa !1826
-  %.pre887 = load ptr, ptr %590, align 8, !tbaa !1826
+  %.phi.trans.insert889 = getelementptr inbounds nuw i8, ptr %33, i64 104
+  %.pre890 = load ptr, ptr %.phi.trans.insert889, align 8
+  %.phi.trans.insert887 = getelementptr inbounds nuw i8, ptr %33, i64 96
+  %.pre888 = load ptr, ptr %.phi.trans.insert887, align 8
+  %.phi.trans.insert885 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %.pre886 = load ptr, ptr %.phi.trans.insert885, align 8, !tbaa !1826
+  %.pre884 = load ptr, ptr %590, align 8, !tbaa !1826
   %600 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %601 = icmp eq ptr %.pre887, %.pre889
+  %601 = icmp eq ptr %.pre884, %.pre886
   %602 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %603 = getelementptr inbounds nuw i8, ptr %33, i64 104
-  %604 = icmp eq ptr %.pre891, %.pre893
+  %604 = icmp eq ptr %.pre888, %.pre890
   %605 = select i1 %601, i1 %604, i1 false
   br i1 %605, label %667, label %606
 
@@ -38452,9 +38452,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i527 = phi ptr [ %643, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i518 ], [ %648, %.lr.ph.i.i.i.i522 ]
   %649 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i527, i64 8
   %.not.i23.i535 = icmp eq ptr %631, null
-  br i1 %.not.i23.i535, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1163, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98
+  br i1 %.not.i23.i535, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1160, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98
 
-_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1163: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i533
+_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1160: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i533
   store ptr %643, ptr %0, align 8, !tbaa !896
   store ptr %649, ptr %127, align 8, !tbaa !890
   %650 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %643, i64 %641
@@ -38463,17 +38463,17 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1163: ; preds = %_ZNSt6ve
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i533
   call void @_ZdlPvm(ptr noundef nonnull %631, i64 noundef %634) #22
-  %.pre894.pre = load ptr, ptr %609, align 8, !tbaa !146
-  %.pre895.pre = load ptr, ptr %611, align 8, !tbaa !140
+  %.pre891.pre = load ptr, ptr %609, align 8, !tbaa !146
+  %.pre892.pre = load ptr, ptr %611, align 8, !tbaa !140
   store ptr %643, ptr %0, align 8, !tbaa !896
   store ptr %649, ptr %127, align 8, !tbaa !890
   %651 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %643, i64 %641
   store ptr %651, ptr %129, align 8, !tbaa !893
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre894.pre, %.pre895.pre
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre891.pre, %.pre892.pre
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %656, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre894.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98 ]
+  %.05.i.i.i.i.i.i = phi ptr [ %656, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre891.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98 ]
   %652 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %652, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -38488,7 +38488,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !144
   %656 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %656, %.pre895.pre
+  %.not.i.i.i.i.i.i = icmp eq ptr %656, %.pre892.pre
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -38496,7 +38496,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98
-  %657 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre894.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98 ]
+  %657 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre891.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98 ]
   %.not.i.i.i.i.i99 = icmp eq ptr %657, null
   br i1 %.not.i.i.i.i.i99, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, label %658
 
@@ -38508,7 +38508,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %657, i64 noundef %662) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1163, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread, %658, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread1160, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit98.thread, %658, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %663 = load ptr, ptr %34, align 8, !tbaa !227
   %.not.i.i100 = icmp eq ptr %663, null
   br i1 %.not.i.i100, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i
@@ -38671,18 +38671,18 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_
   br i1 %.not.i115, label %_ZN4llvm11PassBuilder33invokeLoopOptimizerEndEPCallbacksERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEENS_17OptimizationLevelE.exit, label %.lr.ph.i111
 
 _ZN4llvm11PassBuilder33invokeLoopOptimizerEndEPCallbacksERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_27LoopStandardAnalysisResultsEEEEJS5_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEEclESA_SB_.exit.i114
-  %.phi.trans.insert901 = getelementptr inbounds nuw i8, ptr %35, i64 104
-  %.pre902 = load ptr, ptr %.phi.trans.insert901, align 8
-  %.phi.trans.insert899 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %.pre900 = load ptr, ptr %.phi.trans.insert899, align 8
-  %.phi.trans.insert897 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %.pre898 = load ptr, ptr %.phi.trans.insert897, align 8, !tbaa !1826
-  %.pre896 = load ptr, ptr %707, align 8, !tbaa !1826
+  %.phi.trans.insert898 = getelementptr inbounds nuw i8, ptr %35, i64 104
+  %.pre899 = load ptr, ptr %.phi.trans.insert898, align 8
+  %.phi.trans.insert896 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %.pre897 = load ptr, ptr %.phi.trans.insert896, align 8
+  %.phi.trans.insert894 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  %.pre895 = load ptr, ptr %.phi.trans.insert894, align 8, !tbaa !1826
+  %.pre893 = load ptr, ptr %707, align 8, !tbaa !1826
   %717 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %718 = icmp eq ptr %.pre896, %.pre898
+  %718 = icmp eq ptr %.pre893, %.pre895
   %719 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %720 = getelementptr inbounds nuw i8, ptr %35, i64 104
-  %721 = icmp eq ptr %.pre900, %.pre902
+  %721 = icmp eq ptr %.pre897, %.pre899
   %722 = select i1 %718, i1 %721, i1 false
   br i1 %722, label %784, label %723
 
@@ -38777,9 +38777,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i546 = phi ptr [ %760, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i537 ], [ %765, %.lr.ph.i.i.i.i541 ]
   %766 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i546, i64 8
   %.not.i23.i554 = icmp eq ptr %748, null
-  br i1 %.not.i23.i554, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1169, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121
+  br i1 %.not.i23.i554, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1166, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121
 
-_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1169: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i552
+_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1166: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i552
   store ptr %760, ptr %0, align 8, !tbaa !896
   store ptr %766, ptr %127, align 8, !tbaa !890
   %767 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %760, i64 %758
@@ -38788,17 +38788,17 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1169: ; preds = %_ZNSt6v
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i552
   call void @_ZdlPvm(ptr noundef nonnull %748, i64 noundef %751) #22
-  %.pre903.pre = load ptr, ptr %726, align 8, !tbaa !146
-  %.pre904.pre = load ptr, ptr %728, align 8, !tbaa !140
+  %.pre900.pre = load ptr, ptr %726, align 8, !tbaa !146
+  %.pre901.pre = load ptr, ptr %728, align 8, !tbaa !140
   store ptr %760, ptr %0, align 8, !tbaa !896
   store ptr %766, ptr %127, align 8, !tbaa !890
   %768 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %760, i64 %758
   store ptr %768, ptr %129, align 8, !tbaa !893
-  %.not4.i.i.i.i.i.i122 = icmp eq ptr %.pre903.pre, %.pre904.pre
+  %.not4.i.i.i.i.i.i122 = icmp eq ptr %.pre900.pre, %.pre901.pre
   br i1 %.not4.i.i.i.i.i.i122, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i131, label %.lr.ph.i.i.i.i.i.i123
 
 .lr.ph.i.i.i.i.i.i123:                            ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127
-  %.05.i.i.i.i.i.i124 = phi ptr [ %773, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127 ], [ %.pre903.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121 ]
+  %.05.i.i.i.i.i.i124 = phi ptr [ %773, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127 ], [ %.pre900.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121 ]
   %769 = load ptr, ptr %.05.i.i.i.i.i.i124, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i125 = icmp eq ptr %769, null
   br i1 %.not.i.i.i.i.i.i.i.i125, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i126
@@ -38813,7 +38813,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i126, %.lr.ph.i.i.i.i.i.i123
   store ptr null, ptr %.05.i.i.i.i.i.i124, align 8, !tbaa !144
   %773 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i124, i64 8
-  %.not.i.i.i.i.i.i128 = icmp eq ptr %773, %.pre904.pre
+  %.not.i.i.i.i.i.i128 = icmp eq ptr %773, %.pre901.pre
   br i1 %.not.i.i.i.i.i.i128, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i129, label %.lr.ph.i.i.i.i.i.i123, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i129: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i127
@@ -38821,7 +38821,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i131
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i131: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i129, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121
-  %774 = phi ptr [ %.pr.i.i.i130, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i129 ], [ %.pre903.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121 ]
+  %774 = phi ptr [ %.pr.i.i.i130, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i129 ], [ %.pre900.pre, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121 ]
   %.not.i.i.i.i.i132 = icmp eq ptr %774, null
   br i1 %.not.i.i.i.i.i132, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i133, label %775
 
@@ -38833,7 +38833,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %774, i64 noundef %779) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i133
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i133: ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1169, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread, %775, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i131
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i133: ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread1166, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit121.thread, %775, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i131
   %780 = load ptr, ptr %36, align 8, !tbaa !227
   %.not.i.i134 = icmp eq ptr %780, null
   br i1 %.not.i.i134, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit136, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i135
@@ -38987,11 +38987,11 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JE
   br i1 %.not.i168, label %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit, label %.lr.ph.i165
 
 _ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEclES6_S7_.exit.i
-  %.pre905 = load ptr, ptr %37, align 8, !tbaa !1843
-  %.phi.trans.insert906 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.pre907 = load ptr, ptr %.phi.trans.insert906, align 8, !tbaa !1843
+  %.pre902 = load ptr, ptr %37, align 8, !tbaa !1843
+  %.phi.trans.insert903 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.pre904 = load ptr, ptr %.phi.trans.insert903, align 8, !tbaa !1843
   %829 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %830 = icmp eq ptr %.pre905, %.pre907
+  %830 = icmp eq ptr %.pre902, %.pre904
   br i1 %830, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit175, label %831
 
 831:                                              ; preds = %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -39001,9 +39001,9 @@ _ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !noalias !1844
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_11PassManagerIS2_NS_15AnalysisManagerIS2_JEEEJEEES5_JEEE, i64 16), ptr %832, align 8, !tbaa !15, !noalias !1844
   %835 = getelementptr inbounds nuw i8, ptr %832, i64 8
-  store ptr %.pre905, ptr %835, align 8, !tbaa !146, !noalias !1844
+  store ptr %.pre902, ptr %835, align 8, !tbaa !146, !noalias !1844
   %836 = getelementptr inbounds nuw i8, ptr %832, i64 16
-  store ptr %.pre907, ptr %836, align 8, !tbaa !140, !noalias !1844
+  store ptr %.pre904, ptr %836, align 8, !tbaa !140, !noalias !1844
   %837 = getelementptr inbounds nuw i8, ptr %832, i64 24
   store ptr %834, ptr %837, align 8, !tbaa !143, !noalias !1844
   %838 = ptrtoint ptr %832 to i64
@@ -39082,11 +39082,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %866, ptr %127, align 8, !tbaa !890
   %868 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %860, i64 %858
   store ptr %868, ptr %129, align 8, !tbaa !893
-  %.pre908 = load ptr, ptr %37, align 8, !tbaa !146
+  %.pre905 = load ptr, ptr %37, align 8, !tbaa !146
   br label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit175
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit175: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit574, %844, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
-  %869 = phi ptr [ %.pre908, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit574 ], [ null, %844 ], [ %.pre905, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
+  %869 = phi ptr [ %.pre905, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit574 ], [ null, %844 ], [ %.pre902, %_ZN4llvm11PassBuilder36invokeScalarOptimizerLateEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %870 = load ptr, ptr %829, align 8, !tbaa !140
   %.not4.i.i.i.i.i176 = icmp eq ptr %869, %870
   br i1 %.not4.i.i.i.i.i176, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i177
@@ -39207,11 +39207,11 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JE
   br i1 %.not.i197, label %_ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit, label %.lr.ph.i193
 
 _ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEclES6_S7_.exit.i196
-  %.pre909 = load ptr, ptr %38, align 8, !tbaa !1843
-  %.phi.trans.insert910 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.pre911 = load ptr, ptr %.phi.trans.insert910, align 8, !tbaa !1843
+  %.pre906 = load ptr, ptr %38, align 8, !tbaa !1843
+  %.phi.trans.insert907 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.pre908 = load ptr, ptr %.phi.trans.insert907, align 8, !tbaa !1843
   %908 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %909 = icmp eq ptr %.pre909, %.pre911
+  %909 = icmp eq ptr %.pre906, %.pre908
   br i1 %909, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit204, label %910
 
 910:                                              ; preds = %_ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -39221,9 +39221,9 @@ _ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8Fu
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !noalias !1852
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_11PassManagerIS2_NS_15AnalysisManagerIS2_JEEEJEEES5_JEEE, i64 16), ptr %911, align 8, !tbaa !15, !noalias !1852
   %914 = getelementptr inbounds nuw i8, ptr %911, i64 8
-  store ptr %.pre909, ptr %914, align 8, !tbaa !146, !noalias !1852
+  store ptr %.pre906, ptr %914, align 8, !tbaa !146, !noalias !1852
   %915 = getelementptr inbounds nuw i8, ptr %911, i64 16
-  store ptr %.pre911, ptr %915, align 8, !tbaa !140, !noalias !1852
+  store ptr %.pre908, ptr %915, align 8, !tbaa !140, !noalias !1852
   %916 = getelementptr inbounds nuw i8, ptr %911, i64 24
   store ptr %913, ptr %916, align 8, !tbaa !143, !noalias !1852
   %917 = ptrtoint ptr %911 to i64
@@ -39302,11 +39302,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %945, ptr %127, align 8, !tbaa !890
   %947 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %939, i64 %937
   store ptr %947, ptr %129, align 8, !tbaa !893
-  %.pre912 = load ptr, ptr %38, align 8, !tbaa !146
+  %.pre909 = load ptr, ptr %38, align 8, !tbaa !146
   br label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit204
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit204: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit593, %923, %_ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
-  %948 = phi ptr [ %.pre912, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit593 ], [ null, %923 ], [ %.pre909, %_ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
+  %948 = phi ptr [ %.pre909, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit593 ], [ null, %923 ], [ %.pre906, %_ZN4llvm11PassBuilder32invokeVectorizerStartEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %949 = load ptr, ptr %908, align 8, !tbaa !140
   %.not4.i.i.i.i.i205 = icmp eq ptr %948, %949
   br i1 %.not4.i.i.i.i.i205, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i214, label %.lr.ph.i.i.i.i.i206
@@ -39391,11 +39391,11 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JE
   br i1 %.not.i224, label %_ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit, label %.lr.ph.i220
 
 _ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEclES6_S7_.exit.i223
-  %.pre913 = load ptr, ptr %39, align 8, !tbaa !1843
-  %.phi.trans.insert914 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.pre915 = load ptr, ptr %.phi.trans.insert914, align 8, !tbaa !1843
+  %.pre910 = load ptr, ptr %39, align 8, !tbaa !1843
+  %.phi.trans.insert911 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.pre912 = load ptr, ptr %.phi.trans.insert911, align 8, !tbaa !1843
   %975 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %976 = icmp eq ptr %.pre913, %.pre915
+  %976 = icmp eq ptr %.pre910, %.pre912
   br i1 %976, label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit231, label %977
 
 977:                                              ; preds = %_ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -39405,9 +39405,9 @@ _ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8Func
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !noalias !1860
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_11PassManagerIS2_NS_15AnalysisManagerIS2_JEEEJEEES5_JEEE, i64 16), ptr %978, align 8, !tbaa !15, !noalias !1860
   %981 = getelementptr inbounds nuw i8, ptr %978, i64 8
-  store ptr %.pre913, ptr %981, align 8, !tbaa !146, !noalias !1860
+  store ptr %.pre910, ptr %981, align 8, !tbaa !146, !noalias !1860
   %982 = getelementptr inbounds nuw i8, ptr %978, i64 16
-  store ptr %.pre915, ptr %982, align 8, !tbaa !140, !noalias !1860
+  store ptr %.pre912, ptr %982, align 8, !tbaa !140, !noalias !1860
   %983 = getelementptr inbounds nuw i8, ptr %978, i64 24
   store ptr %980, ptr %983, align 8, !tbaa !143, !noalias !1860
   %984 = ptrtoint ptr %978 to i64
@@ -39486,11 +39486,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %1012, ptr %127, align 8, !tbaa !890
   %1014 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1006, i64 %1004
   store ptr %1014, ptr %129, align 8, !tbaa !893
-  %.pre916 = load ptr, ptr %39, align 8, !tbaa !146
+  %.pre913 = load ptr, ptr %39, align 8, !tbaa !146
   br label %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit231
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit231: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit612, %990, %_ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
-  %1015 = phi ptr [ %.pre916, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit612 ], [ null, %990 ], [ %.pre913, %_ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
+  %1015 = phi ptr [ %.pre913, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit612 ], [ null, %990 ], [ %.pre910, %_ZN4llvm11PassBuilder30invokeVectorizerEndEPCallbacksERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %1016 = load ptr, ptr %975, align 8, !tbaa !140
   %.not4.i.i.i.i.i232 = icmp eq ptr %1015, %1016
   br i1 %.not4.i.i.i.i.i232, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i241, label %.lr.ph.i.i.i.i.i233
@@ -39590,8 +39590,8 @@ _ZN4llvm13CoroSplitPassD2Ev.exit:                 ; preds = %_ZN4llvm13CoroSplit
   store i64 %1049, ptr %1048, align 8, !tbaa !945
   %1050 = getelementptr inbounds nuw i8, ptr %1048, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre926 = load ptr, ptr %1030, align 8, !tbaa !890
-  %.pre927 = load ptr, ptr %1031, align 8, !tbaa !893
+  %.pre923 = load ptr, ptr %1030, align 8, !tbaa !890
+  %.pre924 = load ptr, ptr %1031, align 8, !tbaa !893
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %1051 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !1868
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_13LazyCallGraph3SCCENS_11PassManagerIS3_NS_15AnalysisManagerIS3_JRS2_EEEJS6_RNS_17CGSCCUpdateResultEEEES7_JS6_S9_EEE, i64 16), ptr %1051, align 8, !tbaa !15, !noalias !1868
@@ -39606,19 +39606,19 @@ _ZN4llvm13CoroSplitPassD2Ev.exit:                 ; preds = %_ZN4llvm13CoroSplit
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_33ModuleToPostOrderCGSCCPassAdaptorENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1056, align 8, !tbaa !15
   %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 8
   store i64 %1055, ptr %1057, align 8, !tbaa !945
-  %.not.i.i342 = icmp eq ptr %.pre926, %.pre927
+  %.not.i.i342 = icmp eq ptr %.pre923, %.pre924
   br i1 %.not.i.i342, label %1061, label %1058
 
 1058:                                             ; preds = %_ZN4llvm13CoroSplitPassD2Ev.exit
   %1059 = ptrtoint ptr %1056 to i64
-  store i64 %1059, ptr %.pre926, align 8, !tbaa !894
-  %1060 = getelementptr inbounds nuw i8, ptr %.pre926, i64 8
+  store i64 %1059, ptr %.pre923, align 8, !tbaa !894
+  %1060 = getelementptr inbounds nuw i8, ptr %.pre923, i64 8
   store ptr %1060, ptr %1030, align 8, !tbaa !890
   br label %_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit256
 
 1061:                                             ; preds = %_ZN4llvm13CoroSplitPassD2Ev.exit
   %1062 = load ptr, ptr %40, align 8, !tbaa !896
-  %1063 = ptrtoint ptr %.pre927 to i64
+  %1063 = ptrtoint ptr %.pre924 to i64
   %1064 = ptrtoint ptr %1062 to i64
   %1065 = sub i64 %1063, %1064
   %1066 = icmp eq i64 %1065, 9223372036854775800
@@ -39642,7 +39642,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analys
   %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 %1065
   %1076 = ptrtoint ptr %1056 to i64
   store i64 %1076, ptr %1075, align 8, !tbaa !894
-  %.not10.i.i.i.i650 = icmp eq ptr %1062, %.pre927
+  %.not10.i.i.i.i650 = icmp eq ptr %1062, %.pre924
   br i1 %.not10.i.i.i.i650, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i662, label %.lr.ph.i.i.i.i651
 
 .lr.ph.i.i.i.i651:                                ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i647, %.lr.ph.i.i.i.i651
@@ -39655,7 +39655,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analys
   store ptr null, ptr %.0911.i.i.i.i653, align 8, !tbaa !894, !alias.scope !1874, !noalias !1871
   %1078 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i653, i64 8
   %1079 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i652, i64 8
-  %.not.i.i.i.i654 = icmp eq ptr %1078, %.pre927
+  %.not.i.i.i.i654 = icmp eq ptr %1078, %.pre924
   br i1 %.not.i.i.i.i654, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i662, label %.lr.ph.i.i.i.i651, !llvm.loop !902
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i662: ; preds = %.lr.ph.i.i.i.i651, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i647
@@ -39676,7 +39676,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit256
 
 _ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit256: ; preds = %1058, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit665
-  %1083 = phi ptr [ %.pre927, %1058 ], [ %1082, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit665 ]
+  %1083 = phi ptr [ %.pre924, %1058 ], [ %1082, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit665 ]
   %1084 = phi ptr [ %1060, %1058 ], [ %1080, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit665 ]
   %1085 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_15CoroCleanupPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1085, align 8, !tbaa !15
@@ -39954,9 +39954,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i713 = phi ptr [ %1191, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i704 ], [ %1196, %.lr.ph.i.i.i.i708 ]
   %1197 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i713, i64 8
   %.not.i23.i721 = icmp eq ptr %1179, null
-  br i1 %.not.i23.i721, label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1175, label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359
+  br i1 %.not.i23.i721, label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1172, label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359
 
-_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1175: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i719
+_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1172: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i719
   store ptr %1191, ptr %0, align 8, !tbaa !896
   store ptr %1197, ptr %127, align 8, !tbaa !890
   %1198 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1191, i64 %1189
@@ -39965,17 +39965,17 @@ _ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1175: ; preds = %_ZNSt6vector
 
 _ZN4llvm22CoroConditionalWrapperD2Ev.exit359:     ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i719
   call void @_ZdlPvm(ptr noundef nonnull %1179, i64 noundef %1182) #22
-  %.pre918.pre = load ptr, ptr %43, align 8, !tbaa !896
-  %.pre919.pre = load ptr, ptr %1167, align 8, !tbaa !890
+  %.pre915.pre = load ptr, ptr %43, align 8, !tbaa !896
+  %.pre916.pre = load ptr, ptr %1167, align 8, !tbaa !890
   store ptr %1191, ptr %0, align 8, !tbaa !896
   store ptr %1197, ptr %127, align 8, !tbaa !890
   %1199 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1191, i64 %1189
   store ptr %1199, ptr %129, align 8, !tbaa !893
-  %.not4.i.i.i.i.i.i263 = icmp eq ptr %.pre918.pre, %.pre919.pre
+  %.not4.i.i.i.i.i.i263 = icmp eq ptr %.pre915.pre, %.pre916.pre
   br i1 %.not4.i.i.i.i.i.i263, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i264
 
 .lr.ph.i.i.i.i.i.i264:                            ; preds = %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i265 = phi ptr [ %1204, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre918.pre, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359 ]
+  %.05.i.i.i.i.i.i265 = phi ptr [ %1204, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre915.pre, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359 ]
   %1200 = load ptr, ptr %.05.i.i.i.i.i.i265, align 8, !tbaa !894
   %.not.i.i.i.i.i.i.i.i266 = icmp eq ptr %1200, null
   br i1 %.not.i.i.i.i.i.i.i.i266, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -39990,7 +39990,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i264
   store ptr null, ptr %.05.i.i.i.i.i.i265, align 8, !tbaa !894
   %1204 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i265, i64 8
-  %.not.i.i.i.i.i.i267 = icmp eq ptr %1204, %.pre919.pre
+  %.not.i.i.i.i.i.i267 = icmp eq ptr %1204, %.pre916.pre
   br i1 %.not.i.i.i.i.i.i267, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i264, !llvm.loop !986
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -39998,7 +39998,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359
-  %1205 = phi ptr [ %.pr.i.i.i268, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre918.pre, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359 ]
+  %1205 = phi ptr [ %.pr.i.i.i268, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre915.pre, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359 ]
   %.not.i.i.i.i.i269 = icmp eq ptr %1205, null
   br i1 %.not.i.i.i.i.i269, label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit, label %1206
 
@@ -40010,7 +40010,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   call void @_ZdlPvm(ptr noundef nonnull %1205, i64 noundef %1210) #22
   br label %_ZN4llvm22CoroConditionalWrapperD2Ev.exit
 
-_ZN4llvm22CoroConditionalWrapperD2Ev.exit:        ; preds = %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1175, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, %1206
+_ZN4llvm22CoroConditionalWrapperD2Ev.exit:        ; preds = %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread1172, %_ZN4llvm22CoroConditionalWrapperD2Ev.exit359.thread, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, %1206
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %1211 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %1212 = load ptr, ptr %1211, align 8, !tbaa !32
@@ -42174,11 +42174,11 @@ define dso_local void @_ZN4llvm11PassBuilder23buildLTODefaultPipelineENS_17Optim
   %60 = alloca %"class.llvm::SimplifyCFGPass", align 8
   %61 = alloca %"struct.llvm::SimplifyCFGOptions", align 8
   %62 = alloca %"class.llvm::GlobalDCEPass", align 8
-  %.sroa.02265.0.extract.trunc = trunc i64 %2 to i32
-  %.sroa.232312.0.extract.shift = lshr i64 %2, 32
-  %.sroa.232312.0.extract.trunc = trunc nuw i64 %.sroa.232312.0.extract.shift to i32
+  %.sroa.02259.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.232306.0.extract.shift = lshr i64 %2, 32
+  %.sroa.232306.0.extract.trunc = trunc nuw i64 %.sroa.232306.0.extract.shift to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.sroa.02265.0.insert.ext2309 = and i64 %2, 4294967295
+  %.sroa.02259.0.insert.ext2303 = and i64 %2, 4294967295
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %64 = load ptr, ptr %63, align 8, !tbaa !32
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 936
@@ -42221,13 +42221,13 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEE
 _ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit: ; preds = %_ZNKSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEEclES6_S7_.exit.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !890
-  %.phi.trans.insert2701 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre2702 = load ptr, ptr %.phi.trans.insert2701, align 8, !tbaa !893
+  %.phi.trans.insert2695 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre2696 = load ptr, ptr %.phi.trans.insert2695, align 8, !tbaa !893
   %78 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_15CrossDSOCFIPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %78, align 8, !tbaa !15
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i.i429 = icmp eq ptr %.pre, %.pre2702
+  %.not.i.i429 = icmp eq ptr %.pre, %.pre2696
   br i1 %.not.i.i429, label %84, label %81
 
 81:                                               ; preds = %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit
@@ -42241,7 +42241,7 @@ _ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11Pass
   %85 = phi ptr [ %71, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.thread ], [ %80, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %86 = phi ptr [ %70, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.thread ], [ %79, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %87 = phi ptr [ %69, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.thread ], [ %78, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
-  %88 = phi ptr [ null, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.thread ], [ %.pre2702, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
+  %88 = phi ptr [ null, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit.thread ], [ %.pre2696, %_ZN4llvm11PassBuilder46invokeFullLinkTimeOptimizationEarlyEPCallbacksERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEENS_17OptimizationLevelE.exit ]
   %89 = load ptr, ptr %0, align 8, !tbaa !896
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
@@ -42303,12 +42303,12 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15CrossDSOCFIPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit, %81
   %110 = phi ptr [ %85, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit ], [ %80, %81 ]
   %111 = phi ptr [ %86, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit ], [ %79, %81 ]
-  %.pre2708 = phi ptr [ %109, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit ], [ %.pre2702, %81 ]
+  %.pre2702 = phi ptr [ %109, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit ], [ %.pre2696, %81 ]
   %112 = phi ptr [ %107, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit ], [ %83, %81 ]
   %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O0E, i64 4), align 4, !tbaa !615
-  %114 = icmp eq i32 %113, %.sroa.232312.0.extract.trunc
+  %114 = icmp eq i32 %113, %.sroa.232306.0.extract.trunc
   %115 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
-  %116 = icmp eq i32 %115, %.sroa.02265.0.extract.trunc
+  %116 = icmp eq i32 %115, %.sroa.02259.0.extract.trunc
   %117 = select i1 %114, i1 %116, i1 false
   br i1 %117, label %118, label %216
 
@@ -42316,12 +42316,12 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15Cr
   %119 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %3, ptr %120, align 8
-  %.sroa.42261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr null, ptr %.sroa.42261.0..sroa_idx, align 8
-  %.sroa.52262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store i8 0, ptr %.sroa.52262.0..sroa_idx, align 8
+  %.sroa.42255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
+  store ptr null, ptr %.sroa.42255.0..sroa_idx, align 8
+  %.sroa.52256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 24
+  store i8 0, ptr %.sroa.52256.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_22WholeProgramDevirtPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %119, align 8, !tbaa !15
-  %.not.i.i430 = icmp eq ptr %112, %.pre2708
+  %.not.i.i430 = icmp eq ptr %112, %.pre2702
   br i1 %.not.i.i430, label %124, label %121
 
 121:                                              ; preds = %118
@@ -42333,7 +42333,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15Cr
 
 124:                                              ; preds = %118
   %125 = load ptr, ptr %0, align 8, !tbaa !896
-  %126 = ptrtoint ptr %.pre2708 to i64
+  %126 = ptrtoint ptr %.pre2702 to i64
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = icmp eq i64 %128, 9223372036854775800
@@ -42357,7 +42357,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analys
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %128
   %139 = ptrtoint ptr %119 to i64
   store i64 %139, ptr %138, align 8, !tbaa !894
-  %.not10.i.i.i.i718 = icmp eq ptr %125, %.pre2708
+  %.not10.i.i.i.i718 = icmp eq ptr %125, %.pre2702
   br i1 %.not10.i.i.i.i718, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i730, label %.lr.ph.i.i.i.i719
 
 .lr.ph.i.i.i.i719:                                ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i715, %.lr.ph.i.i.i.i719
@@ -42370,7 +42370,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analys
   store ptr null, ptr %.0911.i.i.i.i721, align 8, !tbaa !894, !alias.scope !2000, !noalias !1997
   %141 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i721, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i720, i64 8
-  %.not.i.i.i.i722 = icmp eq ptr %141, %.pre2708
+  %.not.i.i.i.i722 = icmp eq ptr %141, %.pre2702
   br i1 %.not.i.i.i.i722, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i730, label %.lr.ph.i.i.i.i719, !llvm.loop !902
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i730: ; preds = %.lr.ph.i.i.i.i719, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i715
@@ -42391,17 +42391,17 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22WholeProgramDevirtPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22WholeProgramDevirtPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit733, %121
-  %146 = phi ptr [ %145, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit733 ], [ %.pre2708, %121 ]
+  %146 = phi ptr [ %145, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit733 ], [ %.pre2702, %121 ]
   %147 = phi ptr [ %143, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit733 ], [ %123, %121 ]
   %148 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i8 0, ptr %149, align 8
-  %.sroa.42256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 16
-  store ptr %3, ptr %.sroa.42256.0..sroa_idx, align 8
-  %.sroa.52257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 24
-  store ptr null, ptr %.sroa.52257.0..sroa_idx, align 8
-  %.sroa.62258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 32
-  store i32 0, ptr %.sroa.62258.0..sroa_idx, align 8
+  %.sroa.42250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 16
+  store ptr %3, ptr %.sroa.42250.0..sroa_idx, align 8
+  %.sroa.52251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 24
+  store ptr null, ptr %.sroa.52251.0..sroa_idx, align 8
+  %.sroa.62252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 32
+  store i32 0, ptr %.sroa.62252.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %148, align 8, !tbaa !15
   %.not.i.i432 = icmp eq ptr %147, %146
   br i1 %.not.i.i432, label %153, label %150
@@ -42478,10 +42478,10 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18Lo
   %177 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i8 0, ptr %178, align 8
-  %.sroa.42250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
-  %.sroa.62252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42250.0..sroa_idx, i8 0, i64 16, i1 false)
-  store i32 1, ptr %.sroa.62252.0..sroa_idx, align 8
+  %.sroa.42244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %.sroa.62246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42244.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i32 1, ptr %.sroa.62246.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %177, align 8, !tbaa !15
   %.not.i.i434 = icmp eq ptr %176, %175
   br i1 %.not.i.i434, label %182, label %179
@@ -42708,13 +42708,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
   store ptr %260, ptr %25, align 8, !tbaa !11
   %268 = load i64, ptr %261, align 8, !tbaa !13
   store i64 %268, ptr %259, align 8, !tbaa !13
-  %.phi.trans.insert2703 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %.pre2704 = load i64, ptr %.phi.trans.insert2703, align 8, !tbaa !14
+  %.phi.trans.insert2697 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.pre2698 = load i64, ptr %.phi.trans.insert2697, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447, %263
   %269 = phi ptr [ %260, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447 ], [ %259, %263 ]
-  %270 = phi i64 [ %.pre2704, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447 ], [ %265, %263 ]
+  %270 = phi i64 [ %.pre2698, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447 ], [ %265, %263 ]
   %271 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %272 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %270, ptr %272, align 8, !tbaa !14
@@ -42743,13 +42743,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i:
   store ptr %276, ptr %273, align 8, !tbaa !11
   %284 = load i64, ptr %277, align 8, !tbaa !13
   store i64 %284, ptr %275, align 8, !tbaa !13
-  %.phi.trans.insert2705 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %.pre2706 = load i64, ptr %.phi.trans.insert2705, align 8, !tbaa !14
+  %.phi.trans.insert2699 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %.pre2700 = load i64, ptr %.phi.trans.insert2699, align 8, !tbaa !14
   br label %_ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit
 
 _ZN4llvm23SampleProfileLoaderPassC2EOS0_.exit:    ; preds = %279, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i
   %285 = phi ptr [ %275, %279 ], [ %276, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
-  %286 = phi i64 [ %281, %279 ], [ %.pre2706, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
+  %286 = phi i64 [ %281, %279 ], [ %.pre2700, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i ]
   %287 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %288 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 %286, ptr %288, align 8, !tbaa !14
@@ -42885,9 +42885,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i781 = phi ptr [ %334, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i772 ], [ %339, %.lr.ph.i.i.i.i776 ]
   %340 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i781, i64 8
   %.not.i23.i789 = icmp eq ptr %322, null
-  br i1 %.not.i23.i789, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3236, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+  br i1 %.not.i23.i789, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3230, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3236: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i787
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3230: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i787
   store ptr %334, ptr %0, align 8, !tbaa !896
   store ptr %340, ptr %111, align 8, !tbaa !890
   %341 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %334, i64 %332
@@ -42896,28 +42896,28 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23Sa
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i787
   call void @_ZdlPvm(ptr noundef nonnull %322, i64 noundef %325) #22
-  %.pre2707.pre = load ptr, ptr %292, align 8, !tbaa !1026
+  %.pre2701.pre = load ptr, ptr %292, align 8, !tbaa !1026
   store ptr %334, ptr %0, align 8, !tbaa !896
   store ptr %340, ptr %111, align 8, !tbaa !890
   %342 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %334, i64 %332
   store ptr %342, ptr %110, align 8, !tbaa !893
-  %.not.i.i.i436 = icmp eq ptr %.pre2707.pre, null
+  %.not.i.i.i436 = icmp eq ptr %.pre2701.pre, null
   br i1 %.not.i.i.i436, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i437, label %343
 
 343:                                              ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %344 = getelementptr inbounds nuw i8, ptr %.pre2707.pre, i64 8
+  %344 = getelementptr inbounds nuw i8, ptr %.pre2701.pre, i64 8
   %345 = atomicrmw sub ptr %344, i32 1 acq_rel, align 4
   %346 = icmp eq i32 %345, 1
   br i1 %346, label %347, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i437
 
 347:                                              ; preds = %343
-  %348 = load ptr, ptr %.pre2707.pre, align 8, !tbaa !15
+  %348 = load ptr, ptr %.pre2701.pre, align 8, !tbaa !15
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load ptr, ptr %349, align 8
-  call void %350(ptr noundef nonnull align 8 dereferenceable(12) %.pre2707.pre) #20
+  call void %350(ptr noundef nonnull align 8 dereferenceable(12) %.pre2701.pre) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i437
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i437: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3236, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %347, %343, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i437: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread3230, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.thread, %347, %343, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23SampleProfileLoaderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %351 = load ptr, ptr %273, align 8, !tbaa !11
   %352 = icmp eq ptr %351, %275
   br i1 %352, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i439, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i438
@@ -43096,7 +43096,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit: ; preds = %216, %396, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit809
-  %421 = phi ptr [ %395, %396 ], [ %420, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit809 ], [ %.pre2708, %216 ]
+  %421 = phi ptr [ %395, %396 ], [ %420, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit809 ], [ %.pre2702, %216 ]
   %422 = phi ptr [ %398, %396 ], [ %418, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit809 ], [ %112, %216 ]
   %423 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_13OpenMPOptPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %423, align 8, !tbaa !15
@@ -43378,7 +43378,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22InferFunctionAttrsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit866, %507
   %532 = phi ptr [ %531, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit866 ], [ %506, %507 ]
   %533 = phi ptr [ %529, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit866 ], [ %509, %507 ]
-  %534 = icmp ugt i32 %.sroa.02265.0.extract.trunc, 1
+  %534 = icmp ugt i32 %.sroa.02259.0.extract.trunc, 1
   br i1 %534, label %535, label %_ZN4llvm11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS2_JRS1_EEEJS4_RNS_17CGSCCUpdateResultEEED2Ev.exit
 
 535:                                              ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22InferFunctionAttrsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
@@ -43471,10 +43471,10 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit:   ; preds = %543, %_ZNSt6vectorI
   %573 = icmp eq i32 %572, 3
   %574 = select i1 %571, i1 %573, i1 false
   %575 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %.sroa.02239.0.insert.insert = select i1 %574, i16 257, i16 1
+  %.sroa.02233.0.insert.insert = select i1 %574, i16 257, i16 1
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_24PGOIndirectCallPromotionENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %575, align 8, !tbaa !15
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 8
-  store i16 %.sroa.02239.0.insert.insert, ptr %576, align 8
+  store i16 %.sroa.02233.0.insert.insert, ptr %576, align 8
   %.not.i.i458 = icmp eq ptr %569, %568
   br i1 %.not.i.i458, label %580, label %577
 
@@ -43598,14 +43598,14 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_13LazyCallGraph3SCCE
 _ZN4llvm26CGSCCToFunctionPassAdaptorD2Ev.exit:    ; preds = %.lr.ph.i.i.i.i943
   call void @_ZdlPvm(ptr noundef nonnull %607, i64 noundef 16) #22
   %622 = getelementptr inbounds nuw i8, ptr %617, i64 32
-  %.sroa.132220.2 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i944, i64 16
+  %.sroa.132217.2 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i944, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %623 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !2063
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_13LazyCallGraph3SCCENS_11PassManagerIS3_NS_15AnalysisManagerIS3_JRS2_EEEJS6_RNS_17CGSCCUpdateResultEEEES7_JS6_S9_EEE, i64 16), ptr %623, align 8, !tbaa !15, !noalias !2063
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 8
   store ptr %617, ptr %624, align 8, !tbaa !947, !noalias !2063
   %625 = getelementptr inbounds nuw i8, ptr %623, i64 16
-  store ptr %.sroa.132220.2, ptr %625, align 8, !tbaa !941, !noalias !2063
+  store ptr %.sroa.132217.2, ptr %625, align 8, !tbaa !941, !noalias !2063
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 24
   store ptr %622, ptr %626, align 8, !tbaa !944, !noalias !2063
   %627 = ptrtoint ptr %623 to i64
@@ -43688,17 +43688,17 @@ _ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit: ; preds = %632, %_ZNSt6vec
   %657 = phi ptr [ %631, %632 ], [ %656, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit976 ]
   %658 = phi ptr [ %634, %632 ], [ %654, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit976 ]
   %659 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2OsE, i64 4), align 4, !tbaa !615
-  %.not.i80 = icmp ne i32 %659, %.sroa.232312.0.extract.trunc
+  %.not.i80 = icmp ne i32 %659, %.sroa.232306.0.extract.trunc
   %660 = load i32, ptr @_ZN4llvm17OptimizationLevel2OsE, align 4
-  %661 = icmp ne i32 %660, %.sroa.02265.0.extract.trunc
+  %661 = icmp ne i32 %660, %.sroa.02259.0.extract.trunc
   %662 = select i1 %.not.i80, i1 true, i1 %661
   br i1 %662, label %663, label %669
 
 663:                                              ; preds = %_ZN4llvm33ModuleToPostOrderCGSCCPassAdaptorD2Ev.exit
   %664 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2OzE, i64 4), align 4, !tbaa !615
-  %.not.i81 = icmp ne i32 %664, %.sroa.232312.0.extract.trunc
+  %.not.i81 = icmp ne i32 %664, %.sroa.232306.0.extract.trunc
   %665 = load i32, ptr @_ZN4llvm17OptimizationLevel2OzE, align 4
-  %666 = icmp ne i32 %665, %.sroa.02265.0.extract.trunc
+  %666 = icmp ne i32 %665, %.sroa.02259.0.extract.trunc
   %667 = select i1 %.not.i81, i1 true, i1 %666
   %668 = zext i1 %667 to i8
   br label %669
@@ -44006,10 +44006,10 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15Gl
   %784 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 8
   store ptr %3, ptr %785, align 8
-  %.sroa.42200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %784, i64 16
-  store ptr null, ptr %.sroa.42200.0..sroa_idx, align 8
-  %.sroa.52201.0..sroa_idx = getelementptr inbounds nuw i8, ptr %784, i64 24
-  store i8 0, ptr %.sroa.52201.0..sroa_idx, align 8
+  %.sroa.42197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %784, i64 16
+  store ptr null, ptr %.sroa.42197.0..sroa_idx, align 8
+  %.sroa.52198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %784, i64 24
+  store i8 0, ptr %.sroa.52198.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_22WholeProgramDevirtPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %784, align 8, !tbaa !15
   %.not.i.i475 = icmp eq ptr %783, %782
   br i1 %.not.i.i475, label %789, label %786
@@ -44084,9 +44084,9 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22Wh
   %811 = phi ptr [ %810, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1071 ], [ %782, %786 ]
   %812 = phi ptr [ %808, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1071 ], [ %788, %786 ]
   %813 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17OptimizationLevel2O1E, i64 4), align 4, !tbaa !615
-  %814 = icmp eq i32 %813, %.sroa.232312.0.extract.trunc
+  %814 = icmp eq i32 %813, %.sroa.232306.0.extract.trunc
   %815 = load i32, ptr @_ZN4llvm17OptimizationLevel2O1E, align 4
-  %816 = icmp eq i32 %815, %.sroa.02265.0.extract.trunc
+  %816 = icmp eq i32 %815, %.sroa.02259.0.extract.trunc
   %817 = select i1 %814, i1 %816, i1 false
   br i1 %817, label %818, label %887
 
@@ -44094,12 +44094,12 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22Wh
   %819 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 8
   store i8 0, ptr %820, align 8
-  %.sroa.42195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 16
-  store ptr %3, ptr %.sroa.42195.0..sroa_idx, align 8
-  %.sroa.52196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 24
-  store ptr null, ptr %.sroa.52196.0..sroa_idx, align 8
-  %.sroa.62197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 32
-  store i32 0, ptr %.sroa.62197.0..sroa_idx, align 8
+  %.sroa.42192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 16
+  store ptr %3, ptr %.sroa.42192.0..sroa_idx, align 8
+  %.sroa.52193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 24
+  store ptr null, ptr %.sroa.52193.0..sroa_idx, align 8
+  %.sroa.62194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %819, i64 32
+  store i32 0, ptr %.sroa.62194.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %819, align 8, !tbaa !15
   %.not.i.i477 = icmp eq ptr %812, %811
   br i1 %.not.i.i477, label %824, label %821
@@ -44176,10 +44176,10 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18Lo
   %848 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 8
   store i8 0, ptr %849, align 8
-  %.sroa.42189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 16
-  %.sroa.62191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42189.0..sroa_idx, i8 0, i64 16, i1 false)
-  store i32 1, ptr %.sroa.62191.0..sroa_idx, align 8
+  %.sroa.42186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 16
+  %.sroa.62188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42186.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i32 1, ptr %.sroa.62188.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %848, align 8, !tbaa !15
   %.not.i.i479 = icmp eq ptr %847, %846
   br i1 %.not.i.i479, label %853, label %850
@@ -44677,11 +44677,11 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 
 1048:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1182
   call void @_ZdlPvm(ptr noundef nonnull %1029, i64 noundef %1032) #22
-  %.pre2709.pre = load ptr, ptr %1004, align 8, !tbaa !992
+  %.pre2703.pre = load ptr, ptr %1004, align 8, !tbaa !992
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1185
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1185: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1182, %1048
-  %.pre2709 = phi ptr [ null, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1182 ], [ %.pre2709.pre, %1048 ]
+  %.pre2703 = phi ptr [ null, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1182 ], [ %.pre2703.pre, %1048 ]
   store ptr %1041, ptr %0, align 8, !tbaa !896
   store ptr %1047, ptr %111, align 8, !tbaa !890
   %1049 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1041, i64 %1039
@@ -44689,7 +44689,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27DeadArgumentEliminationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1185, %1025
-  %1050 = phi ptr [ %.pre2709, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1185 ], [ null, %1025 ]
+  %1050 = phi ptr [ %.pre2703, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1185 ], [ null, %1025 ]
   %1051 = getelementptr inbounds nuw i8, ptr %22, i64 96
   call void @_ZNSt8_Rb_treeIPKN4llvm8FunctionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %1051, ptr noundef %1050)
   %1052 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -45158,13 +45158,13 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19Ex
   br i1 %1249, label %1250, label %1282
 
 1250:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19ExpandVariadicsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  call void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::InlineParams") align 4 %40, i32 noundef %.sroa.02265.0.extract.trunc, i32 noundef %.sroa.232312.0.extract.trunc) #20
+  call void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::InlineParams") align 4 %40, i32 noundef %.sroa.02259.0.extract.trunc, i32 noundef %.sroa.232306.0.extract.trunc) #20
   %1251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16UseInlineAdvisor, i64 120), align 8, !tbaa !41
   %1252 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %1253, ptr noundef nonnull align 8 dereferenceable(68) %40, i64 68, i1 false)
-  %.sroa.92176.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1252, i64 84
-  store i32 %1251, ptr %.sroa.92176.8..sroa_idx, align 4
+  %.sroa.92173.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1252, i64 84
+  store i32 %1251, ptr %.sroa.92173.8..sroa_idx, align 4
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1252, i64 88
   store i32 4, ptr %.sroa.10.8..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_17ModuleInlinerPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %1252, align 8, !tbaa !15
@@ -45243,7 +45243,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
 
 1282:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19ExpandVariadicsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  call void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::InlineParams") align 4 %42, i32 noundef %.sroa.02265.0.extract.trunc, i32 noundef %.sroa.232312.0.extract.trunc) #20
+  call void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::InlineParams") align 4 %42, i32 noundef %.sroa.02259.0.extract.trunc, i32 noundef %.sroa.232306.0.extract.trunc) #20
   call void @_ZN4llvm24ModuleInlinerWrapperPassC1ENS_12InlineParamsEbNS_13InlineContextENS_19InliningAdvisorModeEj(ptr noundef nonnull align 8 dereferenceable(160) %41, ptr noundef nonnull byval(%"struct.llvm::InlineParams") align 8 %42, i1 noundef zeroext true, i64 4294967300, i32 noundef 0, i32 noundef 0) #20
   %1283 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #23
   %1284 = getelementptr inbounds nuw i8, ptr %41, i64 88
@@ -45346,9 +45346,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i1286 = phi ptr [ %1329, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i1277 ], [ %1334, %.lr.ph.i.i.i.i1281 ]
   %1335 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1286, i64 8
   %.not.i23.i1294 = icmp eq ptr %1317, null
-  br i1 %.not.i23.i1294, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3240, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538
+  br i1 %.not.i23.i1294, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3234, label %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538
 
-_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3240: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1292
+_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3234: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1292
   store ptr %1329, ptr %0, align 8, !tbaa !896
   store ptr %1335, ptr %111, align 8, !tbaa !890
   %1336 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1329, i64 %1327
@@ -45357,17 +45357,17 @@ _ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3240: ; preds = %_ZNSt6vect
 
 _ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538:   ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1292
   call void @_ZdlPvm(ptr noundef nonnull %1317, i64 noundef %1320) #22
-  %.pre2710.pre = load ptr, ptr %1296, align 8, !tbaa !896
-  %.pre2711.pre = load ptr, ptr %1298, align 8, !tbaa !890
+  %.pre2704.pre = load ptr, ptr %1296, align 8, !tbaa !896
+  %.pre2705.pre = load ptr, ptr %1298, align 8, !tbaa !890
   store ptr %1329, ptr %0, align 8, !tbaa !896
   store ptr %1335, ptr %111, align 8, !tbaa !890
   %1337 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1329, i64 %1327
   store ptr %1337, ptr %110, align 8, !tbaa !893
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre2710.pre, %.pre2711.pre
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre2704.pre, %.pre2705.pre
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %1342, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre2710.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538 ]
+  %.05.i.i.i.i.i.i = phi ptr [ %1342, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre2704.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538 ]
   %1338 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !894
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %1338, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i
@@ -45382,7 +45382,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !894
   %1342 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %1342, %.pre2711.pre
+  %.not.i.i.i.i.i.i = icmp eq ptr %1342, %.pre2705.pre
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !986
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i
@@ -45390,7 +45390,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538
-  %1343 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre2710.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538 ]
+  %1343 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre2704.pre, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538 ]
   %.not.i.i.i.i.i147 = icmp eq ptr %1343, null
   br i1 %.not.i.i.i.i.i147, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i, label %1344
 
@@ -45402,7 +45402,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   call void @_ZdlPvm(ptr noundef nonnull %1343, i64 noundef %1348) #22
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i
 
-_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3240, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread, %1344, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
+_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i: ; preds = %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread3234, %_ZN4llvm24ModuleInlinerWrapperPassD2Ev.exit538.thread, %1344, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i
   %1349 = load ptr, ptr %1290, align 8, !tbaa !896
   %1350 = load ptr, ptr %1292, align 8, !tbaa !890
   %.not4.i.i.i.i.i1.i = icmp eq ptr %1349, %1350
@@ -45585,9 +45585,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %.0.lcssa.i.i.i.i1305 = phi ptr [ %1415, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i1296 ], [ %1420, %.lr.ph.i.i.i.i1300 ]
   %1421 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1305, i64 8
   %.not.i23.i1313 = icmp eq ptr %1403, null
-  br i1 %.not.i23.i1313, label %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3246, label %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549
+  br i1 %.not.i23.i1313, label %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3240, label %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549
 
-_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3246: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1311
+_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3240: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1311
   store ptr %1415, ptr %0, align 8, !tbaa !896
   store ptr %1421, ptr %111, align 8, !tbaa !890
   %1422 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1415, i64 %1413
@@ -45596,17 +45596,17 @@ _ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3246: ; preds = %_ZNSt6
 
 _ZN4llvm28MemProfContextDisambiguationD2Ev.exit549: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1311
   call void @_ZdlPvm(ptr noundef nonnull %1403, i64 noundef %1406) #22
-  %.pre2712.pre = load ptr, ptr %1391, align 8, !tbaa !1961
+  %.pre2706.pre = load ptr, ptr %1391, align 8, !tbaa !1961
   store ptr %1415, ptr %0, align 8, !tbaa !896
   store ptr %1421, ptr %111, align 8, !tbaa !890
   %1423 = getelementptr inbounds nuw %"class.std::unique_ptr.925", ptr %1415, i64 %1413
   store ptr %1423, ptr %110, align 8, !tbaa !893
-  %.not.i.i150 = icmp eq ptr %.pre2712.pre, null
+  %.not.i.i150 = icmp eq ptr %.pre2706.pre, null
   br i1 %.not.i.i150, label %_ZNSt10unique_ptrIN4llvm22ICallPromotionAnalysisESt14default_deleteIS1_EED2Ev.exit.i, label %1424
 
 1424:                                             ; preds = %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549
-  %1425 = load ptr, ptr %.pre2712.pre, align 8, !tbaa !32
-  %1426 = getelementptr inbounds nuw i8, ptr %.pre2712.pre, i64 16
+  %1425 = load ptr, ptr %.pre2706.pre, align 8, !tbaa !32
+  %1426 = getelementptr inbounds nuw i8, ptr %.pre2706.pre, i64 16
   %1427 = icmp eq ptr %1425, %1426
   br i1 %1427, label %_ZNKSt14default_deleteIN4llvm22ICallPromotionAnalysisEEclEPS1_.exit.i.i, label %1428
 
@@ -45615,10 +45615,10 @@ _ZN4llvm28MemProfContextDisambiguationD2Ev.exit549: ; preds = %_ZNSt6vectorISt10
   br label %_ZNKSt14default_deleteIN4llvm22ICallPromotionAnalysisEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm22ICallPromotionAnalysisEEclEPS1_.exit.i.i: ; preds = %1428, %1424
-  call void @_ZdlPvm(ptr noundef nonnull %.pre2712.pre, i64 noundef 80) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.pre2706.pre, i64 noundef 80) #22
   br label %_ZNSt10unique_ptrIN4llvm22ICallPromotionAnalysisESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN4llvm22ICallPromotionAnalysisESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3246, %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread, %_ZNKSt14default_deleteIN4llvm22ICallPromotionAnalysisEEclEPS1_.exit.i.i, %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549
+_ZNSt10unique_ptrIN4llvm22ICallPromotionAnalysisESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread3240, %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549.thread, %_ZNKSt14default_deleteIN4llvm22ICallPromotionAnalysisEEclEPS1_.exit.i.i, %_ZN4llvm28MemProfContextDisambiguationD2Ev.exit549
   store ptr null, ptr %1391, align 8, !tbaa !1961
   %1429 = load ptr, ptr %1389, align 8, !tbaa !1960
   %.not.i1.i = icmp eq ptr %1429, null
@@ -46710,9 +46710,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198.sink.split
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i196, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210
-  %.sink3387 = phi i64 [ %1869, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210 ], [ %1814, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i196 ]
+  %.sink3381 = phi i64 [ %1869, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210 ], [ %1814, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i196 ]
   %.sink = phi ptr [ %1867, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210 ], [ %1812, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i196 ]
-  %1870 = add i64 %.sink3387, 1
+  %1870 = add i64 %.sink3381, 1
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %1870) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198
 
@@ -46807,8 +46807,8 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8S
 1903:                                             ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8SROAPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %1904 = ptrtoint ptr %1902 to i64
   store i64 %1904, ptr %1901, align 8, !tbaa !144
-  %.pre2713 = load ptr, ptr %45, align 8, !tbaa !146, !noalias !2210
-  %.pre2714 = load ptr, ptr %1584, align 8, !tbaa !143, !noalias !2210
+  %.pre2707 = load ptr, ptr %45, align 8, !tbaa !146, !noalias !2210
+  %.pre2708 = load ptr, ptr %1584, align 8, !tbaa !143, !noalias !2210
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16TailCallElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 1905:                                             ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8SROAPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
@@ -46867,9 +46867,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16TailCallElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16TailCallElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485, %1903
-  %1926 = phi ptr [ %1925, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485 ], [ %.pre2714, %1903 ]
+  %1926 = phi ptr [ %1925, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485 ], [ %.pre2708, %1903 ]
   %.0.lcssa.i.i.i.i1476.pn = phi ptr [ %.0.lcssa.i.i.i.i1476, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485 ], [ %1901, %1903 ]
-  %1927 = phi ptr [ %1918, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485 ], [ %.pre2713, %1903 ]
+  %1927 = phi ptr [ %1918, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit1485 ], [ %.pre2707, %1903 ]
   %1928 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1476.pn, i64 8
   %1929 = load i8, ptr %1179, align 8, !tbaa !928, !range !62, !noundef !63
   %1930 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !2210
@@ -47421,13 +47421,13 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7G
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN4llvm7GVNPassD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %56) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  %.pre2715 = load ptr, ptr %2078, align 8, !tbaa !140
-  %.pre2716 = load ptr, ptr %2079, align 8, !tbaa !143
+  %.pre2709 = load ptr, ptr %2078, align 8, !tbaa !140
+  %.pre2710 = load ptr, ptr %2079, align 8, !tbaa !143
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_10NewGVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_10NewGVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %.lr.ph.i.i.i.i1585.preheader, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
-  %2153 = phi ptr [ %.pre2716, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ], [ %2091, %.lr.ph.i.i.i.i1585.preheader ]
-  %2154 = phi ptr [ %.pre2715, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ], [ %2090, %.lr.ph.i.i.i.i1585.preheader ]
+  %2153 = phi ptr [ %.pre2710, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ], [ %2091, %.lr.ph.i.i.i.i1585.preheader ]
+  %2154 = phi ptr [ %.pre2709, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_7GVNPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit ], [ %2090, %.lr.ph.i.i.i.i1585.preheader ]
   %2155 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   %2156 = getelementptr inbounds nuw i8, ptr %2155, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2156, i8 0, i64 64, i1 false)
@@ -48022,13 +48022,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 2395:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i
   call void @_ZdlPvm(ptr noundef nonnull %2376, i64 noundef %2379) #22
-  %.pre2717.pre = load i32, ptr %2282, align 8, !tbaa !220
-  %.pre2718.pre = load i32, ptr %2280, align 8, !tbaa !33
+  %.pre2711.pre = load i32, ptr %2282, align 8, !tbaa !220
+  %.pre2712.pre = load i32, ptr %2280, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i, %2395
-  %.pre2718 = phi i32 [ %2364, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i ], [ %.pre2718.pre, %2395 ]
-  %.pre2717 = phi i32 [ %2365, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i ], [ %.pre2717.pre, %2395 ]
+  %.pre2712 = phi i32 [ %2364, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i ], [ %.pre2712.pre, %2395 ]
+  %.pre2711 = phi i32 [ %2365, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i ], [ %.pre2711.pre, %2395 ]
   store ptr %2388, ptr %2283, align 8, !tbaa !229
   store ptr %2394, ptr %2368, align 8, !tbaa !232
   %2396 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %2388, i64 %2386
@@ -48036,8 +48036,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_18IndVarSimplifyPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_18IndVarSimplifyPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit, %2372
-  %2397 = phi i32 [ %.pre2718, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit ], [ %2364, %2372 ]
-  %2398 = phi i32 [ %.pre2717, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit ], [ %2365, %2372 ]
+  %2397 = phi i32 [ %.pre2712, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit ], [ %2364, %2372 ]
+  %2398 = phi i32 [ %.pre2711, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit ], [ %2365, %2372 ]
   %2399 = add i32 %2398, 1
   %2400 = shl i32 %2397, 6
   %2401 = icmp ugt i32 %2399, %2400
@@ -48200,13 +48200,13 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
 
 2471:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740
   call void @_ZdlPvm(ptr noundef nonnull %2452, i64 noundef %2455) #22
-  %.pre2719.pre = load i32, ptr %2282, align 8, !tbaa !220
-  %.pre2720.pre = load i32, ptr %2280, align 8, !tbaa !33
+  %.pre2713.pre = load i32, ptr %2282, align 8, !tbaa !220
+  %.pre2714.pre = load i32, ptr %2280, align 8, !tbaa !33
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740, %2471
-  %.pre2720 = phi i32 [ %2443, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740 ], [ %.pre2720.pre, %2471 ]
-  %.pre2719 = phi i32 [ %2444, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740 ], [ %.pre2719.pre, %2471 ]
+  %.pre2714 = phi i32 [ %2443, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740 ], [ %.pre2714.pre, %2471 ]
+  %.pre2713 = phi i32 [ %2444, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i1740 ], [ %.pre2713.pre, %2471 ]
   store ptr %2464, ptr %2283, align 8, !tbaa !229
   store ptr %2470, ptr %2368, align 8, !tbaa !232
   %2472 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %2464, i64 %2462
@@ -48214,8 +48214,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   br label %_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_16LoopDeletionPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit
 
 _ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEEJS4_RNS_10LPMUpdaterEEE7addPassINS_16LoopDeletionPassEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueEvE4typeEOSE_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743, %2448
-  %2473 = phi i32 [ %.pre2720, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743 ], [ %2443, %2448 ]
-  %2474 = phi i32 [ %.pre2719, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743 ], [ %2444, %2448 ]
+  %2473 = phi i32 [ %.pre2714, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743 ], [ %2443, %2448 ]
+  %2474 = phi i32 [ %.pre2713, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit1743 ], [ %2444, %2448 ]
   %2475 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %2476 = load i8, ptr %2475, align 1, !tbaa !296, !range !62, !noundef !63
   %2477 = xor i8 %2476, 1
@@ -48318,15 +48318,15 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i652: ; preds = %.sink.split.i.i.i
 
 _ZN4llvm9BitVector9push_backEb.exit659:           ; preds = %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i652, %2513, %2523
   %2524 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  %.sroa.52132.0.insert.ext = zext nneg i8 %2479 to i64
-  %.sroa.52132.0.insert.shift = shl nuw nsw i64 %.sroa.52132.0.insert.ext, 40
-  %.sroa.42131.0.insert.ext = zext nneg i8 %2477 to i64
-  %.sroa.42131.0.insert.shift = shl nuw nsw i64 %.sroa.42131.0.insert.ext, 32
-  %.sroa.42131.0.insert.insert = or disjoint i64 %.sroa.52132.0.insert.shift, %.sroa.42131.0.insert.shift
-  %.sroa.02130.0.insert.insert = or disjoint i64 %.sroa.42131.0.insert.insert, %.sroa.02265.0.insert.ext2309
+  %.sroa.52129.0.insert.ext = zext nneg i8 %2479 to i64
+  %.sroa.52129.0.insert.shift = shl nuw nsw i64 %.sroa.52129.0.insert.ext, 40
+  %.sroa.42128.0.insert.ext = zext nneg i8 %2477 to i64
+  %.sroa.42128.0.insert.shift = shl nuw nsw i64 %.sroa.42128.0.insert.ext, 32
+  %.sroa.42128.0.insert.insert = or disjoint i64 %.sroa.52129.0.insert.shift, %.sroa.42128.0.insert.shift
+  %.sroa.02127.0.insert.insert = or disjoint i64 %.sroa.42128.0.insert.insert, %.sroa.02259.0.insert.ext2303
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_4LoopENS_18LoopFullUnrollPassENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS6_RNS_10LPMUpdaterEEEE, i64 16), ptr %2524, align 8, !tbaa !15
   %2525 = getelementptr inbounds nuw i8, ptr %2524, i64 8
-  store i64 %.sroa.02130.0.insert.insert, ptr %2525, align 8
+  store i64 %.sroa.02127.0.insert.insert, ptr %2525, align 8
   %2526 = load ptr, ptr %2368, align 8, !tbaa !232
   %2527 = load ptr, ptr %2370, align 8, !tbaa !233
   %.not.i.i639 = icmp eq ptr %2526, %2527
@@ -48482,9 +48482,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %.0.lcssa.i.i.i.i1772 = phi ptr [ %2585, %_ZNKSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE12_M_check_lenEmPKc.exit.i1763 ], [ %2590, %.lr.ph.i.i.i.i1767 ]
   %2591 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i1772, i64 8
   %.not.i23.i1780 = icmp eq ptr %2573, null
-  br i1 %.not.i23.i1780, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3250, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674
+  br i1 %.not.i23.i1780, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3244, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674
 
-_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3250: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1778
+_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3244: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1778
   store ptr %2585, ptr %55, align 8, !tbaa !146
   store ptr %2591, ptr %2078, align 8, !tbaa !140
   %2592 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %2585, i64 %2583
@@ -48493,17 +48493,17 @@ _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3250: ; preds = %_ZNSt6vec
 
 _ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674:  ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i1778
   call void @_ZdlPvm(ptr noundef nonnull %2573, i64 noundef %2576) #22
-  %.pre2721.pre = load ptr, ptr %2555, align 8, !tbaa !146
-  %.pre2722.pre = load ptr, ptr %2557, align 8, !tbaa !140
+  %.pre2715.pre = load ptr, ptr %2555, align 8, !tbaa !146
+  %.pre2716.pre = load ptr, ptr %2557, align 8, !tbaa !140
   store ptr %2585, ptr %55, align 8, !tbaa !146
   store ptr %2591, ptr %2078, align 8, !tbaa !140
   %2593 = getelementptr inbounds nuw %"class.std::unique_ptr.400", ptr %2585, i64 %2583
   store ptr %2593, ptr %2079, align 8, !tbaa !143
-  %.not4.i.i.i.i.i.i285 = icmp eq ptr %.pre2721.pre, %.pre2722.pre
+  %.not4.i.i.i.i.i.i285 = icmp eq ptr %.pre2715.pre, %.pre2716.pre
   br i1 %.not4.i.i.i.i.i.i285, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i294, label %.lr.ph.i.i.i.i.i.i286
 
 .lr.ph.i.i.i.i.i.i286:                            ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290
-  %.05.i.i.i.i.i.i287 = phi ptr [ %2598, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290 ], [ %.pre2721.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674 ]
+  %.05.i.i.i.i.i.i287 = phi ptr [ %2598, %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290 ], [ %.pre2715.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674 ]
   %2594 = load ptr, ptr %.05.i.i.i.i.i.i287, align 8, !tbaa !144
   %.not.i.i.i.i.i.i.i.i288 = icmp eq ptr %2594, null
   br i1 %.not.i.i.i.i.i.i.i.i288, label %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i289
@@ -48518,7 +48518,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 _ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i.i.i.i289, %.lr.ph.i.i.i.i.i.i286
   store ptr null, ptr %.05.i.i.i.i.i.i287, align 8, !tbaa !144
   %2598 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i287, i64 8
-  %.not.i.i.i.i.i.i291 = icmp eq ptr %2598, %.pre2722.pre
+  %.not.i.i.i.i.i.i291 = icmp eq ptr %2598, %.pre2716.pre
   br i1 %.not.i.i.i.i.i.i291, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i292, label %.lr.ph.i.i.i.i.i.i286, !llvm.loop !405
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i292: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i.i.i290
@@ -48526,7 +48526,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i294
 
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i294: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i292, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674
-  %2599 = phi ptr [ %.pr.i.i.i293, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i292 ], [ %.pre2721.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674 ]
+  %2599 = phi ptr [ %.pr.i.i.i293, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i292 ], [ %.pre2715.pre, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674 ]
   %.not.i.i.i.i.i295 = icmp eq ptr %2599, null
   br i1 %.not.i.i.i.i.i295, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i296, label %2600
 
@@ -48538,7 +48538,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Ana
   call void @_ZdlPvm(ptr noundef nonnull %2599, i64 noundef %2604) #22
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i296
 
-_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i296: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3250, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread, %2600, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i294
+_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i296: ; preds = %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread3244, %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit674.thread, %2600, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i294
   %2605 = load ptr, ptr %58, align 8, !tbaa !227
   %.not.i.i297 = icmp eq ptr %2605, null
   br i1 %.not.i.i297, label %_ZN4llvm25FunctionToLoopPassAdaptorD2Ev.exit299, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i298
@@ -49022,12 +49022,12 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit337: ; preds = %2765, %_ZNSt6vecto
   %2792 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %2793 = getelementptr inbounds nuw i8, ptr %2792, i64 8
   store i8 0, ptr %2793, align 8
-  %.sroa.42120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 16
-  store ptr %3, ptr %.sroa.42120.0..sroa_idx, align 8
-  %.sroa.52121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 24
-  store ptr null, ptr %.sroa.52121.0..sroa_idx, align 8
-  %.sroa.62122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 32
-  store i32 0, ptr %.sroa.62122.0..sroa_idx, align 8
+  %.sroa.42117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 16
+  store ptr %3, ptr %.sroa.42117.0..sroa_idx, align 8
+  %.sroa.52118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 24
+  store ptr null, ptr %.sroa.52118.0..sroa_idx, align 8
+  %.sroa.62119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2792, i64 32
+  store i32 0, ptr %.sroa.62119.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %2792, align 8, !tbaa !15
   %.not.i.i689 = icmp eq ptr %2791, %2790
   br i1 %.not.i.i689, label %2797, label %2794
@@ -49104,9 +49104,9 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18Lo
   %2821 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %2822 = getelementptr inbounds nuw i8, ptr %2821, i64 8
   store i8 0, ptr %2822, align 8
-  %.sroa.42116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2821, i64 16
+  %.sroa.42113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2821, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2821, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42116.0..sroa_idx, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.42113.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 1, ptr %.sroa.6.0..sroa_idx, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_18LowerTypeTestsPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %2821, align 8, !tbaa !15
   %.not.i.i691 = icmp eq ptr %2820, %2819
@@ -49621,8 +49621,8 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13Gl
   br i1 %3023, label %3024, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363
-  %.pre2723 = load ptr, ptr %111, align 8, !tbaa !890
-  %.pre2724 = load ptr, ptr %110, align 8, !tbaa !893
+  %.pre2717 = load ptr, ptr %111, align 8, !tbaa !890
+  %.pre2718 = load ptr, ptr %110, align 8, !tbaa !893
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 3024:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363
@@ -49700,8 +49700,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge, %3028, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit2047
-  %3053 = phi ptr [ %.pre2724, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %3027, %3028 ], [ %3052, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit2047 ]
-  %3054 = phi ptr [ %.pre2723, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %3030, %3028 ], [ %3050, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit2047 ]
+  %3053 = phi ptr [ %.pre2718, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %3027, %3028 ], [ %3052, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit2047 ]
+  %3054 = phi ptr [ %.pre2717, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13GlobalDCEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit363._ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MergeFunctionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit_crit_edge ], [ %3030, %3028 ], [ %3050, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit2047 ]
   %3055 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleENS_27RelLookupTableConverterPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3055, align 8, !tbaa !15
   %.not.i.i709 = icmp eq ptr %3054, %3053
@@ -51776,64 +51776,64 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_19InliningAdvi
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !2430
   %.fr15 = freeze i64 %13
-  %.not25.i = icmp eq i64 %.fr15, 0
-  %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
+  %.not23.i = icmp eq i64 %.fr15, 0
   %.fr16 = freeze i64 %3
   %.fr17 = freeze i64 %5
-  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
+  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = zext i32 %15 to i64
-  %.not26.i = icmp eq i32 %15, 0
-  br i1 %.not26.i, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %15, 0
+  br i1 %.not24.i, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = icmp eq i64 %spec.select24.i, 0
+  %19 = icmp eq i64 %spec.select.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
-  %.01527.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i.us
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
+  %.01525.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01525.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !9
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
+  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
-  %21 = add nuw nsw i64 %.01527.i.us, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
+  %21 = add nuw nsw i64 %.01525.i.us, 1
   %.not.i.us = icmp eq i64 %21, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split.us, !llvm.loop !2431
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
-  %.01527.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i
+.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
+  %.01525.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !9
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
-  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !61
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
   %23 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %23, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  br i1 %23, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %24 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %24 = phi i64 [ %.01525.i.us, %.lr.ph.i.split.us ], [ %.01525.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 4, !tbaa !56
   store i32 %27, ptr %9, align 4, !tbaa !56
   br label %38
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %28 = add nuw nsw i64 %.01527.i, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
+  %28 = add nuw nsw i64 %.01525.i, 1
   %.not.i = icmp eq i64 %28, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split, !llvm.loop !2431
 
-_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us, %6
+_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -51842,9 +51842,9 @@ _ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES
   store i8 5, ptr %30, align 1, !tbaa !2438, !alias.scope !2435
   store ptr @.str.115, ptr %8, align 8, !tbaa !13, !alias.scope !2435
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %31, align 8, !tbaa !13, !alias.scope !2435
+  store ptr %spec.select22.i, ptr %31, align 8, !tbaa !13, !alias.scope !2435
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i, ptr %32, align 8, !tbaa !13, !alias.scope !2435
+  store i64 %spec.select.i, ptr %32, align 8, !tbaa !13, !alias.scope !2435
   store ptr %8, ptr %7, align 8, !alias.scope !2439
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.116, ptr %33, align 8, !alias.scope !2439
@@ -52213,64 +52213,64 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_19AttributorRu
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !2430
   %.fr15 = freeze i64 %13
-  %.not25.i = icmp eq i64 %.fr15, 0
-  %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
+  %.not23.i = icmp eq i64 %.fr15, 0
   %.fr16 = freeze i64 %3
   %.fr17 = freeze i64 %5
-  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
+  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = zext i32 %15 to i64
-  %.not26.i = icmp eq i32 %15, 0
-  br i1 %.not26.i, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %15, 0
+  br i1 %.not24.i, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = icmp eq i64 %spec.select24.i, 0
+  %19 = icmp eq i64 %spec.select.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
-  %.01527.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i.us
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
+  %.01525.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01525.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !9
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
+  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
-  %21 = add nuw nsw i64 %.01527.i.us, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
+  %21 = add nuw nsw i64 %.01525.i.us, 1
   %.not.i.us = icmp eq i64 %21, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split.us, !llvm.loop !2446
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
-  %.01527.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i
+.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
+  %.01525.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !9
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
-  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !61
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
   %23 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %23, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  br i1 %23, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %24 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %24 = phi i64 [ %.01525.i.us, %.lr.ph.i.split.us ], [ %.01525.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 4, !tbaa !100
   store i32 %27, ptr %9, align 4, !tbaa !100
   br label %38
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %28 = add nuw nsw i64 %.01527.i, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
+  %28 = add nuw nsw i64 %.01525.i, 1
   %.not.i = icmp eq i64 %28, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split, !llvm.loop !2446
 
-_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us, %6
+_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -52279,9 +52279,9 @@ _ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES
   store i8 5, ptr %30, align 1, !tbaa !2438, !alias.scope !2447
   store ptr @.str.115, ptr %8, align 8, !tbaa !13, !alias.scope !2447
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %31, align 8, !tbaa !13, !alias.scope !2447
+  store ptr %spec.select22.i, ptr %31, align 8, !tbaa !13, !alias.scope !2447
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i, ptr %32, align 8, !tbaa !13, !alias.scope !2447
+  store i64 %spec.select.i, ptr %32, align 8, !tbaa !13, !alias.scope !2447
   store ptr %8, ptr %7, align 8, !alias.scope !2450
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.116, ptr %33, align 8, !alias.scope !2450

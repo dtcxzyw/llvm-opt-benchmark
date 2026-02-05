@@ -870,17 +870,17 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %59, %57, %54, %44, %101, %37
-  %lpad.loopexit160 = landingpad { ptr, i32 }
+  %lpad.loopexit159 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %23
-  %lpad.loopexit.split-lp161 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit160, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit159, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr163drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..section..MachOSectionInternal$LT$object..macho..MachHeader32$LT$object..endian..Endianness$GT$$GT$$GT$$GT$17h4a71af0b98a458f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #31
           to label %110 unwind label %123
 
@@ -950,13 +950,13 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %122
 
-37:                                               ; preds = %.thread147, %33
-  %.sroa.053.1 = phi ptr [ @anon.6d3ed8a25ebf4e37d445805dd1e1068b.19, %33 ], [ %.sroa.053.2, %.thread147 ]
-  %.sroa.354.1 = phi i64 [ 0, %33 ], [ %.sroa.354.2, %.thread147 ]
-  %.sroa.555.1 = phi i64 [ 0, %33 ], [ %.sroa.555.2, %.thread147 ]
-  %.sroa.756.sroa.0.1 = phi i64 [ undef, %33 ], [ %.sroa.756.sroa.0.2, %.thread147 ]
-  %.sroa.756.sroa.3.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.3.2, %.thread147 ]
-  %.sroa.756.sroa.4.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.4.2, %.thread147 ]
+37:                                               ; preds = %.thread146, %33
+  %.sroa.053.1 = phi ptr [ @anon.6d3ed8a25ebf4e37d445805dd1e1068b.19, %33 ], [ %.sroa.053.2, %.thread146 ]
+  %.sroa.354.1 = phi i64 [ 0, %33 ], [ %.sroa.354.2, %.thread146 ]
+  %.sroa.555.1 = phi i64 [ 0, %33 ], [ %.sroa.555.2, %.thread146 ]
+  %.sroa.756.sroa.0.1 = phi i64 [ undef, %33 ], [ %.sroa.756.sroa.0.2, %.thread146 ]
+  %.sroa.756.sroa.3.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.3.2, %.thread146 ]
+  %.sroa.756.sroa.4.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.4.2, %.thread146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT$E$GT$4next17h2f39d6b2e0dd7030E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %38 unwind label %.loopexit.split-lp.loopexit
@@ -1005,7 +1005,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 49:                                               ; preds = %"_ZN103_$LT$object..macho..SegmentCommand32$LT$Endian$GT$$u20$as$u20$object..read..macho..segment..Segment$GT$12from_command17h6b6a6395506fad59E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit289
+  br label %.loopexit288
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %27, align 8, !noundef !4
@@ -1023,7 +1023,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 55:                                               ; preds = %48
   %56 = icmp eq i32 %.sroa.4113.0.copyload, 2
-  br i1 %56, label %57, label %.thread147
+  br i1 %56, label %57, label %.thread146
 
 57:                                               ; preds = %55
   %58 = invoke noundef align 4 dereferenceable_or_null(24) ptr @_ZN6object4read4util5Bytes7read_at17hc4f983344adcede0E.llvm.14695038267805529467(ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %.sroa.3.0.copyload, i64 noundef 0)
@@ -1031,7 +1031,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .noexc101:                                        ; preds = %57
   %.not.i100 = icmp eq ptr %58, null
-  br i1 %.not.i100, label %.loopexit289, label %101
+  br i1 %.not.i100, label %.loopexit288, label %101
 
 59:                                               ; preds = %.noexc, %50
   %60 = phi i64 [ %.pre.i, %.noexc ], [ %51, %50 ]
@@ -1060,15 +1060,15 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 71:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !153
   %72 = extractvalue { ptr, i64 } %70, 0
-  %.not159 = icmp eq ptr %72, null
-  br i1 %.not159, label %.loopexit289, label %73
+  %.not158 = icmp eq ptr %72, null
+  br i1 %.not158, label %.loopexit288, label %73
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
   %.idx = mul nsw i64 %74, 68
   %75 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %76 = icmp eq i64 %74, 0
-  br i1 %76, label %.thread147, label %.lr.ph.preheader
+  br i1 %76, label %.thread146, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
   %.pre = load i64, ptr %29, align 8
@@ -1076,14 +1076,14 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
   %77 = phi i64 [ %89, %85 ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.0125.0199 = phi ptr [ %78, %85 ], [ %72, %.lr.ph.preheader ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0199, i64 68
+  %.sroa.0125.0198 = phi ptr [ %78, %85 ], [ %72, %.lr.ph.preheader ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0198, i64 68
   %79 = add i64 %77, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @"_ZN6object4read5macho7section32MachOSectionInternal$LT$Mach$GT$5parse17ha8bbf3f7779917d9E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %79, i64 noundef %51, ptr noalias noundef nonnull readonly align 4 dereferenceable(68) %.sroa.0125.0199)
+  invoke void @"_ZN6object4read5macho7section32MachOSectionInternal$LT$Mach$GT$5parse17ha8bbf3f7779917d9E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %79, i64 noundef %51, ptr noalias noundef nonnull readonly align 4 dereferenceable(68) %.sroa.0125.0198)
           to label %80 unwind label %.loopexit
 
-.thread147:                                       ; preds = %85, %73, %55, %107
+.thread146:                                       ; preds = %85, %73, %55, %107
   %.sroa.053.2 = phi ptr [ %.sroa.053.1, %55 ], [ %103, %107 ], [ %.sroa.053.1, %73 ], [ %.sroa.053.1, %85 ]
   %.sroa.354.2 = phi i64 [ %.sroa.354.1, %55 ], [ %108, %107 ], [ %.sroa.354.1, %73 ], [ %.sroa.354.1, %85 ]
   %.sroa.555.2 = phi i64 [ %.sroa.555.1, %55 ], [ %106, %107 ], [ %.sroa.555.1, %73 ], [ %.sroa.555.1, %85 ]
@@ -1116,13 +1116,13 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   store i64 %89, ptr %29, align 8, !alias.scope !157, !noalias !160
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = icmp eq ptr %78, %75
-  br i1 %90, label %.thread147, label %.lr.ph
+  br i1 %90, label %.thread146, label %.lr.ph
 
-.loopexit289:                                     ; preds = %71, %.noexc101, %109, %49
-  %.sink285.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc101 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
+.loopexit288:                                     ; preds = %71, %.noexc101, %109, %49
+  %.sink284.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc101 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
   %.sink.sink = phi i64 [ %47, %49 ], [ %106, %109 ], [ 27, %.noexc101 ], [ 33, %71 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink285.sink, ptr %91, align 8
+  store ptr %.sink284.sink, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.sink, ptr %92, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -1133,7 +1133,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h73a21ec0ac6c2c94E.llvm.5062853439722839227"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc105 unwind label %111
 
-.noexc105:                                        ; preds = %.loopexit289
+.noexc105:                                        ; preds = %.loopexit288
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = load i64, ptr %93, align 8, !range !169, !noalias !162, !noundef !4
   %.not.i.i.i = icmp eq i64 %94, 0
@@ -1168,18 +1168,18 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx85, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %108 = ptrtoint ptr %105 to i64
-  br label %.thread147
+  br label %.thread146
 
 109:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit289
+  br label %.loopexit288
 
 110:                                              ; preds = %111, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..segment..MachOSegmentInternal$LT$object..macho..MachHeader32$LT$object..endian..Endianness$GT$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hb1f85f8c6f999fe8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #31
           to label %125 unwind label %123
 
-111:                                              ; preds = %.loopexit289
+111:                                              ; preds = %.loopexit288
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -1288,17 +1288,17 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %59, %57, %54, %44, %101, %37
-  %lpad.loopexit160 = landingpad { ptr, i32 }
+  %lpad.loopexit159 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %23
-  %lpad.loopexit.split-lp161 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit160, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit159, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr163drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..section..MachOSectionInternal$LT$object..macho..MachHeader64$LT$object..endian..Endianness$GT$$GT$$GT$$GT$17h602a3e92a3b6090fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #31
           to label %110 unwind label %123
 
@@ -1368,13 +1368,13 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %122
 
-37:                                               ; preds = %.thread147, %33
-  %.sroa.053.1 = phi ptr [ @anon.6d3ed8a25ebf4e37d445805dd1e1068b.19, %33 ], [ %.sroa.053.2, %.thread147 ]
-  %.sroa.354.1 = phi i64 [ 0, %33 ], [ %.sroa.354.2, %.thread147 ]
-  %.sroa.555.1 = phi i64 [ 0, %33 ], [ %.sroa.555.2, %.thread147 ]
-  %.sroa.756.sroa.0.1 = phi i64 [ undef, %33 ], [ %.sroa.756.sroa.0.2, %.thread147 ]
-  %.sroa.756.sroa.3.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.3.2, %.thread147 ]
-  %.sroa.756.sroa.4.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.4.2, %.thread147 ]
+37:                                               ; preds = %.thread146, %33
+  %.sroa.053.1 = phi ptr [ @anon.6d3ed8a25ebf4e37d445805dd1e1068b.19, %33 ], [ %.sroa.053.2, %.thread146 ]
+  %.sroa.354.1 = phi i64 [ 0, %33 ], [ %.sroa.354.2, %.thread146 ]
+  %.sroa.555.1 = phi i64 [ 0, %33 ], [ %.sroa.555.2, %.thread146 ]
+  %.sroa.756.sroa.0.1 = phi i64 [ undef, %33 ], [ %.sroa.756.sroa.0.2, %.thread146 ]
+  %.sroa.756.sroa.3.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.3.2, %.thread146 ]
+  %.sroa.756.sroa.4.1 = phi i64 [ 0, %33 ], [ %.sroa.756.sroa.4.2, %.thread146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT$E$GT$4next17h2f39d6b2e0dd7030E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %38 unwind label %.loopexit.split-lp.loopexit
@@ -1423,7 +1423,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 49:                                               ; preds = %"_ZN103_$LT$object..macho..SegmentCommand64$LT$Endian$GT$$u20$as$u20$object..read..macho..segment..Segment$GT$12from_command17h020cb6ec523c921eE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit289
+  br label %.loopexit288
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %27, align 8, !noundef !4
@@ -1441,7 +1441,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 55:                                               ; preds = %48
   %56 = icmp eq i32 %.sroa.4113.0.copyload, 2
-  br i1 %56, label %57, label %.thread147
+  br i1 %56, label %57, label %.thread146
 
 57:                                               ; preds = %55
   %58 = invoke noundef align 4 dereferenceable_or_null(24) ptr @_ZN6object4read4util5Bytes7read_at17hc4f983344adcede0E.llvm.14695038267805529467(ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %.sroa.3.0.copyload, i64 noundef 0)
@@ -1449,7 +1449,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .noexc101:                                        ; preds = %57
   %.not.i100 = icmp eq ptr %58, null
-  br i1 %.not.i100, label %.loopexit289, label %101
+  br i1 %.not.i100, label %.loopexit288, label %101
 
 59:                                               ; preds = %.noexc, %50
   %60 = phi i64 [ %.pre.i, %.noexc ], [ %51, %50 ]
@@ -1478,15 +1478,15 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 71:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !204
   %72 = extractvalue { ptr, i64 } %70, 0
-  %.not159 = icmp eq ptr %72, null
-  br i1 %.not159, label %.loopexit289, label %73
+  %.not158 = icmp eq ptr %72, null
+  br i1 %.not158, label %.loopexit288, label %73
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
   %.idx = mul nsw i64 %74, 80
   %75 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %76 = icmp eq i64 %74, 0
-  br i1 %76, label %.thread147, label %.lr.ph.preheader
+  br i1 %76, label %.thread146, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
   %.pre = load i64, ptr %29, align 8
@@ -1494,14 +1494,14 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
   %77 = phi i64 [ %89, %85 ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.0125.0199 = phi ptr [ %78, %85 ], [ %72, %.lr.ph.preheader ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0199, i64 80
+  %.sroa.0125.0198 = phi ptr [ %78, %85 ], [ %72, %.lr.ph.preheader ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0198, i64 80
   %79 = add i64 %77, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @"_ZN6object4read5macho7section32MachOSectionInternal$LT$Mach$GT$5parse17h08a7d2bac0d70f7fE"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %79, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.0125.0199)
+  invoke void @"_ZN6object4read5macho7section32MachOSectionInternal$LT$Mach$GT$5parse17h08a7d2bac0d70f7fE"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %79, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.0125.0198)
           to label %80 unwind label %.loopexit
 
-.thread147:                                       ; preds = %85, %73, %55, %107
+.thread146:                                       ; preds = %85, %73, %55, %107
   %.sroa.053.2 = phi ptr [ %.sroa.053.1, %55 ], [ %103, %107 ], [ %.sroa.053.1, %73 ], [ %.sroa.053.1, %85 ]
   %.sroa.354.2 = phi i64 [ %.sroa.354.1, %55 ], [ %108, %107 ], [ %.sroa.354.1, %73 ], [ %.sroa.354.1, %85 ]
   %.sroa.555.2 = phi i64 [ %.sroa.555.1, %55 ], [ %106, %107 ], [ %.sroa.555.1, %73 ], [ %.sroa.555.1, %85 ]
@@ -1534,13 +1534,13 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   store i64 %89, ptr %29, align 8, !alias.scope !208, !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = icmp eq ptr %78, %75
-  br i1 %90, label %.thread147, label %.lr.ph
+  br i1 %90, label %.thread146, label %.lr.ph
 
-.loopexit289:                                     ; preds = %71, %.noexc101, %109, %49
-  %.sink285.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc101 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
+.loopexit288:                                     ; preds = %71, %.noexc101, %109, %49
+  %.sink284.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc101 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
   %.sink.sink = phi i64 [ %47, %49 ], [ %106, %109 ], [ 27, %.noexc101 ], [ 33, %71 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink285.sink, ptr %91, align 8
+  store ptr %.sink284.sink, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.sink, ptr %92, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -1551,7 +1551,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9113333c31db324dE.llvm.5062853439722839227"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc105 unwind label %111
 
-.noexc105:                                        ; preds = %.loopexit289
+.noexc105:                                        ; preds = %.loopexit288
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = load i64, ptr %93, align 8, !range !169, !noalias !213, !noundef !4
   %.not.i.i.i = icmp eq i64 %94, 0
@@ -1586,18 +1586,18 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx85, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %108 = ptrtoint ptr %105 to i64
-  br label %.thread147
+  br label %.thread146
 
 109:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit289
+  br label %.loopexit288
 
 110:                                              ; preds = %111, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..segment..MachOSegmentInternal$LT$object..macho..MachHeader64$LT$object..endian..Endianness$GT$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h5d5710fc57ce9a38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #31
           to label %125 unwind label %123
 
-111:                                              ; preds = %.loopexit289
+111:                                              ; preds = %.loopexit288
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110

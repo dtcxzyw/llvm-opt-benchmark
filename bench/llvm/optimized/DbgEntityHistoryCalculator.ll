@@ -5300,11 +5300,11 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4
   br i1 %.not671764, label %.critedge6, label %.lr.ph766
 
 .lr.ph766:                                        ; preds = %.critedge4, %.lr.ph766
-  %.sroa.0483.5765 = phi ptr [ %1628, %.lr.ph766 ], [ %1623, %.critedge4 ]
-  %1626 = load i16, ptr %.sroa.0483.5765, align 2, !tbaa !353
+  %.sroa.0483.0765 = phi ptr [ %1628, %.lr.ph766 ], [ %1623, %.critedge4 ]
+  %1626 = load i16, ptr %.sroa.0483.0765, align 2, !tbaa !353
   %1627 = zext i16 %1626 to i32
   call fastcc void @_ZL19clobberRegisterUsesRSt3mapIjN4llvm11SmallVectorISt4pairIPKNS0_6DINodeEPKNS0_10DILocationEELj1EEESt4lessIjESaIS2_IKjSA_EEEjRNS0_18DbgValueHistoryMapERS_IS9_NS0_8SmallSetImLj1ESB_ImEEESB_IS9_ESaIS2_IKS9_SM_EEERKNS0_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(48) %23, i32 noundef %1627, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0501.0774)
-  %1628 = getelementptr inbounds nuw i8, ptr %.sroa.0483.5765, i64 2
+  %1628 = getelementptr inbounds nuw i8, ptr %.sroa.0483.0765, i64 2
   %.not671 = icmp eq ptr %1628, %1625
   br i1 %.not671, label %.critedge6, label %.lr.ph766, !llvm.loop !354
 

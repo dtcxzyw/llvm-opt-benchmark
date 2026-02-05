@@ -2349,16 +2349,16 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   br label %67
 
 58:                                               ; preds = %38, %.noexc
-  %.sroa.0.1 = phi double [ %45, %38 ], [ 0.000000e+00, %.noexc ]
-  %.sroa.6.1 = phi double [ %50, %38 ], [ 0.000000e+00, %.noexc ]
-  %.sroa.7.1 = phi double [ %55, %38 ], [ 0.000000e+00, %.noexc ]
+  %.sroa.0.0 = phi double [ %45, %38 ], [ 0.000000e+00, %.noexc ]
+  %.sroa.6.0 = phi double [ %50, %38 ], [ 0.000000e+00, %.noexc ]
+  %.sroa.7.0 = phi double [ %55, %38 ], [ 0.000000e+00, %.noexc ]
   %59 = load ptr, ptr %33, align 8, !tbaa !58
   %60 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %59, i64 %.01530
-  store double %.sroa.0.1, ptr %60, align 8
+  store double %.sroa.0.0, ptr %60, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store double %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8
+  store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store double %.sroa.7.1, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !33
+  store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !33
   %61 = load ptr, ptr %19, align 8, !tbaa !58
   %62 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %61, i64 %.01530
   %63 = load <2 x double>, ptr %27, align 8, !tbaa !33

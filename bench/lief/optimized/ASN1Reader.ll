@@ -1733,13 +1733,13 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %22
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %36
-  %.sroa.924.0 = phi ptr [ %38, %36 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.021.0 = phi ptr [ %37, %36 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  store ptr %.sroa.021.0, ptr %0, align 8, !tbaa !43
+  %.sroa.921.0 = phi ptr [ %38, %36 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.018.0 = phi ptr [ %37, %36 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  store ptr %.sroa.018.0, ptr %0, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.924.0, ptr %39, align 8, !tbaa !45
+  store ptr %.sroa.921.0, ptr %39, align 8, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.924.0, ptr %40, align 8, !tbaa !46
+  store ptr %.sroa.921.0, ptr %40, align 8, !tbaa !46
   br label %61
 
 41:                                               ; preds = %2
@@ -1806,8 +1806,8 @@ define hidden void @_ZN4LIEF10ASN1Reader17read_octet_stringEv(ptr dead_on_unwind
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  %.sroa.09.0.extract.trunc = trunc i64 %.fca.0.extract to i32
-  store i32 %.sroa.09.0.extract.trunc, ptr %0, align 8, !tbaa !30
+  %.sroa.06.0.extract.trunc = trunc i64 %.fca.0.extract to i32
+  store i32 %.sroa.06.0.extract.trunc, ptr %0, align 8, !tbaa !30
   br label %33
 
 6:                                                ; preds = %2

@@ -1508,8 +1508,8 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZN2cv10softdoubl
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit
 
 _ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i:  ; preds = %75
-  %.not197 = icmp eq ptr %77, %65
-  br i1 %.not197, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i, label %.lr.ph.i.i.i.i.i18.i.preheader
+  %.not194 = icmp eq ptr %77, %65
+  br i1 %.not194, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i, label %.lr.ph.i.i.i.i.i18.i.preheader
 
 .lr.ph.i.i.i.i.i18.i.preheader:                   ; preds = %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i
   %87 = lshr exact i64 %79, 3
@@ -1535,14 +1535,14 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i:    ; preds = %88, %.lr.ph.i.i.i.i
   br i1 %93, label %.lr.ph.i.i.i.i.i18.i, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i, !llvm.loop !110
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i, %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i
-  %scevgep227 = getelementptr i8, ptr %15, i64 %79
+  %scevgep224 = getelementptr i8, ptr %15, i64 %79
   %94 = add i64 %67, 16
   %95 = sub i64 %94, %78
   %96 = and i64 %95, -8
   %97 = add i64 %96, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %scevgep227, i64 %97, i1 false), !tbaa !85
-  %scevgep228 = getelementptr i8, ptr %77, i64 %97
-  store ptr %scevgep228, ptr %76, align 8, !tbaa !94
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %scevgep224, i64 %97, i1 false), !tbaa !85
+  %scevgep225 = getelementptr i8, ptr %77, i64 %97
+  store ptr %scevgep225, ptr %76, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i, %86, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i
@@ -1624,8 +1624,8 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i106: ; preds = %_ZN2cv10softdo
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132
 
 _ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i114: ; preds = %115
-  %.not196 = icmp eq ptr %117, %105
-  br i1 %.not196, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116, label %.lr.ph.i.i.i.i.i18.i124.preheader
+  %.not193 = icmp eq ptr %117, %105
+  br i1 %.not193, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116, label %.lr.ph.i.i.i.i.i18.i124.preheader
 
 .lr.ph.i.i.i.i.i18.i124.preheader:                ; preds = %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i114
   %127 = lshr exact i64 %119, 3
@@ -1651,14 +1651,14 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i129: ; preds = %128, %.lr.ph.i.i.i.
   br i1 %133, label %.lr.ph.i.i.i.i.i18.i124, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116, !llvm.loop !110
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i129, %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i114
-  %scevgep225 = getelementptr i8, ptr %16, i64 %119
+  %scevgep222 = getelementptr i8, ptr %16, i64 %119
   %134 = add i64 %107, 32
   %135 = sub i64 %134, %118
   %136 = and i64 %135, -8
   %137 = add i64 %136, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %scevgep225, i64 %137, i1 false), !tbaa !85
-  %scevgep226 = getelementptr i8, ptr %117, i64 %137
-  store ptr %scevgep226, ptr %116, align 8, !tbaa !94
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %scevgep222, i64 %137, i1 false), !tbaa !85
+  %scevgep223 = getelementptr i8, ptr %117, i64 %137
+  store ptr %scevgep223, ptr %116, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132
 
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i131, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i106, %126, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116
@@ -1744,8 +1744,8 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i134: ; preds = %_ZN2cv10softdo
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160
 
 _ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i142: ; preds = %157
-  %.not195 = icmp eq ptr %159, %147
-  br i1 %.not195, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144, label %.lr.ph.i.i.i.i.i18.i152.preheader
+  %.not192 = icmp eq ptr %159, %147
+  br i1 %.not192, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144, label %.lr.ph.i.i.i.i.i18.i152.preheader
 
 .lr.ph.i.i.i.i.i18.i152.preheader:                ; preds = %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i142
   %169 = lshr exact i64 %161, 3
@@ -1771,14 +1771,14 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i157: ; preds = %170, %.lr.ph.i.i.i.
   br i1 %175, label %.lr.ph.i.i.i.i.i18.i152, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144, !llvm.loop !110
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i23.i157, %_ZSt7advanceIPN2cv10softdoubleEmEvRT_T0_.exit.i142
-  %scevgep223 = getelementptr i8, ptr %17, i64 %161
+  %scevgep220 = getelementptr i8, ptr %17, i64 %161
   %176 = add i64 %149, 48
   %177 = sub i64 %176, %160
   %178 = and i64 %177, -8
   %179 = add i64 %178, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %159, ptr align 8 %scevgep223, i64 %179, i1 false), !tbaa !85
-  %scevgep224 = getelementptr i8, ptr %159, i64 %179
-  store ptr %scevgep224, ptr %158, align 8, !tbaa !94
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %159, ptr align 8 %scevgep220, i64 %179, i1 false), !tbaa !85
+  %scevgep221 = getelementptr i8, ptr %159, i64 %179
+  store ptr %scevgep221, ptr %158, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160
 
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i159, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i134, %168, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144
@@ -1901,8 +1901,8 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i172: ; preds = %_ZN2cv10soft
   %222 = and i64 %221, -8
   %223 = add i64 %222, 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %203, ptr align 8 %scevgep, i64 %223, i1 false), !tbaa !85
-  %scevgep222 = getelementptr i8, ptr %203, i64 %223
-  store ptr %scevgep222, ptr %202, align 8, !tbaa !94
+  %scevgep219 = getelementptr i8, ptr %203, i64 %223
+  store ptr %scevgep219, ptr %202, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit188
 
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit188: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i187, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i162, %212, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i172
@@ -1961,8 +1961,8 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
 237:                                              ; preds = %234, %228
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8, !tbaa !85, !alias.scope !206
-  %.not212 = icmp eq i32 %230, 0
-  br i1 %.not212, label %._crit_edge, label %.lr.ph.preheader
+  %.not209 = icmp eq i32 %230, 0
+  br i1 %.not209, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %237
   %238 = sub nsw i32 1, %2
@@ -1976,11 +1976,11 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %247
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %247 ]
-  %.049207 = phi i32 [ %238, %.lr.ph.preheader ], [ %249, %247 ]
+  %.049204 = phi i32 [ %238, %.lr.ph.preheader ], [ %249, %247 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %239 = mul nsw i32 %.049207, %.049207
+  %239 = mul nsw i32 %.049204, %.049204
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %239)
           to label %240 unwind label %250
 
@@ -2016,7 +2016,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %249 = add nsw i32 %.049207, 2
+  %249 = add nsw i32 %.049204, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
@@ -2109,15 +2109,15 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
 
 274:                                              ; preds = %272
   store i64 0, ptr %0, align 8, !tbaa !85, !alias.scope !227
-  br i1 %.not212, label %._crit_edge211, label %.lr.ph210
+  br i1 %.not209, label %._crit_edge208, label %.lr.ph207
 
-.lr.ph210:                                        ; preds = %274
+.lr.ph207:                                        ; preds = %274
   %.not.i.i82 = icmp eq ptr %8, %0
   %275 = zext nneg i32 %229 to i64
-  %wide.trip.count233 = zext nneg i32 %230 to i64
+  %wide.trip.count230 = zext nneg i32 %230 to i64
   br label %280
 
-._crit_edge211:                                   ; preds = %294, %274
+._crit_edge208:                                   ; preds = %294, %274
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef 2)
           to label %297 unwind label %316
@@ -2133,17 +2133,17 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
           cleanup
   br label %324
 
-280:                                              ; preds = %.lr.ph210, %294
-  %indvars.iv230 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next231, %294 ]
+280:                                              ; preds = %.lr.ph207, %294
+  %indvars.iv227 = phi i64 [ 0, %.lr.ph207 ], [ %indvars.iv.next228, %294 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %281 = load ptr, ptr %26, align 8, !tbaa !203
-  %282 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %281, i64 %indvars.iv230
+  %282 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %281, i64 %indvars.iv227
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %283 unwind label %295
 
 283:                                              ; preds = %280
   %284 = load ptr, ptr %1, align 8, !tbaa !81
-  %285 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %indvars.iv230
+  %285 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %indvars.iv227
   %.not.i78 = icmp eq ptr %36, %285
   br i1 %.not.i78, label %_ZN2cv10softdoubleaSERKS0_.exit79, label %286
 
@@ -2153,7 +2153,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
   br label %_ZN2cv10softdoubleaSERKS0_.exit79
 
 _ZN2cv10softdoubleaSERKS0_.exit79:                ; preds = %283, %286
-  %288 = sub nsw i64 %275, %indvars.iv230
+  %288 = sub nsw i64 %275, %indvars.iv227
   %289 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %288
   %.not.i80 = icmp eq ptr %36, %289
   br i1 %.not.i80, label %_ZN2cv10softdoubleaSERKS0_.exit81, label %290
@@ -2179,9 +2179,9 @@ _ZN2cv10softdoubleaSERKS0_.exit81:                ; preds = %_ZN2cv10softdoublea
 294:                                              ; preds = %292, %.noexc83
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %._crit_edge211, label %280, !llvm.loop !232
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
+  br i1 %exitcond231.not, label %._crit_edge208, label %280, !llvm.loop !232
 
 295:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit81, %280
   %296 = landingpad { ptr, i32 }
@@ -2189,7 +2189,7 @@ _ZN2cv10softdoubleaSERKS0_.exit81:                ; preds = %_ZN2cv10softdoublea
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %324
 
-297:                                              ; preds = %._crit_edge211
+297:                                              ; preds = %._crit_edge208
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %.noexc86 unwind label %316
@@ -2267,7 +2267,7 @@ _ZN2cv10softdoublepLERKS0_.exit97:                ; preds = %.noexc96, %314
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %320
 
-316:                                              ; preds = %297, %._crit_edge211
+316:                                              ; preds = %297, %._crit_edge208
   %317 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -2313,8 +2313,8 @@ _ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit: ; preds = %323, %320
   %326 = load ptr, ptr %26, align 8, !tbaa !203
   %.not.i.i99 = icmp eq ptr %326, %scevgep.i
   %327 = icmp eq ptr %326, null
-  %or.cond274 = or i1 %.not.i.i99, %327
-  br i1 %or.cond274, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, label %328
+  %or.cond271 = or i1 %.not.i.i99, %327
+  br i1 %or.cond271, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, label %328
 
 328:                                              ; preds = %325
   call void @_ZdaPv(ptr noundef nonnull %326) #25

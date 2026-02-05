@@ -23990,17 +23990,17 @@ for.body.i.i.i.i:                                 ; preds = %if.then6, %for.body
   br i1 %cmp.not.i.i.i.i13, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !399
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit: ; preds = %for.body.i.i.i.i
-  %.pre29 = load ptr, ptr %_M_finish.i, align 8
-  %.pre30 = load ptr, ptr %this, align 8
-  %.pre31 = ptrtoint ptr %.pre29 to i64
-  %.pre32 = ptrtoint ptr %.pre30 to i64
-  %.pre33 = sub i64 %.pre31, %.pre32
-  %.pre34 = ashr exact i64 %.pre33, 2
+  %.pre26 = load ptr, ptr %_M_finish.i, align 8
+  %.pre27 = load ptr, ptr %this, align 8
+  %.pre28 = ptrtoint ptr %.pre26 to i64
+  %.pre29 = ptrtoint ptr %.pre27 to i64
+  %.pre30 = sub i64 %.pre28, %.pre29
+  %.pre31 = ashr exact i64 %.pre30, 2
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit, %if.then6
-  %sub.ptr.div.i18.pre-phi = phi i64 [ %.pre34, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ 0, %if.then6 ]
-  %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %3, %if.then6 ]
+  %sub.ptr.div.i18.pre-phi = phi i64 [ %.pre31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ 0, %if.then6 ]
+  %5 = phi ptr [ %.pre26, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %3, %if.then6 ]
   %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i18.pre-phi
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 

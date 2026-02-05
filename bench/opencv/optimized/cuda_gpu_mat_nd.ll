@@ -466,13 +466,13 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
 
 46:                                               ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %43) #19
-  %.pre39 = load ptr, ptr %44, align 8, !tbaa !38
-  %.pre40 = load i32, ptr %19, align 4, !tbaa !48
+  %.pre33 = load ptr, ptr %44, align 8, !tbaa !38
+  %.pre34 = load i32, ptr %19, align 4, !tbaa !48
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %46, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
-  %47 = phi i32 [ %.pre40, %46 ], [ %32, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
-  %48 = phi ptr [ %.pre39, %46 ], [ %.0.i.i.i.i.i, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
+  %47 = phi i32 [ %.pre34, %46 ], [ %32, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
+  %48 = phi ptr [ %.pre33, %46 ], [ %.0.i.i.i.i.i, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
   %49 = load i32, ptr %0, align 8, !tbaa !47
   %50 = lshr i32 %49, 3
   %51 = and i32 %50, 511
@@ -549,14 +549,14 @@ _ZNSt6vectorImSaImEEaSEOS1_.exit21:               ; preds = %75, %82
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 2
   %95 = icmp ult i64 %88, %94
-  %.pre37 = load i32, ptr %0, align 8, !tbaa !47
+  %.pre31 = load i32, ptr %0, align 8, !tbaa !47
   br i1 %95, label %96, label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 96:                                               ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit21
-  %97 = lshr i32 %.pre37, 3
+  %97 = lshr i32 %.pre31, 3
   %98 = and i32 %97, 511
   %99 = add nuw nsw i32 %98, 1
-  %100 = shl i32 %.pre37, 2
+  %100 = shl i32 %.pre31, 2
   %101 = and i32 %100, 28
   %102 = lshr i32 675553809, %101
   %103 = and i32 %102, 15
@@ -607,12 +607,12 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %120, %_Z
 122:                                              ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %84) #19
   %.pre.pre = load i32, ptr %0, align 8, !tbaa !47
-  %.pre38.pre = load ptr, ptr %20, align 8, !tbaa !21
+  %.pre32.pre = load ptr, ptr %20, align 8, !tbaa !21
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %122, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  %.pre38 = phi ptr [ %.pre38.pre, %122 ], [ %90, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
-  %.pre = phi i32 [ %.pre.pre, %122 ], [ %.pre37, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
+  %.pre32 = phi ptr [ %.pre32.pre, %122 ], [ %90, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
+  %.pre = phi i32 [ %.pre.pre, %122 ], [ %.pre31, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %117, ptr %76, align 8, !tbaa !18
   store ptr %121, ptr %78, align 8, !tbaa !45
   %123 = getelementptr inbounds nuw i64, ptr %117, i64 %115
@@ -621,15 +621,15 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %107, %_ZNSt6vectorImSaImEEaSEOS1_.exit21
   %124 = phi ptr [ %117, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %84, %107 ], [ %84, %_ZNSt6vectorImSaImEEaSEOS1_.exit21 ]
-  %125 = phi ptr [ %.pre38, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %90, %107 ], [ %90, %_ZNSt6vectorImSaImEEaSEOS1_.exit21 ]
-  %126 = phi i32 [ %.pre, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.pre37, %107 ], [ %.pre37, %_ZNSt6vectorImSaImEEaSEOS1_.exit21 ]
+  %125 = phi ptr [ %.pre32, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %90, %107 ], [ %90, %_ZNSt6vectorImSaImEEaSEOS1_.exit21 ]
+  %126 = phi i32 [ %.pre, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.pre31, %107 ], [ %.pre31, %_ZNSt6vectorImSaImEEaSEOS1_.exit21 ]
   %127 = load i32, ptr %19, align 4, !tbaa !48
   %128 = tail call noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef %126, i32 noundef %127, ptr noundef %125, ptr noundef %124)
-  %.pre41 = load ptr, ptr %78, align 8, !tbaa !45
+  %.pre35 = load ptr, ptr %78, align 8, !tbaa !45
   br label %129
 
 129:                                              ; preds = %._crit_edge, %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %130 = phi ptr [ %.pre41, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %48, %._crit_edge ]
+  %130 = phi ptr [ %.pre35, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %48, %._crit_edge ]
   %storemerge = phi i32 [ %128, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %67, %._crit_edge ]
   store i32 %storemerge, ptr %0, align 8, !tbaa !47
   %131 = load ptr, ptr %22, align 8, !tbaa !39

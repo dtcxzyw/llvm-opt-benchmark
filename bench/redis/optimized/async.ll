@@ -590,8 +590,8 @@ define void @redisAsyncFree(ptr noundef %0) local_unnamed_addr #0 {
 define internal fastcc void @__redisAsyncFree(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8, !tbaa !73
-  %.not.i115 = icmp eq ptr %3, null
-  br i1 %.not.i115, label %__redisShiftCallback.exit.preheader, label %.lr.ph
+  %.not.i113 = icmp eq ptr %3, null
+  br i1 %.not.i113, label %__redisShiftCallback.exit.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -601,10 +601,10 @@ define internal fastcc void @__redisAsyncFree(ptr noundef %0) unnamed_addr #0 {
 __redisShiftCallback.exit.preheader:              ; preds = %__redisRunCallback.exit, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = load ptr, ptr %6, align 8, !tbaa !73
-  %.not.i40116 = icmp eq ptr %7, null
-  br i1 %.not.i40116, label %__redisShiftCallback.exit42, label %.lr.ph117
+  %.not.i40114 = icmp eq ptr %7, null
+  br i1 %.not.i40114, label %__redisShiftCallback.exit42, label %.lr.ph115
 
-.lr.ph117:                                        ; preds = %__redisShiftCallback.exit.preheader
+.lr.ph115:                                        ; preds = %__redisShiftCallback.exit.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %24
@@ -624,8 +624,8 @@ __redisShiftCallback.exit.preheader:              ; preds = %__redisRunCallback.
 16:                                               ; preds = %10, %15
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sroa.688.0.copyload = load ptr, ptr %.sroa.688.0..sroa_idx, align 8
+  %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.687.0.copyload = load ptr, ptr %.sroa.687.0..sroa_idx, align 8
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !38
   tail call void %17(ptr noundef nonnull %11) #16
   %.not.i39 = icmp eq ptr %.sroa.4.0.copyload, null
@@ -635,7 +635,7 @@ __redisShiftCallback.exit.preheader:              ; preds = %__redisRunCallback.
   %19 = load i32, ptr %5, align 8, !tbaa !39
   %20 = or i32 %19, 16
   store i32 %20, ptr %5, align 8, !tbaa !39
-  tail call void %.sroa.4.0.copyload(ptr noundef nonnull %0, ptr noundef null, ptr noundef %.sroa.688.0.copyload) #16
+  tail call void %.sroa.4.0.copyload(ptr noundef nonnull %0, ptr noundef null, ptr noundef %.sroa.687.0.copyload) #16
   %21 = load i32, ptr %5, align 8, !tbaa !39
   %22 = and i32 %21, -17
   store i32 %22, ptr %5, align 8, !tbaa !39
@@ -646,8 +646,8 @@ __redisRunCallback.exit:                          ; preds = %16, %18
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %__redisShiftCallback.exit.preheader, label %10
 
-24:                                               ; preds = %.lr.ph117, %__redisRunCallback.exit44
-  %25 = phi ptr [ %7, %.lr.ph117 ], [ %37, %__redisRunCallback.exit44 ]
+24:                                               ; preds = %.lr.ph115, %__redisRunCallback.exit44
+  %25 = phi ptr [ %7, %.lr.ph115 ], [ %37, %__redisRunCallback.exit44 ]
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   store ptr %26, ptr %6, align 8, !tbaa !73
   %27 = load ptr, ptr %8, align 8, !tbaa !76
@@ -659,20 +659,20 @@ __redisRunCallback.exit:                          ; preds = %16, %18
   br label %30
 
 30:                                               ; preds = %24, %29
-  %.sroa.4.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sroa.4.0.copyload84 = load ptr, ptr %.sroa.4.0..sroa_idx83, align 8
-  %.sroa.688.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sroa.688.0.copyload90 = load ptr, ptr %.sroa.688.0..sroa_idx89, align 8
+  %.sroa.4.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.4.0.copyload83 = load ptr, ptr %.sroa.4.0..sroa_idx82, align 8
+  %.sroa.687.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sroa.687.0.copyload89 = load ptr, ptr %.sroa.687.0..sroa_idx88, align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !38
   tail call void %31(ptr noundef nonnull %25) #16
-  %.not.i43 = icmp eq ptr %.sroa.4.0.copyload84, null
+  %.not.i43 = icmp eq ptr %.sroa.4.0.copyload83, null
   br i1 %.not.i43, label %__redisRunCallback.exit44, label %32
 
 32:                                               ; preds = %30
   %33 = load i32, ptr %9, align 8, !tbaa !39
   %34 = or i32 %33, 16
   store i32 %34, ptr %9, align 8, !tbaa !39
-  tail call void %.sroa.4.0.copyload84(ptr noundef nonnull %0, ptr noundef null, ptr noundef %.sroa.688.0.copyload90) #16
+  tail call void %.sroa.4.0.copyload83(ptr noundef nonnull %0, ptr noundef null, ptr noundef %.sroa.687.0.copyload89) #16
   %35 = load i32, ptr %9, align 8, !tbaa !39
   %36 = and i32 %35, -17
   store i32 %36, ptr %9, align 8, !tbaa !39
@@ -687,22 +687,22 @@ __redisShiftCallback.exit42:                      ; preds = %__redisRunCallback.
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %108, label %.preheader113
+  br i1 %.not, label %108, label %.preheader111
 
-.preheader113:                                    ; preds = %__redisShiftCallback.exit42
+.preheader111:                                    ; preds = %__redisShiftCallback.exit42
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %__redisRunCallback.exit48
 
-__redisRunCallback.exit48:                        ; preds = %__redisRunCallback.exit48.backedge, %.preheader113
-  %.sroa.1277.1 = phi i1 [ true, %.preheader113 ], [ false, %__redisRunCallback.exit48.backedge ]
-  %.sroa.18.0 = phi ptr [ null, %.preheader113 ], [ %54, %__redisRunCallback.exit48.backedge ]
-  %.sroa.6.0 = phi i32 [ -1, %.preheader113 ], [ %.sroa.6.3, %__redisRunCallback.exit48.backedge ]
+__redisRunCallback.exit48:                        ; preds = %__redisRunCallback.exit48.backedge, %.preheader111
+  %.sroa.1277.0 = phi i1 [ true, %.preheader111 ], [ false, %__redisRunCallback.exit48.backedge ]
+  %.sroa.18.0 = phi ptr [ null, %.preheader111 ], [ %54, %__redisRunCallback.exit48.backedge ]
+  %.sroa.6.0 = phi i32 [ -1, %.preheader111 ], [ %.sroa.6.3, %__redisRunCallback.exit48.backedge ]
   br label %42
 
 42:                                               ; preds = %51, %__redisRunCallback.exit48
   %.sroa.6.2 = phi i32 [ %.sroa.6.0, %__redisRunCallback.exit48 ], [ %.sroa.6.3, %51 ]
-  %storemerge17.i = phi i1 [ %.sroa.1277.1, %__redisRunCallback.exit48 ], [ true, %51 ]
+  %storemerge17.i = phi i1 [ %.sroa.1277.0, %__redisRunCallback.exit48 ], [ true, %51 ]
   br i1 %storemerge17.i, label %43, label %51
 
 43:                                               ; preds = %42
@@ -851,14 +851,14 @@ dictRelease.exit:                                 ; preds = %73, %.loopexit.i.i,
   br label %__redisRunCallback.exit58
 
 __redisRunCallback.exit58:                        ; preds = %__redisRunCallback.exit58.backedge, %.preheader
-  %.sroa.1277.2 = phi i1 [ true, %.preheader ], [ false, %__redisRunCallback.exit58.backedge ]
+  %.sroa.1277.1 = phi i1 [ true, %.preheader ], [ false, %__redisRunCallback.exit58.backedge ]
   %.sroa.18.1 = phi ptr [ null, %.preheader ], [ %125, %__redisRunCallback.exit58.backedge ]
   %.sroa.6.1 = phi i32 [ -1, %.preheader ], [ %.sroa.6.6, %__redisRunCallback.exit58.backedge ]
   br label %113
 
 113:                                              ; preds = %122, %__redisRunCallback.exit58
   %.sroa.6.5 = phi i32 [ %.sroa.6.1, %__redisRunCallback.exit58 ], [ %.sroa.6.6, %122 ]
-  %storemerge17.i50 = phi i1 [ %.sroa.1277.2, %__redisRunCallback.exit58 ], [ true, %122 ]
+  %storemerge17.i50 = phi i1 [ %.sroa.1277.1, %__redisRunCallback.exit58 ], [ true, %122 ]
   br i1 %storemerge17.i50, label %114, label %122
 
 114:                                              ; preds = %113
@@ -1630,8 +1630,8 @@ dictFind.exit.i:                                  ; preds = %217, %213, %.lr.ph.
 
 dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFind.exit.i, %189, %185, %161
   %.sroa.10.sroa.0.3 = phi i64 [ 0, %185 ], [ 0, %189 ], [ %224, %dictFind.exit.i ], [ 0, %161 ], [ 0, %208 ], [ 0, %220 ]
-  %.sroa.8.3 = phi ptr [ null, %185 ], [ null, %189 ], [ %.sroa.8.0.copyload70, %dictFind.exit.i ], [ null, %161 ], [ null, %208 ], [ null, %220 ]
-  %.sroa.1079.3 = phi ptr [ null, %185 ], [ null, %189 ], [ %.sroa.1079.0.copyload81, %dictFind.exit.i ], [ null, %161 ], [ null, %208 ], [ null, %220 ]
+  %.sroa.8.2 = phi ptr [ null, %185 ], [ null, %189 ], [ %.sroa.8.0.copyload70, %dictFind.exit.i ], [ null, %161 ], [ null, %208 ], [ null, %220 ]
+  %.sroa.1079.2 = phi ptr [ null, %185 ], [ null, %189 ], [ %.sroa.1079.0.copyload81, %dictFind.exit.i ], [ null, %161 ], [ null, %208 ], [ null, %220 ]
   %.045.i = phi ptr [ null, %185 ], [ null, %189 ], [ %223, %dictFind.exit.i ], [ null, %161 ], [ null, %208 ], [ null, %220 ]
   %.044.i = phi ptr [ %183, %185 ], [ %183, %189 ], [ %183, %dictFind.exit.i ], [ null, %161 ], [ %183, %208 ], [ %183, %220 ]
   %225 = zext i1 %173 to i64
@@ -1938,9 +1938,9 @@ __redisShiftCallback.exit.i50:                    ; preds = %__redisPushCallback
 
 __redisGetSubscribeCallback.exit:                 ; preds = %360, %353, %__redisShiftCallback.exit.thread
   %.sroa.10.sroa.0.0 = phi i64 [ %361, %360 ], [ %.sroa.10.sroa.0.3, %353 ], [ %117, %__redisShiftCallback.exit.thread ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0.copyload72, %360 ], [ %.sroa.8.3, %353 ], [ %.sroa.8.0.copyload, %__redisShiftCallback.exit.thread ]
-  %.sroa.1079.1 = phi ptr [ %.sroa.1079.0.copyload83, %360 ], [ %.sroa.1079.3, %353 ], [ %.sroa.1079.0.copyload, %__redisShiftCallback.exit.thread ]
-  %.not29 = icmp eq ptr %.sroa.8.1, null
+  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload72, %360 ], [ %.sroa.8.2, %353 ], [ %.sroa.8.0.copyload, %__redisShiftCallback.exit.thread ]
+  %.sroa.1079.0 = phi ptr [ %.sroa.1079.0.copyload83, %360 ], [ %.sroa.1079.2, %353 ], [ %.sroa.1079.0.copyload, %__redisShiftCallback.exit.thread ]
+  %.not29 = icmp eq ptr %.sroa.8.0, null
   %.pre132 = load ptr, ptr %3, align 8, !tbaa !13
   br i1 %.not29, label %__redisGetSubscribeCallback.exit.thread, label %__redisRunCallback.exit
 
@@ -1948,7 +1948,7 @@ __redisRunCallback.exit:                          ; preds = %__redisGetSubscribe
   %365 = load i32, ptr %5, align 8, !tbaa !39
   %366 = or i32 %365, 16
   store i32 %366, ptr %5, align 8, !tbaa !39
-  call void %.sroa.8.1(ptr noundef %0, ptr noundef %.pre132, ptr noundef %.sroa.1079.1) #16
+  call void %.sroa.8.0(ptr noundef %0, ptr noundef %.pre132, ptr noundef %.sroa.1079.0) #16
   %367 = load i32, ptr %5, align 8, !tbaa !39
   %368 = and i32 %367, -17
   store i32 %368, ptr %5, align 8, !tbaa !39
@@ -1976,7 +1976,7 @@ __redisRunCallback.exit:                          ; preds = %__redisGetSubscribe
 __redisGetSubscribeCallback.exit.thread:          ; preds = %363, %.thread.i, %151, %__redisGetSubscribeCallback.exit
   %380 = phi ptr [ %20, %151 ], [ %20, %.thread.i ], [ %.pre132, %__redisGetSubscribeCallback.exit ], [ %.pre131, %363 ]
   %.sroa.10.sroa.0.1 = phi i64 [ 0, %151 ], [ 0, %.thread.i ], [ %.sroa.10.sroa.0.0, %__redisGetSubscribeCallback.exit ], [ 0, %363 ]
-  %.sroa.1079.1107 = phi ptr [ null, %151 ], [ null, %.thread.i ], [ %.sroa.1079.1, %__redisGetSubscribeCallback.exit ], [ null, %363 ]
+  %.sroa.1079.0107 = phi ptr [ null, %151 ], [ null, %.thread.i ], [ %.sroa.1079.0, %__redisGetSubscribeCallback.exit ], [ null, %363 ]
   %381 = load ptr, ptr %17, align 8, !tbaa !100
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 200
   %383 = load ptr, ptr %382, align 8, !tbaa !101
@@ -1989,8 +1989,8 @@ __redisGetSubscribeCallback.exit.thread:          ; preds = %363, %.thread.i, %1
 386:                                              ; preds = %377, %__redisGetSubscribeCallback.exit.thread
   %387 = phi i32 [ %.pre133, %__redisGetSubscribeCallback.exit.thread ], [ %378, %377 ]
   %.sroa.10.sroa.0.2 = phi i64 [ %.sroa.10.sroa.0.1, %__redisGetSubscribeCallback.exit.thread ], [ %.sroa.10.sroa.0.0, %377 ]
-  %.sroa.1079.1106 = phi ptr [ %.sroa.1079.1107, %__redisGetSubscribeCallback.exit.thread ], [ %.sroa.1079.1, %377 ]
-  %.sroa.8.1104 = phi ptr [ null, %__redisGetSubscribeCallback.exit.thread ], [ %.sroa.8.1, %377 ]
+  %.sroa.1079.0106 = phi ptr [ %.sroa.1079.0107, %__redisGetSubscribeCallback.exit.thread ], [ %.sroa.1079.0, %377 ]
+  %.sroa.8.0104 = phi ptr [ null, %__redisGetSubscribeCallback.exit.thread ], [ %.sroa.8.0, %377 ]
   %388 = and i32 %387, 64
   %.not32 = icmp eq i32 %388, 0
   br i1 %.not32, label %.backedge, label %389
@@ -2003,11 +2003,11 @@ __redisGetSubscribeCallback.exit.thread:          ; preds = %363, %.thread.i, %1
 
 393:                                              ; preds = %389
   %.sroa.8.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  store ptr %.sroa.8.1104, ptr %.sroa.8.0..sroa_idx73, align 8
+  store ptr %.sroa.8.0104, ptr %.sroa.8.0..sroa_idx73, align 8
   %.sroa.10.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %391, i64 16
   store i64 %.sroa.10.sroa.0.2, ptr %.sroa.10.0..sroa_idx78, align 8
   %.sroa.1079.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %391, i64 24
-  store ptr %.sroa.1079.1106, ptr %.sroa.1079.0..sroa_idx84, align 8
+  store ptr %.sroa.1079.0106, ptr %.sroa.1079.0..sroa_idx84, align 8
   store ptr null, ptr %391, align 8, !tbaa !74
   %394 = load ptr, ptr %6, align 8, !tbaa !73
   %395 = icmp eq ptr %394, null

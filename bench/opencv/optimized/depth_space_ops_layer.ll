@@ -1377,16 +1377,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %11, %_ZNSt12_Vector
   %30 = sdiv i32 %15, %29
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 %13, ptr %27, align 4
-  %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %30, ptr %.sroa.548.0..sroa_idx, align 4
-  %.sroa.649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %24, ptr %.sroa.649.0..sroa_idx, align 4
-  %.sroa.750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 %24, ptr %.sroa.750.0..sroa_idx, align 4
-  %.sroa.851.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 %17, ptr %.sroa.851.0..sroa_idx, align 4
-  %.sroa.952.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 20
-  store i32 %19, ptr %.sroa.952.0..sroa_idx, align 4
+  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 %30, ptr %.sroa.545.0..sroa_idx, align 4
+  %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 %24, ptr %.sroa.646.0..sroa_idx, align 4
+  %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 12
+  store i32 %24, ptr %.sroa.747.0..sroa_idx, align 4
+  %.sroa.848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 %17, ptr %.sroa.848.0..sroa_idx, align 4
+  %.sroa.949.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 20
+  store i32 %19, ptr %.sroa.949.0..sroa_idx, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1523,15 +1523,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %71, %_ZNSt6vectorIi
   br label %82
 
 82:                                               ; preds = %82, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %82 ]
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %.015.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %82 ]
+  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %.09.i
   %84 = load i32, ptr %83, align 4, !tbaa !80
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds nuw i32, ptr %80, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !80
-  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %.015.i
+  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %.09.i
   store i32 %87, ptr %88, align 4, !tbaa !80
-  %89 = add nuw i64 %.015.i, 1
+  %89 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %89, %79
   br i1 %exitcond.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit31, label %82, !llvm.loop !83
 
@@ -3749,11 +3749,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %11, %_ZNSt12_Vector
 32:                                               ; preds = %24
   call void @_ZdlPv(ptr noundef nonnull %29) #22
   %.pre = load ptr, ptr %30, align 8, !tbaa !69
-  %.pre44 = load ptr, ptr %28, align 8, !tbaa !31
+  %.pre41 = load ptr, ptr %28, align 8, !tbaa !31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %32, %24
-  %33 = phi ptr [ %.pre44, %32 ], [ %22, %24 ]
+  %33 = phi ptr [ %.pre41, %32 ], [ %22, %24 ]
   %34 = phi ptr [ %.pre, %32 ], [ %27, %24 ]
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %33 to i64
@@ -3827,15 +3827,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %50, %_ZNSt6vectorIi
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %68, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %.015.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %68, %61 ]
+  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %.09.i
   %63 = load i32, ptr %62, align 4, !tbaa !80
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds nuw i32, ptr %59, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !80
-  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %.015.i
+  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %.09.i
   store i32 %66, ptr %67, align 4, !tbaa !80
-  %68 = add nuw i64 %.015.i, 1
+  %68 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %68, %58
   br i1 %exitcond.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit20, label %61, !llvm.loop !83
 

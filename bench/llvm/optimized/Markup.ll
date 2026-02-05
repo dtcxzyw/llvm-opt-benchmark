@@ -589,13 +589,13 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser12parseElementENS_9String
 24:                                               ; preds = %87, %4
   %25 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str, i64 3, i64 noundef 0) #10
   %26 = icmp eq i64 %25, -1
-  br i1 %26, label %.thread45.sink.split, label %27
+  br i1 %26, label %.thread41.sink.split, label %27
 
 27:                                               ; preds = %24
   %28 = add i64 %25, 3
   %29 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str.1, i64 3, i64 noundef %28) #10
   %30 = icmp eq i64 %29, -1
-  br i1 %30, label %.thread45.sink.split, label %31
+  br i1 %30, label %.thread41.sink.split, label %31
 
 31:                                               ; preds = %27
   %32 = add i64 %29, 3
@@ -673,32 +673,32 @@ _ZNK4llvm9StringRef5splitEc.exit.thread:          ; preds = %31
 .thread:                                          ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %52
   %54 = phi i64 [ %45, %52 ], [ %.sroa.5.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
   %55 = phi ptr [ %46, %52 ], [ %.sroa.020.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
-  %.sroa.6.23742 = phi ptr [ %48, %52 ], [ null, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
+  %.sroa.6.03639 = phi ptr [ %48, %52 ], [ null, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
   %56 = getelementptr i8, ptr %55, i64 %54
   %57 = getelementptr i8, ptr %56, i64 -1
   %58 = load i8, ptr %57, align 1, !tbaa !20
   %59 = icmp eq i8 %58, 58
-  %.pre49 = load i32, ptr %13, align 8, !tbaa !23
+  %.pre43 = load i32, ptr %13, align 8, !tbaa !23
   br i1 %59, label %60, label %71
 
 60:                                               ; preds = %.thread
   %61 = load i32, ptr %14, align 4, !tbaa !24
-  %.not.i.i.not.i = icmp ult i32 %.pre49, %61
+  %.not.i.i.not.i = icmp ult i32 %.pre43, %61
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, label %62, !prof !52
 
 62:                                               ; preds = %60
-  %63 = zext i32 %.pre49 to i64
+  %63 = zext i32 %.pre43 to i64
   %64 = add nuw nsw i64 %63, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef %64, i64 noundef 16) #10
   %.pre.i = load i32, ptr %13, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %60, %62
-  %65 = phi i32 [ %.pre49, %60 ], [ %.pre.i, %62 ]
+  %65 = phi i32 [ %.pre43, %60 ], [ %.pre.i, %62 ]
   %66 = load ptr, ptr %11, align 8, !tbaa !21
   %67 = zext i32 %65 to i64
   %68 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %66, i64 %67
-  store ptr %.sroa.6.23742, ptr %68, align 1
+  store ptr %.sroa.6.03639, ptr %68, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 1
   %69 = load i32, ptr %13, align 8, !tbaa !23
@@ -707,7 +707,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   br label %71
 
 71:                                               ; preds = %.thread, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, %53
-  %72 = phi i32 [ %.pre49, %.thread ], [ %70, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ %.pre, %53 ]
+  %72 = phi i32 [ %.pre43, %.thread ], [ %70, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ], [ %.pre, %53 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 32, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !21
   store i32 0, ptr %19, align 8, !tbaa !23
@@ -737,16 +737,16 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE12assignRemoteEOS2_.exit.i: ; preds = %
 
 _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i: ; preds = %77
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %18, i64 noundef %78, i64 noundef 16) #10
-  %.pre50 = load i32, ptr %13, align 8, !tbaa !23
-  %.pre51 = zext i32 %.pre50 to i64
-  %.not.i.i.i = icmp eq i32 %.pre50, 0
+  %.pre44 = load i32, ptr %13, align 8, !tbaa !23
+  %.pre45 = zext i32 %.pre44 to i64
+  %.not.i.i.i = icmp eq i32 %.pre44, 0
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %77, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi61 = phi i64 [ %.pre51, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %78, %77 ]
+  %.pre-phi55 = phi i64 [ %.pre45, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %78, %77 ]
   %80 = load ptr, ptr %11, align 8, !tbaa !21
   %81 = load ptr, ptr %17, align 8, !tbaa !21
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi61, 4
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi55, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 8 %80, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -776,13 +776,13 @@ _ZNSt8optionalIN4llvm9symbolize10MarkupNodeEEC2IS2_TnNSt9enable_ifIX7__and_vISt6
 
 87:                                               ; preds = %86, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %83, label %.thread45, label %24
+  br i1 %83, label %.thread41, label %24
 
-.thread45.sink.split:                             ; preds = %27, %24
+.thread41.sink.split:                             ; preds = %27, %24
   store i8 0, ptr %22, align 8, !tbaa !42
-  br label %.thread45
+  br label %.thread41
 
-.thread45:                                        ; preds = %87, %.thread45.sink.split
+.thread41:                                        ; preds = %87, %.thread41.sink.split
   ret void
 }
 

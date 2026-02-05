@@ -1697,8 +1697,8 @@ define dso_local noundef zeroext i1 @vu_init(ptr noundef %0, i16 noundef zeroext
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %21, %40
-  %.038 = phi i1 [ false, %21 ], [ false, %40 ], [ true, %.preheader ]
-  ret i1 %.038
+  %.0 = phi i1 [ false, %21 ], [ false, %40 ], [ true, %.preheader ]
+  ret i1 %.0
 }
 
 ; Function Attrs: noreturn nounwind

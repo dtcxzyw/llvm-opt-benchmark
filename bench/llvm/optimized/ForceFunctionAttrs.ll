@@ -698,7 +698,7 @@ define dso_local void @_ZN4llvm22ForceFunctionAttrsPass3runERNS_6ModuleERNS_15An
   br label %42
 
 42:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit33
-  %.188 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZN4llvm11raw_ostreamlsEPKc.exit33 ]
+  %.184 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZN4llvm11raw_ostreamlsEPKc.exit33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -724,9 +724,9 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %42
   store i64 %.sroa.speculated.i.i.i, ptr %.sroa.47.0..sroa_idx.i.i, align 8, !tbaa !41, !alias.scope !87
   store ptr %48, ptr %40, align 8, !tbaa !40, !alias.scope !87
   store i64 %49, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41, !alias.scope !87
-  %.not119 = icmp ugt i64 %45, %47
+  %.not115 = icmp ugt i64 %45, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not119, label %50, label %_ZN4llvm11raw_ostreamlsEPKc.exit33
+  br i1 %.not115, label %50, label %_ZN4llvm11raw_ostreamlsEPKc.exit33
 
 50:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %.sroa.011.0.copyload = load ptr, ptr %15, align 8, !tbaa !40
@@ -757,8 +757,8 @@ _ZNK4llvm9StringRef5splitEc.exit30:               ; preds = %54
   %58 = load ptr, ptr %40, align 8, !tbaa !89, !noalias !93
   %59 = add nuw i64 %55, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not86 = icmp ugt i64 %57, %59
-  br i1 %.not86, label %60, label %63
+  %.not82 = icmp ugt i64 %57, %59
+  br i1 %.not82, label %60, label %63
 
 60:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit30
   %61 = sub nuw i64 %57, %59
@@ -822,8 +822,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %78, %80
 
 91:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %92 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload) #17
-  %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %.pre97 = load ptr, ptr %.phi.trans.insert96, align 8, !tbaa !100
+  %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  %.pre93 = load ptr, ptr %.phi.trans.insert92, align 8, !tbaa !100
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 93:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -838,7 +838,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %78, %80
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %91, %93, %94
-  %97 = phi ptr [ %.pre97, %91 ], [ %96, %94 ], [ %83, %93 ]
+  %97 = phi ptr [ %.pre93, %91 ], [ %96, %94 ], [ %83, %93 ]
   %.0.i = phi ptr [ %92, %91 ], [ %.0.i.i, %94 ], [ %.0.i.i, %93 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !96
@@ -910,7 +910,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %120, %122
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit33
 
 _ZN4llvm11raw_ostreamlsEPKc.exit33:               ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %138, %136, %60, %67, %104, %106, %52, %_ZNK4llvm9StringRef5splitEc.exit
-  %.2 = phi i1 [ %.188, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.188, %106 ], [ %.188, %52 ], [ true, %60 ], [ true, %67 ], [ %.188, %104 ], [ %.188, %138 ], [ %.188, %136 ], [ %.188, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
+  %.2 = phi i1 [ %.184, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.184, %106 ], [ %.184, %52 ], [ true, %60 ], [ true, %67 ], [ %.184, %104 ], [ %.184, %138 ], [ %.184, %136 ], [ %.184, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %14) #17
   %141 = load i8, ptr %35, align 8, !tbaa !79, !range !63, !noundef !64
@@ -967,18 +967,18 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 162:                                              ; preds = %154
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.067.089 = load ptr, ptr %163, align 8, !tbaa !108
-  %.not8790 = icmp eq ptr %.sroa.067.089, %164
-  br i1 %.not8790, label %.thread, label %.lr.ph93
+  %.sroa.067.085 = load ptr, ptr %163, align 8, !tbaa !108
+  %.not8386 = icmp eq ptr %.sroa.067.085, %164
+  br i1 %.not8386, label %.thread, label %.lr.ph89
 
-.lr.ph93:                                         ; preds = %162
+.lr.ph89:                                         ; preds = %162
   %.sroa.4.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %165
 
-165:                                              ; preds = %.lr.ph93, %_ZL15forceAttributesRN4llvm8FunctionE.exit
-  %.sroa.067.091 = phi ptr [ %.sroa.067.089, %.lr.ph93 ], [ %.sroa.067.0, %_ZL15forceAttributesRN4llvm8FunctionE.exit ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.067.091, i64 -56
+165:                                              ; preds = %.lr.ph89, %_ZL15forceAttributesRN4llvm8FunctionE.exit
+  %.sroa.067.087 = phi ptr [ %.sroa.067.085, %.lr.ph89 ], [ %.sroa.067.0, %_ZL15forceAttributesRN4llvm8FunctionE.exit ]
+  %166 = getelementptr inbounds i8, ptr %.sroa.067.087, i64 -56
   %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ForceAttributesB5cxx11, i64 120), align 8, !tbaa !107
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ForceAttributesB5cxx11, i64 128), align 8, !tbaa !107
   %.not31.i = icmp eq ptr %167, %168
@@ -1163,10 +1163,10 @@ _ZNK4llvm9StringRef8containsEc.exit.thread.i:     ; preds = %_ZN4llvmneENS_9Stri
   br i1 %.not30.i, label %_ZL15forceAttributesRN4llvm8FunctionE.exit, label %.lr.ph36.i
 
 _ZL15forceAttributesRN4llvm8FunctionE.exit:       ; preds = %"_ZZL15forceAttributesRN4llvm8FunctionEENK3$_0clENS_9StringRefE.exit.thread", %._crit_edge.i
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.067.091, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.067.087, i64 8
   %.sroa.067.0 = load ptr, ptr %233, align 8, !tbaa !108
-  %.not87 = icmp eq ptr %.sroa.067.0, %164
-  br i1 %.not87, label %.thread, label %165
+  %.not83 = icmp eq ptr %.sroa.067.0, %164
+  br i1 %.not83, label %.thread, label %165
 
 234:                                              ; preds = %154
   br i1 %.0, label %.thread, label %244

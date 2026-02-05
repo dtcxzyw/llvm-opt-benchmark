@@ -15362,18 +15362,18 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.lr
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !558
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre24 = load ptr, ptr %23, align 8, !tbaa !360
-  %.pre25 = load ptr, ptr %0, align 8, !tbaa !293
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre27 = ptrtoint ptr %.pre25 to i64
-  %.pre29 = sub i64 %.pre26, %.pre27
-  %31 = sdiv exact i64 %.pre29, -24
+  %.pre21 = load ptr, ptr %23, align 8, !tbaa !360
+  %.pre22 = load ptr, ptr %0, align 8, !tbaa !293
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre24 = ptrtoint ptr %.pre22 to i64
+  %.pre26 = sub i64 %.pre23, %.pre24
+  %31 = sdiv exact i64 %.pre26, -24
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, %29
-  %.pre-phi30 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
-  %32 = phi ptr [ %.pre24, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = add i64 %.pre-phi30, %1
+  %.pre-phi27 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
+  %32 = phi ptr [ %.pre21, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
+  %33 = add i64 %.pre-phi27, %1
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN12colvarmodule7rvectorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 

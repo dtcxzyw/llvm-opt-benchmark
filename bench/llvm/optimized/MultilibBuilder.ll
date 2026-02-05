@@ -1239,8 +1239,8 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang6driv
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !50
-  %.not12 = icmp eq ptr %5, %7
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %5, %7
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -1334,20 +1334,20 @@ _ZN5clang6driver15MultilibBuilderD2Ev.exit:       ; preds = %_ZNSt7__cxx1112basi
   ret ptr %0
 
 44:                                               ; preds = %.lr.ph, %51
-  %.sroa.06.013 = phi ptr [ %5, %.lr.ph ], [ %52, %51 ]
-  %45 = load ptr, ptr %.sroa.06.013, align 8, !tbaa !11
+  %.sroa.06.011 = phi ptr [ %5, %.lr.ph ], [ %52, %51 ]
+  %45 = load ptr, ptr %.sroa.06.011, align 8, !tbaa !11
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = icmp eq i8 %46, 45
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !14
   call void @_ZN5clang6driver5tools15addMultilibFlagEbN4llvm9StringRefERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(i1 noundef zeroext false, ptr nonnull %45, i64 %50, ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   br label %51
 
 51:                                               ; preds = %48, %44
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 32
   %.not = icmp eq ptr %52, %7
   br i1 %.not, label %._crit_edge, label %44
 }

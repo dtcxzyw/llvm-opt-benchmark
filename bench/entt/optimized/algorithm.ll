@@ -1438,7 +1438,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
 
 .lr.ph.i.i:                                       ; preds = %"_ZZNK4entt10radix_sortILm8ELm32EEclIPjZN24Algorithm_RadixSort_Test8TestBodyEvE3$_0EEvT_S6_T0_ENKUlS6_S7_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS3_St6vectorIjSaIjEEEESH_S3_mEEDaS6_S7_S8_S9_.exit.i", %1
   %12 = phi i1 [ true, %1 ], [ false, %"_ZZNK4entt10radix_sortILm8ELm32EEclIPjZN24Algorithm_RadixSort_Test8TestBodyEvE3$_0EEvT_S6_T0_ENKUlS6_S7_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS3_St6vectorIjSaIjEEEESH_S3_mEEDaS6_S7_S8_S9_.exit.i" ]
-  %.01510.i = phi i32 [ 0, %1 ], [ 16, %"_ZZNK4entt10radix_sortILm8ELm32EEclIPjZN24Algorithm_RadixSort_Test8TestBodyEvE3$_0EEvT_S6_T0_ENKUlS6_S7_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS3_St6vectorIjSaIjEEEESH_S3_mEEDaS6_S7_S8_S9_.exit.i" ]
+  %.0157.i = phi i32 [ 0, %1 ], [ 16, %"_ZZNK4entt10radix_sortILm8ELm32EEclIPjZN24Algorithm_RadixSort_Test8TestBodyEvE3$_0EEvT_S6_T0_ENKUlS6_S7_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS3_St6vectorIjSaIjEEEESH_S3_mEEDaS6_S7_S8_S9_.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %4, i8 0, i64 2048, i1 false)
   br label %13
@@ -1452,7 +1452,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %.02.i.i.idx = phi i64 [ 0, %.lr.ph.i.i ], [ %.02.i.i.add, %13 ]
   %.02.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.02.i.i.idx
   %.0.val.i.i = load i32, ptr %.02.i.i.ptr, align 4, !tbaa !20
-  %14 = lshr i32 %.0.val.i.i, %.01510.i
+  %14 = lshr i32 %.0.val.i.i, %.0157.i
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
@@ -1479,7 +1479,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %.0205.i.i.idx = phi i64 [ %.0205.i.i.add, %.preheader.i.i ], [ 0, %20 ]
   %.0205.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0205.i.i.idx
   %.020.val.i.i = load i32, ptr %.0205.i.i.ptr, align 4, !tbaa !20
-  %27 = lshr i32 %.020.val.i.i, %.01510.i
+  %27 = lshr i32 %.020.val.i.i, %.0157.i
   %28 = and i32 %27, 255
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw i64, ptr %5, i64 %29
@@ -1497,7 +1497,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %2, i8 0, i64 2048, i1 false)
-  %34 = or disjoint i32 %.01510.i, 8
+  %34 = or disjoint i32 %.0157.i, 8
   br label %35
 
 ._crit_edge.i22.i:                                ; preds = %35
@@ -1827,9 +1827,9 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %55 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %53
   store i32 %.val9.i31.i, ptr %55, align 4, !tbaa !20
   %.not10.i32.i = icmp eq ptr %49, %7
-  br i1 %.not10.i32.i, label %.loopexit23.i, label %.lr.ph16.i29.i, !llvm.loop !78
+  br i1 %.not10.i32.i, label %.loopexit21.i, label %.lr.ph16.i29.i, !llvm.loop !78
 
-.loopexit23.i:                                    ; preds = %.lr.ph16.i29.i
+.loopexit21.i:                                    ; preds = %.lr.ph16.i29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -1841,8 +1841,8 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br label %62
 
-.lr.ph.i35.i:                                     ; preds = %.loopexit23.i, %.lr.ph.i35.i
-  %.sroa.04.011.i.i.idx = phi i64 [ %.sroa.04.011.i.i.add, %.lr.ph.i35.i ], [ 0, %.loopexit23.i ]
+.lr.ph.i35.i:                                     ; preds = %.loopexit21.i, %.lr.ph.i35.i
+  %.sroa.04.011.i.i.idx = phi i64 [ %.sroa.04.011.i.i.add, %.lr.ph.i35.i ], [ 0, %.loopexit21.i ]
   %.sroa.04.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.04.011.i.i.idx
   %.val.i36.i = load i32, ptr %.sroa.04.011.i.i.ptr, align 4, !tbaa !45
   %56 = lshr i32 %.val.i36.i, 2
@@ -2134,10 +2134,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %_ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS_8identityEEEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIS9_S9_S9_mEEDaSB_SC_SD_SE_.exit24
   %21 = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %_ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS_8identityEEEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIS9_S9_S9_mEEDaSB_SC_SD_SE_.exit24 ]
-  %.034 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ 16, %_ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS_8identityEEEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIS9_S9_S9_mEEDaSB_SC_SD_SE_.exit24 ]
+  %.031 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ 16, %_ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS_8identityEEEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIS9_S9_S9_mEEDaSB_SC_SD_SE_.exit24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, i8 0, i64 2048, i1 false)
-  %22 = trunc nuw nsw i64 %.034 to i32
+  %22 = trunc nuw nsw i64 %.031 to i32
   br label %23
 
 ._crit_edge.i.loopexit:                           ; preds = %23
@@ -2190,7 +2190,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS_8identityEEEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIS9_S9_S9_mEEDaSB_SC_SD_SE_.exit.loopexit: ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %48 = or disjoint i64 %.034, 8
+  %48 = or disjoint i64 %.031, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %4, i8 0, i64 2048, i1 false)
   br i1 %.not20.i13, label %._crit_edge.i17, label %.lr.ph.i14

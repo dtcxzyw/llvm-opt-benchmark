@@ -852,11 +852,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit94:               ; preds = %411, %413
   %417 = load ptr, ptr %25, align 8, !tbaa !19
   %.not114 = icmp eq ptr %416, %417
   %spec.select.i = select i1 %.not114, ptr null, ptr %0
-  %spec.select3.i = select i1 %.not114, ptr null, ptr %416
+  %spec.select1.i = select i1 %.not114, ptr null, ptr %416
   store ptr %spec.select.i, ptr %16, align 8
   %418 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %spec.select3.i, ptr %418, align 8
-  %.not115 = icmp eq ptr %spec.select3.i, null
+  store ptr %spec.select1.i, ptr %418, align 8
+  %.not115 = icmp eq ptr %spec.select1.i, null
   br i1 %.not115, label %487, label %419
 
 419:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit94

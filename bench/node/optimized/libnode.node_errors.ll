@@ -533,8 +533,8 @@ if.end:                                           ; preds = %entry
 
 if.end2:                                          ; preds = %if.end
   %1 = load atomic i8, ptr @_ZN4nodeL9is_in_oomE.0 seq_cst, align 1
-  %tobool.i.i7 = trunc i8 %1 to i1
-  br i1 %tobool.i.i7, label %return, label %lor.lhs.false
+  %tobool.i.i4 = trunc i8 %1 to i1
+  br i1 %tobool.i.i4, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
   %call4 = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #21

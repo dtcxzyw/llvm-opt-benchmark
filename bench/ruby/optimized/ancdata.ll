@@ -3002,8 +3002,8 @@ define internal i64 @ancillary_s_ip_pktinfo(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.preheader, label %.preheader9, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader9
-  %.not36 = icmp eq i32 %0, 2
-  br i1 %.not36, label %rb_scan_args_set.exit.critedge, label %12
+  %.not32 = icmp eq i32 %0, 2
+  br i1 %.not32, label %rb_scan_args_set.exit.critedge, label %12
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -443,8 +443,8 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
 _ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit: ; preds = %.noexc63, %78
   %87 = phi ptr [ %84, %.noexc63 ], [ null, %78 ]
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.not218 = icmp eq ptr %42, %43
-  br i1 %.not218, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i64
+  %.not215 = icmp eq ptr %42, %43
+  br i1 %.not215, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i64
 
 _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i64: ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit
   %89 = shl nuw nsw i64 %47, 2
@@ -727,14 +727,14 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
           to label %279 unwind label %386
 
 ._crit_edge163.loopexit:                          ; preds = %189
-  %.pre182 = load ptr, ptr %13, align 8
-  %.pre183 = load ptr, ptr %12, align 8
+  %.pre179 = load ptr, ptr %13, align 8
+  %.pre180 = load ptr, ptr %12, align 8
   br label %._crit_edge163
 
 ._crit_edge163:                                   ; preds = %._crit_edge163.loopexit, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68
   %199 = phi ptr [ %.0.i78, %._crit_edge163.loopexit ], [ %87, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68 ]
-  %200 = phi ptr [ %.pre183, %._crit_edge163.loopexit ], [ %87, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68 ]
-  %201 = phi ptr [ %.pre182, %._crit_edge163.loopexit ], [ %93, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68 ]
+  %200 = phi ptr [ %.pre180, %._crit_edge163.loopexit ], [ %87, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68 ]
+  %201 = phi ptr [ %.pre179, %._crit_edge163.loopexit ], [ %93, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68 ]
   %202 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %203 = ptrtoint ptr %199 to i64
   %204 = ptrtoint ptr %200 to i64
@@ -806,11 +806,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 246:                                              ; preds = %207
   call void @_ZdaPv(ptr noundef nonnull %233) #33
-  %.pre184 = load i8, ptr %222, align 8
+  %.pre181 = load i8, ptr %222, align 8
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %246, %207
-  %247 = phi i8 [ %.pre184, %246 ], [ %226, %207 ]
+  %247 = phi i8 [ %.pre181, %246 ], [ %226, %207 ]
   %248 = trunc i8 %247 to i1
   br i1 %248, label %249, label %_ZN5drjit12DynamicArrayIfED2Ev.exit1.i
 
@@ -1088,9 +1088,9 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br label %.body
 
 ._crit_edge:                                      ; preds = %311, %294
-  %.sroa.0.0220 = phi ptr [ null, %294 ], [ %309, %311 ]
+  %.sroa.0.0217 = phi ptr [ null, %294 ], [ %309, %311 ]
   %327 = phi ptr [ null, %294 ], [ %302, %311 ]
-  invoke void @_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEEC2EPKfS5_m(ptr noundef nonnull align 8 dereferenceable(104) %21, ptr noundef %.sroa.0.0220, ptr noundef %327, i64 noundef %288)
+  invoke void @_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEEC2EPKfS5_m(ptr noundef nonnull align 8 dereferenceable(104) %21, ptr noundef %.sroa.0.0217, ptr noundef %327, i64 noundef %288)
           to label %328 unwind label %381
 
 328:                                              ; preds = %._crit_edge
@@ -1188,11 +1188,11 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit1.i126:        ; preds = %373, %370, %_ZN5drj
   br label %_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit127
 
 _ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit127: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit1.i126, %376, %379
-  %.not.i.i128 = icmp eq ptr %.sroa.0.0220, null
+  %.not.i.i128 = icmp eq ptr %.sroa.0.0217, null
   br i1 %.not.i.i128, label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit129, label %380
 
 380:                                              ; preds = %_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit127
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0220) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0217) #33
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit129
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit129: ; preds = %_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit127, %380
@@ -1202,11 +1202,11 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit129: ; preds = %_ZN7mitsu
 381:                                              ; preds = %._crit_edge
   %382 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i132 = icmp eq ptr %.sroa.0.0220, null
+  %.not.i.i132 = icmp eq ptr %.sroa.0.0217, null
   br i1 %.not.i.i132, label %.body122, label %383
 
 383:                                              ; preds = %381
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0220) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0217) #33
   br label %.body122
 
 .body122:                                         ; preds = %383, %381
@@ -1214,7 +1214,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit129: ; preds = %_ZN7mitsu
   br i1 %.not.i.i134, label %.body, label %384
 
 384:                                              ; preds = %.body122.thread, %.body122
-  %.pn.pn223 = phi { ptr, i32 } [ %310, %.body122.thread ], [ %382, %.body122 ]
+  %.pn.pn220 = phi { ptr, i32 } [ %310, %.body122.thread ], [ %382, %.body122 ]
   %385 = phi ptr [ %302, %.body122.thread ], [ %327, %.body122 ]
   store ptr %385, ptr %296, align 8
   call void @_ZdlPv(ptr noundef nonnull %385) #33
@@ -1229,7 +1229,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   ret void
 
 .body:                                            ; preds = %384, %.body122, %303, %306, %58, %325, %323, %321, %286, %66, %60
-  %.pn54.pn.pn = phi { ptr, i32 } [ %.pn54.pn, %286 ], [ %.pn45, %66 ], [ %61, %60 ], [ %304, %303 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %59, %58 ], [ %304, %306 ], [ %382, %.body122 ], [ %.pn.pn223, %384 ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %.pn54.pn, %286 ], [ %.pn45, %66 ], [ %61, %60 ], [ %304, %303 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %59, %58 ], [ %304, %306 ], [ %382, %.body122 ], [ %.pn.pn220, %384 ]
   call void @_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #30
   call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #30
   resume { ptr, i32 } %.pn54.pn.pn

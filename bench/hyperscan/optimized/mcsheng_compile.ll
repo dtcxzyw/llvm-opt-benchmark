@@ -2033,10 +2033,10 @@ define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_G
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %80
   %.sroa.0221.0275 = phi ptr [ %.sroa.0221.0, %80 ], [ %.sroa.0221.0269, %.lr.ph ]
-  %.sroa.0226.1274 = phi i64 [ %.sroa.0226.2, %80 ], [ 0, %.lr.ph ]
-  %.sroa.8228.1273 = phi i64 [ %.sroa.8228.2, %80 ], [ 0, %.lr.ph ]
-  %.sroa.11.1272 = phi i64 [ %.sroa.11.2, %80 ], [ 0, %.lr.ph ]
-  %.sroa.14.1271 = phi i64 [ %.sroa.14.2, %80 ], [ 0, %.lr.ph ]
+  %.sroa.0226.0274 = phi i64 [ %.sroa.0226.1, %80 ], [ 0, %.lr.ph ]
+  %.sroa.8228.0273 = phi i64 [ %.sroa.8228.1, %80 ], [ 0, %.lr.ph ]
+  %.sroa.11.0272 = phi i64 [ %.sroa.11.1, %80 ], [ 0, %.lr.ph ]
+  %.sroa.14.0271 = phi i64 [ %.sroa.14.1, %80 ], [ 0, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0221.0275, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -2052,10 +2052,10 @@ define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_G
   br label %50
 
 50:                                               ; preds = %71, %.lr.ph.i
-  %.sroa.10.4 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.10.5, %71 ]
-  %.sroa.8.4 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.8.5, %71 ]
-  %.sroa.6.4 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.6.5, %71 ]
-  %.sroa.0219.4 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0219.5, %71 ]
+  %.sroa.10.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.10.1, %71 ]
+  %.sroa.8.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.8.1, %71 ]
+  %.sroa.6.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.6.1, %71 ]
+  %.sroa.0219.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0219.1, %71 ]
   %51 = phi i64 [ 0, %.lr.ph.i ], [ %72, %71 ]
   %52 = phi i64 [ 0, %.lr.ph.i ], [ %73, %71 ]
   %53 = phi i64 [ 0, %.lr.ph.i ], [ %74, %71 ]
@@ -2082,10 +2082,10 @@ define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_G
   br label %71
 
 71:                                               ; preds = %58, %50
-  %.sroa.10.5 = phi i64 [ %70, %58 ], [ %.sroa.10.4, %50 ]
-  %.sroa.8.5 = phi i64 [ %67, %58 ], [ %.sroa.8.4, %50 ]
-  %.sroa.6.5 = phi i64 [ %64, %58 ], [ %.sroa.6.4, %50 ]
-  %.sroa.0219.5 = phi i64 [ %61, %58 ], [ %.sroa.0219.4, %50 ]
+  %.sroa.10.1 = phi i64 [ %70, %58 ], [ %.sroa.10.0, %50 ]
+  %.sroa.8.1 = phi i64 [ %67, %58 ], [ %.sroa.8.0, %50 ]
+  %.sroa.6.1 = phi i64 [ %64, %58 ], [ %.sroa.6.0, %50 ]
+  %.sroa.0219.1 = phi i64 [ %61, %58 ], [ %.sroa.0219.0, %50 ]
   %72 = phi i64 [ %70, %58 ], [ %51, %50 ]
   %73 = phi i64 [ %67, %58 ], [ %52, %50 ]
   %74 = phi i64 [ %64, %58 ], [ %53, %50 ]
@@ -2095,36 +2095,36 @@ define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_G
   br i1 %exitcond.not.i, label %.loopexit263, label %50, !llvm.loop !49
 
 .loopexit263:                                     ; preds = %71
-  %76 = or i64 %.sroa.0219.5, %.sroa.0226.1274
-  %77 = or i64 %.sroa.6.5, %.sroa.8228.1273
-  %78 = or i64 %.sroa.8.5, %.sroa.11.1272
-  %79 = or i64 %.sroa.10.5, %.sroa.14.1271
+  %76 = or i64 %.sroa.0219.1, %.sroa.0226.0274
+  %77 = or i64 %.sroa.6.1, %.sroa.8228.0273
+  %78 = or i64 %.sroa.8.1, %.sroa.11.0272
+  %79 = or i64 %.sroa.10.1, %.sroa.14.0271
   br label %80
 
 80:                                               ; preds = %.lr.ph.split, %.loopexit263
-  %.sroa.14.2 = phi i64 [ %.sroa.14.1271, %.lr.ph.split ], [ %79, %.loopexit263 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1272, %.lr.ph.split ], [ %78, %.loopexit263 ]
-  %.sroa.8228.2 = phi i64 [ %.sroa.8228.1273, %.lr.ph.split ], [ %77, %.loopexit263 ]
-  %.sroa.0226.2 = phi i64 [ %.sroa.0226.1274, %.lr.ph.split ], [ %76, %.loopexit263 ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.0271, %.lr.ph.split ], [ %79, %.loopexit263 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0272, %.lr.ph.split ], [ %78, %.loopexit263 ]
+  %.sroa.8228.1 = phi i64 [ %.sroa.8228.0273, %.lr.ph.split ], [ %77, %.loopexit263 ]
+  %.sroa.0226.1 = phi i64 [ %.sroa.0226.0274, %.lr.ph.split ], [ %76, %.loopexit263 ]
   %.sroa.0221.0 = load ptr, ptr %.sroa.0221.0275, align 8
   %.not255 = icmp eq ptr %.sroa.0221.0, %39
   br i1 %.not255, label %._crit_edge.loopexit316, label %.lr.ph.split
 
 ._crit_edge.loopexit316:                          ; preds = %80
-  %81 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.0226.2)
-  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.8228.2)
-  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.11.2)
-  %84 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.14.2)
+  %81 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.0226.1)
+  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.8228.1)
+  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.11.1)
+  %84 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.14.1)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit316, %38
-  %.sroa.14.1.lcssa = phi i64 [ 0, %38 ], [ %84, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
-  %.sroa.11.1.lcssa = phi i64 [ 0, %38 ], [ %83, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
-  %.sroa.8228.1.lcssa = phi i64 [ 0, %38 ], [ %82, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
-  %.sroa.0226.1.lcssa = phi i64 [ 0, %38 ], [ %81, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
-  %85 = add nuw nsw i64 %.sroa.11.1.lcssa, %.sroa.14.1.lcssa
-  %86 = add nuw nsw i64 %85, %.sroa.8228.1.lcssa
-  %87 = add nuw nsw i64 %86, %.sroa.0226.1.lcssa
+  %.sroa.14.0.lcssa = phi i64 [ 0, %38 ], [ %84, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
+  %.sroa.11.0.lcssa = phi i64 [ 0, %38 ], [ %83, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
+  %.sroa.8228.0.lcssa = phi i64 [ 0, %38 ], [ %82, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
+  %.sroa.0226.0.lcssa = phi i64 [ 0, %38 ], [ %81, %._crit_edge.loopexit316 ], [ 0, %.lr.ph ]
+  %85 = add nuw nsw i64 %.sroa.11.0.lcssa, %.sroa.14.0.lcssa
+  %86 = add nuw nsw i64 %85, %.sroa.8228.0.lcssa
+  %87 = add nuw nsw i64 %86, %.sroa.0226.0.lcssa
   %88 = icmp samesign ult i64 %87, 30
   br i1 %88, label %.critedge149, label %90
 
@@ -9852,10 +9852,10 @@ _ZN3ue28containsISt13unordered_mapISt4pairINS_12graph_detail17vertex_descriptorI
   br label %83
 
 83:                                               ; preds = %104, %.lr.ph.i
-  %.sroa.0.1 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.2, %104 ]
-  %.sroa.5.1 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.2, %104 ]
-  %.sroa.7.1 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.7.2, %104 ]
-  %.sroa.9.1 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.9.2, %104 ]
+  %.sroa.0.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.1, %104 ]
+  %.sroa.5.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.1, %104 ]
+  %.sroa.7.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.7.1, %104 ]
+  %.sroa.9.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.9.1, %104 ]
   %84 = phi i64 [ 0, %.lr.ph.i ], [ %105, %104 ]
   %85 = phi i64 [ 0, %.lr.ph.i ], [ %106, %104 ]
   %86 = phi i64 [ 0, %.lr.ph.i ], [ %107, %104 ]
@@ -9882,10 +9882,10 @@ _ZN3ue28containsISt13unordered_mapISt4pairINS_12graph_detail17vertex_descriptorI
   br label %104
 
 104:                                              ; preds = %91, %83
-  %.sroa.0.2 = phi i64 [ %94, %91 ], [ %.sroa.0.1, %83 ]
-  %.sroa.5.2 = phi i64 [ %97, %91 ], [ %.sroa.5.1, %83 ]
-  %.sroa.7.2 = phi i64 [ %100, %91 ], [ %.sroa.7.1, %83 ]
-  %.sroa.9.2 = phi i64 [ %103, %91 ], [ %.sroa.9.1, %83 ]
+  %.sroa.0.1 = phi i64 [ %94, %91 ], [ %.sroa.0.0, %83 ]
+  %.sroa.5.1 = phi i64 [ %97, %91 ], [ %.sroa.5.0, %83 ]
+  %.sroa.7.1 = phi i64 [ %100, %91 ], [ %.sroa.7.0, %83 ]
+  %.sroa.9.1 = phi i64 [ %103, %91 ], [ %.sroa.9.0, %83 ]
   %105 = phi i64 [ %103, %91 ], [ %84, %83 ]
   %106 = phi i64 [ %100, %91 ], [ %85, %83 ]
   %107 = phi i64 [ %97, %91 ], [ %86, %83 ]
@@ -9895,12 +9895,12 @@ _ZN3ue28containsISt13unordered_mapISt4pairINS_12graph_detail17vertex_descriptorI
   br i1 %exitcond.not.i, label %_ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit.loopexit, label %83, !llvm.loop !49
 
 _ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit.loopexit: ; preds = %104
-  %109 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.0.2)
-  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.5.2)
+  %109 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.0.1)
+  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.5.1)
   %111 = add nuw nsw i64 %110, %109
-  %112 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.7.2)
+  %112 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.7.1)
   %113 = add nuw nsw i64 %111, %112
-  %114 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.9.2)
+  %114 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.9.1)
   %115 = add nuw nsw i64 %113, %114
   %116 = uitofp nneg i64 %115 to double
   %117 = fmul double %116, 3.906250e-03

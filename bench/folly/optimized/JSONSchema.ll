@@ -11458,15 +11458,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq i64 %17, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %19 = load ptr, ptr %1, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread20
+  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread18
 
 22:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %21, null
@@ -11476,12 +11476,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEb
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread20
+  br i1 %25, label %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread18
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.022 = phi ptr [ %49, %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.022, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.020 = phi ptr [ %49, %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.020, align 8, !tbaa !22
+  %26 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
   %.not.i.i.i.i = icmp eq ptr %27, null
@@ -11532,11 +11532,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   br label %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.not = icmp eq ptr %49, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread20: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread18: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit
   store ptr %19, ptr %3, align 8, !tbaa !201
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11546,7 +11546,7 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEb
   invoke void @_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_10jsonschema9ValidatorEEEvSt10shared_ptrIT0_ENS_5RangeIPS6_EE(ptr noundef nonnull %3, ptr nonnull %0, ptr nonnull %18)
           to label %52 unwind label %75
 
-52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread20
+52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread18
   %53 = load ptr, ptr %50, align 8, !tbaa !71
   %.not.i.i11 = icmp eq ptr %53, null
   br i1 %.not.i.i11, label %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %54
@@ -11595,7 +11595,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %71, %69
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #22
   br label %_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread20
+75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_10jsonschema9ValidatorEEEbRKSt10shared_ptrIT_E.exit.thread18
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5folly10jsonschema9ValidatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
@@ -38299,17 +38299,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %133
 
 147:                                              ; preds = %146
   tail call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %144, i1 false)
-  %.pre17.i = load ptr, ptr %141, align 8, !tbaa !1730
-  %.pre18.i = load ptr, ptr %122, align 8, !tbaa !1524
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %141, align 8, !tbaa !1730
+  %.pre15.i = load ptr, ptr %122, align 8, !tbaa !1524
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %147, %146
-  %.pre-phi21.i = phi i64 [ %130, %146 ], [ %.pre20.i, %147 ]
-  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre19.i, %147 ]
-  %148 = phi ptr [ %142, %146 ], [ %.pre17.i, %147 ]
-  %.neg.i19 = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %130, %146 ], [ %.pre17.i, %147 ]
+  %.pre-phi.i = phi i64 [ %143, %146 ], [ %.pre16.i, %147 ]
+  %148 = phi ptr [ %142, %146 ], [ %.pre14.i, %147 ]
+  %.neg.i19 = sub i64 %.pre-phi18.i, %.pre-phi.i
   %149 = add i64 %.neg.i19, %125
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %151
@@ -59651,17 +59651,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %98
 
 110:                                              ; preds = %109
   call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %107, i1 false)
-  %.pre17.i = load ptr, ptr %13, align 8, !tbaa !1730
-  %.pre18.i = load ptr, ptr %11, align 8, !tbaa !1524
-  %.pre19.i = ptrtoint ptr %.pre17.i to i64
-  %.pre20.i = ptrtoint ptr %.pre18.i to i64
+  %.pre14.i = load ptr, ptr %13, align 8, !tbaa !1730
+  %.pre15.i = load ptr, ptr %11, align 8, !tbaa !1524
+  %.pre16.i = ptrtoint ptr %.pre14.i to i64
+  %.pre17.i = ptrtoint ptr %.pre15.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %110, %109
-  %.pre-phi21.i = phi i64 [ %95, %109 ], [ %.pre20.i, %110 ]
-  %.pre-phi.i = phi i64 [ %106, %109 ], [ %.pre19.i, %110 ]
-  %111 = phi ptr [ %105, %109 ], [ %.pre17.i, %110 ]
-  %.neg.i = sub i64 %.pre-phi21.i, %.pre-phi.i
+  %.pre-phi18.i = phi i64 [ %95, %109 ], [ %.pre17.i, %110 ]
+  %.pre-phi.i = phi i64 [ %106, %109 ], [ %.pre16.i, %110 ]
+  %111 = phi ptr [ %105, %109 ], [ %.pre14.i, %110 ]
+  %.neg.i = sub i64 %.pre-phi18.i, %.pre-phi.i
   %112 = add i64 %.neg.i, %91
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i, label %114
@@ -59780,17 +59780,17 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i47:        ; preds = %144
 
 156:                                              ; preds = %155
   call void @llvm.memset.p0.i64(ptr align 1 %139, i8 0, i64 %153, i1 false)
-  %.pre17.i37 = load ptr, ptr %13, align 8, !tbaa !1730
-  %.pre18.i38 = load ptr, ptr %11, align 8, !tbaa !1524
-  %.pre19.i39 = ptrtoint ptr %.pre17.i37 to i64
-  %.pre20.i40 = ptrtoint ptr %.pre18.i38 to i64
+  %.pre14.i37 = load ptr, ptr %13, align 8, !tbaa !1730
+  %.pre15.i38 = load ptr, ptr %11, align 8, !tbaa !1524
+  %.pre16.i39 = ptrtoint ptr %.pre14.i37 to i64
+  %.pre17.i40 = ptrtoint ptr %.pre15.i38 to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i41
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i41: ; preds = %156, %155
-  %.pre-phi21.i42 = phi i64 [ %141, %155 ], [ %.pre20.i40, %156 ]
-  %.pre-phi.i43 = phi i64 [ %152, %155 ], [ %.pre19.i39, %156 ]
-  %157 = phi ptr [ %151, %155 ], [ %.pre17.i37, %156 ]
-  %.neg.i44 = sub i64 %.pre-phi21.i42, %.pre-phi.i43
+  %.pre-phi18.i42 = phi i64 [ %141, %155 ], [ %.pre17.i40, %156 ]
+  %.pre-phi.i43 = phi i64 [ %152, %155 ], [ %.pre16.i39, %156 ]
+  %157 = phi ptr [ %151, %155 ], [ %.pre14.i37, %156 ]
+  %.neg.i44 = sub i64 %.pre-phi18.i42, %.pre-phi.i43
   %158 = add i64 %.neg.i44, %137
   %159 = icmp eq i64 %158, 0
   br i1 %159, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i45, label %160

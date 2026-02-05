@@ -34699,12 +34699,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt13unordered_ma
   br label %.body
 
 251:                                              ; preds = %.lr.ph, %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit
-  %.0106299 = phi i64 [ 0, %.lr.ph ], [ %594, %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit ]
-  %.sroa.7.0298 = phi i64 [ 0, %.lr.ph ], [ %.sroa.7.2, %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit ]
-  %252 = trunc i64 %.sroa.7.0298 to i32
+  %.0106296 = phi i64 [ 0, %.lr.ph ], [ %594, %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit ]
+  %.sroa.7.0295 = phi i64 [ 0, %.lr.ph ], [ %.sroa.7.2, %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit ]
+  %252 = trunc i64 %.sroa.7.0295 to i32
   %253 = and i32 %252, 7
   %254 = sub nuw nsw i32 8, %253
-  %255 = lshr i64 %.sroa.7.0298, 3
+  %255 = lshr i64 %.sroa.7.0295, 3
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.0243.3, i64 %255
   %257 = load i8, ptr %256, align 1, !tbaa !15
   %258 = zext i8 %257 to i32
@@ -34766,9 +34766,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt13unordered_ma
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %260, %._crit_edge.i
-  %.pn255 = phi i64 [ %242, %._crit_edge.i ], [ %241, %260 ]
+  %.pn252 = phi i64 [ %242, %._crit_edge.i ], [ %241, %260 ]
   %.0.i = phi i64 [ %284, %._crit_edge.i ], [ %262, %260 ]
-  %.sroa.7.1 = add i64 %.pn255, %.sroa.7.0298
+  %.sroa.7.1 = add i64 %.pn252, %.sroa.7.0295
   %285 = load i32, ptr %7, align 4, !tbaa !17
   %286 = trunc i64 %.sroa.7.1 to i32
   %287 = and i32 %286, 7
@@ -34839,9 +34839,9 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %260, %._crit_edge.i
   br label %_ZN5faiss15BitstringReader4readEi.exit199
 
 _ZN5faiss15BitstringReader4readEi.exit199:        ; preds = %294, %._crit_edge.i184
-  %.pn256 = phi i64 [ %301, %._crit_edge.i184 ], [ %298, %294 ]
+  %.pn253 = phi i64 [ %301, %._crit_edge.i184 ], [ %298, %294 ]
   %.0.i182 = phi i64 [ %321, %._crit_edge.i184 ], [ %297, %294 ]
-  %.sroa.7.2 = add i64 %.pn256, %.sroa.7.1
+  %.sroa.7.2 = add i64 %.pn253, %.sroa.7.1
   %322 = load i64, ptr %243, align 8, !tbaa !386
   %323 = urem i64 %.0.i, %322
   %324 = load ptr, ptr %0, align 8, !tbaa !387
@@ -35061,8 +35061,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %40
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge unwind label %449
 
 ._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge:    ; preds = %414
-  %.pre347 = load ptr, ptr %.1.i.i, align 8, !tbaa !63
-  %.pre348 = load i64, ptr %13, align 8, !tbaa !25
+  %.pre344 = load ptr, ptr %.1.i.i, align 8, !tbaa !63
+  %.pre345 = load i64, ptr %13, align 8, !tbaa !25
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 416:                                              ; preds = %405
@@ -35079,8 +35079,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %40
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge, %420, %418, %416
-  %421 = phi i64 [ %.pre348, %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge ], [ %383, %420 ], [ %383, %418 ], [ %383, %416 ]
-  %422 = phi ptr [ %.pre347, %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge ], [ %408, %420 ], [ %408, %418 ], [ %408, %416 ]
+  %421 = phi i64 [ %.pre345, %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge ], [ %383, %420 ], [ %383, %418 ], [ %383, %416 ]
+  %422 = phi ptr [ %.pre344, %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge ], [ %408, %420 ], [ %408, %418 ], [ %408, %416 ]
   %423 = load ptr, ptr %2, align 8, !tbaa !4
   %424 = load ptr, ptr %423, align 8
   %425 = invoke noundef i64 %424(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %422, i64 noundef 8, i64 noundef %421)
@@ -35454,7 +35454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %58
 
 _ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit: ; preds = %558
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %594 = add nuw i64 %.0106299, 1
+  %594 = add nuw i64 %.0106296, 1
   %595 = load i64, ptr %5, align 8, !tbaa !25
   %596 = icmp ult i64 %594, %595
   br i1 %596, label %251, label %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEE7reserveEm.exit._crit_edge, !llvm.loop !397

@@ -133,14 +133,14 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br i1 %.not3342, label %.lr.ph, label %._crit_edge
 
 14:                                               ; preds = %18
-  %15 = add nuw nsw i32 %.043, 1
+  %15 = add nuw nsw i32 %.02743, 1
   %16 = load i32, ptr %5, align 8, !tbaa !20
   %.not33 = icmp slt i32 %15, %16
   br i1 %.not33, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.043 = phi i32 [ %15, %14 ], [ 0, %.preheader ]
-  %17 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.72, i32 noundef %.043) #10
+  %.02743 = phi i32 [ %15, %14 ], [ 0, %.preheader ]
+  %17 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.72, i32 noundef %.02743) #10
   store ptr %17, ptr %2, align 8, !tbaa !31
   store i32 1, ptr %.sroa.35.0..sroa_idx, align 8, !tbaa !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.46.0..sroa_idx, i8 0, i64 36, i1 false)
@@ -205,9 +205,9 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %18, %._crit_edge, %1, %23
-  %.028 = phi i32 [ -12, %._crit_edge ], [ 0, %23 ], [ %11, %1 ], [ -12, %.lr.ph ], [ %19, %18 ]
+  %.0 = phi i32 [ -12, %._crit_edge ], [ 0, %23 ], [ %11, %1 ], [ -12, %.lr.ph ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.028
+  ret i32 %.0
 }
 
 ; Function Attrs: cold nounwind optsize uwtable

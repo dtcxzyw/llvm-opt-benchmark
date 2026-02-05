@@ -1276,8 +1276,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVecto
   %.sroa.0.1.i.i.i = phi ptr [ %93, %.loopexit.i.i.i ], [ %80, %72 ], [ %89, %85 ]
   %94 = zext i32 %70 to i64
   %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1265", ptr %69, i64 %94
-  %.not12.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %95
-  br i1 %.not12.i.i, label %.loopexit.i, label %96
+  %.not10.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %95
+  br i1 %.not10.i.i, label %.loopexit.i, label %96
 
 96:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E4findES5_.exit.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8

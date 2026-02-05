@@ -30,11 +30,11 @@ define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.093243 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %..093, %.lr.ph ]
+  %.093229 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %..093, %.lr.ph ]
   %11 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !3
-  %13 = fcmp ogt double %12, %.093243
-  %..093 = select i1 %13, double %12, double %.093243
+  %13 = fcmp ogt double %12, %.093229
+  %..093 = select i1 %13, double %12, double %.093229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !7
@@ -166,7 +166,7 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
 distance_to_group.exit:                           ; preds = %60, %33, %dist.exit.loopexit.us.i, %.preheader48.i, %.preheader.i, %.lr.ph55.i
   %61 = phi i1 [ true, %.lr.ph55.i ], [ false, %.preheader.i ], [ true, %dist.exit.loopexit.us.i ], [ false, %.preheader48.i ], [ true, %33 ], [ true, %60 ]
   %62 = phi ptr [ %36, %.lr.ph55.i ], [ %36, %.preheader.i ], [ %36, %dist.exit.loopexit.us.i ], [ %14, %.preheader48.i ], [ %15, %33 ], [ %15, %60 ]
-  %.1204 = phi double [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %.preheader.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ 0.000000e+00, %.preheader48.i ], [ %..093, %33 ], [ %..093, %60 ]
+  %.1190 = phi double [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %.preheader.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ 0.000000e+00, %.preheader48.i ], [ %..093, %33 ], [ %..093, %60 ]
   %.2.i = phi double [ 0.000000e+00, %.lr.ph55.i ], [ 0.000000e+00, %.preheader.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ 0.000000e+00, %.preheader48.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
   store double %.2.i, ptr %7, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -222,86 +222,86 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
   store ptr %62, ptr %malloc, align 8, !tbaa !23
   %85 = icmp sgt i32 %6, 0
-  br i1 %85, label %.lr.ph285, label %._crit_edge286
+  br i1 %85, label %.lr.ph271, label %._crit_edge272
 
-.lr.ph285:                                        ; preds = %qt_list_append.exit
+.lr.ph271:                                        ; preds = %qt_list_append.exit
   %86 = icmp sgt i32 %1, 0
   %87 = sitofp i32 %1 to double
   %88 = zext i32 %1 to i64
   %89 = shl nuw i64 1, %88
   %mul.ov.i104 = icmp ugt i32 %1, 60
-  %.not296 = icmp eq i32 %1, 31
-  %.not206 = icmp eq i32 %1, 0
+  %.not282 = icmp eq i32 %1, 31
+  %.not192 = icmp eq i32 %1, 0
   %wide.trip.count66.i112 = zext nneg i32 %0 to i64
   %90 = icmp ne i32 %1, 0
   %or.cond = and i1 %90, %61
-  br i1 %mul.ov.i104, label %.lr.ph285.split.us, label %.lr.ph285.split.preheader
+  br i1 %mul.ov.i104, label %.lr.ph271.split.us, label %.lr.ph271.split.preheader
 
-.lr.ph285.split.preheader:                        ; preds = %.lr.ph285
+.lr.ph271.split.preheader:                        ; preds = %.lr.ph271
   %91 = shl nuw i32 1, %1
   %smax = tail call i32 @llvm.smax.i32(i32 %91, i32 1)
-  %wide.trip.count328 = zext nneg i32 %smax to i64
-  br label %.lr.ph285.split
+  %wide.trip.count314 = zext nneg i32 %smax to i64
+  br label %.lr.ph271.split
 
-.lr.ph285.split.us:                               ; preds = %.lr.ph285
-  br i1 %86, label %.lr.ph285.split.us.split.us, label %.lr.ph285.split.us.split
+.lr.ph271.split.us:                               ; preds = %.lr.ph271
+  br i1 %86, label %.lr.ph271.split.us.split.us, label %.lr.ph271.split.us.split
 
-.lr.ph285.split.us.split.us:                      ; preds = %.lr.ph285.split.us, %.loopexit209.us.us
-  %92 = phi i32 [ %103, %.loopexit209.us.us ], [ 1, %.lr.ph285.split.us ]
-  %.sroa.0.0283.us.us = phi ptr [ %.sroa.0182.0282.us.us, %.loopexit209.us.us ], [ null, %.lr.ph285.split.us ]
-  %.sroa.0182.0282.us.us = phi ptr [ %.sroa.0.0283.us.us, %.loopexit209.us.us ], [ %malloc, %.lr.ph285.split.us ]
-  %93 = phi i1 [ false, %.loopexit209.us.us ], [ true, %.lr.ph285.split.us ]
+.lr.ph271.split.us.split.us:                      ; preds = %.lr.ph271.split.us, %.loopexit195.us.us
+  %92 = phi i32 [ %103, %.loopexit195.us.us ], [ 1, %.lr.ph271.split.us ]
+  %.sroa.0.0269.us.us = phi ptr [ %.sroa.0174.0268.us.us, %.loopexit195.us.us ], [ null, %.lr.ph271.split.us ]
+  %.sroa.0174.0268.us.us = phi ptr [ %.sroa.0.0269.us.us, %.loopexit195.us.us ], [ %malloc, %.lr.ph271.split.us ]
+  %93 = phi i1 [ false, %.loopexit195.us.us ], [ true, %.lr.ph271.split.us ]
   %94 = load i8, ptr @Verbose, align 1, !tbaa !25
   %95 = icmp ugt i8 %94, 10
   br i1 %95, label %96, label %99
 
-96:                                               ; preds = %.lr.ph285.split.us.split.us
+96:                                               ; preds = %.lr.ph271.split.us.split.us
   %97 = load ptr, ptr @stderr, align 8, !tbaa !21
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str, i32 noundef %92) #17
   br label %99
 
-99:                                               ; preds = %96, %.lr.ph285.split.us.split.us
-  br i1 %93, label %.lr.ph267.us.us.preheader, label %.loopexit209.us.us
+99:                                               ; preds = %96, %.lr.ph271.split.us.split.us
+  br i1 %93, label %.lr.ph253.us.us.preheader, label %.loopexit195.us.us
 
-.lr.ph267.us.us.preheader:                        ; preds = %99
-  %100 = load ptr, ptr %.sroa.0182.0282.us.us, align 8, !tbaa !23
+.lr.ph253.us.us.preheader:                        ; preds = %99
+  %100 = load ptr, ptr %.sroa.0174.0268.us.us, align 8, !tbaa !23
   %101 = load i8, ptr @Verbose, align 1, !tbaa !25
   %102 = icmp ugt i8 %101, 10
-  br i1 %102, label %.lr.ph246.us.us.us.us, label %107
+  br i1 %102, label %.lr.ph232.us.us.us.us, label %107
 
-.loopexit209.us.us:                               ; preds = %107, %99
+.loopexit195.us.us:                               ; preds = %107, %99
   %103 = add nuw i32 %92, 1
-  %exitcond338.not = icmp eq i32 %92, %6
-  br i1 %exitcond338.not, label %._crit_edge286, label %.lr.ph285.split.us.split.us, !llvm.loop !26
+  %exitcond324.not = icmp eq i32 %92, %6
+  br i1 %exitcond324.not, label %._crit_edge272, label %.lr.ph271.split.us.split.us, !llvm.loop !26
 
-.lr.ph246.us.us.us.us:                            ; preds = %.lr.ph267.us.us.preheader
+.lr.ph232.us.us.us.us:                            ; preds = %.lr.ph253.us.us.preheader
   %104 = load ptr, ptr @stderr, align 8, !tbaa !21
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.1, i64 noundef 0) #17
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 24
   br label %117
 
-107:                                              ; preds = %._crit_edge.us.us.us.us, %.lr.ph267.us.us.preheader
+107:                                              ; preds = %._crit_edge.us.us.us.us, %.lr.ph253.us.us.preheader
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %109 = load double, ptr %108, align 8, !tbaa !14
   %110 = tail call double @sqrt(double noundef %87) #16, !tbaa !11
-  %111 = fmul double %.1204, %110
+  %111 = fmul double %.1190, %110
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %113 = load double, ptr %112, align 8, !tbaa !27
   %114 = tail call double @llvm.fmuladd.f64(double %111, double %113, double %109)
   %115 = load double, ptr %7, align 8, !tbaa !3
   %116 = fcmp olt double %114, %115
-  br i1 %116, label %.loopexit209.us.us, label %.split.us
+  br i1 %116, label %.loopexit195.us.us, label %.split.us
 
-117:                                              ; preds = %117, %.lr.ph246.us.us.us.us
-  %indvars.iv333 = phi i64 [ %indvars.iv.next334, %117 ], [ 0, %.lr.ph246.us.us.us.us ]
+117:                                              ; preds = %117, %.lr.ph232.us.us.us.us
+  %indvars.iv319 = phi i64 [ %indvars.iv.next320, %117 ], [ 0, %.lr.ph232.us.us.us.us ]
   %118 = load ptr, ptr @stderr, align 8, !tbaa !21
   %119 = load ptr, ptr %106, align 8, !tbaa !28
-  %120 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv333
+  %120 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv319
   %121 = load double, ptr %120, align 8, !tbaa !3
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.2, double noundef %121) #17
-  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %exitcond337.not = icmp eq i64 %indvars.iv.next334, %88
-  br i1 %exitcond337.not, label %._crit_edge.us.us.us.us, label %117, !llvm.loop !29
+  %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
+  %exitcond323.not = icmp eq i64 %indvars.iv.next320, %88
+  br i1 %exitcond323.not, label %._crit_edge.us.us.us.us, label %117, !llvm.loop !29
 
 ._crit_edge.us.us.us.us:                          ; preds = %117
   %123 = load ptr, ptr @stderr, align 8, !tbaa !21
@@ -312,35 +312,35 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.3, double noundef %125, double noundef %127) #17
   br label %107
 
-.lr.ph285.split.us.split:                         ; preds = %.lr.ph285.split.us, %.loopexit209.us
-  %129 = phi i32 [ %140, %.loopexit209.us ], [ 1, %.lr.ph285.split.us ]
-  %.sroa.0.0283.us = phi ptr [ %.sroa.0182.0282.us, %.loopexit209.us ], [ null, %.lr.ph285.split.us ]
-  %.sroa.0182.0282.us = phi ptr [ %.sroa.0.0283.us, %.loopexit209.us ], [ %malloc, %.lr.ph285.split.us ]
-  %130 = phi i1 [ false, %.loopexit209.us ], [ true, %.lr.ph285.split.us ]
+.lr.ph271.split.us.split:                         ; preds = %.lr.ph271.split.us, %.loopexit195.us
+  %129 = phi i32 [ %140, %.loopexit195.us ], [ 1, %.lr.ph271.split.us ]
+  %.sroa.0.0269.us = phi ptr [ %.sroa.0174.0268.us, %.loopexit195.us ], [ null, %.lr.ph271.split.us ]
+  %.sroa.0174.0268.us = phi ptr [ %.sroa.0.0269.us, %.loopexit195.us ], [ %malloc, %.lr.ph271.split.us ]
+  %130 = phi i1 [ false, %.loopexit195.us ], [ true, %.lr.ph271.split.us ]
   %131 = load i8, ptr @Verbose, align 1, !tbaa !25
   %132 = icmp ugt i8 %131, 10
   br i1 %132, label %133, label %136
 
-133:                                              ; preds = %.lr.ph285.split.us.split
+133:                                              ; preds = %.lr.ph271.split.us.split
   %134 = load ptr, ptr @stderr, align 8, !tbaa !21
   %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str, i32 noundef %129) #17
   br label %136
 
-136:                                              ; preds = %133, %.lr.ph285.split.us.split
-  br i1 %130, label %.lr.ph267.us.preheader, label %.loopexit209.us
+136:                                              ; preds = %133, %.lr.ph271.split.us.split
+  br i1 %130, label %.lr.ph253.us.preheader, label %.loopexit195.us
 
-.lr.ph267.us.preheader:                           ; preds = %136
-  %137 = load ptr, ptr %.sroa.0182.0282.us, align 8, !tbaa !23
+.lr.ph253.us.preheader:                           ; preds = %136
+  %137 = load ptr, ptr %.sroa.0174.0268.us, align 8, !tbaa !23
   %138 = load i8, ptr @Verbose, align 1, !tbaa !25
   %139 = icmp ugt i8 %138, 10
   br i1 %139, label %141, label %150
 
-.loopexit209.us:                                  ; preds = %150, %136
+.loopexit195.us:                                  ; preds = %150, %136
   %140 = add nuw i32 %129, 1
-  %exitcond332.not = icmp eq i32 %129, %6
-  br i1 %exitcond332.not, label %._crit_edge286, label %.lr.ph285.split.us.split, !llvm.loop !26
+  %exitcond318.not = icmp eq i32 %129, %6
+  br i1 %exitcond318.not, label %._crit_edge272, label %.lr.ph271.split.us.split, !llvm.loop !26
 
-141:                                              ; preds = %.lr.ph267.us.preheader
+141:                                              ; preds = %.lr.ph253.us.preheader
   %142 = load ptr, ptr @stderr, align 8, !tbaa !21
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.1, i64 noundef 0) #17
   %144 = load ptr, ptr @stderr, align 8, !tbaa !21
@@ -351,81 +351,81 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %149 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.3, double noundef %146, double noundef %148) #17
   br label %150
 
-150:                                              ; preds = %141, %.lr.ph267.us.preheader
+150:                                              ; preds = %141, %.lr.ph253.us.preheader
   %151 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %152 = load double, ptr %151, align 8, !tbaa !14
   %153 = tail call double @sqrt(double noundef %87) #16, !tbaa !11
-  %154 = fmul double %.1204, %153
+  %154 = fmul double %.1190, %153
   %155 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %156 = load double, ptr %155, align 8, !tbaa !27
   %157 = tail call double @llvm.fmuladd.f64(double %154, double %156, double %152)
   %158 = load double, ptr %7, align 8, !tbaa !3
   %159 = fcmp olt double %157, %158
-  br i1 %159, label %.loopexit209.us, label %.split.us
+  br i1 %159, label %.loopexit195.us, label %.split.us
 
-.loopexit209:                                     ; preds = %.loopexit, %167
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0283, %167 ], [ %.sroa.0.2, %.loopexit ]
-  %.sroa.10.1.lcssa = phi i64 [ 0, %167 ], [ %.sroa.10.2, %.loopexit ]
-  %.sroa.15.1.lcssa = phi i64 [ 0, %167 ], [ %.sroa.15.2, %.loopexit ]
-  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0284, %167 ], [ %.sroa.18.2, %.loopexit ]
+.loopexit195:                                     ; preds = %.loopexit, %167
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0269, %167 ], [ %.sroa.0.2, %.loopexit ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %167 ], [ %.sroa.10.1, %.loopexit ]
+  %.sroa.15.0.lcssa = phi i64 [ 0, %167 ], [ %.sroa.15.1, %.loopexit ]
+  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0270, %167 ], [ %.sroa.18.2, %.loopexit ]
   %160 = add nuw i32 %161, 1
-  %exitcond331.not = icmp eq i32 %161, %6
-  br i1 %exitcond331.not, label %._crit_edge286, label %.lr.ph285.split, !llvm.loop !26
+  %exitcond317.not = icmp eq i32 %161, %6
+  br i1 %exitcond317.not, label %._crit_edge272, label %.lr.ph271.split, !llvm.loop !26
 
-.lr.ph285.split:                                  ; preds = %.lr.ph285.split.preheader, %.loopexit209
-  %161 = phi i32 [ %160, %.loopexit209 ], [ 1, %.lr.ph285.split.preheader ]
-  %.sroa.18.0284 = phi i64 [ %.sroa.24.0279, %.loopexit209 ], [ 0, %.lr.ph285.split.preheader ]
-  %.sroa.0.0283 = phi ptr [ %.sroa.0182.0282, %.loopexit209 ], [ null, %.lr.ph285.split.preheader ]
-  %.sroa.0182.0282 = phi ptr [ %.sroa.0.1.lcssa, %.loopexit209 ], [ %malloc, %.lr.ph285.split.preheader ]
-  %.sroa.11.0281 = phi i64 [ %.sroa.10.1.lcssa, %.loopexit209 ], [ 0, %.lr.ph285.split.preheader ]
-  %.sroa.18186.0280 = phi i64 [ %.sroa.15.1.lcssa, %.loopexit209 ], [ 1, %.lr.ph285.split.preheader ]
-  %.sroa.24.0279 = phi i64 [ %.sroa.18.1.lcssa, %.loopexit209 ], [ 1, %.lr.ph285.split.preheader ]
+.lr.ph271.split:                                  ; preds = %.lr.ph271.split.preheader, %.loopexit195
+  %161 = phi i32 [ %160, %.loopexit195 ], [ 1, %.lr.ph271.split.preheader ]
+  %.sroa.18.0270 = phi i64 [ %.sroa.24.0265, %.loopexit195 ], [ 0, %.lr.ph271.split.preheader ]
+  %.sroa.0.0269 = phi ptr [ %.sroa.0174.0268, %.loopexit195 ], [ null, %.lr.ph271.split.preheader ]
+  %.sroa.0174.0268 = phi ptr [ %.sroa.0.1.lcssa, %.loopexit195 ], [ %malloc, %.lr.ph271.split.preheader ]
+  %.sroa.11.0267 = phi i64 [ %.sroa.10.0.lcssa, %.loopexit195 ], [ 0, %.lr.ph271.split.preheader ]
+  %.sroa.18178.0266 = phi i64 [ %.sroa.15.0.lcssa, %.loopexit195 ], [ 1, %.lr.ph271.split.preheader ]
+  %.sroa.24.0265 = phi i64 [ %.sroa.18.1.lcssa, %.loopexit195 ], [ 1, %.lr.ph271.split.preheader ]
   %162 = load i8, ptr @Verbose, align 1, !tbaa !25
   %163 = icmp ugt i8 %162, 10
   br i1 %163, label %164, label %167
 
-164:                                              ; preds = %.lr.ph285.split
+164:                                              ; preds = %.lr.ph271.split
   %165 = load ptr, ptr @stderr, align 8, !tbaa !21
   %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str, i32 noundef %161) #17
   br label %167
 
-167:                                              ; preds = %164, %.lr.ph285.split
-  %.not297 = icmp eq i64 %.sroa.18186.0280, 0
-  br i1 %.not297, label %.loopexit209, label %.lr.ph267
+167:                                              ; preds = %164, %.lr.ph271.split
+  %.not283 = icmp eq i64 %.sroa.18178.0266, 0
+  br i1 %.not283, label %.loopexit195, label %.lr.ph253
 
-.lr.ph267:                                        ; preds = %167, %.loopexit
-  %.091265 = phi i64 [ %325, %.loopexit ], [ 0, %167 ]
-  %.sroa.18.1264 = phi i64 [ %.sroa.18.2, %.loopexit ], [ %.sroa.18.0284, %167 ]
-  %.sroa.15.1263 = phi i64 [ %.sroa.15.2, %.loopexit ], [ 0, %167 ]
-  %.sroa.10.1262 = phi i64 [ %.sroa.10.2, %.loopexit ], [ 0, %167 ]
-  %.sroa.0.1261 = phi ptr [ %.sroa.0.2, %.loopexit ], [ %.sroa.0.0283, %167 ]
-  %168 = add i64 %.091265, %.sroa.11.0281
-  %169 = urem i64 %168, %.sroa.24.0279
-  %170 = getelementptr inbounds nuw ptr, ptr %.sroa.0182.0282, i64 %169
+.lr.ph253:                                        ; preds = %167, %.loopexit
+  %.091251 = phi i64 [ %325, %.loopexit ], [ 0, %167 ]
+  %.sroa.18.1250 = phi i64 [ %.sroa.18.2, %.loopexit ], [ %.sroa.18.0270, %167 ]
+  %.sroa.15.0249 = phi i64 [ %.sroa.15.1, %.loopexit ], [ 0, %167 ]
+  %.sroa.10.0248 = phi i64 [ %.sroa.10.1, %.loopexit ], [ 0, %167 ]
+  %.sroa.0.1247 = phi ptr [ %.sroa.0.2, %.loopexit ], [ %.sroa.0.0269, %167 ]
+  %168 = add i64 %.091251, %.sroa.11.0267
+  %169 = urem i64 %168, %.sroa.24.0265
+  %170 = getelementptr inbounds nuw ptr, ptr %.sroa.0174.0268, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !23
   %172 = load i8, ptr @Verbose, align 1, !tbaa !25
   %173 = icmp ugt i8 %172, 10
   br i1 %173, label %174, label %190
 
-174:                                              ; preds = %.lr.ph267
+174:                                              ; preds = %.lr.ph253
   %175 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.1, i64 noundef %.091265) #17
-  br i1 %86, label %.lr.ph246, label %._crit_edge
+  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.1, i64 noundef %.091251) #17
+  br i1 %86, label %.lr.ph232, label %._crit_edge
 
-.lr.ph246:                                        ; preds = %174
+.lr.ph232:                                        ; preds = %174
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 24
   br label %178
 
-178:                                              ; preds = %.lr.ph246, %178
-  %indvars.iv315 = phi i64 [ 0, %.lr.ph246 ], [ %indvars.iv.next316, %178 ]
+178:                                              ; preds = %.lr.ph232, %178
+  %indvars.iv301 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next302, %178 ]
   %179 = load ptr, ptr @stderr, align 8, !tbaa !21
   %180 = load ptr, ptr %177, align 8, !tbaa !28
-  %181 = getelementptr inbounds nuw double, ptr %180, i64 %indvars.iv315
+  %181 = getelementptr inbounds nuw double, ptr %180, i64 %indvars.iv301
   %182 = load double, ptr %181, align 8, !tbaa !3
   %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.2, double noundef %182) #17
-  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %exitcond319.not = icmp eq i64 %indvars.iv.next316, %88
-  br i1 %exitcond319.not, label %._crit_edge, label %178, !llvm.loop !29
+  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
+  %exitcond305.not = icmp eq i64 %indvars.iv.next302, %88
+  br i1 %exitcond305.not, label %._crit_edge, label %178, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %178, %174
   %184 = load ptr, ptr @stderr, align 8, !tbaa !21
@@ -436,11 +436,11 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.3, double noundef %186, double noundef %188) #17
   br label %190
 
-190:                                              ; preds = %._crit_edge, %.lr.ph267
+190:                                              ; preds = %._crit_edge, %.lr.ph253
   %191 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %192 = load double, ptr %191, align 8, !tbaa !14
   %193 = tail call double @sqrt(double noundef %87) #16, !tbaa !11
-  %194 = fmul double %.1204, %193
+  %194 = fmul double %.1190, %193
   %195 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %196 = load double, ptr %195, align 8, !tbaa !27
   %197 = tail call double @llvm.fmuladd.f64(double %194, double %196, double %192)
@@ -469,27 +469,27 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 gv_calloc.exit106:                                ; preds = %200
   %209 = getelementptr inbounds nuw i8, ptr %171, i64 48
   store ptr %201, ptr %209, align 8, !tbaa !30
-  br i1 %.not296, label %.loopexit, label %.lr.ph256
+  br i1 %.not282, label %.loopexit, label %.lr.ph242
 
-.lr.ph256:                                        ; preds = %gv_calloc.exit106
+.lr.ph242:                                        ; preds = %gv_calloc.exit106
   %210 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %211 = getelementptr inbounds nuw i8, ptr %171, i64 24
   br label %212
 
-212:                                              ; preds = %.lr.ph256, %324
-  %indvars.iv325 = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next326, %324 ]
-  %.sroa.18.3254 = phi i64 [ %.sroa.18.1264, %.lr.ph256 ], [ %.sroa.18.4, %324 ]
-  %.sroa.15.3253 = phi i64 [ %.sroa.15.1263, %.lr.ph256 ], [ %.sroa.15.4, %324 ]
-  %.sroa.10.3252 = phi i64 [ %.sroa.10.1262, %.lr.ph256 ], [ %.sroa.10.4, %324 ]
-  %.sroa.0.3251 = phi ptr [ %.sroa.0.1261, %.lr.ph256 ], [ %.sroa.0.4, %324 ]
+212:                                              ; preds = %.lr.ph242, %324
+  %indvars.iv311 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next312, %324 ]
+  %.sroa.18.3240 = phi i64 [ %.sroa.18.1250, %.lr.ph242 ], [ %.sroa.18.4, %324 ]
+  %.sroa.15.2239 = phi i64 [ %.sroa.15.0249, %.lr.ph242 ], [ %.sroa.15.3, %324 ]
+  %.sroa.10.2238 = phi i64 [ %.sroa.10.0248, %.lr.ph242 ], [ %.sroa.10.3, %324 ]
+  %.sroa.0.3237 = phi ptr [ %.sroa.0.1247, %.lr.ph242 ], [ %.sroa.0.4, %324 ]
   %213 = load i32, ptr %210, align 8, !tbaa !31
   %214 = load ptr, ptr %211, align 8, !tbaa !28
   %215 = load double, ptr %195, align 8, !tbaa !27
   %216 = fmul double %215, 5.000000e-01
-  %217 = trunc nuw nsw i64 %indvars.iv325 to i32
+  %217 = trunc nuw nsw i64 %indvars.iv311 to i32
   %218 = tail call ptr @QuadTree_new_in_quadrant(i32 noundef %213, ptr noundef %214, double noundef %216, i32 noundef %6, i32 noundef %217) #16
   %219 = load ptr, ptr %209, align 8, !tbaa !30
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv325
+  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv311
   store ptr %218, ptr %220, align 8, !tbaa !23
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %222 = load ptr, ptr %221, align 8, !tbaa !28
@@ -499,7 +499,7 @@ gv_calloc.exit106:                                ; preds = %200
   br i1 %61, label %.lr.ph.i110, label %distance_to_group.exit150
 
 .lr.ph.i110:                                      ; preds = %.preheader48.i108
-  br i1 %.not206, label %dist.exit47.i113, label %.lr.ph.preheader.i40.us.i120
+  br i1 %.not192, label %dist.exit47.i113, label %.lr.ph.preheader.i40.us.i120
 
 .lr.ph.preheader.i40.us.i120:                     ; preds = %.lr.ph.i110, %239
   %indvars.iv63.i121 = phi i64 [ %indvars.iv.next64.i131, %239 ], [ 0, %.lr.ph.i110 ]
@@ -620,45 +620,45 @@ distance_to_group.exit150:                        ; preds = %239, %263, %dist.ex
 270:                                              ; preds = %267
   %271 = load ptr, ptr @stderr, align 8, !tbaa !21
   %272 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %271, ptr noundef nonnull @.str.4, double noundef %.2.i109) #17
-  br i1 %86, label %.lr.ph249, label %._crit_edge250
+  br i1 %86, label %.lr.ph235, label %._crit_edge236
 
-.lr.ph249:                                        ; preds = %270, %.lr.ph249
-  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.lr.ph249 ], [ 0, %270 ]
+.lr.ph235:                                        ; preds = %270, %.lr.ph235
+  %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.lr.ph235 ], [ 0, %270 ]
   %273 = load ptr, ptr @stderr, align 8, !tbaa !21
   %274 = load ptr, ptr %209, align 8, !tbaa !30
-  %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %indvars.iv325
+  %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %indvars.iv311
   %276 = load ptr, ptr %275, align 8, !tbaa !23
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %278 = load ptr, ptr %277, align 8, !tbaa !28
-  %279 = getelementptr inbounds nuw double, ptr %278, i64 %indvars.iv320
+  %279 = getelementptr inbounds nuw double, ptr %278, i64 %indvars.iv306
   %280 = load double, ptr %279, align 8, !tbaa !3
   %281 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.2, double noundef %280) #17
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %exitcond324.not = icmp eq i64 %indvars.iv.next321, %88
-  br i1 %exitcond324.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !32
+  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
+  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %88
+  br i1 %exitcond310.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !32
 
-._crit_edge250:                                   ; preds = %.lr.ph249, %270
+._crit_edge236:                                   ; preds = %.lr.ph235, %270
   %282 = load ptr, ptr @stderr, align 8, !tbaa !21
   %283 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr %282) #20
   %.pre = load ptr, ptr %209, align 8, !tbaa !30
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv325
-  %.pre339 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
-  %.phi.trans.insert340 = getelementptr inbounds nuw i8, ptr %.pre339, i64 24
-  %.pre341 = load ptr, ptr %.phi.trans.insert340, align 8, !tbaa !28
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv311
+  %.pre325 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
+  %.phi.trans.insert326 = getelementptr inbounds nuw i8, ptr %.pre325, i64 24
+  %.pre327 = load ptr, ptr %.phi.trans.insert326, align 8, !tbaa !28
   br label %284
 
-284:                                              ; preds = %._crit_edge250, %267
-  %285 = phi ptr [ %.pre341, %._crit_edge250 ], [ %222, %267 ]
+284:                                              ; preds = %._crit_edge236, %267
+  %285 = phi ptr [ %.pre327, %._crit_edge236 ], [ %222, %267 ]
   %286 = load ptr, ptr %8, align 8, !tbaa !20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %286, ptr align 8 %285, i64 %79, i1 false)
-  %.pre342 = load ptr, ptr %209, align 8, !tbaa !30
-  %.phi.trans.insert343 = getelementptr inbounds nuw ptr, ptr %.pre342, i64 %indvars.iv325
-  %.pre344 = load ptr, ptr %.phi.trans.insert343, align 8, !tbaa !23
+  %.pre328 = load ptr, ptr %209, align 8, !tbaa !30
+  %.phi.trans.insert329 = getelementptr inbounds nuw ptr, ptr %.pre328, i64 %indvars.iv311
+  %.pre330 = load ptr, ptr %.phi.trans.insert329, align 8, !tbaa !23
   br label %.critedge
 
 287:                                              ; preds = %distance_to_group.exit150
   %288 = tail call double @sqrt(double noundef %87) #16, !tbaa !11
-  %289 = fmul double %.1204, %288
+  %289 = fmul double %.1190, %288
   %290 = load double, ptr %195, align 8, !tbaa !27
   %291 = fmul double %289, %290
   %292 = fmul double %291, 5.000000e-01
@@ -667,37 +667,37 @@ distance_to_group.exit150:                        ; preds = %239, %263, %dist.ex
   br i1 %294, label %324, label %.critedge
 
 .critedge:                                        ; preds = %287, %284
-  %295 = phi ptr [ %218, %287 ], [ %.pre344, %284 ]
-  %296 = icmp eq i64 %.sroa.15.3253, %.sroa.18.3254
+  %295 = phi ptr [ %218, %287 ], [ %.pre330, %284 ]
+  %296 = icmp eq i64 %.sroa.15.2239, %.sroa.18.3240
   br i1 %296, label %297, label %qt_list_append.exit158
 
 297:                                              ; preds = %.critedge
-  %298 = icmp eq i64 %.sroa.18.3254, 0
-  %299 = shl i64 %.sroa.18.3254, 1
+  %298 = icmp eq i64 %.sroa.18.3240, 0
+  %299 = shl i64 %.sroa.18.3240, 1
   %spec.select.i.i155 = select i1 %298, i64 1, i64 %299
   %mul.ov.i.i156 = icmp ugt i64 %spec.select.i.i155, 2305843009213693951
   br i1 %mul.ov.i.i156, label %316, label %300
 
 300:                                              ; preds = %297
   %301 = shl nuw i64 %spec.select.i.i155, 3
-  %302 = tail call ptr @realloc(ptr noundef %.sroa.0.3251, i64 noundef %301) #21
+  %302 = tail call ptr @realloc(ptr noundef %.sroa.0.3237, i64 noundef %301) #21
   %303 = icmp eq ptr %302, null
   br i1 %303, label %316, label %304
 
 304:                                              ; preds = %300
-  %305 = getelementptr inbounds nuw ptr, ptr %302, i64 %.sroa.18.3254
-  %306 = sub i64 %spec.select.i.i155, %.sroa.18.3254
+  %305 = getelementptr inbounds nuw ptr, ptr %302, i64 %.sroa.18.3240
+  %306 = sub i64 %spec.select.i.i155, %.sroa.18.3240
   %307 = shl i64 %306, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %305, i8 0, i64 %307, i1 false)
-  %308 = add i64 %.sroa.18.3254, %.sroa.10.3252
-  %309 = icmp ugt i64 %308, %.sroa.18.3254
+  %308 = add i64 %.sroa.18.3240, %.sroa.10.2238
+  %309 = icmp ugt i64 %308, %.sroa.18.3240
   br i1 %309, label %310, label %qt_list_append.exit158
 
 310:                                              ; preds = %304
-  %311 = sub i64 %.sroa.18.3254, %.sroa.10.3252
+  %311 = sub i64 %.sroa.18.3240, %.sroa.10.2238
   %312 = sub i64 %spec.select.i.i155, %311
   %313 = getelementptr inbounds nuw ptr, ptr %302, i64 %312
-  %314 = getelementptr inbounds nuw ptr, ptr %302, i64 %.sroa.10.3252
+  %314 = getelementptr inbounds nuw ptr, ptr %302, i64 %.sroa.10.2238
   %315 = shl i64 %311, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %313, ptr nonnull align 8 %314, i64 %315, i1 false)
   br label %qt_list_append.exit158
@@ -711,39 +711,39 @@ distance_to_group.exit150:                        ; preds = %239, %263, %dist.ex
   unreachable
 
 qt_list_append.exit158:                           ; preds = %304, %310, %.critedge
-  %.sroa.0.5 = phi ptr [ %.sroa.0.3251, %.critedge ], [ %302, %310 ], [ %302, %304 ]
-  %.sroa.10.6 = phi i64 [ %.sroa.10.3252, %.critedge ], [ %312, %310 ], [ %.sroa.10.3252, %304 ]
-  %.sroa.18.5 = phi i64 [ %.sroa.18.3254, %.critedge ], [ %spec.select.i.i155, %310 ], [ %spec.select.i.i155, %304 ]
-  %320 = add i64 %.sroa.10.6, %.sroa.15.3253
+  %.sroa.0.5 = phi ptr [ %.sroa.0.3237, %.critedge ], [ %302, %310 ], [ %302, %304 ]
+  %.sroa.10.5 = phi i64 [ %.sroa.10.2238, %.critedge ], [ %312, %310 ], [ %.sroa.10.2238, %304 ]
+  %.sroa.18.5 = phi i64 [ %.sroa.18.3240, %.critedge ], [ %spec.select.i.i155, %310 ], [ %spec.select.i.i155, %304 ]
+  %320 = add i64 %.sroa.10.5, %.sroa.15.2239
   %321 = urem i64 %320, %.sroa.18.5
   %322 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5, i64 %321
   store ptr %295, ptr %322, align 8, !tbaa !23
-  %323 = add i64 %.sroa.15.3253, 1
+  %323 = add i64 %.sroa.15.2239, 1
   br label %324
 
 324:                                              ; preds = %287, %qt_list_append.exit158
-  %.sroa.0.4 = phi ptr [ %.sroa.0.5, %qt_list_append.exit158 ], [ %.sroa.0.3251, %287 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.6, %qt_list_append.exit158 ], [ %.sroa.10.3252, %287 ]
-  %.sroa.15.4 = phi i64 [ %323, %qt_list_append.exit158 ], [ %.sroa.15.3253, %287 ]
-  %.sroa.18.4 = phi i64 [ %.sroa.18.5, %qt_list_append.exit158 ], [ %.sroa.18.3254, %287 ]
-  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
-  %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %.loopexit, label %212, !llvm.loop !33
+  %.sroa.0.4 = phi ptr [ %.sroa.0.5, %qt_list_append.exit158 ], [ %.sroa.0.3237, %287 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.5, %qt_list_append.exit158 ], [ %.sroa.10.2238, %287 ]
+  %.sroa.15.3 = phi i64 [ %323, %qt_list_append.exit158 ], [ %.sroa.15.2239, %287 ]
+  %.sroa.18.4 = phi i64 [ %.sroa.18.5, %qt_list_append.exit158 ], [ %.sroa.18.3240, %287 ]
+  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
+  %exitcond315.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count314
+  br i1 %exitcond315.not, label %.loopexit, label %212, !llvm.loop !33
 
 .loopexit:                                        ; preds = %324, %gv_calloc.exit106, %190
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1261, %190 ], [ %.sroa.0.1261, %gv_calloc.exit106 ], [ %.sroa.0.4, %324 ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.1262, %190 ], [ %.sroa.10.1262, %gv_calloc.exit106 ], [ %.sroa.10.4, %324 ]
-  %.sroa.15.2 = phi i64 [ %.sroa.15.1263, %190 ], [ %.sroa.15.1263, %gv_calloc.exit106 ], [ %.sroa.15.4, %324 ]
-  %.sroa.18.2 = phi i64 [ %.sroa.18.1264, %190 ], [ %.sroa.18.1264, %gv_calloc.exit106 ], [ %.sroa.18.4, %324 ]
-  %325 = add nuw i64 %.091265, 1
-  %exitcond330.not = icmp eq i64 %325, %.sroa.18186.0280
-  br i1 %exitcond330.not, label %.loopexit209, label %.lr.ph267, !llvm.loop !34
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1247, %190 ], [ %.sroa.0.1247, %gv_calloc.exit106 ], [ %.sroa.0.4, %324 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.0248, %190 ], [ %.sroa.10.0248, %gv_calloc.exit106 ], [ %.sroa.10.3, %324 ]
+  %.sroa.15.1 = phi i64 [ %.sroa.15.0249, %190 ], [ %.sroa.15.0249, %gv_calloc.exit106 ], [ %.sroa.15.3, %324 ]
+  %.sroa.18.2 = phi i64 [ %.sroa.18.1250, %190 ], [ %.sroa.18.1250, %gv_calloc.exit106 ], [ %.sroa.18.4, %324 ]
+  %325 = add nuw i64 %.091251, 1
+  %exitcond316.not = icmp eq i64 %325, %.sroa.18178.0266
+  br i1 %exitcond316.not, label %.loopexit195, label %.lr.ph253, !llvm.loop !34
 
-._crit_edge286:                                   ; preds = %.loopexit209, %.loopexit209.us, %.loopexit209.us.us, %qt_list_append.exit
-  %.sroa.0182.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.0283.us, %.loopexit209.us ], [ %.sroa.0.0283.us.us, %.loopexit209.us.us ], [ %.sroa.0.1.lcssa, %.loopexit209 ]
-  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0182.0282.us, %.loopexit209.us ], [ %.sroa.0182.0282.us.us, %.loopexit209.us.us ], [ %.sroa.0182.0282, %.loopexit209 ]
+._crit_edge272:                                   ; preds = %.loopexit195, %.loopexit195.us, %.loopexit195.us.us, %qt_list_append.exit
+  %.sroa.0174.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.0269.us, %.loopexit195.us ], [ %.sroa.0.0269.us.us, %.loopexit195.us.us ], [ %.sroa.0.1.lcssa, %.loopexit195 ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0174.0268.us, %.loopexit195.us ], [ %.sroa.0174.0268.us.us, %.loopexit195.us.us ], [ %.sroa.0174.0268, %.loopexit195 ]
   tail call void @QuadTree_delete(ptr noundef %62) #16
-  tail call void @free(ptr noundef %.sroa.0182.0.lcssa) #16
+  tail call void @free(ptr noundef %.sroa.0174.0.lcssa) #16
   tail call void @free(ptr noundef %.sroa.0.0.lcssa) #16
   ret void
 }
@@ -772,17 +772,17 @@ declare void @QuadTree_delete(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.split90, label %.preheader220
+  br i1 %.not, label %.split90, label %.preheader206
 
-.preheader220:                                    ; preds = %8
+.preheader206:                                    ; preds = %8
   %9 = icmp sgt i32 %0, 0
   br i1 %9, label %.lr.ph.preheader, label %.preheader48.i
 
-.lr.ph.preheader:                                 ; preds = %.preheader220
+.lr.ph.preheader:                                 ; preds = %.preheader206
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.preheader48.i:                                   ; preds = %.preheader220
+.preheader48.i:                                   ; preds = %.preheader206
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   br label %distance_to_group.exit
@@ -866,11 +866,11 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.084234 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %..084, %.lr.ph ]
+  %.084220 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %..084, %.lr.ph ]
   %44 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !3
-  %46 = fcmp ogt double %45, %.084234
-  %..084 = select i1 %46, double %45, double %.084234
+  %46 = fcmp ogt double %45, %.084220
+  %..084 = select i1 %46, double %45, double %.084220
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !36
@@ -978,40 +978,40 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
   store ptr %4, ptr %malloc, align 8, !tbaa !23
   %86 = icmp sgt i32 %5, 0
-  br i1 %86, label %.lr.ph269, label %._crit_edge270
+  br i1 %86, label %.lr.ph255, label %._crit_edge256
 
-.lr.ph269:                                        ; preds = %qt_list_append.exit
+.lr.ph255:                                        ; preds = %qt_list_append.exit
   %87 = icmp sgt i32 %1, 0
   %88 = fmul double %.1, 2.000000e+00
   %89 = sitofp i32 %1 to double
   %90 = shl nuw i32 1, %1
-  %.not275 = icmp eq i32 %1, 31
+  %.not261 = icmp eq i32 %1, 31
   %91 = icmp slt i32 %0, 1
   %wide.trip.count.i41.i123 = zext i32 %1 to i64
   %wide.trip.count66.i124 = zext nneg i32 %0 to i64
   %92 = icmp slt i32 %1, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %90, i32 1)
-  %wide.trip.count299 = zext nneg i32 %smax to i64
+  %wide.trip.count285 = zext nneg i32 %smax to i64
   %brmerge = or i1 %91, %92
   br label %94
 
-.loopexit217:                                     ; preds = %.loopexit, %101
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0267, %101 ], [ %.sroa.0.2, %.loopexit ]
-  %.sroa.10.1.lcssa = phi i64 [ 0, %101 ], [ %.sroa.10.2, %.loopexit ]
-  %.sroa.15.1.lcssa = phi i64 [ 0, %101 ], [ %.sroa.15.2, %.loopexit ]
-  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0268, %101 ], [ %.sroa.18.2, %.loopexit ]
+.loopexit203:                                     ; preds = %.loopexit, %101
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0253, %101 ], [ %.sroa.0.2, %.loopexit ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %101 ], [ %.sroa.10.1, %.loopexit ]
+  %.sroa.15.0.lcssa = phi i64 [ 0, %101 ], [ %.sroa.15.1, %.loopexit ]
+  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0254, %101 ], [ %.sroa.18.2, %.loopexit ]
   %93 = add nuw i32 %95, 1
-  %exitcond302.not = icmp eq i32 %95, %5
-  br i1 %exitcond302.not, label %._crit_edge270, label %94, !llvm.loop !37
+  %exitcond288.not = icmp eq i32 %95, %5
+  br i1 %exitcond288.not, label %._crit_edge256, label %94, !llvm.loop !37
 
-94:                                               ; preds = %.lr.ph269, %.loopexit217
-  %95 = phi i32 [ 1, %.lr.ph269 ], [ %93, %.loopexit217 ]
-  %.sroa.18.0268 = phi i64 [ 0, %.lr.ph269 ], [ %.sroa.24.0263, %.loopexit217 ]
-  %.sroa.0.0267 = phi ptr [ null, %.lr.ph269 ], [ %.sroa.0194.0266, %.loopexit217 ]
-  %.sroa.0194.0266 = phi ptr [ %malloc, %.lr.ph269 ], [ %.sroa.0.1.lcssa, %.loopexit217 ]
-  %.sroa.11.0265 = phi i64 [ 0, %.lr.ph269 ], [ %.sroa.10.1.lcssa, %.loopexit217 ]
-  %.sroa.18198.0264 = phi i64 [ 1, %.lr.ph269 ], [ %.sroa.15.1.lcssa, %.loopexit217 ]
-  %.sroa.24.0263 = phi i64 [ 1, %.lr.ph269 ], [ %.sroa.18.1.lcssa, %.loopexit217 ]
+94:                                               ; preds = %.lr.ph255, %.loopexit203
+  %95 = phi i32 [ 1, %.lr.ph255 ], [ %93, %.loopexit203 ]
+  %.sroa.18.0254 = phi i64 [ 0, %.lr.ph255 ], [ %.sroa.24.0249, %.loopexit203 ]
+  %.sroa.0.0253 = phi ptr [ null, %.lr.ph255 ], [ %.sroa.0186.0252, %.loopexit203 ]
+  %.sroa.0186.0252 = phi ptr [ %malloc, %.lr.ph255 ], [ %.sroa.0.1.lcssa, %.loopexit203 ]
+  %.sroa.11.0251 = phi i64 [ 0, %.lr.ph255 ], [ %.sroa.10.0.lcssa, %.loopexit203 ]
+  %.sroa.18190.0250 = phi i64 [ 1, %.lr.ph255 ], [ %.sroa.15.0.lcssa, %.loopexit203 ]
+  %.sroa.24.0249 = phi i64 [ 1, %.lr.ph255 ], [ %.sroa.18.1.lcssa, %.loopexit203 ]
   %96 = load i8, ptr @Verbose, align 1, !tbaa !25
   %97 = icmp ugt i8 %96, 10
   br i1 %97, label %98, label %101
@@ -1022,42 +1022,42 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   br label %101
 
 101:                                              ; preds = %98, %94
-  %.not276 = icmp eq i64 %.sroa.18198.0264, 0
-  br i1 %.not276, label %.loopexit217, label %.lr.ph258
+  %.not262 = icmp eq i64 %.sroa.18190.0250, 0
+  br i1 %.not262, label %.loopexit203, label %.lr.ph244
 
-.lr.ph258:                                        ; preds = %101, %.loopexit
-  %.082256 = phi i64 [ %246, %.loopexit ], [ 0, %101 ]
-  %.sroa.18.1255 = phi i64 [ %.sroa.18.2, %.loopexit ], [ %.sroa.18.0268, %101 ]
-  %.sroa.15.1254 = phi i64 [ %.sroa.15.2, %.loopexit ], [ 0, %101 ]
-  %.sroa.10.1253 = phi i64 [ %.sroa.10.2, %.loopexit ], [ 0, %101 ]
-  %.sroa.0.1252 = phi ptr [ %.sroa.0.2, %.loopexit ], [ %.sroa.0.0267, %101 ]
-  %102 = add i64 %.082256, %.sroa.11.0265
-  %103 = urem i64 %102, %.sroa.24.0263
-  %104 = getelementptr inbounds nuw ptr, ptr %.sroa.0194.0266, i64 %103
+.lr.ph244:                                        ; preds = %101, %.loopexit
+  %.082242 = phi i64 [ %246, %.loopexit ], [ 0, %101 ]
+  %.sroa.18.1241 = phi i64 [ %.sroa.18.2, %.loopexit ], [ %.sroa.18.0254, %101 ]
+  %.sroa.15.0240 = phi i64 [ %.sroa.15.1, %.loopexit ], [ 0, %101 ]
+  %.sroa.10.0239 = phi i64 [ %.sroa.10.1, %.loopexit ], [ 0, %101 ]
+  %.sroa.0.1238 = phi ptr [ %.sroa.0.2, %.loopexit ], [ %.sroa.0.0253, %101 ]
+  %102 = add i64 %.082242, %.sroa.11.0251
+  %103 = urem i64 %102, %.sroa.24.0249
+  %104 = getelementptr inbounds nuw ptr, ptr %.sroa.0186.0252, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !23
   %106 = load i8, ptr @Verbose, align 1, !tbaa !25
   %107 = icmp ugt i8 %106, 10
   br i1 %107, label %108, label %124
 
-108:                                              ; preds = %.lr.ph258
+108:                                              ; preds = %.lr.ph244
   %109 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.1, i64 noundef %.082256) #17
-  br i1 %87, label %.lr.ph237, label %._crit_edge
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.1, i64 noundef %.082242) #17
+  br i1 %87, label %.lr.ph223, label %._crit_edge
 
-.lr.ph237:                                        ; preds = %108
+.lr.ph223:                                        ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 24
   br label %112
 
-112:                                              ; preds = %.lr.ph237, %112
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next287, %112 ]
+112:                                              ; preds = %.lr.ph223, %112
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next273, %112 ]
   %113 = load ptr, ptr @stderr, align 8, !tbaa !21
   %114 = load ptr, ptr %111, align 8, !tbaa !28
-  %115 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv286
+  %115 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv272
   %116 = load double, ptr %115, align 8, !tbaa !3
   %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.2, double noundef %116) #17
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count.i41.i123
-  br i1 %exitcond290.not, label %._crit_edge, label %112, !llvm.loop !38
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count.i41.i123
+  br i1 %exitcond276.not, label %._crit_edge, label %112, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %112, %108
   %118 = load ptr, ptr @stderr, align 8, !tbaa !21
@@ -1068,7 +1068,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.3, double noundef %120, double noundef %122) #17
   br label %124
 
-124:                                              ; preds = %._crit_edge, %.lr.ph258
+124:                                              ; preds = %._crit_edge, %.lr.ph244
   %125 = load i32, ptr %105, align 8, !tbaa !39
   %126 = icmp eq i32 %125, 1
   br i1 %126, label %.loopexit, label %127
@@ -1092,21 +1092,21 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   br i1 %.not98, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %137
-  br i1 %.not275, label %.loopexit, label %.lr.ph247
+  br i1 %.not261, label %.loopexit, label %.lr.ph233
 
-.lr.ph247:                                        ; preds = %.preheader, %245
-  %indvars.iv296 = phi i64 [ %indvars.iv.next297, %245 ], [ 0, %.preheader ]
-  %.sroa.18.3245 = phi i64 [ %.sroa.18.4, %245 ], [ %.sroa.18.1255, %.preheader ]
-  %.sroa.15.3244 = phi i64 [ %.sroa.15.4, %245 ], [ %.sroa.15.1254, %.preheader ]
-  %.sroa.10.3243 = phi i64 [ %.sroa.10.4, %245 ], [ %.sroa.10.1253, %.preheader ]
-  %.sroa.0.3242 = phi ptr [ %.sroa.0.4, %245 ], [ %.sroa.0.1252, %.preheader ]
+.lr.ph233:                                        ; preds = %.preheader, %245
+  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %245 ], [ 0, %.preheader ]
+  %.sroa.18.3231 = phi i64 [ %.sroa.18.4, %245 ], [ %.sroa.18.1241, %.preheader ]
+  %.sroa.15.2230 = phi i64 [ %.sroa.15.3, %245 ], [ %.sroa.15.0240, %.preheader ]
+  %.sroa.10.2229 = phi i64 [ %.sroa.10.3, %245 ], [ %.sroa.10.0239, %.preheader ]
+  %.sroa.0.3228 = phi ptr [ %.sroa.0.4, %245 ], [ %.sroa.0.1238, %.preheader ]
   %140 = load ptr, ptr %138, align 8, !tbaa !30
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv296
+  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv282
   %142 = load ptr, ptr %141, align 8, !tbaa !23
   %.not99 = icmp eq ptr %142, null
   br i1 %.not99, label %245, label %143
 
-143:                                              ; preds = %.lr.ph247
+143:                                              ; preds = %.lr.ph233
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %145 = load ptr, ptr %144, align 8, !tbaa !35
   br i1 %.not, label %.preheader.i145, label %.preheader48.i120
@@ -1236,40 +1236,40 @@ distance_to_group.exit162:                        ; preds = %186, %162, %dist.ex
 193:                                              ; preds = %190
   %194 = load ptr, ptr @stderr, align 8, !tbaa !21
   %195 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.4, double noundef %.2.i121) #17
-  br i1 %87, label %.lr.ph240, label %._crit_edge241
+  br i1 %87, label %.lr.ph226, label %._crit_edge227
 
-.lr.ph240:                                        ; preds = %193, %.lr.ph240
-  %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.lr.ph240 ], [ 0, %193 ]
+.lr.ph226:                                        ; preds = %193, %.lr.ph226
+  %indvars.iv277 = phi i64 [ %indvars.iv.next278, %.lr.ph226 ], [ 0, %193 ]
   %196 = load ptr, ptr @stderr, align 8, !tbaa !21
   %197 = load ptr, ptr %138, align 8, !tbaa !30
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv296
+  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv282
   %199 = load ptr, ptr %198, align 8, !tbaa !23
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 40
   %201 = load ptr, ptr %200, align 8, !tbaa !35
-  %202 = getelementptr inbounds nuw double, ptr %201, i64 %indvars.iv291
+  %202 = getelementptr inbounds nuw double, ptr %201, i64 %indvars.iv277
   %203 = load double, ptr %202, align 8, !tbaa !3
   %204 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.2, double noundef %203) #17
-  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count.i41.i123
-  br i1 %exitcond295.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !40
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
+  %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count.i41.i123
+  br i1 %exitcond281.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !40
 
-._crit_edge241:                                   ; preds = %.lr.ph240, %193
+._crit_edge227:                                   ; preds = %.lr.ph226, %193
   %205 = load ptr, ptr @stderr, align 8, !tbaa !21
   %206 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr %205) #20
   %.pre = load ptr, ptr %138, align 8, !tbaa !30
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv296
-  %.pre303 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
-  %.phi.trans.insert304 = getelementptr inbounds nuw i8, ptr %.pre303, i64 40
-  %.pre305 = load ptr, ptr %.phi.trans.insert304, align 8, !tbaa !35
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv282
+  %.pre289 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
+  %.phi.trans.insert290 = getelementptr inbounds nuw i8, ptr %.pre289, i64 40
+  %.pre291 = load ptr, ptr %.phi.trans.insert290, align 8, !tbaa !35
   br label %207
 
-207:                                              ; preds = %._crit_edge241, %190
-  %208 = phi ptr [ %.pre305, %._crit_edge241 ], [ %145, %190 ]
+207:                                              ; preds = %._crit_edge227, %190
+  %208 = phi ptr [ %.pre291, %._crit_edge227 ], [ %145, %190 ]
   %209 = load ptr, ptr %7, align 8, !tbaa !20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %209, ptr align 8 %208, i64 %80, i1 false)
-  %.pre306 = load ptr, ptr %138, align 8, !tbaa !30
-  %.phi.trans.insert307 = getelementptr inbounds nuw ptr, ptr %.pre306, i64 %indvars.iv296
-  %.pre308 = load ptr, ptr %.phi.trans.insert307, align 8, !tbaa !23
+  %.pre292 = load ptr, ptr %138, align 8, !tbaa !30
+  %.phi.trans.insert293 = getelementptr inbounds nuw ptr, ptr %.pre292, i64 %indvars.iv282
+  %.pre294 = load ptr, ptr %.phi.trans.insert293, align 8, !tbaa !23
   br label %.critedge
 
 210:                                              ; preds = %distance_to_group.exit162
@@ -1281,37 +1281,37 @@ distance_to_group.exit162:                        ; preds = %186, %162, %dist.ex
   br i1 %215, label %245, label %.critedge
 
 .critedge:                                        ; preds = %210, %207
-  %216 = phi ptr [ %142, %210 ], [ %.pre308, %207 ]
-  %217 = icmp eq i64 %.sroa.15.3244, %.sroa.18.3245
+  %216 = phi ptr [ %142, %210 ], [ %.pre294, %207 ]
+  %217 = icmp eq i64 %.sroa.15.2230, %.sroa.18.3231
   br i1 %217, label %218, label %qt_list_append.exit170
 
 218:                                              ; preds = %.critedge
-  %219 = icmp eq i64 %.sroa.18.3245, 0
-  %220 = shl i64 %.sroa.18.3245, 1
+  %219 = icmp eq i64 %.sroa.18.3231, 0
+  %220 = shl i64 %.sroa.18.3231, 1
   %spec.select.i.i167 = select i1 %219, i64 1, i64 %220
   %mul.ov.i.i168 = icmp ugt i64 %spec.select.i.i167, 2305843009213693951
   br i1 %mul.ov.i.i168, label %237, label %221
 
 221:                                              ; preds = %218
   %222 = shl nuw i64 %spec.select.i.i167, 3
-  %223 = tail call ptr @realloc(ptr noundef %.sroa.0.3242, i64 noundef %222) #21
+  %223 = tail call ptr @realloc(ptr noundef %.sroa.0.3228, i64 noundef %222) #21
   %224 = icmp eq ptr %223, null
   br i1 %224, label %237, label %225
 
 225:                                              ; preds = %221
-  %226 = getelementptr inbounds nuw ptr, ptr %223, i64 %.sroa.18.3245
-  %227 = sub i64 %spec.select.i.i167, %.sroa.18.3245
+  %226 = getelementptr inbounds nuw ptr, ptr %223, i64 %.sroa.18.3231
+  %227 = sub i64 %spec.select.i.i167, %.sroa.18.3231
   %228 = shl i64 %227, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %226, i8 0, i64 %228, i1 false)
-  %229 = add i64 %.sroa.18.3245, %.sroa.10.3243
-  %230 = icmp ugt i64 %229, %.sroa.18.3245
+  %229 = add i64 %.sroa.18.3231, %.sroa.10.2229
+  %230 = icmp ugt i64 %229, %.sroa.18.3231
   br i1 %230, label %231, label %qt_list_append.exit170
 
 231:                                              ; preds = %225
-  %232 = sub i64 %.sroa.18.3245, %.sroa.10.3243
+  %232 = sub i64 %.sroa.18.3231, %.sroa.10.2229
   %233 = sub i64 %spec.select.i.i167, %232
   %234 = getelementptr inbounds nuw ptr, ptr %223, i64 %233
-  %235 = getelementptr inbounds nuw ptr, ptr %223, i64 %.sroa.10.3243
+  %235 = getelementptr inbounds nuw ptr, ptr %223, i64 %.sroa.10.2229
   %236 = shl i64 %232, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %234, ptr nonnull align 8 %235, i64 %236, i1 false)
   br label %qt_list_append.exit170
@@ -1325,38 +1325,38 @@ distance_to_group.exit162:                        ; preds = %186, %162, %dist.ex
   unreachable
 
 qt_list_append.exit170:                           ; preds = %225, %231, %.critedge
-  %.sroa.0.5 = phi ptr [ %.sroa.0.3242, %.critedge ], [ %223, %231 ], [ %223, %225 ]
-  %.sroa.10.6 = phi i64 [ %.sroa.10.3243, %.critedge ], [ %233, %231 ], [ %.sroa.10.3243, %225 ]
-  %.sroa.18.5 = phi i64 [ %.sroa.18.3245, %.critedge ], [ %spec.select.i.i167, %231 ], [ %spec.select.i.i167, %225 ]
-  %241 = add i64 %.sroa.10.6, %.sroa.15.3244
+  %.sroa.0.5 = phi ptr [ %.sroa.0.3228, %.critedge ], [ %223, %231 ], [ %223, %225 ]
+  %.sroa.10.5 = phi i64 [ %.sroa.10.2229, %.critedge ], [ %233, %231 ], [ %.sroa.10.2229, %225 ]
+  %.sroa.18.5 = phi i64 [ %.sroa.18.3231, %.critedge ], [ %spec.select.i.i167, %231 ], [ %spec.select.i.i167, %225 ]
+  %241 = add i64 %.sroa.10.5, %.sroa.15.2230
   %242 = urem i64 %241, %.sroa.18.5
   %243 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5, i64 %242
   store ptr %216, ptr %243, align 8, !tbaa !23
-  %244 = add i64 %.sroa.15.3244, 1
+  %244 = add i64 %.sroa.15.2230, 1
   br label %245
 
-245:                                              ; preds = %210, %qt_list_append.exit170, %.lr.ph247
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3242, %.lr.ph247 ], [ %.sroa.0.5, %qt_list_append.exit170 ], [ %.sroa.0.3242, %210 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.3243, %.lr.ph247 ], [ %.sroa.10.6, %qt_list_append.exit170 ], [ %.sroa.10.3243, %210 ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3244, %.lr.ph247 ], [ %244, %qt_list_append.exit170 ], [ %.sroa.15.3244, %210 ]
-  %.sroa.18.4 = phi i64 [ %.sroa.18.3245, %.lr.ph247 ], [ %.sroa.18.5, %qt_list_append.exit170 ], [ %.sroa.18.3245, %210 ]
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %.loopexit, label %.lr.ph247, !llvm.loop !41
+245:                                              ; preds = %210, %qt_list_append.exit170, %.lr.ph233
+  %.sroa.0.4 = phi ptr [ %.sroa.0.3228, %.lr.ph233 ], [ %.sroa.0.5, %qt_list_append.exit170 ], [ %.sroa.0.3228, %210 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.2229, %.lr.ph233 ], [ %.sroa.10.5, %qt_list_append.exit170 ], [ %.sroa.10.2229, %210 ]
+  %.sroa.15.3 = phi i64 [ %.sroa.15.2230, %.lr.ph233 ], [ %244, %qt_list_append.exit170 ], [ %.sroa.15.2230, %210 ]
+  %.sroa.18.4 = phi i64 [ %.sroa.18.3231, %.lr.ph233 ], [ %.sroa.18.5, %qt_list_append.exit170 ], [ %.sroa.18.3231, %210 ]
+  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
+  %exitcond286.not = icmp eq i64 %indvars.iv.next283, %wide.trip.count285
+  br i1 %exitcond286.not, label %.loopexit, label %.lr.ph233, !llvm.loop !41
 
 .loopexit:                                        ; preds = %245, %.preheader, %137, %124, %127
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1252, %124 ], [ %.sroa.0.1252, %127 ], [ %.sroa.0.1252, %137 ], [ %.sroa.0.1252, %.preheader ], [ %.sroa.0.4, %245 ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.1253, %124 ], [ %.sroa.10.1253, %127 ], [ %.sroa.10.1253, %137 ], [ %.sroa.10.1253, %.preheader ], [ %.sroa.10.4, %245 ]
-  %.sroa.15.2 = phi i64 [ %.sroa.15.1254, %124 ], [ %.sroa.15.1254, %127 ], [ %.sroa.15.1254, %137 ], [ %.sroa.15.1254, %.preheader ], [ %.sroa.15.4, %245 ]
-  %.sroa.18.2 = phi i64 [ %.sroa.18.1255, %124 ], [ %.sroa.18.1255, %127 ], [ %.sroa.18.1255, %137 ], [ %.sroa.18.1255, %.preheader ], [ %.sroa.18.4, %245 ]
-  %246 = add nuw i64 %.082256, 1
-  %exitcond301.not = icmp eq i64 %246, %.sroa.18198.0264
-  br i1 %exitcond301.not, label %.loopexit217, label %.lr.ph258, !llvm.loop !42
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1238, %124 ], [ %.sroa.0.1238, %127 ], [ %.sroa.0.1238, %137 ], [ %.sroa.0.1238, %.preheader ], [ %.sroa.0.4, %245 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.0239, %124 ], [ %.sroa.10.0239, %127 ], [ %.sroa.10.0239, %137 ], [ %.sroa.10.0239, %.preheader ], [ %.sroa.10.3, %245 ]
+  %.sroa.15.1 = phi i64 [ %.sroa.15.0240, %124 ], [ %.sroa.15.0240, %127 ], [ %.sroa.15.0240, %137 ], [ %.sroa.15.0240, %.preheader ], [ %.sroa.15.3, %245 ]
+  %.sroa.18.2 = phi i64 [ %.sroa.18.1241, %124 ], [ %.sroa.18.1241, %127 ], [ %.sroa.18.1241, %137 ], [ %.sroa.18.1241, %.preheader ], [ %.sroa.18.4, %245 ]
+  %246 = add nuw i64 %.082242, 1
+  %exitcond287.not = icmp eq i64 %246, %.sroa.18190.0250
+  br i1 %exitcond287.not, label %.loopexit203, label %.lr.ph244, !llvm.loop !42
 
-._crit_edge270:                                   ; preds = %.loopexit217, %qt_list_append.exit
-  %.sroa.0194.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.1.lcssa, %.loopexit217 ]
-  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0194.0266, %.loopexit217 ]
-  tail call void @free(ptr noundef %.sroa.0194.0.lcssa) #16
+._crit_edge256:                                   ; preds = %.loopexit203, %qt_list_append.exit
+  %.sroa.0186.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.1.lcssa, %.loopexit203 ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0186.0252, %.loopexit203 ]
+  tail call void @free(ptr noundef %.sroa.0186.0.lcssa) #16
   tail call void @free(ptr noundef %.sroa.0.0.lcssa) #16
   ret void
 }

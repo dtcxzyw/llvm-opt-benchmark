@@ -8814,16 +8814,16 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %274, %.l
   %.ph = phi ptr [ %267, %274 ], [ %121, %.lr.ph95.i ]
   %.ph218 = phi i64 [ %268, %274 ], [ %122, %.lr.ph95.i ]
   %.sroa.5.0.i.ph = phi i32 [ %275, %274 ], [ 0, %.lr.ph95.i ]
-  %.sroa.13.1.i.ph = phi i64 [ %280, %274 ], [ 0, %.lr.ph95.i ]
-  %.sroa.1075.1.i.ph = phi i64 [ %277, %274 ], [ 0, %.lr.ph95.i ]
+  %.sroa.13.0.i.ph = phi i64 [ %280, %274 ], [ 0, %.lr.ph95.i ]
+  %.sroa.1075.0.i.ph = phi i64 [ %277, %274 ], [ 0, %.lr.ph95.i ]
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %295
   %.pre.i124 = phi i64 [ %.pre.i, %295 ], [ %.pre.i124.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %138 = phi ptr [ %267, %295 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %139 = phi i64 [ %268, %295 ], [ %.ph218, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %.sroa.13.1.i = phi i64 [ %298, %295 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %140 = xor i64 %.sroa.13.1.i, %130
+  %.sroa.13.0.i = phi i64 [ %298, %295 ], [ %.sroa.13.0.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %140 = xor i64 %.sroa.13.0.i, %130
   %141 = load i64, ptr %135, align 8, !tbaa !100
   %.not.not.i.i.i = icmp eq i64 %141, 0
   br i1 %.not.not.i.i.i, label %.preheader98.i, label %146
@@ -9177,7 +9177,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %269 = load i64, ptr %.sink.i, align 8, !tbaa !24
   %270 = add i64 %269, 1
   store i64 %270, ptr %.sink.i, align 8, !tbaa !24
-  %271 = icmp eq i64 %.sroa.13.1.i, %.sroa.1075.1.i.ph
+  %271 = icmp eq i64 %.sroa.13.0.i, %.sroa.1075.0.i.ph
   br i1 %271, label %272, label %281
 
 272:                                              ; preds = %._crit_edge.i
@@ -9195,7 +9195,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, !llvm.loop !190
 
 281:                                              ; preds = %._crit_edge.i
-  %282 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.13.1.i, i1 true)
+  %282 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.13.0.i, i1 true)
   %.not.i.i = icmp eq i64 %282, 0
   br i1 %.not.i.i, label %285, label %283
 
@@ -9204,10 +9204,10 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %295
 
 285:                                              ; preds = %281
-  %286 = xor i64 %.sroa.13.1.i, -1
+  %286 = xor i64 %.sroa.13.0.i, -1
   %287 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
   %288 = shl nsw i64 -1, %287
-  %289 = and i64 %288, %.sroa.13.1.i
+  %289 = and i64 %288, %.sroa.13.0.i
   %290 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %289, i1 true)
   %291 = shl nuw i64 4, %287
   %292 = add i64 %291, -1
@@ -9218,7 +9218,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 295:                                              ; preds = %285, %283
   %.sink.i.i = phi i64 [ %294, %285 ], [ %284, %283 ]
   %.sink14.i.i = phi i64 [ %292, %285 ], [ 3, %283 ]
-  %.sink13.i.i = phi i64 [ %289, %285 ], [ %.sroa.13.1.i, %283 ]
+  %.sink13.i.i = phi i64 [ %289, %285 ], [ %.sroa.13.0.i, %283 ]
   %296 = and i64 %.sink.i.i, 4294967295
   %297 = shl i64 %.sink14.i.i, %296
   %298 = xor i64 %297, %.sink13.i.i
@@ -10615,16 +10615,16 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %280, %.l
   %.ph = phi ptr [ %273, %280 ], [ %127, %.lr.ph96.i ]
   %.ph273 = phi i64 [ %274, %280 ], [ %128, %.lr.ph96.i ]
   %.sroa.5.0.i.ph = phi i32 [ %281, %280 ], [ 0, %.lr.ph96.i ]
-  %.sroa.13.1.i.ph = phi i64 [ %286, %280 ], [ 0, %.lr.ph96.i ]
-  %.sroa.1070.1.i.ph = phi i64 [ %283, %280 ], [ 0, %.lr.ph96.i ]
+  %.sroa.13.0.i.ph = phi i64 [ %286, %280 ], [ 0, %.lr.ph96.i ]
+  %.sroa.1070.0.i.ph = phi i64 [ %283, %280 ], [ 0, %.lr.ph96.i ]
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i
 
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %301
   %.pre.i107 = phi i64 [ %.pre.i, %301 ], [ %.pre.i107.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %144 = phi ptr [ %273, %301 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %145 = phi i64 [ %274, %301 ], [ %.ph273, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %.sroa.13.1.i = phi i64 [ %304, %301 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %146 = xor i64 %.sroa.13.1.i, %136
+  %.sroa.13.0.i = phi i64 [ %304, %301 ], [ %.sroa.13.0.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %146 = xor i64 %.sroa.13.0.i, %136
   %147 = load i64, ptr %141, align 8, !tbaa !100
   %.not.not.i.i.i = icmp eq i64 %147, 0
   br i1 %.not.not.i.i.i, label %.preheader102.i, label %152
@@ -10978,7 +10978,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %275 = load i64, ptr %.sink.i, align 8, !tbaa !24
   %276 = add i64 %275, 1
   store i64 %276, ptr %.sink.i, align 8, !tbaa !24
-  %277 = icmp eq i64 %.sroa.13.1.i, %.sroa.1070.1.i.ph
+  %277 = icmp eq i64 %.sroa.13.0.i, %.sroa.1070.0.i.ph
   br i1 %277, label %278, label %287
 
 278:                                              ; preds = %._crit_edge.i
@@ -10996,7 +10996,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, !llvm.loop !194
 
 287:                                              ; preds = %._crit_edge.i
-  %288 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.13.1.i, i1 true)
+  %288 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.13.0.i, i1 true)
   %.not.i.i = icmp eq i64 %288, 0
   br i1 %.not.i.i, label %291, label %289
 
@@ -11005,10 +11005,10 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %301
 
 291:                                              ; preds = %287
-  %292 = xor i64 %.sroa.13.1.i, -1
+  %292 = xor i64 %.sroa.13.0.i, -1
   %293 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %292, i1 true)
   %294 = shl nsw i64 -1, %293
-  %295 = and i64 %294, %.sroa.13.1.i
+  %295 = and i64 %294, %.sroa.13.0.i
   %296 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %295, i1 true)
   %297 = shl nuw i64 4, %293
   %298 = add i64 %297, -1
@@ -11019,7 +11019,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 301:                                              ; preds = %291, %289
   %.sink.i.i = phi i64 [ %300, %291 ], [ %290, %289 ]
   %.sink14.i.i = phi i64 [ %298, %291 ], [ 3, %289 ]
-  %.sink13.i.i = phi i64 [ %295, %291 ], [ %.sroa.13.1.i, %289 ]
+  %.sink13.i.i = phi i64 [ %295, %291 ], [ %.sroa.13.0.i, %289 ]
   %302 = and i64 %.sink.i.i, 4294967295
   %303 = shl i64 %.sink14.i.i, %302
   %304 = xor i64 %303, %.sink13.i.i

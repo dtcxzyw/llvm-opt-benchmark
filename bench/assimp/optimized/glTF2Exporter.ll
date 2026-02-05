@@ -5829,8 +5829,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %.noexc614, %_ZSt6fi
   br i1 %.not878, label %._crit_edge849, label %.preheader711.lr.ph
 
 .preheader711.lr.ph:                              ; preds = %618, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %.sroa.0642.41067 = phi ptr [ %625, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ null, %618 ]
-  %.sroa.18.41065 = phi i64 [ %630, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ 0, %618 ]
+  %.sroa.0642.11067 = phi ptr [ %625, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ null, %618 ]
+  %.sroa.18.11065 = phi i64 [ %630, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ 0, %618 ]
   %631 = phi i32 [ %.pre935, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %574, %618 ]
   %632 = zext i32 %621 to i64
   %.not879 = icmp eq i32 %621, 0
@@ -5843,17 +5843,17 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %.noexc614, %_ZSt6fi
 
 .lr.ph846:                                        ; preds = %.preheader711
   %634 = mul nuw i64 %.0312848, %632
-  %635 = getelementptr inbounds nuw i32, ptr %.sroa.0642.41067, i64 %634
+  %635 = getelementptr inbounds nuw i32, ptr %.sroa.0642.11067, i64 %634
   br label %646
 
 ._crit_edge849:                                   ; preds = %._crit_edge847, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %.sroa.0642.41068 = phi ptr [ %625, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %.sroa.0642.41067, %._crit_edge847 ]
-  %.sroa.18.41066 = phi i64 [ %630, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %.sroa.18.41065, %._crit_edge847 ]
+  %.sroa.0642.11068 = phi ptr [ %625, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %.sroa.0642.11067, %._crit_edge847 ]
+  %.sroa.18.11066 = phi i64 [ %630, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %.sroa.18.11065, %._crit_edge847 ]
   %636 = load ptr, ptr %54, align 8
-  %637 = ptrtoint ptr %.sroa.0642.41068 to i64
-  %638 = sub i64 %.sroa.18.41066, %637
+  %637 = ptrtoint ptr %.sroa.0642.11068 to i64
+  %638 = sub i64 %.sroa.18.11066, %637
   %639 = ashr exact i64 %638, 2
-  %640 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %636, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef %639, ptr noundef nonnull %.sroa.0642.41068, i32 noundef 0, i32 noundef 0, i32 noundef 5125, i32 noundef 34963)
+  %640 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %636, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef %639, ptr noundef nonnull %.sroa.0642.11068, i32 noundef 0, i32 noundef 0, i32 noundef 5125, i32 noundef 34963)
           to label %_ZNSt6vectorIjSaIjEED2Ev.exit unwind label %656
 
 .thread:                                          ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
@@ -5893,13 +5893,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge849
   store ptr %.fca.0.extract107, ptr %655, align 8
   %.sroa.5112.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 -56
   store i32 %.fca.1.extract108, ptr %.sroa.5112.0..sroa_idx, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0642.41068, i64 noundef %638) #38
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0642.11068, i64 noundef %638) #38
   br label %658
 
 656:                                              ; preds = %._crit_edge849
   %657 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0642.41068, i64 noundef %638) #38
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0642.11068, i64 noundef %638) #38
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit486
 
 658:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %573
@@ -9119,14 +9119,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   br i1 %.035, label %87, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit87
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75.thread
-  %.pn62.pn134.ph = phi { ptr, i32 } [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75.thread ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.thread ]
+  %.pn62.pn131.ph = phi { ptr, i32 } [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75.thread ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
 
 87:                                               ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
-  %.pn62.pn134 = phi { ptr, i32 } [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75 ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn62.pn134.ph, %.sink.split ]
+  %.pn62.pn131 = phi { ptr, i32 } [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75 ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn62.pn131.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %60) #37
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit87
 
@@ -9469,9 +9469,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 268:                                              ; preds = %267
   %269 = call ptr @__cxa_allocate_exception(i64 16) #37
   invoke void @_ZN17DeadlyExportErrorC2IJRA34_KcEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull align 1 dereferenceable(34) @.str.238)
-          to label %.invoke170 unwind label %272
+          to label %.invoke167 unwind label %272
 
-270:                                              ; preds = %.invoke170, %297, %274, %262, %248
+270:                                              ; preds = %.invoke167, %297, %274, %262, %248
   %271 = landingpad { ptr, i32 }
           cleanup
   br label %309
@@ -9508,7 +9508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 292:                                              ; preds = %286
   %293 = call ptr @__cxa_allocate_exception(i64 16) #37
   invoke void @_ZN17DeadlyExportErrorC2IJRA27_KcEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 1 dereferenceable(27) @.str.239)
-          to label %.invoke170 unwind label %294
+          to label %.invoke167 unwind label %294
 
 294:                                              ; preds = %292
   %295 = landingpad { ptr, i32 }
@@ -9534,14 +9534,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 303:                                              ; preds = %302
   %304 = call ptr @__cxa_allocate_exception(i64 16) #37
   invoke void @_ZN17DeadlyExportErrorC2IJRA35_KcEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %304, ptr noundef nonnull align 1 dereferenceable(35) @.str.240)
-          to label %.invoke170 unwind label %306
+          to label %.invoke167 unwind label %306
 
-.invoke170:                                       ; preds = %268, %303, %292
+.invoke167:                                       ; preds = %268, %303, %292
   %305 = phi ptr [ %293, %292 ], [ %304, %303 ], [ %269, %268 ]
   invoke void @__cxa_throw(ptr nonnull %305, ptr nonnull @_ZTI17DeadlyExportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #40
-          to label %.cont171 unwind label %270
+          to label %.cont168 unwind label %270
 
-.cont171:                                         ; preds = %.invoke170
+.cont168:                                         ; preds = %.invoke167
   unreachable
 
 306:                                              ; preds = %303
@@ -9670,7 +9670,7 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i86: ; preds = %347, %149
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit87
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit87: ; preds = %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
-  %.pn62.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %.pn62.pn.pn, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i86 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75 ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn62.pn134, %87 ]
+  %.pn62.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %.pn62.pn.pn, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i86 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75 ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn62.pn131, %87 ]
   resume { ptr, i32 } %.pn62.pn.pn.pn
 
 351:                                              ; preds = %327, %163, %63
@@ -18706,16 +18706,16 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i44: ; preds = %.noexc48
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.sroa.13.0113 = phi i64 [ 0, %6 ], [ %30, %._crit_edge.loopexit ]
-  %.sroa.057.0111 = phi ptr [ null, %6 ], [ %21, %._crit_edge.loopexit ]
-  %.sroa.1272.092109 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
-  %.sroa.068.095107 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
-  %.0.i.i.i.i.i98105 = phi i64 [ 0, %6 ], [ %29, %._crit_edge.loopexit ]
-  %31 = ptrtoint ptr %.sroa.068.095107 to i64
-  %32 = sub i64 %.0.i.i.i.i.i98105, %31
+  %.sroa.13.0107 = phi i64 [ 0, %6 ], [ %30, %._crit_edge.loopexit ]
+  %.sroa.057.0105 = phi ptr [ null, %6 ], [ %21, %._crit_edge.loopexit ]
+  %.sroa.1269.086103 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
+  %.sroa.065.089101 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
+  %.0.i.i.i.i.i9299 = phi i64 [ 0, %6 ], [ %29, %._crit_edge.loopexit ]
+  %31 = ptrtoint ptr %.sroa.065.089101 to i64
+  %32 = sub i64 %.0.i.i.i.i.i9299, %31
   %33 = lshr exact i64 %32, 2
   %34 = and i64 %33, 4294967295
-  %35 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %34, ptr noundef nonnull %.sroa.068.095107, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
+  %35 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %34, ptr noundef nonnull %.sroa.065.089101, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
           to label %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit unwind label %66
 
 36:                                               ; preds = %.lr.ph, %36
@@ -18755,7 +18755,7 @@ _Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traits
   store ptr %.fca.0.extract2, ptr %5, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.fca.1.extract3, ptr %.sroa.57.0..sroa_idx, align 8
-  %58 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.057.0111, i32 noundef 2, i32 noundef 2, i32 noundef 5126, i32 noundef 0)
+  %58 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.057.0105, i32 noundef 2, i32 noundef 2, i32 noundef 5126, i32 noundef 0)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit52 unwind label %.thread
 
 _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -18767,12 +18767,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInput
   store i32 %.fca.1.extract, ptr %.sroa.5.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %60, align 8
-  %61 = ptrtoint ptr %.sroa.057.0111 to i64
-  %62 = sub i64 %.sroa.13.0113, %61
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0111, i64 noundef %62) #38
-  %63 = ptrtoint ptr %.sroa.1272.092109 to i64
+  %61 = ptrtoint ptr %.sroa.057.0105 to i64
+  %62 = sub i64 %.sroa.13.0107, %61
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0105, i64 noundef %62) #38
+  %63 = ptrtoint ptr %.sroa.1269.086103 to i64
   %64 = sub i64 %63, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.095107, i64 noundef %64) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.089101, i64 noundef %64) #38
   ret void
 
 .thread:                                          ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -18783,14 +18783,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInput
 66:                                               ; preds = %._crit_edge
   %67 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i53 = icmp eq ptr %.sroa.057.0111, null
+  %.not.i.i.i53 = icmp eq ptr %.sroa.057.0105, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIfSaIfEED2Ev.exit56, label %68
 
 68:                                               ; preds = %.thread, %66
-  %.pn79 = phi { ptr, i32 } [ %65, %.thread ], [ %67, %66 ]
-  %69 = ptrtoint ptr %.sroa.057.0111 to i64
-  %70 = sub i64 %.sroa.13.0113, %69
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0111, i64 noundef %70) #38
+  %.pn73 = phi { ptr, i32 } [ %65, %.thread ], [ %67, %66 ]
+  %69 = ptrtoint ptr %.sroa.057.0105 to i64
+  %70 = sub i64 %.sroa.13.0107, %69
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0105, i64 noundef %70) #38
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit56
 
 _ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge: ; preds = %17
@@ -18800,14 +18800,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit56
 
 _ZNSt6vectorIfSaIfEED2Ev.exit56:                  ; preds = %68, %66, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge
-  %.sroa.068.096 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.068.095107, %66 ], [ %.sroa.068.095107, %68 ]
-  %.sroa.1272.093 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.1272.092109, %66 ], [ %.sroa.1272.092109, %68 ]
+  %.sroa.065.090 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.065.089101, %66 ], [ %.sroa.065.089101, %68 ]
+  %.sroa.1269.087 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.1269.086103, %66 ], [ %.sroa.1269.086103, %68 ]
   %.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %31, %66 ], [ %31, %68 ]
-  %.pn.pn83 = phi { ptr, i32 } [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %67, %66 ], [ %.pn79, %68 ]
-  %72 = ptrtoint ptr %.sroa.1272.093 to i64
+  %.pn.pn77 = phi { ptr, i32 } [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %67, %66 ], [ %.pn73, %68 ]
+  %72 = ptrtoint ptr %.sroa.1269.087 to i64
   %73 = sub i64 %72, %.pre-phi
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.096, i64 noundef %73) #38
-  resume { ptr, i32 } %.pn.pn83
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.090, i64 noundef %73) #38
+  resume { ptr, i32 } %.pn.pn77
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19050,16 +19050,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.sroa.14.0112 = phi i64 [ 0, %6 ], [ %.sroa.14.0.ph, %._crit_edge.loopexit ]
-  %.sroa.059.0110 = phi ptr [ null, %6 ], [ %.sroa.059.0.ph, %._crit_edge.loopexit ]
-  %.sroa.12.093108 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
-  %.sroa.071.095106 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
-  %.0.i.i.i.i.i97104 = phi i64 [ 0, %6 ], [ %28, %._crit_edge.loopexit ]
-  %29 = ptrtoint ptr %.sroa.071.095106 to i64
-  %30 = sub i64 %.0.i.i.i.i.i97104, %29
+  %.sroa.14.0106 = phi i64 [ 0, %6 ], [ %.sroa.14.0.ph, %._crit_edge.loopexit ]
+  %.sroa.059.0104 = phi ptr [ null, %6 ], [ %.sroa.059.0.ph, %._crit_edge.loopexit ]
+  %.sroa.12.087102 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
+  %.sroa.068.089100 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
+  %.0.i.i.i.i.i9198 = phi i64 [ 0, %6 ], [ %28, %._crit_edge.loopexit ]
+  %29 = ptrtoint ptr %.sroa.068.089100 to i64
+  %30 = sub i64 %.0.i.i.i.i.i9198, %29
   %31 = lshr exact i64 %30, 2
   %32 = and i64 %31, 4294967295
-  %33 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %32, ptr noundef nonnull %.sroa.071.095106, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
+  %33 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %32, ptr noundef nonnull %.sroa.068.089100, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
           to label %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit unwind label %69
 
 34:                                               ; preds = %.lr.ph, %34
@@ -19105,7 +19105,7 @@ _Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traits
   store ptr %.fca.0.extract2, ptr %5, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.fca.1.extract3, ptr %.sroa.57.0..sroa_idx, align 8
-  %61 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.059.0110, i32 noundef 3, i32 noundef 3, i32 noundef 5126, i32 noundef 0)
+  %61 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.059.0104, i32 noundef 3, i32 noundef 3, i32 noundef 5126, i32 noundef 0)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit54 unwind label %.thread
 
 _ZNSt6vectorIfSaIfEED2Ev.exit54:                  ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -19117,12 +19117,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit54:                  ; preds = %_Z18GetSamplerInput
   store i32 %.fca.1.extract, ptr %.sroa.5.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %63, align 8
-  %64 = ptrtoint ptr %.sroa.059.0110 to i64
-  %65 = sub i64 %.sroa.14.0112, %64
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.059.0110, i64 noundef %65) #38
-  %66 = ptrtoint ptr %.sroa.12.093108 to i64
+  %64 = ptrtoint ptr %.sroa.059.0104 to i64
+  %65 = sub i64 %.sroa.14.0106, %64
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.059.0104, i64 noundef %65) #38
+  %66 = ptrtoint ptr %.sroa.12.087102 to i64
   %67 = sub i64 %66, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.071.095106, i64 noundef %67) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.089100, i64 noundef %67) #38
   ret void
 
 .thread:                                          ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -19133,14 +19133,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit54:                  ; preds = %_Z18GetSamplerInput
 69:                                               ; preds = %._crit_edge
   %70 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i55 = icmp eq ptr %.sroa.059.0110, null
+  %.not.i.i.i55 = icmp eq ptr %.sroa.059.0104, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIfSaIfEED2Ev.exit58, label %71
 
 71:                                               ; preds = %.thread, %69
-  %.pn81 = phi { ptr, i32 } [ %68, %.thread ], [ %70, %69 ]
-  %72 = ptrtoint ptr %.sroa.059.0110 to i64
-  %73 = sub i64 %.sroa.14.0112, %72
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.059.0110, i64 noundef %73) #38
+  %.pn75 = phi { ptr, i32 } [ %68, %.thread ], [ %70, %69 ]
+  %72 = ptrtoint ptr %.sroa.059.0104 to i64
+  %73 = sub i64 %.sroa.14.0106, %72
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.059.0104, i64 noundef %73) #38
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit58
 
 _ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge: ; preds = %19
@@ -19150,14 +19150,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit58
 
 _ZNSt6vectorIfSaIfEED2Ev.exit58:                  ; preds = %71, %69, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge
-  %.sroa.071.096 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %.sroa.071.095106, %69 ], [ %.sroa.071.095106, %71 ]
-  %.sroa.12.094 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %.sroa.12.093108, %69 ], [ %.sroa.12.093108, %71 ]
+  %.sroa.068.090 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %.sroa.068.089100, %69 ], [ %.sroa.068.089100, %71 ]
+  %.sroa.12.088 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %.sroa.12.087102, %69 ], [ %.sroa.12.087102, %71 ]
   %.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %29, %69 ], [ %29, %71 ]
-  %.pn.pn85 = phi { ptr, i32 } [ %74, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %70, %69 ], [ %.pn81, %71 ]
-  %75 = ptrtoint ptr %.sroa.12.094 to i64
+  %.pn.pn79 = phi { ptr, i32 } [ %74, %_ZNSt6vectorIfSaIfEED2Ev.exit56._ZNSt6vectorIfSaIfEED2Ev.exit56.thread_crit_edge ], [ %70, %69 ], [ %.pn75, %71 ]
+  %75 = ptrtoint ptr %.sroa.12.088 to i64
   %76 = sub i64 %75, %.pre-phi
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.071.096, i64 noundef %76) #38
-  resume { ptr, i32 } %.pn.pn85
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.090, i64 noundef %76) #38
+  resume { ptr, i32 } %.pn.pn79
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -19217,16 +19217,16 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i44: ; preds = %.noexc48
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.sroa.13.0113 = phi i64 [ 0, %6 ], [ %30, %._crit_edge.loopexit ]
-  %.sroa.057.0111 = phi ptr [ null, %6 ], [ %21, %._crit_edge.loopexit ]
-  %.sroa.1272.092109 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
-  %.sroa.068.095107 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
-  %.0.i.i.i.i.i98105 = phi i64 [ 0, %6 ], [ %29, %._crit_edge.loopexit ]
-  %31 = ptrtoint ptr %.sroa.068.095107 to i64
-  %32 = sub i64 %.0.i.i.i.i.i98105, %31
+  %.sroa.13.0107 = phi i64 [ 0, %6 ], [ %30, %._crit_edge.loopexit ]
+  %.sroa.057.0105 = phi ptr [ null, %6 ], [ %21, %._crit_edge.loopexit ]
+  %.sroa.1269.086103 = phi ptr [ null, %6 ], [ %12, %._crit_edge.loopexit ]
+  %.sroa.065.089101 = phi ptr [ null, %6 ], [ %11, %._crit_edge.loopexit ]
+  %.0.i.i.i.i.i9299 = phi i64 [ 0, %6 ], [ %29, %._crit_edge.loopexit ]
+  %31 = ptrtoint ptr %.sroa.065.089101 to i64
+  %32 = sub i64 %.0.i.i.i.i.i9299, %31
   %33 = lshr exact i64 %32, 2
   %34 = and i64 %33, 4294967295
-  %35 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %34, ptr noundef nonnull %.sroa.068.095107, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
+  %35 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %34, ptr noundef nonnull %.sroa.065.089101, i32 noundef 0, i32 noundef 0, i32 noundef 5126, i32 noundef 0)
           to label %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit unwind label %66
 
 36:                                               ; preds = %.lr.ph, %36
@@ -19266,7 +19266,7 @@ _Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traits
   store ptr %.fca.0.extract2, ptr %5, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.fca.1.extract3, ptr %.sroa.57.0..sroa_idx, align 8
-  %58 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.057.0111, i32 noundef 2, i32 noundef 2, i32 noundef 5126, i32 noundef 0)
+  %58 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %9, ptr noundef nonnull %.sroa.057.0105, i32 noundef 2, i32 noundef 2, i32 noundef 5126, i32 noundef 0)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit52 unwind label %.thread
 
 _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -19278,12 +19278,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInput
   store i32 %.fca.1.extract, ptr %.sroa.5.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %60, align 8
-  %61 = ptrtoint ptr %.sroa.057.0111 to i64
-  %62 = sub i64 %.sroa.13.0113, %61
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0111, i64 noundef %62) #38
-  %63 = ptrtoint ptr %.sroa.1272.092109 to i64
+  %61 = ptrtoint ptr %.sroa.057.0105 to i64
+  %62 = sub i64 %.sroa.13.0107, %61
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0105, i64 noundef %62) #38
+  %63 = ptrtoint ptr %.sroa.1269.086103 to i64
   %64 = sub i64 %63, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.095107, i64 noundef %64) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.089101, i64 noundef %64) #38
   ret void
 
 .thread:                                          ; preds = %_Z18GetSamplerInputRefRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEERSt6vectorIfSaIfEE.exit
@@ -19294,14 +19294,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit52:                  ; preds = %_Z18GetSamplerInput
 66:                                               ; preds = %._crit_edge
   %67 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i53 = icmp eq ptr %.sroa.057.0111, null
+  %.not.i.i.i53 = icmp eq ptr %.sroa.057.0105, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIfSaIfEED2Ev.exit56, label %68
 
 68:                                               ; preds = %.thread, %66
-  %.pn79 = phi { ptr, i32 } [ %65, %.thread ], [ %67, %66 ]
-  %69 = ptrtoint ptr %.sroa.057.0111 to i64
-  %70 = sub i64 %.sroa.13.0113, %69
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0111, i64 noundef %70) #38
+  %.pn73 = phi { ptr, i32 } [ %65, %.thread ], [ %67, %66 ]
+  %69 = ptrtoint ptr %.sroa.057.0105 to i64
+  %70 = sub i64 %.sroa.13.0107, %69
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0105, i64 noundef %70) #38
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit56
 
 _ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge: ; preds = %17
@@ -19311,14 +19311,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit56
 
 _ZNSt6vectorIfSaIfEED2Ev.exit56:                  ; preds = %68, %66, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge
-  %.sroa.068.096 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.068.095107, %66 ], [ %.sroa.068.095107, %68 ]
-  %.sroa.1272.093 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.1272.092109, %66 ], [ %.sroa.1272.092109, %68 ]
+  %.sroa.065.090 = phi ptr [ %11, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.065.089101, %66 ], [ %.sroa.065.089101, %68 ]
+  %.sroa.1269.087 = phi ptr [ %12, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %.sroa.1269.086103, %66 ], [ %.sroa.1269.086103, %68 ]
   %.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %31, %66 ], [ %31, %68 ]
-  %.pn.pn83 = phi { ptr, i32 } [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %67, %66 ], [ %.pn79, %68 ]
-  %72 = ptrtoint ptr %.sroa.1272.093 to i64
+  %.pn.pn77 = phi { ptr, i32 } [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit54._ZNSt6vectorIfSaIfEED2Ev.exit54.thread_crit_edge ], [ %67, %66 ], [ %.pn73, %68 ]
+  %72 = ptrtoint ptr %.sroa.1269.087 to i64
   %73 = sub i64 %72, %.pre-phi
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.068.096, i64 noundef %73) #38
-  resume { ptr, i32 } %.pn.pn83
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.065.090, i64 noundef %73) #38
+  resume { ptr, i32 } %.pn.pn77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24901,8 +24901,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Access
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -24978,8 +24978,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Access
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -25073,8 +25073,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Access
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -25089,8 +25089,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Access
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -25102,7 +25102,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Access
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -25151,12 +25151,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_8AccessorERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(376) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -25165,7 +25165,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -25175,11 +25175,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -25199,7 +25199,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -25213,7 +25213,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -25235,7 +25235,7 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   br i1 %.not.i, label %._ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread_crit_edge, label %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit
 
 ._ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread_crit_edge: ; preds = %3
-  %.pre476 = load i32, ptr %0, align 8
+  %.pre455 = load i32, ptr %0, align 8
   br label %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread
 
 _ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit: ; preds = %3
@@ -25250,7 +25250,7 @@ _ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit: ; preds = %3
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
   %16 = icmp ugt i64 %15, %8
-  %.pre477 = load i32, ptr %0, align 8
+  %.pre456 = load i32, ptr %0, align 8
   br i1 %16, label %17, label %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread
 
 17:                                               ; preds = %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit
@@ -25262,7 +25262,7 @@ _ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit: ; preds = %3
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
-  %.not.i.i.i.i = icmp ult i32 %.pre477, %25
+  %.not.i.i.i.i = icmp ult i32 %.pre456, %25
   br i1 %.not.i.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit, label %26
 
 26:                                               ; preds = %17
@@ -25297,7 +25297,7 @@ _ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit: ; preds = %3
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit: ; preds = %17, %26, %.noexc.i.i
-  %48 = phi i32 [ %.pre.i.i.i.i, %.noexc.i.i ], [ %.pre477, %26 ], [ %.pre477, %17 ]
+  %48 = phi i32 [ %.pre.i.i.i.i, %.noexc.i.i ], [ %.pre456, %26 ], [ %.pre456, %17 ]
   %49 = or i64 ptrtoint (ptr @.str.104 to i64), 289637751035265024
   %50 = inttoptr i64 %49 to ptr
   %51 = icmp sgt i32 %21, -1
@@ -25340,11 +25340,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %70 = add i32 %69, %66
   %71 = select i1 %.not14.i.i.i.i58, i32 16, i32 %70
   %72 = icmp ugt i32 %71, %66
-  %.pre475 = load ptr, ptr %53, align 8
+  %.pre454 = load ptr, ptr %53, align 8
   br i1 %72, label %.noexc.i.i63, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 .noexc.i.i63:                                     ; preds = %67
-  %73 = ptrtoint ptr %.pre475 to i64
+  %73 = ptrtoint ptr %.pre454 to i64
   %74 = and i64 %73, 281474976710655
   %75 = inttoptr i64 %74 to ptr
   %76 = zext i32 %66 to i64
@@ -25364,7 +25364,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge, %67, %.noexc.i.i63
-  %87 = phi ptr [ %86, %.noexc.i.i63 ], [ %.pre475, %67 ], [ %.pre, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
+  %87 = phi ptr [ %86, %.noexc.i.i63 ], [ %.pre454, %67 ], [ %.pre, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
   %88 = phi i32 [ %.pre.i.i.i.i64, %.noexc.i.i63 ], [ %62, %67 ], [ %62, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
   %89 = or i64 ptrtoint (ptr @.str.105 to i64), 289637751035265024
   %90 = inttoptr i64 %89 to ptr
@@ -25392,7 +25392,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread
 
 _ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread: ; preds = %._ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread_crit_edge, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit, %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit
-  %101 = phi i32 [ %.pre476, %._ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread_crit_edge ], [ %100, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit ], [ %.pre477, %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit ]
+  %101 = phi i32 [ %.pre455, %._ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit.thread_crit_edge ], [ %100, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit ], [ %.pre456, %_ZNK10glTFCommon3RefIN5glTF210BufferViewEEcvbEv.exit ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %103 = load i32, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -25467,7 +25467,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i.i.i.i74, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge, label %149
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73
-  %.pre478 = load ptr, ptr %135, align 8
+  %.pre457 = load ptr, ptr %135, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83
 
 149:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73
@@ -25477,11 +25477,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %152 = add i32 %151, %148
   %153 = select i1 %.not14.i.i.i.i75, i32 16, i32 %152
   %154 = icmp ugt i32 %153, %148
-  %.pre479 = load ptr, ptr %135, align 8
+  %.pre458 = load ptr, ptr %135, align 8
   br i1 %154, label %.noexc.i.i81, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83
 
 .noexc.i.i81:                                     ; preds = %149
-  %155 = ptrtoint ptr %.pre479 to i64
+  %155 = ptrtoint ptr %.pre458 to i64
   %156 = and i64 %155, 281474976710655
   %157 = inttoptr i64 %156 to ptr
   %158 = zext i32 %148 to i64
@@ -25501,7 +25501,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge, %149, %.noexc.i.i81
-  %169 = phi ptr [ %168, %.noexc.i.i81 ], [ %.pre479, %149 ], [ %.pre478, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge ]
+  %169 = phi ptr [ %168, %.noexc.i.i81 ], [ %.pre458, %149 ], [ %.pre457, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge ]
   %170 = phi i32 [ %.pre.i.i.i.i82, %.noexc.i.i81 ], [ %144, %149 ], [ %144, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit73._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83_crit_edge ]
   %171 = or i64 ptrtoint (ptr @.str.107 to i64), 289637751035265024
   %172 = inttoptr i64 %171 to ptr
@@ -25539,7 +25539,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i.i.i.i84, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge, label %192
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83
-  %.pre480 = load ptr, ptr %135, align 8
+  %.pre459 = load ptr, ptr %135, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit
 
 192:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83
@@ -25549,11 +25549,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %195 = add i32 %194, %191
   %196 = select i1 %.not14.i.i.i.i85, i32 16, i32 %195
   %197 = icmp ugt i32 %196, %191
-  %.pre481 = load ptr, ptr %135, align 8
+  %.pre460 = load ptr, ptr %135, align 8
   br i1 %197, label %.noexc.i.i87, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit
 
 .noexc.i.i87:                                     ; preds = %192
-  %198 = ptrtoint ptr %.pre481 to i64
+  %198 = ptrtoint ptr %.pre460 to i64
   %199 = and i64 %198, 281474976710655
   %200 = inttoptr i64 %199 to ptr
   %201 = zext i32 %191 to i64
@@ -25573,7 +25573,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge, %192, %.noexc.i.i87
-  %212 = phi ptr [ %211, %.noexc.i.i87 ], [ %.pre481, %192 ], [ %.pre480, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge ]
+  %212 = phi ptr [ %211, %.noexc.i.i87 ], [ %.pre460, %192 ], [ %.pre459, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge ]
   %213 = phi i32 [ %.pre.i.i.i.i88, %.noexc.i.i87 ], [ %182, %192 ], [ %182, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit83._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit_crit_edge ]
   %214 = ptrtoint ptr %187 to i64
   %215 = or i64 %214, 289637751035265024
@@ -25629,37 +25629,37 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i: ; preds = %.noexc, %239
-  %.sroa.20426.0 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %239 ], [ %245, %.noexc ]
+  %.sroa.20411.0 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %239 ], [ %245, %.noexc ]
   %246 = phi ptr [ %233, %239 ], [ %.pre13.i, %.noexc ]
   %247 = phi ptr [ %232, %239 ], [ %.pre.i, %.noexc ]
   %.not.i89 = icmp eq ptr %247, %246
   br i1 %.not.i89, label %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
-  %.sroa.20426.1 = phi ptr [ %.sroa.20426.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %.sroa.20426.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
-  %.sroa.14422.1 = phi i32 [ %.sroa.14422.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
-  %.sroa.0419.0 = phi i32 [ %274, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
+  %.sroa.20411.1 = phi ptr [ %.sroa.20411.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %.sroa.20411.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
+  %.sroa.14407.1 = phi i32 [ %.sroa.14407.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
+  %.sroa.0404.0 = phi i32 [ %274, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
   %248 = phi ptr [ %279, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %246, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
   %249 = phi i64 [ %277, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ]
   %250 = getelementptr inbounds nuw double, ptr %248, i64 %249
   %251 = load double, ptr %250, align 8
-  %.not.i.i.i90 = icmp ult i32 %.sroa.0419.0, %.sroa.14422.1
+  %.not.i.i.i90 = icmp ult i32 %.sroa.0404.0, %.sroa.14407.1
   br i1 %.not.i.i.i90, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %252
 
 252:                                              ; preds = %.lr.ph.i
-  %253 = icmp eq i32 %.sroa.14422.1, 0
-  %254 = add i32 %.sroa.14422.1, 1
+  %253 = icmp eq i32 %.sroa.14407.1, 0
+  %254 = add i32 %.sroa.14407.1, 1
   %255 = lshr i32 %254, 1
-  %256 = add i32 %255, %.sroa.14422.1
+  %256 = add i32 %255, %.sroa.14407.1
   %257 = select i1 %253, i32 16, i32 %256
-  %258 = icmp ugt i32 %257, %.sroa.14422.1
+  %258 = icmp ugt i32 %257, %.sroa.14407.1
   br i1 %258, label %.noexc.i.i92, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 .noexc.i.i92:                                     ; preds = %252
-  %259 = ptrtoint ptr %.sroa.20426.1 to i64
+  %259 = ptrtoint ptr %.sroa.20411.1 to i64
   %260 = and i64 %259, 281474976710655
   %261 = inttoptr i64 %260 to ptr
-  %262 = zext i32 %.sroa.14422.1 to i64
+  %262 = zext i32 %.sroa.14407.1 to i64
   %263 = shl nuw nsw i64 %262, 4
   %264 = zext i32 %257 to i64
   %265 = shl nuw nsw i64 %264, 4
@@ -25671,13 +25671,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %.lr.ph.i, %.noexc.i.i92, %252
-  %.sroa.20426.2 = phi ptr [ %.sroa.20426.1, %252 ], [ %270, %.noexc.i.i92 ], [ %.sroa.20426.1, %.lr.ph.i ]
-  %.sroa.14422.2 = phi i32 [ %.sroa.14422.1, %252 ], [ %257, %.noexc.i.i92 ], [ %.sroa.14422.1, %.lr.ph.i ]
-  %271 = ptrtoint ptr %.sroa.20426.2 to i64
+  %.sroa.20411.2 = phi ptr [ %.sroa.20411.1, %252 ], [ %270, %.noexc.i.i92 ], [ %.sroa.20411.1, %.lr.ph.i ]
+  %.sroa.14407.2 = phi i32 [ %.sroa.14407.1, %252 ], [ %257, %.noexc.i.i92 ], [ %.sroa.14407.1, %.lr.ph.i ]
+  %271 = ptrtoint ptr %.sroa.20411.2 to i64
   %272 = and i64 %271, 281474976710655
   %273 = inttoptr i64 %272 to ptr
-  %274 = add i32 %.sroa.0419.0, 1
-  %275 = zext i32 %.sroa.0419.0 to i64
+  %274 = add i32 %.sroa.0404.0, 1
+  %275 = zext i32 %.sroa.0404.0 to i64
   %276 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %273, i64 %275
   store double %251, ptr %276, align 8
   %.sroa.5.0..sroa_idx.i.i91 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -25693,9 +25693,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %284, label %.lr.ph.i, label %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit, !llvm.loop !275
 
 _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i
-  %.sroa.20426.3 = phi ptr [ %.sroa.20426.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %.sroa.20426.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
-  %.sroa.14422.3 = phi i32 [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %.sroa.14422.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
-  %.sroa.0419.1 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %274, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.20411.3 = phi ptr [ %.sroa.20411.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %.sroa.20411.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.14407.3 = phi i32 [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %.sroa.14407.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.0404.1 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i ], [ %274, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
   %285 = load ptr, ptr %104, align 8
   %286 = load i32, ptr %0, align 8
   %287 = load i32, ptr %106, align 4
@@ -25703,7 +25703,7 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   br i1 %.not.i.i.i94, label %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge, label %288
 
 _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge: ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit
-  %.pre486 = load ptr, ptr %135, align 8
+  %.pre465 = load ptr, ptr %135, align 8
   br label %308
 
 288:                                              ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit
@@ -25713,11 +25713,11 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   %291 = add i32 %290, %287
   %292 = select i1 %.not14.i.i.i, i32 16, i32 %291
   %293 = icmp ugt i32 %292, %287
-  %.pre487 = load ptr, ptr %135, align 8
+  %.pre466 = load ptr, ptr %135, align 8
   br i1 %293, label %.noexc.i, label %308
 
 .noexc.i:                                         ; preds = %288
-  %294 = ptrtoint ptr %.pre487 to i64
+  %294 = ptrtoint ptr %.pre466 to i64
   %295 = and i64 %294, 281474976710655
   %296 = inttoptr i64 %295 to ptr
   %297 = zext i32 %287 to i64
@@ -25737,7 +25737,7 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   br label %308
 
 308:                                              ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge, %.noexc.i, %288
-  %309 = phi ptr [ %307, %.noexc.i ], [ %.pre487, %288 ], [ %.pre486, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge ]
+  %309 = phi ptr [ %307, %.noexc.i ], [ %.pre466, %288 ], [ %.pre465, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge ]
   %310 = phi i32 [ %.pre.i.i.i97, %.noexc.i ], [ %286, %288 ], [ %286, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit._crit_edge ]
   %311 = or i64 ptrtoint (ptr @.str.109 to i64), 289637751035265024
   %312 = inttoptr i64 %311 to ptr
@@ -25752,11 +25752,11 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   %.sroa.65.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %312, ptr %.sroa.65.0..sroa_idx.i96, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
-  store i32 %.sroa.0419.1, ptr %318, align 8
-  %.sroa.14422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 20
-  store i32 %.sroa.14422.3, ptr %.sroa.14422.0..sroa_idx, align 4
-  %.sroa.20426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 24
-  store ptr %.sroa.20426.3, ptr %.sroa.20426.0..sroa_idx, align 8
+  store i32 %.sroa.0404.1, ptr %318, align 8
+  %.sroa.14407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 20
+  store i32 %.sroa.14407.3, ptr %.sroa.14407.0..sroa_idx, align 4
+  %.sroa.20411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 24
+  store ptr %.sroa.20411.3, ptr %.sroa.20411.0..sroa_idx, align 8
   %319 = load i32, ptr %0, align 8
   %320 = add i32 %319, 1
   store i32 %320, ptr %0, align 8
@@ -25793,29 +25793,29 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 .lr.ph.i104:                                      ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108
   %.sroa.20.1 = phi ptr [ %.sroa.20.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ %.sroa.20.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
-  %.sroa.14385.1 = phi i32 [ %.sroa.14385.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ %330, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
-  %.sroa.0382.0 = phi i32 [ %365, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
+  %.sroa.14376.1 = phi i32 [ %.sroa.14376.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ %330, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
+  %.sroa.0373.0 = phi i32 [ %365, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
   %339 = phi ptr [ %370, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ %337, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
   %340 = phi i64 [ %368, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ]
   %341 = getelementptr inbounds nuw double, ptr %339, i64 %340
   %342 = load double, ptr %341, align 8
-  %.not.i.i.i106 = icmp ult i32 %.sroa.0382.0, %.sroa.14385.1
+  %.not.i.i.i106 = icmp ult i32 %.sroa.0373.0, %.sroa.14376.1
   br i1 %.not.i.i.i106, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108, label %343
 
 343:                                              ; preds = %.lr.ph.i104
-  %344 = icmp eq i32 %.sroa.14385.1, 0
-  %345 = add i32 %.sroa.14385.1, 1
+  %344 = icmp eq i32 %.sroa.14376.1, 0
+  %345 = add i32 %.sroa.14376.1, 1
   %346 = lshr i32 %345, 1
-  %347 = add i32 %346, %.sroa.14385.1
+  %347 = add i32 %346, %.sroa.14376.1
   %348 = select i1 %344, i32 16, i32 %347
-  %349 = icmp ugt i32 %348, %.sroa.14385.1
+  %349 = icmp ugt i32 %348, %.sroa.14376.1
   br i1 %349, label %.noexc.i.i110, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108
 
 .noexc.i.i110:                                    ; preds = %343
   %350 = ptrtoint ptr %.sroa.20.1 to i64
   %351 = and i64 %350, 281474976710655
   %352 = inttoptr i64 %351 to ptr
-  %353 = zext i32 %.sroa.14385.1 to i64
+  %353 = zext i32 %.sroa.14376.1 to i64
   %354 = shl nuw nsw i64 %353, 4
   %355 = zext i32 %348 to i64
   %356 = shl nuw nsw i64 %355, 4
@@ -25828,12 +25828,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108: ; preds = %.lr.ph.i104, %.noexc.i.i110, %343
   %.sroa.20.2 = phi ptr [ %.sroa.20.1, %343 ], [ %361, %.noexc.i.i110 ], [ %.sroa.20.1, %.lr.ph.i104 ]
-  %.sroa.14385.2 = phi i32 [ %.sroa.14385.1, %343 ], [ %348, %.noexc.i.i110 ], [ %.sroa.14385.1, %.lr.ph.i104 ]
+  %.sroa.14376.2 = phi i32 [ %.sroa.14376.1, %343 ], [ %348, %.noexc.i.i110 ], [ %.sroa.14376.1, %.lr.ph.i104 ]
   %362 = ptrtoint ptr %.sroa.20.2 to i64
   %363 = and i64 %362, 281474976710655
   %364 = inttoptr i64 %363 to ptr
-  %365 = add i32 %.sroa.0382.0, 1
-  %366 = zext i32 %.sroa.0382.0 to i64
+  %365 = add i32 %.sroa.0373.0, 1
+  %366 = zext i32 %.sroa.0373.0 to i64
   %367 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %364, i64 %366
   store double %342, ptr %367, align 8
   %.sroa.5.0..sroa_idx.i.i109 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -25850,8 +25850,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102
   %.sroa.20.3 = phi ptr [ %.sroa.20.0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ], [ %.sroa.20.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ]
-  %.sroa.14385.3 = phi i32 [ %330, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ], [ %.sroa.14385.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ]
-  %.sroa.0382.1 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ], [ %365, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ]
+  %.sroa.14376.3 = phi i32 [ %330, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ], [ %.sroa.14376.2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ]
+  %.sroa.0373.1 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i102 ], [ %365, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIdEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i108 ]
   %376 = load ptr, ptr %104, align 8
   %377 = load i32, ptr %0, align 8
   %378 = load i32, ptr %106, align 4
@@ -25859,7 +25859,7 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   br i1 %.not.i.i.i117, label %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge, label %379
 
 _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge: ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116
-  %.pre488 = load ptr, ptr %135, align 8
+  %.pre467 = load ptr, ptr %135, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124
 
 379:                                              ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116
@@ -25869,11 +25869,11 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   %382 = add i32 %381, %378
   %383 = select i1 %.not14.i.i.i118, i32 16, i32 %382
   %384 = icmp ugt i32 %383, %378
-  %.pre489 = load ptr, ptr %135, align 8
+  %.pre468 = load ptr, ptr %135, align 8
   br i1 %384, label %.noexc.i121, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124
 
 .noexc.i121:                                      ; preds = %379
-  %385 = ptrtoint ptr %.pre489 to i64
+  %385 = ptrtoint ptr %.pre468 to i64
   %386 = and i64 %385, 281474976710655
   %387 = inttoptr i64 %386 to ptr
   %388 = zext i32 %378 to i64
@@ -25907,16 +25907,16 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127: ; preds = %.noexc137, %399
-  %.sroa.20426.4 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %399 ], [ %405, %.noexc137 ]
+  %.sroa.20411.4 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %399 ], [ %405, %.noexc137 ]
   %406 = phi ptr [ %233, %399 ], [ %.pre13.i126, %.noexc137 ]
   %407 = phi ptr [ %232, %399 ], [ %.pre.i125, %.noexc137 ]
   %.not.i128 = icmp eq ptr %407, %406
   br i1 %.not.i128, label %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit, label %.lr.ph.i129
 
 .lr.ph.i129:                                      ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
-  %.sroa.20426.5 = phi ptr [ %.sroa.20426.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %.sroa.20426.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
-  %.sroa.14422.5 = phi i32 [ %.sroa.14422.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
-  %.sroa.0419.2 = phi i32 [ %443, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
+  %.sroa.20411.5 = phi ptr [ %.sroa.20411.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %.sroa.20411.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
+  %.sroa.14407.5 = phi i32 [ %.sroa.14407.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
+  %.sroa.0404.2 = phi i32 [ %443, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
   %408 = phi ptr [ %448, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ %406, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
   %409 = phi i64 [ %446, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ]
   %410 = getelementptr inbounds nuw double, ptr %408, i64 %409
@@ -25939,23 +25939,23 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i: ; preds = %419, %414
   %.sroa.5.0.i.i = phi i64 [ %spec.select.i.i, %419 ], [ %418, %414 ]
-  %.not.i.i.i131 = icmp ult i32 %.sroa.0419.2, %.sroa.14422.5
+  %.not.i.i.i131 = icmp ult i32 %.sroa.0404.2, %.sroa.14407.5
   br i1 %.not.i.i.i131, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %421
 
 421:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i
-  %422 = icmp eq i32 %.sroa.14422.5, 0
-  %423 = add i32 %.sroa.14422.5, 1
+  %422 = icmp eq i32 %.sroa.14407.5, 0
+  %423 = add i32 %.sroa.14407.5, 1
   %424 = lshr i32 %423, 1
-  %425 = add i32 %424, %.sroa.14422.5
+  %425 = add i32 %424, %.sroa.14407.5
   %426 = select i1 %422, i32 16, i32 %425
-  %427 = icmp ugt i32 %426, %.sroa.14422.5
+  %427 = icmp ugt i32 %426, %.sroa.14407.5
   br i1 %427, label %.noexc.i.i134, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 .noexc.i.i134:                                    ; preds = %421
-  %428 = ptrtoint ptr %.sroa.20426.5 to i64
+  %428 = ptrtoint ptr %.sroa.20411.5 to i64
   %429 = and i64 %428, 281474976710655
   %430 = inttoptr i64 %429 to ptr
-  %431 = zext i32 %.sroa.14422.5 to i64
+  %431 = zext i32 %.sroa.14407.5 to i64
   %432 = shl nuw nsw i64 %431, 4
   %433 = zext i32 %426 to i64
   %434 = shl nuw nsw i64 %433, 4
@@ -25967,13 +25967,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i, %.noexc.i.i134, %421
-  %.sroa.20426.6 = phi ptr [ %.sroa.20426.5, %421 ], [ %439, %.noexc.i.i134 ], [ %.sroa.20426.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i ]
-  %.sroa.14422.6 = phi i32 [ %.sroa.14422.5, %421 ], [ %426, %.noexc.i.i134 ], [ %.sroa.14422.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i ]
-  %440 = ptrtoint ptr %.sroa.20426.6 to i64
+  %.sroa.20411.6 = phi ptr [ %.sroa.20411.5, %421 ], [ %439, %.noexc.i.i134 ], [ %.sroa.20411.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i ]
+  %.sroa.14407.6 = phi i32 [ %.sroa.14407.5, %421 ], [ %426, %.noexc.i.i134 ], [ %.sroa.14407.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i ]
+  %440 = ptrtoint ptr %.sroa.20411.6 to i64
   %441 = and i64 %440, 281474976710655
   %442 = inttoptr i64 %441 to ptr
-  %443 = add i32 %.sroa.0419.2, 1
-  %444 = zext i32 %.sroa.0419.2 to i64
+  %443 = add i32 %.sroa.0404.2, 1
+  %444 = zext i32 %.sroa.0404.2 to i64
   %445 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %442, i64 %444
   store i64 %412, ptr %445, align 8
   %.sroa.5.0..sroa_idx.i.i133 = getelementptr inbounds nuw i8, ptr %445, i64 8
@@ -25989,9 +25989,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %453, label %.lr.ph.i129, label %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit, !llvm.loop !276
 
 _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127
-  %.sroa.20426.7 = phi ptr [ %.sroa.20426.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %.sroa.20426.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
-  %.sroa.14422.7 = phi i32 [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %.sroa.14422.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
-  %.sroa.0419.3 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %443, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.20411.7 = phi ptr [ %.sroa.20411.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %.sroa.20411.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.14407.7 = phi i32 [ %238, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %.sroa.14407.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.0404.3 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i127 ], [ %443, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
   %454 = load ptr, ptr %104, align 8
   %455 = load i32, ptr %0, align 8
   %456 = load i32, ptr %106, align 4
@@ -25999,7 +25999,7 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   br i1 %.not.i.i.i139, label %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge, label %457
 
 _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge: ; preds = %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit
-  %.pre482 = load ptr, ptr %135, align 8
+  %.pre461 = load ptr, ptr %135, align 8
   br label %477
 
 457:                                              ; preds = %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit
@@ -26009,11 +26009,11 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   %460 = add i32 %459, %456
   %461 = select i1 %.not14.i.i.i140, i32 16, i32 %460
   %462 = icmp ugt i32 %461, %456
-  %.pre483 = load ptr, ptr %135, align 8
+  %.pre462 = load ptr, ptr %135, align 8
   br i1 %462, label %.noexc.i143, label %477
 
 .noexc.i143:                                      ; preds = %457
-  %463 = ptrtoint ptr %.pre483 to i64
+  %463 = ptrtoint ptr %.pre462 to i64
   %464 = and i64 %463, 281474976710655
   %465 = inttoptr i64 %464 to ptr
   %466 = zext i32 %456 to i64
@@ -26033,7 +26033,7 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   br label %477
 
 477:                                              ; preds = %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge, %.noexc.i143, %457
-  %478 = phi ptr [ %476, %.noexc.i143 ], [ %.pre483, %457 ], [ %.pre482, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge ]
+  %478 = phi ptr [ %476, %.noexc.i143 ], [ %.pre462, %457 ], [ %.pre461, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge ]
   %479 = phi i32 [ %.pre.i.i.i144, %.noexc.i143 ], [ %455, %457 ], [ %455, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit._crit_edge ]
   %480 = or i64 ptrtoint (ptr @.str.109 to i64), 289637751035265024
   %481 = inttoptr i64 %480 to ptr
@@ -26048,11 +26048,11 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   %.sroa.65.0..sroa_idx.i142 = getelementptr inbounds nuw i8, ptr %486, i64 8
   store ptr %481, ptr %.sroa.65.0..sroa_idx.i142, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 16
-  store i32 %.sroa.0419.3, ptr %487, align 8
-  %.sroa.14422.0..sroa_idx423 = getelementptr inbounds nuw i8, ptr %486, i64 20
-  store i32 %.sroa.14422.7, ptr %.sroa.14422.0..sroa_idx423, align 4
-  %.sroa.20426.0..sroa_idx429 = getelementptr inbounds nuw i8, ptr %486, i64 24
-  store ptr %.sroa.20426.7, ptr %.sroa.20426.0..sroa_idx429, align 8
+  store i32 %.sroa.0404.3, ptr %487, align 8
+  %.sroa.14407.0..sroa_idx408 = getelementptr inbounds nuw i8, ptr %486, i64 20
+  store i32 %.sroa.14407.7, ptr %.sroa.14407.0..sroa_idx408, align 4
+  %.sroa.20411.0..sroa_idx412 = getelementptr inbounds nuw i8, ptr %486, i64 24
+  store ptr %.sroa.20411.7, ptr %.sroa.20411.0..sroa_idx412, align 8
   %488 = load i32, ptr %0, align 8
   %489 = add i32 %488, 1
   store i32 %489, ptr %0, align 8
@@ -26089,8 +26089,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 .lr.ph.i152:                                      ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159
   %.sroa.20.5 = phi ptr [ %.sroa.20.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ %.sroa.20.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
-  %.sroa.14385.5 = phi i32 [ %.sroa.14385.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ %499, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
-  %.sroa.0382.2 = phi i32 [ %543, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
+  %.sroa.14376.5 = phi i32 [ %.sroa.14376.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ %499, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
+  %.sroa.0373.2 = phi i32 [ %543, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
   %508 = phi ptr [ %548, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ %506, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
   %509 = phi i64 [ %546, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ]
   %510 = getelementptr inbounds nuw double, ptr %508, i64 %509
@@ -26113,23 +26113,23 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155: ; preds = %519, %514
   %.sroa.5.0.i.i156 = phi i64 [ %spec.select.i.i154, %519 ], [ %518, %514 ]
-  %.not.i.i.i157 = icmp ult i32 %.sroa.0382.2, %.sroa.14385.5
+  %.not.i.i.i157 = icmp ult i32 %.sroa.0373.2, %.sroa.14376.5
   br i1 %.not.i.i.i157, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159, label %521
 
 521:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155
-  %522 = icmp eq i32 %.sroa.14385.5, 0
-  %523 = add i32 %.sroa.14385.5, 1
+  %522 = icmp eq i32 %.sroa.14376.5, 0
+  %523 = add i32 %.sroa.14376.5, 1
   %524 = lshr i32 %523, 1
-  %525 = add i32 %524, %.sroa.14385.5
+  %525 = add i32 %524, %.sroa.14376.5
   %526 = select i1 %522, i32 16, i32 %525
-  %527 = icmp ugt i32 %526, %.sroa.14385.5
+  %527 = icmp ugt i32 %526, %.sroa.14376.5
   br i1 %527, label %.noexc.i.i161, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159
 
 .noexc.i.i161:                                    ; preds = %521
   %528 = ptrtoint ptr %.sroa.20.5 to i64
   %529 = and i64 %528, 281474976710655
   %530 = inttoptr i64 %529 to ptr
-  %531 = zext i32 %.sroa.14385.5 to i64
+  %531 = zext i32 %.sroa.14376.5 to i64
   %532 = shl nuw nsw i64 %531, 4
   %533 = zext i32 %526 to i64
   %534 = shl nuw nsw i64 %533, 4
@@ -26142,12 +26142,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155, %.noexc.i.i161, %521
   %.sroa.20.6 = phi ptr [ %.sroa.20.5, %521 ], [ %539, %.noexc.i.i161 ], [ %.sroa.20.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155 ]
-  %.sroa.14385.6 = phi i32 [ %.sroa.14385.5, %521 ], [ %526, %.noexc.i.i161 ], [ %.sroa.14385.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155 ]
+  %.sroa.14376.6 = phi i32 [ %.sroa.14376.5, %521 ], [ %526, %.noexc.i.i161 ], [ %.sroa.14376.5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit.i.i155 ]
   %540 = ptrtoint ptr %.sroa.20.6 to i64
   %541 = and i64 %540, 281474976710655
   %542 = inttoptr i64 %541 to ptr
-  %543 = add i32 %.sroa.0382.2, 1
-  %544 = zext i32 %.sroa.0382.2 to i64
+  %543 = add i32 %.sroa.0373.2, 1
+  %544 = zext i32 %.sroa.0373.2 to i64
   %545 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %542, i64 %544
   store i64 %512, ptr %545, align 8
   %.sroa.5.0..sroa_idx.i.i160 = getelementptr inbounds nuw i8, ptr %545, i64 8
@@ -26164,8 +26164,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150
   %.sroa.20.7 = phi ptr [ %.sroa.20.4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ], [ %.sroa.20.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ]
-  %.sroa.14385.7 = phi i32 [ %499, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ], [ %.sroa.14385.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ]
-  %.sroa.0382.3 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ], [ %543, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ]
+  %.sroa.14376.7 = phi i32 [ %499, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ], [ %.sroa.14376.6, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ]
+  %.sroa.0373.3 = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit.i150 ], [ %543, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIlEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i159 ]
   %554 = load ptr, ptr %104, align 8
   %555 = load i32, ptr %0, align 8
   %556 = load i32, ptr %106, align 4
@@ -26173,7 +26173,7 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   br i1 %.not.i.i.i168, label %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge, label %557
 
 _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge: ; preds = %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167
-  %.pre484 = load ptr, ptr %135, align 8
+  %.pre463 = load ptr, ptr %135, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124
 
 557:                                              ; preds = %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167
@@ -26183,11 +26183,11 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   %560 = add i32 %559, %556
   %561 = select i1 %.not14.i.i.i169, i32 16, i32 %560
   %562 = icmp ugt i32 %561, %556
-  %.pre485 = load ptr, ptr %135, align 8
+  %.pre464 = load ptr, ptr %135, align 8
   br i1 %562, label %.noexc.i172, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124
 
 .noexc.i172:                                      ; preds = %557
-  %563 = ptrtoint ptr %.pre485 to i64
+  %563 = ptrtoint ptr %.pre464 to i64
   %564 = and i64 %563, 281474976710655
   %565 = inttoptr i64 %564 to ptr
   %566 = zext i32 %556 to i64
@@ -26207,14 +26207,14 @@ _ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8I
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124: ; preds = %.noexc.i172, %557, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge, %.noexc.i121, %379, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge
-  %.sink561 = phi ptr [ %.pre488, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %398, %.noexc.i121 ], [ %.pre489, %379 ], [ %576, %.noexc.i172 ], [ %.pre485, %557 ], [ %.pre484, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
+  %.sink540 = phi ptr [ %.pre467, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %398, %.noexc.i121 ], [ %.pre468, %379 ], [ %576, %.noexc.i172 ], [ %.pre464, %557 ], [ %.pre463, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
   %.sink = phi i32 [ %377, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.pre.i.i.i122, %.noexc.i121 ], [ %377, %379 ], [ %.pre.i.i.i173, %.noexc.i172 ], [ %555, %557 ], [ %555, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
-  %.sroa.0382.3.sink = phi i32 [ %.sroa.0382.1, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.sroa.0382.1, %.noexc.i121 ], [ %.sroa.0382.1, %379 ], [ %.sroa.0382.3, %.noexc.i172 ], [ %.sroa.0382.3, %557 ], [ %.sroa.0382.3, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
-  %.sroa.14385.7.sink = phi i32 [ %.sroa.14385.3, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.sroa.14385.3, %.noexc.i121 ], [ %.sroa.14385.3, %379 ], [ %.sroa.14385.7, %.noexc.i172 ], [ %.sroa.14385.7, %557 ], [ %.sroa.14385.7, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
+  %.sroa.0373.3.sink = phi i32 [ %.sroa.0373.1, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.sroa.0373.1, %.noexc.i121 ], [ %.sroa.0373.1, %379 ], [ %.sroa.0373.3, %.noexc.i172 ], [ %.sroa.0373.3, %557 ], [ %.sroa.0373.3, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
+  %.sroa.14376.7.sink = phi i32 [ %.sroa.14376.3, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.sroa.14376.3, %.noexc.i121 ], [ %.sroa.14376.3, %379 ], [ %.sroa.14376.7, %.noexc.i172 ], [ %.sroa.14376.7, %557 ], [ %.sroa.14376.7, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
   %.sroa.20.7.sink = phi ptr [ %.sroa.20.3, %_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_.exit116._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit124_crit_edge ], [ %.sroa.20.3, %.noexc.i121 ], [ %.sroa.20.3, %379 ], [ %.sroa.20.7, %.noexc.i172 ], [ %.sroa.20.7, %557 ], [ %.sroa.20.7, %_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_.exit167._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit175_crit_edge ]
   %577 = or i64 ptrtoint (ptr @.str.110 to i64), 289637751035265024
   %578 = inttoptr i64 %577 to ptr
-  %579 = ptrtoint ptr %.sink561 to i64
+  %579 = ptrtoint ptr %.sink540 to i64
   %580 = and i64 %579, 281474976710655
   %581 = inttoptr i64 %580 to ptr
   %582 = zext i32 %.sink to i64
@@ -26225,11 +26225,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i171 = getelementptr inbounds nuw i8, ptr %583, i64 8
   store ptr %578, ptr %.sroa.65.0..sroa_idx.i171, align 8
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 16
-  store i32 %.sroa.0382.3.sink, ptr %584, align 8
-  %.sroa.14385.0..sroa_idx386 = getelementptr inbounds nuw i8, ptr %583, i64 20
-  store i32 %.sroa.14385.7.sink, ptr %.sroa.14385.0..sroa_idx386, align 4
-  %.sroa.20.0..sroa_idx391 = getelementptr inbounds nuw i8, ptr %583, i64 24
-  store ptr %.sroa.20.7.sink, ptr %.sroa.20.0..sroa_idx391, align 8
+  store i32 %.sroa.0373.3.sink, ptr %584, align 8
+  %.sroa.14376.0..sroa_idx377 = getelementptr inbounds nuw i8, ptr %583, i64 20
+  store i32 %.sroa.14376.7.sink, ptr %.sroa.14376.0..sroa_idx377, align 4
+  %.sroa.20.0..sroa_idx380 = getelementptr inbounds nuw i8, ptr %583, i64 24
+  store ptr %.sroa.20.7.sink, ptr %.sroa.20.0..sroa_idx380, align 8
   %storemerge.in = load i32, ptr %0, align 8
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %0, align 8
@@ -26337,8 +26337,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %638, ptr %.sroa.65.0..sroa_idx.i221, align 8
   %640 = getelementptr inbounds nuw i8, ptr %596, i64 48
   store i32 3, ptr %640, align 8
-  %.sroa.18307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %596, i64 52
-  store i32 16, ptr %.sroa.18307.0..sroa_idx, align 4
+  %.sroa.18304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %596, i64 52
+  store i32 16, ptr %.sroa.18304.0..sroa_idx, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %596, i64 56
   store ptr %613, ptr %.sroa.24.0..sroa_idx, align 8
   %641 = load ptr, ptr %585, align 8
@@ -26409,7 +26409,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i.i.i255, label %.noexc.i.i183._crit_edge, label %676
 
 .noexc.i.i183._crit_edge:                         ; preds = %.noexc.i.i183
-  %.pre490 = load ptr, ptr %135, align 8
+  %.pre469 = load ptr, ptr %135, align 8
   br label %696
 
 676:                                              ; preds = %.noexc.i.i183
@@ -26419,11 +26419,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %679 = add i32 %678, %675
   %680 = select i1 %.not14.i.i.i256, i32 16, i32 %679
   %681 = icmp ugt i32 %680, %675
-  %.pre491 = load ptr, ptr %135, align 8
+  %.pre470 = load ptr, ptr %135, align 8
   br i1 %681, label %.noexc.i259, label %696
 
 .noexc.i259:                                      ; preds = %676
-  %682 = ptrtoint ptr %.pre491 to i64
+  %682 = ptrtoint ptr %.pre470 to i64
   %683 = and i64 %682, 281474976710655
   %684 = inttoptr i64 %683 to ptr
   %685 = zext i32 %675 to i64
@@ -26443,7 +26443,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %696
 
 696:                                              ; preds = %.noexc.i.i183._crit_edge, %.noexc.i259, %676
-  %697 = phi ptr [ %695, %.noexc.i259 ], [ %.pre491, %676 ], [ %.pre490, %.noexc.i.i183._crit_edge ]
+  %697 = phi ptr [ %695, %.noexc.i259 ], [ %.pre470, %676 ], [ %.pre469, %.noexc.i.i183._crit_edge ]
   %698 = phi i32 [ %.pre.i.i.i260, %.noexc.i259 ], [ %674, %676 ], [ %674, %.noexc.i.i183._crit_edge ]
   %699 = or i64 ptrtoint (ptr @.str.113 to i64), 289637751035265024
   %700 = inttoptr i64 %699 to ptr
@@ -26459,10 +26459,10 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %700, ptr %.sroa.65.0..sroa_idx.i258, align 8
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 16
   store i32 3, ptr %706, align 8
-  %.sroa.18344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %705, i64 20
-  store i32 16, ptr %.sroa.18344.0..sroa_idx, align 4
-  %.sroa.24347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %705, i64 24
-  store ptr %592, ptr %.sroa.24347.0..sroa_idx, align 8
+  %.sroa.18338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %705, i64 20
+  store i32 16, ptr %.sroa.18338.0..sroa_idx, align 4
+  %.sroa.24341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %705, i64 24
+  store ptr %592, ptr %.sroa.24341.0..sroa_idx, align 8
   %707 = load i32, ptr %0, align 8
   %708 = add i32 %707, 1
   store i32 %708, ptr %0, align 8
@@ -26770,8 +26770,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_9Animat
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -26847,8 +26847,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_9Animat
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -26942,8 +26942,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_9Animat
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -26958,8 +26958,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_9Animat
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -26971,7 +26971,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_9Animat
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -27020,12 +27020,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_9AnimationERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(312) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -27034,7 +27034,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -27044,11 +27044,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -27068,7 +27068,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -27082,7 +27082,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -27120,19 +27120,19 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   %19 = or i64 %18, 1125899906842624
   %20 = inttoptr i64 %19 to ptr
   %.pre = load ptr, ptr %5, align 8
-  %.pre389 = load ptr, ptr %4, align 8
-  %.pre393 = ptrtoint ptr %.pre to i64
-  %.pre394 = ptrtoint ptr %.pre389 to i64
-  %.pre396 = sub i64 %.pre393, %.pre394
+  %.pre374 = load ptr, ptr %4, align 8
+  %.pre378 = ptrtoint ptr %.pre to i64
+  %.pre379 = ptrtoint ptr %.pre374 to i64
+  %.pre381 = sub i64 %.pre378, %.pre379
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit: ; preds = %3, %.noexc
-  %.pre-phi397 = phi i64 [ %10, %3 ], [ %.pre396, %.noexc ]
-  %21 = phi ptr [ %7, %3 ], [ %.pre389, %.noexc ]
+  %.pre-phi382 = phi i64 [ %10, %3 ], [ %.pre381, %.noexc ]
+  %21 = phi ptr [ %7, %3 ], [ %.pre374, %.noexc ]
   %.sroa.13.1 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %3 ], [ %20, %.noexc ]
-  %22 = and i64 %.pre-phi397, 137438953440
-  %.not384 = icmp eq i64 %22, 0
-  br i1 %.not384, label %._crit_edge, label %.noexc.i.i.lr.ph
+  %22 = and i64 %.pre-phi382, 137438953440
+  %.not369 = icmp eq i64 %22, 0
+  br i1 %.not369, label %._crit_edge, label %.noexc.i.i.lr.ph
 
 .noexc.i.i.lr.ph:                                 ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
   %23 = or i64 ptrtoint (ptr @.str.3 to i64), 289637751035265024
@@ -27151,8 +27151,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
   %.sroa.13.0.lcssa = phi ptr [ %.sroa.13.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.13.2, %._crit_edge.loopexit ]
-  %.sroa.9354.0.lcssa = phi i32 [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.9354.2, %._crit_edge.loopexit ]
-  %.sroa.0353.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %31, %._crit_edge.loopexit ]
+  %.sroa.9342.0.lcssa = phi i32 [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.9342.2, %._crit_edge.loopexit ]
+  %.sroa.0341.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %31, %._crit_edge.loopexit ]
   %32 = load ptr, ptr %13, align 8
   %33 = load i32, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -27193,10 +27193,10 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 .noexc.i.i:                                       ; preds = %.noexc.i.i.lr.ph, %118
   %58 = phi ptr [ %21, %.noexc.i.i.lr.ph ], [ %125, %118 ]
-  %.041373 = phi i64 [ 0, %.noexc.i.i.lr.ph ], [ %122, %118 ]
-  %.sroa.9354.0371 = phi i32 [ %12, %.noexc.i.i.lr.ph ], [ %.sroa.9354.2, %118 ]
-  %.sroa.13.0370 = phi ptr [ %.sroa.13.1, %.noexc.i.i.lr.ph ], [ %.sroa.13.2, %118 ]
-  %59 = getelementptr inbounds nuw %"struct.glTF2::Animation::Channel", ptr %58, i64 %.041373
+  %.041358 = phi i64 [ 0, %.noexc.i.i.lr.ph ], [ %122, %118 ]
+  %.sroa.9342.0356 = phi i32 [ %12, %.noexc.i.i.lr.ph ], [ %.sroa.9342.2, %118 ]
+  %.sroa.13.0355 = phi ptr [ %.sroa.13.1, %.noexc.i.i.lr.ph ], [ %.sroa.13.2, %118 ]
+  %59 = getelementptr inbounds nuw %"struct.glTF2::Animation::Channel", ptr %58, i64 %.041358
   %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr %13, align 8
   %62 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef null, i64 noundef 0, i64 noundef 512)
@@ -27265,7 +27265,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.noexc.i.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit75, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit85, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit95
-  %.sink413 = phi i32 [ 7, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit95 ], [ 5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit85 ], [ 8, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit75 ], [ 11, %.noexc.i.i ]
+  %.sink398 = phi i32 [ 7, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit95 ], [ 5, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit85 ], [ 8, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit75 ], [ 11, %.noexc.i.i ]
   %.sink.in.in = phi i64 [ ptrtoint (ptr @.str.124 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit95 ], [ ptrtoint (ptr @.str.25 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit85 ], [ ptrtoint (ptr @.str.123 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit75 ], [ ptrtoint (ptr @.str.122 to i64), %.noexc.i.i ]
   %.sink.in = or i64 %.sink.in.in, 289637751035265024
   %.sink = inttoptr i64 %.sink.in to ptr
@@ -27276,7 +27276,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i.i89 = getelementptr inbounds nuw i8, ptr %89, i64 40
   store ptr %28, ptr %.sroa.65.0..sroa_idx.i.i89, align 8
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  store i32 %.sink413, ptr %94, align 8
+  store i32 %.sink398, ptr %94, align 8
   %.sroa.6.0..sroa_idx.i90 = getelementptr inbounds nuw i8, ptr %89, i64 52
   store i32 0, ptr %.sroa.6.0..sroa_idx.i90, align 4
   %.sroa.66.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %89, i64 56
@@ -27284,7 +27284,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %95
 
 95:                                               ; preds = %.sink.split, %.noexc.i.i
-  %.sroa.0271.1 = phi i32 [ 1, %.noexc.i.i ], [ 2, %.sink.split ]
+  %.sroa.0265.0 = phi i32 [ 1, %.noexc.i.i ], [ 2, %.sink.split ]
   %96 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i32 6, ptr %96, align 8
   %.sroa.6.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %69, i64 36
@@ -27292,27 +27292,27 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i99 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %30, ptr %.sroa.65.0..sroa_idx.i99, align 8
   %97 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  store i32 %.sroa.0271.1, ptr %97, align 8
-  %.sroa.26281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 52
-  store i32 16, ptr %.sroa.26281.0..sroa_idx, align 4
-  %.sroa.36286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store ptr %85, ptr %.sroa.36286.0..sroa_idx, align 8
+  store i32 %.sroa.0265.0, ptr %97, align 8
+  %.sroa.26275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 52
+  store i32 16, ptr %.sroa.26275.0..sroa_idx, align 4
+  %.sroa.36280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 56
+  store ptr %85, ptr %.sroa.36280.0..sroa_idx, align 8
   %98 = load ptr, ptr %13, align 8
-  %99 = zext i32 %.sroa.9354.0371 to i64
-  %.not.i = icmp samesign ult i64 %.041373, %99
+  %99 = zext i32 %.sroa.9342.0356 to i64
+  %.not.i = icmp samesign ult i64 %.041358, %99
   br i1 %.not.i, label %118, label %100
 
 100:                                              ; preds = %95
-  %101 = icmp eq i32 %.sroa.9354.0371, 0
-  %102 = add nuw i32 %.sroa.9354.0371, 1
+  %101 = icmp eq i32 %.sroa.9342.0356, 0
+  %102 = add nuw i32 %.sroa.9342.0356, 1
   %103 = lshr i32 %102, 1
-  %104 = add i32 %103, %.sroa.9354.0371
+  %104 = add i32 %103, %.sroa.9342.0356
   %105 = select i1 %101, i32 16, i32 %104
-  %106 = icmp ugt i32 %105, %.sroa.9354.0371
+  %106 = icmp ugt i32 %105, %.sroa.9342.0356
   br i1 %106, label %.noexc104, label %118
 
 .noexc104:                                        ; preds = %100
-  %107 = ptrtoint ptr %.sroa.13.0370 to i64
+  %107 = ptrtoint ptr %.sroa.13.0355 to i64
   %108 = and i64 %107, 281474976710655
   %109 = inttoptr i64 %108 to ptr
   %110 = shl nuw nsw i64 %99, 4
@@ -27326,13 +27326,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %118
 
 118:                                              ; preds = %.noexc104, %100, %95
-  %.sroa.13.2 = phi ptr [ %.sroa.13.0370, %95 ], [ %117, %.noexc104 ], [ %.sroa.13.0370, %100 ]
-  %.sroa.9354.2 = phi i32 [ %.sroa.9354.0371, %95 ], [ %105, %.noexc104 ], [ %.sroa.9354.0371, %100 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.0355, %95 ], [ %117, %.noexc104 ], [ %.sroa.13.0355, %100 ]
+  %.sroa.9342.2 = phi i32 [ %.sroa.9342.0356, %95 ], [ %105, %.noexc104 ], [ %.sroa.9342.0356, %100 ]
   %119 = ptrtoint ptr %.sroa.13.2 to i64
   %120 = and i64 %119, 281474976710655
   %121 = inttoptr i64 %120 to ptr
-  %122 = add nuw nsw i64 %.041373, 1
-  %123 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %121, i64 %.041373
+  %122 = add nuw nsw i64 %.041358, 1
+  %123 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %121, i64 %.041358
   store i32 2, ptr %123, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 16, ptr %.sroa.14.0..sroa_idx, align 4
@@ -27365,9 +27365,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %135, ptr %.sroa.65.0..sroa_idx.i, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store i32 %.sroa.0353.0.lcssa, ptr %143, align 8
-  %.sroa.9354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 20
-  store i32 %.sroa.9354.0.lcssa, ptr %.sroa.9354.0..sroa_idx, align 4
+  store i32 %.sroa.0341.0.lcssa, ptr %143, align 8
+  %.sroa.9342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 20
+  store i32 %.sroa.9342.0.lcssa, ptr %.sroa.9342.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %.sroa.13.0.lcssa, ptr %.sroa.13.0..sroa_idx, align 8
   %144 = load i32, ptr %0, align 8
@@ -27382,8 +27382,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %152 = sub i64 %150, %151
   %153 = sdiv exact i64 %152, 40
   %154 = and i64 %153, 4294967295
-  %.not385 = icmp eq i64 %154, 0
-  br i1 %.not385, label %._crit_edge380, label %.noexc.i.i119.lr.ph
+  %.not370 = icmp eq i64 %154, 0
+  br i1 %.not370, label %._crit_edge365, label %.noexc.i.i119.lr.ph
 
 .noexc.i.i119.lr.ph:                              ; preds = %132
   %155 = or i64 ptrtoint (ptr @.str.127 to i64), 289637751035265024
@@ -27394,37 +27394,37 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %160 = inttoptr i64 %159 to ptr
   br label %.noexc.i.i119
 
-._crit_edge380.loopexit:                          ; preds = %247
+._crit_edge365.loopexit:                          ; preds = %247
   %161 = trunc nuw i64 %251 to i32
-  %.pre390 = load i32, ptr %0, align 8
-  br label %._crit_edge380
+  %.pre375 = load i32, ptr %0, align 8
+  br label %._crit_edge365
 
-._crit_edge380:                                   ; preds = %._crit_edge380.loopexit, %132
-  %162 = phi i32 [ %145, %132 ], [ %.pre390, %._crit_edge380.loopexit ]
-  %.sroa.11.0.lcssa = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %132 ], [ %.sroa.11.1, %._crit_edge380.loopexit ]
-  %.sroa.9.0.lcssa = phi i32 [ 0, %132 ], [ %.sroa.9.1, %._crit_edge380.loopexit ]
-  %.sroa.0237.0.lcssa = phi i32 [ 0, %132 ], [ %161, %._crit_edge380.loopexit ]
+._crit_edge365:                                   ; preds = %._crit_edge365.loopexit, %132
+  %162 = phi i32 [ %145, %132 ], [ %.pre375, %._crit_edge365.loopexit ]
+  %.sroa.11.0.lcssa = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %132 ], [ %.sroa.11.1, %._crit_edge365.loopexit ]
+  %.sroa.9.0.lcssa = phi i32 [ 0, %132 ], [ %.sroa.9.1, %._crit_edge365.loopexit ]
+  %.sroa.0234.0.lcssa = phi i32 [ 0, %132 ], [ %161, %._crit_edge365.loopexit ]
   %163 = load ptr, ptr %13, align 8
   %164 = load i32, ptr %34, align 4
   %.not.i.i.i105 = icmp ult i32 %162, %164
-  br i1 %.not.i.i.i105, label %._crit_edge380._crit_edge, label %165
+  br i1 %.not.i.i.i105, label %._crit_edge365._crit_edge, label %165
 
-._crit_edge380._crit_edge:                        ; preds = %._crit_edge380
-  %.pre391 = load ptr, ptr %136, align 8
+._crit_edge365._crit_edge:                        ; preds = %._crit_edge365
+  %.pre376 = load ptr, ptr %136, align 8
   br label %261
 
-165:                                              ; preds = %._crit_edge380
+165:                                              ; preds = %._crit_edge365
   %.not14.i.i.i106 = icmp eq i32 %164, 0
   %166 = add i32 %164, 1
   %167 = lshr i32 %166, 1
   %168 = add i32 %167, %164
   %169 = select i1 %.not14.i.i.i106, i32 16, i32 %168
   %170 = icmp ugt i32 %169, %164
-  %.pre392 = load ptr, ptr %136, align 8
+  %.pre377 = load ptr, ptr %136, align 8
   br i1 %170, label %.noexc.i109, label %261
 
 .noexc.i109:                                      ; preds = %165
-  %171 = ptrtoint ptr %.pre392 to i64
+  %171 = ptrtoint ptr %.pre377 to i64
   %172 = and i64 %171, 281474976710655
   %173 = inttoptr i64 %172 to ptr
   %174 = zext i32 %164 to i64
@@ -27445,10 +27445,10 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 .noexc.i.i119:                                    ; preds = %.noexc.i.i119.lr.ph, %247
   %185 = phi ptr [ %149, %.noexc.i.i119.lr.ph ], [ %254, %247 ]
-  %.037379 = phi i64 [ 0, %.noexc.i.i119.lr.ph ], [ %251, %247 ]
-  %.sroa.9.0377 = phi i32 [ 0, %.noexc.i.i119.lr.ph ], [ %.sroa.9.1, %247 ]
-  %.sroa.11.0376 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %.noexc.i.i119.lr.ph ], [ %.sroa.11.1, %247 ]
-  %186 = getelementptr inbounds nuw %"struct.glTF2::Animation::Sampler", ptr %185, i64 %.037379
+  %.037364 = phi i64 [ 0, %.noexc.i.i119.lr.ph ], [ %251, %247 ]
+  %.sroa.9.0362 = phi i32 [ 0, %.noexc.i.i119.lr.ph ], [ %.sroa.9.1, %247 ]
+  %.sroa.11.0361 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %.noexc.i.i119.lr.ph ], [ %.sroa.11.1, %247 ]
+  %186 = getelementptr inbounds nuw %"struct.glTF2::Animation::Sampler", ptr %185, i64 %.037364
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %189 = load i32, ptr %188, align 8
@@ -27480,22 +27480,22 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %206 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %207 = load i32, ptr %206, align 8
   switch i32 %207, label %210 [
-    i32 0, label %.sink.split416
+    i32 0, label %.sink.split401
     i32 1, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142
     i32 2, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152
   ]
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142: ; preds = %.noexc.i.i119
-  br label %.sink.split416
+  br label %.sink.split401
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152: ; preds = %.noexc.i.i119
-  br label %.sink.split416
+  br label %.sink.split401
 
-.sink.split416:                                   ; preds = %.noexc.i.i119, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152
-  %.sink418 = phi i32 [ 11, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152 ], [ 4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142 ], [ 6, %.noexc.i.i119 ]
-  %.sink417.in.in = phi i64 [ ptrtoint (ptr @.str.131 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152 ], [ ptrtoint (ptr @.str.130 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142 ], [ ptrtoint (ptr @.str.129 to i64), %.noexc.i.i119 ]
-  %.sink417.in = or i64 %.sink417.in.in, 289637751035265024
-  %.sink417 = inttoptr i64 %.sink417.in to ptr
+.sink.split401:                                   ; preds = %.noexc.i.i119, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152
+  %.sink403 = phi i32 [ 11, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152 ], [ 4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142 ], [ 6, %.noexc.i.i119 ]
+  %.sink402.in.in = phi i64 [ ptrtoint (ptr @.str.131 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit152 ], [ ptrtoint (ptr @.str.130 to i64), %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit142 ], [ ptrtoint (ptr @.str.129 to i64), %.noexc.i.i119 ]
+  %.sink402.in = or i64 %.sink402.in.in, 289637751035265024
+  %.sink402 = inttoptr i64 %.sink402.in to ptr
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 32
   store i32 13, ptr %208, align 8
   %.sroa.6.0..sroa_idx.i.i145 = getelementptr inbounds nuw i8, ptr %204, i64 36
@@ -27503,15 +27503,15 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i.i146 = getelementptr inbounds nuw i8, ptr %204, i64 40
   store ptr %158, ptr %.sroa.65.0..sroa_idx.i.i146, align 8
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 48
-  store i32 %.sink418, ptr %209, align 8
+  store i32 %.sink403, ptr %209, align 8
   %.sroa.6.0..sroa_idx.i147 = getelementptr inbounds nuw i8, ptr %204, i64 52
   store i32 0, ptr %.sroa.6.0..sroa_idx.i147, align 4
   %.sroa.66.0..sroa_idx.i148 = getelementptr inbounds nuw i8, ptr %204, i64 56
-  store ptr %.sink417, ptr %.sroa.66.0..sroa_idx.i148, align 8
+  store ptr %.sink402, ptr %.sroa.66.0..sroa_idx.i148, align 8
   br label %210
 
-210:                                              ; preds = %.sink.split416, %.noexc.i.i119
-  %.sroa.0183.1 = phi i32 [ 1, %.noexc.i.i119 ], [ 2, %.sink.split416 ]
+210:                                              ; preds = %.sink.split401, %.noexc.i.i119
+  %.sroa.0183.0 = phi i32 [ 1, %.noexc.i.i119 ], [ 2, %.sink.split401 ]
   %211 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %186, i64 24
@@ -27525,7 +27525,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %221 = icmp sgt i32 %220, -1
   %.sroa.5.14.insert.ext.i.i155 = select i1 %221, i64 141300438308749312, i64 51228445761339392
   %222 = sext i32 %220 to i64
-  %223 = zext nneg i32 %.sroa.0183.1 to i64
+  %223 = zext nneg i32 %.sroa.0183.0 to i64
   %224 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %204, i64 %223
   store i32 6, ptr %224, align 8
   %.sroa.6.0..sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %224, i64 4
@@ -27536,23 +27536,23 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i64 %222, ptr %225, align 8
   %.sroa.5.0..sroa_idx.i.i158 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i155, ptr %.sroa.5.0..sroa_idx.i.i158, align 8
-  %226 = add nuw nsw i32 %.sroa.0183.1, 1
+  %226 = add nuw nsw i32 %.sroa.0183.0, 1
   %227 = load ptr, ptr %13, align 8
-  %228 = zext i32 %.sroa.9.0377 to i64
-  %.not.i163 = icmp samesign ult i64 %.037379, %228
+  %228 = zext i32 %.sroa.9.0362 to i64
+  %.not.i163 = icmp samesign ult i64 %.037364, %228
   br i1 %.not.i163, label %247, label %229
 
 229:                                              ; preds = %210
-  %230 = icmp eq i32 %.sroa.9.0377, 0
-  %231 = add nuw i32 %.sroa.9.0377, 1
+  %230 = icmp eq i32 %.sroa.9.0362, 0
+  %231 = add nuw i32 %.sroa.9.0362, 1
   %232 = lshr i32 %231, 1
-  %233 = add i32 %232, %.sroa.9.0377
+  %233 = add i32 %232, %.sroa.9.0362
   %234 = select i1 %230, i32 16, i32 %233
-  %235 = icmp ugt i32 %234, %.sroa.9.0377
+  %235 = icmp ugt i32 %234, %.sroa.9.0362
   br i1 %235, label %.noexc165, label %247
 
 .noexc165:                                        ; preds = %229
-  %236 = ptrtoint ptr %.sroa.11.0376 to i64
+  %236 = ptrtoint ptr %.sroa.11.0361 to i64
   %237 = and i64 %236, 281474976710655
   %238 = inttoptr i64 %237 to ptr
   %239 = shl nuw nsw i64 %228, 4
@@ -27566,13 +27566,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %247
 
 247:                                              ; preds = %.noexc165, %229, %210
-  %.sroa.11.1 = phi ptr [ %.sroa.11.0376, %210 ], [ %246, %.noexc165 ], [ %.sroa.11.0376, %229 ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0377, %210 ], [ %234, %.noexc165 ], [ %.sroa.9.0377, %229 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0361, %210 ], [ %246, %.noexc165 ], [ %.sroa.11.0361, %229 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0362, %210 ], [ %234, %.noexc165 ], [ %.sroa.9.0362, %229 ]
   %248 = ptrtoint ptr %.sroa.11.1 to i64
   %249 = and i64 %248, 281474976710655
   %250 = inttoptr i64 %249 to ptr
-  %251 = add nuw nsw i64 %.037379, 1
-  %252 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %250, i64 %.037379
+  %251 = add nuw nsw i64 %.037364, 1
+  %252 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %250, i64 %.037364
   store i32 %226, ptr %252, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 4
   store i32 16, ptr %.sroa.26.0..sroa_idx, align 4
@@ -27586,11 +27586,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %258 = sdiv exact i64 %257, 40
   %259 = and i64 %258, 4294967295
   %260 = icmp samesign ult i64 %251, %259
-  br i1 %260, label %.noexc.i.i119, label %._crit_edge380.loopexit, !llvm.loop !288
+  br i1 %260, label %.noexc.i.i119, label %._crit_edge365.loopexit, !llvm.loop !288
 
-261:                                              ; preds = %._crit_edge380._crit_edge, %.noexc.i109, %165
-  %262 = phi ptr [ %184, %.noexc.i109 ], [ %.pre392, %165 ], [ %.pre391, %._crit_edge380._crit_edge ]
-  %263 = phi i32 [ %.pre.i.i.i110, %.noexc.i109 ], [ %162, %165 ], [ %162, %._crit_edge380._crit_edge ]
+261:                                              ; preds = %._crit_edge365._crit_edge, %.noexc.i109, %165
+  %262 = phi ptr [ %184, %.noexc.i109 ], [ %.pre377, %165 ], [ %.pre376, %._crit_edge365._crit_edge ]
+  %263 = phi i32 [ %.pre.i.i.i110, %.noexc.i109 ], [ %162, %165 ], [ %162, %._crit_edge365._crit_edge ]
   %264 = or i64 ptrtoint (ptr @.str.86 to i64), 289637751035265024
   %265 = inttoptr i64 %264 to ptr
   %266 = ptrtoint ptr %262 to i64
@@ -27604,7 +27604,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i108 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store ptr %265, ptr %.sroa.65.0..sroa_idx.i108, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  store i32 %.sroa.0237.0.lcssa, ptr %271, align 8
+  store i32 %.sroa.0234.0.lcssa, ptr %271, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %270, i64 20
   store i32 %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %270, i64 24
@@ -27747,8 +27747,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Buffer
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -27824,8 +27824,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Buffer
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -27919,8 +27919,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Buffer
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -27935,8 +27935,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Buffer
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -27948,7 +27948,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Buffer
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -27997,12 +27997,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_6BufferERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(344) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -28011,7 +28011,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -28021,11 +28021,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -28045,7 +28045,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -28059,7 +28059,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -28700,8 +28700,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_10Buffe
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -28777,8 +28777,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_10Buffe
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -28872,8 +28872,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_10Buffe
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -28888,8 +28888,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_10Buffe
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -28901,7 +28901,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_10Buffe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -28950,12 +28950,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_10BufferViewERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(304) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -28964,7 +28964,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -28974,11 +28974,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -28998,7 +28998,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -29012,7 +29012,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -29522,8 +29522,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   store ptr %44, ptr %.sroa.65.0..sroa_idx.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %52, i8 0, i64 14, i1 false)
-  %.sroa.6100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 30
-  store i16 3, ptr %.sroa.6100.0..sroa_idx, align 2
+  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 30
+  store i16 3, ptr %.sroa.695.0..sroa_idx, align 2
   %53 = load i32, ptr %0, align 8
   %54 = add i32 %53, 1
   store i32 %54, ptr %0, align 8
@@ -29599,8 +29599,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   store ptr %94, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %102, i8 0, i64 14, i1 false)
-  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 30
-  store i16 3, ptr %.sroa.695.0..sroa_idx, align 2
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 30
+  store i16 3, ptr %.sroa.691.0..sroa_idx, align 2
   %103 = load i32, ptr %.040, align 8
   %104 = add i32 %103, 1
   store i32 %104, ptr %.040, align 8
@@ -29694,8 +29694,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   %.035 = phi ptr [ %160, %144 ], [ %111, %108 ]
   %163 = load ptr, ptr %5, align 8
   %164 = load ptr, ptr %3, align 8
-  %.not105 = icmp eq ptr %163, %164
-  br i1 %.not105, label %.loopexit, label %.lr.ph
+  %.not99 = icmp eq ptr %163, %164
+  br i1 %.not99, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -29707,8 +29707,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
 
 170:                                              ; preds = %.lr.ph, %233
   %171 = phi ptr [ %164, %.lr.ph ], [ %236, %233 ]
-  %.0104 = phi i64 [ 0, %.lr.ph ], [ %234, %233 ]
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %.0104
+  %.098 = phi i64 [ 0, %.lr.ph ], [ %234, %233 ]
+  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %.098
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %174, align 8
@@ -29717,7 +29717,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
 
 177:                                              ; preds = %170
   %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.0104
+  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.098
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %182 = load i64, ptr %181, align 8
@@ -29753,9 +29753,9 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   br label %199
 
 199:                                              ; preds = %.noexc.i.i, %177
-  %.sroa.10.2 = phi i32 [ 0, %177 ], [ 16, %.noexc.i.i ]
-  %.sroa.12.2 = phi ptr [ inttoptr (i64 844424930131968 to ptr), %177 ], [ %192, %.noexc.i.i ]
-  %.sroa.076.2 = phi i32 [ 0, %177 ], [ 1, %.noexc.i.i ]
+  %.sroa.10.0 = phi i32 [ 0, %177 ], [ 16, %.noexc.i.i ]
+  %.sroa.12.0 = phi ptr [ inttoptr (i64 844424930131968 to ptr), %177 ], [ %192, %.noexc.i.i ]
+  %.sroa.076.0 = phi i32 [ 0, %177 ], [ 1, %.noexc.i.i ]
   %200 = load ptr, ptr %165, align 8
   %201 = load i32, ptr %.035, align 8
   %202 = load i32, ptr %168, align 4
@@ -29773,11 +29773,11 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   %207 = add i32 %206, %202
   %208 = select i1 %204, i32 16, i32 %207
   %209 = icmp ugt i32 %208, %202
-  %.pre106 = load ptr, ptr %169, align 8
+  %.pre100 = load ptr, ptr %169, align 8
   br i1 %209, label %.noexc73, label %224
 
 .noexc73:                                         ; preds = %203
-  %210 = ptrtoint ptr %.pre106 to i64
+  %210 = ptrtoint ptr %.pre100 to i64
   %211 = and i64 %210, 281474976710655
   %212 = inttoptr i64 %211 to ptr
   %213 = zext i32 %202 to i64
@@ -29797,7 +29797,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   br label %224
 
 224:                                              ; preds = %._crit_edge, %.noexc73, %203
-  %225 = phi ptr [ %223, %.noexc73 ], [ %.pre106, %203 ], [ %.pre, %._crit_edge ]
+  %225 = phi ptr [ %223, %.noexc73 ], [ %.pre100, %203 ], [ %.pre, %._crit_edge ]
   %226 = phi i32 [ %.pre.i, %.noexc73 ], [ %201, %203 ], [ %201, %._crit_edge ]
   %227 = ptrtoint ptr %225 to i64
   %228 = and i64 %227, 281474976710655
@@ -29806,15 +29806,15 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_6Camera
   store i32 %230, ptr %.035, align 8
   %231 = zext i32 %226 to i64
   %232 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %229, i64 %231
-  store i32 %.sroa.076.2, ptr %232, align 8
+  store i32 %.sroa.076.0, ptr %232, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 4
-  store i32 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx, align 4
+  store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 8
-  store ptr %.sroa.12.2, ptr %.sroa.12.0..sroa_idx, align 8
+  store ptr %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8
   br label %233
 
 233:                                              ; preds = %170, %224
-  %234 = add nuw i64 %.0104, 1
+  %234 = add nuw i64 %.098, 1
   %235 = load ptr, ptr %5, align 8
   %236 = load ptr, ptr %3, align 8
   %237 = ptrtoint ptr %235 to i64
@@ -29959,8 +29959,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   store ptr %44, ptr %.sroa.65.0..sroa_idx.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %52, i8 0, i64 14, i1 false)
-  %.sroa.6100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 30
-  store i16 3, ptr %.sroa.6100.0..sroa_idx, align 2
+  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 30
+  store i16 3, ptr %.sroa.695.0..sroa_idx, align 2
   %53 = load i32, ptr %0, align 8
   %54 = add i32 %53, 1
   store i32 %54, ptr %0, align 8
@@ -30036,8 +30036,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   store ptr %94, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %102, i8 0, i64 14, i1 false)
-  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 30
-  store i16 3, ptr %.sroa.695.0..sroa_idx, align 2
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 30
+  store i16 3, ptr %.sroa.691.0..sroa_idx, align 2
   %103 = load i32, ptr %.040, align 8
   %104 = add i32 %103, 1
   store i32 %104, ptr %.040, align 8
@@ -30131,8 +30131,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   %.035 = phi ptr [ %160, %144 ], [ %111, %108 ]
   %163 = load ptr, ptr %5, align 8
   %164 = load ptr, ptr %3, align 8
-  %.not105 = icmp eq ptr %163, %164
-  br i1 %.not105, label %.loopexit, label %.lr.ph
+  %.not99 = icmp eq ptr %163, %164
+  br i1 %.not99, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -30144,8 +30144,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
 
 170:                                              ; preds = %.lr.ph, %233
   %171 = phi ptr [ %164, %.lr.ph ], [ %236, %233 ]
-  %.0104 = phi i64 [ 0, %.lr.ph ], [ %234, %233 ]
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %.0104
+  %.098 = phi i64 [ 0, %.lr.ph ], [ %234, %233 ]
+  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %.098
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %174, align 8
@@ -30154,7 +30154,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
 
 177:                                              ; preds = %170
   %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.0104
+  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.098
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %182 = load i64, ptr %181, align 8
@@ -30190,9 +30190,9 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   br label %199
 
 199:                                              ; preds = %.noexc.i.i, %177
-  %.sroa.10.2 = phi i32 [ 0, %177 ], [ 16, %.noexc.i.i ]
-  %.sroa.12.2 = phi ptr [ inttoptr (i64 844424930131968 to ptr), %177 ], [ %192, %.noexc.i.i ]
-  %.sroa.076.2 = phi i32 [ 0, %177 ], [ 1, %.noexc.i.i ]
+  %.sroa.10.0 = phi i32 [ 0, %177 ], [ 16, %.noexc.i.i ]
+  %.sroa.12.0 = phi ptr [ inttoptr (i64 844424930131968 to ptr), %177 ], [ %192, %.noexc.i.i ]
+  %.sroa.076.0 = phi i32 [ 0, %177 ], [ 1, %.noexc.i.i ]
   %200 = load ptr, ptr %165, align 8
   %201 = load i32, ptr %.035, align 8
   %202 = load i32, ptr %168, align 4
@@ -30210,11 +30210,11 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   %207 = add i32 %206, %202
   %208 = select i1 %204, i32 16, i32 %207
   %209 = icmp ugt i32 %208, %202
-  %.pre106 = load ptr, ptr %169, align 8
+  %.pre100 = load ptr, ptr %169, align 8
   br i1 %209, label %.noexc73, label %224
 
 .noexc73:                                         ; preds = %203
-  %210 = ptrtoint ptr %.pre106 to i64
+  %210 = ptrtoint ptr %.pre100 to i64
   %211 = and i64 %210, 281474976710655
   %212 = inttoptr i64 %211 to ptr
   %213 = zext i32 %202 to i64
@@ -30234,7 +30234,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   br label %224
 
 224:                                              ; preds = %._crit_edge, %.noexc73, %203
-  %225 = phi ptr [ %223, %.noexc73 ], [ %.pre106, %203 ], [ %.pre, %._crit_edge ]
+  %225 = phi ptr [ %223, %.noexc73 ], [ %.pre100, %203 ], [ %.pre, %._crit_edge ]
   %226 = phi i32 [ %.pre.i, %.noexc73 ], [ %201, %203 ], [ %201, %._crit_edge ]
   %227 = ptrtoint ptr %225 to i64
   %228 = and i64 %227, 281474976710655
@@ -30243,15 +30243,15 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5LightE
   store i32 %230, ptr %.035, align 8
   %231 = zext i32 %226 to i64
   %232 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %229, i64 %231
-  store i32 %.sroa.076.2, ptr %232, align 8
+  store i32 %.sroa.076.0, ptr %232, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 4
-  store i32 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx, align 4
+  store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 8
-  store ptr %.sroa.12.2, ptr %.sroa.12.0..sroa_idx, align 8
+  store ptr %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8
   br label %233
 
 233:                                              ; preds = %170, %224
-  %234 = add nuw i64 %.0104, 1
+  %234 = add nuw i64 %.098, 1
   %235 = load ptr, ptr %5, align 8
   %236 = load ptr, ptr %3, align 8
   %237 = ptrtoint ptr %235 to i64
@@ -30397,8 +30397,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5ImageE
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -30474,8 +30474,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5ImageE
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -30569,8 +30569,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5ImageE
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -30585,8 +30585,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5ImageE
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -30598,7 +30598,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5ImageE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -30647,12 +30647,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5ImageERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(368) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -30661,7 +30661,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -30671,11 +30671,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -30695,7 +30695,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -30709,7 +30709,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -31578,8 +31578,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Materi
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -31655,8 +31655,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Materi
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -31750,8 +31750,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Materi
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -31766,8 +31766,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Materi
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -31779,7 +31779,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_8Materi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -31828,12 +31828,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_8MaterialERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(1369) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -31842,7 +31842,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -31852,11 +31852,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -31876,7 +31876,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -31890,7 +31890,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -32140,22 +32140,22 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %149 = load ptr, ptr %16, align 8
   tail call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull byval(%"struct.glTF2::TextureInfo") align 8 %148, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(24) %149)
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %.sroa.0714.0.copyload = load ptr, ptr %150, align 8
-  %.sroa.4716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 460
-  %.sroa.4716.0.copyload = load i32, ptr %.sroa.4716.0..sroa_idx, align 4
-  %.sroa.6718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %.sroa.6718.0.copyload = load float, ptr %.sroa.6718.0..sroa_idx, align 8
+  %.sroa.0710.0.copyload = load ptr, ptr %150, align 8
+  %.sroa.4712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 460
+  %.sroa.4712.0.copyload = load i32, ptr %.sroa.4712.0..sroa_idx, align 4
+  %.sroa.6714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 488
+  %.sroa.6714.0.copyload = load float, ptr %.sroa.6714.0..sroa_idx, align 8
   %151 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %.sroa.0714.0.copyload, null
+  %.not.i.i = icmp eq ptr %.sroa.0710.0.copyload, null
   br i1 %.not.i.i, label %246, label %_ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit.i
 
 _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit.i: ; preds = %145
-  %.sroa.2715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %.sroa.2715.0.copyload = load i32, ptr %.sroa.2715.0..sroa_idx, align 8
-  %152 = zext i32 %.sroa.2715.0.copyload to i64
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0714.0.copyload, i64 8
+  %.sroa.2711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %.sroa.2711.0.copyload = load i32, ptr %.sroa.2711.0..sroa_idx, align 8
+  %152 = zext i32 %.sroa.2711.0.copyload to i64
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0710.0.copyload, i64 8
   %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %.sroa.0714.0.copyload, align 8
+  %155 = load ptr, ptr %.sroa.0710.0.copyload, align 8
   %156 = ptrtoint ptr %154 to i64
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
@@ -32223,15 +32223,15 @@ _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit.i: ; preds = %145
   store i64 %188, ptr %191, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %190, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %.not.i6.i = icmp eq i32 %.sroa.4716.0.copyload, 0
+  %.not.i6.i = icmp eq i32 %.sroa.4712.0.copyload, 0
   br i1 %.not.i6.i, label %197, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i.i: ; preds = %.noexc.i180
   %192 = or i64 ptrtoint (ptr @.str.197 to i64), 289637751035265024
   %193 = inttoptr i64 %192 to ptr
-  %.not.i.i.i.i.i = icmp sgt i32 %.sroa.4716.0.copyload, -1
+  %.not.i.i.i.i.i = icmp sgt i32 %.sroa.4712.0.copyload, -1
   %.sroa.5.14.insert.ext.i.i7.i.i = select i1 %.not.i.i.i.i.i, i64 141300438308749312, i64 132293239054008320
-  %194 = zext i32 %.sroa.4716.0.copyload to i64
+  %194 = zext i32 %.sroa.4712.0.copyload to i64
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
   store i32 8, ptr %195, align 8
   %.sroa.6.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %190, i64 36
@@ -32246,13 +32246,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 197:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i.i, %.noexc.i180
   %.sroa.03.0.i = phi i32 [ 1, %.noexc.i180 ], [ 2, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i.i ]
-  %198 = fcmp une float %.sroa.6718.0.copyload, 1.000000e+00
+  %198 = fcmp une float %.sroa.6714.0.copyload, 1.000000e+00
   br i1 %198, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i, label %206
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i: ; preds = %197
   %199 = or i64 ptrtoint (ptr @.str.26 to i64), 289637751035265024
   %200 = inttoptr i64 %199 to ptr
-  %201 = fpext float %.sroa.6718.0.copyload to double
+  %201 = fpext float %.sroa.6714.0.copyload to double
   %202 = zext nneg i32 %.sroa.03.0.i to i64
   %203 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %190, i64 %202
   store i32 8, ptr %203, align 8
@@ -32800,11 +32800,11 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcE
   store ptr %493, ptr %.sroa.12.0..sroa_idx.i480, align 8
   %504 = add i32 %470, 1
   store i32 %504, ptr %6, align 8
-  %.pre729.pre = load ptr, ptr %16, align 8
+  %.pre725.pre = load ptr, ptr %16, align 8
   br label %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit235
 
 _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit235: ; preds = %443, %.noexc234
-  %.pre729 = phi ptr [ %.pre729.pre, %.noexc234 ], [ %439, %443 ]
+  %.pre725 = phi ptr [ %.pre725.pre, %.noexc234 ], [ %439, %443 ]
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 628
   %506 = load float, ptr %505, align 4
   %507 = fcmp une float %506, 1.000000e+00
@@ -32836,7 +32836,7 @@ _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEE
   %524 = zext i32 %516 to i64
   %525 = shl nuw nsw i64 %523, 5
   %526 = shl nuw nsw i64 %524, 5
-  %527 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre729, ptr noundef %522, i64 noundef %525, i64 noundef %526)
+  %527 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre725, ptr noundef %522, i64 noundef %525, i64 noundef %526)
   %528 = and i64 %520, -281474976710656
   %529 = ptrtoint ptr %527 to i64
   %530 = or i64 %528, %529
@@ -32867,11 +32867,11 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i240, align 8
   %543 = add i32 %509, 1
   store i32 %543, ptr %6, align 8
-  %.pre728 = load ptr, ptr %16, align 8
+  %.pre724 = load ptr, ptr %16, align 8
   br label %544
 
 544:                                              ; preds = %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit244, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit235
-  %545 = phi ptr [ %.pre728, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit244 ], [ %.pre729, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit235 ]
+  %545 = phi ptr [ %.pre724, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit244 ], [ %.pre725, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit235 ]
   %546 = getelementptr inbounds nuw i8, ptr %1, i64 632
   call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull byval(%"struct.glTF2::TextureInfo") align 8 %546, ptr noundef nonnull @.str.161, ptr noundef nonnull align 8 dereferenceable(24) %545)
   %547 = getelementptr inbounds nuw i8, ptr %1, i64 680
@@ -32903,14 +32903,14 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 561:                                              ; preds = %.noexc.i249, %544
   %.sroa.67.1 = phi ptr [ inttoptr (i64 844424930131968 to ptr), %544 ], [ %555, %.noexc.i249 ]
   %.sroa.47.1 = phi i32 [ 0, %544 ], [ 16, %.noexc.i249 ]
-  %.sroa.0598.1 = phi i32 [ 0, %544 ], [ 1, %.noexc.i249 ]
+  %.sroa.0597.1 = phi i32 [ 0, %544 ], [ 1, %.noexc.i249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %562
 
 562:                                              ; preds = %561, %430
   %.sroa.67.0 = phi ptr [ %.sroa.67.1, %561 ], [ inttoptr (i64 844424930131968 to ptr), %430 ]
   %.sroa.47.0 = phi i32 [ %.sroa.47.1, %561 ], [ 0, %430 ]
-  %.sroa.0598.0 = phi i32 [ %.sroa.0598.1, %561 ], [ 0, %430 ]
+  %.sroa.0597.0 = phi i32 [ %.sroa.0597.1, %561 ], [ 0, %430 ]
   %563 = getelementptr inbounds nuw i8, ptr %1, i64 1368
   %564 = load i8, ptr %563, align 8, !range !10, !noundef !11
   %565 = trunc nuw i8 %564 to i1
@@ -32918,7 +32918,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 
 566:                                              ; preds = %562
   %567 = load ptr, ptr %16, align 8
-  %.not.i.i.i253 = icmp samesign ult i32 %.sroa.0598.0, %.sroa.47.0
+  %.not.i.i.i253 = icmp samesign ult i32 %.sroa.0597.0, %.sroa.47.0
   br i1 %.not.i.i.i253, label %586, label %568
 
 568:                                              ; preds = %566
@@ -32953,7 +32953,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   %589 = ptrtoint ptr %.sroa.67.20 to i64
   %590 = and i64 %589, 281474976710655
   %591 = inttoptr i64 %590 to ptr
-  %592 = zext nneg i32 %.sroa.0598.0 to i64
+  %592 = zext nneg i32 %.sroa.0597.0 to i64
   %593 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %591, i64 %592
   store i32 19, ptr %593, align 8
   %.sroa.6.0..sroa_idx.i255 = getelementptr inbounds nuw i8, ptr %593, i64 4
@@ -32964,13 +32964,13 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %594, i8 0, i64 14, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %593, i64 30
   store i16 3, ptr %.sroa.6.0..sroa_idx, align 2
-  %595 = add nuw nsw i32 %.sroa.0598.0, 1
+  %595 = add nuw nsw i32 %.sroa.0597.0, 1
   br label %596
 
 596:                                              ; preds = %586, %562
   %.sroa.67.2 = phi ptr [ %.sroa.67.20, %586 ], [ %.sroa.67.0, %562 ]
   %.sroa.47.2 = phi i32 [ %.sroa.47.20, %586 ], [ %.sroa.47.0, %562 ]
-  %.sroa.0598.2 = phi i32 [ %595, %586 ], [ %.sroa.0598.0, %562 ]
+  %.sroa.0597.2 = phi i32 [ %595, %586 ], [ %.sroa.0597.0, %562 ]
   %597 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %598 = load i8, ptr %597, align 8, !range !10, !noundef !11
   %599 = trunc nuw i8 %598 to i1
@@ -33161,7 +33161,7 @@ _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEE
 
 701:                                              ; preds = %694
   %702 = load ptr, ptr %16, align 8
-  %.not.i.i.i287 = icmp samesign ult i32 %.sroa.0598.2, %.sroa.47.2
+  %.not.i.i.i287 = icmp samesign ult i32 %.sroa.0597.2, %.sroa.47.2
   br i1 %.not.i.i.i287, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294, label %703
 
 703:                                              ; preds = %701
@@ -33196,7 +33196,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %723 = ptrtoint ptr %.sroa.67.21 to i64
   %724 = and i64 %723, 281474976710655
   %725 = inttoptr i64 %724 to ptr
-  %726 = zext nneg i32 %.sroa.0598.2 to i64
+  %726 = zext nneg i32 %.sroa.0597.2 to i64
   %727 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %725, i64 %726
   store i32 22, ptr %727, align 8
   %.sroa.6.0..sroa_idx.i289 = getelementptr inbounds nuw i8, ptr %727, i64 4
@@ -33205,20 +33205,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %722, ptr %.sroa.65.0..sroa_idx.i290, align 8
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %728, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %729 = add nuw nsw i32 %.sroa.0598.2, 1
+  %729 = add nuw nsw i32 %.sroa.0597.2, 1
   br label %730
 
 730:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294, %694
   %.sroa.67.4 = phi ptr [ %.sroa.67.2, %694 ], [ %.sroa.67.21, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294 ]
   %.sroa.47.4 = phi i32 [ %.sroa.47.2, %694 ], [ %.sroa.47.21, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294 ]
-  %.sroa.0598.4 = phi i32 [ %.sroa.0598.2, %694 ], [ %729, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294 ]
+  %.sroa.0597.4 = phi i32 [ %.sroa.0597.2, %694 ], [ %729, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %731
 
 731:                                              ; preds = %730, %596
   %.sroa.67.3 = phi ptr [ %.sroa.67.4, %730 ], [ %.sroa.67.2, %596 ]
   %.sroa.47.3 = phi i32 [ %.sroa.47.4, %730 ], [ %.sroa.47.2, %596 ]
-  %.sroa.0598.3 = phi i32 [ %.sroa.0598.4, %730 ], [ %.sroa.0598.2, %596 ]
+  %.sroa.0597.3 = phi i32 [ %.sroa.0597.4, %730 ], [ %.sroa.0597.2, %596 ]
   %732 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %733 = load i8, ptr %732, align 8, !range !10, !noundef !11
   %734 = trunc nuw i8 %733 to i1
@@ -33335,7 +33335,7 @@ _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEE
   %.sroa.12.0..sroa_idx.i507 = getelementptr inbounds nuw i8, ptr %784, i64 24
   store ptr %780, ptr %.sroa.12.0..sroa_idx.i507, align 8
   store i32 1, ptr %8, align 8
-  %.pre732.pre = load ptr, ptr %16, align 8
+  %.pre728.pre = load ptr, ptr %16, align 8
   %786 = getelementptr inbounds nuw i8, ptr %1, i64 868
   %787 = load float, ptr %786, align 4
   %788 = fcmp une float %787, 0.000000e+00
@@ -33387,11 +33387,11 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i308, align 8
   %816 = add nuw nsw i32 %803, 1
   store i32 %816, ptr %8, align 8
-  %.pre731 = load ptr, ptr %16, align 8
+  %.pre727 = load ptr, ptr %16, align 8
   br label %817
 
 817:                                              ; preds = %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303.thread, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit312, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303
-  %818 = phi ptr [ %.pre731, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit312 ], [ %.pre732.pre, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303 ], [ %738, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303.thread ]
+  %818 = phi ptr [ %.pre727, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit312 ], [ %.pre728.pre, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303 ], [ %738, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit303.thread ]
   %819 = getelementptr inbounds nuw i8, ptr %1, i64 872
   call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull byval(%"struct.glTF2::TextureInfo") align 8 %819, ptr noundef nonnull @.str.171, ptr noundef nonnull align 8 dereferenceable(24) %818)
   %820 = getelementptr inbounds nuw i8, ptr %1, i64 920
@@ -33403,7 +33403,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 
 824:                                              ; preds = %817
   %825 = load ptr, ptr %16, align 8
-  %.not.i.i.i313 = icmp ult i32 %.sroa.0598.3, %.sroa.47.3
+  %.not.i.i.i313 = icmp ult i32 %.sroa.0597.3, %.sroa.47.3
   br i1 %.not.i.i.i313, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320, label %826
 
 826:                                              ; preds = %824
@@ -33438,7 +33438,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %846 = ptrtoint ptr %.sroa.67.22 to i64
   %847 = and i64 %846, 281474976710655
   %848 = inttoptr i64 %847 to ptr
-  %849 = zext i32 %.sroa.0598.3 to i64
+  %849 = zext i32 %.sroa.0597.3 to i64
   %850 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %848, i64 %849
   store i32 19, ptr %850, align 8
   %.sroa.6.0..sroa_idx.i315 = getelementptr inbounds nuw i8, ptr %850, i64 4
@@ -33447,20 +33447,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %845, ptr %.sroa.65.0..sroa_idx.i316, align 8
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %851, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %852 = add i32 %.sroa.0598.3, 1
+  %852 = add i32 %.sroa.0597.3, 1
   br label %853
 
 853:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320, %817
   %.sroa.67.6 = phi ptr [ %.sroa.67.3, %817 ], [ %.sroa.67.22, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320 ]
   %.sroa.47.6 = phi i32 [ %.sroa.47.3, %817 ], [ %.sroa.47.22, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320 ]
-  %.sroa.0598.6 = phi i32 [ %.sroa.0598.3, %817 ], [ %852, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320 ]
+  %.sroa.0597.6 = phi i32 [ %.sroa.0597.3, %817 ], [ %852, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %854
 
 854:                                              ; preds = %853, %731
   %.sroa.67.5 = phi ptr [ %.sroa.67.6, %853 ], [ %.sroa.67.3, %731 ]
   %.sroa.47.5 = phi i32 [ %.sroa.47.6, %853 ], [ %.sroa.47.3, %731 ]
-  %.sroa.0598.5 = phi i32 [ %.sroa.0598.6, %853 ], [ %.sroa.0598.3, %731 ]
+  %.sroa.0597.5 = phi i32 [ %.sroa.0597.6, %853 ], [ %.sroa.0597.3, %731 ]
   %855 = getelementptr inbounds nuw i8, ptr %1, i64 1136
   %856 = load i8, ptr %855, align 8, !range !10, !noundef !11
   %857 = trunc nuw i8 %856 to i1
@@ -33474,7 +33474,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i16 3, ptr %860, align 2
   %861 = load float, ptr %859, align 8
   %862 = fcmp oeq float %861, 0.000000e+00
-  br i1 %862, label %.thread824, label %863
+  br i1 %862, label %.thread820, label %863
 
 863:                                              ; preds = %858
   %864 = load ptr, ptr %16, align 8
@@ -33511,13 +33511,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %884 = fcmp une float %883, 0.000000e+00
   br i1 %884, label %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit338, label %914
 
-.thread824:                                       ; preds = %858
+.thread820:                                       ; preds = %858
   %885 = getelementptr inbounds nuw i8, ptr %1, i64 980
   %886 = load float, ptr %885, align 4
   %887 = fcmp une float %886, 0.000000e+00
   br i1 %887, label %.noexc.i.i335, label %914
 
-.noexc.i.i335:                                    ; preds = %.thread824
+.noexc.i.i335:                                    ; preds = %.thread820
   %888 = load ptr, ptr %16, align 8
   %889 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %890 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -33560,7 +33560,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   store i32 %913, ptr %9, align 8
   br label %914
 
-914:                                              ; preds = %.thread824, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit338, %863
+914:                                              ; preds = %.thread820, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit338, %863
   %915 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %916 = load ptr, ptr %16, align 8
   call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull byval(%"struct.glTF2::TextureInfo") align 8 %915, ptr noundef nonnull @.str.176, ptr noundef nonnull align 8 dereferenceable(24) %916)
@@ -33576,7 +33576,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 
 923:                                              ; preds = %914
   %924 = load ptr, ptr %16, align 8
-  %.not.i.i.i339 = icmp ult i32 %.sroa.0598.5, %.sroa.47.5
+  %.not.i.i.i339 = icmp ult i32 %.sroa.0597.5, %.sroa.47.5
   br i1 %.not.i.i.i339, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346, label %925
 
 925:                                              ; preds = %923
@@ -33611,7 +33611,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %945 = ptrtoint ptr %.sroa.67.23 to i64
   %946 = and i64 %945, 281474976710655
   %947 = inttoptr i64 %946 to ptr
-  %948 = zext i32 %.sroa.0598.5 to i64
+  %948 = zext i32 %.sroa.0597.5 to i64
   %949 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %947, i64 %948
   store i32 23, ptr %949, align 8
   %.sroa.6.0..sroa_idx.i341 = getelementptr inbounds nuw i8, ptr %949, i64 4
@@ -33620,20 +33620,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %944, ptr %.sroa.65.0..sroa_idx.i342, align 8
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %950, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %951 = add i32 %.sroa.0598.5, 1
+  %951 = add i32 %.sroa.0597.5, 1
   br label %952
 
 952:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346, %914
   %.sroa.67.8 = phi ptr [ %.sroa.67.5, %914 ], [ %.sroa.67.23, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346 ]
   %.sroa.47.8 = phi i32 [ %.sroa.47.5, %914 ], [ %.sroa.47.23, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346 ]
-  %.sroa.0598.8 = phi i32 [ %.sroa.0598.5, %914 ], [ %951, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346 ]
+  %.sroa.0597.8 = phi i32 [ %.sroa.0597.5, %914 ], [ %951, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %953
 
 953:                                              ; preds = %952, %854
   %.sroa.67.7 = phi ptr [ %.sroa.67.8, %952 ], [ %.sroa.67.5, %854 ]
   %.sroa.47.7 = phi i32 [ %.sroa.47.8, %952 ], [ %.sroa.47.5, %854 ]
-  %.sroa.0598.7 = phi i32 [ %.sroa.0598.8, %952 ], [ %.sroa.0598.5, %854 ]
+  %.sroa.0597.7 = phi i32 [ %.sroa.0597.8, %952 ], [ %.sroa.0597.5, %854 ]
   %954 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %955 = getelementptr inbounds nuw i8, ptr %1, i64 1200
   %956 = load i8, ptr %955, align 8, !range !10, !noundef !11
@@ -33691,7 +33691,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 
 985:                                              ; preds = %981
   %986 = load ptr, ptr %16, align 8
-  %.not.i.i.i356 = icmp ult i32 %.sroa.0598.7, %.sroa.47.7
+  %.not.i.i.i356 = icmp ult i32 %.sroa.0597.7, %.sroa.47.7
   br i1 %.not.i.i.i356, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363, label %987
 
 987:                                              ; preds = %985
@@ -33726,7 +33726,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1007 = ptrtoint ptr %.sroa.67.24 to i64
   %1008 = and i64 %1007, 281474976710655
   %1009 = inttoptr i64 %1008 to ptr
-  %1010 = zext i32 %.sroa.0598.7 to i64
+  %1010 = zext i32 %.sroa.0597.7 to i64
   %1011 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %1009, i64 %1010
   store i32 26, ptr %1011, align 8
   %.sroa.6.0..sroa_idx.i358 = getelementptr inbounds nuw i8, ptr %1011, i64 4
@@ -33735,20 +33735,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %1006, ptr %.sroa.65.0..sroa_idx.i359, align 8
   %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1012, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  %1013 = add i32 %.sroa.0598.7, 1
+  %1013 = add i32 %.sroa.0597.7, 1
   br label %1014
 
 1014:                                             ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363, %981
   %.sroa.67.10 = phi ptr [ %.sroa.67.7, %981 ], [ %.sroa.67.24, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363 ]
   %.sroa.47.10 = phi i32 [ %.sroa.47.7, %981 ], [ %.sroa.47.24, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363 ]
-  %.sroa.0598.10 = phi i32 [ %.sroa.0598.7, %981 ], [ %1013, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363 ]
+  %.sroa.0597.10 = phi i32 [ %.sroa.0597.7, %981 ], [ %1013, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit363 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1015
 
 1015:                                             ; preds = %1014, %953
   %.sroa.67.9 = phi ptr [ %.sroa.67.10, %1014 ], [ %.sroa.67.7, %953 ]
   %.sroa.47.9 = phi i32 [ %.sroa.47.10, %1014 ], [ %.sroa.47.7, %953 ]
-  %.sroa.0598.9 = phi i32 [ %.sroa.0598.10, %1014 ], [ %.sroa.0598.7, %953 ]
+  %.sroa.0597.9 = phi i32 [ %.sroa.0597.10, %1014 ], [ %.sroa.0597.7, %953 ]
   %1016 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %1017 = load i8, ptr %1016, align 8, !range !10, !noundef !11
   %1018 = trunc nuw i8 %1017 to i1
@@ -34003,17 +34003,17 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcE
   br label %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390
 
 _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390thread-pre-split: ; preds = %1091
-  %.pr720 = load i32, ptr %11, align 8
+  %.pr716 = load i32, ptr %11, align 8
   br label %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390
 
 _ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390: ; preds = %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390thread-pre-split, %.noexc389
-  %1153 = phi i32 [ %.pr720, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390thread-pre-split ], [ %1152, %.noexc389 ]
+  %1153 = phi i32 [ %.pr716, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390thread-pre-split ], [ %1152, %.noexc389 ]
   %1154 = icmp eq i32 %1153, 0
   br i1 %1154, label %1184, label %1155
 
 1155:                                             ; preds = %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390
   %1156 = load ptr, ptr %16, align 8
-  %.not.i.i.i391 = icmp ult i32 %.sroa.0598.9, %.sroa.47.9
+  %.not.i.i.i391 = icmp ult i32 %.sroa.0597.9, %.sroa.47.9
   br i1 %.not.i.i.i391, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398, label %1157
 
 1157:                                             ; preds = %1155
@@ -34048,7 +34048,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1177 = ptrtoint ptr %.sroa.67.25 to i64
   %1178 = and i64 %1177, 281474976710655
   %1179 = inttoptr i64 %1178 to ptr
-  %1180 = zext i32 %.sroa.0598.9 to i64
+  %1180 = zext i32 %.sroa.0597.9 to i64
   %1181 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %1179, i64 %1180
   store i32 20, ptr %1181, align 8
   %.sroa.6.0..sroa_idx.i393 = getelementptr inbounds nuw i8, ptr %1181, i64 4
@@ -34057,20 +34057,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %1176, ptr %.sroa.65.0..sroa_idx.i394, align 8
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1182, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %1183 = add i32 %.sroa.0598.9, 1
+  %1183 = add i32 %.sroa.0597.9, 1
   br label %1184
 
 1184:                                             ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390
   %.sroa.67.12 = phi ptr [ %.sroa.67.9, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390 ], [ %.sroa.67.25, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398 ]
   %.sroa.47.12 = phi i32 [ %.sroa.47.9, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390 ], [ %.sroa.47.25, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398 ]
-  %.sroa.0598.12 = phi i32 [ %.sroa.0598.9, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390 ], [ %1183, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398 ]
+  %.sroa.0597.12 = phi i32 [ %.sroa.0597.9, %_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRAT__KfRS8_.exit390 ], [ %1183, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1185
 
 1185:                                             ; preds = %1184, %1015
   %.sroa.67.11 = phi ptr [ %.sroa.67.12, %1184 ], [ %.sroa.67.9, %1015 ]
   %.sroa.47.11 = phi i32 [ %.sroa.47.12, %1184 ], [ %.sroa.47.9, %1015 ]
-  %.sroa.0598.11 = phi i32 [ %.sroa.0598.12, %1184 ], [ %.sroa.0598.9, %1015 ]
+  %.sroa.0597.11 = phi i32 [ %.sroa.0597.12, %1184 ], [ %.sroa.0597.9, %1015 ]
   %1186 = getelementptr inbounds nuw i8, ptr %1, i64 1292
   %1187 = load i8, ptr %1186, align 4, !range !10, !noundef !11
   %1188 = trunc nuw i8 %1187 to i1
@@ -34103,7 +34103,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.6.0..sroa_idx.i403 = getelementptr inbounds nuw i8, ptr %1202, i64 24
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i403, align 8
   %1204 = load ptr, ptr %16, align 8
-  %.not.i.i.i408 = icmp ult i32 %.sroa.0598.11, %.sroa.47.11
+  %.not.i.i.i408 = icmp ult i32 %.sroa.0597.11, %.sroa.47.11
   br i1 %.not.i.i.i408, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415, label %1205
 
 1205:                                             ; preds = %.noexc.i.i404
@@ -34138,7 +34138,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1225 = ptrtoint ptr %.sroa.67.26 to i64
   %1226 = and i64 %1225, 281474976710655
   %1227 = inttoptr i64 %1226 to ptr
-  %1228 = zext i32 %.sroa.0598.11 to i64
+  %1228 = zext i32 %.sroa.0597.11 to i64
   %1229 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %1227, i64 %1228
   store i32 17, ptr %1229, align 8
   %.sroa.6.0..sroa_idx.i410 = getelementptr inbounds nuw i8, ptr %1229, i64 4
@@ -34151,23 +34151,23 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i32 16, ptr %.sroa.10570.0..sroa_idx, align 4
   %.sroa.12571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1229, i64 24
   store ptr %1197, ptr %.sroa.12571.0..sroa_idx, align 8
-  %1231 = add i32 %.sroa.0598.11, 1
+  %1231 = add i32 %.sroa.0597.11, 1
   br label %.thread
 
 .thread:                                          ; preds = %1189, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415, %1185
   %.sroa.67.13 = phi ptr [ %.sroa.67.11, %1185 ], [ %.sroa.67.26, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415 ], [ %.sroa.67.11, %1189 ]
   %.sroa.47.13 = phi i32 [ %.sroa.47.11, %1185 ], [ %.sroa.47.26, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415 ], [ %.sroa.47.11, %1189 ]
-  %.sroa.0598.13 = phi i32 [ %.sroa.0598.11, %1185 ], [ %1231, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415 ], [ %.sroa.0598.11, %1189 ]
+  %.sroa.0597.13 = phi i32 [ %.sroa.0597.11, %1185 ], [ %1231, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit415 ], [ %.sroa.0597.11, %1189 ]
   %1232 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %1233 = load i8, ptr %1232, align 4, !range !10, !noundef !11
   %1234 = trunc nuw i8 %1233 to i1
-  br i1 %1234, label %1235, label %.thread724
+  br i1 %1234, label %1235, label %.thread720
 
 1235:                                             ; preds = %.thread
   %1236 = getelementptr inbounds nuw i8, ptr %1, i64 1296
   %1237 = load float, ptr %1236, align 8
   %1238 = fcmp une float %1237, 0.000000e+00
-  br i1 %1238, label %.noexc.i.i421, label %.thread724
+  br i1 %1238, label %.noexc.i.i421, label %.thread720
 
 .noexc.i.i421:                                    ; preds = %1235
   %1239 = load ptr, ptr %16, align 8
@@ -34190,7 +34190,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.6.0..sroa_idx.i420 = getelementptr inbounds nuw i8, ptr %1248, i64 24
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i420, align 8
   %1250 = load ptr, ptr %16, align 8
-  %.not.i.i.i425 = icmp ult i32 %.sroa.0598.13, %.sroa.47.13
+  %.not.i.i.i425 = icmp ult i32 %.sroa.0597.13, %.sroa.47.13
   br i1 %.not.i.i.i425, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432, label %1251
 
 1251:                                             ; preds = %.noexc.i.i421
@@ -34225,7 +34225,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1271 = ptrtoint ptr %.sroa.67.27 to i64
   %1272 = and i64 %1271, 281474976710655
   %1273 = inttoptr i64 %1272 to ptr
-  %1274 = zext i32 %.sroa.0598.13 to i64
+  %1274 = zext i32 %.sroa.0597.13 to i64
   %1275 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %1273, i64 %1274
   store i32 31, ptr %1275, align 8
   %.sroa.6.0..sroa_idx.i427 = getelementptr inbounds nuw i8, ptr %1275, i64 4
@@ -34238,19 +34238,19 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i32 16, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1275, i64 24
   store ptr %1243, ptr %.sroa.12.0..sroa_idx, align 8
-  %1277 = add i32 %.sroa.0598.13, 1
-  br label %.thread724
+  %1277 = add i32 %.sroa.0597.13, 1
+  br label %.thread720
 
-.thread724:                                       ; preds = %1235, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432, %.thread
+.thread720:                                       ; preds = %1235, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432, %.thread
   %.sroa.67.15 = phi ptr [ %.sroa.67.13, %.thread ], [ %.sroa.67.27, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432 ], [ %.sroa.67.13, %1235 ]
   %.sroa.47.15 = phi i32 [ %.sroa.47.13, %.thread ], [ %.sroa.47.27, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432 ], [ %.sroa.47.13, %1235 ]
-  %.sroa.0598.15 = phi i32 [ %.sroa.0598.13, %.thread ], [ %1277, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432 ], [ %.sroa.0598.13, %1235 ]
+  %.sroa.0597.15 = phi i32 [ %.sroa.0597.13, %.thread ], [ %1277, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit432 ], [ %.sroa.0597.13, %1235 ]
   %1278 = getelementptr inbounds nuw i8, ptr %1, i64 1360
   %1279 = load i8, ptr %1278, align 8, !range !10, !noundef !11
   %1280 = trunc nuw i8 %1279 to i1
   br i1 %1280, label %1281, label %1370
 
-1281:                                             ; preds = %.thread724
+1281:                                             ; preds = %.thread720
   %1282 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -34258,8 +34258,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i16 3, ptr %1283, align 2
   %1284 = load float, ptr %1282, align 8
   %1285 = fcmp oeq float %1284, 0.000000e+00
-  %.pre738.pre741 = load ptr, ptr %16, align 8
-  br i1 %1285, label %.thread827, label %1286
+  %.pre734.pre737 = load ptr, ptr %16, align 8
+  br i1 %1285, label %.thread823, label %1286
 
 1286:                                             ; preds = %1281
   %1287 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -34268,7 +34268,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1290 = ptrtoint ptr %1289 to i64
   %1291 = and i64 %1290, 281474976710655
   %1292 = inttoptr i64 %1291 to ptr
-  %1293 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre738.pre741, ptr noundef %1292, i64 noundef 0, i64 noundef 512)
+  %1293 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre734.pre737, ptr noundef %1292, i64 noundef 0, i64 noundef 512)
   %1294 = and i64 %1290, -281474976710656
   %1295 = ptrtoint ptr %1293 to i64
   %1296 = or i64 %1294, %1295
@@ -34290,26 +34290,26 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.6.0..sroa_idx.i437 = getelementptr inbounds nuw i8, ptr %1302, i64 24
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i437, align 8
   store i32 1, ptr %12, align 8
-  %.pre738.pre = load ptr, ptr %16, align 8
+  %.pre734.pre = load ptr, ptr %16, align 8
   %1304 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %1305 = load float, ptr %1304, align 4
   %1306 = fcmp une float %1305, 0.000000e+00
   br i1 %1306, label %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit450, label %1335
 
-.thread827:                                       ; preds = %1281
+.thread823:                                       ; preds = %1281
   %1307 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %1308 = load float, ptr %1307, align 4
   %1309 = fcmp une float %1308, 0.000000e+00
   br i1 %1309, label %.noexc.i.i447, label %1335
 
-.noexc.i.i447:                                    ; preds = %.thread827
+.noexc.i.i447:                                    ; preds = %.thread823
   %1310 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %1311 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %1312 = load ptr, ptr %1311, align 8
   %1313 = ptrtoint ptr %1312 to i64
   %1314 = and i64 %1313, 281474976710655
   %1315 = inttoptr i64 %1314 to ptr
-  %1316 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre738.pre741, ptr noundef %1315, i64 noundef 0, i64 noundef 512)
+  %1316 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %.pre734.pre737, ptr noundef %1315, i64 noundef 0, i64 noundef 512)
   %1317 = and i64 %1313, -281474976710656
   %1318 = ptrtoint ptr %1316 to i64
   %1319 = or i64 %1317, %1318
@@ -34342,11 +34342,11 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
   store i64 150307637563490304, ptr %.sroa.6.0..sroa_idx.i446, align 8
   %1334 = add nuw nsw i32 %1321, 1
   store i32 %1334, ptr %12, align 8
-  %.pre737 = load ptr, ptr %16, align 8
+  %.pre733 = load ptr, ptr %16, align 8
   br label %1335
 
-1335:                                             ; preds = %.thread827, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit450, %1286
-  %1336 = phi ptr [ %.pre737, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit450 ], [ %.pre738.pre, %1286 ], [ %.pre738.pre741, %.thread827 ]
+1335:                                             ; preds = %.thread823, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit450, %1286
+  %1336 = phi ptr [ %.pre733, %_ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEfPKcRS7_.exit450 ], [ %.pre734.pre, %1286 ], [ %.pre734.pre737, %.thread823 ]
   %1337 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteTexERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEENS_11TextureInfoEPKcRS7_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull byval(%"struct.glTF2::TextureInfo") align 8 %1337, ptr noundef nonnull @.str.194, ptr noundef nonnull align 8 dereferenceable(24) %1336)
   %1338 = load i32, ptr %12, align 8
@@ -34355,7 +34355,7 @@ _ZN5glTF212_GLOBAL__N_110WriteFloatERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_
 
 1340:                                             ; preds = %1335
   %1341 = load ptr, ptr %16, align 8
-  %.not.i.i.i451 = icmp ult i32 %.sroa.0598.15, %.sroa.47.15
+  %.not.i.i.i451 = icmp ult i32 %.sroa.0597.15, %.sroa.47.15
   br i1 %.not.i.i.i451, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458, label %1342
 
 1342:                                             ; preds = %1340
@@ -34390,7 +34390,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %1362 = ptrtoint ptr %.sroa.67.28 to i64
   %1363 = and i64 %1362, 281474976710655
   %1364 = inttoptr i64 %1363 to ptr
-  %1365 = zext i32 %.sroa.0598.15 to i64
+  %1365 = zext i32 %.sroa.0597.15 to i64
   %1366 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %1364, i64 %1365
   store i32 24, ptr %1366, align 8
   %.sroa.6.0..sroa_idx.i453 = getelementptr inbounds nuw i8, ptr %1366, i64 4
@@ -34399,21 +34399,21 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %1361, ptr %.sroa.65.0..sroa_idx.i454, align 8
   %1367 = getelementptr inbounds nuw i8, ptr %1366, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1367, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  %1368 = add i32 %.sroa.0598.15, 1
+  %1368 = add i32 %.sroa.0597.15, 1
   br label %1369
 
 1369:                                             ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458, %1335
   %.sroa.67.18 = phi ptr [ %.sroa.67.15, %1335 ], [ %.sroa.67.28, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458 ]
   %.sroa.47.18 = phi i32 [ %.sroa.47.15, %1335 ], [ %.sroa.47.28, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458 ]
-  %.sroa.0598.18 = phi i32 [ %.sroa.0598.15, %1335 ], [ %1368, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458 ]
+  %.sroa.0597.18 = phi i32 [ %.sroa.0597.15, %1335 ], [ %1368, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit458 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1370
 
-1370:                                             ; preds = %1369, %.thread724
-  %.sroa.67.17 = phi ptr [ %.sroa.67.18, %1369 ], [ %.sroa.67.15, %.thread724 ]
-  %.sroa.47.17 = phi i32 [ %.sroa.47.18, %1369 ], [ %.sroa.47.15, %.thread724 ]
-  %.sroa.0598.17 = phi i32 [ %.sroa.0598.18, %1369 ], [ %.sroa.0598.15, %.thread724 ]
-  %1371 = icmp eq i32 %.sroa.0598.17, 0
+1370:                                             ; preds = %1369, %.thread720
+  %.sroa.67.17 = phi ptr [ %.sroa.67.18, %1369 ], [ %.sroa.67.15, %.thread720 ]
+  %.sroa.47.17 = phi i32 [ %.sroa.47.18, %1369 ], [ %.sroa.47.15, %.thread720 ]
+  %.sroa.0597.17 = phi i32 [ %.sroa.0597.18, %1369 ], [ %.sroa.0597.15, %.thread720 ]
+  %1371 = icmp eq i32 %.sroa.0597.17, 0
   br i1 %1371, label %1412, label %1372
 
 1372:                                             ; preds = %1370
@@ -34472,7 +34472,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i462 = getelementptr inbounds nuw i8, ptr %1408, i64 8
   store ptr %1401, ptr %.sroa.65.0..sroa_idx.i462, align 8
   %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 16
-  store i32 %.sroa.0598.17, ptr %1409, align 8
+  store i32 %.sroa.0597.17, ptr %1409, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1408, i64 20
   store i32 %.sroa.47.17, ptr %.sroa.47.0..sroa_idx, align 4
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1408, i64 24
@@ -34508,8 +34508,8 @@ _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit: ; preds = %4
   br i1 %16, label %17, label %_ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit.thread
 
 17:                                               ; preds = %_ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.431.0.copyload = load i32, ptr %.sroa.431.0..sroa_idx, align 4
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.428.0.copyload = load i32, ptr %.sroa.428.0..sroa_idx, align 4
   %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -34569,15 +34569,15 @@ _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit: ; preds = %4
   store i64 %44, ptr %47, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %.not.i5 = icmp eq i32 %.sroa.431.0.copyload, 0
+  %.not.i5 = icmp eq i32 %.sroa.428.0.copyload, 0
   br i1 %.not.i5, label %53, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i: ; preds = %.noexc
   %48 = or i64 ptrtoint (ptr @.str.197 to i64), 289637751035265024
   %49 = inttoptr i64 %48 to ptr
-  %.not.i.i.i.i = icmp sgt i32 %.sroa.431.0.copyload, -1
+  %.not.i.i.i.i = icmp sgt i32 %.sroa.428.0.copyload, -1
   %.sroa.5.14.insert.ext.i.i7.i = select i1 %.not.i.i.i.i, i64 141300438308749312, i64 132293239054008320
-  %50 = zext i32 %.sroa.431.0.copyload to i64
+  %50 = zext i32 %.sroa.428.0.copyload to i64
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i32 8, ptr %51, align 8
   %.sroa.6.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %46, i64 36
@@ -34865,8 +34865,8 @@ _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit: ; preds = %4
   br i1 %16, label %17, label %_ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit.thread
 
 17:                                               ; preds = %_ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit
-  %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.448.0.copyload = load i32, ptr %.sroa.448.0..sroa_idx, align 4
+  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.445.0.copyload = load i32, ptr %.sroa.445.0..sroa_idx, align 4
   %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -34926,15 +34926,15 @@ _ZNK10glTFCommon3RefIN5glTF27TextureEEcvbEv.exit: ; preds = %4
   store i64 %44, ptr %47, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %.not.i6 = icmp eq i32 %.sroa.448.0.copyload, 0
+  %.not.i6 = icmp eq i32 %.sroa.445.0.copyload, 0
   br i1 %.not.i6, label %53, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIjEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit.i: ; preds = %.noexc
   %48 = or i64 ptrtoint (ptr @.str.197 to i64), 289637751035265024
   %49 = inttoptr i64 %48 to ptr
-  %.not.i.i.i.i = icmp sgt i32 %.sroa.448.0.copyload, -1
+  %.not.i.i.i.i = icmp sgt i32 %.sroa.445.0.copyload, -1
   %.sroa.5.14.insert.ext.i.i7.i = select i1 %.not.i.i.i.i, i64 141300438308749312, i64 132293239054008320
-  %50 = zext i32 %.sroa.448.0.copyload to i64
+  %50 = zext i32 %.sroa.445.0.copyload to i64
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i32 8, ptr %51, align 8
   %.sroa.6.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %46, i64 36
@@ -35307,8 +35307,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4MeshEE
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -35384,8 +35384,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4MeshEE
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -35479,8 +35479,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4MeshEE
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -35495,8 +35495,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4MeshEE
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -35508,7 +35508,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4MeshEE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -35557,12 +35557,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_4MeshERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(336) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -35571,7 +35571,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -35581,11 +35581,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -35605,7 +35605,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -35619,7 +35619,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -35650,8 +35650,8 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   %16 = sdiv exact i64 %15, 264
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %.not354 = icmp eq i32 %17, 0
-  br i1 %.not354, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit, label %.noexc
+  %.not335 = icmp eq i32 %17, 0
+  br i1 %.not335, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit, label %.noexc
 
 .noexc:                                           ; preds = %3
   %19 = load ptr, ptr %18, align 8
@@ -35662,17 +35662,17 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   %24 = or i64 %23, 1125899906842624
   %25 = inttoptr i64 %24 to ptr
   %.pre = load ptr, ptr %10, align 8
-  %.pre406 = load ptr, ptr %9, align 8
+  %.pre387 = load ptr, ptr %9, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit: ; preds = %3, %.noexc
-  %26 = phi ptr [ %.pre406, %.noexc ], [ %12, %3 ]
+  %26 = phi ptr [ %.pre387, %.noexc ], [ %12, %3 ]
   %27 = phi ptr [ %.pre, %.noexc ], [ %11, %3 ]
-  %.sroa.13339.1 = phi ptr [ %25, %.noexc ], [ inttoptr (i64 1125899906842624 to ptr), %3 ]
-  %.not400 = icmp eq ptr %27, %26
-  br i1 %.not400, label %._crit_edge388, label %.lr.ph387
+  %.sroa.13323.1 = phi ptr [ %25, %.noexc ], [ inttoptr (i64 1125899906842624 to ptr), %3 ]
+  %.not381 = icmp eq ptr %27, %26
+  br i1 %.not381, label %._crit_edge369, label %.lr.ph368
 
-.lr.ph387:                                        ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
+.lr.ph368:                                        ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
   %28 = or i64 ptrtoint (ptr @.str.198 to i64), 289637751035265024
   %29 = inttoptr i64 %28 to ptr
   %30 = or i64 ptrtoint (ptr @.str.91 to i64), 289637751035265024
@@ -35691,14 +35691,14 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %43 = inttoptr i64 %42 to ptr
   br label %70
 
-._crit_edge388.loopexit:                          ; preds = %323
+._crit_edge369.loopexit:                          ; preds = %323
   %indvars = trunc i64 %327 to i32
-  br label %._crit_edge388
+  br label %._crit_edge369
 
-._crit_edge388:                                   ; preds = %._crit_edge388.loopexit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
-  %.sroa.13339.0.lcssa = phi ptr [ %.sroa.13339.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.13339.2, %._crit_edge388.loopexit ]
-  %.sroa.9337.0.lcssa = phi i32 [ %17, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.9337.2, %._crit_edge388.loopexit ]
-  %.sroa.0336.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %indvars, %._crit_edge388.loopexit ]
+._crit_edge369:                                   ; preds = %._crit_edge369.loopexit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
+  %.sroa.13323.0.lcssa = phi ptr [ %.sroa.13323.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.13323.2, %._crit_edge369.loopexit ]
+  %.sroa.9321.0.lcssa = phi i32 [ %17, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.9321.2, %._crit_edge369.loopexit ]
+  %.sroa.0320.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %indvars, %._crit_edge369.loopexit ]
   %44 = load ptr, ptr %18, align 8
   %45 = load i32, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -35706,7 +35706,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.not.i.i.i = icmp ult i32 %45, %47
   br i1 %.not.i.i.i, label %338, label %48
 
-48:                                               ; preds = %._crit_edge388
+48:                                               ; preds = %._crit_edge369
   %.not14.i.i.i = icmp eq i32 %47, 0
   %49 = add i32 %47, 1
   %50 = lshr i32 %49, 1
@@ -35737,13 +35737,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.pre.i.i.i = load i32, ptr %0, align 8
   br label %338
 
-70:                                               ; preds = %.lr.ph387, %323
-  %71 = phi ptr [ %26, %.lr.ph387 ], [ %331, %323 ]
-  %.069386 = phi i64 [ 0, %.lr.ph387 ], [ %327, %323 ]
-  %.sroa.9337.0384 = phi i32 [ %17, %.lr.ph387 ], [ %.sroa.9337.2, %323 ]
-  %.sroa.13339.0383 = phi ptr [ %.sroa.13339.1, %.lr.ph387 ], [ %.sroa.13339.2, %323 ]
-  %indvars405 = trunc i64 %.069386 to i32
-  %72 = getelementptr inbounds nuw %"struct.glTF2::Mesh::Primitive", ptr %71, i64 %.069386
+70:                                               ; preds = %.lr.ph368, %323
+  %71 = phi ptr [ %26, %.lr.ph368 ], [ %331, %323 ]
+  %.069367 = phi i64 [ 0, %.lr.ph368 ], [ %327, %323 ]
+  %.sroa.9321.0365 = phi i32 [ %17, %.lr.ph368 ], [ %.sroa.9321.2, %323 ]
+  %.sroa.13323.0364 = phi ptr [ %.sroa.13323.1, %.lr.ph368 ], [ %.sroa.13323.2, %323 ]
+  %indvars386 = trunc i64 %.069367 to i32
+  %72 = getelementptr inbounds nuw %"struct.glTF2::Mesh::Primitive", ptr %71, i64 %.069367
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 256
   %74 = load i8, ptr %73, align 8, !range !10, !noundef !11
   %75 = trunc nuw i8 %74 to i1
@@ -35778,13 +35778,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %31, ptr %.sroa.65.0..sroa_idx.i98, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i32 1, ptr %89, align 8
-  %.sroa.10258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 20
-  store i32 16, ptr %.sroa.10258.0..sroa_idx, align 4
-  %.sroa.12259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr %80, ptr %.sroa.12259.0..sroa_idx, align 8
+  %.sroa.10248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 20
+  store i32 16, ptr %.sroa.10248.0..sroa_idx, align 4
+  %.sroa.12249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store ptr %80, ptr %.sroa.12249.0..sroa_idx, align 8
   %90 = load i32, ptr %72, align 8
   %91 = icmp sgt i32 %90, -1
-  %.sroa.5.14.insert.ext466 = select i1 %91, i64 141300438308749312, i64 51228445761339392
+  %.sroa.5.14.insert.ext447 = select i1 %91, i64 141300438308749312, i64 51228445761339392
   br label %97
 
 .noexc.i107:                                      ; preds = %70
@@ -35797,16 +35797,16 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %97
 
 97:                                               ; preds = %.thread, %.noexc.i107
-  %.sroa.5.14.insert.ext469 = phi i64 [ %.sroa.5.14.insert.ext466, %.thread ], [ %.sroa.5.14.insert.ext, %.noexc.i107 ]
+  %.sroa.5.14.insert.ext450 = phi i64 [ %.sroa.5.14.insert.ext447, %.thread ], [ %.sroa.5.14.insert.ext, %.noexc.i107 ]
   %.in = phi i32 [ %90, %.thread ], [ %92, %.noexc.i107 ]
-  %.sroa.0272.1468 = phi i32 [ 1, %.thread ], [ 0, %.noexc.i107 ]
-  %.sroa.42.6.in.in = phi i64 [ %86, %.thread ], [ %96, %.noexc.i107 ]
-  %.sroa.42.6.in = or i64 %.sroa.42.6.in.in, 844424930131968
-  %.sroa.42.6 = inttoptr i64 %.sroa.42.6.in to ptr
+  %.sroa.0259.0449 = phi i32 [ 1, %.thread ], [ 0, %.noexc.i107 ]
+  %.sroa.42.5.in.in = phi i64 [ %86, %.thread ], [ %96, %.noexc.i107 ]
+  %.sroa.42.5.in = or i64 %.sroa.42.5.in.in, 844424930131968
+  %.sroa.42.5 = inttoptr i64 %.sroa.42.5.in to ptr
   %98 = sext i32 %.in to i64
-  %99 = and i64 %.sroa.42.6.in.in, 281474976710655
+  %99 = and i64 %.sroa.42.5.in.in, 281474976710655
   %100 = inttoptr i64 %99 to ptr
-  %101 = zext nneg i32 %.sroa.0272.1468 to i64
+  %101 = zext nneg i32 %.sroa.0259.0449 to i64
   %102 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %100, i64 %101
   store i32 4, ptr %102, align 8
   %.sroa.6.0..sroa_idx.i105 = getelementptr inbounds nuw i8, ptr %102, i64 4
@@ -35816,8 +35816,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i64 %98, ptr %103, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store i64 %.sroa.5.14.insert.ext469, ptr %.sroa.5.0..sroa_idx, align 8
-  %104 = add nuw nsw i32 %.sroa.0272.1468, 1
+  store i64 %.sroa.5.14.insert.ext450, ptr %.sroa.5.0..sroa_idx, align 8
+  %104 = add nuw nsw i32 %.sroa.0259.0449, 1
   %105 = getelementptr inbounds nuw i8, ptr %72, i64 216
   %106 = load ptr, ptr %105, align 8
   %.not.i = icmp eq ptr %106, null
@@ -35856,11 +35856,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i64 %123, ptr %126, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %127 = or disjoint i32 %.sroa.0272.1468, 2
+  %127 = or disjoint i32 %.sroa.0259.0449, 2
   br label %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread
 
 _ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread: ; preds = %97, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit
-  %.sroa.0272.2 = phi i32 [ %127, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit ], [ %104, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit ], [ %104, %97 ]
+  %.sroa.0259.1 = phi i32 [ %127, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit ], [ %104, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit ], [ %104, %97 ]
   %128 = getelementptr inbounds nuw i8, ptr %72, i64 200
   %129 = load ptr, ptr %128, align 8
   %.not.i114 = icmp eq ptr %129, null
@@ -35888,9 +35888,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %145 = icmp sgt i32 %144, -1
   %.sroa.5.14.insert.ext.i.i117 = select i1 %145, i64 141300438308749312, i64 51228445761339392
   %146 = sext i32 %144 to i64
-  %147 = and i64 %.sroa.42.6.in.in, 281474976710655
+  %147 = and i64 %.sroa.42.5.in.in, 281474976710655
   %148 = inttoptr i64 %147 to ptr
-  %149 = zext nneg i32 %.sroa.0272.2 to i64
+  %149 = zext nneg i32 %.sroa.0259.1 to i64
   %150 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %148, i64 %149
   store i32 7, ptr %150, align 8
   %.sroa.6.0..sroa_idx.i118 = getelementptr inbounds nuw i8, ptr %150, i64 4
@@ -35901,11 +35901,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store i64 %146, ptr %151, align 8
   %.sroa.5.0..sroa_idx.i.i120 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i64 %.sroa.5.14.insert.ext.i.i117, ptr %.sroa.5.0..sroa_idx.i.i120, align 8
-  %152 = add nuw nsw i32 %.sroa.0272.2, 1
+  %152 = add nuw nsw i32 %.sroa.0259.1, 1
   br label %_ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread
 
 _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread: ; preds = %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit124, %_ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit
-  %.sroa.0272.3 = phi i32 [ %152, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit124 ], [ %.sroa.0272.2, %_ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit ], [ %.sroa.0272.2, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread ]
+  %.sroa.0259.2 = phi i32 [ %152, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit124 ], [ %.sroa.0259.1, %_ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit ], [ %.sroa.0259.1, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i16 3, ptr %38, align 2
@@ -35944,9 +35944,9 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread: ; preds = %_ZNK10glTFC
           to label %166 unwind label %198
 
 166:                                              ; preds = %164
-  %167 = and i64 %.sroa.42.6.in.in, 281474976710655
+  %167 = and i64 %.sroa.42.5.in.in, 281474976710655
   %168 = inttoptr i64 %167 to ptr
-  %169 = zext nneg i32 %.sroa.0272.3 to i64
+  %169 = zext nneg i32 %.sroa.0259.2 to i64
   %170 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %168, i64 %169
   store i32 10, ptr %170, align 8
   %.sroa.6.0..sroa_idx.i127 = getelementptr inbounds nuw i8, ptr %170, i64 4
@@ -35956,7 +35956,7 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread: ; preds = %_ZNK10glTFC
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   store i16 0, ptr %38, align 2
-  %172 = add nuw nsw i32 %.sroa.0272.3, 1
+  %172 = add nuw nsw i32 %.sroa.0259.2, 1
   %173 = getelementptr inbounds nuw i8, ptr %72, i64 232
   %174 = getelementptr inbounds nuw i8, ptr %72, i64 240
   %175 = load ptr, ptr %174, align 8
@@ -35970,8 +35970,8 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread: ; preds = %_ZNK10glTFC
   %180 = sub i64 %178, %179
   %181 = sdiv exact i64 %180, 72
   %182 = trunc i64 %181 to i32
-  %.not356 = icmp eq i32 %182, 0
-  br i1 %.not356, label %.lr.ph.preheader, label %183
+  %.not337 = icmp eq i32 %182, 0
+  br i1 %.not337, label %.lr.ph.preheader, label %183
 
 183:                                              ; preds = %177
   %184 = load ptr, ptr %18, align 8
@@ -35984,21 +35984,21 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %188 = ptrtoint ptr %187 to i64
   %189 = or i64 %188, 1125899906842624
   %190 = inttoptr i64 %189 to ptr
-  %.pre407 = load ptr, ptr %174, align 8
-  %.pre408 = load ptr, ptr %173, align 8
-  %191 = icmp eq ptr %.pre407, %.pre408
+  %.pre388 = load ptr, ptr %174, align 8
+  %.pre389 = load ptr, ptr %173, align 8
+  %191 = icmp eq ptr %.pre388, %.pre389
   br i1 %191, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %177, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134
-  %.ph = phi ptr [ %176, %177 ], [ %.pre408, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ]
-  %.sroa.13223.2379.ph = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %177 ], [ %190, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ]
+  %.ph = phi ptr [ %176, %177 ], [ %.pre389, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ]
+  %.sroa.13217.0360.ph = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %177 ], [ %190, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %280, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134
-  %.sroa.0220.2.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %284, %280 ]
-  %.sroa.9221.2.lcssa = phi i32 [ %182, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %.sroa.9221.4, %280 ]
-  %.sroa.13223.2.lcssa = phi ptr [ %190, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %.sroa.13223.4, %280 ]
-  %.not.i.i.i135 = icmp ult i32 %.sroa.0272.3, 15
+  %.sroa.0214.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %284, %280 ]
+  %.sroa.9215.0.lcssa = phi i32 [ %182, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %.sroa.9215.2, %280 ]
+  %.sroa.13217.0.lcssa = phi ptr [ %190, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit134 ], [ %.sroa.13217.2, %280 ]
+  %.not.i.i.i135 = icmp ult i32 %.sroa.0259.2, 15
   br i1 %.not.i.i.i135, label %297, label %.noexc.i139
 
 .noexc.i139:                                      ; preds = %._crit_edge
@@ -36007,12 +36007,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
           to label %.noexc141 unwind label %200
 
 .noexc141:                                        ; preds = %.noexc.i139
-  %194 = and i64 %.sroa.42.6.in, -281474976710656
+  %194 = and i64 %.sroa.42.5.in, -281474976710656
   %195 = ptrtoint ptr %193 to i64
   %196 = or i64 %194, %195
   %197 = inttoptr i64 %196 to ptr
-  %.pre414 = and i64 %195, 281474976710655
-  %.pre416 = inttoptr i64 %.pre414 to ptr
+  %.pre395 = and i64 %195, 281474976710655
+  %.pre397 = inttoptr i64 %.pre395 to ptr
   br label %297
 
 198:                                              ; preds = %164, %162, %160, %158, %156, %154, %_ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit.thread
@@ -36028,9 +36028,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %280
   %202 = phi ptr [ %289, %280 ], [ %.ph, %.lr.ph.preheader ]
   %203 = phi i64 [ %287, %280 ], [ 0, %.lr.ph.preheader ]
-  %.067380 = phi i32 [ %284, %280 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.13223.2379 = phi ptr [ %.sroa.13223.4, %280 ], [ %.sroa.13223.2379.ph, %.lr.ph.preheader ]
-  %.sroa.9221.2378 = phi i32 [ %.sroa.9221.4, %280 ], [ %182, %.lr.ph.preheader ]
+  %.067361 = phi i32 [ %284, %280 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.13217.0360 = phi ptr [ %.sroa.13217.2, %280 ], [ %.sroa.13217.0360.ph, %.lr.ph.preheader ]
+  %.sroa.9215.0359 = phi i32 [ %.sroa.9215.2, %280 ], [ %182, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i16 3, ptr %41, align 2
@@ -36054,20 +36054,20 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 213:                                              ; preds = %209
   %214 = load ptr, ptr %18, align 8
-  %.not.i143 = icmp ult i32 %.067380, %.sroa.9221.2378
+  %.not.i143 = icmp ult i32 %.067361, %.sroa.9215.0359
   br i1 %.not.i143, label %280, label %215
 
 215:                                              ; preds = %213
-  %216 = icmp eq i32 %.sroa.9221.2378, 0
-  %217 = add i32 %.sroa.9221.2378, 1
+  %216 = icmp eq i32 %.sroa.9215.0359, 0
+  %217 = add i32 %.sroa.9215.0359, 1
   %218 = lshr i32 %217, 1
-  %219 = add i32 %218, %.sroa.9221.2378
+  %219 = add i32 %218, %.sroa.9215.0359
   %220 = select i1 %216, i32 16, i32 %219
-  %221 = icmp ugt i32 %220, %.sroa.9221.2378
+  %221 = icmp ugt i32 %220, %.sroa.9215.0359
   br i1 %221, label %222, label %280
 
 222:                                              ; preds = %215
-  %223 = ptrtoint ptr %.sroa.13223.2379 to i64
+  %223 = ptrtoint ptr %.sroa.13217.0360 to i64
   %224 = and i64 %223, 281474976710655
   %225 = inttoptr i64 %224 to ptr
   %226 = zext i32 %220 to i64
@@ -36114,7 +36114,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %.noexc144
 
 247:                                              ; preds = %222
-  %248 = zext i32 %.sroa.9221.2378 to i64
+  %248 = zext i32 %.sroa.9215.0359 to i64
   %249 = shl nuw nsw i64 %248, 4
   %250 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %251 = load ptr, ptr %250, align 8
@@ -36184,13 +36184,13 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %280
 
 280:                                              ; preds = %.noexc144, %215, %213
-  %.sroa.9221.4 = phi i32 [ %.sroa.9221.2378, %213 ], [ %220, %.noexc144 ], [ %.sroa.9221.2378, %215 ]
-  %.sroa.13223.4 = phi ptr [ %.sroa.13223.2379, %213 ], [ %279, %.noexc144 ], [ %.sroa.13223.2379, %215 ]
-  %281 = ptrtoint ptr %.sroa.13223.4 to i64
+  %.sroa.9215.2 = phi i32 [ %.sroa.9215.0359, %213 ], [ %220, %.noexc144 ], [ %.sroa.9215.0359, %215 ]
+  %.sroa.13217.2 = phi ptr [ %.sroa.13217.0360, %213 ], [ %279, %.noexc144 ], [ %.sroa.13217.0360, %215 ]
+  %281 = ptrtoint ptr %.sroa.13217.2 to i64
   %282 = and i64 %281, 281474976710655
   %283 = inttoptr i64 %282 to ptr
-  %284 = add i32 %.067380, 1
-  %285 = zext i32 %.067380 to i64
+  %284 = add i32 %.067361, 1
+  %285 = zext i32 %.067361 to i64
   %286 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %283, i64 %285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -36211,48 +36211,48 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %337
 
 297:                                              ; preds = %.noexc141, %._crit_edge
-  %.pre-phi417 = phi ptr [ %.pre416, %.noexc141 ], [ %168, %._crit_edge ]
-  %.sroa.42.10 = phi ptr [ %197, %.noexc141 ], [ %.sroa.42.6, %._crit_edge ]
-  %.sroa.30.10 = phi i32 [ 24, %.noexc141 ], [ 16, %._crit_edge ]
+  %.pre-phi398 = phi ptr [ %.pre397, %.noexc141 ], [ %168, %._crit_edge ]
+  %.sroa.42.9 = phi ptr [ %197, %.noexc141 ], [ %.sroa.42.5, %._crit_edge ]
+  %.sroa.30.9 = phi i32 [ 24, %.noexc141 ], [ 16, %._crit_edge ]
   %298 = zext nneg i32 %172 to i64
-  %299 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %.pre-phi417, i64 %298
+  %299 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %.pre-phi398, i64 %298
   store i32 7, ptr %299, align 8
   %.sroa.6.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %299, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i137, align 4
   %.sroa.65.0..sroa_idx.i138 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr %43, ptr %.sroa.65.0..sroa_idx.i138, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  store i32 %.sroa.0220.2.lcssa, ptr %300, align 8
-  %.sroa.9221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 20
-  store i32 %.sroa.9221.2.lcssa, ptr %.sroa.9221.0..sroa_idx, align 4
-  %.sroa.13223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 24
-  store ptr %.sroa.13223.2.lcssa, ptr %.sroa.13223.0..sroa_idx, align 8
-  %301 = add nuw nsw i32 %.sroa.0272.3, 2
+  store i32 %.sroa.0214.0.lcssa, ptr %300, align 8
+  %.sroa.9215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 20
+  store i32 %.sroa.9215.0.lcssa, ptr %.sroa.9215.0..sroa_idx, align 4
+  %.sroa.13217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 24
+  store ptr %.sroa.13217.0.lcssa, ptr %.sroa.13217.0..sroa_idx, align 8
+  %301 = add nuw nsw i32 %.sroa.0259.2, 2
   br label %302
 
 302:                                              ; preds = %297, %166
-  %.sroa.42.4 = phi ptr [ %.sroa.42.6, %166 ], [ %.sroa.42.10, %297 ]
-  %.sroa.30.4 = phi i32 [ 16, %166 ], [ %.sroa.30.10, %297 ]
-  %.sroa.0272.4 = phi i32 [ %172, %166 ], [ %301, %297 ]
+  %.sroa.42.3 = phi ptr [ %.sroa.42.5, %166 ], [ %.sroa.42.9, %297 ]
+  %.sroa.30.3 = phi i32 [ 16, %166 ], [ %.sroa.30.9, %297 ]
+  %.sroa.0259.3 = phi i32 [ %172, %166 ], [ %301, %297 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %303 = load ptr, ptr %18, align 8
-  %.not.i145 = icmp ugt i32 %.sroa.9337.0384, %indvars405
+  %.not.i145 = icmp ugt i32 %.sroa.9321.0365, %indvars386
   br i1 %.not.i145, label %323, label %304
 
 304:                                              ; preds = %302
-  %305 = icmp eq i32 %.sroa.9337.0384, 0
-  %306 = add i32 %.sroa.9337.0384, 1
+  %305 = icmp eq i32 %.sroa.9321.0365, 0
+  %306 = add i32 %.sroa.9321.0365, 1
   %307 = lshr i32 %306, 1
-  %308 = add i32 %307, %.sroa.9337.0384
+  %308 = add i32 %307, %.sroa.9321.0365
   %309 = select i1 %305, i32 16, i32 %308
-  %310 = icmp ugt i32 %309, %.sroa.9337.0384
+  %310 = icmp ugt i32 %309, %.sroa.9321.0365
   br i1 %310, label %.noexc147, label %323
 
 .noexc147:                                        ; preds = %304
-  %311 = ptrtoint ptr %.sroa.13339.0383 to i64
+  %311 = ptrtoint ptr %.sroa.13323.0364 to i64
   %312 = and i64 %311, 281474976710655
   %313 = inttoptr i64 %312 to ptr
-  %314 = zext i32 %.sroa.9337.0384 to i64
+  %314 = zext i32 %.sroa.9321.0365 to i64
   %315 = shl nuw nsw i64 %314, 4
   %316 = zext i32 %309 to i64
   %317 = shl nuw nsw i64 %316, 4
@@ -36264,19 +36264,19 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %323
 
 323:                                              ; preds = %.noexc147, %304, %302
-  %.sroa.13339.2 = phi ptr [ %.sroa.13339.0383, %302 ], [ %322, %.noexc147 ], [ %.sroa.13339.0383, %304 ]
-  %.sroa.9337.2 = phi i32 [ %.sroa.9337.0384, %302 ], [ %309, %.noexc147 ], [ %.sroa.9337.0384, %304 ]
-  %324 = ptrtoint ptr %.sroa.13339.2 to i64
+  %.sroa.13323.2 = phi ptr [ %.sroa.13323.0364, %302 ], [ %322, %.noexc147 ], [ %.sroa.13323.0364, %304 ]
+  %.sroa.9321.2 = phi i32 [ %.sroa.9321.0365, %302 ], [ %309, %.noexc147 ], [ %.sroa.9321.0365, %304 ]
+  %324 = ptrtoint ptr %.sroa.13323.2 to i64
   %325 = and i64 %324, 281474976710655
   %326 = inttoptr i64 %325 to ptr
-  %327 = add nuw i64 %.069386, 1
-  %328 = and i64 %.069386, 4294967295
+  %327 = add nuw i64 %.069367, 1
+  %328 = and i64 %.069367, 4294967295
   %329 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %326, i64 %328
-  store i32 %.sroa.0272.4, ptr %329, align 8
+  store i32 %.sroa.0259.3, ptr %329, align 8
   %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %329, i64 4
-  store i32 %.sroa.30.4, ptr %.sroa.30.0..sroa_idx, align 4
+  store i32 %.sroa.30.3, ptr %.sroa.30.0..sroa_idx, align 4
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %329, i64 8
-  store ptr %.sroa.42.4, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %.sroa.42.3, ptr %.sroa.42.0..sroa_idx, align 8
   %330 = load ptr, ptr %10, align 8
   %331 = load ptr, ptr %9, align 8
   %332 = ptrtoint ptr %330 to i64
@@ -36284,15 +36284,15 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %334 = sub i64 %332, %333
   %335 = sdiv exact i64 %334, 264
   %336 = icmp ult i64 %327, %335
-  br i1 %336, label %70, label %._crit_edge388.loopexit, !llvm.loop !396
+  br i1 %336, label %70, label %._crit_edge369.loopexit, !llvm.loop !396
 
 337:                                              ; preds = %200, %295, %198
   %.pn81.pn = phi { ptr, i32 } [ %199, %198 ], [ %296, %295 ], [ %201, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %529
 
-338:                                              ; preds = %.noexc.i, %48, %._crit_edge388
-  %339 = phi i32 [ %.pre.i.i.i, %.noexc.i ], [ %45, %48 ], [ %45, %._crit_edge388 ]
+338:                                              ; preds = %.noexc.i, %48, %._crit_edge369
+  %339 = phi i32 [ %.pre.i.i.i, %.noexc.i ], [ %45, %48 ], [ %45, %._crit_edge369 ]
   %340 = or i64 ptrtoint (ptr @.str.209 to i64), 289637751035265024
   %341 = inttoptr i64 %340 to ptr
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36308,11 +36308,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %348, i64 8
   store ptr %341, ptr %.sroa.65.0..sroa_idx.i, align 8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
-  store i32 %.sroa.0336.0.lcssa, ptr %349, align 8
-  %.sroa.9337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 20
-  store i32 %.sroa.9337.0.lcssa, ptr %.sroa.9337.0..sroa_idx, align 4
-  %.sroa.13339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 24
-  store ptr %.sroa.13339.0.lcssa, ptr %.sroa.13339.0..sroa_idx, align 8
+  store i32 %.sroa.0320.0.lcssa, ptr %349, align 8
+  %.sroa.9321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 20
+  store i32 %.sroa.9321.0.lcssa, ptr %.sroa.9321.0..sroa_idx, align 4
+  %.sroa.13323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 24
+  store ptr %.sroa.13323.0.lcssa, ptr %.sroa.13323.0..sroa_idx, align 8
   %350 = load i32, ptr %0, align 8
   %351 = add i32 %350, 1
   store i32 %351, ptr %0, align 8
@@ -36329,8 +36329,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %359 = sub i64 %358, %357
   %360 = lshr exact i64 %359, 5
   %361 = trunc i64 %360 to i32
-  %.not355 = icmp eq i32 %361, 0
-  br i1 %.not355, label %.lr.ph396, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150
+  %.not336 = icmp eq i32 %361, 0
+  br i1 %.not336, label %.lr.ph377, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150: ; preds = %356
   %362 = load ptr, ptr %18, align 8
@@ -36340,14 +36340,14 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %366 = ptrtoint ptr %365 to i64
   %367 = or i64 %366, 1125899906842624
   %368 = inttoptr i64 %367 to ptr
-  %.pre409 = load ptr, ptr %353, align 8
-  %.pre410 = load ptr, ptr %352, align 8
-  %369 = icmp eq ptr %.pre409, %.pre410
-  br i1 %369, label %.noexc.i155, label %.lr.ph396
+  %.pre390 = load ptr, ptr %353, align 8
+  %.pre391 = load ptr, ptr %352, align 8
+  %369 = icmp eq ptr %.pre390, %.pre391
+  br i1 %369, label %.noexc.i155, label %.lr.ph377
 
-.lr.ph396:                                        ; preds = %356, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150
-  %.sroa.13.1475 = phi ptr [ %368, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150 ], [ inttoptr (i64 1125899906842624 to ptr), %356 ]
-  %370 = phi ptr [ %.pre410, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150 ], [ %355, %356 ]
+.lr.ph377:                                        ; preds = %356, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150
+  %.sroa.13.1456 = phi ptr [ %368, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150 ], [ inttoptr (i64 1125899906842624 to ptr), %356 ]
+  %370 = phi ptr [ %.pre391, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit150 ], [ %355, %356 ]
   %371 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %372 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %373 = getelementptr inbounds nuw i8, ptr %8, i64 14
@@ -36386,15 +36386,15 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i.i.i171, label %.noexc.i155._crit_edge, label %495
 
 .noexc.i155._crit_edge:                           ; preds = %.noexc.i155
-  %.pre411 = load ptr, ptr %342, align 8
+  %.pre392 = load ptr, ptr %342, align 8
   br label %515
 
-389:                                              ; preds = %.lr.ph396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %390 = phi ptr [ %370, %.lr.ph396 ], [ %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %391 = phi i64 [ 0, %.lr.ph396 ], [ %479, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.0395 = phi i32 [ 0, %.lr.ph396 ], [ %472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.sroa.13.0394 = phi ptr [ %.sroa.13.1475, %.lr.ph396 ], [ %.sroa.13.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.sroa.9.0393 = phi i32 [ %361, %.lr.ph396 ], [ %.sroa.9.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+389:                                              ; preds = %.lr.ph377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %390 = phi ptr [ %370, %.lr.ph377 ], [ %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %391 = phi i64 [ 0, %.lr.ph377 ], [ %479, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.0376 = phi i32 [ 0, %.lr.ph377 ], [ %472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.sroa.13.0375 = phi ptr [ %.sroa.13.1456, %.lr.ph377 ], [ %.sroa.13.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.sroa.9.0374 = phi i32 [ %361, %.lr.ph377 ], [ %.sroa.9.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %392 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %390, i64 %391
   store ptr %371, ptr %7, align 8
@@ -36521,23 +36521,23 @@ _ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE6MallocEm.exit.i.i.i: ; pr
   %446 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %445
   store i8 0, ptr %446, align 1
   %447 = load ptr, ptr %18, align 8
-  %.not.i164 = icmp ult i32 %.0395, %.sroa.9.0393
+  %.not.i164 = icmp ult i32 %.0376, %.sroa.9.0374
   br i1 %.not.i164, label %468, label %448
 
 448:                                              ; preds = %444
-  %449 = icmp eq i32 %.sroa.9.0393, 0
-  %450 = add i32 %.sroa.9.0393, 1
+  %449 = icmp eq i32 %.sroa.9.0374, 0
+  %450 = add i32 %.sroa.9.0374, 1
   %451 = lshr i32 %450, 1
-  %452 = add i32 %451, %.sroa.9.0393
+  %452 = add i32 %451, %.sroa.9.0374
   %453 = select i1 %449, i32 16, i32 %452
-  %454 = icmp ugt i32 %453, %.sroa.9.0393
+  %454 = icmp ugt i32 %453, %.sroa.9.0374
   br i1 %454, label %455, label %468
 
 455:                                              ; preds = %448
-  %456 = ptrtoint ptr %.sroa.13.0394 to i64
+  %456 = ptrtoint ptr %.sroa.13.0375 to i64
   %457 = and i64 %456, 281474976710655
   %458 = inttoptr i64 %457 to ptr
-  %459 = zext i32 %.sroa.9.0393 to i64
+  %459 = zext i32 %.sroa.9.0374 to i64
   %460 = shl nuw nsw i64 %459, 4
   %461 = zext i32 %453 to i64
   %462 = shl nuw nsw i64 %461, 4
@@ -36552,13 +36552,13 @@ _ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE6MallocEm.exit.i.i.i: ; pr
   br label %468
 
 468:                                              ; preds = %.noexc166, %448, %444
-  %.sroa.9.2 = phi i32 [ %.sroa.9.0393, %444 ], [ %453, %.noexc166 ], [ %.sroa.9.0393, %448 ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.0394, %444 ], [ %467, %.noexc166 ], [ %.sroa.13.0394, %448 ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.0374, %444 ], [ %453, %.noexc166 ], [ %.sroa.9.0374, %448 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.0375, %444 ], [ %467, %.noexc166 ], [ %.sroa.13.0375, %448 ]
   %469 = ptrtoint ptr %.sroa.13.2 to i64
   %470 = and i64 %469, 281474976710655
   %471 = inttoptr i64 %470 to ptr
-  %472 = add i32 %.0395, 1
-  %473 = zext i32 %.0395 to i64
+  %472 = add i32 %.0376, 1
+  %473 = zext i32 %.0376 to i64
   %474 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %471, i64 %473
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %474, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -36615,11 +36615,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %48
   %498 = add i32 %497, %388
   %499 = select i1 %.not14.i.i.i172, i32 16, i32 %498
   %500 = icmp ugt i32 %499, %388
-  %.pre412 = load ptr, ptr %342, align 8
+  %.pre393 = load ptr, ptr %342, align 8
   br i1 %500, label %.noexc.i175, label %515
 
 .noexc.i175:                                      ; preds = %495
-  %501 = ptrtoint ptr %.pre412 to i64
+  %501 = ptrtoint ptr %.pre393 to i64
   %502 = and i64 %501, 281474976710655
   %503 = inttoptr i64 %502 to ptr
   %504 = zext i32 %388 to i64
@@ -36639,7 +36639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %48
   br label %515
 
 515:                                              ; preds = %.noexc.i155._crit_edge, %.noexc.i175, %495
-  %516 = phi ptr [ %514, %.noexc.i175 ], [ %.pre412, %495 ], [ %.pre411, %.noexc.i155._crit_edge ]
+  %516 = phi ptr [ %514, %.noexc.i175 ], [ %.pre393, %495 ], [ %.pre392, %.noexc.i155._crit_edge ]
   %517 = phi i32 [ %.pre.i.i.i176, %.noexc.i175 ], [ %387, %495 ], [ %387, %.noexc.i155._crit_edge ]
   %518 = or i64 ptrtoint (ptr @.str.1 to i64), 289637751035265024
   %519 = inttoptr i64 %518 to ptr
@@ -37079,8 +37079,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4NodeEE
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -37156,8 +37156,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4NodeEE
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -37251,8 +37251,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4NodeEE
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -37267,8 +37267,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4NodeEE
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -37280,7 +37280,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4NodeEE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -37329,12 +37329,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_4NodeERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(552) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -37343,7 +37343,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -37353,11 +37353,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -37377,7 +37377,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -37391,7 +37391,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -37459,26 +37459,26 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   br label %31
 
 31:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, %.noexc
-  %.sroa.12248.0 = phi ptr [ %30, %.noexc ], [ %.sroa.12248.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
-  %.sroa.9247.0 = phi i32 [ 16, %.noexc ], [ %.sroa.9247.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.12239.0 = phi ptr [ %30, %.noexc ], [ %.sroa.12239.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
+  %.sroa.9238.0 = phi i32 [ 16, %.noexc ], [ %.sroa.9238.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
   %.09.i = phi i64 [ 0, %.noexc ], [ %57, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i ]
   %32 = getelementptr inbounds nuw float, ptr %9, i64 %.09.i
   %33 = load float, ptr %32, align 4
-  %34 = zext i32 %.sroa.9247.0 to i64
+  %34 = zext i32 %.sroa.9238.0 to i64
   %.not.i.i.i = icmp samesign ult i64 %.09.i, %34
   br i1 %.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %35
 
 35:                                               ; preds = %31
-  %36 = icmp eq i32 %.sroa.9247.0, 0
-  %37 = add nuw nsw i32 %.sroa.9247.0, 1
+  %36 = icmp eq i32 %.sroa.9238.0, 0
+  %37 = add nuw nsw i32 %.sroa.9238.0, 1
   %38 = lshr i32 %37, 1
-  %39 = add i32 %38, %.sroa.9247.0
+  %39 = add i32 %38, %.sroa.9238.0
   %40 = select i1 %36, i32 16, i32 %39
-  %41 = icmp ugt i32 %40, %.sroa.9247.0
+  %41 = icmp ugt i32 %40, %.sroa.9238.0
   br i1 %41, label %.noexc.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 .noexc.i.i:                                       ; preds = %35
-  %42 = ptrtoint ptr %.sroa.12248.0 to i64
+  %42 = ptrtoint ptr %.sroa.12239.0 to i64
   %43 = and i64 %42, 281474976710655
   %44 = inttoptr i64 %43 to ptr
   %45 = shl nuw nsw i64 %34, 4
@@ -37492,10 +37492,10 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %31, %.noexc.i.i, %35
-  %.sroa.12248.1 = phi ptr [ %.sroa.12248.0, %35 ], [ %52, %.noexc.i.i ], [ %.sroa.12248.0, %31 ]
-  %.sroa.9247.1 = phi i32 [ %.sroa.9247.0, %35 ], [ %40, %.noexc.i.i ], [ %.sroa.9247.0, %31 ]
+  %.sroa.12239.1 = phi ptr [ %.sroa.12239.0, %35 ], [ %52, %.noexc.i.i ], [ %.sroa.12239.0, %31 ]
+  %.sroa.9238.1 = phi i32 [ %.sroa.9238.0, %35 ], [ %40, %.noexc.i.i ], [ %.sroa.9238.0, %31 ]
   %53 = fpext float %33 to double
-  %54 = ptrtoint ptr %.sroa.12248.1 to i64
+  %54 = ptrtoint ptr %.sroa.12239.1 to i64
   %55 = and i64 %54, 281474976710655
   %56 = inttoptr i64 %55 to ptr
   %57 = add nuw nsw i64 %.09.i, 1
@@ -37563,10 +37563,10 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8Ic
   store ptr %88, ptr %.sroa.65.0..sroa_idx.i, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i32 16, ptr %96, align 8
-  %.sroa.9247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 20
-  store i32 %.sroa.9247.1, ptr %.sroa.9247.0..sroa_idx, align 4
-  %.sroa.12248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr %.sroa.12248.1, ptr %.sroa.12248.0..sroa_idx, align 8
+  %.sroa.9238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 20
+  store i32 %.sroa.9238.1, ptr %.sroa.9238.0..sroa_idx, align 4
+  %.sroa.12239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24
+  store ptr %.sroa.12239.1, ptr %.sroa.12239.0..sroa_idx, align 8
   %97 = load i32, ptr %0, align 8
   %98 = add i32 %97, 1
   store i32 %98, ptr %0, align 8
@@ -37695,10 +37695,10 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcE
   store ptr %162, ptr %.sroa.65.0..sroa_idx.i60, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store i32 3, ptr %170, align 8
-  %.sroa.9231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 20
-  store i32 3, ptr %.sroa.9231.0..sroa_idx, align 4
-  %.sroa.12232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store ptr %125, ptr %.sroa.12232.0..sroa_idx, align 8
+  %.sroa.9225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 20
+  store i32 3, ptr %.sroa.9225.0..sroa_idx, align 4
+  %.sroa.12226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 24
+  store ptr %125, ptr %.sroa.12226.0..sroa_idx, align 8
   %171 = load i32, ptr %0, align 8
   %172 = add i32 %171, 1
   store i32 %172, ptr %0, align 8
@@ -37827,10 +37827,10 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcE
   store ptr %236, ptr %.sroa.65.0..sroa_idx.i81, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store i32 3, ptr %244, align 8
-  %.sroa.9215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 20
-  store i32 3, ptr %.sroa.9215.0..sroa_idx, align 4
-  %.sroa.12216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 24
-  store ptr %199, ptr %.sroa.12216.0..sroa_idx, align 8
+  %.sroa.9212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 20
+  store i32 3, ptr %.sroa.9212.0..sroa_idx, align 4
+  %.sroa.12213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 24
+  store ptr %199, ptr %.sroa.12213.0..sroa_idx, align 8
   %245 = load i32, ptr %0, align 8
   %246 = add i32 %245, 1
   store i32 %246, ptr %0, align 8
@@ -38306,22 +38306,22 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %18 = or i64 %17, 1125899906842624
   %19 = inttoptr i64 %18 to ptr
   %.pre = load ptr, ptr %6, align 8
-  %.pre43 = load ptr, ptr %2, align 8
-  %20 = icmp eq ptr %.pre, %.pre43
+  %.pre40 = load ptr, ptr %2, align 8
+  %20 = icmp eq ptr %.pre, %.pre40
   br i1 %20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
-  %.ph = phi ptr [ %5, %9 ], [ %.pre43, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
-  %.sroa.13.035.ph = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %9 ], [ %19, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
+  %.ph = phi ptr [ %5, %9 ], [ %.pre40, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
+  %.sroa.13.032.ph = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %9 ], [ %19, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %21 = phi ptr [ %61, %51 ], [ %.ph, %.lr.ph.preheader ]
-  %.038 = phi i64 [ %57, %51 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.9.036 = phi i32 [ %.sroa.9.2, %51 ], [ %14, %.lr.ph.preheader ]
-  %.sroa.13.035 = phi ptr [ %.sroa.13.2, %51 ], [ %.sroa.13.035.ph, %.lr.ph.preheader ]
-  %indvars42 = trunc i64 %.038 to i32
-  %22 = getelementptr inbounds nuw %"class.glTFCommon::Ref.189", ptr %21, i64 %.038
+  %.035 = phi i64 [ %57, %51 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.9.033 = phi i32 [ %.sroa.9.2, %51 ], [ %14, %.lr.ph.preheader ]
+  %.sroa.13.032 = phi ptr [ %.sroa.13.2, %51 ], [ %.sroa.13.032.ph, %.lr.ph.preheader ]
+  %indvars39 = trunc i64 %.035 to i32
+  %22 = getelementptr inbounds nuw %"class.glTFCommon::Ref.189", ptr %21, i64 %.035
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8
@@ -38331,23 +38331,23 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
-  %.not.i.i = icmp ugt i32 %.sroa.9.036, %indvars42
+  %.not.i.i = icmp ugt i32 %.sroa.9.033, %indvars39
   br i1 %.not.i.i, label %51, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = icmp eq i32 %.sroa.9.036, 0
-  %34 = add i32 %.sroa.9.036, 1
+  %33 = icmp eq i32 %.sroa.9.033, 0
+  %34 = add i32 %.sroa.9.033, 1
   %35 = lshr i32 %34, 1
-  %36 = add i32 %35, %.sroa.9.036
+  %36 = add i32 %35, %.sroa.9.033
   %37 = select i1 %33, i32 16, i32 %36
-  %38 = icmp ugt i32 %37, %.sroa.9.036
+  %38 = icmp ugt i32 %37, %.sroa.9.033
   br i1 %38, label %.noexc.i, label %51
 
 .noexc.i:                                         ; preds = %32
-  %39 = ptrtoint ptr %.sroa.13.035 to i64
+  %39 = ptrtoint ptr %.sroa.13.032 to i64
   %40 = and i64 %39, 281474976710655
   %41 = inttoptr i64 %40 to ptr
-  %42 = zext i32 %.sroa.9.036 to i64
+  %42 = zext i32 %.sroa.9.033 to i64
   %43 = shl nuw nsw i64 %42, 4
   %44 = zext i32 %37 to i64
   %45 = shl nuw nsw i64 %44, 4
@@ -38359,16 +38359,16 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %51
 
 51:                                               ; preds = %.noexc.i, %32, %.lr.ph
-  %.sroa.13.2 = phi ptr [ %.sroa.13.035, %.lr.ph ], [ %50, %.noexc.i ], [ %.sroa.13.035, %32 ]
-  %.sroa.9.2 = phi i32 [ %.sroa.9.036, %.lr.ph ], [ %37, %.noexc.i ], [ %.sroa.9.036, %32 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.032, %.lr.ph ], [ %50, %.noexc.i ], [ %.sroa.13.032, %32 ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.033, %.lr.ph ], [ %37, %.noexc.i ], [ %.sroa.9.033, %32 ]
   %52 = icmp sgt i32 %31, -1
   %.sroa.5.14.insert.ext.i = select i1 %52, i64 141300438308749312, i64 51228445761339392
   %53 = sext i32 %31 to i64
   %54 = ptrtoint ptr %.sroa.13.2 to i64
   %55 = and i64 %54, 281474976710655
   %56 = inttoptr i64 %55 to ptr
-  %57 = add nuw i64 %.038, 1
-  %58 = and i64 %.038, 4294967295
+  %57 = add nuw i64 %.035, 1
+  %58 = and i64 %.035, 4294967295
   %59 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %56, i64 %58
   store i64 %53, ptr %59, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -38797,8 +38797,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Sample
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -38874,8 +38874,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Sample
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -38969,8 +38969,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Sample
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -38985,8 +38985,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Sample
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -38998,7 +38998,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Sample
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -39047,12 +39047,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_7SamplerERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(280) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -39061,7 +39061,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -39071,11 +39071,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -39095,7 +39095,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -39109,7 +39109,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -39797,8 +39797,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5SceneE
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.687.0..sroa_idx, align 2
+  %.sroa.685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.685.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -39874,8 +39874,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5SceneE
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.682.0..sroa_idx, align 2
+  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -39969,8 +39969,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5SceneE
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not92 = icmp eq ptr %164, %165
-  br i1 %.not92, label %.loopexit, label %.lr.ph
+  %.not89 = icmp eq ptr %164, %165
+  br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -39985,8 +39985,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5SceneE
 
 174:                                              ; preds = %.lr.ph, %244
   %175 = phi ptr [ %165, %.lr.ph ], [ %247, %244 ]
-  %.091 = phi i64 [ 0, %.lr.ph ], [ %245, %244 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.091
+  %.088 = phi i64 [ 0, %.lr.ph ], [ %245, %244 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.088
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -39998,7 +39998,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_5SceneE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.091
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.088
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 272
   %186 = load i64, ptr %185, align 8
@@ -40040,12 +40040,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %204, ptr %.sroa.66.0..sroa_idx.i, align 8
   store i32 1, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.091
-  %.pre94 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.088
+  %.pre91 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit
 
 _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %208 = phi ptr [ %.pre94, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %208 = phi ptr [ %.pre91, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 296
   %210 = load ptr, ptr %167, align 8
   call fastcc void @_ZN5glTF212_GLOBAL__N_113AddRefsVectorINS_4NodeEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.85, ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %210)
@@ -40056,7 +40056,7 @@ _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocato
   br i1 %.not.i, label %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge, label %214
 
 _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge: ; preds = %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br label %235
 
 214:                                              ; preds = %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit
@@ -40066,11 +40066,11 @@ _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocato
   %218 = add i32 %217, %213
   %219 = select i1 %215, i32 16, i32 %218
   %220 = icmp ugt i32 %219, %213
-  %.pre96 = load ptr, ptr %173, align 8
+  %.pre93 = load ptr, ptr %173, align 8
   br i1 %220, label %.noexc74, label %235
 
 .noexc74:                                         ; preds = %214
-  %221 = ptrtoint ptr %.pre96 to i64
+  %221 = ptrtoint ptr %.pre93 to i64
   %222 = and i64 %221, 281474976710655
   %223 = inttoptr i64 %222 to ptr
   %224 = zext i32 %213 to i64
@@ -40090,7 +40090,7 @@ _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocato
   br label %235
 
 235:                                              ; preds = %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge, %.noexc74, %214
-  %236 = phi ptr [ %234, %.noexc74 ], [ %.pre96, %214 ], [ %.pre95, %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge ]
+  %236 = phi ptr [ %234, %.noexc74 ], [ %.pre93, %214 ], [ %.pre92, %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge ]
   %237 = phi i32 [ %.pre.i, %.noexc74 ], [ %212, %214 ], [ %212, %_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_5SceneERNS_11AssetWriterE.exit._crit_edge ]
   %238 = ptrtoint ptr %236 to i64
   %239 = and i64 %238, 281474976710655
@@ -40104,7 +40104,7 @@ _ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocato
   br label %244
 
 244:                                              ; preds = %174, %235
-  %245 = add nuw i64 %.091, 1
+  %245 = add nuw i64 %.088, 1
   %246 = load ptr, ptr %6, align 8
   %247 = load ptr, ptr %4, align 8
   %248 = ptrtoint ptr %246 to i64
@@ -40250,8 +40250,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4SkinEE
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -40327,8 +40327,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4SkinEE
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -40422,8 +40422,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4SkinEE
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -40438,8 +40438,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4SkinEE
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -40451,7 +40451,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_4SkinEE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 384
   %186 = load i64, ptr %185, align 8
@@ -40500,12 +40500,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_4SkinERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(408) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -40514,7 +40514,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -40524,11 +40524,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -40548,7 +40548,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -40562,7 +40562,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -40599,19 +40599,19 @@ define linkonce_odr hidden void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_
   %18 = or i64 %17, 1125899906842624
   %19 = inttoptr i64 %18 to ptr
   %.pre = load ptr, ptr %5, align 8
-  %.pre90 = load ptr, ptr %4, align 8
-  %.pre95 = ptrtoint ptr %.pre to i64
-  %.pre96 = ptrtoint ptr %.pre90 to i64
-  %.pre98 = sub i64 %.pre95, %.pre96
+  %.pre84 = load ptr, ptr %4, align 8
+  %.pre89 = ptrtoint ptr %.pre to i64
+  %.pre90 = ptrtoint ptr %.pre84 to i64
+  %.pre92 = sub i64 %.pre89, %.pre90
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit: ; preds = %3, %.noexc
-  %.pre-phi99 = phi i64 [ %10, %3 ], [ %.pre98, %.noexc ]
-  %20 = phi ptr [ %7, %3 ], [ %.pre90, %.noexc ]
+  %.pre-phi93 = phi i64 [ %10, %3 ], [ %.pre92, %.noexc ]
+  %20 = phi ptr [ %7, %3 ], [ %.pre84, %.noexc ]
   %.sroa.13.1 = phi ptr [ inttoptr (i64 1125899906842624 to ptr), %3 ], [ %19, %.noexc ]
-  %21 = and i64 %.pre-phi99, 68719476720
-  %.not86 = icmp eq i64 %21, 0
-  br i1 %.not86, label %._crit_edge, label %.lr.ph
+  %21 = and i64 %.pre-phi93, 68719476720
+  %.not80 = icmp eq i64 %21, 0
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %80
   %22 = trunc nuw i64 %86 to i32
@@ -40619,8 +40619,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit
   %.sroa.13.0.lcssa = phi ptr [ %.sroa.13.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.13.2, %._crit_edge.loopexit ]
-  %.sroa.964.0.lcssa = phi i32 [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.964.2, %._crit_edge.loopexit ]
-  %.sroa.063.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %22, %._crit_edge.loopexit ]
+  %.sroa.961.0.lcssa = phi i32 [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %.sroa.961.2, %._crit_edge.loopexit ]
+  %.sroa.060.0.lcssa = phi i32 [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ], [ %22, %._crit_edge.loopexit ]
   %23 = load ptr, ptr %13, align 8
   %24 = load i32, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -40661,10 +40661,10 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 
 .lr.ph:                                           ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit, %80
   %49 = phi ptr [ %89, %80 ], [ %20, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
-  %.083 = phi i64 [ %86, %80 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
-  %.sroa.964.081 = phi i32 [ %.sroa.964.2, %80 ], [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
-  %.sroa.13.080 = phi ptr [ %.sroa.13.2, %80 ], [ %.sroa.13.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
-  %50 = getelementptr inbounds nuw %"class.glTFCommon::Ref.189", ptr %49, i64 %.083
+  %.077 = phi i64 [ %86, %80 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
+  %.sroa.961.075 = phi i32 [ %.sroa.961.2, %80 ], [ %12, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
+  %.sroa.13.074 = phi ptr [ %.sroa.13.2, %80 ], [ %.sroa.13.1, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE7ReserveEjRS5_.exit ]
+  %50 = getelementptr inbounds nuw %"class.glTFCommon::Ref.189", ptr %49, i64 %.077
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8
@@ -40675,21 +40675,21 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %13, align 8
-  %61 = zext i32 %.sroa.964.081 to i64
-  %.not.i.i = icmp samesign ult i64 %.083, %61
+  %61 = zext i32 %.sroa.961.075 to i64
+  %.not.i.i = icmp samesign ult i64 %.077, %61
   br i1 %.not.i.i, label %80, label %62
 
 62:                                               ; preds = %.lr.ph
-  %63 = icmp eq i32 %.sroa.964.081, 0
-  %64 = add nuw i32 %.sroa.964.081, 1
+  %63 = icmp eq i32 %.sroa.961.075, 0
+  %64 = add nuw i32 %.sroa.961.075, 1
   %65 = lshr i32 %64, 1
-  %66 = add i32 %65, %.sroa.964.081
+  %66 = add i32 %65, %.sroa.961.075
   %67 = select i1 %63, i32 16, i32 %66
-  %68 = icmp ugt i32 %67, %.sroa.964.081
+  %68 = icmp ugt i32 %67, %.sroa.961.075
   br i1 %68, label %.noexc.i24, label %80
 
 .noexc.i24:                                       ; preds = %62
-  %69 = ptrtoint ptr %.sroa.13.080 to i64
+  %69 = ptrtoint ptr %.sroa.13.074 to i64
   %70 = and i64 %69, 281474976710655
   %71 = inttoptr i64 %70 to ptr
   %72 = shl nuw nsw i64 %61, 4
@@ -40703,16 +40703,16 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %80
 
 80:                                               ; preds = %.noexc.i24, %62, %.lr.ph
-  %.sroa.13.2 = phi ptr [ %.sroa.13.080, %.lr.ph ], [ %79, %.noexc.i24 ], [ %.sroa.13.080, %62 ]
-  %.sroa.964.2 = phi i32 [ %.sroa.964.081, %.lr.ph ], [ %67, %.noexc.i24 ], [ %.sroa.964.081, %62 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.074, %.lr.ph ], [ %79, %.noexc.i24 ], [ %.sroa.13.074, %62 ]
+  %.sroa.961.2 = phi i32 [ %.sroa.961.075, %.lr.ph ], [ %67, %.noexc.i24 ], [ %.sroa.961.075, %62 ]
   %81 = icmp sgt i32 %59, -1
   %.sroa.5.14.insert.ext.i = select i1 %81, i64 141300438308749312, i64 51228445761339392
   %82 = sext i32 %59 to i64
   %83 = ptrtoint ptr %.sroa.13.2 to i64
   %84 = and i64 %83, 281474976710655
   %85 = inttoptr i64 %84 to ptr
-  %86 = add nuw nsw i64 %.083, 1
-  %87 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %85, i64 %.083
+  %86 = add nuw nsw i64 %.077, 1
+  %87 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %85, i64 %.077
   store i64 %82, ptr %87, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %.sroa.5.14.insert.ext.i, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -40743,9 +40743,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %99, ptr %.sroa.65.0..sroa_idx.i, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  store i32 %.sroa.063.0.lcssa, ptr %107, align 8
-  %.sroa.964.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 20
-  store i32 %.sroa.964.0.lcssa, ptr %.sroa.964.0..sroa_idx, align 4
+  store i32 %.sroa.060.0.lcssa, ptr %107, align 8
+  %.sroa.961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 20
+  store i32 %.sroa.961.0.lcssa, ptr %.sroa.961.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %.sroa.13.0.lcssa, ptr %.sroa.13.0..sroa_idx, align 8
   %108 = load i32, ptr %0, align 8
@@ -40856,7 +40856,7 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8Ic
   br i1 %.not.i.i.i30, label %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge, label %166
 
 _ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge: ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit
-  %.pre91 = load ptr, ptr %100, align 8
+  %.pre85 = load ptr, ptr %100, align 8
   br label %186
 
 166:                                              ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit
@@ -40866,11 +40866,11 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8Ic
   %169 = add i32 %168, %165
   %170 = select i1 %.not14.i.i.i31, i32 16, i32 %169
   %171 = icmp ugt i32 %170, %165
-  %.pre92 = load ptr, ptr %100, align 8
+  %.pre86 = load ptr, ptr %100, align 8
   br i1 %171, label %.noexc.i34, label %186
 
 .noexc.i34:                                       ; preds = %166
-  %172 = ptrtoint ptr %.pre92 to i64
+  %172 = ptrtoint ptr %.pre86 to i64
   %173 = and i64 %172, 281474976710655
   %174 = inttoptr i64 %173 to ptr
   %175 = zext i32 %165 to i64
@@ -40890,7 +40890,7 @@ _ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8Ic
   br label %186
 
 186:                                              ; preds = %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge, %.noexc.i34, %166
-  %187 = phi ptr [ %185, %.noexc.i34 ], [ %.pre92, %166 ], [ %.pre91, %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge ]
+  %187 = phi ptr [ %185, %.noexc.i34 ], [ %.pre86, %166 ], [ %.pre85, %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge ]
   %188 = phi i32 [ %.pre.i.i.i35, %.noexc.i34 ], [ %164, %166 ], [ %164, %_ZN5glTF212_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit._crit_edge ]
   %189 = or i64 ptrtoint (ptr @.str.220 to i64), 289637751035265024
   %190 = inttoptr i64 %189 to ptr
@@ -40947,7 +40947,7 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit: ; preds = %199
   br i1 %.not.i.i.i.i, label %._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge, label %221
 
 ._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge: ; preds = %214
-  %.pre93 = load ptr, ptr %100, align 8
+  %.pre87 = load ptr, ptr %100, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 221:                                              ; preds = %214
@@ -40957,11 +40957,11 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit: ; preds = %199
   %224 = add i32 %223, %220
   %225 = select i1 %.not14.i.i.i.i, i32 16, i32 %224
   %226 = icmp ugt i32 %225, %220
-  %.pre94 = load ptr, ptr %100, align 8
+  %.pre88 = load ptr, ptr %100, align 8
   br i1 %226, label %.noexc.i.i41, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 .noexc.i.i41:                                     ; preds = %221
-  %227 = ptrtoint ptr %.pre94 to i64
+  %227 = ptrtoint ptr %.pre88 to i64
   %228 = and i64 %227, 281474976710655
   %229 = inttoptr i64 %228 to ptr
   %230 = zext i32 %220 to i64
@@ -40981,7 +40981,7 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit: ; preds = %199
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit: ; preds = %._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge, %221, %.noexc.i.i41
-  %241 = phi ptr [ %240, %.noexc.i.i41 ], [ %.pre94, %221 ], [ %.pre93, %._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
+  %241 = phi ptr [ %240, %.noexc.i.i41 ], [ %.pre88, %221 ], [ %.pre87, %._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
   %242 = phi i32 [ %.pre.i.i.i.i, %.noexc.i.i41 ], [ %200, %221 ], [ %200, %._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberIiEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeENS_16GenericStringRefIcEESF_RS5_.exit_crit_edge ]
   %243 = or i64 ptrtoint (ptr @.str.221 to i64), 289637751035265024
   %244 = inttoptr i64 %243 to ptr
@@ -41143,8 +41143,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Textur
   store ptr %45, ptr %.sroa.65.0..sroa_idx.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
-  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
-  store i16 3, ptr %.sroa.686.0..sroa_idx, align 2
+  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 30
+  store i16 3, ptr %.sroa.684.0..sroa_idx, align 2
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %0, align 8
@@ -41220,8 +41220,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Textur
   store ptr %95, ptr %.sroa.65.0..sroa_idx.i58, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %103, i8 0, i64 14, i1 false)
-  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
-  store i16 3, ptr %.sroa.681.0..sroa_idx, align 2
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 30
+  store i16 3, ptr %.sroa.680.0..sroa_idx, align 2
   %104 = load i32, ptr %.040, align 8
   %105 = add i32 %104, 1
   store i32 %105, ptr %.040, align 8
@@ -41315,8 +41315,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Textur
   %.035 = phi ptr [ %161, %145 ], [ %112, %109 ]
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %4, align 8
-  %.not91 = icmp eq ptr %164, %165
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not88 = icmp eq ptr %164, %165
+  br i1 %.not88, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -41331,8 +41331,8 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Textur
 
 174:                                              ; preds = %.lr.ph, %249
   %175 = phi ptr [ %165, %.lr.ph ], [ %252, %249 ]
-  %.090 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.090
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %250, %249 ]
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.087
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
@@ -41344,7 +41344,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter12WriteObjectsINS_7Textur
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 3, ptr %166, align 2
   %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.090
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.087
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %186 = load i64, ptr %185, align 8
@@ -41393,12 +41393,12 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %213 = add i32 %212, 1
   store i32 %213, ptr %3, align 8
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.090
-  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.087
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit, %181
-  %215 = phi ptr [ %.pre93, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
+  %215 = phi ptr [ %.pre90, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEES8_RS5_.exit ], [ %184, %181 ]
   call void @_ZN5glTF25WriteERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEERNS_7TextureERNS_11AssetWriterE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(296) %215, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %216 = load ptr, ptr %167, align 8
   %217 = load i32, ptr %.035, align 8
@@ -41407,7 +41407,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br i1 %.not.i, label %._crit_edge, label %219
 
 ._crit_edge:                                      ; preds = %214
-  %.pre94 = load ptr, ptr %173, align 8
+  %.pre91 = load ptr, ptr %173, align 8
   br label %240
 
 219:                                              ; preds = %214
@@ -41417,11 +41417,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %223 = add i32 %222, %218
   %224 = select i1 %220, i32 16, i32 %223
   %225 = icmp ugt i32 %224, %218
-  %.pre95 = load ptr, ptr %173, align 8
+  %.pre92 = load ptr, ptr %173, align 8
   br i1 %225, label %.noexc73, label %240
 
 .noexc73:                                         ; preds = %219
-  %226 = ptrtoint ptr %.pre95 to i64
+  %226 = ptrtoint ptr %.pre92 to i64
   %227 = and i64 %226, 281474976710655
   %228 = inttoptr i64 %227 to ptr
   %229 = zext i32 %218 to i64
@@ -41441,7 +41441,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %240
 
 240:                                              ; preds = %._crit_edge, %.noexc73, %219
-  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre95, %219 ], [ %.pre94, %._crit_edge ]
+  %241 = phi ptr [ %239, %.noexc73 ], [ %.pre92, %219 ], [ %.pre91, %._crit_edge ]
   %242 = phi i32 [ %.pre.i, %.noexc73 ], [ %217, %219 ], [ %217, %._crit_edge ]
   %243 = ptrtoint ptr %241 to i64
   %244 = and i64 %243, 281474976710655
@@ -41455,7 +41455,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %249
 
 249:                                              ; preds = %174, %240
-  %250 = add nuw i64 %.090, 1
+  %250 = add nuw i64 %.087, 1
   %251 = load ptr, ptr %6, align 8
   %252 = load ptr, ptr %4, align 8
   %253 = ptrtoint ptr %251 to i64
@@ -43454,7 +43454,7 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter19WriteExtensionsUsedEv(p
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %.thread276
+  br i1 %6, label %7, label %.thread270
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -43478,13 +43478,13 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter19WriteExtensionsUsedEv(p
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10, label %38
 
-.thread276:                                       ; preds = %1
+.thread270:                                       ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %22 = load i8, ptr %21, align 2, !range !10, !noundef !11
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %.noexc.i.i7, label %.thread292
+  br i1 %23, label %.noexc.i.i7, label %.thread286
 
-.noexc.i.i7:                                      ; preds = %.thread276
+.noexc.i.i7:                                      ; preds = %.thread270
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43494,40 +43494,40 @@ define linkonce_odr hidden void @_ZN5glTF211AssetWriter19WriteExtensionsUsedEv(p
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10: ; preds = %7, %.noexc.i.i7
-  %.sroa.0139.0282289 = phi i32 [ 0, %.noexc.i.i7 ], [ 1, %7 ]
+  %.sroa.0136.0276283 = phi i32 [ 0, %.noexc.i.i7 ], [ 1, %7 ]
   %.sroa.67.13 = phi ptr [ %29, %.noexc.i.i7 ], [ %13, %7 ]
   %30 = or i64 ptrtoint (ptr @.str.164 to i64), 289637751035265024
   %31 = inttoptr i64 %30 to ptr
   %32 = ptrtoint ptr %.sroa.67.13 to i64
   %33 = and i64 %32, 281474976710655
   %34 = inttoptr i64 %33 to ptr
-  %35 = add nuw nsw i32 %.sroa.0139.0282289, 1
-  %36 = zext nneg i32 %.sroa.0139.0282289 to i64
+  %35 = add nuw nsw i32 %.sroa.0136.0276283, 1
+  %36 = zext nneg i32 %.sroa.0136.0276283 to i64
   %37 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %34, i64 %36
   store i32 19, ptr %37, align 8
   %.sroa.6.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i5, align 4
   %.sroa.64.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %31, ptr %.sroa.64.0..sroa_idx.i.i6, align 8
-  %.pre247 = load ptr, ptr %2, align 8
+  %.pre241 = load ptr, ptr %2, align 8
   br label %38
 
 38:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10, %7
-  %39 = phi ptr [ %.pre247, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10 ], [ %.pre, %7 ]
+  %39 = phi ptr [ %.pre241, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10 ], [ %.pre, %7 ]
   %.sroa.67.1 = phi ptr [ %.sroa.67.13, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10 ], [ %13, %7 ]
-  %.sroa.0139.1 = phi i32 [ %35, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10 ], [ 1, %7 ]
+  %.sroa.0136.1 = phi i32 [ %35, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit10 ], [ 1, %7 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 25
   %41 = load i8, ptr %40, align 1, !range !10, !noundef !11
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17, label %60
 
-.thread292:                                       ; preds = %.thread276
+.thread286:                                       ; preds = %.thread270
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %44 = load i8, ptr %43, align 1, !range !10, !noundef !11
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %.thread319, label %.thread326
+  br i1 %45, label %.thread313, label %.thread320
 
-.thread319:                                       ; preds = %.thread292
+.thread313:                                       ; preds = %.thread286
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43536,41 +43536,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %51 = inttoptr i64 %50 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17: ; preds = %38, %.thread319
-  %.sroa.0139.1298305 = phi i32 [ 0, %.thread319 ], [ %.sroa.0139.1, %38 ]
-  %.sroa.67.14 = phi ptr [ %51, %.thread319 ], [ %.sroa.67.1, %38 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17: ; preds = %38, %.thread313
+  %.sroa.0136.1292299 = phi i32 [ 0, %.thread313 ], [ %.sroa.0136.1, %38 ]
+  %.sroa.67.14 = phi ptr [ %51, %.thread313 ], [ %.sroa.67.1, %38 ]
   %52 = or i64 ptrtoint (ptr @.str.168 to i64), 289637751035265024
   %53 = inttoptr i64 %52 to ptr
   %54 = ptrtoint ptr %.sroa.67.14 to i64
   %55 = and i64 %54, 281474976710655
   %56 = inttoptr i64 %55 to ptr
-  %57 = add nuw nsw i32 %.sroa.0139.1298305, 1
-  %58 = zext nneg i32 %.sroa.0139.1298305 to i64
+  %57 = add nuw nsw i32 %.sroa.0136.1292299, 1
+  %58 = zext nneg i32 %.sroa.0136.1292299 to i64
   %59 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %56, i64 %58
   store i32 22, ptr %59, align 8
   %.sroa.6.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i12, align 4
   %.sroa.64.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %53, ptr %.sroa.64.0..sroa_idx.i.i13, align 8
-  %.pre248 = load ptr, ptr %2, align 8
+  %.pre242 = load ptr, ptr %2, align 8
   br label %60
 
 60:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17, %38
-  %61 = phi ptr [ %.pre248, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17 ], [ %39, %38 ]
+  %61 = phi ptr [ %.pre242, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17 ], [ %39, %38 ]
   %.sroa.67.2 = phi ptr [ %.sroa.67.14, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17 ], [ %.sroa.67.1, %38 ]
-  %.sroa.0139.2 = phi i32 [ %57, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17 ], [ %.sroa.0139.1, %38 ]
+  %.sroa.0136.2 = phi i32 [ %57, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit17 ], [ %.sroa.0136.1, %38 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 29
   %63 = load i8, ptr %62, align 1, !range !10, !noundef !11
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24, label %82
 
-.thread326:                                       ; preds = %.thread292
+.thread320:                                       ; preds = %.thread286
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 29
   %66 = load i8, ptr %65, align 1, !range !10, !noundef !11
   %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.thread353, label %.thread360
+  br i1 %67, label %.thread347, label %.thread354
 
-.thread353:                                       ; preds = %.thread326
+.thread347:                                       ; preds = %.thread320
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43579,41 +43579,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %73 = inttoptr i64 %72 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24: ; preds = %60, %.thread353
-  %.sroa.0139.2332339 = phi i32 [ 0, %.thread353 ], [ %.sroa.0139.2, %60 ]
-  %.sroa.67.15 = phi ptr [ %73, %.thread353 ], [ %.sroa.67.2, %60 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24: ; preds = %60, %.thread347
+  %.sroa.0136.2326333 = phi i32 [ 0, %.thread347 ], [ %.sroa.0136.2, %60 ]
+  %.sroa.67.15 = phi ptr [ %73, %.thread347 ], [ %.sroa.67.2, %60 ]
   %74 = or i64 ptrtoint (ptr @.str.173 to i64), 289637751035265024
   %75 = inttoptr i64 %74 to ptr
   %76 = ptrtoint ptr %.sroa.67.15 to i64
   %77 = and i64 %76, 281474976710655
   %78 = inttoptr i64 %77 to ptr
-  %79 = add nuw nsw i32 %.sroa.0139.2332339, 1
-  %80 = zext nneg i32 %.sroa.0139.2332339 to i64
+  %79 = add nuw nsw i32 %.sroa.0136.2326333, 1
+  %80 = zext nneg i32 %.sroa.0136.2326333 to i64
   %81 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %78, i64 %80
   store i32 19, ptr %81, align 8
   %.sroa.6.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i19, align 4
   %.sroa.64.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %75, ptr %.sroa.64.0..sroa_idx.i.i20, align 8
-  %.pre249 = load ptr, ptr %2, align 8
+  %.pre243 = load ptr, ptr %2, align 8
   br label %82
 
 82:                                               ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24, %60
-  %83 = phi ptr [ %.pre249, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24 ], [ %61, %60 ]
+  %83 = phi ptr [ %.pre243, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24 ], [ %61, %60 ]
   %.sroa.67.3 = phi ptr [ %.sroa.67.15, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24 ], [ %.sroa.67.2, %60 ]
-  %.sroa.0139.3 = phi i32 [ %79, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24 ], [ %.sroa.0139.2, %60 ]
+  %.sroa.0136.3 = phi i32 [ %79, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit24 ], [ %.sroa.0136.2, %60 ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 30
   %85 = load i8, ptr %84, align 2, !range !10, !noundef !11
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31, label %104
 
-.thread360:                                       ; preds = %.thread326
+.thread354:                                       ; preds = %.thread320
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %88 = load i8, ptr %87, align 2, !range !10, !noundef !11
   %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %.thread388, label %.thread395
+  br i1 %89, label %.thread382, label %.thread389
 
-.thread388:                                       ; preds = %.thread360
+.thread382:                                       ; preds = %.thread354
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43622,41 +43622,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %95 = inttoptr i64 %94 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31: ; preds = %82, %.thread388
-  %.sroa.0139.3366373 = phi i32 [ 0, %.thread388 ], [ %.sroa.0139.3, %82 ]
-  %.sroa.67.16 = phi ptr [ %95, %.thread388 ], [ %.sroa.67.3, %82 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31: ; preds = %82, %.thread382
+  %.sroa.0136.3360367 = phi i32 [ 0, %.thread382 ], [ %.sroa.0136.3, %82 ]
+  %.sroa.67.16 = phi ptr [ %95, %.thread382 ], [ %.sroa.67.3, %82 ]
   %96 = or i64 ptrtoint (ptr @.str.179 to i64), 289637751035265024
   %97 = inttoptr i64 %96 to ptr
   %98 = ptrtoint ptr %.sroa.67.16 to i64
   %99 = and i64 %98, 281474976710655
   %100 = inttoptr i64 %99 to ptr
-  %101 = add nuw nsw i32 %.sroa.0139.3366373, 1
-  %102 = zext nneg i32 %.sroa.0139.3366373 to i64
+  %101 = add nuw nsw i32 %.sroa.0136.3360367, 1
+  %102 = zext nneg i32 %.sroa.0136.3360367 to i64
   %103 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %100, i64 %102
   store i32 23, ptr %103, align 8
   %.sroa.6.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i26, align 4
   %.sroa.64.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %97, ptr %.sroa.64.0..sroa_idx.i.i27, align 8
-  %.pre250 = load ptr, ptr %2, align 8
+  %.pre244 = load ptr, ptr %2, align 8
   br label %104
 
 104:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31, %82
-  %105 = phi ptr [ %.pre250, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31 ], [ %83, %82 ]
+  %105 = phi ptr [ %.pre244, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31 ], [ %83, %82 ]
   %.sroa.67.4 = phi ptr [ %.sroa.67.16, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31 ], [ %.sroa.67.3, %82 ]
-  %.sroa.0139.4 = phi i32 [ %101, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31 ], [ %.sroa.0139.3, %82 ]
+  %.sroa.0136.4 = phi i32 [ %101, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit31 ], [ %.sroa.0136.3, %82 ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 31
   %107 = load i8, ptr %106, align 1, !range !10, !noundef !11
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38, label %126
 
-.thread395:                                       ; preds = %.thread360
+.thread389:                                       ; preds = %.thread354
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 31
   %110 = load i8, ptr %109, align 1, !range !10, !noundef !11
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %.thread423, label %.thread430
+  br i1 %111, label %.thread417, label %.thread424
 
-.thread423:                                       ; preds = %.thread395
+.thread417:                                       ; preds = %.thread389
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43665,41 +43665,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %117 = inttoptr i64 %116 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38: ; preds = %104, %.thread423
-  %.sroa.0139.4401408 = phi i32 [ 0, %.thread423 ], [ %.sroa.0139.4, %104 ]
-  %.sroa.67.17 = phi ptr [ %117, %.thread423 ], [ %.sroa.67.4, %104 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38: ; preds = %104, %.thread417
+  %.sroa.0136.4395402 = phi i32 [ 0, %.thread417 ], [ %.sroa.0136.4, %104 ]
+  %.sroa.67.17 = phi ptr [ %117, %.thread417 ], [ %.sroa.67.4, %104 ]
   %118 = or i64 ptrtoint (ptr @.str.182 to i64), 289637751035265024
   %119 = inttoptr i64 %118 to ptr
   %120 = ptrtoint ptr %.sroa.67.17 to i64
   %121 = and i64 %120, 281474976710655
   %122 = inttoptr i64 %121 to ptr
-  %123 = add nuw nsw i32 %.sroa.0139.4401408, 1
-  %124 = zext nneg i32 %.sroa.0139.4401408 to i64
+  %123 = add nuw nsw i32 %.sroa.0136.4395402, 1
+  %124 = zext nneg i32 %.sroa.0136.4395402 to i64
   %125 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %122, i64 %124
   store i32 26, ptr %125, align 8
   %.sroa.6.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i33, align 4
   %.sroa.64.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %119, ptr %.sroa.64.0..sroa_idx.i.i34, align 8
-  %.pre251 = load ptr, ptr %2, align 8
+  %.pre245 = load ptr, ptr %2, align 8
   br label %126
 
 126:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38, %104
-  %127 = phi ptr [ %.pre251, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38 ], [ %105, %104 ]
+  %127 = phi ptr [ %.pre245, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38 ], [ %105, %104 ]
   %.sroa.67.5 = phi ptr [ %.sroa.67.17, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38 ], [ %.sroa.67.4, %104 ]
-  %.sroa.0139.5 = phi i32 [ %123, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38 ], [ %.sroa.0139.4, %104 ]
+  %.sroa.0136.5 = phi i32 [ %123, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit38 ], [ %.sroa.0136.4, %104 ]
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i8, ptr %128, align 8, !range !10, !noundef !11
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45, label %148
 
-.thread430:                                       ; preds = %.thread395
+.thread424:                                       ; preds = %.thread389
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %132 = load i8, ptr %131, align 8, !range !10, !noundef !11
   %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %.thread458, label %.thread465
+  br i1 %133, label %.thread452, label %.thread459
 
-.thread458:                                       ; preds = %.thread430
+.thread452:                                       ; preds = %.thread424
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43708,41 +43708,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %139 = inttoptr i64 %138 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45: ; preds = %126, %.thread458
-  %.sroa.0139.5436443 = phi i32 [ 0, %.thread458 ], [ %.sroa.0139.5, %126 ]
-  %.sroa.67.18 = phi ptr [ %139, %.thread458 ], [ %.sroa.67.5, %126 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45: ; preds = %126, %.thread452
+  %.sroa.0136.5430437 = phi i32 [ 0, %.thread452 ], [ %.sroa.0136.5, %126 ]
+  %.sroa.67.18 = phi ptr [ %139, %.thread452 ], [ %.sroa.67.5, %126 ]
   %140 = or i64 ptrtoint (ptr @.str.187 to i64), 289637751035265024
   %141 = inttoptr i64 %140 to ptr
   %142 = ptrtoint ptr %.sroa.67.18 to i64
   %143 = and i64 %142, 281474976710655
   %144 = inttoptr i64 %143 to ptr
-  %145 = add nuw nsw i32 %.sroa.0139.5436443, 1
-  %146 = zext nneg i32 %.sroa.0139.5436443 to i64
+  %145 = add nuw nsw i32 %.sroa.0136.5430437, 1
+  %146 = zext nneg i32 %.sroa.0136.5430437 to i64
   %147 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %144, i64 %146
   store i32 20, ptr %147, align 8
   %.sroa.6.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i40, align 4
   %.sroa.64.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %141, ptr %.sroa.64.0..sroa_idx.i.i41, align 8
-  %.pre252 = load ptr, ptr %2, align 8
+  %.pre246 = load ptr, ptr %2, align 8
   br label %148
 
 148:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45, %126
-  %149 = phi ptr [ %.pre252, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45 ], [ %127, %126 ]
+  %149 = phi ptr [ %.pre246, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45 ], [ %127, %126 ]
   %.sroa.67.6 = phi ptr [ %.sroa.67.18, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45 ], [ %.sroa.67.5, %126 ]
-  %.sroa.0139.6 = phi i32 [ %145, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45 ], [ %.sroa.0139.5, %126 ]
+  %.sroa.0136.6 = phi i32 [ %145, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit45 ], [ %.sroa.0136.5, %126 ]
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 33
   %151 = load i8, ptr %150, align 1, !range !10, !noundef !11
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52, label %170
 
-.thread465:                                       ; preds = %.thread430
+.thread459:                                       ; preds = %.thread424
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 33
   %154 = load i8, ptr %153, align 1, !range !10, !noundef !11
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %.thread493, label %.thread500
+  br i1 %155, label %.thread487, label %.thread494
 
-.thread493:                                       ; preds = %.thread465
+.thread487:                                       ; preds = %.thread459
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %157 = load ptr, ptr %156, align 8
   %158 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %157, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43751,41 +43751,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %161 = inttoptr i64 %160 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52: ; preds = %148, %.thread493
-  %.sroa.0139.6471478 = phi i32 [ 0, %.thread493 ], [ %.sroa.0139.6, %148 ]
-  %.sroa.67.19 = phi ptr [ %161, %.thread493 ], [ %.sroa.67.6, %148 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52: ; preds = %148, %.thread487
+  %.sroa.0136.6465472 = phi i32 [ 0, %.thread487 ], [ %.sroa.0136.6, %148 ]
+  %.sroa.67.19 = phi ptr [ %161, %.thread487 ], [ %.sroa.67.6, %148 ]
   %162 = or i64 ptrtoint (ptr @.str.189 to i64), 289637751035265024
   %163 = inttoptr i64 %162 to ptr
   %164 = ptrtoint ptr %.sroa.67.19 to i64
   %165 = and i64 %164, 281474976710655
   %166 = inttoptr i64 %165 to ptr
-  %167 = add nuw nsw i32 %.sroa.0139.6471478, 1
-  %168 = zext nneg i32 %.sroa.0139.6471478 to i64
+  %167 = add nuw nsw i32 %.sroa.0136.6465472, 1
+  %168 = zext nneg i32 %.sroa.0136.6465472 to i64
   %169 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %166, i64 %168
   store i32 17, ptr %169, align 8
   %.sroa.6.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i47, align 4
   %.sroa.64.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %163, ptr %.sroa.64.0..sroa_idx.i.i48, align 8
-  %.pre253 = load ptr, ptr %2, align 8
+  %.pre247 = load ptr, ptr %2, align 8
   br label %170
 
 170:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52, %148
-  %171 = phi ptr [ %.pre253, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52 ], [ %149, %148 ]
+  %171 = phi ptr [ %.pre247, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52 ], [ %149, %148 ]
   %.sroa.67.7 = phi ptr [ %.sroa.67.19, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52 ], [ %.sroa.67.6, %148 ]
-  %.sroa.0139.7 = phi i32 [ %167, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52 ], [ %.sroa.0139.6, %148 ]
+  %.sroa.0136.7 = phi i32 [ %167, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit52 ], [ %.sroa.0136.6, %148 ]
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 34
   %173 = load i8, ptr %172, align 2, !range !10, !noundef !11
   %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59, label %192
 
-.thread500:                                       ; preds = %.thread465
+.thread494:                                       ; preds = %.thread459
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 34
   %176 = load i8, ptr %175, align 2, !range !10, !noundef !11
   %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %.thread528, label %.thread535
+  br i1 %177, label %.thread522, label %.thread529
 
-.thread528:                                       ; preds = %.thread500
+.thread522:                                       ; preds = %.thread494
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43794,41 +43794,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %183 = inttoptr i64 %182 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59: ; preds = %170, %.thread528
-  %.sroa.0139.7506513 = phi i32 [ 0, %.thread528 ], [ %.sroa.0139.7, %170 ]
-  %.sroa.67.20 = phi ptr [ %183, %.thread528 ], [ %.sroa.67.7, %170 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59: ; preds = %170, %.thread522
+  %.sroa.0136.7500507 = phi i32 [ 0, %.thread522 ], [ %.sroa.0136.7, %170 ]
+  %.sroa.67.20 = phi ptr [ %183, %.thread522 ], [ %.sroa.67.7, %170 ]
   %184 = or i64 ptrtoint (ptr @.str.191 to i64), 289637751035265024
   %185 = inttoptr i64 %184 to ptr
   %186 = ptrtoint ptr %.sroa.67.20 to i64
   %187 = and i64 %186, 281474976710655
   %188 = inttoptr i64 %187 to ptr
-  %189 = add nuw nsw i32 %.sroa.0139.7506513, 1
-  %190 = zext nneg i32 %.sroa.0139.7506513 to i64
+  %189 = add nuw nsw i32 %.sroa.0136.7500507, 1
+  %190 = zext nneg i32 %.sroa.0136.7500507 to i64
   %191 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %188, i64 %190
   store i32 31, ptr %191, align 8
   %.sroa.6.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i54, align 4
   %.sroa.64.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %185, ptr %.sroa.64.0..sroa_idx.i.i55, align 8
-  %.pre254 = load ptr, ptr %2, align 8
+  %.pre248 = load ptr, ptr %2, align 8
   br label %192
 
 192:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59, %170
-  %193 = phi ptr [ %.pre254, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59 ], [ %171, %170 ]
+  %193 = phi ptr [ %.pre248, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59 ], [ %171, %170 ]
   %.sroa.67.8 = phi ptr [ %.sroa.67.20, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59 ], [ %.sroa.67.7, %170 ]
-  %.sroa.0139.8 = phi i32 [ %189, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59 ], [ %.sroa.0139.7, %170 ]
+  %.sroa.0136.8 = phi i32 [ %189, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit59 ], [ %.sroa.0136.7, %170 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 35
   %195 = load i8, ptr %194, align 1, !range !10, !noundef !11
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66, label %214
 
-.thread535:                                       ; preds = %.thread500
+.thread529:                                       ; preds = %.thread494
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 35
   %198 = load i8, ptr %197, align 1, !range !10, !noundef !11
   %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %.thread563, label %.thread570
+  br i1 %199, label %.thread557, label %.thread564
 
-.thread563:                                       ; preds = %.thread535
+.thread557:                                       ; preds = %.thread529
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %201 = load ptr, ptr %200, align 8
   %202 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %201, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43837,41 +43837,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %205 = inttoptr i64 %204 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66: ; preds = %192, %.thread563
-  %.sroa.0139.8541548 = phi i32 [ 0, %.thread563 ], [ %.sroa.0139.8, %192 ]
-  %.sroa.67.21 = phi ptr [ %205, %.thread563 ], [ %.sroa.67.8, %192 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66: ; preds = %192, %.thread557
+  %.sroa.0136.8535542 = phi i32 [ 0, %.thread557 ], [ %.sroa.0136.8, %192 ]
+  %.sroa.67.21 = phi ptr [ %205, %.thread557 ], [ %.sroa.67.8, %192 ]
   %206 = or i64 ptrtoint (ptr @.str.195 to i64), 289637751035265024
   %207 = inttoptr i64 %206 to ptr
   %208 = ptrtoint ptr %.sroa.67.21 to i64
   %209 = and i64 %208, 281474976710655
   %210 = inttoptr i64 %209 to ptr
-  %211 = add nuw nsw i32 %.sroa.0139.8541548, 1
-  %212 = zext nneg i32 %.sroa.0139.8541548 to i64
+  %211 = add nuw nsw i32 %.sroa.0136.8535542, 1
+  %212 = zext nneg i32 %.sroa.0136.8535542 to i64
   %213 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %210, i64 %212
   store i32 24, ptr %213, align 8
   %.sroa.6.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %213, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i61, align 4
   %.sroa.64.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store ptr %207, ptr %.sroa.64.0..sroa_idx.i.i62, align 8
-  %.pre255 = load ptr, ptr %2, align 8
+  %.pre249 = load ptr, ptr %2, align 8
   br label %214
 
 214:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66, %192
-  %215 = phi ptr [ %.pre255, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66 ], [ %193, %192 ]
+  %215 = phi ptr [ %.pre249, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66 ], [ %193, %192 ]
   %.sroa.67.9 = phi ptr [ %.sroa.67.21, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66 ], [ %.sroa.67.8, %192 ]
-  %.sroa.0139.9 = phi i32 [ %211, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66 ], [ %.sroa.0139.8, %192 ]
+  %.sroa.0136.9 = phi i32 [ %211, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit66 ], [ %.sroa.0136.8, %192 ]
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 37
   %217 = load i8, ptr %216, align 1, !range !10, !noundef !11
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73, label %236
 
-.thread570:                                       ; preds = %.thread535
+.thread564:                                       ; preds = %.thread529
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 37
   %220 = load i8, ptr %219, align 1, !range !10, !noundef !11
   %221 = trunc nuw i8 %220 to i1
-  br i1 %221, label %.thread598, label %.thread605
+  br i1 %221, label %.thread592, label %.thread599
 
-.thread598:                                       ; preds = %.thread570
+.thread592:                                       ; preds = %.thread564
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %223 = load ptr, ptr %222, align 8
   %224 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43880,41 +43880,41 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %227 = inttoptr i64 %226 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73: ; preds = %214, %.thread598
-  %.sroa.0139.9576583 = phi i32 [ 0, %.thread598 ], [ %.sroa.0139.9, %214 ]
-  %.sroa.67.22 = phi ptr [ %227, %.thread598 ], [ %.sroa.67.9, %214 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73: ; preds = %214, %.thread592
+  %.sroa.0136.9570577 = phi i32 [ 0, %.thread592 ], [ %.sroa.0136.9, %214 ]
+  %.sroa.67.22 = phi ptr [ %227, %.thread592 ], [ %.sroa.67.9, %214 ]
   %228 = or i64 ptrtoint (ptr @.str.198 to i64), 289637751035265024
   %229 = inttoptr i64 %228 to ptr
   %230 = ptrtoint ptr %.sroa.67.22 to i64
   %231 = and i64 %230, 281474976710655
   %232 = inttoptr i64 %231 to ptr
-  %233 = add nuw nsw i32 %.sroa.0139.9576583, 1
-  %234 = zext nneg i32 %.sroa.0139.9576583 to i64
+  %233 = add nuw nsw i32 %.sroa.0136.9570577, 1
+  %234 = zext nneg i32 %.sroa.0136.9570577 to i64
   %235 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %232, i64 %234
   store i32 16, ptr %235, align 8
   %.sroa.6.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %235, i64 4
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i68, align 4
   %.sroa.64.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store ptr %229, ptr %.sroa.64.0..sroa_idx.i.i69, align 8
-  %.pre256 = load ptr, ptr %2, align 8
+  %.pre250 = load ptr, ptr %2, align 8
   br label %236
 
 236:                                              ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73, %214
-  %237 = phi ptr [ %.pre256, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73 ], [ %215, %214 ]
+  %237 = phi ptr [ %.pre250, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73 ], [ %215, %214 ]
   %.sroa.67.10 = phi ptr [ %.sroa.67.22, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73 ], [ %.sroa.67.9, %214 ]
-  %.sroa.0139.10 = phi i32 [ %233, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73 ], [ %.sroa.0139.9, %214 ]
+  %.sroa.0136.10 = phi i32 [ %233, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackENS_16GenericStringRefIcEERS5_.exit73 ], [ %.sroa.0136.9, %214 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 38
   %239 = load i8, ptr %238, align 2, !range !10, !noundef !11
   %240 = trunc nuw i8 %239 to i1
   br i1 %240, label %.thread, label %258
 
-.thread605:                                       ; preds = %.thread570
+.thread599:                                       ; preds = %.thread564
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %242 = load i8, ptr %241, align 2, !range !10, !noundef !11
   %243 = trunc nuw i8 %242 to i1
-  br i1 %243, label %.thread636, label %.thread647
+  br i1 %243, label %.thread630, label %.thread641
 
-.thread636:                                       ; preds = %.thread605
+.thread630:                                       ; preds = %.thread599
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %245 = load ptr, ptr %244, align 8
   %246 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %245, ptr noundef null, i64 noundef 0, i64 noundef 256)
@@ -43923,16 +43923,16 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %249 = inttoptr i64 %248 to ptr
   br label %.thread
 
-.thread:                                          ; preds = %236, %.thread636
-  %.sroa.0139.10613621 = phi i32 [ 0, %.thread636 ], [ %.sroa.0139.10, %236 ]
-  %.sroa.67.23 = phi ptr [ %249, %.thread636 ], [ %.sroa.67.10, %236 ]
+.thread:                                          ; preds = %236, %.thread630
+  %.sroa.0136.10607615 = phi i32 [ 0, %.thread630 ], [ %.sroa.0136.10, %236 ]
+  %.sroa.67.23 = phi ptr [ %249, %.thread630 ], [ %.sroa.67.10, %236 ]
   %250 = or i64 ptrtoint (ptr @.str.230 to i64), 289637751035265024
   %251 = inttoptr i64 %250 to ptr
   %252 = ptrtoint ptr %.sroa.67.23 to i64
   %253 = and i64 %252, 281474976710655
   %254 = inttoptr i64 %253 to ptr
-  %255 = add nuw nsw i32 %.sroa.0139.10613621, 1
-  %256 = zext nneg i32 %.sroa.0139.10613621 to i64
+  %255 = add nuw nsw i32 %.sroa.0136.10607615, 1
+  %256 = zext nneg i32 %.sroa.0136.10607615 to i64
   %257 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %254, i64 %256
   store i32 18, ptr %257, align 8
   %.sroa.6.0..sroa_idx.i.i75 = getelementptr inbounds nuw i8, ptr %257, i64 4
@@ -43942,8 +43942,8 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %258
 
 258:                                              ; preds = %236, %.thread
-  %.sroa.0139.11246 = phi i32 [ %255, %.thread ], [ %.sroa.0139.10, %236 ]
-  %.sroa.67.11244 = phi ptr [ %.sroa.67.23, %.thread ], [ %.sroa.67.10, %236 ]
+  %.sroa.0136.11240 = phi i32 [ %255, %.thread ], [ %.sroa.0136.10, %236 ]
+  %.sroa.67.11238 = phi ptr [ %.sroa.67.23, %.thread ], [ %.sroa.67.10, %236 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %260 = load ptr, ptr %259, align 8
   %261 = load i32, ptr %0, align 8
@@ -44000,19 +44000,19 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %296, i64 8
   store ptr %289, ptr %.sroa.65.0..sroa_idx.i, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  store i32 %.sroa.0139.11246, ptr %297, align 8
+  store i32 %.sroa.0136.11240, ptr %297, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %296, i64 20
   store i32 16, ptr %.sroa.43.0..sroa_idx, align 4
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %296, i64 24
-  store ptr %.sroa.67.11244, ptr %.sroa.67.0..sroa_idx, align 8
+  store ptr %.sroa.67.11238, ptr %.sroa.67.0..sroa_idx, align 8
   %298 = load i32, ptr %0, align 8
   %299 = add i32 %298, 1
   store i32 %299, ptr %0, align 8
-  %.pre257 = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre257, i64 38
-  %.pre258 = load i8, ptr %.phi.trans.insert, align 2, !range !10
-  %300 = trunc nuw i8 %.pre258 to i1
-  br i1 %300, label %.noexc.i.i87, label %.thread647
+  %.pre251 = load ptr, ptr %2, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre251, i64 38
+  %.pre252 = load i8, ptr %.phi.trans.insert, align 2, !range !10
+  %300 = trunc nuw i8 %.pre252 to i1
+  br i1 %300, label %.noexc.i.i87, label %.thread641
 
 .noexc.i.i87:                                     ; preds = %286
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -44093,9 +44093,9 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   %348 = load i32, ptr %0, align 8
   %349 = add i32 %348, 1
   store i32 %349, ptr %0, align 8
-  br label %.thread647
+  br label %.thread641
 
-.thread647:                                       ; preds = %.thread605, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit98, %286
+.thread641:                                       ; preds = %.thread599, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9AddMemberENS_16GenericStringRefIcEERS6_RS5_.exit98, %286
   ret void
 }
 

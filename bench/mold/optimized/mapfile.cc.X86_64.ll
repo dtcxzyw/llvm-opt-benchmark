@@ -2984,8 +2984,8 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEE
   br i1 %18, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL7get_mapINS3_6X86_64EEENS1_19concurrent_hash_mapIPNS3_12InputSectionIT_EESt6vectorIPNS3_6SymbolIS8_EESaISE_EENS0_2d116tbb_hash_compareISA_EENSH_13tbb_allocatorISt4pairIKSA_SG_EEEEERNS3_7ContextIS8_EEEUlPNS3_10ObjectFileIS5_EEE_E4callIRSV_NS1_11feeder_implISW_SV_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSW_OS8_PT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %10, %82
-  %.sroa.019.026.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %83, %82 ], [ %15, %10 ]
-  %19 = load ptr, ptr %.sroa.019.026.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !470
+  %.sroa.016.023.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %83, %82 ], [ %15, %10 ]
+  %19 = load ptr, ptr %.sroa.016.023.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !470
   %20 = load ptr, ptr %19, align 8, !tbaa !471
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, %.val.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %21, label %82
@@ -3001,19 +3001,19 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEE
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 15
   %31 = icmp eq i8 %30, 3
-  br i1 %31, label %82, label %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread23.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %31, label %82, label %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread20.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread23.i.i.i.i.i.i.i.i.i.i.i: ; preds = %21
+_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread20.i.i.i.i.i.i.i.i.i.i.i: ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !479
   %34 = and i64 %33, 3
   %35 = icmp ne i64 %34, 1
   %36 = and i64 %33, -4
-  %.not525.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %36, 0
-  %.not5.i.i.i.i.i.i.i.i.i.i.i = or i1 %35, %.not525.i.i.i.i.i.i.i.i.i.i.i
+  %.not522.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %36, 0
+  %.not5.i.i.i.i.i.i.i.i.i.i.i = or i1 %35, %.not522.i.i.i.i.i.i.i.i.i.i.i
   br i1 %.not5.i.i.i.i.i.i.i.i.i.i.i, label %82, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6vectorIPNS3_6SymbolIS5_EESaISB_EENS0_2d116tbb_hash_compareIS7_EENSE_13tbb_allocatorISt4pairIKS7_SD_EEEE6insertERNSM_8accessorEOSK_.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6vectorIPNS3_6SymbolIS5_EESaISB_EENS0_2d116tbb_hash_compareIS7_EENSE_13tbb_allocatorISt4pairIKS7_SD_EEEE6insertERNSM_8accessorEOSK_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread23.i.i.i.i.i.i.i.i.i.i.i
+_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6vectorIPNS3_6SymbolIS5_EESaISB_EENS0_2d116tbb_hash_compareIS7_EENSE_13tbb_allocatorISt4pairIKS7_SD_EEEE6insertERNSM_8accessorEOSK_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread20.i.i.i.i.i.i.i.i.i.i.i
   %37 = inttoptr i64 %36 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !480
@@ -3125,8 +3125,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6ve
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %82
 
-82:                                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6vectorIPNS3_6SymbolIS5_EESaISB_EENS0_2d116tbb_hash_compareIS7_EENSE_13tbb_allocatorISt4pairIKS7_SD_EEEE14const_accessorD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread23.i.i.i.i.i.i.i.i.i.i.i, %21, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.019.026.i.i.i.i.i.i.i.i.i.i.i, i64 8
+82:                                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6vectorIPNS3_6SymbolIS5_EESaISB_EENS0_2d116tbb_hash_compareIS7_EENSE_13tbb_allocatorISt4pairIKS7_SD_EEEE14const_accessorD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread20.i.i.i.i.i.i.i.i.i.i.i, %21, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.016.023.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %84 = icmp eq ptr %83, %17
   br i1 %84, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL7get_mapINS3_6X86_64EEENS1_19concurrent_hash_mapIPNS3_12InputSectionIT_EESt6vectorIPNS3_6SymbolIS8_EESaISE_EENS0_2d116tbb_hash_compareISA_EENSH_13tbb_allocatorISt4pairIKSA_SG_EEEEERNS3_7ContextIS8_EEEUlPNS3_10ObjectFileIS5_EEE_E4callIRSV_NS1_11feeder_implISW_SV_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSW_OS8_PT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
@@ -4744,12 +4744,12 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d214hash_map_rangeINS1_17hash
 _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit.i: ; preds = %.preheader.i.i, %.thread.i.i.i, %34
   %.sroa.12.1.i = phi ptr [ %.0.i.i.i, %34 ], [ %.0.i.i.i.i.i, %.thread.i.i.i ], [ null, %.preheader.i.i ]
   %.sroa.5.0.i = phi i64 [ %36, %34 ], [ %.010.i.i.i, %.thread.i.i.i ], [ %.010.i.i.i, %.preheader.i.i ]
-  %.sroa.8.2.i = phi ptr [ %47, %34 ], [ %storemerge.i.i.i, %.thread.i.i.i ], [ null, %.preheader.i.i ]
+  %.sroa.8.1.i = phi ptr [ %47, %34 ], [ %storemerge.i.i.i, %.thread.i.i.i ], [ null, %.preheader.i.i ]
   store ptr %48, ptr %15, align 8, !tbaa !89
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.5.0.i, ptr %75, align 8, !tbaa !90
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.sroa.8.2.i, ptr %76, align 8, !tbaa !91
+  store ptr %.sroa.8.1.i, ptr %76, align 8, !tbaa !91
   %.pre = load i64, ptr %17, align 8, !tbaa !92
   br label %_ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS5_6X86_64EEESt6vectorIPNS5_6SymbolIS7_EESaISD_EENS0_2d116tbb_hash_compareIS9_EENSG_13tbb_allocatorISt4pairIKS9_SF_EEEEESM_EEE12set_midpointEv.exit
 
@@ -4850,10 +4850,10 @@ _ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash
 _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit.i20: ; preds = %.preheader.i.i12, %.thread.i.i.i18, %90
   %.sroa.12.1.i21 = phi ptr [ %.0.i.i.i8, %90 ], [ %.0.i.i.i.i.i19, %.thread.i.i.i18 ], [ null, %.preheader.i.i12 ]
   %.sroa.5.0.i22 = phi i64 [ %92, %90 ], [ %.010.i.i.i14, %.thread.i.i.i18 ], [ %.010.i.i.i14, %.preheader.i.i12 ]
-  %.sroa.8.2.i23 = phi ptr [ %103, %90 ], [ %storemerge.i.i.i17, %.thread.i.i.i18 ], [ null, %.preheader.i.i12 ]
+  %.sroa.8.1.i23 = phi ptr [ %103, %90 ], [ %storemerge.i.i.i17, %.thread.i.i.i18 ], [ null, %.preheader.i.i12 ]
   store ptr %104, ptr %19, align 8, !tbaa !89
   store i64 %.sroa.5.0.i22, ptr %21, align 8, !tbaa !90
-  store ptr %.sroa.8.2.i23, ptr %24, align 8, !tbaa !91
+  store ptr %.sroa.8.1.i23, ptr %24, align 8, !tbaa !91
   br label %_ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS5_6X86_64EEESt6vectorIPNS5_6SymbolIS7_EESaISD_EENS0_2d116tbb_hash_compareIS9_EENSG_13tbb_allocatorISt4pairIKS9_SF_EEEEESM_EEE12set_midpointEv.exit25
 
 131:                                              ; preds = %_ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS5_6X86_64EEESt6vectorIPNS5_6SymbolIS7_EESaISD_EENS0_2d116tbb_hash_compareIS9_EENSG_13tbb_allocatorISt4pairIKS9_SF_EEEEESM_EEE12set_midpointEv.exit
@@ -4895,7 +4895,7 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS0_2d214hash_map_range
   br label %17
 
 17:                                               ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.sroa.9.019.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %.sroa.9.3.i.i.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i ]
+  %.sroa.9.019.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %.sroa.9.2.i.i.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i ]
   %.sroa.13.018.i.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i.i ], [ %.sroa.13.2.i.i.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i ]
   %.sroa.67.017.i.i.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i.i.i ], [ %.sroa.67.1.i.i.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.13.018.i.i.i.i.i, i64 24
@@ -4990,7 +4990,7 @@ _ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3t
 _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EppEi.exit.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i, %_ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3tbb6detail2d219concurrent_hash_mapIPNS_12InputSectionIT_EES1_IPNS2_ISE_EESaISI_EENSA_2d116tbb_hash_compareISG_EENSL_13tbb_allocatorISt4pairIKSG_SK_EEEEERNS_7ContextISE_EEENKUlRKNSB_14hash_map_rangeINSB_17hash_map_iteratorINSC_IPNSD_IS3_EES7_NSM_IS10_EENSO_ISP_IKS10_S7_EEEEES13_EEEEE_clES19_EUlS5_S5_E_EEvRSE_T0_.exit.i.i.i.i.i
   %.sroa.67.1.i.i.i.i.i = phi i64 [ %.sroa.67.017.i.i.i.i.i, %_ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3tbb6detail2d219concurrent_hash_mapIPNS_12InputSectionIT_EES1_IPNS2_ISE_EESaISI_EENSA_2d116tbb_hash_compareISG_EENSL_13tbb_allocatorISt4pairIKSG_SK_EEEEERNS_7ContextISE_EEENKUlRKNSB_14hash_map_rangeINSB_17hash_map_iteratorINSC_IPNSD_IS3_EES7_NSM_IS10_EENSO_ISP_IKS10_S7_EEEEES13_EEEEE_clES19_EUlS5_S5_E_EEvRSE_T0_.exit.i.i.i.i.i ], [ %.010.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ %.010.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ]
   %.sroa.13.2.i.i.i.i.i = phi ptr [ %31, %_ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3tbb6detail2d219concurrent_hash_mapIPNS_12InputSectionIT_EES1_IPNS2_ISE_EESaISI_EENSA_2d116tbb_hash_compareISG_EENSL_13tbb_allocatorISt4pairIKSG_SK_EEEEERNS_7ContextISE_EEENKUlRKNSB_14hash_map_rangeINSB_17hash_map_iteratorINSC_IPNSD_IS3_EES7_NSM_IS10_EENSO_ISP_IKS10_S7_EEEEES13_EEEEE_clES19_EUlS5_S5_E_EEvRSE_T0_.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ null, %.preheader.i.i.i.i.i.i ]
-  %.sroa.9.3.i.i.i.i.i = phi ptr [ %.sroa.9.019.i.i.i.i.i, %_ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3tbb6detail2d219concurrent_hash_mapIPNS_12InputSectionIT_EES1_IPNS2_ISE_EESaISI_EENSA_2d116tbb_hash_compareISG_EENSL_13tbb_allocatorISt4pairIKSG_SK_EEEEERNS_7ContextISE_EEENKUlRKNSB_14hash_map_rangeINSB_17hash_map_iteratorINSC_IPNSD_IS3_EES7_NSM_IS10_EENSO_ISP_IKS10_S7_EEEEES13_EEEEE_clES19_EUlS5_S5_E_EEvRSE_T0_.exit.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ null, %.preheader.i.i.i.i.i.i ]
+  %.sroa.9.2.i.i.i.i.i = phi ptr [ %.sroa.9.019.i.i.i.i.i, %_ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3tbb6detail2d219concurrent_hash_mapIPNS_12InputSectionIT_EES1_IPNS2_ISE_EESaISI_EENSA_2d116tbb_hash_compareISG_EENSL_13tbb_allocatorISt4pairIKSG_SK_EEEEERNS_7ContextISE_EEENKUlRKNSB_14hash_map_rangeINSB_17hash_map_iteratorINSC_IPNSD_IS3_EES7_NSM_IS10_EENSO_ISP_IKS10_S7_EEEEES13_EEEEE_clES19_EUlS5_S5_E_EEvRSE_T0_.exit.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ null, %.preheader.i.i.i.i.i.i ]
   %53 = load ptr, ptr %5, align 8, !tbaa !89, !noalias !530
   %54 = load ptr, ptr %6, align 8, !tbaa !82, !noalias !530
   %.not.i.i.i.i.i.i = icmp ne ptr %.sroa.13.2.i.i.i.i.i, %54
@@ -6444,14 +6444,14 @@ _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSec
 _ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS5_6X86_64EEESt6vectorIPNS5_6SymbolIS7_EESaISD_EENS0_2d116tbb_hash_compareIS9_EENSG_13tbb_allocatorISt4pairIKS9_SF_EEEEESM_EEE12set_midpointEv.exit: ; preds = %.preheader.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit, %46, %.thread.i.i.i
   %.sink = phi ptr [ %60, %46 ], [ %1, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit ], [ %60, %.thread.i.i.i ], [ %60, %.preheader.i.i ]
   %.sroa.5.0.i.sink = phi i64 [ %48, %46 ], [ %40, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit ], [ %.010.i.i.i, %.thread.i.i.i ], [ %.010.i.i.i, %.preheader.i.i ]
-  %.sroa.8.2.i.sink = phi ptr [ %59, %46 ], [ null, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit ], [ %storemerge.i.i.i, %.thread.i.i.i ], [ null, %.preheader.i.i ]
+  %.sroa.8.1.i.sink = phi ptr [ %59, %46 ], [ null, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit ], [ %storemerge.i.i.i, %.thread.i.i.i ], [ null, %.preheader.i.i ]
   %.sink.i = phi ptr [ %.0.i.i.i, %46 ], [ null, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSectionINS4_6X86_64EEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEEESL_EC2ERKSN_mPKNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketEPNS1_18hash_map_node_baseISS_EE.exit ], [ %.0.i.i.i.i.i8, %.thread.i.i.i ], [ null, %.preheader.i.i ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %87, align 8, !tbaa !89
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.5.0.i.sink, ptr %88, align 8, !tbaa !90
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.sroa.8.2.i.sink, ptr %89, align 8, !tbaa !91
+  store ptr %.sroa.8.1.i.sink, ptr %89, align 8, !tbaa !91
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %.sink.i, ptr %90, align 8, !tbaa !82
   ret void

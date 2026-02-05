@@ -3193,12 +3193,12 @@ if.end.i83:                                       ; preds = %if.then12.i.i.i, %i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end13.i.i.i76, %if.end.i83, %if.end.i.i.i65, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIjN6hermes3hbc18FileAndSourceMapIdELj4ENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
-  %call.i.sink.i.sink118 = phi ptr [ %cond.sink.i.i.ph.pn.i, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIjN6hermes3hbc18FileAndSourceMapIdELj4ENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %call.i.i84, %if.end.i83 ], [ %add.ptr25.i.i.i70, %if.end.i.i.i65 ], [ %add.ptr.i.i.i81, %if.end13.i.i.i76 ]
-  store ptr %call.i.sink.i.sink118, ptr %lastFoundFileSourceMapId_, align 8
+  %call.i.sink.i.sink116 = phi ptr [ %cond.sink.i.i.ph.pn.i, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIjN6hermes3hbc18FileAndSourceMapIdELj4ENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %call.i.i84, %if.end.i83 ], [ %add.ptr25.i.i.i70, %if.end.i.i.i65 ], [ %add.ptr.i.i.i81, %if.end13.i.i.i76 ]
+  store ptr %call.i.sink.i.sink116, ptr %lastFoundFileSourceMapId_, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.rhs
-  %call.i.sink.i.sink = phi ptr [ %0, %land.rhs ], [ %call.i.sink.i.sink118, %return.sink.split ]
+  %call.i.sink.i.sink = phi ptr [ %0, %land.rhs ], [ %call.i.sink.i.sink116, %return.sink.split ]
   %second43 = getelementptr inbounds nuw i8, ptr %call.i.sink.i.sink, i64 4
   %retval.sroa.0.0 = load i64, ptr %second43, align 4
   ret i64 %retval.sroa.0.0
@@ -50213,17 +50213,17 @@ _ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit: ; preds =
 _ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit: ; preds = %entry, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit
   %jmpTable.sroa.10.0 = phi ptr [ %add.ptr34.i, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit ], [ null, %entry ]
   %jmpTable.sroa.0.0 = phi ptr [ %call5.i.i.i.i, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit ], [ null, %entry ]
-  %call.i1678 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %Inst) #19
-  %4 = and i32 %call.i1678, -2
-  %cmp81.not = icmp eq i32 %4, 4
-  br i1 %cmp81.not, label %for.cond9.preheader, label %for.body
+  %call.i1675 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %Inst) #19
+  %4 = and i32 %call.i1675, -2
+  %cmp78.not = icmp eq i32 %4, 4
+  br i1 %cmp78.not, label %for.cond9.preheader, label %for.body
 
 for.cond9.preheader:                              ; preds = %for.body, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit
   br i1 %cmp.i.not, label %for.end20, label %for.body11
 
 for.body:                                         ; preds = %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit, %for.body
-  %caseIdx.082 = phi i32 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit ]
-  %mul.i = shl nuw i32 %caseIdx.082, 1
+  %caseIdx.079 = phi i32 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit ]
+  %mul.i = shl nuw i32 %caseIdx.079, 1
   %add.i = add i32 %mul.i, 4
   %call.i18 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef %add.i) #19
   %add4.i = add i32 %mul.i, 5
@@ -50245,7 +50245,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIPN6her
   %conv7 = zext i32 %sub6 to i64
   %add.ptr.i19 = getelementptr inbounds nuw ptr, ptr %jmpTable.sroa.0.0, i64 %conv7
   store ptr %6, ptr %add.ptr.i19, align 8
-  %inc = add nuw nsw i32 %caseIdx.082, 1
+  %inc = add nuw nsw i32 %caseIdx.079, 1
   %call.i16 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %Inst) #19
   %sub.i17 = add i32 %call.i16, -4
   %div1.i = lshr i32 %sub.i17, 1
@@ -50340,7 +50340,7 @@ _ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit: ; preds = 
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread, label %cond.true.i.i.i.i
 
 _ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread: ; preds = %_ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit
-  %add.ptr.i.i.i3573 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i34
+  %add.ptr.i.i.i3570 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i34
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EEC2ERKS4_.exit
 
 cond.true.i.i.i.i:                                ; preds = %_ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit
@@ -50358,8 +50358,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EEC2ERKS4_.exit
 
 _ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i3575 = phi ptr [ %add.ptr.i.i.i3573, %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread ], [ %add.ptr.i.i.i35, %if.then.i.i.i.i.i.i.i.i.i ]
-  %cond.i.i.i.i74 = phi ptr [ null, %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i3572 = phi ptr [ %add.ptr.i.i.i3570, %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread ], [ %add.ptr.i.i.i35, %if.then.i.i.i.i.i.i.i.i.i ]
+  %cond.i.i.i.i71 = phi ptr [ null, %_ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EEC2EmRKS3_.exit.i.thread ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %switchImmInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %24 = load ptr, ptr %switchImmInfo_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
@@ -50428,9 +50428,9 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13S
   %31 = load ptr, ptr %table.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 32
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 40
-  store ptr %cond.i.i.i.i74, ptr %table.i, align 8
-  store ptr %add.ptr.i.i.i3575, ptr %_M_finish.i.i.i.i.i, align 8
-  store ptr %add.ptr.i.i.i3575, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %cond.i.i.i.i71, ptr %table.i, align 8
+  store ptr %add.ptr.i.i.i3572, ptr %_M_finish.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i3572, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6hermes3hbc7HBCISel13SwitchImmInfoD2Ev.exit, label %if.then.i.i.i.i.i.i
 

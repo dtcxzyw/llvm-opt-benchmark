@@ -1153,13 +1153,13 @@ _ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_ite
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %scevgep, ptr %84, align 8, !tbaa !329, !alias.scope !336
   %85 = icmp eq i64 %83, 0
-  br i1 %85, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread64, label %.lr.ph
+  br i1 %85, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread62, label %.lr.ph
 
 _ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %.lr.ph
   %.not.i.i.i.i23 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i23, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread64
+  br i1 %.not.i.i.i.i23, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i, label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread62
 
-_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread64: ; preds = %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEE3endEv.exit, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit
+_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread62: ; preds = %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEE3endEv.exit, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit
   %86 = phi ptr [ %97, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit ], [ %76, %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEE3endEv.exit ]
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %88 = load ptr, ptr %87, align 8, !tbaa !335
@@ -1169,7 +1169,7 @@ _ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17M
   call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %91) #20
   br label %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i
 
-_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i: ; preds = %_ZN4llvm15depth_first_extIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEENS_14iterator_rangeINS_15df_ext_iteratorIT_T0_EEEERKS9_RSA_.exit, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread64, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit
+_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i: ; preds = %_ZN4llvm15depth_first_extIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEENS_14iterator_rangeINS_15df_ext_iteratorIT_T0_EEEERKS9_RSA_.exit, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread62, %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i.i1.i = icmp eq ptr %.sink.i, null
   br i1 %.not.i.i.i.i1.i, label %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit, label %92
@@ -1180,11 +1180,11 @@ _ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17M
 
 _ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit: ; preds = %_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.i, %92
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %.sroa.027.047 = load ptr, ptr %46, align 8, !tbaa !322
-  %.not4248 = icmp eq ptr %.sroa.027.047, %93
-  br i1 %.not4248, label %._crit_edge, label %.lr.ph50
+  %.sroa.027.045 = load ptr, ptr %46, align 8, !tbaa !322
+  %.not4046 = icmp eq ptr %.sroa.027.045, %93
+  br i1 %.not4046, label %._crit_edge, label %.lr.ph48
 
-.lr.ph50:                                         ; preds = %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit
+.lr.ph48:                                         ; preds = %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br label %103
@@ -1210,8 +1210,8 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %._crit_edge, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
 
-103:                                              ; preds = %.lr.ph50, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread
-  %.sroa.027.049 = phi ptr [ %.sroa.027.047, %.lr.ph50 ], [ %.sroa.027.0, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread ]
+103:                                              ; preds = %.lr.ph48, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread
+  %.sroa.027.047 = phi ptr [ %.sroa.027.045, %.lr.ph48 ], [ %.sroa.027.0, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread ]
   %104 = load i8, ptr %45, align 4, !tbaa !316, !range !340, !noundef !341
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit
@@ -1233,27 +1233,27 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %._crit_edge, %101
 .lr.ph.i.i:                                       ; preds = %106, %111
   %.0810.i.i = phi ptr [ %112, %111 ], [ %107, %106 ]
   %113 = load ptr, ptr %.0810.i.i, align 8, !tbaa !3
-  %114 = icmp eq ptr %113, %.sroa.027.049
-  br i1 %114, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread39, label %111
+  %114 = icmp eq ptr %113, %.sroa.027.047
+  br i1 %114, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread37, label %111
 
 _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit: ; preds = %103
-  %115 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull %.sroa.027.049) #17
-  %.not43 = icmp eq ptr %115, null
-  br i1 %.not43, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread39
+  %115 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull %.sroa.027.047) #17
+  %.not41 = icmp eq ptr %115, null
+  br i1 %.not41, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread37
 
-_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread39: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit
+_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread37: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit
   %116 = load ptr, ptr %94, align 8, !tbaa !284
   %117 = load ptr, ptr %95, align 8, !tbaa !282
   %.not.i.i.i25 = icmp eq ptr %117, %116
   br i1 %.not.i.i.i25, label %_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i, label %118
 
-118:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread39
+118:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread37
   store ptr %116, ptr %95, align 8, !tbaa !282
   br label %_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i
 
-_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i: ; preds = %118, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread39
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.027.049, i64 56
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.027.049, i64 48
+_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i: ; preds = %118, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread37
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.027.047, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.027.047, i64 48
   %.sroa.07.09.i = load ptr, ptr %119, align 8, !tbaa !302
   %.not10.i = icmp eq ptr %.sroa.07.09.i, %120
   br i1 %.not10.i, label %_ZN4llvm14BreakFalseDeps17processBasicBlockEPNS_17MachineBasicBlockE.exit, label %.lr.ph.i
@@ -1301,14 +1301,14 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br i1 %.not.i, label %_ZN4llvm14BreakFalseDeps17processBasicBlockEPNS_17MachineBasicBlockE.exit, label %.lr.ph.i
 
 _ZN4llvm14BreakFalseDeps17processBasicBlockEPNS_17MachineBasicBlockE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i
-  call void @_ZN4llvm14BreakFalseDeps17processUndefReadsEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.sroa.027.049)
+  call void @_ZN4llvm14BreakFalseDeps17processUndefReadsEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.sroa.027.047)
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread
 
 _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread: ; preds = %111, %106, %_ZN4llvm14BreakFalseDeps17processBasicBlockEPNS_17MachineBasicBlockE.exit, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.027.049, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.027.047, i64 8
   %.sroa.027.0 = load ptr, ptr %135, align 8, !tbaa !322
-  %.not42 = icmp eq ptr %.sroa.027.0, %93
-  br i1 %.not42, label %._crit_edge, label %103
+  %.not40 = icmp eq ptr %.sroa.027.0, %93
+  br i1 %.not40, label %._crit_edge, label %103
 
 136:                                              ; preds = %2, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
   ret i1 false

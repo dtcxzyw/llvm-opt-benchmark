@@ -322,10 +322,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev25LegacyViewingPipelineImpl23setDisp
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev20DisplayViewTransformENS0_9TransformEESt10shared_ptrIT_ERKS3_IT0_E.exit
 
 _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev20DisplayViewTransformENS0_9TransformEESt10shared_ptrIT_ERKS3_IT0_E.exit: ; preds = %8, %11, %13, %19, %22
-  %.sroa.022.0 = phi ptr [ %12, %19 ], [ %12, %13 ], [ %12, %22 ], [ null, %11 ], [ null, %8 ]
   %.sroa.6.0 = phi ptr [ %15, %19 ], [ null, %13 ], [ %15, %22 ], [ null, %11 ], [ null, %8 ]
+  %.sroa.020.0 = phi ptr [ %12, %19 ], [ %12, %13 ], [ %12, %22 ], [ null, %11 ], [ null, %8 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.sroa.022.0, ptr %24, align 8, !tbaa !39
+  store ptr %.sroa.020.0, ptr %24, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   store ptr %.sroa.6.0, ptr %25, align 8, !tbaa !17

@@ -266,13 +266,13 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep57 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %2
-  %switch.load58 = load i64, ptr %switch.gep57, align 8
+  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %2
+  %switch.load56 = load i64, ptr %switch.gep55, align 8
   br label %return
 
 return:                                           ; preds = %switch.lookup, %entry
   %retval.sroa.0.0 = phi ptr [ null, %entry ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.30.0 = phi i64 [ 0, %entry ], [ %switch.load58, %switch.lookup ]
+  %retval.sroa.30.0 = phi i64 [ 0, %entry ], [ %switch.load56, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.30.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -5888,13 +5888,13 @@ switch.lookup:                                    ; preds = %sw.bb31
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep44 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22, i64 %12
-  %switch.load45 = load i64, ptr %switch.gep44, align 8
+  %switch.gep42 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22, i64 %12
+  %switch.load43 = load i64, ptr %switch.gep42, align 8
   br label %return
 
 return:                                           ; preds = %sw.bb31, %switch.lookup, %sw.default36, %sw.default36, %sw.default36, %if.end29, %if.end29, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %if.end21, %sw.epilog, %_ZN4llvh9StringRefC2EPKc.exit69, %sw.bb, %if.end.i195, %if.end, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207, %sw.default39
   %retval.sroa.0.0 = phi ptr [ @.str.145, %if.end.i195 ], [ null, %sw.epilog ], [ @.str.150, %sw.default39 ], [ @.str.149, %if.end29 ], [ @.str.149, %if.end29 ], [ %5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %switch.load, %switch.lookup ], [ @.str.143, %if.end ], [ @.str.142, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ null, %sw.bb ], [ null, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ %5, %if.end21 ], [ @.str.142, %sw.default36 ], [ @.str.142, %sw.default36 ], [ @.str.142, %sw.default36 ], [ @.str.148, %sw.bb31 ]
-  %retval.sroa.12.0 = phi i64 [ 9, %if.end.i195 ], [ 0, %sw.epilog ], [ 8, %sw.default39 ], [ 9, %if.end29 ], [ 9, %if.end29 ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %switch.load45, %switch.lookup ], [ 9, %if.end ], [ 12, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ %2, %sw.bb ], [ %2, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ %6, %if.end21 ], [ 12, %sw.default36 ], [ 12, %sw.default36 ], [ 12, %sw.default36 ], [ 9, %sw.bb31 ]
+  %retval.sroa.12.0 = phi i64 [ 9, %if.end.i195 ], [ 0, %sw.epilog ], [ 8, %sw.default39 ], [ 9, %if.end29 ], [ 9, %if.end29 ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %switch.load43, %switch.lookup ], [ 9, %if.end ], [ 12, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit207 ], [ %2, %sw.bb ], [ %2, %_ZN4llvh9StringRefC2EPKc.exit69 ], [ %6, %if.end21 ], [ 12, %sw.default36 ], [ 12, %sw.default36 ], [ 12, %sw.default36 ], [ 9, %sw.bb31 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.12.0, 1
   ret { ptr, i64 } %.fca.1.insert

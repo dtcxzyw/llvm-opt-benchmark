@@ -48740,9 +48740,9 @@ define void @_ZN9polars_io3csv4read7options13CommentPrefix12new_from_str17h647fe
 .split:                                           ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i64 %2, 0
-  br i1 %6, label %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39, label %7
+  br i1 %6, label %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38, label %7
 
-_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39: ; preds = %.split
+_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38: ; preds = %.split
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
@@ -48816,15 +48816,15 @@ _ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread: ; preds
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17h8d13b9230131aef9E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc35b4166eb4c1b22c832b3e4a718aa4.32) #34
   unreachable
 
-26:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39
-  %.sroa.021.047 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39 ], [ %.sroa.02.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
-  %.sroa.6.046 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39 ], [ %.sroa.6.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
-  %.sroa.8.045 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39 ], [ %.sroa.7.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
-  store ptr %.sroa.021.047, ptr %0, align 8
+26:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38
+  %.sroa.021.046 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38 ], [ %.sroa.02.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
+  %.sroa.6.045 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38 ], [ %.sroa.6.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
+  %.sroa.8.044 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38 ], [ %.sroa.7.0.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i ]
+  store ptr %.sroa.021.046, ptr %0, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.046, ptr %.sroa.528.0..sroa_idx, align 8
+  store i64 %.sroa.6.045, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.8.045, ptr %.sroa.629.0..sroa_idx, align 8
+  store i64 %.sroa.8.044, ptr %.sroa.629.0..sroa_idx, align 8
   br label %25
 }
 
@@ -48839,9 +48839,9 @@ define void @"_ZN99_$LT$polars_io..csv..read..options..CommentPrefix$u20$as$u20$
 .split.i:                                         ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i64 %2, 0
-  br i1 %6, label %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i, label %7
+  br i1 %6, label %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i, label %7
 
-_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i: ; preds = %.split.i
+_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i: ; preds = %.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
@@ -48912,15 +48912,15 @@ _ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread.i: ; pre
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17h8d13b9230131aef9E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc35b4166eb4c1b22c832b3e4a718aa4.32) #34, !noalias !4426
   unreachable
 
-25:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i
-  %.sroa.021.047.i = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i ], [ %.sroa.02.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
-  %.sroa.6.046.i = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i ], [ %.sroa.6.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
-  %.sroa.8.045.i = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread39.i ], [ %.sroa.7.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
-  store ptr %.sroa.021.047.i, ptr %0, align 8, !alias.scope !4409, !noalias !4412
+25:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i
+  %.sroa.021.046.i = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i ], [ %.sroa.02.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
+  %.sroa.6.045.i = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i ], [ %.sroa.6.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
+  %.sroa.8.044.i = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread38.i ], [ %.sroa.7.0.i.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i ]
+  store ptr %.sroa.021.046.i, ptr %0, align 8, !alias.scope !4409, !noalias !4412
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.046.i, ptr %.sroa.528.0..sroa_idx.i, align 8, !alias.scope !4409, !noalias !4412
+  store i64 %.sroa.6.045.i, ptr %.sroa.528.0..sroa_idx.i, align 8, !alias.scope !4409, !noalias !4412
   %.sroa.629.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.8.045.i, ptr %.sroa.629.0..sroa_idx.i, align 8, !alias.scope !4409, !noalias !4412
+  store i64 %.sroa.8.044.i, ptr %.sroa.629.0..sroa_idx.i, align 8, !alias.scope !4409, !noalias !4412
   br label %_ZN9polars_io3csv4read7options13CommentPrefix12new_from_str17h647fe46bdf79773aE.exit
 
 _ZN9polars_io3csv4read7options13CommentPrefix12new_from_str17h647fe46bdf79773aE.exit: ; preds = %.thread.i, %25

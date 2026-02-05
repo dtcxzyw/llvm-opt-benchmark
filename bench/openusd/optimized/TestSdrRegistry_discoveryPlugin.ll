@@ -1790,16 +1790,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit314: ; preds = %_ZN32pxrIn
 483:                                              ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEEC2ESt16initializer_listISD_EmRKS8_RKSA_RKSE_.exit243
   %484 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit378
+  br label %.loopexit374
 
 .body244:                                         ; preds = %.body244.preheader, %.body244
   %485 = phi ptr [ %486, %.body244 ], [ %159, %.body244.preheader ]
   %486 = getelementptr inbounds i8, ptr %485, i64 -272
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %486) #18
   %487 = icmp eq ptr %486, %4
-  br i1 %487, label %.loopexit378, label %.body244
+  br i1 %487, label %.loopexit374, label %.body244
 
-.loopexit378:                                     ; preds = %.body244, %483
+.loopexit374:                                     ; preds = %.body244, %483
   %.pn = phi { ptr, i32 } [ %484, %483 ], [ %161, %.body244 ]
   %488 = phi i1 [ false, %483 ], [ true, %.body244 ]
   %489 = load ptr, ptr %78, align 8
@@ -1808,13 +1808,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit314: ; preds = %_ZN32pxrIn
   %.not.i.i315 = icmp eq i64 %491, 0
   br i1 %.not.i.i315, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit316, label %492
 
-492:                                              ; preds = %.loopexit378
+492:                                              ; preds = %.loopexit374
   %493 = and i64 %490, -8
   %494 = inttoptr i64 %493 to ptr
   %495 = atomicrmw sub ptr %494, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit316
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit316: ; preds = %.loopexit378, %492
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit316: ; preds = %.loopexit374, %492
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #18
   call void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %69) #18
   br label %496
@@ -4942,16 +4942,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit119: ; preds = %_ZN32pxrIn
 217:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit149
+  br label %.loopexit147
 
 .body92:                                          ; preds = %.body92.preheader, %.body92
   %219 = phi ptr [ %220, %.body92 ], [ %73, %.body92.preheader ]
   %220 = getelementptr inbounds i8, ptr %219, i64 -272
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %220) #18
   %221 = icmp eq ptr %220, %4
-  br i1 %221, label %.loopexit149, label %.body92
+  br i1 %221, label %.loopexit147, label %.body92
 
-.loopexit149:                                     ; preds = %.body92, %217
+.loopexit147:                                     ; preds = %.body92, %217
   %.pn = phi { ptr, i32 } [ %218, %217 ], [ %75, %.body92 ]
   %222 = phi i1 [ false, %217 ], [ true, %.body92 ]
   %223 = load ptr, ptr %34, align 8
@@ -4960,13 +4960,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit119: ; preds = %_ZN32pxrIn
   %.not.i.i120 = icmp eq i64 %225, 0
   br i1 %.not.i.i120, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit121, label %226
 
-226:                                              ; preds = %.loopexit149
+226:                                              ; preds = %.loopexit147
   %227 = and i64 %224, -8
   %228 = inttoptr i64 %227 to ptr
   %229 = atomicrmw sub ptr %228, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit121
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit121: ; preds = %.loopexit149, %226
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit121: ; preds = %.loopexit147, %226
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   call void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #18

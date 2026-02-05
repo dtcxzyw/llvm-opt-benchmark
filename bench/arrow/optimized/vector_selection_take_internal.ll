@@ -47508,9 +47508,9 @@ define internal void @_GLOBAL__sub_I_vector_selection_take_internal.cc() #21 sec
   store i8 0, ptr %23, align 1, !tbaa !98
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %25 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i unwind label %.thread94.i
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i unwind label %.thread91.i
 
-.thread94.i:                                      ; preds = %.noexc19.i
+.thread91.i:                                      ; preds = %.noexc19.i
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -47577,11 +47577,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i.
   store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_18take_docE, i64 32), align 8, !tbaa !882
   %48 = load i64, ptr %12, align 8, !tbaa !98
   store i64 %48, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_18take_docE, i64 48), align 8, !tbaa !98
-  %.pre74.i = load i64, ptr %15, align 8, !tbaa !883
+  %.pre71.i = load i64, ptr %15, align 8, !tbaa !883
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i.i, %44
-  %49 = phi i64 [ %.pre74.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i.i ], [ %45, %44 ]
+  %49 = phi i64 [ %.pre71.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i1.i.i ], [ %45, %44 ]
   store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_18take_docE, i64 40), align 8, !tbaa !883
   store ptr %12, ptr %4, align 8, !tbaa !882
   store i64 0, ptr %15, align 8, !tbaa !883
@@ -47644,8 +47644,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i
 
-.body.i:                                          ; preds = %29, %.thread94.i
-  %70 = phi { ptr, i32 } [ %26, %.thread94.i ], [ %30, %29 ]
+.body.i:                                          ; preds = %29, %.thread91.i
+  %70 = phi { ptr, i32 } [ %26, %.thread91.i ], [ %30, %29 ]
   br label %71
 
 71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.i, %.body.i

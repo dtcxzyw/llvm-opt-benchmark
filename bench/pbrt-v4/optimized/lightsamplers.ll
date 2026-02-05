@@ -3077,12 +3077,12 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %191, %196, %197
   %.sroa.13485.3661 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %.preheader ], [ %.sroa.7422.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.20490.0660 = phi float [ 0xC7EFFFFFE0000000, %.preheader ], [ %.sroa.8427.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.31494.3659 = phi <2 x float> [ zeroinitializer, %.preheader ], [ %.sroa.10437.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
-  %.sroa.34496.3658 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.11442.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
+  %.sroa.34496.0658 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.11442.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.37497.3657 = phi float [ %.sroa.37497.2689, %.preheader ], [ %.sroa.12447.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.41499.3656 = phi float [ %.sroa.41499.2688, %.preheader ], [ %.sroa.13452.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
-  %.sroa.25491.3654 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.9432.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
+  %.sroa.25491.0654 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.9432.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %259 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %21, i64 %indvars.iv723
-  %260 = fcmp oeq float %.sroa.25491.3654, 0.000000e+00
+  %260 = fcmp oeq float %.sroa.25491.0654, 0.000000e+00
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %258
@@ -3119,12 +3119,12 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %191, %196, %197
   %.sroa.01.4.vec.extract.i.i.i.i.i155 = extractelement <2 x float> %.sroa.31494.3659, i64 1
   %268 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i155, %.sroa.01.4.vec.extract.i.i.i.i.i155
   %269 = fadd float %267, %268
-  %270 = fmul float %.sroa.34496.3658, %.sroa.34496.3658
+  %270 = fmul float %.sroa.34496.0658, %.sroa.34496.0658
   %271 = fadd float %270, %269
   %sqrt.i.i.i.i156 = call noundef float @llvm.sqrt.f32(float %271)
   %272 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i.i154, %sqrt.i.i.i.i156
   %273 = fdiv float %.sroa.01.4.vec.extract.i.i.i.i.i155, %sqrt.i.i.i.i156
-  %274 = fdiv float %.sroa.34496.3658, %sqrt.i.i.i.i156
+  %274 = fdiv float %.sroa.34496.0658, %sqrt.i.i.i.i156
   %.sroa.0.0.vec.insert.i.i.i.i157 = insertelement <2 x float> poison, float %272, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i158 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i157, float %273, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i.i158, ptr %15, align 8, !noalias !214
@@ -3199,7 +3199,7 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %191, %196, %197
   %.sroa.015.4.vec.insert.i33.i.i195 = insertelement <2 x float> %.sroa.015.0.vec.insert.i32.i.i194, float %304, i64 1
   %.sroa.4.8.vec.extract.i196 = extractelement <2 x float> %288, i64 0
   %306 = load float, ptr %263, align 4, !tbaa !168, !noalias !214
-  %307 = fadd float %.sroa.25491.3654, %306
+  %307 = fadd float %.sroa.25491.0654, %306
   %.sroa.01.0.vec.extract.i.i.i.i35.i200 = extractelement <2 x float> %287, i64 0
   %foldExtExtBinop810 = fmul <2 x float> %287, %287
   %308 = extractelement <2 x float> %foldExtExtBinop810, i64 0
@@ -3220,9 +3220,9 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %191, %196, %197
 _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206:    ; preds = %262, %261, %266
   %.sroa.13452.0 = phi float [ %.sroa.13452.0.copyload454, %261 ], [ %292, %266 ], [ %.sroa.41499.3656, %262 ]
   %.sroa.12447.0 = phi float [ %.sroa.12447.0.copyload449, %261 ], [ %.sroa.4.12.vec.extract.i169, %266 ], [ %.sroa.37497.3657, %262 ]
-  %.sroa.11442.0 = phi float [ %.sroa.11442.0.copyload444, %261 ], [ %315, %266 ], [ %.sroa.34496.3658, %262 ]
+  %.sroa.11442.0 = phi float [ %.sroa.11442.0.copyload444, %261 ], [ %315, %266 ], [ %.sroa.34496.0658, %262 ]
   %.sroa.10437.0 = phi <2 x float> [ %.sroa.10437.0.copyload439, %261 ], [ %.sroa.0.4.vec.insert.i.i.i39.i204, %266 ], [ %.sroa.31494.3659, %262 ]
-  %.sroa.9432.0 = phi float [ %.sroa.9432.0.copyload434, %261 ], [ %307, %266 ], [ %.sroa.25491.3654, %262 ]
+  %.sroa.9432.0 = phi float [ %.sroa.9432.0.copyload434, %261 ], [ %307, %266 ], [ %.sroa.25491.0654, %262 ]
   %.sroa.8427.0 = phi float [ %.sroa.8427.0.copyload429, %261 ], [ %.sroa.speculated.i31.i.i193, %266 ], [ %.sroa.20490.0660, %262 ]
   %.sroa.7422.0 = phi <2 x float> [ %.sroa.7422.0.copyload424, %261 ], [ %.sroa.015.4.vec.insert.i33.i.i195, %266 ], [ %.sroa.13485.3661, %262 ]
   %.sroa.6417.0 = phi float [ %.sroa.6417.0.copyload419, %261 ], [ %.sroa.speculated.i.i.i180, %266 ], [ %.sroa.8484.0662, %262 ]
@@ -3392,12 +3392,12 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %.sroa.13469.3672 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %.lr.ph677.preheader ], [ %.sroa.7.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.20.0671 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph677.preheader ], [ %.sroa.8.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.31.3670 = phi <2 x float> [ zeroinitializer, %.lr.ph677.preheader ], [ %.sroa.10.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
-  %.sroa.34.3669 = phi float [ 0.000000e+00, %.lr.ph677.preheader ], [ %.sroa.11.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
+  %.sroa.34.0669 = phi float [ 0.000000e+00, %.lr.ph677.preheader ], [ %.sroa.11.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.37.3668 = phi float [ %.sroa.37.2692, %.lr.ph677.preheader ], [ %.sroa.12.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.41.3667 = phi float [ %.sroa.41.2691, %.lr.ph677.preheader ], [ %.sroa.13.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
-  %.sroa.25.3665 = phi float [ 0.000000e+00, %.lr.ph677.preheader ], [ %.sroa.9.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
+  %.sroa.25.0665 = phi float [ 0.000000e+00, %.lr.ph677.preheader ], [ %.sroa.9.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %398 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %21, i64 %indvars.iv731
-  %399 = fcmp oeq float %.sroa.25.3665, 0.000000e+00
+  %399 = fcmp oeq float %.sroa.25.0665, 0.000000e+00
   br i1 %399, label %400, label %401
 
 400:                                              ; preds = %.lr.ph677
@@ -3434,12 +3434,12 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %.sroa.01.4.vec.extract.i.i.i.i.i239 = extractelement <2 x float> %.sroa.31.3670, i64 1
   %407 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i239, %.sroa.01.4.vec.extract.i.i.i.i.i239
   %408 = fadd float %406, %407
-  %409 = fmul float %.sroa.34.3669, %.sroa.34.3669
+  %409 = fmul float %.sroa.34.0669, %.sroa.34.0669
   %410 = fadd float %409, %408
   %sqrt.i.i.i.i240 = call noundef float @llvm.sqrt.f32(float %410)
   %411 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i.i238, %sqrt.i.i.i.i240
   %412 = fdiv float %.sroa.01.4.vec.extract.i.i.i.i.i239, %sqrt.i.i.i.i240
-  %413 = fdiv float %.sroa.34.3669, %sqrt.i.i.i.i240
+  %413 = fdiv float %.sroa.34.0669, %sqrt.i.i.i.i240
   %.sroa.0.0.vec.insert.i.i.i.i241 = insertelement <2 x float> poison, float %411, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i242 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i241, float %412, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i.i242, ptr %11, align 8, !noalias !223
@@ -3514,7 +3514,7 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %.sroa.015.4.vec.insert.i33.i.i279 = insertelement <2 x float> %.sroa.015.0.vec.insert.i32.i.i278, float %443, i64 1
   %.sroa.4.8.vec.extract.i280 = extractelement <2 x float> %427, i64 0
   %445 = load float, ptr %402, align 4, !tbaa !168, !noalias !223
-  %446 = fadd float %.sroa.25.3665, %445
+  %446 = fadd float %.sroa.25.0665, %445
   %.sroa.01.0.vec.extract.i.i.i.i35.i284 = extractelement <2 x float> %426, i64 0
   %foldExtExtBinop826 = fmul <2 x float> %426, %426
   %447 = extractelement <2 x float> %foldExtExtBinop826, i64 0
@@ -3535,9 +3535,9 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
 _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290:    ; preds = %401, %400, %405
   %.sroa.13.0 = phi float [ %.sroa.13.0.copyload406, %400 ], [ %431, %405 ], [ %.sroa.41.3667, %401 ]
   %.sroa.12.0 = phi float [ %.sroa.12.0.copyload402, %400 ], [ %.sroa.4.12.vec.extract.i253, %405 ], [ %.sroa.37.3668, %401 ]
-  %.sroa.11.0 = phi float [ %.sroa.11.0.copyload398, %400 ], [ %454, %405 ], [ %.sroa.34.3669, %401 ]
+  %.sroa.11.0 = phi float [ %.sroa.11.0.copyload398, %400 ], [ %454, %405 ], [ %.sroa.34.0669, %401 ]
   %.sroa.10.0 = phi <2 x float> [ %.sroa.10.0.copyload394, %400 ], [ %.sroa.0.4.vec.insert.i.i.i39.i288, %405 ], [ %.sroa.31.3670, %401 ]
-  %.sroa.9.0 = phi float [ %.sroa.9.0.copyload390, %400 ], [ %446, %405 ], [ %.sroa.25.3665, %401 ]
+  %.sroa.9.0 = phi float [ %.sroa.9.0.copyload390, %400 ], [ %446, %405 ], [ %.sroa.25.0665, %401 ]
   %.sroa.8.0 = phi float [ %.sroa.8.0.copyload386, %400 ], [ %.sroa.speculated.i31.i.i277, %405 ], [ %.sroa.20.0671, %401 ]
   %.sroa.7.0 = phi <2 x float> [ %.sroa.7.0.copyload382, %400 ], [ %.sroa.015.4.vec.insert.i33.i.i279, %405 ], [ %.sroa.13469.3672, %401 ]
   %.sroa.6.0 = phi float [ %.sroa.6.0.copyload378, %400 ], [ %.sroa.speculated.i.i.i264, %405 ], [ %.sroa.8468.0673, %401 ]

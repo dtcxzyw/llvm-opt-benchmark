@@ -5603,7 +5603,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_frame_header_
   br i1 %278, label %.loopexit892.i, label %.preheader893.i
 
 .preheader893.i:                                  ; preds = %.thread173, %277
-  %.0646.shrunk1023.i176 = phi i1 [ true, %.thread173 ], [ %narrow.i, %277 ]
+  %.0645.shrunk1023.i176 = phi i1 [ true, %.thread173 ], [ %narrow.i, %277 ]
   %279 = phi ptr [ %104, %.thread173 ], [ %224, %277 ]
   %280 = getelementptr inbounds nuw i8, ptr %88, i64 184
   br label %281
@@ -5625,7 +5625,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_frame_header_
 
 .loopexit892.i:                                   ; preds = %.preheader891.i, %277, %274
   %284 = phi ptr [ %279, %.preheader891.i ], [ %224, %274 ], [ %224, %277 ]
-  %.0646.shrunk1022.i = phi i1 [ %.0646.shrunk1023.i176, %.preheader891.i ], [ %narrow.i, %274 ], [ %narrow.i, %277 ]
+  %.0645.shrunk1022.i = phi i1 [ %.0645.shrunk1023.i176, %.preheader891.i ], [ %narrow.i, %274 ], [ %narrow.i, %277 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %285 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @.str.118, ptr noundef nonnull %15) #8
   %286 = icmp sgt i32 %285, -1
@@ -5862,7 +5862,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_frame_header_
   %392 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %393 = getelementptr inbounds nuw i8, ptr %88, i64 72
   store i32 %390, ptr %393, align 8, !tbaa !241
-  br i1 %.0646.shrunk1022.i, label %397, label %394
+  br i1 %.0645.shrunk1022.i, label %397, label %394
 
 394:                                              ; preds = %389
   %395 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -6018,13 +6018,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_read_frame_header_
   store i8 %467, ptr %468, align 1, !tbaa !225
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %469 = icmp eq i8 %467, -1
-  %brmerge.not.i = select i1 %.0646.shrunk1022.i, i1 %469, i1 false
+  %brmerge.not.i = select i1 %.0645.shrunk1022.i, i1 %469, i1 false
   br i1 %brmerge.not.i, label %.loopexit.i, label %471
 
 .thread1024.i:                                    ; preds = %458, %.loopexit889.i
   %470 = getelementptr inbounds nuw i8, ptr %2, i64 177
   store i8 -1, ptr %470, align 1, !tbaa !225
-  br i1 %.0646.shrunk1022.i, label %.loopexit.i, label %471
+  br i1 %.0645.shrunk1022.i, label %.loopexit.i, label %471
 
 471:                                              ; preds = %.thread1024.i, %465
   %472 = load i8, ptr %373, align 4, !tbaa !115
@@ -6551,8 +6551,8 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br label %724
 
 724:                                              ; preds = %717, %714
-  %.0644.i = phi i32 [ %723, %717 ], [ %713, %714 ]
-  %.not795.i = icmp eq i32 %.0644.i, 0
+  %.0689.i = phi i32 [ %723, %717 ], [ %713, %714 ]
+  %.not795.i = icmp eq i32 %.0689.i, 0
   br i1 %.not795.i, label %725, label %.thread1029.i
 
 725:                                              ; preds = %724
@@ -6637,7 +6637,7 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br i1 %762, label %cbs_av1_read_uncompressed_header.exit.thread, label %763
 
 763:                                              ; preds = %760
-  br i1 %.0646.shrunk1022.i, label %770, label %764
+  br i1 %.0645.shrunk1022.i, label %770, label %764
 
 764:                                              ; preds = %763
   %765 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -6847,7 +6847,7 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br label %cbs_av1_read_uncompressed_header.exit.thread
 
 cbs_av1_read_uncompressed_header.exit.thread:     ; preds = %454, %489, %.critedge.i, %505, %615, %687, %690, %693, %696, %699, %.thread1032.i, %748, %751, %754, %757, %760, %783, %789, %782, %778, %686, %525, %91, %586, %570, %594, %597, %600, %639, %621, %614, %508, %550, %543, %535, %464, %412, %405, %386, %371, %328, %317, %301, %287, %151, %273, %260, %246, %228, %220, %116, %125, %142
-  %.0645.i.ph = phi i32 [ %138, %142 ], [ -1094995529, %125 ], [ %114, %116 ], [ %218, %220 ], [ %226, %228 ], [ %244, %246 ], [ %255, %260 ], [ %268, %273 ], [ %147, %151 ], [ %285, %287 ], [ %296, %301 ], [ %312, %317 ], [ %326, %328 ], [ %366, %371 ], [ %380, %386 ], [ %400, %405 ], [ %410, %412 ], [ %462, %464 ], [ %533, %535 ], [ %541, %543 ], [ %548, %550 ], [ %509, %508 ], [ %609, %614 ], [ %619, %621 ], [ %634, %639 ], [ %601, %600 ], [ %598, %597 ], [ %595, %594 ], [ %565, %570 ], [ %582, %586 ], [ -1094995529, %91 ], [ %520, %525 ], [ %681, %686 ], [ %773, %778 ], [ %780, %782 ], [ %791, %789 ], [ %787, %783 ], [ %761, %760 ], [ %758, %757 ], [ %755, %754 ], [ %752, %751 ], [ %749, %748 ], [ %746, %.thread1032.i ], [ %700, %699 ], [ %697, %696 ], [ %694, %693 ], [ %691, %690 ], [ %688, %687 ], [ %616, %615 ], [ %506, %505 ], [ %108, %.critedge.i ], [ %484, %489 ], [ %450, %454 ]
+  %.0644.i.ph = phi i32 [ %138, %142 ], [ -1094995529, %125 ], [ %114, %116 ], [ %218, %220 ], [ %226, %228 ], [ %244, %246 ], [ %255, %260 ], [ %268, %273 ], [ %147, %151 ], [ %285, %287 ], [ %296, %301 ], [ %312, %317 ], [ %326, %328 ], [ %366, %371 ], [ %380, %386 ], [ %400, %405 ], [ %410, %412 ], [ %462, %464 ], [ %533, %535 ], [ %541, %543 ], [ %548, %550 ], [ %509, %508 ], [ %609, %614 ], [ %619, %621 ], [ %634, %639 ], [ %601, %600 ], [ %598, %597 ], [ %595, %594 ], [ %565, %570 ], [ %582, %586 ], [ -1094995529, %91 ], [ %520, %525 ], [ %681, %686 ], [ %773, %778 ], [ %780, %782 ], [ %791, %789 ], [ %787, %783 ], [ %761, %760 ], [ %758, %757 ], [ %755, %754 ], [ %752, %751 ], [ %749, %748 ], [ %746, %.thread1032.i ], [ %700, %699 ], [ %697, %696 ], [ %694, %693 ], [ %691, %690 ], [ %688, %687 ], [ %616, %615 ], [ %506, %505 ], [ %108, %.critedge.i ], [ %484, %489 ], [ %450, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -6916,7 +6916,7 @@ cbs_av1_read_uncompressed_header.exit.thread:     ; preds = %454, %489, %.crited
   br label %.thread
 
 .thread:                                          ; preds = %81, %65, %58, %892, %898, %878, %cbs_av1_read_uncompressed_header.exit.thread, %894, %890, %49
-  %.0 = phi i32 [ -12, %894 ], [ 0, %892 ], [ -1094995529, %49 ], [ -12, %890 ], [ %.0645.i.ph, %cbs_av1_read_uncompressed_header.exit.thread ], [ 0, %898 ], [ 0, %878 ], [ 0, %58 ], [ 0, %81 ], [ %79, %65 ]
+  %.0 = phi i32 [ -12, %894 ], [ 0, %892 ], [ -1094995529, %49 ], [ -12, %890 ], [ %.0644.i.ph, %cbs_av1_read_uncompressed_header.exit.thread ], [ 0, %898 ], [ 0, %878 ], [ 0, %58 ], [ 0, %81 ], [ %79, %65 ]
   ret i32 %.0
 }
 
@@ -13795,7 +13795,7 @@ thread-pre-split833.i:                            ; preds = %.thread831.i
   br i1 %320, label %.loopexit846.i, label %.preheader847.i
 
 .preheader847.i:                                  ; preds = %97, %.thread1026.i
-  %.0658.shrunk1029.i138 = phi i1 [ %narrow.i, %.thread1026.i ], [ true, %97 ]
+  %.0657.shrunk1029.i138 = phi i1 [ %narrow.i, %.thread1026.i ], [ true, %97 ]
   %321 = phi ptr [ %255, %.thread1026.i ], [ %86, %97 ]
   %322 = getelementptr inbounds nuw i8, ptr %64, i64 184
   br label %323
@@ -13817,7 +13817,7 @@ thread-pre-split833.i:                            ; preds = %.thread831.i
 
 .loopexit846.i:                                   ; preds = %.preheader845.i, %.thread1026.i, %317
   %326 = phi ptr [ %321, %.preheader845.i ], [ %255, %.thread1026.i ], [ %255, %317 ]
-  %.0658.shrunk1028.i = phi i1 [ %.0658.shrunk1029.i138, %.preheader845.i ], [ %narrow.i, %.thread1026.i ], [ %narrow.i, %317 ]
+  %.0657.shrunk1028.i = phi i1 [ %.0657.shrunk1029.i138, %.preheader845.i ], [ %narrow.i, %.thread1026.i ], [ %narrow.i, %317 ]
   %327 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %328 = load i8, ptr %327, align 4, !tbaa !248
   %329 = zext i8 %328 to i32
@@ -14051,7 +14051,7 @@ thread-pre-split833.i:                            ; preds = %.thread831.i
   %450 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %451 = getelementptr inbounds nuw i8, ptr %64, i64 72
   store i32 %448, ptr %451, align 8, !tbaa !241
-  br i1 %.0658.shrunk1028.i, label %455, label %452
+  br i1 %.0657.shrunk1028.i, label %455, label %452
 
 452:                                              ; preds = %447
   %453 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -14192,7 +14192,7 @@ thread-pre-split833.i:                            ; preds = %.thread831.i
   br i1 %532, label %cbs_av1_write_uncompressed_header.exit.thread, label %533
 
 533:                                              ; preds = %527, %521
-  br i1 %.0658.shrunk1028.i, label %534, label %537
+  br i1 %.0657.shrunk1028.i, label %534, label %537
 
 534:                                              ; preds = %533
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 177
@@ -14673,8 +14673,8 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br label %801
 
 801:                                              ; preds = %794, %791
-  %.0656.i = phi i32 [ %800, %794 ], [ %790, %791 ]
-  %.not816.i = icmp eq i32 %.0656.i, 0
+  %.0665.i = phi i32 [ %800, %794 ], [ %790, %791 ]
+  %.not816.i = icmp eq i32 %.0665.i, 0
   br i1 %.not816.i, label %802, label %.thread1032.i
 
 802:                                              ; preds = %801
@@ -14759,7 +14759,7 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br i1 %839, label %cbs_av1_write_uncompressed_header.exit.thread, label %840
 
 840:                                              ; preds = %837
-  br i1 %.0658.shrunk1028.i, label %847, label %841
+  br i1 %.0657.shrunk1028.i, label %847, label %841
 
 841:                                              ; preds = %840
   %842 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -14955,7 +14955,7 @@ cbs_av1_get_relative_dist.exit.i:                 ; preds = %cbs_av1_get_relativ
   br i1 %exitcond918.not.i, label %954, label %922, !llvm.loop !418
 
 cbs_av1_write_uncompressed_header.exit.thread:    ; preds = %502, %548, %632, %641, %82, %88, %94, %100, %311, %.loopexit846.i, %338, %355, %412, %423, %458, %461, %121, %524, %527, %562, %570, %573, %755, %758, %764, %767, %770, %773, %776, %.thread1035.i, %825, %828, %831, %834, %850, %853, %859, %865, %868, %837, %704, %593, %584, %604, %610, %616, %130, %622, %661, %664, %676, %679, %683, %701, %745, %686, %667, %601, %470, %430, %444, %420, %375, %404, %360, %367, %343, %67, %103, %254, %292, %308, %.thread831.i, %276, %260, %109, %207, %142, %250, %239, %228, %217, %170, %162, %153
-  %.0657.i.ph = phi i32 [ %652, %641 ], [ -1094995529, %88 ], [ -1094995529, %153 ], [ -1094995529, %162 ], [ -1094995529, %170 ], [ -1094995529, %217 ], [ -1094995529, %228 ], [ -1094995529, %239 ], [ -1094995529, %250 ], [ %145, %142 ], [ -1094995529, %207 ], [ %113, %109 ], [ %266, %260 ], [ %283, %276 ], [ %299, %.thread831.i ], [ -1094995529, %308 ], [ -1094995529, %292 ], [ %258, %254 ], [ %105, %103 ], [ -1094995529, %67 ], [ -1094995529, %343 ], [ -1094995529, %367 ], [ -1094995529, %360 ], [ -1094995529, %404 ], [ %376, %375 ], [ -1094995529, %420 ], [ -1094995529, %444 ], [ %438, %430 ], [ %474, %470 ], [ -1094995529, %601 ], [ -1094995529, %82 ], [ %668, %667 ], [ %690, %686 ], [ -1094995529, %745 ], [ -1094995529, %701 ], [ %684, %683 ], [ %681, %679 ], [ -1094995529, %676 ], [ %665, %664 ], [ %662, %661 ], [ %623, %622 ], [ %137, %130 ], [ %620, %616 ], [ %614, %610 ], [ %606, %604 ], [ %588, %584 ], [ -1094995529, %593 ], [ %708, %704 ], [ %838, %837 ], [ %870, %868 ], [ %866, %865 ], [ %863, %859 ], [ %857, %853 ], [ -1094995529, %850 ], [ %835, %834 ], [ %832, %831 ], [ %829, %828 ], [ %826, %825 ], [ %823, %.thread1035.i ], [ %777, %776 ], [ %774, %773 ], [ %771, %770 ], [ %768, %767 ], [ %765, %764 ], [ %762, %758 ], [ -1094995529, %755 ], [ %574, %573 ], [ %571, %570 ], [ %553, %548 ], [ -1094995529, %562 ], [ %531, %527 ], [ -1094995529, %524 ], [ -1094995529, %121 ], [ %465, %461 ], [ -1094995529, %458 ], [ %425, %423 ], [ -1094995529, %412 ], [ %357, %355 ], [ %340, %338 ], [ %330, %.loopexit846.i ], [ %315, %311 ], [ -1094995529, %100 ], [ -1094995529, %94 ], [ %637, %632 ], [ %513, %502 ]
+  %.0656.i.ph = phi i32 [ %652, %641 ], [ -1094995529, %88 ], [ -1094995529, %153 ], [ -1094995529, %162 ], [ -1094995529, %170 ], [ -1094995529, %217 ], [ -1094995529, %228 ], [ -1094995529, %239 ], [ -1094995529, %250 ], [ %145, %142 ], [ -1094995529, %207 ], [ %113, %109 ], [ %266, %260 ], [ %283, %276 ], [ %299, %.thread831.i ], [ -1094995529, %308 ], [ -1094995529, %292 ], [ %258, %254 ], [ %105, %103 ], [ -1094995529, %67 ], [ -1094995529, %343 ], [ -1094995529, %367 ], [ -1094995529, %360 ], [ -1094995529, %404 ], [ %376, %375 ], [ -1094995529, %420 ], [ -1094995529, %444 ], [ %438, %430 ], [ %474, %470 ], [ -1094995529, %601 ], [ -1094995529, %82 ], [ %668, %667 ], [ %690, %686 ], [ -1094995529, %745 ], [ -1094995529, %701 ], [ %684, %683 ], [ %681, %679 ], [ -1094995529, %676 ], [ %665, %664 ], [ %662, %661 ], [ %623, %622 ], [ %137, %130 ], [ %620, %616 ], [ %614, %610 ], [ %606, %604 ], [ %588, %584 ], [ -1094995529, %593 ], [ %708, %704 ], [ %838, %837 ], [ %870, %868 ], [ %866, %865 ], [ %863, %859 ], [ %857, %853 ], [ -1094995529, %850 ], [ %835, %834 ], [ %832, %831 ], [ %829, %828 ], [ %826, %825 ], [ %823, %.thread1035.i ], [ %777, %776 ], [ %774, %773 ], [ %771, %770 ], [ %768, %767 ], [ %765, %764 ], [ %762, %758 ], [ -1094995529, %755 ], [ %574, %573 ], [ %571, %570 ], [ %553, %548 ], [ -1094995529, %562 ], [ %531, %527 ], [ -1094995529, %524 ], [ -1094995529, %121 ], [ %465, %461 ], [ -1094995529, %458 ], [ %425, %423 ], [ -1094995529, %412 ], [ %357, %355 ], [ %340, %338 ], [ %330, %.loopexit846.i ], [ %315, %311 ], [ -1094995529, %100 ], [ -1094995529, %94 ], [ %637, %632 ], [ %513, %502 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -15055,7 +15055,7 @@ flush_put_bits.exit:                              ; preds = %flush_put_bits.exit
   br label %.thread
 
 .thread:                                          ; preds = %47, %31, %24, %988, %957, %cbs_av1_write_uncompressed_header.exit.thread, %flush_put_bits.exit, %15
-  %.0 = phi i32 [ -12, %flush_put_bits.exit ], [ 0, %988 ], [ -1094995529, %15 ], [ %.0657.i.ph, %cbs_av1_write_uncompressed_header.exit.thread ], [ 0, %957 ], [ 0, %24 ], [ 0, %47 ], [ %45, %31 ]
+  %.0 = phi i32 [ -12, %flush_put_bits.exit ], [ 0, %988 ], [ -1094995529, %15 ], [ %.0656.i.ph, %cbs_av1_write_uncompressed_header.exit.thread ], [ 0, %957 ], [ 0, %24 ], [ 0, %47 ], [ %45, %31 ]
   ret i32 %.0
 }
 

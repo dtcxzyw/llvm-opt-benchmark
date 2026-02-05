@@ -496,13 +496,13 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6Triple17getArchTypePrefixENS0_8ArchTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %4
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  %.sroa.34.0 = phi i64 [ 0, %1 ], [ %switch.load4, %switch.lookup ]
+  %.sroa.34.0 = phi i64 [ 0, %1 ], [ %switch.load2, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.34.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9407,8 +9407,8 @@ define dso_local { i64, i64 } @_ZNK4llvm6Triple28getMinimumSupportedOSVersionEv(
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 35
-  %or.cond7 = select i1 %switch, i1 true, i1 %14
-  br i1 %or.cond7, label %25, label %24
+  %or.cond5 = select i1 %switch, i1 true, i1 %14
+  br i1 %or.cond5, label %25, label %24
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48

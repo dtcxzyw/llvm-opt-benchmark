@@ -2807,7 +2807,7 @@ define dso_local noundef ptr @_ZN4llvm19lowerObjectSizeCallEPNS_13IntrinsicInstE
 _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %32, %35
   %.0.i.i = phi i1 [ %34, %32 ], [ %37, %35 ]
   %38 = select i1 %.0.i.i, i64 3, i64 2
-  %.sroa.056.0.insert.ext = select i1 %4, i64 %38, i64 0
+  %.sroa.054.0.insert.ext = select i1 %4, i64 %38, i64 0
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !85
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -2829,8 +2829,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %32, %35
 
 _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %45, %48
   %.0.i.i42 = phi i1 [ %47, %45 ], [ %51, %48 ]
-  %.sroa.056.2.insert.shift = select i1 %.0.i.i42, i64 65536, i64 0
-  %.sroa.056.2.insert.insert = or disjoint i64 %.sroa.056.2.insert.shift, %.sroa.056.0.insert.ext
+  %.sroa.054.2.insert.shift = select i1 %.0.i.i42, i64 65536, i64 0
+  %.sroa.054.2.insert.insert = or disjoint i64 %.sroa.054.2.insert.shift, %.sroa.054.0.insert.ext
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !92
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 96
@@ -2854,7 +2854,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit44:           ; preds = %_ZNK4llvm11Constant
 65:                                               ; preds = %60, %_ZNK4llvm11ConstantInt6isZeroEv.exit44
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %66 = load ptr, ptr %25, align 8, !tbaa !85
-  %67 = call noundef zeroext i1 @_ZN4llvm13getObjectSizeEPKNS_5ValueERmRKNS_10DataLayoutEPKNS_17TargetLibraryInfoENS_14ObjectSizeOptsE(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %2, i64 %.sroa.056.2.insert.insert, ptr %3)
+  %67 = call noundef zeroext i1 @_ZN4llvm13getObjectSizeEPKNS_5ValueERmRKNS_10DataLayoutEPKNS_17TargetLibraryInfoENS_14ObjectSizeOptsE(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %2, i64 %.sroa.054.2.insert.insert, ptr %3)
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %65
@@ -2887,7 +2887,7 @@ _ZN4llvm7isUIntNEjm.exit:                         ; preds = %68
   %80 = tail call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %80) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @_ZN4llvm25ObjectSizeOffsetEvaluatorC1ERKNS_10DataLayoutEPKNS_17TargetLibraryInfoERNS_11LLVMContextENS_14ObjectSizeOptsE(ptr noundef nonnull align 8 dereferenceable(440) %11, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %81, i64 %.sroa.056.2.insert.insert, ptr %3) #22
+  call void @_ZN4llvm25ObjectSizeOffsetEvaluatorC1ERKNS_10DataLayoutEPKNS_17TargetLibraryInfoERNS_11LLVMContextENS_14ObjectSizeOptsE(ptr noundef nonnull align 8 dereferenceable(440) %11, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %81, i64 %.sroa.054.2.insert.insert, ptr %3) #22
   %82 = load i32, ptr %20, align 4
   %83 = and i32 %82, 134217727
   %84 = zext nneg i32 %83 to i64
@@ -2899,8 +2899,8 @@ _ZN4llvm7isUIntNEjm.exit:                         ; preds = %68
   %90 = extractvalue { ptr, ptr } %88, 1
   %91 = icmp eq ptr %89, null
   %92 = icmp eq ptr %90, null
-  %.not3.i.not71 = select i1 %91, i1 %92, i1 false
-  br i1 %.not3.i.not71, label %172, label %_ZNSt14_Function_baseD2Ev.exit
+  %.not3.i.not69 = select i1 %91, i1 %92, i1 false
+  br i1 %.not3.i.not69, label %172, label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3082,13 +3082,13 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #22
   %169 = load ptr, ptr %12, align 8, !tbaa !25
   %170 = icmp eq ptr %169, %101
-  br i1 %170, label %.thread79, label %171
+  br i1 %170, label %.thread77, label %171
 
 171:                                              ; preds = %168
   call void @free(ptr noundef %169) #22
-  br label %.thread79
+  br label %.thread77
 
-.thread79:                                        ; preds = %171, %168
+.thread77:                                        ; preds = %171, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN4llvm25ObjectSizeOffsetEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %11) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3110,8 +3110,8 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   %177 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %53) #22
   br label %178
 
-178:                                              ; preds = %.thread79, %.thread, %78, %172, %174, %176
-  %.1 = phi ptr [ %177, %176 ], [ null, %172 ], [ null, %78 ], [ %175, %174 ], [ %77, %.thread ], [ %157, %.thread79 ]
+178:                                              ; preds = %.thread77, %.thread, %78, %172, %174, %176
+  %.1 = phi ptr [ %177, %176 ], [ null, %172 ], [ null, %78 ], [ %175, %174 ], [ %77, %.thread ], [ %157, %.thread77 ]
   ret ptr %.1
 }
 

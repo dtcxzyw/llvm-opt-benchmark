@@ -449,13 +449,13 @@ decrypt_nal_unit.exit.i:                          ; preds = %81
   br label %decrypt_video_frame.exit
 
 132:                                              ; preds = %decrypt_nal_unit.exit.thread.i, %.loopexit.i
-  %.sroa.9.1.i = phi i32 [ %.126.i.i.i, %decrypt_nal_unit.exit.thread.i ], [ %77, %.loopexit.i ]
+  %.sroa.9.0.i = phi i32 [ %.126.i.i.i, %decrypt_nal_unit.exit.thread.i ], [ %77, %.loopexit.i ]
   %.124.i = phi i32 [ %131, %decrypt_nal_unit.exit.thread.i ], [ %.02363.i, %.loopexit.i ]
   %.not.i = icmp eq i32 %.124.i, 0
   br i1 %.not.i, label %._crit_edge65.i, label %133
 
 ._crit_edge65.i:                                  ; preds = %132
-  %.pre66.i = add nsw i32 %.sroa.9.1.i, %.sink.i.i
+  %.pre66.i = add nsw i32 %.sroa.9.0.i, %.sink.i.i
   %.pre67.i = sext i32 %.pre66.i to i64
   br label %139
 
@@ -463,7 +463,7 @@ decrypt_nal_unit.exit.i:                          ; preds = %81
   %134 = zext nneg i32 %.sink.i.i to i64
   %135 = sub nsw i64 0, %134
   %136 = getelementptr inbounds i8, ptr %45, i64 %135
-  %137 = add nsw i32 %.sroa.9.1.i, %.sink.i.i
+  %137 = add nsw i32 %.sroa.9.0.i, %.sink.i.i
   %138 = sext i32 %137 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.02662.i, ptr nonnull align 1 %136, i64 %138, i1 false)
   br label %139

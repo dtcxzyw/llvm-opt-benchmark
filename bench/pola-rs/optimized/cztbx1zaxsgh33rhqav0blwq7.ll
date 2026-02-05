@@ -40144,7 +40144,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   %192 = load i64, ptr %1, align 8, !range !115, !noundef !4
   switch i64 %192, label %default.unreachable [
     i64 0, label %.thread
-    i64 10, label %.thread189
+    i64 10, label %.thread160
     i64 1, label %193
     i64 2, label %193
     i64 3, label %193
@@ -40170,8 +40170,8 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   %spec.select = select i1 %switch, i64 40, i64 24, !prof !2861
   br label %"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17hce5c6deb84537c7dE.exit17"
 
-"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17hce5c6deb84537c7dE.exit17": ; preds = %193, %.thread189
-  %.sink.i15 = phi i64 [ 48, %.thread189 ], [ %spec.select, %193 ]
+"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17hce5c6deb84537c7dE.exit17": ; preds = %193, %.thread160
+  %.sink.i15 = phi i64 [ 48, %.thread160 ], [ %spec.select, %193 ]
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i15
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   store i32 1, ptr %197, align 8
@@ -40180,7 +40180,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
 198:                                              ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   br label %193
 
-.thread189:                                       ; preds = %switch.lookup
+.thread160:                                       ; preds = %switch.lookup
   store i32 0, ptr %.sroa.90127.0..sroa_idx128, align 8
   br label %"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17hce5c6deb84537c7dE.exit17"
 

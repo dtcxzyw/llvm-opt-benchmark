@@ -10573,15 +10573,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq i64 %17, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %19 = load ptr, ptr %1, align 8, !tbaa !204
   %.not.i.i = icmp eq ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !35
-  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread20
+  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread18
 
 22:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %21, null
@@ -10591,12 +10591,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEE
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread20
+  br i1 %25, label %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread18
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.022 = phi ptr [ %49, %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.022, align 8, !tbaa !235
-  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.020 = phi ptr [ %49, %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.020, align 8, !tbaa !235
+  %26 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !35
   store ptr null, ptr %26, align 8, !tbaa !35
   %.not.i.i.i.i = icmp eq ptr %27, null
@@ -10647,11 +10647,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   br label %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.not = icmp eq ptr %49, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread20: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread18: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit
   store ptr %19, ptr %3, align 8, !tbaa !204
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10661,7 +10661,7 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEE
   invoke void @_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ENS_21CPUThreadPoolExecutorEEEvSt10shared_ptrIT0_ENS_5RangeIPS5_EE(ptr noundef nonnull %3, ptr nonnull %0, ptr nonnull %18)
           to label %52 unwind label %75
 
-52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread20
+52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread18
   %53 = load ptr, ptr %50, align 8, !tbaa !35
   %.not.i.i11 = icmp eq ptr %53, null
   br i1 %.not.i.i11, label %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %54
@@ -10710,7 +10710,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %71, %69
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #21
   br label %_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread20
+75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultINS_21CPUThreadPoolExecutorEEEbRKSt10shared_ptrIT_E.exit.thread18
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5folly21CPUThreadPoolExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21

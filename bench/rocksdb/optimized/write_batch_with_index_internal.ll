@@ -7525,13 +7525,13 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i.i unwind label %236, !noalias !349
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i.i: ; preds = %240, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i
-  %.sroa.0188.0.i = phi i8 [ %220, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
-  %.sroa.7189.0.i = phi i8 [ %222, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
-  %.sroa.10.0.i = phi i8 [ %224, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
-  %.sroa.13190.0.i = phi i8 [ %226, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
-  %.sroa.16.0.i = phi i8 [ %228, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
-  %.sroa.22191.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %240 ]
   %.sroa.19.0.i = phi i8 [ %230, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
+  %.sroa.22191.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %240 ]
+  %.sroa.16.0.i = phi i8 [ %228, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
+  %.sroa.13190.0.i = phi i8 [ %226, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
+  %.sroa.10.0.i = phi i8 [ %224, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
+  %.sroa.7189.0.i = phi i8 [ %222, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
+  %.sroa.0188.0.i = phi i8 [ %220, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %240 ]
   %246 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %247 = load ptr, ptr %246, align 8, !tbaa !118, !noalias !349
   %.not.i.i6.i.i = icmp eq ptr %247, null
@@ -8513,13 +8513,13 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
   br label %.body.i
 
 316:                                              ; preds = %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i, %.noexc125.i
-  %.sroa.0262.0.i = phi i8 [ %298, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.7263.0.i = phi i8 [ %300, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.10.0.i = phi i8 [ %302, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.13264.0.i = phi i8 [ %304, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.16.0.i = phi i8 [ %306, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.22265.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %.noexc125.i ]
   %.sroa.19.0.i = phi i8 [ %308, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.22265.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %.noexc125.i ]
+  %.sroa.16.0.i = phi i8 [ %306, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.13264.0.i = phi i8 [ %304, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.10.0.i = phi i8 [ %302, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.7263.0.i = phi i8 [ %300, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.0262.0.i = phi i8 [ %298, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
   %317 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %318 = load ptr, ptr %317, align 8, !tbaa !118, !noalias !370
   %.not.i.i8.i.i = icmp eq ptr %318, null

@@ -6526,19 +6526,19 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 if.then.i.i.i.i.i7:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   store ptr %call5.i.i.i.i2.i.i4, ptr %sequence_, align 8, !tbaa !85
-  %_M_finish.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %this, i64 5016
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i.i35, align 8, !tbaa !84
-  %_M_end_of_storage.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %this, i64 5024
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i36, align 8, !tbaa !86
-  %weight3.i37 = getelementptr inbounds nuw i8, ptr %this, i64 5032
-  store double 1.000000e+00, ptr %weight3.i37, align 8, !tbaa !87
-  %int32Sequence_38 = getelementptr inbounds nuw i8, ptr %this, i64 5040
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %int32Sequence_38, i8 0, i64 24, i1 false)
+  %_M_finish.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 5016
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i.i29, align 8, !tbaa !84
+  %_M_end_of_storage.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 5024
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i30, align 8, !tbaa !86
+  %weight3.i31 = getelementptr inbounds nuw i8, ptr %this, i64 5032
+  store double 1.000000e+00, ptr %weight3.i31, align 8, !tbaa !87
+  %int32Sequence_32 = getelementptr inbounds nuw i8, ptr %this, i64 5040
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %int32Sequence_32, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #28
           to label %call5.i.i.i.i2.i.i.noexc21 unwind label %eh.resume
 
 call5.i.i.i.i2.i.i.noexc21:                       ; preds = %if.then.i.i.i.i.i7
-  store ptr %call5.i.i.i.i2.i.i22, ptr %int32Sequence_38, align 8, !tbaa !89
+  store ptr %call5.i.i.i.i2.i.i22, ptr %int32Sequence_32, align 8, !tbaa !89
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i22, i64 %dimensionality
   %_M_end_of_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 5056
   store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8, !tbaa !90

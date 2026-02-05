@@ -506,8 +506,8 @@ _ZNK4llvm4Pass11getAnalysisINS_30MachineTraceMetricsWrapperPassEEERT_v.exit: ; p
 102:                                              ; preds = %82
   %103 = load i16, ptr %99, align 2
   %104 = and i16 %103, 8190
-  %switch25.i = icmp eq i16 %104, 8190
-  br i1 %switch25.i, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit, label %105
+  %switch19.i = icmp eq i16 %104, 8190
+  br i1 %switch19.i, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit, label %105
 
 105:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

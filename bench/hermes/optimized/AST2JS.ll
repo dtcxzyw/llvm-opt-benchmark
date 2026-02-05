@@ -1846,7 +1846,7 @@ if.then4.i.i.i.i:                                 ; preds = %sw.bb.i.i
   br label %for.cond.backedge.i.i
 
 for.cond.backedge.i.i:                            ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit214.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit170.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit155.i.i, %if.then52.i.i, %if.end.i119.i.i, %if.then.i116.i.i, %if.then4.i.i103.i.i, %if.then.i.i106.i.i, %if.then4.i.i88.i.i, %if.then.i.i91.i.i, %if.then4.i.i73.i.i, %if.then.i.i76.i.i, %if.then4.i.i58.i.i, %if.then.i.i61.i.i, %if.then4.i.i43.i.i, %if.then.i.i46.i.i, %if.then4.i.i28.i.i, %if.then.i.i31.i.i, %if.then4.i.i.i.i, %if.then.i.i18.i.i
-  %cur.0.be.i.i = phi ptr [ %cur.2.i.i, %if.then52.i.i ], [ %cur.2.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit155.i.i ], [ %cur.2261.i182228.i, %_ZN4llvh11raw_ostreamlsEPKc.exit170.i.i ], [ %cur.2.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit214.i.i ], [ %cur.2.i.i, %if.end.i119.i.i ], [ %cur.2.i.i, %if.then4.i.i103.i.i ], [ %cur.2.i.i, %if.then4.i.i.i.i ], [ %cur.2.i.i, %if.then4.i.i28.i.i ], [ %cur.2.i.i, %if.then4.i.i43.i.i ], [ %cur.2.i.i, %if.then4.i.i58.i.i ], [ %cur.2.i.i, %if.then4.i.i73.i.i ], [ %cur.2.i.i, %if.then4.i.i88.i.i ], [ %cur.2.i.i, %if.then.i.i18.i.i ], [ %cur.2.i.i, %if.then.i.i31.i.i ], [ %cur.2.i.i, %if.then.i.i46.i.i ], [ %cur.2.i.i, %if.then.i.i61.i.i ], [ %cur.2.i.i, %if.then.i.i76.i.i ], [ %cur.2.i.i, %if.then.i.i91.i.i ], [ %cur.2.i.i, %if.then.i.i106.i.i ], [ %cur.2.i.i, %if.then.i116.i.i ]
+  %cur.0.be.i.i = phi ptr [ %cur.2.i.i, %if.then52.i.i ], [ %cur.2.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit155.i.i ], [ %cur.2261.i162026.i, %_ZN4llvh11raw_ostreamlsEPKc.exit170.i.i ], [ %cur.2.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit214.i.i ], [ %cur.2.i.i, %if.end.i119.i.i ], [ %cur.2.i.i, %if.then4.i.i103.i.i ], [ %cur.2.i.i, %if.then4.i.i.i.i ], [ %cur.2.i.i, %if.then4.i.i28.i.i ], [ %cur.2.i.i, %if.then4.i.i43.i.i ], [ %cur.2.i.i, %if.then4.i.i58.i.i ], [ %cur.2.i.i, %if.then4.i.i73.i.i ], [ %cur.2.i.i, %if.then4.i.i88.i.i ], [ %cur.2.i.i, %if.then.i.i18.i.i ], [ %cur.2.i.i, %if.then.i.i31.i.i ], [ %cur.2.i.i, %if.then.i.i46.i.i ], [ %cur.2.i.i, %if.then.i.i61.i.i ], [ %cur.2.i.i, %if.then.i.i76.i.i ], [ %cur.2.i.i, %if.then.i.i91.i.i ], [ %cur.2.i.i, %if.then.i.i106.i.i ], [ %cur.2.i.i, %if.then.i116.i.i ]
   %cmp.i.i = icmp ult ptr %cur.0.be.i.i, %add.ptr.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i, !llvm.loop !4
 
@@ -2081,8 +2081,8 @@ if.end63.i.i:                                     ; preds = %if.end56.i.i
   br i1 %cmp64.i.i, label %if.then65.i.i, label %_ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i
 
 if.then65.i.i:                                    ; preds = %if.end63.i.i, %if.end128.i.i.i.i, %if.end112.i.i.i.i, %if.end99.i.i.i.i, %if.end85.i.i.i.i, %if.then71.i.i.i.i, %if.else68.i.i.i.i, %if.end44.i.i.i.i, %if.end31.i.i.i.i, %if.then19.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
-  %cur.2261.i182228.i = phi ptr [ %cur.2.i.i, %if.end63.i.i ], [ %add.ptr113.i.i.i.i, %if.end128.i.i.i.i ], [ %add.ptr8.i.i.i.i, %if.end.i.i.i.i ], [ %arrayidx32.i.i.i.i, %if.end31.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.then71.i.i.i.i ], [ %arrayidx87.i.i.i.i, %if.end85.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.else68.i.i.i.i ], [ %add.ptr113.i.i.i.i, %if.end112.i.i.i.i ], [ %arrayidx2.i.i.i.i, %if.then.i.i.i.i ], [ %arrayidx21.i.i.i.i, %if.then19.i.i.i.i ], [ %add.ptr45.i.i.i.i, %if.end44.i.i.i.i ], [ %arrayidx100.i.i.i.i, %if.end99.i.i.i.i ]
-  %retval.0.i262.i172327.i = phi i32 [ %retval.0.i.i.i, %if.end63.i.i ], [ 65533, %if.end128.i.i.i.i ], [ 65533, %if.end.i.i.i.i ], [ 65533, %if.end31.i.i.i.i ], [ 65533, %if.then71.i.i.i.i ], [ 65533, %if.end85.i.i.i.i ], [ 65533, %if.else68.i.i.i.i ], [ 65533, %if.end112.i.i.i.i ], [ 65533, %if.then.i.i.i.i ], [ 65533, %if.then19.i.i.i.i ], [ 65533, %if.end44.i.i.i.i ], [ 65533, %if.end99.i.i.i.i ]
+  %cur.2261.i162026.i = phi ptr [ %cur.2.i.i, %if.end63.i.i ], [ %add.ptr113.i.i.i.i, %if.end128.i.i.i.i ], [ %add.ptr8.i.i.i.i, %if.end.i.i.i.i ], [ %arrayidx32.i.i.i.i, %if.end31.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.then71.i.i.i.i ], [ %arrayidx87.i.i.i.i, %if.end85.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.else68.i.i.i.i ], [ %add.ptr113.i.i.i.i, %if.end112.i.i.i.i ], [ %arrayidx2.i.i.i.i, %if.then.i.i.i.i ], [ %arrayidx21.i.i.i.i, %if.then19.i.i.i.i ], [ %add.ptr45.i.i.i.i, %if.end44.i.i.i.i ], [ %arrayidx100.i.i.i.i, %if.end99.i.i.i.i ]
+  %retval.0.i262.i152125.i = phi i32 [ %retval.0.i.i.i, %if.end63.i.i ], [ 65533, %if.end128.i.i.i.i ], [ 65533, %if.end.i.i.i.i ], [ 65533, %if.end31.i.i.i.i ], [ 65533, %if.then71.i.i.i.i ], [ 65533, %if.end85.i.i.i.i ], [ 65533, %if.else68.i.i.i.i ], [ 65533, %if.end112.i.i.i.i ], [ 65533, %if.then.i.i.i.i ], [ 65533, %if.then19.i.i.i.i ], [ 65533, %if.end44.i.i.i.i ], [ 65533, %if.end99.i.i.i.i ]
   %56 = load ptr, ptr %v, align 8
   %OutBufEnd.i5.i157.i.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %57 = load ptr, ptr %OutBufEnd.i5.i157.i.i, align 8
@@ -2107,7 +2107,7 @@ if.then4.i.i165.i.i:                              ; preds = %if.then65.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit170.i.i:          ; preds = %if.then4.i.i165.i.i, %if.then.i.i168.i.i
   %phi.call.i167.i.i = phi ptr [ %56, %if.then4.i.i165.i.i ], [ %call3.i.i169.i.i, %if.then.i.i168.i.i ]
-  %conv69.i.i = zext nneg i32 %retval.0.i262.i172327.i to i64
+  %conv69.i.i = zext nneg i32 %retval.0.i262.i152125.i to i64
   store i64 %conv69.i.i, ptr %ref.tmp68.i.i, align 8, !alias.scope !9
   store i64 0, ptr %DecValue.i.i171.i.i, align 8, !alias.scope !9
   store i32 4, ptr %Width.i.i172.i.i, align 8, !alias.scope !9

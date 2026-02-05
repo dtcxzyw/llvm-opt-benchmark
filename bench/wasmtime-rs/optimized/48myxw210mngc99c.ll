@@ -5357,7 +5357,7 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit", %.lr.ph
-  %.sroa.5.sroa.4.0.copyload74 = phi i64 [ %.sroa.5.sroa.4.0.copyload71, %.lr.ph ], [ %.sroa.731.1, %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit" ]
+  %.sroa.5.sroa.4.0.copyload74 = phi i64 [ %.sroa.5.sroa.4.0.copyload71, %.lr.ph ], [ %.sroa.731.0, %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit" ]
   %.sroa.5.sroa.0.0.copyload73 = phi i64 [ %.sroa.5.sroa.0.0.copyload70, %.lr.ph ], [ 0, %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit" ]
   %.sroa.029.06972 = phi ptr [ %.promoted, %.lr.ph ], [ %.sroa.029.0, %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit" ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.029.06972, i64 318
@@ -5454,9 +5454,9 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
 
 "_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hfe79c03464f9bd58E.exit": ; preds = %.lr.ph.i.i, %44, %42
   %.sroa.029.0 = phi ptr [ %.sroa.0.038.ph, %42 ], [ %47, %44 ], [ %50, %.lr.ph.i.i ]
-  %.sroa.731.1 = phi i64 [ %43, %42 ], [ 0, %44 ], [ 0, %.lr.ph.i.i ]
+  %.sroa.731.0 = phi i64 [ %43, %42 ], [ 0, %44 ], [ 0, %.lr.ph.i.i ]
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  store i64 %.sroa.731.1, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.731.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   store ptr null, ptr %10, align 8
   br label %12
 

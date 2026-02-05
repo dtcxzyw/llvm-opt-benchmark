@@ -3038,18 +3038,18 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   %exp2 = call double @exp2(double %43)
   %44 = load i32, ptr %10, align 4, !tbaa !111
   %45 = icmp sgt i32 %44, -2
-  br i1 %45, label %.lr.ph, label %.preheader82
+  br i1 %45, label %.lr.ph, label %.preheader79
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %46 = load double, ptr %39, align 8, !tbaa !119
   br label %63
 
-.preheader82:                                     ; preds = %63, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
+.preheader79:                                     ; preds = %63, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %47 = phi i32 [ %44, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ], [ %75, %63 ]
   %48 = icmp sgt i32 %3, 0
   br i1 %48, label %.preheader.lr.ph, label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-.preheader.lr.ph:                                 ; preds = %.preheader82
+.preheader.lr.ph:                                 ; preds = %.preheader79
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3091,20 +3091,20 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   %76 = add nsw i32 %75, 2
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv, %77
-  br i1 %78, label %63, label %.preheader82, !llvm.loop !120
+  br i1 %78, label %63, label %.preheader79, !llvm.loop !120
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %79 = phi i32 [ %47, %.preheader.lr.ph ], [ %89, %._crit_edge ]
-  %.05186 = phi i32 [ 0, %.preheader.lr.ph ], [ %90, %._crit_edge ]
+  %.05183 = phi i32 [ 0, %.preheader.lr.ph ], [ %90, %._crit_edge ]
   %80 = icmp sgt i32 %79, -3
-  br i1 %80, label %.lr.ph85, label %._crit_edge
+  br i1 %80, label %.lr.ph82, label %._crit_edge
 
-.lr.ph85:                                         ; preds = %.preheader
+.lr.ph82:                                         ; preds = %.preheader
   %81 = add nsw i32 %79, 3
-  %82 = add nsw i32 %.05186, -1
+  %82 = add nsw i32 %.05183, -1
   br label %91
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader82
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader79
   call void @_ZdlPv(ptr noundef nonnull %.sroa.069.0) #31
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !13
@@ -3128,21 +3128,21 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIdSaIdE
 
 ._crit_edge:                                      ; preds = %127, %.preheader
   %89 = phi i32 [ %79, %.preheader ], [ %128, %127 ]
-  %90 = add nuw nsw i32 %.05186, 1
+  %90 = add nuw nsw i32 %.05183, 1
   %exitcond.not = icmp eq i32 %90, %3
   br i1 %exitcond.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %.preheader, !llvm.loop !121
 
-91:                                               ; preds = %.lr.ph85, %127
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next89, %127 ]
-  %92 = phi i32 [ %81, %.lr.ph85 ], [ %129, %127 ]
-  %93 = phi i32 [ %79, %.lr.ph85 ], [ %128, %127 ]
-  %94 = mul nsw i32 %92, %.05186
-  %95 = trunc nuw nsw i64 %indvars.iv88 to i32
+91:                                               ; preds = %.lr.ph82, %127
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next86, %127 ]
+  %92 = phi i32 [ %81, %.lr.ph82 ], [ %129, %127 ]
+  %93 = phi i32 [ %79, %.lr.ph82 ], [ %128, %127 ]
+  %94 = mul nsw i32 %92, %.05183
+  %95 = trunc nuw nsw i64 %indvars.iv85 to i32
   %96 = add nsw i32 %94, %95
   %97 = sext i32 %96 to i64
   %98 = load ptr, ptr %2, align 8, !tbaa !9
   %99 = getelementptr %"class.cv::Mat", ptr %98, i64 %97
-  %100 = or i32 %.05186, %95
+  %100 = or i32 %.05183, %95
   %or.cond = icmp eq i32 %100, 0
   br i1 %or.cond, label %101, label %105
 
@@ -3156,7 +3156,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIdSaIdE
   br label %132
 
 105:                                              ; preds = %91
-  %106 = icmp eq i64 %indvars.iv88, 0
+  %106 = icmp eq i64 %indvars.iv85, 0
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %105
@@ -3209,7 +3209,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIdSaIdE
   store i64 0, ptr %53, align 8
   store i32 33619968, ptr %9, align 8, !tbaa !125
   store ptr %99, ptr %52, align 8, !tbaa !127
-  %123 = getelementptr inbounds nuw double, ptr %.sroa.069.0, i64 %indvars.iv88
+  %123 = getelementptr inbounds nuw double, ptr %.sroa.069.0, i64 %indvars.iv85
   %124 = load double, ptr %123, align 8, !tbaa !116
   invoke void @_ZN2cv12GaussianBlurERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 0, double noundef %124, double noundef %124, i32 noundef 4, i32 noundef 0)
           to label %125 unwind label %.thread
@@ -3227,11 +3227,11 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIdSaIdE
   br label %133
 
 127:                                              ; preds = %118, %125, %101
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %128 = load i32, ptr %10, align 4, !tbaa !111
   %129 = add nsw i32 %128, 3
   %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next89, %130
+  %131 = icmp slt i64 %indvars.iv.next86, %130
   br i1 %131, label %91, label %._crit_edge, !llvm.loop !128
 
 132:                                              ; preds = %103, %119, %61
@@ -3240,12 +3240,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i64, label %_ZNSt6vectorIdSaIdEED2Ev.exit65, label %133
 
 133:                                              ; preds = %.thread, %132
-  %.pn58.pn80 = phi { ptr, i32 } [ %126, %.thread ], [ %.pn58.pn, %132 ]
+  %.pn58.pn77 = phi { ptr, i32 } [ %126, %.thread ], [ %.pn58.pn, %132 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.069.0) #31
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit65
 
 _ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %133, %132, %59
-  %.pn58.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn58.pn, %132 ], [ %.pn58.pn80, %133 ]
+  %.pn58.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn58.pn, %132 ], [ %.pn58.pn77, %133 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn58.pn.pn

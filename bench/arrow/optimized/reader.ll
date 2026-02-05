@@ -54692,21 +54692,21 @@ _ZN5arrow6StatusD2Ev.exit23:                      ; preds = %61, %76
   %.not = icmp eq i64 %82, 0
   %.pre = load ptr, ptr %11, align 8, !tbaa !233
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre38 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !796
+  %.pre36 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !796
   br i1 %.not, label %_ZN5arrow6StatusD2Ev.exit23._crit_edge, label %83
 
 83:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit23
-  %84 = load ptr, ptr %.pre38, align 8, !tbaa !273
-  %.not37 = icmp eq ptr %84, null
-  br i1 %.not37, label %_ZN5arrow6StatusD2Ev.exit23._crit_edge, label %85
+  %84 = load ptr, ptr %.pre36, align 8, !tbaa !273
+  %.not35 = icmp eq ptr %84, null
+  br i1 %.not35, label %_ZN5arrow6StatusD2Ev.exit23._crit_edge, label %85
 
 85:                                               ; preds = %83
   call void @_ZN5arrow6Status8FromArgsIJRA65_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(65) @.str.41)
   br label %.critedge
 
 _ZN5arrow6StatusD2Ev.exit23._crit_edge:           ; preds = %_ZN5arrow6StatusD2Ev.exit23, %83
-  store ptr null, ptr %.pre38, align 8, !tbaa !1011
-  %86 = getelementptr inbounds nuw i8, ptr %.pre38, i64 8
+  store ptr null, ptr %.pre36, align 8, !tbaa !1011
+  %86 = getelementptr inbounds nuw i8, ptr %.pre36, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !79
   store ptr null, ptr %86, align 8, !tbaa !79
   %.not.i.i.i.i = icmp eq ptr %87, null

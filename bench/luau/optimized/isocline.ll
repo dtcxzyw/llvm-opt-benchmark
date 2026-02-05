@@ -4227,15 +4227,15 @@ ic_get_env.exit.thread4:                          ; preds = %0, %ic_get_env.exit
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !129
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %ic_get_env.exit.thread, label %.lr.ph72.i
+  br i1 %10, label %ic_get_env.exit.thread, label %.lr.ph69.i
 
-.lr.ph72.i:                                       ; preds = %ic_get_env.exit.thread4
+.lr.ph69.i:                                       ; preds = %ic_get_env.exit.thread4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = icmp slt i64 %12, 1
   br i1 %13, label %bbcode_style_close.exit, label %bbcode_tag_pop.exit.us.i
 
-bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph72.i
+bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph69.i
   %14 = add nsw i64 %12, -1
   store i64 %14, ptr %11, align 8, !tbaa !45
   %15 = load ptr, ptr %9, align 8, !tbaa !54
@@ -4244,8 +4244,8 @@ bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph72.i
   %.sroa.9.i.sroa.0.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx43.us.i, align 8, !tbaa !4
   br label %bbcode_style_close.exit
 
-bbcode_style_close.exit:                          ; preds = %.lr.ph72.i, %bbcode_tag_pop.exit.us.i
-  %.sroa.9.i.sroa.0.0 = phi i64 [ %.sroa.9.i.sroa.0.0.copyload, %bbcode_tag_pop.exit.us.i ], [ 0, %.lr.ph72.i ]
+bbcode_style_close.exit:                          ; preds = %.lr.ph69.i, %bbcode_tag_pop.exit.us.i
+  %.sroa.9.i.sroa.0.0 = phi i64 [ %.sroa.9.i.sroa.0.0.copyload, %bbcode_tag_pop.exit.us.i ], [ 0, %.lr.ph69.i ]
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   tail call fastcc void @term_set_attr(ptr noundef %18, i64 %.sroa.9.i.sroa.0.0)
@@ -10870,18 +10870,18 @@ define internal fastcc noundef zeroext i1 @bbcode_close(ptr noundef captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !45
   %7 = icmp sgt i64 %6, %1
-  br i1 %7, label %.lr.ph72, label %.loopexit
+  br i1 %7, label %.lr.ph69, label %.loopexit
 
-.lr.ph72:                                         ; preds = %4
+.lr.ph69:                                         ; preds = %4
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %.lr.ph72.split.us, label %.lr.ph72.split
+  br i1 %8, label %.lr.ph69.split.us, label %.lr.ph69.split
 
-.lr.ph72.split.us:                                ; preds = %.lr.ph72
+.lr.ph69.split.us:                                ; preds = %.lr.ph69
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %9 = icmp slt i64 %6, 1
   br i1 %9, label %bbcode_tag_pop.exit.thread, label %bbcode_tag_pop.exit.us
 
-bbcode_tag_pop.exit.us:                           ; preds = %.lr.ph72.split.us
+bbcode_tag_pop.exit.us:                           ; preds = %.lr.ph69.split.us
   %10 = add nsw i64 %6, -1
   store i64 %10, ptr %5, align 8, !tbaa !45
   %11 = load ptr, ptr %0, align 8, !tbaa !54
@@ -10889,19 +10889,19 @@ bbcode_tag_pop.exit.us:                           ; preds = %.lr.ph72.split.us
   %.sroa.0.0.copyload41.us = load ptr, ptr %12, align 8, !tbaa !56
   %.sroa.9.0..sroa_idx43.us = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx43.us, i64 32, i1 false), !tbaa.struct !230
-  br label %bbcode_tag_push.exit.thread54
+  br label %bbcode_tag_push.exit.thread52
 
-.lr.ph72.split:                                   ; preds = %.lr.ph72, %bbcode_tag_push.exit
-  %13 = phi i64 [ %77, %bbcode_tag_push.exit ], [ %6, %.lr.ph72 ]
+.lr.ph69.split:                                   ; preds = %.lr.ph69, %bbcode_tag_push.exit
+  %13 = phi i64 [ %77, %bbcode_tag_push.exit ], [ %6, %.lr.ph69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %14 = icmp slt i64 %13, 1
   br i1 %14, label %bbcode_tag_pop.exit.thread, label %bbcode_tag_pop.exit
 
-bbcode_tag_pop.exit.thread:                       ; preds = %.lr.ph72.split, %.lr.ph72.split.us
+bbcode_tag_pop.exit.thread:                       ; preds = %.lr.ph69.split, %.lr.ph69.split.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, i8 0, i64 32, i1 false)
-  br label %bbcode_tag_push.exit.thread54
+  br label %bbcode_tag_push.exit.thread52
 
-bbcode_tag_pop.exit:                              ; preds = %.lr.ph72.split
+bbcode_tag_pop.exit:                              ; preds = %.lr.ph69.split
   %15 = add nsw i64 %13, -1
   store i64 %15, ptr %5, align 8, !tbaa !45
   %16 = load ptr, ptr %0, align 8, !tbaa !54
@@ -10910,29 +10910,29 @@ bbcode_tag_pop.exit:                              ; preds = %.lr.ph72.split
   %.sroa.9.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx43, i64 32, i1 false), !tbaa.struct !230
   %18 = icmp eq ptr %.sroa.0.0.copyload41, null
-  br i1 %18, label %bbcode_tag_push.exit.thread54, label %19
+  br i1 %18, label %bbcode_tag_push.exit.thread52, label %19
 
 19:                                               ; preds = %bbcode_tag_pop.exit
   %20 = tail call fastcc i32 @ic_stricmp(ptr noundef nonnull %.sroa.0.0.copyload41, ptr noundef nonnull %2)
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %bbcode_tag_push.exit.thread54, label %22
+  br i1 %21, label %bbcode_tag_push.exit.thread52, label %22
 
-bbcode_tag_push.exit.thread54:                    ; preds = %bbcode_tag_pop.exit, %19, %bbcode_tag_pop.exit.us, %bbcode_tag_pop.exit.thread
-  %.sroa.0.147 = phi ptr [ null, %bbcode_tag_pop.exit.thread ], [ %.sroa.0.0.copyload41.us, %bbcode_tag_pop.exit.us ], [ null, %bbcode_tag_pop.exit ], [ %.sroa.0.0.copyload41, %19 ]
-  store ptr %.sroa.0.147, ptr %3, align 8, !tbaa !56
+bbcode_tag_push.exit.thread52:                    ; preds = %bbcode_tag_pop.exit, %19, %bbcode_tag_pop.exit.us, %bbcode_tag_pop.exit.thread
+  %.sroa.0.047 = phi ptr [ null, %bbcode_tag_pop.exit.thread ], [ %.sroa.0.0.copyload41.us, %bbcode_tag_pop.exit.us ], [ null, %bbcode_tag_pop.exit ], [ %.sroa.0.0.copyload41, %19 ]
+  store ptr %.sroa.0.047, ptr %3, align 8, !tbaa !56
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, i64 32, i1 false), !tbaa.struct !230
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   br label %79
 
 22:                                               ; preds = %19
-  %.065 = add nsw i64 %13, -2
-  %23 = icmp sgt i64 %.065, %1
+  %.062 = add nsw i64 %13, -2
+  %23 = icmp sgt i64 %.062, %1
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %ic_stricmp.exit.thread
-  %.066 = phi i64 [ %.0, %ic_stricmp.exit.thread ], [ %.065, %22 ]
-  %24 = getelementptr inbounds %struct.tag_s, ptr %16, i64 %.066
+  %.063 = phi i64 [ %.0, %ic_stricmp.exit.thread ], [ %.062, %22 ]
+  %24 = getelementptr inbounds %struct.tag_s, ptr %16, i64 %.063
   %25 = load ptr, ptr %24, align 8, !tbaa !48
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %ic_stricmp.exit.thread, label %ic_strlen.exit15.i
@@ -10944,8 +10944,8 @@ ic_strlen.exit15.i:                               ; preds = %.lr.ph
   %29 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %28, i64 0)
   %30 = icmp sgt i64 %28, %27
   %31 = icmp sgt i64 %26, %29
-  %or.cond57 = or i1 %30, %31
-  br i1 %or.cond57, label %ic_stricmp.exit.thread, label %.preheader.i.i
+  %or.cond54 = or i1 %30, %31
+  br i1 %or.cond54, label %ic_stricmp.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %ic_strlen.exit15.i
   %32 = load i8, ptr %25, align 1, !tbaa !4
@@ -11002,7 +11002,7 @@ ic_stricmp.exit:                                  ; preds = %.lr.ph.i.i, %52
   br i1 %57, label %bbcode_tag_push.exit, label %ic_stricmp.exit.thread
 
 ic_stricmp.exit.thread:                           ; preds = %ic_strlen.exit15.i, %.lr.ph, %ic_stricmp.exit
-  %.0 = add nsw i64 %.066, -1
+  %.0 = add nsw i64 %.063, -1
   %58 = icmp sgt i64 %.0, %1
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !231
 
@@ -11054,14 +11054,14 @@ bbcode_tag_push.exit:                             ; preds = %._crit_edge.i.i, %i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %77 = load i64, ptr %5, align 8, !tbaa !45
   %78 = icmp sgt i64 %77, %1
-  br i1 %78, label %.lr.ph72.split, label %.loopexit
+  br i1 %78, label %.lr.ph69.split, label %.loopexit
 
 .loopexit:                                        ; preds = %bbcode_tag_push.exit, %4, %bbcode_tag_push.exit.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   br label %79
 
-79:                                               ; preds = %bbcode_tag_push.exit.thread54, %.loopexit
-  %.2 = phi i1 [ true, %bbcode_tag_push.exit.thread54 ], [ false, %.loopexit ]
+79:                                               ; preds = %bbcode_tag_push.exit.thread52, %.loopexit
+  %.2 = phi i1 [ true, %bbcode_tag_push.exit.thread52 ], [ false, %.loopexit ]
   ret i1 %.2
 }
 
@@ -17879,13 +17879,13 @@ define internal fastcc void @edit_write_prompt(ptr noundef readonly captures(non
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !264
   tail call fastcc void @bbcode_print(ptr noundef %10, ptr noundef %12)
-  br label %.lr.ph72.i
+  br label %.lr.ph69.i
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %15 = load i8, ptr %14, align 2, !tbaa !158, !range !117, !noundef !118
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.lr.ph72.i, label %17
+  br i1 %16, label %.lr.ph69.i, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %6, align 8, !tbaa !129
@@ -17902,7 +17902,7 @@ define internal fastcc void @edit_write_prompt(ptr noundef readonly captures(non
   %29 = tail call fastcc i64 @bbcode_column_width(ptr noundef %26, ptr noundef %28)
   %30 = add nsw i64 %25, %21
   %31 = icmp slt i64 %29, %30
-  br i1 %31, label %.lr.ph.i.preheader, label %.lr.ph72.i
+  br i1 %31, label %.lr.ph.i.preheader, label %.lr.ph69.i
 
 .lr.ph.i.preheader:                               ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17915,9 +17915,9 @@ define internal fastcc void @edit_write_prompt(ptr noundef readonly captures(non
   tail call fastcc void @term_write_n(ptr noundef %33, ptr noundef nonnull @.str.251, i64 noundef 1)
   %35 = add nsw i64 %.01.i, -1
   %36 = icmp samesign ugt i64 %.01.i, 1
-  br i1 %36, label %.lr.ph.i, label %.lr.ph72.i, !llvm.loop !294
+  br i1 %36, label %.lr.ph.i, label %.lr.ph69.i, !llvm.loop !294
 
-.lr.ph72.i:                                       ; preds = %.lr.ph.i, %9, %13, %17
+.lr.ph69.i:                                       ; preds = %.lr.ph.i, %9, %13, %17
   %.in.v = phi i64 [ 56, %9 ], [ 64, %13 ], [ 64, %17 ], [ 64, %.lr.ph.i ]
   %37 = load ptr, ptr %6, align 8, !tbaa !129
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -17929,7 +17929,7 @@ define internal fastcc void @edit_write_prompt(ptr noundef readonly captures(non
   %42 = icmp slt i64 %41, 1
   br i1 %42, label %bbcode_style_close.exit, label %bbcode_tag_pop.exit.us.i
 
-bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph72.i
+bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph69.i
   %43 = add nsw i64 %41, -1
   store i64 %43, ptr %40, align 8, !tbaa !45
   %44 = load ptr, ptr %39, align 8, !tbaa !54
@@ -17938,8 +17938,8 @@ bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph72.i
   %.sroa.9.i.sroa.0.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx43.us.i, align 8, !tbaa !4
   br label %bbcode_style_close.exit
 
-bbcode_style_close.exit:                          ; preds = %.lr.ph72.i, %bbcode_tag_pop.exit.us.i
-  %.sroa.9.i.sroa.0.0 = phi i64 [ %.sroa.9.i.sroa.0.0.copyload, %bbcode_tag_pop.exit.us.i ], [ 0, %.lr.ph72.i ]
+bbcode_style_close.exit:                          ; preds = %.lr.ph69.i, %bbcode_tag_pop.exit.us.i
+  %.sroa.9.i.sroa.0.0 = phi i64 [ %.sroa.9.i.sroa.0.0.copyload, %bbcode_tag_pop.exit.us.i ], [ 0, %.lr.ph69.i ]
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %47 = load ptr, ptr %46, align 8, !tbaa !133
   tail call fastcc void @term_set_attr(ptr noundef %47, i64 %.sroa.9.i.sroa.0.0)

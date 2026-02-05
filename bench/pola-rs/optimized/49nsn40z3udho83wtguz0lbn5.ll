@@ -3554,8 +3554,8 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   invoke void @"_ZN11polars_core6series10arithmetic8borrowed83_$LT$impl$u20$core..ops..arith..Add$u20$for$u20$$RF$polars_core..series..Series$GT$3add17he8a799cf5956199eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34)
           to label %146 unwind label %144
 
-143:                                              ; preds = %.thread411, %144
-  %.pn324 = phi { ptr, i32 } [ %145, %144 ], [ %.pn322, %.thread411 ]
+143:                                              ; preds = %.thread409, %144
+  %.pn324 = phi { ptr, i32 } [ %145, %144 ], [ %.pn322, %.thread409 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #19
           to label %131 unwind label %227
 
@@ -3596,15 +3596,15 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   invoke void @_ZN11polars_core6series6Series9is_finite17h6c0ec335b1081452E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %45)
           to label %157 unwind label %155
 
-.thread411:                                       ; preds = %183, %.thread431, %239, %.thread420, %240, %244, %155
-  %.pn322 = phi { ptr, i32 } [ %156, %155 ], [ %.pn320.ph, %244 ], [ %lpad.thr_comm.split-lp, %240 ], [ %lpad.thr_comm, %.thread420 ], [ %lpad.thr_comm.split-lp430, %239 ], [ %lpad.thr_comm429, %.thread431 ], [ %.pn313, %183 ]
+.thread409:                                       ; preds = %183, %.thread429, %239, %.thread418, %240, %244, %155
+  %.pn322 = phi { ptr, i32 } [ %156, %155 ], [ %.pn320.ph, %244 ], [ %lpad.thr_comm.split-lp, %240 ], [ %lpad.thr_comm, %.thread418 ], [ %lpad.thr_comm.split-lp428, %239 ], [ %lpad.thr_comm427, %.thread429 ], [ %.pn313, %183 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29) #19
           to label %143 unwind label %227
 
 155:                                              ; preds = %169, %153
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread411
+  br label %.thread409
 
 157:                                              ; preds = %153
   %158 = load i64, ptr %26, align 8, !range !43, !noundef !3
@@ -3693,10 +3693,10 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   invoke void @"_ZN11polars_core13chunked_array7bitwise136_$LT$impl$u20$core..ops..bit..BitAnd$u20$for$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$6bitand17hb8c3704e05b68d14E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %18)
           to label %175 unwind label %240
 
-.thread420:                                       ; preds = %180, %175
+.thread418:                                       ; preds = %180, %175
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread411
+  br label %.thread409
 
 175:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -3704,7 +3704,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
   invoke void @"_ZN11polars_core13chunked_array7bitwise135_$LT$impl$u20$core..ops..bit..BitOr$u20$for$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$5bitor17h812d4d340c884966E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %17)
-          to label %176 unwind label %.thread420
+          to label %176 unwind label %.thread418
 
 176:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -3712,10 +3712,10 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   %177 = invoke noundef zeroext i1 @"_ZN11polars_core13chunked_array10comparison101_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$3all17hbcf3cebd0f2fbf01E"(ptr noundef nonnull align 8 %21)
           to label %178 unwind label %239
 
-.thread431:                                       ; preds = %229, %224, %179
-  %lpad.thr_comm429 = landingpad { ptr, i32 }
+.thread429:                                       ; preds = %229, %224, %179
+  %lpad.thr_comm427 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread411
+  br label %.thread409
 
 178:                                              ; preds = %176
   br i1 %177, label %180, label %179
@@ -3725,12 +3725,12 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
   invoke void @"_ZN11polars_core13chunked_array10comparison133_$LT$impl$u20$core..ops..bit..Not$u20$for$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$3not17h023af241054529c0E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %15)
-          to label %181 unwind label %.thread431
+          to label %181 unwind label %.thread429
 
 180:                                              ; preds = %178
   store i64 17, ptr %0, align 8
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21)
-          to label %226 unwind label %.thread420
+          to label %226 unwind label %.thread418
 
 181:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3742,7 +3742,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
 183:                                              ; preds = %201, %184
   %.pn313 = phi { ptr, i32 } [ %185, %184 ], [ %.pn, %201 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16) #19
-          to label %.thread411 unwind label %227
+          to label %.thread409 unwind label %227
 
 184:                                              ; preds = %223, %215, %186, %181
   %185 = landingpad { ptr, i32 }
@@ -3884,7 +3884,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
 224:                                              ; preds = %223
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
-          to label %225 unwind label %.thread431
+          to label %225 unwind label %.thread429
 
 225:                                              ; preds = %224
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3898,7 +3898,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
           to label %230 unwind label %144
 
-227:                                              ; preds = %244, %242, %240, %239, %219, %201, %183, %.thread411, %143, %131, %119, %113, %103, %91, %79, %62
+227:                                              ; preds = %244, %242, %240, %239, %219, %201, %183, %.thread409, %143, %131, %119, %113, %103, %91, %79, %62
   %228 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
@@ -3907,9 +3907,9 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
 229:                                              ; preds = %215, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
-          to label %.thread448 unwind label %.thread431
+          to label %.thread446 unwind label %.thread429
 
-.thread448:                                       ; preds = %229
+.thread446:                                       ; preds = %229
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -3961,18 +3961,18 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
   ret void
 
 239:                                              ; preds = %176
-  %lpad.thr_comm.split-lp430 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp428 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21) #19
-          to label %.thread411 unwind label %227
+          to label %.thread409 unwind label %227
 
 240:                                              ; preds = %174
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23) #19
-          to label %.thread411 unwind label %227
+          to label %.thread409 unwind label %227
 
-241:                                              ; preds = %.thread448, %169, %160
+241:                                              ; preds = %.thread446, %169, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
           to label %245 unwind label %144
@@ -3986,7 +3986,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils37assert_series_va
 244:                                              ; preds = %162, %242
   %.pn320.ph = phi { ptr, i32 } [ %243, %242 ], [ %163, %162 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h453a1053a88dee4fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27) #19
-          to label %.thread411 unwind label %227
+          to label %.thread409 unwind label %227
 
 245:                                              ; preds = %241, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

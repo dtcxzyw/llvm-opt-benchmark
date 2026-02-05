@@ -791,8 +791,8 @@ _ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb.exit: ;
   store i32 0, ptr %78, align 8, !tbaa !65
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 8, ptr %79, align 4, !tbaa !86
-  %.not31 = icmp eq i32 %76, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph.preheader
+  %.not29 = icmp eq i32 %76, 0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %74
   %wide.trip.count = zext i32 %76 to i64
@@ -5491,12 +5491,12 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CallInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %.pre = load ptr, ptr %8, align 8, !tbaa !64
-  %.pre29 = load ptr, ptr %9, align 8, !tbaa !57
+  %.pre27 = load ptr, ptr %9, align 8, !tbaa !57
   %55 = zext i32 %76 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %48
-  %56 = phi ptr [ %.pre29, %._crit_edge.loopexit ], [ %10, %48 ]
+  %56 = phi ptr [ %.pre27, %._crit_edge.loopexit ], [ %10, %48 ]
   %57 = phi i64 [ %55, %._crit_edge.loopexit ], [ 0, %48 ]
   %58 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %49, %48 ]
   %59 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %56) #19
@@ -5515,8 +5515,8 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %._crit_edge, %63
 
 .lr.ph:                                           ; preds = %48, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %64 = phi i32 [ %76, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %48 ]
-  %.028 = phi i32 [ %77, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %48 ]
-  %65 = xor i32 %.028, -1
+  %.026 = phi i32 [ %77, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %48 ]
+  %65 = xor i32 %.026, -1
   %66 = add nsw i32 %53, %65
   %67 = load i32, ptr %51, align 4, !tbaa !86
   %.not.i.i.not.i = icmp ult i32 %64, %67
@@ -5538,7 +5538,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %6
   %75 = load i32, ptr %50, align 8, !tbaa !65
   %76 = add i32 %75, 1
   store i32 %76, ptr %50, align 8, !tbaa !65
-  %77 = add nuw nsw i32 %.028, 1
+  %77 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %77, %53
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !211
 
@@ -5561,8 +5561,8 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase18CreateVectorSpliceEPNS_5V
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp ne i32 %16, 18
-  %.not.not38 = icmp eq ptr %13, null
-  %.not.not = or i1 %.not.not38, %17
+  %.not.not36 = icmp eq ptr %13, null
+  %.not.not = or i1 %.not.not36, %17
   br i1 %.not.not, label %58, label %18
 
 18:                                               ; preds = %5
@@ -5689,8 +5689,8 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %._crit_edge, %75
 
 .lr.ph:                                           ; preds = %58, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %76 = phi i32 [ %87, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
-  %.039 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
-  %77 = add i32 %.039, %64
+  %.037 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
+  %77 = add i32 %.037, %64
   %78 = load i32, ptr %67, align 4, !tbaa !86
   %.not.i.i.not.i = icmp ult i32 %76, %78
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %79, !prof !87
@@ -5711,7 +5711,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %7
   %86 = load i32, ptr %66, align 8, !tbaa !65
   %87 = add i32 %86, 1
   store i32 %87, ptr %66, align 8, !tbaa !65
-  %88 = add nuw i32 %.039, 1
+  %88 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %88, %60
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !212
 

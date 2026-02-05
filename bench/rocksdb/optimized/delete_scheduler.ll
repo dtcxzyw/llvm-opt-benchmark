@@ -3783,28 +3783,28 @@ _ZN7rocksdb6StatusaSEOS0_.exit53:                 ; preds = %181
   br label %215
 
 194:                                              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit43, %_ZN7rocksdb6StatusaSEOS0_.exit53
-  %.sroa.7.2 = phi i8 [ %186, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %164, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
-  %.sroa.10.2 = phi i8 [ %187, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %165, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
-  %.sroa.13.2 = phi i8 [ %188, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %166, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
-  %.sroa.16.2 = phi i8 [ %189, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %167, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.7.0 = phi i8 [ %186, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %164, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.10.0 = phi i8 [ %187, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %165, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.13.0 = phi i8 [ %188, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %166, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.16.0 = phi i8 [ %189, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %167, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
   %.sroa.22175.2 = phi ptr [ %191, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %169, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
-  %.sroa.0.2 = phi i8 [ %185, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %163, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
-  %.sroa.19.2 = phi i8 [ %190, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %168, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.0.0 = phi i8 [ %185, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %163, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
+  %.sroa.19.0 = phi i8 [ %190, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %168, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
   %195 = phi ptr [ %91, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %159, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
   %196 = phi i8 [ %90, %_ZN7rocksdb6StatusaSEOS0_.exit53 ], [ %158, %_ZN7rocksdb6StatusaSEOS0_.exit43 ]
   %197 = icmp eq i8 %196, 0
   br i1 %197, label %198, label %_ZN7rocksdb6StatusaSERKS0_.exit
 
 198:                                              ; preds = %194
-  %199 = icmp eq i8 %.sroa.0.2, 0
+  %199 = icmp eq i8 %.sroa.0.0, 0
   br i1 %199, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %200
 
 200:                                              ; preds = %198
-  store i8 %.sroa.7.2, ptr %67, align 1, !tbaa !148
-  store i8 %.sroa.10.2, ptr %69, align 2, !tbaa !150
-  store i8 %.sroa.13.2, ptr %71, align 1, !tbaa !154
-  store i8 %.sroa.16.2, ptr %73, align 4, !tbaa !155
-  store i8 %.sroa.19.2, ptr %75, align 1, !tbaa !156
+  store i8 %.sroa.7.0, ptr %67, align 1, !tbaa !148
+  store i8 %.sroa.10.0, ptr %69, align 2, !tbaa !150
+  store i8 %.sroa.13.0, ptr %71, align 1, !tbaa !154
+  store i8 %.sroa.16.0, ptr %73, align 4, !tbaa !155
+  store i8 %.sroa.19.0, ptr %75, align 1, !tbaa !156
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i58 = icmp eq ptr %.sroa.22175.2, null
   br i1 %.not.i.i58, label %202, label %201
@@ -3840,13 +3840,13 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14de
 204:                                              ; preds = %201
   %205 = landingpad { ptr, i32 }
           cleanup
-  store i8 %.sroa.0.2, ptr %0, align 8
+  store i8 %.sroa.0.0, ptr %0, align 8
   store ptr %195, ptr %15, align 8
   br label %215
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, %198, %194
   %206 = phi ptr [ %203, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i ], [ %195, %198 ], [ %195, %194 ]
-  %207 = phi i8 [ %.sroa.0.2, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i ], [ 0, %198 ], [ %196, %194 ]
+  %207 = phi i8 [ %.sroa.0.0, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i ], [ 0, %198 ], [ %196, %194 ]
   %208 = load ptr, ptr %10, align 8, !tbaa !11
   %209 = icmp eq ptr %208, %64
   br i1 %209, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63

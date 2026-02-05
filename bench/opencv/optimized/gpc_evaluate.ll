@@ -1188,10 +1188,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit290: ; preds = %33
   br label %_ZL12getFlowColorRKN2cv6Point_IfEEbd.exit
 
 _ZL12getFlowColorRKN2cv6Point_IfEEbd.exit:        ; preds = %386, %401
-  %.sroa.0575.1 = phi double [ %411, %401 ], [ 0.000000e+00, %386 ]
-  %.sroa.6576.1 = phi double [ %.sroa.speculated.i, %401 ], [ 0.000000e+00, %386 ]
-  store double %.sroa.0575.1, ptr %40, align 8, !tbaa !94
-  store double %.sroa.6576.1, ptr %.sroa.6576.0..sroa_idx, align 8, !tbaa !94
+  %.sroa.0575.0 = phi double [ %411, %401 ], [ 0.000000e+00, %386 ]
+  %.sroa.6576.0 = phi double [ %.sroa.speculated.i, %401 ], [ 0.000000e+00, %386 ]
+  store double %.sroa.0575.0, ptr %40, align 8, !tbaa !94
+  store double %.sroa.6576.0, ptr %.sroa.6576.0..sroa_idx, align 8, !tbaa !94
   store double 1.000000e+00, ptr %.sroa.7577.0..sroa_idx, align 8, !tbaa !94
   store double 0.000000e+00, ptr %325, align 8, !tbaa !94
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 %.sroa.0.0.insert.insert.i300, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef -1, i32 noundef 8, i32 noundef 0)
@@ -1254,10 +1254,10 @@ _ZL12getFlowColorRKN2cv6Point_IfEEbd.exit:        ; preds = %386, %401
   br label %_ZL12getFlowColorRKN2cv6Point_IfEEbd.exit312
 
 _ZL12getFlowColorRKN2cv6Point_IfEEbd.exit312:     ; preds = %416, %425
-  %.sroa.0.1 = phi double [ %440, %425 ], [ 0.000000e+00, %416 ]
-  %.sroa.6.1 = phi double [ %.sroa.speculated.i311, %425 ], [ 0.000000e+00, %416 ]
-  store double %.sroa.0.1, ptr %42, align 8, !tbaa !94
-  store double %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !94
+  %.sroa.0.0 = phi double [ %440, %425 ], [ 0.000000e+00, %416 ]
+  %.sroa.6.0 = phi double [ %.sroa.speculated.i311, %425 ], [ 0.000000e+00, %416 ]
+  store double %.sroa.0.0, ptr %42, align 8, !tbaa !94
+  store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !94
   store double 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !94
   store double 0.000000e+00, ptr %328, align 8, !tbaa !94
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 %.sroa.0.0.insert.insert.i306, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef -1, i32 noundef 8, i32 noundef 0)

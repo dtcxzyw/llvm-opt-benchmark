@@ -11483,8 +11483,8 @@ _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15Mall
   %.sroa.0.1.i = phi ptr [ %10, %1 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %16 = zext i32 %12 to i64
   %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
-  %.not4952 = icmp eq ptr %.sroa.0.1.i, %17
-  br i1 %.not4952, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge, label %.lr.ph
+  %.not4548 = icmp eq ptr %.sroa.0.1.i, %17
+  br i1 %.not4548, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE5beginEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11518,15 +11518,15 @@ _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15Mall
   br label %43
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit: ; preds = %.critedge.i.i
-  %.not49 = icmp eq ptr %storemerge.i, %17
-  br i1 %.not49, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge, label %43
+  %.not45 = icmp eq ptr %storemerge.i, %17
+  br i1 %.not45, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge, label %43
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit, %_ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE5beginEv.exit
   ret void
 
 43:                                               ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit
   %44 = phi ptr [ %.pre, %.lr.ph ], [ %120, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit ]
-  %.sroa.031.053 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit ]
+  %.sroa.031.049 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14StringMapEntryIS7_EEEppEv.exit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load i64, ptr %44, align 8, !tbaa !126
@@ -11553,8 +11553,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %43
   %53 = sub i64 %49, %.sroa.speculated4.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not50 = icmp ugt i64 %49, %51
-  br i1 %.not50, label %54, label %.critedge.i.i.preheader
+  %.not46 = icmp ugt i64 %49, %51
+  br i1 %.not46, label %54, label %.critedge.i.i.preheader
 
 54:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %55 = load ptr, ptr %0, align 8, !tbaa !67
@@ -11608,8 +11608,8 @@ _ZN5clang4ento11CheckerInfoD2Ev.exit:             ; preds = %_ZN4llvm11SmallVect
   %70 = load ptr, ptr %0, align 8, !tbaa !67
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8, !tbaa !64
-  %.not51 = icmp eq ptr %60, %72
-  br i1 %.not51, label %79, label %73
+  %.not47 = icmp eq ptr %60, %72
+  br i1 %.not47, label %79, label %73
 
 73:                                               ; preds = %_ZN5clang4ento11CheckerInfoD2Ev.exit
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 64
@@ -11721,7 +11721,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.critedge.i.i.preheader
-  %.pn.i = phi ptr [ %.sroa.031.053, %.critedge.i.i.preheader ], [ %storemerge.i, %.critedge.i.i.backedge ]
+  %.pn.i = phi ptr [ %.sroa.031.049, %.critedge.i.i.preheader ], [ %storemerge.i, %.critedge.i.i.backedge ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %120 = load ptr, ptr %storemerge.i, align 8, !tbaa !108
   %magicptr.i.i = ptrtoint ptr %120 to i64

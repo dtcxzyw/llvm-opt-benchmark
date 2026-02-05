@@ -14111,21 +14111,21 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit16: ; preds = %_ZNSt10shared_ptr
   br i1 %231, label %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit
 
 _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split.sink.split: ; preds = %35, %210
-  %.sroa.6.2.sink36 = phi ptr [ %.sroa.6.2, %210 ], [ %29, %35 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.6.2.sink36, i64 12
+  %.sroa.6.2.sink34 = phi ptr [ %.sroa.6.2, %210 ], [ %29, %35 ]
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.6.2.sink34, i64 12
   store i32 0, ptr %232, align 4
-  %233 = load ptr, ptr %.sroa.6.2.sink36, align 8
+  %233 = load ptr, ptr %.sroa.6.2.sink34, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load ptr, ptr %234, align 8
-  call void %235(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.2.sink36) #31
+  call void %235(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.2.sink34) #31
   br label %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split
 
 _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split.sink.split, %230, %55
-  %.sroa.6.2.sink33 = phi ptr [ %.sroa.6.2, %230 ], [ %29, %55 ], [ %.sroa.6.2.sink36, %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split.sink.split ]
-  %236 = load ptr, ptr %.sroa.6.2.sink33, align 8
+  %.sroa.6.2.sink31 = phi ptr [ %.sroa.6.2, %230 ], [ %29, %55 ], [ %.sroa.6.2.sink34, %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split.sink.split ]
+  %236 = load ptr, ptr %.sroa.6.2.sink31, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %238 = load ptr, ptr %237, align 8
-  call void %238(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.2.sink33) #31
+  call void %238(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.2.sink31) #31
   br label %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit
 
 _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.sink.split, %230, %217, %_ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit16, %55, %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

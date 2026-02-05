@@ -1493,13 +1493,13 @@ _ZN5Eigen8internal17max_coeff_visitorINS_12CwiseUnaryOpINS0_21scalar_score_coeff
   %.sroa.5.4.i.i = phi i64 [ %.02029.i.i.i.i, %74 ], [ %.sroa.5.3.i.i, %.lr.ph28.i.i.i.i ]
   %75 = phi double [ %72, %74 ], [ %69, %.lr.ph28.i.i.i.i ]
   %76 = add nuw nsw i64 %.027.i.i.i.i, 1
-  %exitcond8.not.i.i = icmp eq i64 %76, %41
-  br i1 %exitcond8.not.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph28.i.i.i.i, !llvm.loop !15
+  %exitcond6.not.i.i = icmp eq i64 %76, %41
+  br i1 %exitcond6.not.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph28.i.i.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZN5Eigen8internal17max_coeff_visitorINS_12CwiseUnaryOpINS0_21scalar_score_coeff_opIdEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEELi0EEclERKdll.exit22.i.i.i.i
   %77 = add nuw nsw i64 %.02029.i.i.i.i, 1
-  %exitcond9.not.i.i = icmp eq i64 %77, %42
-  br i1 %exitcond9.not.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEEE8maxCoeffIlEEdPT_SE_.exit, label %.preheader.i.i.i.i, !llvm.loop !16
+  %exitcond7.not.i.i = icmp eq i64 %77, %42
+  br i1 %exitcond7.not.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEEE8maxCoeffIlEEdPT_SE_.exit, label %.preheader.i.i.i.i, !llvm.loop !16
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEEE8maxCoeffIlEEdPT_SE_.exit: ; preds = %._crit_edge.i.i.i.i, %40, %.preheader25.i.i.i.i
   %.sroa.0.7.i.i = phi i64 [ -1, %40 ], [ %.sroa.0.0.i.i, %.preheader25.i.i.i.i ], [ %.sroa.0.4.i.i, %._crit_edge.i.i.i.i ]

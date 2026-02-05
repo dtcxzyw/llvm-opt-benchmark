@@ -6052,14 +6052,14 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br i1 %594, label %595, label %604
 
 595:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit.thread"
-  %.sroa.9838.sroa.0.31258 = phi i64 [ %.sroa.9838.sroa.0.0.copyload886, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit.thread" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit" ]
+  %.sroa.9838.sroa.0.01258 = phi i64 [ %.sroa.9838.sroa.0.0.copyload886, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit.thread" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit" ]
   %.sroa.8834.01256 = phi i64 [ %.sroa.8834.8.copyload837, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit.thread" ], [ %273, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha35b36899cce3ca1E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7118.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5833, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5833)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7118.sroa.0, i64 16, i1 false)
   store i32 %575, ptr %186, align 4
   store i64 %.sroa.8834.01256, ptr %.sroa.2.0..sroa_idx, align 8
-  store i64 %.sroa.9838.sroa.0.31258, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.sroa.9838.sroa.0.01258, ptr %.sroa.3.0..sroa_idx, align 8
   store i8 %.045212401245, ptr %188, align 1
   store i8 %.0451, ptr %189, align 2
   store i8 2, ptr %56, align 8

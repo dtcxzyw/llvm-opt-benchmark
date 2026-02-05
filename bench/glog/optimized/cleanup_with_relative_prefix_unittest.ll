@@ -1514,11 +1514,11 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.i.i.i:         ; preds = %217, %214, %_ZNSt6v
 243:                                              ; preds = %._crit_edge.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %.sroa.023.0.i.i.i, i64 %224, i1 false)
   %.pre.i.i.i = load i64, ptr %5, align 8, !tbaa !70, !noalias !96
-  %.pre31.i.i.i = load ptr, ptr %19, align 8, !tbaa !42, !alias.scope !96
+  %.pre28.i.i.i = load ptr, ptr %19, align 8, !tbaa !42, !alias.scope !96
   br label %244
 
 244:                                              ; preds = %243, %._crit_edge.i.i.i.i.i
-  %245 = phi ptr [ %.pre31.i.i.i, %243 ], [ %237, %._crit_edge.i.i.i.i.i ]
+  %245 = phi ptr [ %.pre28.i.i.i, %243 ], [ %237, %._crit_edge.i.i.i.i.i ]
   %246 = phi i64 [ %.pre.i.i.i, %243 ], [ %236, %._crit_edge.i.i.i.i.i ]
   %247 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %246, ptr %247, align 8, !tbaa !69, !alias.scope !96

@@ -5308,9 +5308,9 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix12exe_cmd_init
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
-          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %.thread59
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %.thread56
 
-.thread59:                                        ; preds = %19
+.thread56:                                        ; preds = %19
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5361,8 +5361,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   ret void
 
-.body:                                            ; preds = %.thread59, %28
-  %45 = phi { ptr, i32 } [ %26, %.thread59 ], [ %29, %28 ]
+.body:                                            ; preds = %.thread56, %28
+  %45 = phi { ptr, i32 } [ %26, %.thread56 ], [ %29, %28 ]
   br label %46
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %.body

@@ -399,8 +399,8 @@ define hidden range(i64 -2147483648, 2147483648) i64 @dtls1_get_message(ptr noun
 dtls1_is_next_message_complete.exit:              ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %66 = load ptr, ptr %65, align 8, !tbaa !15
-  %.not132 = icmp eq ptr %66, null
-  br i1 %.not132, label %189, label %dtls1_is_next_message_complete.exit.thread
+  %.not112 = icmp eq ptr %66, null
+  br i1 %.not112, label %189, label %dtls1_is_next_message_complete.exit.thread
 
 dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_next_message_complete.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -483,7 +483,7 @@ dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_
 125:                                              ; preds = %119, %117, %113, %72
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 150, ptr noundef nonnull @.str, i32 noundef 526) #14
   %126 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #14
-  br label %.thread125
+  br label %.thread110
 
 127:                                              ; preds = %119
   %128 = load ptr, ptr %17, align 8, !tbaa !16
@@ -520,7 +520,7 @@ dtls1_discard_fragment_body.exit:                 ; preds = %137
 
 143:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread125
+  br label %.thread110
 
 144:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -595,7 +595,7 @@ dtls1_hm_fragment_free.exit.i:                    ; preds = %152
 
 dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_hm_fragment_free.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread125
+  br label %.thread110
 
 173:                                              ; preds = %168, %159
   %.021.i = phi ptr [ %166, %168 ], [ %150, %159 ]
@@ -608,7 +608,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_h
 177:                                              ; preds = %173
   %178 = call fastcc i32 @dtls1_discard_fragment_body(ptr noundef nonnull %0, i64 noundef %111)
   %.not48.i = icmp eq i32 %178, 0
-  br i1 %.not48.i, label %.thread125, label %188
+  br i1 %.not48.i, label %.thread110, label %188
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %.021.i, i64 32
@@ -621,13 +621,13 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_h
 184:                                              ; preds = %179
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 560) #14
   %185 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 80) #14
-  br label %.thread125
+  br label %.thread110
 
 186:                                              ; preds = %179
   call fastcc void @dtls1_hm_fragment_mark(ptr noundef %.021.i, i64 noundef %110, i64 noundef %115)
   br label %188
 
-.thread125:                                       ; preds = %177, %143, %dtls1_get_buffered_message.exit.thread, %184, %125
+.thread110:                                       ; preds = %177, %143, %dtls1_get_buffered_message.exit.thread, %184, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 0, ptr %6, align 4, !tbaa !75
   br label %287
@@ -815,22 +815,22 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_h
   br i1 %281, label %dtls1_hm_fragment_free.exit, label %282
 
 282:                                              ; preds = %.thread, %279
-  %.166124 = phi ptr [ %194, %.thread ], [ %.065, %279 ]
-  %283 = getelementptr inbounds nuw i8, ptr %.166124, i64 32
+  %.166109 = phi ptr [ %194, %.thread ], [ %.065, %279 ]
+  %283 = getelementptr inbounds nuw i8, ptr %.166109, i64 32
   %284 = load ptr, ptr %283, align 8, !tbaa !6
   call void @free(ptr noundef %284) #14
-  %285 = getelementptr inbounds nuw i8, ptr %.166124, i64 40
+  %285 = getelementptr inbounds nuw i8, ptr %.166109, i64 40
   %286 = load ptr, ptr %285, align 8, !tbaa !15
   call void @free(ptr noundef %286) #14
-  call void @free(ptr noundef nonnull %.166124) #14
+  call void @free(ptr noundef nonnull %.166109) #14
   br label %dtls1_hm_fragment_free.exit
 
 dtls1_hm_fragment_free.exit:                      ; preds = %279, %282
   store i32 0, ptr %6, align 4, !tbaa !75
   br label %287
 
-287:                                              ; preds = %.loopexit, %.thread125, %dtls1_hm_fragment_free.exit, %275, %38
-  %.0 = phi i64 [ -1, %dtls1_hm_fragment_free.exit ], [ %49, %38 ], [ %.0.i87.ph, %.loopexit ], [ %278, %275 ], [ -1, %.thread125 ]
+287:                                              ; preds = %.loopexit, %.thread110, %dtls1_hm_fragment_free.exit, %275, %38
+  %.0 = phi i64 [ -1, %dtls1_hm_fragment_free.exit ], [ %49, %38 ], [ %.0.i87.ph, %.loopexit ], [ %278, %275 ], [ -1, %.thread110 ]
   ret i64 %.0
 }
 

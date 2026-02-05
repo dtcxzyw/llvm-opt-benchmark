@@ -55693,33 +55693,33 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %284
   br label %418
 
 _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i, %274
-  %.sroa.14.1 = phi i64 [ 0, %274 ], [ %277, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %277, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.0100.1 = phi ptr [ null, %274 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %287, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.14.0 = phi i64 [ 0, %274 ], [ %277, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %277, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0100.0 = phi ptr [ null, %274 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %287, %.lr.ph.i.i.i.i.i.i.i.i ]
   %297 = load ptr, ptr %80, align 8, !tbaa !99
   %298 = getelementptr inbounds nuw %"class.open3d::pipelines::registration::PoseGraphNode", ptr %297, i64 %.0
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %300 = load double, ptr %.sroa.0100.1, align 8, !tbaa !129
+  %300 = load double, ptr %.sroa.0100.0, align 8, !tbaa !129
   store double %300, ptr %299, align 8, !tbaa !129
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  %302 = getelementptr double, ptr %.sroa.0100.1, i64 %.sroa.14.1
+  %302 = getelementptr double, ptr %.sroa.0100.0, i64 %.sroa.14.0
   %303 = load double, ptr %302, align 8, !tbaa !129
   store double %303, ptr %301, align 8, !tbaa !129
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 24
-  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl i64 %.sroa.14.1, 4
-  %305 = getelementptr i8, ptr %.sroa.0100.1, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl i64 %.sroa.14.0, 4
+  %305 = getelementptr i8, ptr %.sroa.0100.0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   %306 = load double, ptr %305, align 8, !tbaa !129
   store double %306, ptr %304, align 8, !tbaa !129
   %307 = getelementptr inbounds nuw i8, ptr %298, i64 32
-  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %.sroa.14.1, 24
-  %308 = getelementptr i8, ptr %.sroa.0100.1, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %.sroa.14.0, 24
+  %308 = getelementptr i8, ptr %.sroa.0100.0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %309 = load double, ptr %308, align 8, !tbaa !129
   store double %309, ptr %307, align 8, !tbaa !129
   %310 = getelementptr inbounds nuw i8, ptr %298, i64 40
-  %311 = getelementptr i8, ptr %.sroa.0100.1, i64 8
+  %311 = getelementptr i8, ptr %.sroa.0100.0, i64 8
   %312 = load double, ptr %311, align 8, !tbaa !129
   store double %312, ptr %310, align 8, !tbaa !129
   %313 = getelementptr inbounds nuw i8, ptr %298, i64 48
-  %314 = getelementptr double, ptr %311, i64 %.sroa.14.1
+  %314 = getelementptr double, ptr %311, i64 %.sroa.14.0
   %315 = load double, ptr %314, align 8, !tbaa !129
   store double %315, ptr %313, align 8, !tbaa !129
   %316 = getelementptr inbounds nuw i8, ptr %298, i64 56
@@ -55731,11 +55731,11 @@ _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll.exit.thread: ; preds = 
   %321 = load double, ptr %320, align 8, !tbaa !129
   store double %321, ptr %319, align 8, !tbaa !129
   %322 = getelementptr inbounds nuw i8, ptr %298, i64 72
-  %323 = getelementptr i8, ptr %.sroa.0100.1, i64 16
+  %323 = getelementptr i8, ptr %.sroa.0100.0, i64 16
   %324 = load double, ptr %323, align 8, !tbaa !129
   store double %324, ptr %322, align 8, !tbaa !129
   %325 = getelementptr inbounds nuw i8, ptr %298, i64 80
-  %326 = getelementptr double, ptr %323, i64 %.sroa.14.1
+  %326 = getelementptr double, ptr %323, i64 %.sroa.14.0
   %327 = load double, ptr %326, align 8, !tbaa !129
   store double %327, ptr %325, align 8, !tbaa !129
   %328 = getelementptr inbounds nuw i8, ptr %298, i64 88
@@ -55747,11 +55747,11 @@ _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll.exit.thread: ; preds = 
   %333 = load double, ptr %332, align 8, !tbaa !129
   store double %333, ptr %331, align 8, !tbaa !129
   %334 = getelementptr inbounds nuw i8, ptr %298, i64 104
-  %335 = getelementptr i8, ptr %.sroa.0100.1, i64 24
+  %335 = getelementptr i8, ptr %.sroa.0100.0, i64 24
   %336 = load double, ptr %335, align 8, !tbaa !129
   store double %336, ptr %334, align 8, !tbaa !129
   %337 = getelementptr inbounds nuw i8, ptr %298, i64 112
-  %338 = getelementptr double, ptr %335, i64 %.sroa.14.1
+  %338 = getelementptr double, ptr %335, i64 %.sroa.14.0
   %339 = load double, ptr %338, align 8, !tbaa !129
   store double %339, ptr %337, align 8, !tbaa !129
   %340 = getelementptr inbounds nuw i8, ptr %298, i64 120
@@ -55762,7 +55762,7 @@ _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll.exit.thread: ; preds = 
   %344 = getelementptr i8, ptr %335, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %345 = load double, ptr %344, align 8, !tbaa !129
   store double %345, ptr %343, align 8, !tbaa !129
-  call void @free(ptr noundef %.sroa.0100.1) #38
+  call void @free(ptr noundef %.sroa.0100.0) #38
   call void @free(ptr noundef %275) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %14, align 8, !tbaa !79

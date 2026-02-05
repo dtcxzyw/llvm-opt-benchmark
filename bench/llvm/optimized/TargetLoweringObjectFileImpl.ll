@@ -1036,7 +1036,7 @@ define dso_local void @_ZNK4llvm27TargetLoweringObjectFileELF18emitModuleMetadat
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(1026) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) #26
   %21 = tail call noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr nonnull @.str.2, i64 24) #26
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.loopexit218, label %22
+  br i1 %.not, label %.loopexit216, label %22
 
 22:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1056,12 +1056,12 @@ define dso_local void @_ZNK4llvm27TargetLoweringObjectFileELF18emitModuleMetadat
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef %26, i32 noundef 0) #26
   %30 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %21) #26, !noalias !364
-  %.not213220 = icmp eq i32 %30, 0
-  br i1 %.not213220, label %.loopexit218, label %.lr.ph
+  %.not211218 = icmp eq i32 %30, 0
+  br i1 %.not211218, label %.loopexit216, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %_ZNK4llvm6MDNode10getOperandEj.exit
-  %.sroa.4200.0221 = phi i32 [ %53, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ 0, %22 ]
-  %31 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef %.sroa.4200.0221) #26
+  %.sroa.4198.0219 = phi i32 [ %53, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ 0, %22 ]
+  %31 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef %.sroa.4198.0219) #26
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 2
@@ -1094,28 +1094,28 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %35, %38
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 544
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(296) %1, i64 noundef 0, i32 noundef 1) #26
-  %53 = add nuw i32 %.sroa.4200.0221, 1
-  %.not213 = icmp eq i32 %53, %30
-  br i1 %.not213, label %.loopexit218, label %.lr.ph
+  %53 = add nuw i32 %.sroa.4198.0219, 1
+  %.not211 = icmp eq i32 %53, %30
+  br i1 %.not211, label %.loopexit216, label %.lr.ph
 
-.loopexit218:                                     ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %22, %3
+.loopexit216:                                     ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %22, %3
   %54 = call noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr nonnull @.str.4, i64 22) #26
   %.not96 = icmp eq ptr %54, null
-  br i1 %.not96, label %.loopexit217, label %55
+  br i1 %.not96, label %.loopexit215, label %55
 
-55:                                               ; preds = %.loopexit218
+55:                                               ; preds = %.loopexit216
   %56 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %54) #26, !noalias !370
-  %.not214222 = icmp eq i32 %56, 0
-  br i1 %.not214222, label %.loopexit217, label %.lr.ph224
+  %.not212220 = icmp eq i32 %56, 0
+  br i1 %.not212220, label %.loopexit215, label %.lr.ph222
 
-.lr.ph224:                                        ; preds = %55
+.lr.ph222:                                        ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 968
   br label %59
 
-59:                                               ; preds = %.lr.ph224, %114
-  %.sroa.4184.0223 = phi i32 [ 0, %.lr.ph224 ], [ %144, %114 ]
-  %60 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %54, i32 noundef %.sroa.4184.0223) #26
+59:                                               ; preds = %.lr.ph222, %114
+  %.sroa.4182.0221 = phi i32 [ 0, %.lr.ph222 ], [ %144, %114 ]
+  %60 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %54, i32 noundef %.sroa.4182.0221) #26
   %61 = getelementptr inbounds i8, ptr %60, i64 -16
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, 2
@@ -1206,8 +1206,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit127:           ; preds = %95, %98
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 876
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 4
-  %.not215 = icmp eq i32 %109, 0
-  br i1 %.not215, label %114, label %110
+  %.not213 = icmp eq i32 %109, 0
+  br i1 %.not213, label %114, label %110
 
 110:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit127
   %111 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %104) #26
@@ -1216,9 +1216,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit127:           ; preds = %95, %98
   br label %114
 
 114:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit127, %110
-  %.sroa.4177.1 = phi i64 [ %113, %110 ], [ 0, %_ZNK4llvm6MDNode10getOperandEj.exit127 ]
-  %.sroa.0176.1 = phi ptr [ %112, %110 ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit127 ]
-  %115 = call noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(920) %105, ptr %.sroa.0176.1, i64 %.sroa.4177.1) #26
+  %.sroa.4177.0 = phi i64 [ %113, %110 ], [ 0, %_ZNK4llvm6MDNode10getOperandEj.exit127 ]
+  %.sroa.0176.0 = phi ptr [ %112, %110 ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit127 ]
+  %115 = call noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(920) %105, ptr %.sroa.0176.0, i64 %.sroa.4177.0) #26
   %116 = load ptr, ptr %1, align 8, !tbaa !3
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 176
   %118 = load ptr, ptr %117, align 8
@@ -1255,16 +1255,16 @@ _ZNK4llvm6MDNode10getOperandEj.exit127:           ; preds = %95, %98
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %139, i64 %140) #26
-  %144 = add nuw i32 %.sroa.4184.0223, 1
-  %.not214 = icmp eq i32 %144, %56
-  br i1 %.not214, label %.loopexit217, label %59
+  %144 = add nuw i32 %.sroa.4182.0221, 1
+  %.not212 = icmp eq i32 %144, %56
+  br i1 %.not212, label %.loopexit215, label %59
 
-.loopexit217:                                     ; preds = %114, %55, %.loopexit218
+.loopexit215:                                     ; preds = %114, %55, %.loopexit216
   %145 = call noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr nonnull @.str.5, i64 10) #26
   %.not97 = icmp eq ptr %145, null
   br i1 %.not97, label %.loopexit, label %146
 
-146:                                              ; preds = %.loopexit217
+146:                                              ; preds = %.loopexit215
   %147 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %148 = load ptr, ptr %147, align 8, !tbaa !382
   %149 = call noundef ptr @_ZNK4llvm16MCObjectFileInfo19getLLVMStatsSectionEv(ptr noundef nonnull align 8 dereferenceable(920) %148) #26
@@ -1273,10 +1273,10 @@ _ZNK4llvm6MDNode10getOperandEj.exit127:           ; preds = %95, %98
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef %149, i32 noundef 0) #26
   %153 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %145) #26, !noalias !386
-  %.not216225 = icmp eq i32 %153, 0
-  br i1 %.not216225, label %.loopexit, label %.lr.ph227
+  %.not214223 = icmp eq i32 %153, 0
+  br i1 %.not214223, label %.loopexit, label %.lr.ph225
 
-.lr.ph227:                                        ; preds = %146
+.lr.ph225:                                        ; preds = %146
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1285,9 +1285,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit127:           ; preds = %95, %98
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %160
 
-160:                                              ; preds = %.lr.ph227, %174
-  %.sroa.4166.0226 = phi i32 [ 0, %.lr.ph227 ], [ %175, %174 ]
-  %161 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %145, i32 noundef %.sroa.4166.0226) #26
+160:                                              ; preds = %.lr.ph225, %174
+  %.sroa.4166.0224 = phi i32 [ 0, %.lr.ph225 ], [ %175, %174 ]
+  %161 = call noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull align 8 dereferenceable(64) %145, i32 noundef %.sroa.4166.0224) #26
   %162 = getelementptr inbounds i8, ptr %161, i64 -24
   %163 = getelementptr inbounds i8, ptr %161, i64 -16
   %164 = getelementptr inbounds i8, ptr %161, i64 -32
@@ -1313,9 +1313,9 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %165
   br i1 %173, label %176, label %174
 
 174:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
-  %175 = add nuw i32 %.sroa.4166.0226, 1
-  %.not216 = icmp eq i32 %175, %153
-  br i1 %.not216, label %.loopexit, label %160
+  %175 = add nuw i32 %.sroa.4166.0224, 1
+  %.not214 = icmp eq i32 %175, %153
+  br i1 %.not214, label %.loopexit, label %160
 
 176:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
   %177 = load ptr, ptr %164, align 8, !tbaa !25
@@ -1579,7 +1579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %_Z
   %345 = add nuw nsw i64 %.0, 2
   br label %165, !llvm.loop !396
 
-.loopexit:                                        ; preds = %174, %146, %.loopexit217
+.loopexit:                                        ; preds = %174, %146, %.loopexit215
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !397
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

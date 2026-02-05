@@ -8596,8 +8596,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleN
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 30
-  %.not185 = icmp eq i64 %9, 0
-  %.not = or i1 %.not185, %14
+  %.not177 = icmp eq i64 %9, 0
+  %.not = or i1 %.not177, %14
   br i1 %.not, label %.loopexit, label %15
 
 15:                                               ; preds = %2
@@ -8607,9 +8607,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleN
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.0195 = phi i32 [ %19, %.lr.ph ], [ 1, %15 ]
+  %.0187 = phi i32 [ %19, %.lr.ph ], [ 1, %15 ]
   tail call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleSourceNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr nonnull @.str.241, i64 13)
-  %19 = add nuw i32 %.0195, 1
+  %19 = add nuw i32 %.0187, 1
   %exitcond.not = icmp eq i32 %19, %17
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !634
 
@@ -8619,9 +8619,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleN
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 127
   %24 = icmp eq i16 %23, 0
-  br i1 %24, label %.thread178, label %.lr.ph198
+  br i1 %24, label %.thread172, label %.lr.ph190
 
-.lr.ph198:                                        ; preds = %.loopexit
+.lr.ph190:                                        ; preds = %.loopexit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -8633,12 +8633,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleN
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %33
 
-33:                                               ; preds = %.lr.ph198, %.backedge
-  %34 = phi i16 [ %22, %.lr.ph198 ], [ %346, %.backedge ]
-  %35 = phi ptr [ %21, %.lr.ph198 ], [ %345, %.backedge ]
-  %.0157197 = phi ptr [ %10, %.lr.ph198 ], [ %.0157.be, %.backedge ]
-  %.0158196 = phi ptr [ %20, %.lr.ph198 ], [ %.0158.be, %.backedge ]
-  %36 = getelementptr inbounds nuw i8, ptr %.0157197, i64 28
+33:                                               ; preds = %.lr.ph190, %.backedge
+  %34 = phi i16 [ %22, %.lr.ph190 ], [ %346, %.backedge ]
+  %35 = phi ptr [ %21, %.lr.ph190 ], [ %345, %.backedge ]
+  %.0155189 = phi ptr [ %10, %.lr.ph190 ], [ %.0155.be, %.backedge ]
+  %.0156188 = phi ptr [ %20, %.lr.ph190 ], [ %.0156.be, %.backedge ]
+  %36 = getelementptr inbounds nuw i8, ptr %.0155189, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 127
   switch i32 %38, label %69 [
@@ -8659,7 +8659,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleN
 39:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = load ptr, ptr %0, align 8, !tbaa !603
-  %41 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj(ptr noundef nonnull align 8 dereferenceable(288) %40, ptr noundef nonnull %.0157197, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %41 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj(ptr noundef nonnull align 8 dereferenceable(288) %40, ptr noundef nonnull %.0155189, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br i1 %41, label %42, label %_ZN4llvm11raw_ostreamlsEc.exit72
 
 42:                                               ; preds = %39
@@ -8730,14 +8730,14 @@ _ZN4llvm11raw_ostreamlsEc.exit72:                 ; preds = %67, %65, %39
 69:                                               ; preds = %33, %_ZN4llvm11raw_ostreamlsEc.exit72
   %70 = phi i16 [ %34, %33 ], [ %.pre, %_ZN4llvm11raw_ostreamlsEc.exit72 ]
   %71 = and i16 %70, 127
-  %72 = getelementptr inbounds i8, ptr %.0158196, i64 -40
+  %72 = getelementptr inbounds i8, ptr %.0156188, i64 -40
   switch i16 %71, label %261 [
     i16 8, label %73
     i16 16, label %259
   ]
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %.0158196, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %.0156188, i64 76
   %75 = load i32, ptr %74, align 4, !tbaa !635
   %.not62 = icmp eq i32 %75, 0
   br i1 %.not62, label %76, label %84
@@ -8761,7 +8761,7 @@ _ZN4llvm11raw_ostreamlsEc.exit72:                 ; preds = %67, %65, %39
 
 84:                                               ; preds = %76, %73
   %.042 = phi i32 [ %75, %73 ], [ %83, %76 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.0158196, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %.0156188, i64 80
   %86 = load ptr, ptr %85, align 8, !tbaa !597
   %.not63 = icmp eq ptr %86, null
   br i1 %.not63, label %116, label %87
@@ -8770,8 +8770,8 @@ _ZN4llvm11raw_ostreamlsEc.exit72:                 ; preds = %67, %65, %39
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 127
-  %.not188 = icmp eq i32 %90, 41
-  br i1 %.not188, label %91, label %116
+  %.not180 = icmp eq i32 %90, 41
+  br i1 %.not180, label %91, label %116
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -8880,8 +8880,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   %147 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %148 = load i16, ptr %147, align 8
   %149 = and i16 %148, 124
-  %.not190 = icmp eq i16 %149, 56
-  br i1 %.not190, label %150, label %165
+  %.not182 = icmp eq i16 %149, 56
+  br i1 %.not182, label %150, label %165
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds i8, ptr %117, i64 -64
@@ -9096,10 +9096,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit102:              ; preds = %251, %253
   %256 = load i16, ptr %147, align 8
   %257 = and i16 %256, 124
   %258 = icmp eq i16 %257, 56
-  br i1 %258, label %.thread178, label %.backedge
+  br i1 %258, label %.thread172, label %.backedge
 
 259:                                              ; preds = %69
-  %260 = getelementptr inbounds i8, ptr %.0158196, i64 -48
+  %260 = getelementptr inbounds i8, ptr %.0156188, i64 -48
   %.val = load ptr, ptr %0, align 8, !tbaa !603
   %.val69 = load ptr, ptr %25, align 8, !tbaa !556
   call void @_ZN5clang13MangleContext32mangleObjCMethodNameAsSourceNameEPKNS_14ObjCMethodDeclERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(128) %.val, ptr noundef nonnull %260, ptr noundef nonnull align 8 dereferenceable(48) %.val69) #23
@@ -9111,14 +9111,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit102:              ; preds = %251, %253
   br i1 %263, label %264, label %.thread
 
 264:                                              ; preds = %261
-  %265 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.0158196) #23
+  %265 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.0156188) #23
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 28
   %267 = load i32, ptr %266, align 4
   %268 = and i32 %267, 126
   %269 = add nsw i32 %268, -38
   %270 = icmp ult i32 %269, -6
-  %.not60192 = icmp eq ptr %265, null
-  %.not60 = or i1 %.not60192, %270
+  %.not60184 = icmp eq ptr %265, null
+  %.not60 = or i1 %.not60184, %270
   br i1 %.not60, label %307, label %271
 
 271:                                              ; preds = %264
@@ -9193,7 +9193,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i: ; preds = %29
 _ZN12_GLOBAL__N_126getGlobalDeclAsDeclContextEPKN5clang11DeclContextE.exit: ; preds = %275, %278, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i, %298
   %.sroa.014.0.i = phi i64 [ %277, %275 ], [ %281, %278 ], [ %306, %298 ], [ %297, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i ]
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler6mangleEN5clang10GlobalDeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, i64 %.sroa.014.0.i, ptr nonnull @.str.7, i64 1)
-  br label %.thread178
+  br label %.thread172
 
 307:                                              ; preds = %264
   %308 = ptrtoint ptr %265 to i64
@@ -9252,8 +9252,8 @@ _ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit: ; p
   br i1 %.not61, label %.thread, label %.backedge, !llvm.loop !638
 
 .thread:                                          ; preds = %316, %322, %307, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %324, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit, %261, %259
-  %.1.ph = phi ptr [ %.0157197, %259 ], [ %.0157197, %261 ], [ %265, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %265, %324 ], [ %265, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %265, %307 ], [ %265, %322 ], [ %265, %316 ]
-  %337 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.0158196) #23
+  %.1.ph = phi ptr [ %.0155189, %259 ], [ %.0155189, %261 ], [ %265, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %265, %324 ], [ %265, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %265, %307 ], [ %265, %322 ], [ %265, %316 ]
+  %337 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.0156188) #23
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i111 = load i64, ptr %338, align 8
   %339 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i111, 4
@@ -9267,15 +9267,15 @@ _ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %343, %.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit102, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit
-  %.0158.be = phi ptr [ %336, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %117, %_ZN4llvm11raw_ostreamlsEPKc.exit102 ], [ %344, %343 ], [ %342, %.thread ]
-  %.0157.be = phi ptr [ %265, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %.0157197, %_ZN4llvm11raw_ostreamlsEPKc.exit102 ], [ %.1.ph, %343 ], [ %.1.ph, %.thread ]
-  %345 = getelementptr inbounds nuw i8, ptr %.0158.be, i64 8
+  %.0156.be = phi ptr [ %336, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %117, %_ZN4llvm11raw_ostreamlsEPKc.exit102 ], [ %344, %343 ], [ %342, %.thread ]
+  %.0155.be = phi ptr [ %265, %_ZN12_GLOBAL__N_135getLambdaDefaultArgumentDeclContextEPKN5clang4DeclE.exit ], [ %.0155189, %_ZN4llvm11raw_ostreamlsEPKc.exit102 ], [ %.1.ph, %343 ], [ %.1.ph, %.thread ]
+  %345 = getelementptr inbounds nuw i8, ptr %.0156.be, i64 8
   %346 = load i16, ptr %345, align 8
   %347 = and i16 %346, 127
   %348 = icmp eq i16 %347, 0
-  br i1 %348, label %.thread178, label %33, !llvm.loop !638
+  br i1 %348, label %.thread172, label %33, !llvm.loop !638
 
-.thread178:                                       ; preds = %.backedge, %_ZN4llvm11raw_ostreamlsEPKc.exit102, %.loopexit, %_ZN12_GLOBAL__N_126getGlobalDeclAsDeclContextEPKN5clang11DeclContextE.exit
+.thread172:                                       ; preds = %.backedge, %_ZN4llvm11raw_ostreamlsEPKc.exit102, %.loopexit, %_ZN12_GLOBAL__N_126getGlobalDeclAsDeclContextEPKN5clang11DeclContextE.exit
   ret void
 }
 
@@ -22789,7 +22789,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleT
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 417:                                              ; preds = %3
-  %.sroa.0208.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.0164.0.extract.trunc = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %418 = load ptr, ptr %0, align 8, !tbaa !603
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
@@ -22801,7 +22801,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleT
   %.val15 = load ptr, ptr %0, align 8, !tbaa !603
   %425 = getelementptr i8, ptr %.val15, i64 16
   %.val15.val = load ptr, ptr %425, align 8, !tbaa !692
-  call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val15.val, i32 %.sroa.0208.0.extract.trunc, ptr nonnull @.str.131, i64 15, ptr %423, i64 %424)
+  call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val15.val, i32 %.sroa.0164.0.extract.trunc, ptr nonnull @.str.131, i64 15, ptr %423, i64 %424)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8

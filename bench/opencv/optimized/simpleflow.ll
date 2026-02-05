@@ -4728,8 +4728,8 @@ define linkonce_odr hidden void @_ZNK2cv7optflow20CrossBilateralFilterINS_3VecIh
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph79.split.us.us.us
-  %.sroa.0.4 = phi double [ 0.000000e+00, %.lr.ph79.split.us.us.us ], [ %109, %._crit_edge.us.us.us ]
-  %.sroa.11.4 = phi double [ 0.000000e+00, %.lr.ph79.split.us.us.us ], [ %113, %._crit_edge.us.us.us ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %.lr.ph79.split.us.us.us ], [ %109, %._crit_edge.us.us.us ]
+  %.sroa.11.0 = phi double [ 0.000000e+00, %.lr.ph79.split.us.us.us ], [ %113, %._crit_edge.us.us.us ]
   %indvars.iv148 = phi i64 [ 0, %.lr.ph79.split.us.us.us ], [ %indvars.iv.next149, %._crit_edge.us.us.us ]
   %indvars.iv146 = phi i64 [ %indvars.iv144, %.lr.ph79.split.us.us.us ], [ %indvars.iv.next147, %._crit_edge.us.us.us ]
   %.06577.us.us.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.us.us ], [ %114, %._crit_edge.us.us.us ]
@@ -4744,8 +4744,8 @@ define linkonce_odr hidden void @_ZNK2cv7optflow20CrossBilateralFilterINS_3VecIh
   br label %85
 
 85:                                               ; preds = %.preheader.us.us.us, %.lr.ph.us.us.us
-  %.sroa.0.5 = phi double [ %.sroa.0.4, %.lr.ph.us.us.us ], [ %109, %.preheader.us.us.us ]
-  %.sroa.11.5 = phi double [ %.sroa.11.4, %.lr.ph.us.us.us ], [ %113, %.preheader.us.us.us ]
+  %.sroa.0.1 = phi double [ %.sroa.0.0, %.lr.ph.us.us.us ], [ %109, %.preheader.us.us.us ]
+  %.sroa.11.1 = phi double [ %.sroa.11.0, %.lr.ph.us.us.us ], [ %113, %.preheader.us.us.us ]
   %indvars.iv139 = phi i64 [ %indvars.iv137, %.lr.ph.us.us.us ], [ %indvars.iv.next140, %.preheader.us.us.us ]
   %indvars.iv135 = phi i64 [ 0, %.lr.ph.us.us.us ], [ %indvars.iv.next136, %.preheader.us.us.us ]
   %.172.us.us.us = phi double [ %.06577.us.us.us, %.lr.ph.us.us.us ], [ %114, %.preheader.us.us.us ]
@@ -4781,11 +4781,11 @@ define linkonce_odr hidden void @_ZNK2cv7optflow20CrossBilateralFilterINS_3VecIh
   %106 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %80, i64 %indvars.iv139
   %107 = load float, ptr %106, align 4, !tbaa !105
   %108 = fpext float %107 to double
-  %109 = tail call double @llvm.fmuladd.f64(double %105, double %108, double %.sroa.0.5)
+  %109 = tail call double @llvm.fmuladd.f64(double %105, double %108, double %.sroa.0.1)
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %111 = load float, ptr %110, align 4, !tbaa !105
   %112 = fpext float %111 to double
-  %113 = tail call double @llvm.fmuladd.f64(double %105, double %112, double %.sroa.11.5)
+  %113 = tail call double @llvm.fmuladd.f64(double %105, double %112, double %.sroa.11.1)
   %114 = fadd double %.172.us.us.us, %105
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1

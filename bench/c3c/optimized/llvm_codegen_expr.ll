@@ -4340,7 +4340,7 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
   br label %48
 
 48:                                               ; preds = %42, %45
-  %.0676 = phi i32 [ %47, %45 ], [ 0, %42 ]
+  %.0678 = phi i32 [ %47, %45 ], [ 0, %42 ]
   %49 = and i16 %39, 512
   %.not713 = icmp eq i16 %49, 0
   br i1 %.not713, label %57, label %50
@@ -4394,32 +4394,32 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
   br label %86
 
 86:                                               ; preds = %73, %62
-  %.0662 = phi ptr [ %83, %73 ], [ %72, %62 ]
-  %.0660 = phi ptr [ %81, %73 ], [ %71, %62 ]
-  %.0657 = phi i32 [ %85, %73 ], [ 0, %62 ]
-  %.0655 = phi ptr [ %80, %73 ], [ %70, %62 ]
+  %.0664 = phi ptr [ %83, %73 ], [ %72, %62 ]
+  %.0662 = phi ptr [ %81, %73 ], [ %71, %62 ]
+  %.0659 = phi i32 [ %85, %73 ], [ 0, %62 ]
+  %.0657 = phi ptr [ %80, %73 ], [ %70, %62 ]
   %87 = load i16, ptr %38, align 8
   %88 = and i16 %87, 16
   %.not715 = icmp eq i16 %88, 0
   %89 = and i16 %87, 8
   %.not716 = icmp eq i16 %89, 0
-  %90 = select i1 %.not716, i32 %.0657, i32 1
-  %.0651 = select i1 %.not715, i32 %90, i32 -1
+  %90 = select i1 %.not716, i32 %.0659, i32 1
+  %.0652 = select i1 %.not715, i32 %90, i32 -1
   %91 = and i16 %87, 4
   %.not717 = icmp eq i16 %91, 0
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %93 = load ptr, ptr %92, align 8
   %.1026 = select i1 %.not717, ptr %93, ptr null
-  %.not852 = icmp eq i32 %.0676, 0
+  %.not852 = icmp eq i32 %.0678, 0
   br i1 %.not852, label %._crit_edge806, label %.lr.ph805
 
 .lr.ph805:                                        ; preds = %86
-  %94 = getelementptr inbounds nuw i8, ptr %.0655, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.0657, i64 16
   %.not7561053 = icmp eq ptr %93, null
   %.not756 = select i1 %.not717, i1 true, i1 %.not7561053
   %.not757 = icmp eq ptr %.1026, null
   %95 = getelementptr inbounds i8, ptr %.1026, i64 -8
-  %wide.trip.count879 = zext i32 %.0676 to i64
+  %wide.trip.count879 = zext i32 %.0678 to i64
   br label %96
 
 96:                                               ; preds = %.lr.ph805, %207
@@ -4478,8 +4478,8 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
   br label %127
 
 127:                                              ; preds = %123, %109
-  %.0688 = phi i32 [ %126, %123 ], [ %121, %109 ]
-  %128 = add i32 %.0688, -3
+  %.0689 = phi i32 [ %126, %123 ], [ %121, %109 ]
+  %128 = add i32 %.0689, -3
   %129 = icmp ult i32 %128, 5
   %130 = zext i1 %129 to i32
   %131 = call ptr @LLVMConstInt(ptr noundef %120, i64 noundef %118, i32 noundef %130) #10
@@ -4510,8 +4510,8 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
   br label %150
 
 150:                                              ; preds = %146, %133
-  %.0689 = phi i32 [ %149, %146 ], [ %144, %133 ]
-  %151 = add i32 %.0689, -3
+  %.0688 = phi i32 [ %149, %146 ], [ %144, %133 ]
+  %151 = add i32 %.0688, -3
   %152 = icmp ult i32 %151, 5
   %153 = zext i1 %152 to i32
   %154 = call ptr @LLVMConstInt(ptr noundef %143, i64 noundef %141, i32 noundef %153) #10
@@ -4620,7 +4620,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   br i1 %exitcond880.not, label %._crit_edge806, label %96, !llvm.loop !22
 
 ._crit_edge806:                                   ; preds = %207, %86
-  %208 = load i16, ptr %.0655, align 8
+  %208 = load i16, ptr %.0657, align 8
   %209 = and i16 %208, 16
   %210 = icmp ne i16 %209, 0
   %211 = icmp ne ptr %.1026, null
@@ -4642,7 +4642,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   %215 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv881
   %216 = load ptr, ptr %215, align 8
   %217 = trunc nuw i64 %indvars.iv881 to i32
-  %218 = add i32 %.0676, %217
+  %218 = add i32 %.0678, %217
   %219 = zext i32 %218 to i64
   %220 = getelementptr inbounds nuw %struct.BEValue, ptr %31, i64 %219
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %220, ptr noundef %216)
@@ -5052,7 +5052,7 @@ expand_.exit:                                     ; preds = %284, %288
 
 411:                                              ; preds = %410, %.loopexit792
   %412 = load i32, ptr %9, align 4
-  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %.0631, ptr noundef %261, ptr noundef %259, ptr noundef nonnull %8, i32 noundef %412, i32 noundef %.0651, ptr noundef %.0634, i1 noundef zeroext %.0635, ptr noundef nonnull %12)
+  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %.0631, ptr noundef %261, ptr noundef %259, ptr noundef nonnull %8, i32 noundef %412, i32 noundef %.0652, ptr noundef %.0634, i1 noundef zeroext %.0635, ptr noundef nonnull %12)
   %413 = call ptr @llvm_load_value(ptr noundef nonnull %0, ptr noundef nonnull %35) #10
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %415 = load ptr, ptr %414, align 8
@@ -5416,7 +5416,7 @@ expand_.exit768:                                  ; preds = %442, %446
 
 574:                                              ; preds = %573, %.loopexit788
   %575 = load i32, ptr %16, align 4
-  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull %.0645, ptr noundef %419, ptr noundef %243, ptr noundef nonnull %15, i32 noundef %575, i32 noundef %.0651, ptr noundef %.0653, i1 noundef zeroext %.0654, ptr noundef nonnull %19)
+  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull %.0645, ptr noundef %419, ptr noundef %243, ptr noundef nonnull %15, i32 noundef %575, i32 noundef %.0652, ptr noundef %.0653, i1 noundef zeroext %.0654, ptr noundef nonnull %19)
   %576 = call ptr @llvm_load_value(ptr noundef nonnull %0, ptr noundef nonnull %36) #10
   %577 = load ptr, ptr %414, align 8
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %254) #10
@@ -5472,15 +5472,15 @@ expand_.exit768:                                  ; preds = %442, %446
   br label %597
 
 597:                                              ; preds = %596, %.loopexit795
-  %.1663 = phi ptr [ %241, %596 ], [ %.0662, %.loopexit795 ]
-  %.1661 = phi ptr [ %243, %596 ], [ %.0660, %.loopexit795 ]
-  %.1656 = phi ptr [ %239, %596 ], [ %.0655, %.loopexit795 ]
+  %.1665 = phi ptr [ %241, %596 ], [ %.0664, %.loopexit795 ]
+  %.1663 = phi ptr [ %243, %596 ], [ %.0662, %.loopexit795 ]
+  %.1658 = phi ptr [ %239, %596 ], [ %.0657, %.loopexit795 ]
   %598 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %599 = load i64, ptr %598, align 8
   store i32 0, ptr %23, align 4
-  %600 = getelementptr inbounds nuw i8, ptr %.1656, i64 16
+  %600 = getelementptr inbounds nuw i8, ptr %.1658, i64 16
   %601 = load ptr, ptr %600, align 8
-  %602 = getelementptr inbounds nuw i8, ptr %.1656, i64 72
+  %602 = getelementptr inbounds nuw i8, ptr %.1658, i64 72
   %603 = load ptr, ptr %602, align 8
   %.not721 = icmp eq ptr %601, null
   br i1 %.not721, label %607, label %604
@@ -5492,14 +5492,14 @@ expand_.exit768:                                  ; preds = %442, %446
 
 607:                                              ; preds = %597, %604
   %.0666 = phi i32 [ %606, %604 ], [ 0, %597 ]
-  %608 = load i16, ptr %.1656, align 8
+  %608 = load i16, ptr %.1658, align 8
   %609 = and i16 %608, 16
   %610 = icmp ne i16 %609, 0
   %or.cond7 = select i1 %610, i1 %211, i1 false
   br i1 %or.cond7, label %611, label %664
 
 611:                                              ; preds = %607
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %.1656, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %.1658, i64 96, i1 false)
   %612 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %612, align 8
   %613 = getelementptr inbounds i8, ptr %93, i64 -8
@@ -5621,7 +5621,7 @@ expand_.exit779:                                  ; preds = %621, %625
   br label %664
 
 664:                                              ; preds = %._crit_edge842, %607
-  %.0670 = phi ptr [ %24, %._crit_edge842 ], [ %.1656, %607 ]
+  %.0670 = phi ptr [ %24, %._crit_edge842 ], [ %.1658, %607 ]
   %665 = getelementptr inbounds nuw i8, ptr %.0670, i64 56
   %666 = load ptr, ptr %665, align 8
   %667 = getelementptr inbounds nuw i8, ptr %.0670, i64 48
@@ -5697,8 +5697,8 @@ expand_.exit779:                                  ; preds = %621, %625
 .sink.split1039:                                  ; preds = %682, %690, %693
   %.sink1045 = phi i32 [ %694, %693 ], [ %.pre957, %690 ], [ %683, %682 ]
   %.sink1040 = phi ptr [ %698, %693 ], [ %692, %690 ], [ %677, %682 ]
-  %.0677.ph = phi i1 [ false, %693 ], [ true, %690 ], [ false, %682 ]
-  %.0675.ph = phi ptr [ null, %693 ], [ null, %690 ], [ %677, %682 ]
+  %.0676.ph = phi i1 [ false, %693 ], [ true, %690 ], [ false, %682 ]
+  %.0674.ph = phi ptr [ null, %693 ], [ null, %690 ], [ %677, %682 ]
   %700 = add i32 %.sink1045, 1
   store i32 %700, ptr %23, align 4
   %701 = zext i32 %.sink1045 to i64
@@ -5707,8 +5707,8 @@ expand_.exit779:                                  ; preds = %621, %625
   br label %703
 
 703:                                              ; preds = %.sink.split1039, %664
-  %.0677 = phi i1 [ false, %664 ], [ %.0677.ph, %.sink.split1039 ]
-  %.0675 = phi ptr [ null, %664 ], [ %.0675.ph, %.sink.split1039 ]
+  %.0676 = phi i1 [ false, %664 ], [ %.0676.ph, %.sink.split1039 ]
+  %.0674 = phi ptr [ null, %664 ], [ %.0674.ph, %.sink.split1039 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %704 = load i16, ptr %.0670, align 8
   %705 = and i16 %704, 128
@@ -5830,7 +5830,7 @@ expand_.exit779:                                  ; preds = %621, %625
 
 754:                                              ; preds = %753, %.loopexit
   %755 = load i32, ptr %23, align 4
-  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.0670, ptr noundef %.1663, ptr noundef %.1661, ptr noundef nonnull %22, i32 noundef %755, i32 noundef %.0651, ptr noundef %.0675, i1 noundef zeroext %.0677, ptr noundef nonnull %26)
+  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.0670, ptr noundef %.1665, ptr noundef %.1663, ptr noundef nonnull %22, i32 noundef %755, i32 noundef %.0652, ptr noundef %.0674, i1 noundef zeroext %.0676, ptr noundef nonnull %26)
   br label %756
 
 756:                                              ; preds = %578, %586, %754, %41

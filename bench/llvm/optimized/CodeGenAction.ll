@@ -6051,8 +6051,8 @@ define dso_local void @_ZN5clang13CodeGenAction17CreateASTConsumerERNS_16Compile
   %15 = load i64, ptr %14, align 8, !tbaa !34, !noalias !907
   %16 = inttoptr i64 %15 to ptr
   store ptr null, ptr %14, align 8, !tbaa !34, !noalias !907
-  %.not80 = icmp eq i64 %15, 0
-  br i1 %.not80, label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit, label %18
+  %.not78 = icmp eq i64 %15, 0
+  br i1 %.not78, label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit, label %18
 
 _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6062,9 +6062,9 @@ _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit
   br label %18
 
 18:                                               ; preds = %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit, %5
-  %.sroa.072.0 = phi ptr [ %16, %5 ], [ %17, %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit ]
+  %.sroa.070.0 = phi ptr [ %16, %5 ], [ %17, %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit ]
   %.not = icmp eq i32 %13, 3
-  %19 = icmp ne ptr %.sroa.072.0, null
+  %19 = icmp ne ptr %.sroa.070.0, null
   %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %21, label %20
 
@@ -6122,7 +6122,7 @@ _ZN4llvm11SmallVectorIN5clang13CodeGenAction10LinkModuleELj4EEC2EOS4_.exit: ; pr
   store ptr %3, ptr %10, align 8, !tbaa !86
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %4, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !87
-  %50 = ptrtoint ptr %.sroa.072.0 to i64
+  %50 = ptrtoint ptr %.sroa.070.0 to i64
   store i64 %50, ptr %11, align 8, !tbaa !34
   call void @_ZN5clang15BackendConsumerC1ERNS_16CompilerInstanceENS_13BackendActionEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEERNS4_11LLVMContextENS4_11SmallVectorINS_13CodeGenAction10LinkModuleELj4EEENS4_9StringRefESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISH_EEPNS_18CoverageSourceInfoEPNS4_6ModuleE(ptr noundef nonnull align 8 dereferenceable(392) %36, ptr noundef nonnull align 8 dereferenceable(352) %2, i32 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %9, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10, ptr noundef nonnull %11, ptr noundef %.0, ptr noundef null) #25
   %51 = load ptr, ptr %11, align 8, !tbaa !34
@@ -6334,14 +6334,14 @@ _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_E
 
 _ZNSt10unique_ptrIN5clang15BackendConsumerESt14default_deleteIS1_EED2Ev.exit: ; preds = %21
   store ptr null, ptr %0, align 8, !tbaa !910
-  %.not.i47 = icmp eq ptr %.sroa.072.0, null
+  %.not.i47 = icmp eq ptr %.sroa.070.0, null
   br i1 %.not.i47, label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit49, label %_ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i48
 
 _ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i48: ; preds = %_ZNSt10unique_ptrIN5clang15BackendConsumerESt14default_deleteIS1_EED2Ev.exit
-  %132 = load ptr, ptr %.sroa.072.0, align 8, !tbaa !8
+  %132 = load ptr, ptr %.sroa.070.0, align 8, !tbaa !8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.072.0) #25
+  call void %134(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.070.0) #25
   br label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit49
 
 _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit49: ; preds = %131, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EED2Ev.exit, %20, %_ZNSt10unique_ptrIN5clang15BackendConsumerESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i48

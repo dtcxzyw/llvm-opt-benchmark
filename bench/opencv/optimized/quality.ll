@@ -4235,20 +4235,20 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc35, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.1165.0 = phi ptr [ %63, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %63, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.1159.0 = phi ptr [ %63, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %63, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %68 = phi ptr [ %62, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %62, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i = phi ptr [ %67, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %64, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %68, ptr %53, align 8, !tbaa !16
   store ptr %.0.i.i.i.i.i, ptr %69, align 8, !tbaa !13
-  store ptr %.sroa.1165.0, ptr %70, align 8, !tbaa !179
-  %.pre74 = load i32, ptr %38, align 8, !tbaa !154
-  %71 = icmp sgt i32 %.pre74, 0
+  store ptr %.sroa.1159.0, ptr %70, align 8, !tbaa !179
+  %.pre62 = load i32, ptr %38, align 8, !tbaa !154
+  %71 = icmp sgt i32 %.pre62, 0
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %72 = zext nneg i32 %.pre74 to i64
+  %72 = zext nneg i32 %.pre62 to i64
   br label %79
 
 73:                                               ; preds = %12

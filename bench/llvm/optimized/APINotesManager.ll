@@ -2595,9 +2595,9 @@ define dso_local void @_ZN5clang9api_notes15APINotesManager12findAPINotesENS_14S
 
 _ZN4llvm15SmallVectorImplIPN5clang9api_notes14APINotesReaderEE7reserveEm.exit.i: ; preds = %3
   %or.cond.i = select i1 %32, i1 true, i1 %29
-  %spec.select8.i = select i1 %or.cond.i, ptr %27, ptr null
+  %spec.select6.i = select i1 %or.cond.i, ptr %27, ptr null
   %.idx = shl nuw nsw i64 %spec.select.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %spec.select8.i, i64 %.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %spec.select6.i, i64 %.idx, i1 false)
   %35 = trunc nuw nsw i64 %spec.select.i to i32
   store i32 %35, ptr %25, align 8, !tbaa !213
   br label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread

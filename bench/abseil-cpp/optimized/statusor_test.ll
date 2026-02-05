@@ -97769,10 +97769,10 @@ define internal void @_ZN12_GLOBAL__N_152StatusOr_ImplicitConstructionFromInitli
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 30, ptr %4, align 4
-  %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 20, ptr %.sroa.442.0..sroa_idx, align 4
-  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 10, ptr %.sroa.543.0..sroa_idx, align 4
+  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 20, ptr %.sroa.439.0..sroa_idx, align 4
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 10, ptr %.sroa.540.0..sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12absl_testing15status_internal19IsOkAndHoldsMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiEEEEEEEclIN4absl8StatusOrISt6vectorIiSaIiEEEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull @.str.313, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %12 unwind label %15
 
@@ -122474,8 +122474,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:
   store i32 30, ptr %3, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 20, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 10, ptr %.sroa.538.0..sroa_idx, align 4
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 10, ptr %.sroa.535.0..sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12absl_testing15status_internal19IsOkAndHoldsMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiEEEEEEEclIN4absl8StatusOrISt6vectorIiSaIiEEEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %2, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull @.str.313, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %12 unwind label %17
 
@@ -122892,8 +122892,8 @@ define internal void @_ZN12_GLOBAL__N_145StatusOr_ImplicitCastFromInitializerLis
   store i32 30, ptr %4, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 20, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 10, ptr %.sroa.535.0..sroa_idx, align 4
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 10, ptr %.sroa.532.0..sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12absl_testing15status_internal19IsOkAndHoldsMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiEEEEEEEclIN4absl8StatusOrISt6vectorIiSaIiEEEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull @.str.313, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %12 unwind label %15
 

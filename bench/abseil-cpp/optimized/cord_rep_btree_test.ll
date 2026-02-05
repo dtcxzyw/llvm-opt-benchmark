@@ -56566,9 +56566,9 @@ _ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit:     ; preds = %._crit_edge.i, %282
   br label %302
 
 302:                                              ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i, %.lr.ph.i241
-  %.sroa.19.3 = phi ptr [ null, %.lr.ph.i241 ], [ %.sroa.19.4, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
+  %.sroa.19.0 = phi ptr [ null, %.lr.ph.i241 ], [ %.sroa.19.1, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
   %303 = phi ptr [ null, %.lr.ph.i241 ], [ %341, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
-  %304 = phi ptr [ null, %.lr.ph.i241 ], [ %.sroa.15.3, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
+  %304 = phi ptr [ null, %.lr.ph.i241 ], [ %.sroa.15.0, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
   %.sroa.8.014.i = phi ptr [ %301, %.lr.ph.i241 ], [ %343, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
   %.sroa.0.013.i = phi i64 [ %300, %.lr.ph.i241 ], [ %344, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
   %305 = phi ptr [ null, %.lr.ph.i241 ], [ %342, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i ]
@@ -56657,10 +56657,10 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250, %322
   %.pn = phi ptr [ %336, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250 ], [ %304, %322 ]
-  %.sroa.19.4 = phi ptr [ %340, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250 ], [ %.sroa.19.3, %322 ]
+  %.sroa.19.1 = phi ptr [ %340, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250 ], [ %.sroa.19.0, %322 ]
   %341 = phi ptr [ %340, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250 ], [ %303, %322 ]
   %342 = phi ptr [ %335, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250 ], [ %305, %322 ]
-  %.sroa.15.3 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %.sroa.15.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.8.014.i, i64 512
   %344 = add i64 %.sroa.0.013.i, -512
   %345 = icmp eq i64 %344, 0
@@ -56730,7 +56730,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit2.i: ; preds = %_ZSt
   %361 = load ptr, ptr @_ZN7testing18WithParamInterfaceIbE10parameter_E, align 8, !tbaa !151
   %362 = load i8, ptr %361, align 1, !tbaa !37, !range !39, !noundef !40
   %363 = trunc nuw i8 %362 to i1
-  %364 = ptrtoint ptr %.sroa.15.3 to i64
+  %364 = ptrtoint ptr %.sroa.15.0 to i64
   %365 = ptrtoint ptr %342 to i64
   %366 = sub i64 %364, %365
   %367 = ashr exact i64 %366, 3
@@ -56835,14 +56835,14 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit272
 
 _ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit272: ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i269, %_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE.exit
-  %.sroa.24.5 = phi ptr [ %400, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i269 ], [ null, %_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE.exit ]
-  %.sroa.0523.5 = phi ptr [ %399, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i269 ], [ null, %_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE.exit ]
+  %.sroa.24.2 = phi ptr [ %400, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i269 ], [ null, %_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE.exit ]
+  %.sroa.0523.2 = phi ptr [ %399, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i269 ], [ null, %_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE.exit ]
   %401 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree12RemoveSuffixEPS1_m(ptr noundef %.0.lcssa.i, i64 noundef %.01161501)
           to label %402 unwind label %.loopexit567
 
 402:                                              ; preds = %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit272
-  %403 = ptrtoint ptr %.sroa.24.5 to i64
-  %404 = ptrtoint ptr %.sroa.0523.5 to i64
+  %403 = ptrtoint ptr %.sroa.24.2 to i64
+  %404 = ptrtoint ptr %.sroa.0523.2 to i64
   %405 = sub i64 %403, %404
   %406 = icmp eq i64 %405, 9223372036854775800
   br i1 %406, label %407, label %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -56874,15 +56874,15 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
   br i1 %416, label %417, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
 
 417:                                              ; preds = %.noexc276
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %414, ptr align 8 %.sroa.0523.5, i64 %405, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %414, ptr align 8 %.sroa.0523.2, i64 %405, i1 false)
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i: ; preds = %417, %.noexc276
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.0523.5, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.0523.2, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %418
 
 418:                                              ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0523.5, i64 noundef %405) #35
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0523.2, i64 noundef %405) #35
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %418, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
@@ -58527,7 +58527,7 @@ _ZN7testing15AssertionResultD2Ev.exit440:         ; preds = %904, %_ZNKSt14defau
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit443: ; preds = %.thread, %914
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %919 = ptrtoint ptr %.sroa.19.4 to i64
+  %919 = ptrtoint ptr %.sroa.19.1 to i64
   %920 = sub i64 %919, %365
   call void @_ZdlPvm(ptr noundef nonnull %342, i64 noundef %920) #35
   %.not7.i444 = icmp eq i64 %405, -8
@@ -58595,37 +58595,37 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i448: ; preds = %924, %.lr.ph.i4
   br label %.body499
 
 .body499:                                         ; preds = %.loopexit567, %.loopexit.split-lp568, %.loopexit566, %.loopexit.split-lp, %358, %589, %.body327
-  %.sroa.24.3 = phi ptr [ %591, %589 ], [ null, %.loopexit566 ], [ %937, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.24.5, %.loopexit567 ], [ %.sroa.24.5, %.loopexit.split-lp568 ]
-  %.sroa.15528.3 = phi ptr [ %590, %589 ], [ null, %.loopexit566 ], [ %938, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.24.5, %.loopexit567 ], [ %.sroa.24.5, %.loopexit.split-lp568 ]
-  %.sroa.0523.3 = phi ptr [ %414, %589 ], [ null, %.loopexit566 ], [ %414, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.0523.5, %.loopexit567 ], [ %.sroa.0523.5, %.loopexit.split-lp568 ]
+  %.sroa.24.1 = phi ptr [ %591, %589 ], [ null, %.loopexit566 ], [ %937, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.24.2, %.loopexit567 ], [ %.sroa.24.2, %.loopexit.split-lp568 ]
+  %.sroa.15528.1 = phi ptr [ %590, %589 ], [ null, %.loopexit566 ], [ %938, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.24.2, %.loopexit567 ], [ %.sroa.24.2, %.loopexit.split-lp568 ]
+  %.sroa.0523.1 = phi ptr [ %414, %589 ], [ null, %.loopexit566 ], [ %414, %.body327 ], [ null, %358 ], [ null, %.loopexit.split-lp ], [ %.sroa.0523.2, %.loopexit567 ], [ %.sroa.0523.2, %.loopexit.split-lp568 ]
   %.pn169.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn138.pn.pn, %589 ], [ %lpad.loopexit, %.loopexit566 ], [ %.pn169.pn.pn.pn.pn.pn, %.body327 ], [ %359, %358 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit569, %.loopexit567 ], [ %lpad.loopexit.split-lp570, %.loopexit.split-lp568 ]
   %.not.i.i.i458 = icmp eq ptr %342, null
   br i1 %.not.i.i.i458, label %.body251, label %939
 
 939:                                              ; preds = %.body499
-  %940 = ptrtoint ptr %.sroa.19.4 to i64
+  %940 = ptrtoint ptr %.sroa.19.1 to i64
   %941 = ptrtoint ptr %342 to i64
   %942 = sub i64 %940, %941
   call void @_ZdlPvm(ptr noundef nonnull %342, i64 noundef %942) #35
   br label %.body251
 
 .body251:                                         ; preds = %939, %.body499
-  %.not7.i460 = icmp eq ptr %.sroa.0523.3, %.sroa.15528.3
+  %.not7.i460 = icmp eq ptr %.sroa.0523.1, %.sroa.15528.1
   br i1 %.not7.i460, label %._crit_edge.i468, label %.lr.ph.i461
 
 ._crit_edge.i468:                                 ; preds = %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464, %.body251
-  %.not.i.i.i.i469 = icmp eq ptr %.sroa.0523.3, null
+  %.not.i.i.i.i469 = icmp eq ptr %.sroa.0523.1, null
   br i1 %.not.i.i.i.i469, label %_ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit471, label %943
 
 943:                                              ; preds = %._crit_edge.i468
-  %944 = ptrtoint ptr %.sroa.24.3 to i64
-  %945 = ptrtoint ptr %.sroa.0523.3 to i64
+  %944 = ptrtoint ptr %.sroa.24.1 to i64
+  %945 = ptrtoint ptr %.sroa.0523.1 to i64
   %946 = sub i64 %944, %945
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0523.3, i64 noundef %946) #35
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0523.1, i64 noundef %946) #35
   br label %_ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit471
 
 .lr.ph.i461:                                      ; preds = %.body251, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464
-  %.sroa.04.08.i462 = phi ptr [ %951, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464 ], [ %.sroa.0523.3, %.body251 ]
+  %.sroa.04.08.i462 = phi ptr [ %951, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464 ], [ %.sroa.0523.1, %.body251 ]
   %947 = load ptr, ptr %.sroa.04.08.i462, align 8, !tbaa !464
   %948 = getelementptr inbounds nuw i8, ptr %947, i64 8
   %949 = atomicrmw sub ptr %948, i32 2 acq_rel, align 4
@@ -58638,7 +58638,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i448: ; preds = %924, %.lr.ph.i4
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464: ; preds = %950, %.lr.ph.i461
   %951 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i462, i64 8
-  %.not.i465 = icmp eq ptr %951, %.sroa.15528.3
+  %.not.i465 = icmp eq ptr %951, %.sroa.15528.1
   br i1 %.not.i465, label %._crit_edge.i468, label %.lr.ph.i461
 
 952:                                              ; preds = %950
@@ -58665,7 +58665,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i464: ; preds = %950, %.lr.ph.i4
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit475: ; preds = %.critedge186, %956
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %961 = ptrtoint ptr %.sroa.19.4 to i64
+  %961 = ptrtoint ptr %.sroa.19.1 to i64
   %962 = sub i64 %961, %365
   call void @_ZdlPvm(ptr noundef nonnull %342, i64 noundef %962) #35
   %.not7.i476 = icmp eq i64 %405, -8

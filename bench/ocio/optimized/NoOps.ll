@@ -689,18 +689,18 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
 28:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %29 = load ptr, ptr %1, align 8, !tbaa !47
   %30 = load ptr, ptr %5, align 8, !tbaa !47
-  %.not50 = icmp eq ptr %29, %30
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq ptr %29, %30
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
   %31 = zext i32 %12 to i64
   br label %39
 
 ._crit_edge:                                      ; preds = %44, %28
-  %.not56 = icmp eq i32 %12, 0
-  br i1 %.not56, label %._crit_edge55, label %.lr.ph54
+  %.not53 = icmp eq i32 %12, 0
+  br i1 %.not53, label %._crit_edge52, label %.lr.ph51
 
-.lr.ph54:                                         ; preds = %._crit_edge
+.lr.ph51:                                         ; preds = %._crit_edge
   %32 = load ptr, ptr %4, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 200
   %34 = load ptr, ptr %33, align 8, !tbaa !33
@@ -718,8 +718,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit32
 
 39:                                               ; preds = %.lr.ph, %44
-  %.sroa.033.051 = phi ptr [ %29, %.lr.ph ], [ %45, %44 ]
-  %40 = load ptr, ptr %.sroa.033.051, align 8, !tbaa !11
+  %.sroa.033.048 = phi ptr [ %29, %.lr.ph ], [ %45, %44 ]
+  %40 = load ptr, ptr %.sroa.033.048, align 8, !tbaa !11
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %43 = load ptr, ptr %42, align 8
@@ -727,7 +727,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
           to label %44 unwind label %46
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.033.051, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 16
   %.not = icmp eq ptr %45, %30
   br i1 %.not, label %._crit_edge, label %39
 
@@ -736,17 +736,17 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit32
 
-._crit_edge55:                                    ; preds = %50, %._crit_edge
+._crit_edge52:                                    ; preds = %50, %._crit_edge
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0)
           to label %73 unwind label %48
 
-48:                                               ; preds = %._crit_edge55
+48:                                               ; preds = %._crit_edge52
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit32
 
-50:                                               ; preds = %.lr.ph54, %50
-  %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %50 ]
+50:                                               ; preds = %.lr.ph51, %50
+  %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %50 ]
   %51 = trunc nuw i64 %indvars.iv to i32
   %52 = shl i32 %51, 2
   %53 = zext i32 %52 to i64
@@ -774,9 +774,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
   store float %69, ptr %72, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge55, label %50, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge52, label %50, !llvm.loop !50
 
-73:                                               ; preds = %._crit_edge55
+73:                                               ; preds = %._crit_edge52
   invoke void @_ZN19OpenColorIO_v2_5dev13CreateLut3DOpERNS_10OpRcPtrVecERSt10shared_ptrINS_11Lut3DOpDataEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %74
 

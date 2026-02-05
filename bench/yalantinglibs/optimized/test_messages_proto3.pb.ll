@@ -136829,14 +136829,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %xor.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !3238
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread20
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread19
 
-_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread20: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread19: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   store ptr %4, ptr %it, align 8, !alias.scope !3241
-  %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %it, i64 8
-  store ptr %0, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i22, align 8, !alias.scope !3241
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %it, i64 16
-  store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i23, align 8, !alias.scope !3241
+  %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %it, i64 8
+  store ptr %0, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i21, align 8, !alias.scope !3241
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %it, i64 16
+  store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i22, align 8, !alias.scope !3241
   br label %for.body.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -136857,8 +136857,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %cmp.i.i.i.not = icmp eq ptr %7, null
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread20, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit
-  %.ph = phi ptr [ %7, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread20 ]
+for.body.preheader:                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread19, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit
+  %.ph = phi ptr [ %7, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit ], [ %4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5beginEv.exit.thread19 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage8CopyFromERKS1_.exit

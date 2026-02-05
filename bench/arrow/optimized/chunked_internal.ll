@@ -830,8 +830,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.019.040 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %._crit_edge.loopexit ]
-  %.sroa.10.038 = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
+  %.sroa.019.037 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %._crit_edge.loopexit ]
+  %.sroa.10.035 = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -841,49 +841,49 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %.lr.ph29, label %._crit_edge30
+  br i1 %25, label %.lr.ph26, label %._crit_edge27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01426 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01525 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %26 = getelementptr inbounds nuw i64, ptr %11, i64 %.01525
-  store i64 %.01426, ptr %26, align 8, !tbaa !54
-  %27 = getelementptr inbounds nuw i64, ptr %5, i64 %.01525
+  %.01423 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01522 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %26 = getelementptr inbounds nuw i64, ptr %11, i64 %.01522
+  store i64 %.01423, ptr %26, align 8, !tbaa !54
+  %27 = getelementptr inbounds nuw i64, ptr %5, i64 %.01522
   %28 = load i64, ptr %27, align 8, !tbaa !54
-  %29 = add nsw i64 %28, %.01426
-  %30 = add nuw nsw i64 %.01525, 1
+  %29 = add nsw i64 %28, %.01423
+  %30 = add nuw nsw i64 %.01522, 1
   %exitcond.not = icmp eq i64 %30, %9
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !127
 
-._crit_edge30:                                    ; preds = %._crit_edge
+._crit_edge27:                                    ; preds = %._crit_edge
   store ptr null, ptr %0, align 8, !tbaa !95, !alias.scope !128
-  %.not.i.i.i = icmp eq ptr %.sroa.019.040, null
+  %.not.i.i.i = icmp eq ptr %.sroa.019.037, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %31
 
-31:                                               ; preds = %._crit_edge30.thread, %._crit_edge30
-  %32 = ptrtoint ptr %.sroa.019.040 to i64
-  %33 = sub i64 %.sroa.10.038, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.040, i64 noundef %33) #19
+31:                                               ; preds = %._crit_edge27.thread, %._crit_edge27
+  %32 = ptrtoint ptr %.sroa.019.037 to i64
+  %33 = sub i64 %.sroa.10.035, %32
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.037, i64 noundef %33) #19
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge30, %31
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge27, %31
   ret void
 
-.lr.ph29:                                         ; preds = %._crit_edge, %.lr.ph29
-  %.027 = phi i64 [ %41, %.lr.ph29 ], [ 0, %._crit_edge ]
-  %34 = getelementptr inbounds nuw %"struct.arrow::compute::internal::CompressedChunkLocation", ptr %20, i64 %.027
+.lr.ph26:                                         ; preds = %._crit_edge, %.lr.ph26
+  %.024 = phi i64 [ %41, %.lr.ph26 ], [ 0, %._crit_edge ]
+  %34 = getelementptr inbounds nuw %"struct.arrow::compute::internal::CompressedChunkLocation", ptr %20, i64 %.024
   %35 = load i64, ptr %34, align 8, !tbaa !54
   %36 = and i64 %35, 16777215
-  %37 = getelementptr inbounds nuw i64, ptr %.sroa.019.040, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %.sroa.019.037, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !54
   %39 = lshr i64 %35, 24
   %40 = add nsw i64 %38, %39
   store i64 %40, ptr %34, align 8, !tbaa !54
-  %41 = add nuw nsw i64 %.027, 1
-  %exitcond31.not = icmp eq i64 %41, %24
-  br i1 %exitcond31.not, label %._crit_edge30.thread, label %.lr.ph29, !llvm.loop !131
+  %41 = add nuw nsw i64 %.024, 1
+  %exitcond28.not = icmp eq i64 %41, %24
+  br i1 %exitcond28.not, label %._crit_edge27.thread, label %.lr.ph26, !llvm.loop !131
 
-._crit_edge30.thread:                             ; preds = %.lr.ph29
+._crit_edge27.thread:                             ; preds = %.lr.ph26
   store ptr null, ptr %0, align 8, !tbaa !95, !alias.scope !128
   br label %31
 }

@@ -10391,8 +10391,8 @@ invoke.cont25:                                    ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body
 
 for.body:                                         ; preds = %while.end, %invoke.cont25
-  %c.0256 = phi i64 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
-  %sext = shl i64 %c.0256, 32
+  %c.0250 = phi i64 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
+  %sext = shl i64 %c.0250, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds i8, ptr %bytemap_.i, i64 %idxprom
   %26 = load i8, ptr %arrayidx, align 1
@@ -10404,9 +10404,9 @@ while.cond:                                       ; preds = %land.rhs, %for.body
   br i1 %cmp32, label %land.rhs, label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.cond
-  %conv41289 = zext i8 %26 to i64
-  %add.ptr.i27290 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41289
-  store i32 255, ptr %add.ptr.i27290, align 4
+  %conv41283 = zext i8 %26 to i64
+  %add.ptr.i27284 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41283
+  store i32 255, ptr %add.ptr.i27284, align 4
   %27 = load i32, ptr %bytemap_range_.i, align 4
   %conv47 = sext i32 %27 to i64
   %add.ptr.i29 = getelementptr inbounds i32, ptr %input.sroa.0.0, i64 %conv47
@@ -10466,7 +10466,7 @@ invoke.cont52:                                    ; preds = %if.end.i.i.i.i.i.i.
   %_M_last.i54 = getelementptr inbounds nuw i8, ptr %q, i64 32
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   %_M_node.i.i = getelementptr inbounds nuw i8, ptr %q, i64 40
-  %cmp.i.not.not260 = icmp eq ptr %input.sroa.0.0, %__first.addr.0.i.i.i.i.i
+  %cmp.i.not.not254 = icmp eq ptr %input.sroa.0.0, %__first.addr.0.i.i.i.i.i
   %mutex_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %cb, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %cb, i64 24
@@ -10504,11 +10504,11 @@ if.else.i59:                                      ; preds = %while.body55
 _ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit: ; preds = %if.then.i57, %if.else.i59
   %storemerge.i = phi ptr [ %incdec.ptr.i58, %if.then.i57 ], [ %39, %if.else.i59 ]
   store ptr %storemerge.i, ptr %_M_start.i, align 8
-  br i1 %cmp.i.not.not260, label %for.end103, label %for.body62
+  br i1 %cmp.i.not.not254, label %for.end103, label %for.body62
 
 for.body62:                                       ; preds = %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit, %for.inc101
-  %__begin2.sroa.0.0261 = phi ptr [ %incdec.ptr.i99, %for.inc101 ], [ %input.sroa.0.0, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ]
-  %40 = load i32, ptr %__begin2.sroa.0.0261, align 4
+  %__begin2.sroa.0.0255 = phi ptr [ %incdec.ptr.i99, %for.inc101 ], [ %input.sroa.0.0, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ]
+  %40 = load i32, ptr %__begin2.sroa.0.0255, align 4
   invoke void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i)
           to label %.noexc62 unwind label %lpad65.loopexit
 
@@ -10782,7 +10782,7 @@ for.inc101:                                       ; preds = %if.then.i95, %if.en
   %conv99 = sext i32 %retval.0.i94.sink to i64
   %add.ptr.i98 = getelementptr inbounds i32, ptr %output.sroa.0.0, i64 %conv99
   store i32 %.sink, ptr %add.ptr.i98, align 4
-  %incdec.ptr.i99 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0261, i64 4
+  %incdec.ptr.i99 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0255, i64 4
   %cmp.i.not.not = icmp eq ptr %incdec.ptr.i99, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i.not.not, label %for.end103, label %for.body62
 
@@ -10888,12 +10888,12 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
   br i1 %tobool.not.i.i.i121, label %ehcleanup119, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn246 = phi { ptr, i32 } [ %46, %ehcleanup.thread ], [ %eh.lpad-body, %ehcleanup ]
+  %.pn240 = phi { ptr, i32 } [ %46, %ehcleanup.thread ], [ %eh.lpad-body, %ehcleanup ]
   call void @_ZdlPv(ptr noundef nonnull %input.sroa.0.0) #24
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %if.then.i.i.i122, %ehcleanup, %lpad24, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %30, %lpad14 ], [ %31, %lpad24 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn246, %if.then.i.i.i122 ]
+  %.pn.pn = phi { ptr, i32 } [ %30, %lpad14 ], [ %31, %lpad24 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn240, %if.then.i.i.i122 ]
   call void @_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %q) #25
   br label %ehcleanup120
 

@@ -2371,13 +2371,13 @@ define noundef zeroext i1 @_RNvXs5_NtNtCs68wO5nsWeTG_5alloc11collections9vec_deq
   br label %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit
 
 _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit: ; preds = %9, %22, %24
-  %.sroa.0.0120 = phi i64 [ %.sroa.0.0.i, %24 ], [ %.sroa.0.0.i, %22 ], [ 0, %9 ]
+  %.sroa.0.0118 = phi i64 [ %.sroa.0.0.i, %24 ], [ %.sroa.0.0.i, %22 ], [ 0, %9 ]
   %.sroa.5.0 = phi i64 [ %25, %24 ], [ %19, %22 ], [ 0, %9 ]
   %.sroa.11.0 = phi i64 [ 0, %24 ], [ %23, %22 ], [ 0, %9 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.sroa.0.0120
-  %29 = sub i64 %.sroa.5.0, %.sroa.0.0120
+  %28 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.sroa.0.0118
+  %29 = sub i64 %.sroa.5.0, %.sroa.0.0118
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
   %30 = tail call { i64, i64 } @_RINvNtNtCs1LoaDTb72WA_4core5slice5index5rangeNtNtNtB6_3ops5range9RangeFullECs5g6BnGVOFtV_12regex_syntax(i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0e79314673efe63acf1941008ad64698.1.llvm.967386030157129537), !noalias !529
   %31 = extractvalue { i64, i64 } %30, 0
@@ -2407,13 +2407,13 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   br label %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit35
 
 _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit35: ; preds = %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit, %42, %44
-  %.sroa.0102.0 = phi i64 [ %.sroa.0.0.i33, %44 ], [ %.sroa.0.0.i33, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
-  %.sroa.5103.0 = phi i64 [ %45, %44 ], [ %39, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
-  %.sroa.11105.0 = phi i64 [ 0, %44 ], [ %43, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
+  %.sroa.0101.0 = phi i64 [ %.sroa.0.0.i33, %44 ], [ %.sroa.0.0.i33, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
+  %.sroa.5102.0 = phi i64 [ %45, %44 ], [ %39, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
+  %.sroa.11104.0 = phi i64 [ 0, %44 ], [ %43, %42 ], [ 0, %_RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE12slice_rangesNtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFullEB1c_.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %.sroa.0102.0
-  %49 = sub i64 %.sroa.5103.0, %.sroa.0102.0
+  %48 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %.sroa.0101.0
+  %49 = sub i64 %.sroa.5102.0, %.sroa.0101.0
   %50 = icmp eq i64 %29, %49
   br i1 %50, label %53, label %51
 
@@ -2440,8 +2440,8 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %57 = load i64, ptr %55, align 8, !range !169, !alias.scope !547, !noalias !548, !noundef !4
   %58 = load i64, ptr %56, align 8, !range !169, !alias.scope !548, !noalias !547, !noundef !4
-  %.not139 = icmp eq i64 %57, %58
-  br i1 %.not139, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not137 = icmp eq i64 %57, %58
+  br i1 %.not137, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i: ; preds = %54
   %59 = add i64 %.sroa.01.0.i, 1
@@ -2453,7 +2453,7 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
 63:                                               ; preds = %51
   %64 = sub nuw i64 %29, %49
   %65 = getelementptr inbounds { i64, [3 x i64] }, ptr %28, i64 %49
-  %.not30 = icmp ugt i64 %64, %.sroa.11105.0
+  %.not30 = icmp ugt i64 %64, %.sroa.11104.0
   br i1 %.not30, label %69, label %74
 
 66:                                               ; preds = %51
@@ -2478,7 +2478,7 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
 
 74:                                               ; preds = %63
   %75 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %64
-  %76 = sub nuw i64 %.sroa.11105.0, %64
+  %76 = sub nuw i64 %.sroa.11104.0, %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !552)
   br label %.preheader.split.i40
@@ -2497,8 +2497,8 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
   %80 = load i64, ptr %78, align 8, !range !169, !alias.scope !564, !noalias !565, !noundef !4
   %81 = load i64, ptr %79, align 8, !range !169, !alias.scope !565, !noalias !564, !noundef !4
-  %.not135 = icmp eq i64 %80, %81
-  br i1 %.not135, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i45, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not133 = icmp eq i64 %80, %81
+  br i1 %.not133, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i45, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i45: ; preds = %77
   %82 = add i64 %.sroa.01.0.i41, 1
@@ -2526,8 +2526,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %89 = load i64, ptr %87, align 8, !range !169, !alias.scope !581, !noalias !582, !noundef !4
   %90 = load i64, ptr %88, align 8, !range !169, !alias.scope !582, !noalias !581, !noundef !4
-  %.not136 = icmp eq i64 %89, %90
-  br i1 %.not136, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i54, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not134 = icmp eq i64 %89, %90
+  br i1 %.not134, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i54, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i54: ; preds = %86
   %91 = add i64 %.sroa.01.0.i50, 1
@@ -2556,8 +2556,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
   %98 = load i64, ptr %96, align 8, !range !169, !alias.scope !598, !noalias !599, !noundef !4
   %99 = load i64, ptr %97, align 8, !range !169, !alias.scope !599, !noalias !598, !noundef !4
-  %.not179 = icmp eq i64 %98, %99
-  br i1 %.not179, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i63, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not177 = icmp eq i64 %98, %99
+  br i1 %.not177, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i63, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i63: ; preds = %95
   %100 = add i64 %.sroa.01.0.i59, 1
@@ -2601,8 +2601,8 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
   tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
   %115 = load i64, ptr %113, align 8, !range !169, !alias.scope !615, !noalias !616, !noundef !4
   %116 = load i64, ptr %114, align 8, !range !169, !alias.scope !616, !noalias !615, !noundef !4
-  %.not137 = icmp eq i64 %115, %116
-  br i1 %.not137, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i72, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not135 = icmp eq i64 %115, %116
+  br i1 %.not135, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i72, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i72: ; preds = %112
   %117 = add i64 %.sroa.01.0.i68, 1
@@ -2630,8 +2630,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
   %124 = load i64, ptr %122, align 8, !range !169, !alias.scope !632, !noalias !633, !noundef !4
   %125 = load i64, ptr %123, align 8, !range !169, !alias.scope !633, !noalias !632, !noundef !4
-  %.not138 = icmp eq i64 %124, %125
-  br i1 %.not138, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i81, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not136 = icmp eq i64 %124, %125
+  br i1 %.not136, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i81, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i81: ; preds = %121
   %126 = add i64 %.sroa.01.0.i77, 1
@@ -2643,12 +2643,12 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit82: ; preds = %.preheader.split.i76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
-  %.not.i83 = icmp eq i64 %111, %.sroa.11105.0
+  %.not.i83 = icmp eq i64 %111, %.sroa.11104.0
   br i1 %.not.i83, label %.preheader.split.i85, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 .preheader.split.i85:                             ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit82, %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i90
   %.sroa.01.0.i86 = phi i64 [ %135, %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i90 ], [ 0, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit82 ]
-  %exitcond.not.i87 = icmp eq i64 %.sroa.01.0.i86, %.sroa.11105.0
+  %exitcond.not.i87 = icmp eq i64 %.sroa.01.0.i86, %.sroa.11104.0
   br i1 %exitcond.not.i87, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64, label %130
 
 130:                                              ; preds = %.preheader.split.i85
@@ -2660,8 +2660,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !647)
   %133 = load i64, ptr %131, align 8, !range !169, !alias.scope !649, !noalias !650, !noundef !4
   %134 = load i64, ptr %132, align 8, !range !169, !alias.scope !650, !noalias !649, !noundef !4
-  %.not180 = icmp eq i64 %133, %134
-  br i1 %.not180, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i90, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not178 = icmp eq i64 %133, %134
+  br i1 %.not178, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i90, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i90: ; preds = %130
   %135 = add i64 %.sroa.01.0.i86, 1
@@ -2673,7 +2673,7 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit: ; preds = %.preheader.split.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !654)
-  %.not.i92 = icmp eq i64 %.sroa.11.0, %.sroa.11105.0
+  %.not.i92 = icmp eq i64 %.sroa.11.0, %.sroa.11104.0
   br i1 %.not.i92, label %.preheader.split.i94, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 .preheader.split.i94:                             ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit, %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i99
@@ -2690,8 +2690,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !664)
   %142 = load i64, ptr %140, align 8, !range !169, !alias.scope !666, !noalias !667, !noundef !4
   %143 = load i64, ptr %141, align 8, !range !169, !alias.scope !667, !noalias !666, !noundef !4
-  %.not181 = icmp eq i64 %142, %143
-  br i1 %.not181, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i99, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
+  %.not179 = icmp eq i64 %142, %143
+  br i1 %.not179, label %_RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i99, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64
 
 _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2neB8_.llvm.5393772610634076635.exit.i99: ; preds = %139
   %144 = add i64 %.sroa.01.0.i95, 1

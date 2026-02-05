@@ -1034,7 +1034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %29
 
 372:                                              ; preds = %370
   %373 = icmp slt i32 %371, 0
-  br i1 %373, label %374, label %.loopexit479
+  br i1 %373, label %374, label %.loopexit475
 
 374:                                              ; preds = %372
   %375 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN2cv12VideoCapturersERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(41) %31, ptr noundef nonnull align 8 dereferenceable(96) %30)
@@ -1049,7 +1049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %29
 
 379:                                              ; preds = %378
   %380 = invoke noundef i32 @_ZN2cv7waitKeyEi(i32 noundef 0)
-          to label %.loopexit479 unwind label %.loopexit.split-lp
+          to label %.loopexit475 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %370, %374, %376, %381
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1308,8 +1308,8 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %381
   %444 = call i32 @llvm.smax.i32(i32 %441, i32 0)
   %445 = add nsw i32 %432, %443
   %446 = icmp slt i32 %445, %444
-  %or.cond478 = select i1 %442, i1 %446, i1 false
-  br i1 %or.cond478, label %452, label %447
+  %or.cond474 = select i1 %442, i1 %446, i1 false
+  br i1 %or.cond474, label %452, label %447
 
 447:                                              ; preds = %439
   %448 = icmp slt i32 %428, 0
@@ -1328,11 +1328,11 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %381
   %.sroa.speculated = phi i32 [ %116, %449 ], [ %433, %447 ]
   %.neg49.pre-phi.i = phi i32 [ %450, %449 ], [ %116, %447 ]
   %453 = phi i32 [ 0, %449 ], [ %428, %447 ]
-  %.sroa.speculated450 = select i1 %442, i32 %432, i32 %109
+  %.sroa.speculated446 = select i1 %442, i32 %432, i32 %109
   %.neg.i = sub i32 %443, %444
-  %454 = add i32 %.neg.i, %.sroa.speculated450
-  %.sroa.speculated444 = select i1 %442, i32 %109, i32 %432
-  %.sroa.speculated53.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated444, i32 %454)
+  %454 = add i32 %.neg.i, %.sroa.speculated446
+  %.sroa.speculated440 = select i1 %442, i32 %109, i32 %432
+  %.sroa.speculated53.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated440, i32 %454)
   store i32 %.sroa.speculated53.i, ptr %.sroa.5395.0..sroa_idx, align 8, !tbaa !64
   %455 = sub nsw i32 %.neg49.pre-phi.i, %453
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %455)
@@ -1540,15 +1540,15 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %501, %499, %495, %4
 543:                                              ; preds = %537, %529
   %storemerge.i.i = phi i8 [ %539, %537 ], [ %536, %529 ]
   store i8 %storemerge.i.i, ptr %510, align 1, !tbaa !15
-  %.sroa.6466.0.insert.ext = zext i32 %486 to i64
-  %.sroa.6466.0.insert.shift = shl nuw i64 %.sroa.6466.0.insert.ext, 32
-  %.sroa.0465.0.insert.ext = zext i32 %484 to i64
-  %.sroa.0465.0.insert.insert = or disjoint i64 %.sroa.6466.0.insert.shift, %.sroa.0465.0.insert.ext
+  %.sroa.6462.0.insert.ext = zext i32 %486 to i64
+  %.sroa.6462.0.insert.shift = shl nuw i64 %.sroa.6462.0.insert.ext, 32
+  %.sroa.0461.0.insert.ext = zext i32 %484 to i64
+  %.sroa.0461.0.insert.insert = or disjoint i64 %.sroa.6462.0.insert.shift, %.sroa.0461.0.insert.ext
   store double 1.280000e+02, ptr %60, align 8, !tbaa !39
   store double 1.280000e+02, ptr %355, align 8, !tbaa !39
   store double 2.550000e+02, ptr %356, align 8, !tbaa !39
   store double 0.000000e+00, ptr %357, align 8, !tbaa !39
-  invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 %.sroa.0465.0.insert.insert, i32 noundef 3, double noundef 1.000000e+00, ptr noundef nonnull %60, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 %.sroa.0461.0.insert.insert, i32 noundef 3, double noundef 1.000000e+00, ptr noundef nonnull %60, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %544 unwind label %550
 
 544:                                              ; preds = %543
@@ -1732,7 +1732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit368: ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %589
 
-.loopexit479:                                     ; preds = %372, %379
+.loopexit475:                                     ; preds = %372, %379
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %31) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #21
@@ -1750,11 +1750,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit368: ; preds = %57
   %586 = icmp eq ptr %585, %194
   br i1 %586, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i369
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i369: ; preds = %.loopexit479
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i369: ; preds = %.loopexit475
   call void @_ZdlPv(ptr noundef %585) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %.loopexit479, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i369
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %.loopexit475, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i369
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %587 = load ptr, ptr %22, align 8, !tbaa !13
   %588 = icmp eq ptr %587, %189

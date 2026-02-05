@@ -4358,8 +4358,8 @@ define void @_ZN8WasmEdge6Loader6Loader12loadInstrSeqESt8optionalImE(ptr dead_on
   store i32 %39, ptr %13, align 4
   %41 = call i16 @_ZNK8WasmEdge9Configure19isInstrNeedProposalENS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %39) #19
   %42 = and i16 %41, 256
-  %.not157 = icmp eq i16 %42, 0
-  br i1 %.not157, label %56, label %53
+  %.not155 = icmp eq i16 %42, 0
+  br i1 %.not155, label %56, label %53
 
 .loopexit:                                        ; preds = %34, %_ZNSt6vectorIN8WasmEdge3AST11InstructionESaIS2_EE12emplace_backIJRNS0_6OpCodeEjEEERS2_DpOT_.exit, %_ZNKSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %166, %_ZNKSt6vectorIN8WasmEdge3AST11Instruction15CatchDescriptorESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %.sroa.23.1.ph = phi ptr [ %.sroa.23.3, %166 ], [ %.sroa.23.3, %_ZNSt6vectorIN8WasmEdge3AST11InstructionESaIS2_EE12emplace_backIJRNS0_6OpCodeEjEEERS2_DpOT_.exit ], [ %.sroa.23.3, %_ZNKSt6vectorIN8WasmEdge3AST11Instruction15CatchDescriptorESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.23.0, %_ZNKSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.23.0, %34 ]
@@ -4369,15 +4369,15 @@ define void @_ZN8WasmEdge6Loader6Loader12loadInstrSeqESt8optionalImE(ptr dead_on
   br label %43
 
 .loopexit.split-lp:                               ; preds = %67, %291
-  %.sroa.23.1.ph158 = phi ptr [ %.sroa.23.0, %67 ], [ %.sroa.23.3, %291 ]
-  %.sroa.0105.1.ph159 = phi ptr [ %.sroa.0105.0, %67 ], [ %.sroa.0105.3, %291 ]
+  %.sroa.23.1.ph156 = phi ptr [ %.sroa.23.0, %67 ], [ %.sroa.23.3, %291 ]
+  %.sroa.0105.1.ph157 = phi ptr [ %.sroa.0105.0, %67 ], [ %.sroa.0105.3, %291 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %43
 
 43:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %.sroa.23.1 = phi ptr [ %.sroa.23.1.ph, %.loopexit ], [ %.sroa.23.1.ph158, %.loopexit.split-lp ]
-  %.sroa.0105.1 = phi ptr [ %.sroa.0105.1.ph, %.loopexit ], [ %.sroa.0105.1.ph159, %.loopexit.split-lp ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.1.ph, %.loopexit ], [ %.sroa.23.1.ph156, %.loopexit.split-lp ]
+  %.sroa.0105.1 = phi ptr [ %.sroa.0105.1.ph, %.loopexit ], [ %.sroa.0105.1.ph157, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i = icmp eq ptr %.sroa.0105.1, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EED2Ev.exit, label %44
@@ -4515,8 +4515,8 @@ _ZNSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEv
   %89 = trunc i8 %3 to i1
   %90 = load i64, ptr %30, align 8
   %91 = icmp ugt i64 %90, %2
-  %or.cond147 = select i1 %89, i1 %91, i1 false
-  br i1 %or.cond147, label %92, label %93
+  %or.cond145 = select i1 %89, i1 %91, i1 false
+  br i1 %or.cond145, label %92, label %93
 
 92:                                               ; preds = %88
   store i32 280, ptr %11, align 4, !noalias !14
@@ -4554,8 +4554,8 @@ _ZNSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEv
   %106 = trunc i8 %3 to i1
   %107 = load i64, ptr %30, align 8
   %108 = icmp ugt i64 %107, %2
-  %or.cond150 = select i1 %106, i1 %108, i1 false
-  br i1 %or.cond150, label %109, label %110
+  %or.cond148 = select i1 %106, i1 %108, i1 false
+  br i1 %or.cond148, label %109, label %110
 
 109:                                              ; preds = %105
   store i32 280, ptr %9, align 4, !noalias !17
@@ -4597,8 +4597,8 @@ _ZNSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEv
   %122 = trunc i8 %3 to i1
   %123 = load i64, ptr %30, align 8
   %124 = icmp ugt i64 %123, %2
-  %or.cond153 = select i1 %122, i1 %124, i1 false
-  br i1 %or.cond153, label %125, label %126
+  %or.cond151 = select i1 %122, i1 %124, i1 false
+  br i1 %or.cond151, label %125, label %126
 
 125:                                              ; preds = %121
   store i32 280, ptr %7, align 4, !noalias !20
@@ -4646,8 +4646,8 @@ _ZNSt6vectorISt4pairIN8WasmEdge6OpCodeEjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEv
   %146 = trunc i8 %3 to i1
   %147 = load i64, ptr %30, align 8
   %148 = icmp ugt i64 %147, %2
-  %or.cond156 = select i1 %146, i1 %148, i1 false
-  br i1 %or.cond156, label %149, label %150
+  %or.cond154 = select i1 %146, i1 %148, i1 false
+  br i1 %or.cond154, label %149, label %150
 
 149:                                              ; preds = %145
   store i32 280, ptr %5, align 4, !noalias !23

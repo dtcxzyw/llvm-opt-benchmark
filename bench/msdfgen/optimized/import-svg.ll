@@ -152,10 +152,10 @@ while.body:                                       ; preds = %_ZN7msdfgenL12readN
 
 while.body4:                                      ; preds = %while.body, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
   %4 = phi i8 [ %114, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %3, %while.body ]
-  %controlPoint.sroa.0.1 = phi double [ %controlPoint.sroa.0.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %controlPoint.sroa.14.1 = phi double [ %controlPoint.sroa.14.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %controlPoint.sroa.29.1 = phi double [ %controlPoint.sroa.29.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
-  %controlPoint.sroa.36.1 = phi double [ %controlPoint.sroa.36.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %controlPoint.sroa.0.0 = phi double [ %controlPoint.sroa.0.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %controlPoint.sroa.14.0 = phi double [ %controlPoint.sroa.14.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %controlPoint.sroa.29.0 = phi double [ %controlPoint.sroa.29.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
+  %controlPoint.sroa.36.0 = phi double [ %controlPoint.sroa.36.1, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
   %prevNodeType.1829 = phi i8 [ %nodeType.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
   %contourStart.0828 = phi i1 [ %and29, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %while.body ]
   %pathDef.addr.2827 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.1, %while.body ]
@@ -547,11 +547,11 @@ if.then69:                                        ; preds = %if.end66
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then69, %if.end66
-  %controlPoint.sroa.0.4 = phi double [ %add.i119, %if.then69 ], [ %call.i.i84, %if.end66 ]
-  %controlPoint.sroa.14.4 = phi double [ %add4.i121, %if.then69 ], [ %call.i9.i93, %if.end66 ]
+  %controlPoint.sroa.0.2 = phi double [ %add.i119, %if.then69 ], [ %call.i.i84, %if.end66 ]
+  %controlPoint.sroa.14.2 = phi double [ %add4.i121, %if.then69 ], [ %call.i9.i93, %if.end66 ]
   %node.sroa.39.5 = phi double [ %add4.i124, %if.then69 ], [ %call.i9.i114, %if.end66 ]
   %node.sroa.0.5 = phi double [ %add.i122, %if.then69 ], [ %call.i.i105, %if.end66 ]
-  %call.i125 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.4, double %controlPoint.sroa.14.4, double %node.sroa.0.5, double %node.sroa.39.5, i32 noundef 7)
+  %call.i125 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.2, double %controlPoint.sroa.14.2, double %node.sroa.0.5, double %node.sroa.39.5, i32 noundef 7)
   store ptr %call.i125, ptr %ref.tmp76, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76)
           to label %invoke.cont82 unwind label %lpad81
@@ -576,13 +576,13 @@ sw.bb83:                                          ; preds = %while.body4, %while
 if.then94:                                        ; preds = %sw.bb83, %sw.bb83, %sw.bb83, %sw.bb83
   %add.i126 = fadd double %node.sroa.0.0825, %node.sroa.0.0825
   %add3.i = fadd double %node.sroa.39.0824, %node.sroa.39.0824
-  %sub.i = fsub double %add.i126, %controlPoint.sroa.0.1
-  %sub3.i = fsub double %add3.i, %controlPoint.sroa.14.1
+  %sub.i = fsub double %add.i126, %controlPoint.sroa.0.0
+  %sub3.i = fsub double %add3.i, %controlPoint.sroa.14.0
   br label %if.end105
 
 if.end105:                                        ; preds = %sw.bb83, %if.then94
-  %controlPoint.sroa.0.5 = phi double [ %sub.i, %if.then94 ], [ %node.sroa.0.0825, %sw.bb83 ]
-  %controlPoint.sroa.14.5 = phi double [ %sub3.i, %if.then94 ], [ %node.sroa.39.0824, %sw.bb83 ]
+  %controlPoint.sroa.0.3 = phi double [ %sub.i, %if.then94 ], [ %node.sroa.0.0825, %sw.bb83 ]
+  %controlPoint.sroa.14.3 = phi double [ %sub3.i, %if.then94 ], [ %node.sroa.39.0824, %sw.bb83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i130)
   br label %while.cond.i.i.i132
 
@@ -643,7 +643,7 @@ if.end108:                                        ; preds = %_ZN7msdfgenL14skipE
   %add4.i152 = fadd double %prevNode.sroa.25.1820, %call.i9.i145
   %node.sroa.39.6 = select i1 %cmp110, double %add4.i152, double %call.i9.i145
   %node.sroa.0.6 = select i1 %cmp110, double %add.i150, double %call.i.i136
-  %call.i153 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.5, double %controlPoint.sroa.14.5, double %node.sroa.0.6, double %node.sroa.39.6, i32 noundef 7)
+  %call.i153 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.3, double %controlPoint.sroa.14.3, double %node.sroa.0.6, double %node.sroa.39.6, i32 noundef 7)
   store ptr %call.i153, ptr %ref.tmp115, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115)
           to label %invoke.cont121 unwind label %lpad120
@@ -834,13 +834,13 @@ if.then136:                                       ; preds = %if.end133
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then136, %if.end133
-  %controlPoint.sroa.0.6 = phi double [ %add.i217, %if.then136 ], [ %call.i.i161, %if.end133 ]
-  %controlPoint.sroa.14.6 = phi double [ %add4.i219, %if.then136 ], [ %call.i9.i170, %if.end133 ]
-  %controlPoint.sroa.29.4 = phi double [ %add.i220, %if.then136 ], [ %call.i.i182, %if.end133 ]
-  %controlPoint.sroa.36.4 = phi double [ %add4.i222, %if.then136 ], [ %call.i9.i191, %if.end133 ]
+  %controlPoint.sroa.0.4 = phi double [ %add.i217, %if.then136 ], [ %call.i.i161, %if.end133 ]
+  %controlPoint.sroa.14.4 = phi double [ %add4.i219, %if.then136 ], [ %call.i9.i170, %if.end133 ]
+  %controlPoint.sroa.29.2 = phi double [ %add.i220, %if.then136 ], [ %call.i.i182, %if.end133 ]
+  %controlPoint.sroa.36.2 = phi double [ %add4.i222, %if.then136 ], [ %call.i9.i191, %if.end133 ]
   %node.sroa.39.7 = phi double [ %add4.i225, %if.then136 ], [ %call.i9.i212, %if.end133 ]
   %node.sroa.0.7 = phi double [ %add.i223, %if.then136 ], [ %call.i.i203, %if.end133 ]
-  %call.i226 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.6, double %controlPoint.sroa.14.6, double %controlPoint.sroa.29.4, double %controlPoint.sroa.36.4, double %node.sroa.0.7, double %node.sroa.39.7, i32 noundef 7)
+  %call.i226 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.4, double %controlPoint.sroa.14.4, double %controlPoint.sroa.29.2, double %controlPoint.sroa.36.2, double %node.sroa.0.7, double %node.sroa.39.7, i32 noundef 7)
   store ptr %call.i226, ptr %ref.tmp146, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146)
           to label %invoke.cont154 unwind label %lpad153
@@ -860,10 +860,10 @@ sw.bb155:                                         ; preds = %while.body4, %while
   %switch = icmp ult i8 %48, 4
   %add.i227 = fadd double %node.sroa.0.0825, %node.sroa.0.0825
   %add3.i228 = fadd double %node.sroa.39.0824, %node.sroa.39.0824
-  %sub.i231 = fsub double %add.i227, %controlPoint.sroa.29.1
-  %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.1
-  %controlPoint.sroa.0.7 = select i1 %switch, double %sub.i231, double %node.sroa.0.0825
-  %controlPoint.sroa.14.7 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0824
+  %sub.i231 = fsub double %add.i227, %controlPoint.sroa.29.0
+  %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.0
+  %controlPoint.sroa.0.5 = select i1 %switch, double %sub.i231, double %node.sroa.0.0825
+  %controlPoint.sroa.14.5 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0824
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i236)
   br label %while.cond.i.i.i238
 
@@ -984,11 +984,11 @@ if.then189:                                       ; preds = %if.end186
   br label %if.end195
 
 if.end195:                                        ; preds = %if.then189, %if.end186
-  %controlPoint.sroa.29.5 = phi double [ %add.i277, %if.then189 ], [ %call.i.i242, %if.end186 ]
-  %controlPoint.sroa.36.5 = phi double [ %add4.i279, %if.then189 ], [ %call.i9.i251, %if.end186 ]
+  %controlPoint.sroa.29.3 = phi double [ %add.i277, %if.then189 ], [ %call.i.i242, %if.end186 ]
+  %controlPoint.sroa.36.3 = phi double [ %add4.i279, %if.then189 ], [ %call.i9.i251, %if.end186 ]
   %node.sroa.39.8 = phi double [ %add4.i282, %if.then189 ], [ %call.i9.i272, %if.end186 ]
   %node.sroa.0.8 = phi double [ %add.i280, %if.then189 ], [ %call.i.i263, %if.end186 ]
-  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.7, double %controlPoint.sroa.14.7, double %controlPoint.sroa.29.5, double %controlPoint.sroa.36.5, double %node.sroa.0.8, double %node.sroa.39.8, i32 noundef 7)
+  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.1821, double %prevNode.sroa.25.1820, double %controlPoint.sroa.0.5, double %controlPoint.sroa.14.5, double %controlPoint.sroa.29.3, double %controlPoint.sroa.36.3, double %node.sroa.0.8, double %node.sroa.39.8, i32 noundef 7)
   store ptr %call.i283, ptr %ref.tmp196, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp196)
           to label %invoke.cont204 unwind label %lpad203
@@ -1457,10 +1457,10 @@ _ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit: ; preds
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, %invoke.cont204, %invoke.cont154, %invoke.cont121, %invoke.cont82, %invoke.cont59, %invoke.cont43, %invoke.cont, %if.end8
-  %controlPoint.sroa.0.3 = phi double [ %controlPoint.sroa.0.1, %if.end8 ], [ %controlPoint.sroa.0.1, %invoke.cont ], [ %controlPoint.sroa.0.1, %invoke.cont43 ], [ %controlPoint.sroa.0.1, %invoke.cont59 ], [ %controlPoint.sroa.0.4, %invoke.cont82 ], [ %controlPoint.sroa.0.5, %invoke.cont121 ], [ %controlPoint.sroa.0.6, %invoke.cont154 ], [ %controlPoint.sroa.0.7, %invoke.cont204 ], [ %controlPoint.sroa.0.1, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
-  %controlPoint.sroa.14.3 = phi double [ %controlPoint.sroa.14.1, %if.end8 ], [ %controlPoint.sroa.14.1, %invoke.cont ], [ %controlPoint.sroa.14.1, %invoke.cont43 ], [ %controlPoint.sroa.14.1, %invoke.cont59 ], [ %controlPoint.sroa.14.4, %invoke.cont82 ], [ %controlPoint.sroa.14.5, %invoke.cont121 ], [ %controlPoint.sroa.14.6, %invoke.cont154 ], [ %controlPoint.sroa.14.7, %invoke.cont204 ], [ %controlPoint.sroa.14.1, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
-  %controlPoint.sroa.29.3 = phi double [ %controlPoint.sroa.29.1, %if.end8 ], [ %controlPoint.sroa.29.1, %invoke.cont ], [ %controlPoint.sroa.29.1, %invoke.cont43 ], [ %controlPoint.sroa.29.1, %invoke.cont59 ], [ %controlPoint.sroa.29.1, %invoke.cont82 ], [ %controlPoint.sroa.29.1, %invoke.cont121 ], [ %controlPoint.sroa.29.4, %invoke.cont154 ], [ %controlPoint.sroa.29.5, %invoke.cont204 ], [ %controlPoint.sroa.29.1, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
-  %controlPoint.sroa.36.3 = phi double [ %controlPoint.sroa.36.1, %if.end8 ], [ %controlPoint.sroa.36.1, %invoke.cont ], [ %controlPoint.sroa.36.1, %invoke.cont43 ], [ %controlPoint.sroa.36.1, %invoke.cont59 ], [ %controlPoint.sroa.36.1, %invoke.cont82 ], [ %controlPoint.sroa.36.1, %invoke.cont121 ], [ %controlPoint.sroa.36.4, %invoke.cont154 ], [ %controlPoint.sroa.36.5, %invoke.cont204 ], [ %controlPoint.sroa.36.1, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
+  %controlPoint.sroa.0.1 = phi double [ %controlPoint.sroa.0.0, %if.end8 ], [ %controlPoint.sroa.0.0, %invoke.cont ], [ %controlPoint.sroa.0.0, %invoke.cont43 ], [ %controlPoint.sroa.0.0, %invoke.cont59 ], [ %controlPoint.sroa.0.2, %invoke.cont82 ], [ %controlPoint.sroa.0.3, %invoke.cont121 ], [ %controlPoint.sroa.0.4, %invoke.cont154 ], [ %controlPoint.sroa.0.5, %invoke.cont204 ], [ %controlPoint.sroa.0.0, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
+  %controlPoint.sroa.14.1 = phi double [ %controlPoint.sroa.14.0, %if.end8 ], [ %controlPoint.sroa.14.0, %invoke.cont ], [ %controlPoint.sroa.14.0, %invoke.cont43 ], [ %controlPoint.sroa.14.0, %invoke.cont59 ], [ %controlPoint.sroa.14.2, %invoke.cont82 ], [ %controlPoint.sroa.14.3, %invoke.cont121 ], [ %controlPoint.sroa.14.4, %invoke.cont154 ], [ %controlPoint.sroa.14.5, %invoke.cont204 ], [ %controlPoint.sroa.14.0, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
+  %controlPoint.sroa.29.1 = phi double [ %controlPoint.sroa.29.0, %if.end8 ], [ %controlPoint.sroa.29.0, %invoke.cont ], [ %controlPoint.sroa.29.0, %invoke.cont43 ], [ %controlPoint.sroa.29.0, %invoke.cont59 ], [ %controlPoint.sroa.29.0, %invoke.cont82 ], [ %controlPoint.sroa.29.0, %invoke.cont121 ], [ %controlPoint.sroa.29.2, %invoke.cont154 ], [ %controlPoint.sroa.29.3, %invoke.cont204 ], [ %controlPoint.sroa.29.0, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
+  %controlPoint.sroa.36.1 = phi double [ %controlPoint.sroa.36.0, %if.end8 ], [ %controlPoint.sroa.36.0, %invoke.cont ], [ %controlPoint.sroa.36.0, %invoke.cont43 ], [ %controlPoint.sroa.36.0, %invoke.cont59 ], [ %controlPoint.sroa.36.0, %invoke.cont82 ], [ %controlPoint.sroa.36.0, %invoke.cont121 ], [ %controlPoint.sroa.36.2, %invoke.cont154 ], [ %controlPoint.sroa.36.3, %invoke.cont204 ], [ %controlPoint.sroa.36.0, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
   %startPoint.sroa.5.1 = phi double [ %node.sroa.39.1, %if.end8 ], [ %startPoint.sroa.5.0822, %invoke.cont ], [ %startPoint.sroa.5.0822, %invoke.cont43 ], [ %startPoint.sroa.5.0822, %invoke.cont59 ], [ %startPoint.sroa.5.0822, %invoke.cont82 ], [ %startPoint.sroa.5.0822, %invoke.cont121 ], [ %startPoint.sroa.5.0822, %invoke.cont154 ], [ %startPoint.sroa.5.0822, %invoke.cont204 ], [ %startPoint.sroa.5.0822, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
   %startPoint.sroa.0.1 = phi double [ %node.sroa.0.1, %if.end8 ], [ %startPoint.sroa.0.0823, %invoke.cont ], [ %startPoint.sroa.0.0823, %invoke.cont43 ], [ %startPoint.sroa.0.0823, %invoke.cont59 ], [ %startPoint.sroa.0.0823, %invoke.cont82 ], [ %startPoint.sroa.0.0823, %invoke.cont121 ], [ %startPoint.sroa.0.0823, %invoke.cont154 ], [ %startPoint.sroa.0.0823, %invoke.cont204 ], [ %startPoint.sroa.0.0823, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]
   %node.sroa.39.2 = phi double [ %node.sroa.39.1, %if.end8 ], [ %node.sroa.39.3, %invoke.cont ], [ %node.sroa.39.0824, %invoke.cont43 ], [ %node.sroa.39.4, %invoke.cont59 ], [ %node.sroa.39.5, %invoke.cont82 ], [ %node.sroa.39.6, %invoke.cont121 ], [ %node.sroa.39.7, %invoke.cont154 ], [ %node.sroa.39.8, %invoke.cont204 ], [ %node.sroa.39.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ]

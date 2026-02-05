@@ -767,17 +767,17 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit68.i: ; preds = %
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.014.051.i = load ptr, ptr %52, align 8, !tbaa !186
-  %.not52.i = icmp eq ptr %.sroa.014.051.i, %161
-  br i1 %.not52.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, label %.lr.ph.i
+  %.sroa.08.033.i = load ptr, ptr %52, align 8, !tbaa !186
+  %.not34.i = icmp eq ptr %.sroa.08.033.i, %161
+  br i1 %.not34.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %160
   %162 = getelementptr inbounds nuw i8, ptr %18, i64 32
   br label %163
 
 163:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i, %.lr.ph.i
-  %.sroa.014.053.i = phi ptr [ %.sroa.014.051.i, %.lr.ph.i ], [ %.sroa.014.0.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i ]
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.014.053.i, i64 24
+  %.sroa.08.035.i = phi ptr [ %.sroa.08.033.i, %.lr.ph.i ], [ %.sroa.08.0.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.i, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !201
   %166 = icmp eq ptr %164, %165
   br i1 %166, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i, label %167
@@ -829,9 +829,9 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit78.i: ; preds = %
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i: ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit78.i, %167, %163
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.014.053.i, i64 8
-  %.sroa.014.0.i = load ptr, ptr %185, align 8, !tbaa !186
-  %.not.i = icmp eq ptr %.sroa.014.0.i, %161
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.08.035.i, i64 8
+  %.sroa.08.0.i = load ptr, ptr %185, align 8, !tbaa !186
+  %.not.i = icmp eq ptr %.sroa.08.0.i, %161
   br i1 %.not.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, label %163
 
 _ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i, %159, %160

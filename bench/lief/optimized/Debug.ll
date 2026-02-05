@@ -600,20 +600,20 @@ define { ptr, i64 } @_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionEjjj(ptr nounde
   %27 = add i32 %23, %3
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %11, %28
-  %or.cond30 = or i1 %.not, %29
-  br i1 %or.cond30, label %34, label %30
+  %or.cond24 = or i1 %.not, %29
+  br i1 %or.cond24, label %34, label %30
 
 30:                                               ; preds = %25
   %31 = sub nuw i64 %11, %26
   %32 = icmp ult i64 %31, %15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 %26
   %spec.select = select i1 %32, i64 0, i64 %15
-  %spec.select31 = select i1 %32, ptr null, ptr %33
+  %spec.select25 = select i1 %32, ptr null, ptr %33
   br label %34
 
 34:                                               ; preds = %30, %25, %17, %4, %14
   %.sroa.6.0 = phi i64 [ %spec.select, %30 ], [ 0, %4 ], [ 0, %17 ], [ 0, %25 ], [ 0, %14 ]
-  %.sroa.021.0 = phi ptr [ %spec.select31, %30 ], [ null, %4 ], [ null, %17 ], [ null, %25 ], [ null, %14 ]
+  %.sroa.021.0 = phi ptr [ %spec.select25, %30 ], [ null, %4 ], [ null, %17 ], [ null, %25 ], [ null, %14 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -658,20 +658,20 @@ define { ptr, i64 } @_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionERKNS0_7details
   %29 = add i32 %25, %6
   %30 = zext i32 %29 to i64
   %31 = icmp ult i64 %13, %30
-  %or.cond30.i = or i1 %.not.i, %31
-  br i1 %or.cond30.i, label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionEjjj.exit, label %32
+  %or.cond24.i = or i1 %.not.i, %31
+  br i1 %or.cond24.i, label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionEjjj.exit, label %32
 
 32:                                               ; preds = %27
   %33 = sub nuw i64 %13, %28
   %34 = icmp ult i64 %33, %17
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 %28
   %spec.select.i = select i1 %34, i64 0, i64 %17
-  %spec.select31.i = select i1 %34, ptr null, ptr %35
+  %spec.select25.i = select i1 %34, ptr null, ptr %35
   br label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionEjjj.exit
 
 _ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionEjjj.exit: ; preds = %2, %16, %19, %27, %32
   %.sroa.6.0.i = phi i64 [ %spec.select.i, %32 ], [ 0, %2 ], [ 0, %19 ], [ 0, %27 ], [ 0, %16 ]
-  %.sroa.021.0.i = phi ptr [ %spec.select31.i, %32 ], [ null, %2 ], [ null, %19 ], [ null, %27 ], [ null, %16 ]
+  %.sroa.021.0.i = phi ptr [ %spec.select25.i, %32 ], [ null, %2 ], [ null, %19 ], [ null, %27 ], [ null, %16 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.sroa.021.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.sroa.6.0.i, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -764,19 +764,19 @@ define { ptr, i64 } @_ZN4LIEF2PE5Debug7payloadEv(ptr noundef nonnull readonly al
   %32 = add i32 %28, %9
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %16, %33
-  %or.cond30.i.i = or i1 %.not.i.i, %34
-  br i1 %or.cond30.i.i, label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionERKS1_.exit, label %35
+  %or.cond24.i.i = or i1 %.not.i.i, %34
+  br i1 %or.cond24.i.i, label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionERKS1_.exit, label %35
 
 35:                                               ; preds = %30
   %36 = sub nuw i64 %16, %31
   %37 = icmp ult i64 %36, %20
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 %31
   %spec.select.i.i = select i1 %37, i64 0, i64 %20
-  %spec.select31.i.i = select i1 %37, ptr null, ptr %38
+  %spec.select25.i.i = select i1 %37, ptr null, ptr %38
   br label %_ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionERKS1_.exit
 
 _ZN4LIEF2PE5Debug11get_payloadERNS0_7SectionERKS1_.exit: ; preds = %35, %30, %22, %19, %5, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select31.i.i, %35 ], [ null, %5 ], [ null, %22 ], [ null, %30 ], [ null, %19 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select25.i.i, %35 ], [ null, %5 ], [ null, %22 ], [ null, %30 ], [ null, %19 ]
   %.sroa.3.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i, %35 ], [ 0, %5 ], [ 0, %22 ], [ 0, %30 ], [ 0, %19 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1

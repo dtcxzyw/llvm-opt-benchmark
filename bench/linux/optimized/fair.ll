@@ -13116,7 +13116,7 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %.thread27, label %15
+  br i1 %14, label %.thread23, label %15
 
 15:                                               ; preds = %1
   %16 = zext i32 %5 to i64
@@ -13124,24 +13124,24 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %.thread27, label %20
+  br i1 %19, label %.thread23, label %20
 
 20:                                               ; preds = %15
   %21 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #30, !srcloc !157
   %22 = icmp eq i32 %3, %21
-  br i1 %22, label %23, label %.thread27, !prof !15
+  br i1 %22, label %23, label %.thread23, !prof !15
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %25 = load i32, ptr %24, align 32
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread27, label %27, !prof !7
+  br i1 %26, label %.thread23, label %27, !prof !7
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp ult i32 %29, 2
-  br i1 %30, label %.thread27, label %31
+  br i1 %30, label %.thread23, label %31
 
 31:                                               ; preds = %27
   %32 = icmp eq ptr %0, %10
@@ -13161,9 +13161,9 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2488
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit30, label %.preheader29
+  br i1 %40, label %.loopexit26, label %.preheader25
 
-.preheader29:                                     ; preds = %34, %46
+.preheader25:                                     ; preds = %34, %46
   %41 = phi ptr [ %47, %46 ], [ %39, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 280
   %43 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %42, i64 %11) #28, !srcloc !10
@@ -13172,12 +13172,12 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %45 = icmp eq i8 %43, 0
   br i1 %45, label %46, label %49
 
-46:                                               ; preds = %.preheader29
+46:                                               ; preds = %.preheader25
   %47 = load ptr, ptr %41, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit30, label %.preheader29, !llvm.loop !161
+  br i1 %48, label %.loopexit26, label %.preheader25, !llvm.loop !161
 
-49:                                               ; preds = %.preheader29
+49:                                               ; preds = %.preheader25
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #28
           to label %54 [label %50], !srcloc !8
 
@@ -13194,9 +13194,9 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %58 = icmp eq ptr %56, %57
-  br i1 %58, label %.thread, label %.preheader28
+  br i1 %58, label %.thread, label %.preheader24
 
-.preheader28:                                     ; preds = %54
+.preheader24:                                     ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 84
   br label %63
 
@@ -13206,8 +13206,8 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   %62 = icmp eq ptr %61, %57
   br i1 %62, label %.thread, label %63, !llvm.loop !162
 
-63:                                               ; preds = %.preheader28, %.loopexit
-  %64 = phi ptr [ %61, %.loopexit ], [ %56, %.preheader28 ]
+63:                                               ; preds = %.preheader24, %.loopexit
+  %64 = phi ptr [ %61, %.loopexit ], [ %56, %.preheader24 ]
   %65 = getelementptr i8, ptr %64, i64 -184
   %66 = tail call zeroext i1 @kthread_is_per_cpu(ptr noundef %65) #28
   br i1 %66, label %.loopexit, label %67
@@ -13279,25 +13279,25 @@ can_migrate_task.exit:                            ; preds = %78
 
 98:                                               ; preds = %94, %93
   store i32 0, ptr %59, align 4
-  br label %.loopexit30
+  br label %.loopexit26
 
 .thread:                                          ; preds = %.loopexit, %54, %91
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #28
-          to label %.loopexit30 [label %99], !srcloc !8
+          to label %.loopexit26 [label %99], !srcloc !8
 
 99:                                               ; preds = %.thread
   %100 = getelementptr inbounds nuw i8, ptr %41, i64 204
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
-  br label %.loopexit30
+  br label %.loopexit26
 
-.thread27:                                        ; preds = %23, %27, %15, %1, %20
+.thread23:                                        ; preds = %23, %27, %15, %1, %20
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   store i32 0, ptr %103, align 32
   br label %.sink.split
 
-.loopexit30:                                      ; preds = %46, %98, %.thread, %99, %34
+.loopexit26:                                      ; preds = %46, %98, %.thread, %99, %34
   %104 = phi ptr [ %65, %98 ], [ null, %34 ], [ null, %99 ], [ null, %.thread ], [ null, %46 ]
   tail call void @__rcu_read_unlock() #28
   store i32 0, ptr %24, align 32
@@ -13305,7 +13305,7 @@ can_migrate_task.exit:                            ; preds = %78
   %105 = icmp eq ptr %104, null
   br i1 %105, label %116, label %106
 
-106:                                              ; preds = %.loopexit30
+106:                                              ; preds = %.loopexit26
   tail call void @raw_spin_rq_lock_nested(ptr noundef %10, i32 noundef 0) #28
   tail call void @update_rq_clock(ptr noundef %10) #28
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 20
@@ -13328,12 +13328,12 @@ can_migrate_task.exit:                            ; preds = %78
   tail call void @wakeup_preempt(ptr noundef %10, ptr noundef nonnull %104, i32 noundef 0) #28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %115, %.thread27
-  %.sink = phi ptr [ %0, %.thread27 ], [ %10, %115 ]
+.sink.split:                                      ; preds = %115, %.thread23
+  %.sink = phi ptr [ %0, %.thread23 ], [ %10, %115 ]
   tail call void @raw_spin_rq_unlock(ptr noundef %.sink) #28
   br label %116
 
-116:                                              ; preds = %.sink.split, %.loopexit30
+116:                                              ; preds = %.sink.split, %.loopexit26
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !57
   ret i32 0
 }

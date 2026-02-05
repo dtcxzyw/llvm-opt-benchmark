@@ -844,19 +844,19 @@ define dso_local { ptr, ptr } @_ZN4llvm25getFunctionAtVTableOffsetEPNS_14GlobalV
   %14 = load i8, ptr %13, align 8, !tbaa !45
   %15 = icmp eq i8 %14, 0
   %spec.select = select i1 %15, ptr %8, ptr null
-  %spec.select24 = select i1 %15, ptr %13, ptr null
+  %spec.select22 = select i1 %15, ptr %13, ptr null
   br label %.thread
 
 16:                                               ; preds = %7
   %17 = icmp eq i8 %9, 0
   %spec.select.i.i = select i1 %17, ptr %8, ptr null
   %.not9 = icmp eq ptr %spec.select.i.i, null
-  %spec.select25 = select i1 %.not9, ptr null, ptr %8
+  %spec.select23 = select i1 %.not9, ptr null, ptr %8
   br label %.thread
 
 .thread:                                          ; preds = %16, %11, %3
-  %.sroa.4.0 = phi ptr [ null, %3 ], [ %spec.select, %11 ], [ %spec.select25, %16 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ %spec.select24, %11 ], [ %spec.select.i.i, %16 ]
+  %.sroa.4.0 = phi ptr [ null, %3 ], [ %spec.select, %11 ], [ %spec.select23, %16 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %spec.select22, %11 ], [ %spec.select.i.i, %16 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

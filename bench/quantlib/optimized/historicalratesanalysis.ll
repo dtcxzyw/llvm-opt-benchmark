@@ -342,10 +342,10 @@ if.end.i.i.i.i.i.i.i62:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i.i62, %call5.i.i.i.i2.i.i.noexc70, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %prevSample.sroa.14.5169 = phi ptr [ %add.ptr.i.i.i36, %if.end.i.i.i.i.i.i.i62 ], [ %add.ptr.i.i.i36, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %prevSample.sroa.0.5167 = phi ptr [ %call5.i.i.i.i2.i.i50, %if.end.i.i.i.i.i.i.i62 ], [ %call5.i.i.i.i2.i.i50, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %sample.sroa.15.6149165 = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i62 ], [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %sample.sroa.0.6151163 = phi ptr [ %call5.i.i.i.i2.i.i30, %if.end.i.i.i.i.i.i.i62 ], [ %call5.i.i.i.i2.i.i30, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %prevSample.sroa.14.5160 = phi ptr [ %add.ptr.i.i.i36, %if.end.i.i.i.i.i.i.i62 ], [ %add.ptr.i.i.i36, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %prevSample.sroa.0.5158 = phi ptr [ %call5.i.i.i.i2.i.i50, %if.end.i.i.i.i.i.i.i62 ], [ %call5.i.i.i.i2.i.i50, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %sample.sroa.15.6140156 = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i62 ], [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %sample.sroa.0.6142154 = phi ptr [ %call5.i.i.i.i2.i.i30, %if.end.i.i.i.i.i.i.i62 ], [ %call5.i.i.i.i2.i.i30, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %sampleDiff.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i71, %if.end.i.i.i.i.i.i.i62 ], [ %call5.i.i.i.i2.i.i71, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %sampleDiff.sroa.12.0 = phi ptr [ %add.ptr.i.i.i57, %if.end.i.i.i.i.i.i.i62 ], [ %add.ptr.i.i.i57, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i65 = phi ptr [ %add.ptr.i.i.i.i.i.i.i64, %if.end.i.i.i.i.i.i.i62 ], [ %incdec.ptr.i.i.i.i.i59, %call5.i.i.i.i2.i.i.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
@@ -382,18 +382,18 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   store i64 %call17, ptr %currentDate, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
   %13 = load i64, ptr %endDate, align 8, !tbaa !34
-  %cmp.i.not229 = icmp sgt i64 %call17, %13
-  br i1 %cmp.i.not229, label %for.end71, label %for.cond21.preheader.lr.ph
+  %cmp.i.not220 = icmp sgt i64 %call17, %13
+  br i1 %cmp.i.not220, label %for.end71, label %for.cond21.preheader.lr.ph
 
 for.cond21.preheader.lr.ph:                       ; preds = %invoke.cont16
   br i1 %cmp.not.i.i.i.i, label %for.cond21.preheader, label %for.cond21.preheader.us
 
 for.cond21.preheader.us:                          ; preds = %for.cond21.preheader.lr.ph, %invoke.cont67.us
-  %isFirst.0234.us = phi i1 [ %isFirst.1.us, %invoke.cont67.us ], [ true, %for.cond21.preheader.lr.ph ]
-  %sample.sroa.0.0233.us = phi ptr [ %sample.sroa.0.5.us, %invoke.cont67.us ], [ %sample.sroa.0.6151163, %for.cond21.preheader.lr.ph ]
-  %prevSample.sroa.14.0232.us = phi ptr [ %prevSample.sroa.14.4.us, %invoke.cont67.us ], [ %prevSample.sroa.14.5169, %for.cond21.preheader.lr.ph ]
-  %prevSample.sroa.0.0231.us = phi ptr [ %prevSample.sroa.0.4.us, %invoke.cont67.us ], [ %prevSample.sroa.0.5167, %for.cond21.preheader.lr.ph ]
-  %sample.sroa.15.0230.us = phi ptr [ %sample.sroa.15.5.us, %invoke.cont67.us ], [ %sample.sroa.15.6149165, %for.cond21.preheader.lr.ph ]
+  %isFirst.0225.us = phi i1 [ %isFirst.1.us, %invoke.cont67.us ], [ true, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.0.0224.us = phi ptr [ %sample.sroa.0.5.us, %invoke.cont67.us ], [ %sample.sroa.0.6142154, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.14.0223.us = phi ptr [ %prevSample.sroa.14.4.us, %invoke.cont67.us ], [ %prevSample.sroa.14.5160, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.0.0222.us = phi ptr [ %prevSample.sroa.0.4.us, %invoke.cont67.us ], [ %prevSample.sroa.0.5158, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.15.0221.us = phi ptr [ %sample.sroa.15.5.us, %invoke.cont67.us ], [ %sample.sroa.15.6140156, %for.cond21.preheader.lr.ph ]
   br label %for.body22.us
 
 for.cond.cleanup48.us:                            ; preds = %for.body49.us
@@ -401,23 +401,23 @@ for.cond.cleanup48.us:                            ; preds = %for.body49.us
           to label %for.inc64.us unwind label %lpad18.split.us
 
 for.body49.us:                                    ; preds = %for.cond21.for.cond.cleanup_crit_edge.us, %for.body49.us
-  %i45.0228.us = phi i64 [ %inc54.us, %for.body49.us ], [ 0, %for.cond21.for.cond.cleanup_crit_edge.us ]
-  %add.ptr.i81.us = getelementptr inbounds nuw double, ptr %sample.sroa.0.0233.us, i64 %i45.0228.us
+  %i45.0219.us = phi i64 [ %inc54.us, %for.body49.us ], [ 0, %for.cond21.for.cond.cleanup_crit_edge.us ]
+  %add.ptr.i81.us = getelementptr inbounds nuw double, ptr %sample.sroa.0.0224.us, i64 %i45.0219.us
   %14 = load double, ptr %add.ptr.i81.us, align 8, !tbaa !29
-  %add.ptr.i82.us = getelementptr inbounds nuw double, ptr %prevSample.sroa.0.0231.us, i64 %i45.0228.us
+  %add.ptr.i82.us = getelementptr inbounds nuw double, ptr %prevSample.sroa.0.0222.us, i64 %i45.0219.us
   %15 = load double, ptr %add.ptr.i82.us, align 8, !tbaa !29
   %div.us = fdiv double %14, %15
   %sub.us = fadd double %div.us, -1.000000e+00
-  %add.ptr.i83.us = getelementptr inbounds nuw double, ptr %sampleDiff.sroa.0.0, i64 %i45.0228.us
+  %add.ptr.i83.us = getelementptr inbounds nuw double, ptr %sampleDiff.sroa.0.0, i64 %i45.0219.us
   store double %sub.us, ptr %add.ptr.i83.us, align 8, !tbaa !29
-  %inc54.us = add nuw i64 %i45.0228.us, 1
-  %exitcond365.not = icmp eq i64 %inc54.us, %sub.ptr.div.i
-  br i1 %exitcond365.not, label %for.cond.cleanup48.us, label %for.body49.us, !llvm.loop !36
+  %inc54.us = add nuw i64 %i45.0219.us, 1
+  %exitcond356.not = icmp eq i64 %inc54.us, %sub.ptr.div.i
+  br i1 %exitcond356.not, label %for.cond.cleanup48.us, label %for.body49.us, !llvm.loop !36
 
 for.body22.us:                                    ; preds = %for.cond21.preheader.us, %invoke.cont29.us
-  %i.0226.us = phi i64 [ 0, %for.cond21.preheader.us ], [ %inc.us, %invoke.cont29.us ]
+  %i.0217.us = phi i64 [ 0, %for.cond21.preheader.us ], [ %inc.us, %invoke.cont29.us ]
   %16 = load ptr, ptr %indexes, align 8, !tbaa !28
-  %add.ptr.i.us = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %16, i64 %i.0226.us
+  %add.ptr.i.us = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %16, i64 %i.0217.us
   %17 = load ptr, ptr %add.ptr.i.us, align 8, !tbaa !31
   %cmp.not.i74.us = icmp eq ptr %17, null
   br i1 %cmp.not.i74.us, label %cond.false.i75.us, label %invoke.cont25.us, !prof !33
@@ -469,11 +469,11 @@ invoke.cont39.us:                                 ; preds = %invoke.cont33.us
           to label %for.inc64.us unwind label %lpad41.split.us
 
 for.inc64.us:                                     ; preds = %invoke.cont39.us, %for.cond.cleanup48.us, %for.cond21.for.cond.cleanup_crit_edge.us
-  %sample.sroa.15.5.us = phi ptr [ %sample.sroa.15.0230.us, %invoke.cont39.us ], [ %prevSample.sroa.14.0232.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %prevSample.sroa.14.0232.us, %for.cond.cleanup48.us ]
-  %prevSample.sroa.0.4.us = phi ptr [ %prevSample.sroa.0.0231.us, %invoke.cont39.us ], [ %sample.sroa.0.0233.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %sample.sroa.0.0233.us, %for.cond.cleanup48.us ]
-  %prevSample.sroa.14.4.us = phi ptr [ %prevSample.sroa.14.0232.us, %invoke.cont39.us ], [ %sample.sroa.15.0230.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %sample.sroa.15.0230.us, %for.cond.cleanup48.us ]
-  %sample.sroa.0.5.us = phi ptr [ %sample.sroa.0.0233.us, %invoke.cont39.us ], [ %prevSample.sroa.0.0231.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %prevSample.sroa.0.0231.us, %for.cond.cleanup48.us ]
-  %isFirst.1.us = phi i1 [ %isFirst.0234.us, %invoke.cont39.us ], [ false, %for.cond21.for.cond.cleanup_crit_edge.us ], [ false, %for.cond.cleanup48.us ]
+  %sample.sroa.15.5.us = phi ptr [ %sample.sroa.15.0221.us, %invoke.cont39.us ], [ %prevSample.sroa.14.0223.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %prevSample.sroa.14.0223.us, %for.cond.cleanup48.us ]
+  %prevSample.sroa.0.4.us = phi ptr [ %prevSample.sroa.0.0222.us, %invoke.cont39.us ], [ %sample.sroa.0.0224.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %sample.sroa.0.0224.us, %for.cond.cleanup48.us ]
+  %prevSample.sroa.14.4.us = phi ptr [ %prevSample.sroa.14.0223.us, %invoke.cont39.us ], [ %sample.sroa.15.0221.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %sample.sroa.15.0221.us, %for.cond.cleanup48.us ]
+  %sample.sroa.0.5.us = phi ptr [ %sample.sroa.0.0224.us, %invoke.cont39.us ], [ %prevSample.sroa.0.0222.us, %for.cond21.for.cond.cleanup_crit_edge.us ], [ %prevSample.sroa.0.0222.us, %for.cond.cleanup48.us ]
+  %isFirst.1.us = phi i1 [ %isFirst.0225.us, %invoke.cont39.us ], [ false, %for.cond21.for.cond.cleanup_crit_edge.us ], [ false, %for.cond.cleanup48.us ]
   %call68.us = invoke i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateERKNS_6PeriodENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr noundef nonnull align 8 dereferenceable(8) %currentDate, ptr noundef nonnull align 4 dereferenceable(8) %step, i32 noundef 0, i1 noundef zeroext false)
           to label %invoke.cont67.us unwind label %lpad66.split.us
 
@@ -484,14 +484,14 @@ invoke.cont67.us:                                 ; preds = %for.inc64.us
   br i1 %cmp.i.not.us, label %for.end71, label %for.cond21.preheader.us, !llvm.loop !38
 
 invoke.cont29.us:                                 ; preds = %invoke.cont25.us
-  %add.ptr.i79.us = getelementptr inbounds nuw double, ptr %sample.sroa.0.0233.us, i64 %i.0226.us
+  %add.ptr.i79.us = getelementptr inbounds nuw double, ptr %sample.sroa.0.0224.us, i64 %i.0217.us
   store double %call30.us, ptr %add.ptr.i79.us, align 8, !tbaa !29
-  %inc.us = add nuw i64 %i.0226.us, 1
+  %inc.us = add nuw i64 %i.0217.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond21.for.cond.cleanup_crit_edge.us, label %for.body22.us, !llvm.loop !39
 
 for.cond21.for.cond.cleanup_crit_edge.us:         ; preds = %invoke.cont29.us
-  br i1 %isFirst.0234.us, label %for.inc64.us, label %for.body49.us
+  br i1 %isFirst.0225.us, label %for.inc64.us, label %for.body49.us
 
 lpad18.split.us:                                  ; preds = %for.cond.cleanup48.us
   %27 = landingpad { ptr, i32 }
@@ -520,12 +520,12 @@ lpad66.split.us:                                  ; preds = %for.inc64.us
   br label %ehcleanup73
 
 for.cond21.preheader:                             ; preds = %for.cond21.preheader.lr.ph, %invoke.cont67
-  %isFirst.0234 = phi i1 [ false, %invoke.cont67 ], [ true, %for.cond21.preheader.lr.ph ]
-  %sample.sroa.0.0233 = phi ptr [ %prevSample.sroa.0.0231, %invoke.cont67 ], [ %sample.sroa.0.6151163, %for.cond21.preheader.lr.ph ]
-  %prevSample.sroa.14.0232 = phi ptr [ %sample.sroa.15.0230, %invoke.cont67 ], [ %prevSample.sroa.14.5169, %for.cond21.preheader.lr.ph ]
-  %prevSample.sroa.0.0231 = phi ptr [ %sample.sroa.0.0233, %invoke.cont67 ], [ %prevSample.sroa.0.5167, %for.cond21.preheader.lr.ph ]
-  %sample.sroa.15.0230 = phi ptr [ %prevSample.sroa.14.0232, %invoke.cont67 ], [ %sample.sroa.15.6149165, %for.cond21.preheader.lr.ph ]
-  br i1 %isFirst.0234, label %for.inc64, label %for.cond46.preheader
+  %isFirst.0225 = phi i1 [ false, %invoke.cont67 ], [ true, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.0.0224 = phi ptr [ %prevSample.sroa.0.0222, %invoke.cont67 ], [ %sample.sroa.0.6142154, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.14.0223 = phi ptr [ %sample.sroa.15.0221, %invoke.cont67 ], [ %prevSample.sroa.14.5160, %for.cond21.preheader.lr.ph ]
+  %prevSample.sroa.0.0222 = phi ptr [ %sample.sroa.0.0224, %invoke.cont67 ], [ %prevSample.sroa.0.5158, %for.cond21.preheader.lr.ph ]
+  %sample.sroa.15.0221 = phi ptr [ %prevSample.sroa.14.0223, %invoke.cont67 ], [ %sample.sroa.15.6140156, %for.cond21.preheader.lr.ph ]
+  br i1 %isFirst.0225, label %for.inc64, label %for.cond46.preheader
 
 for.cond46.preheader:                             ; preds = %for.cond21.preheader
   invoke void @_ZN8QuantLib25GenericSequenceStatisticsINS_21GenericRiskStatisticsINS_25GenericGaussianStatisticsINS_17GeneralStatisticsEEEEEE3addIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEvT_SF_d(ptr noundef nonnull align 8 dereferenceable(80) %statistics, ptr %sampleDiff.sroa.0.0, ptr %__first.addr.0.i.i.i.i.i65, double noundef 1.000000e+00)
@@ -578,10 +578,10 @@ lpad66.split.split:                               ; preds = %for.inc64
   br label %ehcleanup73
 
 for.end71:                                        ; preds = %invoke.cont67.us, %invoke.cont67, %invoke.cont16
-  %sample.sroa.15.0.lcssa = phi ptr [ %sample.sroa.15.6149165, %invoke.cont16 ], [ %prevSample.sroa.14.0232, %invoke.cont67 ], [ %sample.sroa.15.5.us, %invoke.cont67.us ]
-  %prevSample.sroa.0.0.lcssa = phi ptr [ %prevSample.sroa.0.5167, %invoke.cont16 ], [ %sample.sroa.0.0233, %invoke.cont67 ], [ %prevSample.sroa.0.4.us, %invoke.cont67.us ]
-  %prevSample.sroa.14.0.lcssa = phi ptr [ %prevSample.sroa.14.5169, %invoke.cont16 ], [ %sample.sroa.15.0230, %invoke.cont67 ], [ %prevSample.sroa.14.4.us, %invoke.cont67.us ]
-  %sample.sroa.0.0.lcssa = phi ptr [ %sample.sroa.0.6151163, %invoke.cont16 ], [ %prevSample.sroa.0.0231, %invoke.cont67 ], [ %sample.sroa.0.5.us, %invoke.cont67.us ]
+  %sample.sroa.15.0.lcssa = phi ptr [ %sample.sroa.15.6140156, %invoke.cont16 ], [ %prevSample.sroa.14.0223, %invoke.cont67 ], [ %sample.sroa.15.5.us, %invoke.cont67.us ]
+  %prevSample.sroa.0.0.lcssa = phi ptr [ %prevSample.sroa.0.5158, %invoke.cont16 ], [ %sample.sroa.0.0224, %invoke.cont67 ], [ %prevSample.sroa.0.4.us, %invoke.cont67.us ]
+  %prevSample.sroa.14.0.lcssa = phi ptr [ %prevSample.sroa.14.5160, %invoke.cont16 ], [ %sample.sroa.15.0221, %invoke.cont67 ], [ %prevSample.sroa.14.4.us, %invoke.cont67.us ]
+  %sample.sroa.0.0.lcssa = phi ptr [ %sample.sroa.0.6142154, %invoke.cont16 ], [ %prevSample.sroa.0.0222, %invoke.cont67 ], [ %sample.sroa.0.5.us, %invoke.cont67.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %currentDate)
   %pn.i.i = getelementptr inbounds nuw i8, ptr %cal, i64 8
   %39 = load ptr, ptr %pn.i.i, align 8, !tbaa !16
@@ -659,20 +659,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit99:                  ; preds = %_ZNSt6vectorIdSaIdE
   ret void
 
 ehcleanup73:                                      ; preds = %lpad24.us, %lpad66.split.us, %lpad66.split.split, %lpad18.split.us, %lpad18.split.split, %ehcleanup, %lpad41.split.us, %lpad13
-  %sample.sroa.15.4 = phi ptr [ %sample.sroa.15.5.us, %lpad66.split.us ], [ %sample.sroa.15.0230.us, %lpad41.split.us ], [ %sample.sroa.15.0230.us, %ehcleanup ], [ %sample.sroa.15.6149165, %lpad13 ], [ %prevSample.sroa.14.0232, %lpad66.split.split ], [ %sample.sroa.15.0230.us, %lpad18.split.us ], [ %sample.sroa.15.0230, %lpad18.split.split ], [ %sample.sroa.15.0230.us, %lpad24.us ]
-  %prevSample.sroa.0.3 = phi ptr [ %prevSample.sroa.0.4.us, %lpad66.split.us ], [ %prevSample.sroa.0.0231.us, %lpad41.split.us ], [ %prevSample.sroa.0.0231.us, %ehcleanup ], [ %prevSample.sroa.0.5167, %lpad13 ], [ %sample.sroa.0.0233, %lpad66.split.split ], [ %prevSample.sroa.0.0231.us, %lpad18.split.us ], [ %prevSample.sroa.0.0231, %lpad18.split.split ], [ %prevSample.sroa.0.0231.us, %lpad24.us ]
-  %prevSample.sroa.14.3 = phi ptr [ %prevSample.sroa.14.4.us, %lpad66.split.us ], [ %prevSample.sroa.14.0232.us, %lpad41.split.us ], [ %prevSample.sroa.14.0232.us, %ehcleanup ], [ %prevSample.sroa.14.5169, %lpad13 ], [ %sample.sroa.15.0230, %lpad66.split.split ], [ %prevSample.sroa.14.0232.us, %lpad18.split.us ], [ %prevSample.sroa.14.0232, %lpad18.split.split ], [ %prevSample.sroa.14.0232.us, %lpad24.us ]
-  %sample.sroa.0.4 = phi ptr [ %sample.sroa.0.5.us, %lpad66.split.us ], [ %sample.sroa.0.0233.us, %lpad41.split.us ], [ %sample.sroa.0.0233.us, %ehcleanup ], [ %sample.sroa.0.6151163, %lpad13 ], [ %prevSample.sroa.0.0231, %lpad66.split.split ], [ %sample.sroa.0.0233.us, %lpad18.split.us ], [ %sample.sroa.0.0233, %lpad18.split.split ], [ %sample.sroa.0.0233.us, %lpad24.us ]
+  %sample.sroa.15.4 = phi ptr [ %sample.sroa.15.5.us, %lpad66.split.us ], [ %sample.sroa.15.0221.us, %lpad41.split.us ], [ %sample.sroa.15.0221.us, %ehcleanup ], [ %sample.sroa.15.6140156, %lpad13 ], [ %prevSample.sroa.14.0223, %lpad66.split.split ], [ %sample.sroa.15.0221.us, %lpad18.split.us ], [ %sample.sroa.15.0221, %lpad18.split.split ], [ %sample.sroa.15.0221.us, %lpad24.us ]
+  %prevSample.sroa.0.3 = phi ptr [ %prevSample.sroa.0.4.us, %lpad66.split.us ], [ %prevSample.sroa.0.0222.us, %lpad41.split.us ], [ %prevSample.sroa.0.0222.us, %ehcleanup ], [ %prevSample.sroa.0.5158, %lpad13 ], [ %sample.sroa.0.0224, %lpad66.split.split ], [ %prevSample.sroa.0.0222.us, %lpad18.split.us ], [ %prevSample.sroa.0.0222, %lpad18.split.split ], [ %prevSample.sroa.0.0222.us, %lpad24.us ]
+  %prevSample.sroa.14.3 = phi ptr [ %prevSample.sroa.14.4.us, %lpad66.split.us ], [ %prevSample.sroa.14.0223.us, %lpad41.split.us ], [ %prevSample.sroa.14.0223.us, %ehcleanup ], [ %prevSample.sroa.14.5160, %lpad13 ], [ %sample.sroa.15.0221, %lpad66.split.split ], [ %prevSample.sroa.14.0223.us, %lpad18.split.us ], [ %prevSample.sroa.14.0223, %lpad18.split.split ], [ %prevSample.sroa.14.0223.us, %lpad24.us ]
+  %sample.sroa.0.4 = phi ptr [ %sample.sroa.0.5.us, %lpad66.split.us ], [ %sample.sroa.0.0224.us, %lpad41.split.us ], [ %sample.sroa.0.0224.us, %ehcleanup ], [ %sample.sroa.0.6142154, %lpad13 ], [ %prevSample.sroa.0.0222, %lpad66.split.split ], [ %sample.sroa.0.0224.us, %lpad18.split.us ], [ %sample.sroa.0.0224, %lpad18.split.split ], [ %sample.sroa.0.0224.us, %lpad24.us ]
   %.merged24 = phi { ptr, i32 } [ %31, %lpad66.split.us ], [ %30, %lpad41.split.us ], [ %.pn, %ehcleanup ], [ %35, %lpad13 ], [ %38, %lpad66.split.split ], [ %27, %lpad18.split.us ], [ %36, %lpad18.split.split ], [ %20, %lpad24.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %currentDate)
   call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cal) #20
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %ehcleanup73, %lpad8
-  %sample.sroa.15.3 = phi ptr [ %sample.sroa.15.4, %ehcleanup73 ], [ %sample.sroa.15.6149165, %lpad8 ]
-  %prevSample.sroa.0.2 = phi ptr [ %prevSample.sroa.0.3, %ehcleanup73 ], [ %prevSample.sroa.0.5167, %lpad8 ]
-  %prevSample.sroa.14.2 = phi ptr [ %prevSample.sroa.14.3, %ehcleanup73 ], [ %prevSample.sroa.14.5169, %lpad8 ]
-  %sample.sroa.0.3 = phi ptr [ %sample.sroa.0.4, %ehcleanup73 ], [ %sample.sroa.0.6151163, %lpad8 ]
+  %sample.sroa.15.3 = phi ptr [ %sample.sroa.15.4, %ehcleanup73 ], [ %sample.sroa.15.6140156, %lpad8 ]
+  %prevSample.sroa.0.2 = phi ptr [ %prevSample.sroa.0.3, %ehcleanup73 ], [ %prevSample.sroa.0.5158, %lpad8 ]
+  %prevSample.sroa.14.2 = phi ptr [ %prevSample.sroa.14.3, %ehcleanup73 ], [ %prevSample.sroa.14.5160, %lpad8 ]
+  %sample.sroa.0.3 = phi ptr [ %sample.sroa.0.4, %ehcleanup73 ], [ %sample.sroa.0.6142154, %lpad8 ]
   %.merged23 = phi { ptr, i32 } [ %.merged24, %ehcleanup73 ], [ %34, %lpad8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %cal)
   %tobool.not.i.i.i100 = icmp eq ptr %sampleDiff.sroa.0.0, null
@@ -690,36 +690,36 @@ ehcleanup77:                                      ; preds = %if.then.i.i.i101, %
   br i1 %tobool.not.i.i.i107, label %ehcleanup79, label %if.then.i.i.i108
 
 if.then.i.i.i108:                                 ; preds = %ehcleanup77.thread, %ehcleanup77
-  %.merged22184 = phi { ptr, i32 } [ %33, %ehcleanup77.thread ], [ %.merged23, %ehcleanup77 ]
-  %sample.sroa.0.2182 = phi ptr [ %call5.i.i.i.i2.i.i30, %ehcleanup77.thread ], [ %sample.sroa.0.3, %ehcleanup77 ]
-  %prevSample.sroa.14.1181 = phi ptr [ %add.ptr.i.i.i36, %ehcleanup77.thread ], [ %prevSample.sroa.14.2, %ehcleanup77 ]
-  %prevSample.sroa.0.1180 = phi ptr [ %call5.i.i.i.i2.i.i50, %ehcleanup77.thread ], [ %prevSample.sroa.0.2, %ehcleanup77 ]
-  %sample.sroa.15.2178 = phi ptr [ %add.ptr.i.i.i, %ehcleanup77.thread ], [ %sample.sroa.15.3, %ehcleanup77 ]
-  %sub.ptr.lhs.cast.i.i110 = ptrtoint ptr %prevSample.sroa.14.1181 to i64
-  %sub.ptr.rhs.cast.i.i111 = ptrtoint ptr %prevSample.sroa.0.1180 to i64
+  %.merged22175 = phi { ptr, i32 } [ %33, %ehcleanup77.thread ], [ %.merged23, %ehcleanup77 ]
+  %sample.sroa.0.2173 = phi ptr [ %call5.i.i.i.i2.i.i30, %ehcleanup77.thread ], [ %sample.sroa.0.3, %ehcleanup77 ]
+  %prevSample.sroa.14.1172 = phi ptr [ %add.ptr.i.i.i36, %ehcleanup77.thread ], [ %prevSample.sroa.14.2, %ehcleanup77 ]
+  %prevSample.sroa.0.1171 = phi ptr [ %call5.i.i.i.i2.i.i50, %ehcleanup77.thread ], [ %prevSample.sroa.0.2, %ehcleanup77 ]
+  %sample.sroa.15.2169 = phi ptr [ %add.ptr.i.i.i, %ehcleanup77.thread ], [ %sample.sroa.15.3, %ehcleanup77 ]
+  %sub.ptr.lhs.cast.i.i110 = ptrtoint ptr %prevSample.sroa.14.1172 to i64
+  %sub.ptr.rhs.cast.i.i111 = ptrtoint ptr %prevSample.sroa.0.1171 to i64
   %sub.ptr.sub.i.i112 = sub i64 %sub.ptr.lhs.cast.i.i110, %sub.ptr.rhs.cast.i.i111
-  call void @_ZdlPvm(ptr noundef nonnull %prevSample.sroa.0.1180, i64 noundef %sub.ptr.sub.i.i112) #23
+  call void @_ZdlPvm(ptr noundef nonnull %prevSample.sroa.0.1171, i64 noundef %sub.ptr.sub.i.i112) #23
   br label %ehcleanup79
 
 ehcleanup79:                                      ; preds = %if.then.i.i.i108, %ehcleanup77
-  %sample.sroa.15.1 = phi ptr [ %sample.sroa.15.2178, %if.then.i.i.i108 ], [ %sample.sroa.15.3, %ehcleanup77 ]
-  %sample.sroa.0.1 = phi ptr [ %sample.sroa.0.2182, %if.then.i.i.i108 ], [ %sample.sroa.0.3, %ehcleanup77 ]
-  %.merged = phi { ptr, i32 } [ %.merged22184, %if.then.i.i.i108 ], [ %.merged23, %ehcleanup77 ]
+  %sample.sroa.15.1 = phi ptr [ %sample.sroa.15.2169, %if.then.i.i.i108 ], [ %sample.sroa.15.3, %ehcleanup77 ]
+  %sample.sroa.0.1 = phi ptr [ %sample.sroa.0.2173, %if.then.i.i.i108 ], [ %sample.sroa.0.3, %ehcleanup77 ]
+  %.merged = phi { ptr, i32 } [ %.merged22175, %if.then.i.i.i108 ], [ %.merged23, %ehcleanup77 ]
   %tobool.not.i.i.i114 = icmp eq ptr %sample.sroa.0.1, null
   br i1 %tobool.not.i.i.i114, label %ehcleanup81, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %ehcleanup79.thread, %ehcleanup79
-  %.merged192 = phi { ptr, i32 } [ %32, %ehcleanup79.thread ], [ %.merged, %ehcleanup79 ]
-  %sample.sroa.0.1191 = phi ptr [ %call5.i.i.i.i2.i.i30, %ehcleanup79.thread ], [ %sample.sroa.0.1, %ehcleanup79 ]
-  %sample.sroa.15.1190 = phi ptr [ %add.ptr.i.i.i, %ehcleanup79.thread ], [ %sample.sroa.15.1, %ehcleanup79 ]
-  %sub.ptr.lhs.cast.i.i117 = ptrtoint ptr %sample.sroa.15.1190 to i64
-  %sub.ptr.rhs.cast.i.i118 = ptrtoint ptr %sample.sroa.0.1191 to i64
+  %.merged183 = phi { ptr, i32 } [ %32, %ehcleanup79.thread ], [ %.merged, %ehcleanup79 ]
+  %sample.sroa.0.1182 = phi ptr [ %call5.i.i.i.i2.i.i30, %ehcleanup79.thread ], [ %sample.sroa.0.1, %ehcleanup79 ]
+  %sample.sroa.15.1181 = phi ptr [ %add.ptr.i.i.i, %ehcleanup79.thread ], [ %sample.sroa.15.1, %ehcleanup79 ]
+  %sub.ptr.lhs.cast.i.i117 = ptrtoint ptr %sample.sroa.15.1181 to i64
+  %sub.ptr.rhs.cast.i.i118 = ptrtoint ptr %sample.sroa.0.1182 to i64
   %sub.ptr.sub.i.i119 = sub i64 %sub.ptr.lhs.cast.i.i117, %sub.ptr.rhs.cast.i.i118
-  call void @_ZdlPvm(ptr noundef nonnull %sample.sroa.0.1191, i64 noundef %sub.ptr.sub.i.i119) #23
+  call void @_ZdlPvm(ptr noundef nonnull %sample.sroa.0.1182, i64 noundef %sub.ptr.sub.i.i119) #23
   br label %ehcleanup81
 
 ehcleanup81:                                      ; preds = %if.then.i.i.i115, %ehcleanup79
-  %lpad.val85.merged = phi { ptr, i32 } [ %.merged192, %if.then.i.i.i115 ], [ %.merged, %ehcleanup79 ]
+  %lpad.val85.merged = phi { ptr, i32 } [ %.merged183, %if.then.i.i.i115 ], [ %.merged, %ehcleanup79 ]
   resume { ptr, i32 } %lpad.val85.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup
@@ -746,9 +746,9 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib17GeneralStatistics5resetEv.exit
-  %i.063 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8QuantLib17GeneralStatistics5resetEv.exit ]
+  %i.051 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8QuantLib17GeneralStatistics5resetEv.exit ]
   %1 = load ptr, ptr %stats_, align 8, !tbaa !57
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::GenericRiskStatistics", ptr %1, i64 %i.063
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::GenericRiskStatistics", ptr %1, i64 %i.051
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !58
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !60
@@ -766,7 +766,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body
 _ZN8QuantLib17GeneralStatistics5resetEv.exit:     ; preds = %for.body, %if.then.i.i.i.i.i.i
   %sorted_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   store i8 1, ptr %sorted_.i, align 8, !tbaa !61
-  %inc = add nuw i64 %i.063, 1
+  %inc = add nuw i64 %i.051, 1
   %4 = load i64, ptr %this, align 8, !tbaa !40
   %cmp5 = icmp ult i64 %inc, %4
   br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !67

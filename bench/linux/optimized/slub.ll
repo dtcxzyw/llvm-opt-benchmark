@@ -4609,8 +4609,8 @@ cache_from_obj.exit:                              ; preds = %221, %215, %214, %.
   br i1 %231, label %build_detached_freelist.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %cache_from_obj.exit, %298
-  %.sroa.10.1 = phi ptr [ %240, %298 ], [ %128, %cache_from_obj.exit ]
-  %.sroa.14.1 = phi i32 [ %290, %298 ], [ 1, %cache_from_obj.exit ]
+  %.sroa.10.0 = phi ptr [ %240, %298 ], [ %128, %cache_from_obj.exit ]
+  %.sroa.14.0 = phi i32 [ %290, %298 ], [ 1, %cache_from_obj.exit ]
   %232 = phi i64 [ %291, %298 ], [ %126, %cache_from_obj.exit ]
   %233 = phi i32 [ %237, %298 ], [ 3, %cache_from_obj.exit ]
   %234 = phi i64 [ %238, %298 ], [ %126, %cache_from_obj.exit ]
@@ -4687,9 +4687,9 @@ cache_from_obj.exit:                              ; preds = %221, %215, %214, %.
   %286 = zext i32 %285 to i64
   %287 = add i64 %286, %243
   %288 = inttoptr i64 %287 to ptr
-  %289 = ptrtoint ptr %.sroa.10.1 to i64
+  %289 = ptrtoint ptr %.sroa.10.0 to i64
   store i64 %289, ptr %288, align 8
-  %290 = add i32 %.sroa.14.1, 1
+  %290 = add i32 %.sroa.14.0, 1
   %291 = add i64 %232, -1
   %292 = icmp eq i64 %236, %232
   br i1 %292, label %298, label %293
@@ -4715,8 +4715,8 @@ cache_from_obj.exit:                              ; preds = %221, %215, %214, %.
   br i1 %304, label %235, label %build_detached_freelist.exit, !llvm.loop !70
 
 build_detached_freelist.exit:                     ; preds = %298, %300, %cache_from_obj.exit
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %300 ], [ %128, %cache_from_obj.exit ], [ %240, %298 ]
-  %.sroa.14.2 = phi i32 [ %.sroa.14.1, %300 ], [ 1, %cache_from_obj.exit ], [ %290, %298 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %300 ], [ %128, %cache_from_obj.exit ], [ %240, %298 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0, %300 ], [ 1, %cache_from_obj.exit ], [ %290, %298 ]
   %305 = phi i64 [ %232, %300 ], [ 0, %cache_from_obj.exit ], [ %291, %298 ]
   %sext = shl i64 %305, 32
   %306 = ashr exact i64 %sext, 32
@@ -4724,7 +4724,7 @@ build_detached_freelist.exit:                     ; preds = %298, %300, %cache_f
   br i1 %307, label %.loopexit, label %308
 
 308:                                              ; preds = %build_detached_freelist.exit
-  %309 = ptrtoint ptr %.sroa.10.2 to i64
+  %309 = ptrtoint ptr %.sroa.10.1 to i64
   br label %310
 
 310:                                              ; preds = %320, %308
@@ -4740,7 +4740,7 @@ build_detached_freelist.exit:                     ; preds = %298, %300, %cache_f
   br i1 %318, label %320, label %319, !prof !24
 
 319:                                              ; preds = %310
-  call fastcc void @__slab_free(ptr noundef %225, ptr noundef nonnull %166, ptr noundef %.sroa.10.2, ptr noundef %128, i32 noundef %.sroa.14.2, i64 noundef %48)
+  call fastcc void @__slab_free(ptr noundef %225, ptr noundef nonnull %166, ptr noundef %.sroa.10.1, ptr noundef %128, i32 noundef %.sroa.14.1, i64 noundef %48)
   br label %.loopexit
 
 320:                                              ; preds = %310

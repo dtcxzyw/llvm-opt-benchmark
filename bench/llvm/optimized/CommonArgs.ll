@@ -13243,8 +13243,8 @@ _ZN4llvm9StringRefC2EPKc.exit1780:                ; preds = %2141, %2143
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %2148, %2149
   %.sroa.212.0.copyload = phi i64 [ %.sroa.72478.0.copyload, %2148 ], [ %.fr, %2149 ]
-  %.sroa.11.2 = phi ptr [ null, %2148 ], [ %2153, %2149 ]
-  %.sroa.16.2 = phi i64 [ 0, %2148 ], [ %2154, %2149 ]
+  %.sroa.11.0 = phi ptr [ null, %2148 ], [ %2153, %2149 ]
+  %.sroa.16.0 = phi i64 [ 0, %2148 ], [ %2154, %2149 ]
   %.sroa.72478.0 = phi i64 [ %.sroa.72478.0.copyload, %2148 ], [ %.sroa.speculated.i.i.i, %2149 ]
   %.sroa.011.0.copyload = phi ptr [ %.sroa.0.0.copyload2477, %2148 ], [ %2151, %2149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -13257,11 +13257,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit1784:            ; preds = %_ZNK4llvm9StringRef
   br i1 %2155, label %_ZN4llvmeqENS_9StringRefES0_.exit1784.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit1784.thread2668
 
 _ZN4llvmeqENS_9StringRefES0_.exit1784.thread:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1784
-  %.not.i1785 = icmp eq i64 %.sroa.16.2, 8
+  %.not.i1785 = icmp eq i64 %.sroa.16.0, 8
   br i1 %.not.i1785, label %2156, label %_ZN4llvmeqENS_9StringRefES0_.exit1788
 
 2156:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1784.thread
-  %bcmp.i1787 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.11.2, ptr noundef nonnull dereferenceable(8) @.str.93, i64 8)
+  %bcmp.i1787 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.11.0, ptr noundef nonnull dereferenceable(8) @.str.93, i64 8)
   %2157 = icmp eq i32 %bcmp.i1787, 0
   br label %_ZN4llvmeqENS_9StringRefES0_.exit1788
 
@@ -13462,7 +13462,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %_ZN5clang17Diagnost
   br label %"_ZZN5clang6driver5tools13addLTOOptionsERKNS0_9ToolChainERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEERKNS0_9InputInfoESH_bENK3$_0clEbSt16initializer_listISC_E.exit"
 
 2222:                                             ; preds = %2158
-  %.not.i1319.i.i = icmp eq i64 %.sroa.16.2, 0
+  %.not.i1319.i.i = icmp eq i64 %.sroa.16.0, 0
   br i1 %.not.i1319.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i1794
 
 .lr.ph.split.us.i.i:                              ; preds = %2222, %_ZN4llvmeqENS_9StringRefES0_.exit.thread24.us.i.i
@@ -13491,11 +13491,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread24.us.i.i: ; preds = %_ZN4llvm9StringRef
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %.lr.ph.split.i.i1794
   %2225 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2224) #22
-  %.not.i13.i.i = icmp eq i64 %2225, %.sroa.16.2
+  %.not.i13.i.i = icmp eq i64 %2225, %.sroa.16.0
   br i1 %.not.i13.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1796, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread24.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i1796:        ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  %bcmp.i.i.i1797 = call i32 @bcmp(ptr nonnull %2224, ptr %.sroa.11.2, i64 %.sroa.16.2)
+  %bcmp.i.i.i1797 = call i32 @bcmp(ptr nonnull %2224, ptr %.sroa.11.0, i64 %.sroa.16.0)
   %2226 = icmp eq i32 %bcmp.i.i.i1797, 0
   br i1 %2226, label %"_ZZN5clang6driver5tools13addLTOOptionsERKNS0_9ToolChainERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEERKNS0_9InputInfoESH_bENK3$_0clEbSt16initializer_listISC_E.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.thread24.i.i
 
@@ -13524,7 +13524,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit47.i:              ; preds = %_ZN4llvmeqENS_9Stri
   %2228 = load ptr, ptr %23, align 8, !tbaa !68
   %2229 = load i64, ptr %2120, align 8, !tbaa !69
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %22, ptr %2228, i64 %2229)
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %22, ptr %.sroa.11.2, i64 %.sroa.16.2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %22, ptr %.sroa.11.0, i64 %.sroa.16.0)
   %2230 = load ptr, ptr %23, align 8, !tbaa !68
   %2231 = icmp eq ptr %2230, %2121
   br i1 %2231, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51.i

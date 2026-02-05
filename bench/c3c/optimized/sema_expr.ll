@@ -13480,14 +13480,14 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
   br label %.outer
 
 .outer:                                           ; preds = %26, %21
-  %.0115.ph.in = phi ptr [ %13, %26 ], [ %22, %21 ]
-  %.0114.ph = phi ptr [ %27, %26 ], [ %0, %21 ]
-  %.0115.ph = load ptr, ptr %.0115.ph.in, align 8
+  %.0117.ph.in = phi ptr [ %13, %26 ], [ %22, %21 ]
+  %.0116.ph = phi ptr [ %27, %26 ], [ %0, %21 ]
+  %.0117.ph = load ptr, ptr %.0117.ph.in, align 8
   br label %23
 
 23:                                               ; preds = %.outer, %.critedge4
-  %.0115 = phi ptr [ %91, %.critedge4 ], [ %.0115.ph, %.outer ]
-  %24 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
+  %.0117 = phi ptr [ %91, %.critedge4 ], [ %.0117.ph, %.outer ]
+  %24 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %25 = load i16, ptr %24, align 8
   %trunc = trunc i16 %25 to i8
   switch i8 %trunc, label %.critedge [
@@ -13565,7 +13565,7 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
   br label %.outer
 
 28:                                               ; preds = %23
-  %29 = call fastcc zeroext i1 @sema_expr_analyse_access(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, ptr noundef nonnull %3)
+  %29 = call fastcc zeroext i1 @sema_expr_analyse_access(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, ptr noundef nonnull %3)
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %28
@@ -13574,11 +13574,11 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
   br i1 %32, label %.critedge6.thread, label %sema_analyse_expr.exit.thread
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.0115, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %34, align 8
-  %38 = call ptr @sema_find_path_symbol(ptr noundef %.0114.ph, ptr noundef %36, ptr noundef %37) #12
+  %38 = call ptr @sema_find_path_symbol(ptr noundef %.0116.ph, ptr noundef %36, ptr noundef %37) #12
   %.not252 = icmp eq ptr %38, null
   br i1 %.not252, label %.critedge6.thread, label %39
 
@@ -13590,11 +13590,11 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
   br i1 %.not140, label %sema_analyse_expr.exit.thread, label %.critedge
 
 43:                                               ; preds = %23
-  %44 = call fastcc zeroext i1 @sema_expr_analyse_compiler_const(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, i1 noundef zeroext false)
+  %44 = call fastcc zeroext i1 @sema_expr_analyse_compiler_const(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, i1 noundef zeroext false)
   br i1 %44, label %.critedge, label %.critedge6.thread
 
 45:                                               ; preds = %23
-  %46 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -13616,16 +13616,16 @@ builtin_by_name.exit.i:                           ; preds = %48
 
 53:                                               ; preds = %builtin_by_name.exit.i
   %54 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %55 = getelementptr inbounds nuw i8, ptr %.0115, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
   store i32 %54, ptr %55, align 8
   br label %.critedge
 
 56:                                               ; preds = %23
-  %57 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %58 = and i16 %25, -3841
   %59 = or disjoint i16 %58, 256
   store i16 %59, ptr %57, align 8
-  %60 = call fastcc zeroext i1 @sema_expr_analyse_unary(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, ptr noundef nonnull %3)
+  %60 = call fastcc zeroext i1 @sema_expr_analyse_unary(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, ptr noundef nonnull %3)
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %56
@@ -13634,9 +13634,9 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %63, label %.critedge6.thread, label %sema_analyse_expr.exit.thread
 
 64:                                               ; preds = %23
-  %65 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc ptr @sema_expr_check_type_exists(ptr noundef %.0114.ph, ptr noundef %66)
+  %67 = call fastcc ptr @sema_expr_check_type_exists(ptr noundef %.0116.ph, ptr noundef %66)
   %.not251 = icmp eq ptr %67, null
   br i1 %.not251, label %.critedge6.thread, label %68
 
@@ -13646,18 +13646,18 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %.not139, label %sema_analyse_expr.exit.thread, label %.critedge
 
 70:                                               ; preds = %23
-  %71 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @sema_ct_eval_expr(ptr noundef %.0114.ph, i1 noundef zeroext true, ptr noundef %72, i1 noundef zeroext false)
+  %73 = call ptr @sema_ct_eval_expr(ptr noundef %.0116.ph, i1 noundef zeroext true, ptr noundef %72, i1 noundef zeroext false)
   %.not442 = icmp eq ptr %73, null
   br i1 %.not442, label %.critedge6.thread, label %.critedge
 
 74:                                               ; preds = %23
-  %75 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
   %78 = load i64, ptr %77, align 8
-  %79 = call ptr @sema_resolve_symbol(ptr noundef %.0114.ph, ptr noundef %76, ptr noundef null, i64 %78) #12
+  %79 = call ptr @sema_resolve_symbol(ptr noundef %.0116.ph, ptr noundef %76, ptr noundef null, i64 %78) #12
   %.not137 = icmp eq ptr %79, null
   br i1 %.not137, label %.critedge141, label %80
 
@@ -13669,7 +13669,7 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %.not138, label %sema_analyse_expr.exit.thread, label %.critedge4
 
 .critedge141:                                     ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %85 = load ptr, ptr %22, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %84, align 8
@@ -13684,11 +13684,11 @@ builtin_by_name.exit.i:                           ; preds = %48
   br label %23
 
 92:                                               ; preds = %23
-  %93 = call fastcc zeroext i1 @sema_expr_analyse_subscript(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, i32 noundef 3)
+  %93 = call fastcc zeroext i1 @sema_expr_analyse_subscript(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, i32 noundef 3)
   br i1 %93, label %.critedge6, label %sema_analyse_expr.exit.thread
 
 94:                                               ; preds = %23
-  %95 = call fastcc zeroext i1 @sema_expr_analyse_cast(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, ptr noundef nonnull %3)
+  %95 = call fastcc zeroext i1 @sema_expr_analyse_cast(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, ptr noundef nonnull %3)
   br i1 %95, label %.critedge, label %96
 
 96:                                               ; preds = %94
@@ -13697,11 +13697,11 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %98, label %.critedge6.thread, label %sema_analyse_expr.exit.thread
 
 99:                                               ; preds = %23
-  %100 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
   %103 = load i64, ptr %102, align 8
-  %104 = call ptr @sema_resolve_symbol(ptr noundef %.0114.ph, ptr noundef %101, ptr noundef null, i64 %103) #12
+  %104 = call ptr @sema_resolve_symbol(ptr noundef %.0116.ph, ptr noundef %101, ptr noundef null, i64 %103) #12
   %.not250 = icmp eq ptr %104, null
   br i1 %.not250, label %.critedge6.thread, label %105
 
@@ -13713,7 +13713,7 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %.not135, label %sema_analyse_expr.exit.thread, label %.critedge
 
 109:                                              ; preds = %23
-  %110 = call fastcc zeroext i1 @sema_expr_analyse_call(ptr noundef %.0114.ph, ptr noundef nonnull %.0115, ptr noundef nonnull %4)
+  %110 = call fastcc zeroext i1 @sema_expr_analyse_call(ptr noundef %.0116.ph, ptr noundef nonnull %.0117, ptr noundef nonnull %4)
   br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %109
@@ -13722,7 +13722,7 @@ builtin_by_name.exit.i:                           ; preds = %48
   br i1 %113, label %.critedge6.thread, label %sema_analyse_expr.exit.thread
 
 114:                                              ; preds = %23
-  %115 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i16, ptr %117, align 8
@@ -13738,7 +13738,7 @@ builtin_by_name.exit.i:                           ; preds = %48
   %122 = and i16 %118, -3841
   %123 = or disjoint i16 %122, 256
   store i16 %123, ptr %117, align 8
-  %124 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0114.ph, ptr noundef nonnull %116)
+  %124 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0116.ph, ptr noundef nonnull %116)
   %125 = load i16, ptr %117, align 8
   br i1 %124, label %sema_analyse_expr_lvalue.exit.thread450, label %126
 
@@ -13774,7 +13774,7 @@ sema_analyse_expr_lvalue.exit:                    ; preds = %114
   br i1 %.not464, label %sema_analyse_expr.exit.thread, label %sema_analyse_expr.exit
 
 sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_lvalue.exit.thread450, %sema_analyse_expr_lvalue.exit
-  %139 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0114.ph, ptr noundef nonnull %116)
+  %139 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0116.ph, ptr noundef nonnull %116)
   br i1 %139, label %140, label %sema_analyse_expr.exit.thread
 
 140:                                              ; preds = %sema_analyse_expr.exit
@@ -13800,7 +13800,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   br i1 %151, label %.critedge, label %.critedge6.thread
 
 152:                                              ; preds = %23
-  %153 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load i16, ptr %155, align 8
@@ -13816,7 +13816,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %160 = and i16 %156, -3841
   %161 = or disjoint i16 %160, 256
   store i16 %161, ptr %155, align 8
-  %162 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0114.ph, ptr noundef nonnull %154)
+  %162 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0116.ph, ptr noundef nonnull %154)
   %163 = load i16, ptr %155, align 8
   br i1 %162, label %sema_analyse_expr_lvalue.exit444.thread453, label %164
 
@@ -13852,7 +13852,7 @@ sema_analyse_expr_lvalue.exit444:                 ; preds = %152
   br i1 %.not463, label %sema_analyse_expr.exit.thread, label %sema_analyse_expr.exit142
 
 sema_analyse_expr.exit142:                        ; preds = %sema_analyse_expr_lvalue.exit444.thread453, %sema_analyse_expr_lvalue.exit444
-  %177 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0114.ph, ptr noundef nonnull %154)
+  %177 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0116.ph, ptr noundef nonnull %154)
   br i1 %177, label %178, label %sema_analyse_expr.exit.thread
 
 178:                                              ; preds = %sema_analyse_expr.exit142
@@ -13873,12 +13873,12 @@ sema_analyse_expr.exit142:                        ; preds = %sema_analyse_expr_l
   br label %188
 
 188:                                              ; preds = %184, %181
-  %.0119 = phi i32 [ %187, %184 ], [ %182, %181 ]
-  %189 = icmp eq i32 %.0119, 40
+  %.0115 = phi i32 [ %187, %184 ], [ %182, %181 ]
+  %189 = icmp eq i32 %.0115, 40
   br i1 %189, label %.critedge, label %.critedge6.thread
 
 190:                                              ; preds = %23
-  %191 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %192 = load ptr, ptr %191, align 8
   store i8 0, ptr %3, align 1
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
@@ -13895,7 +13895,7 @@ sema_analyse_expr.exit142:                        ; preds = %sema_analyse_expr_l
   %198 = and i16 %194, -3841
   %199 = or disjoint i16 %198, 256
   store i16 %199, ptr %193, align 8
-  %200 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0114.ph, ptr noundef nonnull %192)
+  %200 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0116.ph, ptr noundef nonnull %192)
   %201 = load i16, ptr %193, align 8
   br i1 %200, label %sema_analyse_expr_lvalue.exit446.thread456, label %sema_analyse_expr.exit145.thread.sink.split
 
@@ -13922,7 +13922,7 @@ sema_analyse_expr_lvalue.exit446:                 ; preds = %190
   br i1 %.not462, label %sema_analyse_expr.exit145.thread, label %sema_analyse_expr.exit145
 
 sema_analyse_expr.exit145:                        ; preds = %sema_analyse_expr_lvalue.exit446.thread456, %sema_analyse_expr_lvalue.exit446
-  %210 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0114.ph, ptr noundef nonnull %192)
+  %210 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0116.ph, ptr noundef nonnull %192)
   br i1 %210, label %211, label %sema_analyse_expr.exit145.thread
 
 211:                                              ; preds = %sema_analyse_expr.exit145
@@ -13963,7 +13963,7 @@ sema_analyse_expr.exit145:                        ; preds = %sema_analyse_expr_l
 
 sema_expr_analyse_optional.exit:                  ; preds = %225, %225
   %229 = load ptr, ptr @type_wildcard_optional, align 8
-  store ptr %229, ptr %.0115, align 8
+  store ptr %229, ptr %.0117, align 8
   br label %.critedge
 
 sema_analyse_expr.exit145.thread.sink.split:      ; preds = %197, %204
@@ -13983,7 +13983,7 @@ sema_analyse_expr.exit145.thread:                 ; preds = %sema_analyse_expr_l
   unreachable
 
 234:                                              ; preds = %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23
-  %235 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %236 = lshr i16 %25, 8
   %237 = and i16 %236, 15
   switch i16 %237, label %254 [
@@ -13996,7 +13996,7 @@ sema_analyse_expr.exit145.thread:                 ; preds = %sema_analyse_expr_l
   %239 = and i16 %25, -3841
   %240 = or disjoint i16 %239, 256
   store i16 %240, ptr %235, align 8
-  %241 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0114.ph, ptr noundef nonnull %.0115)
+  %241 = call fastcc zeroext i1 @sema_analyse_expr_dispatch(ptr noundef %.0116.ph, ptr noundef nonnull %.0117)
   %242 = load i16, ptr %235, align 8
   br i1 %241, label %sema_analyse_expr_lvalue.exit448.thread459, label %243
 
@@ -14013,7 +14013,7 @@ sema_analyse_expr_lvalue.exit448.thread459:       ; preds = %238
   br label %sema_analyse_expr.exit144
 
 248:                                              ; preds = %234
-  %249 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
   %250 = load i64, ptr %249, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %250, ptr noundef nonnull @.str.37) #12
   %251 = load i16, ptr %235, align 8
@@ -14032,11 +14032,11 @@ sema_analyse_expr_lvalue.exit448:                 ; preds = %234
   br i1 %.not461, label %sema_analyse_expr.exit.thread, label %sema_analyse_expr.exit144
 
 sema_analyse_expr.exit144:                        ; preds = %sema_analyse_expr_lvalue.exit448.thread459, %sema_analyse_expr_lvalue.exit448
-  %256 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0114.ph, ptr noundef nonnull %.0115)
+  %256 = call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %.0116.ph, ptr noundef nonnull %.0117)
   br i1 %256, label %.critedge, label %sema_analyse_expr.exit.thread
 
 .critedge6:                                       ; preds = %92
-  %257 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %258 = load i16, ptr %257, align 8
   %259 = and i16 %258, 255
   %.not136.not = icmp eq i16 %259, 0
@@ -29616,7 +29616,7 @@ sema_analyse_expr_lvalue.exit.thread366:          ; preds = %._crit_edge293
   br label %466
 
 466:                                              ; preds = %456, %462
-  %.0196 = phi i64 [ %465, %462 ], [ 0, %456 ]
+  %.0195 = phi i64 [ %465, %462 ], [ 0, %456 ]
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %468 = load i16, ptr %467, align 8
   %469 = and i16 %468, -256
@@ -29672,15 +29672,15 @@ type_flatten.exit230:                             ; preds = %471
   ]
 
 490:                                              ; preds = %489
-  %491 = and i64 %.0196, 255
+  %491 = and i64 %.0195, 255
   br label %494
 
 492:                                              ; preds = %489
-  %493 = and i64 %.0196, 65535
+  %493 = and i64 %.0195, 65535
   br label %494
 
 494:                                              ; preds = %type_flatten.exit230, %490, %492, %489
-  %.0 = phi i64 [ %.0196, %type_flatten.exit230 ], [ %493, %492 ], [ %.0196, %489 ], [ %491, %490 ]
+  %.0 = phi i64 [ %.0195, %type_flatten.exit230 ], [ %493, %492 ], [ %.0195, %489 ], [ %491, %490 ]
   %495 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %495, align 8
   %496 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -29881,10 +29881,10 @@ sema_analyse_expr_lvalue.exit364.thread369:       ; preds = %._crit_edge
   br label %610
 
 610:                                              ; preds = %605, %603
-  %.0195 = phi ptr [ %8, %603 ], [ %spec.select, %605 ]
-  %611 = getelementptr i8, ptr %.0195, i64 64
-  %.0195.val = load ptr, ptr %611, align 8
-  %612 = getelementptr inbounds nuw i8, ptr %.0195.val, i64 16
+  %.0196 = phi ptr [ %8, %603 ], [ %spec.select, %605 ]
+  %611 = getelementptr i8, ptr %.0196, i64 64
+  %.0196.val = load ptr, ptr %611, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %.0196.val, i64 16
   %613 = load ptr, ptr %612, align 8
   %.not.i234 = icmp eq ptr %613, null
   br i1 %.not.i234, label %sema_create_const_params.exit, label %614

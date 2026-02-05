@@ -5276,28 +5276,28 @@ _ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i: ; preds = %51
 
 55:                                               ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i
   store ptr null, ptr %4, align 8
-  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i
+  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i
 
 56:                                               ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i
   store ptr %52, ptr %4, align 8
   %57 = load atomic i32, ptr %52 monotonic, align 4
   %.not.i.i.i23 = icmp eq i32 %57, -1
-  br i1 %.not.i.i.i23, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i
+  br i1 %.not.i.i.i23, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i
 
 _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i: ; preds = %56
   %58 = atomicrmw add ptr %52, i32 1 seq_cst, align 4
   %.pr.pre.i = load ptr, ptr @_ZL15funnel_actions_, align 8
   %.not.i5.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %.not.i5.i, label %61, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i
+  br i1 %.not.i5.i, label %61, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i
 
-_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i: ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i, %56, %55
-  %.pr20.i = phi ptr [ %.pr.pre.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i ], [ %52, %56 ], [ %52, %55 ]
-  %59 = load atomic i32, ptr %.pr20.i monotonic, align 4
+_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i: ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i, %56, %55
+  %.pr14.i = phi ptr [ %.pr.pre.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i ], [ %52, %56 ], [ %52, %55 ]
+  %59 = load atomic i32, ptr %.pr14.i monotonic, align 4
   %60 = icmp ugt i32 %59, 1
   br i1 %60, label %61, label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i
 
-61:                                               ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i
-  %62 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i ], [ %.pr20.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i ]
+61:                                               ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i
+  %62 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i ], [ %.pr14.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i ]
   %63 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE8detachedEPS7_m(ptr noundef %62, i64 noundef 0)
           to label %.noexc.i unwind label %82
 
@@ -5305,8 +5305,8 @@ _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i: ; preds = %_ZN5QHas
   store ptr %63, ptr @_ZL15funnel_actions_, align 8
   br label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i
 
-_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i: ; preds = %.noexc.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i
-  %64 = phi ptr [ %63, %.noexc.i ], [ %.pr20.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i ]
+_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i: ; preds = %.noexc.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i
+  %64 = phi ptr [ %63, %.noexc.i ], [ %.pr14.i, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, QList<FunnelAction *>>>::InsertionResult") align 8 %5, ptr noundef align 8 dereferenceable_or_null(40) %64, ptr noundef nonnull align 4 dereferenceable(4) %7) #30
   %65 = load i8, ptr %33, align 8, !range !20, !noundef !21
@@ -5549,28 +5549,28 @@ _ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i32: ; preds = %168
 
 172:                                              ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i32
   store ptr null, ptr %2, align 8
-  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37
+  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37
 
 173:                                              ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit.i32
   store ptr %169, ptr %2, align 8
   %174 = load atomic i32, ptr %169 monotonic, align 4
   %.not.i.i.i33 = icmp eq i32 %174, -1
-  br i1 %.not.i.i.i33, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34
+  br i1 %.not.i.i.i33, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34
 
 _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34: ; preds = %173
   %175 = atomicrmw add ptr %169, i32 1 seq_cst, align 4
   %.pr.pre.i35 = load ptr, ptr @_ZL15funnel_actions_, align 8
   %.not.i5.i36 = icmp eq ptr %.pr.pre.i35, null
-  br i1 %.not.i5.i36, label %178, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37
+  br i1 %.not.i5.i36, label %178, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37
 
-_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37: ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34, %173, %172
-  %.pr20.i38 = phi ptr [ %.pr.pre.i35, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34 ], [ %169, %173 ], [ %169, %172 ]
-  %176 = load atomic i32, ptr %.pr20.i38 monotonic, align 4
+_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37: ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34, %173, %172
+  %.pr14.i38 = phi ptr [ %.pr.pre.i35, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34 ], [ %169, %173 ], [ %169, %172 ]
+  %176 = load atomic i32, ptr %.pr14.i38 monotonic, align 4
   %177 = icmp ugt i32 %176, 1
   br i1 %177, label %178, label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i39
 
-178:                                              ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i42
-  %179 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i42 ], [ %.pr20.i38, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37 ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34 ]
+178:                                              ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i42
+  %179 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread.i42 ], [ %.pr14.i38, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37 ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.i34 ]
   %180 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE8detachedEPS7_m(ptr noundef %179, i64 noundef 0)
           to label %.noexc.i41 unwind label %199
 
@@ -5578,8 +5578,8 @@ _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37: ; preds = %_ZN5QH
   store ptr %180, ptr @_ZL15funnel_actions_, align 8
   br label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i39
 
-_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i39: ; preds = %.noexc.i41, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37
-  %181 = phi ptr [ %180, %.noexc.i41 ], [ %.pr20.i38, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17.i37 ]
+_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit.i39: ; preds = %.noexc.i41, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37
+  %181 = phi ptr [ %180, %.noexc.i41 ], [ %.pr14.i38, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11.i37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, QList<FunnelAction *>>>::InsertionResult") align 8 %3, ptr noundef align 8 dereferenceable_or_null(40) %181, ptr noundef nonnull align 4 dereferenceable(4) %7) #30
   %182 = load i8, ptr %37, align 8, !range !20, !noundef !21
@@ -7567,28 +7567,28 @@ _ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit: ; preds = %2
 
 8:                                                ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit
   store ptr null, ptr %3, align 8
-  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17
+  br label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11
 
 9:                                                ; preds = %_ZNK5QHashIi5QListIP12FunnelActionEE10isDetachedEv.exit
   store ptr %5, ptr %3, align 8
   %10 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i = icmp eq i32 %10, -1
-  br i1 %.not.i.i, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
+  br i1 %.not.i.i, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
 
 _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit: ; preds = %9
   %11 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pr.pre = load ptr, ptr %0, align 8
   %.not.i5 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i5, label %14, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17
+  br i1 %.not.i5, label %14, label %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11
 
-_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17: ; preds = %8, %9, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
-  %.pr20 = phi ptr [ %.pr.pre, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit ], [ %5, %9 ], [ %5, %8 ]
-  %12 = load atomic i32, ptr %.pr20 monotonic, align 4
+_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11: ; preds = %8, %9, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
+  %.pr14 = phi ptr [ %.pr.pre, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit ], [ %5, %9 ], [ %5, %8 ]
+  %12 = load atomic i32, ptr %.pr14 monotonic, align 4
   %13 = icmp ugt i32 %12, 1
   br i1 %13, label %14, label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit
 
-14:                                               ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
-  %15 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread ], [ %.pr20, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17 ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit ]
+14:                                               ; preds = %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit
+  %15 = phi ptr [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread ], [ %.pr14, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11 ], [ null, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit ]
   %16 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE8detachedEPS7_m(ptr noundef %15, i64 noundef 0)
           to label %.noexc unwind label %37
 
@@ -7596,8 +7596,8 @@ _ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17: ; preds = %8, %9, %_Z
   store ptr %16, ptr %0, align 8
   br label %_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit
 
-_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit: ; preds = %.noexc, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17
-  %17 = phi ptr [ %16, %.noexc ], [ %.pr20, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread17 ]
+_ZN5QHashIi5QListIP12FunnelActionEE6detachEv.exit: ; preds = %.noexc, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11
+  %17 = phi ptr [ %16, %.noexc ], [ %.pr14, %_ZN5QHashIi5QListIP12FunnelActionEEC2ERKS4_.exit.thread11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP12FunnelActionEEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, QList<FunnelAction *>>>::InsertionResult") align 8 %4, ptr noundef align 8 dereferenceable_or_null(40) %17, ptr noundef align 4 dereferenceable(4) %1) #30
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16

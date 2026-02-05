@@ -361,7 +361,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 10:                                               ; preds = %5
   switch i8 %6, label %.thread [
     i8 92, label %.preheader
-    i8 94, label %.preheader24
+    i8 94, label %.preheader21
   ]
 
 .preheader:                                       ; preds = %10, %.preheader
@@ -369,30 +369,30 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %12 = getelementptr i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 92
-  br i1 %14, label %.preheader, label %.loopexit23, !llvm.loop !6
+  br i1 %14, label %.preheader, label %.loopexit20, !llvm.loop !6
 
-.preheader24:                                     ; preds = %10, %.preheader24
-  %15 = phi i32 [ %17, %.preheader24 ], [ 0, %10 ]
-  %16 = phi ptr [ %18, %.preheader24 ], [ %0, %10 ]
+.preheader21:                                     ; preds = %10, %.preheader21
+  %15 = phi i32 [ %17, %.preheader21 ], [ 0, %10 ]
+  %16 = phi ptr [ %18, %.preheader21 ], [ %0, %10 ]
   %17 = add i32 %15, 1
   %18 = getelementptr i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 94
-  br i1 %20, label %.preheader24, label %.loopexit23, !llvm.loop !9
+  br i1 %20, label %.preheader21, label %.loopexit20, !llvm.loop !9
 
-.loopexit23:                                      ; preds = %.preheader24, %.preheader
-  %21 = phi i8 [ %13, %.preheader ], [ %19, %.preheader24 ]
-  %.sroa.14.0 = phi i32 [ 0, %.preheader ], [ %17, %.preheader24 ]
-  %.sroa.19.0 = phi i8 [ 1, %.preheader ], [ 0, %.preheader24 ]
-  %22 = phi ptr [ %12, %.preheader ], [ %18, %.preheader24 ]
+.loopexit20:                                      ; preds = %.preheader21, %.preheader
+  %21 = phi i8 [ %13, %.preheader ], [ %19, %.preheader21 ]
+  %.sroa.14.0 = phi i32 [ 0, %.preheader ], [ %17, %.preheader21 ]
+  %.sroa.19.0 = phi i8 [ 1, %.preheader ], [ 0, %.preheader21 ]
+  %22 = phi ptr [ %12, %.preheader ], [ %18, %.preheader21 ]
   %23 = icmp eq i8 %21, 0
-  br i1 %23, label %.loopexit22, label %.thread
+  br i1 %23, label %.loopexit19, label %.thread
 
-.thread:                                          ; preds = %10, %.loopexit23
-  %24 = phi i8 [ %21, %.loopexit23 ], [ %6, %10 ]
-  %25 = phi ptr [ %22, %.loopexit23 ], [ %0, %10 ]
-  %.sroa.19.020 = phi i8 [ %.sroa.19.0, %.loopexit23 ], [ 0, %10 ]
-  %.sroa.14.018 = phi i32 [ %.sroa.14.0, %.loopexit23 ], [ 0, %10 ]
+.thread:                                          ; preds = %10, %.loopexit20
+  %24 = phi i8 [ %21, %.loopexit20 ], [ %6, %10 ]
+  %25 = phi ptr [ %22, %.loopexit20 ], [ %0, %10 ]
+  %.sroa.19.017 = phi i8 [ %.sroa.19.0, %.loopexit20 ], [ 0, %10 ]
+  %.sroa.14.015 = phi i32 [ %.sroa.14.0, %.loopexit20 ], [ 0, %10 ]
   br label %26
 
 26:                                               ; preds = %32, %.thread
@@ -401,7 +401,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %28 = phi i32 [ 1, %.thread ], [ %33, %32 ]
   %29 = phi i32 [ 0, %.thread ], [ %34, %32 ]
   switch i8 %27, label %32 [
-    i8 0, label %.loopexit22
+    i8 0, label %.loopexit19
     i8 46, label %30
   ]
 
@@ -414,17 +414,17 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %33 = phi i32 [ %28, %26 ], [ %31, %30 ]
   %34 = add i32 %29, 1
   %.phi.trans.insert = zext i32 %34 to i64
-  %.phi.trans.insert41 = getelementptr i8, ptr %25, i64 %.phi.trans.insert
-  %.pre = load i8, ptr %.phi.trans.insert41, align 1
+  %.phi.trans.insert38 = getelementptr i8, ptr %25, i64 %.phi.trans.insert
+  %.pre = load i8, ptr %.phi.trans.insert38, align 1
   br label %26, !llvm.loop !10
 
-.loopexit22:                                      ; preds = %26, %.loopexit23
-  %35 = phi ptr [ %22, %.loopexit23 ], [ %25, %26 ]
-  %.sroa.19.021 = phi i8 [ %.sroa.19.0, %.loopexit23 ], [ %.sroa.19.020, %26 ]
-  %.sroa.14.019 = phi i32 [ %.sroa.14.0, %.loopexit23 ], [ %.sroa.14.018, %26 ]
-  %.sroa.9.0 = phi i32 [ 0, %.loopexit23 ], [ %.sroa.9.1, %26 ]
+.loopexit19:                                      ; preds = %26, %.loopexit20
+  %35 = phi ptr [ %22, %.loopexit20 ], [ %25, %26 ]
+  %.sroa.19.018 = phi i8 [ %.sroa.19.0, %.loopexit20 ], [ %.sroa.19.017, %26 ]
+  %.sroa.14.016 = phi i32 [ %.sroa.14.0, %.loopexit20 ], [ %.sroa.14.015, %26 ]
+  %.sroa.9.0 = phi i32 [ 0, %.loopexit20 ], [ %.sroa.9.1, %26 ]
   %36 = shl i32 %.sroa.9.0, 2
-  %37 = add i32 %.sroa.14.019, 4
+  %37 = add i32 %.sroa.14.016, 4
   %38 = add i32 %37, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !5
@@ -439,8 +439,8 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %45 = icmp eq ptr %44, null
   br i1 %45, label %107, label %46
 
-46:                                               ; preds = %.loopexit22
-  %47 = icmp eq i8 %.sroa.19.021, 0
+46:                                               ; preds = %.loopexit19
+  %47 = icmp eq i8 %.sroa.19.018, 0
   br i1 %47, label %59, label %48
 
 48:                                               ; preds = %46
@@ -467,11 +467,11 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   br label %.preheader.i.preheader
 
 59:                                               ; preds = %46
-  %60 = icmp eq i32 %.sroa.14.019, 0
+  %60 = icmp eq i32 %.sroa.14.016, 0
   br i1 %60, label %.loopexit6.i, label %.preheader5.i.preheader
 
 .preheader5.i.preheader:                          ; preds = %59
-  %61 = zext i32 %.sroa.14.019 to i64
+  %61 = zext i32 %.sroa.14.016 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 94, i64 %61, i1 false)
   br label %.loopexit6.i
 
@@ -571,8 +571,8 @@ acpi_ns_build_internal_name.exit:                 ; preds = %99
   store ptr %44, ptr %1, align 8
   br label %107
 
-107:                                              ; preds = %.loopexit, %acpi_ns_build_internal_name.exit, %.loopexit22, %5, %2
-  %108 = phi i32 [ 4099, %acpi_ns_build_internal_name.exit ], [ 0, %.loopexit ], [ 4097, %5 ], [ 4097, %2 ], [ 4, %.loopexit22 ]
+107:                                              ; preds = %.loopexit, %acpi_ns_build_internal_name.exit, %.loopexit19, %5, %2
+  %108 = phi i32 [ 4099, %acpi_ns_build_internal_name.exit ], [ 0, %.loopexit ], [ 4097, %5 ], [ 4097, %2 ], [ 4, %.loopexit19 ]
   ret i32 %108
 }
 

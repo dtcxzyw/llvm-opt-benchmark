@@ -1039,10 +1039,10 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   br i1 %or.cond.i44, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split: ; preds = %40, %28
-  %.1.i.i.i.i.i40.lcssa.sink81 = phi ptr [ %.1.i.i.i.i.i, %28 ], [ %.1.i.i.i.i.i40, %40 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink81, i64 16
+  %.1.i.i.i.i.i40.lcssa.sink79 = phi ptr [ %.1.i.i.i.i.i, %28 ], [ %.1.i.i.i.i.i40, %40 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink79, i64 16
   %.sroa.04.0.copyload.i49 = load ptr, ptr %43, align 8, !tbaa !17
-  %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink81, i64 24
+  %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink79, i64 24
   %.sroa.3.0.copyload.i51 = load i64, ptr %.sroa.3.0..sroa_idx.i50, align 8, !tbaa !16
   br label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread
 

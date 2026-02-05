@@ -564,11 +564,11 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !46, !noalias !55
   %73 = icmp eq ptr %62, %72
-  br i1 %73, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread26, label %.lr.ph.i.i.i.i
+  br i1 %73, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread20, label %.lr.ph.i.i.i.i
 
 74:                                               ; preds = %77
   %75 = icmp eq ptr %62, %79
-  br i1 %75, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread26, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %75, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread20, label %.lr.ph.i.i.i.i, !llvm.loop !60
 
 .lr.ph.i.i.i.i:                                   ; preds = %69, %74
   %.020.i.i.i.i = phi ptr [ %76, %74 ], [ %70, %69 ]
@@ -591,11 +591,11 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %82 = invoke ptr @_ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %65, i64 noundef %63, ptr noundef nonnull %36, i64 noundef 1)
           to label %_ZNSt19_Node_handle_commonISt4pairIKPN5folly18threadlocal_detail11ThreadEntryEmESaINSt8__detail10_Hash_nodeIS6_Lb0EEEEED2Ev.exit unwind label %_ZNSt19_Node_handle_commonISt4pairIKPN5folly18threadlocal_detail11ThreadEntryEmESaINSt8__detail10_Hash_nodeIS6_Lb0EEEEED2Ev.exit7
 
-_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread26: ; preds = %74, %69
+_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread20: ; preds = %74, %69
   call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 24) #41
   br label %_ZNSt19_Node_handle_commonISt4pairIKPN5folly18threadlocal_detail11ThreadEntryEmESaINSt8__detail10_Hash_nodeIS6_Lb0EEEEED2Ev.exit
 
-_ZNSt19_Node_handle_commonISt4pairIKPN5folly18threadlocal_detail11ThreadEntryEmESaINSt8__detail10_Hash_nodeIS6_Lb0EEEEED2Ev.exit: ; preds = %.loopexit.i.i, %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread26
+_ZNSt19_Node_handle_commonISt4pairIKPN5folly18threadlocal_detail11ThreadEntryEmESaINSt8__detail10_Hash_nodeIS6_Lb0EEEEED2Ev.exit: ; preds = %.loopexit.i.i, %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE6insertEOSt12_Node_handleIS3_SA_SaINSt8__detail10_Hash_nodeISA_Lb0EEEEE.exit.thread20
   %83 = load i64, ptr %16, align 8, !tbaa !39
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE7reserveEm.exit._crit_edge, label %24, !llvm.loop !61

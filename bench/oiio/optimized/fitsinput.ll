@@ -1336,7 +1336,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09FitsInput20read_native
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load i32, ptr %21, align 8, !tbaa !101
   %23 = icmp eq i32 %1, %22
-  br i1 %23, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77, label %24
+  br i1 %23, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74, label %24
 
 24:                                               ; preds = %20
   store i32 %1, ptr %21, align 8, !tbaa !101
@@ -1351,20 +1351,20 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09FitsInput20read_native
           to label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit unwind label %33
 
 _ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit: ; preds = %24
-  br i1 %32, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread
+  br i1 %32, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread
 
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %153
 
-_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77: ; preds = %20, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit
+_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74: ; preds = %20, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load i32, ptr %35, align 8, !tbaa !104
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread, label %37
 
-37:                                               ; preds = %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77
+37:                                               ; preds = %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = tail call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec14scanline_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %38, i1 noundef zeroext false) #28
   %40 = icmp slt i64 %39, 0
@@ -1592,8 +1592,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %48, %.noexc19, %_ZN
   br i1 %exitcond.not.i49, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, label %.lr.ph.i46, !llvm.loop !116
 
 _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %.lr.ph.i46, %.lr.ph.i38, %.lr.ph.i30, %.lr.ph.i, %128, %134, %118, %105, %89
-  %.pre-phi88 = phi i64 [ %108, %.lr.ph.i30 ], [ %121, %.lr.ph.i38 ], [ %133, %128 ], [ %92, %.lr.ph.i ], [ %92, %89 ], [ %133, %134 ], [ %121, %118 ], [ %108, %105 ], [ %133, %.lr.ph.i46 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %.sroa.053.0, i64 %.pre-phi88, i1 false)
+  %.pre-phi85 = phi i64 [ %108, %.lr.ph.i30 ], [ %121, %.lr.ph.i38 ], [ %133, %128 ], [ %92, %.lr.ph.i ], [ %92, %89 ], [ %133, %134 ], [ %121, %118 ], [ %108, %105 ], [ %133, %.lr.ph.i46 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %.sroa.053.0, i64 %.pre-phi85, i1 false)
   %141 = load ptr, ptr %55, align 8, !tbaa !35
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %143 = tail call i32 @fsetpos(ptr noundef %141, ptr noundef nonnull %142)
@@ -1614,8 +1614,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit51:                  ; preds = %73, %71
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.053.0, i64 noundef %149) #29
   br label %153
 
-_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread: ; preds = %10, %6, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.0 = phi i1 [ %.not13, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ false, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit ], [ true, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread77 ], [ false, %6 ], [ false, %10 ]
+_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread: ; preds = %10, %6, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit, %_ZNSt6vectorIhSaIhEED2Ev.exit
+  %.0 = phi i1 [ %.not13, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ false, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit ], [ true, %_ZN11OpenImageIO6v3_1_09FitsInput13seek_subimageEii.exit.thread74 ], [ false, %6 ], [ false, %10 ]
   invoke void @_ZNK11OpenImageIO6v3_1_010ImageInput6unlockEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
           to label %_ZNSt10lock_guardIRKN11OpenImageIO6v3_1_010ImageInputEED2Ev.exit unwind label %150
 

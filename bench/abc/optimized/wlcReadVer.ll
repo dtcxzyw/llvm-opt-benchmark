@@ -6686,15 +6686,15 @@ Vec_IntPush.exit1544:                             ; preds = %.Vec_IntGrow.exit10
   br label %1236
 
 1236:                                             ; preds = %1343, %1234
-  %.sroa.6.2 = phi i32 [ 0, %1234 ], [ %.sroa.6.4, %1343 ]
-  %.sroa.8.2 = phi i32 [ 0, %1234 ], [ %.sroa.8.4, %1343 ]
-  %.sroa.10.2 = phi i32 [ 0, %1234 ], [ %.sroa.10.4, %1343 ]
-  %.sroa.12.2 = phi i32 [ 0, %1234 ], [ %.sroa.12.4, %1343 ]
-  %.sroa.14.2 = phi i32 [ 0, %1234 ], [ %.sroa.14.4, %1343 ]
-  %.sroa.16.2 = phi i32 [ 0, %1234 ], [ %.sroa.16.4, %1343 ]
-  %.sroa.18.2 = phi i32 [ 0, %1234 ], [ %.sroa.18.4, %1343 ]
-  %.sroa.21.2 = phi i32 [ 0, %1234 ], [ %.sroa.21.4, %1343 ]
-  %.sroa.0.2 = phi i32 [ 0, %1234 ], [ %.sroa.0.4, %1343 ]
+  %.sroa.6.0 = phi i32 [ 0, %1234 ], [ %.sroa.6.1, %1343 ]
+  %.sroa.8.0 = phi i32 [ 0, %1234 ], [ %.sroa.8.1, %1343 ]
+  %.sroa.10.0 = phi i32 [ 0, %1234 ], [ %.sroa.10.1, %1343 ]
+  %.sroa.12.0 = phi i32 [ 0, %1234 ], [ %.sroa.12.1, %1343 ]
+  %.sroa.14.0 = phi i32 [ 0, %1234 ], [ %.sroa.14.1, %1343 ]
+  %.sroa.16.0 = phi i32 [ 0, %1234 ], [ %.sroa.16.1, %1343 ]
+  %.sroa.18.0 = phi i32 [ 0, %1234 ], [ %.sroa.18.1, %1343 ]
+  %.sroa.21.0 = phi i32 [ 0, %1234 ], [ %.sroa.21.1, %1343 ]
+  %.sroa.0.0 = phi i32 [ 0, %1234 ], [ %.sroa.0.1, %1343 ]
   %.9761 = phi ptr [ %1235, %1234 ], [ %.020.lcssa.i1590, %1343 ]
   %1237 = load i8, ptr %.9761, align 1, !tbaa !39
   %.not15.i1546 = icmp eq i8 %1237, 0
@@ -6957,15 +6957,15 @@ Wlc_PrsIsChar.exit32.thread.i1593:                ; preds = %1269
   br label %1343
 
 1343:                                             ; preds = %1330, %1291, %1304, %1317, %1331, %1337, %1324, %1311, %1297, %1285
-  %.sroa.6.4 = phi i32 [ %.sroa.6.2, %1285 ], [ %1296, %1291 ], [ %.sroa.6.2, %1297 ], [ %.sroa.6.2, %1304 ], [ %.sroa.6.2, %1311 ], [ %.sroa.6.2, %1317 ], [ %.sroa.6.2, %1324 ], [ %.sroa.6.2, %1331 ], [ %.sroa.6.2, %1337 ], [ %.sroa.6.2, %1330 ]
-  %.sroa.8.4 = phi i32 [ %.sroa.8.2, %1285 ], [ %.sroa.8.2, %1291 ], [ %1302, %1297 ], [ %.sroa.8.2, %1304 ], [ %.sroa.8.2, %1311 ], [ %.sroa.8.2, %1317 ], [ %.sroa.8.2, %1324 ], [ %.sroa.8.2, %1331 ], [ %.sroa.8.2, %1337 ], [ %.sroa.8.2, %1330 ]
-  %.sroa.10.4 = phi i32 [ %.sroa.10.2, %1285 ], [ %.sroa.10.2, %1291 ], [ %.sroa.10.2, %1297 ], [ %1309, %1304 ], [ %.sroa.10.2, %1311 ], [ %.sroa.10.2, %1317 ], [ %.sroa.10.2, %1324 ], [ %.sroa.10.2, %1331 ], [ %.sroa.10.2, %1337 ], [ %.sroa.10.2, %1330 ]
-  %.sroa.12.4 = phi i32 [ %.sroa.12.2, %1285 ], [ %.sroa.12.2, %1291 ], [ %.sroa.12.2, %1297 ], [ %.sroa.12.2, %1304 ], [ %1316, %1311 ], [ %.sroa.12.2, %1317 ], [ %.sroa.12.2, %1324 ], [ %.sroa.12.2, %1331 ], [ %.sroa.12.2, %1337 ], [ %.sroa.12.2, %1330 ]
-  %.sroa.14.4 = phi i32 [ %.sroa.14.2, %1285 ], [ %.sroa.14.2, %1291 ], [ %.sroa.14.2, %1297 ], [ %.sroa.14.2, %1304 ], [ %.sroa.14.2, %1311 ], [ %1322, %1317 ], [ %.sroa.14.2, %1324 ], [ %.sroa.14.2, %1331 ], [ %.sroa.14.2, %1337 ], [ %.sroa.14.2, %1330 ]
-  %.sroa.16.4 = phi i32 [ %.sroa.16.2, %1285 ], [ %.sroa.16.2, %1291 ], [ %.sroa.16.2, %1297 ], [ %.sroa.16.2, %1304 ], [ %.sroa.16.2, %1311 ], [ %.sroa.16.2, %1317 ], [ %1329, %1324 ], [ %.sroa.16.2, %1331 ], [ %.sroa.16.2, %1337 ], [ %.sroa.16.2, %1330 ]
-  %.sroa.18.4 = phi i32 [ %.sroa.18.2, %1285 ], [ %.sroa.18.2, %1291 ], [ %.sroa.18.2, %1297 ], [ %.sroa.18.2, %1304 ], [ %.sroa.18.2, %1311 ], [ %.sroa.18.2, %1317 ], [ %.sroa.18.2, %1324 ], [ %1336, %1331 ], [ %.sroa.18.2, %1337 ], [ %.sroa.18.2, %1330 ]
-  %.sroa.21.4 = phi i32 [ %.sroa.21.2, %1285 ], [ %.sroa.21.2, %1291 ], [ %.sroa.21.2, %1297 ], [ %.sroa.21.2, %1304 ], [ %.sroa.21.2, %1311 ], [ %.sroa.21.2, %1317 ], [ %.sroa.21.2, %1324 ], [ %.sroa.21.2, %1331 ], [ %1342, %1337 ], [ %.sroa.21.2, %1330 ]
-  %.sroa.0.4 = phi i32 [ %1290, %1285 ], [ %.sroa.0.2, %1291 ], [ %.sroa.0.2, %1297 ], [ %.sroa.0.2, %1304 ], [ %.sroa.0.2, %1311 ], [ %.sroa.0.2, %1317 ], [ %.sroa.0.2, %1324 ], [ %.sroa.0.2, %1331 ], [ %.sroa.0.2, %1337 ], [ %.sroa.0.2, %1330 ]
+  %.sroa.6.1 = phi i32 [ %.sroa.6.0, %1285 ], [ %1296, %1291 ], [ %.sroa.6.0, %1297 ], [ %.sroa.6.0, %1304 ], [ %.sroa.6.0, %1311 ], [ %.sroa.6.0, %1317 ], [ %.sroa.6.0, %1324 ], [ %.sroa.6.0, %1331 ], [ %.sroa.6.0, %1337 ], [ %.sroa.6.0, %1330 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %1285 ], [ %.sroa.8.0, %1291 ], [ %1302, %1297 ], [ %.sroa.8.0, %1304 ], [ %.sroa.8.0, %1311 ], [ %.sroa.8.0, %1317 ], [ %.sroa.8.0, %1324 ], [ %.sroa.8.0, %1331 ], [ %.sroa.8.0, %1337 ], [ %.sroa.8.0, %1330 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %1285 ], [ %.sroa.10.0, %1291 ], [ %.sroa.10.0, %1297 ], [ %1309, %1304 ], [ %.sroa.10.0, %1311 ], [ %.sroa.10.0, %1317 ], [ %.sroa.10.0, %1324 ], [ %.sroa.10.0, %1331 ], [ %.sroa.10.0, %1337 ], [ %.sroa.10.0, %1330 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %1285 ], [ %.sroa.12.0, %1291 ], [ %.sroa.12.0, %1297 ], [ %.sroa.12.0, %1304 ], [ %1316, %1311 ], [ %.sroa.12.0, %1317 ], [ %.sroa.12.0, %1324 ], [ %.sroa.12.0, %1331 ], [ %.sroa.12.0, %1337 ], [ %.sroa.12.0, %1330 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0, %1285 ], [ %.sroa.14.0, %1291 ], [ %.sroa.14.0, %1297 ], [ %.sroa.14.0, %1304 ], [ %.sroa.14.0, %1311 ], [ %1322, %1317 ], [ %.sroa.14.0, %1324 ], [ %.sroa.14.0, %1331 ], [ %.sroa.14.0, %1337 ], [ %.sroa.14.0, %1330 ]
+  %.sroa.16.1 = phi i32 [ %.sroa.16.0, %1285 ], [ %.sroa.16.0, %1291 ], [ %.sroa.16.0, %1297 ], [ %.sroa.16.0, %1304 ], [ %.sroa.16.0, %1311 ], [ %.sroa.16.0, %1317 ], [ %1329, %1324 ], [ %.sroa.16.0, %1331 ], [ %.sroa.16.0, %1337 ], [ %.sroa.16.0, %1330 ]
+  %.sroa.18.1 = phi i32 [ %.sroa.18.0, %1285 ], [ %.sroa.18.0, %1291 ], [ %.sroa.18.0, %1297 ], [ %.sroa.18.0, %1304 ], [ %.sroa.18.0, %1311 ], [ %.sroa.18.0, %1317 ], [ %.sroa.18.0, %1324 ], [ %1336, %1331 ], [ %.sroa.18.0, %1337 ], [ %.sroa.18.0, %1330 ]
+  %.sroa.21.1 = phi i32 [ %.sroa.21.0, %1285 ], [ %.sroa.21.0, %1291 ], [ %.sroa.21.0, %1297 ], [ %.sroa.21.0, %1304 ], [ %.sroa.21.0, %1311 ], [ %.sroa.21.0, %1317 ], [ %.sroa.21.0, %1324 ], [ %.sroa.21.0, %1331 ], [ %1342, %1337 ], [ %.sroa.21.0, %1330 ]
+  %.sroa.0.1 = phi i32 [ %1290, %1285 ], [ %.sroa.0.0, %1291 ], [ %.sroa.0.0, %1297 ], [ %.sroa.0.0, %1304 ], [ %.sroa.0.0, %1311 ], [ %.sroa.0.0, %1317 ], [ %.sroa.0.0, %1324 ], [ %.sroa.0.0, %1331 ], [ %.sroa.0.0, %1337 ], [ %.sroa.0.0, %1330 ]
   %1344 = load i32, ptr %12, align 4, !tbaa !36
   %.not986 = icmp eq i32 %1344, 0
   br i1 %.not986, label %1345, label %1236
@@ -6976,8 +6976,8 @@ Wlc_PrsIsChar.exit32.thread.i1593:                ; preds = %1269
   br label %.critedge1049
 
 .loopexit1990:                                    ; preds = %1236, %1240
-  %1348 = icmp eq i32 %.sroa.0.2, -1
-  %1349 = icmp eq i32 %.sroa.18.2, -1
+  %1348 = icmp eq i32 %.sroa.0.0, -1
+  %1349 = icmp eq i32 %.sroa.18.0, -1
   %or.cond25 = select i1 %1348, i1 true, i1 %1349
   br i1 %or.cond25, label %1350, label %1352
 
@@ -6989,27 +6989,27 @@ Wlc_PrsIsChar.exit32.thread.i1593:                ; preds = %1269
   %1353 = load ptr, ptr %35, align 8, !tbaa !31
   %1354 = getelementptr i8, ptr %1353, i64 640
   %.val1097 = load ptr, ptr %1354, align 8, !tbaa !66
-  %1355 = sext i32 %.sroa.21.2 to i64
+  %1355 = sext i32 %.sroa.21.0 to i64
   %1356 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1097, i64 %1355
   call void @Wlc_ObjUpdateType(ptr noundef %1353, ptr noundef %1356, i32 noundef 5) #29
   %1357 = load ptr, ptr %36, align 8, !tbaa !24
   %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 4
   store i32 0, ptr %1358, align 4, !tbaa !17
-  call fastcc void @Vec_IntPush(ptr noundef %1357, i32 noundef %.sroa.0.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1357, i32 noundef %.sroa.0.0)
   %1359 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1359, i32 noundef %.sroa.6.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1359, i32 noundef %.sroa.6.0)
   %1360 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1360, i32 noundef %.sroa.8.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1360, i32 noundef %.sroa.8.0)
   %1361 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1361, i32 noundef %.sroa.10.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1361, i32 noundef %.sroa.10.0)
   %1362 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1362, i32 noundef %.sroa.12.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1362, i32 noundef %.sroa.12.0)
   %1363 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1363, i32 noundef %.sroa.14.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1363, i32 noundef %.sroa.14.0)
   %1364 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1364, i32 noundef %.sroa.16.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1364, i32 noundef %.sroa.16.0)
   %1365 = load ptr, ptr %36, align 8, !tbaa !24
-  call fastcc void @Vec_IntPush(ptr noundef %1365, i32 noundef %.sroa.18.2)
+  call fastcc void @Vec_IntPush(ptr noundef %1365, i32 noundef %.sroa.18.0)
   %1366 = load ptr, ptr %35, align 8, !tbaa !31
   %1367 = load ptr, ptr %36, align 8, !tbaa !24
   call void @Wlc_ObjAddFanins(ptr noundef %1366, ptr noundef %1356, ptr noundef %1367) #29

@@ -538,20 +538,20 @@ _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.
   %.sroa.0.1.i = phi ptr [ %12, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %18 = zext i32 %14 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
-  %.not4143 = icmp eq ptr %.sroa.0.1.i, %19
-  br i1 %.not4143, label %_ZN4llvm5ErrorD2Ev.exit32, label %.lr.ph.preheader
+  %.not3941 = icmp eq ptr %.sroa.0.1.i, %19
+  br i1 %.not3941, label %_ZN4llvm5ErrorD2Ev.exit32, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit
   %.pre = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !57
   br label %.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %_ZN4llvm5ErrorD2Ev.exit31
-  %.not41 = icmp eq ptr %storemerge.i, %19
-  br i1 %.not41, label %_ZN4llvm5ErrorD2Ev.exit32, label %.lr.ph
+  %.not39 = icmp eq ptr %storemerge.i, %19
+  br i1 %.not39, label %_ZN4llvm5ErrorD2Ev.exit32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit
   %20 = phi ptr [ %28, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.035.044 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
+  %.sroa.035.042 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %20, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -561,11 +561,11 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   store i64 %26, ptr %4, align 8, !tbaa !66
   tail call void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %21, i64 %22) #18
   %27 = load ptr, ptr %0, align 8, !tbaa !27
-  %.not42 = icmp eq ptr %27, null
-  br i1 %.not42, label %_ZN4llvm5ErrorD2Ev.exit31, label %.critedge
+  %.not40 = icmp eq ptr %27, null
+  br i1 %.not40, label %_ZN4llvm5ErrorD2Ev.exit31, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit31.backedge
-  %.pn.i = phi ptr [ %storemerge.i, %_ZN4llvm5ErrorD2Ev.exit31.backedge ], [ %.sroa.035.044, %.lr.ph ]
+  %.pn.i = phi ptr [ %storemerge.i, %_ZN4llvm5ErrorD2Ev.exit31.backedge ], [ %.sroa.035.042, %.lr.ph ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %28 = load ptr, ptr %storemerge.i, align 8, !tbaa !57
   %magicptr.i.i = ptrtoint ptr %28 to i64

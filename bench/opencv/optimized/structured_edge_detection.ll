@@ -804,8 +804,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit177: ; preds = %.noe
 .noexc178:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit177
   %258 = icmp eq i64 %243, 0
   %259 = sub nsw i64 %255, %243
-  %spec.select299 = select i1 %258, i64 0, i64 %259
-  %260 = sitofp i64 %spec.select299 to double
+  %spec.select291 = select i1 %258, i64 0, i64 %259
+  %260 = sitofp i64 %spec.select291 to double
   %261 = fdiv double %260, %257
   %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %261)
           to label %.noexc179 unwind label %367
@@ -942,8 +942,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %.noe
 .noexc190:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189
   %311 = icmp eq i64 %283, 0
   %312 = sub nsw i64 %308, %283
-  %spec.select300 = select i1 %311, i64 0, i64 %312
-  %313 = sitofp i64 %spec.select300 to double
+  %spec.select292 = select i1 %311, i64 0, i64 %312
+  %313 = sitofp i64 %spec.select292 to double
   %314 = fdiv double %313, %310
   %315 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %314)
           to label %.noexc191 unwind label %373

@@ -4907,11 +4907,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit159:         ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %.thread511, %794
-  %.sroa.8.2 = phi i64 [ %799, %794 ], [ 0, %.thread511 ]
-  %.sroa.5395.2 = phi ptr [ %798, %794 ], [ null, %.thread511 ]
+  %.sroa.8.0 = phi i64 [ %799, %794 ], [ 0, %.thread511 ]
+  %.sroa.5395.0 = phi ptr [ %798, %794 ], [ null, %.thread511 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store ptr %.sroa.5395.2, ptr %21, align 8, !tbaa !51
-  store i64 %.sroa.8.2, ptr %.sroa.8.16..sroa_idx, align 8, !tbaa !54
+  store ptr %.sroa.5395.0, ptr %21, align 8, !tbaa !51
+  store i64 %.sroa.8.0, ptr %.sroa.8.16..sroa_idx, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %673, ptr %22, align 8, !tbaa !26
   store i32 0, ptr %674, align 8, !tbaa !192

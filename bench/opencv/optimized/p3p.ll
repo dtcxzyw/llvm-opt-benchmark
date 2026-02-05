@@ -2986,7 +2986,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   br label %23
 
 23:                                               ; preds = %4, %147
-  %.0190222 = phi i32 [ 0, %4 ], [ %148, %147 ]
+  %.0188222 = phi i32 [ 0, %4 ], [ %148, %147 ]
   %24 = load double, ptr %17, align 8, !tbaa !32
   %25 = tail call double @llvm.fabs.f64(double %24)
   %26 = load double, ptr %18, align 8, !tbaa !32
@@ -3008,11 +3008,11 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %23
-  %43 = icmp samesign ult i32 %.0190222, 3
+  %43 = icmp samesign ult i32 %.0188222, 3
   %44 = fmul double %40, 2.000000e-01
   %45 = fmul double %44, 6.250000e-02
   %46 = select i1 %43, double %45, double 0.000000e+00
-  %47 = icmp samesign ugt i32 %.0190222, 3
+  %47 = icmp samesign ugt i32 %.0188222, 3
   br label %.lr.ph219
 
 .loopexit206:                                     ; preds = %.loopexit
@@ -3038,9 +3038,9 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
 
 52:                                               ; preds = %.lr.ph219, %.loopexit
   %indvars.iv231 = phi i64 [ %indvars.iv224, %.lr.ph219 ], [ %indvars.iv.next232, %.loopexit ]
-  %.pn = phi ptr [ %48, %.lr.ph219 ], [ %.0196218, %.loopexit ]
-  %.0196218 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %53 = load double, ptr %.0196218, align 8, !tbaa !32
+  %.pn = phi ptr [ %48, %.lr.ph219 ], [ %.0194218, %.loopexit ]
+  %.0194218 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %53 = load double, ptr %.0194218, align 8, !tbaa !32
   %54 = tail call double @llvm.fabs.f64(double %53)
   %55 = fmul double %54, 1.000000e+02
   br i1 %47, label %56, label %68
@@ -3061,7 +3061,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %61
-  store double 0.000000e+00, ptr %.0196218, align 8, !tbaa !32
+  store double 0.000000e+00, ptr %.0194218, align 8, !tbaa !32
   br label %.loopexit
 
 68:                                               ; preds = %61, %56, %52
@@ -3092,12 +3092,12 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   %86 = fdiv double 1.000000e+00, %85
   %87 = fcmp olt double %82, 0.000000e+00
   %88 = fneg double %86
-  %.1199 = select i1 %87, double %88, double %86
+  %.1198 = select i1 %87, double %88, double %86
   br label %89
 
 89:                                               ; preds = %80, %78
-  %.0198 = phi double [ %79, %78 ], [ %.1199, %80 ]
-  %90 = fmul double %53, %.0198
+  %.0197 = phi double [ %79, %78 ], [ %.1198, %80 ]
+  %90 = fmul double %53, %.0197
   %91 = load double, ptr %50, align 8, !tbaa !32
   %92 = fsub double %91, %90
   store double %92, ptr %50, align 8, !tbaa !32
@@ -3110,11 +3110,11 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
   %97 = load double, ptr %71, align 8, !tbaa !32
   %98 = fadd double %90, %97
   store double %98, ptr %71, align 8, !tbaa !32
-  store double 0.000000e+00, ptr %.0196218, align 8, !tbaa !32
-  %99 = tail call double @llvm.fmuladd.f64(double %.0198, double %.0198, double 1.000000e+00)
+  store double 0.000000e+00, ptr %.0194218, align 8, !tbaa !32
+  %99 = tail call double @llvm.fmuladd.f64(double %.0197, double %.0197, double 1.000000e+00)
   %sqrt203 = tail call double @llvm.sqrt.f64(double %99)
   %100 = fdiv double 1.000000e+00, %sqrt203
-  %101 = fmul double %.0198, %100
+  %101 = fmul double %.0197, %100
   %102 = fadd double %100, 1.000000e+00
   %103 = fdiv double %101, %102
   br i1 %.not.not208.not, label %.preheader205, label %.lr.ph
@@ -3238,7 +3238,7 @@ define hidden noundef zeroext i1 @_ZN3p3p10jacobi_4x4EPdS0_S0_(ptr nonnull readn
 147:                                              ; preds = %.preheader207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %148 = add nuw nsw i32 %.0190222, 1
+  %148 = add nuw nsw i32 %.0188222, 1
   %exitcond251.not = icmp eq i32 %148, 50
   br i1 %exitcond251.not, label %.critedge, label %23, !llvm.loop !92
 

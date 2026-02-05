@@ -111,8 +111,8 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.
   %.pn19.i.i.i = phi ptr [ %22, %21 ], [ %17, %23 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %27 ], [ %24, %.critedge2.i10.i16.i11.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %26 ]
   %.pn17.i.i.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ %24, %.critedge2.i10.i16.i11.i.i.i ], [ %24, %27 ], [ %24, %26 ], [ %24, %.lr.ph.i6.i12.i3.i.i.i ]
   %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %20
-  %.not346 = icmp eq ptr %.pn19.i.i.i, %29
-  br i1 %.not346, label %._crit_edge, label %.lr.ph
+  %.not344 = icmp eq ptr %.pn19.i.i.i, %29
+  br i1 %.not344, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit
   %30 = zext nneg i8 %3 to i32
@@ -134,8 +134,8 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.
   ret void
 
 43:                                               ; preds = %.lr.ph, %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit
-  %.sroa.0331.0347 = phi ptr [ %.pn19.i.i.i, %.lr.ph ], [ %.sroa.0331.2, %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0331.0347, i64 24
+  %.sroa.0329.0345 = phi ptr [ %.pn19.i.i.i, %.lr.ph ], [ %.sroa.0329.2, %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0345, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !88
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !92
@@ -144,8 +144,8 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.
   %50 = zext i32 %49 to i64
   %51 = call i32 @_ZN4llvm5MachO20mapToArchitectureSetENS_8ArrayRefINS0_6TargetEEE(ptr %47, i64 %50) #16
   %52 = and i32 %51, %31
-  %.not338 = icmp eq i32 %52, 0
-  br i1 %.not338, label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit, label %53
+  %.not336 = icmp eq i32 %52, 0
+  br i1 %.not336, label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit, label %53
 
 53:                                               ; preds = %43
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 152
@@ -526,28 +526,28 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13
   %189 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %180, i64 %178
   store ptr %189, ptr %33, align 8, !tbaa !100
   %.val30.pre = load i8, ptr %124, align 1, !tbaa !98
-  %.pre355 = and i8 %.val30.pre, 8
-  %.pre356 = and i8 %.val30.pre, 6
-  %.pre358 = and i8 %.val30.pre, 32
-  %.pre360 = and i8 %.val30.pre, 64
+  %.pre353 = and i8 %.val30.pre, 8
+  %.pre354 = and i8 %.val30.pre, 6
+  %.pre356 = and i8 %.val30.pre, 32
+  %.pre358 = and i8 %.val30.pre, 64
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit93
 
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit93: ; preds = %162, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211
-  %.pre-phi361 = phi i8 [ %129, %162 ], [ %.pre360, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
-  %.pre-phi359 = phi i8 [ %128, %162 ], [ %.pre358, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
-  %.pre-phi357 = phi i8 [ %126, %162 ], [ %.pre356, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
-  %.pre-phi = phi i8 [ %125, %162 ], [ %.pre355, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
+  %.pre-phi359 = phi i8 [ %129, %162 ], [ %.pre358, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
+  %.pre-phi357 = phi i8 [ %128, %162 ], [ %.pre356, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
+  %.pre-phi355 = phi i8 [ %126, %162 ], [ %.pre354, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
+  %.pre-phi = phi i8 [ %125, %162 ], [ %.pre353, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
   %190 = phi ptr [ %131, %162 ], [ %189, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
   %191 = phi ptr [ %166, %162 ], [ %187, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit211 ]
   %.sroa.0.0.copyload.i94 = load ptr, ptr %45, align 8, !tbaa !97
   %.sroa.2.0.copyload.i96 = load i64, ptr %.sroa.2.0..sroa_idx.i54, align 8, !tbaa !85
   %.not.i99 = icmp eq i8 %.pre-phi, 0
   %..i100 = select i1 %.not.i99, i32 66, i32 3
-  %or.cond.not.i101 = icmp eq i8 %.pre-phi357, 0
+  %or.cond.not.i101 = icmp eq i8 %.pre-phi355, 0
   %192 = or disjoint i32 %..i100, 4
   %.1.i102 = select i1 %or.cond.not.i101, i32 %..i100, i32 %192
-  %.not.i103 = icmp eq i8 %.pre-phi359, 0
-  %.not1.i104 = icmp eq i8 %.pre-phi361, 0
+  %.not.i103 = icmp eq i8 %.pre-phi357, 0
+  %.not1.i104 = icmp eq i8 %.pre-phi359, 0
   %spec.select.i105 = select i1 %.not1.i104, i32 0, i32 5
   %.0.i106 = select i1 %.not.i103, i32 %spec.select.i105, i32 2
   %.not.i107 = icmp eq ptr %191, %190
@@ -842,38 +842,38 @@ _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13
   br label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit283, %267, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit259, %230, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit235, %193, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJRKNS0_13StringLiteralENS0_9StringRefEjNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, %133, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE17_M_realloc_insertIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, %65, %53, %43
-  %295 = getelementptr inbounds nuw i8, ptr %.sroa.0331.0347, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0345, i64 32
   %.not19.i3.i.i = icmp eq ptr %295, %.pn17.i.i.i
   br i1 %.not19.i3.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit, label %.lr.ph.i4.i.i
 
 .lr.ph.i4.i.i:                                    ; preds = %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit, %.critedge2.i8.i.i
-  %.sroa.0331.1 = phi ptr [ %299, %.critedge2.i8.i.i ], [ %295, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit ]
-  %296 = load i8, ptr %.sroa.0331.1, align 1, !tbaa !83
+  %.sroa.0329.1 = phi ptr [ %299, %.critedge2.i8.i.i ], [ %295, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit ]
+  %296 = load i8, ptr %.sroa.0329.1, align 1, !tbaa !83
   switch i8 %296, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit [
     i8 0, label %297
     i8 3, label %298
   ]
 
 297:                                              ; preds = %.lr.ph.i4.i.i
-  %.sroa.22.0..sroa_idx.i.i.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0331.1, i64 16
+  %.sroa.22.0..sroa_idx.i.i.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0329.1, i64 16
   %.sroa.22.0.copyload.i.i.i.i.i11.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i10.i.i, align 8, !tbaa !85
   %.not.i.i.i.i.i.i12.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i.i11.i.i, 0
   br i1 %.not.i.i.i.i.i.i12.i.i, label %.critedge2.i8.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit
 
 298:                                              ; preds = %.lr.ph.i4.i.i
-  %.sroa.22.0..sroa_idx.i.i.i.i4.i5.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0331.1, i64 16
+  %.sroa.22.0..sroa_idx.i.i.i.i4.i5.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0329.1, i64 16
   %.sroa.22.0.copyload.i.i.i.i5.i6.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i4.i5.i.i, align 8, !tbaa !85
   %.not.i.i.i.i.i9.i7.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i5.i6.i.i, 0
   br i1 %.not.i.i.i.i.i9.i7.i.i, label %.critedge2.i8.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit
 
 .critedge2.i8.i.i:                                ; preds = %298, %297
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.0331.1, i64 32
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.0329.1, i64 32
   %.not.i9.i.i = icmp eq ptr %299, %.pn17.i.i.i
   br i1 %.not.i9.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit, label %.lr.ph.i4.i.i, !llvm.loop !86
 
 _ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit: ; preds = %.lr.ph.i4.i.i, %297, %298, %.critedge2.i8.i.i, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit
-  %.sroa.0331.2 = phi ptr [ %295, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit ], [ %.sroa.0331.1, %298 ], [ %.sroa.0331.1, %297 ], [ %299, %.critedge2.i8.i.i ], [ %.sroa.0331.1, %.lr.ph.i4.i.i ]
-  %.not = icmp eq ptr %.sroa.0331.2, %29
+  %.sroa.0329.2 = phi ptr [ %295, %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE12emplace_backIJNS0_9StringRefES7_jNS1_9SymbolRef4TypeEEEERS3_DpOT_.exit ], [ %.sroa.0329.1, %298 ], [ %.sroa.0329.1, %297 ], [ %299, %.critedge2.i8.i.i ], [ %.sroa.0329.1, %.lr.ph.i4.i.i ]
+  %.not = icmp eq ptr %.sroa.0329.2, %29
   br i1 %.not, label %._crit_edge, label %43
 }
 

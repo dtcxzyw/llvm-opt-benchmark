@@ -244,7 +244,7 @@ define linkonce_odr dso_local void @_ZN13FallingHingesC2ER8Settings(ptr noundef 
 
 68:                                               ; preds = %61, %91
   %indvars.iv = phi i64 [ %65, %61 ], [ %indvars.iv.next, %91 ]
-  %.sroa.014.185 = phi i64 [ 0, %61 ], [ %.sroa.014.2, %91 ]
+  %.sroa.014.085 = phi i64 [ 0, %61 ], [ %.sroa.014.1, %91 ]
   %.07084 = phi i32 [ 0, %61 ], [ %93, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %9)
@@ -290,14 +290,14 @@ _Z9b2MakeRotf.exit:                               ; preds = %69
   br label %94
 
 87:                                               ; preds = %78
-  store i64 %.sroa.014.185, ptr %8, align 8
+  store i64 %.sroa.014.085, ptr %8, align 8
   store i64 %77, ptr %51, align 8
   %.sroa.03.0.copyload = load i32, ptr %17, align 4
   %88 = invoke i64 @b2CreateRevoluteJoint(i32 %.sroa.03.0.copyload, ptr noundef nonnull %8)
           to label %89 unwind label %85
 
 89:                                               ; preds = %87, %78
-  %.sroa.014.2 = phi i64 [ %77, %78 ], [ 0, %87 ]
+  %.sroa.014.1 = phi i64 [ %77, %78 ], [ 0, %87 ]
   %90 = invoke i64 @b2CreatePolygonShape(i64 %77, ptr noundef nonnull %7, ptr noundef nonnull %6)
           to label %91 unwind label %85
 

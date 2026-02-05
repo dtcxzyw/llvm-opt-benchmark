@@ -7024,12 +7024,12 @@ define void @_ZN3nix14DerivationGoal12closeLogFileEv(ptr noundef nonnull align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %5 = load ptr, ptr %4, align 8, !noalias !38
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread37, label %7
+  br i1 %6, label %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread35, label %7
 
 7:                                                ; preds = %1
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN3nix12BufferedSinkE, ptr nonnull @_ZTIN3nix15CompressionSinkE, i64 0) #33, !noalias !38
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread37, label %9
+  br i1 %.not.i, label %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread35, label %9
 
 9:                                                ; preds = %7
   store ptr %8, ptr %2, align 8, !alias.scope !38
@@ -7052,7 +7052,7 @@ define void @_ZN3nix14DerivationGoal12closeLogFileEv(ptr noundef nonnull align 8
   store i32 %18, ptr %14, align 4, !noalias !38
   br label %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread37: ; preds = %1, %7
+_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread35: ; preds = %1, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !38
   br label %27
 
@@ -7076,11 +7076,11 @@ _ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared
           cleanup
   br label %163
 
-27:                                               ; preds = %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread37, %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit
+27:                                               ; preds = %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread35, %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN3nix15CompressionSinkENS0_12BufferedSinkEESt10shared_ptrIT_ERKS3_IT0_E.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %29 = load ptr, ptr %28, align 8
-  %.not25 = icmp eq ptr %29, null
-  br i1 %.not25, label %31, label %30
+  %.not23 = icmp eq ptr %29, null
+  br i1 %.not23, label %31, label %30
 
 30:                                               ; preds = %27
   invoke void @_ZN3nix12BufferedSink5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %29)
@@ -7163,27 +7163,27 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit: ; preds = %50, %63, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %.pr22 = load ptr, ptr %32, align 8
+  %.pr20 = load ptr, ptr %32, align 8
   %68 = load ptr, ptr %28, align 8
   store ptr %68, ptr %4, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %70 = load ptr, ptr %69, align 8
-  %.not.i.i.i = icmp eq ptr %.pr22, %70
+  %.not.i.i.i = icmp eq ptr %.pr20, %70
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix12BufferedSinkEED2Ev.exit, label %73
 
 _ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread: ; preds = %31
   store ptr null, ptr %4, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %72 = load ptr, ptr %71, align 8
-  %.not.i.i.i23 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i23, label %_ZNSt10shared_ptrIN3nix12BufferedSinkEED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.thread
+  %.not.i.i.i21 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIN3nix12BufferedSinkEED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.thread
 
 73:                                               ; preds = %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit
-  %.not7.i.i.i = icmp eq ptr %.pr22, null
+  %.not7.i.i.i = icmp eq ptr %.pr20, null
   br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %.pr22, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.pr20, i64 8
   %76 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i6 = icmp eq i8 %76, 0
   br i1 %.not.i.i.i.i6, label %80, label %77
@@ -7210,7 +7210,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.thread: ; preds = %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
   %83 = phi ptr [ %82, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ], [ %72, %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread ]
   %84 = phi ptr [ %69, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ], [ %71, %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread ]
-  %85 = phi ptr [ %.pr22, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ], [ null, %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread ]
+  %85 = phi ptr [ %.pr20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ], [ null, %_ZNSt10shared_ptrIN3nix12BufferedSinkEEaSEOS2_.exit.thread ]
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %87 = load atomic i64, ptr %86 acquire, align 8
   %88 = icmp eq i64 %87, 4294967297
@@ -7280,7 +7280,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %114, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
   %119 = phi ptr [ %84, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %84, %114 ], [ %84, %101 ], [ %69, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ]
-  %120 = phi ptr [ %85, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %85, %114 ], [ %85, %101 ], [ %.pr22, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ]
+  %120 = phi ptr [ %85, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %85, %114 ], [ %85, %101 ], [ %.pr20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i ]
   store ptr %120, ptr %119, align 8
   br label %_ZNSt10shared_ptrIN3nix12BufferedSinkEED2Ev.exit
 

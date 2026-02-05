@@ -15437,7 +15437,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i
   %.not7.i.i.i.i.i = icmp eq i64 %36, 6
   %spec.store.select.i.i.i.i.i = select i1 %.not7.i.i.i.i.i, i32 7, i32 6
   store i32 %spec.store.select.i.i.i.i.i, ptr %5, align 8, !alias.scope !2328, !noalias !2333
-  br i1 %.not7.i.i.i.i.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i"
+  br i1 %.not7.i.i.i.i.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i.i"
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.i.i.i.i: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i, %33
   %37 = load i8, ptr %31, align 8, !range !2308, !alias.scope !2339, !noalias !2333, !noundef !6
@@ -15461,25 +15461,25 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i.i": ; preds = %38
   %.pre.i.i.i = and i64 %39, 4294967295
   %43 = icmp eq i64 %.pre.i.i.i, 6
-  br i1 %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc4cd6f4ced6d3c31E.exit.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i_crit_edge.i"
+  br i1 %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc4cd6f4ced6d3c31E.exit.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i_crit_edge.i"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i_crit_edge.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i.i"
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i_crit_edge.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i.i"
   %.pre.i = load i64, ptr %.sroa.67.0..sroa_idx.i, align 8, !alias.scope !2344, !noalias !2345
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i"
+  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i.i"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i_crit_edge.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i
-  %44 = phi i64 [ %.pre.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i_crit_edge.i" ], [ %34, %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i ]
-  %.sroa.05.0.i.i11.i.i.i = phi i64 [ %39, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i_crit_edge.i" ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i_crit_edge.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i
+  %44 = phi i64 [ %.pre.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i_crit_edge.i" ], [ %34, %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i ]
+  %.sroa.05.0.i.i10.i.i.i = phi i64 [ %39, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.i.i._ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i_crit_edge.i" ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.i.i.i.i ]
   %45 = icmp ult i64 %44, 1152921504606846976
   call void @llvm.assume(i1 %45)
   %46 = load i64, ptr %6, align 8, !range !347, !alias.scope !2344, !noalias !2345, !noundef !6
   %47 = icmp eq i64 %44, %46
   br i1 %47, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda19a17d29f6d567E.exit.i.i.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda19a17d29f6d567E.exit.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda19a17d29f6d567E.exit.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i.i"
   %48 = load ptr, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !2344, !noalias !2345, !nonnull !6, !noundef !6
   %49 = getelementptr inbounds nuw { i32, [1 x i32] }, ptr %48, i64 %44
-  store i64 %.sroa.05.0.i.i11.i.i.i, ptr %49, align 4, !noalias !2302
+  store i64 %.sroa.05.0.i.i10.i.i.i, ptr %49, align 4, !noalias !2302
   %50 = add nuw nsw i64 %44, 1
   store i64 %50, ptr %.sroa.67.0..sroa_idx.i, align 8, !alias.scope !2344, !noalias !2345
   br label %33
@@ -15489,7 +15489,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hbcdad71274159eaeE.exit.thread.
           cleanup
   br label %40
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread8.i.i.i"
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h169fc3b0ab0c8b4cE.exit.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c2be67ab1e53f75E.exit.thread7.i.i.i"
   %.val.i.i.i = load i32, ptr %5, align 8, !range !2296, !alias.scope !2346, !noalias !2333, !noundef !6
   %53 = icmp samesign ult i32 %.val.i.i.i, 6
   %54 = select i1 %53, i64 2, i64 1

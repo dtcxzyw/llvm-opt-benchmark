@@ -31332,8 +31332,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %204, %206
   %212 = zext i32 %211 to i64
   %.idx = mul nuw nsw i64 %212, 24
   %213 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx
-  %.not66 = icmp eq i32 %211, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i32 %211, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit
   %214 = load ptr, ptr %198, align 8, !tbaa !532
@@ -31355,9 +31355,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %204, %206
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %.lr.ph
-  %.067 = phi ptr [ %223, %.lr.ph ], [ %209, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgEN5clang16TemplateArgumentEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %.067, i1 noundef zeroext %2)
-  %223 = getelementptr inbounds nuw i8, ptr %.067, i64 24
+  %.063 = phi ptr [ %223, %.lr.ph ], [ %209, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler17mangleTemplateArgEN5clang16TemplateArgumentEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %.063, i1 noundef zeroext %2)
+  %223 = getelementptr inbounds nuw i8, ptr %.063, i64 24
   %.not = icmp eq ptr %223, %213
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

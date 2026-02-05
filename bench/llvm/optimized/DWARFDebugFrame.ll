@@ -3007,8 +3007,8 @@ _ZN4llvm5dwarf11UnwindTableD2Ev.exit:             ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramERNS0_9UnwindRowEPKNS0_17RegisterLocationsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(44) %42, ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef null)
   %76 = load ptr, ptr %11, align 8, !tbaa !129
-  %.not43 = icmp eq ptr %76, null
-  br i1 %.not43, label %_ZN4llvm5ErrorD2Ev.exit16, label %_ZN4llvm5ErrorD2Ev.exit15
+  %.not37 = icmp eq ptr %76, null
+  br i1 %.not37, label %_ZN4llvm5ErrorD2Ev.exit16, label %_ZN4llvm5ErrorD2Ev.exit15
 
 _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %56
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3073,8 +3073,8 @@ _ZN4llvm5dwarf17RegisterLocationsC2ERKS1_.exit:   ; preds = %_ZN4llvm5ErrorD2Ev.
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramERNS0_9UnwindRowEPKNS0_17RegisterLocationsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(44) %95, ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull %12)
   %96 = load ptr, ptr %13, align 8, !tbaa !129
-  %.not44 = icmp eq ptr %96, null
-  br i1 %.not44, label %_ZN4llvm5ErrorD2Ev.exit18, label %_ZN4llvm5ErrorD2Ev.exit17
+  %.not38 = icmp eq ptr %96, null
+  br i1 %.not38, label %_ZN4llvm5ErrorD2Ev.exit18, label %_ZN4llvm5ErrorD2Ev.exit17
 
 _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZN4llvm5dwarf17RegisterLocationsC2ERKS1_.exit
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5173,8 +5173,8 @@ _ZN4llvm5dwarf11UnwindTableD2Ev.exit:             ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramERNS0_9UnwindRowEPKNS0_17RegisterLocationsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef null)
   %29 = load ptr, ptr %6, align 8, !tbaa !129
-  %.not21 = icmp eq ptr %29, null
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit2, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not15 = icmp eq ptr %29, null
+  br i1 %.not15, label %_ZN4llvm5ErrorD2Ev.exit2, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40

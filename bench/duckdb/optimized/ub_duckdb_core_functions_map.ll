@@ -7639,8 +7639,8 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.
   br i1 %.not371, label %._crit_edge354, label %.lr.ph353
 
 ._crit_edge354:                                   ; preds = %.loopexit250, %63
-  %.sroa.10.1.lcssa = phi ptr [ null, %63 ], [ %.sroa.10.2, %.loopexit250 ]
-  %.sroa.0236.1.lcssa = phi ptr [ null, %63 ], [ %.sroa.0236.2, %.loopexit250 ]
+  %.sroa.10.0.lcssa = phi ptr [ null, %63 ], [ %.sroa.10.1, %.loopexit250 ]
+  %.sroa.0236.0.lcssa = phi ptr [ null, %63 ], [ %.sroa.0236.1, %.loopexit250 ]
   %.080.lcssa = phi i1 [ true, %63 ], [ %.181, %.loopexit250 ]
   %65 = invoke noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %214 unwind label %223
@@ -7648,9 +7648,9 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EECI2St6vectorIS1_SaIS1_EEEmRKS4_.
 .lr.ph353:                                        ; preds = %63, %.loopexit250
   %.080351 = phi i1 [ %.181, %.loopexit250 ], [ true, %63 ]
   %storemerge349 = phi i64 [ %213, %.loopexit250 ], [ 0, %63 ]
-  %.sroa.0236.1348 = phi ptr [ %.sroa.0236.2, %.loopexit250 ], [ null, %63 ]
-  %.sroa.10.1347 = phi ptr [ %.sroa.10.2, %.loopexit250 ], [ null, %63 ]
-  %.sroa.14.1346 = phi ptr [ %.sroa.14.2, %.loopexit250 ], [ null, %63 ]
+  %.sroa.0236.0348 = phi ptr [ %.sroa.0236.1, %.loopexit250 ], [ null, %63 ]
+  %.sroa.10.0347 = phi ptr [ %.sroa.10.1, %.loopexit250 ], [ null, %63 ]
+  %.sroa.14.0346 = phi ptr [ %.sroa.14.1, %.loopexit250 ], [ null, %63 ]
   %66 = load ptr, ptr %33, align 8, !tbaa !209
   %67 = load ptr, ptr %0, align 8, !tbaa !210
   %68 = ptrtoint ptr %66 to i64
@@ -7844,9 +7844,9 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit138:   ; preds = %_ZNK6duckdb15Select
 
 .lr.ph343:                                        ; preds = %130, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit
   %.083341 = phi i64 [ %211, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ 0, %130 ]
-  %.sroa.0236.4340 = phi ptr [ %.sroa.0236.5, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.0236.1348, %130 ]
-  %.sroa.10.3339 = phi ptr [ %.sroa.10.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.10.1347, %130 ]
-  %.sroa.14.3338 = phi ptr [ %.sroa.14.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.14.1346, %130 ]
+  %.sroa.0236.3340 = phi ptr [ %.sroa.0236.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.0236.0348, %130 ]
+  %.sroa.10.2339 = phi ptr [ %.sroa.10.3, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.10.0347, %130 ]
+  %.sroa.14.2338 = phi ptr [ %.sroa.14.3, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ], [ %.sroa.14.0346, %130 ]
   %135 = add i64 %.083341, %.sroa.017.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZNK6duckdb6Vector8GetValueEm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %13, ptr noundef nonnull align 8 dereferenceable(104) %129, i64 noundef %135)
@@ -7974,19 +7974,19 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN6duckdb5ValueESt6vectorIS3_SaIS3_EEEE
           to label %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %176
-  %.not.i141 = icmp eq ptr %.sroa.10.3339, %.sroa.14.3338
+  %.not.i141 = icmp eq ptr %.sroa.10.2339, %.sroa.14.2338
   br i1 %.not.i141, label %180, label %177
 
 177:                                              ; preds = %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backERKS1_.exit
-  store i64 %storemerge349, ptr %.sroa.10.3339, align 8, !tbaa !218
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.10.3339, i64 8
+  store i64 %storemerge349, ptr %.sroa.10.2339, align 8, !tbaa !218
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.10.2339, i64 8
   store i64 %135, ptr %178, align 8, !tbaa !220
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.10.3339, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.10.2339, i64 16
   br label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit
 
 180:                                              ; preds = %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backERKS1_.exit
-  %181 = ptrtoint ptr %.sroa.10.3339 to i64
-  %182 = ptrtoint ptr %.sroa.0236.4340 to i64
+  %181 = ptrtoint ptr %.sroa.10.2339 to i64
+  %182 = ptrtoint ptr %.sroa.0236.3340 to i64
   %183 = sub i64 %181, %182
   %184 = icmp eq i64 %183, 9223372036854775792
   br i1 %184, label %185, label %_ZNKSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -8000,7 +8000,7 @@ _ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %1
 
 _ZNKSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %180
   %186 = ashr exact i64 %183, 4
-  %187 = icmp eq ptr %.sroa.10.3339, %.sroa.0236.4340
+  %187 = icmp eq ptr %.sroa.10.2339, %.sroa.0236.3340
   %.sroa.speculated.i.i.i = select i1 %187, i64 1, i64 %186
   %188 = add nsw i64 %.sroa.speculated.i.i.i, %186
   %189 = icmp ult i64 %188, %186
@@ -8021,21 +8021,21 @@ _ZNKSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12_M_check_lenEmPK
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc144, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %197, %.lr.ph.i.i.i.i.i.i ], [ %193, %.noexc144 ]
-  %.092.i.i.i.i.i.i = phi ptr [ %196, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0236.4340, %.noexc144 ]
+  %.092.i.i.i.i.i.i = phi ptr [ %196, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0236.3340, %.noexc144 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !221, !alias.scope !222
   %196 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
   %197 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %196, %.sroa.10.3339
+  %.not.i.i.i.i.i.i = icmp eq ptr %196, %.sroa.10.2339
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit39.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !226
 
 _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit39.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc144
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %193, %.noexc144 ], [ %197, %.lr.ph.i.i.i.i.i.i ]
   %198 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
-  %.not.i40.i.i = icmp eq ptr %.sroa.0236.4340, null
+  %.not.i40.i.i = icmp eq ptr %.sroa.0236.3340, null
   br i1 %.not.i40.i.i, label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %199
 
 199:                                              ; preds = %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit39.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.4340) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.3340) #25
   br label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %199, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit39.i.i
@@ -8073,16 +8073,16 @@ _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insert
   %206 = ptrtoint ptr %204 to i64
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
-  %209 = getelementptr inbounds i8, ptr %.sroa.0236.4340, i64 %208
+  %209 = getelementptr inbounds i8, ptr %.sroa.0236.3340, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i64 %135, ptr %210, align 8, !tbaa !220
   store i64 %storemerge349, ptr %209, align 8, !tbaa !218
   br label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit
 
 _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit: ; preds = %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %177, %203
-  %.sroa.14.4 = phi ptr [ %.sroa.14.3338, %203 ], [ %200, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.14.3338, %177 ]
-  %.sroa.10.4 = phi ptr [ %.sroa.10.3339, %203 ], [ %198, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %179, %177 ]
-  %.sroa.0236.5 = phi ptr [ %.sroa.0236.4340, %203 ], [ %193, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0236.4340, %177 ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.2338, %203 ], [ %200, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.14.2338, %177 ]
+  %.sroa.10.3 = phi ptr [ %.sroa.10.2339, %203 ], [ %198, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %179, %177 ]
+  %.sroa.0236.4 = phi ptr [ %.sroa.0236.3340, %203 ], [ %193, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0236.3340, %177 ]
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %211 = add nuw i64 %.083341, 1
@@ -8095,9 +8095,9 @@ _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS
   br label %.body
 
 .loopexit250:                                     ; preds = %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit, %130, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %86
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1346, %86 ], [ %.sroa.14.1346, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.14.1346, %130 ], [ %.sroa.14.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1347, %86 ], [ %.sroa.10.1347, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.10.1347, %130 ], [ %.sroa.10.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
-  %.sroa.0236.2 = phi ptr [ %.sroa.0236.1348, %86 ], [ %.sroa.0236.1348, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.0236.1348, %130 ], [ %.sroa.0236.5, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0346, %86 ], [ %.sroa.14.0346, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.14.0346, %130 ], [ %.sroa.14.3, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0347, %86 ], [ %.sroa.10.0347, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.10.0347, %130 ], [ %.sroa.10.3, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
+  %.sroa.0236.1 = phi ptr [ %.sroa.0236.0348, %86 ], [ %.sroa.0236.0348, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.sroa.0236.0348, %130 ], [ %.sroa.0236.4, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
   %.181 = phi i1 [ %.080351, %86 ], [ %.080351, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ false, %130 ], [ false, %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS6_EEEvDpOT_.exit ]
   %213 = add nuw i64 %storemerge349, 1
   %exitcond437.not = icmp eq i64 %213, %umax436
@@ -8127,7 +8127,7 @@ _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS
 225:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %.not358 = icmp eq ptr %.sroa.0236.1.lcssa, %.sroa.10.1.lcssa
+  %.not358 = icmp eq ptr %.sroa.0236.0.lcssa, %.sroa.10.0.lcssa
   br i1 %.not358, label %._crit_edge362, label %.lr.ph361
 
 ._crit_edge362.loopexit:                          ; preds = %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit
@@ -8156,7 +8156,7 @@ _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12emplace_backIJRmS
 
 .lr.ph361:                                        ; preds = %225, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit
   %232 = phi ptr [ %285, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit ], [ null, %225 ]
-  %.sroa.0225.0359 = phi ptr [ %286, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit ], [ %.sroa.0236.1.lcssa, %225 ]
+  %.sroa.0225.0359 = phi ptr [ %286, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit ], [ %.sroa.0236.0.lcssa, %225 ]
   %233 = load i64, ptr %.sroa.0225.0359, align 8, !tbaa !218
   %234 = load ptr, ptr %33, align 8, !tbaa !209
   %235 = load ptr, ptr %0, align 8, !tbaa !210
@@ -8315,7 +8315,7 @@ _ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc155, 
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %286 = getelementptr inbounds nuw i8, ptr %.sroa.0225.0359, i64 16
-  %.not = icmp eq ptr %286, %.sroa.10.1.lcssa
+  %.not = icmp eq ptr %286, %.sroa.10.0.lcssa
   br i1 %.not, label %._crit_edge362.loopexit, label %.lr.ph361
 
 287:                                              ; preds = %254
@@ -8508,11 +8508,11 @@ _ZSt8_DestroyIPN6duckdb5ValueES1_EvT_S3_RSaIT0_E.exit.i190: ; preds = %_ZSt8_Des
 
 _ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit192: ; preds = %_ZSt8_DestroyIPN6duckdb5ValueES1_EvT_S3_RSaIT0_E.exit.i190, %321
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not.i.i.i193 = icmp eq ptr %.sroa.0236.1.lcssa, null
+  %.not.i.i.i193 = icmp eq ptr %.sroa.0236.0.lcssa, null
   br i1 %.not.i.i.i193, label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit, label %322
 
 322:                                              ; preds = %_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit192
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.1.lcssa) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.0.lcssa) #25
   br label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit192, %322
@@ -8534,15 +8534,15 @@ _ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit: ; preds 
   br label %.body
 
 .body:                                            ; preds = %212, %.body136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i124, %110, %.body152, %223
-  %.sroa.0236.6 = phi ptr [ %.sroa.0236.1.lcssa, %.body152 ], [ %.sroa.0236.1.lcssa, %223 ], [ %.sroa.0236.4340, %212 ], [ %.sroa.0236.1348, %.body136 ], [ %.sroa.0236.1348, %110 ], [ %.sroa.0236.1348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i124 ], [ %.sroa.0236.1348, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %.sroa.0236.1348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.sroa.0236.1348, %84 ], [ %.sroa.0236.1348, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i123 ]
+  %.sroa.0236.5 = phi ptr [ %.sroa.0236.0.lcssa, %.body152 ], [ %.sroa.0236.0.lcssa, %223 ], [ %.sroa.0236.3340, %212 ], [ %.sroa.0236.0348, %.body136 ], [ %.sroa.0236.0348, %110 ], [ %.sroa.0236.0348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i124 ], [ %.sroa.0236.0348, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %.sroa.0236.0348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.sroa.0236.0348, %84 ], [ %.sroa.0236.0348, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i123 ]
   %.pn93.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn88.pn.pn.pn, %.body152 ], [ %224, %223 ], [ %.pn93.pn, %212 ], [ %134, %.body136 ], [ %.pn14.i.i.i120, %110 ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i124 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.pn14.i.i.i, %84 ], [ %107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i123 ]
   call void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not.i.i.i194 = icmp eq ptr %.sroa.0236.6, null
+  %.not.i.i.i194 = icmp eq ptr %.sroa.0236.5, null
   br i1 %.not.i.i.i194, label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit195, label %325
 
 325:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.6) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0236.5) #25
   br label %_ZNSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EED2Ev.exit195
 
 326:                                              ; preds = %._crit_edge370

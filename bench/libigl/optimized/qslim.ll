@@ -1410,9 +1410,9 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %33
 
 41:                                               ; preds = %.noexc6
   %42 = icmp eq i64 %29, 4
-  br i1 %42, label %.thread17, label %45
+  br i1 %42, label %.thread15, label %45
 
-.thread17:                                        ; preds = %41
+.thread15:                                        ; preds = %41
   %43 = load i32, ptr %.sroa.09.0, align 4, !tbaa !25
   store i32 %43, ptr %35, align 4, !tbaa !25
   store ptr %37, ptr %36, align 8, !tbaa !57
@@ -1429,7 +1429,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %33
   %.not.i.i.i = icmp eq ptr %.sroa.09.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %49
 
-49:                                               ; preds = %.thread17, %45
+49:                                               ; preds = %.thread15, %45
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %29) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -1542,9 +1542,9 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %29
 
 37:                                               ; preds = %.noexc5
   %38 = icmp eq i64 %25, 4
-  br i1 %38, label %.thread16, label %41
+  br i1 %38, label %.thread14, label %41
 
-.thread16:                                        ; preds = %37
+.thread14:                                        ; preds = %37
   %39 = load i32, ptr %.sroa.08.0, align 4, !tbaa !25
   store i32 %39, ptr %31, align 4, !tbaa !25
   store ptr %33, ptr %32, align 8, !tbaa !57
@@ -1561,7 +1561,7 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %29
   %.not.i.i.i = icmp eq ptr %.sroa.08.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %45
 
-45:                                               ; preds = %.thread16, %41
+45:                                               ; preds = %.thread14, %41
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.08.0, i64 noundef %25) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 

@@ -1215,7 +1215,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   br label %102
 
 _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49: ; preds = %_ZN4llvm8DebugLocD2Ev.exit33, %switch.lookup
-  %.082 = phi ptr [ %49, %switch.lookup ], [ undef, %_ZN4llvm8DebugLocD2Ev.exit33 ]
+  %.072 = phi ptr [ %49, %switch.lookup ], [ undef, %_ZN4llvm8DebugLocD2Ev.exit33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !45
@@ -1231,7 +1231,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   %92 = load ptr, ptr %91, align 8, !tbaa !3
   %93 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef %92) #18
   store ptr %93, ptr %90, align 16, !tbaa !73
-  %94 = getelementptr inbounds nuw i8, ptr %.082, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.072, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1245,7 +1245,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   call void @_ZN4llvm11InstructionC2EPNS_4TypeEjNS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef %100, i32 noundef 56, i32 4, ptr null, i64 0) #18
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 72
   store ptr null, ptr %101, align 8, !tbaa !80
-  call void @_ZN4llvm8CallInst4initEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %95, ptr noundef nonnull %.082, ptr nonnull %10, i64 3, ptr noundef nonnull byval(%"class.llvm::ArrayRef.29") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %11) #18
+  call void @_ZN4llvm8CallInst4initEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %95, ptr noundef nonnull %.072, ptr nonnull %10, i64 3, ptr noundef nonnull byval(%"class.llvm::ArrayRef.29") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %11) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1294,12 +1294,12 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %114, %112
   br label %_ZN4llvm8DebugLocD2Ev.exit54
 
 _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit51
-  %.pr83 = load ptr, ptr %12, align 8, !tbaa !3
-  %.not.i.i.i.i53 = icmp eq ptr %.pr83, null
+  %.pr73 = load ptr, ptr %12, align 8, !tbaa !3
+  %.not.i.i.i.i53 = icmp eq ptr %.pr73, null
   br i1 %.not.i.i.i.i53, label %_ZN4llvm8DebugLocD2Ev.exit54, label %118
 
 118:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr83) #18
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr73) #18
   br label %_ZN4llvm8DebugLocD2Ev.exit54
 
 _ZN4llvm8DebugLocD2Ev.exit54:                     ; preds = %116, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, %118
@@ -1989,10 +1989,10 @@ _ZN4llvm4findIRNS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorE
   br label %94
 
 94:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit.us, %.lr.ph.split.us
-  %.sroa.019.048.us = phi i64 [ %.sroa.025.0, %.lr.ph.split.us ], [ %storemerge.i.us, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit.us ]
-  %95 = and i64 %.sroa.019.048.us, 4
+  %.sroa.019.046.us = phi i64 [ %.sroa.025.0, %.lr.ph.split.us ], [ %storemerge.i.us, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit.us ]
+  %95 = and i64 %.sroa.019.046.us, 4
   %96 = icmp eq i64 %95, 0
-  %97 = and i64 %.sroa.019.048.us, -8
+  %97 = and i64 %.sroa.019.046.us, -8
   %98 = inttoptr i64 %97 to ptr
   br i1 %96, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.us, label %99
 
@@ -2105,10 +2105,10 @@ _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.spl
   br label %_ZN4llvm4findIRNS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEDaOT_RKT0_.exit.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
-  %.sroa.019.048 = phi i64 [ %storemerge.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ], [ %.sroa.025.0, %.lr.ph ]
-  %153 = and i64 %.sroa.019.048, 4
+  %.sroa.019.046 = phi i64 [ %storemerge.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ], [ %.sroa.025.0, %.lr.ph ]
+  %153 = and i64 %.sroa.019.046, 4
   %154 = icmp eq i64 %153, 0
-  %155 = and i64 %.sroa.019.048, -8
+  %155 = and i64 %.sroa.019.046, -8
   %156 = inttoptr i64 %155 to ptr
   br i1 %154, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit, label %157
 
@@ -2485,22 +2485,22 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit: ; preds = %
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %24, %30
   %.sroa.7.0 = phi i64 [ %29, %24 ], [ %40, %30 ]
   %.sroa.026.0 = phi i64 [ %26, %24 ], [ %34, %30 ]
-  %.not3132 = icmp eq i64 %.sroa.026.0, %.sroa.7.0
-  br i1 %.not3132, label %._crit_edge, label %.lr.ph
+  %.not2930 = icmp eq i64 %.sroa.026.0, %.sroa.7.0
+  br i1 %.not2930, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, %.critedge.i, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
   %41 = phi i32 [ 0, %.critedge.i ], [ 0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
   %.idx = shl nuw nsw i64 %2, 3
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.not34 = icmp eq i64 %2, 0
-  br i1 %.not34, label %._crit_edge38, label %.lr.ph37
+  %.not32 = icmp eq i64 %2, 0
+  br i1 %.not32, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph:                                           ; preds = %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %43 = phi i32 [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ], [ 0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
-  %.sroa.023.033 = phi i64 [ %storemerge.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ], [ %.sroa.026.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
-  %44 = and i64 %.sroa.023.033, 4
+  %.sroa.023.031 = phi i64 [ %storemerge.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ], [ %.sroa.026.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
+  %44 = and i64 %.sroa.023.031, 4
   %45 = icmp eq i64 %44, 0
-  %46 = and i64 %.sroa.023.033, -8
+  %46 = and i64 %.sroa.023.031, -8
   %47 = inttoptr i64 %46 to ptr
   br i1 %45, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit, label %48
 
@@ -2563,22 +2563,22 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %79 = ptrtoint ptr %78 to i64
   %80 = or disjoint i64 %79, 4
   %storemerge.i = select i1 %.not.i14, i64 %80, i64 %77
-  %.not31 = icmp eq i64 %storemerge.i, %.sroa.7.0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq i64 %storemerge.i, %.sroa.7.0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge38:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21, %._crit_edge
+._crit_edge36:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21, %._crit_edge
   %81 = load ptr, ptr %19, align 8, !tbaa !45, !nonnull !32, !noundef !32
   %82 = load i8, ptr %81, align 4, !tbaa !99
   %.not13.i = icmp eq i8 %82, 4
   br i1 %.not13.i, label %83, label %87
 
-83:                                               ; preds = %._crit_edge38
+83:                                               ; preds = %._crit_edge36
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %85 = load ptr, ptr %84, align 8, !tbaa !60
   %86 = load ptr, ptr %85, align 8, !tbaa !102
   br label %.sink.split.i
 
-87:                                               ; preds = %._crit_edge38
+87:                                               ; preds = %._crit_edge36
   %88 = add i8 %82, -36
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %88, -31
   call void @llvm.assume(i1 %switch.i.i.i.i.i.i.i.i.i)
@@ -2608,15 +2608,15 @@ _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.spl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-.lr.ph37:                                         ; preds = %._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21
+.lr.ph35:                                         ; preds = %._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21
   %99 = phi i32 [ %122, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21 ], [ %41, %._crit_edge ]
-  %.035 = phi ptr [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21 ], [ %1, %._crit_edge ]
-  %100 = load ptr, ptr %.035, align 8, !tbaa !73
+  %.033 = phi ptr [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit21 ], [ %1, %._crit_edge ]
+  %100 = load ptr, ptr %.033, align 8, !tbaa !73
   %101 = load i8, ptr %100, align 8, !tbaa !120
   %102 = icmp eq i8 %101, 24
   br i1 %102, label %103, label %108
 
-103:                                              ; preds = %.lr.ph37
+103:                                              ; preds = %.lr.ph35
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !26
   %106 = load i8, ptr %105, align 4, !tbaa !99
@@ -2625,13 +2625,13 @@ _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.spl
   %spec.select.i.i.i17 = select i1 %spec.select.i.i.i.i.i.i.i.i.i16, ptr %105, ptr null
   br label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit18
 
-108:                                              ; preds = %.lr.ph37
+108:                                              ; preds = %.lr.ph35
   %109 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %100) #18
-  %.pre39 = load i32, ptr %17, align 8, !tbaa !101
+  %.pre37 = load i32, ptr %17, align 8, !tbaa !101
   br label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit18
 
 _ZN4llvmL13getAsMetadataEPNS_5ValueE.exit18:      ; preds = %103, %108
-  %110 = phi i32 [ %99, %103 ], [ %.pre39, %108 ]
+  %110 = phi i32 [ %99, %103 ], [ %.pre37, %108 ]
   %111 = phi ptr [ %spec.select.i.i.i17, %103 ], [ %109, %108 ]
   %112 = load i32, ptr %18, align 4, !tbaa !121
   %.not.i.i.not.i19 = icmp ult i32 %110, %112
@@ -2654,9 +2654,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
   %121 = load i32, ptr %17, align 8, !tbaa !101
   %122 = add i32 %121, 1
   store i32 %122, ptr %17, align 8, !tbaa !101
-  %123 = getelementptr inbounds nuw i8, ptr %.035, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %.not = icmp eq ptr %123, %42
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37
+  br i1 %.not, label %._crit_edge36, label %.lr.ph35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2712,12 +2712,12 @@ define dso_local void @_ZN4llvm17DbgVariableRecord15setKillLocationEv(ptr nounde
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %13, %19
   %.sroa.7.0 = phi i64 [ %18, %13 ], [ %29, %19 ]
   %.sroa.013.0 = phi i64 [ %15, %13 ], [ %23, %19 ]
-  %.not17 = icmp eq i64 %.sroa.013.0, %.sroa.7.0
-  br i1 %.not17, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %.lr.ph
+  %.not15 = icmp eq i64 %.sroa.013.0, %.sroa.7.0
+  br i1 %.not15, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge26
-  %.pre20 = load i8, ptr %7, align 4, !tbaa !133, !range !137
-  %30 = trunc nuw i8 %.pre20 to i1
+._crit_edge:                                      ; preds = %.critedge24
+  %.pre18 = load i8, ptr %7, align 4, !tbaa !133, !range !137
+  %30 = trunc nuw i8 %.pre18 to i1
   br i1 %30, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %31
 
 31:                                               ; preds = %._crit_edge
@@ -2729,11 +2729,11 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %.critedge.i, %1, %_
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-.lr.ph:                                           ; preds = %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %.critedge26
-  %.sroa.010.018 = phi i64 [ %storemerge.i, %.critedge26 ], [ %.sroa.013.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
-  %33 = and i64 %.sroa.010.018, 4
+.lr.ph:                                           ; preds = %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %.critedge24
+  %.sroa.010.016 = phi i64 [ %storemerge.i, %.critedge24 ], [ %.sroa.013.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ]
+  %33 = and i64 %.sroa.010.016, 4
   %34 = icmp eq i64 %33, 0
-  %35 = and i64 %.sroa.010.018, -8
+  %35 = and i64 %.sroa.010.016, -8
   %36 = inttoptr i64 %35 to ptr
   br i1 %34, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit, label %37
 
@@ -2762,7 +2762,7 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
   %.02935.i.i = phi ptr [ %50, %.critedge.i.i ], [ %45, %44 ]
   %49 = load ptr, ptr %.02935.i.i, align 8, !tbaa !141, !noalias !138
   %.not17.i.i = icmp eq ptr %49, %41
-  br i1 %.not17.i.i, label %.critedge26, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge24, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %50 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
@@ -2784,16 +2784,16 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %54 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %41) #18, !noalias !138
   %55 = extractvalue { ptr, i8 } %54, 1
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %.critedge26
+  br i1 %56, label %57, label %.critedge24
 
 57:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !143
   %60 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %59) #18
   call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %41, ptr noundef %60, i1 noundef zeroext false)
-  br label %.critedge26
+  br label %.critedge24
 
-.critedge26:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %57
+.critedge24:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %57
   %61 = icmp ne i64 %33, 0
   %.not3.i = icmp eq i64 %35, 0
   %.not.i8 = or i1 %61, %.not3.i

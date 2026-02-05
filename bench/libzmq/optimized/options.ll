@@ -1275,8 +1275,8 @@ _ZL13do_setsockoptIiEiPKvmPT_.exit.thread.i354:   ; preds = %293
   %314 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %315 = load i64, ptr %314, align 8
   %316 = icmp ult i64 %315, 256
-  %or.cond480 = select i1 %313, i1 %316, i1 false
-  br i1 %or.cond480, label %317, label %349
+  %or.cond462 = select i1 %313, i1 %316, i1 false
+  br i1 %or.cond462, label %317, label %349
 
 317:                                              ; preds = %312
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1650,12 +1650,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %412, %_ZNSt6vectorI
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit401:              ; preds = %429
   call void @_ZdlPv(ptr noundef nonnull %432) #24
-  %.pr443 = load ptr, ptr %23, align 8, !tbaa !118
-  %.not.i.i.i402 = icmp eq ptr %.pr443, null
+  %.pr425 = load ptr, ptr %23, align 8, !tbaa !118
+  %.not.i.i.i402 = icmp eq ptr %.pr425, null
   br i1 %.not.i.i.i402, label %_ZNSt6vectorIhSaIhEED2Ev.exit403, label %440
 
 440:                                              ; preds = %_ZNSt6vectorIhSaIhEEaSEOS1_.exit401
-  call void @_ZdlPv(ptr noundef nonnull %.pr443) #24
+  call void @_ZdlPv(ptr noundef nonnull %.pr425) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit403
 
 _ZNSt6vectorIhSaIhEED2Ev.exit403:                 ; preds = %429, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit401, %440
@@ -1711,12 +1711,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit403:                 ; preds = %429, %_ZNSt6vectorI
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit409:              ; preds = %450
   call void @_ZdlPv(ptr noundef nonnull %453) #24
-  %.pr444 = load ptr, ptr %25, align 8, !tbaa !118
-  %.not.i.i.i410 = icmp eq ptr %.pr444, null
+  %.pr426 = load ptr, ptr %25, align 8, !tbaa !118
+  %.not.i.i.i410 = icmp eq ptr %.pr426, null
   br i1 %.not.i.i.i410, label %_ZNSt6vectorIhSaIhEED2Ev.exit411, label %461
 
 461:                                              ; preds = %_ZNSt6vectorIhSaIhEEaSEOS1_.exit409
-  call void @_ZdlPv(ptr noundef nonnull %.pr444) #24
+  call void @_ZdlPv(ptr noundef nonnull %.pr426) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit411
 
 _ZNSt6vectorIhSaIhEED2Ev.exit411:                 ; preds = %450, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit409, %461

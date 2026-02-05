@@ -7389,8 +7389,8 @@ entry:
   %1 = load ptr, ptr %level_.i, align 8
   %2 = load ptr, ptr %0, align 8
   %allocRegion_.i = getelementptr inbounds nuw i8, ptr %2, i64 86016
-  %cmp29 = icmp ult ptr %allocRegion_.i, %1
-  br i1 %cmp29, label %while.body.lr.ph, label %while.end
+  %cmp27 = icmp ult ptr %allocRegion_.i, %1
+  br i1 %cmp27, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %pointerBase_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -7399,9 +7399,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end21
-  %cur.031 = phi ptr [ %allocRegion_.i, %while.body.lr.ph ], [ %cur.1, %if.end21 ]
-  %preAllocated.030 = phi i32 [ 0, %while.body.lr.ph ], [ %preAllocated.1, %if.end21 ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %cur.031, align 4
+  %cur.029 = phi ptr [ %allocRegion_.i, %while.body.lr.ph ], [ %cur.1, %if.end21 ]
+  %preAllocated.028 = phi i32 [ 0, %while.body.lr.ph ], [ %preAllocated.1, %if.end21 ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %cur.029, align 4
   %tobool.i.i = trunc i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i1
   br i1 %tobool.i.i, label %if.then, label %if.else
 
@@ -7412,7 +7412,7 @@ if.then:                                          ; preds = %while.body
   %5 = inttoptr i64 %add.i.i to ptr
   %bf.load.i.i = load i32, ptr %5, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 16777215
-  %add = add i32 %bf.clear.i.i, %preAllocated.030
+  %add = add i32 %bf.clear.i.i, %preAllocated.028
   br label %if.end21
 
 if.else:                                          ; preds = %while.body
@@ -7432,18 +7432,18 @@ if.then16:                                        ; preds = %if.else
   br i1 %tobool.not.i, label %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then16
-  tail call void %7(ptr noundef nonnull %cur.031, ptr noundef nonnull align 8 dereferenceable(8152) %this) #35
+  tail call void %7(ptr noundef nonnull %cur.029, ptr noundef nonnull align 8 dereferenceable(8152) %this) #35
   br label %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit
 
 _ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit: ; preds = %if.then16, %if.then.i
-  %add18 = add i32 %bf.clear.i.i14, %preAllocated.030
+  %add18 = add i32 %bf.clear.i.i14, %preAllocated.028
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit, %if.then
-  %preAllocated.1 = phi i32 [ %add, %if.then ], [ %preAllocated.030, %if.else ], [ %add18, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
+  %preAllocated.1 = phi i32 [ %add, %if.then ], [ %preAllocated.028, %if.else ], [ %add18, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
   %idx.ext.pn.in = phi i32 [ %bf.clear.i.i, %if.then ], [ %bf.clear.i.i14, %if.else ], [ %bf.clear.i.i14, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
   %idx.ext.pn = zext nneg i32 %idx.ext.pn.in to i64
-  %cur.1 = getelementptr inbounds nuw i8, ptr %cur.031, i64 %idx.ext.pn
+  %cur.1 = getelementptr inbounds nuw i8, ptr %cur.029, i64 %idx.ext.pn
   %cmp = icmp ult ptr %cur.1, %1
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !113
 

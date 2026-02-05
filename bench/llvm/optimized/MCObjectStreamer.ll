@@ -4696,8 +4696,8 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SM
   %27 = sub nsw i64 64, %26
   %28 = lshr i64 -1, %27
   %29 = and i64 %28, %3
-  %.not19 = icmp eq i64 %15, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq i64 %15, 0
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %30 = trunc i64 %25 to i32
@@ -4707,7 +4707,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SM
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.020.us = phi i64 [ %40, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.018.us = phi i64 [ %40, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %0, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 544
   %36 = load ptr, ptr %35, align 8
@@ -4716,17 +4716,17 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SM
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 544
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef 0, i32 noundef %33) #22
-  %40 = add nuw nsw i64 %.020.us, 1
+  %40 = add nuw nsw i64 %.018.us, 1
   %.not.us = icmp eq i64 %40, %15
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !500
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.020 = phi i64 [ %44, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.018 = phi i64 [ %44, %.lr.ph.split ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr %0, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 544
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %29, i32 noundef %30) #22
-  %44 = add nuw nsw i64 %.020, 1
+  %44 = add nuw nsw i64 %.018, 1
   %.not = icmp eq i64 %44, %15
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !500
 

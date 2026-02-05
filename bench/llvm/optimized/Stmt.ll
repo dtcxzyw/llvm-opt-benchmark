@@ -18681,12 +18681,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i: ; preds = %11
   br label %26
 
 26:                                               ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i
-  %.0.i.i.i.i12.i.i = phi ptr [ %16, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i ], [ %25, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i, ptr readonly align 1 %2, i64 %3, i1 false)
+  %.0.i.i.i.i10.i.i = phi ptr [ %16, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i ], [ %25, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i.i, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %_ZL15copyIntoContextRKN5clang10ASTContextEN4llvm9StringRefE.exit
 
 _ZL15copyIntoContextRKN5clang10ASTContextEN4llvm9StringRefE.exit: ; preds = %9, %26
-  %.sroa.0.0.i.i = phi ptr [ null, %9 ], [ %.0.i.i.i.i12.i.i, %26 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %9 ], [ %.0.i.i.i.i10.i.i, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.0.0.i.i, ptr %27, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -18870,12 +18870,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i: ; preds = %108
   br label %120
 
 120:                                              ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i12.i.i.i.i = phi ptr [ %111, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i ], [ %119, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i.i.i, ptr readonly align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
+  %.0.i.i.i.i10.i.i.i.i = phi ptr [ %111, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i ], [ %119, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i.i.i.i, ptr readonly align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
   br label %"_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_0clES5_.exit.i"
 
 "_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_0clES5_.exit.i": ; preds = %120, %.lr.ph.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ null, %.lr.ph.i ], [ %.0.i.i.i.i12.i.i.i.i, %120 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ null, %.lr.ph.i ], [ %.0.i.i.i.i10.i.i.i.i, %120 ]
   store ptr %.sroa.0.0.i.i.i.i, ptr %.0810.i, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1199
@@ -18967,12 +18967,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31: ; preds = %150
   br label %162
 
 162:                                              ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37
-  %.0.i.i.i.i12.i.i.i.i32 = phi ptr [ %153, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37 ], [ %161, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i.i.i32, ptr readonly align 1 %.sroa.0.0.copyload.i27, i64 %.sroa.2.0.copyload.i29, i1 false)
+  %.0.i.i.i.i10.i.i.i.i32 = phi ptr [ %153, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37 ], [ %161, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i10.i.i.i.i32, ptr readonly align 1 %.sroa.0.0.copyload.i27, i64 %.sroa.2.0.copyload.i29, i1 false)
   br label %"_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_1clES5_.exit.i"
 
 "_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_1clES5_.exit.i": ; preds = %162, %.lr.ph.i24
-  %.sroa.0.0.i.i.i.i33 = phi ptr [ null, %.lr.ph.i24 ], [ %.0.i.i.i.i12.i.i.i.i32, %162 ]
+  %.sroa.0.0.i.i.i.i33 = phi ptr [ null, %.lr.ph.i24 ], [ %.0.i.i.i.i10.i.i.i.i32, %162 ]
   store ptr %.sroa.0.0.i.i.i.i33, ptr %.0810.i26, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %.0810.i26, i64 8
   store i64 %.sroa.2.0.copyload.i29, ptr %.sroa.4.0..sroa_idx.i34, align 8, !tbaa !1199

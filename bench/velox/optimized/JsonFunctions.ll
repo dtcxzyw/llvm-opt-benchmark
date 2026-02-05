@@ -41830,9 +41830,9 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17Se
   br i1 %tobool5.old.not.i47.i.i.i, label %if.end14.i.i.i.i, label %while.body.i24.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i44.i.i.i, %if.then10.i.i.i.i, %if.end8.i.i.i.i
-  %add52.i.i.i.i = add nsw i32 %mul.i.i.i.i.i, 64
-  %cmp15.not53.i.i.i.i = icmp sgt i32 %add52.i.i.i.i, %87
-  br i1 %cmp15.not53.i.i.i.i, label %for.end.i.i.i7.i, label %for.body.lr.ph.i.i.i.i
+  %add42.i.i.i.i = add nsw i32 %mul.i.i.i.i.i, 64
+  %cmp15.not43.i.i.i.i = icmp sgt i32 %add42.i.i.i.i, %87
+  br i1 %cmp15.not43.i.i.i.i, label %for.end.i.i.i7.i, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end14.i.i.i.i
   %100 = getelementptr inbounds nuw i8, ptr %value.i.i.i.i.i.i, i64 8
@@ -41853,9 +41853,9 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end14.i.i.i.i
   br label %for.body.i.i.i6.i
 
 for.body.i.i.i6.i:                                ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %add55.i.i.i.i = phi i32 [ %add52.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i ]
-  %i.054.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add55.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i ]
-  %div16.i.i.i.i = sdiv i32 %i.054.i.i.i.i, 64
+  %add45.i.i.i.i = phi i32 [ %add42.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i ]
+  %i.044.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add45.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i ]
+  %div16.i.i.i.i = sdiv i32 %i.044.i.i.i.i, 64
   %idxprom.i.i.i.i.i = sext i32 %div16.i.i.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i
   %102 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
@@ -41872,7 +41872,7 @@ if.then.i.i.i.i.i70:                              ; preds = %for.body.i.i.i6.i
   %mul.i31.i.i.i.i = shl nsw i32 %div16.i.i.i.i, 6
   %mul4.i.i.i.i.i = add i32 %mul.i31.i.i.i.i, 64
   %conv5.i.i.i.i.i = sext i32 %mul4.i.i.i.i.i to i64
-  %i.0.off.i.i.i.i = add i32 %i.054.i.i.i.i, 127
+  %i.0.off.i.i.i.i = add i32 %i.044.i.i.i.i, 127
   %cmp632.not.i.i.i.i.i = icmp ult i32 %i.0.off.i.i.i.i, 64
   br i1 %cmp632.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i
 
@@ -42072,7 +42072,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17Se
   br i1 %tobool7.not.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !417
 
 _ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_117JsonParseFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i, %if.then.i.i.i.i.i70, %for.body.i.i.i6.i
-  %add.i.i.i.i = add nsw i32 %add55.i.i.i.i, 64
+  %add.i.i.i.i = add nsw i32 %add45.i.i.i.i, 64
   %cmp15.not.i.i.i.i = icmp sgt i32 %add.i.i.i.i, %87
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i7.i, label %for.body.i.i.i6.i, !llvm.loop !418
 

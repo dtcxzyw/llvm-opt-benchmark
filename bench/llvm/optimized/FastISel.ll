@@ -4845,8 +4845,8 @@ _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8CallInstEjjPKNS_5ValueEbRNS0_16CallLoweringInfoE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(856) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::TargetLoweringBase::ArgListEntry", align 8
-  %.not35 = icmp eq i32 %3, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i32 %3, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %9 = zext i32 %3 to i64
@@ -4871,16 +4871,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8
   br i1 %5, label %55, label %58
 
 22:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit
-  %.043 = phi i32 [ %2, %.lr.ph ], [ %54, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.17.042 = phi ptr [ %12, %.lr.ph ], [ %.sroa.17.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.10.041 = phi ptr [ %11, %.lr.ph ], [ %.sroa.10.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.0.040 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
+  %.040 = phi i32 [ %2, %.lr.ph ], [ %54, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.17.039 = phi ptr [ %12, %.lr.ph ], [ %.sroa.17.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.10.038 = phi ptr [ %11, %.lr.ph ], [ %.sroa.10.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.0.037 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.2, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit ]
   %23 = load i32, ptr %14, align 4
   %24 = and i32 %23, 134217727
   %25 = zext nneg i32 %24 to i64
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %26
-  %28 = zext i32 %.043 to i64
+  %28 = zext i32 %.040 to i64
   %29 = getelementptr inbounds nuw %"class.llvm::Use", ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4894,17 +4894,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !196
   store ptr %34, ptr %18, align 8, !tbaa !504
-  call void @_ZN4llvm18TargetLoweringBase12ArgListEntry13setAttributesEPKNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %1, i32 noundef %.043) #22
-  %.not.i = icmp eq ptr %.sroa.10.041, %.sroa.17.042
+  call void @_ZN4llvm18TargetLoweringBase12ArgListEntry13setAttributesEPKNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %1, i32 noundef %.040) #22
+  %.not.i = icmp eq ptr %.sroa.10.038, %.sroa.17.039
   br i1 %.not.i, label %36, label %35
 
 35:                                               ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.10.041, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.10.038, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   br label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit
 
 36:                                               ; preds = %22
-  %37 = ptrtoint ptr %.sroa.17.042 to i64
-  %38 = ptrtoint ptr %.sroa.0.040 to i64
+  %37 = ptrtoint ptr %.sroa.17.039 to i64
+  %38 = ptrtoint ptr %.sroa.0.037 to i64
   %39 = sub i64 %37, %38
   %40 = icmp eq i64 %39, 9223372036854775776
   br i1 %40, label %41, label %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -4926,25 +4926,25 @@ _ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmP
   %48 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #25
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
-  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.0.040, %.sroa.17.042
+  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.0.037, %.sroa.17.039
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %48, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.040, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.037, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i.i, i64 48, i1 false), !alias.scope !505
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 48
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i = icmp eq ptr %50, %.sroa.17.042
+  %.not.i.i.i.i.i = icmp eq ptr %50, %.sroa.17.039
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !509
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %48, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %.not.i23.i.i = icmp eq ptr %.sroa.0.040, null
+  %.not.i23.i.i = icmp eq ptr %.sroa.0.037, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.040, i64 noundef %39) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.037, i64 noundef %39) #24
   br label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
@@ -4952,12 +4952,12 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_inser
   br label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit: ; preds = %35, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %.sroa.0.2 = phi ptr [ %48, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0.040, %35 ]
-  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.041, %35 ]
-  %.sroa.17.2 = phi ptr [ %53, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.17.042, %35 ]
+  %.sroa.0.2 = phi ptr [ %48, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0.037, %35 ]
+  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.038, %35 ]
+  %.sroa.17.2 = phi ptr [ %53, %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.17.039, %35 ]
   %.sroa.10.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %54 = add i32 %.043, 1
+  %54 = add i32 %.040, 1
   %.not = icmp eq i32 %54, %13
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !510
 

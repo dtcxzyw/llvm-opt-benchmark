@@ -1719,12 +1719,12 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit: ; preds = %3, %6
   %20 = icmp ugt i64 %19, %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %spec.select = select i1 %20, i64 0, i64 %13
-  %spec.select11 = select i1 %20, ptr null, ptr %21
+  %spec.select9 = select i1 %20, ptr null, ptr %21
   br label %22
 
 22:                                               ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit, %16
   %.sroa.5.0 = phi i64 [ %spec.select, %16 ], [ %13, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ]
-  %.sroa.08.0 = phi ptr [ %spec.select11, %16 ], [ %15, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ]
+  %.sroa.08.0 = phi ptr [ %spec.select9, %16 ], [ %15, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert

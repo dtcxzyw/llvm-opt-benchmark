@@ -10994,14 +10994,14 @@ _ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit.i:      ; preds = %64, %61
 _ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit.thread: ; preds = %_ZNSt5dequeImSaImEE9pop_frontEv.exit45, %40, %_ZNSt5dequeImSaImEE9pop_frontEv.exit
   %.pn = phi { i64, i64 } [ %37, %_ZNSt5dequeImSaImEE9pop_frontEv.exit ], [ %41, %40 ], [ %55, %_ZNSt5dequeImSaImEE9pop_frontEv.exit45 ]
   %.1 = phi i64 [ %20, %_ZNSt5dequeImSaImEE9pop_frontEv.exit ], [ %39, %40 ], [ %20, %_ZNSt5dequeImSaImEE9pop_frontEv.exit45 ]
-  %.sroa.052.1 = extractvalue { i64, i64 } %.pn, 0
-  %.sroa.7.1 = extractvalue { i64, i64 } %.pn, 1
-  call void @_ZN4cvc58internal6theory5arith6linear9DioSolver27subAndReduceCurrentFByIndexEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.052.1)
-  %.not19 = icmp eq i64 %.sroa.7.1, %.1
+  %.sroa.052.0 = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.7.0 = extractvalue { i64, i64 } %.pn, 1
+  call void @_ZN4cvc58internal6theory5arith6linear9DioSolver27subAndReduceCurrentFByIndexEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.052.0)
+  %.not19 = icmp eq i64 %.sroa.7.0, %.1
   br i1 %.not19, label %_ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit, label %68
 
 68:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit.thread
-  %69 = call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver14triviallyUnsatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.7.1)
+  %69 = call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver14triviallyUnsatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.7.0)
   br i1 %69, label %70, label %79
 
 70:                                               ; preds = %68
@@ -11020,16 +11020,16 @@ _ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit.thread: ; preds
 
 _ZN4cvc58internal6theory5arith6linear9DioSolver13raiseConflictEm.exit: ; preds = %70, %78
   store i8 1, ptr %9, align 8, !tbaa !70
-  store i64 %.sroa.7.1, ptr %18, align 8, !tbaa !72
+  store i64 %.sroa.7.0, ptr %18, align 8, !tbaa !72
   br label %_ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit
 
 79:                                               ; preds = %68
-  %80 = call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver12triviallySatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.7.1)
+  %80 = call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver12triviallySatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %.sroa.7.0)
   br i1 %80, label %_ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit, label %81
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.sroa.7.1, ptr %3, align 8, !tbaa !122
+  store i64 %.sroa.7.0, ptr %3, align 8, !tbaa !122
   %82 = load ptr, ptr %4, align 8, !tbaa !193
   %83 = load ptr, ptr %15, align 8, !tbaa !194
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
@@ -11037,7 +11037,7 @@ _ZN4cvc58internal6theory5arith6linear9DioSolver13raiseConflictEm.exit: ; preds =
   br i1 %.not.i.i, label %87, label %85
 
 85:                                               ; preds = %81
-  store i64 %.sroa.7.1, ptr %82, align 8, !tbaa !122
+  store i64 %.sroa.7.0, ptr %82, align 8, !tbaa !122
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %86, ptr %4, align 8, !tbaa !193
   br label %_ZN4cvc58internal6theory5arith6linear9DioSolver15pushToQueueBackEm.exit

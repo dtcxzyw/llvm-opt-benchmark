@@ -4868,13 +4868,13 @@ _ZNSt14_Function_baseD2Ev.exit27.i.i:             ; preds = %843, %840, %838
 
 _ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_.exit179.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i, %.noexc174.i, %812
   %.sroa.8.sroa.0.3.i = phi <2 x double> [ zeroinitializer, %.noexc174.i ], [ zeroinitializer, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.7.sroa.0.0.copyload.i, %812 ]
-  %.sroa.10.sroa.0.3.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.9.sroa.0.0.copyload.i, %812 ]
-  %.sroa.10.sroa.7.3.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.9.sroa.6.0.copyload.i, %812 ]
+  %.sroa.10.sroa.0.0.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.9.sroa.0.0.copyload.i, %812 ]
+  %.sroa.10.sroa.7.0.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.9.sroa.6.0.copyload.i, %812 ]
   %.sroa.10.sroa.6.3.i = phi <2 x double> [ zeroinitializer, %.noexc174.i ], [ zeroinitializer, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.9.sroa.5.0.copyload.i, %812 ]
   %.sroa.8.sroa.6.3.i = phi <2 x double> [ zeroinitializer, %.noexc174.i ], [ zeroinitializer, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.7.sroa.5.0.copyload.i, %812 ]
   %.sroa.6.sroa.6.3.i = phi <2 x double> [ zeroinitializer, %.noexc174.i ], [ zeroinitializer, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.5.sroa.5.0.copyload.i, %812 ]
-  %.sroa.6.sroa.7.3.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.5.sroa.6.0.copyload.i, %812 ]
-  %.sroa.6.sroa.0.3.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.5.sroa.0.0.copyload.i, %812 ]
+  %.sroa.6.sroa.7.0.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.5.sroa.6.0.copyload.i, %812 ]
+  %.sroa.6.sroa.0.0.i = phi double [ 0.000000e+00, %.noexc174.i ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.5.sroa.0.0.copyload.i, %812 ]
   %.sroa.0184.0.i = phi double [ 1.000000e+00, %.noexc174.i ], [ 1.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.0.0.copyload.i, %812 ]
   %.sroa.7.0.i = phi double [ 1.000000e+00, %.noexc174.i ], [ 1.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.6.0.copyload.i, %812 ]
   %.sroa.9.0.i = phi double [ 1.000000e+00, %.noexc174.i ], [ 1.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i170.i ], [ %.sroa.0.i.sroa.8.0.copyload.i, %812 ]
@@ -4913,12 +4913,12 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS0_17aligned_allocatorIS2_EE
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !135
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !114
   %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0184.0.i, i64 0
-  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i, double %.sroa.6.sroa.0.3.i, i64 1
-  %.sroa.8253.8.vec.insert.i = insertelement <2 x double> poison, double %.sroa.6.sroa.7.3.i, i64 0
+  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i, double %.sroa.6.sroa.0.0.i, i64 1
+  %.sroa.8253.8.vec.insert.i = insertelement <2 x double> poison, double %.sroa.6.sroa.7.0.i, i64 0
   %.sroa.8253.40.vec.insert.i = insertelement <2 x double> %.sroa.8253.8.vec.insert.i, double %.sroa.7.0.i, i64 1
   %.sroa.13.80.vec.insert.i = insertelement <2 x double> poison, double %.sroa.9.0.i, i64 0
-  %.sroa.13.88.vec.insert.i = insertelement <2 x double> %.sroa.13.80.vec.insert.i, double %.sroa.10.sroa.0.3.i, i64 1
-  %.sroa.17.88.vec.insert.i = insertelement <2 x double> poison, double %.sroa.10.sroa.7.3.i, i64 0
+  %.sroa.13.88.vec.insert.i = insertelement <2 x double> %.sroa.13.80.vec.insert.i, double %.sroa.10.sroa.0.0.i, i64 1
+  %.sroa.17.88.vec.insert.i = insertelement <2 x double> poison, double %.sroa.10.sroa.7.0.i, i64 0
   %.sroa.17.120.vec.insert.i = insertelement <2 x double> %.sroa.17.88.vec.insert.i, double %.sroa.11.0.i, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !114
   br label %857

@@ -7660,8 +7660,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueINS_8F
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !437
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %20
-  %.sroa.0.2 = phi ptr [ null, %20 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %20 ], [ %26, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %20 ], [ %.0711.i.i, %.lr.ph.i.i ]
+  %.sroa.9.0 = phi i64 [ 0, %20 ], [ %26, %.lr.ph.i.i ]
   invoke void @_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5Queue5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit unwind label %27
 
@@ -7674,8 +7674,8 @@ _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit: ; preds = %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit
   %30 = load ptr, ptr %10, align 64, !tbaa !433
-  store ptr %.sroa.0.2, ptr %10, align 64, !tbaa !433
-  store i64 %.sroa.9.2, ptr %11, align 8, !tbaa !159
+  store ptr %.sroa.0.0, ptr %10, align 64, !tbaa !433
+  store i64 %.sroa.9.0, ptr %11, align 8, !tbaa !159
   %.not.i1.i = icmp eq ptr %30, null
   br i1 %.not.i1.i, label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit, label %.lr.ph.i
 
@@ -7752,7 +7752,7 @@ _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre
   br label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit: ; preds = %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit
-  %61 = phi ptr [ %.pr, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit ]
+  %61 = phi ptr [ %.pr, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split ], [ %.sroa.0.0, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit ]
   %.not.i23 = icmp eq ptr %61, null
   br i1 %.not.i23, label %.critedge, label %62
 
@@ -19403,8 +19403,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueINS_8F
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !437
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %16
-  %.sroa.0.2 = phi ptr [ null, %16 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %16 ], [ %22, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %.0711.i.i, %.lr.ph.i.i ]
+  %.sroa.9.0 = phi i64 [ 0, %16 ], [ %22, %.lr.ph.i.i ]
   invoke void @_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5Queue5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit unwind label %23
 
@@ -19417,8 +19417,8 @@ _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit: ; preds = %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueue8getTasksEv.exit
   %26 = load ptr, ptr %9, align 64, !tbaa !433
-  store ptr %.sroa.0.2, ptr %9, align 64, !tbaa !433
-  store i64 %.sroa.9.2, ptr %10, align 8, !tbaa !159
+  store ptr %.sroa.0.0, ptr %9, align 64, !tbaa !433
+  store i64 %.sroa.9.0, ptr %10, align 8, !tbaa !159
   %.not.i1.i = icmp eq ptr %26, null
   br i1 %.not.i1.i, label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit, label %.lr.ph.i
 
@@ -19495,7 +19495,7 @@ _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre
   br label %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit
 
 _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit: ; preds = %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit
-  %57 = phi ptr [ %.pr, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit ]
+  %57 = phi ptr [ %.pr, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exitthread-pre-split ], [ %.sroa.0.0, %_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueaSEOS5_.exit ]
   %.not.i23 = icmp eq ptr %57, null
   br i1 %.not.i23, label %.critedge, label %58
 

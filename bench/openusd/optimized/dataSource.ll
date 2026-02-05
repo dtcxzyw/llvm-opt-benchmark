@@ -207,9 +207,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   br label %41
 
 41:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2ERKS2_.exit, %175
-  %.052 = phi i64 [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2ERKS2_.exit ], [ %176, %175 ]
+  %.050 = phi i64 [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2ERKS2_.exit ], [ %176, %175 ]
   %42 = load ptr, ptr %5, align 8
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10GetElementEm(ptr noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %.052)
+  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10GetElementEm(ptr noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %.050)
           to label %44 unwind label %122
 
 44:                                               ; preds = %41
@@ -298,11 +298,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exitthread-pre-split: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %81, %68
-  %.pr63 = load ptr, ptr %38, align 8
+  %.pr61 = load ptr, ptr %38, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exitthread-pre-split, %48
-  %86 = phi ptr [ %.pr63, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exitthread-pre-split ], [ null, %48 ]
+  %86 = phi ptr [ %.pr61, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exitthread-pre-split ], [ null, %48 ]
   %.not.i.i.i17 = icmp eq ptr %86, null
   br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit, label %87
 
@@ -376,8 +376,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSEOS2_.exit, %103, %116, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %121 = load ptr, ptr %4, align 8
-  %.not50 = icmp eq ptr %121, null
-  br i1 %.not50, label %split, label %124
+  %.not48 = icmp eq ptr %121, null
+  br i1 %.not48, label %split, label %124
 
 122:                                              ; preds = %44, %41
   %123 = landingpad { ptr, i32 }
@@ -387,7 +387,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   resume { ptr, i32 } %123
 
 124:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
-  %125 = icmp ult i64 %.052, %40
+  %125 = icmp ult i64 %.050, %40
   br i1 %125, label %126, label %175
 
 126:                                              ; preds = %124
@@ -417,10 +417,10 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit: ; preds = %126, %128, %133, %136
-  %.sroa.4.2 = phi ptr [ %129, %133 ], [ null, %128 ], [ %129, %136 ], [ null, %126 ]
+  %.sroa.4.0 = phi ptr [ %129, %133 ], [ null, %128 ], [ %129, %136 ], [ null, %126 ]
   store ptr %127, ptr %5, align 8
   %138 = load ptr, ptr %27, align 8
-  store ptr %.sroa.4.2, ptr %27, align 8
+  store ptr %.sroa.4.0, ptr %27, align 8
   %.not.i.i.i.i21 = icmp eq ptr %138, null
   br i1 %.not.i.i.i.i21, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %139
 
@@ -498,15 +498,15 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exitthread-pre-split, %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
   %173 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exitthread-pre-split ], [ %127, %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit ]
-  %.not51 = icmp eq ptr %173, null
-  br i1 %.not51, label %174, label %175
+  %.not49 = icmp eq ptr %173, null
+  br i1 %.not49, label %174, label %175
 
 174:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %180
 
 175:                                              ; preds = %124, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
-  %176 = add nuw i64 %.052, 1
+  %176 = add nuw i64 %.050, 1
   %exitcond.not = icmp eq i64 %176, %10
   br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !9
 

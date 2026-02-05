@@ -919,14 +919,14 @@ _ZNK4llvm12MachineInstr8all_defsEv.exit.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %231, %.lr.ph.i
-  %.sroa.01.118.i = phi ptr [ %239, %.lr.ph.i ], [ %234, %231 ]
+  %.sroa.01.018.i = phi ptr [ %239, %.lr.ph.i ], [ %234, %231 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %237 = load i16, ptr %.sroa.01.118.i, align 2, !tbaa !265
+  %237 = load i16, ptr %.sroa.01.018.i, align 2, !tbaa !265
   %238 = zext i16 %237 to i32
   store i32 %238, ptr %60, align 4, !tbaa !266
   call void @_ZN4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE10insertImplIS1_EESt4pairINS_16SmallSetIteratorIS1_Lj32ES3_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.340") align 8 %59, ptr noundef nonnull align 8 dereferenceable(192) %73, ptr noundef nonnull align 4 dereferenceable(4) %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %239 = getelementptr inbounds nuw i8, ptr %.sroa.01.118.i, i64 2
+  %239 = getelementptr inbounds nuw i8, ptr %.sroa.01.018.i, i64 2
   %.not.i = icmp eq ptr %239, %236
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !268
 
@@ -13808,14 +13808,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEPNS_12MachineInstrENS_12DenseMa
   br label %752
 
 .lr.ph.i:                                         ; preds = %.critedge53.i, %.lr.ph.i
-  %.sroa.078.1103.i = phi ptr [ %733, %.lr.ph.i ], [ %703, %.critedge53.i ]
+  %.sroa.078.0103.i = phi ptr [ %733, %.lr.ph.i ], [ %703, %.critedge53.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %731 = load i16, ptr %.sroa.078.1103.i, align 2, !tbaa !265
+  %731 = load i16, ptr %.sroa.078.0103.i, align 2, !tbaa !265
   %732 = zext i16 %731 to i32
   store i32 %732, ptr %60, align 4, !tbaa !266
   call void @_ZN4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE10insertImplIS1_EESt4pairINS_16SmallSetIteratorIS1_Lj32ES3_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.340") align 8 %59, ptr noundef nonnull align 8 dereferenceable(192) %57, ptr noundef nonnull align 4 dereferenceable(4) %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %733 = getelementptr inbounds nuw i8, ptr %.sroa.078.1103.i, i64 2
+  %733 = getelementptr inbounds nuw i8, ptr %.sroa.078.0103.i, i64 2
   %.not94.i = icmp eq ptr %733, %705
   br i1 %.not94.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !664
 

@@ -1226,8 +1226,8 @@ switch.lookup:                                    ; preds = %.lr.ph93
   br label %309
 
 309:                                              ; preds = %switch.lookup, %.lr.ph93
-  %.sroa.8.1 = phi i16 [ 0, %.lr.ph93 ], [ %switch.load, %switch.lookup ]
-  %.sroa.460.1 = phi i8 [ 0, %.lr.ph93 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.8.0 = phi i16 [ 0, %.lr.ph93 ], [ %switch.load, %switch.lookup ]
+  %.sroa.460.0 = phi i8 [ 0, %.lr.ph93 ], [ %switch.masked, %switch.lookup ]
   %310 = getelementptr inbounds nuw i8, ptr %303, i64 17
   %311 = load i8, ptr %310, align 1, !tbaa !198, !noalias !195
   switch i8 %311, label %_ZN4moldL10to_elf_symINS_6X86_64EEENS_6ElfSymIT_EERNS_12PluginSymbolE.exit [
@@ -1240,18 +1240,18 @@ switch.lookup:                                    ; preds = %.lr.ph93
 
 .sink.split.i:                                    ; preds = %312, %309
   %.sink5.i = phi i8 [ 1, %312 ], [ 2, %309 ]
-  %313 = or disjoint i8 %.sink5.i, %.sroa.460.1
+  %313 = or disjoint i8 %.sink5.i, %.sroa.460.0
   br label %_ZN4moldL10to_elf_symINS_6X86_64EEENS_6ElfSymIT_EERNS_12PluginSymbolE.exit
 
 _ZN4moldL10to_elf_symINS_6X86_64EEENS_6ElfSymIT_EERNS_12PluginSymbolE.exit: ; preds = %.sink.split.i, %309
-  %.sroa.460.2 = phi i8 [ %.sroa.460.1, %309 ], [ %313, %.sink.split.i ]
+  %.sroa.460.1 = phi i8 [ %.sroa.460.0, %309 ], [ %313, %.sink.split.i ]
   %314 = getelementptr inbounds nuw i8, ptr %303, i64 20
   %315 = load i32, ptr %314, align 4, !tbaa !199, !noalias !195
   %316 = icmp ult i32 %315, 4
   %switch.shiftamt145 = shl nuw nsw i32 %315, 3
   %switch.downshift146 = lshr i32 33620736, %switch.shiftamt145
   %switch.masked147 = trunc i32 %switch.downshift146 to i8
-  %.sroa.7.1 = select i1 %316, i8 %switch.masked147, i8 0
+  %.sroa.7.0 = select i1 %316, i8 %switch.masked147, i8 0
   %317 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %318 = load i64, ptr %317, align 8, !tbaa !200, !noalias !195
   %319 = add nuw nsw i64 %.04191, 1
@@ -1259,11 +1259,11 @@ _ZN4moldL10to_elf_symINS_6X86_64EEENS_6ElfSymIT_EERNS_12PluginSymbolE.exit: ; pr
   %321 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %320, i64 %319
   store i32 0, ptr %321, align 1, !tbaa !20
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 4
-  store i8 %.sroa.460.2, ptr %.sroa.460.0..sroa_idx, align 1, !tbaa !20
+  store i8 %.sroa.460.1, ptr %.sroa.460.0..sroa_idx, align 1, !tbaa !20
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 5
-  store i8 %.sroa.7.1, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !20
+  store i8 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !20
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 6
-  store i16 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !20
+  store i16 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !20
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !20
   %.sroa.1161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 16

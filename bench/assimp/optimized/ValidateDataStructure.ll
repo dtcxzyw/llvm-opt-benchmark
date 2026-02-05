@@ -2993,8 +2993,8 @@ define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10
   %4 = tail call ptr @aiTextureTypeToString(i32 noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not170 = icmp eq i32 %6, 0
-  br i1 %.not170, label %.thread, label %.lr.ph
+  %.not167 = icmp eq i32 %6, 0
+  br i1 %.not167, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %1, align 8
@@ -3002,14 +3002,14 @@ define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10
   br label %9
 
 ._crit_edge:                                      ; preds = %25
-  %8 = add nsw i32 %.1122, 1
+  %8 = add nsw i32 %.1119, 1
   %.not = icmp eq i32 %8, %.1
   br i1 %.not, label %27, label %26
 
 9:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.0155 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
-  %.0121153 = phi i32 [ -1, %.lr.ph ], [ %.1122, %25 ]
+  %.0152 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
+  %.0118150 = phi i32 [ -1, %.lr.ph ], [ %.1119, %25 ]
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -3026,8 +3026,8 @@ define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 1032
   %20 = load i32, ptr %19, align 8
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.0121153, i32 %20)
-  %21 = add nsw i32 %.0155, 1
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.0118150, i32 %20)
+  %21 = add nsw i32 %.0152, 1
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 1040
   %23 = load i32, ptr %22, align 8
   %.not103 = icmp eq i32 %23, 3
@@ -3038,14 +3038,14 @@ define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10
   unreachable
 
 25:                                               ; preds = %18, %14, %9
-  %.1122 = phi i32 [ %.sroa.speculated, %18 ], [ %.0121153, %14 ], [ %.0121153, %9 ]
-  %.1 = phi i32 [ %21, %18 ], [ %.0155, %14 ], [ %.0155, %9 ]
+  %.1119 = phi i32 [ %.sroa.speculated, %18 ], [ %.0118150, %14 ], [ %.0118150, %9 ]
+  %.1 = phi i32 [ %21, %18 ], [ %.0152, %14 ], [ %.0152, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !29
 
 26:                                               ; preds = %._crit_edge
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.62, ptr noundef %4, i32 noundef %.1122, i32 noundef %.1, ptr noundef %4) #23
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.62, ptr noundef %4, i32 noundef %.1119, i32 noundef %.1, ptr noundef %4) #23
   unreachable
 
 27:                                               ; preds = %._crit_edge
@@ -3059,36 +3059,36 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   store i32 0, ptr %30, align 4
   %31 = add nsw i64 %28, -1
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.lr.ph164, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
+  br i1 %32, label %.lr.ph161, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %33 = getelementptr i8, ptr %30, i64 4
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
-  br label %.lr.ph164
+  br label %.lr.ph161
 
-.lr.ph164:                                        ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
+.lr.ph161:                                        ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %39
 
-._crit_edge165:                                   ; preds = %.loopexit
+._crit_edge162:                                   ; preds = %.loopexit
   br i1 %.178, label %.preheader, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit
 
-.preheader:                                       ; preds = %._crit_edge165
+.preheader:                                       ; preds = %._crit_edge162
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
-  %.not175 = icmp eq i32 %38, 0
-  br i1 %.not175, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit, label %.lr.ph169
+  %.not172 = icmp eq i32 %38, 0
+  br i1 %.not172, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit, label %.lr.ph166
 
-39:                                               ; preds = %.lr.ph164, %.loopexit
-  %40 = phi i32 [ %6, %.lr.ph164 ], [ %122, %.loopexit ]
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next201, %.loopexit ]
-  %.077162 = phi i1 [ true, %.lr.ph164 ], [ %.178, %.loopexit ]
-  %.2161 = phi i32 [ %.1122, %.lr.ph164 ], [ %.3, %.loopexit ]
+39:                                               ; preds = %.lr.ph161, %.loopexit
+  %40 = phi i32 [ %6, %.lr.ph161 ], [ %122, %.loopexit ]
+  %indvars.iv197 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next198, %.loopexit ]
+  %.077159 = phi i1 [ true, %.lr.ph161 ], [ %.178, %.loopexit ]
+  %.2158 = phi i32 [ %.1119, %.lr.ph161 ], [ %.3, %.loopexit ]
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv200
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv197
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1028
   %45 = load i32, ptr %44, align 4
@@ -3177,12 +3177,12 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
 split.invoke.sink.split:                          ; preds = %80, %71, %56
   %.ph = phi ptr [ @.str.67, %71 ], [ @.str.65, %56 ], [ @.str.65, %80 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 1036
-  %.pre207 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre204 = load i32, ptr %.phi.trans.insert, align 4
   br label %split.invoke
 
 split.invoke:                                     ; preds = %83, %74, %59, %split.invoke.sink.split
   %87 = phi ptr [ %.ph, %split.invoke.sink.split ], [ @.str.67, %74 ], [ @.str.65, %83 ], [ @.str.65, %59 ]
-  %88 = phi i32 [ %.pre207, %split.invoke.sink.split ], [ %76, %74 ], [ %85, %83 ], [ %61, %59 ]
+  %88 = phi i32 [ %.pre204, %split.invoke.sink.split ], [ %76, %74 ], [ %85, %83 ], [ %61, %59 ]
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %87, ptr noundef nonnull %54, i32 noundef %48, i32 noundef %88) #23
           to label %split.cont unwind label %51
 
@@ -3196,100 +3196,100 @@ split.cont:                                       ; preds = %split.invoke
   %93 = load ptr, ptr %34, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8
-  %.not172 = icmp eq i32 %95, 0
-  br i1 %.not172, label %.loopexit, label %.lr.ph160
+  %.not169 = icmp eq i32 %95, 0
+  br i1 %.not169, label %.loopexit, label %.lr.ph157
 
-.lr.ph160:                                        ; preds = %89, %116
+.lr.ph157:                                        ; preds = %89, %116
   %96 = phi ptr [ %117, %116 ], [ %93, %89 ]
-  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %116 ], [ 0, %89 ]
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %116 ], [ 0, %89 ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv197
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv194
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 232
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
-  %104 = icmp eq i64 %indvars.iv200, %103
-  br i1 %104, label %.preheader125, label %116
+  %104 = icmp eq i64 %indvars.iv197, %103
+  br i1 %104, label %.preheader122, label %116
 
-.preheader125:                                    ; preds = %.lr.ph160
+.preheader122:                                    ; preds = %.lr.ph157
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 112
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %107 = load i32, ptr %106, align 4
-  %.fr173 = freeze i32 %107
-  %.not174 = icmp eq i32 %.fr173, 0
-  br i1 %.not174, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit
+  %.fr170 = freeze i32 %107
+  %.not171 = icmp eq i32 %.fr170, 0
+  br i1 %.not171, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader125, %110
-  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %110 ], [ 0, %.preheader125 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv193
+_ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader122, %110
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %110 ], [ 0, %.preheader122 ]
+  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv190
   %109 = load ptr, ptr %108, align 8
   %.not.i.not = icmp eq ptr %109, null
-  br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269, label %110
+  br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit266, label %110
 
 110:                                              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond196 = icmp eq i64 %indvars.iv.next194, 8
-  br i1 %exitcond196, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, !llvm.loop !30
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond193 = icmp eq i64 %indvars.iv.next191, 8
+  br i1 %exitcond193, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, !llvm.loop !30
 
 111:                                              ; preds = %114
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit106
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %113 = trunc nuw nsw i64 %indvars.iv193 to i32
+_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit266: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
+  %113 = trunc nuw nsw i64 %indvars.iv190 to i32
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269, %.preheader125
-  %.us-phi = phi i32 [ 0, %.preheader125 ], [ %113, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit269 ], [ 8, %110 ]
+_ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit266, %.preheader122
+  %.us-phi = phi i32 [ 0, %.preheader122 ], [ %113, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit266 ], [ 8, %110 ]
   %.not98 = icmp slt i32 %92, %.us-phi
   br i1 %.not98, label %116, label %114
 
 114:                                              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread
-  %115 = trunc nuw i64 %indvars.iv197 to i32
+  %115 = trunc nuw i64 %indvars.iv194 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.69, i32 noundef %92, ptr noundef nonnull %54, i32 noundef %115, i32 noundef %.us-phi)
-          to label %._crit_edge205 unwind label %111
+          to label %._crit_edge202 unwind label %111
 
-._crit_edge205:                                   ; preds = %114
+._crit_edge202:                                   ; preds = %114
   %.pre = load ptr, ptr %34, align 8
   br label %116
 
-116:                                              ; preds = %._crit_edge205, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, %.lr.ph160
-  %117 = phi ptr [ %.pre, %._crit_edge205 ], [ %96, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread ], [ %96, %.lr.ph160 ]
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+116:                                              ; preds = %._crit_edge202, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, %.lr.ph157
+  %117 = phi ptr [ %.pre, %._crit_edge202 ], [ %96, %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread ], [ %96, %.lr.ph157 ]
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i32, ptr %118, align 8
   %120 = zext i32 %119 to i64
-  %121 = icmp samesign ult i64 %indvars.iv.next198, %120
-  br i1 %121, label %.lr.ph160, label %.loopexit.loopexit, !llvm.loop !31
+  %121 = icmp samesign ult i64 %indvars.iv.next195, %120
+  br i1 %121, label %.lr.ph157, label %.loopexit.loopexit, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %116
-  %.pre212 = load i32, ptr %5, align 8
+  %.pre209 = load i32, ptr %5, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %89, %63, %78, %74, %39
-  %122 = phi i32 [ %40, %63 ], [ %40, %74 ], [ %40, %39 ], [ %40, %78 ], [ %40, %89 ], [ %.pre212, %.loopexit.loopexit ]
-  %.3 = phi i32 [ %.2161, %63 ], [ %.2161, %74 ], [ %.2161, %39 ], [ %.2161, %78 ], [ %92, %89 ], [ %92, %.loopexit.loopexit ]
-  %.178 = phi i1 [ %.077162, %63 ], [ %.077162, %74 ], [ %.077162, %39 ], [ %.077162, %78 ], [ false, %89 ], [ false, %.loopexit.loopexit ]
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %122 = phi i32 [ %40, %63 ], [ %40, %74 ], [ %40, %39 ], [ %40, %78 ], [ %40, %89 ], [ %.pre209, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %.2158, %63 ], [ %.2158, %74 ], [ %.2158, %39 ], [ %.2158, %78 ], [ %92, %89 ], [ %92, %.loopexit.loopexit ]
+  %.178 = phi i1 [ %.077159, %63 ], [ %.077159, %74 ], [ %.077159, %39 ], [ %.077159, %78 ], [ false, %89 ], [ false, %.loopexit.loopexit ]
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %123 = zext i32 %122 to i64
-  %124 = icmp samesign ult i64 %indvars.iv.next201, %123
-  br i1 %124, label %39, label %._crit_edge165, !llvm.loop !32
+  %124 = icmp samesign ult i64 %indvars.iv.next198, %123
+  br i1 %124, label %39, label %._crit_edge162, !llvm.loop !32
 
-.lr.ph169:                                        ; preds = %.preheader, %142
+.lr.ph166:                                        ; preds = %.preheader, %142
   %125 = phi ptr [ %143, %142 ], [ %36, %.preheader ]
-  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %142 ], [ 0, %.preheader ]
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %142 ], [ 0, %.preheader ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv202
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv199
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 232
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, %.3
   br i1 %132, label %133, label %142
 
-133:                                              ; preds = %.lr.ph169
+133:                                              ; preds = %.lr.ph166
   %134 = load i32, ptr %30, align 4
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %142
@@ -3302,10 +3302,10 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16
 
 139:                                              ; preds = %136
   invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.70)
-          to label %._crit_edge217 unwind label %140
+          to label %._crit_edge214 unwind label %140
 
-._crit_edge217:                                   ; preds = %139
-  %.pre218 = load ptr, ptr %35, align 8
+._crit_edge214:                                   ; preds = %139
+  %.pre215 = load ptr, ptr %35, align 8
   br label %142
 
 140:                                              ; preds = %139
@@ -3313,16 +3313,16 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16
           cleanup
   br label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit106
 
-142:                                              ; preds = %._crit_edge217, %136, %133, %.lr.ph169
-  %143 = phi ptr [ %.pre218, %._crit_edge217 ], [ %125, %136 ], [ %125, %133 ], [ %125, %.lr.ph169 ]
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+142:                                              ; preds = %._crit_edge214, %136, %133, %.lr.ph166
+  %143 = phi ptr [ %.pre215, %._crit_edge214 ], [ %125, %136 ], [ %125, %133 ], [ %125, %.lr.ph166 ]
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load i32, ptr %144, align 8
   %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next203, %146
-  br i1 %147, label %.lr.ph169, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit, !llvm.loop !33
+  %147 = icmp samesign ult i64 %indvars.iv.next200, %146
+  br i1 %147, label %.lr.ph166, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit, !llvm.loop !33
 
-_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit: ; preds = %142, %.preheader, %._crit_edge165
+_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit: ; preds = %142, %.preheader, %._crit_edge162
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %29) #24
   br label %.thread
 

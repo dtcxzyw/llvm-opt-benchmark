@@ -7687,11 +7687,11 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit.i: ; preds = %62, %60, %58, 
 
 _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %19, align 8, !tbaa !128
-  %.pre107 = load ptr, ptr %15, align 8, !tbaa !132
+  %.pre95 = load ptr, ptr %15, align 8, !tbaa !132
   br label %_ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit
 
 _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit: ; preds = %_ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit.loopexit, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit.i
-  %79 = phi ptr [ %.pre107, %_ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit.loopexit ], [ %63, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit.i ]
+  %79 = phi ptr [ %.pre95, %_ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit.loopexit ], [ %63, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit.i ]
   %80 = phi ptr [ %.pre, %_ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEE18getSortedStructValEv.exit.loopexit ], [ %64, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit.i ]
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %79 to i64
@@ -7955,7 +7955,7 @@ _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_3VecIiLi4EEEED2Ev.exit: ; pred
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit60
   %184 = phi i64 [ %210, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit60 ], [ 0, %.lr.ph.preheader ]
-  %.0103 = phi i32 [ %209, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit60 ], [ 0, %.lr.ph.preheader ]
+  %.091 = phi i32 [ %209, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit60 ], [ 0, %.lr.ph.preheader ]
   %185 = load ptr, ptr %116, align 8, !tbaa !120, !noalias !305
   %186 = load ptr, ptr %7, align 8, !tbaa !115, !noalias !305
   %187 = ptrtoint ptr %185 to i64
@@ -8013,7 +8013,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit60:      ; preds = %.lr.ph.i.i.i.i.i.i4
   store float %198, ptr %208, align 4, !tbaa !116
   call void @_ZdlPv(ptr noundef nonnull %199) #29
   call void @_ZdlPv(ptr noundef nonnull %192) #29
-  %209 = add i32 %.0103, 1
+  %209 = add i32 %.091, 1
   %210 = zext i32 %209 to i64
   %211 = icmp ugt i64 %163, %210
   br i1 %211, label %.lr.ph, label %._crit_edge, !llvm.loop !312

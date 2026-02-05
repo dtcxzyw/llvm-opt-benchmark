@@ -676,7 +676,7 @@ define void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12Sta
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0162.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0144.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -846,7 +846,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %133
 
 98:                                               ; preds = %68
-  call void @_ZN8WasmEdge8Executor8Executor12atomicNotifyERNS_7Runtime8Instance14MemoryInstanceEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.40") align 4 %18, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %69, i32 noundef %.sroa.0162.0.extract.trunc) #20
+  call void @_ZN8WasmEdge8Executor8Executor12atomicNotifyERNS_7Runtime8Instance14MemoryInstanceEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.40") align 4 %18, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %69, i32 noundef %.sroa.0144.0.extract.trunc) #20
   %99 = load i8, ptr %18, align 4
   %100 = trunc i8 %99 to i1
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 4

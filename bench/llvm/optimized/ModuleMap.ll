@@ -10142,10 +10142,10 @@ define dso_local { ptr, i64 } @_ZN5clang9ModuleMap23findAllModulesForHeaderENS_1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %15
-  %..i.sink11 = phi ptr [ %..i, %15 ], [ %5, %2 ]
-  %21 = getelementptr inbounds nuw i8, ptr %..i.sink11, i64 8
+  %..i.sink9 = phi ptr [ %..i, %15 ], [ %5, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %..i.sink9, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !150
-  %23 = getelementptr inbounds nuw i8, ptr %..i.sink11, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %..i.sink9, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !140
   %25 = zext i32 %24 to i64
   br label %26

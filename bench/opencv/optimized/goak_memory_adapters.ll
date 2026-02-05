@@ -446,12 +446,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44, %
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %49
   store i32 1, ptr %53, align 4
-  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 1, ptr %.sroa.537.0..sroa_idx, align 4
-  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %50, ptr %.sroa.638.0..sroa_idx, align 4
-  %.sroa.739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 %52, ptr %.sroa.739.0..sroa_idx, align 4
+  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 1, ptr %.sroa.534.0..sroa_idx, align 4
+  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 %50, ptr %.sroa.635.0..sroa_idx, align 4
+  %.sroa.736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 %52, ptr %.sroa.736.0..sroa_idx, align 4
   %54 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
           to label %55 unwind label %66
 

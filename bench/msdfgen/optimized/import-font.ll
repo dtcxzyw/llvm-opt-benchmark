@@ -770,8 +770,8 @@ invoke.cont13:                                    ; preds = %invoke.cont
 for.cond.preheader:                               ; preds = %invoke.cont13
   %5 = load ptr, ptr %master, align 8
   %6 = load i32, ptr %5, align 8
-  %cmp29.not = icmp eq i32 %6, 0
-  br i1 %cmp29.not, label %if.end26, label %for.body.lr.ph
+  %cmp26.not = icmp eq i32 %6, 0
+  br i1 %cmp26.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %axis = getelementptr inbounds nuw i8, ptr %5, i64 16

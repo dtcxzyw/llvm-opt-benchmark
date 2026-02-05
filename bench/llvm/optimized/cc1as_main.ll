@@ -1796,14 +1796,14 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit232.i.i:     ; preds = %650, %647, %_ZNSt7_
   br label %_ZNK4llvm9StringRef5splitEc.exit.i.i
 
 _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %667, %666
-  %.sroa.7.1.i.i = phi ptr [ null, %666 ], [ %671, %667 ]
-  %.sroa.10.1.i.i = phi i64 [ 0, %666 ], [ %672, %667 ]
+  %.sroa.7.0.i.i = phi ptr [ null, %666 ], [ %671, %667 ]
+  %.sroa.10.0.i.i = phi i64 [ 0, %666 ], [ %672, %667 ]
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.0.copyload.i.i, %666 ], [ %.sroa.speculated.i.i.i.i.i, %667 ]
   %.sroa.0263.0.i.i = phi ptr [ %.sroa.0263.0.copyload.i.i, %666 ], [ %669, %667 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %673 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %.sroa.7.1.i.i, i64 %.sroa.10.1.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %673 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %.sroa.7.0.i.i, i64 %.sroa.10.0.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   %674 = load i64, ptr %4, align 8
   %spec.select386.i.i = select i1 %673, i64 %.0370397.i.i, i64 %674
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

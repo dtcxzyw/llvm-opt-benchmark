@@ -16924,8 +16924,8 @@ _ZN5boost4asio6detail10socket_ops10setsockoptEiRhiiPKvmRNS_6system10error_codeE.
 
 24:                                               ; preds = %_ZN5boost4asio6detail10socket_ops10setsockoptEiRhiiPKvmRNS_6system10error_codeE.exit, %8, %7
   %25 = call i32 @close(i32 noundef %0)
-  %.not91 = icmp eq i32 %25, 0
-  br i1 %.not91, label %.critedge, label %26
+  %.not87 = icmp eq i32 %25, 0
+  br i1 %.not87, label %.critedge, label %26
 
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #38
@@ -16967,13 +16967,13 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %44 = load ptr, ptr %43, align 8, !noalias !560
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !560
   %.pre = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !81
-  %.pre93 = load i32, ptr %3, align 8
-  %.pre94.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !563
+  %.pre89 = load i32, ptr %3, align 8
+  %.pre90.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !563
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %38
-  %.pre94 = phi i64 [ %.pre94.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %40, %38 ]
-  %46 = phi i32 [ %.pre93, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %28, %38 ]
+  %.pre90 = phi i64 [ %.pre90.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %40, %38 ]
+  %46 = phi i32 [ %.pre89, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %28, %38 ]
   %47 = phi i64 [ %.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %39, %38 ]
   %48 = icmp ne i64 %47, 1
   %49 = icmp eq i32 %46, 11
@@ -16981,19 +16981,19 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   br i1 %or.cond, label %_ZNK5boost6system10error_code8categoryEv.exit.i, label %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread
 
 _ZNK5boost6system10error_code8categoryEv.exit.i:  ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
-  %cond87 = icmp eq i64 %47, 0
+  %cond83 = icmp eq i64 %47, 0
   %50 = load ptr, ptr %.sroa.52.0..sroa_idx.i, align 8
-  %.0.i18.i = select i1 %cond87, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %50
-  %51 = icmp eq i64 %.pre94, 0
+  %.0.i18.i = select i1 %cond83, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %50
+  %51 = icmp eq i64 %.pre90, 0
   %52 = icmp eq ptr %.0.i18.i, @_ZN5boost6system6detail17system_cat_holderIvE8instanceE
   %53 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, %.pre94
+  %55 = icmp eq i64 %54, %.pre90
   %56 = select i1 %51, i1 %52, i1 %55
   br i1 %56, label %.critedge2, label %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread
 
 _ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZNK5boost6system10error_code8categoryEv.exit.i
-  %57 = and i64 %.pre94, -2
+  %57 = and i64 %.pre90, -2
   %switch.i.i.i.i36 = icmp eq i64 %57, -5572340897628102704
   br i1 %switch.i.i.i.i36, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39.thread, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39
 
@@ -17002,17 +17002,17 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8, !noalias !563
   %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !563
-  %.pre95 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !81
-  %.pre96 = load i32, ptr %3, align 8
+  %.pre91 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !81
+  %.pre92 = load i32, ptr %3, align 8
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread
-  %62 = phi i32 [ %.pre96, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39 ], [ %46, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread ]
-  %63 = phi i64 [ %.pre95, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39 ], [ %47, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread ]
+  %62 = phi i32 [ %.pre92, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39 ], [ %46, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread ]
+  %63 = phi i64 [ %.pre91, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39 ], [ %47, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit.thread ]
   %64 = icmp ne i64 %63, 1
   %65 = icmp eq i32 %62, 11
-  %or.cond90 = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond90, label %_ZNK5boost6system10error_code8categoryEv.exit.i46, label %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit50.thread
+  %or.cond86 = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond86, label %_ZNK5boost6system10error_code8categoryEv.exit.i46, label %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit50.thread
 
 _ZNK5boost6system10error_code8categoryEv.exit.i46: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit39.thread
   %cond = icmp eq i64 %63, 0
@@ -17095,8 +17095,8 @@ _ZN5boost4asio6detail10socket_ops14get_last_errorERNS_6system10error_codeEb.exit
   %105 = and i8 %104, -4
   store i8 %105, ptr %1, align 1, !tbaa !28
   %106 = call i32 @close(i32 noundef %0)
-  %.not92 = icmp eq i32 %106, 0
-  br i1 %.not92, label %107, label %108
+  %.not88 = icmp eq i32 %106, 0
+  br i1 %.not88, label %107, label %108
 
 107:                                              ; preds = %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -19059,13 +19059,13 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %48 = load ptr, ptr %47, align 8, !noalias !597
   %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !597
   %.pre = load i64, ptr %29, align 8, !tbaa !81
-  %.pre93 = load i32, ptr %7, align 8
-  %.pre94.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !600
+  %.pre85 = load i32, ptr %7, align 8
+  %.pre86.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !124, !noalias !600
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %.lr.ph.split
-  %.pre94 = phi i64 [ %.pre94.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %44, %.lr.ph.split ]
-  %50 = phi i32 [ %.pre93, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %42, %.lr.ph.split ]
+  %.pre86 = phi i64 [ %.pre86.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %44, %.lr.ph.split ]
+  %50 = phi i32 [ %.pre85, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %42, %.lr.ph.split ]
   %51 = phi i64 [ %.pre, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ %43, %.lr.ph.split ]
   %52 = icmp ne i64 %51, 1
   %53 = icmp eq i32 %50, 11
@@ -19073,19 +19073,19 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   br i1 %or.cond, label %_ZNK5boost6system10error_code8categoryEv.exit.i.i, label %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread
 
 _ZNK5boost6system10error_code8categoryEv.exit.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread
-  %cond85 = icmp eq i64 %51, 0
+  %cond77 = icmp eq i64 %51, 0
   %54 = load ptr, ptr %30, align 8
-  %.0.i18.i.i = select i1 %cond85, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %54
-  %55 = icmp eq i64 %.pre94, 0
+  %.0.i18.i.i = select i1 %cond77, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %54
+  %55 = icmp eq i64 %.pre86, 0
   %56 = icmp ne ptr %.0.i18.i.i, @_ZN5boost6system6detail17system_cat_holderIvE8instanceE
   %57 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = icmp ne i64 %58, %.pre94
+  %59 = icmp ne i64 %58, %.pre86
   %60 = select i1 %55, i1 %56, i1 %59
   br i1 %60, label %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread, label %.critedge2
 
 _ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZNK5boost6system10error_code8categoryEv.exit.i.i
-  %61 = and i64 %.pre94, -2
+  %61 = and i64 %.pre86, -2
   %switch.i.i.i.i27 = icmp eq i64 %61, -5572340897628102704
   br i1 %switch.i.i.i.i27, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30.thread, label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30
 
@@ -19094,17 +19094,17 @@ _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIX
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8, !noalias !600
   %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 11) #33, !noalias !600
-  %.pre95 = load i64, ptr %29, align 8, !tbaa !81
-  %.pre96 = load i32, ptr %7, align 8
+  %.pre87 = load i64, ptr %29, align 8, !tbaa !81
+  %.pre88 = load i32, ptr %7, align 8
   br label %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30.thread
 
 _ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30.thread: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30, %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread
-  %66 = phi i32 [ %.pre96, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30 ], [ %50, %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread ]
-  %67 = phi i64 [ %.pre95, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30 ], [ %51, %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread ]
+  %66 = phi i32 [ %.pre88, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30 ], [ %50, %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread ]
+  %67 = phi i64 [ %.pre87, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30 ], [ %51, %_ZN5boost6systemneERKNS0_10error_codeES3_.exit.thread ]
   %68 = icmp ne i64 %67, 1
   %69 = icmp eq i32 %66, 11
-  %or.cond88 = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond88, label %_ZNK5boost6system10error_code8categoryEv.exit.i.i37, label %.critedge.thread
+  %or.cond80 = select i1 %68, i1 %69, i1 false
+  br i1 %or.cond80, label %_ZNK5boost6system10error_code8categoryEv.exit.i.i37, label %.critedge.thread
 
 _ZNK5boost6system10error_code8categoryEv.exit.i.i37: ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit30.thread
   %cond = icmp eq i64 %67, 0

@@ -942,10 +942,10 @@ _ZN4llvm17createStringErrorESt10error_codeRKNS_5TwineE.exit131: ; preds = %_ZN4l
   br label %.critedge38.critedge
 
 _ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit: ; preds = %132, %113, %102, %122, %103
-  %.sroa.7.1 = phi i64 [ 8, %113 ], [ 0, %102 ], [ 8, %103 ], [ 7, %122 ], [ 7, %132 ]
-  %.sroa.0155.1 = phi ptr [ @.str.16, %113 ], [ null, %102 ], [ @.str.16, %103 ], [ @.str.18, %122 ], [ @.str.18, %132 ]
-  %.sroa.8.1 = phi i64 [ 17, %113 ], [ 14, %102 ], [ 17, %103 ], [ 16, %122 ], [ 16, %132 ]
-  %.sroa.0156.1 = phi ptr [ @.str.15, %113 ], [ @.str.14, %102 ], [ @.str.15, %103 ], [ @.str.17, %122 ], [ @.str.17, %132 ]
+  %.sroa.7.0 = phi i64 [ 8, %113 ], [ 0, %102 ], [ 8, %103 ], [ 7, %122 ], [ 7, %132 ]
+  %.sroa.0155.0 = phi ptr [ @.str.16, %113 ], [ null, %102 ], [ @.str.16, %103 ], [ @.str.18, %122 ], [ @.str.18, %132 ]
+  %.sroa.8.0 = phi i64 [ 17, %113 ], [ 14, %102 ], [ 17, %103 ], [ 16, %122 ], [ 16, %132 ]
+  %.sroa.0156.0 = phi ptr [ @.str.15, %113 ], [ @.str.14, %102 ], [ @.str.15, %103 ], [ @.str.17, %122 ], [ @.str.17, %132 ]
   %159 = load ptr, ptr %29, align 8, !tbaa !40
   %.not34 = icmp eq ptr %159, null
   br i1 %.not34, label %177, label %160
@@ -954,7 +954,7 @@ _ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit: ; p
   %161 = load ptr, ptr %159, align 8, !tbaa !58
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 248
   %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(44) %159, ptr nonnull %.sroa.0156.1, i64 %.sroa.8.1) #15
+  call void %163(ptr noundef nonnull align 8 dereferenceable(44) %159, ptr nonnull %.sroa.0156.0, i64 %.sroa.8.0) #15
   %164 = load i64, ptr %56, align 8, !tbaa !62
   %.not.i132 = icmp eq i64 %164, 0
   br i1 %.not.i132, label %171, label %165
@@ -965,7 +965,7 @@ _ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit: ; p
   %168 = load ptr, ptr %166, align 8, !tbaa !58
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 176
   %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(44) %166, ptr %.sroa.0155.1, i64 %.sroa.7.1, ptr %167, i64 %164) #15
+  call void %170(ptr noundef nonnull align 8 dereferenceable(44) %166, ptr %.sroa.0155.0, i64 %.sroa.7.0, ptr %167, i64 %164) #15
   br label %171
 
 171:                                              ; preds = %165, %160

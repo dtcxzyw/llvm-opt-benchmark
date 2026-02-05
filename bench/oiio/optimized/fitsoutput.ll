@@ -2463,7 +2463,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
   %38 = add i32 %37, 64
   %39 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 28)
   %.pre = ptrtoint ptr %.sroa.039.0 to i64
-  %.pre68 = sub i64 %.sroa.29.0, %.pre
+  %.pre65 = sub i64 %.sroa.29.0, %.pre
   switch i32 %39, label %_ZNSt6vectorIhSaIhEED2Ev.exit38 [
     i32 5, label %40
     i32 6, label %47
@@ -2472,7 +2472,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
   ]
 
 40:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
-  %41 = lshr i64 %.pre68, 1
+  %41 = lshr i64 %.pre65, 1
   %42 = trunc i64 %41 to i32
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit38
@@ -2492,7 +2492,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
   br i1 %exitcond.not.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit38, label %.lr.ph.i, !llvm.loop !110
 
 47:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
-  %48 = lshr i64 %.pre68, 2
+  %48 = lshr i64 %.pre65, 2
   %49 = trunc i64 %48 to i32
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph.preheader.i19, label %_ZNSt6vectorIhSaIhEED2Ev.exit38
@@ -2512,7 +2512,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
   br i1 %exitcond.not.i24, label %_ZNSt6vectorIhSaIhEED2Ev.exit38, label %.lr.ph.i21, !llvm.loop !111
 
 54:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
-  %55 = lshr i64 %.pre68, 2
+  %55 = lshr i64 %.pre65, 2
   %56 = trunc i64 %55 to i32
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph.preheader.i25, label %_ZNSt6vectorIhSaIhEED2Ev.exit38
@@ -2532,7 +2532,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
   br i1 %exitcond.not.i30, label %_ZNSt6vectorIhSaIhEED2Ev.exit38, label %.lr.ph.i27, !llvm.loop !112
 
 61:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
-  %62 = lshr i64 %.pre68, 3
+  %62 = lshr i64 %.pre65, 3
   %63 = trunc i64 %62 to i32
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph.preheader.i31, label %_ZNSt6vectorIhSaIhEED2Ev.exit38
@@ -2553,12 +2553,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc18, %_ZNSt6ve
 
 _ZNSt6vectorIhSaIhEED2Ev.exit38:                  ; preds = %.lr.ph.i33, %.lr.ph.i27, %.lr.ph.i21, %.lr.ph.i, %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit, %61, %54, %47, %40
   %68 = load ptr, ptr %33, align 8, !tbaa !15
-  %69 = tail call i64 @fwrite(ptr noundef nonnull %.sroa.039.0, i64 noundef 1, i64 noundef %.pre68, ptr noundef %68)
+  %69 = tail call i64 @fwrite(ptr noundef nonnull %.sroa.039.0, i64 noundef 1, i64 noundef %.pre65, ptr noundef %68)
   %70 = load ptr, ptr %33, align 8, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %72 = tail call i32 @fsetpos(ptr noundef %70, ptr noundef nonnull %71)
-  %73 = icmp eq i64 %69, %.pre68
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.0, i64 noundef %.pre68) #28
+  %73 = icmp eq i64 %69, %.pre65
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.0, i64 noundef %.pre65) #28
   br label %74
 
 74:                                               ; preds = %6, %_ZNSt6vectorIhSaIhEED2Ev.exit38, %16

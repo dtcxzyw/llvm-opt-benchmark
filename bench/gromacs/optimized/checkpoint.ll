@@ -6390,8 +6390,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %278, %_ZNSt6
   br label %.noexc118
 
 .noexc118:                                        ; preds = %265, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %256
-  %.sroa.0.5 = phi ptr [ %228, %256 ], [ %228, %265 ], [ %271, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %228, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
-  %.sroa.19.5 = phi ptr [ %227, %256 ], [ %227, %265 ], [ %279, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %227, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.sroa.0.2 = phi ptr [ %228, %256 ], [ %228, %265 ], [ %271, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %228, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.sroa.19.2 = phi ptr [ %227, %256 ], [ %227, %265 ], [ %279, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %227, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   br i1 %244, label %_ZL7xdrProc11XdrDataType.exit.thread.i.i, label %.split63.i.i
 
 .split63.i.i:                                     ; preds = %.noexc118
@@ -6423,7 +6423,7 @@ _ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i:  ; preds = %.split63.i.i
 
 _ZL7xdrProc11XdrDataType.exit.thread.i.i:         ; preds = %.noexc118
   %287 = load i32, ptr %8, align 4, !tbaa !33
-  %288 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %.sroa.0.5, i32 noundef %287, i32 noundef 4, ptr noundef nonnull @_Z9xdr_floatP3XDRPf)
+  %288 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %.sroa.0.2, i32 noundef %287, i32 noundef 4, ptr noundef nonnull @_Z9xdr_floatP3XDRPf)
           to label %.noexc122 unwind label %.loopexit166
 
 .noexc122:                                        ; preds = %_ZL7xdrProc11XdrDataType.exit.thread.i.i
@@ -6445,7 +6445,7 @@ _ZL7xdrProc11XdrDataType.exit.thread.i.i:         ; preds = %.noexc118
   %292 = getelementptr inbounds nuw double, ptr %283, i64 %indvars.iv.i.i.i
   %293 = load double, ptr %292, align 8, !tbaa !247
   %294 = fptrunc double %293 to float
-  %295 = getelementptr inbounds nuw float, ptr %.sroa.0.5, i64 %indvars.iv.i.i.i
+  %295 = getelementptr inbounds nuw float, ptr %.sroa.0.2, i64 %indvars.iv.i.i.i
   store float %294, ptr %295, align 4, !tbaa !69
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -6461,25 +6461,25 @@ _ZL25convertArrayRealPrecisionPKcPfi.exit.i.i:    ; preds = %.lr.ph.i.i.i, %289
           to label %.critedge.i.i unwind label %.loopexit166
 
 .critedge.i.i:                                    ; preds = %296, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i, %.noexc122, %.noexc120, %.noexc113
-  %.sroa.0.4 = phi ptr [ %228, %.noexc113 ], [ %.sroa.0.5, %.noexc122 ], [ %.sroa.0.5, %.noexc120 ], [ %.sroa.0.5, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %228, %296 ]
-  %.sroa.19.4 = phi ptr [ %227, %.noexc113 ], [ %.sroa.19.5, %.noexc122 ], [ %.sroa.19.5, %.noexc120 ], [ %.sroa.19.5, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %227, %296 ]
+  %.sroa.0.1 = phi ptr [ %228, %.noexc113 ], [ %.sroa.0.2, %.noexc122 ], [ %.sroa.0.2, %.noexc120 ], [ %.sroa.0.2, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %228, %296 ]
+  %.sroa.19.1 = phi ptr [ %227, %.noexc113 ], [ %.sroa.19.2, %.noexc122 ], [ %.sroa.19.2, %.noexc120 ], [ %.sroa.19.2, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %227, %296 ]
   %.1.i.i = phi i32 [ -1, %.noexc113 ], [ %spec.select.i.i, %.noexc122 ], [ -1, %.noexc120 ], [ 0, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ 0, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %298
 
 298:                                              ; preds = %.critedge.i.i, %.noexc112
-  %.sroa.0.7 = phi ptr [ %228, %.noexc112 ], [ %.sroa.0.4, %.critedge.i.i ]
-  %.sroa.19.7 = phi ptr [ %227, %.noexc112 ], [ %.sroa.19.4, %.critedge.i.i ]
+  %.sroa.0.4 = phi ptr [ %228, %.noexc112 ], [ %.sroa.0.1, %.critedge.i.i ]
+  %.sroa.19.4 = phi ptr [ %227, %.noexc112 ], [ %.sroa.19.1, %.critedge.i.i ]
   %.058.i.i = phi i32 [ -1, %.noexc112 ], [ %.1.i.i, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not.i.i.i = icmp eq ptr %.sroa.0.7, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.4, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %299
 
 299:                                              ; preds = %298
-  %300 = ptrtoint ptr %.sroa.19.7 to i64
-  %301 = ptrtoint ptr %.sroa.0.7 to i64
+  %300 = ptrtoint ptr %.sroa.19.4 to i64
+  %301 = ptrtoint ptr %.sroa.0.4 to i64
   %302 = sub i64 %300, %301
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.7, i64 noundef %302) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %302) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %298, %299
@@ -6488,31 +6488,31 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %298, %299
   br i1 %.not, label %.loopexit, label %212
 
 .loopexit166:                                     ; preds = %296, %235, %238, %245, %.noexc115, %_ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i, %.noexc119, %_ZL7xdrProc11XdrDataType.exit.thread.i.i, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
-  %.sroa.0.2.ph = phi ptr [ %228, %296 ], [ %228, %245 ], [ %228, %.noexc115 ], [ %228, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ %228, %238 ], [ %.sroa.0.5, %_ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i ], [ %.sroa.0.5, %.noexc119 ], [ %.sroa.0.5, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %.sroa.0.5, %_ZL7xdrProc11XdrDataType.exit.thread.i.i ], [ %228, %235 ]
-  %.sroa.19.2.ph = phi ptr [ %227, %296 ], [ %227, %245 ], [ %227, %.noexc115 ], [ %227, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ %227, %238 ], [ %.sroa.19.5, %_ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i ], [ %.sroa.19.5, %.noexc119 ], [ %.sroa.19.5, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %.sroa.19.5, %_ZL7xdrProc11XdrDataType.exit.thread.i.i ], [ %227, %235 ]
+  %.sroa.0.0.ph = phi ptr [ %228, %296 ], [ %228, %245 ], [ %228, %.noexc115 ], [ %228, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ %228, %238 ], [ %.sroa.0.2, %_ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i ], [ %.sroa.0.2, %.noexc119 ], [ %.sroa.0.2, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %.sroa.0.2, %_ZL7xdrProc11XdrDataType.exit.thread.i.i ], [ %228, %235 ]
+  %.sroa.19.0.ph = phi ptr [ %227, %296 ], [ %227, %245 ], [ %227, %.noexc115 ], [ %227, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ %227, %238 ], [ %.sroa.19.2, %_ZL13sizeOfXdrType11XdrDataType.exit.thread.i.i ], [ %.sroa.19.2, %.noexc119 ], [ %.sroa.19.2, %_ZL25convertArrayRealPrecisionPKcPfi.exit.i.i ], [ %.sroa.19.2, %_ZL7xdrProc11XdrDataType.exit.thread.i.i ], [ %227, %235 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %232, %251, %286
-  %.sroa.0.2.ph167 = phi ptr [ %.sroa.0.5, %286 ], [ %228, %251 ], [ %228, %232 ]
-  %.sroa.19.2.ph168 = phi ptr [ %.sroa.19.5, %286 ], [ %227, %251 ], [ %227, %232 ]
+  %.sroa.0.0.ph167 = phi ptr [ %.sroa.0.2, %286 ], [ %228, %251 ], [ %228, %232 ]
+  %.sroa.19.0.ph168 = phi ptr [ %.sroa.19.2, %286 ], [ %227, %251 ], [ %227, %232 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit166, %.loopexit.split-lp, %253
-  %.sroa.0.6 = phi ptr [ %228, %253 ], [ %.sroa.0.2.ph, %.loopexit166 ], [ %.sroa.0.2.ph167, %.loopexit.split-lp ]
-  %.sroa.19.6 = phi ptr [ %227, %253 ], [ %.sroa.19.2.ph, %.loopexit166 ], [ %.sroa.19.2.ph168, %.loopexit.split-lp ]
+  %.sroa.0.3 = phi ptr [ %228, %253 ], [ %.sroa.0.0.ph, %.loopexit166 ], [ %.sroa.0.0.ph167, %.loopexit.split-lp ]
+  %.sroa.19.3 = phi ptr [ %227, %253 ], [ %.sroa.19.0.ph, %.loopexit166 ], [ %.sroa.19.0.ph168, %.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %254, %253 ], [ %lpad.loopexit, %.loopexit166 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i125 = icmp eq ptr %.sroa.0.6, null
+  %.not.i.i.i125 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i125, label %_ZNSt6vectorIfSaIfEED2Ev.exit126, label %304
 
 304:                                              ; preds = %.body
-  %305 = ptrtoint ptr %.sroa.19.6 to i64
-  %306 = ptrtoint ptr %.sroa.0.6 to i64
+  %305 = ptrtoint ptr %.sroa.19.3 to i64
+  %306 = ptrtoint ptr %.sroa.0.3 to i64
   %307 = sub i64 %305, %306
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6, i64 noundef %307) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %307) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit126
 
 308:                                              ; preds = %56
@@ -7193,7 +7193,7 @@ switch.lookup185:                                 ; preds = %switch.lookup, %.no
           to label %260 unwind label %261
 
 260:                                              ; preds = %switch.lookup185
-  switch i32 %237, label %default.unreachable45.i.i.i.i.i [
+  switch i32 %237, label %default.unreachable42.i.i.i.i.i [
     i32 0, label %263
     i32 1, label %264
     i32 2, label %265
@@ -7217,7 +7217,7 @@ switch.lookup185:                                 ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.155, ptr noundef %.sroa.035.0.i.i.i.i.i, i32 noundef %240, i1 noundef zeroext true)
           to label %266 unwind label %261
 
-default.unreachable45.i.i.i.i.i:                  ; preds = %260
+default.unreachable42.i.i.i.i.i:                  ; preds = %260
   unreachable
 
 266:                                              ; preds = %265, %264, %263
@@ -11178,7 +11178,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
           to label %19 unwind label %20
 
 19:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %default.unreachable46 [
+  switch i32 %3, label %default.unreachable43 [
     i32 0, label %22
     i32 1, label %26
     i32 2, label %34
@@ -11220,7 +11220,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %37, ptr noundef %.sroa.035.0, i32 noundef %2, i1 noundef zeroext true)
           to label %38 unwind label %20
 
-default.unreachable46:                            ; preds = %19
+default.unreachable43:                            ; preds = %19
   unreachable
 
 38:                                               ; preds = %22, %33, %31, %34
@@ -12187,7 +12187,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
           to label %19 unwind label %20
 
 19:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %default.unreachable46 [
+  switch i32 %3, label %default.unreachable43 [
     i32 0, label %22
     i32 1, label %26
     i32 2, label %34
@@ -12229,7 +12229,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %37, ptr noundef %.sroa.035.0, i32 noundef %2, i1 noundef zeroext true)
           to label %38 unwind label %20
 
-default.unreachable46:                            ; preds = %19
+default.unreachable43:                            ; preds = %19
   unreachable
 
 38:                                               ; preds = %22, %33, %31, %34
@@ -12607,7 +12607,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
   %19 = sext i32 %1 to i64
   %20 = getelementptr inbounds nuw ptr, ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !32
-  switch i32 %3, label %default.unreachable45 [
+  switch i32 %3, label %default.unreachable42 [
     i32 0, label %24
     i32 1, label %25
     i32 2, label %26
@@ -12631,7 +12631,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %21, ptr noundef %.sroa.035.0, i32 noundef %2, i1 noundef zeroext true)
           to label %27 unwind label %22
 
-default.unreachable45:                            ; preds = %18
+default.unreachable42:                            ; preds = %18
   unreachable
 
 27:                                               ; preds = %24, %25, %26
@@ -13387,7 +13387,7 @@ switch.lookup6:                                   ; preds = %switch.lookup, %.no
   %79 = sext i32 %1 to i64
   %80 = getelementptr inbounds nuw ptr, ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !32
-  switch i32 %18, label %default.unreachable45.i.i.i [
+  switch i32 %18, label %default.unreachable42.i.i.i [
     i32 0, label %84
     i32 1, label %85
     i32 2, label %86
@@ -13411,7 +13411,7 @@ switch.lookup6:                                   ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %81, ptr noundef %.sroa.035.0.i.i.i, i32 noundef %65, i1 noundef zeroext true)
           to label %87 unwind label %82
 
-default.unreachable45.i.i.i:                      ; preds = %78
+default.unreachable42.i.i.i:                      ; preds = %78
   unreachable
 
 87:                                               ; preds = %86, %85, %84
@@ -13721,7 +13721,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
           to label %19 unwind label %20
 
 19:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %default.unreachable46 [
+  switch i32 %3, label %default.unreachable43 [
     i32 0, label %22
     i32 1, label %26
     i32 2, label %34
@@ -13763,7 +13763,7 @@ switch.lookup1:                                   ; preds = %switch.lookup, %.no
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %37, ptr noundef %.sroa.035.0, i32 noundef %2, i1 noundef zeroext true)
           to label %38 unwind label %20
 
-default.unreachable46:                            ; preds = %19
+default.unreachable43:                            ; preds = %19
   unreachable
 
 38:                                               ; preds = %22, %33, %31, %34

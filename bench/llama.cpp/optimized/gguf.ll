@@ -9754,25 +9754,25 @@ define void @gguf_set_kv(ptr noundef %0, ptr noundef readonly captures(none) %1)
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %.lr.ph182.preheader, label %._crit_edge183
+  br i1 %10, label %.lr.ph179.preheader, label %._crit_edge180
 
-.lr.ph182.preheader:                              ; preds = %2
+.lr.ph179.preheader:                              ; preds = %2
   %11 = udiv exact i64 %9, 88
-  br label %.lr.ph182
+  br label %.lr.ph179
 
-._crit_edge183:                                   ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, %2
+._crit_edge180:                                   ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, %2
   ret void
 
-.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
-  %.064180 = phi i64 [ %307, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ 0, %.lr.ph182.preheader ]
+.lr.ph179:                                        ; preds = %.lr.ph179.preheader, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
+  %.064177 = phi i64 [ %307, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ 0, %.lr.ph179.preheader ]
   %12 = load ptr, ptr %3, align 8, !tbaa !48
-  %13 = getelementptr inbounds nuw %struct.gguf_kv, ptr %12, i64 %.064180
+  %13 = getelementptr inbounds nuw %struct.gguf_kv, ptr %12, i64 %.064177
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !178, !range !179, !noundef !174
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %272, label %17
 
-17:                                               ; preds = %.lr.ph182
+17:                                               ; preds = %.lr.ph179
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %19 = load i32, ptr %18, align 4, !tbaa !17
   switch i32 %19, label %271 [
@@ -10374,7 +10374,7 @@ _ZNK7gguf_kv7get_valINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_m
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.28, i32 noundef 1057, ptr noundef nonnull @.str.60) #33
   unreachable
 
-272:                                              ; preds = %.lr.ph182
+272:                                              ; preds = %.lr.ph179
   %273 = tail call noundef i64 @_ZNK7gguf_kv6get_neEv(ptr noundef nonnull align 8 dereferenceable(88) %13)
   %274 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %275 = load i32, ptr %274, align 4, !tbaa !17
@@ -10437,42 +10437,42 @@ _ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc168
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.0171.2193 = phi ptr [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %283, %._crit_edge.loopexit ]
-  %.sroa.11.2191 = phi i64 [ 0, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %290, %._crit_edge.loopexit ]
+  %.sroa.0171.0190 = phi ptr [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %283, %._crit_edge.loopexit ]
+  %.sroa.11.0188 = phi i64 [ 0, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %290, %._crit_edge.loopexit ]
   %291 = load ptr, ptr %13, align 8, !tbaa !60
-  invoke void @gguf_set_arr_str(ptr noundef %0, ptr noundef %291, ptr noundef %.sroa.0171.2193, i64 noundef %273)
+  invoke void @gguf_set_arr_str(ptr noundef %0, ptr noundef %291, ptr noundef %.sroa.0171.0190, i64 noundef %273)
           to label %297 unwind label %301
 
 292:                                              ; preds = %.lr.ph, %292
-  %.0179 = phi i64 [ 0, %.lr.ph ], [ %296, %292 ]
-  %293 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %289, i64 %.0179
+  %.0176 = phi i64 [ 0, %.lr.ph ], [ %296, %292 ]
+  %293 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %289, i64 %.0176
   %294 = load ptr, ptr %293, align 8, !tbaa !60
-  %295 = getelementptr inbounds nuw ptr, ptr %283, i64 %.0179
+  %295 = getelementptr inbounds nuw ptr, ptr %283, i64 %.0176
   store ptr %294, ptr %295, align 8, !tbaa !182
-  %296 = add nuw i64 %.0179, 1
+  %296 = add nuw i64 %.0176, 1
   %exitcond.not = icmp eq i64 %296, %273
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %292, !llvm.loop !186
 
 297:                                              ; preds = %._crit_edge
-  %.not.i.i.i = icmp eq ptr %.sroa.0171.2193, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0171.0190, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, label %298
 
 298:                                              ; preds = %297
-  %299 = ptrtoint ptr %.sroa.0171.2193 to i64
-  %300 = sub i64 %.sroa.11.2191, %299
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.2193, i64 noundef %300) #32
+  %299 = ptrtoint ptr %.sroa.0171.0190 to i64
+  %300 = sub i64 %.sroa.11.0188, %299
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.0190, i64 noundef %300) #32
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 301:                                              ; preds = %._crit_edge
   %302 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i169 = icmp eq ptr %.sroa.0171.2193, null
+  %.not.i.i.i169 = icmp eq ptr %.sroa.0171.0190, null
   br i1 %.not.i.i.i169, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit170, label %303
 
 303:                                              ; preds = %301
-  %304 = ptrtoint ptr %.sroa.0171.2193 to i64
-  %305 = sub i64 %.sroa.11.2191, %304
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.2193, i64 noundef %305) #32
+  %304 = ptrtoint ptr %.sroa.0171.0190 to i64
+  %305 = sub i64 %.sroa.11.0188, %304
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.0190, i64 noundef %305) #32
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit170
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit170:             ; preds = %303, %301
@@ -10483,9 +10483,9 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit170:             ; preds = %303, %301
   unreachable
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %298, %297, %276, %_ZNK7gguf_kv7get_valIhEERKT_m.exit, %_ZNK7gguf_kv7get_valIaEERKT_m.exit, %_ZNK7gguf_kv7get_valItEERKT_m.exit, %_ZNK7gguf_kv7get_valIsEERKT_m.exit, %_ZNK7gguf_kv7get_valIjEERKT_m.exit, %_ZNK7gguf_kv7get_valIiEERKT_m.exit, %_ZNK7gguf_kv7get_valIfEERKT_m.exit, %_ZNK7gguf_kv7get_valImEERKT_m.exit, %_ZNK7gguf_kv7get_valIlEERKT_m.exit, %_ZNK7gguf_kv7get_valIdEERKT_m.exit, %_ZNK7gguf_kv7get_valIbEERKT_m.exit, %_ZNK7gguf_kv7get_valINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_m.exit
-  %307 = add nuw nsw i64 %.064180, 1
-  %exitcond184.not = icmp eq i64 %307, %11
-  br i1 %exitcond184.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !187
+  %307 = add nuw nsw i64 %.064177, 1
+  %exitcond181.not = icmp eq i64 %307, %11
+  br i1 %exitcond181.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !187
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2846,12 +2846,12 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09TGAOutput13set_thumbna
   br label %48
 
 48:                                               ; preds = %44, %40
-  %.sroa.537.0 = phi i32 [ %47, %44 ], [ 256, %40 ]
+  %.sroa.535.0 = phi i32 [ %47, %44 ], [ 256, %40 ]
   %.sroa.8.0 = phi i32 [ 256, %44 ], [ %43, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %4, align 8, !tbaa !110
-  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.sroa.537.0, ptr %.sroa.537.0..sroa_idx, align 4, !tbaa !110
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %.sroa.535.0, ptr %.sroa.535.0..sroa_idx, align 4, !tbaa !110
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !110
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2875,8 +2875,8 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09TGAOutput13set_thumbna
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = call i64 @_ZNK11OpenImageIO6v3_1_08ImageBuf9pixeltypeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %54 = and i64 %53, -4278190081
-  %or.cond39.not = icmp eq i64 %54, 258
-  br i1 %or.cond39.not, label %74, label %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread
+  %or.cond37.not = icmp eq i64 %54, 258
+  br i1 %or.cond37.not, label %74, label %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread
 
 _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2909,8 +2909,8 @@ _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %52
 62:                                               ; preds = %23
   %63 = tail call i64 @_ZNK11OpenImageIO6v3_1_08ImageBuf9pixeltypeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %64 = and i64 %63, -4278190081
-  %or.cond42 = icmp eq i64 %64, 258
-  br i1 %or.cond42, label %65, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread
+  %or.cond40 = icmp eq i64 %64, 258
+  br i1 %or.cond40, label %65, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 280

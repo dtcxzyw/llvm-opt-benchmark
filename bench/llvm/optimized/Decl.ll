@@ -18895,11 +18895,11 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12Function
   %27 = add i8 %26, -25
   %spec.select.i.i.i.i = icmp ult i8 %27, 2
   %spec.select = select i1 %spec.select.i.i.i.i, ptr %20, ptr null
-  %spec.select12 = select i1 %spec.select.i.i.i.i, ptr %23, ptr null
+  %spec.select10 = select i1 %spec.select.i.i.i.i, ptr %23, ptr null
   br label %_ZNK5clang7TypeLoc5getAsINS_15FunctionTypeLocEEET_v.exit
 
 _ZNK5clang7TypeLoc5getAsINS_15FunctionTypeLocEEET_v.exit: ; preds = %_ZNK5clang7TypeLoc12IgnoreParensEv.exit, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
-  %.sroa.49.0 = phi ptr [ null, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ null, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit ], [ %spec.select12, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i ]
+  %.sroa.49.0 = phi ptr [ null, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ null, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit ], [ %spec.select10, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i ]
   %.sroa.08.0 = phi ptr [ null, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ null, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit ], [ %spec.select, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.49.0, 1

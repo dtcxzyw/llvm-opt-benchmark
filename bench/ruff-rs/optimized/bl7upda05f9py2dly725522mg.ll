@@ -36960,7 +36960,7 @@ define void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de
   %59 = alloca [32 x i8], align 8
   %60 = alloca [48 x i8], align 8
   %61 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  switch i8 %61, label %default.unreachable183 [
+  switch i8 %61, label %default.unreachable182 [
     i8 0, label %63
     i8 1, label %268
     i8 2, label %268
@@ -36992,7 +36992,7 @@ define void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de
     i8 28, label %268
   ]
 
-default.unreachable183:                           ; preds = %5
+default.unreachable182:                           ; preds = %5
   unreachable
 
 62:                                               ; preds = %91
@@ -37734,13 +37734,13 @@ default.unreachable183:                           ; preds = %5
   br label %238
 
 .loopexit.split-lp:                               ; preds = %96, %.thread, %251
-  %.sroa.069.0.ph178 = phi i1 [ false, %251 ], [ false, %.thread ], [ true, %96 ]
+  %.sroa.069.0.ph177 = phi i1 [ false, %251 ], [ false, %.thread ], [ true, %96 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %238
 
 238:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %.sroa.069.0 = phi i1 [ %.sroa.069.0.ph, %.loopexit ], [ %.sroa.069.0.ph178, %.loopexit.split-lp ]
+  %.sroa.069.0 = phi i1 [ %.sroa.069.0.ph, %.loopexit ], [ %.sroa.069.0.ph177, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr116drop_in_place$LT$smallvec..SmallVec$LT$$u5b$ty_python_semantic..types..InvalidTypeExpression$u3b$$u20$1$u5d$$GT$$GT$17h35a7a70831caa6d6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #27
           to label %257 unwind label %133
@@ -37761,19 +37761,19 @@ default.unreachable183:                           ; preds = %5
   br label %247
 
 247:                                              ; preds = %.lr.ph, %263
-  %.sroa.070.0179 = phi ptr [ %240, %.lr.ph ], [ %248, %263 ]
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.070.0179, i64 16
+  %.sroa.070.0178 = phi ptr [ %240, %.lr.ph ], [ %248, %263 ]
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.070.0178, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  invoke void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de60d1ffE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.070.0179, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %4)
+  invoke void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de60d1ffE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.070.0178, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %4)
           to label %258 unwind label %.loopexit
 
 ._crit_edge:                                      ; preds = %263
   %.pre = load i64, ptr %21, align 8, !alias.scope !3650, !noalias !3653
   %.pre.fr = freeze i64 %.pre
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.pre182 = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !3650, !noalias !3653
+  %.pre181 = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !3650, !noalias !3653
   %249 = icmp ugt i64 %.pre.fr, 1
-  %spec.select = select i1 %249, i64 %.pre182, i64 %.pre.fr
+  %spec.select = select i1 %249, i64 %.pre181, i64 %.pre.fr
   %250 = icmp eq i64 %spec.select, 0
   br i1 %250, label %.thread, label %251
 

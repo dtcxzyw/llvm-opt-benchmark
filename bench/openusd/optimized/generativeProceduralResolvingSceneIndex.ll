@@ -31820,12 +31820,12 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %28 = load atomic i64, ptr %27 acquire, align 8
   %29 = urem i64 %16, %28
   %30 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 noundef %29)
-  %.not21 = icmp eq ptr %30, null
-  br i1 %.not21, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph
+  %.not19 = icmp eq ptr %30, null
+  br i1 %.not19, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit, %47
-  %.022 = phi ptr [ %.0.i.i15, %47 ], [ %30, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.020 = phi ptr [ %.0.i.i15, %47 ], [ %30, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit ]
+  %31 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = icmp ugt i64 %32, %26
   br i1 %33, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %34
@@ -31835,14 +31835,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %37, align 4
   %.0.copyload.i2.i.i.i = load i64, ptr %1, align 4
   %38 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %36
-  %40 = load atomic i64, ptr %.022 acquire, align 8
+  %40 = load atomic i64, ptr %.020 acquire, align 8
   %.not4.i = icmp eq i64 %40, 0
   br i1 %.not4.i, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph.i.preheader
 
@@ -31865,14 +31865,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %.not.i, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph.i, !llvm.loop !139
 
 47:                                               ; preds = %34, %36
-  %48 = load atomic i64, ptr %.022 acquire, align 8
+  %48 = load atomic i64, ptr %.020 acquire, align 8
   %.0.i.i15 = inttoptr i64 %48 to ptr
   %.not = icmp eq i64 %48, 0
   br i1 %.not, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph, !llvm.loop !254
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit: ; preds = %47, %.lr.ph, %45, %.lr.ph.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit, %39
   %.sroa.4.0 = phi ptr [ null, %39 ], [ %.0.i.i.i, %45 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
-  %.sroa.0.0 = phi ptr [ %.022, %39 ], [ %.022, %45 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.0.0 = phi ptr [ %.020, %39 ], [ %.020, %45 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_9TfWeakPtrINS4_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryEEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S9_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.020, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

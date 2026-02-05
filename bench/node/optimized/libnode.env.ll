@@ -71300,11 +71300,11 @@ if.end.i43:                                       ; preds = %_ZNSt7__cxx114listI
   br label %_ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit, %if.end.i43
-  %retval.i39.sroa.0.1 = phi ptr [ %call.i, %if.end.i43 ], [ null, %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit ]
+  %retval.i39.sroa.0.0 = phi ptr [ %call.i, %if.end.i43 ], [ null, %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit ]
   %13 = load ptr, ptr %request, align 8
   %14 = load i32, ptr %index.i, align 8
   %15 = load ptr, ptr %info, align 8
-  call void %13(ptr %call2.i, ptr %retval.i39.sroa.0.1, i32 noundef %14, ptr noundef %15) #25
+  call void %13(ptr %call2.i, ptr %retval.i39.sroa.0.0, i32 noundef %14, ptr noundef %15) #25
   %16 = load ptr, ptr %holder.i, align 8
   %cmp.i.i = icmp eq ptr %16, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit, label %if.end.i

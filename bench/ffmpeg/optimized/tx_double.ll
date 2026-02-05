@@ -3625,8 +3625,8 @@ define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(non
 
 15:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %.sroa.011.136.us = phi double [ 0.000000e+00, %.preheader.us ], [ %30, %15 ]
-  %.sroa.6.135.us = phi double [ 0.000000e+00, %.preheader.us ], [ %31, %15 ]
+  %.sroa.011.036.us = phi double [ 0.000000e+00, %.preheader.us ], [ %30, %15 ]
+  %.sroa.6.035.us = phi double [ 0.000000e+00, %.preheader.us ], [ %31, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = uitofp nneg i32 %16 to double
   %18 = fmul nsz double %14, %17
@@ -3641,8 +3641,8 @@ define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(non
   %27 = tail call nsz double @llvm.fmuladd.f64(double %22, double %19, double %26)
   %28 = fmul nsz double %19, %24
   %29 = tail call nsz double @llvm.fmuladd.f64(double %22, double %20, double %28)
-  %30 = fadd nsz double %.sroa.011.136.us, %27
-  %31 = fadd nsz double %.sroa.6.135.us, %29
+  %30 = fadd nsz double %.sroa.011.036.us, %27
+  %31 = fadd nsz double %.sroa.6.035.us, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
   br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !77
@@ -3680,8 +3680,8 @@ define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captur
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %.sroa.010.131.us = phi double [ 0.000000e+00, %.preheader.us ], [ %22, %10 ]
-  %.sroa.6.129.us = phi double [ 0.000000e+00, %.preheader.us ], [ %23, %10 ]
+  %.sroa.010.031.us = phi double [ 0.000000e+00, %.preheader.us ], [ %22, %10 ]
+  %.sroa.6.029.us = phi double [ 0.000000e+00, %.preheader.us ], [ %23, %10 ]
   %11 = mul nuw nsw i64 %indvars.iv, %indvars.iv37
   %12 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %9, i64 %11
   %.sroa.0.0.copyload.us = load double, ptr %12, align 8, !tbaa !28
@@ -3696,8 +3696,8 @@ define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captur
   %19 = tail call nsz double @llvm.fmuladd.f64(double %14, double %.sroa.0.0.copyload.us, double %18)
   %20 = fmul nsz double %.sroa.0.0.copyload.us, %16
   %21 = tail call nsz double @llvm.fmuladd.f64(double %14, double %.sroa.5.0.copyload.us, double %20)
-  %22 = fadd nsz double %.sroa.010.131.us, %19
-  %23 = fadd nsz double %.sroa.6.129.us, %21
+  %22 = fadd nsz double %.sroa.010.031.us, %19
+  %23 = fadd nsz double %.sroa.6.029.us, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !79

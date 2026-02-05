@@ -7795,8 +7795,8 @@ _ZN7rocksdb6StatusD2Ev.exit55:                    ; preds = %_ZN7rocksdb6Statusa
   br label %150
 
 119:                                              ; preds = %88, %_ZN7rocksdb6StatusD2Ev.exit55
-  %120 = phi ptr [ %.pre182, %_ZN7rocksdb6StatusD2Ev.exit55 ], [ %.pre183, %88 ]
-  %121 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit55 ], [ %60, %88 ]
+  %120 = phi ptr [ %.pre183, %88 ], [ %.pre182, %_ZN7rocksdb6StatusD2Ev.exit55 ]
+  %121 = phi ptr [ %60, %88 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %122 = load ptr, ptr %120, align 8, !tbaa !17
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 768
@@ -7887,9 +7887,9 @@ _ZN7rocksdb6StatusD2Ev.exit66:                    ; preds = %131, %_ZN7rocksdb6S
   br label %150
 
 .thread:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit48, %_ZN7rocksdb6StatusD2Ev.exit66
-  %142 = phi ptr [ %112, %_ZN7rocksdb6StatusD2Ev.exit48 ], [ %140, %_ZN7rocksdb6StatusD2Ev.exit66 ]
-  %143 = phi i8 [ %.pr87.pre186, %_ZN7rocksdb6StatusD2Ev.exit48 ], [ %.pr87.pre, %_ZN7rocksdb6StatusD2Ev.exit66 ]
-  %.482 = phi i1 [ true, %_ZN7rocksdb6StatusD2Ev.exit48 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit66 ]
+  %142 = phi ptr [ %140, %_ZN7rocksdb6StatusD2Ev.exit66 ], [ %112, %_ZN7rocksdb6StatusD2Ev.exit48 ]
+  %143 = phi i8 [ %.pr87.pre, %_ZN7rocksdb6StatusD2Ev.exit66 ], [ %.pr87.pre186, %_ZN7rocksdb6StatusD2Ev.exit48 ]
+  %.482 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit66 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit48 ]
   %144 = icmp ne i8 %143, 0
   %145 = load ptr, ptr %13, align 8, !tbaa !11
   %146 = icmp eq ptr %145, %21
@@ -7944,9 +7944,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %150
   br label %160
 
 160:                                              ; preds = %.loopexit, %.thread83
-  %.promoted177 = phi ptr [ %159, %.loopexit ], [ %.promoted178211, %.thread83 ]
-  %.231 = phi i64 [ %.231.ph, %.loopexit ], [ %.130132, %.thread83 ]
-  %.227 = phi i1 [ %.227.ph, %.loopexit ], [ %.126133, %.thread83 ]
+  %.promoted177 = phi ptr [ %.promoted178211, %.thread83 ], [ %159, %.loopexit ]
+  %.231 = phi i64 [ %.130132, %.thread83 ], [ %.231.ph, %.loopexit ]
+  %.227 = phi i1 [ %.126133, %.thread83 ], [ %.227.ph, %.loopexit ]
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.077.0141, i64 40
   %.not = icmp eq ptr %161, %20
   br i1 %.not, label %._crit_edge, label %55

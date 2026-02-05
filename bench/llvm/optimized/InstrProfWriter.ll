@@ -1421,8 +1421,8 @@ _ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3
   br label %_ZNSt10unique_ptrISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EESt14default_deleteIS6_EED2Ev.exit.i25
 
 _ZNSt10unique_ptrISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EESt14default_deleteIS6_EED2Ev.exit.i25: ; preds = %45, %29, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i24, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit
-  %.sink.i.i78 = phi i1 [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ true, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i24 ], [ false, %29 ], [ false, %45 ]
-  %.sink32.i.i77 = phi ptr [ %55, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ %55, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i24 ], [ %37, %29 ], [ %52, %45 ]
+  %.sink.i.i65 = phi i1 [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ true, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i24 ], [ false, %29 ], [ false, %45 ]
+  %.sink32.i.i64 = phi ptr [ %55, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ %55, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i24 ], [ %37, %29 ], [ %52, %45 ]
   store ptr null, ptr %19, align 8, !tbaa !106
   %80 = load ptr, ptr %17, align 8, !tbaa !118
   %.not.i.i.i.i26 = icmp eq ptr %80, null
@@ -1451,10 +1451,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i27:                ; preds = %81, %_ZNSt10unique_
 
 _ZN4llvm15InstrProfRecordD2Ev.exit:               ; preds = %87, %_ZNSt6vectorIhSaIhEED2Ev.exit.i27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %92 = getelementptr inbounds nuw i8, ptr %.sink32.i.i77, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.sink32.i.i64, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %6, ptr %9, align 8, !tbaa !159
-  br i1 %.sink.i.i78, label %93, label %98
+  br i1 %.sink.i.i65, label %93, label %98
 
 93:                                               ; preds = %_ZN4llvm15InstrProfRecordD2Ev.exit
   %94 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15InstrProfRecordaSEOS0_(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 8 dereferenceable(56) %4) #26
@@ -1654,8 +1654,8 @@ _ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3
   br label %_ZNSt10unique_ptrISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EESt14default_deleteIS6_EED2Ev.exit.i34
 
 _ZNSt10unique_ptrISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EESt14default_deleteIS6_EED2Ev.exit.i34: ; preds = %66, %50, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i33, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit
-  %.sink.i.i86 = phi i1 [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ true, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i33 ], [ false, %50 ], [ false, %66 ]
-  %.sink32.i.i85 = phi ptr [ %76, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ %76, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i33 ], [ %58, %50 ], [ %73, %66 ]
+  %.sink.i.i73 = phi i1 [ true, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ true, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i33 ], [ false, %50 ], [ false, %66 ]
+  %.sink32.i.i72 = phi ptr [ %76, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6insertEOSt4pairImS2_E.exit ], [ %76, %_ZNKSt14default_deleteISt5arrayISt6vectorIN4llvm24InstrProfValueSiteRecordESaIS3_EELm3EEEclEPS6_.exit.i.i33 ], [ %58, %50 ], [ %73, %66 ]
   store ptr null, ptr %40, align 8, !tbaa !106
   %101 = load ptr, ptr %38, align 8, !tbaa !118
   %.not.i.i.i.i35 = icmp eq ptr %101, null
@@ -1684,14 +1684,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i36:                ; preds = %102, %_ZNSt10unique
 
 _ZN4llvm15InstrProfRecordD2Ev.exit:               ; preds = %108, %_ZNSt6vectorIhSaIhEED2Ev.exit.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.sink.i.i86, label %113, label %114
+  br i1 %.sink.i.i73, label %113, label %114
 
 113:                                              ; preds = %_ZN4llvm15InstrProfRecordD2Ev.exit
   call void @_ZN4llvm12OverlapStats14addOneMismatchERKNS_17CountSumOrPercentE(ptr noundef nonnull align 8 dereferenceable(249) %2, ptr noundef nonnull align 8 dereferenceable(40) %11) #26
   br label %125
 
 114:                                              ; preds = %_ZN4llvm15InstrProfRecordD2Ev.exit
-  %115 = getelementptr inbounds nuw i8, ptr %.sink32.i.i85, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.sink32.i.i72, i64 8
   %116 = load i64, ptr %4, align 8, !tbaa !177
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %118 = load i64, ptr %117, align 8, !tbaa !179

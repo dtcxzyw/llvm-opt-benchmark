@@ -1277,18 +1277,18 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre23 = load ptr, ptr %24, align 8, !tbaa !30
-  %.pre24 = load ptr, ptr %0, align 8, !tbaa !25
-  %.pre25 = ptrtoint ptr %.pre23 to i64
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre28 = sub i64 %.pre25, %.pre26
-  %.pre30 = ashr exact i64 %.pre28, 3
+  %.pre20 = load ptr, ptr %24, align 8, !tbaa !30
+  %.pre21 = load ptr, ptr %0, align 8, !tbaa !25
+  %.pre22 = ptrtoint ptr %.pre20 to i64
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre25 = sub i64 %.pre22, %.pre23
+  %.pre27 = ashr exact i64 %.pre25, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit, %30
-  %.pre-phi31 = phi i64 [ %.pre30, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit ], [ 0, %30 ]
-  %33 = phi ptr [ %.pre23, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit ], [ %25, %30 ]
-  %34 = sub i64 %1, %.pre-phi31
+  %.pre-phi28 = phi i64 [ %.pre27, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit ], [ 0, %30 ]
+  %33 = phi ptr [ %.pre20, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.loopexit ], [ %25, %30 ]
+  %34 = sub i64 %1, %.pre-phi28
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv6Point_IiEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 

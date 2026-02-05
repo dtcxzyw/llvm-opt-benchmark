@@ -334,8 +334,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %78
 83:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %84 = load i32, ptr %9, align 8, !tbaa !27
   %85 = and i32 %84, 16384
-  %.not181 = icmp eq i32 %85, 0
-  br i1 %.not181, label %86, label %96
+  %.not178 = icmp eq i32 %85, 0
+  br i1 %.not178, label %86, label %96
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -526,8 +526,8 @@ _ZNSt6vectorI14_VAImageFormatSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not84, label %.preheader, label %148
 
 .preheader:                                       ; preds = %147
-  %.not182185 = icmp eq ptr %138, %.0.i.i.i.i.i
-  br i1 %.not182185, label %._crit_edge, label %.lr.ph
+  %.not179182 = icmp eq ptr %138, %.0.i.i.i.i.i
+  br i1 %.not179182, label %._crit_edge, label %.lr.ph
 
 148:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -576,17 +576,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %15
   br label %_ZNSt6vectorI14_VAImageFormatSaIS0_EED2Ev.exit144
 
 .lr.ph:                                           ; preds = %.preheader, %163
-  %.sroa.0165.0186 = phi ptr [ %164, %163 ], [ %138, %.preheader ]
-  %162 = load i32, ptr %.sroa.0165.0186, align 4, !tbaa !34
+  %.sroa.0165.0183 = phi ptr [ %164, %163 ], [ %138, %.preheader ]
+  %162 = load i32, ptr %.sroa.0165.0183, align 4, !tbaa !34
   switch i32 %162, label %163 [
     i32 842094158, label %174
     i32 842094169, label %174
   ]
 
 163:                                              ; preds = %.lr.ph
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0186, i64 48
-  %.not182 = icmp eq ptr %164, %.0.i.i.i.i.i
-  br i1 %.not182, label %._crit_edge, label %.lr.ph
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0183, i64 48
+  %.not179 = icmp eq ptr %164, %.0.i.i.i.i.i
+  br i1 %.not179, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %163, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -626,7 +626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %16
 
 174:                                              ; preds = %.lr.ph, %.lr.ph
   %175 = load ptr, ptr @_ZN2cv6detailL16fn_vaCreateImageE, align 8, !tbaa !28
-  %176 = invoke noundef i32 %175(ptr noundef %0, ptr noundef nonnull %.sroa.0165.0186, i32 noundef %.sroa.038.0.extract.trunc, i32 noundef %.sroa.542.0.extract.trunc, ptr noundef nonnull %16)
+  %176 = invoke noundef i32 %175(ptr noundef %0, ptr noundef nonnull %.sroa.0165.0183, i32 noundef %.sroa.038.0.extract.trunc, i32 noundef %.sroa.542.0.extract.trunc, ptr noundef nonnull %16)
           to label %177 unwind label %181
 
 177:                                              ; preds = %174
@@ -1905,8 +1905,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
 52:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %53 = load i32, ptr %5, align 8, !tbaa !27
   %54 = and i32 %53, 16384
-  %.not157 = icmp eq i32 %54, 0
-  br i1 %.not157, label %55, label %65
+  %.not154 = icmp eq i32 %54, 0
+  br i1 %.not154, label %55, label %65
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2097,8 +2097,8 @@ _ZNSt6vectorI14_VAImageFormatSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not67, label %.preheader, label %117
 
 .preheader:                                       ; preds = %116
-  %.not158161 = icmp eq ptr %107, %.0.i.i.i.i.i
-  br i1 %.not158161, label %._crit_edge, label %.lr.ph
+  %.not155158 = icmp eq ptr %107, %.0.i.i.i.i.i
+  br i1 %.not155158, label %._crit_edge, label %.lr.ph
 
 117:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2147,17 +2147,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %12
   br label %_ZNSt6vectorI14_VAImageFormatSaIS0_EED2Ev.exit122
 
 .lr.ph:                                           ; preds = %.preheader, %132
-  %.sroa.0141.0162 = phi ptr [ %133, %132 ], [ %107, %.preheader ]
-  %131 = load i32, ptr %.sroa.0141.0162, align 4, !tbaa !34
+  %.sroa.0141.0159 = phi ptr [ %133, %132 ], [ %107, %.preheader ]
+  %131 = load i32, ptr %.sroa.0141.0159, align 4, !tbaa !34
   switch i32 %131, label %132 [
     i32 842094158, label %143
     i32 842094169, label %143
   ]
 
 132:                                              ; preds = %.lr.ph
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0162, i64 48
-  %.not158 = icmp eq ptr %133, %.0.i.i.i.i.i
-  br i1 %.not158, label %._crit_edge, label %.lr.ph
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0159, i64 48
+  %.not155 = icmp eq ptr %133, %.0.i.i.i.i.i
+  br i1 %.not155, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %132, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -2197,7 +2197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %13
 
 143:                                              ; preds = %.lr.ph, %.lr.ph
   %144 = load ptr, ptr @_ZN2cv6detailL16fn_vaCreateImageE, align 8, !tbaa !28
-  %145 = invoke noundef i32 %144(ptr noundef %0, ptr noundef nonnull %.sroa.0141.0162, i32 noundef %.sroa.035.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull %12)
+  %145 = invoke noundef i32 %144(ptr noundef %0, ptr noundef nonnull %.sroa.0141.0159, i32 noundef %.sroa.035.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc, ptr noundef nonnull %12)
           to label %146 unwind label %150
 
 146:                                              ; preds = %143

@@ -13103,16 +13103,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %151, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %150
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i660, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i660, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i660 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i660 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %152 = icmp ult ptr %.0.i660, %109
   br i1 %152, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -13718,16 +13718,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %144, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %143
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i664, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i664, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i664 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i664 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %145 = icmp ult ptr %.0.i664, %102
   br i1 %145, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -14325,16 +14325,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %125, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %124
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i623, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i623, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i623 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i623 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %126 = icmp ult ptr %.0.i623, %.ptr
   br i1 %126, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -14930,16 +14930,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %143, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %142
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3.ptr.ptr, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3.ptr.ptr, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i673, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3.ptr.ptr, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i673, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3.ptr.ptr, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i673 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i673 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %144 = icmp ult ptr %.0.i673, %.ptr626
   br i1 %144, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -15634,16 +15634,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %183, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %182
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i673, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i673, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i673 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i673 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %184 = icmp ult ptr %.0.i673, %118
   br i1 %184, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -17090,16 +17090,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %154, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %153
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i661, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i661, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i661 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i661 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %155 = icmp ult ptr %.0.i661, %112
   br i1 %155, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -17779,16 +17779,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %184, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %183
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i691, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i691, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i691 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i691 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %185 = icmp ult ptr %.0.i691, %119
   br i1 %185, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -18485,16 +18485,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %160, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %159
-  %.027.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %.026.i = getelementptr inbounds nuw i8, ptr %.3, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.029.i = phi ptr [ %.0.i629, %.lr.ph.i ], [ %.027.i, %.lr.ph.i.preheader ]
-  %.pn28.i = phi ptr [ %.029.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
-  store i32 %.sroa.7.0.i, ptr %.029.i, align 1
-  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
+  %.028.i = phi ptr [ %.0.i629, %.lr.ph.i ], [ %.026.i, %.lr.ph.i.preheader ]
+  %.pn27.i = phi ptr [ %.028.i, %.lr.ph.i ], [ %.3, %.lr.ph.i.preheader ]
+  store i32 %.sroa.7.0.i, ptr %.028.i, align 1
+  %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn27.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
-  %.0.i629 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
+  %.0.i629 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %161 = icmp ult ptr %.0.i629, %95
   br i1 %161, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
@@ -19113,17 +19113,17 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4
   store i32 %.sroa.7.0, ptr %0, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1
-  %.027 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = icmp ult ptr %.027, %2
+  %.026 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = icmp ult ptr %.026, %2
   br i1 %44, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS1_m.exit
 
 .lr.ph:                                           ; preds = %43, %.lr.ph
-  %.029 = phi ptr [ %.0, %.lr.ph ], [ %.027, %43 ]
-  %.pn28 = phi ptr [ %.029, %.lr.ph ], [ %0, %43 ]
-  store i32 %.sroa.7.0, ptr %.029, align 1
-  %.sroa.7.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %.pn28, i64 12
+  %.028 = phi ptr [ %.0, %.lr.ph ], [ %.026, %43 ]
+  %.pn27 = phi ptr [ %.028, %.lr.ph ], [ %0, %43 ]
+  store i32 %.sroa.7.0, ptr %.028, align 1
+  %.sroa.7.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %.pn27, i64 12
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx3, align 1
-  %.0 = getelementptr inbounds nuw i8, ptr %.029, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %45 = icmp ult ptr %.0, %2
   br i1 %45, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS1_m.exit, !llvm.loop !15
 

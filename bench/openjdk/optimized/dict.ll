@@ -707,8 +707,8 @@ define hidden void @_ZN4Dict5printEv(ptr noundef nonnull align 8 dereferenceable
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %2, align 8
-  %.not26 = icmp eq i32 %4, 0
-  br i1 %.not26, label %_ZN5DictIC2EPK4Dict.exit, label %.lr.ph
+  %.not24 = icmp eq i32 %4, 0
+  br i1 %.not24, label %_ZN5DictIC2EPK4Dict.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = load ptr, ptr %3, align 8
@@ -752,35 +752,35 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   %29 = load i32, ptr %28, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull @.str, i64 noundef %27, i32 noundef %29) #11
   %30 = load i32, ptr %2, align 8
-  %.not20 = icmp ult i32 %25, %30
-  br i1 %.not20, label %.lr.ph25, label %._crit_edge
+  %.not18 = icmp ult i32 %25, %30
+  br i1 %.not18, label %.lr.ph23, label %._crit_edge
 
-.lr.ph25:                                         ; preds = %_ZN5DictIC2EPK4Dict.exit, %_ZN5DictIppEv.exit
-  %.sroa.16.024 = phi ptr [ %.sroa.16.2, %_ZN5DictIppEv.exit ], [ %.sroa.16.1, %_ZN5DictIC2EPK4Dict.exit ]
-  %.sroa.4.023 = phi i32 [ %.sroa.4.1, %_ZN5DictIppEv.exit ], [ %25, %_ZN5DictIC2EPK4Dict.exit ]
-  %.sroa.9.022 = phi i32 [ %.sroa.9.4, %_ZN5DictIppEv.exit ], [ %.sroa.9.2, %_ZN5DictIC2EPK4Dict.exit ]
-  %.sroa.22.021 = phi ptr [ %.sroa.22.2, %_ZN5DictIppEv.exit ], [ %.sroa.22.1, %_ZN5DictIC2EPK4Dict.exit ]
+.lr.ph23:                                         ; preds = %_ZN5DictIC2EPK4Dict.exit, %_ZN5DictIppEv.exit
+  %.sroa.16.022 = phi ptr [ %.sroa.16.2, %_ZN5DictIppEv.exit ], [ %.sroa.16.1, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.4.021 = phi i32 [ %.sroa.4.1, %_ZN5DictIppEv.exit ], [ %25, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.9.020 = phi i32 [ %.sroa.9.4, %_ZN5DictIppEv.exit ], [ %.sroa.9.2, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.22.019 = phi ptr [ %.sroa.22.2, %_ZN5DictIppEv.exit ], [ %.sroa.22.1, %_ZN5DictIC2EPK4Dict.exit ]
   %31 = load ptr, ptr @tty, align 8
-  %32 = ptrtoint ptr %.sroa.16.024 to i64
-  %33 = ptrtoint ptr %.sroa.22.021 to i64
+  %32 = ptrtoint ptr %.sroa.16.022 to i64
+  %33 = ptrtoint ptr %.sroa.22.019 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.4, i64 noundef %32, i64 noundef %33) #11
-  %.not.i = icmp eq i32 %.sroa.9.022, 0
+  %.not.i = icmp eq i32 %.sroa.9.020, 0
   br i1 %.not.i, label %.preheader.i.preheader, label %38
 
-.preheader.i.preheader:                           ; preds = %.lr.ph25
+.preheader.i.preheader:                           ; preds = %.lr.ph23
   %34 = load i32, ptr %2, align 8
-  %35 = add nuw i32 %.sroa.4.023, 1
+  %35 = add nuw i32 %.sroa.4.021, 1
   %36 = icmp ult i32 %35, %34
-  br i1 %36, label %.lr.ph17, label %_ZN5DictIppEv.exit
+  br i1 %36, label %.lr.ph15, label %_ZN5DictIppEv.exit
 
-.lr.ph17:                                         ; preds = %.preheader.i.preheader
+.lr.ph15:                                         ; preds = %.preheader.i.preheader
   %37 = load ptr, ptr %3, align 8
   br label %54
 
-38:                                               ; preds = %.lr.ph25
-  %39 = add i32 %.sroa.9.022, -1
+38:                                               ; preds = %.lr.ph23
+  %39 = add i32 %.sroa.9.020, -1
   %40 = load ptr, ptr %3, align 8
-  %41 = zext i32 %.sroa.4.023 to i64
+  %41 = zext i32 %.sroa.4.021 to i64
   %42 = getelementptr inbounds nuw %class.bucket, ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -797,11 +797,11 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
 
 .preheader.i:                                     ; preds = %54
   %53 = add nuw i32 %55, 1
-  %exitcond40.not = icmp eq i32 %53, %34
-  br i1 %exitcond40.not, label %._crit_edge, label %54, !llvm.loop !14
+  %exitcond38.not = icmp eq i32 %53, %34
+  br i1 %exitcond38.not, label %._crit_edge, label %54, !llvm.loop !14
 
-54:                                               ; preds = %.lr.ph17, %.preheader.i
-  %55 = phi i32 [ %35, %.lr.ph17 ], [ %53, %.preheader.i ]
+54:                                               ; preds = %.lr.ph15, %.preheader.i
+  %55 = phi i32 [ %35, %.lr.ph15 ], [ %53, %.preheader.i ]
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw %class.bucket, ptr %37, i64 %56
   %58 = load i32, ptr %57, align 8
@@ -826,10 +826,10 @@ _ZN5DictIppEv.exit:                               ; preds = %.preheader.i.prehea
   %71 = phi i32 [ %34, %59 ], [ %.pre, %38 ], [ %34, %.preheader.i.preheader ]
   %.sroa.22.2 = phi ptr [ %70, %59 ], [ %52, %38 ], [ null, %.preheader.i.preheader ]
   %.sroa.9.4 = phi i32 [ %60, %59 ], [ %39, %38 ], [ -1, %.preheader.i.preheader ]
-  %.sroa.4.1 = phi i32 [ %55, %59 ], [ %.sroa.4.023, %38 ], [ %35, %.preheader.i.preheader ]
+  %.sroa.4.1 = phi i32 [ %55, %59 ], [ %.sroa.4.021, %38 ], [ %35, %.preheader.i.preheader ]
   %.sroa.16.2 = phi ptr [ %66, %59 ], [ %48, %38 ], [ null, %.preheader.i.preheader ]
   %.not = icmp ult i32 %.sroa.4.1, %71
-  br i1 %.not, label %.lr.ph25, label %._crit_edge, !llvm.loop !15
+  br i1 %.not, label %.lr.ph23, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN5DictIppEv.exit, %.preheader.i, %_ZN5DictIC2EPK4Dict.exit
   %72 = load ptr, ptr @tty, align 8

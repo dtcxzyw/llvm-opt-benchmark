@@ -1261,9 +1261,9 @@ _ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %37, %42
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %52 = load i16, ptr %51, align 2, !tbaa !394
   %53 = and i16 %52, 8
-  %.not33 = icmp eq i16 %53, 0
+  %.not31 = icmp eq i16 %53, 0
   %54 = zext i32 %50 to i64
-  br i1 %.not33, label %128, label %55
+  br i1 %.not31, label %128, label %55
 
 55:                                               ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3478,19 +3478,19 @@ define dso_local { i64, i8 } @_ZN5clang5Lexer17makeFileCharRangeENS_15CharSource
   br label %46
 
 43:                                               ; preds = %38
-  %.sroa.032.0.copyload198 = load i32, ptr %7, align 4, !tbaa !286
-  %.sroa.031.0.copyload199 = load i32, ptr %8, align 4, !tbaa !286
+  %.sroa.032.0.copyload172 = load i32, ptr %7, align 4, !tbaa !286
+  %.sroa.031.0.copyload173 = load i32, ptr %8, align 4, !tbaa !286
   %44 = call fastcc noundef zeroext i1 @_ZL23isInExpansionTokenRangeN5clang14SourceLocationERKNS_13SourceManagerE(i32 %.sroa.10.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(696) %2)
   %45 = zext i1 %44 to i8
   br label %46
 
 46:                                               ; preds = %42, %43
-  %.sroa.031.0.copyload202 = phi i32 [ %.sroa.031.0.copyload199, %43 ], [ %.sroa.031.0.copyload, %42 ]
-  %.sroa.032.0.copyload200 = phi i32 [ %.sroa.032.0.copyload198, %43 ], [ %.sroa.032.0.copyload, %42 ]
+  %.sroa.031.0.copyload176 = phi i32 [ %.sroa.031.0.copyload173, %43 ], [ %.sroa.031.0.copyload, %42 ]
+  %.sroa.032.0.copyload174 = phi i32 [ %.sroa.032.0.copyload172, %43 ], [ %.sroa.032.0.copyload, %42 ]
   %.sroa.15.1 = phi i8 [ %45, %43 ], [ 0, %42 ]
-  %.sroa.10.0.insert.ext144 = zext i32 %.sroa.031.0.copyload202 to i64
+  %.sroa.10.0.insert.ext144 = zext i32 %.sroa.031.0.copyload176 to i64
   %.sroa.10.0.insert.shift145 = shl nuw i64 %.sroa.10.0.insert.ext144, 32
-  %.sroa.0131.0.insert.ext132 = zext i32 %.sroa.032.0.copyload200 to i64
+  %.sroa.0131.0.insert.ext132 = zext i32 %.sroa.032.0.copyload174 to i64
   %.sroa.0131.0.insert.insert134 = or disjoint i64 %.sroa.10.0.insert.shift145, %.sroa.0131.0.insert.ext132
   %47 = call fastcc { i64, i8 } @_ZL21makeRangeFromFileLocsN5clang15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE(i64 %.sroa.0131.0.insert.insert134, i8 %.sroa.15.1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(849) %3)
   %.fca.0.extract20 = extractvalue { i64, i8 } %47, 0
@@ -4343,8 +4343,8 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer35getImmediateMacroNameForDiagnost
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.026.050 = phi i32 [ %.sroa.040.0.extract.trunc, %.lr.ph ], [ %0, %3 ]
-  %7 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.026.050) #29
+  %.sroa.026.048 = phi i32 [ %.sroa.040.0.extract.trunc, %.lr.ph ], [ %0, %3 ]
+  %7 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.026.048) #29
   %.fca.0.extract10 = extractvalue { i64, i8 } %7, 0
   %.sroa.040.0.extract.trunc = trunc i64 %.fca.0.extract10 to i32
   %8 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager19isMacroArgExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.040.0.extract.trunc, ptr noundef null) #29
@@ -4361,9 +4361,9 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   br i1 %11, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.thread, label %32
 
 _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.thread: ; preds = %._crit_edge, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit
-  %.sroa.01.0.i48 = phi i32 [ %10, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ], [ %.sroa.026.0.lcssa, %._crit_edge ]
+  %.sroa.01.0.i46 = phi i32 [ %10, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ], [ %.sroa.026.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::PresumedLoc") align 8 %5, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.01.0.i48, i1 noundef zeroext true) #29
+  call void @_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::PresumedLoc") align 8 %5, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.01.0.i46, i1 noundef zeroext true) #29
   %12 = load ptr, ptr %5, align 8, !tbaa !420
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -4523,8 +4523,8 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
   %12 = load i8, ptr %3, align 1, !tbaa !392, !range !375, !noundef !393
   %13 = trunc nuw i8 %12 to i1
   %.not.i = icmp ule i64 %11, %.sroa.5.0.extract.shift
-  %or.cond36.not = select i1 %13, i1 true, i1 %.not.i
-  br i1 %or.cond36.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %14
+  %or.cond22.not = select i1 %13, i1 true, i1 %.not.i
+  br i1 %or.cond22.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.5.0.extract.shift
@@ -4561,7 +4561,7 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds i8, ptr %.019.i, i64 -2
   %31 = icmp ult ptr %30, %10
-  br i1 %31, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31, label %.thread.i.i.preheader
+  br i1 %31, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread17, label %.thread.i.i.preheader
 
 .thread.i.i.preheader:                            ; preds = %29, %26, %23, %21
   %.0.pn.i.i.ph = phi ptr [ %.019.i, %23 ], [ %22, %29 ], [ %.019.i, %26 ], [ %.019.i, %21 ]
@@ -4584,9 +4584,9 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 
 _ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i:  ; preds = %33, %.thread.i.i
   %38 = icmp eq i8 %.pre.i.i, 92
-  br i1 %38, label %40, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31
+  br i1 %38, label %40, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread17
 
-_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31: ; preds = %29, %_ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i
+_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread17: ; preds = %29, %_ZN5clang5Lexer16isNewLineEscapedEPKcS2_.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
   br label %42
 
@@ -4600,10 +4600,10 @@ _ZL19findBeginningOfLineN4llvm9StringRefEj.exit:  ; preds = %40, %14
   %.not = icmp eq ptr %.011.i, null
   br i1 %.not, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %42
 
-42:                                               ; preds = %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit
-  %.011.i34 = phi ptr [ %39, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread31 ], [ %.011.i, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ]
+42:                                               ; preds = %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread17, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit
+  %.011.i20 = phi ptr [ %39, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread17 ], [ %.011.i, %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %43 = ptrtoint ptr %.011.i34 to i64
+  %43 = ptrtoint ptr %.011.i20 to i64
   %44 = ptrtoint ptr %10 to i64
   %45 = sub i64 %43, %44
   %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %11, i64 %45)

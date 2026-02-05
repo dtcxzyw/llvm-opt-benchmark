@@ -22146,11 +22146,11 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, -1
   %.lobit = ashr i32 %45, 31
-  %.sink48 = xor i32 %45, %.lobit
+  %.sink45 = xor i32 %45, %.lobit
   %.sink = zext i1 %46 to i8
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %47, i64 %indvars.iv
-  store i32 %.sink48, ptr %48, align 4
+  store i32 %.sink45, ptr %48, align 4
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %49, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -32495,18 +32495,18 @@ _ZNSt6vectorI26BSplineElementCoefficientsILi2EESaIS1_EEC2EmRKS1_RKS2_.exit: ; pr
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !452
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre23 = load ptr, ptr %23, align 8
-  %.pre24 = load ptr, ptr %0, align 8
-  %.pre25 = ptrtoint ptr %.pre23 to i64
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre28 = sub i64 %.pre25, %.pre26
-  %31 = sdiv exact i64 %.pre28, -12
+  %.pre20 = load ptr, ptr %23, align 8
+  %.pre21 = load ptr, ptr %0, align 8
+  %.pre22 = ptrtoint ptr %.pre20 to i64
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre25 = sub i64 %.pre22, %.pre23
+  %31 = sdiv exact i64 %.pre25, -12
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, %29
-  %.pre-phi29 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
-  %32 = phi ptr [ %.pre23, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = add i64 %.pre-phi29, %1
+  %.pre-phi26 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
+  %32 = phi ptr [ %.pre20, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi2EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
+  %33 = add i64 %.pre-phi26, %1
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIP26BSplineElementCoefficientsILi2EEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 
@@ -33303,18 +33303,18 @@ _ZNSt6vectorI26BSplineElementCoefficientsILi1EESaIS1_EEC2EmRKS1_RKS2_.exit: ; pr
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !484
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre23 = load ptr, ptr %24, align 8
-  %.pre24 = load ptr, ptr %0, align 8
-  %.pre25 = ptrtoint ptr %.pre23 to i64
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre28 = sub i64 %.pre25, %.pre26
-  %.pre30 = ashr exact i64 %.pre28, 3
+  %.pre20 = load ptr, ptr %24, align 8
+  %.pre21 = load ptr, ptr %0, align 8
+  %.pre22 = ptrtoint ptr %.pre20 to i64
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre25 = sub i64 %.pre22, %.pre23
+  %.pre27 = ashr exact i64 %.pre25, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, %30
-  %.pre-phi31 = phi i64 [ %.pre30, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %30 ]
-  %33 = phi ptr [ %.pre23, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %25, %30 ]
-  %34 = sub i64 %1, %.pre-phi31
+  %.pre-phi28 = phi i64 [ %.pre27, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %30 ]
+  %33 = phi ptr [ %.pre20, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi1EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %25, %30 ]
+  %34 = sub i64 %1, %.pre-phi28
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIP26BSplineElementCoefficientsILi1EEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 
@@ -34260,18 +34260,18 @@ _ZNSt6vectorI26BSplineElementCoefficientsILi0EESaIS1_EEC2EmRKS1_RKS2_.exit: ; pr
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !503
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre27 = load ptr, ptr %23, align 8
-  %.pre28 = load ptr, ptr %0, align 8
-  %.pre29 = ptrtoint ptr %.pre27 to i64
-  %.pre30 = ptrtoint ptr %.pre28 to i64
-  %.pre32 = sub i64 %.pre29, %.pre30
-  %.pre34 = ashr exact i64 %.pre32, 2
+  %.pre24 = load ptr, ptr %23, align 8
+  %.pre25 = load ptr, ptr %0, align 8
+  %.pre26 = ptrtoint ptr %.pre24 to i64
+  %.pre27 = ptrtoint ptr %.pre25 to i64
+  %.pre29 = sub i64 %.pre26, %.pre27
+  %.pre31 = ashr exact i64 %.pre29, 2
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, %29
-  %.pre-phi35 = phi i64 [ %.pre34, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
-  %31 = phi ptr [ %.pre27, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %32 = sub i64 %1, %.pre-phi35
+  %.pre-phi32 = phi i64 [ %.pre31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
+  %31 = phi ptr [ %.pre24, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIP26BSplineElementCoefficientsILi0EESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
+  %32 = sub i64 %1, %.pre-phi32
   %.not7.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIP26BSplineElementCoefficientsILi0EEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.preheader.i.i.i.i12
 
@@ -55495,23 +55495,23 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539:
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422: ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539, %450, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420, %273, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402, %191
-  %.sroa.9182.4 = phi double [ 0.000000e+00, %191 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %284, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ 0.000000e+00, %273 ], [ %374, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %465, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ 0.000000e+00, %450 ]
-  %.sroa.5181.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i471, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i405.ph, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i405.ph, %273 ], [ %.0.i.i471, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i525, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i525, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i525, %450 ]
-  %.sroa.0180.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i455, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i401, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i401, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i401, %273 ], [ %.0.i.i455, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i5151248, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i5151248, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i5151248, %450 ]
-  %.sroa.13189.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i4451242, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i385, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i385, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i385, %273 ], [ %.0.i.i4451242, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i511, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i511, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i511, %450 ]
-  %.sroa.7186.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i441, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i3751236, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i3751236, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i3751236, %273 ], [ %.0.i.i441, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i495, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i495, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i495, %450 ]
-  %.sroa.0183.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i425, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i372, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i372, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i372, %273 ], [ %.0.i.i425, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i4851245, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i4851245, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i4851245, %450 ]
-  %466 = fmul double %.sroa.7186.4, %.sroa.0183.4
-  %467 = fmul double %.sroa.13189.4, %466
+  %.sroa.9182.0 = phi double [ 0.000000e+00, %191 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %284, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ 0.000000e+00, %273 ], [ %374, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %465, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ 0.000000e+00, %450 ]
+  %.sroa.5181.0 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i471, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i405.ph, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i405.ph, %273 ], [ %.0.i.i471, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i525, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i525, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i525, %450 ]
+  %.sroa.0180.0 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i455, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i401, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i401, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i401, %273 ], [ %.0.i.i455, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i5151248, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i5151248, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i5151248, %450 ]
+  %.sroa.13189.0 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i4451242, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i385, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i385, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i385, %273 ], [ %.0.i.i4451242, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i511, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i511, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i511, %450 ]
+  %.sroa.7186.0 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i441, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i3751236, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i3751236, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i3751236, %273 ], [ %.0.i.i441, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i495, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i495, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i495, %450 ]
+  %.sroa.0183.0 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i425, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i372, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i372, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i372, %273 ], [ %.0.i.i425, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i4851245, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i4851245, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i4851245, %450 ]
+  %466 = fmul double %.sroa.7186.0, %.sroa.0183.0
+  %467 = fmul double %.sroa.13189.0, %466
   %468 = getelementptr inbounds nuw %struct.Stencil, ptr %45, i64 %indvars.iv1310
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds nuw double, ptr %469, i64 %163
   store double %467, ptr %470, align 8
-  %471 = fmul double %.sroa.0180.4, %.sroa.7186.4
-  %472 = fmul double %.sroa.13189.4, %471
-  %473 = fmul double %.sroa.5181.4, %.sroa.0183.4
-  %474 = fmul double %.sroa.13189.4, %473
-  %475 = fmul double %.sroa.9182.4, %466
+  %471 = fmul double %.sroa.0180.0, %.sroa.7186.0
+  %472 = fmul double %.sroa.13189.0, %471
+  %473 = fmul double %.sroa.5181.0, %.sroa.0183.0
+  %474 = fmul double %.sroa.13189.0, %473
+  %475 = fmul double %.sroa.9182.0, %466
   %476 = getelementptr inbounds nuw %struct.Stencil.329, ptr %46, i64 %indvars.iv1310
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw %struct.Point3D.31, ptr %477, i64 %163
@@ -56199,23 +56199,23 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720:
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602: ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659, %671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599, %570, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592, %482
-  %.sroa.9165.4 = phi double [ 0.000000e+00, %482 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %585, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ 0.000000e+00, %570 ], [ %686, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ 0.000000e+00, %671 ], [ %787, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.5164.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i645, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i591, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i591, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i591, %570 ], [ %.0.i.i645, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i645, %671 ], [ %.0.i.i711, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i711, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.0163.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i641, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i575, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i575, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i575, %570 ], [ %.0.i.i641, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i641, %671 ], [ %.0.i.i701, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i701, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.13172.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i631, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i571, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i571, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i571, %570 ], [ %.0.i.i631, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i631, %671 ], [ %.0.i.i685, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i685, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.7169.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i615, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i561, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i561, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i561, %570 ], [ %.0.i.i615, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i615, %671 ], [ %.0.i.i681, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i681, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.0166.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i611, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i545, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i545, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i545, %570 ], [ %.0.i.i611, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i611, %671 ], [ %.0.i.i671, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %788 = fmul double %.sroa.7169.4, %.sroa.0166.4
-  %789 = fmul double %.sroa.13172.4, %788
+  %.sroa.9165.0 = phi double [ 0.000000e+00, %482 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %585, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ 0.000000e+00, %570 ], [ %686, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ 0.000000e+00, %671 ], [ %787, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.5164.0 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i645, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i591, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i591, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i591, %570 ], [ %.0.i.i645, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i645, %671 ], [ %.0.i.i711, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i711, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.0163.0 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i641, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i575, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i575, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i575, %570 ], [ %.0.i.i641, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i641, %671 ], [ %.0.i.i701, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i701, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.13172.0 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i631, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i571, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i571, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i571, %570 ], [ %.0.i.i631, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i631, %671 ], [ %.0.i.i685, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i685, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.7169.0 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i615, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i561, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i561, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i561, %570 ], [ %.0.i.i615, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i615, %671 ], [ %.0.i.i681, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i681, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.0166.0 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i611, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i545, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i545, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i545, %570 ], [ %.0.i.i611, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i611, %671 ], [ %.0.i.i671, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %788 = fmul double %.sroa.7169.0, %.sroa.0166.0
+  %789 = fmul double %.sroa.13172.0, %788
   %790 = getelementptr inbounds nuw %struct.Stencil, ptr %47, i64 %indvars.iv1314
   %791 = load ptr, ptr %790, align 8
   %792 = getelementptr inbounds nuw double, ptr %791, i64 %163
   store double %789, ptr %792, align 8
-  %793 = fmul double %.sroa.0163.4, %.sroa.7169.4
-  %794 = fmul double %.sroa.13172.4, %793
-  %795 = fmul double %.sroa.5164.4, %.sroa.0166.4
-  %796 = fmul double %.sroa.13172.4, %795
-  %797 = fmul double %.sroa.9165.4, %788
+  %793 = fmul double %.sroa.0163.0, %.sroa.7169.0
+  %794 = fmul double %.sroa.13172.0, %793
+  %795 = fmul double %.sroa.5164.0, %.sroa.0166.0
+  %796 = fmul double %.sroa.13172.0, %795
+  %797 = fmul double %.sroa.9165.0, %788
   %798 = getelementptr inbounds nuw %struct.Stencil.329, ptr %48, i64 %indvars.iv1314
   %799 = load ptr, ptr %798, align 8
   %800 = getelementptr inbounds nuw %struct.Point3D.31, ptr %799, i64 %163
@@ -57739,11 +57739,11 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   %.sink1685 = phi i32 [ %1516, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %1372, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %1227, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
   %.sink = phi ptr [ %1602, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %1457, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %1312, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
   %.sink1683 = phi i64 [ 688, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ 424, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ 424, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
-  %.sroa.030.5.ph = phi double [ %.0.i.i944, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i890, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i843, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
-  %.sroa.733.5.ph = phi double [ %.0.i.i953, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i905, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i845, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
-  %.sroa.1336.5.ph = phi double [ %.0.i.i968, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i908, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i854, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
-  %.sroa.027.5.ph = phi double [ %.0.i.i971, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i917, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i869, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
-  %.sroa.528.5.ph = phi double [ %.0.i.i980, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i932, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i872, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
+  %.sroa.030.0.ph = phi double [ %.0.i.i944, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i890, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i843, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
+  %.sroa.733.0.ph = phi double [ %.0.i.i953, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i905, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i845, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
+  %.sroa.1336.0.ph = phi double [ %.0.i.i968, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i908, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i854, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
+  %.sroa.027.0.ph = phi double [ %.0.i.i971, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i917, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i869, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
+  %.sroa.528.0.ph = phi double [ %.0.i.i980, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993 ], [ %.0.i.i932, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940 ], [ %.0.i.i872, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886 ]
   %1603 = sext i32 %.sink1685 to i64
   %1604 = getelementptr double, ptr %.sink, i64 %1603
   %1605 = getelementptr i8, ptr %1604, i64 %.sink1683
@@ -57751,23 +57751,23 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split, %1588, %1585, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987, %1443, %1440, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933, %1298, %1295, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879, %1165
-  %.sroa.030.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i944, %1585 ], [ %.0.i.i944, %1588 ], [ %.0.i.i843, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i843, %1295 ], [ %.0.i.i843, %1298 ], [ %.0.i.i890, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i890, %1440 ], [ %.0.i.i890, %1443 ], [ %.0.i.i944, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.030.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.733.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i953, %1585 ], [ %.0.i.i953, %1588 ], [ %.0.i.i845, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i845, %1295 ], [ %.0.i.i845, %1298 ], [ %.0.i.i905, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i905, %1440 ], [ %.0.i.i905, %1443 ], [ %.0.i.i953, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.733.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.1336.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i968, %1585 ], [ %.0.i.i968, %1588 ], [ %.0.i.i854, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i854, %1295 ], [ %.0.i.i854, %1298 ], [ %.0.i.i908, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i908, %1440 ], [ %.0.i.i908, %1443 ], [ %.0.i.i968, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.1336.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.027.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i971, %1585 ], [ %.0.i.i971, %1588 ], [ %.0.i.i869, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i869, %1295 ], [ %.0.i.i869, %1298 ], [ %.0.i.i917, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i917, %1440 ], [ %.0.i.i917, %1443 ], [ %.0.i.i971, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.027.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.528.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i980, %1585 ], [ %.0.i.i980, %1588 ], [ %.0.i.i872, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i872, %1295 ], [ %.0.i.i872, %1298 ], [ %.0.i.i932, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i932, %1440 ], [ %.0.i.i932, %1443 ], [ %.0.i.i980, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.528.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.929.5 = phi double [ 0.000000e+00, %1165 ], [ 0.000000e+00, %1585 ], [ 0.000000e+00, %1588 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ 0.000000e+00, %1295 ], [ 0.000000e+00, %1298 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ 0.000000e+00, %1440 ], [ 0.000000e+00, %1443 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %1606, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %1607 = fmul double %.sroa.030.5, %.sroa.733.5
-  %1608 = fmul double %1607, %.sroa.1336.5
+  %.sroa.030.0 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i944, %1585 ], [ %.0.i.i944, %1588 ], [ %.0.i.i843, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i843, %1295 ], [ %.0.i.i843, %1298 ], [ %.0.i.i890, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i890, %1440 ], [ %.0.i.i890, %1443 ], [ %.0.i.i944, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.030.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.733.0 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i953, %1585 ], [ %.0.i.i953, %1588 ], [ %.0.i.i845, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i845, %1295 ], [ %.0.i.i845, %1298 ], [ %.0.i.i905, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i905, %1440 ], [ %.0.i.i905, %1443 ], [ %.0.i.i953, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.733.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.1336.0 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i968, %1585 ], [ %.0.i.i968, %1588 ], [ %.0.i.i854, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i854, %1295 ], [ %.0.i.i854, %1298 ], [ %.0.i.i908, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i908, %1440 ], [ %.0.i.i908, %1443 ], [ %.0.i.i968, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.1336.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.027.0 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i971, %1585 ], [ %.0.i.i971, %1588 ], [ %.0.i.i869, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i869, %1295 ], [ %.0.i.i869, %1298 ], [ %.0.i.i917, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i917, %1440 ], [ %.0.i.i917, %1443 ], [ %.0.i.i971, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.027.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.528.0 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i980, %1585 ], [ %.0.i.i980, %1588 ], [ %.0.i.i872, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i872, %1295 ], [ %.0.i.i872, %1298 ], [ %.0.i.i932, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i932, %1440 ], [ %.0.i.i932, %1443 ], [ %.0.i.i980, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.528.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.929.0 = phi double [ 0.000000e+00, %1165 ], [ 0.000000e+00, %1585 ], [ 0.000000e+00, %1588 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ 0.000000e+00, %1295 ], [ 0.000000e+00, %1298 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ 0.000000e+00, %1440 ], [ 0.000000e+00, %1443 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %1606, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %1607 = fmul double %.sroa.030.0, %.sroa.733.0
+  %1608 = fmul double %1607, %.sroa.1336.0
   %1609 = getelementptr inbounds nuw %struct.Stencil, ptr %932, i64 %indvars.iv1376
   %1610 = load ptr, ptr %1609, align 8
   %1611 = getelementptr inbounds nuw double, ptr %1610, i64 %1141
   store double %1608, ptr %1611, align 8
-  %1612 = fmul double %.sroa.733.5, %.sroa.027.5
-  %1613 = fmul double %.sroa.1336.5, %1612
-  %1614 = fmul double %.sroa.030.5, %.sroa.528.5
-  %1615 = fmul double %.sroa.1336.5, %1614
-  %1616 = fmul double %1607, %.sroa.929.5
+  %1612 = fmul double %.sroa.733.0, %.sroa.027.0
+  %1613 = fmul double %.sroa.1336.0, %1612
+  %1614 = fmul double %.sroa.030.0, %.sroa.528.0
+  %1615 = fmul double %.sroa.1336.0, %1614
+  %1616 = fmul double %1607, %.sroa.929.0
   %1617 = getelementptr inbounds nuw %struct.Stencil.329, ptr %933, i64 %indvars.iv1376
   %1618 = load ptr, ptr %1617, align 8
   %1619 = getelementptr inbounds nuw %struct.Point3D.31, ptr %1618, i64 %1141
@@ -58631,11 +58631,11 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   %.sink1691 = phi i32 [ %1979, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %1833, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %1686, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
   %.sink1689 = phi ptr [ %2065, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %1918, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %1771, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
   %.sink1688 = phi i64 [ 424, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ 688, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ 688, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
-  %.sroa.015.5.ph = phi double [ %.0.i.i1112, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1058, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i998, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
-  %.sroa.7.5.ph = phi double [ %.0.i.i1121, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1061, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1013, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
-  %.sroa.13.5.ph = phi double [ %.0.i.i1124, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1076, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1022, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
-  %.sroa.014.5.ph = phi double [ %.0.i.i1139, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1085, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1025, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
-  %.sroa.5.5.ph = phi double [ %.0.i.i1148, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1088, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1040, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
+  %.sroa.015.0.ph = phi double [ %.0.i.i1112, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1058, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i998, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
+  %.sroa.7.0.ph = phi double [ %.0.i.i1121, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1061, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1013, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
+  %.sroa.13.0.ph = phi double [ %.0.i.i1124, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1076, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1022, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
+  %.sroa.014.0.ph = phi double [ %.0.i.i1139, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1085, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1025, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
+  %.sroa.5.0.ph = phi double [ %.0.i.i1148, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156 ], [ %.0.i.i1088, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101 ], [ %.0.i.i1040, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047 ]
   %2066 = sext i32 %.sink1691 to i64
   %2067 = getelementptr double, ptr %.sink1689, i64 %2066
   %2068 = getelementptr i8, ptr %2067, i64 %.sink1688
@@ -58643,23 +58643,23 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split, %2051, %2048, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149, %1904, %1901, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095, %1757, %1754, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041, %1622
-  %.sroa.015.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1112, %2048 ], [ %.0.i.i1112, %2051 ], [ %.0.i.i998, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i998, %1754 ], [ %.0.i.i998, %1757 ], [ %.0.i.i1058, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1058, %1901 ], [ %.0.i.i1058, %1904 ], [ %.0.i.i1112, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.015.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.7.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1121, %2048 ], [ %.0.i.i1121, %2051 ], [ %.0.i.i1013, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1013, %1754 ], [ %.0.i.i1013, %1757 ], [ %.0.i.i1061, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1061, %1901 ], [ %.0.i.i1061, %1904 ], [ %.0.i.i1121, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.7.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.13.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1124, %2048 ], [ %.0.i.i1124, %2051 ], [ %.0.i.i1022, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1022, %1754 ], [ %.0.i.i1022, %1757 ], [ %.0.i.i1076, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1076, %1901 ], [ %.0.i.i1076, %1904 ], [ %.0.i.i1124, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.13.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.014.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1139, %2048 ], [ %.0.i.i1139, %2051 ], [ %.0.i.i1025, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1025, %1754 ], [ %.0.i.i1025, %1757 ], [ %.0.i.i1085, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1085, %1901 ], [ %.0.i.i1085, %1904 ], [ %.0.i.i1139, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.014.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.5.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1148, %2048 ], [ %.0.i.i1148, %2051 ], [ %.0.i.i1040, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1040, %1754 ], [ %.0.i.i1040, %1757 ], [ %.0.i.i1088, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1088, %1901 ], [ %.0.i.i1088, %1904 ], [ %.0.i.i1148, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.5.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.9.5 = phi double [ 0.000000e+00, %1622 ], [ 0.000000e+00, %2048 ], [ 0.000000e+00, %2051 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ 0.000000e+00, %1754 ], [ 0.000000e+00, %1757 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ 0.000000e+00, %1901 ], [ 0.000000e+00, %1904 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %2069, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %2070 = fmul double %.sroa.015.5, %.sroa.7.5
-  %2071 = fmul double %2070, %.sroa.13.5
+  %.sroa.015.0 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1112, %2048 ], [ %.0.i.i1112, %2051 ], [ %.0.i.i998, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i998, %1754 ], [ %.0.i.i998, %1757 ], [ %.0.i.i1058, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1058, %1901 ], [ %.0.i.i1058, %1904 ], [ %.0.i.i1112, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.015.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.7.0 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1121, %2048 ], [ %.0.i.i1121, %2051 ], [ %.0.i.i1013, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1013, %1754 ], [ %.0.i.i1013, %1757 ], [ %.0.i.i1061, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1061, %1901 ], [ %.0.i.i1061, %1904 ], [ %.0.i.i1121, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.7.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.13.0 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1124, %2048 ], [ %.0.i.i1124, %2051 ], [ %.0.i.i1022, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1022, %1754 ], [ %.0.i.i1022, %1757 ], [ %.0.i.i1076, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1076, %1901 ], [ %.0.i.i1076, %1904 ], [ %.0.i.i1124, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.13.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.014.0 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1139, %2048 ], [ %.0.i.i1139, %2051 ], [ %.0.i.i1025, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1025, %1754 ], [ %.0.i.i1025, %1757 ], [ %.0.i.i1085, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1085, %1901 ], [ %.0.i.i1085, %1904 ], [ %.0.i.i1139, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.014.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.5.0 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1148, %2048 ], [ %.0.i.i1148, %2051 ], [ %.0.i.i1040, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1040, %1754 ], [ %.0.i.i1040, %1757 ], [ %.0.i.i1088, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1088, %1901 ], [ %.0.i.i1088, %1904 ], [ %.0.i.i1148, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.5.0.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.9.0 = phi double [ 0.000000e+00, %1622 ], [ 0.000000e+00, %2048 ], [ 0.000000e+00, %2051 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ 0.000000e+00, %1754 ], [ 0.000000e+00, %1757 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ 0.000000e+00, %1901 ], [ 0.000000e+00, %1904 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %2069, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %2070 = fmul double %.sroa.015.0, %.sroa.7.0
+  %2071 = fmul double %2070, %.sroa.13.0
   %2072 = getelementptr inbounds nuw %struct.Stencil, ptr %934, i64 %indvars.iv1380
   %2073 = load ptr, ptr %2072, align 8
   %2074 = getelementptr inbounds nuw double, ptr %2073, i64 %1141
   store double %2071, ptr %2074, align 8
-  %2075 = fmul double %.sroa.7.5, %.sroa.014.5
-  %2076 = fmul double %.sroa.13.5, %2075
-  %2077 = fmul double %.sroa.015.5, %.sroa.5.5
-  %2078 = fmul double %.sroa.13.5, %2077
-  %2079 = fmul double %2070, %.sroa.9.5
+  %2075 = fmul double %.sroa.7.0, %.sroa.014.0
+  %2076 = fmul double %.sroa.13.0, %2075
+  %2077 = fmul double %.sroa.015.0, %.sroa.5.0
+  %2078 = fmul double %.sroa.13.0, %2077
+  %2079 = fmul double %2070, %.sroa.9.0
   %2080 = getelementptr inbounds nuw %struct.Stencil.329, ptr %935, i64 %indvars.iv1380
   %2081 = load ptr, ptr %2080, align 8
   %2082 = getelementptr inbounds nuw %struct.Point3D.31, ptr %2081, i64 %1141
@@ -68460,7 +68460,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
 
 223:                                              ; preds = %.loopexit173, %182
   %.sroa.7.0 = phi float [ %.sroa.2.sroa.2.0.copyload, %.loopexit173 ], [ 0.000000e+00, %182 ]
-  %.sroa.0164.2 = phi i32 [ %196, %.loopexit173 ], [ 0, %182 ]
+  %.sroa.0164.0 = phi i32 [ %196, %.loopexit173 ], [ 0, %182 ]
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %64, ptr nonnull @.gomp_critical_user_add_point_access.var)
   br i1 %.not118, label %224, label %.critedge120
 
@@ -68777,7 +68777,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
 .loopexit:                                        ; preds = %394, %.noexc148, %389
   %.0.i.pn.i.i146 = phi ptr [ %405, %.noexc148 ], [ %390, %389 ], [ %396, %394 ]
   %.0.i.i147 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 16
-  store i32 %.sroa.0164.2, ptr %.0.i.i147, align 4
+  store i32 %.sroa.0164.0, ptr %.0.i.i147, align 4
   %407 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %407, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.7.4..sroa_idx167 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 36
@@ -69459,8 +69459,8 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %160
   br label %213
 
 213:                                              ; preds = %204, %203
-  %.sroa.4.0 = phi float [ 0.000000e+00, %203 ], [ %212, %204 ]
   %.sroa.0106.0 = phi <2 x float> [ zeroinitializer, %203 ], [ %.sroa.0.4.vec.insert.i.i, %204 ]
+  %.sroa.4.0 = phi float [ 0.000000e+00, %203 ], [ %212, %204 ]
   %214 = load float, ptr %23, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x float> %.sroa.0106.0, ptr %13, align 8
@@ -72664,7 +72664,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
 
 288:                                              ; preds = %.loopexit173, %247
   %.sroa.7.0 = phi float [ %.sroa.2.sroa.2.0.copyload, %.loopexit173 ], [ 0.000000e+00, %247 ]
-  %.sroa.0159.3 = phi i32 [ %261, %.loopexit173 ], [ 0, %247 ]
+  %.sroa.0159.0 = phi i32 [ %261, %.loopexit173 ], [ 0, %247 ]
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %65, ptr nonnull @.gomp_critical_user_add_x_point_access.var)
   br i1 %.not128, label %289, label %.loopexit172
 
@@ -72880,7 +72880,7 @@ _ZNSt10_HashtableIxSt4pairIKxS0_Ii22PlyColorAndValueVertexIfEEESaIS5_ENSt8__deta
 .loopexit:                                        ; preds = %393, %.noexc148, %388
   %.0.i.pn.i.i146 = phi ptr [ %404, %.noexc148 ], [ %389, %388 ], [ %395, %393 ]
   %.0.i.i147 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 16
-  store i32 %.sroa.0159.3, ptr %.0.i.i147, align 4
+  store i32 %.sroa.0159.0, ptr %.0.i.i147, align 4
   %406 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %406, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.7.4..sroa_idx162 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 36
@@ -73880,17 +73880,17 @@ _ZNKSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds
   br label %.preheader193
 
 .preheader193:                                    ; preds = %._crit_edge, %.lr.ph
-  %.sroa.5.4325 = phi ptr [ %322, %.lr.ph ], [ null, %._crit_edge ]
-  %.sroa.0.4324 = phi ptr [ %321, %.lr.ph ], [ null, %._crit_edge ]
+  %.sroa.5.0325 = phi ptr [ %322, %.lr.ph ], [ null, %._crit_edge ]
+  %.sroa.0.0324 = phi ptr [ %321, %.lr.ph ], [ null, %._crit_edge ]
   %327 = load ptr, ptr %143, align 8
   %328 = icmp eq ptr %327, null
   br i1 %328, label %.critedge, label %.lr.ph228
 
 .lr.ph228:                                        ; preds = %.preheader193
-  %329 = ptrtoint ptr %.sroa.5.4325 to i64
-  %330 = ptrtoint ptr %.sroa.0.4324 to i64
+  %329 = ptrtoint ptr %.sroa.5.0325 to i64
+  %330 = ptrtoint ptr %.sroa.0.0324 to i64
   %331 = sub i64 %329, %330
-  %.not.i.i.i.i.i.i164 = icmp eq ptr %.sroa.5.4325, %.sroa.0.4324
+  %.not.i.i.i.i.i.i164 = icmp eq ptr %.sroa.5.0325, %.sroa.0.0324
   %332 = icmp ugt i64 %331, 9223372036854775792
   %333 = add i64 %329, -16
   %334 = sub i64 %333, %330
@@ -74227,7 +74227,7 @@ _ZNSt12_Vector_baseIN6OctreeIfE8_IsoEdgeESaIS2_EE11_M_allocateEm.exit.i.i: ; pre
   br i1 %.not.i.i.i.i.i.i164, label %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc167
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %499, ptr align 8 %.sroa.0.4324, i64 %336, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %499, ptr align 8 %.sroa.0.0324, i64 %336, i1 false)
   br label %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i
 
 _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %.noexc167
@@ -74256,7 +74256,7 @@ _ZNSt12_Vector_baseIN6OctreeIfE8_IsoEdgeESaIS2_EE13_M_deallocateEPS2_m.exit.i: ;
   br i1 %.not.i.i.i.i.i.i164, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6OctreeIfE8_IsoEdgeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %508
 
 508:                                              ; preds = %507
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %492, ptr align 8 %.sroa.0.4324, i64 %331, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %492, ptr align 8 %.sroa.0.0324, i64 %331, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6OctreeIfE8_IsoEdgeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i
 
 509:                                              ; preds = %502
@@ -74264,7 +74264,7 @@ _ZNSt12_Vector_baseIN6OctreeIfE8_IsoEdgeESaIS2_EE13_M_deallocateEPS2_m.exit.i: ;
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPN6OctreeIfE8_IsoEdgeES3_ET0_T_S5_S4_.exit.i, label %510
 
 510:                                              ; preds = %509
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %492, ptr align 8 %.sroa.0.4324, i64 %506, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %492, ptr align 8 %.sroa.0.0324, i64 %506, i1 false)
   %.pre26.i = load ptr, ptr %503, align 8
   %.pre27.i = load ptr, ptr %.0.i.i, align 8
   %.pre29.i = ptrtoint ptr %.pre26.i to i64
@@ -74275,8 +74275,8 @@ _ZNSt12_Vector_baseIN6OctreeIfE8_IsoEdgeESaIS2_EE13_M_deallocateEPS2_m.exit.i: ;
 _ZSt4copyIPN6OctreeIfE8_IsoEdgeES3_ET0_T_S5_S4_.exit.i: ; preds = %510, %509
   %.pre-phi33.i = phi i64 [ 0, %509 ], [ %.pre32.i, %510 ]
   %511 = phi ptr [ %504, %509 ], [ %.pre26.i, %510 ]
-  %512 = getelementptr inbounds i8, ptr %.sroa.0.4324, i64 %.pre-phi33.i
-  %.not9.i.i.i.i.i = icmp eq ptr %512, %.sroa.5.4325
+  %512 = getelementptr inbounds i8, ptr %.sroa.0.0324, i64 %.pre-phi33.i
+  %.not9.i.i.i.i.i = icmp eq ptr %512, %.sroa.5.0325
   br i1 %.not9.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6OctreeIfE8_IsoEdgeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4copyIPN6OctreeIfE8_IsoEdgeES3_ET0_T_S5_S4_.exit.i, %.lr.ph.i.i.i.i.i
@@ -74285,7 +74285,7 @@ _ZSt4copyIPN6OctreeIfE8_IsoEdgeES3_ET0_T_S5_S4_.exit.i: ; preds = %510, %509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i, i64 16, i1 false)
   %513 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 16
   %514 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %513, %.sroa.5.4325
+  %.not.i.i.i.i.i = icmp eq ptr %513, %.sroa.5.0325
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6OctreeIfE8_IsoEdgeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !959
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN6OctreeIfE8_IsoEdgeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt4copyIPN6OctreeIfE8_IsoEdgeES3_ET0_T_S5_S4_.exit.i, %508, %507, %_ZNSt12_Vector_baseIN6OctreeIfE8_IsoEdgeESaIS2_EE13_M_deallocateEPS2_m.exit.i
@@ -74377,11 +74377,11 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EEaSERKS4_.exit: ; preds = %_ZNSt6vector
   br i1 %547, label %.critedge, label %338, !llvm.loop !976
 
 .critedge:                                        ; preds = %359, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit154, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit150, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i149, %338, %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EEaSERKS4_.exit, %.preheader193
-  %.not.i.i.i178 = icmp eq ptr %.sroa.0.4324, null
+  %.not.i.i.i178 = icmp eq ptr %.sroa.0.0324, null
   br i1 %.not.i.i.i178, label %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EED2Ev.exit, label %548
 
 548:                                              ; preds = %.critedge
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4324) #44
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0324) #44
   br label %_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EED2Ev.exit: ; preds = %548, %.critedge, %154, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit147
@@ -75414,22 +75414,22 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit246: ; preds = %_Z
   br i1 %exitcond.not, label %.preheader525, label %188, !llvm.loop !1000
 
 .preheader521:                                    ; preds = %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325
-  %.not713 = icmp eq ptr %.sroa.11.3, %.sroa.0418.3
+  %.not713 = icmp eq ptr %.sroa.11.1, %.sroa.0418.1
   br i1 %.not713, label %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph704.preheader
 
 .lr.ph704.preheader:                              ; preds = %.preheader521
-  %551 = ptrtoint ptr %.sroa.11.3 to i64
-  %552 = ptrtoint ptr %.sroa.0418.3 to i64
+  %551 = ptrtoint ptr %.sroa.11.1 to i64
+  %552 = ptrtoint ptr %.sroa.0418.1 to i64
   %553 = sub i64 %551, %552
   %554 = sdiv exact i64 %553, 24
   br label %.lr.ph704
 
 .lr.ph696:                                        ; preds = %.preheader525, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325
-  %.sroa.0418.1695 = phi ptr [ %.sroa.0418.3, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
-  %.sroa.11.1694 = phi ptr [ %.sroa.11.3, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
-  %.sroa.24.1693 = phi ptr [ %.sroa.24.3, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
-  %555 = ptrtoint ptr %.sroa.11.1694 to i64
-  %556 = ptrtoint ptr %.sroa.0418.1695 to i64
+  %.sroa.0418.0695 = phi ptr [ %.sroa.0418.1, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
+  %.sroa.11.0694 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
+  %.sroa.24.0693 = phi ptr [ %.sroa.24.1, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit325 ], [ null, %.preheader525 ]
+  %555 = ptrtoint ptr %.sroa.11.0694 to i64
+  %556 = ptrtoint ptr %.sroa.0418.0695 to i64
   %557 = sub i64 %555, %556
   %558 = sdiv exact i64 %557, 24
   %.not478 = icmp eq i64 %557, -24
@@ -75438,12 +75438,12 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit246: ; preds = %_Z
 559:                                              ; preds = %.lr.ph696
   %560 = icmp ult i64 %558, 384307168202282326
   call void @llvm.assume(i1 %560)
-  %.not28.i = icmp eq ptr %.sroa.24.1693, %.sroa.11.1694
+  %.not28.i = icmp eq ptr %.sroa.24.0693, %.sroa.11.0694
   br i1 %.not28.i, label %561, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %559
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.1694, i8 0, i64 24, i1 false)
-  %scevgep.i.i.i.i = getelementptr i8, ptr %.sroa.11.1694, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0694, i8 0, i64 24, i1 false)
+  %scevgep.i.i.i.i = getelementptr i8, ptr %.sroa.11.0694, i64 24
   br label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit
 
 561:                                              ; preds = %559
@@ -75469,12 +75469,12 @@ _ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %561
 .noexc374:                                        ; preds = %_ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i
   %568 = getelementptr inbounds i8, ptr %567, i64 %557
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %568, i8 0, i64 24, i1 false)
-  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.0418.1695, %.sroa.11.1694
+  %.not10.i.i.i.i.i = icmp eq ptr %.sroa.0418.0695, %.sroa.11.0694
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i371
 
 .lr.ph.i.i.i.i.i371:                              ; preds = %.noexc374, %.lr.ph.i.i.i.i.i371
   %.012.i.i.i.i.i = phi ptr [ %577, %.lr.ph.i.i.i.i.i371 ], [ %567, %.noexc374 ]
-  %.0911.i.i.i.i.i = phi ptr [ %576, %.lr.ph.i.i.i.i.i371 ], [ %.sroa.0418.1695, %.noexc374 ]
+  %.0911.i.i.i.i.i = phi ptr [ %576, %.lr.ph.i.i.i.i.i371 ], [ %.sroa.0418.0695, %.noexc374 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1001)
   call void @llvm.experimental.noalias.scope.decl(metadata !1004)
   %569 = load ptr, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !1004, !noalias !1001
@@ -75490,15 +75490,15 @@ _ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %561
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !1004, !noalias !1001
   %576 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 24
   %577 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i372 = icmp eq ptr %576, %.sroa.11.1694
+  %.not.i.i.i.i.i372 = icmp eq ptr %576, %.sroa.11.0694
   br i1 %.not.i.i.i.i.i372, label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i371, !llvm.loop !1006
 
 _ZNSt6vectorIS_IxSaIxEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i371, %.noexc374
-  %.not.i35.i = icmp eq ptr %.sroa.0418.1695, null
+  %.not.i35.i = icmp eq ptr %.sroa.0418.0695, null
   br i1 %.not.i35.i, label %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i, label %578
 
 578:                                              ; preds = %_ZNSt6vectorIS_IxSaIxEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0418.1695) #44
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0418.0695) #44
   br label %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i
 
 _ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %578, %_ZNSt6vectorIS_IxSaIxEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
@@ -75507,7 +75507,7 @@ _ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; p
   br label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph696, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %583, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ], [ %.sroa.0418.1695, %.lr.ph696 ]
+  %.05.i.i.i.i.i = phi ptr [ %583, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ], [ %.sroa.0418.0695, %.lr.ph696 ]
   %581 = load ptr, ptr %.05.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %581, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i, label %582
@@ -75518,13 +75518,13 @@ _ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; p
 
 _ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i: ; preds = %582, %.lr.ph.i.i.i.i.i
   %583 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %583, %.sroa.11.1694
+  %.not.i.i.i.i.i = icmp eq ptr %583, %.sroa.11.0694
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1007
 
 _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
-  %.sroa.24.3 = phi ptr [ %.sroa.24.1693, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %580, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.24.1693, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.11.3 = phi ptr [ %scevgep.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %579, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.1695, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.0418.3 = phi ptr [ %.sroa.0418.1695, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %567, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.1695, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.0693, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %580, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.24.0693, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.11.1 = phi ptr [ %scevgep.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %579, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.0695, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.0418.1 = phi ptr [ %.sroa.0418.0695, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %567, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.0695, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
   %584 = load ptr, ptr %182, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 -16
   %.sroa.0417.0.copyload = load i64, ptr %585, align 8
@@ -75535,9 +75535,9 @@ _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyISt6ve
   br i1 %.not170689, label %._crit_edge691, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit
-  %586 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -24
-  %587 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -16
-  %588 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -8
+  %586 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -24
+  %587 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -16
+  %588 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %794
@@ -76023,10 +76023,10 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit315:       ; preds = %_ZNSt6vectorIxSaIxE
   br i1 %.not170, label %._crit_edge691, label %.preheader, !llvm.loop !1010
 
 ._crit_edge691:                                   ; preds = %794, %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit
-  %795 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -24
-  %796 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -16
+  %795 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -24
+  %796 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -16
   %797 = load ptr, ptr %796, align 8
-  %798 = getelementptr inbounds i8, ptr %.sroa.11.3, i64 -8
+  %798 = getelementptr inbounds i8, ptr %.sroa.11.1, i64 -8
   %799 = load ptr, ptr %798, align 8
   %.not.i316 = icmp eq ptr %797, %799
   br i1 %.not.i316, label %803, label %800
@@ -76093,7 +76093,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit325:       ; preds = %800, %_ZNSt6vectorI
 
 .lr.ph704:                                        ; preds = %.lr.ph704.preheader, %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit
   %.0158703 = phi i64 [ %937, %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit ], [ 0, %.lr.ph704.preheader ]
-  %824 = getelementptr inbounds %"class.std::vector.537", ptr %.sroa.0418.3, i64 %.0158703
+  %824 = getelementptr inbounds %"class.std::vector.537", ptr %.sroa.0418.1, i64 %.0158703
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 8
   %826 = load ptr, ptr %825, align 8
   %827 = load ptr, ptr %824, align 8
@@ -76351,7 +76351,7 @@ _ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit: ; preds = %
   br i1 %exitcond886.not, label %.lr.ph.i.i.i.i367, label %.lr.ph704, !llvm.loop !1014
 
 .lr.ph.i.i.i.i367:                                ; preds = %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %940, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i ], [ %.sroa.0418.3, %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit ]
+  %.05.i.i.i.i = phi ptr [ %940, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i ], [ %.sroa.0418.1, %_ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit ]
   %938 = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %938, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i, label %939
@@ -76362,15 +76362,15 @@ _ZNSt6vectorISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EED2Ev.exit: ; preds = %
 
 _ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i: ; preds = %939, %.lr.ph.i.i.i.i367
   %940 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i368 = icmp eq ptr %940, %.sroa.11.3
+  %.not.i.i.i.i368 = icmp eq ptr %940, %.sroa.11.1
   br i1 %.not.i.i.i.i368, label %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i367, !llvm.loop !1007
 
 _ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i, %.preheader521
-  %.not.i.i.i369 = icmp eq ptr %.sroa.0418.3, null
+  %.not.i.i.i369 = icmp eq ptr %.sroa.0418.1, null
   br i1 %.not.i.i.i369, label %.critedge, label %941
 
 941:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0418.3) #44
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0418.1) #44
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader525, %116, %123, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %941, %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, %133, %163, %166, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit

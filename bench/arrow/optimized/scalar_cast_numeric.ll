@@ -110075,14 +110075,14 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit23:    ; preds = %91, %87, %85, %58
 _ZN5arrow6StatusaSERKS0_.exit26:                  ; preds = %94, %28, %34, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit
   %.sroa.635.0.ph = phi i64 [ 0, %94 ], [ %30, %28 ], [ %.sroa.635.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ], [ %36, %34 ]
   %.sroa.034.0.ph = phi i64 [ 0, %94 ], [ %29, %28 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ], [ %35, %34 ]
-  %.pr40 = load ptr, ptr %12, align 8, !tbaa !70
-  %.not.i27 = icmp eq ptr %.pr40, null
+  %.pr36 = load ptr, ptr %12, align 8, !tbaa !70
+  %.not.i27 = icmp eq ptr %.pr36, null
   br i1 %.not.i27, label %_ZN5arrow6StatusD2Ev.exit28, label %_ZN5arrow6StatusaSERKS0_.exit26.thread, !prof !696
 
 _ZN5arrow6StatusaSERKS0_.exit26.thread:           ; preds = %92, %_ZN5arrow6StatusaSERKS0_.exit26
-  %.sroa.034.046 = phi i64 [ %.sroa.034.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ 0, %92 ]
-  %.sroa.635.044 = phi i64 [ %.sroa.635.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ 0, %92 ]
-  %97 = phi ptr [ %.pr40, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %15, %92 ]
+  %.sroa.034.042 = phi i64 [ %.sroa.034.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ 0, %92 ]
+  %.sroa.635.040 = phi i64 [ %.sroa.635.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ 0, %92 ]
+  %97 = phi ptr [ %.pr36, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %15, %92 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %99 = load i8, ptr %98, align 1, !tbaa !226, !range !49, !noundef !50
   %100 = trunc nuw i8 %99 to i1
@@ -110093,14 +110093,14 @@ _ZN5arrow6StatusaSERKS0_.exit26.thread:           ; preds = %92, %_ZN5arrow6Stat
   br label %_ZN5arrow6StatusD2Ev.exit28
 
 _ZN5arrow6StatusD2Ev.exit28:                      ; preds = %_ZN5arrow6StatusaSERKS0_.exit26, %_ZN5arrow6StatusaSERKS0_.exit26.thread, %101
-  %.sroa.034.047 = phi i64 [ %.sroa.034.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %.sroa.034.046, %_ZN5arrow6StatusaSERKS0_.exit26.thread ], [ %.sroa.034.046, %101 ]
-  %.sroa.635.045 = phi i64 [ %.sroa.635.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %.sroa.635.044, %_ZN5arrow6StatusaSERKS0_.exit26.thread ], [ %.sroa.635.044, %101 ]
+  %.sroa.034.043 = phi i64 [ %.sroa.034.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %.sroa.034.042, %_ZN5arrow6StatusaSERKS0_.exit26.thread ], [ %.sroa.034.042, %101 ]
+  %.sroa.635.041 = phi i64 [ %.sroa.635.0.ph, %_ZN5arrow6StatusaSERKS0_.exit26 ], [ %.sroa.635.040, %_ZN5arrow6StatusaSERKS0_.exit26.thread ], [ %.sroa.635.040, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.034.047, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.635.045, 1
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.034.043, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.635.041, 1
   ret { i64, i64 } %.fca.1.insert
 
 102:                                              ; preds = %95, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit23, %37

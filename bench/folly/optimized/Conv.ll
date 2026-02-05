@@ -1289,17 +1289,17 @@ _ZN10fast_float29compute_product_approximationILi26EEENS_8value128Elm.exit103: ;
   %129 = lshr i64 %128, 1
   %.not22.i = icmp samesign ugt i64 %128, 33554431
   %130 = zext i1 %.not22.i to i32
-  %spec.select161 = add nuw nsw i32 %103, %130
+  %spec.select162 = add nuw nsw i32 %103, %130
   %131 = and i64 %129, 9223372036846387199
-  %.not23.i = icmp samesign ugt i32 %spec.select161, 254
-  %spec.select170 = tail call i32 @llvm.umin.i32(i32 %spec.select161, i32 255)
+  %.not23.i = icmp samesign ugt i32 %spec.select162, 254
   %.not177 = select i1 %.not23.i, i1 true, i1 %.not22.i
-  %spec.select171 = select i1 %.not177, i64 0, i64 %131
+  %spec.select170 = select i1 %.not177, i64 0, i64 %131
+  %spec.select171 = select i1 %.not23.i, i32 255, i32 %spec.select162
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit
 
 _ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit: ; preds = %126, %105, %67, %62, %108
-  %.sroa.18.1 = phi i32 [ 0, %105 ], [ 0, %62 ], [ 255, %67 ], [ %115, %108 ], [ %spec.select170, %126 ]
-  %.sroa.0127.2 = phi i64 [ 0, %105 ], [ 0, %62 ], [ 0, %67 ], [ %113, %108 ], [ %spec.select171, %126 ]
+  %.sroa.0127.2 = phi i64 [ 0, %105 ], [ 0, %62 ], [ 0, %67 ], [ %113, %108 ], [ %spec.select170, %126 ]
+  %.sroa.18.1 = phi i32 [ 0, %105 ], [ 0, %62 ], [ 255, %67 ], [ %115, %108 ], [ %spec.select171, %126 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %133 = load i8, ptr %132, align 2, !tbaa !47, !range !22, !noundef !23
   %134 = trunc nuw i8 %133 to i1
@@ -1402,17 +1402,17 @@ _ZN10fast_float29compute_product_approximationILi26EEENS_8value128Elm.exit98: ; 
   %200 = lshr i64 %199, 1
   %.not22.i81 = icmp samesign ugt i64 %199, 33554431
   %201 = zext i1 %.not22.i81 to i32
-  %spec.select167 = add nuw nsw i32 %174, %201
+  %spec.select168 = add nuw nsw i32 %174, %201
   %202 = and i64 %200, 9223372036846387199
-  %.not23.i82 = icmp samesign ugt i32 %spec.select167, 254
-  %spec.select172 = tail call i32 @llvm.umin.i32(i32 %spec.select167, i32 255)
+  %.not23.i82 = icmp samesign ugt i32 %spec.select168, 254
   %.not180 = select i1 %.not23.i82, i1 true, i1 %.not22.i81
-  %spec.select173 = select i1 %.not180, i64 0, i64 %202
+  %spec.select172 = select i1 %.not180, i64 0, i64 %202
+  %spec.select173 = select i1 %.not23.i82, i32 255, i32 %spec.select168
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit92
 
 _ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit92: ; preds = %197, %176, %138, %135, %179
-  %.sroa.18139.1 = phi i32 [ 0, %176 ], [ 0, %135 ], [ 255, %138 ], [ %186, %179 ], [ %spec.select172, %197 ]
-  %.sroa.0134.2 = phi i64 [ 0, %176 ], [ 0, %135 ], [ 0, %138 ], [ %184, %179 ], [ %spec.select173, %197 ]
+  %.sroa.0134.2 = phi i64 [ 0, %176 ], [ 0, %135 ], [ 0, %138 ], [ %184, %179 ], [ %spec.select172, %197 ]
+  %.sroa.18139.1 = phi i32 [ 0, %176 ], [ 0, %135 ], [ 255, %138 ], [ %186, %179 ], [ %spec.select173, %197 ]
   %.not.i119 = icmp ne i64 %.sroa.0127.2, %.sroa.0134.2
   %203 = icmp ne i32 %.sroa.18.1, %.sroa.18139.1
   %204 = select i1 %.not.i119, i1 true, i1 %203
@@ -4449,17 +4449,17 @@ _ZN10fast_float29compute_product_approximationILi55EEENS_8value128Elm.exit106: ;
   %131 = lshr i64 %130, 1
   %.not22.i = icmp samesign ugt i64 %130, 18014398509481983
   %132 = zext i1 %.not22.i to i32
-  %spec.select152 = add nuw nsw i32 %105, %132
+  %spec.select153 = add nuw nsw i32 %105, %132
   %133 = and i64 %131, 9218868437227405311
-  %.not23.i = icmp samesign ugt i32 %spec.select152, 2046
-  %spec.select161 = tail call i32 @llvm.umin.i32(i32 %spec.select152, i32 2047)
+  %.not23.i = icmp samesign ugt i32 %spec.select153, 2046
   %.not168 = select i1 %.not23.i, i1 true, i1 %.not22.i
-  %spec.select162 = select i1 %.not168, i64 0, i64 %133
+  %spec.select161 = select i1 %.not168, i64 0, i64 %133
+  %spec.select162 = select i1 %.not23.i, i32 2047, i32 %spec.select153
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit
 
 _ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit: ; preds = %128, %107, %67, %62, %110
-  %.sroa.18.1 = phi i32 [ 0, %107 ], [ 0, %62 ], [ 2047, %67 ], [ %117, %110 ], [ %spec.select161, %128 ]
-  %.sroa.0118.2 = phi i64 [ 0, %107 ], [ 0, %62 ], [ 0, %67 ], [ %115, %110 ], [ %spec.select162, %128 ]
+  %.sroa.0118.2 = phi i64 [ 0, %107 ], [ 0, %62 ], [ 0, %67 ], [ %115, %110 ], [ %spec.select161, %128 ]
+  %.sroa.18.1 = phi i32 [ 0, %107 ], [ 0, %62 ], [ 2047, %67 ], [ %117, %110 ], [ %spec.select162, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %135 = load i8, ptr %134, align 2, !tbaa !47, !range !22, !noundef !23
   %136 = trunc nuw i8 %135 to i1
@@ -4562,17 +4562,17 @@ _ZN10fast_float29compute_product_approximationILi55EEENS_8value128Elm.exit99: ; 
   %204 = lshr i64 %203, 1
   %.not22.i81 = icmp samesign ugt i64 %203, 18014398509481983
   %205 = zext i1 %.not22.i81 to i32
-  %spec.select158 = add nuw nsw i32 %178, %205
+  %spec.select159 = add nuw nsw i32 %178, %205
   %206 = and i64 %204, 9218868437227405311
-  %.not23.i82 = icmp samesign ugt i32 %spec.select158, 2046
-  %spec.select163 = tail call i32 @llvm.umin.i32(i32 %spec.select158, i32 2047)
+  %.not23.i82 = icmp samesign ugt i32 %spec.select159, 2046
   %.not171 = select i1 %.not23.i82, i1 true, i1 %.not22.i81
-  %spec.select164 = select i1 %.not171, i64 0, i64 %206
+  %spec.select163 = select i1 %.not171, i64 0, i64 %206
+  %spec.select164 = select i1 %.not23.i82, i32 2047, i32 %spec.select159
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit92
 
 _ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit92: ; preds = %201, %180, %140, %137, %183
-  %.sroa.18130.1 = phi i32 [ 0, %180 ], [ 0, %137 ], [ 2047, %140 ], [ %190, %183 ], [ %spec.select163, %201 ]
-  %.sroa.0125.2 = phi i64 [ 0, %180 ], [ 0, %137 ], [ 0, %140 ], [ %188, %183 ], [ %spec.select164, %201 ]
+  %.sroa.0125.2 = phi i64 [ 0, %180 ], [ 0, %137 ], [ 0, %140 ], [ %188, %183 ], [ %spec.select163, %201 ]
+  %.sroa.18130.1 = phi i32 [ 0, %180 ], [ 0, %137 ], [ 2047, %140 ], [ %190, %183 ], [ %spec.select164, %201 ]
   %.not.i110 = icmp ne i64 %.sroa.0118.2, %.sroa.0125.2
   %207 = icmp ne i32 %.sroa.18.1, %.sroa.18130.1
   %208 = select i1 %.not.i110, i1 true, i1 %207

@@ -1073,8 +1073,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i_frame(ptr noundef
 
 61:                                               ; preds = %69, %.preheader108.i
   %indvars.iv134.i = phi i64 [ 0, %.preheader108.i ], [ %indvars.iv.next135.i, %69 ]
-  %.sroa.8.1117.i = phi i32 [ 0, %.preheader108.i ], [ %.sroa.8.2.i, %69 ]
-  %.sroa.0.1116.i = phi i32 [ 0, %.preheader108.i ], [ %.sroa.0.2.i, %69 ]
+  %.sroa.8.0117.i = phi i32 [ 0, %.preheader108.i ], [ %.sroa.8.1.i, %69 ]
+  %.sroa.0.0116.i = phi i32 [ 0, %.preheader108.i ], [ %.sroa.0.1.i, %69 ]
   %.sroa.026.0115.i = phi i32 [ 65536, %.preheader108.i ], [ %.sroa.026.1.i, %69 ]
   %.sroa.7.0114.i = phi i32 [ 65536, %.preheader108.i ], [ %.sroa.7.1.i, %69 ]
   %62 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv134.i
@@ -1089,15 +1089,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i_frame(ptr noundef
   %.sroa.026.0..i = tail call i32 @llvm.smax.i32(i32 %63, i32 %.sroa.026.0115.i)
   %..sroa.026.0.i = tail call i32 @llvm.smin.i32(i32 %63, i32 %.sroa.026.0115.i)
   %68 = trunc nuw nsw i64 %indvars.iv134.i to i32
-  %.076..sroa.0.1.i = select i1 %67, i32 %68, i32 %.sroa.0.1116.i
-  %.sroa.0.1..076.i = select i1 %67, i32 %.sroa.0.1116.i, i32 %68
+  %.076..sroa.0.0.i = select i1 %67, i32 %68, i32 %.sroa.0.0116.i
+  %.sroa.0.0..076.i = select i1 %67, i32 %.sroa.0.0116.i, i32 %68
   br label %69
 
 69:                                               ; preds = %66, %61
   %.sroa.7.1.i = phi i32 [ %.sroa.7.0114.i, %61 ], [ %.sroa.026.0..i, %66 ]
   %.sroa.026.1.i = phi i32 [ %.sroa.026.0115.i, %61 ], [ %..sroa.026.0.i, %66 ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.1116.i, %61 ], [ %.076..sroa.0.1.i, %66 ]
-  %.sroa.8.2.i = phi i32 [ %.sroa.8.1117.i, %61 ], [ %.sroa.0.1..076.i, %66 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0116.i, %61 ], [ %.076..sroa.0.0.i, %66 ]
+  %.sroa.8.1.i = phi i32 [ %.sroa.8.0117.i, %61 ], [ %.sroa.0.0..076.i, %66 ]
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %exitcond138.not.i = icmp eq i64 %indvars.iv.next135.i, %indvars.iv139.i
   br i1 %exitcond138.not.i, label %70, label %61, !llvm.loop !89
@@ -1110,10 +1110,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i_frame(ptr noundef
   %73 = add nsw i32 %.sroa.026.1.i, %.sroa.7.1.i
   %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv139.i
   store i32 %73, ptr %74, align 4, !tbaa !71
-  %75 = sext i32 %.sroa.0.2.i to i64
+  %75 = sext i32 %.sroa.0.1.i to i64
   %76 = getelementptr inbounds i8, ptr %5, i64 %75
   store i8 0, ptr %76, align 1, !tbaa !41
-  %77 = sext i32 %.sroa.8.2.i to i64
+  %77 = sext i32 %.sroa.8.1.i to i64
   %78 = getelementptr inbounds i8, ptr %5, i64 %77
   store i8 1, ptr %78, align 1, !tbaa !41
   %79 = getelementptr inbounds i32, ptr %6, i64 %77

@@ -18726,27 +18726,27 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionS
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br label %.thread226.outer
+  br label %.thread197.outer
 
-.thread226.outer:                                 ; preds = %.thread226.outer.backedge, %5
-  %.0136.ph = phi ptr [ %1, %5 ], [ %.0136.ph.be, %.thread226.outer.backedge ]
-  %.057.ph = phi i1 [ false, %5 ], [ %.057.ph.be, %.thread226.outer.backedge ]
-  %.036.ph = phi i32 [ 0, %5 ], [ %.036.ph.be, %.thread226.outer.backedge ]
-  br label %.thread226.outer425
+.thread197.outer:                                 ; preds = %.thread197.outer.backedge, %5
+  %.0136.ph = phi ptr [ %1, %5 ], [ %.0136.ph.be, %.thread197.outer.backedge ]
+  %.057.ph = phi i1 [ false, %5 ], [ %.057.ph.be, %.thread197.outer.backedge ]
+  %.036.ph = phi i32 [ 0, %5 ], [ %.036.ph.be, %.thread197.outer.backedge ]
+  br label %.thread197.outer371
 
-.thread226.outer425:                              ; preds = %.thread226.outer, %236
-  %.0136.ph426 = phi ptr [ %.0136.ph, %.thread226.outer ], [ %.0.i.i90, %236 ]
-  %.036.ph427 = phi i32 [ %.036.ph, %.thread226.outer ], [ 0, %236 ]
-  br label %.thread226
+.thread197.outer371:                              ; preds = %.thread197.outer, %236
+  %.0136.ph372 = phi ptr [ %.0136.ph, %.thread197.outer ], [ %.0.i.i90, %236 ]
+  %.036.ph373 = phi i32 [ %.036.ph, %.thread197.outer ], [ 0, %236 ]
+  br label %.thread197
 
-.thread226:                                       ; preds = %.thread226.outer425, %296
-  %.0136 = phi ptr [ %.0.i106, %296 ], [ %.0136.ph426, %.thread226.outer425 ]
+.thread197:                                       ; preds = %.thread197.outer371, %296
+  %.0136 = phi ptr [ %.0.i106, %296 ], [ %.0136.ph372, %.thread197.outer371 ]
   %42 = load i32, ptr %18, align 4, !tbaa !205
   %43 = load ptr, ptr %4, align 8, !tbaa !207
   %44 = icmp ult ptr %.0136, %43
   br i1 %44, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147, label %45, !prof !176
 
-45:                                               ; preds = %.thread226
+45:                                               ; preds = %.thread197
   %46 = load ptr, ptr %19, align 8, !tbaa !200
   %47 = ptrtoint ptr %.0136 to i64
   %48 = ptrtoint ptr %46 to i64
@@ -18775,8 +18775,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %58
   %60 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %60, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147: ; preds = %.thread226, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.4138150 = phi ptr [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0136, %.thread226 ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147: ; preds = %.thread197, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
+  %.4138150 = phi ptr [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0136, %.thread197 ]
   %61 = getelementptr inbounds nuw i8, ptr %.4138150, i64 1
   %62 = load i8, ptr %.4138150, align 1, !tbaa !38
   switch i8 %62, label %260 [
@@ -18849,13 +18849,13 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147: ; preds = %
   %.lcssa.sink.i = phi i32 [ %92, %89 ], [ %69, %72 ]
   %96 = select i1 %.sink48.i, i64 2, i64 1
   %97 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %96
-  br i1 %.057.ph, label %98, label %.thread226.outer.backedge
+  br i1 %.057.ph, label %98, label %.thread197.outer.backedge
 
-.thread226.outer.backedge:                        ; preds = %95, %259, %.thread280, %215, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
-  %.0136.ph.be = phi ptr [ %97, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %97, %215 ], [ %256, %.thread280 ], [ %258, %259 ], [ %97, %95 ]
-  %.057.ph.be = phi i1 [ true, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ true, %215 ], [ true, %.thread280 ], [ true, %259 ], [ false, %95 ]
-  %.036.ph.be = phi i32 [ 0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ 0, %215 ], [ 0, %.thread280 ], [ 0, %259 ], [ %.lcssa.sink.i, %95 ]
-  br label %.thread226.outer, !llvm.loop !210
+.thread197.outer.backedge:                        ; preds = %95, %259, %.thread231, %215, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
+  %.0136.ph.be = phi ptr [ %97, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %97, %215 ], [ %256, %.thread231 ], [ %258, %259 ], [ %97, %95 ]
+  %.057.ph.be = phi i1 [ true, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ true, %215 ], [ true, %.thread231 ], [ true, %259 ], [ false, %95 ]
+  %.036.ph.be = phi i32 [ 0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ 0, %215 ], [ 0, %.thread231 ], [ 0, %259 ], [ %.lcssa.sink.i, %95 ]
+  br label %.thread197.outer, !llvm.loop !210
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_115global_registryE, align 8, !tbaa !10
@@ -18972,9 +18972,9 @@ _ZNKSt8__detail15_Hashtable_baseIN6google8protobuf8internal13ExtensionInfoES4_NS
 140:                                              ; preds = %.noexc116
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %139)
-          to label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread202 unwind label %143
+          to label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread182 unwind label %143
 
-_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread202: ; preds = %140
+_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread182: ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -19001,7 +19001,7 @@ _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteE
   %146 = icmp eq i32 %135, 2
   br i1 %146, label %160, label %.noexc
 
-.noexc:                                           ; preds = %130, %_ZNKSt8__detail15_Hashtable_baseIN6google8protobuf8internal13ExtensionInfoES4_NS_9_IdentityENS3_12_GLOBAL__N_111ExtensionEqENS6_15ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS4_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i.i, %105, %137, %137, %98, %112, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread202, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
+.noexc:                                           ; preds = %130, %_ZNKSt8__detail15_Hashtable_baseIN6google8protobuf8internal13ExtensionInfoES4_NS_9_IdentityENS3_12_GLOBAL__N_111ExtensionEqENS6_15ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS4_mRKNS_16_Hash_node_valueIS4_Lb1EEE.exit.thread.i.i.i.i.i.i, %105, %137, %137, %98, %112, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread182, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
   %147 = load ptr, ptr %14, align 8, !tbaa !56
   %148 = load i64, ptr %17, align 8, !tbaa !106
   %149 = load i64, ptr %3, align 8, !tbaa !138
@@ -19021,7 +19021,7 @@ _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteE
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %151, %155
   %.0.i = phi ptr [ %154, %151 ], [ %156, %155 ]
   invoke void @_ZN6google8protobuf8internal20WriteLengthDelimitedEjNS0_20stringpiece_internal11StringPieceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.lcssa.sink.i, ptr %147, i64 %148, ptr noundef %.0.i)
-          to label %.thread226.outer.backedge unwind label %157
+          to label %.thread197.outer.backedge unwind label %157
 
 157:                                              ; preds = %138, %155, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
   %158 = landingpad { ptr, i32 }
@@ -19139,9 +19139,9 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
 
 210:                                              ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
   %.not74 = icmp eq ptr %209, null
-  br i1 %.not74, label %.thread260, label %215
+  br i1 %.not74, label %.thread216, label %215
 
-.thread260:                                       ; preds = %210
+.thread216:                                       ; preds = %210
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -19160,14 +19160,14 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
   %216 = load i32, ptr %27, align 8, !tbaa !206
   %217 = icmp eq i32 %216, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %217, label %.thread226.outer.backedge, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  br i1 %217, label %.thread197.outer.backedge, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 218:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147
-  %.not64 = icmp eq i32 %.036.ph427, 0
+  %.not64 = icmp eq i32 %.036.ph373, 0
   br i1 %.not64, label %237, label %219
 
 219:                                              ; preds = %218
-  %220 = shl i32 %.036.ph427, 3
+  %220 = shl i32 %.036.ph373, 3
   %221 = or disjoint i32 %220, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %11, align 8, !tbaa !54
@@ -19176,7 +19176,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %222 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef 2, i32 noundef %.036.ph427, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %222 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef 2, i32 noundef %.036.ph373, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12)
           to label %.noexc91 unwind label %.loopexit.split-lp
 
 .noexc91:                                         ; preds = %219
@@ -19205,7 +19205,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
 232:                                              ; preds = %.noexc91
   %233 = load i8, ptr %12, align 1, !tbaa !39, !range !103, !noundef !79
   %234 = trunc nuw i8 %233 to i1
-  %235 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.036.ph427, i1 noundef zeroext %234, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %3, ptr noundef nonnull %61, ptr noundef nonnull %4)
+  %235 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.036.ph373, i1 noundef zeroext %234, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %3, ptr noundef nonnull %61, ptr noundef nonnull %4)
           to label %236 unwind label %.loopexit.split-lp
 
 236:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i.i, %232
@@ -19214,9 +19214,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not67 = icmp eq ptr %.0.i.i90, null
-  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread226.outer425, !llvm.loop !210
+  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread197.outer371, !llvm.loop !210
 
-.loopexit428:                                     ; preds = %272, %280, %289, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
+.loopexit374:                                     ; preds = %272, %280, %289, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -19252,33 +19252,33 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %242
   br label %.body
 
 246:                                              ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %.0.i95274 = phi i32 [ %239, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %.fca.1.extract.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %storemerge.i273 = phi ptr [ %241, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %.fca.0.extract.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %247 = sext i32 %.0.i95274 to i64
+  %.0.i95225 = phi i32 [ %239, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %.fca.1.extract.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %storemerge.i224 = phi ptr [ %241, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %.fca.0.extract.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %247 = sext i32 %.0.i95225 to i64
   %248 = load ptr, ptr %19, align 8, !tbaa !200
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = ptrtoint ptr %249 to i64
-  %251 = ptrtoint ptr %storemerge.i273 to i64
+  %251 = ptrtoint ptr %storemerge.i224 to i64
   %252 = sub i64 %250, %251
   %.not.i97 = icmp slt i64 %252, %247
   br i1 %.not.i97, label %257, label %253
 
 253:                                              ; preds = %246
   %254 = load i64, ptr %17, align 8, !tbaa !106
-  %255 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0, i64 noundef %254, ptr noundef nonnull %storemerge.i273, i64 noundef %247)
-          to label %.thread280 unwind label %244
+  %255 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0, i64 noundef %254, ptr noundef nonnull %storemerge.i224, i64 noundef %247)
+          to label %.thread231 unwind label %244
 
-.thread280:                                       ; preds = %253
-  %256 = getelementptr inbounds i8, ptr %storemerge.i273, i64 %247
-  br label %.thread226.outer.backedge
+.thread231:                                       ; preds = %253
+  %256 = getelementptr inbounds i8, ptr %storemerge.i224, i64 %247
+  br label %.thread197.outer.backedge
 
 257:                                              ; preds = %246
-  %258 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %storemerge.i273, i32 noundef %.0.i95274, ptr noundef nonnull %14)
+  %258 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %storemerge.i224, i32 noundef %.0.i95225, ptr noundef nonnull %14)
           to label %259 unwind label %244
 
 259:                                              ; preds = %257
   %.not66.not.not = icmp eq ptr %258, null
-  br i1 %.not66.not.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread226.outer.backedge
+  br i1 %.not66.not.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread197.outer.backedge
 
 260:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147
   %261 = zext i8 %62 to i32
@@ -19300,7 +19300,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %242
 
 272:                                              ; preds = %263
   %273 = invoke { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.4138150, i32 noundef %268)
-          to label %.noexc104 unwind label %.loopexit428
+          to label %.noexc104 unwind label %.loopexit374
 
 .noexc104:                                        ; preds = %272
   %.fca.0.extract.i101 = extractvalue { ptr, i32 } %273, 0
@@ -19332,7 +19332,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %260, %.noexc104, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %282 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %275, i32 noundef %281, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9)
-          to label %.noexc107 unwind label %.loopexit428
+          to label %.noexc107 unwind label %.loopexit374
 
 .noexc107:                                        ; preds = %280
   br i1 %282, label %292, label %.noexc.i
@@ -19350,18 +19350,18 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %260, %.noexc104, %2
 
 289:                                              ; preds = %.noexc.i
   %290 = invoke noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %.loopexit428
+          to label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %.loopexit374
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %289, %285
   %.0.i.i105 = phi ptr [ %288, %285 ], [ %290, %289 ]
   %291 = invoke noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %.0139, ptr noundef %.0.i.i105, ptr noundef %.0.i103, ptr noundef nonnull %4)
-          to label %296 unwind label %.loopexit428
+          to label %296 unwind label %.loopexit374
 
 292:                                              ; preds = %.noexc107
   %293 = load i8, ptr %9, align 1, !tbaa !39, !range !103, !noundef !79
   %294 = trunc nuw i8 %293 to i1
   %295 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %281, i1 noundef zeroext %294, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %3, ptr noundef %.0.i103, ptr noundef nonnull %4)
-          to label %296 unwind label %.loopexit428
+          to label %296 unwind label %.loopexit374
 
 296:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
   %.0.i106 = phi ptr [ %291, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ], [ %295, %292 ]
@@ -19369,10 +19369,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %.0.i106, null
-  br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread226, !llvm.loop !210
+  br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread197, !llvm.loop !210
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %236, %296, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %215, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %259, %74, %53, %.thread260, %277
-  %.9 = phi ptr [ %.0.i103, %277 ], [ null, %.thread260 ], [ %spec.select, %53 ], [ null, %74 ], [ null, %236 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %296 ], [ null, %215 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %259 ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %236, %296, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %215, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %259, %74, %53, %.thread216, %277
+  %.9 = phi ptr [ %.0.i103, %277 ], [ null, %.thread216 ], [ %spec.select, %53 ], [ null, %74 ], [ null, %236 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %296 ], [ null, %215 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %259 ]
   %297 = load ptr, ptr %14, align 8, !tbaa !56
   %298 = icmp eq ptr %297, %16
   br i1 %298, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -19385,8 +19385,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6g
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.9
 
-.body:                                            ; preds = %.loopexit428, %.loopexit.split-lp, %213, %211, %145, %157, %244, %93
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %245, %244 ], [ %.pn.i.i, %145 ], [ %212, %211 ], [ %214, %213 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit428 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit374, %.loopexit.split-lp, %213, %211, %145, %157, %244, %93
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %245, %244 ], [ %.pn.i.i, %145 ], [ %212, %211 ], [ %214, %213 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit374 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %299 = load ptr, ptr %14, align 8, !tbaa !56
   %300 = icmp eq ptr %299, %16
   br i1 %300, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i111

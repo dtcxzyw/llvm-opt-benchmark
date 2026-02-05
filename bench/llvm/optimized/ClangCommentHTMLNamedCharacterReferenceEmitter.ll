@@ -90,8 +90,8 @@ define dso_local void @_ZN5clang44EmitClangCommentHTMLNamedCharacterReferencesER
   %22 = extractvalue { ptr, i64 } %20, 1
   %.idx = shl nuw nsw i64 %22, 3
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
-  %.not62 = icmp eq i64 %22, 0
-  br i1 %.not62, label %._crit_edge, label %.lr.ph
+  %.not60 = icmp eq i64 %22, 0
+  br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -162,7 +162,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
 66:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.9, i64 noundef 22) #13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %.pre64 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
+  %.pre62 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -173,7 +173,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
 _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %66, %68
-  %71 = phi ptr [ %.pre64, %66 ], [ %70, %68 ]
+  %71 = phi ptr [ %.pre62, %66 ], [ %70, %68 ]
   %.0.i.i18 = phi ptr [ %67, %66 ], [ %1, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !11
@@ -266,8 +266,8 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
   ret void
 
 109:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
-  %.063 = phi ptr [ %21, %.lr.ph ], [ %237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ]
-  %110 = load ptr, ptr %.063, align 8, !tbaa !35
+  %.061 = phi ptr [ %21, %.lr.ph ], [ %237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ]
+  %110 = load ptr, ptr %.061, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %111 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %110, ptr nonnull @.str.1, i64 8) #13
   %112 = extractvalue { ptr, i64 } %111, 0
@@ -333,9 +333,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread: ; preds = %_ZNK4llvm9Str
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread
-  %.pre8.i.i61 = phi i64 [ %.pre8.pre.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ 0, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
+  %.pre8.i.i59 = phi i64 [ %.pre8.pre.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ 0, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
   %130 = load ptr, ptr %10, align 8, !tbaa !3
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.pre8.i.i61
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.pre8.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %131, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false)
   %.pre.i.i = load i64, ptr %18, align 8, !tbaa !9
   %132 = add i64 %.pre.i.i, 7
@@ -632,7 +632,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %232, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %237 = getelementptr inbounds nuw i8, ptr %.063, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %.not = icmp eq ptr %237, %23
   br i1 %.not, label %._crit_edge, label %109
 }

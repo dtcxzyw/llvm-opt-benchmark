@@ -3892,7 +3892,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %.backedge unwind label %.thread.loopexit
 
 .thread44:                                        ; preds = %.noexc30, %39
-  %.sroa.8.1.ph = phi i64 [ %.fca.1.extract.i, %39 ], [ %.fca.0.extract.i, %.noexc30 ]
+  %.sroa.8.0.ph = phi i64 [ %.fca.1.extract.i, %39 ], [ %.fca.0.extract.i, %.noexc30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3915,8 +3915,8 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   br label %.invoke
 
 .loopexit:                                        ; preds = %42, %.thread44
-  %.sroa.8.148 = phi i64 [ %.sroa.8.1.ph, %.thread44 ], [ %.sroa.8.0.copyload35, %42 ]
-  %45 = and i64 %.sroa.8.148, -8
+  %.sroa.8.048 = phi i64 [ %.sroa.8.0.ph, %.thread44 ], [ %.sroa.8.0.copyload35, %42 ]
+  %45 = and i64 %.sroa.8.048, -8
   %.not21 = icmp eq i64 %45, 0
   br i1 %.not21, label %56, label %46
 
@@ -3945,7 +3945,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h18ab4b990d38bd96E.exit": ; preds = %46
   store ptr %.val28, ptr %10, align 8
-  invoke void @_ZN4moka3cht3map6bucket23defer_destroy_tombstone17h066b17efb6b6804cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %.sroa.8.148)
+  invoke void @_ZN4moka3cht3map6bucket23defer_destroy_tombstone17h066b17efb6b6804cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %.sroa.8.048)
           to label %57 unwind label %72
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h18ab4b990d38bd96E.exit", %56
@@ -5056,7 +5056,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %.backedge unwind label %.thread.loopexit
 
 .thread44:                                        ; preds = %.noexc30, %39
-  %.sroa.8.1.ph = phi i64 [ %.fca.1.extract.i, %39 ], [ %.fca.0.extract.i, %.noexc30 ]
+  %.sroa.8.0.ph = phi i64 [ %.fca.1.extract.i, %39 ], [ %.fca.0.extract.i, %.noexc30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5079,8 +5079,8 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   br label %.invoke
 
 .loopexit:                                        ; preds = %42, %.thread44
-  %.sroa.8.148 = phi i64 [ %.sroa.8.1.ph, %.thread44 ], [ %.sroa.8.0.copyload35, %42 ]
-  %45 = and i64 %.sroa.8.148, -8
+  %.sroa.8.048 = phi i64 [ %.sroa.8.0.ph, %.thread44 ], [ %.sroa.8.0.copyload35, %42 ]
+  %45 = and i64 %.sroa.8.048, -8
   %.not21 = icmp eq i64 %45, 0
   br i1 %.not21, label %56, label %46
 
@@ -5109,7 +5109,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17hfc48dd373afc7d2fE.exit": ; preds = %46
   store ptr %.val29, ptr %10, align 8
-  invoke void @_ZN4moka3cht3map6bucket23defer_destroy_tombstone17h066b17efb6b6804cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %.sroa.8.148)
+  invoke void @_ZN4moka3cht3map6bucket23defer_destroy_tombstone17h066b17efb6b6804cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %.sroa.8.048)
           to label %57 unwind label %72
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17hfc48dd373afc7d2fE.exit", %56

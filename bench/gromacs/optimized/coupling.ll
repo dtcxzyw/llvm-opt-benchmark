@@ -5862,7 +5862,7 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   br label %84
 
 84:                                               ; preds = %56, %70, %33
-  %.sroa.0.1 = phi ptr [ %35, %33 ], [ %45, %56 ], [ %45, %70 ]
+  %.sroa.0.0 = phi ptr [ %35, %33 ], [ %45, %56 ], [ %45, %70 ]
   %.0136 = phi double [ 1.000000e+00, %33 ], [ %51, %56 ], [ %51, %70 ]
   %.0135.in = phi float [ %.sroa.speculated144, %33 ], [ %.sroa.speculated, %56 ], [ %.sroa.speculated, %70 ]
   %.0131 = phi double [ %42, %33 ], [ %69, %56 ], [ %83, %70 ]
@@ -5886,7 +5886,7 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   %91 = load double, ptr %90, align 8, !tbaa !115
   %92 = fmul double %91, %22
   %93 = fdiv double %92, 5.000000e+00
-  %94 = load double, ptr %.sroa.0.1, align 8, !tbaa !115
+  %94 = load double, ptr %.sroa.0.0, align 8, !tbaa !115
   %95 = tail call double @llvm.fmuladd.f64(double %86, double %85, double %.3134178)
   %96 = fmul double %95, %94
   store double %96, ptr %14, align 8, !tbaa !115
@@ -5903,7 +5903,7 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
 .lr.ph:                                           ; preds = %89, %113
   %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ 0, %89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %indvars.iv.next
+  %101 = getelementptr inbounds nuw double, ptr %.sroa.0.0, i64 %indvars.iv.next
   %102 = load double, ptr %101, align 8, !tbaa !115
   %103 = fcmp ogt double %102, 0.000000e+00
   br i1 %103, label %104, label %113
@@ -5912,7 +5912,7 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   %105 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
   %106 = load double, ptr %105, align 8, !tbaa !115
   %107 = fmul double %106, %106
-  %108 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw double, ptr %.sroa.0.0, i64 %indvars.iv
   %109 = load double, ptr %108, align 8, !tbaa !115
   %110 = fdiv double %107, %109
   %111 = fsub double %110, %85
@@ -5978,7 +5978,7 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
 145:                                              ; preds = %142, %137
   %146 = fmul double %136, %136
   %147 = fmul double %.3134178, %146
-  %148 = load double, ptr %.sroa.0.1, align 8, !tbaa !115
+  %148 = load double, ptr %.sroa.0.0, align 8, !tbaa !115
   %149 = tail call double @llvm.fmuladd.f64(double %86, double %85, double %147)
   %150 = fmul double %149, %148
   store double %150, ptr %14, align 8, !tbaa !115
@@ -6022,14 +6022,14 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   %168 = tail call double @llvm.fmuladd.f64(double %166, double %164, double %167)
   %169 = fmul double %164, %168
   store double %169, ptr %165, align 8, !tbaa !115
-  %170 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %indvars.iv.next196
+  %170 = getelementptr inbounds nuw double, ptr %.sroa.0.0, i64 %indvars.iv.next196
   %171 = load double, ptr %170, align 8, !tbaa !115
   %172 = fcmp ogt double %171, 0.000000e+00
   br i1 %172, label %173, label %180
 
 173:                                              ; preds = %159
   %174 = fmul double %169, %169
-  %175 = getelementptr inbounds nuw double, ptr %.sroa.0.1, i64 %indvars.iv195
+  %175 = getelementptr inbounds nuw double, ptr %.sroa.0.0, i64 %indvars.iv195
   %176 = load double, ptr %175, align 8, !tbaa !115
   %177 = fdiv double %174, %176
   %178 = fsub double %177, %85

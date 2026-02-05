@@ -3751,65 +3751,65 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i, i8 0, i64 32, i1 false)
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
   %BasicBlockList.i = getelementptr inbounds nuw i8, ptr %F, i64 80
-  %__begin1.sroa.0.020 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %cmp.i.not21 = icmp eq ptr %__begin1.sroa.0.020, %BasicBlockList.i
-  br i1 %cmp.i.not21, label %for.end24, label %for.body.lr.ph
+  %__begin1.sroa.0.019 = load ptr, ptr %Next.i.i.i.i.i, align 8
+  %cmp.i.not20 = icmp eq ptr %__begin1.sroa.0.019, %BasicBlockList.i
+  br i1 %cmp.i.not20, label %for.end24, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.023 = phi ptr [ %__begin1.sroa.0.020, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.inc ]
-  %changed.022 = phi i1 [ false, %for.body.lr.ph ], [ %changed.1.lcssa, %for.inc ]
-  %Next.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.023, i64 64
+  %__begin1.sroa.0.022 = phi ptr [ %__begin1.sroa.0.019, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.inc ]
+  %changed.021 = phi i1 [ false, %for.body.lr.ph ], [ %changed.1.lcssa, %for.inc ]
+  %Next.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.022, i64 64
   %1 = load ptr, ptr %Next.i.i.i.i.i7, align 8
-  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.023, i64 56
-  %cmp.i8.not17 = icmp eq ptr %1, %InstList.i
-  br i1 %cmp.i8.not17, label %for.inc, label %for.body12
+  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.022, i64 56
+  %cmp.i8.not16 = icmp eq ptr %1, %InstList.i
+  br i1 %cmp.i8.not16, label %for.inc, label %for.body12
 
 for.body12:                                       ; preds = %for.body, %if.end22
-  %changed.119 = phi i1 [ %changed.2, %if.end22 ], [ %changed.022, %for.body ]
-  %it.sroa.0.018 = phi ptr [ %2, %if.end22 ], [ %1, %for.body ]
-  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.018, i64 8
+  %changed.118 = phi i1 [ %changed.2, %if.end22 ], [ %changed.021, %for.body ]
+  %it.sroa.0.017 = phi ptr [ %2, %if.end22 ], [ %1, %for.body ]
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.017, i64 8
   %2 = load ptr, ptr %Next.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.018, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.017, i64 16
   %3 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %3, 34
-  %tobool.not16 = icmp eq ptr %it.sroa.0.018, null
-  %tobool.not = or i1 %tobool.not16, %cmp.i.i.i.i.i.i.i.i
+  %tobool.not15 = icmp eq ptr %it.sroa.0.017, null
+  %tobool.not = or i1 %tobool.not15, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %for.body12
-  %op_.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.018, i64 132
+  %op_.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.017, i64 132
   %4 = load i32, ptr %op_.i, align 4
   %cmp = icmp eq i32 %4, 20
   br i1 %cmp, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.018) #13
-  %call.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %it.sroa.0.018, i32 noundef 0) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.017) #13
+  %call.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %it.sroa.0.017, i32 noundef 0) #13
   store ptr %call.i.i, ptr %ref.tmp1.i, align 8
-  %call.i6.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %it.sroa.0.018, i32 noundef 1) #13
+  %call.i6.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %it.sroa.0.017, i32 noundef 1) #13
   store ptr %call.i6.i, ptr %arrayinit.element.i, align 8
   %call3.i = call noundef ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %builder, i8 noundef zeroext 49, ptr nonnull %ref.tmp1.i, i64 2) #13
   %5 = icmp eq ptr %call3.i, null
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 16
   %spec.select.i9 = select i1 %5, ptr null, ptr %add.ptr4.i
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i.i, ptr noundef %spec.select.i9) #13
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.018) #13
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.017) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then, %if.then17, %for.body12
-  %changed.2 = phi i1 [ true, %if.then17 ], [ %changed.119, %if.then ], [ %changed.119, %for.body12 ]
+  %changed.2 = phi i1 [ true, %if.then17 ], [ %changed.118, %if.then ], [ %changed.118, %for.body12 ]
   %cmp.i8.not = icmp eq ptr %2, %InstList.i
   br i1 %cmp.i8.not, label %for.inc, label %for.body12, !llvm.loop !46
 
 for.inc:                                          ; preds = %if.end22, %for.body
-  %changed.1.lcssa = phi i1 [ %changed.022, %for.body ], [ %changed.2, %if.end22 ]
-  %Next.i.i.i10 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.023, i64 8
+  %changed.1.lcssa = phi i1 [ %changed.021, %for.body ], [ %changed.2, %if.end22 ]
+  %Next.i.i.i10 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.022, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i10, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %BasicBlockList.i
   br i1 %cmp.i.not, label %for.end24, label %for.body

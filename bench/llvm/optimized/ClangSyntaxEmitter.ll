@@ -2451,13 +2451,13 @@ define internal void @"_ZN4llvm12function_refIFvRKN12_GLOBAL__N_19Hierarchy8Node
 _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %53, %52
   %.sroa.025.0.i.i = phi ptr [ %.sroa.025.0.copyload.i.i, %52 ], [ %55, %53 ]
   %.sroa.527.0.i.i = phi i64 [ %.sroa.527.0.copyload.i.i, %52 ], [ %.sroa.speculated.i.i.i8.i.i, %53 ]
-  %.sroa.930.1.i.i = phi i64 [ 0, %52 ], [ %58, %53 ]
-  %.sroa.629.1.i.i = phi ptr [ null, %52 ], [ %57, %53 ]
+  %.sroa.930.0.i.i = phi i64 [ 0, %52 ], [ %58, %53 ]
+  %.sroa.629.0.i.i = phi ptr [ null, %52 ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.sroa.025.0.i.i, ptr %7, align 8, !tbaa !81
   store i64 %.sroa.527.0.i.i, ptr %32, align 8, !tbaa !82
-  store ptr %.sroa.629.1.i.i, ptr %6, align 8, !tbaa !81
-  store i64 %.sroa.930.1.i.i, ptr %26, align 8, !tbaa !82
+  store ptr %.sroa.629.0.i.i, ptr %6, align 8, !tbaa !81
+  store i64 %.sroa.930.0.i.i, ptr %26, align 8, !tbaa !82
   br label %34, !llvm.loop !168
 
 .critedge.i.i:                                    ; preds = %34
@@ -2617,17 +2617,17 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13.i.i:           ; preds = %107, %105
   br label %_ZNK4llvm9StringRef5splitEc.exit18.i.i
 
 _ZNK4llvm9StringRef5splitEc.exit18.i.i:           ; preds = %114, %113
-  %.sroa.6.1.i.i = phi ptr [ null, %113 ], [ %118, %114 ]
-  %.sroa.9.1.i.i = phi i64 [ 0, %113 ], [ %119, %114 ]
+  %.sroa.6.0.i.i = phi ptr [ null, %113 ], [ %118, %114 ]
+  %.sroa.9.0.i.i = phi i64 [ 0, %113 ], [ %119, %114 ]
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.0.copyload.i.i, %113 ], [ %.sroa.speculated.i.i.i14.i.i, %114 ]
   %.sroa.019.0.i.i = phi ptr [ %.sroa.019.0.copyload.i.i, %113 ], [ %116, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.sroa.019.0.i.i, ptr %7, align 8, !tbaa !81
   store i64 %.sroa.5.0.i.i, ptr %32, align 8, !tbaa !82
-  store ptr %.sroa.6.1.i.i, ptr %6, align 8, !tbaa !81
-  store i64 %.sroa.9.1.i.i, ptr %26, align 8, !tbaa !82
+  store ptr %.sroa.6.0.i.i, ptr %6, align 8, !tbaa !81
+  store i64 %.sroa.9.0.i.i, ptr %26, align 8, !tbaa !82
   %120 = icmp eq i64 %.sroa.5.0.i.i, 0
-  %121 = icmp eq i64 %.sroa.9.1.i.i, 0
+  %121 = icmp eq i64 %.sroa.9.0.i.i, 0
   %or.cond39.i.i = select i1 %120, i1 %121, i1 false
   br i1 %or.cond39.i.i, label %_ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i, label %.critedge2.i.i, !llvm.loop !176
 

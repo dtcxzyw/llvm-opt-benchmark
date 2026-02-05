@@ -2831,10 +2831,10 @@ ehcleanup:                                        ; preds = %if.then.i.i.i47, %l
   br label %ehcleanup68
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit
-  %i.099 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit ]
+  %i.093 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %coupon)
   %22 = load ptr, ptr %5, align 8, !tbaa !107
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %22, i64 %i.099
+  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %22, i64 %i.093
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %23 = load ptr, ptr %add.ptr.i, align 8, !tbaa !132, !noalias !129
   %24 = icmp eq ptr %23, null
@@ -2874,13 +2874,13 @@ invoke.cont33:                                    ; preds = %cond.true.i, %if.th
 
 invoke.cont47:                                    ; preds = %invoke.cont33
   %31 = load ptr, ptr %fixedPayDates, align 8, !tbaa !97
-  %add.ptr.i63 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %31, i64 %i.099
+  %add.ptr.i63 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %31, i64 %i.093
   store i64 %call36, ptr %add.ptr.i63, align 8, !tbaa !36
-  %accrualStartDate_.i95 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %accrualStartDate_.i89 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %32 = load ptr, ptr %fixedResetDates, align 8, !tbaa !97
-  %add.ptr.i6996 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %32, i64 %i.099
-  %33 = load i64, ptr %accrualStartDate_.i95, align 8, !tbaa !36
-  store i64 %33, ptr %add.ptr.i6996, align 8, !tbaa !36
+  %add.ptr.i6990 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %32, i64 %i.093
+  %33 = load i64, ptr %accrualStartDate_.i89, align 8, !tbaa !36
+  store i64 %33, ptr %add.ptr.i6990, align 8, !tbaa !36
   %vtable49.pre = load ptr, ptr %28, align 8, !tbaa !32
   %vfn50.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable49.pre, i64 48
   %.pre = load ptr, ptr %vfn50.phi.trans.insert, align 8
@@ -2889,17 +2889,17 @@ invoke.cont47:                                    ; preds = %invoke.cont33
 
 invoke.cont55:                                    ; preds = %invoke.cont47
   %34 = load ptr, ptr %fixedCoupons20, align 8, !tbaa !92
-  %add.ptr.i75 = getelementptr inbounds nuw double, ptr %34, i64 %i.099
+  %add.ptr.i75 = getelementptr inbounds nuw double, ptr %34, i64 %i.093
   store double %call52, ptr %add.ptr.i75, align 8, !tbaa !115
   %vtable57.pre = load ptr, ptr %28, align 8, !tbaa !32
   %vfn58.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable57.pre, i64 64
-  %.pre104 = load ptr, ptr %vfn58.phi.trans.insert, align 8
-  %call60 = invoke noundef double %.pre104(ptr noundef nonnull align 8 dereferenceable(88) %28)
+  %.pre98 = load ptr, ptr %vfn58.phi.trans.insert, align 8
+  %call60 = invoke noundef double %.pre98(ptr noundef nonnull align 8 dereferenceable(88) %28)
           to label %invoke.cont59 unwind label %lpad40
 
 invoke.cont59:                                    ; preds = %invoke.cont55
   %35 = load ptr, ptr %fixedNominals, align 8, !tbaa !92
-  %add.ptr.i81 = getelementptr inbounds nuw double, ptr %35, i64 %i.099
+  %add.ptr.i81 = getelementptr inbounds nuw double, ptr %35, i64 %i.093
   store double %call60, ptr %add.ptr.i81, align 8, !tbaa !115
   %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit, label %if.then.i.i82
@@ -2939,7 +2939,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit: ; preds = %invoke.cont59, %if.then.i.i82, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %coupon)
-  %inc = add nuw i64 %i.099, 1
+  %inc = add nuw i64 %i.093, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !136
 

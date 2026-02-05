@@ -19600,8 +19600,8 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
   %61 = zext i32 %60 to i64
   %.idx = shl nuw nsw i64 %61, 5
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
-  %.not120 = icmp eq i32 %60, 0
-  br i1 %.not120, label %.critedge, label %.lr.ph
+  %.not117 = icmp eq i32 %60, 0
+  br i1 %.not117, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -19623,9 +19623,9 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %72
 
-72:                                               ; preds = %.lr.ph, %.thread112
-  %.063121 = phi ptr [ %59, %.lr.ph ], [ %177, %.thread112 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.063121, i64 16
+72:                                               ; preds = %.lr.ph, %.thread111
+  %.063118 = phi ptr [ %59, %.lr.ph ], [ %177, %.thread111 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.063118, i64 16
   %74 = load i32, ptr %73, align 8, !tbaa !995
   %75 = zext i32 %74 to i64
   %76 = load ptr, ptr %63, align 8, !tbaa !261
@@ -19639,7 +19639,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
   br i1 %.not71, label %.critedge, label %83
 
 83:                                               ; preds = %72
-  %84 = getelementptr inbounds nuw i8, ptr %.063121, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %.063118, i64 20
   %85 = load i8, ptr %84, align 4
   %86 = lshr i8 %85, 1
   %87 = and i8 %86, 63
@@ -19651,14 +19651,14 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
   ]
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw i8, ptr %.063121, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.063118, i64 24
   %.sroa.0.0.copyload.i = load i16, ptr %89, align 8, !tbaa !267
   %90 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntExtEN4llvm3MVTEjS2_b(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 %81, i32 noundef %82, i16 %.sroa.0.0.copyload.i, i1 noundef zeroext false)
   %.not73.not = icmp eq i32 %90, 0
   br i1 %.not73.not, label %.critedge, label %95
 
 91:                                               ; preds = %83, %83
-  %92 = getelementptr inbounds nuw i8, ptr %.063121, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.063118, i64 24
   %.sroa.0.0.copyload.i76 = load i16, ptr %92, align 8, !tbaa !267
   %93 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntExtEN4llvm3MVTEjS2_b(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 %81, i32 noundef %82, i16 %.sroa.0.0.copyload.i76, i1 noundef zeroext true)
   %.not72.not = icmp eq i32 %93, 0
@@ -19669,7 +19669,7 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
 
 95:                                               ; preds = %88, %91, %83
   %.sroa.091.0 = phi i32 [ %82, %83 ], [ %90, %88 ], [ %93, %91 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.063121, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.063118, i64 8
   %97 = load i8, ptr %96, align 8, !tbaa !992
   br label %98
 
@@ -19720,7 +19720,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %110
   %.sroa.017.0.copyload = load ptr, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 680
   %119 = load ptr, ptr %118, align 8, !tbaa !263
-  %.sroa.0.0.copyload.i77 = load i32, ptr %.063121, align 4, !tbaa !278
+  %.sroa.0.0.copyload.i77 = load i32, ptr %.063118, align 4, !tbaa !278
   %120 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %119, ptr %.sroa.017.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 %.sroa.0.0.copyload.i77)
   %121 = extractvalue { ptr, ptr } %120, 0
   %122 = extractvalue { ptr, ptr } %120, 1
@@ -19740,7 +19740,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %110
   unreachable
 
 _ZNK4llvm11CCValAssign9getLocRegEv.exit80:        ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit
-  %.sroa.0.0.copyload.i79 = load i32, ptr %.063121, align 4, !tbaa !278
+  %.sroa.0.0.copyload.i79 = load i32, ptr %.063118, align 4, !tbaa !278
   %125 = load i32, ptr %68, align 8, !tbaa !360
   %126 = load i32, ptr %69, align 4, !tbaa !783
   %.not.i.i.not.i = icmp ult i32 %125, %126
@@ -19762,7 +19762,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %134 = load i32, ptr %68, align 8, !tbaa !360
   %135 = add i32 %134, 1
   store i32 %135, ptr %68, align 8, !tbaa !360
-  br label %.thread112
+  br label %.thread111
 
 136:                                              ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit
   br i1 %108, label %.critedge, label %137
@@ -19771,7 +19771,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %138 = load i8, ptr %78, align 8, !tbaa !226
   %139 = and i8 %138, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %139, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.thread112, label %140
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.thread111, label %140
 
 140:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -19814,7 +19814,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   unreachable
 
 _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %157
-  %160 = load i64, ptr %.063121, align 8, !tbaa !361
+  %160 = load i64, ptr %.063118, align 8, !tbaa !361
   %161 = add nsw i64 %160, %.069
   %162 = load ptr, ptr %71, align 8, !tbaa !232
   %163 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -19846,15 +19846,15 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %157
   store i64 %161, ptr %.sroa.1086.0..sroa_idx, align 8, !tbaa !361
   store ptr null, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !974
   %176 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel9emitStoreEN4llvm3MVTEjNS0_7AddressEPNS1_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 %81, i32 noundef %.sroa.091.0, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %14, ptr noundef %175)
-  br i1 %176, label %.thread112, label %.critedge
+  br i1 %176, label %.thread111, label %.critedge
 
-.thread112:                                       ; preds = %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %137, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit
-  %177 = getelementptr inbounds nuw i8, ptr %.063121, i64 32
+.thread111:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %137
+  %177 = getelementptr inbounds nuw i8, ptr %.063118, i64 32
   %.not = icmp eq ptr %177, %62
   br i1 %.not, label %.critedge, label %72
 
-.critedge:                                        ; preds = %109, %.thread112, %72, %136, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %88, %91, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
-  %.not.lcssa = phi i1 [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit ], [ false, %109 ], [ false, %91 ], [ false, %88 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %136 ], [ false, %72 ], [ true, %.thread112 ]
+.critedge:                                        ; preds = %109, %.thread111, %72, %136, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %88, %91, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit
+  %.not.lcssa = phi i1 [ true, %_ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit ], [ false, %109 ], [ false, %91 ], [ false, %88 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %136 ], [ false, %72 ], [ true, %.thread111 ]
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %179 = load ptr, ptr %178, align 8, !tbaa !261
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 384

@@ -289,9 +289,9 @@ define weak_odr dso_local void @_ZN3igl6bezierIN5Eigen6MatrixIdLin1ELin1ELi0ELin
   %6 = load i64, ptr %5, align 8, !tbaa !23
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, -1
-  %.not106 = icmp slt i32 %8, 1
-  %.pre117 = load ptr, ptr %4, align 8, !tbaa !22, !noalias !58
-  br i1 %.not106, label %._crit_edge, label %.preheader.lr.ph
+  %.not104 = icmp slt i32 %8, 1
+  %.pre115 = load ptr, ptr %4, align 8, !tbaa !22, !noalias !58
+  br i1 %.not104, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
   %9 = fsub double 1.000000e+00, %1
@@ -306,34 +306,34 @@ define weak_odr dso_local void @_ZN3igl6bezierIN5Eigen6MatrixIdLin1ELin1ELi0ELin
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %15 = sdiv i64 9223372036854775807, %11
   %16 = icmp slt i64 %15, 1
-  br i1 %16, label %.split105.us.invoke, label %.preheader.lr.ph.split.split
+  br i1 %16, label %.split103.us.invoke, label %.preheader.lr.ph.split.split
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph.split
   br i1 %12, label %.preheader.lr.ph.split.split.split.us, label %._crit_edge.thread
 
 .preheader.lr.ph.split.split.split.us:            ; preds = %.preheader.lr.ph.split.split
-  br i1 %13, label %.split105.us.invoke, label %.preheader.us108.preheader
+  br i1 %13, label %.split103.us.invoke, label %.preheader.us106.preheader
 
-.preheader.us108.preheader:                       ; preds = %.preheader.lr.ph.split.split.split.us
+.preheader.us106.preheader:                       ; preds = %.preheader.lr.ph.split.split.split.us
   %17 = add i32 %7, -2
-  br label %.preheader.us108
+  br label %.preheader.us106
 
-.preheader.us108:                                 ; preds = %.preheader.us108.preheader, %.split.split.us.us
-  %indvars.iv114 = phi i32 [ %17, %.preheader.us108.preheader ], [ %indvars.iv.next115, %.split.split.us.us ]
-  %.017107.us109 = phi i32 [ 1, %.preheader.us108.preheader ], [ %38, %.split.split.us.us ]
-  %smax = call i32 @llvm.smax.i32(i32 %indvars.iv114, i32 0)
+.preheader.us106:                                 ; preds = %.preheader.us106.preheader, %.split.split.us.us
+  %indvars.iv112 = phi i32 [ %17, %.preheader.us106.preheader ], [ %indvars.iv.next113, %.split.split.us.us ]
+  %.017105.us107 = phi i32 [ 1, %.preheader.us106.preheader ], [ %38, %.split.split.us.us ]
+  %smax = call i32 @llvm.smax.i32(i32 %indvars.iv112, i32 0)
   %18 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %18 to i64
   br label %thread-pre-split.i.i.i.i.i.i.i.us.us
 
-thread-pre-split.i.i.i.i.i.i.i.us.us:             ; preds = %.preheader.us108, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us
-  %indvars.iv = phi i64 [ 0, %.preheader.us108 ], [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre117, i64 %indvars.iv
+thread-pre-split.i.i.i.i.i.i.i.us.us:             ; preds = %.preheader.us106, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us
+  %indvars.iv = phi i64 [ 0, %.preheader.us106 ], [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us ]
+  %19 = getelementptr inbounds nuw double, ptr %.pre115, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw double, ptr %.pre117, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw double, ptr %.pre115, i64 %indvars.iv.next
   %21 = call noalias ptr @malloc(i64 noundef %14) #14
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.split105.us.invoke, label %.lr.ph.i.i.i.i.i.i.i.i.us.us
+  br i1 %22, label %.split103.us.invoke, label %.lr.ph.i.i.i.i.i.i.i.i.us.us
 
 .lr.ph.i.i.i.i.i.i.i.i.us.us:                     ; preds = %thread-pre-split.i.i.i.i.i.i.i.us.us, %.lr.ph.i.i.i.i.i.i.i.i.us.us
   %.05.i.i.i.i.i.i.i.i.us.us = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i.us.us ], [ 0, %thread-pre-split.i.i.i.i.i.i.i.us.us ]
@@ -368,38 +368,38 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   br i1 %exitcond.not, label %.split.split.us.us, label %thread-pre-split.i.i.i.i.i.i.i.us.us, !llvm.loop !65
 
 .split.split.us.us:                               ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us
-  %38 = add nuw i32 %.017107.us109, 1
-  %indvars.iv.next115 = add i32 %indvars.iv114, -1
-  %exitcond116.not = icmp eq i32 %38, %7
-  br i1 %exitcond116.not, label %._crit_edge.loopexit111, label %.preheader.us108, !llvm.loop !66
+  %38 = add nuw i32 %.017105.us107, 1
+  %indvars.iv.next113 = add i32 %indvars.iv112, -1
+  %exitcond114.not = icmp eq i32 %38, %7
+  br i1 %exitcond114.not, label %._crit_edge.loopexit109, label %.preheader.us106, !llvm.loop !66
 
-.split105.us.invoke:                              ; preds = %thread-pre-split.i.i.i.i.i.i.i.us.us, %.preheader.lr.ph.split.split.split.us, %.preheader.lr.ph.split
+.split103.us.invoke:                              ; preds = %thread-pre-split.i.i.i.i.i.i.i.us.us, %.preheader.lr.ph.split.split.split.us, %.preheader.lr.ph.split
   %39 = call ptr @__cxa_allocate_exception(i64 8) #12
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %39, align 8, !tbaa !17
   invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
-          to label %.split105.us.cont unwind label %40
+          to label %.split103.us.cont unwind label %40
 
-.split105.us.cont:                                ; preds = %.split105.us.invoke
+.split103.us.cont:                                ; preds = %.split103.us.invoke
   unreachable
 
-40:                                               ; preds = %.split105.us.invoke
+40:                                               ; preds = %.split103.us.invoke
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-._crit_edge.loopexit111:                          ; preds = %.split.split.us.us
+._crit_edge.loopexit109:                          ; preds = %.split.split.us.us
   %.pre = load ptr, ptr %4, align 8, !tbaa !22, !noalias !58
   br label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.pre118 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15, !noalias !58
-  %42 = icmp eq i64 %.pre118, 0
+  %.pre116 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15, !noalias !58
+  %42 = icmp eq i64 %.pre116, 0
   br i1 %42, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE16_resize_to_matchINS_5BlockINS1_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRKNS_9EigenBaseIT_EE.exit.i, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader.lr.ph.split.split, %._crit_edge.loopexit111, %._crit_edge
-  %43 = phi ptr [ %.pre117, %._crit_edge ], [ %.pre117, %.preheader.lr.ph.split.split ], [ %.pre, %._crit_edge.loopexit111 ]
-  %44 = phi i64 [ %.pre118, %._crit_edge ], [ %11, %.preheader.lr.ph.split.split ], [ %11, %._crit_edge.loopexit111 ]
+._crit_edge.thread:                               ; preds = %.preheader.lr.ph.split.split, %._crit_edge.loopexit109, %._crit_edge
+  %43 = phi ptr [ %.pre115, %._crit_edge ], [ %.pre115, %.preheader.lr.ph.split.split ], [ %.pre, %._crit_edge.loopexit109 ]
+  %44 = phi i64 [ %.pre116, %._crit_edge ], [ %11, %.preheader.lr.ph.split.split ], [ %11, %._crit_edge.loopexit109 ]
   %45 = sdiv i64 9223372036854775807, %44
   %46 = icmp slt i64 %45, 1
   br i1 %46, label %47, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE16_resize_to_matchINS_5BlockINS1_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRKNS_9EigenBaseIT_EE.exit.i
@@ -414,7 +414,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE16_resize_to_matchINS_5BlockINS1_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRKNS_9EigenBaseIT_EE.exit.i: ; preds = %.preheader.lr.ph, %._crit_edge.thread, %._crit_edge
-  %49 = phi ptr [ %43, %._crit_edge.thread ], [ %.pre117, %._crit_edge ], [ %.pre117, %.preheader.lr.ph ]
+  %49 = phi ptr [ %43, %._crit_edge.thread ], [ %.pre115, %._crit_edge ], [ %.pre115, %.preheader.lr.ph ]
   %50 = phi i64 [ %44, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   invoke void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 1, i64 noundef %50)
           to label %.noexc29 unwind label %64

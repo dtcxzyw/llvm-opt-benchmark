@@ -22547,9 +22547,9 @@ _ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_
   br i1 %267, label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit.thread, label %.lr.ph, !llvm.loop !1623
 
 _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit: ; preds = %231, %237, %240, %218, %224, %227
-  %.sroa.11.2 = phi ptr [ %233, %240 ], [ %220, %227 ], [ null, %218 ], [ %220, %224 ], [ null, %231 ], [ %233, %237 ]
-  %.sroa.0107.2 = phi ptr [ %232, %240 ], [ %219, %227 ], [ %219, %218 ], [ %219, %224 ], [ %232, %231 ], [ %232, %237 ]
-  %.not142 = icmp eq ptr %.sroa.0107.2, null
+  %.sroa.11.0 = phi ptr [ %233, %240 ], [ %220, %227 ], [ null, %218 ], [ %220, %224 ], [ null, %231 ], [ %233, %237 ]
+  %.sroa.0107.0 = phi ptr [ %232, %240 ], [ %219, %227 ], [ %219, %218 ], [ %219, %224 ], [ %232, %231 ], [ %232, %237 ]
+  %.not142 = icmp eq ptr %.sroa.0107.0, null
   br i1 %.not142, label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit.thread, label %268
 
 268:                                              ; preds = %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit
@@ -22561,8 +22561,8 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit: ; preds
 
 _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit.thread: ; preds = %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit, %208, %268, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit
   %273 = phi i1 [ false, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit ], [ true, %268 ], [ false, %208 ], [ false, %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit ]
-  %.sroa.0107.2135 = phi ptr [ null, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit ], [ %.sroa.0107.2, %268 ], [ null, %208 ], [ null, %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit ]
-  %.sroa.11.2134 = phi ptr [ %.sroa.11.2, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit ], [ %.sroa.11.2, %268 ], [ null, %208 ], [ null, %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit ]
+  %.sroa.0107.0135 = phi ptr [ null, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit ], [ %.sroa.0107.0, %268 ], [ null, %208 ], [ null, %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit ]
+  %.sroa.11.0134 = phi ptr [ %.sroa.11.0, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit ], [ %.sroa.11.0, %268 ], [ null, %208 ], [ null, %_ZNSt6vectorISt4pairISt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEENS2_14SourceLocationEESaIS7_EE8pop_backEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %274 = load ptr, ptr %117, align 8, !tbaa !914
@@ -22591,7 +22591,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit.thread: 
   br i1 %273, label %285, label %299
 
 285:                                              ; preds = %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit.thread
-  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0107.2135, i64 192
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0135, i64 192
   %287 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25
   %.not.i.i.i.i54 = icmp eq i8 %287, 0
   br i1 %.not.i.i.i.i54, label %291, label %288
@@ -22613,7 +22613,7 @@ _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policy
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 24
   store ptr %278, ptr %295, align 8, !tbaa !920
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 8 dereferenceable(24) %286) #29
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.0107.2135, i64 208
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0135, i64 208
   %297 = load i64, ptr %296, align 8, !tbaa !921
   %298 = add i64 %297, 1
   store i64 %298, ptr %296, align 8, !tbaa !921
@@ -22714,7 +22714,7 @@ _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policy
   br label %336
 
 336:                                              ; preds = %_ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit65, %_ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.not.i.i.i66 = icmp eq ptr %278, %.sroa.11.2134
+  %.not.i.i.i66 = icmp eq ptr %278, %.sroa.11.0134
   br i1 %.not.i.i.i66, label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76, label %337
 
 337:                                              ; preds = %336
@@ -22733,11 +22733,11 @@ _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policy
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i69
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i69: ; preds = %342, %339
-  %.not8.i.i.i70 = icmp eq ptr %.sroa.11.2134, null
+  %.not8.i.i.i70 = icmp eq ptr %.sroa.11.0134, null
   br i1 %.not8.i.i.i70, label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread, label %344
 
 344:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i69
-  %345 = getelementptr inbounds nuw i8, ptr %.sroa.11.2134, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %.sroa.11.0134, i64 8
   %346 = load atomic i64, ptr %345 acquire, align 8
   %347 = icmp eq i64 %346, 4294967297
   %348 = trunc i64 %346 to i32
@@ -22745,16 +22745,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 349:                                              ; preds = %344
   store i32 0, ptr %345, align 8, !tbaa !922
-  %350 = getelementptr inbounds nuw i8, ptr %.sroa.11.2134, i64 12
+  %350 = getelementptr inbounds nuw i8, ptr %.sroa.11.0134, i64 12
   store i32 0, ptr %350, align 4, !tbaa !924
-  %351 = load ptr, ptr %.sroa.11.2134, align 8, !tbaa !3
+  %351 = load ptr, ptr %.sroa.11.0134, align 8, !tbaa !3
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
   %353 = load ptr, ptr %352, align 8
-  call void %353(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.2134) #29
-  %354 = load ptr, ptr %.sroa.11.2134, align 8, !tbaa !3
+  call void %353(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0134) #29
+  %354 = load ptr, ptr %.sroa.11.0134, align 8, !tbaa !3
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 24
   %356 = load ptr, ptr %355, align 8
-  call void %356(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.2134) #29
+  call void %356(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0134) #29
   br label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread
 
 357:                                              ; preds = %344
@@ -22777,7 +22777,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72: ; preds = %361, %
   br i1 %363, label %364, label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread, !prof !218
 
 364:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.2134) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0134) #29
   br label %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread
 
 _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread: ; preds = %364, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i72, %349, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i69
@@ -22790,10 +22790,10 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76: ; pre
   br label %365
 
 365:                                              ; preds = %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread
-  %.sroa.11.6138 = phi ptr [ %278, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread ], [ %.sroa.11.2134, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76 ]
+  %.sroa.11.4138 = phi ptr [ %278, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76.thread ], [ %.sroa.11.0134, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticMacroPieceEEaSERKS3_.exit76 ]
   store ptr %281, ptr %9, align 8, !tbaa !1620, !alias.scope !1633
-  store ptr %.sroa.11.6138, ptr %15, align 8, !tbaa !920, !alias.scope !1633
-  %366 = getelementptr inbounds nuw i8, ptr %.sroa.11.6138, i64 8
+  store ptr %.sroa.11.4138, ptr %15, align 8, !tbaa !920, !alias.scope !1633
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.11.4138, i64 8
   %367 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !25, !noalias !1630
   %.not.i.i.i.i.i.i78 = icmp eq i8 %367, 0
   br i1 %.not.i.i.i.i.i.i78, label %371, label %368
@@ -22927,9 +22927,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86: ; preds = %419, %41
   br label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticMacroPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticMacroPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %422, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86, %408, %268
-  %.sroa.11.3 = phi ptr [ %.sroa.11.2, %268 ], [ %.sroa.11.6138, %408 ], [ %.sroa.11.6138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86 ], [ %.sroa.11.6138, %422 ]
-  %.sroa.0107.3 = phi ptr [ %.sroa.0107.2, %268 ], [ %281, %408 ], [ %281, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86 ], [ %281, %422 ]
-  %423 = getelementptr inbounds nuw i8, ptr %.sroa.0107.3, i64 192
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0, %268 ], [ %.sroa.11.4138, %408 ], [ %.sroa.11.4138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86 ], [ %.sroa.11.4138, %422 ]
+  %.sroa.0107.1 = phi ptr [ %.sroa.0107.0, %268 ], [ %281, %408 ], [ %281, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i86 ], [ %281, %422 ]
+  %423 = getelementptr inbounds nuw i8, ptr %.sroa.0107.1, i64 192
   %424 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   %426 = load ptr, ptr %117, align 8, !tbaa !914
@@ -22959,15 +22959,15 @@ _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticMacroPieceELN9__gnu_cxx12_Lock_p
 
 _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9push_backERKS5_.exit90: ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticMacroPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %433, %436
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %424, ptr noundef nonnull align 8 dereferenceable(24) %423) #29
-  %438 = getelementptr inbounds nuw i8, ptr %.sroa.0107.3, i64 208
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.0107.1, i64 208
   %439 = load i64, ptr %438, align 8, !tbaa !921
   %440 = add i64 %439, 1
   store i64 %440, ptr %438, align 8, !tbaa !921
-  %.not.i.i91 = icmp eq ptr %.sroa.11.3, null
+  %.not.i.i91 = icmp eq ptr %.sroa.11.1, null
   br i1 %.not.i.i91, label %_ZNSt6vectorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS4_EE9push_backERKS4_.exit, label %441
 
 441:                                              ; preds = %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9push_backERKS5_.exit90
-  %442 = getelementptr inbounds nuw i8, ptr %.sroa.11.3, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %.sroa.11.1, i64 8
   %443 = load atomic i64, ptr %442 acquire, align 8
   %444 = icmp eq i64 %443, 4294967297
   %445 = trunc i64 %443 to i32
@@ -22975,16 +22975,16 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pu
 
 446:                                              ; preds = %441
   store i32 0, ptr %442, align 8, !tbaa !922
-  %447 = getelementptr inbounds nuw i8, ptr %.sroa.11.3, i64 12
+  %447 = getelementptr inbounds nuw i8, ptr %.sroa.11.1, i64 12
   store i32 0, ptr %447, align 4, !tbaa !924
-  %448 = load ptr, ptr %.sroa.11.3, align 8, !tbaa !3
+  %448 = load ptr, ptr %.sroa.11.1, align 8, !tbaa !3
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 16
   %450 = load ptr, ptr %449, align 8
-  call void %450(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.3) #29
-  %451 = load ptr, ptr %.sroa.11.3, align 8, !tbaa !3
+  call void %450(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.1) #29
+  %451 = load ptr, ptr %.sroa.11.1, align 8, !tbaa !3
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %453 = load ptr, ptr %452, align 8
-  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.3) #29
+  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.1) #29
   br label %_ZNSt6vectorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS4_EE9push_backERKS4_.exit
 
 454:                                              ; preds = %441
@@ -23007,7 +23007,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93: ; preds = %458, %45
   br i1 %460, label %461, label %_ZNSt6vectorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS4_EE9push_backERKS4_.exit, !prof !218
 
 461:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.3) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.1) #29
   br label %_ZNSt6vectorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS4_EE9push_backERKS4_.exit: ; preds = %461, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93, %446, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9push_backERKS5_.exit90, %174, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9push_backERKS5_.exit

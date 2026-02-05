@@ -2486,23 +2486,23 @@ _ZN4llvm8DebugLocC2ERKS0_.exit69:                 ; preds = %_ZN4llvm8DebugLocC2
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, 0
-  %or.cond31.not88 = select i1 %or.cond.not, i1 true, i1 %33
+  %or.cond31.not84 = select i1 %or.cond.not, i1 true, i1 %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, 0
-  %or.cond34.not86 = select i1 %or.cond31.not88, i1 true, i1 %36
+  %or.cond34.not82 = select i1 %or.cond31.not84, i1 true, i1 %36
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %38 = load i32, ptr %37, align 4
   %39 = icmp ne i32 %38, 0
-  %or.cond37.not84 = select i1 %or.cond34.not86, i1 true, i1 %39
+  %or.cond37.not80 = select i1 %or.cond34.not82, i1 true, i1 %39
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = icmp ne i32 %41, 0
-  %or.cond40.not82 = select i1 %or.cond37.not84, i1 true, i1 %42
+  %or.cond40.not78 = select i1 %or.cond37.not80, i1 true, i1 %42
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %44 = load i8, ptr %43, align 4, !range !31
   %45 = trunc nuw i8 %44 to i1
-  %or.cond43 = select i1 %or.cond40.not82, i1 true, i1 %45
+  %or.cond43 = select i1 %or.cond40.not78, i1 true, i1 %45
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %47 = load i32, ptr %46, align 4
   %48 = icmp ne i32 %47, 0
@@ -2510,31 +2510,31 @@ _ZN4llvm8DebugLocC2ERKS0_.exit69:                 ; preds = %_ZN4llvm8DebugLocC2
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %50 = load i32, ptr %49, align 4
   %51 = icmp ne i32 %50, 0
-  %or.cond49.not97 = select i1 %or.cond46.not, i1 true, i1 %51
+  %or.cond49.not93 = select i1 %or.cond46.not, i1 true, i1 %51
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp ne i32 %53, 0
-  %or.cond52.not95 = select i1 %or.cond49.not97, i1 true, i1 %54
+  %or.cond52.not91 = select i1 %or.cond49.not93, i1 true, i1 %54
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = icmp ne i32 %56, 0
-  %or.cond55.not93 = select i1 %or.cond52.not95, i1 true, i1 %57
+  %or.cond55.not89 = select i1 %or.cond52.not91, i1 true, i1 %57
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp ne i32 %59, 0
-  %or.cond58.not91 = select i1 %or.cond55.not93, i1 true, i1 %60
+  %or.cond58.not87 = select i1 %or.cond55.not89, i1 true, i1 %60
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %62 = load i32, ptr %61, align 4
   %63 = icmp ne i32 %62, 0
-  %or.cond61.not = select i1 %or.cond58.not91, i1 true, i1 %63
+  %or.cond61.not = select i1 %or.cond58.not87, i1 true, i1 %63
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %65 = load i32, ptr %64, align 4
   %66 = icmp ne i32 %65, 0
   %or.cond64 = select i1 %or.cond61.not, i1 true, i1 %66
   %67 = load ptr, ptr %3, align 8
   %68 = icmp ne ptr %67, null
-  %or.cond80 = select i1 %or.cond64, i1 true, i1 %68
-  br i1 %or.cond80, label %75, label %69
+  %or.cond76 = select i1 %or.cond64, i1 true, i1 %68
+  br i1 %or.cond76, label %75, label %69
 
 69:                                               ; preds = %26
   %70 = load ptr, ptr %4, align 8, !tbaa !48
@@ -2574,11 +2574,11 @@ define dso_local void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr noundef nonnull r
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = load ptr, ptr %0, align 8, !tbaa !65
-  %.not24 = icmp eq ptr %9, null
-  %.sink28.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink28.sroa.gep29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink28.sroa.gep30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %.not24, label %115, label %10
+  %.not22 = icmp eq ptr %9, null
+  %.sink26.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink26.sroa.gep27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink26.sroa.gep28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %.not22, label %115, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2654,8 +2654,8 @@ define dso_local void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr noundef nonnull r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %45, %47
-  %.sink28.sroa.phi = phi ptr [ %.sink28.sroa.gep, %47 ], [ %.sink28.sroa.gep29, %45 ], [ %.sink28.sroa.gep30, %23 ]
-  store i32 %44, ptr %.sink28.sroa.phi, align 4, !tbaa !37
+  %.sink26.sroa.phi = phi ptr [ %.sink26.sroa.gep, %47 ], [ %.sink26.sroa.gep27, %45 ], [ %.sink26.sroa.gep28, %23 ]
+  store i32 %44, ptr %.sink26.sroa.phi, align 4, !tbaa !37
   br label %48
 
 48:                                               ; preds = %.sink.split, %23

@@ -2124,15 +2124,15 @@ st_mult.exit:                                     ; preds = %32
   br i1 %.not316, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader276, %.lr.ph
-  %.0163286 = phi i64 [ %39, %.lr.ph ], [ 0, %.preheader276 ]
-  %38 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.0163286
+  %.0165286 = phi i64 [ %39, %.lr.ph ], [ 0, %.preheader276 ]
+  %38 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.0165286
   store ptr null, ptr %38, align 8, !tbaa !43
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 -1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx, i8 0, i64 12, i1 false)
-  %39 = add nuw i64 %.0163286, 1
-  %exitcond.not = icmp eq i64 %.0163286, %33
+  %39 = add nuw i64 %.0165286, 1
+  %exitcond.not = icmp eq i64 %.0165286, %33
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader276
@@ -2143,14 +2143,14 @@ st_mult.exit:                                     ; preds = %32
   br label %44
 
 44:                                               ; preds = %73, %._crit_edge
-  %.1164 = phi i64 [ %40, %._crit_edge ], [ %48, %73 ]
-  %.1162 = phi i64 [ 0, %._crit_edge ], [ %74, %73 ]
-  %45 = icmp ugt i64 %.1164, %1
+  %.1166 = phi i64 [ %40, %._crit_edge ], [ %48, %73 ]
+  %.1164 = phi i64 [ 0, %._crit_edge ], [ %74, %73 ]
+  %45 = icmp ugt i64 %.1166, %1
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %41, align 8, !tbaa !38
-  %48 = add i64 %.1164, -1
+  %48 = add i64 %.1166, -1
   %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !39
   %51 = call ptr @reader_name(ptr noundef %50) #16
@@ -2171,7 +2171,7 @@ stack_filename.exit:                              ; preds = %55
   br i1 %59, label %stack_filename.exit.thread, label %60
 
 60:                                               ; preds = %stack_filename.exit
-  %61 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.1162
+  %61 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.1164
   %62 = load ptr, ptr %43, align 8, !tbaa !50
   %63 = call i32 @flock_acquire(ptr noundef %61, ptr noundef %62, i64 noundef 0) #16
   %64 = icmp slt i32 %63, 0
@@ -2193,13 +2193,13 @@ stack_filename.exit:                              ; preds = %55
   br label %stack_filename.exit.thread
 
 73:                                               ; preds = %60
-  %74 = add i64 %.1162, 1
+  %74 = add i64 %.1164, 1
   %75 = call i32 @flock_close(ptr noundef %61) #16
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %stack_filename.exit.thread, label %44, !llvm.loop !116
 
 .loopexit:                                        ; preds = %44, %65
-  %.0149 = phi i64 [ %.1164, %65 ], [ %1, %44 ]
+  %.0149 = phi i64 [ %.1166, %65 ], [ %1, %44 ]
   %77 = call i32 @flock_release(ptr noundef nonnull %10) #16
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %stack_filename.exit.thread, label %79
@@ -2374,8 +2374,8 @@ stack_filename.exit:                              ; preds = %55
 
 .thread255:                                       ; preds = %159, %.preheader268, %.thread250
   %171 = phi ptr [ %110, %.thread250 ], [ %155, %.preheader268 ], [ %155, %159 ]
-  %.1172 = phi i64 [ %.0153299, %.thread250 ], [ %.0149, %.preheader268 ], [ %.0149, %159 ]
-  %.1170 = phi i64 [ %148, %.thread250 ], [ %2, %.preheader268 ], [ %2, %159 ]
+  %.1172 = phi i64 [ %148, %.thread250 ], [ %2, %.preheader268 ], [ %2, %159 ]
+  %.1162 = phi i64 [ %.0153299, %.thread250 ], [ %.0149, %.preheader268 ], [ %.0149, %159 ]
   br i1 %81, label %172, label %197
 
 172:                                              ; preds = %.thread255
@@ -2412,17 +2412,17 @@ stack_filename.exit:                              ; preds = %55
   br i1 %196, label %stack_filename.exit.thread, label %197
 
 197:                                              ; preds = %192, %.thread255
-  %.not318 = icmp eq i64 %.1172, 0
+  %.not318 = icmp eq i64 %.1162, 0
   br i1 %.not318, label %._crit_edge309, label %.lr.ph308
 
 198:                                              ; preds = %204
-  %199 = add nuw i64 %.2165306, 1
-  %exitcond340.not = icmp eq i64 %199, %.1172
+  %199 = add nuw i64 %.2167306, 1
+  %exitcond340.not = icmp eq i64 %199, %.1162
   br i1 %exitcond340.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !123
 
 .lr.ph308:                                        ; preds = %197, %198
-  %.2165306 = phi i64 [ %199, %198 ], [ 0, %197 ]
-  %200 = getelementptr inbounds nuw ptr, ptr %171, i64 %.2165306
+  %.2167306 = phi i64 [ %199, %198 ], [ 0, %197 ]
+  %200 = getelementptr inbounds nuw ptr, ptr %171, i64 %.2167306
   %201 = load ptr, ptr %200, align 8, !tbaa !43
   %202 = call i32 @reftable_buf_addstr(ptr noundef nonnull %6, ptr noundef %201) #16
   %203 = icmp slt i32 %202, 0
@@ -2452,9 +2452,9 @@ stack_filename.exit:                              ; preds = %55
   br label %215
 
 215:                                              ; preds = %.preheader, %221
-  %.3166.in = phi i64 [ %.3166, %221 ], [ %.1170, %.preheader ]
-  %.3166 = add i64 %.3166.in, 1
-  %216 = getelementptr inbounds nuw ptr, ptr %171, i64 %.3166
+  %.3168.in = phi i64 [ %.3168, %221 ], [ %.1172, %.preheader ]
+  %.3168 = add i64 %.3168.in, 1
+  %216 = getelementptr inbounds nuw ptr, ptr %171, i64 %.3168
   %217 = load ptr, ptr %216, align 8, !tbaa !43
   %.not215 = icmp eq ptr %217, null
   br i1 %.not215, label %224, label %218
@@ -2529,13 +2529,13 @@ stack_fsync.exit:                                 ; preds = %240, %242
   %258 = zext i1 %257 to i32
   %259 = call fastcc i32 @reftable_stack_reload_maybe_reuse(ptr noundef nonnull %0, i32 noundef %258)
   %260 = icmp sgt i32 %259, -1
-  %261 = icmp ne i64 %.1162, 0
+  %261 = icmp ne i64 %.1164, 0
   %or.cond315 = select i1 %260, i1 %261, i1 false
   br i1 %or.cond315, label %.lr.ph311, label %stack_filename.exit.thread
 
 .lr.ph311:                                        ; preds = %256, %270
-  %.4167310 = phi i64 [ %271, %270 ], [ 0, %256 ]
-  %262 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.4167310
+  %.4169310 = phi i64 [ %271, %270 ], [ 0, %256 ]
+  %262 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.4169310
   call void @reftable_buf_reset(ptr noundef nonnull %9) #16
   %263 = load ptr, ptr %262, align 8, !tbaa !117
   %264 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %263) #18
@@ -2550,27 +2550,27 @@ stack_fsync.exit:                                 ; preds = %240, %242
   br label %270
 
 270:                                              ; preds = %.lr.ph311, %267
-  %271 = add nuw i64 %.4167310, 1
-  %exitcond341.not = icmp eq i64 %271, %.1162
+  %271 = add nuw i64 %.4169310, 1
+  %exitcond341.not = icmp eq i64 %271, %.1164
   br i1 %exitcond341.not, label %stack_filename.exit.thread, label %.lr.ph311, !llvm.loop !126
 
 stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stack_filename.exit, %142, %129, %132, %140, %.lr.ph305, %.lr.ph308, %204, %218, %221, %270, %.preheader272, %106, %102, %._crit_edge303, %79, %149, %94, %87, %.loopexit, %72, %st_mult.exit, %26, %5, %14, %256, %207, %212, %192, %187, %184, %172, %98, %30, %252, %245, %233
-  %.0161 = phi i64 [ 0, %14 ], [ 0, %26 ], [ 0, %5 ], [ 0, %30 ], [ %.1162, %142 ], [ %.1162, %218 ], [ %.1162, %79 ], [ %.1162, %87 ], [ %.1162, %.loopexit ], [ 0, %st_mult.exit ], [ %.1162, %98 ], [ %.1162, %102 ], [ %.1162, %.lr.ph305 ], [ %.1162, %106 ], [ %.1162, %.preheader272 ], [ %.1162, %233 ], [ %.1162, %245 ], [ %.1162, %252 ], [ %.1162, %256 ], [ %.1162, %270 ], [ %.1162, %207 ], [ %.1162, %212 ], [ %.1162, %172 ], [ %.1162, %184 ], [ %.1162, %187 ], [ %.1162, %192 ], [ %.1162, %.lr.ph308 ], [ %.1162, %._crit_edge303 ], [ %.1162, %94 ], [ %.1162, %72 ], [ %.1162, %149 ], [ %.1162, %129 ], [ %.1162, %221 ], [ %.1162, %204 ], [ %.1162, %140 ], [ %.1162, %132 ], [ %.1162, %stack_filename.exit ], [ %.1162, %55 ], [ %.1162, %46 ], [ %74, %73 ]
+  %.0163 = phi i64 [ 0, %14 ], [ 0, %26 ], [ 0, %5 ], [ 0, %30 ], [ %.1164, %142 ], [ %.1164, %218 ], [ %.1164, %79 ], [ %.1164, %87 ], [ %.1164, %.loopexit ], [ 0, %st_mult.exit ], [ %.1164, %98 ], [ %.1164, %102 ], [ %.1164, %.lr.ph305 ], [ %.1164, %106 ], [ %.1164, %.preheader272 ], [ %.1164, %233 ], [ %.1164, %245 ], [ %.1164, %252 ], [ %.1164, %256 ], [ %.1164, %270 ], [ %.1164, %207 ], [ %.1164, %212 ], [ %.1164, %172 ], [ %.1164, %184 ], [ %.1164, %187 ], [ %.1164, %192 ], [ %.1164, %.lr.ph308 ], [ %.1164, %._crit_edge303 ], [ %.1164, %94 ], [ %.1164, %72 ], [ %.1164, %149 ], [ %.1164, %129 ], [ %.1164, %221 ], [ %.1164, %204 ], [ %.1164, %140 ], [ %.1164, %132 ], [ %.1164, %stack_filename.exit ], [ %.1164, %55 ], [ %.1164, %46 ], [ %74, %73 ]
   %.0156 = phi i32 [ 0, %14 ], [ %., %26 ], [ 0, %5 ], [ %31, %30 ], [ -12, %142 ], [ %219, %218 ], [ %80, %79 ], [ %.223, %87 ], [ -2, %.loopexit ], [ -13, %st_mult.exit ], [ %99, %98 ], [ -2, %102 ], [ -13, %.lr.ph305 ], [ %107, %106 ], [ -12, %.preheader272 ], [ -2, %233 ], [ -2, %245 ], [ -2, %252 ], [ %259, %256 ], [ %266, %270 ], [ %210, %207 ], [ %213, %212 ], [ %182, %172 ], [ %185, %184 ], [ %190, %187 ], [ %195, %192 ], [ %202, %.lr.ph308 ], [ -12, %._crit_edge303 ], [ -2, %94 ], [ %.222, %72 ], [ -13, %149 ], [ -12, %129 ], [ %222, %221 ], [ %205, %204 ], [ -12, %140 ], [ -12, %132 ], [ %58, %stack_filename.exit ], [ %56, %55 ], [ %53, %46 ], [ -2, %73 ]
   %.0150 = phi ptr [ null, %14 ], [ null, %26 ], [ null, %5 ], [ null, %30 ], [ %37, %142 ], [ %37, %218 ], [ %37, %79 ], [ %37, %87 ], [ %37, %.loopexit ], [ null, %st_mult.exit ], [ %37, %98 ], [ %37, %102 ], [ %37, %.lr.ph305 ], [ %37, %106 ], [ %37, %.preheader272 ], [ %37, %233 ], [ %37, %245 ], [ %37, %252 ], [ %37, %256 ], [ %37, %270 ], [ %37, %207 ], [ %37, %212 ], [ %37, %172 ], [ %37, %184 ], [ %37, %187 ], [ %37, %192 ], [ %37, %.lr.ph308 ], [ %37, %._crit_edge303 ], [ %37, %94 ], [ %37, %72 ], [ %37, %149 ], [ %37, %129 ], [ %37, %221 ], [ %37, %204 ], [ %37, %140 ], [ %37, %132 ], [ %37, %stack_filename.exit ], [ %37, %55 ], [ %37, %46 ], [ %37, %73 ]
   %.0150.fr = freeze ptr %.0150
   %272 = call i32 @flock_release(ptr noundef nonnull %10) #16
   %273 = icmp ne ptr %.0150.fr, null
-  %274 = icmp ne i64 %.0161, 0
+  %274 = icmp ne i64 %.0163, 0
   %275 = select i1 %273, i1 %274, i1 false
   br i1 %275, label %.lr.ph313.split, label %._crit_edge314
 
 .lr.ph313.split:                                  ; preds = %stack_filename.exit.thread, %.lr.ph313.split
-  %.5168312 = phi i64 [ %278, %.lr.ph313.split ], [ 0, %stack_filename.exit.thread ]
-  %276 = getelementptr inbounds nuw %struct.reftable_flock, ptr %.0150.fr, i64 %.5168312
+  %.5170312 = phi i64 [ %278, %.lr.ph313.split ], [ 0, %stack_filename.exit.thread ]
+  %276 = getelementptr inbounds nuw %struct.reftable_flock, ptr %.0150.fr, i64 %.5170312
   %277 = call i32 @flock_release(ptr noundef nonnull %276) #16
-  %278 = add nuw i64 %.5168312, 1
-  %exitcond342.not = icmp eq i64 %278, %.0161
+  %278 = add nuw i64 %.5170312, 1
+  %exitcond342.not = icmp eq i64 %278, %.0163
   br i1 %exitcond342.not, label %._crit_edge314, label %.lr.ph313.split, !llvm.loop !127
 
 ._crit_edge314:                                   ; preds = %.lr.ph313.split, %stack_filename.exit.thread

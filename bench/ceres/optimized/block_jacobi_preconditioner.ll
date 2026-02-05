@@ -1746,26 +1746,26 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   %57 = load ptr, ptr %56, align 8, !tbaa !6
   store i32 0, ptr %57, align 4, !tbaa !21
   %58 = icmp sgt i32 %53, 0
-  br i1 %58, label %.lr.ph94.preheader, label %._crit_edge95
+  br i1 %58, label %.lr.ph92.preheader, label %._crit_edge93
 
-.lr.ph94.preheader:                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
+.lr.ph92.preheader:                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
   %wide.trip.count = and i64 %52, 2147483647
-  br label %.lr.ph94
+  br label %.lr.ph92
 
-._crit_edge95:                                    ; preds = %._crit_edge90, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
+._crit_edge93:                                    ; preds = %._crit_edge88, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
   %59 = load i32, ptr %37, align 4, !tbaa !157
   %60 = sext i32 %59 to i64
   %61 = icmp slt i32 %59, 0
   br i1 %61, label %62, label %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i52
 
-62:                                               ; preds = %._crit_edge95
+62:                                               ; preds = %._crit_edge93
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #36
           to label %.noexc59 unwind label %108
 
 .noexc59:                                         ; preds = %62
   unreachable
 
-_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i52: ; preds = %._crit_edge95
+_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i52: ; preds = %._crit_edge93
   %.not.i.i.i.i53 = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i53, label %_ZNSt6vectorISt5mutexSaIS0_EEC2EmRKS1_.exit61, label %.lr.ph.preheader.i.i.i.i.i54
 
@@ -1795,60 +1795,60 @@ _ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i52: ; preds = %._c
           cleanup
   br label %.body
 
-.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %._crit_edge90
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next98, %._crit_edge90 ]
-  %.04192 = phi i32 [ 0, %.lr.ph94.preheader ], [ %.142.lcssa, %._crit_edge90 ]
-  %72 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %48, i64 %indvars.iv97
+.lr.ph92:                                         ; preds = %.lr.ph92.preheader, %._crit_edge88
+  %indvars.iv95 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next96, %._crit_edge88 ]
+  %.04190 = phi i32 [ 0, %.lr.ph92.preheader ], [ %.142.lcssa, %._crit_edge88 ]
+  %72 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %48, i64 %indvars.iv95
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.preheader.lr.ph, label %._crit_edge90
+  br i1 %74, label %.preheader.lr.ph, label %._crit_edge88
 
-.preheader.lr.ph:                                 ; preds = %.lr.ph94
+.preheader.lr.ph:                                 ; preds = %.lr.ph92
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %76 = phi i32 [ %73, %.preheader.lr.ph ], [ %86, %._crit_edge ]
-  %.04089 = phi i32 [ 0, %.preheader.lr.ph ], [ %85, %._crit_edge ]
-  %.14288 = phi i32 [ %.04192, %.preheader.lr.ph ], [ %.243.lcssa, %._crit_edge ]
+  %.04087 = phi i32 [ 0, %.preheader.lr.ph ], [ %85, %._crit_edge ]
+  %.14286 = phi i32 [ %.04190, %.preheader.lr.ph ], [ %.243.lcssa, %._crit_edge ]
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %78 = sext i32 %.14288 to i64
+  %78 = sext i32 %.14286 to i64
   br label %.lr.ph
 
-._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph94
-  %.142.lcssa = phi i32 [ %.04192, %.lr.ph94 ], [ %.243.lcssa, %._crit_edge ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !171
+._crit_edge88:                                    ; preds = %._crit_edge, %.lr.ph92
+  %.142.lcssa = phi i32 [ %.04190, %.lr.ph92 ], [ %.243.lcssa, %._crit_edge ]
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !171
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %79 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.243.lcssa = phi i32 [ %.14288, %.preheader ], [ %79, %._crit_edge.loopexit ]
+  %.243.lcssa = phi i32 [ %.14286, %.preheader ], [ %79, %._crit_edge.loopexit ]
   %80 = load i32, ptr %75, align 4, !tbaa !138
-  %81 = add nsw i32 %80, %.04089
+  %81 = add nsw i32 %80, %.04087
   %82 = sext i32 %81 to i64
   %83 = getelementptr i32, ptr %57, i64 %82
   %84 = getelementptr i8, ptr %83, i64 4
   store i32 %.243.lcssa, ptr %84, align 4, !tbaa !21
-  %85 = add nuw nsw i32 %.04089, 1
+  %85 = add nuw nsw i32 %.04087, 1
   %86 = load i32, ptr %72, align 4, !tbaa !85
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %.preheader, label %._crit_edge90, !llvm.loop !172
+  br i1 %87, label %.preheader, label %._crit_edge88, !llvm.loop !172
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %78, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03987 = phi i32 [ 0, %.lr.ph.preheader ], [ %91, %.lr.ph ]
+  %.03985 = phi i32 [ 0, %.lr.ph.preheader ], [ %91, %.lr.ph ]
   %88 = load i32, ptr %75, align 4, !tbaa !138
-  %89 = add nsw i32 %88, %.03987
+  %89 = add nsw i32 %88, %.03985
   %90 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv
   store i32 %89, ptr %90, align 4, !tbaa !21
-  %91 = add nuw nsw i32 %.03987, 1
+  %91 = add nuw nsw i32 %.03985, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %92 = load i32, ptr %72, align 4, !tbaa !85
   %93 = icmp slt i32 %91, %92

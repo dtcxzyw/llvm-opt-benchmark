@@ -436,8 +436,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   tail call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !10
   br label %19
 
-common.resume:                                    ; preds = %_ZN7xgboost4JsonD2Ev.exit40.thread72, %_ZN7xgboost4JsonD2Ev.exit40, %92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37
-  %common.resume.op = phi { ptr, i32 } [ %79, %_ZN7xgboost4JsonD2Ev.exit40.thread72 ], [ %79, %_ZN7xgboost4JsonD2Ev.exit40 ], [ %85, %92 ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37 ]
+common.resume:                                    ; preds = %_ZN7xgboost4JsonD2Ev.exit40.thread69, %_ZN7xgboost4JsonD2Ev.exit40, %92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37
+  %common.resume.op = phi { ptr, i32 } [ %79, %_ZN7xgboost4JsonD2Ev.exit40.thread69 ], [ %79, %_ZN7xgboost4JsonD2Ev.exit40 ], [ %85, %92 ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
@@ -446,8 +446,8 @@ common.resume:                                    ; preds = %_ZN7xgboost4JsonD2E
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit: ; preds = %2, %19
-  %.sroa.8.194 = phi ptr [ %15, %19 ], [ null, %2 ]
-  %.sroa.21.193 = phi ptr [ %20, %19 ], [ null, %2 ]
+  %.sroa.8.191 = phi ptr [ %15, %19 ], [ null, %2 ]
+  %.sroa.21.190 = phi ptr [ %20, %19 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %21, ptr %3, align 8, !tbaa !12
@@ -474,11 +474,11 @@ _ZNK7xgboost4JsonixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit:
   store i64 7, ptr %31, align 8, !tbaa !27
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %29, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr %.sroa.8.194, ptr %32, align 8, !tbaa !9
+  store ptr %.sroa.8.191, ptr %32, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %.sroa.21.193, ptr %33, align 8, !tbaa !3
+  store ptr %.sroa.21.190, ptr %33, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %.sroa.21.193, ptr %34, align 8, !tbaa !32
+  store ptr %.sroa.21.190, ptr %34, align 8, !tbaa !32
   %35 = atomicrmw add ptr %30, i32 1 monotonic, align 4
   %36 = load ptr, ptr %28, align 8, !tbaa !33
   store ptr %29, ptr %28, align 8, !tbaa !33
@@ -616,14 +616,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZN7xgboost4JsonD2Ev.exit40:                      ; preds = %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not.i.i.i.i41 = icmp eq ptr %.sroa.8.194, null
-  br i1 %.not.i.i.i.i41, label %common.resume, label %_ZN7xgboost4JsonD2Ev.exit40.thread72
+  %.not.i.i.i.i41 = icmp eq ptr %.sroa.8.191, null
+  br i1 %.not.i.i.i.i41, label %common.resume, label %_ZN7xgboost4JsonD2Ev.exit40.thread69
 
-_ZN7xgboost4JsonD2Ev.exit40.thread72:             ; preds = %_ZN7xgboost4JsonD2Ev.exit40
-  %96 = ptrtoint ptr %.sroa.21.193 to i64
-  %97 = ptrtoint ptr %.sroa.8.194 to i64
+_ZN7xgboost4JsonD2Ev.exit40.thread69:             ; preds = %_ZN7xgboost4JsonD2Ev.exit40
+  %96 = ptrtoint ptr %.sroa.21.190 to i64
+  %97 = ptrtoint ptr %.sroa.8.191 to i64
   %98 = sub i64 %96, %97
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.8.194, i64 noundef %98) #32
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.8.191, i64 noundef %98) #32
   br label %common.resume
 }
 

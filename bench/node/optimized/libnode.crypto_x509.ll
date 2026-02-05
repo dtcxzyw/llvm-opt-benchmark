@@ -4113,11 +4113,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i7 = load ptr, ptr %3, align 8
-  %vfn.i8 = getelementptr inbounds nuw i8, ptr %vtable.i7, i64 64
-  %4 = load ptr, ptr %vfn.i8, align 8
-  %call2.i9 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %3) #18
-  %call.i = call ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call13, ptr %call2.i9, i32 noundef 0, ptr noundef null) #18
+  %vtable.i6 = load ptr, ptr %3, align 8
+  %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 64
+  %4 = load ptr, ptr %vfn.i7, align 8
+  %call2.i8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %3) #18
+  %call.i = call ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call13, ptr %call2.i8, i32 noundef 0, ptr noundef null) #18
   %cmp.i.i122 = icmp eq ptr %call.i, null
   br i1 %cmp.i.i122, label %cleanup, label %if.end37
 

@@ -1550,15 +1550,15 @@ define void @makeStraightEdges(ptr noundef %0, ptr noundef readonly captures(non
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !alias.scope !81
   %58 = tail call ptr @agfstnode(ptr noundef %0) #19, !noalias !81
-  %.not36.i.i = icmp eq ptr %58, null
-  br i1 %.not36.i.i, label %find_all_cycles.exit.i, label %.lr.ph.i.i
+  %.not30.i.i = icmp eq ptr %58, null
+  br i1 %.not30.i.i, label %find_all_cycles.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %cycles_append.exit.i.i
-  %.041.i.i = phi ptr [ %92, %cycles_append.exit.i.i ], [ %58, %57 ]
-  %.sroa.19.040.i.i = phi i64 [ %.sroa.19.1.i.i, %cycles_append.exit.i.i ], [ 0, %57 ]
-  %.sroa.14.039.i.i = phi i64 [ %91, %cycles_append.exit.i.i ], [ 0, %57 ]
-  %.sroa.9.038.i.i = phi i64 [ %.sroa.9.2.i.i, %cycles_append.exit.i.i ], [ 0, %57 ]
-  %.sroa.0.037.i.i = phi ptr [ %.sroa.0.1.i.i, %cycles_append.exit.i.i ], [ null, %57 ]
+  %.035.i.i = phi ptr [ %92, %cycles_append.exit.i.i ], [ %58, %57 ]
+  %.sroa.19.034.i.i = phi i64 [ %.sroa.19.1.i.i, %cycles_append.exit.i.i ], [ 0, %57 ]
+  %.sroa.14.033.i.i = phi i64 [ %91, %cycles_append.exit.i.i ], [ 0, %57 ]
+  %.sroa.9.032.i.i = phi i64 [ %.sroa.9.2.i.i, %cycles_append.exit.i.i ], [ 0, %57 ]
+  %.sroa.0.031.i.i = phi ptr [ %.sroa.0.1.i.i, %cycles_append.exit.i.i ], [ null, %57 ]
   %59 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #20
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %gv_alloc.exit.i.i
@@ -1570,36 +1570,36 @@ define void @makeStraightEdges(ptr noundef %0, ptr noundef readonly captures(non
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %.lr.ph.i.i
-  %64 = icmp eq i64 %.sroa.14.039.i.i, %.sroa.19.040.i.i
+  %64 = icmp eq i64 %.sroa.14.033.i.i, %.sroa.19.034.i.i
   br i1 %64, label %65, label %cycles_append.exit.i.i
 
 65:                                               ; preds = %gv_alloc.exit.i.i
-  %66 = icmp eq i64 %.sroa.19.040.i.i, 0
-  %67 = shl i64 %.sroa.19.040.i.i, 1
+  %66 = icmp eq i64 %.sroa.19.034.i.i, 0
+  %67 = shl i64 %.sroa.19.034.i.i, 1
   %spec.select.i.i.i.i = select i1 %66, i64 1, i64 %67
   %mul.ov.i.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 2305843009213693951
   br i1 %mul.ov.i.i.i.i, label %84, label %68
 
 68:                                               ; preds = %65
   %69 = shl nuw i64 %spec.select.i.i.i.i, 3
-  %70 = tail call ptr @realloc(ptr noundef %.sroa.0.037.i.i, i64 noundef %69) #23, !noalias !81
+  %70 = tail call ptr @realloc(ptr noundef %.sroa.0.031.i.i, i64 noundef %69) #23, !noalias !81
   %71 = icmp eq ptr %70, null
   br i1 %71, label %84, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %.sroa.19.040.i.i
-  %74 = sub i64 %spec.select.i.i.i.i, %.sroa.19.040.i.i
+  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %.sroa.19.034.i.i
+  %74 = sub i64 %spec.select.i.i.i.i, %.sroa.19.034.i.i
   %75 = shl i64 %74, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %75, i1 false), !noalias !81
-  %76 = add i64 %.sroa.9.038.i.i, %.sroa.19.040.i.i
-  %77 = icmp ugt i64 %76, %.sroa.19.040.i.i
+  %76 = add i64 %.sroa.9.032.i.i, %.sroa.19.034.i.i
+  %77 = icmp ugt i64 %76, %.sroa.19.034.i.i
   br i1 %77, label %78, label %cycles_append.exit.i.i
 
 78:                                               ; preds = %72
-  %79 = sub i64 %.sroa.19.040.i.i, %.sroa.9.038.i.i
+  %79 = sub i64 %.sroa.19.034.i.i, %.sroa.9.032.i.i
   %80 = sub i64 %spec.select.i.i.i.i, %79
   %81 = getelementptr inbounds nuw ptr, ptr %70, i64 %80
-  %82 = getelementptr inbounds nuw ptr, ptr %70, i64 %.sroa.9.038.i.i
+  %82 = getelementptr inbounds nuw ptr, ptr %70, i64 %.sroa.9.032.i.i
   %83 = shl i64 %79, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr nonnull align 8 %82, i64 %83, i1 false), !noalias !81
   br label %cycles_append.exit.i.i
@@ -1613,16 +1613,16 @@ gv_alloc.exit.i.i:                                ; preds = %.lr.ph.i.i
   unreachable
 
 cycles_append.exit.i.i:                           ; preds = %78, %72, %gv_alloc.exit.i.i
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.0.037.i.i, %gv_alloc.exit.i.i ], [ %70, %78 ], [ %70, %72 ]
-  %.sroa.9.2.i.i = phi i64 [ %.sroa.9.038.i.i, %gv_alloc.exit.i.i ], [ %80, %78 ], [ %.sroa.9.038.i.i, %72 ]
-  %.sroa.19.1.i.i = phi i64 [ %.sroa.19.040.i.i, %gv_alloc.exit.i.i ], [ %spec.select.i.i.i.i, %78 ], [ %spec.select.i.i.i.i, %72 ]
-  %88 = add i64 %.sroa.9.2.i.i, %.sroa.14.039.i.i
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.0.031.i.i, %gv_alloc.exit.i.i ], [ %70, %78 ], [ %70, %72 ]
+  %.sroa.9.2.i.i = phi i64 [ %.sroa.9.032.i.i, %gv_alloc.exit.i.i ], [ %80, %78 ], [ %.sroa.9.032.i.i, %72 ]
+  %.sroa.19.1.i.i = phi i64 [ %.sroa.19.034.i.i, %gv_alloc.exit.i.i ], [ %spec.select.i.i.i.i, %78 ], [ %spec.select.i.i.i.i, %72 ]
+  %88 = add i64 %.sroa.9.2.i.i, %.sroa.14.033.i.i
   %89 = urem i64 %88, %.sroa.19.1.i.i
   %90 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i.i, i64 %89
   store ptr %59, ptr %90, align 8, !tbaa !30, !noalias !81
-  %91 = add i64 %.sroa.14.039.i.i, 1
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.041.i.i, ptr noundef nonnull %59, ptr noundef %.041.i.i, ptr noundef nonnull align 8 %6)
-  %92 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.041.i.i) #19, !noalias !81
+  %91 = add i64 %.sroa.14.033.i.i, 1
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.035.i.i, ptr noundef nonnull %59, ptr noundef %.035.i.i, ptr noundef nonnull align 8 %6)
+  %92 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.035.i.i) #19, !noalias !81
   %.not.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !84
 
@@ -1649,12 +1649,12 @@ cycles_append.exit.i.i:                           ; preds = %78, %72, %gv_alloc.
 nodes_delete.exit.i.i.i.i:                        ; preds = %97, %.lr.ph.i.i.i.i
   tail call void @free(ptr noundef %96) #19, !noalias !81
   %100 = add nuw i64 %.06.i.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %.06.i.i.i.i, %.sroa.14.039.i.i
+  %exitcond.not.i.i = icmp eq i64 %.06.i.i.i.i, %.sroa.14.033.i.i
   br i1 %exitcond.not.i.i, label %find_all_cycles.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !88
 
 find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i.i.i.i, %._crit_edge.i.i, %57
-  %.sroa.0.0.lcssa55.i.i = phi ptr [ null, %57 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
-  tail call void @free(ptr noundef %.sroa.0.0.lcssa55.i.i) #19, !noalias !81
+  %.sroa.0.0.lcssa49.i.i = phi ptr [ null, %57 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
+  tail call void @free(ptr noundef %.sroa.0.0.lcssa49.i.i) #19, !noalias !81
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val16.i.i = load i64, ptr %101, align 8, !tbaa !89
   %.not.i19.i = icmp eq i64 %.val16.i.i, 0

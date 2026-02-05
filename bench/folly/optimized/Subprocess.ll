@@ -10213,8 +10213,8 @@ define void @_ZN5folly10Subprocess20takeOwnershipOfPipesEv(ptr dead_on_unwind no
   %4 = load ptr, ptr %3, align 8, !tbaa !154
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !154
-  %.not17 = icmp eq ptr %4, %6
-  br i1 %.not17, label %._crit_edge.thread, label %.lr.ph
+  %.not14 = icmp eq ptr %4, %6
+  br i1 %.not14, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -10229,10 +10229,10 @@ define void @_ZN5folly10Subprocess20takeOwnershipOfPipesEv(ptr dead_on_unwind no
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !141
-  %.pre19 = load ptr, ptr %5, align 8, !tbaa !142
+  %.pre16 = load ptr, ptr %5, align 8, !tbaa !142
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !144
-  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre19
+  %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5folly10Subprocess4PipeES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -10240,7 +10240,7 @@ define void @_ZN5folly10Subprocess20takeOwnershipOfPipesEv(ptr dead_on_unwind no
   %.05.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.pre, %._crit_edge ]
   tail call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(17) %.05.i.i.i.i) #47
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 20
-  %.not.i.i.i.i = icmp eq ptr %13, %.pre19
+  %.not.i.i.i.i = icmp eq ptr %13, %.pre16
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5folly10Subprocess4PipeES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
 _ZSt8_DestroyIPN5folly10Subprocess4PipeES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread, %._crit_edge
@@ -10260,8 +10260,8 @@ _ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
   ret void
 
 20:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit
-  %.sroa.014.018 = phi ptr [ %4, %.lr.ph ], [ %30, %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 8
+  %.sroa.011.015 = phi ptr [ %4, %.lr.ph ], [ %30, %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
   %22 = load ptr, ptr %9, align 8, !tbaa !406
   %23 = load ptr, ptr %10, align 8, !tbaa !409
   %.not.i = icmp eq ptr %22, %23
@@ -10271,18 +10271,18 @@ _ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
   %25 = load i32, ptr %21, align 4, !tbaa !7
   store i32 %25, ptr %22, align 4, !tbaa !410
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %26, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.014.018) #47
+  tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %26, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.011.015) #47
   %27 = load ptr, ptr %9, align 8, !tbaa !406
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store ptr %28, ptr %9, align 8, !tbaa !406
   br label %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit
 
 29:                                               ; preds = %20
-  invoke void @_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE17_M_realloc_insertIJRiNS0_4FileEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.014.018)
+  invoke void @_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE17_M_realloc_insertIJRiNS0_4FileEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.011.015)
           to label %_ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit unwind label %31
 
 _ZNSt6vectorIN5folly10Subprocess9ChildPipeESaIS2_EE12emplace_backIJRiNS0_4FileEEEERS2_DpOT_.exit: ; preds = %29, %24
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 20
   %.not = icmp eq ptr %30, %6
   br i1 %.not, label %._crit_edge, label %20
 

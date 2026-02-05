@@ -9304,8 +9304,8 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %230, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr @.str.126, ptr %28, align 8
-  %.sroa.5417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i8 1, ptr %.sroa.5417.0..sroa_idx, align 8
+  %.sroa.5414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i8 1, ptr %.sroa.5414.0..sroa_idx, align 8
   %239 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 1, ptr %239, align 8, !tbaa !340
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !342

@@ -2281,20 +2281,20 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %38, %40, %42, %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i.i
   %47 = load ptr, ptr %9, align 8, !tbaa !80
   %48 = load ptr, ptr %4, align 8, !tbaa !81
-  %.not37 = icmp eq ptr %47, %48
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %47, %48
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
-  %.lcssa32 = phi ptr [ %47, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %68, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.lcssa29 = phi ptr [ %47, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %68, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %.lcssa = phi ptr [ %48, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %69, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.not4.i.i.i.i = icmp eq ptr %.lcssa, %.lcssa32
+  %.not4.i.i.i.i = icmp eq ptr %.lcssa, %.lcssa29
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i ], [ %.lcssa, %._crit_edge ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #23
   %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i = icmp eq ptr %49, %.lcssa32
+  %.not.i.i.i.i = icmp eq ptr %49, %.lcssa29
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !82
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -2358,16 +2358,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit.split-lp: ; preds = %59
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %.lr.ph, %.noexc20
-  %.sroa.0.1 = phi ptr [ %60, %.noexc20 ], [ null, %.lr.ph ]
-  %.sroa.17.1 = phi ptr [ %61, %.noexc20 ], [ null, %.lr.ph ]
+  %.sroa.0.0 = phi ptr [ %60, %.noexc20 ], [ null, %.lr.ph ]
+  %.sroa.17.0 = phi ptr [ %61, %.noexc20 ], [ null, %.lr.ph ]
   %62 = load ptr, ptr %25, align 8, !tbaa !76
   %63 = getelementptr inbounds nuw %"class.std::vector.3", ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !67
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %.sroa.0.1, ptr %63, align 8, !tbaa !67
-  store ptr %.sroa.17.1, ptr %65, align 8, !tbaa !68
-  store ptr %.sroa.17.1, ptr %66, align 8, !tbaa !91
+  store ptr %.sroa.0.0, ptr %63, align 8, !tbaa !67
+  store ptr %.sroa.17.0, ptr %65, align 8, !tbaa !68
+  store ptr %.sroa.17.0, ptr %66, align 8, !tbaa !91
   %.not.i.i.i.i.i15 = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i15, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %67
 

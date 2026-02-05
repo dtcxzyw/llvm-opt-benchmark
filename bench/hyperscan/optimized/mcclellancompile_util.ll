@@ -2170,22 +2170,22 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !113
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre19 = load ptr, ptr %24, align 8
-  %.pre20 = load ptr, ptr %0, align 8
-  %.pre21 = ptrtoint ptr %.pre19 to i64
-  %.pre22 = ptrtoint ptr %.pre20 to i64
-  %.pre24 = sub i64 %.pre21, %.pre22
-  %.pre26 = ashr exact i64 %.pre24, 2
+  %.pre16 = load ptr, ptr %24, align 8
+  %.pre17 = load ptr, ptr %0, align 8
+  %.pre18 = ptrtoint ptr %.pre16 to i64
+  %.pre19 = ptrtoint ptr %.pre17 to i64
+  %.pre21 = sub i64 %.pre18, %.pre19
+  %.pre23 = ashr exact i64 %.pre21, 2
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit, %30
-  %.pre-phi27 = phi i64 [ %.pre26, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit ], [ 0, %30 ]
-  %33 = phi ptr [ %.pre19, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit ], [ %25, %30 ]
-  %34 = icmp eq i64 %1, %.pre-phi27
+  %.pre-phi24 = phi i64 [ %.pre23, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit ], [ 0, %30 ]
+  %33 = phi ptr [ %.pre16, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.loopexit ], [ %25, %30 ]
+  %34 = icmp eq i64 %1, %.pre-phi24
   br i1 %34, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %35
 
 35:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit
-  %36 = sub i64 %1, %.pre-phi27
+  %36 = sub i64 %1, %.pre-phi24
   %.idx.i.i.i.i.i = shl nuw nsw i64 %36, 2
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i.i
   %38 = load i32, ptr %2, align 4

@@ -1741,15 +1741,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %.noexc156.i
   %639 = load ptr, ptr %638, align 8
   %640 = load i64, ptr %639, align 8, !tbaa !39
   %641 = load i64, ptr %637, align 8, !tbaa !39
-  %wide.trip.count40.i.i = zext nneg i32 %627 to i64
+  %wide.trip.count34.i.i = zext nneg i32 %627 to i64
   %wide.trip.count.i.i = zext nneg i32 %630 to i64
   br label %.preheader.us.i.i108
 
 .preheader.us.i.i108:                             ; preds = %._crit_edge.us.i.i109, %.preheader.lr.ph.split.us.i.i
-  %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %._crit_edge.us.i.i109 ], [ 0, %.preheader.lr.ph.split.us.i.i ]
-  %642 = mul i64 %indvars.iv37.i.i, %640
+  %indvars.iv31.i.i = phi i64 [ %indvars.iv.next32.i.i, %._crit_edge.us.i.i109 ], [ 0, %.preheader.lr.ph.split.us.i.i ]
+  %642 = mul i64 %indvars.iv31.i.i, %640
   %643 = getelementptr inbounds nuw i8, ptr %633, i64 %642
-  %644 = mul i64 %indvars.iv37.i.i, %641
+  %644 = mul i64 %indvars.iv31.i.i, %641
   %645 = getelementptr inbounds nuw i8, ptr %635, i64 %644
   br label %646
 
@@ -1770,9 +1770,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %.noexc156.i
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i109, label %646, !llvm.loop !96
 
 ._crit_edge.us.i.i109:                            ; preds = %646
-  %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
-  %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %wide.trip.count40.i.i
-  br i1 %exitcond41.not.i.i, label %.loopexit191.i, label %.preheader.us.i.i108, !llvm.loop !97
+  %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
+  %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next32.i.i, %wide.trip.count34.i.i
+  br i1 %exitcond35.not.i.i, label %.loopexit191.i, label %.preheader.us.i.i108, !llvm.loop !97
 
 .loopexit191.i:                                   ; preds = %._crit_edge.us.i.i109, %.preheader.lr.ph.i.i107, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

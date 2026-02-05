@@ -10029,19 +10029,19 @@ _ZNK4llvm16DIImportedEntity11getElementsEv.exit:  ; preds = %142, %145
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %156, %162
-  %.sroa.0.0.i.ph119 = phi ptr [ %166, %162 ], [ %158, %156 ]
+  %.sroa.0.0.i.ph117 = phi ptr [ %166, %162 ], [ %158, %156 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %172, %162 ], [ %161, %156 ]
   %.sroa.0.0.i.i.i.i71 = phi ptr [ %170, %162 ], [ %158, %156 ]
   %173 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i71, i64 %.sroa.3.0.i.i.i.i
-  %.not103104 = icmp eq ptr %.sroa.0.0.i.ph119, %173
-  br i1 %.not103104, label %._crit_edge, label %.lr.ph
+  %.not101102 = icmp eq ptr %.sroa.0.0.i.ph117, %173
+  br i1 %.not101102, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %183, %_ZNK4llvm16DIImportedEntity11getElementsEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
   ret ptr %.0.i.i.i.i
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %183
-  %.sroa.073.0105 = phi ptr [ %184, %183 ], [ %.sroa.0.0.i.ph119, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
-  %174 = load ptr, ptr %.sroa.073.0105, align 8, !tbaa !508
+  %.sroa.073.0103 = phi ptr [ %184, %183 ], [ %.sroa.0.0.i.ph117, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
+  %174 = load ptr, ptr %.sroa.073.0103, align 8, !tbaa !508
   %.not58 = icmp eq ptr %174, null
   br i1 %.not58, label %183, label %175
 
@@ -10066,9 +10066,9 @@ _ZN4llvm3DIE8addChildEPS0_.exit:                  ; preds = %175, %179
   br label %183
 
 183:                                              ; preds = %.lr.ph, %_ZN4llvm3DIE8addChildEPS0_.exit
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.073.0105, i64 8
-  %.not103 = icmp eq ptr %184, %173
-  br i1 %.not103, label %._crit_edge, label %.lr.ph
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.073.0103, i64 8
+  %.not101 = icmp eq ptr %184, %173
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 }
 
 declare noundef ptr @_ZN4llvm9DwarfUnit20getOrCreateNameSpaceEPKNS_11DINamespaceE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #3

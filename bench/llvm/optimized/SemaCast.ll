@@ -17093,8 +17093,8 @@ define internal fastcc void @_ZL15diagnoseBadCastRN5clang4SemaEj8CastTypeNS_11So
 
 72:                                               ; preds = %67
   %73 = zext i1 %6 to i64
-  %.sroa.0126.0.insert.ext130.i = shl i64 %3, 32
-  %.sroa.05.0.insert.ext.i.i = or disjoint i64 %.sroa.0126.0.insert.ext130.i, %73
+  %.sroa.0124.0.insert.ext128.i = shl i64 %3, 32
+  %.sroa.05.0.insert.ext.i.i = or disjoint i64 %.sroa.0124.0.insert.ext128.i, %73
   %.sroa.05.0.insert.insert.i.i = or disjoint i64 %.sroa.05.0.insert.ext.i.i, 1024
   br label %77
 

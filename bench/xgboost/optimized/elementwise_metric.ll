@@ -23797,9 +23797,9 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %208
   br label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit36.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit36.i:        ; preds = %.noexc35.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.0.i.i.i.i.i.i.i122.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %218, %.noexc35.i ]
-  %.sroa.1390.0116.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %216, %.noexc35.i ]
-  %.sroa.084.0106.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %215, %.noexc35.i ]
+  %.0.i.i.i.i.i.i.i116.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %218, %.noexc35.i ]
+  %.sroa.1387.0110.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %216, %.noexc35.i ]
+  %.sroa.081.0100.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %215, %.noexc35.i ]
   %.sroa.0.0.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %217, %.noexc35.i ]
   %.sroa.13.0.i = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %221, %.noexc35.i ]
   %.0.i.i.i.i.i.i.i32.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %220, %.noexc35.i ]
@@ -24001,9 +24001,9 @@ _ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInf
 _ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS0_18PackedReduceResultEPKNS_7ContextESA_OT_mENKUlSG_E_clImEEDaSG_.exit.i.i.i: ; preds = %_ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit.i.i.i, %244
   %.018.lcssa.i.i.i.i = phi double [ 0.000000e+00, %244 ], [ %323, %_ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit.i.i.i ]
   %.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %244 ], [ %321, %_ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit.i.i.i ]
-  %325 = load double, ptr %.sroa.084.0106.i, align 8, !tbaa !64
+  %325 = load double, ptr %.sroa.081.0100.i, align 8, !tbaa !64
   %326 = fadd double %.0.lcssa.i.i.i.i, %325
-  store double %326, ptr %.sroa.084.0106.i, align 8, !tbaa !64
+  store double %326, ptr %.sroa.081.0100.i, align 8, !tbaa !64
   %327 = load double, ptr %.sroa.0.0.i, align 8, !tbaa !64
   %328 = fadd double %.018.lcssa.i.i.i.i, %327
   store double %328, ptr %.sroa.0.0.i, align 8, !tbaa !64
@@ -24302,9 +24302,9 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %4
 _ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS0_18PackedReduceResultEPKNS_7ContextESA_OT_mENKUlSG_E_clImEEDaSG_.exit.i.i: ; preds = %.noexc.i.i, %.preheader78.i.i.i
   %.018.lcssa.i.i.i = phi double [ 0.000000e+00, %.preheader78.i.i.i ], [ %451, %.noexc.i.i ]
   %.0.lcssa.i.i.i = phi double [ 0.000000e+00, %.preheader78.i.i.i ], [ %449, %.noexc.i.i ]
-  %453 = load double, ptr %.sroa.084.0106.i, align 8, !tbaa !64
+  %453 = load double, ptr %.sroa.081.0100.i, align 8, !tbaa !64
   %454 = fadd double %.0.lcssa.i.i.i, %453
-  store double %454, ptr %.sroa.084.0106.i, align 8, !tbaa !64
+  store double %454, ptr %.sroa.081.0100.i, align 8, !tbaa !64
   %455 = load double, ptr %.sroa.0.0.i, align 8, !tbaa !64
   %456 = fadd double %.018.lcssa.i.i.i, %455
   store double %456, ptr %.sroa.0.0.i, align 8, !tbaa !64
@@ -24320,16 +24320,16 @@ _ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDe
   unreachable
 
 _ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i: ; preds = %_ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS0_18PackedReduceResultEPKNS_7ContextESA_OT_mENKUlSG_E_clImEEDaSG_.exit.i.i, %_ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS0_18PackedReduceResultEPKNS_7ContextESA_OT_mENKUlSG_E_clImEEDaSG_.exit.i.i.i
-  %.not5.i.i = icmp eq ptr %.sroa.084.0106.i, %.0.i.i.i.i.i.i.i122.i
+  %.not5.i.i = icmp eq ptr %.sroa.081.0100.i, %.0.i.i.i.i.i.i.i116.i
   br i1 %.not5.i.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i, %.lr.ph.i.i
   %.07.i.i = phi double [ %462, %.lr.ph.i.i ], [ 0.000000e+00, %_ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i ]
-  %.sroa.02.06.i.i = phi ptr [ %463, %.lr.ph.i.i ], [ %.sroa.084.0106.i, %_ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i ]
+  %.sroa.02.06.i.i = phi ptr [ %463, %.lr.ph.i.i ], [ %.sroa.081.0100.i, %_ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i ]
   %461 = load double, ptr %.sroa.02.06.i.i, align 8, !tbaa !64
   %462 = fadd double %.07.i.i, %461
   %463 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
-  %.not.i.i104 = icmp eq ptr %463, %.0.i.i.i.i.i.i.i122.i
+  %.not.i.i104 = icmp eq ptr %463, %.0.i.i.i.i.i.i.i116.i
   br i1 %.not.i.i104, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.i, label %.lr.ph.i.i, !llvm.loop !106
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i, %_ZN7xgboost6common11ParallelForImZNS_6metric12_GLOBAL__N_16ReduceIZNS2_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS2_18PackedReduceResultEPKNS_7ContextESC_OT_mEUlSI_E_EEvSI_iOT0_.exit.i
@@ -24351,10 +24351,10 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_
   %467 = ptrtoint ptr %.sroa.0.0.i to i64
   %468 = sub i64 %.sroa.13.0.i, %467
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %468) #39
-  %469 = ptrtoint ptr %.sroa.1390.0116.i to i64
-  %470 = ptrtoint ptr %.sroa.084.0106.i to i64
+  %469 = ptrtoint ptr %.sroa.1387.0110.i to i64
+  %470 = ptrtoint ptr %.sroa.081.0100.i to i64
   %471 = sub i64 %469, %470
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.084.0106.i, i64 noundef %471) #39
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.081.0100.i, i64 noundef %471) #39
   br label %_ZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEEUlmmmE_EENS0_18PackedReduceResultEPKNS_7ContextESA_OT_m.exit
 
 472:                                              ; preds = %213, %212
@@ -24389,21 +24389,21 @@ _ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i:         ; preds = %.noexc26.i
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit50.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit50.i:                ; preds = %479, %.body.i
-  %.not.i.i.i51.i = icmp eq ptr %.sroa.084.0106.i, null
+  %.not.i.i.i51.i = icmp eq ptr %.sroa.081.0100.i, null
   br i1 %.not.i.i.i51.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit52.i, label %482
 
 482:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit50.i, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i
-  %.pn.pn140.i = phi { ptr, i32 } [ %474, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.pn.i103, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
-  %.sroa.084.099139.i = phi ptr [ %215, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.sroa.084.0106.i, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
-  %.sroa.1390.0109138.i = phi ptr [ %216, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.sroa.1390.0116.i, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
-  %483 = ptrtoint ptr %.sroa.1390.0109138.i to i64
-  %484 = ptrtoint ptr %.sroa.084.099139.i to i64
+  %.pn.pn134.i = phi { ptr, i32 } [ %474, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.pn.i103, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
+  %.sroa.081.093133.i = phi ptr [ %215, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.sroa.081.0100.i, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
+  %.sroa.1387.0103132.i = phi ptr [ %216, %_ZNSt6vectorIdSaIdEED2Ev.exit50.thread.i ], [ %.sroa.1387.0110.i, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ]
+  %483 = ptrtoint ptr %.sroa.1387.0103132.i to i64
+  %484 = ptrtoint ptr %.sroa.081.093133.i to i64
   %485 = sub i64 %483, %484
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.084.099139.i, i64 noundef %485) #39
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.081.093133.i, i64 noundef %485) #39
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit52.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit52.i:                ; preds = %482, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i, %472
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %473, %472 ], [ %.pn.i103, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ], [ %.pn.pn140.i, %482 ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %473, %472 ], [ %.pn.i103, %_ZNSt6vectorIdSaIdEED2Ev.exit50.i ], [ %.pn.pn134.i, %482 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 

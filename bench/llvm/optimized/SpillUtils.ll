@@ -1209,9 +1209,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_19CoroAllocaAllocInstELb1EE9push_backES2_.
   %266 = getelementptr inbounds %"class.llvm::Use", ptr %145, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !58
   %268 = call noundef ptr @_ZNK4llvm4coro5Shape9emitAllocERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef %267, ptr noundef null) #14
-  %.sroa.022.029.i = load ptr, ptr %192, align 8, !tbaa !44
-  %.not30.i = icmp eq ptr %.sroa.022.029.i, null
-  br i1 %.not30.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i56
+  %.sroa.022.027.i = load ptr, ptr %192, align 8, !tbaa !44
+  %.not28.i = icmp eq ptr %.sroa.022.027.i, null
+  br i1 %.not28.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i56
 
 .._crit_edge_crit_edge.i:                         ; preds = %260
   %.pre.i64 = load i32, ptr %52, align 8, !tbaa !91
@@ -1251,8 +1251,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
   br label %_ZN4llvm4coro12_GLOBAL__N_119lowerNonLocalAllocaEPNS_19CoroAllocaAllocInstERKNS0_5ShapeERNS_15SmallVectorImplIPNS_11InstructionEEE.exit
 
 .lr.ph.i56:                                       ; preds = %260, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit18.i
-  %.sroa.022.031.i = phi ptr [ %.sroa.022.0.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit18.i ], [ %.sroa.022.029.i, %260 ]
-  %284 = getelementptr inbounds nuw i8, ptr %.sroa.022.031.i, i64 24
+  %.sroa.022.029.i = phi ptr [ %.sroa.022.0.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit18.i ], [ %.sroa.022.027.i, %260 ]
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.022.029.i, i64 24
   %285 = load ptr, ptr %284, align 8, !tbaa !45
   %286 = load i8, ptr %285, align 8, !tbaa !54
   %287 = icmp eq i8 %286, 85
@@ -1550,7 +1550,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit18.i
   %404 = load i32, ptr %52, align 8, !tbaa !91
   %405 = add i32 %404, 1
   store i32 %405, ptr %52, align 8, !tbaa !91
-  %406 = getelementptr inbounds nuw i8, ptr %.sroa.022.031.i, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %.sroa.022.029.i, i64 8
   %.sroa.022.0.i = load ptr, ptr %406, align 8, !tbaa !44
   %.not.i57 = icmp eq ptr %.sroa.022.0.i, null
   br i1 %.not.i57, label %._crit_edge.i58, label %.lr.ph.i56

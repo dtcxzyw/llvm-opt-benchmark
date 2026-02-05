@@ -10250,10 +10250,10 @@ for.body.i.i.i486:                                ; preds = %for.body.i.i.i486, 
   br i1 %cmp.not.i5.i.i492, label %invoke.cont377, label %for.body.i.i.i486, !llvm.loop !153
 
 invoke.cont377:                                   ; preds = %for.body.i.i.i486, %call.i479.noexc
-  %ref.tmp375.sroa.0.2 = phi ptr [ null, %call.i479.noexc ], [ %call.i.i.i483495, %for.body.i.i.i486 ]
+  %ref.tmp375.sroa.0.0 = phi ptr [ null, %call.i479.noexc ], [ %call.i.i.i483495, %for.body.i.i.i486 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i478), !noalias !172
   %298 = load ptr, ptr %p, align 8, !tbaa !3
-  store ptr %ref.tmp375.sroa.0.2, ptr %p, align 8, !tbaa !3
+  store ptr %ref.tmp375.sroa.0.0, ptr %p, align 8, !tbaa !3
   store i64 %292, ptr %n_.i1119, align 8, !tbaa !30
   %cmp.not.i.i499 = icmp eq ptr %298, null
   br i1 %cmp.not.i.i499, label %_ZN8QuantLib5ArrayD2Ev.exit502, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i500
@@ -10682,9 +10682,9 @@ for.body.i.i.i622:                                ; preds = %for.body.i.i.i622, 
 
 invoke.cont426:                                   ; preds = %for.body.i.i.i622, %call.i615.noexc.invoke.cont426_crit_edge
   %356 = phi ptr [ %.pre1030, %call.i615.noexc.invoke.cont426_crit_edge ], [ %354, %for.body.i.i.i622 ]
-  %ref.tmp424.sroa.0.2 = phi ptr [ null, %call.i615.noexc.invoke.cont426_crit_edge ], [ %call.i.i.i619631, %for.body.i.i.i622 ]
+  %ref.tmp424.sroa.0.0 = phi ptr [ null, %call.i615.noexc.invoke.cont426_crit_edge ], [ %call.i.i.i619631, %for.body.i.i.i622 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i614), !noalias !178
-  store ptr %ref.tmp424.sroa.0.2, ptr %p, align 8, !tbaa !3
+  store ptr %ref.tmp424.sroa.0.0, ptr %p, align 8, !tbaa !3
   %cmp.not.i.i635 = icmp eq ptr %356, null
   br i1 %cmp.not.i.i635, label %if.end429, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i636
 

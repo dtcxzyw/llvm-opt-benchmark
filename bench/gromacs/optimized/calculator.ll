@@ -1764,8 +1764,8 @@ define internal void @_ZN5nblib21ListedForceCalculatorC2ERKSt5tupleIJNS_14Listed
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 %14)
   store i32 %17, ptr %7, align 4, !tbaa !161
   %18 = load i32, ptr %6, align 4, !tbaa !161
-  %.not31 = icmp sgt i32 %18, %17
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp sgt i32 %18, %17
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16

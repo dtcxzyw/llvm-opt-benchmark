@@ -30608,7 +30608,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %123, %.noexc65, %_Z
   br i1 %128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, %136
-  %.03377 = phi ptr [ %137, %136 ], [ %113, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ]
+  %.03374 = phi ptr [ %137, %136 ], [ %113, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %129 = load ptr, ptr %1, align 8, !tbaa !15
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -30618,7 +30618,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %123, %.noexc65, %_Z
 
 133:                                              ; preds = %.lr.ph
   store i64 %132, ptr %16, align 8
-  invoke void @_ZN6open3d4core13MemoryManager12MemcpyToHostEPvPKvRKNS0_6DeviceEm(ptr noundef %.sroa.068.0, ptr noundef %.03377, ptr noundef nonnull align 4 dereferenceable(8) %16, i64 noundef %115)
+  invoke void @_ZN6open3d4core13MemoryManager12MemcpyToHostEPvPKvRKNS0_6DeviceEm(ptr noundef %.sroa.068.0, ptr noundef %.03374, ptr noundef nonnull align 4 dereferenceable(8) %16, i64 noundef %115)
           to label %134 unwind label %147
 
 134:                                              ; preds = %133
@@ -30628,7 +30628,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %123, %.noexc65, %_Z
           to label %136 unwind label %.loopexit
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %.03377, i64 %115
+  %137 = getelementptr inbounds nuw i8, ptr %.03374, i64 %115
   %138 = load i32, ptr %125, align 8, !tbaa !688
   %139 = load i32, ptr %82, align 4, !tbaa !685
   %140 = icmp ult i32 %138, %139

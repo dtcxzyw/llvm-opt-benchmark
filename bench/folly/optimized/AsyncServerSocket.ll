@@ -6135,8 +6135,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueISt7va
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !321
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %16
-  %.sroa.0.2 = phi ptr [ null, %16 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %16 ], [ %22, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %.0711.i.i, %.lr.ph.i.i ]
+  %.sroa.9.0 = phi i64 [ 0, %16 ], [ %22, %.lr.ph.i.i ]
   %23 = load ptr, ptr %10, align 64, !tbaa !323
   %.not.i1.i.i = icmp eq ptr %23, null
   br i1 %.not.i1.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23
@@ -6242,13 +6242,13 @@ _ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncS
   br i1 %.not.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit
-  store ptr %.sroa.0.2, ptr %10, align 64, !tbaa !317
-  store i64 %.sroa.9.2, ptr %.phi.trans.insert.i, align 8, !tbaa !237
-  %.not.i27 = icmp eq ptr %.sroa.0.2, null
+  store ptr %.sroa.0.0, ptr %10, align 64, !tbaa !317
+  store i64 %.sroa.9.0, ptr %.phi.trans.insert.i, align 8, !tbaa !237
+  %.not.i27 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i27, label %.critedge, label %71
 
 71:                                               ; preds = %.critedge2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit
-  %72 = phi ptr [ %15, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
+  %72 = phi ptr [ %15, %.critedge2 ], [ %.sroa.0.0, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %.1 = phi i1 [ %.043, %.critedge2 ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %73 = load atomic i64, ptr %11 monotonic, align 16
   %74 = add nsw i64 %73, 1
@@ -6884,8 +6884,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly23AtomicNotificationQueueISt7va
   br i1 %.not.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit, label %.lr.ph.i.i, !llvm.loop !321
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit: ; preds = %.lr.ph.i.i, %21
-  %.sroa.0.2 = phi ptr [ null, %21 ], [ %.0711.i.i, %.lr.ph.i.i ]
-  %.sroa.9.2 = phi i64 [ 0, %21 ], [ %27, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %21 ], [ %.0711.i.i, %.lr.ph.i.i ]
+  %.sroa.9.0 = phi i64 [ 0, %21 ], [ %27, %.lr.ph.i.i ]
   %28 = load ptr, ptr %12, align 64, !tbaa !323
   %.not.i1.i.i = icmp eq ptr %28, null
   br i1 %.not.i1.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23
@@ -6991,13 +6991,13 @@ _ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncS
   br i1 %.not.i.i.i, label %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, label %.lr.ph.i.i23, !llvm.loop !322
 
 _ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly23AtomicNotificationQueueISt7variantIJNS0_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEEE4NodeEEclEPS8_.exit, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE11AtomicQueue8getTasksEv.exit
-  store ptr %.sroa.0.2, ptr %12, align 64, !tbaa !317
-  store i64 %.sroa.9.2, ptr %.phi.trans.insert.i, align 8, !tbaa !237
-  %.not.i27 = icmp eq ptr %.sroa.0.2, null
+  store ptr %.sroa.0.0, ptr %12, align 64, !tbaa !317
+  store i64 %.sroa.9.0, ptr %.phi.trans.insert.i, align 8, !tbaa !237
+  %.not.i27 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i27, label %.critedge, label %76
 
 76:                                               ; preds = %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit, %.critedge2
-  %77 = phi ptr [ %20, %.critedge2 ], [ %.sroa.0.2, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
+  %77 = phi ptr [ %20, %.critedge2 ], [ %.sroa.0.0, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %.1 = phi i1 [ %.04553, %.critedge2 ], [ true, %_ZN5folly23AtomicNotificationQueueISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS2_12ErrorMessageEEEE5QueueD2Ev.exit ]
   %78 = load atomic i64, ptr %13 monotonic, align 16
   %79 = add nsw i64 %78, 1

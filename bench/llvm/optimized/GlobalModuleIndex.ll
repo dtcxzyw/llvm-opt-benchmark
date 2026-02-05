@@ -469,8 +469,8 @@ define dso_local void @_ZN5clang17GlobalModuleIndexC2ESt10unique_ptrIN4llvm12Mem
   br label %.outer
 
 .outer:                                           ; preds = %select.unfold.thread, %3
-  %.077.ph = phi i8 [ %.1.ph, %select.unfold.thread ], [ 0, %3 ]
-  %65 = trunc nuw i8 %.077.ph to i1
+  %.075.ph = phi i8 [ %.1.ph, %select.unfold.thread ], [ 0, %3 ]
+  %65 = trunc nuw i8 %.075.ph to i1
   br label %.backedge
 
 .backedge:                                        ; preds = %select.unfold, %.outer
@@ -539,7 +539,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %65, label %124, label %.thread69
 
 85:                                               ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit
-  %86 = trunc nuw i8 %.077.ph to i1
+  %86 = trunc nuw i8 %.075.ph to i1
   %87 = icmp ne i32 %.sroa.4.0.copyload, 8
   %or.cond.not = select i1 %86, i1 true, i1 %87
   br i1 %or.cond.not, label %106, label %88
@@ -548,8 +548,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_ZN4llvm15BitstreamCursor13EnterSubBlockEjPj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %34, ptr noundef nonnull align 8 dereferenceable(344) %2, i32 noundef 8, ptr noundef null) #27
   %89 = load ptr, ptr %34, align 8, !tbaa !52
-  %.not75 = icmp eq ptr %89, null
-  br i1 %.not75, label %_ZN4llvm5ErrorD2Ev.exit45, label %90
+  %.not73 = icmp eq ptr %89, null
+  br i1 %.not73, label %_ZN4llvm5ErrorD2Ev.exit45, label %90
 
 90:                                               ; preds = %88
   %.val40.val = load ptr, ptr %0, align 8, !tbaa !3
@@ -602,8 +602,8 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZN4llvm15BitstreamCursor9SkipBlockEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %35, ptr noundef nonnull align 8 dereferenceable(344) %2)
   %107 = load ptr, ptr %35, align 8, !tbaa !52
-  %.not76 = icmp eq ptr %107, null
-  br i1 %.not76, label %_ZN4llvm5ErrorD2Ev.exit47, label %108
+  %.not74 = icmp eq ptr %107, null
+  br i1 %.not74, label %_ZN4llvm5ErrorD2Ev.exit47, label %108
 
 108:                                              ; preds = %106
   %.val41.val = load ptr, ptr %0, align 8, !tbaa !3
@@ -842,7 +842,7 @@ _ZNK4llvm9StringRef6rsplitEc.exit:                ; preds = %166, %_ZN5clang17Gl
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store i32 %154, ptr %218, align 4, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  %.pre = load i8, ptr %57, align 8
+  %.pre.pre = load i8, ptr %57, align 8
   br label %233
 
 219:                                              ; preds = %143
@@ -875,7 +875,7 @@ _ZNK4llvm9StringRef6rsplitEc.exit:                ; preds = %166, %_ZN5clang17Gl
   br label %233
 
 233:                                              ; preds = %148, %143, %_ZNK4llvm9StringRef6rsplitEc.exit, %222, %219, %145
-  %234 = phi i8 [ %125, %145 ], [ %125, %148 ], [ %125, %219 ], [ %125, %222 ], [ %.pre, %_ZNK4llvm9StringRef6rsplitEc.exit ], [ %125, %143 ]
+  %234 = phi i8 [ %125, %145 ], [ %125, %148 ], [ %125, %219 ], [ %125, %222 ], [ %.pre.pre, %_ZNK4llvm9StringRef6rsplitEc.exit ], [ %125, %143 ]
   %.137 = phi i1 [ false, %145 ], [ %.not39.not, %148 ], [ true, %219 ], [ true, %222 ], [ true, %_ZNK4llvm9StringRef6rsplitEc.exit ], [ true, %143 ]
   %235 = trunc i8 %234 to i1
   br i1 %235, label %236, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -904,7 +904,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %236, %_ZNKSt14defau
   br label %select.unfold
 
 select.unfold.thread:                             ; preds = %_ZN4llvm5ErrorD2Ev.exit47, %_ZN4llvm5ErrorD2Ev.exit45
-  %.1.ph = phi i8 [ %.077.ph, %_ZN4llvm5ErrorD2Ev.exit47 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit45 ]
+  %.1.ph = phi i8 [ %.075.ph, %_ZN4llvm5ErrorD2Ev.exit47 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit45 ]
   br label %.outer, !llvm.loop !57
 
 select.unfold:                                    ; preds = %243, %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -2914,8 +2914,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i: ; preds = %72, %.
   br i1 %.not.i.i22, label %_ZNK4llvm22OnDiskChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE8iteratordeEv.exit, label %.lr.ph.i.i20, !llvm.loop !298
 
 _ZNK4llvm22OnDiskChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE8iteratordeEv.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i
-  %.not1345 = icmp eq i32 %80, 0
-  br i1 %.not1345, label %._crit_edge, label %.lr.ph
+  %.not1341 = icmp eq i32 %80, 0
+  br i1 %.not1341, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm22OnDiskChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE8iteratordeEv.exit
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10648,8 +10648,8 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
   store i32 %storemerge6.i.i, ptr %10, align 8, !tbaa !523
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, i32 noundef 6)
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %7, i32 noundef 6)
-  %.not1219 = icmp eq i32 %7, 0
-  br i1 %.not1219, label %.loopexit, label %.lr.ph.preheader
+  %.not1217 = icmp eq i32 %7, 0
+  br i1 %.not1217, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit
   %37 = zext i32 %7 to i64
@@ -11024,8 +11024,8 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
   store i32 %storemerge6.i.i, ptr %10, align 8, !tbaa !523
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, i32 noundef 6)
   tail call void @_ZN4llvm15BitstreamWriter7EmitVBREjj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %7, i32 noundef 6)
-  %.not1219 = icmp eq i32 %7, 0
-  br i1 %.not1219, label %.loopexit, label %.lr.ph.preheader
+  %.not1217 = icmp eq i32 %7, 0
+  br i1 %.not1217, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15BitstreamWriter8EmitCodeEj.exit
   %37 = zext i32 %7 to i64

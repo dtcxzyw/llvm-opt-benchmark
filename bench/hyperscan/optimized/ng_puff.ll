@@ -1118,17 +1118,17 @@ _ZN3ue216proper_in_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i.
 .critedge.i.i:                                    ; preds = %.noexc308.i, %.noexc307.i, %_ZN3ue216proper_in_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i.i
   %.sroa.056.0.i.i = phi ptr [ %397, %.noexc308.i ], [ %.sroa.047.0.copyload.i, %.noexc307.i ], [ %.sroa.047.0.copyload.i, %_ZN3ue216proper_in_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i.i ]
   %398 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.i.i, i64 112
-  %.sroa.052.075.i.i = load ptr, ptr %398, align 8
-  %.not76.i.i = icmp eq ptr %.sroa.052.075.i.i, %398
-  br i1 %.not76.i.i, label %.loopexit517.i, label %.lr.ph.i294.i
+  %.sroa.052.073.i.i = load ptr, ptr %398, align 8
+  %.not74.i294.i = icmp eq ptr %.sroa.052.073.i.i, %398
+  br i1 %.not74.i294.i, label %.loopexit517.i, label %.lr.ph.i295.i
 
-.lr.ph.i294.i:                                    ; preds = %.critedge.i.i
+.lr.ph.i295.i:                                    ; preds = %.critedge.i.i
   %399 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.i.i, i64 104
   br label %400
 
-400:                                              ; preds = %.critedge3.i.i, %.lr.ph.i294.i
-  %.sroa.052.077.i.i = phi ptr [ %.sroa.052.075.i.i, %.lr.ph.i294.i ], [ %.sroa.052.0.i.i, %.critedge3.i.i ]
-  %401 = getelementptr inbounds nuw i8, ptr %.sroa.052.077.i.i, i64 16
+400:                                              ; preds = %.critedge3.i.i, %.lr.ph.i295.i
+  %.sroa.052.075.i.i = phi ptr [ %.sroa.052.073.i.i, %.lr.ph.i295.i ], [ %.sroa.052.0.i.i, %.critedge3.i.i ]
+  %401 = getelementptr inbounds nuw i8, ptr %.sroa.052.075.i.i, i64 16
   %402 = load ptr, ptr %401, align 8
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 16
   %404 = invoke noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %371, ptr noundef nonnull align 8 dereferenceable(32) %403)
@@ -1179,8 +1179,8 @@ _ZN3ue216proper_in_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i.
 
 _ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i.i: ; preds = %.critedge24.i.i.i42.i.i, %.critedge.i.i.i45.i.i
   %.sroa.0.0.copyload.i48.i.i = load ptr, ptr %35, align 8
-  %.not64.i.i = icmp eq ptr %402, %.sroa.0.0.copyload.i48.i.i
-  br i1 %.not64.i.i, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.i.i, label %_ZN3ue2L17triggerFloodsPuffERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i
+  %.not62.i.i = icmp eq ptr %402, %.sroa.0.0.copyload.i48.i.i
+  br i1 %.not62.i.i, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.i.i, label %_ZN3ue2L17triggerFloodsPuffERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i
 
 _ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.i.i: ; preds = %419, %413, %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i.i
   %.sroa.06.0.copyload.i.i = load ptr, ptr %35, align 8
@@ -1224,7 +1224,7 @@ _ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.
   br i1 %438, label %.critedge3.i.i, label %.critedge24.i.i.i297.i
 
 .critedge3.i.i:                                   ; preds = %435, %429, %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.i.i
-  %.sroa.052.0.i.i = load ptr, ptr %.sroa.052.077.i.i, align 8
+  %.sroa.052.0.i.i = load ptr, ptr %.sroa.052.075.i.i, align 8
   %.not.i296.i = icmp eq ptr %.sroa.052.0.i.i, %398
   br i1 %.not.i296.i, label %.loopexit517.i, label %400
 

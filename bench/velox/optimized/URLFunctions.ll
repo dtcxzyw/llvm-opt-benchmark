@@ -9743,16 +9743,16 @@ if.then6.i23:                                     ; preds = %if.else.i
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then6.i23
   tail call void @llvm.memset.p0.i64(ptr align 1 %44, i8 0, i64 %sub.ptr.sub.i10.i, i1 false)
-  %.pre23.i = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre24.i = load ptr, ptr %m_recursion_checks, align 8
-  %.pre25.i = ptrtoint ptr %.pre23.i to i64
-  %.pre26.i = ptrtoint ptr %.pre24.i to i64
+  %.pre20.i = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre21.i = load ptr, ptr %m_recursion_checks, align 8
+  %.pre22.i = ptrtoint ptr %.pre20.i to i64
+  %.pre23.i = ptrtoint ptr %.pre21.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %if.then.i.i.i.i.i25, %if.then6.i23
-  %sub.ptr.rhs.cast.i14.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i20, %if.then6.i23 ], [ %.pre26.i, %if.then.i.i.i.i.i25 ]
-  %sub.ptr.lhs.cast.i13.pre-phi.i = phi i64 [ %sub.ptr.lhs.cast.i8.i, %if.then6.i23 ], [ %.pre25.i, %if.then.i.i.i.i.i25 ]
-  %46 = phi ptr [ %45, %if.then6.i23 ], [ %.pre23.i, %if.then.i.i.i.i.i25 ]
+  %sub.ptr.rhs.cast.i14.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i20, %if.then6.i23 ], [ %.pre23.i, %if.then.i.i.i.i.i25 ]
+  %sub.ptr.lhs.cast.i13.pre-phi.i = phi i64 [ %sub.ptr.lhs.cast.i8.i, %if.then6.i23 ], [ %.pre22.i, %if.then.i.i.i.i.i25 ]
+  %46 = phi ptr [ %45, %if.then6.i23 ], [ %.pre20.i, %if.then.i.i.i.i.i25 ]
   %sub.ptr.sub.i15.neg.i = sub i64 %sub.ptr.rhs.cast.i14.pre-phi.i, %sub.ptr.lhs.cast.i13.pre-phi.i
   %sub.i26 = add i64 %sub.ptr.sub.i15.neg.i, %add43
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i26, 0
@@ -27441,16 +27441,16 @@ if.then6.i:                                       ; preds = %if.else.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then6.i
   call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %sub.ptr.sub.i10.i, i1 false)
-  %.pre23.i = load ptr, ptr %_M_finish.i.i19, align 8
-  %.pre24.i = load ptr, ptr %m_recursion_checks, align 8
-  %.pre25.i = ptrtoint ptr %.pre23.i to i64
-  %.pre26.i = ptrtoint ptr %.pre24.i to i64
+  %.pre20.i = load ptr, ptr %_M_finish.i.i19, align 8
+  %.pre21.i = load ptr, ptr %m_recursion_checks, align 8
+  %.pre22.i = ptrtoint ptr %.pre20.i to i64
+  %.pre23.i = ptrtoint ptr %.pre21.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then6.i
-  %sub.ptr.rhs.cast.i14.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i, %if.then6.i ], [ %.pre26.i, %if.then.i.i.i.i.i ]
-  %sub.ptr.lhs.cast.i13.pre-phi.i = phi i64 [ %sub.ptr.lhs.cast.i8.i, %if.then6.i ], [ %.pre25.i, %if.then.i.i.i.i.i ]
-  %23 = phi ptr [ %22, %if.then6.i ], [ %.pre23.i, %if.then.i.i.i.i.i ]
+  %sub.ptr.rhs.cast.i14.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i, %if.then6.i ], [ %.pre23.i, %if.then.i.i.i.i.i ]
+  %sub.ptr.lhs.cast.i13.pre-phi.i = phi i64 [ %sub.ptr.lhs.cast.i8.i, %if.then6.i ], [ %.pre22.i, %if.then.i.i.i.i.i ]
+  %23 = phi ptr [ %22, %if.then6.i ], [ %.pre20.i, %if.then.i.i.i.i.i ]
   %sub.ptr.sub.i15.neg.i = sub i64 %sub.ptr.rhs.cast.i14.pre-phi.i, %sub.ptr.lhs.cast.i13.pre-phi.i
   %sub.i = add i64 %sub.ptr.sub.i15.neg.i, %add
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i, 0
@@ -27561,16 +27561,16 @@ if.then6.i46:                                     ; preds = %if.else.i32
 
 if.then.i.i.i.i.i48:                              ; preds = %if.then6.i46
   call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %sub.ptr.sub.i10.i35, i1 false)
-  %.pre23.i49 = load ptr, ptr %_M_finish.i.i19, align 8
-  %.pre24.i50 = load ptr, ptr %m_recursion_checks, align 8
-  %.pre25.i51 = ptrtoint ptr %.pre23.i49 to i64
-  %.pre26.i52 = ptrtoint ptr %.pre24.i50 to i64
+  %.pre20.i49 = load ptr, ptr %_M_finish.i.i19, align 8
+  %.pre21.i50 = load ptr, ptr %m_recursion_checks, align 8
+  %.pre22.i51 = ptrtoint ptr %.pre20.i49 to i64
+  %.pre23.i52 = ptrtoint ptr %.pre21.i50 to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i53
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i53: ; preds = %if.then.i.i.i.i.i48, %if.then6.i46
-  %sub.ptr.rhs.cast.i14.pre-phi.i54 = phi i64 [ %sub.ptr.rhs.cast.i.i29, %if.then6.i46 ], [ %.pre26.i52, %if.then.i.i.i.i.i48 ]
-  %sub.ptr.lhs.cast.i13.pre-phi.i55 = phi i64 [ %sub.ptr.lhs.cast.i8.i34, %if.then6.i46 ], [ %.pre25.i51, %if.then.i.i.i.i.i48 ]
-  %34 = phi ptr [ %33, %if.then6.i46 ], [ %.pre23.i49, %if.then.i.i.i.i.i48 ]
+  %sub.ptr.rhs.cast.i14.pre-phi.i54 = phi i64 [ %sub.ptr.rhs.cast.i.i29, %if.then6.i46 ], [ %.pre23.i52, %if.then.i.i.i.i.i48 ]
+  %sub.ptr.lhs.cast.i13.pre-phi.i55 = phi i64 [ %sub.ptr.lhs.cast.i8.i34, %if.then6.i46 ], [ %.pre22.i51, %if.then.i.i.i.i.i48 ]
+  %34 = phi ptr [ %33, %if.then6.i46 ], [ %.pre20.i49, %if.then.i.i.i.i.i48 ]
   %sub.ptr.sub.i15.neg.i56 = sub i64 %sub.ptr.rhs.cast.i14.pre-phi.i54, %sub.ptr.lhs.cast.i13.pre-phi.i55
   %sub.i57 = add i64 %sub.ptr.sub.i15.neg.i56, %add56
   %cmp.i.i.i.i.i.i58 = icmp eq i64 %sub.i57, 0

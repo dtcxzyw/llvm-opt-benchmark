@@ -1562,7 +1562,7 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
   br label %.body54
 
 201:                                              ; preds = %197, %149
-  %.sroa.11.2 = phi i64 [ %200, %197 ], [ 0, %149 ]
+  %.sroa.11.0 = phi i64 [ %200, %197 ], [ 0, %149 ]
   %202 = load ptr, ptr %18, align 8, !tbaa !63
   %203 = load ptr, ptr %19, align 8, !tbaa !64
   %.not.i44 = icmp eq ptr %202, %203
@@ -1575,7 +1575,7 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
   %.sroa.976.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 16
   store i64 %152, ptr %.sroa.976.0..sroa_idx, align 8, !tbaa !27
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 24
-  store i64 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !27
+  store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !27
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store ptr %205, ptr %18, align 8, !tbaa !63
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit
@@ -1616,7 +1616,7 @@ _ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_ch
   %.sroa.976.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %220, i64 16
   store i64 %152, ptr %.sroa.976.0..sroa_idx77, align 8, !tbaa !27
   %.sroa.11.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  store i64 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx79, align 8, !tbaa !27
+  store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx79, align 8, !tbaa !27
   %.not10.i.i.i.i.i = icmp eq ptr %207, %202
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 

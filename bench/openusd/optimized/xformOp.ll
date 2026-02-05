@@ -7117,9 +7117,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds = %475, %485
-  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload131, %475 ], [ %491, %485 ]
-  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload129, %475 ], [ %490, %485 ]
   %.sroa.0126.0 = phi double [ %.sroa.0126.0.copyload127, %475 ], [ %489, %485 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload129, %475 ], [ %490, %485 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload131, %475 ], [ %491, %485 ]
   store double %.sroa.0126.0, ptr %55, align 8
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx128, align 8
   store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx130, align 8

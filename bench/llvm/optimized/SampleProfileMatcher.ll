@@ -1323,15 +1323,15 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %195, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit
-  %.sroa.0.4 = phi ptr [ null, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ %207, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ @.str.39, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ @.str.39, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ @.str.39, %195 ]
-  %.sroa.5.4 = phi i64 [ 0, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ %208, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ 23, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ 23, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ 23, %195 ]
+  %.sroa.0.0 = phi ptr [ null, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ %207, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ @.str.39, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ @.str.39, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ @.str.39, %195 ]
+  %.sroa.5.0 = phi i64 [ 0, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ %208, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ 23, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ 23, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ 23, %195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %209 = load i32, ptr %4, align 4, !tbaa !128
   store i32 %209, ptr %5, align 4, !tbaa !89
   store i32 0, ptr %19, align 4, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %.sroa.0.4, ptr %6, align 8, !tbaa !131
-  store i64 %.sroa.5.4, ptr %20, align 8, !tbaa !133
+  store ptr %.sroa.0.0, ptr %6, align 8, !tbaa !131
+  store i64 %.sroa.5.0, ptr %20, align 8, !tbaa !133
   %210 = call { ptr, i8 } @_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE7emplaceIJRS2_S3_EEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3841,7 +3841,7 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %58, null
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  br i1 %.not.i, label %60, label %.thread61
+  br i1 %.not.i, label %60, label %.thread59
 
 60:                                               ; preds = %_ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit
   %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL28LoadFuncProfileforCGMatching, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
@@ -3861,10 +3861,10 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
 69:                                               ; preds = %63, %2
   %.0 = phi ptr [ %.0.i.i, %2 ], [ %68, %63 ]
   %.not26 = icmp eq ptr %.0, null
-  br i1 %.not26, label %.thread, label %.thread61
+  br i1 %.not26, label %.thread, label %.thread59
 
-.thread61:                                        ; preds = %_ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit, %69
-  %.064 = phi ptr [ %.0, %69 ], [ %59, %_ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit ]
+.thread59:                                        ; preds = %_ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit, %69
+  %.062 = phi ptr [ %.0, %69 ], [ %59, %_ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %70, align 8, !tbaa !250
@@ -3888,19 +3888,19 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
   store ptr %75, ptr %78, align 8, !tbaa !251
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %79, align 8, !tbaa !97
-  call void @_ZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(176) %.064, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  call void @_ZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(176) %.062, ptr noundef nonnull align 8 dereferenceable(48) %7)
   %80 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ReportProfileStaleness, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
   %81 = trunc nuw i8 %80 to i1
   %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 120), align 8, !range !54
   %83 = trunc nuw i8 %82 to i1
-  %or.cond44 = select i1 %81, i1 true, i1 %83
-  br i1 %or.cond44, label %84, label %85
+  %or.cond42 = select i1 %81, i1 true, i1 %83
+  br i1 %or.cond42, label %84, label %85
 
-84:                                               ; preds = %.thread61
+84:                                               ; preds = %.thread59
   call void @_ZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null)
   br label %85
 
-85:                                               ; preds = %.thread61, %84
+85:                                               ; preds = %.thread59, %84
   %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageStaleProfile, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %136
@@ -3929,7 +3929,7 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
 102:                                              ; preds = %91
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %104 = load i64, ptr %103, align 8, !tbaa !253
-  %105 = getelementptr inbounds nuw i8, ptr %.064, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.062, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !255
   %107 = icmp ne i64 %104, %106
   br label %_ZNK4llvm18PseudoProbeManager14profileIsValidERKNS_8FunctionERKNS_10sampleprof15FunctionSamplesE.exit
@@ -3973,8 +3973,8 @@ _ZNK4llvm18PseudoProbeManager14profileIsValidERKNS_8FunctionERKNS_10sampleprof15
   %132 = trunc nuw i8 %131 to i1
   %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 120), align 8, !range !54
   %134 = trunc nuw i8 %133 to i1
-  %or.cond46 = select i1 %132, i1 true, i1 %134
-  br i1 %or.cond46, label %135, label %136
+  %or.cond44 = select i1 %132, i1 true, i1 %134
+  br i1 %or.cond44, label %135, label %136
 
 135:                                              ; preds = %130
   call void @_ZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %129)

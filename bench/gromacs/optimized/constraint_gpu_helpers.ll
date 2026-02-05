@@ -326,7 +326,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   tail call void @llvm.assume(i1 %.not.i.i)
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.063.0, i64 4
   %.not13.i.i = icmp eq ptr %27, %.0.i.i.i.i.i
-  br i1 %.not13.i.i, label %.loopexit85, label %.lr.ph.i.i.i.preheader
+  br i1 %.not13.i.i, label %.loopexit82, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge
   %28 = load i32, ptr %.sroa.063.0, align 4, !tbaa !13
@@ -340,7 +340,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %31 = getelementptr i8, ptr %.sroa.03.09.i.i.i, i64 4
   store i32 %30, ptr %.sroa.03.09.i.i.i, align 4, !tbaa !13
   %.not.i.i.i = icmp eq ptr %31, %.0.i.i.i.i.i
-  br i1 %.not.i.i.i, label %.loopexit85, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i, label %.loopexit82, label %.lr.ph.i.i.i, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -366,7 +366,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-.loopexit85:                                      ; preds = %.lr.ph.i.i.i, %._crit_edge
+.loopexit82:                                      ; preds = %.lr.ph.i.i.i, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %49 = ptrtoint ptr %.sroa.063.0 to i64
@@ -374,14 +374,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %51 = icmp ugt i64 %50, 9223372036854775804
   br i1 %51, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, !prof !27
 
-.noexc.i.i:                                       ; preds = %.loopexit85
+.noexc.i.i:                                       ; preds = %.loopexit82
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #19
           to label %.noexc41 unwind label %70
 
 .noexc41:                                         ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %.loopexit85
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %.loopexit82
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #20
           to label %53 unwind label %70
 
@@ -438,13 +438,13 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
   %69 = phi ptr [ %62, %_ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.thread.i ], [ %65, %.noexc45 ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.thread.i ], [ %scevgep, %.noexc45 ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %69, align 8, !tbaa !28
-  br i1 %26, label %.lr.ph89, label %._crit_edge90
+  br i1 %26, label %.lr.ph86, label %._crit_edge87
 
-.lr.ph89:                                         ; preds = %.loopexit
-  %wide.trip.count95 = and i64 %14, 2147483647
+.lr.ph86:                                         ; preds = %.loopexit
+  %wide.trip.count92 = and i64 %14, 2147483647
   br label %74
 
-._crit_edge90:                                    ; preds = %74, %.loopexit
+._crit_edge87:                                    ; preds = %74, %.loopexit
   invoke void @_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementEC2EOSt6vectorIiSaIiEEOS3_IS1_SaIS1_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %94 unwind label %110
 
@@ -458,9 +458,9 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
           cleanup
   br label %_ZNSt6vectorI25AtomsAdjacencyListElementSaIS0_EED2Ev.exit51
 
-74:                                               ; preds = %.lr.ph89, %74
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %74 ]
-  %75 = mul nsw i64 %indvars.iv92, %13
+74:                                               ; preds = %.lr.ph86, %74
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next90, %74 ]
+  %75 = mul nsw i64 %indvars.iv89, %13
   %76 = getelementptr i32, ptr %2, i64 %75
   %77 = getelementptr i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !13
@@ -475,7 +475,7 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
   %86 = getelementptr inbounds nuw %struct.AtomsAdjacencyListElement, ptr %68, i64 %85
   store i32 %80, ptr %86, align 4, !tbaa !13
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %87 = trunc nuw nsw i64 %indvars.iv92 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv89 to i32
   store i32 %87, ptr %.sroa.457.0..sroa_idx, align 4, !tbaa !13
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 1, ptr %.sroa.558.0..sroa_idx, align 4, !tbaa !13
@@ -491,11 +491,11 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
   store i32 %87, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !13
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 -1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !13
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge90, label %74, !llvm.loop !30
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
+  br i1 %exitcond93.not, label %._crit_edge87, label %74, !llvm.loop !30
 
-94:                                               ; preds = %._crit_edge90
+94:                                               ; preds = %._crit_edge87
   %95 = load ptr, ptr %6, align 8, !tbaa !4
   %.not.i.i.i46 = icmp eq ptr %95, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorI25AtomsAdjacencyListElementSaIS0_EED2Ev.exit, label %96
@@ -530,7 +530,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit49:                  ; preds = %_ZNSt6vectorI25Atom
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.0, i64 noundef %109) #21
   ret void
 
-110:                                              ; preds = %._crit_edge90
+110:                                              ; preds = %._crit_edge87
   %111 = landingpad { ptr, i32 }
           cleanup
   %112 = load ptr, ptr %6, align 8, !tbaa !4

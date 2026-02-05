@@ -3972,14 +3972,14 @@ define hidden void @_ZNK5clang6driver10toolchains9BareMetal19getOrderedMultilibs
   br label %23
 
 23:                                               ; preds = %21, %10
-  %.sink11 = phi i32 [ %22, %21 ], [ %9, %10 ]
-  %.sink9.in = phi ptr [ @_ZZNK5clang6driver10toolchains9BareMetal19getOrderedMultilibsEvE7Default, %21 ], [ %11, %10 ]
-  %.sink9 = load ptr, ptr %.sink9.in, align 8, !tbaa !6, !noalias !209
-  %24 = zext i32 %.sink11 to i64
-  %25 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %.sink9, i64 %24
+  %.sink7 = phi i32 [ %22, %21 ], [ %9, %10 ]
+  %.sink5.in = phi ptr [ @_ZZNK5clang6driver10toolchains9BareMetal19getOrderedMultilibsEvE7Default, %21 ], [ %11, %10 ]
+  %.sink5 = load ptr, ptr %.sink5.in, align 8, !tbaa !6, !noalias !209
+  %24 = zext i32 %.sink7 to i64
+  %25 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %.sink5, i64 %24
   store ptr %25, ptr %0, align 8, !tbaa !93
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink9, ptr %26, align 8, !tbaa !93
+  store ptr %.sink5, ptr %26, align 8, !tbaa !93
   ret void
 }
 

@@ -1780,9 +1780,9 @@ define dso_local void @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16Sample
   store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
-  %.sroa.010.018 = load ptr, ptr %25, align 8, !tbaa !106
-  %.not19 = icmp eq ptr %.sroa.010.018, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.sroa.010.016 = load ptr, ptr %25, align 8, !tbaa !106
+  %.not17 = icmp eq ptr %.sroa.010.016, null
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1793,11 +1793,11 @@ define dso_local void @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16Sample
   ret void
 
 27:                                               ; preds = %.lr.ph, %_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit
-  %.sroa.010.020 = phi ptr [ %.sroa.010.018, %.lr.ph ], [ %.sroa.010.0, %_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 48
+  %.sroa.010.018 = phi ptr [ %.sroa.010.016, %.lr.ph ], [ %.sroa.010.0, %_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 48
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !107
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 56
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !12
@@ -1826,7 +1826,7 @@ _ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13Sample
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 72
   store ptr %28, ptr %34, align 8, !tbaa !15
-  %.sroa.010.0 = load ptr, ptr %.sroa.010.020, align 8, !tbaa !106
+  %.sroa.010.0 = load ptr, ptr %.sroa.010.018, align 8, !tbaa !106
   %.not = icmp eq ptr %.sroa.010.0, null
   br i1 %.not, label %._crit_edge, label %27
 }

@@ -712,7 +712,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %16 = trunc i64 %9 to i32
   %17 = add nsw i32 %16, -1
   %18 = load ptr, ptr @_ZN8LightGBM13DCGCalculator9discount_E, align 8
-  %wide.trip.count51 = zext nneg i32 %spec.select to i64
+  %wide.trip.count48 = zext nneg i32 %spec.select to i64
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -730,62 +730,62 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge.thread
-  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.critedge.thread ]
-  %.02141 = phi i32 [ %17, %.preheader.lr.ph ], [ %.136, %.critedge.thread ]
-  %.02440 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %40, %.critedge.thread ]
-  %26 = icmp sgt i32 %.02141, 0
-  br i1 %26, label %.lr.ph39, label %.critedge
+  %indvars.iv45 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next46, %.critedge.thread ]
+  %.02138 = phi i32 [ %17, %.preheader.lr.ph ], [ %.133, %.critedge.thread ]
+  %.02437 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %40, %.critedge.thread ]
+  %26 = icmp sgt i32 %.02138, 0
+  br i1 %26, label %.lr.ph36, label %.critedge
 
-.lr.ph39:                                         ; preds = %.preheader, %31
-  %.138 = phi i32 [ %32, %31 ], [ %.02141, %.preheader ]
-  %27 = zext nneg i32 %.138 to i64
+.lr.ph36:                                         ; preds = %.preheader, %31
+  %.135 = phi i32 [ %32, %31 ], [ %.02138, %.preheader ]
+  %27 = zext nneg i32 %.135 to i64
   %28 = getelementptr inbounds nuw i32, ptr %.sroa.028.0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %31, label %.critedge.thread
 
-31:                                               ; preds = %.lr.ph39
-  %32 = add nsw i32 %.138, -1
-  %33 = icmp sgt i32 %.138, 1
-  br i1 %33, label %.lr.ph39, label %.critedge..critedge.thread_crit_edge, !llvm.loop !43
+31:                                               ; preds = %.lr.ph36
+  %32 = add nsw i32 %.135, -1
+  %33 = icmp sgt i32 %.135, 1
+  br i1 %33, label %.lr.ph36, label %.critedge..critedge.thread_crit_edge, !llvm.loop !43
 
 .critedge:                                        ; preds = %.preheader
-  %34 = icmp slt i32 %.02141, 0
+  %34 = icmp slt i32 %.02138, 0
   br i1 %34, label %.critedge._crit_edge, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %31, %.critedge
   %.pre = load i32, ptr %.sroa.028.0, align 4, !tbaa !14
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph39, %.critedge..critedge.thread_crit_edge
-  %.pre-phi = phi i64 [ 0, %.critedge..critedge.thread_crit_edge ], [ %27, %.lr.ph39 ]
-  %35 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %29, %.lr.ph39 ]
-  %.136 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.138, %.lr.ph39 ]
-  %36 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv48
+.critedge.thread:                                 ; preds = %.lr.ph36, %.critedge..critedge.thread_crit_edge
+  %.pre-phi = phi i64 [ 0, %.critedge..critedge.thread_crit_edge ], [ %27, %.lr.ph36 ]
+  %35 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %29, %.lr.ph36 ]
+  %.133 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.135, %.lr.ph36 ]
+  %36 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv45
   %37 = load double, ptr %36, align 8, !tbaa !34
   %38 = getelementptr inbounds nuw double, ptr %5, i64 %.pre-phi
   %39 = load double, ptr %38, align 8, !tbaa !34
-  %40 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %.02440)
+  %40 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %.02437)
   %41 = getelementptr inbounds nuw i32, ptr %.sroa.028.0, i64 %.pre-phi
   %42 = add nsw i32 %35, -1
   store i32 %42, ptr %41, align 4, !tbaa !14
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.critedge._crit_edge.thread, label %.preheader, !llvm.loop !44
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
+  br i1 %exitcond49.not, label %.critedge._crit_edge.thread, label %.preheader, !llvm.loop !44
 
 .critedge._crit_edge:                             ; preds = %.critedge, %._crit_edge
-  %.024.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.02440, %.critedge ]
+  %.024.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.02437, %.critedge ]
   %.not.i.i.i = icmp eq ptr %.sroa.028.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.critedge._crit_edge.thread
 
 .critedge._crit_edge.thread:                      ; preds = %.critedge.thread, %.critedge._crit_edge
-  %.024.lcssa60 = phi double [ %.024.lcssa, %.critedge._crit_edge ], [ %40, %.critedge.thread ]
+  %.024.lcssa57 = phi double [ %.024.lcssa, %.critedge._crit_edge ], [ %40, %.critedge.thread ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.028.0) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge._crit_edge, %.critedge._crit_edge.thread
-  %.024.lcssa61 = phi double [ %.024.lcssa, %.critedge._crit_edge ], [ %.024.lcssa60, %.critedge._crit_edge.thread ]
-  ret double %.024.lcssa61
+  %.024.lcssa58 = phi double [ %.024.lcssa, %.critedge._crit_edge ], [ %.024.lcssa57, %.critedge._crit_edge.thread ]
+  ret double %.024.lcssa58
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -831,9 +831,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = load ptr, ptr %0, align 8, !tbaa !17
   %.not = icmp eq ptr %17, %18
-  br i1 %.not, label %._crit_edge66, label %.lr.ph65
+  br i1 %.not, label %._crit_edge63, label %.lr.ph62
 
-.lr.ph65:                                         ; preds = %._crit_edge
+.lr.ph62:                                         ; preds = %._crit_edge
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -857,86 +857,86 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge66:                                    ; preds = %.critedge._crit_edge, %._crit_edge
+._crit_edge63:                                    ; preds = %.critedge._crit_edge, %._crit_edge
   %.not.i.i.i = icmp eq ptr %.sroa.040.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %33
 
-33:                                               ; preds = %._crit_edge66
+33:                                               ; preds = %._crit_edge63
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.040.0) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge66, %33
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge63, %33
   ret void
 
-34:                                               ; preds = %.lr.ph65, %.critedge._crit_edge
-  %.03163 = phi i64 [ 0, %.lr.ph65 ], [ %58, %.critedge._crit_edge ]
-  %.03262 = phi i32 [ %24, %.lr.ph65 ], [ %.2, %.critedge._crit_edge ]
-  %.03361 = phi i32 [ 0, %.lr.ph65 ], [ %spec.select, %.critedge._crit_edge ]
-  %.03460 = phi double [ 0.000000e+00, %.lr.ph65 ], [ %.135.lcssa, %.critedge._crit_edge ]
-  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %.03163
+34:                                               ; preds = %.lr.ph62, %.critedge._crit_edge
+  %.03160 = phi i64 [ 0, %.lr.ph62 ], [ %58, %.critedge._crit_edge ]
+  %.03259 = phi i32 [ %24, %.lr.ph62 ], [ %.2, %.critedge._crit_edge ]
+  %.03358 = phi i32 [ 0, %.lr.ph62 ], [ %spec.select, %.critedge._crit_edge ]
+  %.03457 = phi double [ 0.000000e+00, %.lr.ph62 ], [ %.135.lcssa, %.critedge._crit_edge ]
+  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %.03160
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %spec.select = tail call i32 @llvm.smin.i32(i32 %36, i32 %2)
-  %37 = icmp slt i32 %.03361, %spec.select
+  %37 = icmp slt i32 %.03358, %spec.select
   br i1 %37, label %.preheader.lr.ph, label %.critedge._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %34
   %38 = load ptr, ptr @_ZN8LightGBM13DCGCalculator9discount_E, align 8
-  %39 = sext i32 %.03361 to i64
+  %39 = sext i32 %.03358 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge.thread
-  %indvars.iv69 = phi i64 [ %39, %.preheader.lr.ph ], [ %indvars.iv.next70, %.critedge.thread ]
-  %.153 = phi i32 [ %.03262, %.preheader.lr.ph ], [ %.348, %.critedge.thread ]
-  %.13552 = phi double [ %.03460, %.preheader.lr.ph ], [ %54, %.critedge.thread ]
-  %40 = icmp sgt i32 %.153, 0
-  br i1 %40, label %.lr.ph51, label %.critedge
+  %indvars.iv66 = phi i64 [ %39, %.preheader.lr.ph ], [ %indvars.iv.next67, %.critedge.thread ]
+  %.150 = phi i32 [ %.03259, %.preheader.lr.ph ], [ %.345, %.critedge.thread ]
+  %.13549 = phi double [ %.03457, %.preheader.lr.ph ], [ %54, %.critedge.thread ]
+  %40 = icmp sgt i32 %.150, 0
+  br i1 %40, label %.lr.ph48, label %.critedge
 
-.lr.ph51:                                         ; preds = %.preheader, %45
-  %.350 = phi i32 [ %46, %45 ], [ %.153, %.preheader ]
-  %41 = zext nneg i32 %.350 to i64
+.lr.ph48:                                         ; preds = %.preheader, %45
+  %.347 = phi i32 [ %46, %45 ], [ %.150, %.preheader ]
+  %41 = zext nneg i32 %.347 to i64
   %42 = getelementptr inbounds nuw i32, ptr %.sroa.040.0, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %.critedge.thread
 
-45:                                               ; preds = %.lr.ph51
-  %46 = add nsw i32 %.350, -1
-  %47 = icmp sgt i32 %.350, 1
-  br i1 %47, label %.lr.ph51, label %.critedge..critedge.thread_crit_edge, !llvm.loop !46
+45:                                               ; preds = %.lr.ph48
+  %46 = add nsw i32 %.347, -1
+  %47 = icmp sgt i32 %.347, 1
+  br i1 %47, label %.lr.ph48, label %.critedge..critedge.thread_crit_edge, !llvm.loop !46
 
 .critedge:                                        ; preds = %.preheader
-  %48 = icmp slt i32 %.153, 0
+  %48 = icmp slt i32 %.150, 0
   br i1 %48, label %.critedge._crit_edge, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %45, %.critedge
   %.pre = load i32, ptr %.sroa.040.0, align 4, !tbaa !14
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph51, %.critedge..critedge.thread_crit_edge
-  %.pre-phi = phi i64 [ 0, %.critedge..critedge.thread_crit_edge ], [ %41, %.lr.ph51 ]
-  %49 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %43, %.lr.ph51 ]
-  %.348 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.350, %.lr.ph51 ]
-  %50 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv69
+.critedge.thread:                                 ; preds = %.lr.ph48, %.critedge..critedge.thread_crit_edge
+  %.pre-phi = phi i64 [ 0, %.critedge..critedge.thread_crit_edge ], [ %41, %.lr.ph48 ]
+  %49 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %43, %.lr.ph48 ]
+  %.345 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.347, %.lr.ph48 ]
+  %50 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv66
   %51 = load double, ptr %50, align 8, !tbaa !34
   %52 = getelementptr inbounds nuw double, ptr %6, i64 %.pre-phi
   %53 = load double, ptr %52, align 8, !tbaa !34
-  %54 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %.13552)
+  %54 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %.13549)
   %55 = getelementptr inbounds nuw i32, ptr %.sroa.040.0, i64 %.pre-phi
   %56 = add nsw i32 %49, -1
   store i32 %56, ptr %55, align 4, !tbaa !14
-  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next70 to i32
-  %exitcond72.not = icmp eq i32 %spec.select, %lftr.wideiv
-  br i1 %exitcond72.not, label %.critedge._crit_edge, label %.preheader, !llvm.loop !47
+  %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
+  %exitcond69.not = icmp eq i32 %spec.select, %lftr.wideiv
+  br i1 %exitcond69.not, label %.critedge._crit_edge, label %.preheader, !llvm.loop !47
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge, %34
-  %.135.lcssa = phi double [ %.03460, %34 ], [ %.13552, %.critedge ], [ %54, %.critedge.thread ]
-  %.2 = phi i32 [ %.03262, %34 ], [ %.153, %.critedge ], [ %.348, %.critedge.thread ]
-  %57 = getelementptr inbounds nuw double, ptr %25, i64 %.03163
+  %.135.lcssa = phi double [ %.03457, %34 ], [ %.13549, %.critedge ], [ %54, %.critedge.thread ]
+  %.2 = phi i32 [ %.03259, %34 ], [ %.150, %.critedge ], [ %.345, %.critedge.thread ]
+  %57 = getelementptr inbounds nuw double, ptr %25, i64 %.03160
   store double %.135.lcssa, ptr %57, align 8, !tbaa !34
-  %58 = add nuw i64 %.03163, 1
-  %exitcond73.not = icmp eq i64 %58, %22
-  br i1 %exitcond73.not, label %._crit_edge66, label %34, !llvm.loop !48
+  %58 = add nuw i64 %.03160, 1
+  %exitcond70.not = icmp eq i64 %58, %22
+  br i1 %exitcond70.not, label %._crit_edge63, label %34, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1012,14 +1012,14 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   br label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit"
 
 "_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit": ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge, %24
-  %.sroa.045.08590 = phi ptr [ %9, %24 ], [ %9, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.045.08287 = phi ptr [ %9, %24 ], [ %9, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not66 = icmp eq ptr %26, %27
-  br i1 %.not66, label %._crit_edge65, label %.lr.ph64
+  %.not63 = icmp eq ptr %26, %27
+  br i1 %.not63, label %._crit_edge62, label %.lr.ph61
 
-.lr.ph64:                                         ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit"
+.lr.ph61:                                         ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit"
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
@@ -1038,44 +1038,44 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
-._crit_edge65:                                    ; preds = %._crit_edge60, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit"
-  %.not.i.i.i = icmp eq ptr %.sroa.045.08590, null
+._crit_edge62:                                    ; preds = %._crit_edge57, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN8LightGBM13DCGCalculator6CalDCGERKS5_PKfPKdiPS3_IdSaIdEEE3$_0EvT_SJ_T0_.exit"
+  %.not.i.i.i = icmp eq ptr %.sroa.045.08287, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %37
 
-37:                                               ; preds = %._crit_edge65
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.045.08590) #23
+37:                                               ; preds = %._crit_edge62
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.045.08287) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge65, %37
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge62, %37
   ret void
 
-38:                                               ; preds = %.lr.ph64, %._crit_edge60
-  %.03363 = phi i64 [ 0, %.lr.ph64 ], [ %44, %._crit_edge60 ]
-  %.03462 = phi i32 [ 0, %.lr.ph64 ], [ %spec.select, %._crit_edge60 ]
-  %.03561 = phi double [ 0.000000e+00, %.lr.ph64 ], [ %.1.lcssa, %._crit_edge60 ]
-  %39 = getelementptr inbounds nuw i32, ptr %27, i64 %.03363
+38:                                               ; preds = %.lr.ph61, %._crit_edge57
+  %.03360 = phi i64 [ 0, %.lr.ph61 ], [ %44, %._crit_edge57 ]
+  %.03459 = phi i32 [ 0, %.lr.ph61 ], [ %spec.select, %._crit_edge57 ]
+  %.03558 = phi double [ 0.000000e+00, %.lr.ph61 ], [ %.1.lcssa, %._crit_edge57 ]
+  %39 = getelementptr inbounds nuw i32, ptr %27, i64 %.03360
   %40 = load i32, ptr %39, align 4, !tbaa !14
   %spec.select = tail call i32 @llvm.smin.i32(i32 %40, i32 %3)
-  %41 = icmp slt i32 %.03462, %spec.select
-  br i1 %41, label %.lr.ph59.preheader, label %._crit_edge60
+  %41 = icmp slt i32 %.03459, %spec.select
+  br i1 %41, label %.lr.ph56.preheader, label %._crit_edge57
 
-.lr.ph59.preheader:                               ; preds = %38
-  %42 = sext i32 %.03462 to i64
-  %wide.trip.count74 = sext i32 %spec.select to i64
-  br label %.lr.ph59
+.lr.ph56.preheader:                               ; preds = %38
+  %42 = sext i32 %.03459 to i64
+  %wide.trip.count71 = sext i32 %spec.select to i64
+  br label %.lr.ph56
 
-._crit_edge60:                                    ; preds = %.lr.ph59, %38
-  %.1.lcssa = phi double [ %.03561, %38 ], [ %56, %.lr.ph59 ]
-  %43 = getelementptr inbounds nuw double, ptr %34, i64 %.03363
+._crit_edge57:                                    ; preds = %.lr.ph56, %38
+  %.1.lcssa = phi double [ %.03558, %38 ], [ %56, %.lr.ph56 ]
+  %43 = getelementptr inbounds nuw double, ptr %34, i64 %.03360
   store double %.1.lcssa, ptr %43, align 8, !tbaa !34
-  %44 = add nuw i64 %.03363, 1
-  %exitcond76.not = icmp eq i64 %44, %31
-  br i1 %exitcond76.not, label %._crit_edge65, label %38, !llvm.loop !51
+  %44 = add nuw i64 %.03360, 1
+  %exitcond73.not = icmp eq i64 %44, %31
+  br i1 %exitcond73.not, label %._crit_edge62, label %38, !llvm.loop !51
 
-.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
-  %indvars.iv71 = phi i64 [ %42, %.lr.ph59.preheader ], [ %indvars.iv.next72, %.lr.ph59 ]
-  %.156 = phi double [ %.03561, %.lr.ph59.preheader ], [ %56, %.lr.ph59 ]
-  %45 = getelementptr inbounds nuw i32, ptr %.sroa.045.08590, i64 %indvars.iv71
+.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
+  %indvars.iv68 = phi i64 [ %42, %.lr.ph56.preheader ], [ %indvars.iv.next69, %.lr.ph56 ]
+  %.153 = phi double [ %.03558, %.lr.ph56.preheader ], [ %56, %.lr.ph56 ]
+  %45 = getelementptr inbounds nuw i32, ptr %.sroa.045.08287, i64 %indvars.iv68
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds float, ptr %1, i64 %47
@@ -1084,12 +1084,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge65, %37
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds nuw double, ptr %32, i64 %51
   %53 = load double, ptr %52, align 8, !tbaa !34
-  %54 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv71
+  %54 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv68
   %55 = load double, ptr %54, align 8, !tbaa !34
-  %56 = tail call double @llvm.fmuladd.f64(double %53, double %55, double %.156)
-  %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !52
+  %56 = tail call double @llvm.fmuladd.f64(double %53, double %55, double %.153)
+  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !52
 
 _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.7.019.i.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]

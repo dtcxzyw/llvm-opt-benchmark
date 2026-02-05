@@ -13353,14 +13353,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24, %
   br label %_ZL16icvGetColorModeliPPKcS1_.exit
 
 _ZL16icvGetColorModeliPPKcS1_.exit:               ; preds = %29, %32
-  %.0129 = phi ptr [ %35, %32 ], [ @.str.4, %29 ]
-  %.0 = phi ptr [ %37, %32 ], [ @.str.4, %29 ]
+  %.0129 = phi ptr [ %37, %32 ], [ @.str.4, %29 ]
+  %.0 = phi ptr [ %35, %32 ], [ @.str.4, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %39
 
 39:                                               ; preds = %39, %_ZL16icvGetColorModeliPPKcS1_.exit
   %indvars.iv = phi i64 [ 0, %_ZL16icvGetColorModeliPPKcS1_.exit ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0129, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
   store i8 %41, ptr %42, align 1, !tbaa !22
@@ -13376,7 +13376,7 @@ _ZL16icvGetColorModeliPPKcS1_.exit:               ; preds = %29, %32
 
 46:                                               ; preds = %46, %44
   %indvars.iv133 = phi i64 [ 0, %44 ], [ %indvars.iv.next134, %46 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 %indvars.iv133
+  %47 = getelementptr inbounds nuw i8, ptr %.0129, i64 %indvars.iv133
   %48 = load i8, ptr %47, align 1, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv133
   store i8 %48, ptr %49, align 1, !tbaa !22

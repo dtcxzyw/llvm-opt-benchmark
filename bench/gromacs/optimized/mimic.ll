@@ -2316,8 +2316,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
 
 1155:                                             ; preds = %._crit_edge397, %1119
   %1156 = phi ptr [ %.pre398, %._crit_edge397 ], [ %1124, %1119 ]
-  %.sroa.8.1 = phi ptr [ %scevgep.i.i.i, %._crit_edge397 ], [ %1123, %1119 ]
-  %.sroa.0298.1 = phi ptr [ %1120, %._crit_edge397 ], [ %1122, %1119 ]
+  %.sroa.8.0 = phi ptr [ %scevgep.i.i.i, %._crit_edge397 ], [ %1123, %1119 ]
+  %.sroa.0298.0 = phi ptr [ %1120, %._crit_edge397 ], [ %1122, %1119 ]
   %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 60
   %1158 = load i32, ptr %1157, align 4, !tbaa !178
   %1159 = icmp eq i32 %1158, 0
@@ -2337,13 +2337,13 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
           to label %1168 unwind label %1152
 
 1168:                                             ; preds = %1164
-  %1169 = ptrtoint ptr %.sroa.8.1 to i64
-  %1170 = ptrtoint ptr %.sroa.0298.1 to i64
+  %1169 = ptrtoint ptr %.sroa.8.0 to i64
+  %1170 = ptrtoint ptr %.sroa.0298.0 to i64
   %1171 = sub i64 %1169, %1170
-  %1172 = getelementptr inbounds nuw i8, ptr %.sroa.0298.1, i64 %1171
+  %1172 = getelementptr inbounds nuw i8, ptr %.sroa.0298.0, i64 %1171
   %1173 = load ptr, ptr %295, align 8, !tbaa !198
   %1174 = load i32, ptr %1173, align 8, !tbaa !362
-  invoke void @_ZN3gmx17MimicCommunicator10sendForcesENS_8ArrayRefINS_11BasicVectorIfEEEEi(ptr %.sroa.0298.1, ptr %1172, i32 noundef %1174)
+  invoke void @_ZN3gmx17MimicCommunicator10sendForcesENS_8ArrayRefINS_11BasicVectorIfEEEEi(ptr %.sroa.0298.0, ptr %1172, i32 noundef %1174)
           to label %1175 unwind label %1152
 
 1175:                                             ; preds = %1168, %1160

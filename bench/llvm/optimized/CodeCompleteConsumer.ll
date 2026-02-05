@@ -1091,8 +1091,8 @@ define dso_local { ptr, i64 } @_ZN5clang20CodeCompletionTUInfo13getParentNameEPK
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %23, align 4, !tbaa !86
   %.pr = load ptr, ptr %3, align 8, !tbaa !81
-  %.not42149 = icmp eq ptr %.pr, null
-  br i1 %.not42149, label %.critedge, label %.lr.ph
+  %.not42139 = icmp eq ptr %.pr, null
+  br i1 %.not42139, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %_ZNK5clang11DeclContext9getParentEv.exit
   %24 = phi ptr [ %.0.i.i.i, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %.pr, %20 ]
@@ -1126,8 +1126,8 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = 
   %35 = load i64, ptr %34, align 8, !tbaa !87
   %36 = and i64 %35, 7
   %37 = icmp ne i64 %36, 0
-  %.not47145 = icmp ult i64 %35, 8
-  %.not47 = or i1 %.not47145, %37
+  %.not47135 = icmp ult i64 %35, 8
+  %.not47 = or i1 %.not47135, %37
   br i1 %.not47, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, label %38
 
 38:                                               ; preds = %33
@@ -1200,10 +1200,10 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %_ZN4llvm8dyn_castIN
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
   %69 = load ptr, ptr %4, align 8, !tbaa !84, !noalias !94
   %70 = load i32, ptr %22, align 8, !tbaa !85, !noalias !94
-  %.not146154 = icmp eq i32 %70, 0
-  br i1 %.not146154, label %.critedge51, label %.lr.ph157
+  %.not136144 = icmp eq i32 %70, 0
+  br i1 %.not136144, label %.critedge51, label %.lr.ph147
 
-.lr.ph157:                                        ; preds = %.critedge
+.lr.ph147:                                        ; preds = %.critedge
   %71 = zext i32 %70 to i64
   %.idx = shl nuw nsw i64 %71, 3
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
@@ -1211,12 +1211,12 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %_ZN4llvm8dyn_castIN
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %75
 
-75:                                               ; preds = %.lr.ph157, %.critedge49
-  %.034156 = phi i1 [ true, %.lr.ph157 ], [ false, %.critedge49 ]
-  %.sroa.093.0155 = phi ptr [ %72, %.lr.ph157 ], [ %76, %.critedge49 ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.093.0155, i64 -8
+75:                                               ; preds = %.lr.ph147, %.critedge49
+  %.034146 = phi i1 [ true, %.lr.ph147 ], [ false, %.critedge49 ]
+  %.sroa.093.0145 = phi ptr [ %72, %.lr.ph147 ], [ %76, %.critedge49 ]
+  %76 = getelementptr inbounds i8, ptr %.sroa.093.0145, i64 -8
   %77 = load ptr, ptr %76, align 8, !tbaa !81
-  br i1 %.034156, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %78
+  br i1 %.034146, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %73, align 8, !tbaa !55
@@ -1242,8 +1242,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %85, %75
   %90 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %91 = load i16, ptr %90, align 8
   %92 = and i16 %91, 127
-  %.not147 = icmp eq i16 %92, 20
-  br i1 %.not147, label %93, label %98
+  %.not137 = icmp eq i16 %92, 20
+  br i1 %.not137, label %93, label %98
 
 93:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %94 = getelementptr inbounds i8, ptr %77, i64 -48
@@ -1259,8 +1259,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %85, %75
   %99 = phi i16 [ %.pre, %93 ], [ %91, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %.036 = phi ptr [ %spec.select, %93 ], [ %77, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %100 = and i16 %99, 127
-  %.not148 = icmp eq i16 %100, 21
-  br i1 %.not148, label %101, label %169
+  %.not138 = icmp eq i16 %100, 21
+  br i1 %.not138, label %101, label %169
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %.036, i64 40
@@ -1431,8 +1431,8 @@ _ZNK5clang9NamedDecl7getNameEv.exit80:            ; preds = %169
   br label %.critedge49
 
 .critedge49:                                      ; preds = %169, %165, %167, %191, %190, %188
-  %.not146 = icmp eq ptr %76, %69
-  br i1 %.not146, label %.critedge51, label %75
+  %.not136 = icmp eq ptr %76, %69
+  br i1 %.not136, label %.critedge51, label %75
 
 .critedge51:                                      ; preds = %.critedge49, %.critedge
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1467,7 +1467,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit80:            ; preds = %169
 208:                                              ; preds = %207, %.critedge51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.097.0.copyload98 = load ptr, ptr %14, align 8, !tbaa !30
-  %.sroa.9.0.copyload102 = load i64, ptr %15, align 8, !tbaa !32
+  %.sroa.9.0.copyload100 = load i64, ptr %15, align 8, !tbaa !32
   br label %212
 
 .critedge53:                                      ; preds = %101
@@ -1488,7 +1488,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit87:        ; preds = %.critedge53, %211
   br label %212
 
 212:                                              ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit87, %208
-  %.sroa.9.5 = phi i64 [ 0, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit87 ], [ %.sroa.9.0.copyload102, %208 ]
+  %.sroa.9.5 = phi i64 [ 0, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit87 ], [ %.sroa.9.0.copyload100, %208 ]
   %.sroa.097.5 = phi ptr [ null, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit87 ], [ %.sroa.097.0.copyload98, %208 ]
   %213 = load ptr, ptr %4, align 8, !tbaa !84
   %214 = icmp eq ptr %213, %21

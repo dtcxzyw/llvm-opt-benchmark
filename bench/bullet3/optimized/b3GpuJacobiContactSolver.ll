@@ -2406,12 +2406,12 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
 
 .lr.ph618:                                        ; preds = %.lr.ph618.preheader, %.lr.ph618
   %indvars.iv685 = phi i64 [ 0, %.lr.ph618.preheader ], [ %indvars.iv.next686, %.lr.ph618 ]
-  %.sroa.9473.2615 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %517, %.lr.ph618 ]
-  %.sroa.7472.2614 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %516, %.lr.ph618 ]
-  %.sroa.0471.2613 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %515, %.lr.ph618 ]
-  %.sroa.9477.2612 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %505, %.lr.ph618 ]
-  %.sroa.7476.2611 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %504, %.lr.ph618 ]
-  %.sroa.0475.2610 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %503, %.lr.ph618 ]
+  %.sroa.9473.0615 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %517, %.lr.ph618 ]
+  %.sroa.7472.0614 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %516, %.lr.ph618 ]
+  %.sroa.0471.0613 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %515, %.lr.ph618 ]
+  %.sroa.9477.0612 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %505, %.lr.ph618 ]
+  %.sroa.7476.0611 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %504, %.lr.ph618 ]
+  %.sroa.0475.0610 = phi float [ 0.000000e+00, %.lr.ph618.preheader ], [ %503, %.lr.ph618 ]
   %493 = add nsw i64 %indvars.iv685, %491
   %494 = getelementptr inbounds %class.b3Vector3, ptr %.sroa.15507.2573, i64 %493
   %495 = load float, ptr %494, align 16, !tbaa !76
@@ -2422,9 +2422,9 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   %500 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %501 = load float, ptr %500, align 8, !tbaa !76
   %502 = fmul float %489, %501
-  %503 = fadd float %.sroa.0475.2610, %496
-  %504 = fadd float %.sroa.7476.2611, %499
-  %505 = fadd float %.sroa.9477.2612, %502
+  %503 = fadd float %.sroa.0475.0610, %496
+  %504 = fadd float %.sroa.7476.0611, %499
+  %505 = fadd float %.sroa.9477.0612, %502
   %506 = getelementptr inbounds %class.b3Vector3, ptr %.sroa.15485.1, i64 %493
   %507 = load float, ptr %506, align 16, !tbaa !76
   %508 = fmul float %489, %507
@@ -2434,9 +2434,9 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   %512 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %513 = load float, ptr %512, align 8, !tbaa !76
   %514 = fmul float %489, %513
-  %515 = fadd float %.sroa.0471.2613, %508
-  %516 = fadd float %.sroa.7472.2614, %511
-  %517 = fadd float %.sroa.9473.2615, %514
+  %515 = fadd float %.sroa.0471.0613, %508
+  %516 = fadd float %.sroa.7472.0614, %511
+  %517 = fadd float %.sroa.9473.0615, %514
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %exitcond689.not = icmp eq i64 %indvars.iv.next686, %wide.trip.count688
   br i1 %exitcond689.not, label %.lr.ph625.preheader, label %.lr.ph618, !llvm.loop !120
@@ -3026,12 +3026,12 @@ _ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_
 
 .lr.ph643:                                        ; preds = %.lr.ph643.preheader, %.lr.ph643
   %indvars.iv714 = phi i64 [ 0, %.lr.ph643.preheader ], [ %indvars.iv.next715, %.lr.ph643 ]
-  %.sroa.9.2640 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %940, %.lr.ph643 ]
-  %.sroa.7.2639 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %939, %.lr.ph643 ]
-  %.sroa.0457.2638 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %938, %.lr.ph643 ]
-  %.sroa.9460.2637 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %928, %.lr.ph643 ]
-  %.sroa.7459.2636 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %927, %.lr.ph643 ]
-  %.sroa.0458.2635 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %926, %.lr.ph643 ]
+  %.sroa.9.0640 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %940, %.lr.ph643 ]
+  %.sroa.7.0639 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %939, %.lr.ph643 ]
+  %.sroa.0457.0638 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %938, %.lr.ph643 ]
+  %.sroa.9460.0637 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %928, %.lr.ph643 ]
+  %.sroa.7459.0636 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %927, %.lr.ph643 ]
+  %.sroa.0458.0635 = phi float [ 0.000000e+00, %.lr.ph643.preheader ], [ %926, %.lr.ph643 ]
   %916 = add nsw i64 %indvars.iv714, %914
   %917 = getelementptr inbounds %class.b3Vector3, ptr %.sroa.15507.2573, i64 %916
   %918 = load float, ptr %917, align 16, !tbaa !76
@@ -3042,9 +3042,9 @@ _ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_
   %923 = getelementptr inbounds nuw i8, ptr %917, i64 8
   %924 = load float, ptr %923, align 8, !tbaa !76
   %925 = fmul float %912, %924
-  %926 = fadd float %.sroa.0458.2635, %919
-  %927 = fadd float %.sroa.7459.2636, %922
-  %928 = fadd float %.sroa.9460.2637, %925
+  %926 = fadd float %.sroa.0458.0635, %919
+  %927 = fadd float %.sroa.7459.0636, %922
+  %928 = fadd float %.sroa.9460.0637, %925
   %929 = getelementptr inbounds %class.b3Vector3, ptr %.sroa.15485.1, i64 %916
   %930 = load float, ptr %929, align 16, !tbaa !76
   %931 = fmul float %912, %930
@@ -3054,9 +3054,9 @@ _ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_
   %935 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %936 = load float, ptr %935, align 8, !tbaa !76
   %937 = fmul float %912, %936
-  %938 = fadd float %.sroa.0457.2638, %931
-  %939 = fadd float %.sroa.7.2639, %934
-  %940 = fadd float %.sroa.9.2640, %937
+  %938 = fadd float %.sroa.0457.0638, %931
+  %939 = fadd float %.sroa.7.0639, %934
+  %940 = fadd float %.sroa.9.0640, %937
   %indvars.iv.next715 = add nuw nsw i64 %indvars.iv714, 1
   %exitcond718.not = icmp eq i64 %indvars.iv.next715, %wide.trip.count717
   br i1 %exitcond718.not, label %.lr.ph651.preheader, label %.lr.ph643, !llvm.loop !128

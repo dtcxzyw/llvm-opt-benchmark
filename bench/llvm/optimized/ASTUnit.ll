@@ -2560,8 +2560,8 @@ _ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit:          ; preds = %15, %23
 42:                                               ; preds = %26, %_ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !271
-  %.not15.i = icmp eq ptr %44, null
-  br i1 %.not15.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %45
+  %.not13.i = icmp eq ptr %44, null
+  br i1 %.not13.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 448
@@ -2577,8 +2577,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %4
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
-  %.not16.i = icmp eq i64 %52, 0
-  br i1 %.not16.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
+  %.not14.i = icmp eq i64 %52, 0
+  br i1 %.not14.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %.preheader.i
   %.05.i.i.in.i = phi i64 [ %55, %.preheader.i ], [ %52, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ]
@@ -3659,8 +3659,8 @@ define dso_local { ptr, i64 } @_ZNK5clang7ASTUnit15getMainFileNameEv(ptr noundef
 20:                                               ; preds = %4, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !271
-  %.not15 = icmp eq ptr %22, null
-  br i1 %.not15, label %.thread, label %23
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %.thread, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 448
@@ -3676,8 +3676,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %23
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
-  %.not16 = icmp eq i64 %30, 0
-  br i1 %.not16, label %.thread, label %.preheader
+  %.not14 = icmp eq i64 %30, 0
+  br i1 %.not14, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %.preheader
   %.05.i.i.in = phi i64 [ %33, %.preheader ], [ %30, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ]
@@ -9847,7 +9847,7 @@ _ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2
   br i1 %.not60, label %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144, label %78
 
 78:                                               ; preds = %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %13
-  %.sroa.0194.0 = phi ptr [ %55, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %13 ]
+  %.sroa.0192.0 = phi ptr [ %55, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %13 ]
   %.051 = phi ptr [ %55, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %4, %13 ]
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !1463
@@ -10030,7 +10030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %149 = and i8 %148, -4
   %150 = or disjoint i8 %149, %32
   store i8 %150, ptr %147, align 8
-  %.not.i.i71 = icmp eq ptr %.sroa.0194.0, null
+  %.not.i.i71 = icmp eq ptr %.sroa.0192.0, null
   br i1 %.not.i.i71, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit, label %151
 
 151:                                              ; preds = %144
@@ -10047,13 +10047,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  store ptr %.sroa.0194.0, ptr %158, align 8, !tbaa !1396
+  store ptr %.sroa.0192.0, ptr %158, align 8, !tbaa !1396
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm33CrashRecoveryContextDeleteCleanupIN5clang7ASTUnitEEE, i64 16), ptr %154, align 8, !tbaa !34
   call void @_ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %152, ptr noundef nonnull %154) #29
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit: ; preds = %144, %151, %153
-  %.sroa.0192.0 = phi ptr [ %154, %153 ], [ null, %151 ], [ null, %144 ]
+  %.sroa.0190.0 = phi ptr [ %154, %153 ], [ null, %151 ], [ null, %144 ]
   %159 = load ptr, ptr %2, align 8, !tbaa !177
   %.not.i.i72 = icmp eq ptr %159, null
   br i1 %.not.i.i72, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit, label %160
@@ -10078,7 +10078,7 @@ _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecover
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit, %160, %162
-  %.sroa.0191.0 = phi ptr [ %163, %162 ], [ null, %160 ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
+  %.sroa.0189.0 = phi ptr [ %163, %162 ], [ null, %160 ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
   %168 = load ptr, ptr %0, align 8, !tbaa !222
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 56
   %170 = load ptr, ptr %169, align 8, !tbaa !223
@@ -10177,7 +10177,7 @@ _ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit: ; preds = %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %213
-  %.sroa.0173.0 = phi ptr [ %214, %213 ], [ null, %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.sroa.0171.0 = phi ptr [ %214, %213 ], [ null, %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %219 = load ptr, ptr %0, align 8, !tbaa !222
   store ptr %219, ptr %25, align 8, !tbaa !222
   %220 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -10530,33 +10530,33 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit: ; preds = %_ZNSt12__s
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit, %352, %356
-  %.0210 = phi ptr [ %353, %356 ], [ %353, %352 ], [ %3, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit ]
-  %.sroa.0161.0207 = phi ptr [ %353, %356 ], [ %353, %352 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit ]
+  %.0208 = phi ptr [ %353, %356 ], [ %353, %352 ], [ %3, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit ]
+  %.sroa.0161.0205 = phi ptr [ %353, %356 ], [ %353, %352 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit ]
   %.sroa.0160.0 = phi ptr [ %357, %356 ], [ null, %352 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEED2Ev.exit ]
   %362 = load ptr, ptr %245, align 8, !tbaa !222
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 144
   %364 = load ptr, ptr %363, align 8, !tbaa !631
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %366 = load ptr, ptr %365, align 8, !tbaa !16
-  %367 = call noundef zeroext i1 @_ZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileE(ptr noundef nonnull align 8 dereferenceable(104) %.0210, ptr noundef nonnull align 8 dereferenceable(352) %185, ptr noundef nonnull align 8 dereferenceable(77) %366) #29
+  %367 = call noundef zeroext i1 @_ZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileE(ptr noundef nonnull align 8 dereferenceable(104) %.0208, ptr noundef nonnull align 8 dereferenceable(352) %185, ptr noundef nonnull align 8 dereferenceable(77) %366) #29
   br i1 %367, label %373, label %368
 
 368:                                              ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit
   call void @_ZN5clang7ASTUnit35transferASTDataFromCompilerInstanceERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(2056) %.051, ptr noundef nonnull align 8 dereferenceable(352) %185)
-  %369 = icmp ne ptr %.sroa.0194.0, null
+  %369 = icmp ne ptr %.sroa.0192.0, null
   %370 = icmp ne ptr %12, null
   %or.cond = and i1 %370, %369
   br i1 %or.cond, label %371, label %490
 
 371:                                              ; preds = %368
   %372 = load ptr, ptr %12, align 8, !tbaa !1819
-  store ptr %.sroa.0194.0, ptr %12, align 8, !tbaa !1819
+  store ptr %.sroa.0192.0, ptr %12, align 8, !tbaa !1819
   br label %490
 
 373:                                              ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit
-  %374 = icmp eq ptr %.sroa.0161.0207, null
-  %or.cond223.not = and i1 %5, %374
-  br i1 %or.cond223.not, label %375, label %466
+  %374 = icmp eq ptr %.sroa.0161.0205, null
+  %or.cond221.not = and i1 %5, %374
+  br i1 %or.cond221.not, label %375, label %466
 
 375:                                              ; preds = %373
   %376 = getelementptr inbounds nuw i8, ptr %185, i64 80
@@ -10602,8 +10602,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %391 = getelementptr inbounds nuw i8, ptr %185, i64 112
   %392 = load ptr, ptr %391, align 8
-  %.not225 = icmp eq ptr %392, null
-  br i1 %.not225, label %399, label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
+  %.not223 = icmp eq ptr %392, null
+  br i1 %.not223, label %399, label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default_deleteIS1_EED2Ev.exit
   %393 = ptrtoint ptr %392 to i64
@@ -10614,25 +10614,25 @@ _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_E
   %394 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %395 = getelementptr inbounds nuw i8, ptr %27, i64 16
   call void @_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %.pr216 = load ptr, ptr %28, align 8, !tbaa !257
-  %.not.i118 = icmp eq ptr %.pr216, null
+  %.pr214 = load ptr, ptr %28, align 8, !tbaa !257
+  %.not.i118 = icmp eq ptr %.pr214, null
   br i1 %.not.i118, label %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
-  %396 = load ptr, ptr %.pr216, align 8, !tbaa !34
+  %396 = load ptr, ptr %.pr214, align 8, !tbaa !34
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8
-  call void %398(ptr noundef nonnull align 8 dereferenceable(9) %.pr216) #29
+  call void %398(ptr noundef nonnull align 8 dereferenceable(9) %.pr214) #29
   br label %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.pre = load ptr, ptr %394, align 8, !tbaa !1947
-  %.pre229 = load ptr, ptr %395, align 8, !tbaa !1950
+  %.pre227 = load ptr, ptr %395, align 8, !tbaa !1950
   br label %399
 
 399:                                              ; preds = %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default_deleteIS1_EED2Ev.exit
-  %.pre231 = phi ptr [ %.pre229, %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit ], [ null, %_ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default_deleteIS1_EED2Ev.exit ]
+  %.pre229 = phi ptr [ %.pre227, %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit ], [ null, %_ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default_deleteIS1_EED2Ev.exit ]
   %400 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit ], [ null, %_ZNSt10unique_ptrIN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacksESt14default_deleteIS1_EED2Ev.exit ]
   %401 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !1951
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
@@ -10645,18 +10645,18 @@ _ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit: ; pred
   store i32 0, ptr %378, align 4, !tbaa !13, !noalias !1951
   %405 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %406 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.not.i.i119 = icmp eq ptr %400, %.pre231
+  %.not.i.i119 = icmp eq ptr %400, %.pre229
   br i1 %.not.i.i119, label %409, label %407
 
 407:                                              ; preds = %399
   %408 = ptrtoint ptr %401 to i64
   store i64 %408, ptr %400, align 8, !tbaa !257
-  %.pre230 = load ptr, ptr %27, align 8, !tbaa !1954, !noalias !1955
+  %.pre228 = load ptr, ptr %27, align 8, !tbaa !1954, !noalias !1955
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_127TopLevelDeclTrackerConsumerESt14default_deleteIS1_EED2Ev.exit
 
 409:                                              ; preds = %399
   %410 = load ptr, ptr %27, align 8, !tbaa !1954
-  %411 = ptrtoint ptr %.pre231 to i64
+  %411 = ptrtoint ptr %.pre229 to i64
   %412 = ptrtoint ptr %410 to i64
   %413 = sub i64 %411, %412
   %414 = icmp eq i64 %413, 9223372036854775800
@@ -10680,7 +10680,7 @@ _ZNKSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 %413
   %424 = ptrtoint ptr %401 to i64
   store i64 %424, ptr %423, align 8, !tbaa !257
-  %.not10.i.i.i.i = icmp eq ptr %410, %.pre231
+  %.not10.i.i.i.i = icmp eq ptr %410, %.pre229
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i146
 
 .lr.ph.i.i.i.i146:                                ; preds = %_ZNKSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i146
@@ -10693,7 +10693,7 @@ _ZNKSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_
   store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !257, !alias.scope !1961, !noalias !1958
   %426 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %427 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i147 = icmp eq ptr %426, %.pre231
+  %.not.i.i.i.i147 = icmp eq ptr %426, %.pre229
   br i1 %.not.i.i.i.i147, label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i146, !llvm.loop !1963
 
 _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i146, %_ZNKSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -10710,9 +10710,9 @@ _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_E
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_127TopLevelDeclTrackerConsumerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_127TopLevelDeclTrackerConsumerESt14default_deleteIS1_EED2Ev.exit: ; preds = %407, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
-  %430 = phi ptr [ %.pre231, %407 ], [ %429, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
+  %430 = phi ptr [ %.pre229, %407 ], [ %429, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
   %.pn = phi ptr [ %400, %407 ], [ %.0.lcssa.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
-  %431 = phi ptr [ %.pre230, %407 ], [ %422, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
+  %431 = phi ptr [ %.pre228, %407 ], [ %422, %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ]
   %432 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %433 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32, !noalias !1955
@@ -10828,10 +10828,10 @@ _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_E
 
 466:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EED2Ev.exit, %373
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %30, ptr noundef nonnull align 8 dereferenceable(104) %.0210) #29
+  call void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %30, ptr noundef nonnull align 8 dereferenceable(104) %.0208) #29
   %467 = load ptr, ptr %30, align 8, !tbaa !1841
-  %.not226 = icmp eq ptr %467, null
-  br i1 %.not226, label %486, label %468
+  %.not224 = icmp eq ptr %467, null
+  br i1 %.not224, label %486, label %468
 
 468:                                              ; preds = %466
   store ptr null, ptr %30, align 8, !tbaa !1841
@@ -10856,18 +10856,18 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %471, %468
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN5clang7ASTUnit35transferASTDataFromCompilerInstanceERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(2056) %.051, ptr noundef nonnull align 8 dereferenceable(352) %185)
-  %475 = icmp ne ptr %.sroa.0194.0, null
+  %475 = icmp ne ptr %.sroa.0192.0, null
   %476 = icmp ne ptr %12, null
   %or.cond3 = and i1 %476, %475
   br i1 %or.cond3, label %477, label %479
 
 477:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %478 = load ptr, ptr %12, align 8, !tbaa !1819
-  store ptr %.sroa.0194.0, ptr %12, align 8, !tbaa !1819
+  store ptr %.sroa.0192.0, ptr %12, align 8, !tbaa !1819
   br label %479
 
 479:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit, %477
-  %.sroa.0194.4 = phi ptr [ %478, %477 ], [ %.sroa.0194.0, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.0192.4 = phi ptr [ %478, %477 ], [ %.sroa.0192.0, %_ZN4llvm5ErrorD2Ev.exit ]
   %480 = load ptr, ptr %30, align 8, !tbaa !1841
   %481 = icmp eq ptr %480, null
   br i1 %481, label %_ZN4llvm5ErrorD2Ev.exit134, label %482
@@ -10886,15 +10886,15 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %479, %482
 486:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5clang7ASTUnit35transferASTDataFromCompilerInstanceERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(2056) %.051, ptr noundef nonnull align 8 dereferenceable(352) %185)
-  %487 = load ptr, ptr %.0210, align 8, !tbaa !34
+  %487 = load ptr, ptr %.0208, align 8, !tbaa !34
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 128
   %489 = load ptr, ptr %488, align 8
-  call void %489(ptr noundef nonnull align 8 dereferenceable(104) %.0210) #29
-  %spec.select = select i1 %.not.i.i71, ptr %.051, ptr %.sroa.0194.0
+  call void %489(ptr noundef nonnull align 8 dereferenceable(104) %.0208) #29
+  %spec.select = select i1 %.not.i.i71, ptr %.051, ptr %.sroa.0192.0
   br label %490
 
 490:                                              ; preds = %486, %_ZN4llvm5ErrorD2Ev.exit134, %368, %371
-  %.sroa.0194.3 = phi ptr [ %.sroa.0194.4, %_ZN4llvm5ErrorD2Ev.exit134 ], [ %.sroa.0194.0, %368 ], [ null, %486 ], [ %372, %371 ]
+  %.sroa.0192.3 = phi ptr [ %.sroa.0192.4, %_ZN4llvm5ErrorD2Ev.exit134 ], [ %.sroa.0192.0, %368 ], [ null, %486 ], [ %372, %371 ]
   %.2 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit134 ], [ null, %368 ], [ %spec.select, %486 ], [ null, %371 ]
   %.not.i.i136 = icmp eq ptr %.sroa.0160.0, null
   br i1 %.not.i.i136, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %491
@@ -10915,28 +10915,28 @@ _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrac
   br i1 %.not62.not, label %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
-  %498 = load ptr, ptr %.sroa.0161.0207, align 8, !tbaa !34
+  %498 = load ptr, ptr %.sroa.0161.0205, align 8, !tbaa !34
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 64
   %500 = load ptr, ptr %499, align 8
-  call void %500(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0161.0207) #29
+  call void %500(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0161.0205) #29
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %.sroa.0194.2 = phi ptr [ %.sroa.0194.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.sroa.0194.3, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.sroa.0194.3, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i ]
+  %.sroa.0192.2 = phi ptr [ %.sroa.0192.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.sroa.0192.3, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.sroa.0192.3, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i ]
   %.1 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.2, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.2, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i ]
-  %.not.i.i138 = icmp eq ptr %.sroa.0173.0, null
+  %.not.i.i138 = icmp eq ptr %.sroa.0171.0, null
   br i1 %.not.i.i138, label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit, label %501
 
 501:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
-  %502 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %.sroa.0171.0, i64 16
   %503 = load i8, ptr %502, align 8, !tbaa !1395, !range !175, !noundef !176
   %504 = trunc nuw i8 %503 to i1
   br i1 %504, label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit, label %505
 
 505:                                              ; preds = %501
-  %506 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %.sroa.0171.0, i64 8
   %507 = load ptr, ptr %506, align 8, !tbaa !1391
-  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %507, ptr noundef nonnull %.sroa.0173.0) #29
+  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %507, ptr noundef nonnull %.sroa.0171.0) #29
   br label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit, %501, %505
@@ -10944,49 +10944,49 @@ _ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit: ;
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = load ptr, ptr %509, align 8
   call void %510(ptr noundef nonnull align 8 dereferenceable(352) %185) #29
-  %.not.i.i140 = icmp eq ptr %.sroa.0191.0, null
+  %.not.i.i140 = icmp eq ptr %.sroa.0189.0, null
   br i1 %.not.i.i140, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit, label %511
 
 511:                                              ; preds = %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit
-  %512 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0, i64 16
   %513 = load i8, ptr %512, align 8, !tbaa !1395, !range !175, !noundef !176
   %514 = trunc nuw i8 %513 to i1
   br i1 %514, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit, label %515
 
 515:                                              ; preds = %511
-  %516 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0, i64 8
+  %516 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0, i64 8
   %517 = load ptr, ptr %516, align 8, !tbaa !1391
-  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %517, ptr noundef nonnull %.sroa.0191.0) #29
+  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %517, ptr noundef nonnull %.sroa.0189.0) #29
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit, %511, %515
-  %.not.i.i141 = icmp eq ptr %.sroa.0192.0, null
+  %.not.i.i141 = icmp eq ptr %.sroa.0190.0, null
   br i1 %.not.i.i141, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %518
 
 518:                                              ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit
-  %519 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %.sroa.0190.0, i64 16
   %520 = load i8, ptr %519, align 8, !tbaa !1395, !range !175, !noundef !176
   %521 = trunc nuw i8 %520 to i1
   br i1 %521, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %522
 
 522:                                              ; preds = %518
-  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0190.0, i64 8
   %524 = load ptr, ptr %523, align 8, !tbaa !1391
-  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %524, ptr noundef nonnull %.sroa.0192.0) #29
+  call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %524, ptr noundef nonnull %.sroa.0190.0) #29
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit: ; preds = %522, %518, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEED2Ev.exit
-  %.not.i142 = icmp eq ptr %.sroa.0194.2, null
+  %.not.i142 = icmp eq ptr %.sroa.0192.2, null
   br i1 %.not.i142, label %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144, label %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143
 
 _ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
-  call void @_ZN5clang7ASTUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %.sroa.0194.2) #29
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0194.2, i64 noundef 2056) #30
+  call void @_ZN5clang7ASTUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %.sroa.0192.2) #29
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0192.2, i64 noundef 2056) #30
   br label %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144
 
 _ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144: ; preds = %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143
-  %.052221 = phi ptr [ %.1, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143 ], [ %.1, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ null, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  ret ptr %.052221
+  %.052219 = phi ptr [ %.1, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143 ], [ %.1, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ null, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  ret ptr %.052219
 }
 
 declare void @_ZN5clang16CompilerInstance14setASTConsumerESt10unique_ptrINS_11ASTConsumerESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef) local_unnamed_addr #4
@@ -11212,8 +11212,8 @@ _ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit:          ; preds = %88, %96
 114:                                              ; preds = %98, %_ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !271
-  %.not15.i = icmp eq ptr %116, null
-  br i1 %.not15.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %117
+  %.not13.i = icmp eq ptr %116, null
+  br i1 %.not13.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %117
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 448
@@ -11229,8 +11229,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %1
   %122 = inttoptr i64 %121 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i64, ptr %123, align 8
-  %.not16.i = icmp eq i64 %124, 0
-  br i1 %.not16.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
+  %.not14.i = icmp eq i64 %124, 0
+  br i1 %.not14.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %.preheader.i
   %.05.i.i.in.i = phi i64 [ %127, %.preheader.i ], [ %124, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ]
@@ -11902,8 +11902,8 @@ define dso_local void @_ZN5clang7ASTUnit19LoadFromCommandLineEPPKcS3_St10shared_
   %47 = zext i1 %18 to i8
   %48 = zext i1 %21 to i8
   %49 = load ptr, ptr %24, align 8, !tbaa !1409
-  %.not209 = icmp eq ptr %49, null
-  br i1 %.not209, label %50, label %68
+  %.not207 = icmp eq ptr %49, null
+  br i1 %.not207, label %50, label %68
 
 50:                                               ; preds = %25
   call void @_ZN4llvm3vfs24createPhysicalFileSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2579") align 8 %29) #29
@@ -12045,8 +12045,8 @@ _ZNSt10shared_ptrIN5clang18CompilerInvocationEEaSIS1_St14default_deleteIS1_EEENS
   store i8 0, ptr %109, align 8
   %.sroa.17.16..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 17
   store i8 1, ptr %.sroa.17.16..sroa_idx, align 1
-  %.sroa.18188.16..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr null, ptr %.sroa.18188.16..sroa_idx, align 8
+  %.sroa.18186.16..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store ptr null, ptr %.sroa.18186.16..sroa_idx, align 8
   call void @_ZN5clang16createInvocationEN4llvm8ArrayRefIPKcEENS_23CreateInvocationOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2587") align 8 %32, ptr %1, i64 %107, ptr noundef nonnull %33) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %32)
@@ -12101,8 +12101,8 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i: ; preds = %119, %
 
 _ZN5clang23CreateInvocationOptionsD2Ev.exit:      ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i, %124, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.not210 = icmp eq ptr %110, null
-  br i1 %.not210, label %_ZN5clang23CreateInvocationOptionsD2Ev.exit51, label %_ZN5clang23CreateInvocationOptionsD2Ev.exit58
+  %.not208 = icmp eq ptr %110, null
+  br i1 %.not208, label %_ZN5clang23CreateInvocationOptionsD2Ev.exit51, label %_ZN5clang23CreateInvocationOptionsD2Ev.exit58
 
 _ZN5clang23CreateInvocationOptionsD2Ev.exit51:    ; preds = %_ZN5clang23CreateInvocationOptionsD2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !1975
@@ -12172,8 +12172,8 @@ _ZN12_GLOBAL__N_125CaptureDroppedDiagnosticsD2Ev.exit62: ; preds = %152, %_ZNKSt
   %160 = load i64, ptr %159, align 8, !tbaa !1979
   %.idx = mul nuw nsw i64 %160, 40
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx
-  %.not211 = icmp eq i64 %160, 0
-  br i1 %.not211, label %._crit_edge, label %.lr.ph
+  %.not209 = icmp eq i64 %160, 0
+  br i1 %.not209, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_125CaptureDroppedDiagnosticsD2Ev.exit62
   %162 = getelementptr inbounds nuw i8, ptr %110, i64 56
@@ -12349,15 +12349,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br i1 %231, label %240, label %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EE5resetEPS1_.exit
 
 232:                                              ; preds = %.lr.ph, %232
-  %.033212 = phi ptr [ %158, %.lr.ph ], [ %239, %232 ]
+  %.033210 = phi ptr [ %158, %.lr.ph ], [ %239, %232 ]
   %233 = load ptr, ptr %162, align 8, !tbaa !223
-  %234 = load ptr, ptr %.033212, align 8, !tbaa !252
-  %235 = getelementptr inbounds nuw i8, ptr %.033212, i64 8
+  %234 = load ptr, ptr %.033210, align 8, !tbaa !252
+  %235 = getelementptr inbounds nuw i8, ptr %.033210, i64 8
   %236 = load i64, ptr %235, align 8, !tbaa !26
-  %237 = getelementptr inbounds nuw i8, ptr %.033212, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %.033210, i64 32
   %238 = load ptr, ptr %237, align 8, !tbaa !226
   call void @_ZN5clang19PreprocessorOptions15addRemappedFileEN4llvm9StringRefEPNS1_12MemoryBufferE(ptr noundef nonnull align 8 dereferenceable(376) %233, ptr %234, i64 %236, ptr noundef %238)
-  %239 = getelementptr inbounds nuw i8, ptr %.033212, i64 40
+  %239 = getelementptr inbounds nuw i8, ptr %.033210, i64 40
   %.not = icmp eq ptr %239, %161
   br i1 %.not, label %._crit_edge, label %232
 
@@ -12528,8 +12528,8 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81.thread:
   %298 = load i32, ptr %297, align 4, !tbaa !277
   %299 = add i32 %298, 1
   store i32 %299, ptr %297, align 4, !tbaa !277
-  %.not.i82204 = icmp eq i32 %9, 0
-  br i1 %.not.i82204, label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread205, label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread
+  %.not.i82202 = icmp eq i32 %9, 0
+  br i1 %.not.i82202, label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread203, label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread
 
 _ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81.thread
   %300 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
@@ -12549,20 +12549,20 @@ _ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEng
   call void @_ZN5clang17DiagnosticsEngine9setClientEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(15248) %297, ptr noundef nonnull %300, i1 noundef zeroext true) #29
   %.pre = load i32, ptr %297, align 4, !tbaa !277
   %307 = add i32 %.pre, -1
-  br label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread205
+  br label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread203
 
-_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread205: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81.thread, %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread
+_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread203: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81.thread, %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread
   %308 = phi i32 [ %298, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81.thread ], [ %307, %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread ]
   store i32 %308, ptr %297, align 4, !tbaa !277
   %.not.i.i.i.i84 = icmp eq i32 %308, 0
   br i1 %.not.i.i.i.i84, label %309, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85
 
-309:                                              ; preds = %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread205
+309:                                              ; preds = %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread203
   call void @_ZN5clang17DiagnosticsEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(15248) %297) #29
   call void @_ZdlPvm(ptr noundef nonnull align 4 dereferenceable(4) %297, i64 noundef 15248) #30
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85
 
-_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85: ; preds = %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread205, %309
+_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85: ; preds = %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit.thread203, %309
   %.pr = load ptr, ptr %4, align 8, !tbaa !177
   %.not.i.i86 = icmp eq ptr %.pr, null
   br i1 %.not.i.i86, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit87, label %310
@@ -13064,7 +13064,7 @@ _ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2
 
 530:                                              ; preds = %524, %525, %528
   %storemerge = phi i64 [ %529, %528 ], [ 0, %525 ], [ 0, %524 ]
-  %.sroa.0145.1 = phi ptr [ null, %528 ], [ %527, %525 ], [ %293, %524 ]
+  %.sroa.0143.1 = phi ptr [ null, %528 ], [ %527, %525 ], [ %293, %524 ]
   store i64 %storemerge, ptr %0, align 8, !tbaa !1819
   %.not.i.i126 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i126, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %531
@@ -13082,12 +13082,12 @@ _ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit: ; preds = %530, %531, %535
-  %.not.i127 = icmp eq ptr %.sroa.0145.1, null
+  %.not.i127 = icmp eq ptr %.sroa.0143.1, null
   br i1 %.not.i127, label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit132, label %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
-  call void @_ZN5clang7ASTUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %.sroa.0145.1) #29
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0145.1, i64 noundef 2056) #30
+  call void @_ZN5clang7ASTUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %.sroa.0143.1) #29
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0143.1, i64 noundef 2056) #30
   br label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit132
 
 _ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang18DiagnosticConsumerEEclEPS1_.exit.i.i, %137
@@ -13655,8 +13655,8 @@ _ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit:          ; preds = %_ZN5clang7ASTUnit19
 89:                                               ; preds = %73, %_ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !271
-  %.not15.i = icmp eq ptr %91, null
-  br i1 %.not15.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %92
+  %.not13.i = icmp eq ptr %91, null
+  br i1 %.not13.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 448
@@ -13672,8 +13672,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %9
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i64, ptr %98, align 8
-  %.not16.i = icmp eq i64 %99, 0
-  br i1 %.not16.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
+  %.not14.i = icmp eq i64 %99, 0
+  br i1 %.not14.i, label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %.preheader.i
   %.05.i.i.in.i = phi i64 [ %102, %.preheader.i ], [ %99, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ]

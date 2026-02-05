@@ -1622,7 +1622,7 @@ define dso_local void @_ZN4llvm12MachineInstr11dropMemRefsERNS_15MachineFunction
 6:                                                ; preds = %2
   %7 = and i64 %4, 7
   switch i64 %7, label %_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_.exit [
-    i64 0, label %.thread83
+    i64 0, label %.thread81
     i64 3, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
   ]
 
@@ -1668,7 +1668,7 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit: ; preds = %6
   %37 = load ptr, ptr %36, align 8, !tbaa !239
   br label %39
 
-.thread83:                                        ; preds = %6
+.thread81:                                        ; preds = %6
   %38 = inttoptr i64 %4 to ptr
   store ptr %38, ptr %3, align 8, !tbaa !40
   br label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
@@ -1696,7 +1696,7 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit: ; preds = %6
   br label %55
 
 55:                                               ; preds = %39, %43
-  %.04.i.ph95 = phi ptr [ %54, %43 ], [ null, %39 ]
+  %.04.i.ph93 = phi ptr [ %54, %43 ], [ null, %39 ]
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 7
   %57 = load i8, ptr %56, align 1, !tbaa !244, !range !237, !noundef !238
   %58 = trunc nuw i8 %57 to i1
@@ -1779,18 +1779,18 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit: ; preds = %6
   %118 = load ptr, ptr %117, align 8, !tbaa !242
   br label %_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit
 
-_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %.thread83, %97, %101
-  %.04.i10.ph124 = phi i32 [ %.04.i10.ph.ph, %97 ], [ %.04.i10.ph.ph, %101 ], [ 0, %.thread83 ]
-  %.04.i.ph91103122 = phi ptr [ %.04.i.ph95, %97 ], [ %.04.i.ph95, %101 ], [ null, %.thread83 ]
-  %.0.i.ph717790104120 = phi ptr [ %.0.i.ph.ph, %97 ], [ %.0.i.ph.ph, %101 ], [ null, %.thread83 ]
-  %.0.i2.ph7989105118 = phi ptr [ %.0.i2.ph.ph, %97 ], [ %.0.i2.ph.ph, %101 ], [ null, %.thread83 ]
-  %.04.i7.ph107116 = phi ptr [ %.04.i7.ph, %97 ], [ %.04.i7.ph, %101 ], [ null, %.thread83 ]
-  %.04.i13 = phi ptr [ null, %97 ], [ %118, %101 ], [ null, %.thread83 ]
-  %119 = icmp ne ptr %.0.i.ph717790104120, null
-  %120 = icmp ne ptr %.0.i2.ph7989105118, null
-  %121 = icmp ne ptr %.04.i.ph91103122, null
-  %122 = icmp ne ptr %.04.i7.ph107116, null
-  %123 = icmp ne i32 %.04.i10.ph124, 0
+_ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %.thread81, %97, %101
+  %.04.i10.ph122 = phi i32 [ %.04.i10.ph.ph, %97 ], [ %.04.i10.ph.ph, %101 ], [ 0, %.thread81 ]
+  %.04.i.ph89101120 = phi ptr [ %.04.i.ph93, %97 ], [ %.04.i.ph93, %101 ], [ null, %.thread81 ]
+  %.0.i.ph697588102118 = phi ptr [ %.0.i.ph.ph, %97 ], [ %.0.i.ph.ph, %101 ], [ null, %.thread81 ]
+  %.0.i2.ph7787103116 = phi ptr [ %.0.i2.ph.ph, %97 ], [ %.0.i2.ph.ph, %101 ], [ null, %.thread81 ]
+  %.04.i7.ph105114 = phi ptr [ %.04.i7.ph, %97 ], [ %.04.i7.ph, %101 ], [ null, %.thread81 ]
+  %.04.i13 = phi ptr [ null, %97 ], [ %118, %101 ], [ null, %.thread81 ]
+  %119 = icmp ne ptr %.0.i.ph697588102118, null
+  %120 = icmp ne ptr %.0.i2.ph7787103116, null
+  %121 = icmp ne ptr %.04.i.ph89101120, null
+  %122 = icmp ne ptr %.04.i7.ph105114, null
+  %123 = icmp ne i32 %.04.i10.ph122, 0
   %124 = icmp ne ptr %.04.i13, null
   %125 = zext i1 %119 to i32
   %126 = zext i1 %120 to i32
@@ -1815,7 +1815,7 @@ _ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %.thread83, %97, %10
   br i1 %or.cond7.i, label %139, label %143
 
 139:                                              ; preds = %137
-  %140 = tail call noundef ptr @_ZN4llvm15MachineFunction17createMIExtraInfoENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES6_PNS_6MDNodeES8_jS8_(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr null, i64 0, ptr noundef %.0.i.ph717790104120, ptr noundef %.0.i2.ph7989105118, ptr noundef %.04.i.ph91103122, ptr noundef %.04.i7.ph107116, i32 noundef %.04.i10.ph124, ptr noundef %.04.i13) #25
+  %140 = tail call noundef ptr @_ZN4llvm15MachineFunction17createMIExtraInfoENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES6_PNS_6MDNodeES8_jS8_(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr null, i64 0, ptr noundef %.0.i.ph697588102118, ptr noundef %.0.i2.ph7787103116, ptr noundef %.04.i.ph89101120, ptr noundef %.04.i7.ph105114, i32 noundef %.04.i10.ph122, ptr noundef %.04.i13) #25
   %141 = ptrtoint ptr %140 to i64
   %142 = or i64 %141, 3
   br label %_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_.exit.sink.split
@@ -1824,13 +1824,13 @@ _ZNK4llvm12MachineInstr15getMMRAMetadataEv.exit:  ; preds = %.thread83, %97, %10
   br i1 %119, label %144, label %147
 
 144:                                              ; preds = %143
-  %145 = ptrtoint ptr %.0.i.ph717790104120 to i64
+  %145 = ptrtoint ptr %.0.i.ph697588102118 to i64
   %146 = or i64 %145, 1
   br label %_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_.exit.sink.split
 
 147:                                              ; preds = %143
   tail call void @llvm.assume(i1 %120)
-  %148 = ptrtoint ptr %.0.i2.ph7989105118 to i64
+  %148 = ptrtoint ptr %.0.i2.ph7787103116 to i64
   %149 = or i64 %148, 2
   br label %_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_.exit.sink.split
 

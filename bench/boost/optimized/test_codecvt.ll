@@ -6365,7 +6365,7 @@ _ZN5boost6nowide4test8test_monEv.exit35:          ; preds = %84, %82, %81
 
 86:                                               ; preds = %_ZN5boost6nowide4test8test_monEv.exit35
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.pre54 = load ptr, ptr %7, align 8, !tbaa !55
+  %.pre51 = load ptr, ptr %7, align 8, !tbaa !55
   br label %89
 
 87:                                               ; preds = %_ZN5boost6nowide4test8test_monEv.exit35
@@ -6375,7 +6375,7 @@ _ZN5boost6nowide4test8test_monEv.exit35:          ; preds = %84, %82, %81
   br label %.thread
 
 89:                                               ; preds = %86, %78
-  %90 = phi ptr [ %.pre54, %86 ], [ %80, %78 ]
+  %90 = phi ptr [ %.pre51, %86 ], [ %80, %78 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %91, ptr %0, align 8, !tbaa !31
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6457,14 +6457,14 @@ _ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %103, %101, %._crit_
   br i1 %.not.i.i.i37, label %_ZNSt6vectorIwSaIwEED2Ev.exit38, label %114
 
 114:                                              ; preds = %.thread, %112
-  %.pn.pn52 = phi { ptr, i32 } [ %.pn, %.thread ], [ %113, %112 ]
+  %.pn.pn49 = phi { ptr, i32 } [ %.pn, %.thread ], [ %113, %112 ]
   %115 = ptrtoint ptr %.sroa.14.0 to i64
   %116 = sub i64 %115, %33
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.040.0, i64 noundef %116) #30
   br label %_ZNSt6vectorIwSaIwEED2Ev.exit38
 
 _ZNSt6vectorIwSaIwEED2Ev.exit38:                  ; preds = %114, %112, %64
-  %.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %113, %112 ], [ %.pn.pn52, %114 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %113, %112 ], [ %.pn.pn49, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %117

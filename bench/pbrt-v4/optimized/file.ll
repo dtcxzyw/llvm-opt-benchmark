@@ -4878,15 +4878,15 @@ _ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT
   %.sroa.14.0.ph = phi ptr [ %.sroa.14.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ null, %57 ]
   %.sroa.10.0.ph = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ null, %57 ]
   %.sroa.053.0.ph = phi ptr [ %.sroa.053.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ null, %57 ]
-  br label %.outer179
+  br label %.outer176
 
-.outer179:                                        ; preds = %.outer179.backedge, %.outer
-  %.026.ph = phi i1 [ false, %.outer ], [ true, %.outer179.backedge ]
-  %.0.ph = phi i32 [ 0, %.outer ], [ %.0.ph.be, %.outer179.backedge ]
+.outer176:                                        ; preds = %.outer176.backedge, %.outer
+  %.026.ph = phi i1 [ false, %.outer ], [ true, %.outer176.backedge ]
+  %.0.ph = phi i32 [ 0, %.outer ], [ %.0.ph.be, %.outer176.backedge ]
   br label %58
 
-58:                                               ; preds = %.backedge, %.outer179
-  %.026 = phi i1 [ %.026.ph, %.outer179 ], [ false, %.backedge ]
+58:                                               ; preds = %.backedge, %.outer176
+  %.026 = phi i1 [ %.026.ph, %.outer176 ], [ false, %.backedge ]
   %59 = call i32 @getc(ptr noundef nonnull %30)
   store i32 %59, ptr %7, align 4, !tbaa !48
   switch i32 %59, label %65 [
@@ -4962,11 +4962,11 @@ switch.early.test:                                ; preds = %70
   %79 = zext nneg i32 %.0.ph to i64
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 %79
   store i8 %78, ptr %80, align 1, !tbaa !16
-  br label %.outer179.backedge
+  br label %.outer176.backedge
 
-.outer179.backedge:                               ; preds = %77, %113
+.outer176.backedge:                               ; preds = %77, %113
   %.0.ph.be = add nuw nsw i32 %.0.ph, 1
-  br label %.outer179, !llvm.loop !132
+  br label %.outer176, !llvm.loop !132
 
 81:                                               ; preds = %switch.early.test
   %82 = zext nneg i32 %.0.ph to i64
@@ -5063,9 +5063,9 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %91
   %.sroa.14.3 = phi ptr [ %111, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %.sroa.14.0.ph, %91 ]
-  %.pn67 = phi ptr [ %106, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %.sroa.10.0.ph, %91 ]
+  %.pn64 = phi ptr [ %106, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %.sroa.10.0.ph, %91 ]
   %.sroa.053.3 = phi ptr [ %105, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %.sroa.053.0.ph, %91 ]
-  %.sroa.10.2 = getelementptr inbounds nuw i8, ptr %.pn67, i64 4
+  %.sroa.10.2 = getelementptr inbounds nuw i8, ptr %.pn64, i64 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.outer, !llvm.loop !132
 
@@ -5087,7 +5087,7 @@ switch.early.test39:                              ; preds = %112
   %115 = zext nneg i32 %.0.ph to i64
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 %115
   store i8 %114, ptr %116, align 1, !tbaa !16
-  br label %.outer179.backedge
+  br label %.outer176.backedge
 
 .preheader:                                       ; preds = %switch.early.test39, %.preheader
   %117 = call i32 @getc(ptr noundef nonnull %30)

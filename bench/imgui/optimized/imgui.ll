@@ -79589,8 +79589,8 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread:        ; preds = %129, %124, %.crited
   br label %_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_.exit
 
 _ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_.exit: ; preds = %153, %139, %174, %175, %176, %177, %178
-  %.sroa.12.0 = phi float [ %167, %177 ], [ %167, %178 ], [ %.019.i, %139 ], [ %.019.i, %174 ], [ %.019.i, %175 ], [ %170, %176 ], [ %173, %153 ]
   %.sroa.044.0 = phi float [ %173, %177 ], [ %.019.i, %178 ], [ %.019.i, %139 ], [ %170, %174 ], [ %167, %175 ], [ %167, %176 ], [ %.019.i, %153 ]
+  %.sroa.12.0 = phi float [ %167, %177 ], [ %167, %178 ], [ %.019.i, %139 ], [ %.019.i, %174 ], [ %.019.i, %175 ], [ %170, %176 ], [ %173, %153 ]
   %.sroa.21.0 = phi float [ %.019.i, %177 ], [ %170, %178 ], [ %.019.i, %139 ], [ %167, %174 ], [ %173, %175 ], [ %.019.i, %176 ], [ %167, %153 ]
   call void @_ZN5ImGui15RenderNavCursorERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %6, i32 noundef %.2.i.i, i32 noundef 0)
   %.sroa.01.0.copyload = load <2 x float>, ptr %6, align 8

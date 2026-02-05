@@ -5709,7 +5709,7 @@ build_ttinfo.exit17.thread:                       ; preds = %29, %32, %19
   br label %xdecref_ttinfo.exit26
 
 34:                                               ; preds = %25, %20, %11
-  %.sroa.9.041.ph = phi ptr [ %1, %25 ], [ %1, %20 ], [ null, %11 ]
+  %.sroa.9.035.ph = phi ptr [ %1, %25 ], [ %1, %20 ], [ null, %11 ]
   %.sroa.12.0.ph = phi ptr [ %23, %25 ], [ null, %20 ], [ null, %11 ]
   %35 = load i32, ptr %9, align 8, !tbaa !20
   %.not.i.i.i = icmp sgt i32 %35, -1
@@ -5744,22 +5744,22 @@ Py_XDECREF.exit.i:                                ; preds = %39, %36, %34
   br label %Py_XDECREF.exit6.i
 
 Py_XDECREF.exit6.i:                               ; preds = %45, %42, %40, %Py_XDECREF.exit.i
-  %.not.i7.i = icmp eq ptr %.sroa.9.041.ph, null
+  %.not.i7.i = icmp eq ptr %.sroa.9.035.ph, null
   br i1 %.not.i7.i, label %xdecref_ttinfo.exit, label %46
 
 46:                                               ; preds = %Py_XDECREF.exit6.i
-  %47 = load i32, ptr %.sroa.9.041.ph, align 8, !tbaa !20
+  %47 = load i32, ptr %.sroa.9.035.ph, align 8, !tbaa !20
   %.not.i.i8.i = icmp sgt i32 %47, -1
   br i1 %.not.i.i8.i, label %48, label %xdecref_ttinfo.exit
 
 48:                                               ; preds = %46
   %49 = add nsw i32 %47, -1
-  store i32 %49, ptr %.sroa.9.041.ph, align 8, !tbaa !20
+  store i32 %49, ptr %.sroa.9.035.ph, align 8, !tbaa !20
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %xdecref_ttinfo.exit
 
 51:                                               ; preds = %48
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sroa.9.041.ph) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sroa.9.035.ph) #9
   br label %xdecref_ttinfo.exit
 
 xdecref_ttinfo.exit:                              ; preds = %Py_XDECREF.exit6.i, %46, %48, %51

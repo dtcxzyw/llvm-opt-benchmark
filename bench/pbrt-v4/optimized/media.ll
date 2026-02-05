@@ -1036,7 +1036,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i.i.i.i.i.i.i.i: ; preds = %250
   br i1 %273, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.thread.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i.i.i.i.i.i.i.i
-  %.054262.i17.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i.i.i.i.i.i.i.i ]
+  %.054252.i17.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i.i.i.i.i.i.i.i ]
   store i8 1, ptr %252, align 4, !tbaa !129, !noalias !132
   %.sroa.0181.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %130, align 4, !tbaa !127
   %.sroa.7183.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %.sroa.7183.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 4, !tbaa !127
@@ -1052,8 +1052,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i.i.i.i.i.i.i.i: ; preds = %250
   %278 = fcmp oeq float %277, 0x7FF0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
-  %.neg258.i.i.i.i.i.i.i.i.i = fneg float %276
-  %279 = select i1 %278, float 0xC7EFFFFFE0000000, float %.neg258.i.i.i.i.i.i.i.i.i
+  %.neg248.i.i.i.i.i.i.i.i.i = fneg float %276
+  %279 = select i1 %278, float 0xC7EFFFFFE0000000, float %.neg248.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store <2 x float> %.sroa.10186.0.copyload.i.i.i.i.i.i.i.i.i, ptr %128, align 8
   store <2 x float> %.sroa.16.0.copyload.i.i.i.i.i.i.i.i.i, ptr %.sroa.16.8..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !120
@@ -1144,7 +1144,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.thread.i.i.i.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %478
   %.073.i.i.i.i.i.i.i.i.i = phi float [ %319, %478 ], [ %.sroa.0181.0.copyload.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.2.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %478 ], [ %.054262.i17.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %478 ], [ %.054252.i17.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %316 = fsub float 1.000000e+00, %.2.i.i.i.i.i.i.i.i.i
   %317 = call noundef float @logf(float noundef %316) #28, !tbaa !138
   %318 = fdiv float %317, %.sroa.10186.8.vec.extract.i.i.i.i.i.i.i.i.i
@@ -2799,7 +2799,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i177.i.i.i.i.i.i.i: ; preds = %98
   br i1 %999, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.thread.i.i209.i.i.i.i.i.i.i, label %.lr.ph.i185.i.i.i.i.i.i.i
 
 .lr.ph.i185.i.i.i.i.i.i.i:                        ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i177.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i207.i.i.i.i.i.i.i
-  %.054256.i25.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i207.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i177.i.i.i.i.i.i.i ]
+  %.054246.i25.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.i207.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i177.i.i.i.i.i.i.i ]
   store i8 1, ptr %987, align 4, !tbaa !129, !noalias !175
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %62, align 4, !tbaa !127
   %.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i = load float, ptr %.sroa.7.0..sroa_idx.i.i178.i.i.i.i.i.i.i, align 4, !tbaa !127
@@ -2815,8 +2815,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.preheader.i.i177.i.i.i.i.i.i.i: ; preds = %98
   %1004 = fcmp oeq float %1003, 0x7FF0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  %.neg252.i.i.i.i.i.i.i.i.i = fneg float %1002
-  %1005 = select i1 %1004, float 0xC7EFFFFFE0000000, float %.neg252.i.i.i.i.i.i.i.i.i
+  %.neg242.i.i.i.i.i.i.i.i.i = fneg float %1002
+  %1005 = select i1 %1004, float 0xC7EFFFFFE0000000, float %.neg242.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store <2 x float> %.sroa.10.0.copyload.i.i.i.i.i.i.i.i.i, ptr %60, align 8
   store <2 x float> %.sroa.16.0.copyload.i.i186.i.i.i.i.i.i.i, ptr %.sroa.16.8..sroa_idx.i.i183.i.i.i.i.i.i.i, align 8, !tbaa !120
@@ -2907,7 +2907,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit.i.thread.i255.i.i.i.i.i.
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i187.i.i.i.i.i.i.i: ; preds = %.lr.ph.i185.i.i.i.i.i.i.i, %1153
   %.073.i.i188.i.i.i.i.i.i.i = phi float [ %1045, %1153 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %.lr.ph.i185.i.i.i.i.i.i.i ]
-  %.2.i.i189.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i, %1153 ], [ %.054256.i25.i.i.i.i.i.i.i.i, %.lr.ph.i185.i.i.i.i.i.i.i ]
+  %.2.i.i189.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i, %1153 ], [ %.054246.i25.i.i.i.i.i.i.i.i, %.lr.ph.i185.i.i.i.i.i.i.i ]
   %1042 = fsub float 1.000000e+00, %.2.i.i189.i.i.i.i.i.i.i
   %1043 = call noundef float @logf(float noundef %1042) #28, !tbaa !138
   %1044 = fdiv float %1043, %.sroa.10.8.vec.extract.i.i.i.i.i.i.i.i.i

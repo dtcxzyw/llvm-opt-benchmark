@@ -27751,9 +27751,9 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
   br label %stbtt__solve_cubic.exit.us
 
 stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %446, %411, %stbtt__cuberoot.exit49.i.us
-  %.sroa.0.4.us = phi float [ %463, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ %456, %452 ], [ %431, %411 ], [ %410, %stbtt__cuberoot.exit49.i.us ]
-  %.sroa.8.4.us = phi float [ 0.000000e+00, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ %458, %452 ], [ %434, %411 ], [ 0.000000e+00, %stbtt__cuberoot.exit49.i.us ]
-  %.sroa.11.4.us = phi float [ 0.000000e+00, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ 0.000000e+00, %452 ], [ %436, %411 ], [ 0.000000e+00, %stbtt__cuberoot.exit49.i.us ]
+  %.sroa.0.0.us = phi float [ %463, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ %456, %452 ], [ %431, %411 ], [ %410, %stbtt__cuberoot.exit49.i.us ]
+  %.sroa.8.0.us = phi float [ 0.000000e+00, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ %458, %452 ], [ %434, %411 ], [ 0.000000e+00, %stbtt__cuberoot.exit49.i.us ]
+  %.sroa.11.0.us = phi float [ 0.000000e+00, %461 ], [ 0.000000e+00, %459 ], [ 0.000000e+00, %446 ], [ 0.000000e+00, %452 ], [ %436, %411 ], [ 0.000000e+00, %stbtt__cuberoot.exit49.i.us ]
   %464 = phi i1 [ true, %461 ], [ false, %459 ], [ false, %446 ], [ true, %452 ], [ true, %411 ], [ true, %stbtt__cuberoot.exit49.i.us ]
   %465 = phi i1 [ false, %461 ], [ false, %459 ], [ false, %446 ], [ true, %452 ], [ true, %411 ], [ false, %stbtt__cuberoot.exit49.i.us ]
   %466 = phi i1 [ false, %461 ], [ false, %459 ], [ false, %446 ], [ false, %452 ], [ true, %411 ], [ false, %stbtt__cuberoot.exit49.i.us ]
@@ -27763,20 +27763,20 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
   %470 = fcmp olt float %468, %469
   %sqrt522.us = call float @llvm.sqrt.f32(float %468)
   %.6.us = select i1 %470, float %sqrt522.us, float %.0439529.us
-  %471 = fcmp oge float %.sroa.0.4.us, 0.000000e+00
-  %472 = fcmp ole float %.sroa.0.4.us, 1.000000e+00
+  %471 = fcmp oge float %.sroa.0.0.us, 0.000000e+00
+  %472 = fcmp ole float %.sroa.0.0.us, 1.000000e+00
   %473 = and i1 %471, %472
   %or.cond7.us = select i1 %464, i1 %473, i1 false
   br i1 %or.cond7.us, label %474, label %493
 
 474:                                              ; preds = %stbtt__solve_cubic.exit.us
-  %475 = fsub float 1.000000e+00, %.sroa.0.4.us
+  %475 = fsub float 1.000000e+00, %.sroa.0.0.us
   %476 = fmul float %475, %475
-  %477 = fmul float %.sroa.0.4.us, 2.000000e+00
+  %477 = fmul float %.sroa.0.0.us, 2.000000e+00
   %478 = fmul float %477, %475
   %479 = fmul float %313, %478
   %480 = call float @llvm.fmuladd.f32(float %476, float %294, float %479)
-  %481 = fmul float %.sroa.0.4.us, %.sroa.0.4.us
+  %481 = fmul float %.sroa.0.0.us, %.sroa.0.0.us
   %482 = call float @llvm.fmuladd.f32(float %481, float %305, float %480)
   %483 = fmul float %317, %478
   %484 = call float @llvm.fmuladd.f32(float %476, float %298, float %483)
@@ -27795,20 +27795,20 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
 
 493:                                              ; preds = %492, %474, %stbtt__solve_cubic.exit.us
   %.7.us = phi float [ %sqrt523.us, %492 ], [ %.6.us, %474 ], [ %.6.us, %stbtt__solve_cubic.exit.us ]
-  %494 = fcmp oge float %.sroa.8.4.us, 0.000000e+00
-  %495 = fcmp ole float %.sroa.8.4.us, 1.000000e+00
+  %494 = fcmp oge float %.sroa.8.0.us, 0.000000e+00
+  %495 = fcmp ole float %.sroa.8.0.us, 1.000000e+00
   %496 = and i1 %494, %495
   %or.cond13.us = select i1 %465, i1 %496, i1 false
   br i1 %or.cond13.us, label %497, label %516
 
 497:                                              ; preds = %493
-  %498 = fsub float 1.000000e+00, %.sroa.8.4.us
+  %498 = fsub float 1.000000e+00, %.sroa.8.0.us
   %499 = fmul float %498, %498
-  %500 = fmul float %.sroa.8.4.us, 2.000000e+00
+  %500 = fmul float %.sroa.8.0.us, 2.000000e+00
   %501 = fmul float %500, %498
   %502 = fmul float %313, %501
   %503 = call float @llvm.fmuladd.f32(float %499, float %294, float %502)
-  %504 = fmul float %.sroa.8.4.us, %.sroa.8.4.us
+  %504 = fmul float %.sroa.8.0.us, %.sroa.8.0.us
   %505 = call float @llvm.fmuladd.f32(float %504, float %305, float %503)
   %506 = fmul float %317, %501
   %507 = call float @llvm.fmuladd.f32(float %499, float %298, float %506)
@@ -27827,20 +27827,20 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
 
 516:                                              ; preds = %515, %497, %493
   %.8.us = phi float [ %sqrt524.us, %515 ], [ %.7.us, %497 ], [ %.7.us, %493 ]
-  %517 = fcmp oge float %.sroa.11.4.us, 0.000000e+00
-  %518 = fcmp ole float %.sroa.11.4.us, 1.000000e+00
+  %517 = fcmp oge float %.sroa.11.0.us, 0.000000e+00
+  %518 = fcmp ole float %.sroa.11.0.us, 1.000000e+00
   %519 = and i1 %517, %518
   %or.cond19.us = select i1 %466, i1 %519, i1 false
   br i1 %or.cond19.us, label %520, label %.thread.us
 
 520:                                              ; preds = %516
-  %521 = fsub float 1.000000e+00, %.sroa.11.4.us
+  %521 = fsub float 1.000000e+00, %.sroa.11.0.us
   %522 = fmul float %521, %521
-  %523 = fmul float %.sroa.11.4.us, 2.000000e+00
+  %523 = fmul float %.sroa.11.0.us, 2.000000e+00
   %524 = fmul float %523, %521
   %525 = fmul float %313, %524
   %526 = call float @llvm.fmuladd.f32(float %522, float %294, float %525)
-  %527 = fmul float %.sroa.11.4.us, %.sroa.11.4.us
+  %527 = fmul float %.sroa.11.0.us, %.sroa.11.0.us
   %528 = call float @llvm.fmuladd.f32(float %527, float %305, float %526)
   %529 = fmul float %317, %524
   %530 = call float @llvm.fmuladd.f32(float %522, float %298, float %529)

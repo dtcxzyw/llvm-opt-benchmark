@@ -8064,9 +8064,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br i1 %.not.i, label %.loopexit52.i, label %93
 
 80:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6e29b4e092aef3aaE.exit.i.i.i", %58
-  %.sroa.9.1.i = phi ptr [ %64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6e29b4e092aef3aaE.exit.i.i.i" ], [ %57, %58 ]
+  %.sroa.9.0.i = phi ptr [ %64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6e29b4e092aef3aaE.exit.i.i.i" ], [ %57, %58 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.1.i, ptr %81, align 8, !alias.scope !1432, !noalias !1476
+  store ptr %.sroa.9.0.i, ptr %81, align 8, !alias.scope !1432, !noalias !1476
   store ptr null, ptr %0, align 8, !alias.scope !1432, !noalias !1476
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1477)

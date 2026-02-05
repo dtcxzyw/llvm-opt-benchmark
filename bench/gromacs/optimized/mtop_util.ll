@@ -2123,9 +2123,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
   %571 = load ptr, ptr %15, align 8, !tbaa !162
   %572 = load ptr, ptr %13, align 8, !tbaa !163
   %.not.i11.i = icmp eq ptr %571, %572
-  br i1 %.not.i11.i, label %._crit_edge49.i.i, label %.lr.ph48.i.i
+  br i1 %.not.i11.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i
 
-.lr.ph48.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
+.lr.ph45.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
   %573 = ptrtoint ptr %571 to i64
   %574 = ptrtoint ptr %572 to i64
   %575 = sub i64 %573, %574
@@ -2136,16 +2136,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
   %580 = load ptr, ptr %579, align 8
   br label %584
 
-._crit_edge49.i.i:                                ; preds = %.loopexit.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
+._crit_edge46.i.i:                                ; preds = %.loopexit.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
   %581 = ptrtoint ptr %.sroa.036.0.i.i to i64
   %582 = sub i64 %.0.i.i.i.i.i.i.i.i.i, %581
   %583 = getelementptr inbounds nuw i8, ptr %.sroa.036.0.i.i, i64 %582
   invoke void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(ptr noundef %1, ptr %.sroa.036.0.i.i, ptr %583)
           to label %621 unwind label %624
 
-584:                                              ; preds = %.loopexit.i.i, %.lr.ph48.i.i
-  %.02947.i.i = phi i64 [ 0, %.lr.ph48.i.i ], [ %620, %.loopexit.i.i ]
-  %585 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %572, i64 %.02947.i.i
+584:                                              ; preds = %.loopexit.i.i, %.lr.ph45.i.i
+  %.02944.i.i = phi i64 [ 0, %.lr.ph45.i.i ], [ %620, %.loopexit.i.i ]
+  %585 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %572, i64 %.02944.i.i
   %586 = load i32, ptr %585, align 8, !tbaa !67
   %587 = sext i32 %586 to i64
   %588 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %578, i64 %587
@@ -2170,7 +2170,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
 
 .preheader.preheader.i.i:                         ; preds = %.preheader.lr.ph.i.i
   %601 = getelementptr inbounds nuw i8, ptr %588, i64 16
-  %602 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %580, i64 %.02947.i.i
+  %602 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %580, i64 %.02944.i.i
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 4
   %604 = load i32, ptr %603, align 4, !tbaa !164
   %605 = load ptr, ptr %601, align 8, !tbaa !166
@@ -2180,13 +2180,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
 
 .lr.ph.i14.i:                                     ; preds = %._crit_edge.i17.i, %.preheader.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i17.i ], [ %607, %.preheader.preheader.i.i ]
-  %.02546.i.i = phi i32 [ %608, %._crit_edge.i17.i ], [ 0, %.preheader.preheader.i.i ]
+  %.02543.i.i = phi i32 [ %608, %._crit_edge.i17.i ], [ 0, %.preheader.preheader.i.i ]
   %invariant.gep.i.i = getelementptr i32, ptr %.sroa.036.0.i.i, i64 %indvars.iv.i
   br label %609
 
 ._crit_edge.i17.i:                                ; preds = %619
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %606
-  %608 = add nuw nsw i32 %.02546.i.i, 1
+  %608 = add nuw nsw i32 %.02543.i.i, 1
   %exitcond90.not.i = icmp eq i32 %608, %596
   br i1 %exitcond90.not.i, label %.loopexit.i.i, label %.lr.ph.i14.i, !llvm.loop !167
 
@@ -2213,11 +2213,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
   br i1 %exitcond.not.i, label %._crit_edge.i17.i, label %609, !llvm.loop !170
 
 .loopexit.i.i:                                    ; preds = %._crit_edge.i17.i, %.preheader.lr.ph.i.i, %594, %584
-  %620 = add nuw i64 %.02947.i.i, 1
+  %620 = add nuw i64 %.02944.i.i, 1
   %exitcond.not.i12.i = icmp eq i64 %620, %576
-  br i1 %exitcond.not.i12.i, label %._crit_edge49.i.i, label %584, !llvm.loop !171
+  br i1 %exitcond.not.i12.i, label %._crit_edge46.i.i, label %584, !llvm.loop !171
 
-621:                                              ; preds = %._crit_edge49.i.i
+621:                                              ; preds = %._crit_edge46.i.i
   %.not.i.i.i.i13.i = icmp eq ptr %.sroa.036.0.i.i, null
   br i1 %.not.i.i.i.i13.i, label %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i, label %622
 
@@ -2226,7 +2226,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.036.0.i.i, i64 noundef %623) #22
   br label %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i
 
-624:                                              ; preds = %._crit_edge49.i.i
+624:                                              ; preds = %._crit_edge46.i.i
   %625 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i33.i.i = icmp eq ptr %.sroa.036.0.i.i, null

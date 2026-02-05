@@ -34931,8 +34931,8 @@ _ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_
 
 28:                                               ; preds = %_ZNSt12__shared_ptrIN6open3d4core9RealBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE11lower_boundERKS4_.exit
   %.sroa.033.0 = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE11lower_boundERKS4_.exit ], [ %.sroa.033.1, %_ZNSt12__shared_ptrIN6open3d4core9RealBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %.not46 = icmp eq ptr %.sroa.033.0, %19
-  br i1 %.not46, label %.critedge, label %29
+  %.not44 = icmp eq ptr %.sroa.033.0, %19
+  br i1 %.not44, label %.critedge, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.033.0, i64 32

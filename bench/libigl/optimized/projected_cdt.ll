@@ -29148,8 +29148,8 @@ thread-pre-split.thread14.i.i.i:                  ; preds = %thread-pre-split.i.
   %.not.i.i.i = icmp eq ptr %13, null
   %14 = select i1 %.not.i.i.i.i, i1 %.not.i.i.i, i1 false
   %.mux = select i1 %14, i32 0, i32 2
-  %.mux38 = select i1 %14, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i
-  %.mux39 = select i1 %14, ptr null, ptr %1
+  %.mux39 = select i1 %14, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i
+  %.mux40 = select i1 %14, ptr null, ptr %1
   br i1 %.not.i.i.i.i, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %15
 
 15:                                               ; preds = %thread-pre-split.thread14.i.i.i
@@ -29163,14 +29163,14 @@ thread-pre-split.thread14.i.i.i:                  ; preds = %thread-pre-split.i.
   br label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
 
 _ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %thread-pre-split.thread14.i.i.i, %15, %7, %thread-pre-split.i.i.i
-  %.sroa.032.1 = phi i32 [ 0, %7 ], [ %.mux, %thread-pre-split.thread14.i.i.i ], [ 0, %thread-pre-split.i.i.i ], [ %22, %15 ]
-  %.sroa.14.3 = phi ptr [ null, %7 ], [ %.mux38, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i, %15 ]
-  %.sroa.9.0 = phi ptr [ null, %7 ], [ %.mux39, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %1, %15 ]
+  %.sroa.033.1 = phi i32 [ 0, %7 ], [ %.mux, %thread-pre-split.thread14.i.i.i ], [ 0, %thread-pre-split.i.i.i ], [ %22, %15 ]
+  %.sroa.14.2 = phi ptr [ null, %7 ], [ %.mux39, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i, %15 ]
+  %.sroa.9.0 = phi ptr [ null, %7 ], [ %.mux40, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %1, %15 ]
   br label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit: ; preds = %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
-  %.sroa.032.0 = phi i32 [ %.sroa.032.1, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.032.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
-  %.sroa.14.0 = phi ptr [ %.sroa.14.3, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.14.4, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
+  %.sroa.033.0 = phi i32 [ %.sroa.033.1, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.033.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
+  %.sroa.14.0 = phi ptr [ %.sroa.14.2, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.14.3, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.14.0, i64 51
   store i8 1, ptr %23, align 1, !tbaa !270
   %24 = load ptr, ptr %.sroa.14.0, align 8, !tbaa !36
@@ -29213,37 +29213,38 @@ _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_
   br label %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit: ; preds = %36, %32
-  %.sroa.032.2 = phi i32 [ %.sroa.032.0, %32 ], [ %53, %36 ]
-  %.sroa.14.4 = phi ptr [ %.sroa.0.0.copyload.i.i, %32 ], [ %.sroa.0.0.copyload.i8.i, %36 ]
-  %54 = icmp ne i32 %.sroa.032.2, %.sroa.032.1
-  %55 = icmp ne ptr %.sroa.14.4, %.sroa.14.3
-  %or.cond40 = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond40, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %.loopexit, !llvm.loop !554
+  %.sroa.033.2 = phi i32 [ %.sroa.033.0, %32 ], [ %53, %36 ]
+  %.sroa.14.3 = phi ptr [ %.sroa.0.0.copyload.i.i, %32 ], [ %.sroa.0.0.copyload.i8.i, %36 ]
+  %54 = icmp ne i32 %.sroa.033.2, %.sroa.033.1
+  %55 = icmp ne ptr %.sroa.14.3, %.sroa.14.2
+  %or.cond41 = select i1 %54, i1 true, i1 %55
+  br i1 %or.cond41, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %.loopexit, !llvm.loop !554
 
 56:                                               ; preds = %4
   %57 = icmp eq ptr %1, null
-  br i1 %57, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %58
+  br i1 %57, label %.critedge.i.i.i12, label %58
 
 58:                                               ; preds = %56
-  %.sroa.0.0.copyload.i.i.i.i12 = load ptr, ptr %1, align 8, !tbaa !321
-  %59 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i12, null
-  br i1 %59, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %.thread.i.i.i
+  %.sroa.0.0.copyload.i.i.i.i13 = load ptr, ptr %1, align 8, !tbaa !321
+  %59 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i13, null
+  br i1 %59, label %.critedge.i.i.i12, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i12, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i13, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !36
   %.not.i.i.i.i11 = icmp eq ptr %61, null
-  %spec.select.i.i = select i1 %.not.i.i.i.i11, ptr null, ptr %1
-  %spec.select4.i.i = select i1 %.not.i.i.i.i11, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i12
+  br i1 %.not.i.i.i.i11, label %.critedge.i.i.i12, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
+
+.critedge.i.i.i12:                                ; preds = %.thread.i.i.i, %58, %56
   br label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
 
-_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %56, %58, %.thread.i.i.i
-  %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i.i ], [ null, %58 ], [ null, %56 ]
-  %.sroa.3.2.i.i = phi ptr [ %spec.select4.i.i, %.thread.i.i.i ], [ null, %58 ], [ null, %56 ]
+_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %.thread.i.i.i, %.critedge.i.i.i12
+  %.sroa.0.0.i.i = phi ptr [ null, %.critedge.i.i.i12 ], [ %1, %.thread.i.i.i ]
+  %.sroa.3.1.i.i = phi ptr [ null, %.critedge.i.i.i12 ], [ %.sroa.0.0.copyload.i.i.i.i13, %.thread.i.i.i ]
   br label %62
 
 62:                                               ; preds = %62, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
-  %.sroa.6.0 = phi ptr [ %.sroa.3.2.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.0.0.copyload.i.i14, %62 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.3.1.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.0.0.copyload.i.i15, %62 ]
   %63 = load ptr, ptr %.sroa.6.0, align 8, !tbaa !36
   %64 = icmp eq ptr %1, %63
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.6.0, i64 8
@@ -29267,9 +29268,9 @@ _ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Tr
   %81 = getelementptr inbounds i8, ptr %78, i64 %74
   %. = zext i1 %or.cond to i8
   %not.or.cond = xor i1 %or.cond, true
-  %.45 = zext i1 %not.or.cond to i8
+  %.46 = zext i1 %not.or.cond to i8
   store i8 %., ptr %80, align 1, !tbaa !270
-  store i8 %.45, ptr %81, align 1, !tbaa !270
+  store i8 %.46, ptr %81, align 1, !tbaa !270
   %82 = icmp eq ptr %.sroa.0.0.i.i, %63
   %83 = load ptr, ptr %65, align 8
   %84 = icmp eq ptr %.sroa.0.0.i.i, %83
@@ -29280,8 +29281,8 @@ _ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Tr
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.6.0, i64 24
   %90 = sext i32 %88 to i64
   %91 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.42", ptr %89, i64 %90
-  %.sroa.0.0.copyload.i.i14 = load ptr, ptr %91, align 8, !tbaa !321
-  %.not = icmp eq ptr %.sroa.0.0.copyload.i.i14, %.sroa.3.2.i.i
+  %.sroa.0.0.copyload.i.i15 = load ptr, ptr %91, align 8, !tbaa !321
+  %.not = icmp eq ptr %.sroa.0.0.copyload.i.i15, %.sroa.3.1.i.i
   br i1 %.not, label %.loopexit, label %62, !llvm.loop !555
 
 .loopexit:                                        ; preds = %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit, %62, %4
@@ -29330,7 +29331,7 @@ _ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Tr
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit.us: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us
   %.sroa.011.0.us = phi i32 [ %.sroa.011.2.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.011.1, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
-  %.sroa.16.0.us = phi ptr [ %.sroa.16.4.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
+  %.sroa.16.0.us = phi ptr [ %.sroa.16.3.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.us, i64 49
   %23 = sext i32 %.sroa.011.0.us to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
@@ -29415,15 +29416,15 @@ _ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Tr
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us: ; preds = %79, %62
   %.sroa.011.2.us = phi i32 [ %.sroa.011.0.us, %79 ], [ %78, %62 ]
-  %.sroa.16.4.us = phi ptr [ %.sroa.0.0.copyload.i.i.us, %79 ], [ %.sroa.0.0.copyload.i8.i.us, %62 ]
+  %.sroa.16.3.us = phi ptr [ %.sroa.0.0.copyload.i.i.us, %79 ], [ %.sroa.0.0.copyload.i8.i.us, %62 ]
   %82 = icmp ne i32 %.sroa.011.2.us, %.sroa.011.1
-  %83 = icmp ne ptr %.sroa.16.4.us, %.sroa.0.0.copyload.i.i.i.i
+  %83 = icmp ne ptr %.sroa.16.3.us, %.sroa.0.0.copyload.i.i.i.i
   %or.cond.us = select i1 %82, i1 true, i1 %83
   br i1 %or.cond.us, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit.us, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit.thread, !llvm.loop !561
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit
   %.sroa.011.0 = phi i32 [ %.sroa.011.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.011.1, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
-  %.sroa.16.0 = phi ptr [ %.sroa.16.4, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.3, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 49
   %85 = sext i32 %.sroa.011.0 to i64
   %86 = getelementptr inbounds i8, ptr %84, i64 %85
@@ -29469,9 +29470,9 @@ _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit: ; preds = %99, %95
   %.sroa.011.2 = phi i32 [ %.sroa.011.0, %95 ], [ %116, %99 ]
-  %.sroa.16.4 = phi ptr [ %.sroa.0.0.copyload.i.i, %95 ], [ %.sroa.0.0.copyload.i8.i, %99 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.0.0.copyload.i.i, %95 ], [ %.sroa.0.0.copyload.i8.i, %99 ]
   %117 = icmp ne i32 %.sroa.011.2, %.sroa.011.1
-  %118 = icmp ne ptr %.sroa.16.4, %.sroa.0.0.copyload.i.i.i.i
+  %118 = icmp ne ptr %.sroa.16.3, %.sroa.0.0.copyload.i.i.i.i
   %or.cond = select i1 %117, i1 true, i1 %118
   br i1 %or.cond, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit.thread, !llvm.loop !561
 
@@ -30108,35 +30109,36 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8, !tbaa !327
   %13 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  br i1 %13, label %16, label %.thread.i.i.i
+  br i1 %13, label %.critedge.i.i.i, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !36
   %.not.i.i.i.i = icmp eq ptr %15, null
-  %spec.select.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %.sroa.0.0.copyload.i
-  %spec.select4.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %2
+  br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %16
+
+.critedge.i.i.i:                                  ; preds = %.thread.i.i.i, %3
   br label %16
 
-16:                                               ; preds = %.thread.i.i.i, %3
-  %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i.i ], [ null, %3 ]
-  %.sroa.3.2.i.i = phi ptr [ %spec.select4.i.i, %.thread.i.i.i ], [ null, %3 ]
+16:                                               ; preds = %.critedge.i.i.i, %.thread.i.i.i
+  %.sroa.0.0.i.i = phi ptr [ null, %.critedge.i.i.i ], [ %.sroa.0.0.copyload.i, %.thread.i.i.i ]
+  %.sroa.3.1.i.i = phi ptr [ null, %.critedge.i.i.i ], [ %2, %.thread.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %18
 
 18:                                               ; preds = %.critedge, %16
   %.sroa.0.0.copyload.i57 = phi ptr [ %.sroa.0.0.copyload.i, %16 ], [ %.sroa.0.0.copyload.i57.pre, %.critedge ]
-  %.sroa.9.0164 = phi ptr [ %.sroa.3.2.i.i, %16 ], [ %.sroa.0.0.copyload.i.i.i, %.critedge ]
-  %19 = load ptr, ptr %.sroa.9.0164, align 8, !tbaa !36
+  %.sroa.9.0162 = phi ptr [ %.sroa.3.1.i.i, %16 ], [ %.sroa.0.0.copyload.i.i.i, %.critedge ]
+  %19 = load ptr, ptr %.sroa.9.0162, align 8, !tbaa !36
   %20 = icmp eq ptr %.sroa.0.0.i.i, %19
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.9.0164, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.9.0162, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %.sroa.0.0.i.i, %22
   %24 = select i1 %23, i64 1, i64 2
   %25 = select i1 %20, i64 0, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !211
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.9.0164, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.9.0162, i64 24
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.42", ptr %28, i64 %29
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %30, align 8, !tbaa !321
@@ -30201,9 +30203,9 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   %76 = fmul double %.157.i.i, 0x3CD0028010000004
   %77 = fmul double %.155.i.i, %76
   %78 = fcmp ogt double %62, %77
-  br i1 %78, label %.thread157, label %79
+  br i1 %78, label %.thread155, label %79
 
-.thread157:                                       ; preds = %75
+.thread155:                                       ; preds = %75
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
@@ -30223,9 +30225,9 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
 84:                                               ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %85 = icmp eq i32 %83, 1
-  br i1 %85, label %86, label %.loopexit175
+  br i1 %85, label %86, label %.loopexit173
 
-86:                                               ; preds = %.thread157, %84
+86:                                               ; preds = %.thread155, %84
   %87 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
           to label %.critedge unwind label %96
 
@@ -30240,86 +30242,87 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   %.sroa.0.0.copyload.i57.pre = load ptr, ptr %8, align 8, !tbaa !38
   br label %18
 
-92:                                               ; preds = %.loopexit174
+92:                                               ; preds = %.loopexit172
   %93 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
 94:                                               ; preds = %82
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
 96:                                               ; preds = %86
   %97 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
-.loopexit175:                                     ; preds = %84
+.loopexit173:                                     ; preds = %84
   %.sroa.0.0.copyload.i64.pre = load ptr, ptr %8, align 8, !tbaa !38
   br label %98
 
-98:                                               ; preds = %.loopexit175, %.thread
-  %.sroa.0.0.copyload.i64 = phi ptr [ %.sroa.0.0.copyload.i64.pre, %.loopexit175 ], [ %.sroa.0.0.copyload.i57, %.thread ]
+98:                                               ; preds = %.loopexit173, %.thread
+  %.sroa.0.0.copyload.i64 = phi ptr [ %.sroa.0.0.copyload.i64.pre, %.loopexit173 ], [ %.sroa.0.0.copyload.i57, %.thread ]
   %99 = icmp eq ptr %.sroa.0.0.copyload.i64, null
-  br i1 %99, label %102, label %.thread.i.i.i65
+  br i1 %99, label %.critedge.i.i.i72, label %.thread.i.i.i65
 
 .thread.i.i.i65:                                  ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !36
   %.not.i.i.i.i67 = icmp eq ptr %101, null
-  %spec.select.i.i68 = select i1 %.not.i.i.i.i67, ptr null, ptr %.sroa.0.0.copyload.i64
-  %spec.select4.i.i69 = select i1 %.not.i.i.i.i67, ptr null, ptr %2
+  br i1 %.not.i.i.i.i67, label %.critedge.i.i.i72, label %102
+
+.critedge.i.i.i72:                                ; preds = %.thread.i.i.i65, %98
   br label %102
 
-102:                                              ; preds = %.thread.i.i.i65, %98
-  %.sroa.0.0.i.i70 = phi ptr [ %spec.select.i.i68, %.thread.i.i.i65 ], [ null, %98 ]
-  %.sroa.3.2.i.i71 = phi ptr [ %spec.select4.i.i69, %.thread.i.i.i65 ], [ null, %98 ]
+102:                                              ; preds = %.critedge.i.i.i72, %.thread.i.i.i65
+  %.sroa.0.0.i.i68 = phi ptr [ null, %.critedge.i.i.i72 ], [ %.sroa.0.0.copyload.i64, %.thread.i.i.i65 ]
+  %.sroa.3.1.i.i69 = phi ptr [ null, %.critedge.i.i.i72 ], [ %2, %.thread.i.i.i65 ]
   br label %103
 
-103:                                              ; preds = %.critedge173, %102
-  %.sroa.0.0.copyload.i82 = phi ptr [ %.sroa.0.0.copyload.i64, %102 ], [ %.sroa.0.0.copyload.i82.pre, %.critedge173 ]
-  %.sroa.9.1165 = phi ptr [ %.sroa.3.2.i.i71, %102 ], [ %.sroa.0.0.copyload.i.i.i79, %.critedge173 ]
-  %104 = load ptr, ptr %.sroa.9.1165, align 8, !tbaa !36
-  %105 = icmp eq ptr %.sroa.0.0.i.i70, %104
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.9.1165, i64 8
+103:                                              ; preds = %.critedge171, %102
+  %.sroa.0.0.copyload.i81 = phi ptr [ %.sroa.0.0.copyload.i64, %102 ], [ %.sroa.0.0.copyload.i81.pre, %.critedge171 ]
+  %.sroa.9.1163 = phi ptr [ %.sroa.3.1.i.i69, %102 ], [ %.sroa.0.0.copyload.i.i.i78, %.critedge171 ]
+  %104 = load ptr, ptr %.sroa.9.1163, align 8, !tbaa !36
+  %105 = icmp eq ptr %.sroa.0.0.i.i68, %104
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.9.1163, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %.sroa.0.0.i.i70, %107
+  %108 = icmp eq ptr %.sroa.0.0.i.i68, %107
   %109 = select i1 %108, i64 1, i64 2
   %110 = select i1 %105, i64 0, i64 %109
   %111 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !211
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.9.1165, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.9.1163, i64 24
   %114 = sext i32 %112 to i64
   %115 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.42", ptr %113, i64 %114
-  %.sroa.0.0.copyload.i.i.i79 = load ptr, ptr %115, align 8, !tbaa !321
-  %116 = load ptr, ptr %.sroa.0.0.copyload.i.i.i79, align 8, !tbaa !36
-  %117 = icmp eq ptr %.sroa.0.0.copyload.i82, %116
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i79, i64 8
+  %.sroa.0.0.copyload.i.i.i78 = load ptr, ptr %115, align 8, !tbaa !321
+  %116 = load ptr, ptr %.sroa.0.0.copyload.i.i.i78, align 8, !tbaa !36
+  %117 = icmp eq ptr %.sroa.0.0.copyload.i81, %116
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i78, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %.sroa.0.0.copyload.i82, %119
+  %120 = icmp eq ptr %.sroa.0.0.copyload.i81, %119
   %121 = select i1 %120, i64 1, i64 2
   %122 = select i1 %117, i64 0, i64 %121
   %123 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !211
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i.i.i79, i64 %125
-  %.sroa.0.0.copyload.i85 = load ptr, ptr %126, align 8, !tbaa !38
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i85, i64 8
+  %126 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i.i.i78, i64 %125
+  %.sroa.0.0.copyload.i84 = load ptr, ptr %126, align 8, !tbaa !38
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i84, i64 8
   %128 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %122
   %129 = load i32, ptr %128, align 4, !tbaa !211
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i.i.i79, i64 %130
-  %.sroa.0.0.copyload.i86 = load ptr, ptr %131, align 8, !tbaa !38
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i86, i64 8
+  %131 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i.i.i78, i64 %130
+  %.sroa.0.0.copyload.i85 = load ptr, ptr %131, align 8, !tbaa !38
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i85, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %133 = load double, ptr %1, align 8, !tbaa !212
   %134 = load double, ptr %17, align 8, !tbaa !212
   %135 = load double, ptr %127, align 8, !tbaa !212
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i85, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i84, i64 16
   %137 = load double, ptr %136, align 8, !tbaa !212
   %138 = load double, ptr %132, align 8, !tbaa !212
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i86, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i85, i64 16
   %140 = load double, ptr %139, align 8, !tbaa !212
   %141 = fsub double %135, %133
   %142 = fsub double %137, %134
@@ -30333,82 +30336,82 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   %150 = call noundef double @llvm.fabs.f64(double %143)
   %151 = call noundef double @llvm.fabs.f64(double %144)
   %152 = fcmp olt double %148, %150
-  %.056.i.i87 = select i1 %152, double %150, double %148
+  %.056.i.i86 = select i1 %152, double %150, double %148
   %153 = fcmp olt double %149, %151
-  %.054.i.i88 = select i1 %153, double %151, double %149
-  %154 = fcmp ogt double %.056.i.i87, %.054.i.i88
-  %.157.i.i89 = select i1 %154, double %.054.i.i88, double %.056.i.i87
-  %.155.i.i90 = select i1 %154, double %.056.i.i87, double %.054.i.i88
-  %155 = fcmp olt double %.157.i.i89, 1.000000e-146
+  %.054.i.i87 = select i1 %153, double %151, double %149
+  %154 = fcmp ogt double %.056.i.i86, %.054.i.i87
+  %.157.i.i88 = select i1 %154, double %.054.i.i87, double %.056.i.i86
+  %.155.i.i89 = select i1 %154, double %.056.i.i86, double %.054.i.i87
+  %155 = fcmp olt double %.157.i.i88, 1.000000e-146
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %103
-  %157 = fcmp oeq double %.157.i.i89, 0.000000e+00
-  br i1 %157, label %.thread160, label %167
+  %157 = fcmp oeq double %.157.i.i88, 0.000000e+00
+  br i1 %157, label %.thread158, label %167
 
 158:                                              ; preds = %103
-  %159 = fcmp olt double %.155.i.i90, 0x5FB317E5EF3AB327
+  %159 = fcmp olt double %.155.i.i89, 0x5FB317E5EF3AB327
   br i1 %159, label %160, label %167
 
 160:                                              ; preds = %158
-  %161 = fmul double %.157.i.i89, 0x3CD0028010000004
-  %162 = fmul double %.155.i.i90, %161
+  %161 = fmul double %.157.i.i88, 0x3CD0028010000004
+  %162 = fmul double %.155.i.i89, %161
   %163 = fcmp ogt double %147, %162
-  br i1 %163, label %.thread162, label %164
+  br i1 %163, label %.thread160, label %164
 
-.thread162:                                       ; preds = %160
+.thread160:                                       ; preds = %160
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %171
 
 164:                                              ; preds = %160
   %165 = fneg double %162
   %166 = fcmp uge double %147, %165
-  br i1 %166, label %167, label %.thread160
+  br i1 %166, label %167, label %.thread158
 
 167:                                              ; preds = %164, %158, %156
   %168 = invoke noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %132)
           to label %169 unwind label %177
 
-.thread160:                                       ; preds = %164, %156
+.thread158:                                       ; preds = %164, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit174
+  br label %.loopexit172
 
 169:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = icmp eq i32 %168, 1
-  br i1 %170, label %171, label %.loopexit174
+  br i1 %170, label %171, label %.loopexit172
 
-171:                                              ; preds = %.thread162, %169
+171:                                              ; preds = %.thread160, %169
   %172 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
-          to label %.critedge173 unwind label %179
+          to label %.critedge171 unwind label %179
 
-.critedge173:                                     ; preds = %171
+.critedge171:                                     ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i79 to i64
+  %174 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i78 to i64
   store i64 %174, ptr %173, align 8, !tbaa !321
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   %175 = load i64, ptr %12, align 8, !tbaa !340
   %176 = add i64 %175, 1
   store i64 %176, ptr %12, align 8, !tbaa !340
-  %.sroa.0.0.copyload.i82.pre = load ptr, ptr %8, align 8, !tbaa !38
+  %.sroa.0.0.copyload.i81.pre = load ptr, ptr %8, align 8, !tbaa !38
   br label %103
 
 177:                                              ; preds = %167
   %178 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
 179:                                              ; preds = %171
   %180 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
-.loopexit174:                                     ; preds = %169, %.thread160
+.loopexit172:                                     ; preds = %169, %.thread158
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %182 = invoke ptr @_ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEE14insert_in_faceENS_8internal11CC_iteratorINS_17Compact_containerINS6_IS2_NS7_IS2_NS8_ISC_EEEEEENS_7DefaultESJ_SJ_EELb0EEE(ptr noundef nonnull align 8 dereferenceable(184) %181, ptr %2)
           to label %183 unwind label %92
 
-183:                                              ; preds = %.loopexit174
+183:                                              ; preds = %.loopexit172
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %185 = load ptr, ptr %6, align 8, !tbaa !326
@@ -30418,19 +30421,19 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
 .preheader:                                       ; preds = %202, %183
   %187 = load ptr, ptr %7, align 8, !tbaa !326
   %188 = icmp eq ptr %187, %7
-  br i1 %188, label %._crit_edge, label %.lr.ph166
+  br i1 %188, label %._crit_edge, label %.lr.ph164
 
 .lr.ph:                                           ; preds = %183, %202
   %189 = phi ptr [ %206, %202 ], [ %185, %183 ]
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load i64, ptr %190, align 8, !tbaa !321
   %192 = inttoptr i64 %191 to ptr
-  %.sroa.0.0.copyload.i97 = load ptr, ptr %8, align 8, !tbaa !38
+  %.sroa.0.0.copyload.i96 = load ptr, ptr %8, align 8, !tbaa !38
   %193 = load ptr, ptr %192, align 8, !tbaa !36
-  %194 = icmp eq ptr %.sroa.0.0.copyload.i97, %193
+  %194 = icmp eq ptr %.sroa.0.0.copyload.i96, %193
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %196 = load ptr, ptr %195, align 8
-  %197 = icmp eq ptr %.sroa.0.0.copyload.i97, %196
+  %197 = icmp eq ptr %.sroa.0.0.copyload.i96, %196
   %198 = select i1 %197, i64 1, i64 2
   %199 = select i1 %194, i64 0, i64 %198
   %200 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %199
@@ -30449,27 +30452,27 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   %207 = icmp eq ptr %206, %6
   br i1 %207, label %.preheader, label %.lr.ph, !llvm.loop !562
 
-.loopexit:                                        ; preds = %.lr.ph166
+.loopexit:                                        ; preds = %.lr.ph164
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
 .loopexit.split-lp:                               ; preds = %.lr.ph
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %255
 
-.lr.ph166:                                        ; preds = %.preheader, %221
+.lr.ph164:                                        ; preds = %.preheader, %221
   %208 = phi ptr [ %225, %221 ], [ %187, %.preheader ]
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load i64, ptr %209, align 8, !tbaa !321
   %211 = inttoptr i64 %210 to ptr
-  %.sroa.0.0.copyload.i100 = load ptr, ptr %8, align 8, !tbaa !38
+  %.sroa.0.0.copyload.i99 = load ptr, ptr %8, align 8, !tbaa !38
   %212 = load ptr, ptr %211, align 8, !tbaa !36
-  %213 = icmp eq ptr %.sroa.0.0.copyload.i100, %212
+  %213 = icmp eq ptr %.sroa.0.0.copyload.i99, %212
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %215 = load ptr, ptr %214, align 8
-  %216 = icmp eq ptr %.sroa.0.0.copyload.i100, %215
+  %216 = icmp eq ptr %.sroa.0.0.copyload.i99, %215
   %217 = select i1 %216, i64 1, i64 2
   %218 = select i1 %213, i64 0, i64 %217
   %219 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %218
@@ -30477,7 +30480,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   invoke void @_ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpickENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEE4flipENS_8internal11CC_iteratorINS_17Compact_containerINS6_IS2_NS7_IS2_NS8_ISC_EEEEEENS_7DefaultESJ_SJ_EELb0EEEi(ptr noundef nonnull align 8 dereferenceable(184) %181, ptr nonnull %211, i32 noundef %220)
           to label %221 unwind label %.loopexit
 
-221:                                              ; preds = %.lr.ph166
+221:                                              ; preds = %.lr.ph164
   %222 = load ptr, ptr %7, align 8, !tbaa !326
   %223 = load i64, ptr %12, align 8, !tbaa !340
   %224 = add i64 %223, -1
@@ -30486,100 +30489,95 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpickENS_30Tria
   call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef 24) #39
   %225 = load ptr, ptr %7, align 8, !tbaa !326
   %226 = icmp eq ptr %225, %7
-  br i1 %226, label %._crit_edge, label %.lr.ph166, !llvm.loop !563
+  br i1 %226, label %._crit_edge, label %.lr.ph164, !llvm.loop !563
 
 ._crit_edge:                                      ; preds = %221, %.preheader
   %227 = icmp ne ptr %182, null
   call void @llvm.assume(i1 %227)
-  %.sroa.0.0.copyload.i.i.i.i112 = load ptr, ptr %182, align 8, !tbaa !321, !nonnull !11, !noundef !11
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i112, i64 16
-  %229 = load ptr, ptr %228, align 8, !tbaa !36
-  %.not.i.i.i.i105 = icmp eq ptr %229, null
-  %spec.select.i.i106 = select i1 %.not.i.i.i.i105, ptr null, ptr %182
-  %spec.select4.i.i107 = select i1 %.not.i.i.i.i105, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i112
+  %.sroa.0.0.copyload.i.i.i.i110 = load ptr, ptr %182, align 8, !tbaa !321, !nonnull !11, !noundef !11
   %.sroa.0.0.copyload.i.i = load ptr, ptr %8, align 8, !tbaa !38
-  %230 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i112, align 8, !tbaa !36
-  %231 = icmp eq ptr %230, %.sroa.0.0.copyload.i.i
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i112, i64 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = icmp eq ptr %233, %.sroa.0.0.copyload.i.i
-  %or.cond.i.i167 = select i1 %231, i1 true, i1 %234
-  br i1 %or.cond.i.i167, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
+  %228 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i110, align 8, !tbaa !36
+  %229 = icmp eq ptr %228, %.sroa.0.0.copyload.i.i
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i110, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = icmp eq ptr %231, %.sroa.0.0.copyload.i.i
+  %or.cond.i.i165 = select i1 %229, i1 true, i1 %232
+  br i1 %or.cond.i.i165, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
 
-_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit: ; preds = %._crit_edge, %240
-  %235 = phi ptr [ %253, %240 ], [ %233, %._crit_edge ]
-  %236 = phi ptr [ %250, %240 ], [ %230, %._crit_edge ]
-  %.sroa.9.2168 = phi ptr [ %.sroa.0.0.copyload.i.i.i118, %240 ], [ %spec.select4.i.i107, %._crit_edge ]
-  %237 = getelementptr inbounds nuw i8, ptr %.sroa.9.2168, i64 16
-  %238 = load ptr, ptr %237, align 8, !tbaa !36
-  %239 = icmp eq ptr %238, %.sroa.0.0.copyload.i.i
-  br i1 %239, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %240
+_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit: ; preds = %._crit_edge, %238
+  %233 = phi ptr [ %251, %238 ], [ %231, %._crit_edge ]
+  %234 = phi ptr [ %248, %238 ], [ %228, %._crit_edge ]
+  %.sroa.9.2166 = phi ptr [ %.sroa.0.0.copyload.i.i.i116, %238 ], [ %.sroa.0.0.copyload.i.i.i.i110, %._crit_edge ]
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.9.2166, i64 16
+  %236 = load ptr, ptr %235, align 8, !tbaa !36
+  %237 = icmp eq ptr %236, %.sroa.0.0.copyload.i.i
+  br i1 %237, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %238
 
-240:                                              ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
-  %241 = icmp eq ptr %spec.select.i.i106, %236
-  %242 = icmp eq ptr %spec.select.i.i106, %235
-  %243 = select i1 %242, i64 1, i64 2
-  %244 = select i1 %241, i64 0, i64 %243
-  %245 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !211
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.9.2168, i64 24
-  %248 = sext i32 %246 to i64
-  %249 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.42", ptr %247, i64 %248
-  %.sroa.0.0.copyload.i.i.i118 = load ptr, ptr %249, align 8, !tbaa !321
-  %250 = load ptr, ptr %.sroa.0.0.copyload.i.i.i118, align 8, !tbaa !36
-  %251 = icmp eq ptr %250, %.sroa.0.0.copyload.i.i
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i118, i64 8
-  %253 = load ptr, ptr %252, align 8
-  %254 = icmp eq ptr %253, %.sroa.0.0.copyload.i.i
-  %or.cond.i.i = select i1 %251, i1 true, i1 %254
+238:                                              ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
+  %239 = icmp eq ptr %182, %234
+  %240 = icmp eq ptr %182, %233
+  %241 = select i1 %240, i64 1, i64 2
+  %242 = select i1 %239, i64 0, i64 %241
+  %243 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %242
+  %244 = load i32, ptr %243, align 4, !tbaa !211
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.9.2166, i64 24
+  %246 = sext i32 %244 to i64
+  %247 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.42", ptr %245, i64 %246
+  %.sroa.0.0.copyload.i.i.i116 = load ptr, ptr %247, align 8, !tbaa !321
+  %248 = load ptr, ptr %.sroa.0.0.copyload.i.i.i116, align 8, !tbaa !36
+  %249 = icmp eq ptr %248, %.sroa.0.0.copyload.i.i
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i116, i64 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, %.sroa.0.0.copyload.i.i
+  %or.cond.i.i = select i1 %249, i1 true, i1 %252
   br i1 %or.cond.i.i, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit, %240, %._crit_edge
-  %.sroa.9.2.lcssa = phi ptr [ %spec.select4.i.i107, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i118, %240 ], [ %.sroa.9.2168, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit ]
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit, %238, %._crit_edge
+  %.sroa.9.2.lcssa = phi ptr [ %.sroa.0.0.copyload.i.i.i.i110, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i116, %238 ], [ %.sroa.9.2166, %_ZNK4CGAL15Triangulation_2INS_5EpickENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit ]
   store ptr %.sroa.9.2.lcssa, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !321
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %255 = load ptr, ptr %6, align 8, !tbaa !326
-  %.not8.i.i123 = icmp eq ptr %255, %6
-  br i1 %.not8.i.i123, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit127, label %.lr.ph.i.i124
+  %253 = load ptr, ptr %6, align 8, !tbaa !326
+  %.not8.i.i121 = icmp eq ptr %253, %6
+  br i1 %.not8.i.i121, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125, label %.lr.ph.i.i122
 
-.lr.ph.i.i124:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, %.lr.ph.i.i124
-  %.09.i.i125 = phi ptr [ %256, %.lr.ph.i.i124 ], [ %255, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit ]
-  %256 = load ptr, ptr %.09.i.i125, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i125, i64 noundef 24) #39
-  %.not.i.i126 = icmp eq ptr %256, %6
-  br i1 %.not.i.i126, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit127, label %.lr.ph.i.i124, !llvm.loop !348
+.lr.ph.i.i122:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, %.lr.ph.i.i122
+  %.09.i.i123 = phi ptr [ %254, %.lr.ph.i.i122 ], [ %253, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit ]
+  %254 = load ptr, ptr %.09.i.i123, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i123, i64 noundef 24) #39
+  %.not.i.i124 = icmp eq ptr %254, %6
+  br i1 %.not.i.i124, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125, label %.lr.ph.i.i122, !llvm.loop !348
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit127: ; preds = %.lr.ph.i.i124, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125: ; preds = %.lr.ph.i.i122, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %182
 
-257:                                              ; preds = %.loopexit, %.loopexit.split-lp, %92, %96, %94, %179, %177
+255:                                              ; preds = %.loopexit, %.loopexit.split-lp, %92, %96, %94, %179, %177
   %.pn51.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %97, %96 ], [ %93, %92 ], [ %95, %94 ], [ %178, %177 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %258 = load ptr, ptr %7, align 8, !tbaa !326
-  %.not8.i.i128 = icmp eq ptr %258, %7
-  br i1 %.not8.i.i128, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132, label %.lr.ph.i.i129
+  %256 = load ptr, ptr %7, align 8, !tbaa !326
+  %.not8.i.i126 = icmp eq ptr %256, %7
+  br i1 %.not8.i.i126, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130, label %.lr.ph.i.i127
 
-.lr.ph.i.i129:                                    ; preds = %257, %.lr.ph.i.i129
-  %.09.i.i130 = phi ptr [ %259, %.lr.ph.i.i129 ], [ %258, %257 ]
-  %259 = load ptr, ptr %.09.i.i130, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i130, i64 noundef 24) #39
-  %.not.i.i131 = icmp eq ptr %259, %7
-  br i1 %.not.i.i131, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132, label %.lr.ph.i.i129, !llvm.loop !348
+.lr.ph.i.i127:                                    ; preds = %255, %.lr.ph.i.i127
+  %.09.i.i128 = phi ptr [ %257, %.lr.ph.i.i127 ], [ %256, %255 ]
+  %257 = load ptr, ptr %.09.i.i128, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i128, i64 noundef 24) #39
+  %.not.i.i129 = icmp eq ptr %257, %7
+  br i1 %.not.i.i129, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130, label %.lr.ph.i.i127, !llvm.loop !348
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132: ; preds = %.lr.ph.i.i129, %257
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130: ; preds = %.lr.ph.i.i127, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %260 = load ptr, ptr %6, align 8, !tbaa !326
-  %.not8.i.i133 = icmp eq ptr %260, %6
-  br i1 %.not8.i.i133, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit137, label %.lr.ph.i.i134
+  %258 = load ptr, ptr %6, align 8, !tbaa !326
+  %.not8.i.i131 = icmp eq ptr %258, %6
+  br i1 %.not8.i.i131, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit135, label %.lr.ph.i.i132
 
-.lr.ph.i.i134:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132, %.lr.ph.i.i134
-  %.09.i.i135 = phi ptr [ %261, %.lr.ph.i.i134 ], [ %260, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132 ]
-  %261 = load ptr, ptr %.09.i.i135, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i135, i64 noundef 24) #39
-  %.not.i.i136 = icmp eq ptr %261, %6
-  br i1 %.not.i.i136, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit137, label %.lr.ph.i.i134, !llvm.loop !348
+.lr.ph.i.i132:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130, %.lr.ph.i.i132
+  %.09.i.i133 = phi ptr [ %259, %.lr.ph.i.i132 ], [ %258, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130 ]
+  %259 = load ptr, ptr %.09.i.i133, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i133, i64 noundef 24) #39
+  %.not.i.i134 = icmp eq ptr %259, %6
+  br i1 %.not.i.i134, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit135, label %.lr.ph.i.i132, !llvm.loop !348
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit137: ; preds = %.lr.ph.i.i134, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit132
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit135: ; preds = %.lr.ph.i.i132, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpickENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn51.pn.pn
 }
@@ -48978,8 +48976,8 @@ thread-pre-split.thread14.i.i.i:                  ; preds = %thread-pre-split.i.
   %.not.i.i.i = icmp eq ptr %13, null
   %14 = select i1 %.not.i.i.i.i, i1 %.not.i.i.i, i1 false
   %.mux = select i1 %14, i32 0, i32 2
-  %.mux38 = select i1 %14, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i
-  %.mux39 = select i1 %14, ptr null, ptr %1
+  %.mux39 = select i1 %14, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i
+  %.mux40 = select i1 %14, ptr null, ptr %1
   br i1 %.not.i.i.i.i, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %15
 
 15:                                               ; preds = %thread-pre-split.thread14.i.i.i
@@ -48993,14 +48991,14 @@ thread-pre-split.thread14.i.i.i:                  ; preds = %thread-pre-split.i.
   br label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
 
 _ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %thread-pre-split.thread14.i.i.i, %15, %7, %thread-pre-split.i.i.i
-  %.sroa.032.1 = phi i32 [ 0, %7 ], [ %.mux, %thread-pre-split.thread14.i.i.i ], [ 0, %thread-pre-split.i.i.i ], [ %22, %15 ]
-  %.sroa.14.3 = phi ptr [ null, %7 ], [ %.mux38, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i, %15 ]
-  %.sroa.9.0 = phi ptr [ null, %7 ], [ %.mux39, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %1, %15 ]
+  %.sroa.033.1 = phi i32 [ 0, %7 ], [ %.mux, %thread-pre-split.thread14.i.i.i ], [ 0, %thread-pre-split.i.i.i ], [ %22, %15 ]
+  %.sroa.14.2 = phi ptr [ null, %7 ], [ %.mux39, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i, %15 ]
+  %.sroa.9.0 = phi ptr [ null, %7 ], [ %.mux40, %thread-pre-split.thread14.i.i.i ], [ null, %thread-pre-split.i.i.i ], [ %1, %15 ]
   br label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit: ; preds = %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
-  %.sroa.032.0 = phi i32 [ %.sroa.032.1, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.032.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
-  %.sroa.14.0 = phi ptr [ %.sroa.14.3, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.14.4, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
+  %.sroa.033.0 = phi i32 [ %.sroa.033.1, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.033.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
+  %.sroa.14.0 = phi ptr [ %.sroa.14.2, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.14.3, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.14.0, i64 51
   store i8 1, ptr %23, align 1, !tbaa !270
   %24 = load ptr, ptr %.sroa.14.0, align 8, !tbaa !143
@@ -49043,37 +49041,38 @@ _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_
   br label %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit: ; preds = %36, %32
-  %.sroa.032.2 = phi i32 [ %.sroa.032.0, %32 ], [ %53, %36 ]
-  %.sroa.14.4 = phi ptr [ %.sroa.0.0.copyload.i.i, %32 ], [ %.sroa.0.0.copyload.i8.i, %36 ]
-  %54 = icmp ne i32 %.sroa.032.2, %.sroa.032.1
-  %55 = icmp ne ptr %.sroa.14.4, %.sroa.14.3
-  %or.cond40 = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond40, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %.loopexit, !llvm.loop !1203
+  %.sroa.033.2 = phi i32 [ %.sroa.033.0, %32 ], [ %53, %36 ]
+  %.sroa.14.3 = phi ptr [ %.sroa.0.0.copyload.i.i, %32 ], [ %.sroa.0.0.copyload.i8.i, %36 ]
+  %54 = icmp ne i32 %.sroa.033.2, %.sroa.033.1
+  %55 = icmp ne ptr %.sroa.14.3, %.sroa.14.2
+  %or.cond41 = select i1 %54, i1 true, i1 %55
+  br i1 %or.cond41, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %.loopexit, !llvm.loop !1203
 
 56:                                               ; preds = %4
   %57 = icmp eq ptr %1, null
-  br i1 %57, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %58
+  br i1 %57, label %.critedge.i.i.i12, label %58
 
 58:                                               ; preds = %56
-  %.sroa.0.0.copyload.i.i.i.i12 = load ptr, ptr %1, align 8, !tbaa !941
-  %59 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i12, null
-  br i1 %59, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, label %.thread.i.i.i
+  %.sroa.0.0.copyload.i.i.i.i13 = load ptr, ptr %1, align 8, !tbaa !941
+  %59 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i13, null
+  br i1 %59, label %.critedge.i.i.i12, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i12, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i13, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !143
   %.not.i.i.i.i11 = icmp eq ptr %61, null
-  %spec.select.i.i = select i1 %.not.i.i.i.i11, ptr null, ptr %1
-  %spec.select4.i.i = select i1 %.not.i.i.i.i11, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i12
+  br i1 %.not.i.i.i.i11, label %.critedge.i.i.i12, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
+
+.critedge.i.i.i12:                                ; preds = %.thread.i.i.i, %58, %56
   br label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
 
-_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %56, %58, %.thread.i.i.i
-  %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i.i ], [ null, %58 ], [ null, %56 ]
-  %.sroa.3.2.i.i = phi ptr [ %spec.select4.i.i, %.thread.i.i.i ], [ null, %58 ], [ null, %56 ]
+_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit: ; preds = %.thread.i.i.i, %.critedge.i.i.i12
+  %.sroa.0.0.i.i = phi ptr [ null, %.critedge.i.i.i12 ], [ %1, %.thread.i.i.i ]
+  %.sroa.3.1.i.i = phi ptr [ null, %.critedge.i.i.i12 ], [ %.sroa.0.0.copyload.i.i.i.i13, %.thread.i.i.i ]
   br label %62
 
 62:                                               ; preds = %62, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit
-  %.sroa.6.0 = phi ptr [ %.sroa.3.2.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.0.0.copyload.i.i14, %62 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.3.1.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_facesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ], [ %.sroa.0.0.copyload.i.i15, %62 ]
   %63 = load ptr, ptr %.sroa.6.0, align 8, !tbaa !143
   %64 = icmp eq ptr %1, %63
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.6.0, i64 8
@@ -49097,9 +49096,9 @@ _ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Tr
   %81 = getelementptr inbounds i8, ptr %78, i64 %74
   %. = zext i1 %or.cond to i8
   %not.or.cond = xor i1 %or.cond, true
-  %.45 = zext i1 %not.or.cond to i8
+  %.46 = zext i1 %not.or.cond to i8
   store i8 %., ptr %80, align 1, !tbaa !270
-  store i8 %.45, ptr %81, align 1, !tbaa !270
+  store i8 %.46, ptr %81, align 1, !tbaa !270
   %82 = icmp eq ptr %.sroa.0.0.i.i, %63
   %83 = load ptr, ptr %65, align 8
   %84 = icmp eq ptr %.sroa.0.0.i.i, %83
@@ -49110,8 +49109,8 @@ _ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Tr
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.6.0, i64 24
   %90 = sext i32 %88 to i64
   %91 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.105", ptr %89, i64 %90
-  %.sroa.0.0.copyload.i.i14 = load ptr, ptr %91, align 8, !tbaa !941
-  %.not = icmp eq ptr %.sroa.0.0.copyload.i.i14, %.sroa.3.2.i.i
+  %.sroa.0.0.copyload.i.i15 = load ptr, ptr %91, align 8, !tbaa !941
+  %.not = icmp eq ptr %.sroa.0.0.copyload.i.i15, %.sroa.3.1.i.i
   br i1 %.not, label %.loopexit, label %62, !llvm.loop !1204
 
 .loopexit:                                        ; preds = %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit, %62, %4
@@ -49160,7 +49159,7 @@ _ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Tr
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit.us: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us
   %.sroa.011.0.us = phi i32 [ %.sroa.011.2.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.011.1, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
-  %.sroa.16.0.us = phi ptr [ %.sroa.16.4.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
+  %.sroa.16.0.us = phi ptr [ %.sroa.16.3.us, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.16.0.us, i64 49
   %23 = sext i32 %.sroa.011.0.us to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
@@ -49245,15 +49244,15 @@ _ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Tr
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit.us: ; preds = %79, %62
   %.sroa.011.2.us = phi i32 [ %.sroa.011.0.us, %79 ], [ %78, %62 ]
-  %.sroa.16.4.us = phi ptr [ %.sroa.0.0.copyload.i.i.us, %79 ], [ %.sroa.0.0.copyload.i8.i.us, %62 ]
+  %.sroa.16.3.us = phi ptr [ %.sroa.0.0.copyload.i.i.us, %79 ], [ %.sroa.0.0.copyload.i8.i.us, %62 ]
   %82 = icmp ne i32 %.sroa.011.2.us, %.sroa.011.1
-  %83 = icmp ne ptr %.sroa.16.4.us, %.sroa.0.0.copyload.i.i.i.i
+  %83 = icmp ne ptr %.sroa.16.3.us, %.sroa.0.0.copyload.i.i.i.i
   %or.cond.us = select i1 %82, i1 true, i1 %83
   br i1 %or.cond.us, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit.us, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit.thread, !llvm.loop !1210
 
 _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit
   %.sroa.011.0 = phi i32 [ %.sroa.011.2, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.011.1, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
-  %.sroa.16.0 = phi ptr [ %.sroa.16.4, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.3, %_ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.16.0, i64 49
   %85 = sext i32 %.sroa.011.0 to i64
   %86 = getelementptr inbounds i8, ptr %84, i64 %85
@@ -49299,9 +49298,9 @@ _ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_
 
 _ZN4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEppEv.exit: ; preds = %99, %95
   %.sroa.011.2 = phi i32 [ %.sroa.011.0, %95 ], [ %116, %99 ]
-  %.sroa.16.4 = phi ptr [ %.sroa.0.0.copyload.i.i, %95 ], [ %.sroa.0.0.copyload.i8.i, %99 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.0.0.copyload.i.i, %95 ], [ %.sroa.0.0.copyload.i8.i, %99 ]
   %117 = icmp ne i32 %.sroa.011.2, %.sroa.011.1
-  %118 = icmp ne ptr %.sroa.16.4, %.sroa.0.0.copyload.i.i.i.i
+  %118 = icmp ne ptr %.sroa.16.3, %.sroa.0.0.copyload.i.i.i.i
   %or.cond = select i1 %117, i1 true, i1 %118
   br i1 %or.cond, label %_ZNK4CGAL34Triangulation_ds_edge_circulator_2INS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS3_NS_25Triangulation_face_base_2IS3_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEneERKSE_.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE14incident_edgesENS_8internal11CC_iteratorINS_17Compact_containerINS3_IS1_NS4_ISD_EEEENS_7DefaultESK_SK_EELb0EEENSG_INSH_INS7_IS1_NS8_IS1_NS9_ISD_EEEEEESK_SK_SK_EELb0EEE.exit.thread, !llvm.loop !1210
 
@@ -50179,33 +50178,34 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpeckENS_30Tria
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8, !tbaa !327
   %13 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  br i1 %13, label %16, label %.thread.i.i.i
+  br i1 %13, label %.critedge.i.i.i, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !143
   %.not.i.i.i.i = icmp eq ptr %15, null
-  %spec.select.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %.sroa.0.0.copyload.i
-  %spec.select4.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %2
+  br i1 %.not.i.i.i.i, label %.critedge.i.i.i, label %16
+
+.critedge.i.i.i:                                  ; preds = %.thread.i.i.i, %3
   br label %16
 
-16:                                               ; preds = %.thread.i.i.i, %3
-  %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i.i ], [ null, %3 ]
-  %.sroa.3.2.i.i = phi ptr [ %spec.select4.i.i, %.thread.i.i.i ], [ null, %3 ]
+16:                                               ; preds = %.critedge.i.i.i, %.thread.i.i.i
+  %.sroa.0.0.i.i = phi ptr [ null, %.critedge.i.i.i ], [ %.sroa.0.0.copyload.i, %.thread.i.i.i ]
+  %.sroa.3.1.i.i = phi ptr [ null, %.critedge.i.i.i ], [ %2, %.thread.i.i.i ]
   br label %17
 
 17:                                               ; preds = %51, %16
-  %.sroa.9.0149 = phi ptr [ %.sroa.3.2.i.i, %16 ], [ %.sroa.0.0.copyload.i.i.i, %51 ]
-  %18 = load ptr, ptr %.sroa.9.0149, align 8, !tbaa !143
+  %.sroa.9.0147 = phi ptr [ %.sroa.3.1.i.i, %16 ], [ %.sroa.0.0.copyload.i.i.i, %51 ]
+  %18 = load ptr, ptr %.sroa.9.0147, align 8, !tbaa !143
   %19 = icmp eq ptr %.sroa.0.0.i.i, %18
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.9.0149, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.9.0147, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %.sroa.0.0.i.i, %21
   %23 = select i1 %22, i64 1, i64 2
   %24 = select i1 %19, i64 0, i64 %23
   %25 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !211
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.9.0149, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.9.0147, i64 24
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.105", ptr %27, i64 %28
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %29, align 8, !tbaa !941
@@ -50252,82 +50252,83 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpeckENS_30Tria
   store i64 %55, ptr %10, align 8, !tbaa !964
   br label %17
 
-56:                                               ; preds = %.critedge158
+56:                                               ; preds = %.critedge156
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
 58:                                               ; preds = %17
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
 60:                                               ; preds = %49
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
 .critedge:                                        ; preds = %48
   %.sroa.0.0.copyload.i63 = load ptr, ptr %8, align 8, !tbaa !145
   %62 = icmp eq ptr %.sroa.0.0.copyload.i63, null
-  br i1 %62, label %65, label %.thread.i.i.i64
+  br i1 %62, label %.critedge.i.i.i71, label %.thread.i.i.i64
 
 .thread.i.i.i64:                                  ; preds = %.critedge
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !143
   %.not.i.i.i.i66 = icmp eq ptr %64, null
-  %spec.select.i.i67 = select i1 %.not.i.i.i.i66, ptr null, ptr %.sroa.0.0.copyload.i63
-  %spec.select4.i.i68 = select i1 %.not.i.i.i.i66, ptr null, ptr %2
+  br i1 %.not.i.i.i.i66, label %.critedge.i.i.i71, label %65
+
+.critedge.i.i.i71:                                ; preds = %.thread.i.i.i64, %.critedge
   br label %65
 
-65:                                               ; preds = %.thread.i.i.i64, %.critedge
-  %.sroa.0.0.i.i69 = phi ptr [ %spec.select.i.i67, %.thread.i.i.i64 ], [ null, %.critedge ]
-  %.sroa.3.2.i.i70 = phi ptr [ %spec.select4.i.i68, %.thread.i.i.i64 ], [ null, %.critedge ]
+65:                                               ; preds = %.critedge.i.i.i71, %.thread.i.i.i64
+  %.sroa.0.0.i.i67 = phi ptr [ null, %.critedge.i.i.i71 ], [ %.sroa.0.0.copyload.i63, %.thread.i.i.i64 ]
+  %.sroa.3.1.i.i68 = phi ptr [ null, %.critedge.i.i.i71 ], [ %2, %.thread.i.i.i64 ]
   br label %66
 
 66:                                               ; preds = %100, %65
-  %.sroa.9.1150 = phi ptr [ %.sroa.3.2.i.i70, %65 ], [ %.sroa.0.0.copyload.i.i.i78, %100 ]
-  %67 = load ptr, ptr %.sroa.9.1150, align 8, !tbaa !143
-  %68 = icmp eq ptr %.sroa.0.0.i.i69, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.9.1150, i64 8
+  %.sroa.9.1148 = phi ptr [ %.sroa.3.1.i.i68, %65 ], [ %.sroa.0.0.copyload.i.i.i77, %100 ]
+  %67 = load ptr, ptr %.sroa.9.1148, align 8, !tbaa !143
+  %68 = icmp eq ptr %.sroa.0.0.i.i67, %67
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.9.1148, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %.sroa.0.0.i.i69, %70
+  %71 = icmp eq ptr %.sroa.0.0.i.i67, %70
   %72 = select i1 %71, i64 1, i64 2
   %73 = select i1 %68, i64 0, i64 %72
   %74 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !211
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.9.1150, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.9.1148, i64 24
   %77 = sext i32 %75 to i64
   %78 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.105", ptr %76, i64 %77
-  %.sroa.0.0.copyload.i.i.i78 = load ptr, ptr %78, align 8, !tbaa !941
-  %.sroa.0.0.copyload.i81 = load ptr, ptr %8, align 8, !tbaa !145
-  %79 = load ptr, ptr %.sroa.0.0.copyload.i.i.i78, align 8, !tbaa !143
-  %80 = icmp eq ptr %.sroa.0.0.copyload.i81, %79
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i78, i64 8
+  %.sroa.0.0.copyload.i.i.i77 = load ptr, ptr %78, align 8, !tbaa !941
+  %.sroa.0.0.copyload.i80 = load ptr, ptr %8, align 8, !tbaa !145
+  %79 = load ptr, ptr %.sroa.0.0.copyload.i.i.i77, align 8, !tbaa !143
+  %80 = icmp eq ptr %.sroa.0.0.copyload.i80, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i77, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %.sroa.0.0.copyload.i81, %82
+  %83 = icmp eq ptr %.sroa.0.0.copyload.i80, %82
   %84 = select i1 %83, i64 1, i64 2
   %85 = select i1 %80, i64 0, i64 %84
   %86 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !211
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.72", ptr %.sroa.0.0.copyload.i.i.i78, i64 %88
-  %.sroa.0.0.copyload.i84 = load ptr, ptr %89, align 8, !tbaa !145
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i84, i64 8
+  %89 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.72", ptr %.sroa.0.0.copyload.i.i.i77, i64 %88
+  %.sroa.0.0.copyload.i83 = load ptr, ptr %89, align 8, !tbaa !145
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i83, i64 8
   %91 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %85
   %92 = load i32, ptr %91, align 4, !tbaa !211
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.72", ptr %.sroa.0.0.copyload.i.i.i78, i64 %93
-  %.sroa.0.0.copyload.i85 = load ptr, ptr %94, align 8, !tbaa !145
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i85, i64 8
+  %94 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.72", ptr %.sroa.0.0.copyload.i.i.i77, i64 %93
+  %.sroa.0.0.copyload.i84 = load ptr, ptr %94, align 8, !tbaa !145
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i84, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %96 = invoke noundef i32 @_ZNK4CGAL25Static_filtered_predicateINS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_18Filtered_predicateINS_23CartesianKernelFunctors13Orientation_2INS1_IN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEEEENS7_IS4_EENS_15Exact_converterINS_5EpeckESL_EENS_16Approx_converterISP_S4_EELb1EEENS_8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES10_EEEEEEEclINS_7Point_2ISP_EES18_S18_EENS_4SignERKT_RKT0_RKT1_(ptr noundef nonnull align 1 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %95)
           to label %97 unwind label %105
 
 97:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not159 = icmp eq i32 %96, 1
-  br i1 %.not159, label %98, label %.critedge158
+  %.not157 = icmp eq i32 %96, 1
+  br i1 %.not157, label %98, label %.critedge156
 
 98:                                               ; preds = %97
   %99 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
@@ -50335,7 +50336,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpeckENS_30Tria
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %102 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i78 to i64
+  %102 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i77 to i64
   store i64 %102, ptr %101, align 8, !tbaa !941
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   %103 = load i64, ptr %12, align 8, !tbaa !964
@@ -50346,19 +50347,19 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpeckENS_30Tria
 105:                                              ; preds = %66
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
 107:                                              ; preds = %98
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
-.critedge158:                                     ; preds = %97
+.critedge156:                                     ; preds = %97
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = invoke ptr @_ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEE14insert_in_faceENS_8internal11CC_iteratorINS_17Compact_containerINS6_IS2_NS7_IS2_NS8_ISC_EEEEEENS_7DefaultESJ_SJ_EELb0EEE(ptr noundef nonnull align 8 dereferenceable(184) %109, ptr %2)
           to label %111 unwind label %56
 
-111:                                              ; preds = %.critedge158
+111:                                              ; preds = %.critedge156
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !191
   %.not.i.i.i.i.i = icmp eq i8 %113, 0
@@ -50369,8 +50370,8 @@ define linkonce_odr dso_local ptr @_ZN4CGAL15Triangulation_2INS_5EpeckENS_30Tria
 _ZNK4CGAL6Handle6increfEv.exit.i.i.i.i:           ; preds = %111
   %116 = atomicrmw add ptr %115, i32 1 monotonic, align 4
   %117 = load ptr, ptr %112, align 8, !tbaa !181
-  %.not.i.i.i.i89 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i89, label %_ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS0_IS1_NS2_IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEE9set_pointERKNS_7Point_2IS1_EE.exit, label %130
+  %.not.i.i.i.i88 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i.i88, label %_ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS0_IS1_NS2_IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEE9set_pointERKNS_7Point_2IS1_EE.exit, label %130
 
 _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %111
   %118 = load atomic i32, ptr %115 monotonic, align 4
@@ -50432,19 +50433,19 @@ _ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_bas
 .preheader:                                       ; preds = %162, %_ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS0_IS1_NS2_IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEE9set_pointERKNS_7Point_2IS1_EE.exit
   %147 = load ptr, ptr %7, align 8, !tbaa !326
   %148 = icmp eq ptr %147, %7
-  br i1 %148, label %._crit_edge, label %.lr.ph151
+  br i1 %148, label %._crit_edge, label %.lr.ph149
 
 .lr.ph:                                           ; preds = %_ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS0_IS1_NS2_IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEE9set_pointERKNS_7Point_2IS1_EE.exit, %162
   %149 = phi ptr [ %166, %162 ], [ %145, %_ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS0_IS1_NS2_IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEE9set_pointERKNS_7Point_2IS1_EE.exit ]
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load i64, ptr %150, align 8, !tbaa !941
   %152 = inttoptr i64 %151 to ptr
-  %.sroa.0.0.copyload.i90 = load ptr, ptr %8, align 8, !tbaa !145
+  %.sroa.0.0.copyload.i89 = load ptr, ptr %8, align 8, !tbaa !145
   %153 = load ptr, ptr %152, align 8, !tbaa !143
-  %154 = icmp eq ptr %.sroa.0.0.copyload.i90, %153
+  %154 = icmp eq ptr %.sroa.0.0.copyload.i89, %153
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %.sroa.0.0.copyload.i90, %156
+  %157 = icmp eq ptr %.sroa.0.0.copyload.i89, %156
   %158 = select i1 %157, i64 1, i64 2
   %159 = select i1 %154, i64 0, i64 %158
   %160 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %159
@@ -50463,27 +50464,27 @@ _ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_bas
   %167 = icmp eq ptr %166, %6
   br i1 %167, label %.preheader, label %.lr.ph, !llvm.loop !1211
 
-.loopexit:                                        ; preds = %.lr.ph151
+.loopexit:                                        ; preds = %.lr.ph149
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
 .loopexit.split-lp:                               ; preds = %.lr.ph
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %217
+  br label %215
 
-.lr.ph151:                                        ; preds = %.preheader, %181
+.lr.ph149:                                        ; preds = %.preheader, %181
   %168 = phi ptr [ %185, %181 ], [ %147, %.preheader ]
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load i64, ptr %169, align 8, !tbaa !941
   %171 = inttoptr i64 %170 to ptr
-  %.sroa.0.0.copyload.i93 = load ptr, ptr %8, align 8, !tbaa !145
+  %.sroa.0.0.copyload.i92 = load ptr, ptr %8, align 8, !tbaa !145
   %172 = load ptr, ptr %171, align 8, !tbaa !143
-  %173 = icmp eq ptr %.sroa.0.0.copyload.i93, %172
+  %173 = icmp eq ptr %.sroa.0.0.copyload.i92, %172
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %.sroa.0.0.copyload.i93, %175
+  %176 = icmp eq ptr %.sroa.0.0.copyload.i92, %175
   %177 = select i1 %176, i64 1, i64 2
   %178 = select i1 %173, i64 0, i64 %177
   %179 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %178
@@ -50491,7 +50492,7 @@ _ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_bas
   invoke void @_ZN4CGAL30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS2_NS_25Triangulation_face_base_2IS2_NS_28Triangulation_ds_face_base_2IvEEEEEEE4flipENS_8internal11CC_iteratorINS_17Compact_containerINS6_IS2_NS7_IS2_NS8_ISC_EEEEEENS_7DefaultESJ_SJ_EELb0EEEi(ptr noundef nonnull align 8 dereferenceable(184) %109, ptr nonnull %171, i32 noundef %180)
           to label %181 unwind label %.loopexit
 
-181:                                              ; preds = %.lr.ph151
+181:                                              ; preds = %.lr.ph149
   %182 = load ptr, ptr %7, align 8, !tbaa !326
   %183 = load i64, ptr %12, align 8, !tbaa !964
   %184 = add i64 %183, -1
@@ -50500,100 +50501,95 @@ _ZN4CGAL27Triangulation_vertex_base_2INS_5EpeckENS_30Triangulation_ds_vertex_bas
   call void @_ZdlPvm(ptr noundef nonnull %182, i64 noundef 24) #39
   %185 = load ptr, ptr %7, align 8, !tbaa !326
   %186 = icmp eq ptr %185, %7
-  br i1 %186, label %._crit_edge, label %.lr.ph151, !llvm.loop !1212
+  br i1 %186, label %._crit_edge, label %.lr.ph149, !llvm.loop !1212
 
 ._crit_edge:                                      ; preds = %181, %.preheader
   %187 = icmp ne ptr %110, null
   call void @llvm.assume(i1 %187)
-  %.sroa.0.0.copyload.i.i.i.i105 = load ptr, ptr %110, align 8, !tbaa !941, !nonnull !11, !noundef !11
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i105, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !143
-  %.not.i.i.i.i98 = icmp eq ptr %189, null
-  %spec.select.i.i99 = select i1 %.not.i.i.i.i98, ptr null, ptr %110
-  %spec.select4.i.i100 = select i1 %.not.i.i.i.i98, ptr null, ptr %.sroa.0.0.copyload.i.i.i.i105
+  %.sroa.0.0.copyload.i.i.i.i103 = load ptr, ptr %110, align 8, !tbaa !941, !nonnull !11, !noundef !11
   %.sroa.0.0.copyload.i.i = load ptr, ptr %8, align 8, !tbaa !145
-  %190 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i105, align 8, !tbaa !143
-  %191 = icmp eq ptr %190, %.sroa.0.0.copyload.i.i
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i105, i64 8
-  %193 = load ptr, ptr %192, align 8
-  %194 = icmp eq ptr %193, %.sroa.0.0.copyload.i.i
-  %or.cond.i.i152 = select i1 %191, i1 true, i1 %194
-  br i1 %or.cond.i.i152, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
+  %188 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i103, align 8, !tbaa !143
+  %189 = icmp eq ptr %188, %.sroa.0.0.copyload.i.i
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i103, i64 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = icmp eq ptr %191, %.sroa.0.0.copyload.i.i
+  %or.cond.i.i150 = select i1 %189, i1 true, i1 %192
+  br i1 %or.cond.i.i150, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
 
-_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit: ; preds = %._crit_edge, %200
-  %195 = phi ptr [ %213, %200 ], [ %193, %._crit_edge ]
-  %196 = phi ptr [ %210, %200 ], [ %190, %._crit_edge ]
-  %.sroa.9.2153 = phi ptr [ %.sroa.0.0.copyload.i.i.i111, %200 ], [ %spec.select4.i.i100, %._crit_edge ]
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.9.2153, i64 16
-  %198 = load ptr, ptr %197, align 8, !tbaa !143
-  %199 = icmp eq ptr %198, %.sroa.0.0.copyload.i.i
-  br i1 %199, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %200
+_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit: ; preds = %._crit_edge, %198
+  %193 = phi ptr [ %211, %198 ], [ %191, %._crit_edge ]
+  %194 = phi ptr [ %208, %198 ], [ %188, %._crit_edge ]
+  %.sroa.9.2151 = phi ptr [ %.sroa.0.0.copyload.i.i.i109, %198 ], [ %.sroa.0.0.copyload.i.i.i.i103, %._crit_edge ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.9.2151, i64 16
+  %196 = load ptr, ptr %195, align 8, !tbaa !143
+  %197 = icmp eq ptr %196, %.sroa.0.0.copyload.i.i
+  br i1 %197, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %198
 
-200:                                              ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
-  %201 = icmp eq ptr %spec.select.i.i99, %196
-  %202 = icmp eq ptr %spec.select.i.i99, %195
-  %203 = select i1 %202, i64 1, i64 2
-  %204 = select i1 %201, i64 0, i64 %203
-  %205 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %204
-  %206 = load i32, ptr %205, align 4, !tbaa !211
-  %207 = getelementptr inbounds nuw i8, ptr %.sroa.9.2153, i64 24
-  %208 = sext i32 %206 to i64
-  %209 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.105", ptr %207, i64 %208
-  %.sroa.0.0.copyload.i.i.i111 = load ptr, ptr %209, align 8, !tbaa !941
-  %210 = load ptr, ptr %.sroa.0.0.copyload.i.i.i111, align 8, !tbaa !143
-  %211 = icmp eq ptr %210, %.sroa.0.0.copyload.i.i
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i111, i64 8
-  %213 = load ptr, ptr %212, align 8
-  %214 = icmp eq ptr %213, %.sroa.0.0.copyload.i.i
-  %or.cond.i.i = select i1 %211, i1 true, i1 %214
+198:                                              ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
+  %199 = icmp eq ptr %110, %194
+  %200 = icmp eq ptr %110, %193
+  %201 = select i1 %200, i64 1, i64 2
+  %202 = select i1 %199, i64 0, i64 %201
+  %203 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !211
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.9.2151, i64 24
+  %206 = sext i32 %204 to i64
+  %207 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.105", ptr %205, i64 %206
+  %.sroa.0.0.copyload.i.i.i109 = load ptr, ptr %207, align 8, !tbaa !941
+  %208 = load ptr, ptr %.sroa.0.0.copyload.i.i.i109, align 8, !tbaa !143
+  %209 = icmp eq ptr %208, %.sroa.0.0.copyload.i.i
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i109, i64 8
+  %211 = load ptr, ptr %210, align 8
+  %212 = icmp eq ptr %211, %.sroa.0.0.copyload.i.i
+  %or.cond.i.i = select i1 %209, i1 true, i1 %212
   br i1 %or.cond.i.i, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, label %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit, %200, %._crit_edge
-  %.sroa.9.2.lcssa = phi ptr [ %spec.select4.i.i100, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i111, %200 ], [ %.sroa.9.2153, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit ]
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit: ; preds = %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit, %198, %._crit_edge
+  %.sroa.9.2.lcssa = phi ptr [ %.sroa.0.0.copyload.i.i.i.i103, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i109, %198 ], [ %.sroa.9.2151, %_ZNK4CGAL15Triangulation_2INS_5EpeckENS_30Triangulation_data_structure_2INS_27Triangulation_vertex_base_2IS1_NS_30Triangulation_ds_vertex_base_2IvEEEENS_37Constrained_triangulation_face_base_2IS1_NS_25Triangulation_face_base_2IS1_NS_28Triangulation_ds_face_base_2IvEEEEEEEEE11is_infiniteENS_8internal11CC_iteratorINS_17Compact_containerINS7_IS1_NS8_IS1_NS9_ISD_EEEEEENS_7DefaultESL_SL_EELb0EEE.exit ]
   store ptr %.sroa.9.2.lcssa, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !941
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %215 = load ptr, ptr %6, align 8, !tbaa !326
-  %.not8.i.i116 = icmp eq ptr %215, %6
-  br i1 %.not8.i.i116, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit120, label %.lr.ph.i.i117
+  %213 = load ptr, ptr %6, align 8, !tbaa !326
+  %.not8.i.i114 = icmp eq ptr %213, %6
+  br i1 %.not8.i.i114, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit118, label %.lr.ph.i.i115
 
-.lr.ph.i.i117:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, %.lr.ph.i.i117
-  %.09.i.i118 = phi ptr [ %216, %.lr.ph.i.i117 ], [ %215, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit ]
-  %216 = load ptr, ptr %.09.i.i118, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i118, i64 noundef 24) #39
-  %.not.i.i119 = icmp eq ptr %216, %6
-  br i1 %.not.i.i119, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit120, label %.lr.ph.i.i117, !llvm.loop !972
+.lr.ph.i.i115:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit, %.lr.ph.i.i115
+  %.09.i.i116 = phi ptr [ %214, %.lr.ph.i.i115 ], [ %213, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit ]
+  %214 = load ptr, ptr %.09.i.i116, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i116, i64 noundef 24) #39
+  %.not.i.i117 = icmp eq ptr %214, %6
+  br i1 %.not.i.i117, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit118, label %.lr.ph.i.i115, !llvm.loop !972
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit120: ; preds = %.lr.ph.i.i117, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit118: ; preds = %.lr.ph.i.i115, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %110
 
-217:                                              ; preds = %.loopexit, %.loopexit.split-lp, %56, %60, %58, %107, %105
+215:                                              ; preds = %.loopexit, %.loopexit.split-lp, %56, %60, %58, %107, %105
   %.pn51.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %61, %60 ], [ %57, %56 ], [ %59, %58 ], [ %106, %105 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %218 = load ptr, ptr %7, align 8, !tbaa !326
-  %.not8.i.i121 = icmp eq ptr %218, %7
-  br i1 %.not8.i.i121, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125, label %.lr.ph.i.i122
+  %216 = load ptr, ptr %7, align 8, !tbaa !326
+  %.not8.i.i119 = icmp eq ptr %216, %7
+  br i1 %.not8.i.i119, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123, label %.lr.ph.i.i120
 
-.lr.ph.i.i122:                                    ; preds = %217, %.lr.ph.i.i122
-  %.09.i.i123 = phi ptr [ %219, %.lr.ph.i.i122 ], [ %218, %217 ]
-  %219 = load ptr, ptr %.09.i.i123, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i123, i64 noundef 24) #39
-  %.not.i.i124 = icmp eq ptr %219, %7
-  br i1 %.not.i.i124, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125, label %.lr.ph.i.i122, !llvm.loop !972
+.lr.ph.i.i120:                                    ; preds = %215, %.lr.ph.i.i120
+  %.09.i.i121 = phi ptr [ %217, %.lr.ph.i.i120 ], [ %216, %215 ]
+  %217 = load ptr, ptr %.09.i.i121, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i121, i64 noundef 24) #39
+  %.not.i.i122 = icmp eq ptr %217, %7
+  br i1 %.not.i.i122, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123, label %.lr.ph.i.i120, !llvm.loop !972
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125: ; preds = %.lr.ph.i.i122, %217
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123: ; preds = %.lr.ph.i.i120, %215
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %220 = load ptr, ptr %6, align 8, !tbaa !326
-  %.not8.i.i126 = icmp eq ptr %220, %6
-  br i1 %.not8.i.i126, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130, label %.lr.ph.i.i127
+  %218 = load ptr, ptr %6, align 8, !tbaa !326
+  %.not8.i.i124 = icmp eq ptr %218, %6
+  br i1 %.not8.i.i124, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit128, label %.lr.ph.i.i125
 
-.lr.ph.i.i127:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125, %.lr.ph.i.i127
-  %.09.i.i128 = phi ptr [ %221, %.lr.ph.i.i127 ], [ %220, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125 ]
-  %221 = load ptr, ptr %.09.i.i128, align 8, !tbaa !326
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i128, i64 noundef 24) #39
-  %.not.i.i129 = icmp eq ptr %221, %6
-  br i1 %.not.i.i129, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130, label %.lr.ph.i.i127, !llvm.loop !972
+.lr.ph.i.i125:                                    ; preds = %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123, %.lr.ph.i.i125
+  %.09.i.i126 = phi ptr [ %219, %.lr.ph.i.i125 ], [ %218, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123 ]
+  %219 = load ptr, ptr %.09.i.i126, align 8, !tbaa !326
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i126, i64 noundef 24) #39
+  %.not.i.i127 = icmp eq ptr %219, %6
+  br i1 %.not.i.i127, label %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit128, label %.lr.ph.i.i125, !llvm.loop !972
 
-_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit130: ; preds = %.lr.ph.i.i127, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit125
+_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit128: ; preds = %.lr.ph.i.i125, %_ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_37Constrained_triangulation_face_base_2INS1_5EpeckENS1_25Triangulation_face_base_2IS6_NS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_27Triangulation_vertex_base_2IS6_NS1_30Triangulation_ds_vertex_base_2IvEEEENS5_IS6_NS7_IS6_NS8_IvEEEEEEEEEEEEEENS1_7DefaultESL_SL_EELb0EEESaISN_EED2Ev.exit123
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn51.pn.pn
 }

@@ -8606,15 +8606,15 @@ define internal void @_ZN4absl12_GLOBAL__N_141BitGenRefTest_PassThroughEquivalen
 
 _ZN4absl9BitGenRefclEv.exit:                      ; preds = %_ZN4absl9BitGenRefclEv.exit, %9
   %15 = phi i64 [ 0, %9 ], [ %16, %_ZN4absl9BitGenRefclEv.exit ]
-  %.sroa.074.0.idx80 = phi i64 [ 0, %9 ], [ %.sroa.074.0.add, %_ZN4absl9BitGenRefclEv.exit ]
+  %.sroa.069.0.idx75 = phi i64 [ 0, %9 ], [ %.sroa.069.0.add, %_ZN4absl9BitGenRefclEv.exit ]
   %16 = add i64 %15, 1
   %17 = urem i64 %15, 12
   %18 = getelementptr inbounds nuw i64, ptr %7, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !35
-  %.sroa.074.0.ptr81 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.074.0.idx80
-  store i64 %19, ptr %.sroa.074.0.ptr81, align 8, !tbaa !35
-  %.sroa.074.0.add = add nuw nsw i64 %.sroa.074.0.idx80, 8
-  %.not = icmp eq i64 %.sroa.074.0.add, 96
+  %.sroa.069.0.ptr76 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.069.0.idx75
+  store i64 %19, ptr %.sroa.069.0.ptr76, align 8, !tbaa !35
+  %.sroa.069.0.add = add nuw nsw i64 %.sroa.069.0.idx75, 8
+  %.not = icmp eq i64 %.sroa.069.0.add, 96
   br i1 %.not, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i, label %_ZN4absl9BitGenRefclEv.exit
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZN4absl9BitGenRefclEv.exit

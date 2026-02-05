@@ -1707,18 +1707,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit: ;
   %82 = add i64 %81, %78
   %83 = and i64 %82, 4294967295
   %84 = icmp samesign ult i64 %.sroa.13.0, %83
-  br i1 %84, label %.thread71, label %.preheader43.i
+  br i1 %84, label %.thread71, label %.preheader37.i
 
-.preheader43.i:                                   ; preds = %72
+.preheader37.i:                                   ; preds = %72
   %85 = sub nuw nsw i64 %.sroa.13.0, %83
-  %.not2546.not.i = icmp eq i64 %83, 0
+  %.not2540.not.i = icmp eq i64 %83, 0
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %87 = load ptr, ptr %86, align 8
-  br i1 %.not2546.not.i, label %.thread71, label %.preheader.us.i
+  br i1 %.not2540.not.i, label %.thread71, label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %.preheader43.i, %.critedge27.us.i
-  %88 = phi i64 [ %105, %.critedge27.us.i ], [ 0, %.preheader43.i ]
-  %.02251.us.i = phi i32 [ %104, %.critedge27.us.i ], [ 0, %.preheader43.i ]
+.preheader.us.i:                                  ; preds = %.preheader37.i, %.critedge27.us.i
+  %88 = phi i64 [ %105, %.critedge27.us.i ], [ 0, %.preheader37.i ]
+  %.02245.us.i = phi i32 [ %104, %.critedge27.us.i ], [ 0, %.preheader37.i ]
   br label %90
 
 89:                                               ; preds = %90
@@ -1729,7 +1729,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit: ;
 90:                                               ; preds = %89, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %89 ]
   %91 = trunc nuw i64 %indvars.iv.i to i32
-  %92 = add i32 %.02251.us.i, %91
+  %92 = add i32 %.02245.us.i, %91
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw i16, ptr %.sroa.048.0, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !95
@@ -1741,26 +1741,26 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit: ;
   %101 = and i32 %96, 31
   %102 = shl nuw i32 1, %101
   %103 = and i32 %102, %100
-  %.not42.us.i = icmp eq i32 %103, 0
-  br i1 %.not42.us.i, label %89, label %.critedge27.us.i
+  %.not36.us.i = icmp eq i32 %103, 0
+  br i1 %.not36.us.i, label %89, label %.critedge27.us.i
 
 .critedge27.us.i:                                 ; preds = %90
-  %104 = add i32 %.02251.us.i, 1
+  %104 = add i32 %.02245.us.i, 1
   %105 = zext i32 %104 to i64
   %.not.us.i = icmp samesign ult i64 %85, %105
   br i1 %.not.us.i, label %.thread71, label %.preheader.us.i, !llvm.loop !289
 
 .critedge.i:                                      ; preds = %89, %.critedge.i
-  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %.critedge.i ], [ 0, %89 ]
-  %106 = trunc nuw i64 %indvars.iv58.i to i32
-  %107 = add i32 %.02251.us.i, %106
+  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.critedge.i ], [ 0, %89 ]
+  %106 = trunc nuw i64 %indvars.iv52.i to i32
+  %107 = add i32 %.02245.us.i, %106
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw i16, ptr %.sroa.048.0, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !95
   call void @_ZN4llvm7CCState13MarkAllocatedEt(ptr noundef nonnull align 8 dereferenceable(420) %3, i16 noundef zeroext %110) #5
-  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %83
-  br i1 %exitcond62.not.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit, label %.critedge.i, !llvm.loop !290
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, %83
+  br i1 %exitcond56.not.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit, label %.critedge.i, !llvm.loop !290
 
 _ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit: ; preds = %.critedge.i
   %111 = getelementptr inbounds nuw i16, ptr %.sroa.048.0, i64 %88
@@ -1942,7 +1942,7 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit102: ; preds = %163, %185, %.cri
   %.not = icmp eq ptr %200, %115
   br i1 %.not, label %._crit_edge87, label %163
 
-.thread71:                                        ; preds = %.critedge27.us.i, %72, %.preheader43.i
+.thread71:                                        ; preds = %.critedge27.us.i, %72, %.preheader37.i
   %201 = add i16 %73, -138
   %spec.select.i103 = icmp ult i16 %201, 53
   br i1 %spec.select.i103, label %.loopexit, label %.lr.ph91

@@ -7784,10 +7784,10 @@ _ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.i.i: ; preds = %_ZN4llvm9StringRe
 
 39:                                               ; preds = %33
   store ptr %2, ptr %36, align 8, !tbaa !264
-  %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 -1, ptr %.sroa.574.0..sroa_idx, align 8, !tbaa !286
-  %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 %3, ptr %.sroa.677.0..sroa_idx, align 8, !tbaa !395
+  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i64 -1, ptr %.sroa.571.0..sroa_idx, align 8, !tbaa !286
+  %.sroa.674.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i32 %3, ptr %.sroa.674.0..sroa_idx, align 8, !tbaa !395
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 %4, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !395
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -7820,12 +7820,12 @@ _ZNKSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE12_M_check_lenEmPKc.e
   %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #26
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %44
   store ptr %2, ptr %55, align 8, !tbaa !264
-  %.sroa.574.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i64 -1, ptr %.sroa.574.0..sroa_idx75, align 8, !tbaa !286
-  %.sroa.677.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 %3, ptr %.sroa.677.0..sroa_idx78, align 8, !tbaa !395
-  %.sroa.7.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  store i32 %4, ptr %.sroa.7.0..sroa_idx80, align 4, !tbaa !395
+  %.sroa.571.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 -1, ptr %.sroa.571.0..sroa_idx72, align 8, !tbaa !286
+  %.sroa.674.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i32 %3, ptr %.sroa.674.0..sroa_idx75, align 8, !tbaa !395
+  %.sroa.7.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  store i32 %4, ptr %.sroa.7.0..sroa_idx77, align 4, !tbaa !395
   br i1 %48, label %_ZNSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -7857,12 +7857,12 @@ _ZNSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE17_M_realloc_insertIJS
 _ZNSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE9push_backEOS1_.exit32: ; preds = %.thread.i.i.i.i.i, %_ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.i.i, %_ZNSt8_Rb_treeIKN4llvm9StringRefESt4pairIS2_N12_GLOBAL__N_113ExceptionInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %_ZNK4llvm8MCSymbol7getNameEv.exit
   %61 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store ptr %2, ptr %61, align 8, !tbaa !264
-  %.sroa.558.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i64 -1, ptr %.sroa.558.0..sroa_idx59, align 8, !tbaa !286
-  %.sroa.6.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i32 %3, ptr %.sroa.6.0..sroa_idx61, align 8, !tbaa !395
-  %.sroa.763.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  store i32 %4, ptr %.sroa.763.0..sroa_idx64, align 4, !tbaa !395
+  %.sroa.555.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i64 -1, ptr %.sroa.555.0..sroa_idx56, align 8, !tbaa !286
+  %.sroa.6.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i32 %3, ptr %.sroa.6.0..sroa_idx58, align 8, !tbaa !395
+  %.sroa.760.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %61, i64 20
+  store i32 %4, ptr %.sroa.760.0..sroa_idx61, align 4, !tbaa !395
   br i1 %.not.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EEC2EmRKS2_.exit.i.i.i, label %62
 
 62:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119ExceptionTableEntryESaIS1_EE9push_backEOS1_.exit32

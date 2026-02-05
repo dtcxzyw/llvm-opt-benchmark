@@ -80733,11 +80733,11 @@ invoke.cont19:                                    ; preds = %call.i.noexc
 _ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont19
   tail call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %16) #25
   tail call void @_ZdlPv(ptr noundef nonnull %16) #37
-  %.pre1322 = load ptr, ptr %client.reload.addr, align 8
+  %.pre1318 = load ptr, ptr %client.reload.addr, align 8
   br label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i.i.i.i, %invoke.cont19
-  %17 = phi ptr [ %.pre1322, %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i.i.i.i ], [ %call.i37, %invoke.cont19 ]
+  %17 = phi ptr [ %.pre1318, %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i.i.i.i ], [ %call.i37, %invoke.cont19 ]
   %18 = load ptr, ptr %client_config2.reload.addr, align 8
   %config_.i = getelementptr inbounds nuw i8, ptr %17, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %config_.i, ptr noundef nonnull align 8 dereferenceable(80) %18, i64 16, i1 false)
@@ -82467,8 +82467,8 @@ invoke.cont308:                                   ; preds = %invoke.cont301
   store i3 0, ptr %index.addr173.i597, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1100)
   call void @llvm.experimental.noalias.scope.decl(metadata !1103)
-  %.cast1321 = ptrtoint ptr %call.i599 to i64
-  store i64 %.cast1321, ptr %ref.tmp296.reload.addr, align 8, !alias.scope !1106
+  %.cast1317 = ptrtoint ptr %call.i599 to i64
+  store i64 %.cast1317, ptr %ref.tmp296.reload.addr, align 8, !alias.scope !1106
   store ptr null, ptr %agg.tmp302.reload.addr, align 8, !noalias !1106
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %236 = load i64, ptr %agg.tmp297.reload.addr, align 8, !noalias !1106
@@ -82482,7 +82482,7 @@ invoke.cont308:                                   ; preds = %invoke.cont301
           to label %invoke.cont310 unwind label %lpad309
 
 invoke.cont310:                                   ; preds = %invoke.cont308
-  store i64 %.cast1321, ptr %call.i.i.i.i.i603, align 8, !noalias !1119
+  store i64 %.cast1317, ptr %call.i.i.i.i.i603, align 8, !noalias !1119
   store ptr null, ptr %ref.tmp296.reload.addr, align 8, !noalias !1119
   %237 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i603, i64 8
   store i64 %236, ptr %237, align 8, !noalias !1119
@@ -83758,13 +83758,13 @@ ehcleanup487:                                     ; preds = %lpad238, %lpad.i579
 
 cleanup492:                                       ; preds = %_ZNKSt14default_deleteIN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientES_IS4_EEEEEclEPS7_.exit.i1047, %_ZNSt7variantIJN12async_simple3TryISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS4_EEEENS1_IvEEEED2Ev.exit
   store ptr null, ptr %promise.reload.addr, align 8
-  %.pr1317 = load ptr, ptr %cli.reload.addr, align 8
-  %cmp.not.i1049 = icmp eq ptr %.pr1317, null
+  %.pr1313 = load ptr, ptr %cli.reload.addr, align 8
+  %cmp.not.i1049 = icmp eq ptr %.pr1313, null
   br i1 %cmp.not.i1049, label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1051, label %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1050
 
 _ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1050: ; preds = %cleanup492
-  call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %.pr1317) #25
-  call void @_ZdlPv(ptr noundef nonnull %.pr1317) #37
+  call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %.pr1313) #25
+  call void @_ZdlPv(ptr noundef nonnull %.pr1313) #37
   br label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1051
 
 _ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1051: ; preds = %cleanup492.thread, %cleanup492, %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1050
@@ -84432,13 +84432,13 @@ cleanup583.thread:                                ; preds = %_ZSt10__do_visitIvZ
   br label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1301
 
 cleanup583:                                       ; preds = %if.end8.sink.split.i.i.i.i1186, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1173, %_ZNSt7variantIJN12async_simple3TryIN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS2_15io_context_poolEE21client_connect_helperEEENS1_IvEEEED2Ev.exit
-  %.pr1319 = load ptr, ptr %client.reload.addr, align 8
-  %cmp.not.i1299 = icmp eq ptr %.pr1319, null
+  %.pr1315 = load ptr, ptr %client.reload.addr, align 8
+  %cmp.not.i1299 = icmp eq ptr %.pr1315, null
   br i1 %cmp.not.i1299, label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1301, label %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1300
 
 _ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1300: ; preds = %cleanup583
-  call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %.pr1319) #25
-  call void @_ZdlPv(ptr noundef nonnull %.pr1319) #37
+  call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %.pr1315) #25
+  call void @_ZdlPv(ptr noundef nonnull %.pr1315) #37
   br label %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1301
 
 _ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit1301: ; preds = %cleanup583.thread, %cleanup583, %_ZNKSt14default_deleteIN8coro_rpc15coro_rpc_clientEEclEPS1_.exit.i1300

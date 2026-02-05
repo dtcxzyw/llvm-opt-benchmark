@@ -6055,13 +6055,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrI13TextureObjectED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %34, %21, %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.018.025 = load ptr, ptr %40, align 8
-  %.not26 = icmp eq ptr %.sroa.018.025, null
-  br i1 %.not26, label %_ZNSt13unordered_mapIiSt10shared_ptrI9FaceGroupESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE5clearEv.exit, label %.lr.ph
+  %.sroa.018.023 = load ptr, ptr %40, align 8
+  %.not24 = icmp eq ptr %.sroa.018.023, null
+  br i1 %.not24, label %_ZNSt13unordered_mapIiSt10shared_ptrI9FaceGroupESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE5clearEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit, %_ZNSt13unordered_setISt10shared_ptrI9FaceGroupENS1_6HasherESt8equal_toIS2_ESaIS2_EE5clearEv.exit
-  %.sroa.018.027 = phi ptr [ %.sroa.018.0, %_ZNSt13unordered_setISt10shared_ptrI9FaceGroupENS1_6HasherESt8equal_toIS2_ESaIS2_EE5clearEv.exit ], [ %.sroa.018.025, %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 16
+  %.sroa.018.025 = phi ptr [ %.sroa.018.0, %_ZNSt13unordered_setISt10shared_ptrI9FaceGroupENS1_6HasherESt8equal_toIS2_ESaIS2_EE5clearEv.exit ], [ %.sroa.018.023, %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 56
@@ -6157,7 +6157,7 @@ _ZNSt13unordered_setISt10shared_ptrI9FaceGroupENS1_6HasherESt8equal_toIS2_ESaIS2
   %86 = shl i64 %85, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 %86, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %.sroa.018.0 = load ptr, ptr %.sroa.018.027, align 8
+  %.sroa.018.0 = load ptr, ptr %.sroa.018.025, align 8
   %.not = icmp eq ptr %.sroa.018.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

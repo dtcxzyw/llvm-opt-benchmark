@@ -1277,8 +1277,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
   br i1 %exitcond449.not, label %._crit_edge399, label %311, !llvm.loop !94
 
 ._crit_edge399:                                   ; preds = %.loopexit, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_9TransposeIKS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit
-  %.sroa.0334.1511 = phi ptr [ null, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_9TransposeIKS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit ], [ %292, %.loopexit ]
-  %.sroa.0328.1342508 = phi ptr [ null, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_9TransposeIKS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit ], [ %286, %.loopexit ]
+  %.sroa.0334.0511 = phi ptr [ null, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_9TransposeIKS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit ], [ %292, %.loopexit ]
+  %.sroa.0328.0342508 = phi ptr [ null, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_9TransposeIKS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit ], [ %286, %.loopexit ]
   %349 = sdiv i32 %117, 4
   %.sext = sext i32 %349 to i64
   %350 = shl nsw i64 %.sext, 2
@@ -1290,16 +1290,16 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
   br i1 %.not.i.i.i, label %398, label %353
 
 353:                                              ; preds = %._crit_edge399
-  %354 = load <2 x double>, ptr %.sroa.0334.1511, align 16, !tbaa !12
-  %355 = load <2 x double>, ptr %.sroa.0328.1342508, align 16, !tbaa !12
+  %354 = load <2 x double>, ptr %.sroa.0334.0511, align 16, !tbaa !12
+  %355 = load <2 x double>, ptr %.sroa.0328.0342508, align 16, !tbaa !12
   %356 = fdiv <2 x double> %354, %355
   %357 = icmp sgt i32 %117, 3
   br i1 %357, label %358, label %388
 
 358:                                              ; preds = %353
-  %359 = getelementptr inbounds nuw i8, ptr %.sroa.0334.1511, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %.sroa.0334.0511, i64 16
   %360 = load <2 x double>, ptr %359, align 16, !tbaa !12
-  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0328.1342508, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0342508, i64 16
   %362 = load <2 x double>, ptr %361, align 16, !tbaa !12
   %363 = fdiv <2 x double> %360, %362
   %364 = icmp samesign ugt i32 %117, 7
@@ -1317,16 +1317,16 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
   %.054.in79.i.i.i = phi i64 [ %.05480.i.i.i, %.lr.ph.i.i.i ], [ 0, %358 ]
   %.17378.i.i.i = phi <2 x double> [ %372, %.lr.ph.i.i.i ], [ %356, %358 ]
   %.07577.i.i.i = phi <2 x double> [ %379, %.lr.ph.i.i.i ], [ %363, %358 ]
-  %367 = getelementptr inbounds nuw double, ptr %.sroa.0334.1511, i64 %.05480.i.i.i
+  %367 = getelementptr inbounds nuw double, ptr %.sroa.0334.0511, i64 %.05480.i.i.i
   %368 = load <2 x double>, ptr %367, align 16, !tbaa !12
-  %369 = getelementptr inbounds nuw double, ptr %.sroa.0328.1342508, i64 %.05480.i.i.i
+  %369 = getelementptr inbounds nuw double, ptr %.sroa.0328.0342508, i64 %.05480.i.i.i
   %370 = load <2 x double>, ptr %369, align 16, !tbaa !12
   %371 = fdiv <2 x double> %368, %370
   %372 = fadd <2 x double> %.17378.i.i.i, %371
   %373 = add nuw nsw i64 %.054.in79.i.i.i, 6
-  %374 = getelementptr inbounds nuw double, ptr %.sroa.0334.1511, i64 %373
+  %374 = getelementptr inbounds nuw double, ptr %.sroa.0334.0511, i64 %373
   %375 = load <2 x double>, ptr %374, align 16, !tbaa !12
-  %376 = getelementptr inbounds nuw double, ptr %.sroa.0328.1342508, i64 %373
+  %376 = getelementptr inbounds nuw double, ptr %.sroa.0328.0342508, i64 %373
   %377 = load <2 x double>, ptr %376, align 16, !tbaa !12
   %378 = fdiv <2 x double> %375, %377
   %379 = fadd <2 x double> %.07577.i.i.i, %378
@@ -1335,9 +1335,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
   br i1 %380, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !95
 
 381:                                              ; preds = %._crit_edge.i.i.i
-  %382 = getelementptr inbounds nuw double, ptr %.sroa.0334.1511, i64 %350
+  %382 = getelementptr inbounds nuw double, ptr %.sroa.0334.0511, i64 %350
   %383 = load <2 x double>, ptr %382, align 16, !tbaa !12
-  %384 = getelementptr inbounds nuw double, ptr %.sroa.0328.1342508, i64 %350
+  %384 = getelementptr inbounds nuw double, ptr %.sroa.0328.0342508, i64 %350
   %385 = load <2 x double>, ptr %384, align 16, !tbaa !12
   %386 = fdiv <2 x double> %383, %385
   %387 = fadd <2 x double> %365, %386
@@ -1354,8 +1354,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
 .lr.ph85.i.i.i:                                   ; preds = %388, %.lr.ph85.i.i.i
   %.05283.i.i.i = phi i64 [ %397, %.lr.ph85.i.i.i ], [ %352, %388 ]
   %.182.i.i.i = phi double [ %396, %.lr.ph85.i.i.i ], [ %389, %388 ]
-  %391 = getelementptr inbounds double, ptr %.sroa.0334.1511, i64 %.05283.i.i.i
-  %392 = getelementptr inbounds double, ptr %.sroa.0328.1342508, i64 %.05283.i.i.i
+  %391 = getelementptr inbounds double, ptr %.sroa.0334.0511, i64 %.05283.i.i.i
+  %392 = getelementptr inbounds double, ptr %.sroa.0328.0342508, i64 %.05283.i.i.i
   %393 = load double, ptr %391, align 8, !tbaa !31
   %394 = load double, ptr %392, align 8, !tbaa !31
   %395 = fdiv double %393, %394
@@ -1365,8 +1365,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
   br i1 %exitcond.not.i.i.i, label %.loopexit355, label %.lr.ph85.i.i.i, !llvm.loop !96
 
 398:                                              ; preds = %._crit_edge399
-  %399 = load double, ptr %.sroa.0334.1511, align 8, !tbaa !31
-  %400 = load double, ptr %.sroa.0328.1342508, align 8, !tbaa !31
+  %399 = load double, ptr %.sroa.0334.0511, align 8, !tbaa !31
+  %400 = load double, ptr %.sroa.0328.0342508, align 8, !tbaa !31
   %401 = fdiv double %399, %400
   br label %.loopexit355
 
@@ -1386,8 +1386,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i120: ; preds = %
 
 ._crit_edge403:                                   ; preds = %._crit_edge403.loopexit, %.loopexit355
   %404 = phi ptr [ %.pre465, %._crit_edge403.loopexit ], [ %234, %.loopexit355 ]
-  call void @free(ptr noundef %.sroa.0334.1511) #29
-  call void @free(ptr noundef %.sroa.0328.1342508) #29
+  call void @free(ptr noundef %.sroa.0334.0511) #29
+  call void @free(ptr noundef %.sroa.0328.0342508) #29
   call void @free(ptr noundef %404) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1572,13 +1572,13 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1
   %.pn71.pn.pn = phi { ptr, i32 } [ %433, %432 ], [ %457, %456 ]
   %469 = load ptr, ptr %111, align 8, !tbaa !108
   call void @free(ptr noundef %469) #29
-  call void @free(ptr noundef %.sroa.0334.1511) #29
+  call void @free(ptr noundef %.sroa.0334.0511) #29
   br label %.body122
 
 .body122:                                         ; preds = %296, %.body159
-  %.sroa.0328.1343 = phi ptr [ %.sroa.0328.1342508, %.body159 ], [ %286, %296 ]
+  %.sroa.0328.0343 = phi ptr [ %.sroa.0328.0342508, %.body159 ], [ %286, %296 ]
   %.pn71.pn.pn.pn = phi { ptr, i32 } [ %.pn71.pn.pn, %.body159 ], [ %297, %296 ]
-  call void @free(ptr noundef %.sroa.0328.1343) #29
+  call void @free(ptr noundef %.sroa.0328.0343) #29
   br label %.body111
 
 .body111:                                         ; preds = %.body122, %290, %283

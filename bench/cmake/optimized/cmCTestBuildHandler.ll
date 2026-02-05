@@ -14880,38 +14880,38 @@ _ZNSt5dequeIcSaIcEE9push_backERKc.exit:           ; preds = %36, %40
   br i1 %.not214.not266, label %._crit_edge274, label %.lr.ph273
 
 .lr.ph273:                                        ; preds = %121, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit
-  %.sroa.0203.1270 = phi ptr [ %.sroa.0203.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %122, %121 ]
-  %.sroa.13.1269 = phi ptr [ %.sroa.13.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %123, %121 ]
-  %.sroa.17.1268 = phi ptr [ %.sroa.17.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %124, %121 ]
-  %.sroa.22.1267 = phi ptr [ %.sroa.22.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %125, %121 ]
-  %127 = load i8, ptr %.sroa.0203.1270, align 1, !tbaa !15
+  %.sroa.0203.0270 = phi ptr [ %.sroa.0203.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %122, %121 ]
+  %.sroa.13.0269 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %123, %121 ]
+  %.sroa.17.0268 = phi ptr [ %.sroa.17.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %124, %121 ]
+  %.sroa.22.0267 = phi ptr [ %.sroa.22.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ], [ %125, %121 ]
+  %127 = load i8, ptr %.sroa.0203.0270, align 1, !tbaa !15
   %.not389.not = icmp ne i8 %127, 10
   br i1 %.not389.not, label %128, label %._crit_edge274
 
 128:                                              ; preds = %.lr.ph273
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0203.1270, i64 1
-  %130 = icmp eq ptr %129, %.sroa.17.1268
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0203.0270, i64 1
+  %130 = icmp eq ptr %129, %.sroa.17.0268
   br i1 %130, label %131, label %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.22.1267, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.22.0267, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !86
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 512
   br label %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit
 
 _ZNSt15_Deque_iteratorIcRcPcEppEv.exit:           ; preds = %128, %131
-  %.sroa.22.2 = phi ptr [ %132, %131 ], [ %.sroa.22.1267, %128 ]
-  %.sroa.17.2 = phi ptr [ %134, %131 ], [ %.sroa.17.1268, %128 ]
-  %.sroa.13.2 = phi ptr [ %133, %131 ], [ %.sroa.13.1269, %128 ]
-  %.sroa.0203.2 = phi ptr [ %133, %131 ], [ %129, %128 ]
-  %.not214.not = icmp eq ptr %.sroa.0203.2, %126
+  %.sroa.22.1 = phi ptr [ %132, %131 ], [ %.sroa.22.0267, %128 ]
+  %.sroa.17.1 = phi ptr [ %134, %131 ], [ %.sroa.17.0268, %128 ]
+  %.sroa.13.1 = phi ptr [ %133, %131 ], [ %.sroa.13.0269, %128 ]
+  %.sroa.0203.1 = phi ptr [ %133, %131 ], [ %129, %128 ]
+  %.not214.not = icmp eq ptr %.sroa.0203.1, %126
   br i1 %.not214.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !597
 
 ._crit_edge274:                                   ; preds = %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit, %.lr.ph273, %121
-  %.sroa.22.1.lcssa = phi ptr [ %125, %121 ], [ %.sroa.22.1267, %.lr.ph273 ], [ %.sroa.22.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
-  %.sroa.17.1.lcssa = phi ptr [ %124, %121 ], [ %.sroa.17.1268, %.lr.ph273 ], [ %.sroa.17.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
-  %.sroa.13.1.lcssa = phi ptr [ %123, %121 ], [ %.sroa.13.1269, %.lr.ph273 ], [ %.sroa.13.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
-  %.sroa.0203.1.lcssa = phi ptr [ %122, %121 ], [ %.sroa.0203.1270, %.lr.ph273 ], [ %.sroa.0203.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
+  %.sroa.22.0.lcssa = phi ptr [ %125, %121 ], [ %.sroa.22.0267, %.lr.ph273 ], [ %.sroa.22.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
+  %.sroa.17.0.lcssa = phi ptr [ %124, %121 ], [ %.sroa.17.0268, %.lr.ph273 ], [ %.sroa.17.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
+  %.sroa.13.0.lcssa = phi ptr [ %123, %121 ], [ %.sroa.13.0269, %.lr.ph273 ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
+  %.sroa.0203.0.lcssa = phi ptr [ %122, %121 ], [ %.sroa.0203.0270, %.lr.ph273 ], [ %.sroa.0203.1, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
   %.not214.not.lcssa = phi i1 [ true, %121 ], [ %.not389.not, %.lr.ph273 ], [ %.not389.not, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
   %135 = load i32, ptr %51, align 4, !tbaa !285
   %136 = load i32, ptr %52, align 8, !tbaa !75
@@ -14987,10 +14987,10 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %172, %175
   store ptr %123, ptr %59, align 8, !tbaa !331
   store ptr %124, ptr %60, align 8, !tbaa !332
   store ptr %125, ptr %61, align 8, !tbaa !333
-  store ptr %.sroa.0203.1.lcssa, ptr %17, align 8, !tbaa !327
-  store ptr %.sroa.13.1.lcssa, ptr %62, align 8, !tbaa !331
-  store ptr %.sroa.17.1.lcssa, ptr %63, align 8, !tbaa !332
-  store ptr %.sroa.22.1.lcssa, ptr %64, align 8, !tbaa !333
+  store ptr %.sroa.0203.0.lcssa, ptr %17, align 8, !tbaa !327
+  store ptr %.sroa.13.0.lcssa, ptr %62, align 8, !tbaa !331
+  store ptr %.sroa.17.0.lcssa, ptr %63, align 8, !tbaa !332
+  store ptr %.sroa.22.0.lcssa, ptr %64, align 8, !tbaa !333
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertISt15_Deque_iteratorIcRcPcEEEvN9__gnu_cxx17__normal_iteratorIS5_S1_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr %173, ptr noundef nonnull %16, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -15066,8 +15066,8 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %178, %_ZNSt6vectorI
   %202 = call noundef i32 @_ZN19cmCTestBuildHandler17ProcessSingleLineEPKc(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %201)
   %203 = load ptr, ptr %46, align 8, !tbaa !327, !noalias !599
   %204 = load ptr, ptr %49, align 8, !tbaa !333, !noalias !599
-  %205 = ptrtoint ptr %.sroa.0203.1.lcssa to i64
-  %206 = ptrtoint ptr %.sroa.13.1.lcssa to i64
+  %205 = ptrtoint ptr %.sroa.0203.0.lcssa to i64
+  %206 = ptrtoint ptr %.sroa.13.0.lcssa to i64
   %207 = sub i64 %205, %206
   %208 = add nsw i64 %207, 1
   %209 = icmp sgt i64 %207, -2
@@ -15078,7 +15078,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %178, %_ZNSt6vectorI
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0203.1.lcssa, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0203.0.lcssa, i64 1
   br label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
 
 214:                                              ; preds = %210
@@ -15091,7 +15091,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %178, %_ZNSt6vectorI
 
 218:                                              ; preds = %216, %214
   %219 = phi i64 [ %215, %214 ], [ %217, %216 ]
-  %220 = getelementptr inbounds ptr, ptr %.sroa.22.1.lcssa, i64 %219
+  %220 = getelementptr inbounds ptr, ptr %.sroa.22.0.lcssa, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !86, !noalias !602
   %222 = shl nsw i64 %219, 9
   %223 = sub nsw i64 %208, %222
@@ -15099,7 +15099,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %178, %_ZNSt6vectorI
   br label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
 
 _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %212, %218
-  %.sroa.10.0 = phi ptr [ %.sroa.22.1.lcssa, %212 ], [ %220, %218 ]
+  %.sroa.10.0 = phi ptr [ %.sroa.22.0.lcssa, %212 ], [ %220, %218 ]
   %storemerge.i.i = phi ptr [ %213, %212 ], [ %224, %218 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

@@ -9400,8 +9400,8 @@ declare void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr noundef nonnull a
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix11get_handlesERSt10error_code(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @opendir(ptr noundef nonnull @.str.32)
-  %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %.thread, label %7
+  %.not40 = icmp eq ptr %3, null
+  br i1 %.not40, label %.thread, label %7
 
 .thread:                                          ; preds = %2
   %4 = tail call ptr @__errno_location() #40
@@ -9426,13 +9426,13 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix11get_handlesE
   %.sroa.14.1.ph.ph = phi ptr [ %53, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ null, %7 ]
   %.sroa.10.0.ph.ph = phi ptr [ %51, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ null, %7 ]
   %.sroa.031.1.ph.ph = phi ptr [ %47, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ null, %7 ]
-  br label %.outer.outer138
+  br label %.outer.outer135
 
-.outer.outer138:                                  ; preds = %.outer.outer, %33
-  %.sroa.10.0.ph.ph139 = phi ptr [ %.sroa.10.0.ph.ph, %.outer.outer ], [ %34, %33 ]
+.outer.outer135:                                  ; preds = %.outer.outer, %33
+  %.sroa.10.0.ph.ph136 = phi ptr [ %.sroa.10.0.ph.ph, %.outer.outer ], [ %34, %33 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer138
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer135
   br label %12
 
 12:                                               ; preds = %.outer, %15
@@ -9481,13 +9481,13 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix11get_handlesE
   br label %.outer, !llvm.loop !210
 
 32:                                               ; preds = %28, %31
-  %.not.i = icmp eq ptr %.sroa.10.0.ph.ph139, %.sroa.14.1.ph.ph
+  %.not.i = icmp eq ptr %.sroa.10.0.ph.ph136, %.sroa.14.1.ph.ph
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %32
-  store i32 %24, ptr %.sroa.10.0.ph.ph139, align 4, !tbaa !18
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.10.0.ph.ph139, i64 4
-  br label %.outer.outer138
+  store i32 %24, ptr %.sroa.10.0.ph.ph136, align 4, !tbaa !18
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.10.0.ph.ph136, i64 4
+  br label %.outer.outer135
 
 35:                                               ; preds = %32
   %36 = ptrtoint ptr %.sroa.14.1.ph.ph to i64
@@ -9568,7 +9568,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrI1
 59:                                               ; preds = %14
   store ptr %.sroa.031.1.ph.ph, ptr %0, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.10.0.ph.ph139, ptr %60, align 8, !tbaa !211
+  store ptr %.sroa.10.0.ph.ph136, ptr %60, align 8, !tbaa !211
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.14.1.ph.ph, ptr %61, align 8, !tbaa !17
   %62 = tail call i32 @closedir(ptr noundef nonnull %3)

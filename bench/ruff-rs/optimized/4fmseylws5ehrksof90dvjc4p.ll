@@ -11481,18 +11481,18 @@ define hidden void @_ZN9toml_edit6parser14parse_document17h6463b684f2adf92cE(ptr
   %.lcssa152.i.i.i.i = phi i64 [ %73, %.noexc28 ], [ %77, %.noexc29 ]
   %.sroa.6.0.copyload4.i.i.i.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx3.i.i.i.i.i.i, align 8, !noalias !1043
   %.sroa.8.0.copyload6.i.i.i.i.i.i = load i64, ptr %.sroa.8.0..sroa_idx5.i.i.i.i.i.i, align 8, !noalias !1043
-  %.sroa.13.i.i.i.sroa.0.0.copyload75.i.i = load ptr, ptr %.sroa.10.0..sroa_idx7.i.i.i.i.i.i, align 8, !noalias !1044
+  %.sroa.13.i.i.i.sroa.0.0.copyload67.i.i = load ptr, ptr %.sroa.10.0..sroa_idx7.i.i.i.i.i.i, align 8, !noalias !1044
   %.sroa.13.i.i.i.sroa.8.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sroa.13.i.i.i.sroa.8.0.copyload77.i.i = load i64, ptr %.sroa.13.i.i.i.sroa.8.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i, align 8, !noalias !1044
+  %.sroa.13.i.i.i.sroa.8.0.copyload69.i.i = load i64, ptr %.sroa.13.i.i.i.sroa.8.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i, align 8, !noalias !1044
   %.sroa.13.i.i.i.sroa.9.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sroa.13.i.i.i.sroa.9.0.copyload79.i.i = load i64, ptr %.sroa.13.i.i.i.sroa.9.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i, align 8, !noalias !1044
+  %.sroa.13.i.i.i.sroa.9.0.copyload71.i.i = load i64, ptr %.sroa.13.i.i.i.sroa.9.0..sroa.10.0..sroa_idx7.i.i.i.i.sroa_idx.i.i, align 8, !noalias !1044
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1033
   br label %.loopexit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %.loopexit.loopexit.i.i.i.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i"
-  %.sroa.13.i.i.i.sroa.0.0.i.i = phi ptr [ %.sroa.13.i.i.i.sroa.0.0.copyload75.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.0.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
-  %.sroa.13.i.i.i.sroa.8.0.i.i = phi i64 [ %.sroa.13.i.i.i.sroa.8.0.copyload77.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.8.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
-  %.sroa.13.i.i.i.sroa.9.0.i.i = phi i64 [ %.sroa.13.i.i.i.sroa.9.0.copyload79.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.9.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
+  %.sroa.13.i.i.i.sroa.0.0.i.i = phi ptr [ %.sroa.13.i.i.i.sroa.0.0.copyload67.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.0.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
+  %.sroa.13.i.i.i.sroa.8.0.i.i = phi i64 [ %.sroa.13.i.i.i.sroa.8.0.copyload69.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.8.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
+  %.sroa.13.i.i.i.sroa.9.0.i.i = phi i64 [ %.sroa.13.i.i.i.sroa.9.0.copyload71.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.13.i.i.i.sroa.9.0.copyload.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
   %.sroa.12.0.i.i.i.i.i = phi i64 [ %.sroa.8.0.copyload6.i.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.5.i.sroa.6.0.copyload.i.i.i.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
   %.sroa.10.0.i.i.i.i.i = phi i64 [ %.sroa.6.0.copyload4.i.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.sroa.5.i.sroa.0.0.copyload.i.i.i.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %.lcssa152.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.lcssa.i.i.i.i.i, %"_ZN89_$LT$$LP$P0$C$P1$RP$$u20$as$u20$winnow..parser..Parser$LT$I$C$$LP$O0$C$O1$RP$$C$E$GT$$GT$10parse_next17hda409715b8d08711E.exit.thread18.i.i.i.i.i" ]

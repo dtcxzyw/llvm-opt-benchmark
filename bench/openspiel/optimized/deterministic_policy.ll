@@ -594,18 +594,18 @@ define void @_ZN10open_spiel10algorithms26DeterministicTabularPolicy11CreateTabl
   call void @_ZN10open_spiel10algorithms18GetLegalActionsMapB5cxx11ERKNS_4GameEii(ptr dead_on_unwind nonnull writable sret(%"class.std::unordered_map") align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef -1, i32 noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %.not28 = icmp eq ptr %6, null
-  br i1 %.not28, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIlSaIlEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph
+  %.not25 = icmp eq ptr %6, null
+  br i1 %.not25, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIlSaIlEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit
-  %.sroa.022.029 = phi ptr [ %6, %.lr.ph ], [ %39, %_ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 48
+  %.sroa.019.026 = phi ptr [ %6, %.lr.ph ], [ %39, %_ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.019.026, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -635,27 +635,27 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %18
 
 .noexc10:                                         ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i
   %.pre = load ptr, ptr %10, align 8
-  %.pre35 = load ptr, ptr %11, align 8
-  %21 = icmp eq ptr %.pre35, %.pre
+  %.pre32 = load ptr, ptr %11, align 8
+  %21 = icmp eq ptr %.pre32, %.pre
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %16
   br i1 %21, label %24, label %23
 
 23:                                               ; preds = %.noexc10
-  %.pre37 = ptrtoint ptr %.pre35 to i64
-  %.pre38 = ptrtoint ptr %.pre to i64
-  %.pre40 = sub i64 %.pre37, %.pre38
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr align 8 %.pre, i64 %.pre40, i1 false)
+  %.pre34 = ptrtoint ptr %.pre32 to i64
+  %.pre35 = ptrtoint ptr %.pre to i64
+  %.pre37 = sub i64 %.pre34, %.pre35
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr align 8 %.pre, i64 %.pre37, i1 false)
   br label %24
 
 24:                                               ; preds = %.noexc10.thread, %23, %.noexc10
   %25 = phi ptr [ %17, %.noexc10.thread ], [ %22, %23 ], [ %22, %.noexc10 ]
   %26 = phi ptr [ null, %.noexc10.thread ], [ %20, %23 ], [ %20, %.noexc10 ]
-  %.pre-phi4155 = phi i64 [ 0, %.noexc10.thread ], [ %.pre40, %23 ], [ 0, %.noexc10 ]
+  %.pre-phi3852 = phi i64 [ 0, %.noexc10.thread ], [ %.pre37, %23 ], [ 0, %.noexc10 ]
   %27 = invoke noundef nonnull align 8 dereferenceable(28) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms15LegalsWithIndexESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %28 unwind label %40
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 %.pre-phi4155
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.pre-phi3852
   %30 = load ptr, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -676,7 +676,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %18
 _ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit: ; preds = %34, %28
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 0, ptr %38, align 8
-  %39 = load ptr, ptr %.sroa.022.029, align 8
+  %39 = load ptr, ptr %.sroa.019.026, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %8
 
@@ -701,12 +701,12 @@ _ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit: ; preds = %34, %28
   br label %_ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit12
 
 ._crit_edge:                                      ; preds = %_ZN10open_spiel10algorithms15LegalsWithIndexD2Ev.exit
-  %.pre36 = load ptr, ptr %5, align 8
-  %.not5.i.i.i.i = icmp eq ptr %.pre36, null
+  %.pre33 = load ptr, ptr %5, align 8
+  %.not5.i.i.i.i = icmp eq ptr %.pre33, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIlSaIlEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %43, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i ], [ %.pre36, %._crit_edge ]
+  %.06.i.i.i.i = phi ptr [ %43, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i ], [ %.pre33, %._crit_edge ]
   %43 = load ptr, ptr %.06.i.i.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 40
   %45 = load ptr, ptr %44, align 8

@@ -10100,15 +10100,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not35 = icmp eq i64 %17, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %17, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %.val10 = load ptr, ptr %1, align 8, !tbaa !178
   %19 = getelementptr i8, ptr %1, i64 8
   %.val11 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %.val10, null
-  br i1 %.not.i.i, label %20, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31
+  br i1 %.not.i.i, label %20, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29
 
 20:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %.val11, null
@@ -10118,12 +10118,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_
   %21 = getelementptr inbounds nuw i8, ptr %.val11, i64 8
   %22 = load atomic i32, ptr %21 monotonic, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31
+  br i1 %23, label %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.036 = phi ptr [ %47, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.036, align 8, !tbaa !215
-  %24 = getelementptr inbounds nuw i8, ptr %.036, i64 8
+  %.034 = phi ptr [ %47, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.034, align 8, !tbaa !215
+  %24 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !17
   store ptr null, ptr %24, align 8, !tbaa !17
   %.not.i.i.i.i = icmp eq ptr %25, null
@@ -10174,15 +10174,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %43, %4
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %31, %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %.not = icmp eq ptr %47, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br i1 %.not35, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEvS2_IT0_ENS_5RangeIPS7_EE.exit, label %.lr.ph.i
+  br i1 %.not33, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEvS2_IT0_ENS_5RangeIPS7_EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31
+.lr.ph.i:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29
   %48 = add nsw i64 %17, -1
   br label %49
 
@@ -10409,8 +10409,8 @@ _ZNSt12__shared_ptrISt10shared_ptrIS0_IN12_GLOBAL__N_118DefaultCPUExecutorEEELN9
   %exitcond.not.i = icmp eq i64 %134, %17
   br i1 %exitcond.not.i, label %_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEvS2_IT0_ENS_5RangeIPS7_EE.exit, label %49, !llvm.loop !470
 
-_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEvS2_IT0_ENS_5RangeIPS7_EE.exit: ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIS0_IN12_GLOBAL__N_118DefaultCPUExecutorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31
-  %.sroa.3.2 = phi ptr [ %.val11, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread31 ], [ %.sroa.3.1, %_ZNSt12__shared_ptrISt10shared_ptrIS0_IN12_GLOBAL__N_118DefaultCPUExecutorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
+_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEvS2_IT0_ENS_5RangeIPS7_EE.exit: ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIS0_IN12_GLOBAL__N_118DefaultCPUExecutorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29
+  %.sroa.3.2 = phi ptr [ %.val11, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEEbRKS2_IT_E.exit.thread29 ], [ %.sroa.3.1, %_ZNSt12__shared_ptrISt10shared_ptrIS0_IN12_GLOBAL__N_118DefaultCPUExecutorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   %.not.i.i22 = icmp eq ptr %.sroa.3.2, null
   br i1 %.not.i.i22, label %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, label %135
 
@@ -17665,15 +17665,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq i64 %17, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %19 = load ptr, ptr %1, align 8, !tbaa !618
   %.not.i.i = icmp eq ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !17
-  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
 
 22:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %21, null
@@ -17683,12 +17683,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThread
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+  br i1 %25, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.022 = phi ptr [ %49, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.022, align 8, !tbaa !637
-  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.020 = phi ptr [ %49, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.020, align 8, !tbaa !637
+  %26 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   store ptr null, ptr %26, align 8, !tbaa !17
   %.not.i.i.i.i = icmp eq ptr %27, null
@@ -17739,11 +17739,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.not = icmp eq ptr %49, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit
   store ptr %19, ptr %3, align 8, !tbaa !618
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17753,7 +17753,7 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThread
   invoke void @_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrINS_21CPUThreadPoolExecutorEEEEvS2_IT0_ENS_5RangeIPS6_EE(ptr noundef nonnull %3, ptr nonnull %0, ptr nonnull %18)
           to label %52 unwind label %75
 
-52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
   %53 = load ptr, ptr %50, align 8, !tbaa !17
   %.not.i.i11 = icmp eq ptr %53, null
   br i1 %.not.i.i11, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %54
@@ -17802,7 +17802,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %71, %69
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #24
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_21CPUThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
@@ -22984,15 +22984,15 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
   %.idx = shl nuw nsw i64 %17, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq i64 %17, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit
   %19 = load ptr, ptr %1, align 8, !tbaa !733
   %.not.i.i = icmp eq ptr %19, null
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !17
-  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+  br i1 %.not.i.i, label %22, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
 
 22:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %21, null
@@ -23002,12 +23002,12 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadP
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+  br i1 %25, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
 
 .lr.ph:                                           ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.022 = phi ptr [ %49, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  store ptr null, ptr %.022, align 8, !tbaa !752
-  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.020 = phi ptr [ %49, %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
+  store ptr null, ptr %.020, align 8, !tbaa !752
+  %26 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   store ptr null, ptr %26, align 8, !tbaa !17
   %.not.i.i.i.i = icmp eq ptr %27, null
@@ -23058,11 +23058,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.not = icmp eq ptr %49, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit
+_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18: ; preds = %._crit_edge, %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit
   store ptr %19, ptr %3, align 8, !tbaa !733
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23072,7 +23072,7 @@ _ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadP
   invoke void @_ZN5folly29core_cached_shared_ptr_detail9makeSlotsILm64ESt10shared_ptrINS_20IOThreadPoolExecutorEEEEvS2_IT0_ENS_5RangeIPS6_EE(ptr noundef nonnull %3, ptr nonnull %0, ptr nonnull %18)
           to label %52 unwind label %75
 
-52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+52:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
   %53 = load ptr, ptr %50, align 8, !tbaa !17
   %.not.i.i11 = icmp eq ptr %53, null
   br i1 %.not.i.i11, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %54
@@ -23121,7 +23121,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %71, %69
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #24
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread20
+75:                                               ; preds = %_ZN5folly29core_cached_shared_ptr_detail9isDefaultISt10shared_ptrINS_20IOThreadPoolExecutorEEEEbRKS2_IT_E.exit.thread18
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrISt10shared_ptrIN5folly20IOThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
@@ -24919,11 +24919,11 @@ _ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %42, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i.i.i, %81, %"_ZZNK12_GLOBAL__N_13$_3clEvENKUlvE_clEv.exit"
-  %.sroa.6.25 = phi ptr [ %.sroa.6.0, %81 ], [ %.sroa.6.0, %"_ZZNK12_GLOBAL__N_13$_3clEvENKUlvE_clEv.exit" ], [ null, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ null, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i.i.i ], [ null, %42 ]
-  %86 = phi ptr [ %85, %81 ], [ null, %"_ZZNK12_GLOBAL__N_13$_3clEvENKUlvE_clEv.exit" ], [ null, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ null, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i.i.i ], [ null, %42 ]
+  %.sroa.6.15 = phi ptr [ %.sroa.6.0, %81 ], [ %.sroa.6.0, %"_ZZNK12_GLOBAL__N_13$_3clEvENKUlvE_clEv.exit" ], [ null, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i.i.i ], [ null, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ null, %42 ]
+  %86 = phi ptr [ %85, %81 ], [ null, %"_ZZNK12_GLOBAL__N_13$_3clEvENKUlvE_clEv.exit" ], [ null, %_ZN5folly14AccessSpreaderISt6atomicE13cachedCurrentEmRKNS2_11GlobalStateE.exit.i.i.i.i ], [ null, %_ZNSt12__shared_ptrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ null, %42 ]
   store ptr %86, ptr %0, align 8, !tbaa !808
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.25, ptr %87, align 8, !tbaa !17
+  store ptr %.sroa.6.15, ptr %87, align 8, !tbaa !17
   ret void
 }
 

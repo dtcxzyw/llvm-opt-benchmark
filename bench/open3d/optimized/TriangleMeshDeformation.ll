@@ -6082,7 +6082,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %.sroa.13.1 = phi <2 x double> [ zeroinitializer, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %.sroa.13.3, %._crit_edge.loopexit ]
   %.sroa.9.1 = phi <2 x double> [ zeroinitializer, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %.sroa.9.3, %._crit_edge.loopexit ]
   %.sroa.17.1 = phi <2 x double> [ zeroinitializer, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %.sroa.17.3, %._crit_edge.loopexit ]
-  %.sroa.21.1 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %.sroa.21.3, %._crit_edge.loopexit ]
+  %.sroa.21.0 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %.sroa.21.2, %._crit_edge.loopexit ]
   %.lcssa112 = phi <2 x double> [ zeroinitializer, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %255, %._crit_edge.loopexit ]
   %.034.lcssa = phi i32 [ 0, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERKNS_9EigenBaseIT_EE.exit40.._crit_edge_crit_edge ], [ %256, %._crit_edge.loopexit ]
   %130 = icmp eq i32 %129, 1
@@ -6092,7 +6092,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %.sroa.13.2 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %.sroa.13.3, %250 ]
   %.sroa.9.2 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %.sroa.9.3, %250 ]
   %.sroa.17.2 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %.sroa.17.3, %250 ]
-  %.sroa.21.2 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.21.3, %250 ]
+  %.sroa.21.1 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.21.2, %250 ]
   %132 = phi double [ 0.000000e+00, %.lr.ph ], [ %251, %250 ]
   %133 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %252, %250 ]
   %134 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %253, %250 ]
@@ -6288,7 +6288,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %.sroa.13.3 = phi <2 x double> [ %243, %233 ], [ %.sroa.13.2, %215 ]
   %.sroa.9.3 = phi <2 x double> [ %240, %233 ], [ %.sroa.9.2, %215 ]
   %.sroa.17.3 = phi <2 x double> [ %246, %233 ], [ %.sroa.17.2, %215 ]
-  %.sroa.21.3 = phi double [ %249, %233 ], [ %.sroa.21.2, %215 ]
+  %.sroa.21.2 = phi double [ %249, %233 ], [ %.sroa.21.1, %215 ]
   %251 = phi double [ %249, %233 ], [ %132, %215 ]
   %252 = phi <2 x double> [ %246, %233 ], [ %133, %215 ]
   %253 = phi <2 x double> [ %243, %233 ], [ %134, %215 ]
@@ -6346,7 +6346,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %282 = fmul double %267, %.sroa.13.40.vec.extract
   %283 = fadd double %121, %282
   store double %283, ptr %58, align 8, !tbaa !8
-  %284 = fmul double %267, %.sroa.21.1
+  %284 = fmul double %267, %.sroa.21.0
   %285 = fadd double %120, %284
   store double %285, ptr %53, align 16, !tbaa !8
   br label %286

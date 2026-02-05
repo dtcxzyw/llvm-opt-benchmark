@@ -32747,8 +32747,8 @@ _ZN5clang9FixItHintD2Ev.exit216:                  ; preds = %_ZN5clang9FixItHint
   %.0680 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %820 ], [ -1, %999 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ -1, %961 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit216 ], [ -1, %995 ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
   %.sroa.0602.0 = phi i32 [ %.sroa.0602.0.extract.trunc612, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.0602.0.extract.trunc611, %820 ], [ %.sroa.0.0.copyload.i.i217, %999 ], [ %.sroa.0602.0.extract.trunc609, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.0602.0.extract.trunc608, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.0602.0.extract.trunc608, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.0602.0.extract.trunc604, %961 ], [ %.sroa.0602.0.extract.trunc603, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.0602.0.extract.trunc, %995 ], [ %.sroa.0602.0.extract.trunc610, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.0602.0.extract.trunc610, %_ZN5clang9FixItHintD2Ev.exit167 ]
   %.sroa.17.0 = phi i32 [ %.sroa.17.0.extract.trunc637, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.17.0.extract.trunc635, %820 ], [ %.sroa.0.0.copyload.i.i217, %999 ], [ %.sroa.17.0.extract.trunc631, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.17.0.extract.trunc629, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.17.0.extract.trunc629, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.17.0.extract.trunc623, %961 ], [ %.sroa.17.0.extract.trunc621, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.17.0.extract.trunc, %995 ], [ %.sroa.17.0.extract.trunc633, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.17.0.extract.trunc633, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.16.2 = phi i64 [ 2, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 2, %820 ], [ 7, %999 ], [ 5, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 3, %961 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 4, %995 ], [ %840, %_ZN5clang9FixItHintD2Ev.exit ], [ %840, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.0648.2 = phi ptr [ @.str.33, %_ZNK5clang6IfStmt7getElseEv.exit ], [ @.str.34, %820 ], [ @.str.39, %999 ], [ @.str.35, %_ZN5clang9FixItHintD2Ev.exit180 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit204 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit192 ], [ @.str.36, %961 ], [ @.str.37, %_ZN5clang9FixItHintD2Ev.exit216 ], [ @.str.38, %995 ], [ %839, %_ZN5clang9FixItHintD2Ev.exit ], [ %839, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.16.0 = phi i64 [ 2, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 2, %820 ], [ 7, %999 ], [ 5, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 3, %961 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 4, %995 ], [ %840, %_ZN5clang9FixItHintD2Ev.exit ], [ %840, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.0648.0 = phi ptr [ @.str.33, %_ZNK5clang6IfStmt7getElseEv.exit ], [ @.str.34, %820 ], [ @.str.39, %999 ], [ @.str.35, %_ZN5clang9FixItHintD2Ev.exit180 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit204 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit192 ], [ @.str.36, %961 ], [ @.str.37, %_ZN5clang9FixItHintD2Ev.exit216 ], [ @.str.38, %995 ], [ %839, %_ZN5clang9FixItHintD2Ev.exit ], [ %839, %_ZN5clang9FixItHintD2Ev.exit167 ]
   %.0679 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %820 ], [ 3, %999 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 1, %961 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 3, %995 ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %54, ptr noundef nonnull align 8 dereferenceable(8) %110, i32 %.sroa.0602.0, i32 noundef 7025, i1 noundef zeroext false) #24
@@ -33211,7 +33211,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   br i1 %1219, label %1220, label %1221
 
 1220:                                             ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(84) %116, ptr %.sroa.0648.2, i64 %.sroa.16.2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(84) %116, ptr %.sroa.0648.0, i64 %.sroa.16.0)
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 1221:                                             ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
@@ -33242,7 +33242,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i231: ; preds = %12
   %1236 = load ptr, ptr %1233, align 8, !tbaa !1265
   %1237 = getelementptr inbounds nuw %"struct.std::pair.1367", ptr %1236, i64 %1235
   %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %1238, ptr %.sroa.0648.2, i64 %.sroa.16.2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %1238, ptr %.sroa.0648.0, i64 %.sroa.16.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
@@ -33830,7 +33830,7 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   br i1 %1506, label %1507, label %1508
 
 1507:                                             ; preds = %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(84) %129, ptr %.sroa.0648.2, i64 %.sroa.16.2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(84) %129, ptr %.sroa.0648.0, i64 %.sroa.16.0)
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit265
 
 1508:                                             ; preds = %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
@@ -33861,7 +33861,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i258: ; preds = %15
   %1523 = load ptr, ptr %1520, align 8, !tbaa !1265
   %1524 = getelementptr inbounds nuw %"struct.std::pair.1367", ptr %1523, i64 %1522
   %1525 = getelementptr inbounds nuw i8, ptr %1524, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %1525, ptr %.sroa.0648.2, i64 %.sroa.16.2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %1525, ptr %.sroa.0648.0, i64 %.sroa.16.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit265
 

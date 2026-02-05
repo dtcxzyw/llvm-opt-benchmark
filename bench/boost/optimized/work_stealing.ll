@@ -315,8 +315,8 @@ define void @_ZN5boost6fibers4numa4algo13work_stealing5init_ERKSt6vectorINS1_4no
   %3 = load ptr, ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  %.not29 = icmp eq ptr %3, %5
-  br i1 %.not29, label %_ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i, label %.lr.ph
+  %.not26 = icmp eq ptr %3, %5
+  br i1 %.not26, label %_ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %6 = add i32 %.sroa.speculated, 1
@@ -324,8 +324,8 @@ define void @_ZN5boost6fibers4numa4algo13work_stealing5init_ERKSt6vectorINS1_4no
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS6_RKS7_.exit, label %_ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i
 
 _ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i: ; preds = %2, %._crit_edge
-  %.0.lcssa40 = phi i32 [ %6, %._crit_edge ], [ 1, %2 ]
-  %7 = zext i32 %.0.lcssa40 to i64
+  %.0.lcssa37 = phi i32 [ %6, %._crit_edge ], [ 1, %2 ]
+  %7 = zext i32 %.0.lcssa37 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, i8 0, i64 %8, i1 false), !tbaa !9
@@ -334,14 +334,14 @@ _ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingE
   br label %_ZNSt6vectorIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS6_RKS7_.exit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.031 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %2 ]
-  %.sroa.023.030 = phi ptr [ %15, %.lr.ph ], [ %3, %2 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 16
+  %.028 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %2 ]
+  %.sroa.020.027 = phi ptr [ %15, %.lr.ph ], [ %3, %2 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 16
   %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %11) #23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 4, !tbaa !37
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.031, i32 %14)
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 80
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.028, i32 %14)
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 80
   %.not = icmp eq ptr %15, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

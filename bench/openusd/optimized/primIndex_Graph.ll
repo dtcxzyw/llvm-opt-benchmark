@@ -1992,15 +1992,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNo
   store i8 0, ptr %32, align 8
   %33 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @.str.15, ptr noundef null)
   %.pre = load ptr, ptr %13, align 8
-  %.pre163 = load ptr, ptr %11, align 8
-  %.pre177 = ptrtoint ptr %.pre to i64
-  %.pre178 = ptrtoint ptr %.pre163 to i64
-  %.pre180 = sub i64 %.pre177, %.pre178
-  %.pre182 = sdiv exact i64 %.pre180, 48
+  %.pre157 = load ptr, ptr %11, align 8
+  %.pre171 = ptrtoint ptr %.pre to i64
+  %.pre172 = ptrtoint ptr %.pre157 to i64
+  %.pre174 = sub i64 %.pre171, %.pre172
+  %.pre176 = sdiv exact i64 %.pre174, 48
   br label %34
 
 34:                                               ; preds = %2, %28
-  %.pre-phi183 = phi i64 [ %19, %2 ], [ %.pre182, %28 ]
+  %.pre-phi177 = phi i64 [ %19, %2 ], [ %.pre176, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %1, align 8
@@ -2008,7 +2008,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNo
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %42 = icmp eq i64 %41, %.pre-phi183
+  %42 = icmp eq i64 %41, %.pre-phi177
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %34
@@ -2022,13 +2022,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNo
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %47, align 8
   %48 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str.16, ptr noundef null)
-  %.pre164 = load ptr, ptr %1, align 8
-  %.pre165 = load ptr, ptr %35, align 8
+  %.pre158 = load ptr, ptr %1, align 8
+  %.pre159 = load ptr, ptr %35, align 8
   br label %49
 
 49:                                               ; preds = %34, %43
-  %50 = phi ptr [ %36, %34 ], [ %.pre165, %43 ]
-  %51 = phi ptr [ %37, %34 ], [ %.pre164, %43 ]
+  %50 = phi ptr [ %36, %34 ], [ %.pre159, %43 ]
+  %51 = phi ptr [ %37, %34 ], [ %.pre158, %43 ]
   %.not5.i.i = icmp eq ptr %51, %50
   br i1 %.not5.i.i, label %_ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappingERKSt6vectorImSaImEEEN21_ConvertOldToNewIndexC2ES5_m.exit.thread, label %.lr.ph.i.i
 
@@ -2074,13 +2074,13 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %73, align 8
   %74 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.17, ptr noundef null)
-  %.pre166 = load ptr, ptr %35, align 8
-  %.pre167 = load ptr, ptr %1, align 8
+  %.pre160 = load ptr, ptr %35, align 8
+  %.pre161 = load ptr, ptr %1, align 8
   br label %75
 
 75:                                               ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit, %69
-  %76 = phi ptr [ %.pre167, %69 ], [ %51, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ]
-  %77 = phi ptr [ %.pre166, %69 ], [ %50, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ]
+  %76 = phi ptr [ %.pre161, %69 ], [ %51, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ]
+  %77 = phi ptr [ %.pre160, %69 ], [ %50, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ]
   %.0.lcssa.i.i141 = phi i64 [ 1, %69 ], [ %spec.select.i.i, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %78 = ptrtoint ptr %77 to i64
@@ -2186,11 +2186,11 @@ _ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappi
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %123 = load i16, ptr %122, align 8
   %.not89 = icmp eq i16 %123, -1
-  br i1 %.not89, label %._crit_edge168, label %124
+  br i1 %.not89, label %._crit_edge162, label %124
 
-._crit_edge168:                                   ; preds = %118
+._crit_edge162:                                   ; preds = %118
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %119, i64 34
-  %.pre169 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre163 = load i16, ptr %.phi.trans.insert, align 2
   br label %130
 
 124:                                              ; preds = %118
@@ -2200,27 +2200,27 @@ _ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappi
   %128 = load i16, ptr %127, align 2
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 34
   store i16 %128, ptr %129, align 2
-  %.pre171.pre = load ptr, ptr %96, align 8
+  %.pre165.pre = load ptr, ptr %96, align 8
   br label %130
 
-130:                                              ; preds = %._crit_edge168, %124
-  %.pre171 = phi ptr [ %120, %._crit_edge168 ], [ %.pre171.pre, %124 ]
-  %131 = phi i16 [ %.pre169, %._crit_edge168 ], [ %128, %124 ]
+130:                                              ; preds = %._crit_edge162, %124
+  %.pre165 = phi ptr [ %120, %._crit_edge162 ], [ %.pre165.pre, %124 ]
+  %131 = phi i16 [ %.pre163, %._crit_edge162 ], [ %128, %124 ]
   %132 = getelementptr inbounds nuw i8, ptr %119, i64 34
   %.not90 = icmp eq i16 %131, -1
   br i1 %.not90, label %138, label %133
 
 133:                                              ; preds = %130
   %134 = zext i16 %131 to i64
-  %135 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %.pre171, i64 %134
+  %135 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %.pre165, i64 %134
   %136 = load i16, ptr %122, align 8
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 32
   store i16 %136, ptr %137, align 8
-  %.pre170 = load ptr, ptr %96, align 8
+  %.pre164 = load ptr, ptr %96, align 8
   br label %138
 
 138:                                              ; preds = %133, %130
-  %139 = phi ptr [ %.pre170, %133 ], [ %.pre171, %130 ]
+  %139 = phi ptr [ %.pre164, %133 ], [ %.pre165, %130 ]
   %140 = load i16, ptr %121, align 8
   %141 = zext i16 %140 to i64
   %142 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %139, i64 %141
@@ -2550,16 +2550,16 @@ _ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappi
   br i1 %exitcond154.not, label %._crit_edge.loopexit, label %.lr.ph150, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappingERKSt6vectorImSaImEEENK21_ConvertOldToNewIndexclEm.exit112.thread
-  %.pre172 = load ptr, ptr %9, align 8
-  %.pre173 = load ptr, ptr %182, align 8
-  %.phi.trans.insert174 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.pre175 = load ptr, ptr %.phi.trans.insert174, align 8
+  %.pre166 = load ptr, ptr %9, align 8
+  %.pre167 = load ptr, ptr %182, align 8
+  %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.pre169 = load ptr, ptr %.phi.trans.insert168, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit
-  %298 = phi ptr [ %.pre175, %._crit_edge.loopexit ], [ %179, %.loopexit ]
-  %299 = phi ptr [ %.pre173, %._crit_edge.loopexit ], [ %180, %.loopexit ]
-  %300 = phi ptr [ %.pre172, %._crit_edge.loopexit ], [ %181, %.loopexit ]
+  %298 = phi ptr [ %.pre169, %._crit_edge.loopexit ], [ %179, %.loopexit ]
+  %299 = phi ptr [ %.pre167, %._crit_edge.loopexit ], [ %180, %.loopexit ]
+  %300 = phi ptr [ %.pre166, %._crit_edge.loopexit ], [ %181, %.loopexit ]
   %301 = load ptr, ptr %10, align 8
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 8

@@ -6538,8 +6538,8 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendB
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %5 = load i8, ptr %4, align 1, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not37.not = icmp eq i8 %5, 0
-  br i1 %.not37.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not33.not = icmp eq i8 %5, 0
+  br i1 %.not33.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i8 %5 to i64
@@ -6547,11 +6547,11 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %.02439 = phi ptr [ %0, %.lr.ph.preheader ], [ %11, %15 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.02439, i64 15
+  %.02435 = phi ptr [ %0, %.lr.ph.preheader ], [ %11, %15 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.02435, i64 15
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr i8, ptr %.02439, i64 8
+  %9 = getelementptr i8, ptr %.02435, i64 8
   %10 = getelementptr ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -6610,26 +6610,26 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendB
   %45 = load i64, ptr %0, align 8, !tbaa !7
   %46 = add i64 %45, %.sroa.speculated
   store i64 %46, ptr %0, align 8, !tbaa !7
-  br i1 %.not37.not, label %.thread, label %.lr.ph42.preheader
+  br i1 %.not33.not, label %.thread, label %.lr.ph38.preheader
 
-.lr.ph42.preheader:                               ; preds = %40
-  %wide.trip.count50 = zext i8 %5 to i64
-  br label %.lr.ph42
+.lr.ph38.preheader:                               ; preds = %40
+  %wide.trip.count46 = zext i8 %5 to i64
+  br label %.lr.ph38
 
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next48, %.lr.ph42 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv47
+.lr.ph38:                                         ; preds = %.lr.ph38.preheader, %.lr.ph38
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next44, %.lr.ph38 ]
+  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv43
   %48 = load ptr, ptr %47, align 8, !tbaa !14
   %49 = load i64, ptr %48, align 8, !tbaa !7
   %50 = add i64 %49, %.sroa.speculated
   store i64 %50, ptr %48, align 8, !tbaa !7
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.thread, label %.lr.ph42, !llvm.loop !98
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %.thread, label %.lr.ph38, !llvm.loop !98
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph42, %40, %30, %._crit_edge, %26
-  %.sroa.5.1 = phi i64 [ 0, %30 ], [ 0, %._crit_edge ], [ 0, %26 ], [ %.sroa.speculated, %40 ], [ %.sroa.speculated, %.lr.ph42 ], [ 0, %.lr.ph ]
-  %.sroa.0.1 = phi ptr [ null, %30 ], [ null, %._crit_edge ], [ null, %26 ], [ %43, %40 ], [ %43, %.lr.ph42 ], [ null, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph38, %40, %30, %._crit_edge, %26
+  %.sroa.5.1 = phi i64 [ 0, %30 ], [ 0, %._crit_edge ], [ 0, %26 ], [ %.sroa.speculated, %40 ], [ %.sroa.speculated, %.lr.ph38 ], [ 0, %.lr.ph ]
+  %.sroa.0.1 = phi ptr [ null, %30 ], [ null, %._crit_edge ], [ null, %26 ], [ %43, %40 ], [ %43, %.lr.ph38 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.1, 1

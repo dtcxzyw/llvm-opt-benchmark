@@ -2288,8 +2288,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -2309,7 +2309,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -2318,7 +2318,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -2420,8 +2420,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -2441,7 +2441,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -2450,7 +2450,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -2681,8 +2681,8 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %17 = icmp ne i64 %16, 6
   %18 = and i64 %.sroa.0.0.copyload.i.i, -8
   %19 = inttoptr i64 %18 to ptr
-  %.not27 = icmp eq i64 %18, 0
-  %.not = or i1 %17, %.not27
+  %.not25 = icmp eq i64 %18, 0
+  %.not = or i1 %17, %.not25
   br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %14
@@ -2700,7 +2700,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
 .critedge:                                        ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %26 = icmp ne i64 %16, 0
-  %.not.not.i10 = or i1 %26, %.not27
+  %.not.not.i10 = or i1 %26, %.not25
   br i1 %.not.not.i10, label %29, label %27
 
 27:                                               ; preds = %.critedge
@@ -2709,7 +2709,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
 
 29:                                               ; preds = %.critedge
   %30 = icmp ne i64 %16, 2
-  %.not7.not.i = or i1 %30, %.not27
+  %.not7.not.i = or i1 %30, %.not25
   br i1 %.not7.not.i, label %33, label %31
 
 31:                                               ; preds = %29
@@ -3025,8 +3025,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3046,7 +3046,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3055,7 +3055,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3157,8 +3157,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3178,7 +3178,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3187,7 +3187,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3289,8 +3289,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3310,7 +3310,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3319,7 +3319,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3421,8 +3421,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3442,7 +3442,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3451,7 +3451,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3671,8 +3671,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3692,7 +3692,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3701,7 +3701,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3803,8 +3803,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3824,7 +3824,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3833,7 +3833,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -3935,8 +3935,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   %38 = and i64 %.sroa.0.0.copyload.i.i, 6
   %39 = icmp ne i64 %38, 6
   %40 = and i64 %.sroa.0.0.copyload.i.i, -8
-  %.not26 = icmp eq i64 %40, 0
-  %.not = or i1 %39, %.not26
+  %.not24 = icmp eq i64 %40, 0
+  %.not = or i1 %39, %.not24
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %36
@@ -3956,7 +3956,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %48 = icmp ne i64 %38, 0
   %49 = inttoptr i64 %40 to ptr
-  %.not.not.i = or i1 %48, %.not26
+  %.not.not.i = or i1 %48, %.not24
   br i1 %.not.not.i, label %52, label %50
 
 50:                                               ; preds = %.critedge
@@ -3965,7 +3965,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_
 
 52:                                               ; preds = %.critedge
   %53 = icmp ne i64 %38, 2
-  %.not7.not.i = or i1 %53, %.not26
+  %.not7.not.i = or i1 %53, %.not24
   br i1 %.not7.not.i, label %56, label %54
 
 54:                                               ; preds = %52
@@ -6503,8 +6503,8 @@ _ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %_ZNSt12_Vector_base
   br i1 %29, label %.critedge43.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %24
-  %.not7477 = icmp eq ptr %.sroa.057.0, %.sroa.14.0
-  br i1 %.not7477, label %.critedge43, label %.lr.ph
+  %.not7275 = icmp eq ptr %.sroa.057.0, %.sroa.14.0
+  br i1 %.not7275, label %.critedge43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6516,8 +6516,8 @@ _ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %_ZNSt12_Vector_base
   br label %36
 
 36:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.054.078 = phi ptr [ %.sroa.057.0, %.lr.ph ], [ %74, %.critedge ]
-  %37 = load ptr, ptr %.sroa.054.078, align 8, !tbaa !807
+  %.sroa.054.076 = phi ptr [ %.sroa.057.0, %.lr.ph ], [ %74, %.critedge ]
+  %37 = load ptr, ptr %.sroa.054.076, align 8, !tbaa !807
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 127
@@ -6540,8 +6540,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44ca
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 2097152
-  %.not75 = icmp eq i32 %49, 0
-  br i1 %.not75, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %.critedge
+  %.not73 = icmp eq i32 %49, 0
+  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %.critedge
 
 _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread: ; preds = %44, %41, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
   %50 = load ptr, ptr %0, align 8, !tbaa !718
@@ -6599,13 +6599,13 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   br i1 %71, label %.critedge, label %.critedge45
 
 .critedge:                                        ; preds = %36, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.054.078, i64 8
-  %.not74 = icmp eq ptr %74, %.sroa.14.0
-  br i1 %.not74, label %.critedge43, label %36
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.054.076, i64 8
+  %.not72 = icmp eq ptr %74, %.sroa.14.0
+  br i1 %.not72, label %.critedge43, label %36
 
 .critedge43:                                      ; preds = %.critedge, %.thread
   %.not.i.i.i = icmp eq ptr %.sroa.057.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.critedge76
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.critedge74
 
 .critedge43.thread:                               ; preds = %24
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0, i64 noundef 8) #19
@@ -6613,11 +6613,11 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %76 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE25TraverseDeclContextHelperEPNS_11DeclContextE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %75)
   br i1 %76, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, label %.critedge47
 
-.critedge76:                                      ; preds = %.critedge43
+.critedge74:                                      ; preds = %.critedge43
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0, i64 noundef %23) #19
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %.critedge43, %.critedge76, %.critedge43.thread
+_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %.critedge43, %.critedge74, %.critedge43.thread
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 256
@@ -6643,21 +6643,21 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZNSt6vectorIPN5cla
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %83
   %90 = phi ptr [ %89, %83 ], [ null, %_ZNK5clang4Decl10attr_beginEv.exit.i ]
-  %.not4179 = icmp eq ptr %81, %90
-  br i1 %.not4179, label %.critedge47, label %.lr.ph81
+  %.not4177 = icmp eq ptr %81, %90
+  br i1 %.not4177, label %.critedge47, label %.lr.ph79
 
-.lr.ph81:                                         ; preds = %_ZNK5clang4Decl5attrsEv.exit, %.lr.ph81
-  %.03580 = phi ptr [ %94, %.lr.ph81 ], [ %81, %_ZNK5clang4Decl5attrsEv.exit ]
-  %91 = load ptr, ptr %.03580, align 8, !tbaa !840
+.lr.ph79:                                         ; preds = %_ZNK5clang4Decl5attrsEv.exit, %.lr.ph79
+  %.03578 = phi ptr [ %94, %.lr.ph79 ], [ %81, %_ZNK5clang4Decl5attrsEv.exit ]
+  %91 = load ptr, ptr %.03578, align 8, !tbaa !840
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %91, ptr %3, align 8, !tbaa !840
   %92 = load ptr, ptr %0, align 8, !tbaa !718
   %93 = call noundef zeroext i1 @_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_(ptr noundef nonnull align 8 dereferenceable(664) %0, ptr noundef %91, ptr noundef %91, ptr nonnull align 8 dereferenceable(664) %0, ptr nonnull %3, ptr noundef %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %94 = getelementptr inbounds nuw i8, ptr %.03580, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.03578, i64 8
   %.not41 = icmp ne ptr %94, %90
   %or.cond.not = select i1 %93, i1 %.not41, i1 false
-  br i1 %or.cond.not, label %.lr.ph81, label %.critedge47
+  br i1 %or.cond.not, label %.lr.ph79, label %.critedge47
 
 .critedge45:                                      ; preds = %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit
   %.not.i.i.i49 = icmp eq ptr %.sroa.057.0, null
@@ -6667,8 +6667,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.057.0, i64 noundef %23) #19
   br label %.critedge47
 
-.critedge47:                                      ; preds = %.lr.ph81, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %95, %.critedge45, %.critedge43.thread
-  %.0 = phi i1 [ false, %.critedge45 ], [ false, %.critedge43.thread ], [ false, %95 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ %93, %.lr.ph81 ]
+.critedge47:                                      ; preds = %.lr.ph79, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %95, %.critedge45, %.critedge43.thread
+  %.0 = phi i1 [ false, %.critedge45 ], [ false, %.critedge43.thread ], [ false, %95 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ %93, %.lr.ph79 ]
   ret i1 %.0
 }
 

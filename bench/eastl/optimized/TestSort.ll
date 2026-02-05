@@ -2158,10 +2158,10 @@ invoke.cont293:                                   ; preds = %if.then24.i.i.i894,
   %intArray.sroa.60.107415 = phi ptr [ %intArray.sroa.60.10, %call.i.i.i.i.i.noexc930 ], [ %intArray.sroa.60.10, %invoke.cont288 ], [ %intArray.sroa.0.12, %if.then24.i.i.i894 ]
   %intArray.sroa.139.107414 = phi ptr [ %intArray.sroa.139.10, %call.i.i.i.i.i.noexc930 ], [ %intArray.sroa.139.10, %invoke.cont288 ], [ %intArray.sroa.139.9, %if.then24.i.i.i894 ]
   %sub.ptr.rhs.cast.i.pre-phi7413 = phi i64 [ %sub.ptr.rhs.cast.i.pre-phi, %call.i.i.i.i.i.noexc930 ], [ %sub.ptr.rhs.cast.i.pre-phi, %invoke.cont288 ], [ %sub.ptr.rhs.cast.i.i852, %if.then24.i.i.i894 ]
-  %buffer.sroa.18.2 = phi i64 [ %84, %call.i.i.i.i.i.noexc930 ], [ 0, %invoke.cont288 ], [ 0, %if.then24.i.i.i894 ]
-  %buffer.sroa.0.3 = phi ptr [ %call.i.i.i.i.i931, %call.i.i.i.i.i.noexc930 ], [ null, %invoke.cont288 ], [ null, %if.then24.i.i.i894 ]
-  %add.ptr.i929 = getelementptr inbounds i8, ptr %buffer.sroa.0.3, i64 %sub.ptr.sub.i7417
-  %call.i.i.i939 = invoke noundef i32 @_ZN5eastl11MergeSorterIPllNS_4lessIlEElLi16EE9sort_implES1_S1_S1_lS3_(ptr noundef %intArray.sroa.0.137416, ptr noundef %intArray.sroa.60.107415, ptr noundef %buffer.sroa.0.3, i64 noundef 0)
+  %buffer.sroa.18.0 = phi i64 [ %84, %call.i.i.i.i.i.noexc930 ], [ 0, %invoke.cont288 ], [ 0, %if.then24.i.i.i894 ]
+  %buffer.sroa.0.1 = phi ptr [ %call.i.i.i.i.i931, %call.i.i.i.i.i.noexc930 ], [ null, %invoke.cont288 ], [ null, %if.then24.i.i.i894 ]
+  %add.ptr.i929 = getelementptr inbounds i8, ptr %buffer.sroa.0.1, i64 %sub.ptr.sub.i7417
+  %call.i.i.i939 = invoke noundef i32 @_ZN5eastl11MergeSorterIPllNS_4lessIlEElLi16EE9sort_implES1_S1_S1_lS3_(ptr noundef %intArray.sroa.0.137416, ptr noundef %intArray.sroa.60.107415, ptr noundef %buffer.sroa.0.1, i64 noundef 0)
           to label %call.i.i.i.noexc unwind label %lpad297
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont293
@@ -2170,7 +2170,7 @@ call.i.i.i.noexc:                                 ; preds = %invoke.cont293
   br i1 %or.cond.i.i.i, label %invoke.cont298, label %if.end.i.i.i.i.i.i.i935
 
 if.end.i.i.i.i.i.i.i935:                          ; preds = %call.i.i.i.noexc
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %intArray.sroa.0.137416, ptr align 8 %buffer.sroa.0.3, i64 %sub.ptr.sub.i7417, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %intArray.sroa.0.137416, ptr align 8 %buffer.sroa.0.1, i64 %sub.ptr.sub.i7417, i1 false)
   br label %invoke.cont298
 
 invoke.cont298:                                   ; preds = %if.end.i.i.i.i.i.i.i935, %call.i.i.i.noexc
@@ -2510,7 +2510,7 @@ invoke.cont334:                                   ; preds = %_ZN5eastl10VectorBa
 if.then.i1101:                                    ; preds = %invoke.cont334
   %sub.ptr.lhs.cast.i1095 = ptrtoint ptr %add.ptr.i929 to i64
   %sub.i = sub nuw nsw i64 %div135, %sub.ptr.div.i1098
-  %sub.ptr.sub.i.i1104 = sub i64 %buffer.sroa.18.2, %sub.ptr.lhs.cast.i1095
+  %sub.ptr.sub.i.i1104 = sub i64 %buffer.sroa.18.0, %sub.ptr.lhs.cast.i1095
   %sub.ptr.div.i.i1105 = ashr exact i64 %sub.ptr.sub.i.i1104, 3
   %cmp.i.i1106 = icmp ugt i64 %sub.i, %sub.ptr.div.i.i1105
   br i1 %cmp.i.i1106, label %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i1108, label %for.body.preheader.i18.i.i
@@ -2527,7 +2527,7 @@ call.i.i.i.i.i.noexc1119:                         ; preds = %_ZN5eastl10VectorBa
   br i1 %tobool.not.i.i.i9267418, label %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i, label %if.end.i.i.i.i.i.i.i.i.i1113
 
 if.end.i.i.i.i.i.i.i.i.i1113:                     ; preds = %call.i.i.i.i.i.noexc1119
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i.i.i.i1120, ptr align 8 %buffer.sroa.0.3, i64 %sub.ptr.sub.i7417, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i.i.i.i1120, ptr align 8 %buffer.sroa.0.1, i64 %sub.ptr.sub.i7417, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i1115 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1120, i64 %sub.ptr.sub.i7417
   br label %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i
 
@@ -2535,11 +2535,11 @@ _ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i: ; preds = %if
   %retval.0.i.i.i.i.i.i.i.i.i1116 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i1115, %if.end.i.i.i.i.i.i.i.i.i1113 ], [ %call.i.i.i.i.i1120, %call.i.i.i.i.i.noexc1119 ]
   %100 = shl nuw i64 %sub.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i.i.i.i.i.i1116, i8 0, i64 %100, i1 false)
-  %tobool.not.i15.i.i = icmp eq ptr %buffer.sroa.0.3, null
+  %tobool.not.i15.i.i = icmp eq ptr %buffer.sroa.0.1, null
   br i1 %tobool.not.i15.i.i, label %invoke.cont337, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118: ; preds = %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i
-  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.3) #12
+  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.1) #12
   br label %invoke.cont337
 
 for.body.preheader.i18.i.i:                       ; preds = %if.then.i1101
@@ -2547,9 +2547,9 @@ for.body.preheader.i18.i.i:                       ; preds = %if.then.i1101
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i929, i8 0, i64 %101, i1 false)
   br label %invoke.cont337
 
-invoke.cont337:                                   ; preds = %invoke.cont334, %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118, %for.body.preheader.i18.i.i
-  %buffer.sroa.0.4 = phi ptr [ %call.i.i.i.i.i1120, %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i ], [ %buffer.sroa.0.3, %for.body.preheader.i18.i.i ], [ %call.i.i.i.i.i1120, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118 ], [ %buffer.sroa.0.3, %invoke.cont334 ]
-  invoke void @_ZN5eastl15tim_sort_bufferIPllNS_4lessIlEEEEvT_S4_PT0_T1_(ptr noundef %intArray.sroa.0.15, ptr noundef %intArray.sroa.60.12, ptr noundef %buffer.sroa.0.4)
+invoke.cont337:                                   ; preds = %for.body.preheader.i18.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118, %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i, %invoke.cont334
+  %buffer.sroa.0.2 = phi ptr [ %call.i.i.i.i.i1120, %_ZN5eastl31uninitialized_value_construct_nIPlmEET_S2_T0_.exit.i.i ], [ %buffer.sroa.0.1, %for.body.preheader.i18.i.i ], [ %call.i.i.i.i.i1120, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1118 ], [ %buffer.sroa.0.1, %invoke.cont334 ]
+  invoke void @_ZN5eastl15tim_sort_bufferIPllNS_4lessIlEEEEvT_S4_PT0_T1_(ptr noundef %intArray.sroa.0.15, ptr noundef %intArray.sroa.60.12, ptr noundef %buffer.sroa.0.2)
           to label %invoke.cont341 unwind label %lpad297
 
 invoke.cont341:                                   ; preds = %invoke.cont337
@@ -2592,11 +2592,11 @@ _ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142:  ; preds = %for.body.i1135, %in
           to label %invoke.cont355 unwind label %lpad297
 
 invoke.cont355:                                   ; preds = %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142
-  %tobool.not.i.i1143 = icmp eq ptr %buffer.sroa.0.4, null
+  %tobool.not.i.i1143 = icmp eq ptr %buffer.sroa.0.2, null
   br i1 %tobool.not.i.i1143, label %_ZN5eastl6vectorIlNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %invoke.cont355
-  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.4) #12
+  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.2) #12
   br label %_ZN5eastl6vectorIlNS_9allocatorEED2Ev.exit
 
 _ZN5eastl6vectorIlNS_9allocatorEED2Ev.exit:       ; preds = %invoke.cont355, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -2608,15 +2608,15 @@ _ZN5eastl6vectorIlNS_9allocatorEED2Ev.exit:       ; preds = %invoke.cont355, %_Z
   br i1 %cmp121, label %for.body122, label %for.inc360, !llvm.loop !36
 
 lpad297:                                          ; preds = %invoke.cont337, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i1108, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i1077, %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i994, %invoke.cont293, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142, %invoke.cont344, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1042, %invoke.cont321, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit959, %invoke.cont301
-  %buffer.sroa.0.2 = phi ptr [ %buffer.sroa.0.4, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142 ], [ %buffer.sroa.0.4, %invoke.cont344 ], [ %buffer.sroa.0.4, %invoke.cont337 ], [ %buffer.sroa.0.3, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i1108 ], [ %buffer.sroa.0.3, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i1077 ], [ %buffer.sroa.0.3, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1042 ], [ %buffer.sroa.0.3, %invoke.cont321 ], [ %buffer.sroa.0.3, %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i ], [ %buffer.sroa.0.3, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i994 ], [ %buffer.sroa.0.3, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit959 ], [ %buffer.sroa.0.3, %invoke.cont301 ], [ %buffer.sroa.0.3, %invoke.cont293 ]
+  %buffer.sroa.0.0 = phi ptr [ %buffer.sroa.0.2, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142 ], [ %buffer.sroa.0.2, %invoke.cont344 ], [ %buffer.sroa.0.2, %invoke.cont337 ], [ %buffer.sroa.0.1, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i1108 ], [ %buffer.sroa.0.1, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i1077 ], [ %buffer.sroa.0.1, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1042 ], [ %buffer.sroa.0.1, %invoke.cont321 ], [ %buffer.sroa.0.1, %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i ], [ %buffer.sroa.0.1, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i994 ], [ %buffer.sroa.0.1, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit959 ], [ %buffer.sroa.0.1, %invoke.cont301 ], [ %buffer.sroa.0.1, %invoke.cont293 ]
   %intArray.sroa.0.4 = phi ptr [ %intArray.sroa.0.15, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1142 ], [ %intArray.sroa.0.15, %invoke.cont344 ], [ %intArray.sroa.0.15, %invoke.cont337 ], [ %intArray.sroa.0.15, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i1108 ], [ %intArray.sroa.0.1466586665, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i1077 ], [ %intArray.sroa.0.1466586665, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit1042 ], [ %intArray.sroa.0.1466586665, %invoke.cont321 ], [ %intArray.sroa.0.14, %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i ], [ %intArray.sroa.0.137416, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i994 ], [ %intArray.sroa.0.137416, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit959 ], [ %intArray.sroa.0.137416, %invoke.cont301 ], [ %intArray.sroa.0.137416, %invoke.cont293 ]
   %107 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i1144 = icmp eq ptr %buffer.sroa.0.2, null
+  %tobool.not.i.i1144 = icmp eq ptr %buffer.sroa.0.0, null
   br i1 %tobool.not.i.i1144, label %ehcleanup, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1145
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i1145: ; preds = %lpad297
-  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.2) #12
+  call void @_ZdaPv(ptr noundef nonnull %buffer.sroa.0.0) #12
   br label %ehcleanup
 
 for.inc360:                                       ; preds = %_ZN5eastl6vectorIlNS_9allocatorEED2Ev.exit, %_ZN5eastl10accumulateIPllEET0_T_S3_S2_.exit
@@ -5821,7 +5821,7 @@ lpad630.thread:                                   ; preds = %_ZN5eastl10VectorBa
   br label %ehcleanup741
 
 _ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit: ; preds = %invoke.cont628, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
-  %tempBuffer.sroa.0.2 = phi ptr [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904 ], [ null, %invoke.cont628 ]
+  %tempBuffer.sroa.0.1 = phi ptr [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904 ], [ null, %invoke.cont628 ]
   %522 = load i32, ptr @gEASTL_TestLevel, align 4
   %cmp6366981 = icmp sgt i32 %522, -6
   br i1 %cmp6366981, label %for.body637.lr.ph, label %for.end734
@@ -5885,11 +5885,11 @@ lpad630:                                          ; preds = %_ZN5eastl10VectorBa
   %toArray591.sroa.0.2 = phi ptr [ %toArray591.sroa.0.9, %invoke.cont728 ], [ %toArray591.sroa.0.8, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2361 ], [ %toArray591.sroa.0.8, %invoke.cont714 ], [ %toArray591.sroa.0.8, %if.then.i2302 ], [ %toArray591.sroa.0.8, %invoke.cont703 ], [ %toArray591.sroa.0.767396752, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2283 ], [ %toArray591.sroa.0.767396752, %invoke.cont699 ], [ %toArray591.sroa.0.667196726, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2191 ], [ %toArray591.sroa.0.667196726, %invoke.cont685 ], [ %toArray591.sroa.0.567006707, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2121 ], [ %toArray591.sroa.0.567006707, %invoke.cont672 ], [ %toArray591.sroa.0.466816688, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i2050 ], [ %toArray591.sroa.0.466816688, %invoke.cont659 ], [ %toArray591.sroa.0.36984, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i ]
   %525 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i1948 = icmp eq ptr %tempBuffer.sroa.0.2, null
+  %tobool.not.i.i1948 = icmp eq ptr %tempBuffer.sroa.0.1, null
   br i1 %tobool.not.i.i1948, label %ehcleanup741, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1949
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i1949: ; preds = %lpad630
-  call void @_ZdaPv(ptr noundef nonnull %tempBuffer.sroa.0.2) #12
+  call void @_ZdaPv(ptr noundef nonnull %tempBuffer.sroa.0.1) #12
   br label %ehcleanup741
 
 for.end649:                                       ; preds = %for.body644, %_ZN5eastl14random_shuffleIPZ8TestSortvE17StableSortTestObjR14EASTLTest_RandEEvT_S5_OT0_.exit
@@ -6717,7 +6717,7 @@ if.then.i6047:                                    ; preds = %while.body.i5240.pr
 if.end.i.i.i.i.i6049:                             ; preds = %if.then.i6047
   %add.ptr7.idx.i6050 = shl nsw i64 %534, 4
   %add.ptr.i6051 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %535
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i6051, i64 %add.ptr7.idx.i6050, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i6051, i64 %add.ptr7.idx.i6050, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6052
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6052: ; preds = %if.end.i.i.i.i.i6049, %if.then.i6047
@@ -6737,7 +6737,7 @@ for.body.i6057:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i6077:                                  ; preds = %for.body.i6057
   %add.ptr16.i6078 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i6059
-  %add.ptr17.i6079 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i6060
+  %add.ptr17.i6079 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i6060
   %add.ptr16.val.i6080 = load i32, ptr %add.ptr16.i6078, align 8
   %add.ptr17.val.i6081 = load i32, ptr %add.ptr17.i6079, align 8
   %cmp.i.i6082 = icmp slt i32 %add.ptr16.val.i6080, %add.ptr17.val.i6081
@@ -6760,7 +6760,7 @@ if.else25.i6064:                                  ; preds = %for.body.i6057
 
 if.then27.i6074:                                  ; preds = %if.else25.i6064
   %inc28.i6075 = add nsw i64 %i.097.i6060, 1
-  %add.ptr29.i6076 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i6060
+  %add.ptr29.i6076 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i6060
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i6065, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i6076, i64 16, i1 false)
   br label %for.inc.i6069
 
@@ -6785,7 +6785,7 @@ if.end.i.i.i.i84.i6005:                           ; preds = %if.else38.i6003
   %add.ptr43.idx.i6006 = shl nsw i64 %533, 4
   %add.ptr39.i6007 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %535
   %add.ptr40.i6008 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i6007, i64 %534
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i6008, i64 %add.ptr43.idx.i6006, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i6008, i64 %add.ptr43.idx.i6006, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i6009
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i6009: ; preds = %if.end.i.i.i.i84.i6005, %if.else38.i6003
@@ -6810,7 +6810,7 @@ for.body56.i6016:                                 ; preds = %for.inc84.i6033, %f
   br i1 %or.cond82.i6023, label %if.else72.i6039, label %if.then60.i6024
 
 if.then60.i6024:                                  ; preds = %for.body56.i6016
-  %add.ptr61.i6025 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i6019
+  %add.ptr61.i6025 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i6019
   %add.ptr62.i6026 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i6018
   %add.ptr61.val.i6027 = load i32, ptr %add.ptr61.i6025, align 8
   %add.ptr62.val.i6028 = load i32, ptr %add.ptr62.i6026, align 8
@@ -6834,7 +6834,7 @@ if.else72.i6039:                                  ; preds = %for.body56.i6016
 
 if.then74.i6041:                                  ; preds = %if.else72.i6039
   %dec75.i6042 = add nsw i64 %i45.093.i6019, -1
-  %add.ptr76.i6043 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i6019
+  %add.ptr76.i6043 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i6019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i6040, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i6043, i64 16, i1 false)
   br label %for.inc84.i6033
 
@@ -7011,7 +7011,7 @@ if.then.i5957:                                    ; preds = %while.body.i5140
 if.end.i.i.i.i.i5959:                             ; preds = %if.then.i5957
   %add.ptr7.idx.i5960 = shl nsw i64 %539, 4
   %add.ptr.i5961 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %541
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i5961, i64 %add.ptr7.idx.i5960, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i5961, i64 %add.ptr7.idx.i5960, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5962
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5962: ; preds = %if.end.i.i.i.i.i5959, %if.then.i5957
@@ -7031,7 +7031,7 @@ for.body.i5967:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i5987:                                  ; preds = %for.body.i5967
   %add.ptr16.i5988 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i5969
-  %add.ptr17.i5989 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5970
+  %add.ptr17.i5989 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5970
   %add.ptr16.val.i5990 = load i32, ptr %add.ptr16.i5988, align 8
   %add.ptr17.val.i5991 = load i32, ptr %add.ptr17.i5989, align 8
   %cmp.i.i5992 = icmp slt i32 %add.ptr16.val.i5990, %add.ptr17.val.i5991
@@ -7054,7 +7054,7 @@ if.else25.i5974:                                  ; preds = %for.body.i5967
 
 if.then27.i5984:                                  ; preds = %if.else25.i5974
   %inc28.i5985 = add nsw i64 %i.097.i5970, 1
-  %add.ptr29.i5986 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5970
+  %add.ptr29.i5986 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5970
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i5975, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i5986, i64 16, i1 false)
   br label %for.inc.i5979
 
@@ -7079,7 +7079,7 @@ if.end.i.i.i.i84.i5915:                           ; preds = %if.else38.i5913
   %add.ptr43.idx.i5916 = shl nsw i64 %540, 4
   %add.ptr39.i5917 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %541
   %add.ptr40.i5918 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i5917, i64 %539
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i5918, i64 %add.ptr43.idx.i5916, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i5918, i64 %add.ptr43.idx.i5916, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5919
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5919: ; preds = %if.end.i.i.i.i84.i5915, %if.else38.i5913
@@ -7104,7 +7104,7 @@ for.body56.i5926:                                 ; preds = %for.inc84.i5943, %f
   br i1 %or.cond82.i5933, label %if.else72.i5949, label %if.then60.i5934
 
 if.then60.i5934:                                  ; preds = %for.body56.i5926
-  %add.ptr61.i5935 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5929
+  %add.ptr61.i5935 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5929
   %add.ptr62.i5936 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i5928
   %add.ptr61.val.i5937 = load i32, ptr %add.ptr61.i5935, align 8
   %add.ptr62.val.i5938 = load i32, ptr %add.ptr62.i5936, align 8
@@ -7128,7 +7128,7 @@ if.else72.i5949:                                  ; preds = %for.body56.i5926
 
 if.then74.i5951:                                  ; preds = %if.else72.i5949
   %dec75.i5952 = add nsw i64 %i45.093.i5929, -1
-  %add.ptr76.i5953 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5929
+  %add.ptr76.i5953 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5929
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i5950, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i5953, i64 16, i1 false)
   br label %for.inc84.i5943
 
@@ -7232,7 +7232,7 @@ if.then.i5079:                                    ; preds = %if.then42.i.i
 if.end.i.i.i.i.i5081:                             ; preds = %if.then.i5079
   %add.ptr7.idx.i5082 = shl nsw i64 %553, 4
   %add.ptr.i5083 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %556
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i5083, i64 %add.ptr7.idx.i5082, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i5083, i64 %add.ptr7.idx.i5082, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5084
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5084: ; preds = %if.end.i.i.i.i.i5081, %if.then.i5079
@@ -7252,7 +7252,7 @@ for.body.i5089:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i5109:                                  ; preds = %for.body.i5089
   %add.ptr16.i5110 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i5091
-  %add.ptr17.i5111 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5092
+  %add.ptr17.i5111 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5092
   %add.ptr16.val.i5112 = load i32, ptr %add.ptr16.i5110, align 8
   %add.ptr17.val.i5113 = load i32, ptr %add.ptr17.i5111, align 8
   %cmp.i.i5114 = icmp slt i32 %add.ptr16.val.i5112, %add.ptr17.val.i5113
@@ -7275,7 +7275,7 @@ if.else25.i5096:                                  ; preds = %for.body.i5089
 
 if.then27.i5106:                                  ; preds = %if.else25.i5096
   %inc28.i5107 = add nsw i64 %i.097.i5092, 1
-  %add.ptr29.i5108 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5092
+  %add.ptr29.i5108 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5092
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i5097, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i5108, i64 16, i1 false)
   br label %for.inc.i5101
 
@@ -7300,7 +7300,7 @@ if.end.i.i.i.i84.i5037:                           ; preds = %if.else38.i5035
   %add.ptr43.idx.i5038 = shl nsw i64 %554, 4
   %add.ptr39.i5039 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %556
   %add.ptr40.i5040 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i5039, i64 %553
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i5040, i64 %add.ptr43.idx.i5038, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i5040, i64 %add.ptr43.idx.i5038, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5041
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5041: ; preds = %if.end.i.i.i.i84.i5037, %if.else38.i5035
@@ -7325,7 +7325,7 @@ for.body56.i5048:                                 ; preds = %for.inc84.i5065, %f
   br i1 %or.cond82.i5055, label %if.else72.i5071, label %if.then60.i5056
 
 if.then60.i5056:                                  ; preds = %for.body56.i5048
-  %add.ptr61.i5057 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5051
+  %add.ptr61.i5057 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5051
   %add.ptr62.i5058 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i5050
   %add.ptr61.val.i5059 = load i32, ptr %add.ptr61.i5057, align 8
   %add.ptr62.val.i5060 = load i32, ptr %add.ptr62.i5058, align 8
@@ -7349,7 +7349,7 @@ if.else72.i5071:                                  ; preds = %for.body56.i5048
 
 if.then74.i5073:                                  ; preds = %if.else72.i5071
   %dec75.i5074 = add nsw i64 %i45.093.i5051, -1
-  %add.ptr76.i5075 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5051
+  %add.ptr76.i5075 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5051
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i5072, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i5075, i64 16, i1 false)
   br label %for.inc84.i5065
 
@@ -7385,7 +7385,7 @@ if.then.i4989:                                    ; preds = %if.else56.i.i
 if.end.i.i.i.i.i4991:                             ; preds = %if.then.i4989
   %add.ptr7.idx.i4992 = shl nsw i64 %554, 4
   %add.ptr.i4993 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %557
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i4993, i64 %add.ptr7.idx.i4992, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i4993, i64 %add.ptr7.idx.i4992, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i4994
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i4994: ; preds = %if.end.i.i.i.i.i4991, %if.then.i4989
@@ -7404,7 +7404,7 @@ for.body.i4999:                                   ; preds = %for.inc.i5011, %_ZN
 
 if.then15.i5019:                                  ; preds = %for.body.i4999
   %add.ptr16.i5020 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i5001
-  %add.ptr17.i5021 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5002
+  %add.ptr17.i5021 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5002
   %add.ptr16.val.i5022 = load i32, ptr %add.ptr16.i5020, align 8
   %add.ptr17.val.i5023 = load i32, ptr %add.ptr17.i5021, align 8
   %cmp.i.i5024 = icmp slt i32 %add.ptr16.val.i5022, %add.ptr17.val.i5023
@@ -7427,7 +7427,7 @@ if.else25.i5006:                                  ; preds = %for.body.i4999
 
 if.then27.i5016:                                  ; preds = %if.else25.i5006
   %inc28.i5017 = add nsw i64 %i.097.i5002, 1
-  %add.ptr29.i5018 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5002
+  %add.ptr29.i5018 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5002
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i5007, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i5018, i64 16, i1 false)
   br label %for.inc.i5011
 
@@ -7452,7 +7452,7 @@ if.end.i.i.i.i84.i4947:                           ; preds = %if.else38.i4945
   %add.ptr43.idx.i4948 = shl nsw i64 %555, 4
   %add.ptr39.i4949 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %557
   %add.ptr40.i4950 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i4949, i64 %554
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i4950, i64 %add.ptr43.idx.i4948, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i4950, i64 %add.ptr43.idx.i4948, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i4951
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i4951: ; preds = %if.end.i.i.i.i84.i4947, %if.else38.i4945
@@ -7477,7 +7477,7 @@ for.body56.i4958:                                 ; preds = %for.inc84.i4975, %f
   br i1 %or.cond82.i4965, label %if.else72.i4981, label %if.then60.i4966
 
 if.then60.i4966:                                  ; preds = %for.body56.i4958
-  %add.ptr61.i4967 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i4961
+  %add.ptr61.i4967 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i4961
   %add.ptr62.i4968 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i4960
   %add.ptr61.val.i4969 = load i32, ptr %add.ptr61.i4967, align 8
   %add.ptr62.val.i4970 = load i32, ptr %add.ptr62.i4968, align 8
@@ -7501,7 +7501,7 @@ if.else72.i4981:                                  ; preds = %for.body56.i4958
 
 if.then74.i4983:                                  ; preds = %if.else72.i4981
   %dec75.i4984 = add nsw i64 %i45.093.i4961, -1
-  %add.ptr76.i4985 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i4961
+  %add.ptr76.i4985 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i4961
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i4982, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i4985, i64 16, i1 false)
   br label %for.inc84.i4975
 
@@ -7538,7 +7538,7 @@ if.then.i4899:                                    ; preds = %if.then68.i.i
 if.end.i.i.i.i.i4901:                             ; preds = %if.then.i4899
   %add.ptr7.idx.i4902 = shl nsw i64 %554, 4
   %add.ptr.i4903 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %558
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i4903, i64 %add.ptr7.idx.i4902, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i4903, i64 %add.ptr7.idx.i4902, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i4904
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i4904: ; preds = %if.end.i.i.i.i.i4901, %if.then.i4899
@@ -7558,7 +7558,7 @@ for.body.i4909:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i4929:                                  ; preds = %for.body.i4909
   %add.ptr16.i4930 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i4911
-  %add.ptr17.i4931 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i4912
+  %add.ptr17.i4931 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i4912
   %add.ptr16.val.i4932 = load i32, ptr %add.ptr16.i4930, align 8
   %add.ptr17.val.i4933 = load i32, ptr %add.ptr17.i4931, align 8
   %cmp.i.i4934 = icmp slt i32 %add.ptr16.val.i4932, %add.ptr17.val.i4933
@@ -7581,7 +7581,7 @@ if.else25.i4916:                                  ; preds = %for.body.i4909
 
 if.then27.i4926:                                  ; preds = %if.else25.i4916
   %inc28.i4927 = add nsw i64 %i.097.i4912, 1
-  %add.ptr29.i4928 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i4912
+  %add.ptr29.i4928 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i4912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i4917, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i4928, i64 16, i1 false)
   br label %for.inc.i4921
 
@@ -7606,7 +7606,7 @@ if.end.i.i.i.i84.i4857:                           ; preds = %if.else38.i4855
   %add.ptr43.idx.i4858 = shl nsw i64 %555, 4
   %add.ptr39.i4859 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %558
   %add.ptr40.i4860 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i4859, i64 %554
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i4860, i64 %add.ptr43.idx.i4858, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i4860, i64 %add.ptr43.idx.i4858, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i4861
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i4861: ; preds = %if.end.i.i.i.i84.i4857, %if.else38.i4855
@@ -7631,7 +7631,7 @@ for.body56.i4868:                                 ; preds = %for.inc84.i4885, %f
   br i1 %or.cond82.i4875, label %if.else72.i4891, label %if.then60.i4876
 
 if.then60.i4876:                                  ; preds = %for.body56.i4868
-  %add.ptr61.i4877 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i4871
+  %add.ptr61.i4877 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i4871
   %add.ptr62.i4878 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i4870
   %add.ptr61.val.i4879 = load i32, ptr %add.ptr61.i4877, align 8
   %add.ptr62.val.i4880 = load i32, ptr %add.ptr62.i4878, align 8
@@ -7655,7 +7655,7 @@ if.else72.i4891:                                  ; preds = %for.body56.i4868
 
 if.then74.i4893:                                  ; preds = %if.else72.i4891
   %dec75.i4894 = add nsw i64 %i45.093.i4871, -1
-  %add.ptr76.i4895 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i4871
+  %add.ptr76.i4895 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i4871
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i4892, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i4895, i64 16, i1 false)
   br label %for.inc84.i4885
 
@@ -7691,7 +7691,7 @@ if.then.i4836:                                    ; preds = %while.end.sink.spli
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i4836
   %add.ptr7.idx.i = shl nsw i64 %551, 4
   %add.ptr.i4838 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %559
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i4838, i64 %add.ptr7.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i4838, i64 %add.ptr7.idx.i, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i: ; preds = %if.end.i.i.i.i.i, %if.then.i4836
@@ -7711,7 +7711,7 @@ for.body.i4841:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i:                                      ; preds = %for.body.i4841
   %add.ptr16.i4846 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i
-  %add.ptr17.i = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i
+  %add.ptr17.i = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i
   %add.ptr16.val.i = load i32, ptr %add.ptr16.i4846, align 8
   %add.ptr17.val.i = load i32, ptr %add.ptr17.i, align 8
   %cmp.i.i4847 = icmp slt i32 %add.ptr16.val.i, %add.ptr17.val.i
@@ -7734,7 +7734,7 @@ if.else25.i:                                      ; preds = %for.body.i4841
 
 if.then27.i:                                      ; preds = %if.else25.i
   %inc28.i = add nsw i64 %i.097.i, 1
-  %add.ptr29.i = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i
+  %add.ptr29.i = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i, i64 16, i1 false)
   br label %for.inc.i4844
 
@@ -7759,7 +7759,7 @@ if.end.i.i.i.i84.i:                               ; preds = %if.else38.i
   %add.ptr43.idx.i = shl nsw i64 %550, 4
   %add.ptr39.i = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %559
   %add.ptr40.i = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i, i64 %551
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i, i64 %add.ptr43.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i, i64 %add.ptr43.idx.i, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i: ; preds = %if.end.i.i.i.i84.i, %if.else38.i
@@ -7784,7 +7784,7 @@ for.body56.i:                                     ; preds = %for.inc84.i, %for.b
   br i1 %or.cond82.i, label %if.else72.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %for.body56.i
-  %add.ptr61.i4833 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i
+  %add.ptr61.i4833 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i
   %add.ptr62.i4834 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i
   %add.ptr61.val.i = load i32, ptr %add.ptr61.i4833, align 8
   %add.ptr62.val.i = load i32, ptr %add.ptr62.i4834, align 8
@@ -7808,7 +7808,7 @@ if.else72.i:                                      ; preds = %for.body56.i
 
 if.then74.i:                                      ; preds = %if.else72.i
   %dec75.i = add nsw i64 %i45.093.i, -1
-  %add.ptr76.i = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i
+  %add.ptr76.i = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i, i64 16, i1 false)
   br label %for.inc84.i
 
@@ -7987,7 +7987,7 @@ if.then.i5867:                                    ; preds = %while.body.i4793
 if.end.i.i.i.i.i5869:                             ; preds = %if.then.i5867
   %add.ptr7.idx.i5870 = shl nsw i64 %561, 4
   %add.ptr.i5871 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %563
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr.i5871, i64 %add.ptr7.idx.i5870, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr.i5871, i64 %add.ptr7.idx.i5870, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5872
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i5872: ; preds = %if.end.i.i.i.i.i5869, %if.then.i5867
@@ -8007,7 +8007,7 @@ for.body.i5877:                                   ; preds = %_ZN5eastl4copyIPZ8T
 
 if.then15.i5897:                                  ; preds = %for.body.i5877
   %add.ptr16.i5898 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j.098.i5879
-  %add.ptr17.i5899 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5880
+  %add.ptr17.i5899 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5880
   %add.ptr16.val.i5900 = load i32, ptr %add.ptr16.i5898, align 8
   %add.ptr17.val.i5901 = load i32, ptr %add.ptr17.i5899, align 8
   %cmp.i.i5902 = icmp slt i32 %add.ptr16.val.i5900, %add.ptr17.val.i5901
@@ -8030,7 +8030,7 @@ if.else25.i5884:                                  ; preds = %for.body.i5877
 
 if.then27.i5894:                                  ; preds = %if.else25.i5884
   %inc28.i5895 = add nsw i64 %i.097.i5880, 1
-  %add.ptr29.i5896 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i.097.i5880
+  %add.ptr29.i5896 = getelementptr inbounds %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i.097.i5880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr30.i5885, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr29.i5896, i64 16, i1 false)
   br label %for.inc.i5889
 
@@ -8055,7 +8055,7 @@ if.end.i.i.i.i84.i5825:                           ; preds = %if.else38.i5823
   %add.ptr43.idx.i5826 = shl nsw i64 %562, 4
   %add.ptr39.i5827 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %563
   %add.ptr40.i5828 = getelementptr inbounds %struct.StableSortTestObj, ptr %add.ptr39.i5827, i64 %561
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.2, ptr nonnull align 8 %add.ptr40.i5828, i64 %add.ptr43.idx.i5826, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %tempBuffer.sroa.0.1, ptr nonnull align 8 %add.ptr40.i5828, i64 %add.ptr43.idx.i5826, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5829
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5829: ; preds = %if.end.i.i.i.i84.i5825, %if.else38.i5823
@@ -8080,7 +8080,7 @@ for.body56.i5836:                                 ; preds = %for.inc84.i5853, %f
   br i1 %or.cond82.i5843, label %if.else72.i5859, label %if.then60.i5844
 
 if.then60.i5844:                                  ; preds = %for.body56.i5836
-  %add.ptr61.i5845 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5839
+  %add.ptr61.i5845 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5839
   %add.ptr62.i5846 = getelementptr inbounds %struct.StableSortTestObj, ptr %toArray591.sroa.0.7, i64 %j47.094.i5838
   %add.ptr61.val.i5847 = load i32, ptr %add.ptr61.i5845, align 8
   %add.ptr62.val.i5848 = load i32, ptr %add.ptr62.i5846, align 8
@@ -8104,7 +8104,7 @@ if.else72.i5859:                                  ; preds = %for.body56.i5836
 
 if.then74.i5861:                                  ; preds = %if.else72.i5859
   %dec75.i5862 = add nsw i64 %i45.093.i5839, -1
-  %add.ptr76.i5863 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.2, i64 %i45.093.i5839
+  %add.ptr76.i5863 = getelementptr inbounds nuw %struct.StableSortTestObj, ptr %tempBuffer.sroa.0.1, i64 %i45.093.i5839
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr81.i5860, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr76.i5863, i64 16, i1 false)
   br label %for.inc84.i5853
 
@@ -8369,7 +8369,7 @@ invoke.cont718:                                   ; preds = %_ZN5eastl10VectorBa
   %toArray591.sroa.75.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %toArray591.sroa.75.6, %if.then24.i.i.i2342 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.75.6, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.75.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
   %toArray591.sroa.33.7 = phi ptr [ %add.ptr.i.i.i2369, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %add.ptr.i.i.i.i.i.i.i2345, %if.end.i.i.i.i16.i.i.i2344 ], [ %add.ptr.i.i.i.i.i.i2358, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.33.6, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
   %toArray591.sroa.0.9 = phi ptr [ %call.i.i.i.i.i.i.i2371, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6DoFreeEPS1_m.exit.i.i.i2368 ], [ %toArray591.sroa.0.8, %if.then24.i.i.i2342 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i16.i.i.i2344 ], [ %toArray591.sroa.0.8, %if.end.i.i.i.i.i.i2355 ], [ %toArray591.sroa.0.8, %_ZN5eastl4copyIPKZ8TestSortvE17StableSortTestObjPS1_EET0_T_S6_S5_.exit22.i.i.i2353 ]
-  %call.i.i = call fastcc noundef i32 @_ZN5eastl11MergeSorterIPZ8TestSortvE17StableSortTestObjS1_Z8TestSortvE17StableSortComparelLi16EE9sort_implES2_S2_S2_lS3_(ptr noundef %toArray591.sroa.0.9, ptr noundef %toArray591.sroa.33.7, ptr noundef %tempBuffer.sroa.0.2, i64 noundef 0)
+  %call.i.i = call fastcc noundef i32 @_ZN5eastl11MergeSorterIPZ8TestSortvE17StableSortTestObjS1_Z8TestSortvE17StableSortComparelLi16EE9sort_implES2_S2_S2_lS3_(ptr noundef %toArray591.sroa.0.9, ptr noundef %toArray591.sroa.33.7, ptr noundef %tempBuffer.sroa.0.1, i64 noundef 0)
   %cmp.not.i.i2373 = icmp eq i32 %call.i.i, 0
   %cmp.i.i.i.i.i.i2374 = icmp eq ptr %toArray591.sroa.33.7, %toArray591.sroa.0.9
   %or.cond.i.i2375 = or i1 %cmp.i.i.i.i.i.i2374, %cmp.not.i.i2373
@@ -8379,7 +8379,7 @@ if.end.i.i.i.i.i.i2376:                           ; preds = %invoke.cont718
   %sub.ptr.rhs.cast.i.i2377 = ptrtoint ptr %toArray591.sroa.0.9 to i64
   %sub.ptr.lhs.cast.i.i2378 = ptrtoint ptr %toArray591.sroa.33.7 to i64
   %sub.ptr.sub.i.i2379 = sub i64 %sub.ptr.lhs.cast.i.i2378, %sub.ptr.rhs.cast.i.i2377
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %toArray591.sroa.0.9, ptr align 8 %tempBuffer.sroa.0.2, i64 %sub.ptr.sub.i.i2379, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %toArray591.sroa.0.9, ptr align 8 %tempBuffer.sroa.0.1, i64 %sub.ptr.sub.i.i2379, i1 false)
   br label %invoke.cont724
 
 invoke.cont724:                                   ; preds = %if.end.i.i.i.i.i.i2376, %invoke.cont718
@@ -8422,11 +8422,11 @@ for.end734:                                       ; preds = %for.inc732, %_ZN5ea
   %toArray591.sroa.75.1.lcssa = phi ptr [ %toArray591.sroa.75.06995, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit ], [ %toArray591.sroa.75.7, %for.inc732 ]
   %toArray591.sroa.33.1.lcssa = phi ptr [ %toArray591.sroa.33.06996, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit ], [ %toArray591.sroa.33.7, %for.inc732 ]
   %toArray591.sroa.0.3.lcssa = phi ptr [ %toArray591.sroa.0.06997, %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit ], [ %toArray591.sroa.0.9, %for.inc732 ]
-  %tobool.not.i.i2397 = icmp eq ptr %tempBuffer.sroa.0.2, null
+  %tobool.not.i.i2397 = icmp eq ptr %tempBuffer.sroa.0.1, null
   br i1 %tobool.not.i.i2397, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i2398
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i2398: ; preds = %for.end734
-  call void @_ZdaPv(ptr noundef nonnull %tempBuffer.sroa.0.2) #12
+  call void @_ZdaPv(ptr noundef nonnull %tempBuffer.sroa.0.1) #12
   %.pre7161 = load i32, ptr @gEASTL_TestLevel, align 4
   br label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEED2Ev.exit2399
 

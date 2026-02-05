@@ -134,8 +134,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit31.i, %36
   %.pn39.i = phi { ptr, i64 } [ %44, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit31.i ], [ %37, %36 ]
   %.127.i = phi i64 [ %45, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit31.i ], [ -1, %36 ]
-  %.sroa.9.1.i = extractvalue { ptr, i64 } %.pn39.i, 1
-  %.sroa.0.1.i = extractvalue { ptr, i64 } %.pn39.i, 0
+  %.sroa.9.0.i = extractvalue { ptr, i64 } %.pn39.i, 1
+  %.sroa.0.0.i = extractvalue { ptr, i64 } %.pn39.i, 0
   br i1 %25, label %48, label %56
 
 48:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i
@@ -143,7 +143,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4base16kWhitespaceASCIIE) #15, !noalias !6
   store ptr @_ZN4base16kWhitespaceASCIIE, ptr %17, align 8, !noalias !6
   store i64 %49, ptr %26, align 8, !noalias !6
-  %50 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.0.1.i, i64 %.sroa.9.1.i, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %50 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.0.0.i, i64 %.sroa.9.0.i, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
           to label %51 unwind label %54
 
 51:                                               ; preds = %48
@@ -159,12 +159,12 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %common.resume
 
 56:                                               ; preds = %51, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i
-  %.sroa.0.2.i = phi ptr [ %52, %51 ], [ %.sroa.0.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
-  %.sroa.9.2.i = phi i64 [ %53, %51 ], [ %.sroa.9.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
+  %.sroa.0.1.i = phi ptr [ %52, %51 ], [ %.sroa.0.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
+  %.sroa.9.1.i = phi i64 [ %53, %51 ], [ %.sroa.9.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
   br i1 %27, label %59, label %57
 
 57:                                               ; preds = %56
-  %58 = icmp eq i64 %.sroa.9.2.i, 0
+  %58 = icmp eq i64 %.sroa.9.1.i, 0
   br i1 %58, label %96, label %.thread.i
 
 .thread.i:                                        ; preds = %57
@@ -176,7 +176,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !6
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %60 = icmp eq i64 %.sroa.9.2.i, 0
+  %60 = icmp eq i64 %.sroa.9.1.i, 0
   store ptr %28, ptr %18, align 8, !tbaa !14, !alias.scope !25, !noalias !6
   br i1 %60, label %.thread.i.i.i, label %61
 
@@ -186,7 +186,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %_ZN4base12_GLOBAL__N_117PieceToOutputTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EET0_NS_16BasicStringPieceIT_EE.exit.i
 
 61:                                               ; preds = %59, %.thread.i
-  %62 = icmp eq ptr %.sroa.0.2.i, null
+  %62 = icmp eq ptr %.sroa.0.1.i, null
   br i1 %62, label %.noexc.i.i.i, label %63
 
 .noexc.i.i.i:                                     ; preds = %61
@@ -198,8 +198,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !28
-  store i64 %.sroa.9.2.i, ptr %14, align 8, !tbaa !12, !noalias !28
-  %64 = icmp ugt i64 %.sroa.9.2.i, 15
+  store i64 %.sroa.9.1.i, ptr %14, align 8, !tbaa !12, !noalias !28
+  %64 = icmp ugt i64 %.sroa.9.1.i, 15
   br i1 %64, label %._crit_edge.i.i.thread.i.i.i, label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.thread.i.i.i:                     ; preds = %63
@@ -213,17 +213,17 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %69
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %63
-  %cond.i.i.i = icmp eq i64 %.sroa.9.2.i, 1
+  %cond.i.i.i = icmp eq i64 %.sroa.9.1.i, 1
   br i1 %cond.i.i.i, label %67, label %69
 
 67:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %68 = load i8, ptr %.sroa.0.2.i, align 1, !tbaa !3, !noalias !21
+  %68 = load i8, ptr %.sroa.0.1.i, align 1, !tbaa !3, !noalias !21
   store i8 %68, ptr %28, align 8, !tbaa !3, !alias.scope !25, !noalias !6
   br label %71
 
 69:                                               ; preds = %._crit_edge.i.i.i.i.i, %.noexc32.i
   %70 = phi ptr [ %65, %.noexc32.i ], [ %28, %._crit_edge.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %.sroa.0.2.i, i64 %.sroa.9.2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %.sroa.0.1.i, i64 %.sroa.9.1.i, i1 false)
   %.pre.i.i = load i64, ptr %14, align 8, !tbaa !12, !noalias !28
   %.pre1.i.i = load ptr, ptr %18, align 8, !tbaa !29, !alias.scope !25, !noalias !6
   br label %71
@@ -402,8 +402,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit34.i, %113
   %.pn42.i = phi { ptr, i64 } [ %121, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit34.i ], [ %114, %113 ]
   %.1.i = phi i64 [ %122, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit34.i ], [ -1, %113 ]
-  %.sroa.9.1.i13 = extractvalue { ptr, i64 } %.pn42.i, 1
-  %.sroa.0.1.i14 = extractvalue { ptr, i64 } %.pn42.i, 0
+  %.sroa.9.0.i13 = extractvalue { ptr, i64 } %.pn42.i, 1
+  %.sroa.0.0.i14 = extractvalue { ptr, i64 } %.pn42.i, 0
   br i1 %102, label %125, label %133
 
 125:                                              ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12
@@ -411,7 +411,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %126 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4base16kWhitespaceASCIIE) #15, !noalias !36
   store ptr @_ZN4base16kWhitespaceASCIIE, ptr %12, align 8, !noalias !36
   store i64 %126, ptr %103, align 8, !noalias !36
-  %127 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.0.1.i14, i64 %.sroa.9.1.i13, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %127 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.0.0.i14, i64 %.sroa.9.0.i13, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
           to label %128 unwind label %131
 
 128:                                              ; preds = %125
@@ -427,12 +427,12 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %common.resume
 
 133:                                              ; preds = %128, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12
-  %.sroa.0.2.i15 = phi ptr [ %129, %128 ], [ %.sroa.0.1.i14, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12 ]
-  %.sroa.9.2.i16 = phi i64 [ %130, %128 ], [ %.sroa.9.1.i13, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12 ]
+  %.sroa.0.1.i15 = phi ptr [ %129, %128 ], [ %.sroa.0.0.i14, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12 ]
+  %.sroa.9.1.i16 = phi i64 [ %130, %128 ], [ %.sroa.9.0.i13, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i12 ]
   br i1 %104, label %136, label %134
 
 134:                                              ; preds = %133
-  %135 = icmp eq i64 %.sroa.9.2.i16, 0
+  %135 = icmp eq i64 %.sroa.9.1.i16, 0
   br i1 %135, label %173, label %.thread.i17
 
 .thread.i17:                                      ; preds = %134
@@ -444,7 +444,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !36
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %137 = icmp eq i64 %.sroa.9.2.i16, 0
+  %137 = icmp eq i64 %.sroa.9.1.i16, 0
   store ptr %105, ptr %13, align 8, !tbaa !14, !alias.scope !48, !noalias !36
   br i1 %137, label %.thread.i.i.i39, label %138
 
@@ -454,7 +454,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %_ZN4base12_GLOBAL__N_117PieceToOutputTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EET0_NS_16BasicStringPieceIT_EE.exit.i22
 
 138:                                              ; preds = %136, %.thread.i17
-  %139 = icmp eq ptr %.sroa.0.2.i15, null
+  %139 = icmp eq ptr %.sroa.0.1.i15, null
   br i1 %139, label %.noexc.i.i.i35, label %140
 
 .noexc.i.i.i35:                                   ; preds = %138
@@ -466,8 +466,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 140:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !49
-  store i64 %.sroa.9.2.i16, ptr %8, align 8, !tbaa !12, !noalias !49
-  %141 = icmp ugt i64 %.sroa.9.2.i16, 15
+  store i64 %.sroa.9.1.i16, ptr %8, align 8, !tbaa !12, !noalias !49
+  %141 = icmp ugt i64 %.sroa.9.1.i16, 15
   br i1 %141, label %._crit_edge.i.i.thread.i.i.i33, label %._crit_edge.i.i.i.i.i18
 
 ._crit_edge.i.i.thread.i.i.i33:                   ; preds = %140
@@ -481,17 +481,17 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %146
 
 ._crit_edge.i.i.i.i.i18:                          ; preds = %140
-  %cond.i.i.i19 = icmp eq i64 %.sroa.9.2.i16, 1
+  %cond.i.i.i19 = icmp eq i64 %.sroa.9.1.i16, 1
   br i1 %cond.i.i.i19, label %144, label %146
 
 144:                                              ; preds = %._crit_edge.i.i.i.i.i18
-  %145 = load i8, ptr %.sroa.0.2.i15, align 1, !tbaa !3, !noalias !44
+  %145 = load i8, ptr %.sroa.0.1.i15, align 1, !tbaa !3, !noalias !44
   store i8 %145, ptr %105, align 8, !tbaa !3, !alias.scope !48, !noalias !36
   br label %148
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i18, %.noexc35.i
   %147 = phi ptr [ %142, %.noexc35.i ], [ %105, %._crit_edge.i.i.i.i.i18 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr nonnull readonly align 1 %.sroa.0.2.i15, i64 %.sroa.9.2.i16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr nonnull readonly align 1 %.sroa.0.1.i15, i64 %.sroa.9.1.i16, i1 false)
   %.pre.i.i20 = load i64, ptr %8, align 8, !tbaa !12, !noalias !49
   %.pre1.i.i21 = load ptr, ptr %13, align 8, !tbaa !29, !alias.scope !48, !noalias !36
   br label %148
@@ -684,8 +684,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit31.i, %36
   %.pn39.i = phi { ptr, i64 } [ %44, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit31.i ], [ %37, %36 ]
   %.127.i = phi i64 [ %45, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit31.i ], [ -1, %36 ]
-  %.sroa.9.1.i = extractvalue { ptr, i64 } %.pn39.i, 1
-  %.sroa.0.1.i = extractvalue { ptr, i64 } %.pn39.i, 0
+  %.sroa.9.0.i = extractvalue { ptr, i64 } %.pn39.i, 1
+  %.sroa.0.0.i = extractvalue { ptr, i64 } %.pn39.i, 0
   br i1 %25, label %48, label %57
 
 48:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i
@@ -696,7 +696,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 50:                                               ; preds = %48
   store ptr @_ZN4base16kWhitespaceUTF16E, ptr %17, align 8, !noalias !53
   store i64 %49, ptr %26, align 8, !noalias !53
-  %51 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.0.1.i, i64 %.sroa.9.1.i, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %51 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.0.0.i, i64 %.sroa.9.0.i, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
           to label %52 unwind label %55
 
 52:                                               ; preds = %50
@@ -712,12 +712,12 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %common.resume
 
 57:                                               ; preds = %52, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i
-  %.sroa.0.2.i = phi ptr [ %53, %52 ], [ %.sroa.0.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
-  %.sroa.9.2.i = phi i64 [ %54, %52 ], [ %.sroa.9.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
+  %.sroa.0.1.i = phi ptr [ %53, %52 ], [ %.sroa.0.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
+  %.sroa.9.1.i = phi i64 [ %54, %52 ], [ %.sroa.9.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
   br i1 %27, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = icmp eq i64 %.sroa.9.2.i, 0
+  %59 = icmp eq i64 %.sroa.9.1.i, 0
   br i1 %59, label %106, label %.thread.i
 
 .thread.i:                                        ; preds = %58
@@ -729,7 +729,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !53
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %61 = icmp eq i64 %.sroa.9.2.i, 0
+  %61 = icmp eq i64 %.sroa.9.1.i, 0
   store ptr %28, ptr %18, align 8, !tbaa !58, !alias.scope !69, !noalias !53
   br i1 %61, label %.thread.i.i.i, label %62
 
@@ -739,7 +739,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %_ZN4base12_GLOBAL__N_117PieceToOutputTypeINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEES6_EET0_NS_16BasicStringPieceIT_EE.exit.i
 
 62:                                               ; preds = %60, %.thread.i
-  %63 = icmp eq ptr %.sroa.0.2.i, null
+  %63 = icmp eq ptr %.sroa.0.1.i, null
   br i1 %63, label %.noexc.i.i.i, label %64
 
 .noexc.i.i.i:                                     ; preds = %62
@@ -751,8 +751,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !72
-  store i64 %.sroa.9.2.i, ptr %14, align 8, !tbaa !12, !noalias !72
-  %65 = icmp ugt i64 %.sroa.9.2.i, 7
+  store i64 %.sroa.9.1.i, ptr %14, align 8, !tbaa !12, !noalias !72
+  %65 = icmp ugt i64 %.sroa.9.1.i, 7
   br i1 %65, label %._crit_edge.i.thread.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.thread.i.i.i.i:                     ; preds = %64
@@ -766,17 +766,17 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %71
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %64
-  %68 = icmp eq i64 %.sroa.9.2.i, 1
+  %68 = icmp eq i64 %.sroa.9.1.i, 1
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %70 = load i16, ptr %.sroa.0.2.i, align 2, !tbaa !51, !noalias !65
+  %70 = load i16, ptr %.sroa.0.1.i, align 2, !tbaa !51, !noalias !65
   store i16 %70, ptr %28, align 8, !tbaa !51, !alias.scope !69, !noalias !53
   br label %77
 
 71:                                               ; preds = %._crit_edge.i.i.i.i.i, %.noexc32.i
   %72 = phi ptr [ %66, %.noexc32.i ], [ %28, %._crit_edge.i.i.i.i.i ]
-  %73 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %72, ptr noundef nonnull %.sroa.0.2.i, i64 noundef %.sroa.9.2.i)
+  %73 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %72, ptr noundef nonnull %.sroa.0.1.i, i64 noundef %.sroa.9.1.i)
           to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i.i.i unwind label %74
 
 ._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i.i.i: ; preds = %71
@@ -975,8 +975,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit34.i, %123
   %.pn42.i = phi { ptr, i64 } [ %131, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit34.i ], [ %124, %123 ]
   %.1.i = phi i64 [ %132, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit34.i ], [ -1, %123 ]
-  %.sroa.9.1.i13 = extractvalue { ptr, i64 } %.pn42.i, 1
-  %.sroa.0.1.i14 = extractvalue { ptr, i64 } %.pn42.i, 0
+  %.sroa.9.0.i13 = extractvalue { ptr, i64 } %.pn42.i, 1
+  %.sroa.0.0.i14 = extractvalue { ptr, i64 } %.pn42.i, 0
   br i1 %112, label %135, label %144
 
 135:                                              ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12
@@ -987,7 +987,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 137:                                              ; preds = %135
   store ptr @_ZN4base16kWhitespaceUTF16E, ptr %12, align 8, !noalias !79
   store i64 %136, ptr %113, align 8, !noalias !79
-  %138 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.0.1.i14, i64 %.sroa.9.1.i13, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %138 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.0.0.i14, i64 %.sroa.9.0.i13, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
           to label %139 unwind label %142
 
 139:                                              ; preds = %137
@@ -1003,12 +1003,12 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %common.resume
 
 144:                                              ; preds = %139, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12
-  %.sroa.0.2.i15 = phi ptr [ %140, %139 ], [ %.sroa.0.1.i14, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12 ]
-  %.sroa.9.2.i16 = phi i64 [ %141, %139 ], [ %.sroa.9.1.i13, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12 ]
+  %.sroa.0.1.i15 = phi ptr [ %140, %139 ], [ %.sroa.0.0.i14, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12 ]
+  %.sroa.9.1.i16 = phi i64 [ %141, %139 ], [ %.sroa.9.0.i13, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i12 ]
   br i1 %114, label %147, label %145
 
 145:                                              ; preds = %144
-  %146 = icmp eq i64 %.sroa.9.2.i16, 0
+  %146 = icmp eq i64 %.sroa.9.1.i16, 0
   br i1 %146, label %193, label %.thread.i17
 
 .thread.i17:                                      ; preds = %145
@@ -1020,7 +1020,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !79
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %148 = icmp eq i64 %.sroa.9.2.i16, 0
+  %148 = icmp eq i64 %.sroa.9.1.i16, 0
   store ptr %115, ptr %13, align 8, !tbaa !58, !alias.scope !91, !noalias !79
   br i1 %148, label %.thread.i.i.i40, label %149
 
@@ -1030,7 +1030,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %_ZN4base12_GLOBAL__N_117PieceToOutputTypeINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEES6_EET0_NS_16BasicStringPieceIT_EE.exit.i22
 
 149:                                              ; preds = %147, %.thread.i17
-  %150 = icmp eq ptr %.sroa.0.2.i15, null
+  %150 = icmp eq ptr %.sroa.0.1.i15, null
   br i1 %150, label %.noexc.i.i.i36, label %151
 
 .noexc.i.i.i36:                                   ; preds = %149
@@ -1042,8 +1042,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 
 151:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !92
-  store i64 %.sroa.9.2.i16, ptr %8, align 8, !tbaa !12, !noalias !92
-  %152 = icmp ugt i64 %.sroa.9.2.i16, 7
+  store i64 %.sroa.9.1.i16, ptr %8, align 8, !tbaa !12, !noalias !92
+  %152 = icmp ugt i64 %.sroa.9.1.i16, 7
   br i1 %152, label %._crit_edge.i.thread.i.i.i.i34, label %._crit_edge.i.i.i.i.i18
 
 ._crit_edge.i.thread.i.i.i.i34:                   ; preds = %151
@@ -1057,17 +1057,17 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %158
 
 ._crit_edge.i.i.i.i.i18:                          ; preds = %151
-  %155 = icmp eq i64 %.sroa.9.2.i16, 1
+  %155 = icmp eq i64 %.sroa.9.1.i16, 1
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %._crit_edge.i.i.i.i.i18
-  %157 = load i16, ptr %.sroa.0.2.i15, align 2, !tbaa !51, !noalias !87
+  %157 = load i16, ptr %.sroa.0.1.i15, align 2, !tbaa !51, !noalias !87
   store i16 %157, ptr %115, align 8, !tbaa !51, !alias.scope !91, !noalias !79
   br label %164
 
 158:                                              ; preds = %._crit_edge.i.i.i.i.i18, %.noexc35.i
   %159 = phi ptr [ %153, %.noexc35.i ], [ %115, %._crit_edge.i.i.i.i.i18 ]
-  %160 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %159, ptr noundef nonnull %.sroa.0.2.i15, i64 noundef %.sroa.9.2.i16)
+  %160 = invoke noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef %159, ptr noundef nonnull %.sroa.0.1.i15, i64 noundef %.sroa.9.1.i16)
           to label %._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i.i.i19 unwind label %161
 
 ._ZZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit_crit_edge.i.i.i.i.i19: ; preds = %158
@@ -1286,8 +1286,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit29.i, %36
   %.pn.i = phi { ptr, i64 } [ %44, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit29.i ], [ %37, %36 ]
   %.1.i = phi i64 [ %45, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit29.i ], [ -1, %36 ]
-  %.sroa.036.1.i = extractvalue { ptr, i64 } %.pn.i, 0
-  %.sroa.9.1.i = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.036.0.i = extractvalue { ptr, i64 } %.pn.i, 0
+  %.sroa.9.0.i = extractvalue { ptr, i64 } %.pn.i, 1
   br i1 %21, label %48, label %56
 
 48:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i
@@ -1295,7 +1295,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4base16kWhitespaceASCIIE) #15, !noalias !94
   store ptr @_ZN4base16kWhitespaceASCIIE, ptr %14, align 8, !noalias !94
   store i64 %49, ptr %22, align 8, !noalias !94
-  %50 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.036.1.i, i64 %.sroa.9.1.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %50 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.036.0.i, i64 %.sroa.9.0.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
           to label %51 unwind label %54, !noalias !94
 
 51:                                               ; preds = %48
@@ -1314,9 +1314,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %86
 
 56:                                               ; preds = %51, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i
-  %.sroa.9.2.i = phi i64 [ %53, %51 ], [ %.sroa.9.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
-  %.sroa.036.2.i = phi ptr [ %52, %51 ], [ %.sroa.036.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
-  %57 = icmp eq i64 %.sroa.9.2.i, 0
+  %.sroa.9.1.i = phi i64 [ %53, %51 ], [ %.sroa.9.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
+  %.sroa.036.1.i = phi ptr [ %52, %51 ], [ %.sroa.036.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i ]
+  %57 = icmp eq i64 %.sroa.9.1.i, 0
   %or.cond.i = select i1 %23, i1 %57, i1 false
   br i1 %or.cond.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit.i, label %58
 
@@ -1325,9 +1325,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %.not.i.i.i, label %61, label %59
 
 59:                                               ; preds = %58
-  store ptr %.sroa.036.2.i, ptr %32, align 8, !tbaa !9, !noalias !94
+  store ptr %.sroa.036.1.i, ptr %32, align 8, !tbaa !9, !noalias !94
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %.sroa.9.2.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12, !noalias !94
+  store i64 %.sroa.9.1.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12, !noalias !94
   %60 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit.i
 
@@ -1363,9 +1363,9 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
 
 .noexc31.i:                                       ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %64
-  store ptr %.sroa.036.2.i, ptr %74, align 8, !tbaa !9, !noalias !94
+  store ptr %.sroa.036.1.i, ptr %74, align 8, !tbaa !9, !noalias !94
   %.sroa.6.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %.sroa.9.2.i, ptr %.sroa.6.0..sroa_idx34.i, align 8, !tbaa !12, !noalias !94
+  store i64 %.sroa.9.1.i, ptr %.sroa.6.0..sroa_idx34.i, align 8, !tbaa !12, !noalias !94
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %.not10.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -1525,8 +1525,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit32.i, %107
   %.pn.i15 = phi { ptr, i64 } [ %115, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit32.i ], [ %108, %107 ]
   %.1.i16 = phi i64 [ %116, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit32.i ], [ -1, %107 ]
-  %.sroa.039.1.i = extractvalue { ptr, i64 } %.pn.i15, 0
-  %.sroa.9.1.i17 = extractvalue { ptr, i64 } %.pn.i15, 1
+  %.sroa.039.0.i = extractvalue { ptr, i64 } %.pn.i15, 0
+  %.sroa.9.0.i17 = extractvalue { ptr, i64 } %.pn.i15, 1
   br i1 %92, label %119, label %127
 
 119:                                              ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14
@@ -1534,7 +1534,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %120 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN4base16kWhitespaceASCIIE) #15, !noalias !105
   store ptr @_ZN4base16kWhitespaceASCIIE, ptr %11, align 8, !noalias !105
   store i64 %120, ptr %93, align 8, !noalias !105
-  %121 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.039.1.i, i64 %.sroa.9.1.i17, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %121 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKS7_NS_13TrimPositionsE(ptr %.sroa.039.0.i, i64 %.sroa.9.0.i17, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
           to label %122 unwind label %125, !noalias !105
 
 122:                                              ; preds = %119
@@ -1553,9 +1553,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %157
 
 127:                                              ; preds = %122, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14
-  %.sroa.9.2.i18 = phi i64 [ %124, %122 ], [ %.sroa.9.1.i17, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14 ]
-  %.sroa.039.2.i = phi ptr [ %123, %122 ], [ %.sroa.039.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14 ]
-  %128 = icmp eq i64 %.sroa.9.2.i18, 0
+  %.sroa.9.1.i18 = phi i64 [ %124, %122 ], [ %.sroa.9.0.i17, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14 ]
+  %.sroa.039.1.i = phi ptr [ %123, %122 ], [ %.sroa.039.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm.exit.i14 ]
+  %128 = icmp eq i64 %.sroa.9.1.i18, 0
   %or.cond.i19 = select i1 %94, i1 %128, i1 false
   br i1 %or.cond.i19, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit.i22, label %129
 
@@ -1564,9 +1564,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %.not.i.i.i20, label %132, label %130
 
 130:                                              ; preds = %129
-  store ptr %.sroa.039.2.i, ptr %103, align 8, !tbaa !9, !noalias !105
+  store ptr %.sroa.039.1.i, ptr %103, align 8, !tbaa !9, !noalias !105
   %.sroa.6.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i64 %.sroa.9.2.i18, ptr %.sroa.6.0..sroa_idx.i21, align 8, !tbaa !12, !noalias !105
+  store i64 %.sroa.9.1.i18, ptr %.sroa.6.0..sroa_idx.i21, align 8, !tbaa !12, !noalias !105
   %131 = getelementptr inbounds nuw i8, ptr %103, i64 16
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE9push_backEOS8_.exit.i22
 
@@ -1602,9 +1602,9 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
 
 .noexc34.i:                                       ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i24
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 %135
-  store ptr %.sroa.039.2.i, ptr %145, align 8, !tbaa !9, !noalias !105
+  store ptr %.sroa.039.1.i, ptr %145, align 8, !tbaa !9, !noalias !105
   %.sroa.6.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i64 %.sroa.9.2.i18, ptr %.sroa.6.0..sroa_idx37.i, align 8, !tbaa !12, !noalias !105
+  store i64 %.sroa.9.1.i18, ptr %.sroa.6.0..sroa_idx37.i, align 8, !tbaa !12, !noalias !105
   %.not10.i.i.i.i.i.i.i.i28 = icmp eq ptr %101, %102
   br i1 %.not10.i.i.i.i.i.i.i.i28, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i33, label %.lr.ph.i.i.i.i.i.i.i.i29
 
@@ -1766,8 +1766,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit29.i, %36
   %.pn.i = phi { ptr, i64 } [ %44, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit29.i ], [ %37, %36 ]
   %.1.i = phi i64 [ %45, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit29.i ], [ -1, %36 ]
-  %.sroa.036.1.i = extractvalue { ptr, i64 } %.pn.i, 0
-  %.sroa.9.1.i = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.036.0.i = extractvalue { ptr, i64 } %.pn.i, 0
+  %.sroa.9.0.i = extractvalue { ptr, i64 } %.pn.i, 1
   br i1 %21, label %48, label %57
 
 48:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i
@@ -1778,7 +1778,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 50:                                               ; preds = %48
   store ptr @_ZN4base16kWhitespaceUTF16E, ptr %14, align 8, !noalias !113
   store i64 %49, ptr %22, align 8, !noalias !113
-  %51 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.036.1.i, i64 %.sroa.9.1.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %51 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.036.0.i, i64 %.sroa.9.0.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
           to label %52 unwind label %55, !noalias !113
 
 52:                                               ; preds = %50
@@ -1797,9 +1797,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %87
 
 57:                                               ; preds = %52, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i
-  %.sroa.9.2.i = phi i64 [ %54, %52 ], [ %.sroa.9.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
-  %.sroa.036.2.i = phi ptr [ %53, %52 ], [ %.sroa.036.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
-  %58 = icmp eq i64 %.sroa.9.2.i, 0
+  %.sroa.9.1.i = phi i64 [ %54, %52 ], [ %.sroa.9.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
+  %.sroa.036.1.i = phi ptr [ %53, %52 ], [ %.sroa.036.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i ]
+  %58 = icmp eq i64 %.sroa.9.1.i, 0
   %or.cond.i = select i1 %23, i1 %58, i1 false
   br i1 %or.cond.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE9push_backEOS7_.exit.i, label %59
 
@@ -1808,9 +1808,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br i1 %.not.i.i.i, label %62, label %60
 
 60:                                               ; preds = %59
-  store ptr %.sroa.036.2.i, ptr %32, align 8, !tbaa !56, !noalias !113
+  store ptr %.sroa.036.1.i, ptr %32, align 8, !tbaa !56, !noalias !113
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %.sroa.9.2.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12, !noalias !113
+  store i64 %.sroa.9.1.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12, !noalias !113
   %61 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE9push_backEOS7_.exit.i
 
@@ -1846,9 +1846,9 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16
 
 .noexc31.i:                                       ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %65
-  store ptr %.sroa.036.2.i, ptr %75, align 8, !tbaa !56, !noalias !113
+  store ptr %.sroa.036.1.i, ptr %75, align 8, !tbaa !56, !noalias !113
   %.sroa.6.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i64 %.sroa.9.2.i, ptr %.sroa.6.0..sroa_idx34.i, align 8, !tbaa !12, !noalias !113
+  store i64 %.sroa.9.1.i, ptr %.sroa.6.0..sroa_idx34.i, align 8, !tbaa !12, !noalias !113
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %.not10.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -2008,8 +2008,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14: ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit32.i, %108
   %.pn.i15 = phi { ptr, i64 } [ %116, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit32.i ], [ %109, %108 ]
   %.1.i16 = phi i64 [ %117, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit32.i ], [ -1, %108 ]
-  %.sroa.039.1.i = extractvalue { ptr, i64 } %.pn.i15, 0
-  %.sroa.9.1.i17 = extractvalue { ptr, i64 } %.pn.i15, 1
+  %.sroa.039.0.i = extractvalue { ptr, i64 } %.pn.i15, 0
+  %.sroa.9.0.i17 = extractvalue { ptr, i64 } %.pn.i15, 1
   br i1 %93, label %120, label %129
 
 120:                                              ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14
@@ -2020,7 +2020,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 122:                                              ; preds = %120
   store ptr @_ZN4base16kWhitespaceUTF16E, ptr %11, align 8, !noalias !123
   store i64 %121, ptr %94, align 8, !noalias !123
-  %123 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.039.1.i, i64 %.sroa.9.1.i17, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %123 = invoke { ptr, i64 } @_ZN4base10TrimStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEERKS6_NS_13TrimPositionsE(ptr %.sroa.039.0.i, i64 %.sroa.9.0.i17, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
           to label %124 unwind label %127, !noalias !123
 
 124:                                              ; preds = %122
@@ -2039,9 +2039,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br label %159
 
 129:                                              ; preds = %124, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14
-  %.sroa.9.2.i18 = phi i64 [ %126, %124 ], [ %.sroa.9.1.i17, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14 ]
-  %.sroa.039.2.i = phi ptr [ %125, %124 ], [ %.sroa.039.1.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14 ]
-  %130 = icmp eq i64 %.sroa.9.2.i18, 0
+  %.sroa.9.1.i18 = phi i64 [ %126, %124 ], [ %.sroa.9.0.i17, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14 ]
+  %.sroa.039.1.i = phi ptr [ %125, %124 ], [ %.sroa.039.0.i, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm.exit.i14 ]
+  %130 = icmp eq i64 %.sroa.9.1.i18, 0
   %or.cond.i19 = select i1 %95, i1 %130, i1 false
   br i1 %or.cond.i19, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE9push_backEOS7_.exit.i22, label %131
 
@@ -2050,9 +2050,9 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
   br i1 %.not.i.i.i20, label %134, label %132
 
 132:                                              ; preds = %131
-  store ptr %.sroa.039.2.i, ptr %104, align 8, !tbaa !56, !noalias !123
+  store ptr %.sroa.039.1.i, ptr %104, align 8, !tbaa !56, !noalias !123
   %.sroa.6.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store i64 %.sroa.9.2.i18, ptr %.sroa.6.0..sroa_idx.i21, align 8, !tbaa !12, !noalias !123
+  store i64 %.sroa.9.1.i18, ptr %.sroa.6.0..sroa_idx.i21, align 8, !tbaa !12, !noalias !123
   %133 = getelementptr inbounds nuw i8, ptr %104, i64 16
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE9push_backEOS7_.exit.i22
 
@@ -2088,9 +2088,9 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16
 
 .noexc34.i:                                       ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i24
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 %137
-  store ptr %.sroa.039.2.i, ptr %147, align 8, !tbaa !56, !noalias !123
+  store ptr %.sroa.039.1.i, ptr %147, align 8, !tbaa !56, !noalias !123
   %.sroa.6.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i64 %.sroa.9.2.i18, ptr %.sroa.6.0..sroa_idx37.i, align 8, !tbaa !12, !noalias !123
+  store i64 %.sroa.9.1.i18, ptr %.sroa.6.0..sroa_idx37.i, align 8, !tbaa !12, !noalias !123
   %.not10.i.i.i.i.i.i.i.i28 = icmp eq ptr %102, %103
   br i1 %.not10.i.i.i.i.i.i.i.i28, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i33, label %.lr.ph.i.i.i.i.i.i.i.i29
 

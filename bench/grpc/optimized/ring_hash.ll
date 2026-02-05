@@ -3731,30 +3731,30 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8Alloca
   br i1 %.not.i.i53.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i, label %.lr.ph.i.i56.i.i.i
 
 .lr.ph.i.i56.i.i.i:                               ; preds = %.lr.ph.i.i.preheader.i.i.i, %.lr.ph.i.i56.i.i.i
-  %.sroa.096.0.i.i.i = phi ptr [ %494, %.lr.ph.i.i56.i.i.i ], [ %.sink2.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+  %.sroa.094.0.i.i.i = phi ptr [ %494, %.lr.ph.i.i56.i.i.i ], [ %.sink2.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.012.i.i.i.i.i = phi i64 [ %495, %.lr.ph.i.i56.i.i.i ], [ 0, %.lr.ph.i.i.preheader.i.i.i ]
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 %.012.i.i.i.i.i
-  %493 = load i8, ptr %.sroa.096.0.i.i.i, align 1, !tbaa !18, !noalias !167
+  %493 = load i8, ptr %.sroa.094.0.i.i.i, align 1, !tbaa !18, !noalias !167
   store i8 %493, ptr %492, align 1, !tbaa !18, !noalias !167
-  %494 = getelementptr inbounds nuw i8, ptr %.sroa.096.0.i.i.i, i64 1
+  %494 = getelementptr inbounds nuw i8, ptr %.sroa.094.0.i.i.i, i64 1
   %495 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i57.i.i.i = icmp eq i64 %495, %483
   br i1 %exitcond.not.i.i57.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i, label %.lr.ph.i.i56.i.i.i, !llvm.loop !216
 
 _ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i: ; preds = %.lr.ph.i.i56.i.i.i, %.lr.ph.i.i.preheader.i.i.i
-  %.sroa.096.1.i.i.i = phi ptr [ %.sink2.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ], [ %494, %.lr.ph.i.i56.i.i.i ]
+  %.sroa.094.1.i.i.i = phi ptr [ %.sink2.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ], [ %494, %.lr.ph.i.i56.i.i.i ]
   %496 = getelementptr inbounds nuw i8, ptr %490, i64 %484
   %497 = sub i64 %.sink1.i.i.i.i, %483
   %.not.i.i162.i.i = icmp eq i64 %.sink1.i.i.i.i, %483
   br i1 %.not.i.i162.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIcENS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISB_E7pointerERT0_NSG_9size_typeE.exit.i.i.i, label %.lr.ph.i.i163.i.i
 
 .lr.ph.i.i163.i.i:                                ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i, %.lr.ph.i.i163.i.i
-  %.sroa.096.2.i.i.i = phi ptr [ %500, %.lr.ph.i.i163.i.i ], [ %.sroa.096.1.i.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i ]
+  %.sroa.094.2.i.i.i = phi ptr [ %500, %.lr.ph.i.i163.i.i ], [ %.sroa.094.1.i.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %501, %.lr.ph.i.i163.i.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9ConstructINS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvS8_RT_m.exit.i.i.i ]
   %498 = getelementptr inbounds nuw i8, ptr %496, i64 %.012.i.i.i.i
-  %499 = load i8, ptr %.sroa.096.2.i.i.i, align 1, !tbaa !18, !noalias !167
+  %499 = load i8, ptr %.sroa.094.2.i.i.i, align 1, !tbaa !18, !noalias !167
   store i8 %499, ptr %498, align 1, !tbaa !18, !noalias !167
-  %500 = getelementptr inbounds nuw i8, ptr %.sroa.096.2.i.i.i, i64 1
+  %500 = getelementptr inbounds nuw i8, ptr %.sroa.094.2.i.i.i, i64 1
   %501 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %501, %497
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIcENS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISB_E7pointerERT0_NSG_9size_typeE.exit.i.i.i, label %.lr.ph.i.i163.i.i, !llvm.loop !216
@@ -3814,20 +3814,20 @@ _ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9
   br i1 %.not.i.i61.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i, label %.lr.ph.i71.i.i.i
 
 .lr.ph.i71.i.i.i:                                 ; preds = %._crit_edge.i.i.i, %.lr.ph.i71.i.i.i
-  %.sroa.0130.1.i.i.i = phi ptr [ %523, %.lr.ph.i71.i.i.i ], [ %477, %._crit_edge.i.i.i ]
+  %.sroa.0122.1.i.i.i = phi ptr [ %523, %.lr.ph.i71.i.i.i ], [ %477, %._crit_edge.i.i.i ]
   %.05.i.i.i.i = phi i64 [ %524, %.lr.ph.i71.i.i.i ], [ 0, %._crit_edge.i.i.i ]
   %521 = getelementptr inbounds nuw i8, ptr %508, i64 %.05.i.i.i.i
-  %522 = load i8, ptr %.sroa.0130.1.i.i.i, align 1, !tbaa !18, !noalias !167
+  %522 = load i8, ptr %.sroa.0122.1.i.i.i, align 1, !tbaa !18, !noalias !167
   store i8 %522, ptr %521, align 1, !tbaa !18, !noalias !167
-  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0130.1.i.i.i, i64 1
+  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0122.1.i.i.i, i64 1
   %524 = add nuw i64 %.05.i.i.i.i, 1
   %exitcond.not.i72.i.i.i = icmp eq i64 %524, %507
   br i1 %exitcond.not.i72.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i, label %.lr.ph.i71.i.i.i, !llvm.loop !217
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %525 = phi ptr [ %528, %.lr.ph.i.i.i ], [ %519, %.lr.ph.preheader.i.i.i ]
-  %.0134.i.i.i = phi ptr [ %526, %.lr.ph.i.i.i ], [ %520, %.lr.ph.preheader.i.i.i ]
-  %526 = getelementptr inbounds i8, ptr %.0134.i.i.i, i64 -1
+  %.0126.i.i.i = phi ptr [ %526, %.lr.ph.i.i.i ], [ %520, %.lr.ph.preheader.i.i.i ]
+  %526 = getelementptr inbounds i8, ptr %.0126.i.i.i, i64 -1
   %527 = load i8, ptr %526, align 1, !tbaa !18, !noalias !167
   store i8 %527, ptr %525, align 1, !tbaa !18, !noalias !167
   %528 = getelementptr inbounds i8, ptr %525, i64 -1
@@ -3835,17 +3835,17 @@ _ZN4absl12lts_2024072223inlined_vector_internal23ConstructionTransactionISaIcEE9
   br i1 %529, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !218
 
 _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i: ; preds = %.lr.ph.i71.i.i.i, %._crit_edge.i.i.i
-  %.sroa.0130.2.i.i.i = phi ptr [ %477, %._crit_edge.i.i.i ], [ %523, %.lr.ph.i71.i.i.i ]
+  %.sroa.0122.2.i.i.i = phi ptr [ %477, %._crit_edge.i.i.i ], [ %523, %.lr.ph.i71.i.i.i ]
   %.not.i73.i.i.i = icmp eq i64 %478, %507
   br i1 %.not.i73.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i76.i.i.i
 
 .lr.ph.i76.i.i.i:                                 ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i, %.lr.ph.i76.i.i.i
-  %.sroa.0130.3.i.i.i = phi ptr [ %532, %.lr.ph.i76.i.i.i ], [ %.sroa.0130.2.i.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i ]
+  %.sroa.0122.3.i.i.i = phi ptr [ %532, %.lr.ph.i76.i.i.i ], [ %.sroa.0122.2.i.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i ]
   %.06.i.i.i.i = phi i64 [ %533, %.lr.ph.i76.i.i.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit.i.i.i ]
   %530 = getelementptr inbounds nuw i8, ptr %511, i64 %.06.i.i.i.i
-  %531 = load i8, ptr %.sroa.0130.3.i.i.i, align 1, !tbaa !18, !noalias !167
+  %531 = load i8, ptr %.sroa.0122.3.i.i.i, align 1, !tbaa !18, !noalias !167
   store i8 %531, ptr %530, align 1, !tbaa !18, !noalias !167
-  %532 = getelementptr inbounds nuw i8, ptr %.sroa.0130.3.i.i.i, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %.sroa.0122.3.i.i.i, i64 1
   %533 = add nuw i64 %.06.i.i.i.i, 1
   %exitcond.not.i77.i.i.i = icmp eq i64 %533, %512
   br i1 %exitcond.not.i77.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i76.i.i.i, !llvm.loop !219
@@ -8905,51 +8905,51 @@ _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8Al
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit, %.lr.ph.i
-  %.sroa.060.0 = phi ptr [ %18, %.lr.ph.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit ]
+  %.sroa.058.0 = phi ptr [ %18, %.lr.ph.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 %.05.i
-  %17 = load i8, ptr %.sroa.060.0, align 1, !tbaa !18
+  %17 = load i8, ptr %.sroa.058.0, align 1, !tbaa !18
   store i8 %17, ptr %16, align 1, !tbaa !18
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.060.0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.058.0, i64 1
   %19 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %19, %.sroa.742.0
   br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !217
 
 _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit: ; preds = %.lr.ph.i, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit
-  %.sroa.060.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit ], [ %18, %.lr.ph.i ]
+  %.sroa.058.1 = phi ptr [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEE8AllocateEm.exit ], [ %18, %.lr.ph.i ]
   %.not.i21.not = icmp ugt i64 %2, %.sink1.i
   br i1 %.not.i21.not, label %.lr.ph.preheader.i22, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit._ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit_crit_edge
 
 _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit._ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit_crit_edge: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit
-  %.pre88 = load i64, ptr %0, align 8, !tbaa !17
+  %.pre86 = load i64, ptr %0, align 8, !tbaa !17
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit
 
 .lr.ph.preheader.i22:                             ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit
-  %.sroa.060.185 = phi ptr [ %.sroa.060.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
-  %.sroa.740.06984 = phi i64 [ %.sroa.740.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
-  %.sroa.039.07083 = phi ptr [ %15, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %14, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
-  %.sroa.10.07181 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
-  %.sroa.043.07279 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %14, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
+  %.sroa.058.183 = phi ptr [ %.sroa.058.1, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
+  %.sroa.740.06782 = phi i64 [ %.sroa.740.0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %2, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
+  %.sroa.039.06881 = phi ptr [ %15, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %14, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
+  %.sroa.10.06979 = phi i64 [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %.sroa.speculated.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
+  %.sroa.043.07077 = phi ptr [ null, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit ], [ %14, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i ]
   br label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i22
-  %.sroa.060.2 = phi ptr [ %.sroa.060.185, %.lr.ph.preheader.i22 ], [ %22, %.lr.ph.i24 ]
+  %.sroa.058.2 = phi ptr [ %.sroa.058.183, %.lr.ph.preheader.i22 ], [ %22, %.lr.ph.i24 ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %23, %.lr.ph.i24 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.039.07083, i64 %.06.i
-  %21 = load i8, ptr %.sroa.060.2, align 1, !tbaa !18
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.039.06881, i64 %.06.i
+  %21 = load i8, ptr %.sroa.058.2, align 1, !tbaa !18
   store i8 %21, ptr %20, align 1, !tbaa !18
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.060.2, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.058.2, i64 1
   %23 = add nuw i64 %.06.i, 1
-  %exitcond.not.i25 = icmp eq i64 %23, %.sroa.740.06984
+  %exitcond.not.i25 = icmp eq i64 %23, %.sroa.740.06782
   br i1 %exitcond.not.i25, label %24, label %.lr.ph.i24, !llvm.loop !219
 
 24:                                               ; preds = %.lr.ph.i24
-  %.not = icmp eq ptr %.sroa.043.07279, null
-  %.pre89 = load i64, ptr %0, align 8, !tbaa !17
+  %.not = icmp eq ptr %.sroa.043.07077, null
+  %.pre87 = load i64, ptr %0, align 8, !tbaa !17
   br i1 %.not, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = trunc i64 %.pre89 to i1
+  %26 = trunc i64 %.pre87 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
@@ -8960,14 +8960,14 @@ _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20Itera
   br label %30
 
 30:                                               ; preds = %25, %27
-  %31 = phi i64 [ %.pre89, %25 ], [ %.pre, %27 ]
-  store ptr %.sroa.043.07279, ptr %6, align 8, !tbaa !18
-  store i64 %.sroa.10.07181, ptr %8, align 8, !tbaa !18
+  %31 = phi i64 [ %.pre87, %25 ], [ %.pre, %27 ]
+  store ptr %.sroa.043.07077, ptr %6, align 8, !tbaa !18
+  store i64 %.sroa.10.06979, ptr %8, align 8, !tbaa !18
   %32 = or i64 %31, 1
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit._ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit_crit_edge, %30, %24
-  %33 = phi i64 [ %.pre88, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit._ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit_crit_edge ], [ %32, %30 ], [ %.pre89, %24 ]
+  %33 = phi i64 [ %.pre86, %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIcENS1_20IteratorValueAdapterIS3_N9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES3_EEEEEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSI_9size_typeE.exit._ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIcEED2Ev.exit_crit_edge ], [ %32, %30 ], [ %.pre87, %24 ]
   %34 = shl i64 %2, 1
   %35 = and i64 %33, 1
   %36 = or disjoint i64 %35, %34

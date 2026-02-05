@@ -1464,7 +1464,7 @@ define internal noundef ptr @_ZL20create_dispatch_onceRN5clang10ASTContextEPKNS_
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 16
   %.not.i = icmp eq i8 %16, 41
-  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82, label %17
+  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread80, label %17
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1480,11 +1480,11 @@ define internal noundef ptr @_ZL20create_dispatch_onceRN5clang10ASTContextEPKNS_
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %17
   %25 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %14) #11
   %.not38 = icmp eq ptr %25, null
-  br i1 %.not38, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82
+  br i1 %.not38, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread80
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82: ; preds = %7, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
-  %.1.i85 = phi ptr [ %25, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %14, %7 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.1.i85, i64 32
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread80: ; preds = %7, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
+  %.1.i83 = phi ptr [ %25, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %14, %7 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.1.i83, i64 32
   %.sroa.0.0.copyload.i47 = load i64, ptr %26, align 16, !tbaa !47
   %27 = and i64 %.sroa.0.0.copyload.i47, -16
   %28 = inttoptr i64 %27 to ptr
@@ -1501,7 +1501,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82: ; preds = %7, %_ZN
   %.not.not.i = or i1 %.not.not21.i, %36
   br i1 %.not.not.i, label %42, label %37
 
-37:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82
+37:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread80
   %38 = load i32, ptr %34, align 16
   %39 = lshr i32 %38, 19
   %40 = and i32 %39, 511
@@ -1509,7 +1509,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82: ; preds = %7, %_ZN
   %spec.select.i = icmp ult i32 %41, 20
   br i1 %spec.select.i, label %57, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread
 
-42:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82
+42:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread80
   %43 = icmp ne i8 %35, 46
   %.not13.not.i = or i1 %.not.not21.i, %43
   br i1 %.not13.not.i, label %51, label %44

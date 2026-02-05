@@ -697,8 +697,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc34, %_ZNSt6ve
   %.sroa.073.0 = phi ptr [ %27, %.noexc34 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %33 = load i32, ptr %32, align 4, !tbaa !26
-  %.02683 = add i32 %33, -1
-  %34 = icmp sgt i32 %.02683, -1
+  %.02680 = add i32 %33, -1
+  %34 = icmp sgt i32 %.02680, -1
   br i1 %34, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
@@ -711,39 +711,39 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc34, %_ZNSt6ve
 .preheader:                                       ; preds = %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   %.sroa.10.0.lcssa = phi i32 [ 0, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ], [ %.sroa.10.3, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
   %.sroa.22.0.lcssa = phi i32 [ 4096, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ], [ %68, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
-  %.not91 = icmp eq ptr %19, %20
-  br i1 %.not91, label %._crit_edge, label %.lr.ph95
+  %.not88 = icmp eq ptr %19, %20
+  br i1 %.not88, label %._crit_edge, label %.lr.ph92
 
-.lr.ph95:                                         ; preds = %.preheader
+.lr.ph92:                                         ; preds = %.preheader
   %39 = sub i8 0, %storemerge
   %40 = zext i8 %39 to i32
   br label %96
 
 41:                                               ; preds = %.lr.ph, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit
-  %.02686 = phi i32 [ %.02683, %.lr.ph ], [ %.026, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
-  %.sroa.22.085 = phi i32 [ 4096, %.lr.ph ], [ %68, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
-  %.sroa.10.084 = phi i32 [ 0, %.lr.ph ], [ %.sroa.10.3, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
-  %42 = shl nuw i32 1, %.02686
+  %.02683 = phi i32 [ %.02680, %.lr.ph ], [ %.026, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
+  %.sroa.22.082 = phi i32 [ 4096, %.lr.ph ], [ %68, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
+  %.sroa.10.081 = phi i32 [ 0, %.lr.ph ], [ %.sroa.10.3, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
+  %42 = shl nuw i32 1, %.02683
   %43 = and i32 %36, %42
   %.not.i = icmp eq i32 %43, 0
   %44 = select i1 %.not.i, i8 %storemerge, i8 %37
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 12
-  %.not19.i = icmp ult i32 %.sroa.22.085, %46
+  %.not19.i = icmp ult i32 %.sroa.22.082, %46
   br i1 %.not19.i, label %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit, label %47
 
 47:                                               ; preds = %41
-  %48 = trunc i32 %.sroa.22.085 to i8
-  %49 = add nsw i32 %.sroa.10.084, 1
-  %50 = sext i32 %.sroa.10.084 to i64
+  %48 = trunc i32 %.sroa.22.082 to i8
+  %49 = add nsw i32 %.sroa.10.081, 1
+  %50 = sext i32 %.sroa.10.081 to i64
   %51 = getelementptr inbounds i8, ptr %.sroa.073.0, i64 %50
   store i8 %48, ptr %51, align 1, !tbaa !29
-  %52 = lshr i32 %.sroa.22.085, 8
+  %52 = lshr i32 %.sroa.22.082, 8
   br label %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit
 
 _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
-  %.sroa.10.3 = phi i32 [ %.sroa.10.084, %41 ], [ %49, %47 ]
-  %53 = phi i32 [ %.sroa.22.085, %41 ], [ %52, %47 ]
+  %.sroa.10.3 = phi i32 [ %.sroa.10.081, %41 ], [ %49, %47 ]
+  %53 = phi i32 [ %.sroa.22.082, %41 ], [ %52, %47 ]
   %54 = zext nneg i32 %53 to i64
   %55 = zext i8 %44 to i64
   %56 = getelementptr inbounds nuw %"struct.draco::fastdiv_elem", ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %55
@@ -761,8 +761,8 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %reass.mul.i = mul i32 %65, %reass.add.i
   %67 = add nuw nsw i32 %53, %66
   %68 = add i32 %67, %reass.mul.i
-  %.026 = add nsw i32 %.02686, -1
-  %69 = icmp sgt i32 %.02686, 0
+  %.026 = add nsw i32 %.02683, -1
+  %69 = icmp sgt i32 %.02683, 0
   br i1 %69, label %41, label %.preheader
 
 .loopexit:                                        ; preds = %111
@@ -814,39 +814,39 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %95 = add nsw i32 %.sroa.10.1.lcssa, 3
   br label %_ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit
 
-96:                                               ; preds = %.lr.ph95, %.loopexit
-  %.sroa.046.094 = phi ptr [ %19, %.lr.ph95 ], [ %97, %.loopexit ]
-  %.sroa.22.193 = phi i32 [ %.sroa.22.0.lcssa, %.lr.ph95 ], [ %127, %.loopexit ]
-  %.sroa.10.192 = phi i32 [ %.sroa.10.0.lcssa, %.lr.ph95 ], [ %.sroa.10.4, %.loopexit ]
-  %97 = getelementptr inbounds i8, ptr %.sroa.046.094, i64 -4
+96:                                               ; preds = %.lr.ph92, %.loopexit
+  %.sroa.046.091 = phi ptr [ %19, %.lr.ph92 ], [ %97, %.loopexit ]
+  %.sroa.22.190 = phi i32 [ %.sroa.22.0.lcssa, %.lr.ph92 ], [ %127, %.loopexit ]
+  %.sroa.10.189 = phi i32 [ %.sroa.10.0.lcssa, %.lr.ph92 ], [ %.sroa.10.4, %.loopexit ]
+  %97 = getelementptr inbounds i8, ptr %.sroa.046.091, i64 -4
   %98 = load i32, ptr %97, align 4, !tbaa !28
   br label %99
 
 99:                                               ; preds = %96, %111
-  %.02290 = phi i32 [ 31, %96 ], [ %128, %111 ]
-  %.sroa.22.289 = phi i32 [ %.sroa.22.193, %96 ], [ %127, %111 ]
-  %.sroa.10.288 = phi i32 [ %.sroa.10.192, %96 ], [ %.sroa.10.4, %111 ]
-  %100 = shl nuw i32 1, %.02290
+  %.02287 = phi i32 [ 31, %96 ], [ %128, %111 ]
+  %.sroa.22.286 = phi i32 [ %.sroa.22.190, %96 ], [ %127, %111 ]
+  %.sroa.10.285 = phi i32 [ %.sroa.10.189, %96 ], [ %.sroa.10.4, %111 ]
+  %100 = shl nuw i32 1, %.02287
   %101 = and i32 %100, %98
   %.not.i35 = icmp eq i32 %101, 0
   %102 = select i1 %.not.i35, i8 %storemerge, i8 %39
   %103 = zext i8 %102 to i32
   %104 = shl nuw nsw i32 %103, 12
-  %.not19.i36 = icmp ult i32 %.sroa.22.289, %104
+  %.not19.i36 = icmp ult i32 %.sroa.22.286, %104
   br i1 %.not19.i36, label %111, label %105
 
 105:                                              ; preds = %99
-  %106 = trunc i32 %.sroa.22.289 to i8
-  %107 = add nsw i32 %.sroa.10.288, 1
-  %108 = sext i32 %.sroa.10.288 to i64
+  %106 = trunc i32 %.sroa.22.286 to i8
+  %107 = add nsw i32 %.sroa.10.285, 1
+  %108 = sext i32 %.sroa.10.285 to i64
   %109 = getelementptr inbounds i8, ptr %.sroa.073.0, i64 %108
   store i8 %106, ptr %109, align 1, !tbaa !29
-  %110 = lshr i32 %.sroa.22.289, 8
+  %110 = lshr i32 %.sroa.22.286, 8
   br label %111
 
 111:                                              ; preds = %105, %99
-  %.sroa.10.4 = phi i32 [ %.sroa.10.288, %99 ], [ %107, %105 ]
-  %112 = phi i32 [ %.sroa.22.289, %99 ], [ %110, %105 ]
+  %.sroa.10.4 = phi i32 [ %.sroa.10.285, %99 ], [ %107, %105 ]
+  %112 = phi i32 [ %.sroa.22.286, %99 ], [ %110, %105 ]
   %113 = zext nneg i32 %112 to i64
   %114 = zext i8 %102 to i64
   %115 = getelementptr inbounds nuw %"struct.draco::fastdiv_elem", ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %114
@@ -864,9 +864,9 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %reass.mul.i38 = mul i32 %124, %reass.add.i37
   %126 = add nuw nsw i32 %112, %125
   %127 = add i32 %126, %reass.mul.i38
-  %128 = add nsw i32 %.02290, -1
-  %.not108 = icmp eq i32 %.02290, 0
-  br i1 %.not108, label %.loopexit, label %99, !llvm.loop !35
+  %128 = add nsw i32 %.02287, -1
+  %.not105 = icmp eq i32 %.02287, 0
+  br i1 %.not105, label %.loopexit, label %99, !llvm.loop !35
 
 _ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit:    ; preds = %87, %79, %72, %85
   %.0.i = phi i32 [ %76, %72 ], [ %84, %79 ], [ %95, %87 ], [ %.sroa.10.1.lcssa, %85 ]

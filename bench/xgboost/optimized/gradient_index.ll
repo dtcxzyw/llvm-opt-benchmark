@@ -6252,8 +6252,8 @@ _ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %34)
   %.pr.i = load ptr, ptr %33, align 8, !tbaa !209
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %.not13.i = icmp eq ptr %.pr.i, null
-  br i1 %.not13.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %57
+  %.not10.i = icmp eq ptr %.pr.i, null
+  br i1 %.not10.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %57
 
 57:                                               ; preds = %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -6312,13 +6312,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i: ; preds = %_ZS
 
 73:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %.pr10.i = load ptr, ptr %33, align 8, !tbaa !209
-  %.not.i33.i = icmp eq ptr %.pr10.i, null
+  %.pr7.i = load ptr, ptr %33, align 8, !tbaa !209
+  %.not.i33.i = icmp eq ptr %.pr7.i, null
   br i1 %.not.i33.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %74
 
 74:                                               ; preds = %73
-  %75 = load ptr, ptr %.pr10.i, align 8, !tbaa !47
-  %76 = getelementptr inbounds nuw i8, ptr %.pr10.i, i64 16
+  %75 = load ptr, ptr %.pr7.i, align 8, !tbaa !47
+  %76 = getelementptr inbounds nuw i8, ptr %.pr7.i, i64 16
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
@@ -6329,7 +6329,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.pr10.i, i64 noundef 32) #34
+  call void @_ZdlPvm(ptr noundef nonnull %.pr7.i, i64 noundef 32) #34
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %73, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread.i
@@ -6367,8 +6367,8 @@ _ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i: ; preds = %91, %88, %
   %93 = phi ptr [ %81, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i ], [ %81, %88 ], [ %.pre.i, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
-  %.not14.i = icmp eq ptr %93, null
-  br i1 %.not14.i, label %94, label %116
+  %.not11.i = icmp eq ptr %93, null
+  br i1 %.not11.i, label %94, label %116
 
 94:                                               ; preds = %_ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i
   %95 = load i64, ptr %54, align 8, !tbaa !245
@@ -6529,8 +6529,8 @@ _ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEER
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i: ; preds = %135
   %140 = atomicrmw volatile add ptr %136, i32 1 acq_rel, align 4, !noalias !249
-  %.pr12.pre.i = load ptr, ptr %42, align 8, !tbaa !252
-  %141 = icmp eq ptr %.pr12.pre.i, null
+  %.pr9.pre.i = load ptr, ptr %42, align 8, !tbaa !252
+  %141 = icmp eq ptr %.pr9.pre.i, null
   br i1 %141, label %142, label %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i, !prof !254
 
 142:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i, %_ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEERKS_IT_EPS2_.exit.i.i
@@ -6578,7 +6578,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64.i: ; preds = %_ZS
   br label %272
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i: ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i, %132
-  %153 = phi ptr [ %131, %132 ], [ %131, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i ], [ %.pr12.pre.i, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i ]
+  %153 = phi ptr [ %131, %132 ], [ %131, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i ], [ %.pr9.pre.i, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i ]
   %154 = load i64, ptr %32, align 8, !tbaa !9
   invoke void @_ZN7xgboost6common14MallocResource6ResizeILb0EEEvmSt4byte(ptr noundef nonnull align 8 dereferenceable(32) %153, i64 noundef %154, i8 noundef zeroext 0)
           to label %155 unwind label %266
@@ -6828,8 +6828,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i: ; preds = %262, %
 
 _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %265, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i, %250, %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %.pre17.i = load ptr, ptr %172, align 8, !tbaa !107
-  %.pre19.i = load ptr, ptr %177, align 8, !tbaa !97
+  %.pre14.i = load ptr, ptr %172, align 8, !tbaa !107
+  %.pre16.i = load ptr, ptr %177, align 8, !tbaa !97
   br label %273
 
 266:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i
@@ -6856,8 +6856,8 @@ _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE
   br label %360
 
 273:                                              ; preds = %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i
-  %274 = phi ptr [ %.pre19.i, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %113, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i ]
-  %275 = phi ptr [ %.pre17.i, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %111, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i ]
+  %274 = phi ptr [ %.pre16.i, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %113, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i ]
+  %275 = phi ptr [ %.pre14.i, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %111, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false)
   %276 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %277 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -6947,8 +6947,8 @@ _ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSize
 _ZN7xgboost6common5IndexD2Ev.exit.i:              ; preds = %311, %_ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSizeE.exit.i
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %315, align 8
-  %.sroa.187.40..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZN7xgboost6common5Index17GetValueFromUint8EPKhm, ptr %.sroa.187.40..sroa_idx.i, align 8
+  %.sroa.186.40..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZN7xgboost6common5Index17GetValueFromUint8EPKhm, ptr %.sroa.186.40..sroa_idx.i, align 8
   %316 = load ptr, ptr %277, align 8, !tbaa !97
   %.not.i.i.i91.i = icmp eq ptr %316, null
   br i1 %.not.i.i.i91.i, label %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit95.i, label %317
@@ -7103,8 +7103,8 @@ _ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %20)
   %.pr.i97 = load ptr, ptr %19, align 8, !tbaa !209
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not13.i98 = icmp eq ptr %.pr.i97, null
-  br i1 %.not13.i98, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15, label %371
+  %.not10.i98 = icmp eq ptr %.pr.i97, null
+  br i1 %.not10.i98, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15, label %371
 
 371:                                              ; preds = %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i96
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -7163,13 +7163,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i106: ; preds = %
 
 387:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i106
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.pr10.i107 = load ptr, ptr %19, align 8, !tbaa !209
-  %.not.i33.i108 = icmp eq ptr %.pr10.i107, null
+  %.pr7.i107 = load ptr, ptr %19, align 8, !tbaa !209
+  %.not.i33.i108 = icmp eq ptr %.pr7.i107, null
   br i1 %.not.i33.i108, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15, label %388
 
 388:                                              ; preds = %387
-  %389 = load ptr, ptr %.pr10.i107, align 8, !tbaa !47
-  %390 = getelementptr inbounds nuw i8, ptr %.pr10.i107, i64 16
+  %389 = load ptr, ptr %.pr7.i107, align 8, !tbaa !47
+  %390 = getelementptr inbounds nuw i8, ptr %.pr7.i107, i64 16
   %391 = icmp eq ptr %389, %390
   br i1 %391, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i110, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i109
 
@@ -7180,7 +7180,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i110
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i110: ; preds = %388, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i109
-  call void @_ZdlPvm(ptr noundef nonnull %.pr10.i107, i64 noundef 32) #34
+  call void @_ZdlPvm(ptr noundef nonnull %.pr7.i107, i64 noundef 32) #34
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i110, %387, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i96, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread.i14
@@ -7218,8 +7218,8 @@ _ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i18: ; preds = %405, %40
   %407 = phi ptr [ %395, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i15 ], [ %395, %402 ], [ %.pre.i95, %405 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
-  %.not14.i19 = icmp eq ptr %407, null
-  br i1 %.not14.i19, label %408, label %430
+  %.not11.i19 = icmp eq ptr %407, null
+  br i1 %.not11.i19, label %408, label %430
 
 408:                                              ; preds = %_ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i18
   %409 = load i64, ptr %54, align 8, !tbaa !245
@@ -7380,8 +7380,8 @@ _ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEER
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i79: ; preds = %449
   %454 = atomicrmw volatile add ptr %450, i32 1 acq_rel, align 4, !noalias !259
-  %.pr12.pre.i80 = load ptr, ptr %28, align 8, !tbaa !252
-  %455 = icmp eq ptr %.pr12.pre.i80, null
+  %.pr9.pre.i80 = load ptr, ptr %28, align 8, !tbaa !252
+  %455 = icmp eq ptr %.pr9.pre.i80, null
   br i1 %455, label %456, label %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i33, !prof !254
 
 456:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i79, %_ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEERKS_IT_EPS2_.exit.i.i87
@@ -7429,7 +7429,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64.i86: ; preds = %_
   br label %586
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i33: ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i79, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i32, %446
-  %467 = phi ptr [ %445, %446 ], [ %445, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i32 ], [ %.pr12.pre.i80, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i79 ]
+  %467 = phi ptr [ %445, %446 ], [ %445, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i32 ], [ %.pr9.pre.i80, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i79 ]
   %468 = load i64, ptr %18, align 8, !tbaa !9
   invoke void @_ZN7xgboost6common14MallocResource6ResizeILb0EEEvmSt4byte(ptr noundef nonnull align 8 dereferenceable(32) %467, i64 noundef %468, i8 noundef zeroext 0)
           to label %469 unwind label %580
@@ -7679,8 +7679,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i55: ; preds = %576,
 
 _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57: ; preds = %579, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i55, %564, %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i52
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.pre17.i58 = load ptr, ptr %486, align 8, !tbaa !107
-  %.pre19.i59 = load ptr, ptr %491, align 8, !tbaa !97
+  %.pre14.i58 = load ptr, ptr %486, align 8, !tbaa !107
+  %.pre16.i59 = load ptr, ptr %491, align 8, !tbaa !97
   br label %587
 
 580:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i33
@@ -7707,8 +7707,8 @@ _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE
   br label %674
 
 587:                                              ; preds = %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i94
-  %588 = phi ptr [ %.pre19.i59, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57 ], [ %427, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i94 ]
-  %589 = phi ptr [ %.pre17.i58, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57 ], [ %425, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i94 ]
+  %588 = phi ptr [ %.pre16.i59, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57 ], [ %427, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i94 ]
+  %589 = phi ptr [ %.pre14.i58, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i57 ], [ %425, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i94 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
   %590 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %591 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -7798,8 +7798,8 @@ _ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSize
 _ZN7xgboost6common5IndexD2Ev.exit.i68:            ; preds = %625, %_ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSizeE.exit.i65
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 2, ptr %629, align 8
-  %.sroa.187.40..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZN7xgboost6common5Index18GetValueFromUint16EPKhm, ptr %.sroa.187.40..sroa_idx.i69, align 8
+  %.sroa.186.40..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZN7xgboost6common5Index18GetValueFromUint16EPKhm, ptr %.sroa.186.40..sroa_idx.i69, align 8
   %630 = load ptr, ptr %591, align 8, !tbaa !97
   %.not.i.i.i91.i70 = icmp eq ptr %630, null
   br i1 %.not.i.i.i91.i70, label %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit95.i74, label %631
@@ -7944,8 +7944,8 @@ _ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pr.i196 = load ptr, ptr %5, align 8, !tbaa !209
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not13.i197 = icmp eq ptr %.pr.i196, null
-  br i1 %.not13.i197, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114, label %682
+  %.not10.i197 = icmp eq ptr %.pr.i196, null
+  br i1 %.not10.i197, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114, label %682
 
 682:                                              ; preds = %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i195
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8004,13 +8004,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i205: ; preds = %
 
 698:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32.i205
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pr10.i206 = load ptr, ptr %5, align 8, !tbaa !209
-  %.not.i33.i207 = icmp eq ptr %.pr10.i206, null
+  %.pr7.i206 = load ptr, ptr %5, align 8, !tbaa !209
+  %.not.i33.i207 = icmp eq ptr %.pr7.i206, null
   br i1 %.not.i33.i207, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114, label %699
 
 699:                                              ; preds = %698
-  %700 = load ptr, ptr %.pr10.i206, align 8, !tbaa !47
-  %701 = getelementptr inbounds nuw i8, ptr %.pr10.i206, i64 16
+  %700 = load ptr, ptr %.pr7.i206, align 8, !tbaa !47
+  %701 = getelementptr inbounds nuw i8, ptr %.pr7.i206, i64 16
   %702 = icmp eq ptr %700, %701
   br i1 %702, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i208
 
@@ -8021,7 +8021,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209: ; preds = %699, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i208
-  call void @_ZdlPvm(ptr noundef nonnull %.pr10.i206, i64 noundef 32) #34
+  call void @_ZdlPvm(ptr noundef nonnull %.pr7.i206, i64 noundef 32) #34
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209, %698, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.i195, %_ZN4dmlc11LogCheck_GEImmEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_.exit.thread.i113
@@ -8059,8 +8059,8 @@ _ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i117: ; preds = %716, %7
   %718 = phi ptr [ %706, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i114 ], [ %706, %713 ], [ %.pre.i194, %716 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %.not14.i118 = icmp eq ptr %718, null
-  br i1 %.not14.i118, label %719, label %741
+  %.not11.i118 = icmp eq ptr %718, null
+  br i1 %.not11.i118, label %719, label %741
 
 719:                                              ; preds = %_ZNK7xgboost6common15RefResourceViewIhE8ResourceEv.exit.i117
   %720 = load i64, ptr %54, align 8, !tbaa !245
@@ -8221,8 +8221,8 @@ _ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEER
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i178: ; preds = %760
   %765 = atomicrmw volatile add ptr %761, i32 1 acq_rel, align 4, !noalias !265
-  %.pr12.pre.i179 = load ptr, ptr %14, align 8, !tbaa !252
-  %766 = icmp eq ptr %.pr12.pre.i179, null
+  %.pr9.pre.i179 = load ptr, ptr %14, align 8, !tbaa !252
+  %766 = icmp eq ptr %.pr9.pre.i179, null
   br i1 %766, label %767, label %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i132, !prof !254
 
 767:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i178, %_ZNSt10shared_ptrIN7xgboost6common14MallocResourceEEC2INS1_15ResourceHandlerEEERKS_IT_EPS2_.exit.i.i186
@@ -8270,7 +8270,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64.i185: ; preds = %
   br label %897
 
 _ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i132: ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i178, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i131, %757
-  %778 = phi ptr [ %756, %757 ], [ %756, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i131 ], [ %.pr12.pre.i179, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i178 ]
+  %778 = phi ptr [ %756, %757 ], [ %756, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.thread.i131 ], [ %.pr9.pre.i179, %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exitthread-pre-split.i178 ]
   %779 = load i64, ptr %4, align 8, !tbaa !9
   invoke void @_ZN7xgboost6common14MallocResource6ResizeILb0EEEvmSt4byte(ptr noundef nonnull align 8 dereferenceable(32) %778, i64 noundef %779, i8 noundef zeroext 0)
           to label %780 unwind label %891
@@ -8520,8 +8520,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i154: ; preds = %887
 
 _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156: ; preds = %890, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80.i154, %875, %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.pre17.i157 = load ptr, ptr %797, align 8, !tbaa !107
-  %.pre19.i158 = load ptr, ptr %802, align 8, !tbaa !97
+  %.pre14.i157 = load ptr, ptr %797, align 8, !tbaa !107
+  %.pre16.i158 = load ptr, ptr %802, align 8, !tbaa !97
   br label %898
 
 891:                                              ; preds = %_ZSt20dynamic_pointer_castIN7xgboost6common14MallocResourceENS1_15ResourceHandlerEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread.i132
@@ -8548,8 +8548,8 @@ _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE
   br label %985
 
 898:                                              ; preds = %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i193
-  %899 = phi ptr [ %.pre19.i158, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156 ], [ %738, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i193 ]
-  %900 = phi ptr [ %.pre17.i157, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156 ], [ %736, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i193 ]
+  %899 = phi ptr [ %.pre16.i158, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156 ], [ %738, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i193 ]
+  %900 = phi ptr [ %.pre14.i157, %_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i156 ], [ %736, %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i193 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %901 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %902 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -8639,8 +8639,8 @@ _ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSize
 _ZN7xgboost6common5IndexD2Ev.exit.i167:           ; preds = %936, %_ZN7xgboost6common5IndexC2ENS0_4SpanIhLm18446744073709551615EEENS0_11BinTypeSizeE.exit.i164
   %940 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 4, ptr %940, align 8
-  %.sroa.187.40..sroa_idx.i168 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZN7xgboost6common5Index18GetValueFromUint32EPKhm, ptr %.sroa.187.40..sroa_idx.i168, align 8
+  %.sroa.186.40..sroa_idx.i168 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZN7xgboost6common5Index18GetValueFromUint32EPKhm, ptr %.sroa.186.40..sroa_idx.i168, align 8
   %941 = load ptr, ptr %902, align 8, !tbaa !97
   %.not.i.i.i91.i169 = icmp eq ptr %941, null
   br i1 %.not.i.i.i91.i169, label %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit95.i173, label %942

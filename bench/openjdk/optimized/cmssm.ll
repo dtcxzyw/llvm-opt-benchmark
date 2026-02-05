@@ -344,9 +344,9 @@ FindNearSectors.exit:                             ; preds = %30
   %59 = fsub double %58, %49
   call void @_cmsVEC3init(ptr noundef nonnull %51, double noundef %53, double noundef %56, double noundef %59) #8
   %60 = icmp sgt i32 %.1.i, 0
-  br i1 %60, label %.lr.ph71, label %._crit_edge
+  br i1 %60, label %.lr.ph69, label %._crit_edge
 
-.lr.ph71:                                         ; preds = %FindNearSectors.exit
+.lr.ph69:                                         ; preds = %FindNearSectors.exit
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -365,29 +365,29 @@ FindNearSectors.exit:                             ; preds = %30
   %76 = fmul double %75, 3.600000e+02
   %77 = fmul double %76, 6.250000e-02
   %78 = zext nneg i32 %.1.i to i64
-  %wide.trip.count87 = zext nneg i32 %.1.i to i64
+  %wide.trip.count85 = zext nneg i32 %.1.i to i64
   br label %79
 
 .loopexit:                                        ; preds = %ToSpherical.exit, %79
-  %.sroa.5.1.lcssa = phi double [ %.sroa.5.067, %79 ], [ %.sroa.5.2, %ToSpherical.exit ]
-  %.sroa.4.1.lcssa = phi double [ %.sroa.4.068, %79 ], [ %.sroa.4.2, %ToSpherical.exit ]
-  %.sroa.0.1.lcssa = phi double [ %.sroa.0.069, %79 ], [ %.sroa.0.2, %ToSpherical.exit ]
+  %.sroa.5.1.lcssa = phi double [ %.sroa.5.065, %79 ], [ %.sroa.5.2, %ToSpherical.exit ]
+  %.sroa.4.1.lcssa = phi double [ %.sroa.4.066, %79 ], [ %.sroa.4.2, %ToSpherical.exit ]
+  %.sroa.0.1.lcssa = phi double [ %.sroa.0.067, %79 ], [ %.sroa.0.2, %ToSpherical.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %79, !llvm.loop !13
+  %exitcond86.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count85
+  br i1 %exitcond86.not, label %._crit_edge, label %79, !llvm.loop !13
 
-79:                                               ; preds = %.lr.ph71, %.loopexit
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next84, %.loopexit ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph71 ], [ %indvars.iv.next, %.loopexit ]
-  %.sroa.0.069 = phi double [ 0.000000e+00, %.lr.ph71 ], [ %.sroa.0.1.lcssa, %.loopexit ]
-  %.sroa.4.068 = phi double [ 0.000000e+00, %.lr.ph71 ], [ %.sroa.4.1.lcssa, %.loopexit ]
-  %.sroa.5.067 = phi double [ 0.000000e+00, %.lr.ph71 ], [ %.sroa.5.1.lcssa, %.loopexit ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %80 = icmp samesign ult i64 %indvars.iv.next84, %78
+79:                                               ; preds = %.lr.ph69, %.loopexit
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next82, %.loopexit ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph69 ], [ %indvars.iv.next, %.loopexit ]
+  %.sroa.0.067 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %.sroa.0.1.lcssa, %.loopexit ]
+  %.sroa.4.066 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %.sroa.4.1.lcssa, %.loopexit ]
+  %.sroa.5.065 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %.sroa.5.1.lcssa, %.loopexit ]
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %80 = icmp samesign ult i64 %indvars.iv.next82, %78
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %79
-  %81 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv83
+  %81 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv81
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -395,10 +395,10 @@ FindNearSectors.exit:                             ; preds = %30
   br label %86
 
 86:                                               ; preds = %.lr.ph, %ToSpherical.exit
-  %indvars.iv79 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next80, %ToSpherical.exit ]
-  %.sroa.0.163 = phi double [ %.sroa.0.069, %.lr.ph ], [ %.sroa.0.2, %ToSpherical.exit ]
-  %.sroa.4.162 = phi double [ %.sroa.4.068, %.lr.ph ], [ %.sroa.4.2, %ToSpherical.exit ]
-  %.sroa.5.161 = phi double [ %.sroa.5.067, %.lr.ph ], [ %.sroa.5.2, %ToSpherical.exit ]
+  %indvars.iv77 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next78, %ToSpherical.exit ]
+  %.sroa.0.161 = phi double [ %.sroa.0.067, %.lr.ph ], [ %.sroa.0.2, %ToSpherical.exit ]
+  %.sroa.4.160 = phi double [ %.sroa.4.066, %.lr.ph ], [ %.sroa.4.2, %ToSpherical.exit ]
+  %.sroa.5.159 = phi double [ %.sroa.5.065, %.lr.ph ], [ %.sroa.5.2, %ToSpherical.exit ]
   %87 = load double, ptr %84, align 8
   %88 = fmul double %87, 0x400921FB54442D18
   %89 = fdiv double %88, 1.800000e+02
@@ -414,7 +414,7 @@ FindNearSectors.exit:                             ; preds = %30
   %99 = fmul double %90, %98
   %100 = fmul double %91, %98
   %101 = fmul double %96, %97
-  %102 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv79
+  %102 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
@@ -570,22 +570,22 @@ _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %179, %
   br i1 %196, label %.lr.ph.i24.i, label %ToSpherical.exit, !llvm.loop !6
 
 ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %190, %ClosestLineToLine.exit
-  %.sroa.5.259 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %193, %190 ], [ %195, %.lr.ph.i24.i ]
-  %.sroa.247.2 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ %.09.i.i, %_cmsAtan2.exit.i ], [ %.09.i.i, %190 ], [ %.09.i.i, %.lr.ph.i24.i ]
-  %197 = fcmp ule double %sqrt.i, %.sroa.0.163
-  %198 = fcmp ult double %.sroa.5.259, %67
+  %.sroa.5.057 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %193, %190 ], [ %195, %.lr.ph.i24.i ]
+  %.sroa.247.0 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ %.09.i.i, %_cmsAtan2.exit.i ], [ %.09.i.i, %190 ], [ %.09.i.i, %.lr.ph.i24.i ]
+  %197 = fcmp ule double %sqrt.i, %.sroa.0.161
+  %198 = fcmp ult double %.sroa.5.057, %67
   %or.cond = or i1 %197, %198
-  %199 = fcmp ugt double %.sroa.5.259, %71
-  %or.cond75 = select i1 %or.cond, i1 true, i1 %199
-  %200 = fcmp ult double %.sroa.247.2, %73
-  %or.cond76 = or i1 %or.cond75, %200
-  %201 = fcmp ugt double %.sroa.247.2, %77
-  %or.cond77 = select i1 %or.cond76, i1 true, i1 %201
-  %.sroa.5.2 = select i1 %or.cond77, double %.sroa.5.161, double %.sroa.5.259
-  %.sroa.4.2 = select i1 %or.cond77, double %.sroa.4.162, double %.sroa.247.2
-  %.sroa.0.2 = select i1 %or.cond77, double %.sroa.0.163, double %sqrt.i
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count87
+  %199 = fcmp ugt double %.sroa.5.057, %71
+  %or.cond73 = select i1 %or.cond, i1 true, i1 %199
+  %200 = fcmp ult double %.sroa.247.0, %73
+  %or.cond74 = or i1 %or.cond73, %200
+  %201 = fcmp ugt double %.sroa.247.0, %77
+  %or.cond75 = select i1 %or.cond74, i1 true, i1 %201
+  %.sroa.5.2 = select i1 %or.cond75, double %.sroa.5.159, double %.sroa.5.057
+  %.sroa.4.2 = select i1 %or.cond75, double %.sroa.4.160, double %.sroa.247.0
+  %.sroa.0.2 = select i1 %or.cond75, double %.sroa.0.161, double %sqrt.i
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count85
   br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %FindNearSectors.exit

@@ -9986,7 +9986,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i: ; preds = %161, %
   br label %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryEEC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i
 
 _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryEEC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i: ; preds = %168, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i
-  %.sroa.07.0.i.i = phi i64 [ %.val.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i ], [ %173, %168 ]
+  %.sroa.05.0.i.i = phi i64 [ %.val.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit7.i ], [ %173, %168 ]
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.0131.2, i64 32
   %175 = load ptr, ptr %174, align 8
   %.not.i.i8.i = icmp eq ptr %175, null
@@ -10000,20 +10000,20 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_12_GLOBAL__N_136Hd_D
   %179 = ptrtoint ptr %.val13.i.i.i to i64
   %180 = sub i64 %178, %179
   %181 = ashr exact i64 %180, 5
-  %182 = and i64 %.sroa.07.0.i.i, 7
+  %182 = and i64 %.sroa.05.0.i.i, 7
   %.not.i.i.i.i.i.i.i35 = icmp eq i64 %182, 0
   br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit.i.i.i, label %183
 
 183:                                              ; preds = %177
-  %184 = and i64 %.sroa.07.0.i.i, -8
+  %184 = and i64 %.sroa.05.0.i.i, -8
   %185 = inttoptr i64 %184 to ptr
   %186 = atomicrmw add ptr %185, i32 2 monotonic, align 4, !noalias !22
   %187 = trunc i32 %186 to i1
-  %188 = select i1 %187, i64 %.sroa.07.0.i.i, i64 %184
+  %188 = select i1 %187, i64 %.sroa.05.0.i.i, i64 %184
   br label %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit.i.i.i
 
 _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit.i.i.i: ; preds = %183, %177
-  %.sroa.067.0.i.i.i = phi i64 [ %.sroa.07.0.i.i, %177 ], [ %188, %183 ]
+  %.sroa.067.0.i.i.i = phi i64 [ %.sroa.05.0.i.i, %177 ], [ %188, %183 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %189 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %190 = load i64, ptr %189, align 8
@@ -10393,7 +10393,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit.i.i.i: ; pred
   %.sroa.03.06.i.i.i.i = phi ptr [ %354, %353 ], [ %.val13.i.i.i, %348 ]
   %349 = load ptr, ptr %.sroa.03.06.i.i.i.i, align 8
   %350 = ptrtoint ptr %349 to i64
-  %351 = xor i64 %.sroa.07.0.i.i, %350
+  %351 = xor i64 %.sroa.05.0.i.i, %350
   %352 = icmp ult i64 %351, 8
   br i1 %352, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i, label %353
 
@@ -10405,24 +10405,24 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit.i.i.i: ; pred
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i: ; preds = %353, %.lr.ph.i.i.i.i, %348
   %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %.val13.i.i.i, %348 ], [ %.sroa.03.06.i.i.i.i, %.lr.ph.i.i.i.i ], [ %354, %353 ]
   %.not74.i.i.i = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i, %.val14.i.i.i
-  %.pre.i.i = and i64 %.sroa.07.0.i.i, 7
+  %.pre.i.i = and i64 %.sroa.05.0.i.i, 7
   br i1 %.not74.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit.i.i.i
-  %.pre-phi17.i.i = phi i64 [ %182, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit.i.i.i ], [ %.pre.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i ]
-  %.not.i.i.i.i32.i.i.i = icmp eq i64 %.pre-phi17.i.i, 0
+  %.pre-phi15.i.i = phi i64 [ %182, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmED2Ev.exit.i.i.i ], [ %.pre.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i ]
+  %.not.i.i.i.i32.i.i.i = icmp eq i64 %.pre-phi15.i.i, 0
   br i1 %.not.i.i.i.i32.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeC2ERKS1_RKS4_.exit.i.i.i, label %355
 
 355:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i
-  %356 = and i64 %.sroa.07.0.i.i, -8
+  %356 = and i64 %.sroa.05.0.i.i, -8
   %357 = inttoptr i64 %356 to ptr
   %358 = atomicrmw add ptr %357, i32 2 monotonic, align 4
   %359 = trunc i32 %358 to i1
-  %360 = select i1 %359, i64 %.sroa.07.0.i.i, i64 %356
+  %360 = select i1 %359, i64 %.sroa.05.0.i.i, i64 %356
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeC2ERKS1_RKS4_.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeC2ERKS1_RKS4_.exit.i.i.i: ; preds = %355, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i
-  %.sroa.048.0.i.i.i = phi i64 [ %.sroa.07.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i ], [ %360, %355 ]
+  %.sroa.048.0.i.i.i = phi i64 [ %.sroa.05.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i._crit_edge.i.i ], [ %360, %355 ]
   %361 = load ptr, ptr %176, align 8
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.0131.2, i64 24
   %363 = load ptr, ptr %362, align 8
@@ -10644,9 +10644,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeEEE9constructISA_JSA_EEEvRSB_PT_DpOT0_.exit.i.i.i.i.i
-  %.pre-phi16.i.i = phi i64 [ %394, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i.i ], [ %365, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeEEE9constructISA_JSA_EEEvRSB_PT_DpOT0_.exit.i.i.i.i.i ]
-  %.val1.i.i15.i.i = phi ptr [ %455, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i.i ], [ %378, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeEEE9constructISA_JSA_EEEvRSB_PT_DpOT0_.exit.i.i.i.i.i ]
-  %.not.i.i.i.i36.i.i.i = icmp eq i64 %.pre-phi16.i.i, 0
+  %.pre-phi14.i.i = phi i64 [ %394, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i.i ], [ %365, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeEEE9constructISA_JSA_EEEvRSB_PT_DpOT0_.exit.i.i.i.i.i ]
+  %.val1.i.i13.i.i = phi ptr [ %455, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i.i ], [ %378, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7TfTokenENS0_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS2_11HashFunctorESt8equal_toIS2_ELj32EE18_InternalValueTypeEEE9constructISA_JSA_EEEvRSB_PT_DpOT0_.exit.i.i.i.i.i ]
+  %.not.i.i.i.i36.i.i.i = icmp eq i64 %.pre-phi14.i.i, 0
   br i1 %.not.i.i.i.i36.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeD2Ev.exit.i.i.i, label %461
 
 461:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i
@@ -10657,7 +10657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvars
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeD2Ev.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE18_InternalValueTypeD2Ev.exit.i.i.i: ; preds = %461, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i
-  %.val1.i.i.i.i = phi ptr [ %.val1.i.i.pre.i.i, %461 ], [ %.val1.i.i15.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i ]
+  %.val1.i.i.i.i = phi ptr [ %.val1.i.i.pre.i.i, %461 ], [ %.val1.i.i13.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i.i.i ]
   %.val.i.i.i.i = load ptr, ptr %166, align 8
   %465 = ptrtoint ptr %.val1.i.i.i.i to i64
   %466 = ptrtoint ptr %.val.i.i.i.i to i64
@@ -11233,13 +11233,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvars
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i11.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE20_CreateTableIfNeededEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i, %338
-  %.pre-phi19.i.i = phi i64 [ %.pre-phi17.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE20_CreateTableIfNeededEv.exit.i.i.i ], [ %182, %338 ], [ %.pre.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i ]
+  %.pre-phi17.i.i = phi i64 [ %.pre-phi15.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE20_CreateTableIfNeededEv.exit.i.i.i ], [ %182, %338 ], [ %.pre.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i ]
   %.sroa.070.0.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE20_CreateTableIfNeededEv.exit.i.i.i ], [ %341, %338 ], [ %.sroa.03.0.lcssa.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7TfTokenENS_12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryENS1_11HashFunctorESt8equal_toIS1_ELj32EE10_FindInVecERKS1_.exit.i.i.i ]
-  %.not.i.i.i6.i.i = icmp eq i64 %.pre-phi19.i.i, 0
+  %.not.i.i.i6.i.i = icmp eq i64 %.pre-phi17.i.i, 0
   br i1 %.not.i.i.i6.i.i, label %700, label %690
 
 690:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i.i
-  %691 = and i64 %.sroa.07.0.i.i, -8
+  %691 = and i64 %.sroa.05.0.i.i, -8
   %692 = inttoptr i64 %691 to ptr
   %693 = atomicrmw sub ptr %692, i32 2 release, align 4
   br label %700
@@ -11250,13 +11250,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvars
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i11.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i11.i.i: ; preds = %694, %686, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i45.i.i.i, %681, %.body66, %.body.i.i.i.i.i, %344, %.body89
-  %.pre-phi.i.i = phi i64 [ %182, %.body89 ], [ %182, %344 ], [ %.pre-phi17.i.i, %.body.i.i.i.i.i ], [ %.pre-phi17.i.i, %.body66 ], [ %.pre-phi17.i.i, %681 ], [ %.pre-phi17.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i45.i.i.i ], [ %.pre-phi17.i.i, %686 ], [ %.pre-phi17.i.i, %694 ]
+  %.pre-phi.i.i = phi i64 [ %182, %.body89 ], [ %182, %344 ], [ %.pre-phi15.i.i, %.body.i.i.i.i.i ], [ %.pre-phi15.i.i, %.body66 ], [ %.pre-phi15.i.i, %681 ], [ %.pre-phi15.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i45.i.i.i ], [ %.pre-phi15.i.i, %686 ], [ %.pre-phi15.i.i, %694 ]
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %eh.lpad-body90, %.body89 ], [ %eh.lpad-body90, %344 ], [ %lpad.phi174, %.body.i.i.i.i.i ], [ %eh.lpad-body67, %.body66 ], [ %eh.lpad-body67, %681 ], [ %lpad.phi171, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i.i45.i.i.i ], [ %lpad.phi171, %686 ], [ %695, %694 ]
   %.not.i.i.i12.i.i = icmp eq i64 %.pre-phi.i.i, 0
   br i1 %.not.i.i.i12.i.i, label %.body.i36, label %696
 
 696:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_DataSourceLegacyPrimvarsContainer6_EntryD2Ev.exit.i11.i.i
-  %697 = and i64 %.sroa.07.0.i.i, -8
+  %697 = and i64 %.sroa.05.0.i.i, -8
   %698 = inttoptr i64 %697 to ptr
   %699 = atomicrmw sub ptr %698, i32 2 release, align 4
   br label %.body.i36

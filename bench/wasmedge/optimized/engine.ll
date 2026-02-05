@@ -1182,8 +1182,8 @@ define void @_ZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEP
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %12, align 8
-  %.not37 = icmp eq ptr %3, %4
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not31 = icmp eq ptr %3, %4
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -42023,16 +42023,16 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj32EEENSt
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  store i32 %.sroa.0106.0.extract.trunc, ptr %10, align 4
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  store i32 %.sroa.094.0.extract.trunc, ptr %10, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -42123,7 +42123,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIjLj4EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -42227,11 +42227,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj64EEENSt
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -42322,7 +42322,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueImLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -42422,16 +42422,16 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIfLj32EEENSt
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  store i32 %.sroa.0106.0.extract.trunc, ptr %10, align 4
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  store i32 %.sroa.094.0.extract.trunc, ptr %10, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -42522,7 +42522,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIfLj4EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -42620,17 +42620,17 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIdLj64EEENSt
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
-  %.sroa.0.0.copyload.i107 = load double, ptr %18, align 16
+  %.sroa.0.0.copyload.i95 = load double, ptr %18, align 16
   store ptr %18, ptr %16, align 8
-  store double %.sroa.0.0.copyload.i107, ptr %10, align 8
+  store double %.sroa.0.0.copyload.i95, ptr %10, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -42721,7 +42721,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIdLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -42821,16 +42821,16 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj8EEENSt9
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  store i32 %.sroa.0106.0.extract.trunc, ptr %10, align 4
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  store i32 %.sroa.094.0.extract.trunc, ptr %10, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -42921,7 +42921,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIjLj1EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -43021,16 +43021,16 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj16EEENSt
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 16
   store ptr %18, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  store i32 %.sroa.0106.0.extract.trunc, ptr %10, align 4
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  store i32 %.sroa.094.0.extract.trunc, ptr %10, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -43121,7 +43121,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIjLj2EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -43225,11 +43225,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj8EEENSt9
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -43320,7 +43320,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueImLj1EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -43424,11 +43424,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj16EEENSt
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -43519,7 +43519,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueImLj2EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -43623,11 +43623,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj32EEENSt
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -43718,7 +43718,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueImLj4EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -50805,17 +50805,17 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor10runStoreOpIoLj128EEENS
   store ptr %18, ptr %16, align 8
   %.sroa.2.0.insert.ext = zext i64 %.sroa.2.0.copyload.i to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
-  %.sroa.0106.0.insert.ext = zext i64 %.sroa.0.0.copyload.i to i128
-  %.sroa.0106.0.insert.insert = or disjoint i128 %.sroa.2.0.insert.shift, %.sroa.0106.0.insert.ext
-  store i128 %.sroa.0106.0.insert.insert, ptr %10, align 16
+  %.sroa.094.0.insert.ext = zext i64 %.sroa.0.0.copyload.i to i128
+  %.sroa.094.0.insert.insert = or disjoint i128 %.sroa.2.0.insert.shift, %.sroa.094.0.insert.ext
+  store i128 %.sroa.094.0.insert.insert, ptr %10, align 16
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i19 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0105.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
+  %.sroa.093.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i19 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0105.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.093.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -50906,7 +50906,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %97
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0105.0.extract.trunc
+  %64 = add i32 %21, %.sroa.093.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIoLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS5_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 16 dereferenceable(16) %10, i32 noundef %64) #26
   %65 = load i8, ptr %14, align 4
   %66 = trunc i8 %65 to i1
@@ -51008,9 +51008,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIhEEN5cxx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <16 x i8>
+  %.sroa.091.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.091.8.vec.insert = insertelement <2 x i64> %.sroa.091.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.091.8.vec.insert to <16 x i8>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
   %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -51215,9 +51215,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpItEEN5cxx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <8 x i16>
+  %.sroa.091.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.091.8.vec.insert = insertelement <2 x i64> %.sroa.091.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.091.8.vec.insert to <8 x i16>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
   %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -51422,9 +51422,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIjEEN5cxx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0103.8.vec.insert to <4 x i32>
+  %.sroa.091.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.091.8.vec.insert = insertelement <2 x i64> %.sroa.091.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.091.8.vec.insert to <4 x i32>
   %20 = getelementptr inbounds i8, ptr %17, i64 -32
   %21 = load i32, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -51629,8 +51629,8 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpImEEN5cxx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0103.8.vec.insert = insertelement <2 x i64> %.sroa.0103.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %.sroa.091.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.091.8.vec.insert = insertelement <2 x i64> %.sroa.091.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %20 = load i32, ptr %19, align 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -51800,7 +51800,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %97 = load i64, ptr %13, align 8
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %99 = load i8, ptr %98, align 4
-  %100 = insertelement <2 x i64> %.sroa.0103.8.vec.insert, i64 %97, i8 %99
+  %100 = insertelement <2 x i64> %.sroa.091.8.vec.insert, i64 %97, i8 %99
   store <2 x i64> %100, ptr %19, align 16
   store i64 1, ptr %0, align 4
   br label %101
@@ -51834,9 +51834,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIhEEN5cx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0107.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0107.8.vec.insert = insertelement <2 x i64> %.sroa.0107.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0107.8.vec.insert to <16 x i8>
+  %.sroa.095.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.095.8.vec.insert = insertelement <2 x i64> %.sroa.095.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.095.8.vec.insert to <16 x i8>
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %21 = load i8, ptr %20, align 4
   %22 = extractelement <16 x i8> %19, i8 %21
@@ -51845,11 +51845,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIhEEN5cx
   %24 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i20 = load i64, ptr %24, align 16
   store ptr %24, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
-  %28 = icmp ugt i32 %.sroa.0106.0.extract.trunc, %27
+  %28 = icmp ugt i32 %.sroa.094.0.extract.trunc, %27
   br i1 %28, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %68
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -51940,7 +51940,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %102
 
 68:                                               ; preds = %5
-  %69 = add i32 %26, %.sroa.0106.0.extract.trunc
+  %69 = add i32 %26, %.sroa.094.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIKjLj1EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS6_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %69) #26
   %70 = load i8, ptr %14, align 4
   %71 = trunc i8 %70 to i1
@@ -52042,9 +52042,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpItEEN5cx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0107.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0107.8.vec.insert = insertelement <2 x i64> %.sroa.0107.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0107.8.vec.insert to <8 x i16>
+  %.sroa.095.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.095.8.vec.insert = insertelement <2 x i64> %.sroa.095.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.095.8.vec.insert to <8 x i16>
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %21 = load i8, ptr %20, align 4
   %22 = extractelement <8 x i16> %19, i8 %21
@@ -52053,11 +52053,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpItEEN5cx
   %24 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i20 = load i64, ptr %24, align 16
   store ptr %24, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = xor i32 %26, -1
-  %28 = icmp ugt i32 %.sroa.0106.0.extract.trunc, %27
+  %28 = icmp ugt i32 %.sroa.094.0.extract.trunc, %27
   br i1 %28, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %68
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -52148,7 +52148,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %102
 
 68:                                               ; preds = %5
-  %69 = add i32 %26, %.sroa.0106.0.extract.trunc
+  %69 = add i32 %26, %.sroa.094.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIKjLj2EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS6_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %69) #26
   %70 = load i8, ptr %14, align 4
   %71 = trunc i8 %70 to i1
@@ -52250,9 +52250,9 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIjEEN5cx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0107.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0107.8.vec.insert = insertelement <2 x i64> %.sroa.0107.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
-  %19 = bitcast <2 x i64> %.sroa.0107.8.vec.insert to <4 x i32>
+  %.sroa.095.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.095.8.vec.insert = insertelement <2 x i64> %.sroa.095.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %19 = bitcast <2 x i64> %.sroa.095.8.vec.insert to <4 x i32>
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %21 = load i8, ptr %20, align 4
   %22 = extractelement <4 x i32> %19, i8 %21
@@ -52260,11 +52260,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIjEEN5cx
   %23 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i20 = load i64, ptr %23, align 16
   store ptr %23, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0106.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.094.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -52355,7 +52355,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %101
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0106.0.extract.trunc
+  %68 = add i32 %25, %.sroa.094.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIKjLj4EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS6_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %68) #26
   %69 = load i8, ptr %14, align 4
   %70 = trunc i8 %69 to i1
@@ -52457,20 +52457,20 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpImEEN5cx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %18, ptr %16, align 8
-  %.sroa.0107.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %.sroa.0107.8.vec.insert = insertelement <2 x i64> %.sroa.0107.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
+  %.sroa.095.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
+  %.sroa.095.8.vec.insert = insertelement <2 x i64> %.sroa.095.0.vec.insert, i64 %.sroa.2.0.copyload.i, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %20 = load i8, ptr %19, align 4
-  %21 = extractelement <2 x i64> %.sroa.0107.8.vec.insert, i8 %20
+  %21 = extractelement <2 x i64> %.sroa.095.8.vec.insert, i8 %20
   store i64 %21, ptr %10, align 8
   %22 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i20 = load i64, ptr %22, align 16
   store ptr %22, ptr %16, align 8
-  %.sroa.0106.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
+  %.sroa.094.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = xor i32 %24, -1
-  %26 = icmp ugt i32 %.sroa.0106.0.extract.trunc, %25
+  %26 = icmp ugt i32 %.sroa.094.0.extract.trunc, %25
   br i1 %26, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %66
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -52561,7 +52561,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %100
 
 66:                                               ; preds = %5
-  %67 = add i32 %24, %.sroa.0106.0.extract.trunc
+  %67 = add i32 %24, %.sroa.094.0.extract.trunc
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance10storeValueIKmLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKS6_j(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %14, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %67) #26
   %68 = load i8, ptr %14, align 4
   %69 = trunc i8 %68 to i1
@@ -52886,7 +52886,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i27 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0168.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i27 to i32
+  %.sroa.0150.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i27 to i32
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
   %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -53056,7 +53056,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %134
 
 99:                                               ; preds = %69
-  call void @_ZN8WasmEdge8Executor8Executor10atomicWaitIiEEN5cxx208expectedIjNS_7ErrCodeEEERNS_7Runtime8Instance14MemoryInstanceEjT_l(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.362") align 4 %18, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %70, i32 noundef %.sroa.0168.0.extract.trunc, i64 noundef %.sroa.0.0.copyload.i) #26
+  call void @_ZN8WasmEdge8Executor8Executor10atomicWaitIiEEN5cxx208expectedIjNS_7ErrCodeEEERNS_7Runtime8Instance14MemoryInstanceEjT_l(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.362") align 4 %18, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %70, i32 noundef %.sroa.0150.0.extract.trunc, i64 noundef %.sroa.0.0.copyload.i) #26
   %100 = load i8, ptr %18, align 4
   %101 = trunc i8 %100 to i1
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -53622,8 +53622,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i71.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not31170 = icmp eq ptr %104, null
-  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31170
+  %.not31152 = icmp eq ptr %104, null
+  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31152
   br i1 %.not31, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88: ; preds = %97
@@ -53905,8 +53905,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i71.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not31170 = icmp eq ptr %104, null
-  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31170
+  %.not31152 = icmp eq ptr %104, null
+  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31152
   br i1 %.not31, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88: ; preds = %97
@@ -54112,8 +54112,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %69, %65
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
-  %.not113 = icmp eq ptr %71, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not113
+  %.not101 = icmp eq ptr %71, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not101
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit54, label %99
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit54: ; preds = %63
@@ -54396,8 +54396,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i71.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not31170 = icmp eq ptr %104, null
-  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31170
+  %.not31152 = icmp eq ptr %104, null
+  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31152
   br i1 %.not31, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88: ; preds = %97
@@ -54604,8 +54604,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %69, %65
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
-  %.not113 = icmp eq ptr %71, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not113
+  %.not101 = icmp eq ptr %71, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not101
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit54, label %99
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit54: ; preds = %63
@@ -54888,8 +54888,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i71.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not31170 = icmp eq ptr %104, null
-  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31170
+  %.not31152 = icmp eq ptr %104, null
+  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31152
   br i1 %.not31, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88: ; preds = %97
@@ -55172,8 +55172,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i71.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not31170 = icmp eq ptr %104, null
-  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31170
+  %.not31152 = icmp eq ptr %104, null
+  %.not31 = select i1 %.not.i71.not, i1 true, i1 %.not31152
   br i1 %.not31, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit88: ; preds = %97
@@ -55282,15 +55282,15 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIijEEN
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i34 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0176.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
+  %.sroa.0158.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0176.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.0158.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -55381,7 +55381,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %135
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0176.0.extract.trunc
+  %68 = add i32 %25, %.sroa.0158.0.extract.trunc
   %69 = and i32 %68, 3
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %97, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61
@@ -55462,8 +55462,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i77.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not32182 = icmp eq ptr %104, null
-  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32182
+  %.not32164 = icmp eq ptr %104, null
+  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32164
   br i1 %.not32, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94: ; preds = %97
@@ -55535,7 +55535,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 132:                                              ; preds = %97
   %133 = getelementptr inbounds nuw i8, ptr %104, i64 %98
-  store atomic i32 %.sroa.0177.0.extract.trunc, ptr %133 seq_cst, align 4
+  store atomic i32 %.sroa.0159.0.extract.trunc, ptr %133 seq_cst, align 4
   store i64 1, ptr %0, align 4
   br label %134
 
@@ -55573,11 +55573,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIlmEEN
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i34 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0176.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
+  %.sroa.0158.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0176.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.0158.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -55668,7 +55668,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %135
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0176.0.extract.trunc
+  %68 = add i32 %25, %.sroa.0158.0.extract.trunc
   %69 = and i32 %68, 7
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %97, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61
@@ -55749,8 +55749,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i77.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not32178 = icmp eq ptr %104, null
-  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32178
+  %.not32160 = icmp eq ptr %104, null
+  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32160
   br i1 %.not32, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94: ; preds = %97
@@ -55856,11 +55856,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjhEEN
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i33 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0119.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i33 to i32
+  %.sroa.0107.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i33 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0119.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.0107.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -55951,7 +55951,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %103
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0119.0.extract.trunc
+  %64 = add i32 %21, %.sroa.0107.0.extract.trunc
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %67 = load i32, ptr %66, align 4
@@ -55960,8 +55960,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %69, %65
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
-  %.not125 = icmp eq ptr %71, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not125
+  %.not113 = icmp eq ptr %71, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not113
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit60, label %99
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit60: ; preds = %63
@@ -56072,11 +56072,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjtEEN
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i34 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0176.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
+  %.sroa.0158.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0176.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.0158.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -56167,7 +56167,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %136
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0176.0.extract.trunc
+  %68 = add i32 %25, %.sroa.0158.0.extract.trunc
   %69 = and i32 %68, 1
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %97, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61
@@ -56248,8 +56248,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i77.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not32182 = icmp eq ptr %104, null
-  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32182
+  %.not32164 = icmp eq ptr %104, null
+  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32164
   br i1 %.not32, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94: ; preds = %97
@@ -56356,11 +56356,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImhEEN
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i33 = load i64, ptr %19, align 16
   store ptr %19, ptr %16, align 8
-  %.sroa.0119.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i33 to i32
+  %.sroa.0107.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i33 to i32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = xor i32 %21, -1
-  %23 = icmp ugt i32 %.sroa.0119.0.extract.trunc, %22
+  %23 = icmp ugt i32 %.sroa.0107.0.extract.trunc, %22
   br i1 %23, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %63
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -56451,7 +56451,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %103
 
 63:                                               ; preds = %5
-  %64 = add i32 %21, %.sroa.0119.0.extract.trunc
+  %64 = add i32 %21, %.sroa.0107.0.extract.trunc
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %67 = load i32, ptr %66, align 4
@@ -56460,8 +56460,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %69, %65
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
-  %.not121 = icmp eq ptr %71, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %71, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit60, label %99
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit60: ; preds = %63
@@ -56572,11 +56572,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImtEEN
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i34 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0176.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
+  %.sroa.0158.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0176.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.0158.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -56667,7 +56667,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %136
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0176.0.extract.trunc
+  %68 = add i32 %25, %.sroa.0158.0.extract.trunc
   %69 = and i32 %68, 1
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %97, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61
@@ -56748,8 +56748,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i77.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not32178 = icmp eq ptr %104, null
-  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32178
+  %.not32160 = icmp eq ptr %104, null
+  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32160
   br i1 %.not32, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94: ; preds = %97
@@ -56860,11 +56860,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImjEEN
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i34 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0176.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
+  %.sroa.0158.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i34 to i32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = xor i32 %25, -1
-  %27 = icmp ugt i32 %.sroa.0176.0.extract.trunc, %26
+  %27 = icmp ugt i32 %.sroa.0158.0.extract.trunc, %26
   br i1 %27, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %67
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %5
@@ -56955,7 +56955,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %136
 
 67:                                               ; preds = %5
-  %68 = add i32 %25, %.sroa.0176.0.extract.trunc
+  %68 = add i32 %25, %.sroa.0158.0.extract.trunc
   %69 = and i32 %68, 3
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %97, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61
@@ -57036,8 +57036,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i77.not = icmp samesign ule i64 %102, %98
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %.not32178 = icmp eq ptr %104, null
-  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32178
+  %.not32160 = icmp eq ptr %104, null
+  %.not32 = select i1 %.not.i77.not, i1 true, i1 %.not32160
   br i1 %.not32, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94, label %132
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit94: ; preds = %97
@@ -57145,7 +57145,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -57323,8 +57323,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -57396,7 +57396,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw add ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw add ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -57609,8 +57609,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -57819,8 +57819,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -58107,8 +58107,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -58319,8 +58319,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -58607,8 +58607,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -58895,8 +58895,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -59006,7 +59006,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -59184,8 +59184,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -59257,7 +59257,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw sub ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw sub ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -59470,8 +59470,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -59680,8 +59680,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -59968,8 +59968,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -60180,8 +60180,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -60468,8 +60468,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -60756,8 +60756,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -60867,7 +60867,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -61045,8 +61045,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -61118,7 +61118,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw and ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw and ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -61331,8 +61331,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -61541,8 +61541,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -61829,8 +61829,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -62041,8 +62041,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -62329,8 +62329,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -62617,8 +62617,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -62728,7 +62728,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -62906,8 +62906,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -62979,7 +62979,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw or ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw or ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -63192,8 +63192,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -63402,8 +63402,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -63690,8 +63690,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -63902,8 +63902,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -64190,8 +64190,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -64478,8 +64478,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -64589,7 +64589,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -64767,8 +64767,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -64840,7 +64840,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw xor ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw xor ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -65053,8 +65053,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -65263,8 +65263,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -65551,8 +65551,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -65763,8 +65763,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -66051,8 +66051,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -66339,8 +66339,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -66450,7 +66450,7 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIij
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0177.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0159.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %24 = load i32, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -66628,8 +66628,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -66701,7 +66701,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 133:                                              ; preds = %98
   %134 = getelementptr inbounds nuw i8, ptr %105, i64 %99
-  %135 = atomicrmw xchg ptr %134, i32 %.sroa.0177.0.extract.trunc seq_cst, align 4
+  %135 = atomicrmw xchg ptr %134, i32 %.sroa.0159.0.extract.trunc seq_cst, align 4
   store i32 %135, ptr %23, align 16
   store i64 1, ptr %0, align 4
   br label %136
@@ -66914,8 +66914,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -67124,8 +67124,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -67412,8 +67412,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -67624,8 +67624,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %70, %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load ptr, ptr %71, align 8
-  %.not121 = icmp eq ptr %72, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not121
+  %.not109 = icmp eq ptr %72, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not109
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61, label %100
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit61: ; preds = %64
@@ -67912,8 +67912,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -68200,8 +68200,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i78.not = icmp samesign ule i64 %103, %99
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %105 = load ptr, ptr %104, align 8
-  %.not38178 = icmp eq ptr %105, null
-  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38178
+  %.not38160 = icmp eq ptr %105, null
+  %.not38 = select i1 %.not.i78.not, i1 true, i1 %.not38160
   br i1 %.not38, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95, label %133
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit95: ; preds = %98
@@ -68311,11 +68311,11 @@ define linkonce_odr void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchan
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
   store ptr %22, ptr %20, align 8
-  %.sroa.0217.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0199.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -32
   %.sroa.0.0.copyload.i74 = load i64, ptr %23, align 16
   store ptr %23, ptr %20, align 8
-  %.sroa.0216.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i74 to i32
+  %.sroa.0198.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i74 to i32
   %24 = getelementptr inbounds i8, ptr %21, i64 -48
   %25 = load i32, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -68493,8 +68493,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i117.not = icmp samesign ule i64 %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not70222 = icmp eq ptr %106, null
-  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70222
+  %.not70204 = icmp eq ptr %106, null
+  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70204
   br i1 %.not70, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134, label %134
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134: ; preds = %99
@@ -68566,7 +68566,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 134:                                              ; preds = %99
   %135 = getelementptr inbounds nuw i8, ptr %106, i64 %100
-  %136 = cmpxchg ptr %135, i32 %.sroa.0216.0.extract.trunc, i32 %.sroa.0217.0.extract.trunc seq_cst seq_cst, align 4
+  %136 = cmpxchg ptr %135, i32 %.sroa.0198.0.extract.trunc, i32 %.sroa.0199.0.extract.trunc seq_cst seq_cst, align 4
   %137 = extractvalue { i32, i1 } %136, 0
   store i32 %137, ptr %24, align 16
   store i64 1, ptr %0, align 4
@@ -68783,8 +68783,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i117.not = icmp samesign ule i64 %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not70219 = icmp eq ptr %106, null
-  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70219
+  %.not70201 = icmp eq ptr %106, null
+  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70201
   br i1 %.not70, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134, label %134
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134: ; preds = %99
@@ -68997,8 +68997,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %71, %67
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %73 = load ptr, ptr %72, align 8
-  %.not165 = icmp eq ptr %73, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not165
+  %.not153 = icmp eq ptr %73, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not153
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit100, label %101
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit100: ; preds = %65
@@ -69290,8 +69290,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i117.not = icmp samesign ule i64 %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not70222 = icmp eq ptr %106, null
-  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70222
+  %.not70204 = icmp eq ptr %106, null
+  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70204
   br i1 %.not70, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134, label %134
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134: ; preds = %99
@@ -69507,8 +69507,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.not.i = icmp samesign ule i64 %71, %67
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %73 = load ptr, ptr %72, align 8
-  %.not162 = icmp eq ptr %73, null
-  %.not = select i1 %.not.not.i, i1 true, i1 %.not162
+  %.not150 = icmp eq ptr %73, null
+  %.not = select i1 %.not.not.i, i1 true, i1 %.not150
   br i1 %.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit100, label %101
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit100: ; preds = %65
@@ -69800,8 +69800,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i117.not = icmp samesign ule i64 %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not70219 = icmp eq ptr %106, null
-  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70219
+  %.not70201 = icmp eq ptr %106, null
+  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70201
   br i1 %.not70, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134, label %134
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134: ; preds = %99
@@ -70093,8 +70093,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.not.i117.not = icmp samesign ule i64 %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = load ptr, ptr %105, align 8
-  %.not70219 = icmp eq ptr %106, null
-  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70219
+  %.not70201 = icmp eq ptr %106, null
+  %.not70 = select i1 %.not.i117.not, i1 true, i1 %.not70201
   br i1 %.not70, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134, label %134
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit134: ; preds = %99

@@ -1829,23 +1829,23 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 
 17:                                               ; preds = %9
   %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %.thread58, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread56, label %.lr.ph.preheader.i
 
-.thread58:                                        ; preds = %17
+.thread56:                                        ; preds = %17
   %18 = shl i64 %7, 5
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %18) #30
   br label %36
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %17
-  %.02150 = phi ptr [ %2, %17 ], [ %16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
-  %.sroa.033.148 = phi ptr [ null, %17 ], [ %16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
-  %.sroa.10.146 = phi i64 [ 0, %17 ], [ %5, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
+  %.02148 = phi ptr [ %2, %17 ], [ %16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
+  %.sroa.033.146 = phi ptr [ null, %17 ], [ %16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
+  %.sroa.10.144 = phi i64 [ 0, %17 ], [ %5, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.032.0 = phi ptr [ %3, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
   %.012.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.02150, i64 %.012.i
+  %19 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.02148, i64 %.012.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !41
   tail call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.032.0, ptr noundef nonnull align 16 dereferenceable(32) %19) #26
@@ -1876,15 +1876,15 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 33:                                               ; preds = %.lr.ph.i27
   %34 = shl i64 %7, 5
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %34) #30
-  %.not67 = icmp eq ptr %.sroa.033.148, null
-  br i1 %.not67, label %36, label %35
+  %.not65 = icmp eq ptr %.sroa.033.146, null
+  br i1 %.not65, label %36, label %35
 
 35:                                               ; preds = %33
-  store ptr %.sroa.033.148, ptr %2, align 16, !tbaa !75
-  store i64 %.sroa.10.146, ptr %6, align 8, !tbaa !75
+  store ptr %.sroa.033.146, ptr %2, align 16, !tbaa !75
+  store i64 %.sroa.10.144, ptr %6, align 8, !tbaa !75
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
-36:                                               ; preds = %.thread58, %33
+36:                                               ; preds = %.thread56, %33
   %37 = load i64, ptr %0, align 16, !tbaa !35
   %38 = and i64 %37, -2
   store i64 %38, ptr %0, align 16, !tbaa !35

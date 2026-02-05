@@ -874,9 +874,9 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
           to label %17 unwind label %50
 
 32:                                               ; preds = %28, %.loopexit
-  %.sroa.8.1 = phi ptr [ %19, %28 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
+  %.sroa.8.0 = phi ptr [ %19, %28 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %33, align 8
+  store ptr %.sroa.8.0, ptr %33, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address..Address$GT$$GT$17h6648139f68f29630E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %49
@@ -2360,9 +2360,9 @@ common.resume:                                    ; preds = %35, %.body
           to label %common.resume unwind label %69
 
 33:                                               ; preds = %29, %.loopexit
-  %.sroa.8.1 = phi ptr [ %20, %29 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
+  %.sroa.8.0 = phi ptr [ %20, %29 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %34, align 8
+  store ptr %.sroa.8.0, ptr %34, align 8
   store ptr null, ptr %0, align 8
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcddfb3a95cd1a868E.llvm.12387716778192508131"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %37 unwind label %35
@@ -6668,9 +6668,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br i1 %.not.i, label %.loopexit52.i, label %72
 
 59:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8d947af7da954b39E.exit.i.i.i", %37
-  %.sroa.9.1.i = phi ptr [ %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8d947af7da954b39E.exit.i.i.i" ], [ %36, %37 ]
+  %.sroa.9.0.i = phi ptr [ %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8d947af7da954b39E.exit.i.i.i" ], [ %36, %37 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.1.i, ptr %60, align 8, !alias.scope !1552, !noalias !1596
+  store ptr %.sroa.9.0.i, ptr %60, align 8, !alias.scope !1552, !noalias !1596
   store ptr null, ptr %0, align 8, !alias.scope !1552, !noalias !1596
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1597)

@@ -6324,9 +6324,9 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %_ZN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit, %if.then9
-  %out.sroa.8.1 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %conv, %if.then9 ]
+  %out.sroa.8.0 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %conv, %if.then9 ]
   %out.sroa.0.2 = phi ptr [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %if.then9 ]
-  call void @CRYPTO_clear_free(ptr noundef %out.sroa.0.2, i64 noundef %out.sroa.8.1, ptr noundef nonnull @.str.100, i32 noundef 225) #21
+  call void @CRYPTO_clear_free(ptr noundef %out.sroa.0.2, i64 noundef %out.sroa.8.0, ptr noundef nonnull @.str.100, i32 noundef 225) #21
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then

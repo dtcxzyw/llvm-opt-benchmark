@@ -125,8 +125,8 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
   br label %.lr.ph.split.us.preheader.i.i
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.outer.i.i, %2
-  %.sroa.37.2 = phi i64 [ 0, %2 ], [ %.sroa.37.5, %.outer.i.i ]
-  %.sroa.21.2 = phi i64 [ 0, %2 ], [ %.sroa.21.5, %.outer.i.i ]
+  %.sroa.37.2 = phi i64 [ 0, %2 ], [ %.sroa.37.4, %.outer.i.i ]
+  %.sroa.21.2 = phi i64 [ 0, %2 ], [ %.sroa.21.4, %.outer.i.i ]
   %.028.ph72.i.i = phi i64 [ 0, %2 ], [ %27, %.outer.i.i ]
   %.029.ph71.i.i = phi ptr [ %5, %2 ], [ %25, %.outer.i.i ]
   %.030.ph70.i.i = phi i64 [ 0, %2 ], [ %26, %.outer.i.i ]
@@ -158,20 +158,20 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
   br label %.lr.ph.split.us.i.i, !llvm.loop !12
 
 .lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %14
-  %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %15, %14 ]
-  %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %14 ]
-  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.4
-  %20 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
+  %.sroa.37.3 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %15, %14 ]
+  %.sroa.21.3 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %14 ]
+  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.3
+  %20 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.3
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %20, i1 false
   br i1 %or.cond.i.i, label %.outer.i.i, label %.lr.ph.i
 
 .outer.i.i:                                       ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.preheader.i.i
-  %.sroa.37.5 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.4, %.lr.ph.split.us.i.i ]
-  %.sroa.21.5 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.4, %.lr.ph.split.us.i.i ]
-  %21 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.5
+  %.sroa.37.4 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.3, %.lr.ph.split.us.i.i ]
+  %.sroa.21.4 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.3, %.lr.ph.split.us.i.i ]
+  %21 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.4
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   %23 = sub nuw nsw i64 64, %.030.ph70.i.i
-  %24 = sub nsw i64 %.sroa.37.5, %.028.ph72.i.i
+  %24 = sub nsw i64 %.sroa.37.4, %.028.ph72.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i, ptr nonnull align 1 %22, i64 %.sroa.speculated.i.i, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i, i64 %.sroa.speculated.i.i
@@ -202,13 +202,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.preheader.i.i20
 
 .lr.ph.split.us.preheader.i.i20:                  ; preds = %.outer.i.i30, %31
-  %.sroa.37.7 = phi i64 [ %.sroa.37.5, %31 ], [ %.sroa.37.10, %.outer.i.i30 ]
-  %.sroa.21.7 = phi i64 [ %.sroa.21.5, %31 ], [ %.sroa.21.10, %.outer.i.i30 ]
+  %.sroa.37.6 = phi i64 [ %.sroa.37.4, %31 ], [ %.sroa.37.8, %.outer.i.i30 ]
+  %.sroa.21.6 = phi i64 [ %.sroa.21.4, %31 ], [ %.sroa.21.8, %.outer.i.i30 ]
   %.028.ph72.i.i21 = phi i64 [ %38, %31 ], [ %57, %.outer.i.i30 ]
   %.029.ph71.i.i22 = phi ptr [ %6, %31 ], [ %55, %.outer.i.i30 ]
   %.030.ph70.i.i23 = phi i64 [ 0, %31 ], [ %56, %.outer.i.i30 ]
-  %.not.us.i16.i24 = icmp sge i64 %.028.ph72.i.i21, %.sroa.21.7
-  %39 = icmp slt i64 %.028.ph72.i.i21, %.sroa.37.7
+  %.not.us.i16.i24 = icmp sge i64 %.028.ph72.i.i21, %.sroa.21.6
+  %39 = icmp slt i64 %.028.ph72.i.i21, %.sroa.37.6
   %or.cond.i17.i25 = and i1 %.not.us.i16.i24, %39
   br i1 %or.cond.i17.i25, label %.outer.i.i30, label %.lr.ph.i26
 
@@ -235,20 +235,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i27, !llvm.loop !12
 
 .lr.ph.split.us.i.i27:                            ; preds = %..lr.ph.split.us.i_crit_edge.i36, %44
-  %.sroa.37.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %45, %44 ]
-  %.sroa.21.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %.028.ph72.i.i21, %44 ]
-  %.not.us.i.i28 = icmp sge i64 %.028.ph72.i.i21, %.sroa.21.9
-  %50 = icmp slt i64 %.028.ph72.i.i21, %.sroa.37.9
+  %.sroa.37.7 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %45, %44 ]
+  %.sroa.21.7 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i36 ], [ %.028.ph72.i.i21, %44 ]
+  %.not.us.i.i28 = icmp sge i64 %.028.ph72.i.i21, %.sroa.21.7
+  %50 = icmp slt i64 %.028.ph72.i.i21, %.sroa.37.7
   %or.cond.i.i29 = select i1 %.not.us.i.i28, i1 %50, i1 false
   br i1 %or.cond.i.i29, label %.outer.i.i30, label %.lr.ph.i26
 
 .outer.i.i30:                                     ; preds = %.lr.ph.split.us.i.i27, %.lr.ph.split.us.preheader.i.i20
-  %.sroa.37.10 = phi i64 [ %.sroa.37.7, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.37.9, %.lr.ph.split.us.i.i27 ]
-  %.sroa.21.10 = phi i64 [ %.sroa.21.7, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.21.9, %.lr.ph.split.us.i.i27 ]
-  %51 = sub nsw i64 %.028.ph72.i.i21, %.sroa.21.10
+  %.sroa.37.8 = phi i64 [ %.sroa.37.6, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.37.7, %.lr.ph.split.us.i.i27 ]
+  %.sroa.21.8 = phi i64 [ %.sroa.21.6, %.lr.ph.split.us.preheader.i.i20 ], [ %.sroa.21.7, %.lr.ph.split.us.i.i27 ]
+  %51 = sub nsw i64 %.028.ph72.i.i21, %.sroa.21.8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 %51
   %53 = sub nuw nsw i64 64, %.030.ph70.i.i23
-  %54 = sub nsw i64 %.sroa.37.10, %.028.ph72.i.i21
+  %54 = sub nsw i64 %.sroa.37.8, %.028.ph72.i.i21
   %.sroa.speculated.i.i33 = tail call i64 @llvm.umin.i64(i64 %54, i64 %53)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i22, ptr nonnull align 1 %52, i64 %.sroa.speculated.i.i33, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i22, i64 %.sroa.speculated.i.i33
@@ -264,10 +264,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 .preheader.split:                                 ; preds = %.outer.i.i30
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %60 = load i16, ptr %59, align 4, !tbaa !20
-  %.not143 = icmp eq i16 %60, 0
-  br i1 %.not143, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %.lr.ph142
+  %.not135 = icmp eq i16 %60, 0
+  br i1 %.not135, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %.lr.ph134
 
-.lr.ph142:                                        ; preds = %.preheader.split
+.lr.ph134:                                        ; preds = %.preheader.split
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -276,23 +276,23 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %wide.trip.count = zext i16 %60 to i64
   br label %66
 
-66:                                               ; preds = %.lr.ph142, %120
-  %indvars.iv = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next, %120 ]
-  %.sroa.21.0140 = phi i64 [ %.sroa.21.10, %.lr.ph142 ], [ %.sroa.21.20, %120 ]
-  %.sroa.37.0139 = phi i64 [ %.sroa.37.10, %.lr.ph142 ], [ %.sroa.37.20, %120 ]
+66:                                               ; preds = %.lr.ph134, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next, %120 ]
+  %.sroa.21.0132 = phi i64 [ %.sroa.21.8, %.lr.ph134 ], [ %.sroa.21.17, %120 ]
+  %.sroa.37.0131 = phi i64 [ %.sroa.37.8, %.lr.ph134 ], [ %.sroa.37.17, %120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %67 = shl nuw nsw i64 %indvars.iv, 6
   %68 = add nsw i64 %33, %67
   br label %.lr.ph.split.us.preheader.i.i40
 
 .lr.ph.split.us.preheader.i.i40:                  ; preds = %.outer.i.i50, %66
-  %.sroa.37.12 = phi i64 [ %.sroa.37.0139, %66 ], [ %.sroa.37.15, %.outer.i.i50 ]
-  %.sroa.21.12 = phi i64 [ %.sroa.21.0140, %66 ], [ %.sroa.21.15, %.outer.i.i50 ]
+  %.sroa.37.10 = phi i64 [ %.sroa.37.0131, %66 ], [ %.sroa.37.12, %.outer.i.i50 ]
+  %.sroa.21.10 = phi i64 [ %.sroa.21.0132, %66 ], [ %.sroa.21.12, %.outer.i.i50 ]
   %.028.ph72.i.i41 = phi i64 [ %68, %66 ], [ %87, %.outer.i.i50 ]
   %.029.ph71.i.i42 = phi ptr [ %7, %66 ], [ %85, %.outer.i.i50 ]
   %.030.ph70.i.i43 = phi i64 [ 0, %66 ], [ %86, %.outer.i.i50 ]
-  %.not.us.i16.i44 = icmp sge i64 %.028.ph72.i.i41, %.sroa.21.12
-  %69 = icmp slt i64 %.028.ph72.i.i41, %.sroa.37.12
+  %.not.us.i16.i44 = icmp sge i64 %.028.ph72.i.i41, %.sroa.21.10
+  %69 = icmp slt i64 %.028.ph72.i.i41, %.sroa.37.10
   %or.cond.i17.i45 = and i1 %.not.us.i16.i44, %69
   br i1 %or.cond.i17.i45, label %.outer.i.i50, label %.lr.ph.i46
 
@@ -319,20 +319,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i47, !llvm.loop !12
 
 .lr.ph.split.us.i.i47:                            ; preds = %..lr.ph.split.us.i_crit_edge.i56, %74
-  %.sroa.37.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %75, %74 ]
-  %.sroa.21.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %.028.ph72.i.i41, %74 ]
-  %.not.us.i.i48 = icmp sge i64 %.028.ph72.i.i41, %.sroa.21.14
-  %80 = icmp slt i64 %.028.ph72.i.i41, %.sroa.37.14
+  %.sroa.37.11 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %75, %74 ]
+  %.sroa.21.11 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i56 ], [ %.028.ph72.i.i41, %74 ]
+  %.not.us.i.i48 = icmp sge i64 %.028.ph72.i.i41, %.sroa.21.11
+  %80 = icmp slt i64 %.028.ph72.i.i41, %.sroa.37.11
   %or.cond.i.i49 = select i1 %.not.us.i.i48, i1 %80, i1 false
   br i1 %or.cond.i.i49, label %.outer.i.i50, label %.lr.ph.i46
 
 .outer.i.i50:                                     ; preds = %.lr.ph.split.us.i.i47, %.lr.ph.split.us.preheader.i.i40
-  %.sroa.37.15 = phi i64 [ %.sroa.37.12, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.37.14, %.lr.ph.split.us.i.i47 ]
-  %.sroa.21.15 = phi i64 [ %.sroa.21.12, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.21.14, %.lr.ph.split.us.i.i47 ]
-  %81 = sub nsw i64 %.028.ph72.i.i41, %.sroa.21.15
+  %.sroa.37.12 = phi i64 [ %.sroa.37.10, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.37.11, %.lr.ph.split.us.i.i47 ]
+  %.sroa.21.12 = phi i64 [ %.sroa.21.10, %.lr.ph.split.us.preheader.i.i40 ], [ %.sroa.21.11, %.lr.ph.split.us.i.i47 ]
+  %81 = sub nsw i64 %.028.ph72.i.i41, %.sroa.21.12
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 %81
   %83 = sub nuw nsw i64 64, %.030.ph70.i.i43
-  %84 = sub nsw i64 %.sroa.37.15, %.028.ph72.i.i41
+  %84 = sub nsw i64 %.sroa.37.12, %.028.ph72.i.i41
   %.sroa.speculated.i.i53 = call i64 @llvm.umin.i64(i64 %84, i64 %83)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i42, ptr nonnull align 1 %82, i64 %.sroa.speculated.i.i53, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i42, i64 %.sroa.speculated.i.i53
@@ -353,15 +353,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.outer.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59
-  %.sroa.37.17 = phi i64 [ %.sroa.37.15, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %.sroa.37.18.lcssa, %.outer.i ]
-  %.sroa.21.17 = phi i64 [ %.sroa.21.15, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %.sroa.21.18.lcssa, %.outer.i ]
+  %.sroa.37.14 = phi i64 [ %.sroa.37.12, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %.sroa.37.15.lcssa, %.outer.i ]
+  %.sroa.21.14 = phi i64 [ %.sroa.21.12, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %.sroa.21.15.lcssa, %.outer.i ]
   %.028.ph72.i = phi i64 [ %91, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %110, %.outer.i ]
   %.029.ph71.i = phi ptr [ %8, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %108, %.outer.i ]
   %.030.ph70.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit59 ], [ %109, %.outer.i ]
-  %.not.us.i136 = icmp sge i64 %.028.ph72.i, %.sroa.21.17
-  %92 = icmp slt i64 %.028.ph72.i, %.sroa.37.17
-  %or.cond.i137 = and i1 %.not.us.i136, %92
-  br i1 %or.cond.i137, label %.outer.i, label %.lr.ph
+  %.not.us.i128 = icmp sge i64 %.028.ph72.i, %.sroa.21.14
+  %92 = icmp slt i64 %.028.ph72.i, %.sroa.37.14
+  %or.cond.i129 = and i1 %.not.us.i128, %92
+  br i1 %or.cond.i129, label %.outer.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader.i, %.lr.ph.split.us.i
   %93 = call i64 @pread(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 100, i64 noundef %.028.ph72.i)
@@ -383,20 +383,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %102, label %.lr.ph.split.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %99, %97
-  %.sroa.37.19 = phi i64 [ 0, %99 ], [ %98, %97 ]
-  %.sroa.21.19 = phi i64 [ 0, %99 ], [ %.028.ph72.i, %97 ]
-  %.not.us.i = icmp sge i64 %.028.ph72.i, %.sroa.21.19
-  %103 = icmp slt i64 %.028.ph72.i, %.sroa.37.19
+  %.sroa.37.16 = phi i64 [ 0, %99 ], [ %98, %97 ]
+  %.sroa.21.16 = phi i64 [ 0, %99 ], [ %.028.ph72.i, %97 ]
+  %.not.us.i = icmp sge i64 %.028.ph72.i, %.sroa.21.16
+  %103 = icmp slt i64 %.028.ph72.i, %.sroa.37.16
   %or.cond.i = select i1 %.not.us.i, i1 %103, i1 false
   br i1 %or.cond.i, label %.outer.i, label %.lr.ph
 
 .outer.i:                                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
-  %.sroa.37.18.lcssa = phi i64 [ %.sroa.37.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.19, %.lr.ph.split.us.i ]
-  %.sroa.21.18.lcssa = phi i64 [ %.sroa.21.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.19, %.lr.ph.split.us.i ]
-  %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.18.lcssa
+  %.sroa.37.15.lcssa = phi i64 [ %.sroa.37.14, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.16, %.lr.ph.split.us.i ]
+  %.sroa.21.15.lcssa = phi i64 [ %.sroa.21.14, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.16, %.lr.ph.split.us.i ]
+  %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.15.lcssa
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 %104
   %106 = sub nuw nsw i64 64, %.030.ph70.i
-  %107 = sub nsw i64 %.sroa.37.18.lcssa, %.028.ph72.i
+  %107 = sub nsw i64 %.sroa.37.15.lcssa, %.028.ph72.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %107, i64 %106)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i, ptr nonnull align 1 %105, i64 %.sroa.speculated.i, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %.029.ph71.i, i64 %.sroa.speculated.i
@@ -407,14 +407,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread: ; preds = %99
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %101)
-  br label %.thread118
+  br label %.thread110
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit: ; preds = %.outer.i, %95
-  %.sroa.37.20 = phi i64 [ 0, %95 ], [ %.sroa.37.18.lcssa, %.outer.i ]
-  %.sroa.21.20 = phi i64 [ 0, %95 ], [ %.sroa.21.18.lcssa, %.outer.i ]
+  %.sroa.37.17 = phi i64 [ 0, %95 ], [ %.sroa.37.15.lcssa, %.outer.i ]
+  %.sroa.21.17 = phi i64 [ 0, %95 ], [ %.sroa.21.15.lcssa, %.outer.i ]
   %.2.i = phi i64 [ %.030.ph70.i, %95 ], [ %109, %.outer.i ]
   %112 = icmp slt i64 %.2.i, 65
-  br i1 %112, label %113, label %.thread118
+  br i1 %112, label %113, label %.thread110
 
 113:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
   %114 = call i64 @strnlen(ptr noundef nonnull %8, i64 noundef %.2.i) #26
@@ -433,13 +433,13 @@ _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES
   %117 = load ptr, ptr %65, align 8, !tbaa !25
   %118 = call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(64) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %118, label %120, label %.thread118
+  br i1 %118, label %120, label %.thread110
 
 .thread:                                          ; preds = %72, %.thread39.i.i55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread
 
-.thread118:                                       ; preds = %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread
+.thread110:                                       ; preds = %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread
   %119 = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ %112, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ %112, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -452,8 +452,8 @@ _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %66, !llvm.loop !27
 
-_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread: ; preds = %42, %120, %.preheader.split, %.thread, %.thread118, %.thread39.i.i35
-  %.1 = phi i1 [ true, %.preheader.split ], [ false, %.thread ], [ false, %.thread39.i.i35 ], [ %119, %.thread118 ], [ true, %120 ], [ false, %42 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread: ; preds = %42, %120, %.preheader.split, %.thread, %.thread110, %.thread39.i.i35
+  %.1 = phi i1 [ true, %.preheader.split ], [ false, %.thread ], [ false, %.thread39.i.i35 ], [ %119, %.thread110 ], [ true, %120 ], [ false, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
@@ -490,8 +490,8 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
   br label %.lr.ph.split.us.preheader.i.i
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.outer.i.i, %11
-  %.sroa.37.2 = phi i64 [ 0, %11 ], [ %.sroa.37.5, %.outer.i.i ]
-  %.sroa.21.2 = phi i64 [ 0, %11 ], [ %.sroa.21.5, %.outer.i.i ]
+  %.sroa.37.2 = phi i64 [ 0, %11 ], [ %.sroa.37.4, %.outer.i.i ]
+  %.sroa.21.2 = phi i64 [ 0, %11 ], [ %.sroa.21.4, %.outer.i.i ]
   %.028.ph72.i.i = phi i64 [ 0, %11 ], [ %30, %.outer.i.i ]
   %.029.ph71.i.i = phi ptr [ %7, %11 ], [ %28, %.outer.i.i ]
   %.030.ph70.i.i = phi i64 [ 0, %11 ], [ %29, %.outer.i.i ]
@@ -523,20 +523,20 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
   br label %.lr.ph.split.us.i.i, !llvm.loop !12
 
 .lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %17
-  %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %18, %17 ]
-  %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %17 ]
-  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.4
-  %23 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
+  %.sroa.37.3 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %18, %17 ]
+  %.sroa.21.3 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %17 ]
+  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.3
+  %23 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.3
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %23, i1 false
   br i1 %or.cond.i.i, label %.outer.i.i, label %.lr.ph.i
 
 .outer.i.i:                                       ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.preheader.i.i
-  %.sroa.37.5 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.4, %.lr.ph.split.us.i.i ]
-  %.sroa.21.5 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.4, %.lr.ph.split.us.i.i ]
-  %24 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.5
+  %.sroa.37.4 = phi i64 [ %.sroa.37.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.37.3, %.lr.ph.split.us.i.i ]
+  %.sroa.21.4 = phi i64 [ %.sroa.21.2, %.lr.ph.split.us.preheader.i.i ], [ %.sroa.21.3, %.lr.ph.split.us.i.i ]
+  %24 = sub nsw i64 %.028.ph72.i.i, %.sroa.21.4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   %26 = sub nuw nsw i64 64, %.030.ph70.i.i
-  %27 = sub nsw i64 %.sroa.37.5, %.028.ph72.i.i
+  %27 = sub nsw i64 %.sroa.37.4, %.028.ph72.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %26)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i, ptr nonnull align 1 %25, i64 %.sroa.speculated.i.i, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i, i64 %.sroa.speculated.i.i
@@ -567,13 +567,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.preheader.i.i29
 
 .lr.ph.split.us.preheader.i.i29:                  ; preds = %.outer.i.i39, %34
-  %.sroa.37.7 = phi i64 [ %.sroa.37.5, %34 ], [ %.sroa.37.10, %.outer.i.i39 ]
-  %.sroa.21.7 = phi i64 [ %.sroa.21.5, %34 ], [ %.sroa.21.10, %.outer.i.i39 ]
+  %.sroa.37.6 = phi i64 [ %.sroa.37.4, %34 ], [ %.sroa.37.8, %.outer.i.i39 ]
+  %.sroa.21.6 = phi i64 [ %.sroa.21.4, %34 ], [ %.sroa.21.8, %.outer.i.i39 ]
   %.028.ph72.i.i30 = phi i64 [ %41, %34 ], [ %60, %.outer.i.i39 ]
   %.029.ph71.i.i31 = phi ptr [ %8, %34 ], [ %58, %.outer.i.i39 ]
   %.030.ph70.i.i32 = phi i64 [ 0, %34 ], [ %59, %.outer.i.i39 ]
-  %.not.us.i16.i33 = icmp sge i64 %.028.ph72.i.i30, %.sroa.21.7
-  %42 = icmp slt i64 %.028.ph72.i.i30, %.sroa.37.7
+  %.not.us.i16.i33 = icmp sge i64 %.028.ph72.i.i30, %.sroa.21.6
+  %42 = icmp slt i64 %.028.ph72.i.i30, %.sroa.37.6
   %or.cond.i17.i34 = and i1 %.not.us.i16.i33, %42
   br i1 %or.cond.i17.i34, label %.outer.i.i39, label %.lr.ph.i35
 
@@ -600,20 +600,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i36, !llvm.loop !12
 
 .lr.ph.split.us.i.i36:                            ; preds = %..lr.ph.split.us.i_crit_edge.i45, %47
-  %.sroa.37.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %48, %47 ]
-  %.sroa.21.9 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %.028.ph72.i.i30, %47 ]
-  %.not.us.i.i37 = icmp sge i64 %.028.ph72.i.i30, %.sroa.21.9
-  %53 = icmp slt i64 %.028.ph72.i.i30, %.sroa.37.9
+  %.sroa.37.7 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %48, %47 ]
+  %.sroa.21.7 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i45 ], [ %.028.ph72.i.i30, %47 ]
+  %.not.us.i.i37 = icmp sge i64 %.028.ph72.i.i30, %.sroa.21.7
+  %53 = icmp slt i64 %.028.ph72.i.i30, %.sroa.37.7
   %or.cond.i.i38 = select i1 %.not.us.i.i37, i1 %53, i1 false
   br i1 %or.cond.i.i38, label %.outer.i.i39, label %.lr.ph.i35
 
 .outer.i.i39:                                     ; preds = %.lr.ph.split.us.i.i36, %.lr.ph.split.us.preheader.i.i29
-  %.sroa.37.10 = phi i64 [ %.sroa.37.7, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.37.9, %.lr.ph.split.us.i.i36 ]
-  %.sroa.21.10 = phi i64 [ %.sroa.21.7, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.21.9, %.lr.ph.split.us.i.i36 ]
-  %54 = sub nsw i64 %.028.ph72.i.i30, %.sroa.21.10
+  %.sroa.37.8 = phi i64 [ %.sroa.37.6, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.37.7, %.lr.ph.split.us.i.i36 ]
+  %.sroa.21.8 = phi i64 [ %.sroa.21.6, %.lr.ph.split.us.preheader.i.i29 ], [ %.sroa.21.7, %.lr.ph.split.us.i.i36 ]
+  %54 = sub nsw i64 %.028.ph72.i.i30, %.sroa.21.8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 %54
   %56 = sub nuw nsw i64 64, %.030.ph70.i.i32
-  %57 = sub nsw i64 %.sroa.37.10, %.028.ph72.i.i30
+  %57 = sub nsw i64 %.sroa.37.8, %.028.ph72.i.i30
   %.sroa.speculated.i.i42 = tail call i64 @llvm.umin.i64(i64 %57, i64 %56)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i31, ptr nonnull align 1 %55, i64 %.sroa.speculated.i.i42, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i31, i64 %.sroa.speculated.i.i42
@@ -625,32 +625,32 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 .preheader:                                       ; preds = %.outer.i.i39
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %63 = load i16, ptr %62, align 4, !tbaa !20
-  %.not28148.not = icmp eq i16 %63, 0
-  br i1 %.not28148.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %.lr.ph153
+  %.not28140.not = icmp eq i16 %63, 0
+  br i1 %.not28140.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %.lr.ph145
 
-.lr.ph153:                                        ; preds = %.preheader
+.lr.ph145:                                        ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %65 = load i64, ptr %64, align 8
   %.not77.i = icmp eq i64 %2, 0
   %wide.trip.count = zext i16 %63 to i64
   br label %66
 
-66:                                               ; preds = %.lr.ph153, %115
-  %indvars.iv = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next, %115 ]
-  %.sroa.21.0150 = phi i64 [ %.sroa.21.10, %.lr.ph153 ], [ %.sroa.21.20123, %115 ]
-  %.sroa.37.0149 = phi i64 [ %.sroa.37.10, %.lr.ph153 ], [ %.sroa.37.20122, %115 ]
+66:                                               ; preds = %.lr.ph145, %115
+  %indvars.iv = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next, %115 ]
+  %.sroa.21.0142 = phi i64 [ %.sroa.21.8, %.lr.ph145 ], [ %.sroa.21.17115, %115 ]
+  %.sroa.37.0141 = phi i64 [ %.sroa.37.8, %.lr.ph145 ], [ %.sroa.37.17114, %115 ]
   %67 = shl nuw nsw i64 %indvars.iv, 6
   %68 = add nsw i64 %36, %67
   br label %.lr.ph.split.us.preheader.i.i49
 
 .lr.ph.split.us.preheader.i.i49:                  ; preds = %.outer.i.i59, %66
-  %.sroa.37.12 = phi i64 [ %.sroa.37.0149, %66 ], [ %.sroa.37.15, %.outer.i.i59 ]
-  %.sroa.21.12 = phi i64 [ %.sroa.21.0150, %66 ], [ %.sroa.21.15, %.outer.i.i59 ]
+  %.sroa.37.10 = phi i64 [ %.sroa.37.0141, %66 ], [ %.sroa.37.12, %.outer.i.i59 ]
+  %.sroa.21.10 = phi i64 [ %.sroa.21.0142, %66 ], [ %.sroa.21.12, %.outer.i.i59 ]
   %.028.ph72.i.i50 = phi i64 [ %68, %66 ], [ %87, %.outer.i.i59 ]
   %.029.ph71.i.i51 = phi ptr [ %3, %66 ], [ %85, %.outer.i.i59 ]
   %.030.ph70.i.i52 = phi i64 [ 0, %66 ], [ %86, %.outer.i.i59 ]
-  %.not.us.i16.i53 = icmp sge i64 %.028.ph72.i.i50, %.sroa.21.12
-  %69 = icmp slt i64 %.028.ph72.i.i50, %.sroa.37.12
+  %.not.us.i16.i53 = icmp sge i64 %.028.ph72.i.i50, %.sroa.21.10
+  %69 = icmp slt i64 %.028.ph72.i.i50, %.sroa.37.10
   %or.cond.i17.i54 = and i1 %.not.us.i16.i53, %69
   br i1 %or.cond.i17.i54, label %.outer.i.i59, label %.lr.ph.i55
 
@@ -677,20 +677,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i56, !llvm.loop !12
 
 .lr.ph.split.us.i.i56:                            ; preds = %..lr.ph.split.us.i_crit_edge.i65, %74
-  %.sroa.37.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %75, %74 ]
-  %.sroa.21.14 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %.028.ph72.i.i50, %74 ]
-  %.not.us.i.i57 = icmp sge i64 %.028.ph72.i.i50, %.sroa.21.14
-  %80 = icmp slt i64 %.028.ph72.i.i50, %.sroa.37.14
+  %.sroa.37.11 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %75, %74 ]
+  %.sroa.21.11 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i65 ], [ %.028.ph72.i.i50, %74 ]
+  %.not.us.i.i57 = icmp sge i64 %.028.ph72.i.i50, %.sroa.21.11
+  %80 = icmp slt i64 %.028.ph72.i.i50, %.sroa.37.11
   %or.cond.i.i58 = select i1 %.not.us.i.i57, i1 %80, i1 false
   br i1 %or.cond.i.i58, label %.outer.i.i59, label %.lr.ph.i55
 
 .outer.i.i59:                                     ; preds = %.lr.ph.split.us.i.i56, %.lr.ph.split.us.preheader.i.i49
-  %.sroa.37.15 = phi i64 [ %.sroa.37.12, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.37.14, %.lr.ph.split.us.i.i56 ]
-  %.sroa.21.15 = phi i64 [ %.sroa.21.12, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.21.14, %.lr.ph.split.us.i.i56 ]
-  %81 = sub nsw i64 %.028.ph72.i.i50, %.sroa.21.15
+  %.sroa.37.12 = phi i64 [ %.sroa.37.10, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.37.11, %.lr.ph.split.us.i.i56 ]
+  %.sroa.21.12 = phi i64 [ %.sroa.21.10, %.lr.ph.split.us.preheader.i.i49 ], [ %.sroa.21.11, %.lr.ph.split.us.i.i56 ]
+  %81 = sub nsw i64 %.028.ph72.i.i50, %.sroa.21.12
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 %81
   %83 = sub nuw nsw i64 64, %.030.ph70.i.i52
-  %84 = sub nsw i64 %.sroa.37.15, %.028.ph72.i.i50
+  %84 = sub nsw i64 %.sroa.37.12, %.028.ph72.i.i50
   %.sroa.speculated.i.i62 = tail call i64 @llvm.umin.i64(i64 %84, i64 %83)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i51, ptr nonnull align 1 %82, i64 %.sroa.speculated.i.i62, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i51, i64 %.sroa.speculated.i.i62
@@ -700,7 +700,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %88, label %.lr.ph.split.us.preheader.i.i49, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68: ; preds = %.outer.i.i59
-  br i1 %.not77.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118, label %.lr.ph.split.us.preheader.i.preheader
+  br i1 %.not77.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread110, label %.lr.ph.split.us.preheader.i.preheader
 
 .lr.ph.split.us.preheader.i.preheader:            ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68
   %89 = load i32, ptr %3, align 8, !tbaa !21
@@ -709,15 +709,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.split.us.preheader.i.preheader, %.outer.i
-  %.sroa.37.17 = phi i64 [ %.sroa.37.18.lcssa, %.outer.i ], [ %.sroa.37.15, %.lr.ph.split.us.preheader.i.preheader ]
-  %.sroa.21.17 = phi i64 [ %.sroa.21.18.lcssa, %.outer.i ], [ %.sroa.21.15, %.lr.ph.split.us.preheader.i.preheader ]
+  %.sroa.37.14 = phi i64 [ %.sroa.37.15.lcssa, %.outer.i ], [ %.sroa.37.12, %.lr.ph.split.us.preheader.i.preheader ]
+  %.sroa.21.14 = phi i64 [ %.sroa.21.15.lcssa, %.outer.i ], [ %.sroa.21.12, %.lr.ph.split.us.preheader.i.preheader ]
   %.028.ph72.i = phi i64 [ %110, %.outer.i ], [ %91, %.lr.ph.split.us.preheader.i.preheader ]
   %.029.ph71.i = phi ptr [ %108, %.outer.i ], [ %5, %.lr.ph.split.us.preheader.i.preheader ]
   %.030.ph70.i = phi i64 [ %109, %.outer.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
-  %.not.us.i145 = icmp sge i64 %.028.ph72.i, %.sroa.21.17
-  %92 = icmp slt i64 %.028.ph72.i, %.sroa.37.17
-  %or.cond.i146 = and i1 %.not.us.i145, %92
-  br i1 %or.cond.i146, label %.outer.i, label %.lr.ph
+  %.not.us.i137 = icmp sge i64 %.028.ph72.i, %.sroa.21.14
+  %92 = icmp slt i64 %.028.ph72.i, %.sroa.37.14
+  %or.cond.i138 = and i1 %.not.us.i137, %92
+  br i1 %or.cond.i138, label %.outer.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader.i, %.lr.ph.split.us.i
   %93 = call i64 @pread(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 100, i64 noundef %.028.ph72.i)
@@ -739,20 +739,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %102, label %.lr.ph.split.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %99, %97
-  %.sroa.37.19 = phi i64 [ 0, %99 ], [ %98, %97 ]
-  %.sroa.21.19 = phi i64 [ 0, %99 ], [ %.028.ph72.i, %97 ]
-  %.not.us.i = icmp sge i64 %.028.ph72.i, %.sroa.21.19
-  %103 = icmp slt i64 %.028.ph72.i, %.sroa.37.19
+  %.sroa.37.16 = phi i64 [ 0, %99 ], [ %98, %97 ]
+  %.sroa.21.16 = phi i64 [ 0, %99 ], [ %.028.ph72.i, %97 ]
+  %.not.us.i = icmp sge i64 %.028.ph72.i, %.sroa.21.16
+  %103 = icmp slt i64 %.028.ph72.i, %.sroa.37.16
   %or.cond.i = select i1 %.not.us.i, i1 %103, i1 false
   br i1 %or.cond.i, label %.outer.i, label %.lr.ph
 
 .outer.i:                                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
-  %.sroa.37.18.lcssa = phi i64 [ %.sroa.37.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.19, %.lr.ph.split.us.i ]
-  %.sroa.21.18.lcssa = phi i64 [ %.sroa.21.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.19, %.lr.ph.split.us.i ]
-  %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.18.lcssa
+  %.sroa.37.15.lcssa = phi i64 [ %.sroa.37.14, %.lr.ph.split.us.preheader.i ], [ %.sroa.37.16, %.lr.ph.split.us.i ]
+  %.sroa.21.15.lcssa = phi i64 [ %.sroa.21.14, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.16, %.lr.ph.split.us.i ]
+  %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.15.lcssa
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 %104
   %106 = sub nsw i64 %2, %.030.ph70.i
-  %107 = sub nsw i64 %.sroa.37.18.lcssa, %.028.ph72.i
+  %107 = sub nsw i64 %.sroa.37.15.lcssa, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %107, i64 %106)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i, ptr nonnull align 1 %105, i64 %.sroa.speculated.i, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %.029.ph71.i, i64 %.sroa.speculated.i
@@ -762,32 +762,32 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %111, label %.lr.ph.split.us.preheader.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit: ; preds = %.outer.i, %95
-  %.sroa.37.20 = phi i64 [ 0, %95 ], [ %.sroa.37.18.lcssa, %.outer.i ]
-  %.sroa.21.20 = phi i64 [ 0, %95 ], [ %.sroa.21.18.lcssa, %.outer.i ]
+  %.sroa.37.17 = phi i64 [ 0, %95 ], [ %.sroa.37.15.lcssa, %.outer.i ]
+  %.sroa.21.17 = phi i64 [ 0, %95 ], [ %.sroa.21.15.lcssa, %.outer.i ]
   %.2.i = phi i64 [ %.030.ph70.i, %95 ], [ %109, %.outer.i ]
   %112 = icmp slt i64 %.2.i, 0
-  br i1 %112, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118
+  br i1 %112, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread110
 
-_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
-  %.2.i124 = phi i64 [ %.2.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
-  %.sroa.21.20123 = phi i64 [ %.sroa.21.20, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ %.sroa.21.15, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
-  %.sroa.37.20122 = phi i64 [ %.sroa.37.20, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ %.sroa.37.15, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
-  %.not27 = icmp eq i64 %.2.i124, %2
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread110: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
+  %.2.i116 = phi i64 [ %.2.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
+  %.sroa.21.17115 = phi i64 [ %.sroa.21.17, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ %.sroa.21.12, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
+  %.sroa.37.17114 = phi i64 [ %.sroa.37.17, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ %.sroa.37.12, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
+  %.not27 = icmp eq i64 %.2.i116, %2
   br i1 %.not27, label %113, label %115
 
-113:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118
+113:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread110
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr %1, i64 %2)
   %114 = icmp eq i32 %bcmp, 0
   br i1 %114, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %115
 
-115:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118, %113
+115:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread110, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %66, !llvm.loop !28
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split: ; preds = %49, %76, %99
-  %.lcssa188.sink = phi i32 [ %78, %76 ], [ %101, %99 ], [ %51, %49 ]
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa188.sink)
+  %.lcssa180.sink = phi i32 [ %78, %76 ], [ %101, %99 ], [ %51, %49 ]
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa180.sink)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
@@ -1384,13 +1384,13 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br label %.lr.ph.split.us.preheader.i.i77.i.i.i
 
 .lr.ph.split.us.preheader.i.i77.i.i.i:            ; preds = %.outer.i.i87.i.i.i, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i
-  %.sroa.30.11.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.sroa.17.11.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.30.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %.sroa.30.11.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.17.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %.sroa.17.11.i.i.i, %.outer.i.i87.i.i.i ]
   %.028.ph72.i.i78.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %129, %.outer.i.i87.i.i.i ]
   %.029.ph71.i.i79.i.i.i = phi ptr [ %8, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %127, %.outer.i.i87.i.i.i ]
   %.030.ph70.i.i80.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i.i ], [ %128, %.outer.i.i87.i.i.i ]
-  %.not.us.i16.i81.i.i.i = icmp sge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.11.i.i.i
-  %111 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.11.i.i.i
+  %.not.us.i16.i81.i.i.i = icmp sge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.9.i.i.i
+  %111 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.9.i.i.i
   %or.cond.i17.i82.i.i.i = and i1 %.not.us.i16.i81.i.i.i, %111
   br i1 %or.cond.i17.i82.i.i.i, label %.outer.i.i87.i.i.i, label %.lr.ph.i83.i.i.i
 
@@ -1417,20 +1417,20 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br label %.lr.ph.split.us.i.i84.i.i.i, !llvm.loop !12
 
 .lr.ph.split.us.i.i84.i.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i93.i.i.i, %116
-  %.sroa.30.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %117, %116 ]
-  %.sroa.17.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %.028.ph72.i.i78.i.i.i, %116 ]
-  %.not.us.i.i85.i.i.i = icmp samesign uge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.13.i.i.i
-  %122 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.13.i.i.i
+  %.sroa.30.10.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %117, %116 ]
+  %.sroa.17.10.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %.028.ph72.i.i78.i.i.i, %116 ]
+  %.not.us.i.i85.i.i.i = icmp samesign uge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.10.i.i.i
+  %122 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.10.i.i.i
   %or.cond.i.i86.i.i.i = select i1 %.not.us.i.i85.i.i.i, i1 %122, i1 false
   br i1 %or.cond.i.i86.i.i.i, label %.outer.i.i87.i.i.i, label %.lr.ph.i83.i.i.i
 
 .outer.i.i87.i.i.i:                               ; preds = %.lr.ph.split.us.i.i84.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i
-  %.sroa.30.14.i.i.i = phi i64 [ %.sroa.30.11.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.30.13.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
-  %.sroa.17.14.i.i.i = phi i64 [ %.sroa.17.11.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.17.13.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
-  %123 = sub nsw i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.14.i.i.i
+  %.sroa.30.11.i.i.i = phi i64 [ %.sroa.30.9.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.30.10.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
+  %.sroa.17.11.i.i.i = phi i64 [ %.sroa.17.9.i.i.i, %.lr.ph.split.us.preheader.i.i77.i.i.i ], [ %.sroa.17.10.i.i.i, %.lr.ph.split.us.i.i84.i.i.i ]
+  %123 = sub nsw i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.11.i.i.i
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 %123
   %125 = sub nuw nsw i64 64, %.030.ph70.i.i80.i.i.i
-  %126 = sub nsw i64 %.sroa.30.14.i.i.i, %.028.ph72.i.i78.i.i.i
+  %126 = sub nsw i64 %.sroa.30.11.i.i.i, %.028.ph72.i.i78.i.i.i
   %.sroa.speculated.i.i90.i.i.i = tail call i64 @llvm.umin.i64(i64 %126, i64 %125)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i79.i.i.i, ptr nonnull align 1 %124, i64 %.sroa.speculated.i.i90.i.i.i, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i79.i.i.i, i64 %.sroa.speculated.i.i90.i.i.i
@@ -1444,8 +1444,8 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i: ; preds = %.outer.i.i87.i.i.i, %114, %.thread39.i.i92.i.i.i
-  %.sroa.30.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.sroa.17.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.30.12.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.30.11.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.17.12.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.17.11.i.i.i, %.outer.i.i87.i.i.i ]
   %.2.i.i91.i.i.i = phi i64 [ %.030.ph70.i.i80.i.i.i, %114 ], [ -1, %.thread39.i.i92.i.i.i ], [ %128, %.outer.i.i87.i.i.i ]
   %131 = icmp ne i64 %.2.i.i91.i.i.i, 64
   %lhsv.i.i.i.i = load i32, ptr %8, align 8
@@ -1463,15 +1463,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 136:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
   %137 = load ptr, ptr %72, align 8, !tbaa !54
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1432, ptr noundef nonnull @.str.23, ptr noundef %137, i32 noundef -1)
-  br label %.thread158.i.i.i
+  br label %.thread152.i.i.i
 
 138:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
   %139 = getelementptr inbounds nuw i8, ptr %72, i64 40
   br label %.lr.ph.split.us.preheader.i.i.i.i.i
 
 .lr.ph.split.us.preheader.i.i.i.i.i:              ; preds = %.outer.i.i.i.i.i, %138
-  %.sroa.30.1.i.i.i = phi i64 [ %.sroa.30.15.i.i.i, %138 ], [ %.sroa.30.4.i.i.i, %.outer.i.i.i.i.i ]
-  %.sroa.17.1.i.i.i = phi i64 [ %.sroa.17.15.i.i.i, %138 ], [ %.sroa.17.4.i.i.i, %.outer.i.i.i.i.i ]
+  %.sroa.30.1.i.i.i = phi i64 [ %.sroa.30.12.i.i.i, %138 ], [ %.sroa.30.3.i.i.i, %.outer.i.i.i.i.i ]
+  %.sroa.17.1.i.i.i = phi i64 [ %.sroa.17.12.i.i.i, %138 ], [ %.sroa.17.3.i.i.i, %.outer.i.i.i.i.i ]
   %.028.ph72.i.i.i.i.i = phi i64 [ 0, %138 ], [ %158, %.outer.i.i.i.i.i ]
   %.029.ph71.i.i.i.i.i = phi ptr [ %139, %138 ], [ %156, %.outer.i.i.i.i.i ]
   %.030.ph70.i.i.i.i.i = phi i64 [ 0, %138 ], [ %157, %.outer.i.i.i.i.i ]
@@ -1503,20 +1503,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i.i.i.i, !llvm.loop !12
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %..lr.ph.split.us.i_crit_edge.i.i.i.i, %145
-  %.sroa.30.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %146, %145 ]
-  %.sroa.17.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %.028.ph72.i.i.i.i.i, %145 ]
-  %.not.us.i.i.i.i.i = icmp samesign uge i64 %.028.ph72.i.i.i.i.i, %.sroa.17.3.i.i.i
-  %151 = icmp slt i64 %.028.ph72.i.i.i.i.i, %.sroa.30.3.i.i.i
+  %.sroa.30.2.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %146, %145 ]
+  %.sroa.17.2.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %.028.ph72.i.i.i.i.i, %145 ]
+  %.not.us.i.i.i.i.i = icmp samesign uge i64 %.028.ph72.i.i.i.i.i, %.sroa.17.2.i.i.i
+  %151 = icmp slt i64 %.028.ph72.i.i.i.i.i, %.sroa.30.2.i.i.i
   %or.cond.i.i.i.i.i = select i1 %.not.us.i.i.i.i.i, i1 %151, i1 false
   br i1 %or.cond.i.i.i.i.i, label %.outer.i.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .outer.i.i.i.i.i:                                 ; preds = %.lr.ph.split.us.i.i.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i
-  %.sroa.30.4.i.i.i = phi i64 [ %.sroa.30.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.30.3.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
-  %.sroa.17.4.i.i.i = phi i64 [ %.sroa.17.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.17.3.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
-  %152 = sub nsw i64 %.028.ph72.i.i.i.i.i, %.sroa.17.4.i.i.i
+  %.sroa.30.3.i.i.i = phi i64 [ %.sroa.30.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.30.2.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
+  %.sroa.17.3.i.i.i = phi i64 [ %.sroa.17.1.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i.i ], [ %.sroa.17.2.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
+  %152 = sub nsw i64 %.028.ph72.i.i.i.i.i, %.sroa.17.3.i.i.i
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 %152
   %154 = sub nuw nsw i64 64, %.030.ph70.i.i.i.i.i
-  %155 = sub nsw i64 %.sroa.30.4.i.i.i, %.028.ph72.i.i.i.i.i
+  %155 = sub nsw i64 %.sroa.30.3.i.i.i, %.028.ph72.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %155, i64 %154)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i.i.i.i, ptr nonnull align 1 %153, i64 %.sroa.speculated.i.i.i.i.i, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i
@@ -1532,14 +1532,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i: ; preds = %143, %.thread39.i.i.i.i.i
   %160 = load ptr, ptr %72, align 8, !tbaa !54
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1438, ptr noundef nonnull @.str.24, ptr noundef %160)
-  br label %.thread158.i.i.i
+  br label %.thread152.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i: ; preds = %.outer.i.i.i.i.i
   %161 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %162 = load i16, ptr %161, align 8, !tbaa !58
   %163 = zext i16 %162 to i32
-  %.not183.i.i.i = icmp eq i16 %162, 0
-  br i1 %.not183.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
+  %.not177.i.i.i = icmp eq i16 %162, 0
+  br i1 %.not177.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
   %164 = getelementptr inbounds nuw i8, ptr %72, i64 72
@@ -1552,22 +1552,22 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %171
 
 171:                                              ; preds = %205, %.lr.ph.i.i.i
-  %.044182.i.i.i = phi i64 [ %165, %.lr.ph.i.i.i ], [ %194, %205 ]
-  %.046181.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.248.ph.i.i.i, %205 ]
-  %.050180.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %206, %205 ]
-  %.sroa.17.0179.i.i.i = phi i64 [ %.sroa.17.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.17.10.i.i.i, %205 ]
-  %.sroa.30.0178.i.i.i = phi i64 [ %.sroa.30.4.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.30.10.i.i.i, %205 ]
+  %.044176.i.i.i = phi i64 [ %165, %.lr.ph.i.i.i ], [ %194, %205 ]
+  %.046175.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.248.ph.i.i.i, %205 ]
+  %.050174.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %206, %205 ]
+  %.sroa.17.0173.i.i.i = phi i64 [ %.sroa.17.3.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.17.8.i.i.i, %205 ]
+  %.sroa.30.0172.i.i.i = phi i64 [ %.sroa.30.3.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.30.8.i.i.i, %205 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.lr.ph.split.us.preheader.i.i57.i.i.i
 
 .lr.ph.split.us.preheader.i.i57.i.i.i:            ; preds = %.outer.i.i67.i.i.i, %171
-  %.sroa.30.6.i.i.i = phi i64 [ %.sroa.30.0178.i.i.i, %171 ], [ %.sroa.30.9.i.i.i, %.outer.i.i67.i.i.i ]
-  %.sroa.17.6.i.i.i = phi i64 [ %.sroa.17.0179.i.i.i, %171 ], [ %.sroa.17.9.i.i.i, %.outer.i.i67.i.i.i ]
-  %.028.ph72.i.i58.i.i.i = phi i64 [ %.044182.i.i.i, %171 ], [ %190, %.outer.i.i67.i.i.i ]
+  %.sroa.30.5.i.i.i = phi i64 [ %.sroa.30.0172.i.i.i, %171 ], [ %.sroa.30.7.i.i.i, %.outer.i.i67.i.i.i ]
+  %.sroa.17.5.i.i.i = phi i64 [ %.sroa.17.0173.i.i.i, %171 ], [ %.sroa.17.7.i.i.i, %.outer.i.i67.i.i.i ]
+  %.028.ph72.i.i58.i.i.i = phi i64 [ %.044176.i.i.i, %171 ], [ %190, %.outer.i.i67.i.i.i ]
   %.029.ph71.i.i59.i.i.i = phi ptr [ %11, %171 ], [ %188, %.outer.i.i67.i.i.i ]
   %.030.ph70.i.i60.i.i.i = phi i64 [ 0, %171 ], [ %189, %.outer.i.i67.i.i.i ]
-  %.not.us.i16.i61.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.6.i.i.i
-  %172 = icmp slt i64 %.028.ph72.i.i58.i.i.i, %.sroa.30.6.i.i.i
+  %.not.us.i16.i61.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.5.i.i.i
+  %172 = icmp slt i64 %.028.ph72.i.i58.i.i.i, %.sroa.30.5.i.i.i
   %or.cond.i17.i62.i.i.i = and i1 %.not.us.i16.i61.i.i.i, %172
   br i1 %or.cond.i17.i62.i.i.i, label %.outer.i.i67.i.i.i, label %.lr.ph.i63.i.i.i
 
@@ -1594,20 +1594,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.lr.ph.split.us.i.i64.i.i.i, !llvm.loop !12
 
 .lr.ph.split.us.i.i64.i.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i73.i.i.i, %177
-  %.sroa.30.8.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %178, %177 ]
-  %.sroa.17.8.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %.028.ph72.i.i58.i.i.i, %177 ]
-  %.not.us.i.i65.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.8.i.i.i
-  %183 = icmp slt i64 %.028.ph72.i.i58.i.i.i, %.sroa.30.8.i.i.i
+  %.sroa.30.6.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %178, %177 ]
+  %.sroa.17.6.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i73.i.i.i ], [ %.028.ph72.i.i58.i.i.i, %177 ]
+  %.not.us.i.i65.i.i.i = icmp sge i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.6.i.i.i
+  %183 = icmp slt i64 %.028.ph72.i.i58.i.i.i, %.sroa.30.6.i.i.i
   %or.cond.i.i66.i.i.i = select i1 %.not.us.i.i65.i.i.i, i1 %183, i1 false
   br i1 %or.cond.i.i66.i.i.i, label %.outer.i.i67.i.i.i, label %.lr.ph.i63.i.i.i
 
 .outer.i.i67.i.i.i:                               ; preds = %.lr.ph.split.us.i.i64.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i
-  %.sroa.30.9.i.i.i = phi i64 [ %.sroa.30.6.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.30.8.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
-  %.sroa.17.9.i.i.i = phi i64 [ %.sroa.17.6.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.17.8.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
-  %184 = sub nsw i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.9.i.i.i
+  %.sroa.30.7.i.i.i = phi i64 [ %.sroa.30.5.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.30.6.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
+  %.sroa.17.7.i.i.i = phi i64 [ %.sroa.17.5.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.17.6.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
+  %184 = sub nsw i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.7.i.i.i
   %185 = getelementptr inbounds nuw i8, ptr %10, i64 %184
   %186 = sub nuw nsw i64 56, %.030.ph70.i.i60.i.i.i
-  %187 = sub nsw i64 %.sroa.30.9.i.i.i, %.028.ph72.i.i58.i.i.i
+  %187 = sub nsw i64 %.sroa.30.7.i.i.i, %.028.ph72.i.i58.i.i.i
   %.sroa.speculated.i.i70.i.i.i = tail call i64 @llvm.umin.i64(i64 %187, i64 %186)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i59.i.i.i, ptr nonnull align 1 %185, i64 %.sroa.speculated.i.i70.i.i.i, i1 false)
   %188 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i59.i.i.i, i64 %.sroa.speculated.i.i70.i.i.i
@@ -1621,14 +1621,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %.loopexit.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i: ; preds = %.outer.i.i67.i.i.i, %175
-  %.sroa.30.10.i.i.i = phi i64 [ 0, %175 ], [ %.sroa.30.9.i.i.i, %.outer.i.i67.i.i.i ]
-  %.sroa.17.10.i.i.i = phi i64 [ 0, %175 ], [ %.sroa.17.9.i.i.i, %.outer.i.i67.i.i.i ]
+  %.sroa.30.8.i.i.i = phi i64 [ 0, %175 ], [ %.sroa.30.7.i.i.i, %.outer.i.i67.i.i.i ]
+  %.sroa.17.8.i.i.i = phi i64 [ 0, %175 ], [ %.sroa.17.7.i.i.i, %.outer.i.i67.i.i.i ]
   %.2.i.i71.i.i.i = phi i64 [ %.030.ph70.i.i60.i.i.i, %175 ], [ %189, %.outer.i.i67.i.i.i ]
   %192 = icmp eq i64 %.2.i.i71.i.i.i, 56
   br i1 %192, label %193, label %.loopexit.i.i.i
 
 193:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
-  %194 = add nsw i64 %.044182.i.i.i, %168
+  %194 = add nsw i64 %.044176.i.i.i, %168
   %195 = load i32, ptr %11, align 8, !tbaa !61
   %.not54.i.i.i = icmp eq i32 %195, 1
   br i1 %.not54.i.i.i, label %196, label %205
@@ -1640,33 +1640,33 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br i1 %.not55.i.i.i, label %199, label %205
 
 199:                                              ; preds = %196
-  %200 = icmp ult i64 %.046181.i.i.i, 4
-  br i1 %200, label %201, label %.thread156.i.i.i
+  %200 = icmp ult i64 %.046175.i.i.i, 4
+  br i1 %200, label %201, label %.thread150.i.i.i
 
 201:                                              ; preds = %199
-  %202 = add nuw nsw i64 %.046181.i.i.i, 1
-  %203 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %170, i64 %.046181.i.i.i
+  %202 = add nuw nsw i64 %.046175.i.i.i, 1
+  %203 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %170, i64 %.046175.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
   br label %205
 
-.thread156.i.i.i:                                 ; preds = %199
+.thread150.i.i.i:                                 ; preds = %199
   %204 = load ptr, ptr %72, align 8, !tbaa !54
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1475, ptr noundef nonnull @.str.26, ptr noundef %204, i64 noundef %.046181.i.i.i, i64 noundef 4)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1475, ptr noundef nonnull @.str.26, ptr noundef %204, i64 noundef %.046175.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %210
 
 205:                                              ; preds = %201, %196, %193
-  %.248.ph.i.i.i = phi i64 [ %.046181.i.i.i, %193 ], [ %.046181.i.i.i, %196 ], [ %202, %201 ]
+  %.248.ph.i.i.i = phi i64 [ %.046175.i.i.i, %193 ], [ %.046175.i.i.i, %196 ], [ %202, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %206 = add nuw nsw i32 %.050180.i.i.i, 1
+  %206 = add nuw nsw i32 %.050174.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %206, %163
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %171, !llvm.loop !64
 
 .loopexit.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i
   %207 = load ptr, ptr %72, align 8, !tbaa !54
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1449, ptr noundef nonnull @.str.25, ptr noundef %207, i32 noundef %.050180.i.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1449, ptr noundef nonnull @.str.25, ptr noundef %207, i32 noundef %.050174.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread158.i.i.i
+  br label %.thread152.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %205
   %208 = icmp eq i64 %.248.ph.i.i.i, 0
@@ -1675,13 +1675,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i
   %209 = load ptr, ptr %72, align 8, !tbaa !54
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1481, ptr noundef nonnull @.str.27, ptr noundef %209)
-  br label %.thread158.i.i.i
+  br label %.thread152.i.i.i
 
-.thread158.i.i.i:                                 ; preds = %._crit_edge.thread.i.i.i, %.loopexit.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i, %136
+.thread152.i.i.i:                                 ; preds = %._crit_edge.thread.i.i.i, %.loopexit.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i
 
-210:                                              ; preds = %._crit_edge.i.i.i, %.thread156.i.i.i
+210:                                              ; preds = %._crit_edge.i.i.i, %.thread150.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %211
 
@@ -1922,9 +1922,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileE
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i
 
-_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i: ; preds = %311, %298, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, %.thread158.i.i.i, %106
-  %.047.i.i = phi i32 [ -1, %311 ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %244, %298 ], [ -1, %106 ], [ -1, %.thread158.i.i.i ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
-  %.2.i.i = phi i64 [ 0, %311 ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %.046.i.i, %298 ], [ 0, %106 ], [ 0, %.thread158.i.i.i ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
+_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i: ; preds = %311, %298, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, %.thread152.i.i.i, %106
+  %.047.i.i = phi i32 [ -1, %311 ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %244, %298 ], [ -1, %106 ], [ -1, %.thread152.i.i.i ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
+  %.2.i.i = phi i64 [ 0, %311 ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %.046.i.i, %298 ], [ 0, %106 ], [ 0, %.thread152.i.i.i ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
   %312 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
   %313 = and i32 %312, 1
   %.not.i.i.i.i.i = icmp eq i32 %313, 0

@@ -5556,14 +5556,14 @@ UTIL_getOpenFileSize.exit.i:                      ; preds = %88, %86
   br i1 %.not207.i, label %.lr.ph.i, label %.loopexit152.sink.split.sink.split
 
 .lr.ph.i:                                         ; preds = %UTIL_getOpenFileSize.exit.i, %.thread165.i
-  %.sroa.11.2 = phi i64 [ %488, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.20.2 = phi i32 [ %.sroa.20.24.copyload, %.thread165.i ], [ 4, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.24.2 = phi i32 [ %.sroa.24.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.2664.2 = phi i64 [ %.sroa.2664.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.2967.2 = phi i32 [ %.sroa.2967.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.3371.2 = phi i16 [ %.sroa.3371.4, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.38.2 = phi i16 [ %.sroa.38.3, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
-  %.sroa.43.2 = phi i16 [ %.sroa.43.3, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.11.1 = phi i64 [ %488, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.20.1 = phi i32 [ %.sroa.20.24.copyload, %.thread165.i ], [ 4, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.24.1 = phi i32 [ %.sroa.24.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.2664.1 = phi i64 [ %.sroa.2664.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.2967.1 = phi i32 [ %.sroa.2967.24.copyload, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.3371.1 = phi i16 [ %.sroa.3371.3, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.38.1 = phi i16 [ %.sroa.38.2, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
+  %.sroa.43.1 = phi i16 [ %.sroa.43.2, %.thread165.i ], [ 1, %UTIL_getOpenFileSize.exit.i ]
   %.not29 = phi i1 [ true, %.thread165.i ], [ false, %UTIL_getOpenFileSize.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
@@ -5644,8 +5644,8 @@ thread-pre-split.i:                               ; preds = %114, %109
   ]
 
 131:                                              ; preds = %128
-  %.not102.i = icmp eq i32 %.sroa.2967.2, 0
-  %spec.select = select i1 %.not102.i, i16 %.sroa.3371.2, i16 0
+  %.not102.i = icmp eq i32 %.sroa.2967.1, 0
+  %spec.select = select i1 %.not102.i, i16 %.sroa.3371.1, i16 0
   %132 = call i64 @fread(ptr noundef nonnull %26, i64 noundef 1, i64 noundef 3, ptr noundef nonnull %80)
   %.not103.i = icmp eq i64 %132, 0
   br i1 %.not103.i, label %135, label %133
@@ -5817,13 +5817,13 @@ thread-pre-split134.i:                            ; preds = %198, %193
 
 221:                                              ; preds = %215
   %222 = load i32, ptr %8, align 8, !tbaa !135
-  %.not110.i = icmp eq i32 %.sroa.20.2, %222
+  %.not110.i = icmp eq i32 %.sroa.20.1, %222
   %223 = load i32, ptr %28, align 4
-  %.not111.i = icmp eq i32 %.sroa.24.2, %223
+  %.not111.i = icmp eq i32 %.sroa.24.1, %223
   %or.cond = select i1 %.not110.i, i1 %.not111.i, i1 false
-  %.not112.i = icmp eq i64 %.sroa.11.2, 0
+  %.not112.i = icmp eq i64 %.sroa.11.1, 0
   %or.cond147 = select i1 %or.cond, i1 true, i1 %.not112.i
-  %.sroa.38.6 = select i1 %or.cond147, i16 %.sroa.38.2, i16 0
+  %.sroa.38.5 = select i1 %or.cond147, i16 %.sroa.38.1, i16 0
   %224 = load i32, ptr %29, align 4, !tbaa !137
   %225 = load i32, ptr %30, align 8, !tbaa !138
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5898,7 +5898,7 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
 
 .thread139.i:                                     ; preds = %246
   %255 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %256 = add i64 %.sroa.11.2, 1
+  %256 = add i64 %.sroa.11.1, 1
   %257 = load i32, ptr %25, align 8, !tbaa !141
   %258 = zext i32 %257 to i64
   %259 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %258
@@ -5925,7 +5925,7 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
 
 274:                                              ; preds = %265, %253
   %275 = phi i64 [ %254, %253 ], [ %.pre.i, %265 ]
-  %276 = add i64 %275, %.sroa.2664.2
+  %276 = add i64 %275, %.sroa.2664.1
   store i64 %276, ptr %34, align 8, !tbaa !140
   br label %487
 
@@ -5938,10 +5938,10 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
 
 282:                                              ; preds = %128
   store i32 1, ptr %25, align 8, !tbaa !141
-  %.not98.i = icmp eq i32 %.sroa.2967.2, 1
-  %.not99.i = icmp eq i64 %.sroa.11.2, 0
+  %.not98.i = icmp eq i32 %.sroa.2967.1, 1
+  %.not99.i = icmp eq i64 %.sroa.11.1, 0
   %or.cond148 = select i1 %.not98.i, i1 true, i1 %.not99.i
-  %.sroa.3371.5 = select i1 %or.cond148, i16 %.sroa.3371.2, i16 0
+  %.sroa.3371.4 = select i1 %or.cond148, i16 %.sroa.3371.1, i16 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %283
 
@@ -6096,7 +6096,7 @@ LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
 
 356:                                              ; preds = %355
   %357 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %358 = add i64 %.sroa.11.2, 1
+  %358 = add i64 %.sroa.11.1, 1
   %359 = load i32, ptr %25, align 8, !tbaa !141
   %360 = zext i32 %359 to i64
   %361 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %360
@@ -6107,10 +6107,10 @@ LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
 
 365:                                              ; preds = %128
   store i32 2, ptr %25, align 8, !tbaa !141
-  %.not93.i = icmp eq i32 %.sroa.2967.2, 2
-  %.not94.i = icmp eq i64 %.sroa.11.2, 0
+  %.not93.i = icmp eq i32 %.sroa.2967.1, 2
+  %.not94.i = icmp eq i64 %.sroa.11.1, 0
   %or.cond149 = select i1 %.not93.i, i1 true, i1 %.not94.i
-  %.sroa.3371.3 = select i1 %or.cond149, i16 %.sroa.3371.2, i16 0
+  %.sroa.3371.2 = select i1 %or.cond149, i16 %.sroa.3371.1, i16 0
   %366 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %80)
   %.not95.i = icmp eq i64 %366, 4
   br i1 %.not95.i, label %400, label %367
@@ -6276,7 +6276,7 @@ fseek_u32.exit.thread.i:                          ; preds = %412, %fseek_u32.exi
 
 447:                                              ; preds = %fseek_u32.exit.thread.i
   %448 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %449 = add i64 %.sroa.11.2, 1
+  %449 = add i64 %.sroa.11.1, 1
   %450 = add i32 %401, 8
   %451 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %448, ptr noundef nonnull @.str.118, i64 noundef %449, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, i32 noundef %450, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41) #24
   br label %.thread165.i
@@ -6344,21 +6344,21 @@ fseek_u32.exit.thread.i:                          ; preds = %412, %fseek_u32.exi
   br label %LZ4IO_getCompressedFileInfo.exit.thread140
 
 487:                                              ; preds = %253, %277, %274
-  %.sroa.43.5 = phi i16 [ %.sroa.43.2, %274 ], [ 0, %277 ], [ 0, %253 ]
+  %.sroa.43.4 = phi i16 [ %.sroa.43.1, %274 ], [ 0, %277 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread165.i
 
 .thread165.i:                                     ; preds = %487, %447, %fseek_u32.exit.thread.i, %356, %355
-  %.sroa.3371.4 = phi i16 [ %spec.select, %487 ], [ %.sroa.3371.5, %355 ], [ %.sroa.3371.5, %356 ], [ %.sroa.3371.3, %fseek_u32.exit.thread.i ], [ %.sroa.3371.3, %447 ]
-  %.sroa.38.3 = phi i16 [ %.sroa.38.6, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
-  %.sroa.43.3 = phi i16 [ %.sroa.43.5, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
+  %.sroa.3371.3 = phi i16 [ %spec.select, %487 ], [ %.sroa.3371.4, %355 ], [ %.sroa.3371.4, %356 ], [ %.sroa.3371.2, %fseek_u32.exit.thread.i ], [ %.sroa.3371.2, %447 ]
+  %.sroa.38.2 = phi i16 [ %.sroa.38.5, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
+  %.sroa.43.2 = phi i16 [ %.sroa.43.4, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
   %.sroa.20.24.copyload = load i32, ptr %8, align 8, !tbaa !4
   %.sroa.24.24.copyload = load i32, ptr %28, align 4, !tbaa !4
   %.sroa.2664.24.copyload = load i64, ptr %34, align 8, !tbaa !32
   %.sroa.2967.24.copyload = load i32, ptr %25, align 8, !tbaa !4
-  %488 = add i64 %.sroa.11.2, 1
+  %488 = add i64 %.sroa.11.1, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %489 = call i32 @feof(ptr noundef nonnull %80) #24
   %.not.i44 = icmp eq i32 %489, 0
@@ -6401,14 +6401,14 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
   br i1 %500, label %.critedge35.sink.split, label %.critedge35
 
 .critedge:                                        ; preds = %LZ4IO_getCompressedFileInfo.exit.thread118, %LZ4IO_getCompressedFileInfo.exit
-  %.sroa.43.6117 = phi i16 [ %.sroa.43.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.43.3, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.38.7115 = phi i16 [ %.sroa.38.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.38.3, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.3371.8113 = phi i16 [ %.sroa.3371.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.3371.4, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.2967.3111 = phi i32 [ %.sroa.2967.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.2967.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.2664.3109 = phi i64 [ %.sroa.2664.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.2664.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.24.3107 = phi i32 [ %.sroa.24.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.24.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.20.3105 = phi i32 [ %.sroa.20.2, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.20.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
-  %.sroa.11.3103 = phi i64 [ %.sroa.11.2, %LZ4IO_getCompressedFileInfo.exit ], [ %488, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.43.5117 = phi i16 [ %.sroa.43.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.43.2, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.38.6115 = phi i16 [ %.sroa.38.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.38.2, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.3371.7113 = phi i16 [ %.sroa.3371.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.3371.3, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.2967.2111 = phi i32 [ %.sroa.2967.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.2967.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.2664.2109 = phi i64 [ %.sroa.2664.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.2664.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.24.2107 = phi i32 [ %.sroa.24.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.24.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.20.2105 = phi i32 [ %.sroa.20.1, %LZ4IO_getCompressedFileInfo.exit ], [ %.sroa.20.24.copyload, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
+  %.sroa.11.2103 = phi i64 [ %.sroa.11.1, %LZ4IO_getCompressedFileInfo.exit ], [ %488, %LZ4IO_getCompressedFileInfo.exit.thread118 ]
   %501 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %502 = icmp sgt i32 %501, 2
   br i1 %502, label %503, label %.thread
@@ -6423,26 +6423,26 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
 .thread:                                          ; preds = %.critedge, %503
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %506 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %.not30 = icmp eq i16 %.sroa.3371.8113, 0
+  %.not30 = icmp eq i16 %.sroa.3371.7113, 0
   br i1 %.not30, label %511, label %507
 
 507:                                              ; preds = %.thread
-  %508 = zext i32 %.sroa.2967.3111 to i64
+  %508 = zext i32 %.sroa.2967.2111 to i64
   %509 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %508
   %510 = load ptr, ptr %509, align 8, !tbaa !57
   br label %511
 
 511:                                              ; preds = %.thread, %507
   %512 = phi ptr [ %510, %507 ], [ @.str.41, %.thread ]
-  %.not31 = icmp eq i16 %.sroa.38.7115, 0
+  %.not31 = icmp eq i16 %.sroa.38.6115, 0
   br i1 %.not31, label %518, label %513
 
 513:                                              ; preds = %511
   store i8 66, ptr %14, align 16, !tbaa !69
-  %514 = trunc i32 %.sroa.20.3105 to i8
+  %514 = trunc i32 %.sroa.20.2105 to i8
   %515 = add i8 %514, 48
   store i8 %515, ptr %35, align 1, !tbaa !69
-  %516 = icmp eq i32 %.sroa.24.3107, 1
+  %516 = icmp eq i32 %.sroa.24.2107, 1
   %517 = select i1 %516, i8 73, i8 68
   store i8 %517, ptr %36, align 2, !tbaa !69
   store i8 0, ptr %37, align 1, !tbaa !69
@@ -6469,12 +6469,12 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   %526 = load i8, ptr %525, align 1, !tbaa !69
   %527 = sext i8 %526 to i32
   %528 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i, i32 noundef %527) #24
-  %.not32 = icmp eq i16 %.sroa.43.6117, 0
+  %.not32 = icmp eq i16 %.sroa.43.5117, 0
   br i1 %.not32, label %546, label %529
 
 529:                                              ; preds = %LZ4IO_toHuman.exit
-  %530 = uitofp i64 %.sroa.2664.3109 to x86_fp80
-  %531 = icmp ult i64 %.sroa.2664.3109, 1024
+  %530 = uitofp i64 %.sroa.2664.2109 to x86_fp80
+  %531 = icmp ult i64 %.sroa.2664.2109, 1024
   br i1 %531, label %.loopexit, label %.lr.ph.i46
 
 .lr.ph.i46:                                       ; preds = %529, %.lr.ph.i46
@@ -6492,9 +6492,9 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   %536 = load i8, ptr %535, align 1, !tbaa !69
   %537 = sext i8 %536 to i32
   %538 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i49, i32 noundef %537) #24
-  %539 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull %39) #24
+  %539 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.2103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull %39) #24
   %540 = uitofp i64 %.0.i.i42 to double
-  %541 = uitofp i64 %.sroa.2664.3109 to double
+  %541 = uitofp i64 %.sroa.2664.2109 to double
   %542 = fdiv double %540, %541
   %543 = fmul double %542, 1.000000e+02
   %544 = load ptr, ptr @stdout, align 8, !tbaa !8
@@ -6502,7 +6502,7 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   br label %550
 
 546:                                              ; preds = %LZ4IO_toHuman.exit
-  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull @.str.41) #24
+  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.2103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull @.str.41) #24
   %548 = load ptr, ptr @stdout, align 8, !tbaa !8
   %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.41, ptr noundef nonnull %.07.i) #24
   br label %550

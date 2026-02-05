@@ -3753,11 +3753,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd32bfe9c0a0d81e0E.exit: ; pred
   %39 = lshr exact i64 %38, 3
   %40 = add i64 %.sroa.5.2, %39
   %41 = add i64 %40, 1
-  %.pre35 = load i64, ptr %37, align 8, !alias.scope !967, !noalias !970
+  %.pre34 = load i64, ptr %37, align 8, !alias.scope !967, !noalias !970
   br label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %.lr.ph.i10.preheader, %.noexc13
-  %42 = phi i64 [ %48, %.noexc13 ], [ %.pre35, %.lr.ph.i10.preheader ]
+  %42 = phi i64 [ %48, %.noexc13 ], [ %.pre34, %.lr.ph.i10.preheader ]
   %.sroa.5.3 = phi i64 [ %44, %.noexc13 ], [ %.sroa.5.2, %.lr.ph.i10.preheader ]
   %43 = phi ptr [ %47, %.noexc13 ], [ %20, %.lr.ph.i10.preheader ]
   %.val5.i12 = load i64, ptr %43, align 8, !noalias !962, !noundef !3
@@ -3794,18 +3794,18 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h35901240016d3233E.exit: ; pred
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i
-  %lpad.loopexit26 = landingpad { ptr, i32 }
+  %lpad.loopexit25 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %2
-  %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp26 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %.sroa.5.0 = phi i64 [ %44, %.loopexit ], [ %28, %.loopexit.split-lp.loopexit ], [ 0, %.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp26, %.loopexit.split-lp.loopexit.split-lp ]
   %56 = sub i64 %4, %.sroa.5.0
   store i64 %56, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3919,18 +3919,18 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h82de33dc78a3d99fE.exit: ; pred
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i
-  %lpad.loopexit24 = landingpad { ptr, i32 }
+  %lpad.loopexit23 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %2
-  %lpad.loopexit.split-lp25 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp24 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %.sroa.5.0 = phi i64 [ %36, %.loopexit ], [ %26, %.loopexit.split-lp.loopexit ], [ 0, %.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp.loopexit.split-lp ]
   %45 = sub i64 %5, %.sroa.5.0
   store i64 %45, ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16

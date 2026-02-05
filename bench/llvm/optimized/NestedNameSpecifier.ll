@@ -2829,11 +2829,11 @@ define dso_local { ptr, ptr } @_ZNK5clang29NestedNameSpecifierLocBuilder19getWit
 32:                                               ; preds = %11
   %33 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 noundef %14, i64 noundef %14, i8 3)
   %.pre = load i32, ptr %12, align 8, !tbaa !513
-  %.pre6 = zext i32 %.pre to i64
+  %.pre4 = zext i32 %.pre to i64
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %29, %32
-  %.pre-phi = phi i64 [ %14, %29 ], [ %.pre6, %32 ]
+  %.pre-phi = phi i64 [ %14, %29 ], [ %.pre4, %32 ]
   %.0.i.i.i = phi ptr [ %31, %29 ], [ %33, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !511

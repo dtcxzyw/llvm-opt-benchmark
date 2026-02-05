@@ -6885,12 +6885,12 @@ define internal void @cast_sa_to_bool(ptr readnone captures(none) %0, ptr nounde
   br label %28
 
 28:                                               ; preds = %20, %23
-  %.052 = phi i8 [ %27, %23 ], [ 0, %20 ]
+  %.0 = phi i8 [ %27, %23 ], [ 0, %20 ]
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.429.0..sroa_idx, i8 0, i64 6, i1 false)
-  store i8 %.052, ptr %14, align 8
+  store i8 %.0, ptr %14, align 8
   %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.531.0..sroa_idx, i8 0, i64 23, i1 false)
   %29 = and i16 %5, -4082
@@ -6912,12 +6912,12 @@ define internal void @cast_sa_to_bool(ptr readnone captures(none) %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %31, %34
-  %.0 = phi i8 [ %38, %34 ], [ 0, %31 ]
+  %.052 = phi i8 [ %38, %34 ], [ 0, %31 ]
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
-  store i8 %.0, ptr %14, align 8
+  store i8 %.052, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %40 = and i16 %5, -4082

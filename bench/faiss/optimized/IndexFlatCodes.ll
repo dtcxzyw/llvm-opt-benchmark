@@ -3415,15 +3415,15 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %._crit_edge, %24
   ret void
 
 27:                                               ; preds = %.lr.ph, %27
-  %.015 = phi i64 [ 0, %.lr.ph ], [ %34, %27 ]
-  %28 = mul i64 %21, %.015
+  %.012 = phi i64 [ 0, %.lr.ph ], [ %34, %27 ]
+  %28 = mul i64 %21, %.012
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 %28
-  %30 = getelementptr inbounds nuw i64, ptr %1, i64 %.015
+  %30 = getelementptr inbounds nuw i64, ptr %1, i64 %.012
   %31 = load i64, ptr %30, align 8, !tbaa !64
   %32 = mul i64 %31, %21
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %33, i64 %21, i1 false)
-  %34 = add nuw nsw i64 %.015, 1
+  %34 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %34, %18
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !117
 }

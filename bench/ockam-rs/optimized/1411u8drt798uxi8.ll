@@ -43701,9 +43701,9 @@ common.resume:                                    ; preds = %35, %.body
           to label %common.resume unwind label %69
 
 33:                                               ; preds = %29, %.loopexit
-  %.sroa.8.1 = phi ptr [ %20, %29 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
+  %.sroa.8.0 = phi ptr [ %20, %29 ], [ %.sroa.432.0.ph.i.i.i.i.i.i, %.loopexit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.1, ptr %34, align 8
+  store ptr %.sroa.8.0, ptr %34, align 8
   store ptr null, ptr %0, align 8
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha62af768ac17649dE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %37 unwind label %35

@@ -36797,8 +36797,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_35Us
   resume { ptr, i32 } %.pn
 
 130:                                              ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryD2Ev.exit
-  %.pn27 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryD2Ev.exit ], [ %7, %2 ]
-  %.07 = getelementptr inbounds nuw i8, ptr %.pn27, i64 48
+  %.pn25 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__33UsdImaging_ResolvedAttributeCacheINS_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryD2Ev.exit ], [ %7, %2 ]
+  %.07 = getelementptr inbounds nuw i8, ptr %.pn25, i64 48
   ret ptr %.07
 }
 

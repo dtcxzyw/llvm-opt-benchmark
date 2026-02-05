@@ -125,7 +125,7 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5c
   br label %9
 
 9:                                                ; preds = %7, %8, %4
-  %.sroa.0134.0 = phi i64 [ -8446744073709551616, %8 ], [ -9223372036854775808, %7 ], [ 1152921504606846976, %4 ]
+  %.sroa.0132.0 = phi i64 [ -8446744073709551616, %8 ], [ -9223372036854775808, %7 ], [ 1152921504606846976, %4 ]
   %.0 = phi i64 [ 19, %8 ], [ 21, %7 ], [ 15, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
@@ -143,7 +143,7 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5c
   %.sroa.22.0.insert.shift.i.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i, 64
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %1 to i128
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i.i, %.sroa.01.0.insert.ext.i.i.i
-  %.sroa.0.0.insert.ext.i.i.i = zext i64 %.sroa.0134.0 to i128
+  %.sroa.0.0.insert.ext.i.i.i = zext i64 %.sroa.0132.0 to i128
   %19 = icmp ult i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   br i1 %19, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, label %20
 
@@ -158,7 +158,7 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i: ; preds = %20
   %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 true)
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = xor i32 %spec.select113.i, %23
-  %25 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
+  %25 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0132.0, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
   %27 = xor i32 %26, 63
   %28 = sub nsw i32 %24, %27
@@ -229,7 +229,7 @@ _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit: ; preds = %.lr.p
 
 40:                                               ; preds = %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit
   %41 = icmp eq i128 %.sroa.01.0.insert.insert.i.i.i44, %.sroa.0.0.insert.ext.i.i.i
-  br i1 %41, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141, label %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49
+  br i1 %41, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread139, label %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49
 
 _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
   %.not.i.not.i50 = icmp eq i64 %.sroa.13.0, 0
@@ -238,7 +238,7 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
   %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i51, i1 true)
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = xor i32 %spec.select113.i52, %43
-  %45 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
+  %45 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0132.0, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = xor i32 %46, 63
   %48 = sub nsw i32 %44, %47
@@ -288,15 +288,15 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103: ; preds = %.lr.ph.i61
   %.not = icmp eq i64 %.sroa.070.1.i88, 0
-  br i1 %.not, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141
+  br i1 %.not, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread139
 
-_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141: ; preds = %40, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103
-  %.sroa.0.0146 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 0, %40 ]
-  %.sroa.0127.1145 = phi i64 [ %.sroa.070.1.i88, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 1, %40 ]
-  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0127.1145)
+_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread139: ; preds = %40, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103
+  %.sroa.0.0144 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 0, %40 ]
+  %.sroa.0127.1143 = phi i64 [ %.sroa.070.1.i88, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 1, %40 ]
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0127.1143)
           to label %55 unwind label %87
 
-55:                                               ; preds = %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141
+55:                                               ; preds = %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread139
   %56 = load ptr, ptr %5, align 8, !tbaa !10
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
@@ -353,25 +353,25 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc104._
   %83 = getelementptr inbounds i8, ptr %5, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 %.0, ptr %84, align 8, !tbaa !43
-  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0.0146)
+  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0.0144)
           to label %_ZNSolsEm.exit107 unwind label %87
 
 _ZNSolsEm.exit107:                                ; preds = %78
   %86 = load ptr, ptr %5, align 8, !tbaa !10
   br label %.sink.split
 
-87:                                               ; preds = %.invoke, %121, %.noexc117, %109, %89, %78, %.noexc104, %73, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141
+87:                                               ; preds = %.invoke, %121, %.noexc117, %109, %89, %78, %.noexc104, %73, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread139
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread: ; preds = %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103
-  %.sroa.0.0140 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49 ]
-  %.not36 = icmp eq i64 %.sroa.0.0140, 0
+  %.sroa.0.0138 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49 ]
+  %.not36 = icmp eq i64 %.sroa.0.0138, 0
   br i1 %.not36, label %121, label %89
 
 89:                                               ; preds = %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread
-  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0.0140)
+  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0.0138)
           to label %91 unwind label %87
 
 91:                                               ; preds = %89
@@ -421,16 +421,16 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113: ; preds = %104
           to label %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge unwind label %87
 
 .noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge: ; preds = %.noexc117
-  %.pre148.pre = load ptr, ptr %5, align 8, !tbaa !10
+  %.pre146.pre = load ptr, ptr %5, align 8, !tbaa !10
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115: ; preds = %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113
-  %.pre148 = phi ptr [ %.pre148.pre, %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge ], [ %92, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113 ]
+  %.pre146 = phi ptr [ %.pre146.pre, %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge ], [ %92, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113 ]
   store i8 1, ptr %101, align 1, !tbaa !25
   br label %114
 
 114:                                              ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115, %91
-  %115 = phi ptr [ %.pre148, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115 ], [ %92, %91 ]
+  %115 = phi ptr [ %.pre146, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115 ], [ %92, %91 ]
   %116 = getelementptr inbounds nuw i8, ptr %100, i64 224
   store i8 48, ptr %116, align 8, !tbaa !42
   br label %.sink.split

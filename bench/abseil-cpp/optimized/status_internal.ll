@@ -1619,12 +1619,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %35, ptr %33, align 8, !tbaa !11
   %43 = load i64, ptr %36, align 8, !tbaa !15
   store i64 %43, ptr %34, align 8, !tbaa !15
-  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 8
-  %.pre36 = load i64, ptr %.phi.trans.insert35, align 8, !tbaa !16
+  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 8
+  %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !16
   br label %44
 
 44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %38
-  %45 = phi i64 [ %.pre36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %40, %38 ]
+  %45 = phi i64 [ %.pre34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %40, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %45, ptr %47, align 8, !tbaa !16
@@ -1686,11 +1686,11 @@ _ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7Payloa
   %70 = load i64, ptr %7, align 8, !tbaa !15
   %71 = mul i64 %70, 48
   tail call void @_ZdlPvm(ptr noundef %69, i64 noundef %71) #24
-  %.pre37 = load i64, ptr %0, align 8, !tbaa !9
+  %.pre35 = load i64, ptr %0, align 8, !tbaa !9
   br label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_15status_internal7PayloadEEED2Ev.exit
 
 _ZN4absl23inlined_vector_internal21AllocationTransactionISaINS_15status_internal7PayloadEEED2Ev.exit: ; preds = %68, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit
-  %72 = phi i64 [ %.pre37, %68 ], [ %66, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit ]
+  %72 = phi i64 [ %.pre35, %68 ], [ %66, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit ]
   store ptr %15, ptr %5, align 8, !tbaa !15
   store i64 %10, ptr %7, align 8, !tbaa !15
   %73 = or i64 %72, 1

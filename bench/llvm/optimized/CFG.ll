@@ -23813,7 +23813,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110CFGBuilder20VisitLogical
   br label %62
 
 62:                                               ; preds = %24, %59
-  %.182 = phi ptr [ %31, %59 ], [ %27, %24 ]
+  %.180 = phi ptr [ %31, %59 ], [ %27, %24 ]
   %.1 = phi ptr [ %61, %59 ], [ %26, %24 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %64 = load i8, ptr %63, align 8, !tbaa !113, !range !129, !noundef !130
@@ -23915,7 +23915,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110CFGBuilder20VisitLogical
   br label %124
 
 124:                                              ; preds = %102, %113, %84, %62, %.critedge
-  %.sroa.5.0 = phi ptr [ null, %84 ], [ %83, %.critedge ], [ null, %62 ], [ %.182, %113 ], [ %.182, %102 ]
+  %.sroa.5.0 = phi ptr [ null, %84 ], [ %83, %.critedge ], [ null, %62 ], [ %.180, %113 ], [ %.180, %102 ]
   %.sroa.068.0 = phi ptr [ null, %84 ], [ %82, %.critedge ], [ null, %62 ], [ %92, %113 ], [ %92, %102 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.068.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1

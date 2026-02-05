@@ -4369,8 +4369,8 @@ _ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit: ; pred
   %.sroa.18.1 = phi ptr [ null, %4 ], [ %calloc, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
-  %.not81 = icmp eq i32 %12, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph
+  %.not75 = icmp eq i32 %12, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit
   %13 = load i64, ptr @_hb_NullPool, align 16
@@ -4378,7 +4378,7 @@ _ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit: ; pred
   %15 = trunc i64 %13 to i32
   %16 = icmp sgt i32 %1, %15
   %17 = icmp slt i32 %2, %15
-  %or.cond101 = or i1 %16, %17
+  %or.cond95 = or i1 %16, %17
   br label %21
 
 18:                                               ; preds = %.noexc26.thread, %104
@@ -4396,7 +4396,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit:                 ; preds = %18, %20
 21:                                               ; preds = %.lr.ph, %38
   %22 = phi i32 [ %12, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.01578 = phi i32 [ 0, %.lr.ph ], [ %.1, %38 ]
+  %.01572 = phi i32 [ 0, %.lr.ph ], [ %.1, %38 ]
   %23 = zext i32 %22 to i64
   %.not.i = icmp samesign ult i64 %indvars.iv, %23
   br i1 %.not.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread
@@ -4412,7 +4412,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit: ; preds = %21
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread: ; preds = %21
   store i64 %13, ptr @_hb_CrapPool, align 16
-  br i1 %or.cond101, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21, label %38
+  br i1 %or.cond95, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21, label %38
 
 28:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit
   %29 = load ptr, ptr %14, align 8
@@ -4421,7 +4421,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread: ; preds = %2
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21: ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread, %28
   %.0.i20 = phi ptr [ %30, %28 ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
-  %.not.i22 = icmp ult i32 %.01578, %22
+  %.not.i22 = icmp ult i32 %.01572, %22
   br i1 %.not.i22, label %32, label %31
 
 31:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21
@@ -4430,23 +4430,23 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21: ; preds = %_ZN11h
 
 32:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit21
   %33 = load ptr, ptr %14, align 8
-  %34 = zext i32 %.01578 to i64
+  %34 = zext i32 %.01572 to i64
   %35 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %33, i64 %34
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24: ; preds = %32, %31
   %.0.i23 = phi ptr [ @_hb_CrapPool, %31 ], [ %35, %32 ]
-  %36 = add i32 %.01578, 1
+  %36 = add i32 %.01572, 1
   %37 = load i64, ptr %.0.i20, align 4
   store i64 %37, ptr %.0.i23, align 4
-  %.pre83 = load i32, ptr %11, align 4
-  %.pre85 = zext i32 %.pre83 to i64
+  %.pre77 = load i32, ptr %11, align 4
+  %.pre79 = zext i32 %.pre77 to i64
   br label %38
 
 38:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24
-  %.pre-phi = phi i64 [ %23, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %.pre85, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %23, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
-  %39 = phi i32 [ %22, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %.pre83, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %22, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
-  %.1 = phi i32 [ %.01578, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %36, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %.01578, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
+  %.pre-phi = phi i64 [ %23, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %.pre79, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %23, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
+  %39 = phi i32 [ %22, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %.pre77, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %22, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
+  %.1 = phi i32 [ %.01572, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit ], [ %36, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit24 ], [ %.01572, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EEixEi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi
   br i1 %40, label %21, label %._crit_edge.loopexit, !llvm.loop !29
@@ -4580,11 +4580,11 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EEixEi.exit.i.i: ; preds = %78, %77
 _ZN11hb_vector_tI13hb_bit_page_tLb0EEixEi.exit17.i.i: ; preds = %83, %82
   %.0.i16.i.i = phi ptr [ @_hb_CrapPool, %82 ], [ %85, %83 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.0.i16.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0.i14.i.i, i64 72, i1 false)
-  %.pre84 = load i32, ptr %.0.i.i.i, align 4
+  %.pre78 = load i32, ptr %.0.i.i.i, align 4
   br label %86
 
 86:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EEixEi.exit17.i.i, %72
-  %87 = phi i32 [ %.pre84, %_ZN11hb_vector_tI13hb_bit_page_tLb0EEixEi.exit17.i.i ], [ %70, %72 ]
+  %87 = phi i32 [ %.pre78, %_ZN11hb_vector_tI13hb_bit_page_tLb0EEixEi.exit17.i.i ], [ %70, %72 ]
   %88 = load i32, ptr %11, align 4
   %.not.i20.i.i = icmp ult i32 %87, %88
   br i1 %.not.i20.i.i, label %90, label %89
@@ -4732,8 +4732,8 @@ _ZN12hb_bit_set_t6resizeEjbb.exit:                ; preds = %.noexc27, %_ZN12hb_
   br i1 %.not19.i.i.i.i.not, label %_ZN11hb_vector_tIjLb0EED2Ev.exit29, label %142
 
 142:                                              ; preds = %_ZN12hb_bit_set_t6resizeEjbb.exit.thread, %_ZN12hb_bit_set_t6resizeEjbb.exit
-  %.sroa.18.17075 = phi ptr [ null, %_ZN12hb_bit_set_t6resizeEjbb.exit.thread ], [ %.sroa.18.1, %_ZN12hb_bit_set_t6resizeEjbb.exit ]
-  tail call void @free(ptr noundef %.sroa.18.17075) #20
+  %.sroa.18.16469 = phi ptr [ null, %_ZN12hb_bit_set_t6resizeEjbb.exit.thread ], [ %.sroa.18.1, %_ZN12hb_bit_set_t6resizeEjbb.exit ]
+  tail call void @free(ptr noundef %.sroa.18.16469) #20
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit29
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit29:               ; preds = %142, %_ZN12hb_bit_set_t6resizeEjbb.exit, %3

@@ -977,8 +977,8 @@ _ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStream
 121:                                              ; preds = %116
   %122 = load i64, ptr %77, align 8, !tbaa !42
   %123 = load i64, ptr %76, align 8, !tbaa !42
-  %.not126 = icmp eq i64 %122, %123
-  br i1 %.not126, label %376, label %.preheader.preheader
+  %.not123 = icmp eq i64 %122, %123
+  br i1 %.not123, label %376, label %.preheader.preheader
 
 124:                                              ; preds = %107
   %or.cond10.i.i = select i1 %.not.i.i, i1 %.not5.i.i, i1 false
@@ -991,7 +991,7 @@ _ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecor
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
-  %125 = phi ptr [ %.pre133, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread ], [ %109, %.preheader.preheader ]
+  %125 = phi ptr [ %.pre130, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread ], [ %109, %.preheader.preheader ]
   %126 = phi ptr [ %.pre, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread ], [ %108, %.preheader.preheader ]
   %.sroa.15.2 = phi ptr [ %.sroa.15.4, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread ], [ %.sroa.15.0, %.preheader.preheader ]
   %.sroa.085.1 = phi ptr [ %.sroa.085.3, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread ], [ %.sroa.085.0, %.preheader.preheader ]
@@ -1028,8 +1028,8 @@ _ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecor
 138:                                              ; preds = %133
   %139 = load i64, ptr %77, align 8, !tbaa !42
   %140 = load i64, ptr %76, align 8, !tbaa !42
-  %.not128 = icmp eq i64 %139, %140
-  br i1 %.not128, label %375, label %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit21.thread
+  %.not125 = icmp eq i64 %139, %140
+  br i1 %.not125, label %375, label %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit21.thread
 
 141:                                              ; preds = %.preheader
   %or.cond10.i.i20 = select i1 %.not.i.i12, i1 %.not5.i.i13, i1 false
@@ -1530,11 +1530,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43: ; preds = %
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i45: ; preds = %330, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43, %315, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i40
   store ptr %298, ptr %103, align 8, !tbaa !61
-  %.pr121 = load ptr, ptr %104, align 8, !tbaa !61
+  %.pr118 = load ptr, ptr %104, align 8, !tbaa !61
   br label %_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEaSERKS7_.exit47
 
 _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEaSERKS7_.exit47: ; preds = %.loopexit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i45
-  %331 = phi ptr [ %298, %.loopexit ], [ %.pr121, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i45 ]
+  %331 = phi ptr [ %298, %.loopexit ], [ %.pr118, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i45 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
   %.not.i.i.i.i48 = icmp eq ptr %331, null
@@ -1587,11 +1587,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i50: ; preds = %349,
 _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit52: ; preds = %_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEaSERKS7_.exit47, %337, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i50, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %353 = load ptr, ptr %68, align 8, !tbaa !64
-  %.fr131 = freeze ptr %353
-  %.not.i53 = icmp eq ptr %.fr131, null
+  %.fr128 = freeze ptr %353
+  %.not.i53 = icmp eq ptr %.fr128, null
   %354 = load ptr, ptr %69, align 8
-  %.fr132 = freeze ptr %354
-  %.not5.i = icmp eq ptr %.fr132, null
+  %.fr129 = freeze ptr %354
+  %.not5.i = icmp eq ptr %.fr129, null
   %or.cond.i54 = or i1 %.not.i53, %.not5.i
   br i1 %or.cond.i54, label %369, label %355
 
@@ -1618,10 +1618,10 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23V
 366:                                              ; preds = %361
   %367 = load i64, ptr %77, align 8, !tbaa !42
   %368 = load i64, ptr %76, align 8, !tbaa !42
-  %.fr129 = freeze i64 %367
-  %.fr130 = freeze i64 %368
-  %.not159 = icmp eq i64 %.fr129, %.fr130
-  br i1 %.not159, label %370, label %_ZNK4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEeqERKS7_.exit.thread
+  %.fr126 = freeze i64 %367
+  %.fr127 = freeze i64 %368
+  %.not156 = icmp eq i64 %.fr126, %.fr127
+  br i1 %.not156, label %370, label %_ZNK4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEeqERKS7_.exit.thread
 
 369:                                              ; preds = %_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit52
   %or.cond10.i = and i1 %.not.i53, %.not5.i
@@ -1660,7 +1660,7 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %_Z
   %.2 = phi i1 [ %.3, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit59 ], [ %.07, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ %.07, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit21.thread ]
   %374 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEpLEj(ptr noundef nonnull align 8 dereferenceable(104) %14, i32 noundef 1)
   %.pre = load ptr, ptr %68, align 8, !tbaa !64
-  %.pre133 = load ptr, ptr %69, align 8
+  %.pre130 = load ptr, ptr %69, align 8
   br label %.preheader, !llvm.loop !116
 
 375:                                              ; preds = %138, %141, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit59, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit21
@@ -4929,8 +4929,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   %.sroa.16 = alloca [7 x i8], align 1
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::BinaryStreamRef", align 8
-  %.not34 = icmp eq i32 %1, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i32 %1, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4954,7 +4954,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN
   ret ptr %0
 
 22:                                               ; preds = %.lr.ph, %142
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
+  %.031 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
   %23 = load i32, ptr %8, align 8, !tbaa !203
   %24 = load i32, ptr %9, align 4, !tbaa !112
   %25 = add i32 %24, %23
@@ -5026,19 +5026,19 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i:         ; preds = %49, %46, %_ZNK4llvm
   %54 = trunc nuw i8 %.sroa.15.16.copyload to i1
   %55 = select i1 %54, i64 %.sroa.speculated.i, i64 0
   %spec.select = sub i64 %.sroa.13.16.copyload, %55
-  %spec.select32 = and i8 %.sroa.15.16.copyload, 1
+  %spec.select30 = and i8 %.sroa.15.16.copyload, 1
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit
 
 _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit: ; preds = %52, %28, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i
-  %.sroa.016.1 = phi ptr [ null, %28 ], [ %41, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %41, %52 ]
-  %.sroa.6.1 = phi ptr [ null, %28 ], [ %42, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %42, %52 ]
+  %.sroa.016.0 = phi ptr [ null, %28 ], [ %41, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %41, %52 ]
+  %.sroa.6.0 = phi ptr [ null, %28 ], [ %42, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %42, %52 ]
   %56 = phi ptr [ null, %28 ], [ %.sroa.9.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %.sroa.9.16.copyload, %52 ]
-  %.sroa.11.1 = phi i64 [ 0, %28 ], [ %.sroa.11.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %53, %52 ]
+  %.sroa.11.0 = phi i64 [ 0, %28 ], [ %.sroa.11.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %53, %52 ]
   %57 = phi i64 [ 0, %28 ], [ %.sroa.13.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select, %52 ]
-  %.sroa.15.1 = phi i8 [ 0, %28 ], [ %.sroa.15.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select32, %52 ]
-  store ptr %.sroa.016.1, ptr %10, align 8, !tbaa !234
+  %.sroa.15.0 = phi i8 [ 0, %28 ], [ %.sroa.15.16.copyload, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select30, %52 ]
+  store ptr %.sroa.016.0, ptr %10, align 8, !tbaa !234
   %58 = load ptr, ptr %15, align 8, !tbaa !61
-  store ptr %.sroa.6.1, ptr %15, align 8, !tbaa !61
+  store ptr %.sroa.6.0, ptr %15, align 8, !tbaa !61
   %.not.i.i.i.i.i.i3 = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i.i3, label %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit, label %59
 
@@ -5088,12 +5088,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %76
 
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit: ; preds = %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %64, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE10drop_frontEm.exit
   store ptr %56, ptr %11, align 8
-  store i64 %.sroa.11.1, ptr %13, align 8
+  store i64 %.sroa.11.0, ptr %13, align 8
   store i64 %57, ptr %14, align 8
-  store i8 %.sroa.15.1, ptr %12, align 8
+  store i8 %.sroa.15.0, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
-  %80 = trunc nuw i8 %.sroa.15.1 to i1
+  %80 = trunc nuw i8 %.sroa.15.0 to i1
   br i1 %80, label %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit, label %81
 
 81:                                               ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
@@ -5259,7 +5259,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %133, %_ZN4llvm22Var
   br label %142
 
 142:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.thread, %_ZN4llvm5ErrorD2Ev.exit14
-  %143 = add nuw i32 %.033, 1
+  %143 = add nuw i32 %.031, 1
   %exitcond.not = icmp eq i32 %143, %1
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !235
 }

@@ -11885,9 +11885,9 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !794
   %54 = tail call noundef zeroext i1 @_ZN4llvm8CastInst13isBitCastableEPNS_4TypeES2_(ptr noundef %53, ptr noundef nonnull %38) #15
-  br i1 %54, label %55, label %._crit_edge114
+  br i1 %54, label %55, label %._crit_edge109
 
-._crit_edge114:                                   ; preds = %51
+._crit_edge109:                                   ; preds = %51
   %.val.pre = load i32, ptr %11, align 8
   br label %64
 
@@ -11908,11 +11908,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i: ; preds = %_ZNK4llvm4Type17is
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-64:                                               ; preds = %._crit_edge114, %7
-  %.val = phi i32 [ %.val.pre, %._crit_edge114 ], [ %.val22, %7 ]
+64:                                               ; preds = %._crit_edge109, %7
+  %.val = phi i32 [ %.val.pre, %._crit_edge109 ], [ %.val22, %7 ]
   %65 = icmp eq i32 %.val, 2
-  %or.cond112 = select i1 %5, i1 %65, i1 false
-  br i1 %or.cond112, label %66, label %.critedge21
+  %or.cond107 = select i1 %5, i1 %65, i1 false
+  br i1 %or.cond107, label %66, label %.critedge21
 
 66:                                               ; preds = %64
   %.sroa.063.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !8
@@ -11988,10 +11988,10 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %88 = or disjoint i16 %87, %.019
   store i16 %88, ptr %85, align 2, !tbaa !1236
   store i64 %.sroa.044.sroa.0.0, ptr %10, align 8, !tbaa !8
-  %.sroa.044.sroa.9.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sroa.044.sroa.9.0, ptr %.sroa.044.sroa.9.0..sroa_idx95, align 8, !tbaa !719
-  %.sroa.044.sroa.10.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %.sroa.044.sroa.10.0, ptr %.sroa.044.sroa.10.0..sroa_idx98, align 8, !tbaa !623
+  %.sroa.044.sroa.9.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %.sroa.044.sroa.9.0, ptr %.sroa.044.sroa.9.0..sroa_idx93, align 8, !tbaa !719
+  %.sroa.044.sroa.10.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 %.sroa.044.sroa.10.0, ptr %.sroa.044.sroa.10.0..sroa_idx96, align 8, !tbaa !623
   %.sroa.945.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 %.sroa.945.0, ptr %.sroa.945.0..sroa_idx50, align 8, !tbaa !8
   %.sroa.13.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %10, i64 25

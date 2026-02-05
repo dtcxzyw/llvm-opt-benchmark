@@ -2898,7 +2898,7 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
   %73 = ptrtoint ptr %67 to i64
-  %.neg31 = sub i64 %68, %73
+  %.neg29 = sub i64 %68, %73
   %74 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = zext i32 %75 to i64
@@ -2916,9 +2916,9 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
 84:                                               ; preds = %80, %66
   %85 = phi i64 [ %83, %80 ], [ 0, %66 ]
   %86 = shl i64 4096, %85
-  %.neg25 = shl i64 %.neg31, 6
-  %.neg26 = sub i64 %.neg25, %72
-  %87 = add i64 %.neg26, %86
+  %.neg23 = shl i64 %.neg29, 6
+  %.neg24 = sub i64 %.neg23, %72
+  %87 = add i64 %.neg24, %86
   %88 = tail call i64 @llvm.umin.i64(i64 %87, i64 %76)
   %89 = load volatile i64, ptr %69, align 8
   %90 = and i64 %89, 64
@@ -2941,11 +2941,11 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   br label %100
 
 100:                                              ; preds = %.preheader, %bio_next_folio.exit
-  %.sroa.13.3 = phi i64 [ %.sroa.13.4, %bio_next_folio.exit ], [ %88, %.preheader ]
-  %.sroa.18.3 = phi ptr [ %.sroa.18.4, %bio_next_folio.exit ], [ %99, %.preheader ]
-  %.sroa.22.3 = phi i64 [ %.sroa.22.4, %bio_next_folio.exit ], [ %76, %.preheader ]
-  %.sroa.26.3 = phi i32 [ %.sroa.26.4, %bio_next_folio.exit ], [ 0, %.preheader ]
-  %101 = phi ptr [ %.sroa.0.3, %bio_next_folio.exit ], [ %69, %.preheader ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %bio_next_folio.exit ], [ %88, %.preheader ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.2, %bio_next_folio.exit ], [ %99, %.preheader ]
+  %.sroa.22.1 = phi i64 [ %.sroa.22.2, %bio_next_folio.exit ], [ %76, %.preheader ]
+  %.sroa.26.1 = phi i32 [ %.sroa.26.2, %bio_next_folio.exit ], [ 0, %.preheader ]
+  %101 = phi ptr [ %.sroa.0.1, %bio_next_folio.exit ], [ %69, %.preheader ]
   %102 = phi i32 [ %150, %bio_next_folio.exit ], [ %19, %.preheader ]
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %104 = load ptr, ptr %103, align 8
@@ -3001,9 +3001,9 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   %134 = icmp ne i64 %133, 0
   %135 = icmp eq ptr %104, null
   %136 = select i1 %134, i1 %135, i1 false
-  br i1 %136, label %.thread16, label %137, !prof !21
+  br i1 %136, label %.thread15, label %137, !prof !21
 
-.thread16:                                        ; preds = %127
+.thread15:                                        ; preds = %127
   tail call void asm sideeffect "696: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 696b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 696) #16, !srcloc !103
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1466, i32 2307, i64 12) #16, !srcloc !104
   tail call void asm sideeffect "697: nop\0A\09.pushsection .discard.instr_end\0A\09.long 697b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 697) #16, !srcloc !105
@@ -3025,31 +3025,31 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   br label %143
 
 143:                                              ; preds = %142, %138
-  %144 = trunc i64 %.sroa.13.3 to i32
+  %144 = trunc i64 %.sroa.13.1 to i32
   %145 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %139, i32 %144, ptr nonnull elementtype(i32) %139) #16, !srcloc !109
   %146 = icmp ult i8 %145, 2
   tail call void @llvm.assume(i1 %146)
   %147 = icmp eq i8 %145, 0
   br i1 %147, label %149, label %148
 
-148:                                              ; preds = %.thread16, %143, %137
+148:                                              ; preds = %.thread15, %143, %137
   tail call void @folio_end_writeback(ptr noundef nonnull %101) #16
   br label %149
 
 149:                                              ; preds = %148, %143
   %150 = add i32 %102, 1
-  %151 = sub i64 %.sroa.22.3, %.sroa.13.3
-  %152 = icmp eq i64 %.sroa.22.3, %.sroa.13.3
+  %151 = sub i64 %.sroa.22.1, %.sroa.13.1
+  %152 = icmp eq i64 %.sroa.22.1, %.sroa.13.1
   br i1 %152, label %175, label %153
 
 153:                                              ; preds = %149
-  %154 = load volatile i64, ptr %.sroa.18.3, align 8
+  %154 = load volatile i64, ptr %.sroa.18.1, align 8
   %155 = and i64 %154, 64
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %161, label %157
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.18.3, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.18.1, i64 64
   %159 = load i64, ptr %158, align 16
   %160 = and i64 %159, 255
   br label %161
@@ -3058,24 +3058,24 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   %162 = phi i64 [ %160, %157 ], [ 0, %153 ]
   %163 = shl i64 4096, %162
   %164 = tail call i64 @llvm.umin.i64(i64 %163, i64 %151)
-  %165 = load volatile i64, ptr %.sroa.18.3, align 8
+  %165 = load volatile i64, ptr %.sroa.18.1, align 8
   %166 = and i64 %165, 64
   %167 = icmp eq i64 %166, 0
   br i1 %167, label %172, label %168
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.18.3, i64 100
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.18.1, i64 100
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
   br label %172
 
 172:                                              ; preds = %168, %161
   %173 = phi i64 [ %171, %168 ], [ 1, %161 ]
-  %174 = getelementptr %struct.page, ptr %.sroa.18.3, i64 %173
+  %174 = getelementptr %struct.page, ptr %.sroa.18.1, i64 %173
   br label %bio_next_folio.exit
 
 175:                                              ; preds = %149
-  %176 = add i32 %.sroa.26.3, 1
+  %176 = add i32 %.sroa.26.1, 1
   %177 = load i16, ptr %27, align 4
   %178 = and i16 %177, 2
   %179 = icmp eq i16 %178, 0
@@ -3139,11 +3139,11 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
 213:                                              ; preds = %212, %205, %196
   %214 = phi ptr [ %211, %205 ], [ %189, %212 ], [ %189, %196 ]
   %215 = ptrtoint ptr %214 to i64
-  %.pre33 = load ptr, ptr %188, align 8
+  %.pre31 = load ptr, ptr %188, align 8
   br label %216
 
 216:                                              ; preds = %213, %194
-  %217 = phi ptr [ %189, %194 ], [ %.pre33, %213 ]
+  %217 = phi ptr [ %189, %194 ], [ %.pre31, %213 ]
   %218 = phi i64 [ %195, %194 ], [ %215, %213 ]
   %219 = inttoptr i64 %218 to ptr
   %220 = getelementptr inbounds nuw i8, ptr %188, i64 12
@@ -3168,9 +3168,9 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
 234:                                              ; preds = %230, %216
   %235 = phi i64 [ %233, %230 ], [ 0, %216 ]
   %236 = shl i64 4096, %235
-  %.neg28 = shl i64 %.neg, 6
-  %.neg29 = sub i64 %.neg28, %222
-  %237 = add i64 %.neg29, %236
+  %.neg26 = shl i64 %.neg, 6
+  %.neg27 = sub i64 %.neg26, %222
+  %237 = add i64 %.neg27, %236
   %238 = tail call i64 @llvm.umin.i64(i64 %237, i64 %226)
   %239 = load volatile i64, ptr %219, align 8
   %240 = and i64 %239, 64
@@ -3189,12 +3189,12 @@ define internal fastcc i32 @iomap_finish_ioend(ptr noundef %0, i32 noundef %1) u
   br label %bio_next_folio.exit
 
 bio_next_folio.exit:                              ; preds = %172, %246
-  %.sroa.13.4 = phi i64 [ %238, %246 ], [ %164, %172 ]
-  %.sroa.18.4 = phi ptr [ %248, %246 ], [ %174, %172 ]
-  %.sroa.22.4 = phi i64 [ %226, %246 ], [ %151, %172 ]
-  %.sroa.26.4 = phi i32 [ %176, %246 ], [ %.sroa.26.3, %172 ]
-  %.sroa.0.3 = phi ptr [ %219, %246 ], [ %.sroa.18.3, %172 ]
-  %249 = icmp eq ptr %.sroa.0.3, null
+  %.sroa.13.2 = phi i64 [ %238, %246 ], [ %164, %172 ]
+  %.sroa.18.2 = phi ptr [ %248, %246 ], [ %174, %172 ]
+  %.sroa.22.2 = phi i64 [ %226, %246 ], [ %151, %172 ]
+  %.sroa.26.2 = phi i32 [ %176, %246 ], [ %.sroa.26.1, %172 ]
+  %.sroa.0.1 = phi ptr [ %219, %246 ], [ %.sroa.18.1, %172 ]
+  %249 = icmp eq ptr %.sroa.0.1, null
   br i1 %249, label %.thread, label %100, !llvm.loop !110
 
 .thread:                                          ; preds = %181, %bio_next_folio.exit, %32, %96

@@ -635,7 +635,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds =
   br label %122
 
 122:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i, %65
-  %.sroa.36.0.i.i = xor i1 %66, true
+  %.sroa.34.0.i.i = xor i1 %66, true
   %123 = getelementptr inbounds nuw i8, ptr %25, i64 136
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #18
   %124 = getelementptr inbounds nuw i8, ptr %25, i64 128
@@ -654,7 +654,7 @@ _ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit
   br label %129
 
 129:                                              ; preds = %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i, %63, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i
-  %.0.shrunk.i = phi i1 [ false, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i ], [ %64, %63 ], [ %.sroa.36.0.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i ]
+  %.0.shrunk.i = phi i1 [ false, %_ZN12_GLOBAL__N_116sanitizeStrategyERN4llvm11VPIntrinsicERNS0_19TargetTransformInfo14VPLegalizationE.exit.i ], [ %64, %63 ], [ %.sroa.34.0.i.i, %_ZN12_GLOBAL__N_117CachingVPExpander15foldEVLIntoMaskERN4llvm11VPIntrinsicE.exit.i ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   %cond.i = icmp eq i32 %.sroa.3.0.i.i, 2
   br i1 %cond.i, label %130, label %_ZN12_GLOBAL__N_117CachingVPExpander23expandVectorPredicationERN4llvm11VPIntrinsicE.exit
@@ -1303,20 +1303,20 @@ _ZNOSt8optionalIjE5valueEv.exit.i.i:              ; preds = %443
 450:                                              ; preds = %366
   %451 = call i64 @_ZN4llvm11VPIntrinsic30getConstrainedIntrinsicIDForVPEj(i32 noundef %332) #18
   %452 = and i64 %451, 4294967296
-  %.not25.i.i = icmp eq i64 %452, 0
-  br i1 %.not25.i.i, label %.thread21.i.i, label %453
+  %.not23.i.i = icmp eq i64 %452, 0
+  br i1 %.not23.i.i, label %.thread19.i.i, label %453
 
 453:                                              ; preds = %450
   %.sroa.0.0.extract.trunc.i12.i = trunc i64 %451 to i32
   %454 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117CachingVPExpander25expandPredicationToFPCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicEj(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.sroa.0.0.extract.trunc.i12.i)
   %.not42.i.i = icmp eq ptr %454, null
-  br i1 %.not42.i.i, label %.thread21.i.i, label %_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
+  br i1 %.not42.i.i, label %.thread19.i.i, label %_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
-.thread21.i.i:                                    ; preds = %453, %450
+.thread19.i.i:                                    ; preds = %453, %450
   br label %_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
 
-_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i: ; preds = %.thread21.i.i, %453, %448, %_ZNOSt8optionalIjE5valueEv.exit.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i, %382, %367, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i, %323, %286, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
-  %.0.i.i = phi ptr [ %173, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %352, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %.045.i.i.i, %286 ], [ null, %382 ], [ %381, %367 ], [ %310, %323 ], [ %447, %_ZNOSt8optionalIjE5valueEv.exit.i.i ], [ %449, %448 ], [ %403, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i ], [ %0, %.thread21.i.i ], [ %454, %453 ]
+_ZN12_GLOBAL__N_117CachingVPExpander26expandPredicationToIntCallERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i: ; preds = %.thread19.i.i, %453, %448, %_ZNOSt8optionalIjE5valueEv.exit.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i, %382, %367, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i, %323, %286, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i
+  %.0.i.i = phi ptr [ %173, %_ZN12_GLOBAL__N_117CachingVPExpander33expandPredicationInBinaryOperatorERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %352, %_ZN12_GLOBAL__N_117CachingVPExpander32expandPredicationToCastIntrinsicERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_11VPIntrinsicE.exit.i.i ], [ %.045.i.i.i, %286 ], [ null, %382 ], [ %381, %367 ], [ %310, %323 ], [ %447, %_ZNOSt8optionalIjE5valueEv.exit.i.i ], [ %449, %448 ], [ %403, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i ], [ %0, %.thread19.i.i ], [ %454, %453 ]
   %455 = getelementptr inbounds nuw i8, ptr %16, i64 136
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %455) #18
   %456 = getelementptr inbounds nuw i8, ptr %16, i64 128

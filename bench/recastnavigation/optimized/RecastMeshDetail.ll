@@ -3950,9 +3950,9 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit360.us.i: ; preds = %1740
   %indvars.iv545.i = phi i64 [ 0, %.lr.ph473.preheader.i ], [ %indvars.iv.next546.i, %1874 ]
   %.0226471.i = phi i32 [ -1, %.lr.ph473.preheader.i ], [ %.1227.i, %1874 ]
   %.0228470.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.1229.i, %1874 ]
-  %.sroa.5.1469.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.5.2.i, %1874 ]
-  %.sroa.3365.1468.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.3365.2.i, %1874 ]
-  %.sroa.0364.1467.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.0364.2.i, %1874 ]
+  %.sroa.5.0469.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.5.1.i, %1874 ]
+  %.sroa.3365.0468.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.3365.1.i, %1874 ]
+  %.sroa.0364.0467.i = phi float [ 0.000000e+00, %.lr.ph473.preheader.i ], [ %.sroa.0364.1.i, %1874 ]
   %1751 = shl nsw i64 %indvars.iv545.i, 2
   %1752 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4134,9 +4134,9 @@ _ZL13distToTriMeshPKfS0_iPKii.exit.i:             ; preds = %_ZL9distPtTriPKfS0_
   br label %1874
 
 1874:                                             ; preds = %1873, %_ZL13distToTriMeshPKfS0_iPKii.exit.i, %_ZN10rcIntArrayixEi.exit.i366
-  %.sroa.0364.2.i = phi float [ %1772, %1873 ], [ %.sroa.0364.1467.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.0364.1467.i, %_ZN10rcIntArrayixEi.exit.i366 ]
-  %.sroa.3365.2.i = phi float [ %1777, %1873 ], [ %.sroa.3365.1468.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.3365.1468.i, %_ZN10rcIntArrayixEi.exit.i366 ]
-  %.sroa.5.2.i = phi float [ %1788, %1873 ], [ %.sroa.5.1469.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.5.1469.i, %_ZN10rcIntArrayixEi.exit.i366 ]
+  %.sroa.0364.1.i = phi float [ %1772, %1873 ], [ %.sroa.0364.0467.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.0364.0467.i, %_ZN10rcIntArrayixEi.exit.i366 ]
+  %.sroa.3365.1.i = phi float [ %1777, %1873 ], [ %.sroa.3365.0468.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.3365.0468.i, %_ZN10rcIntArrayixEi.exit.i366 ]
+  %.sroa.5.1.i = phi float [ %1788, %1873 ], [ %.sroa.5.0469.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.sroa.5.0469.i, %_ZN10rcIntArrayixEi.exit.i366 ]
   %.1229.i = phi float [ %..021.i.i, %1873 ], [ %.0228470.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.0228470.i, %_ZN10rcIntArrayixEi.exit.i366 ]
   %.1227.i = phi i32 [ %1764, %1873 ], [ %.0226471.i, %_ZL13distToTriMeshPKfS0_iPKii.exit.i ], [ %.0226471.i, %_ZN10rcIntArrayixEi.exit.i366 ]
   %indvars.iv.next546.i = add nuw nsw i64 %indvars.iv545.i, 1
@@ -4177,11 +4177,11 @@ _ZN10rcIntArrayixEi.exit310.i:                    ; preds = %1887, %1883, %.noex
   store i32 1, ptr %1889, align 4
   %.idx1221 = mul nsw i64 %indvars.iv981, 12
   %1890 = getelementptr inbounds i8, ptr %36, i64 %.idx1221
-  store float %.sroa.0364.2.i, ptr %1890, align 4
+  store float %.sroa.0364.1.i, ptr %1890, align 4
   %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 4
-  store float %.sroa.3365.2.i, ptr %1891, align 4
+  store float %.sroa.3365.1.i, ptr %1891, align 4
   %1892 = getelementptr inbounds nuw i8, ptr %1890, i64 8
-  store float %.sroa.5.2.i, ptr %1892, align 4
+  store float %.sroa.5.1.i, ptr %1892, align 4
   %indvars.iv.next982 = add nsw i64 %indvars.iv981, 1
   %indvars = trunc i64 %indvars.iv.next982 to i32
   store i64 0, ptr %32, align 8

@@ -2960,8 +2960,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %.fr = freeze i8 %12
   %13 = and i8 %.fr, 8
-  %.not83 = icmp eq i8 %13, 0
-  %spec.select = select i1 %.not83, i64 1, i64 2
+  %.not80 = icmp eq i8 %13, 0
+  %spec.select = select i1 %.not80, i64 1, i64 2
   br label %14
 
 14:                                               ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread
@@ -3061,7 +3061,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %_ZN4abs
   %62 = phi i8 [ %16, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %.pre, %._crit_edge.i ]
   %63 = phi ptr [ %32, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %33, %._crit_edge.i ]
   %64 = phi i64 [ %31, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 1, %._crit_edge.i ]
-  %.sroa.12.082 = phi i64 [ %.sroa.12.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i ]
+  %.sroa.12.079 = phi i64 [ %.sroa.12.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i ]
   %.not18 = icmp eq i8 %62, 0
   br i1 %.not18, label %80, label %65
 
@@ -3157,8 +3157,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %109 = getelementptr inbounds nuw i8, ptr %.val21, i64 1
   %110 = load i8, ptr %109, align 1, !tbaa !4
   %111 = and i8 %110, 8
-  %.not84 = icmp eq i8 %111, 0
-  br i1 %.not84, label %126, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread
+  %.not81 = icmp eq i8 %111, 0
+  br i1 %.not81, label %126, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread: ; preds = %._crit_edge.i34, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44
   %112 = load ptr, ptr %63, align 8, !tbaa !32
@@ -3187,11 +3187,11 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53: ; preds = %_ZN4a
   %124 = load ptr, ptr %117, align 8, !tbaa !74
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   store ptr %125, ptr %117, align 8, !tbaa !74
-  %.pre95 = load i64, ptr %8, align 8, !tbaa !30
+  %.pre92 = load i64, ptr %8, align 8, !tbaa !30
   br label %126
 
 126:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44
-  %127 = phi i64 [ %.pre95, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44 ]
+  %127 = phi i64 [ %.pre92, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %127, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3301,18 +3301,18 @@ _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConver
   %168 = load ptr, ptr %147, align 8, !tbaa !74
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %.0.lcssa.i55
   store ptr %169, ptr %147, align 8, !tbaa !74
-  %.pre96 = load ptr, ptr %63, align 8, !tbaa !32
+  %.pre93 = load ptr, ptr %63, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit, %._crit_edge.i54
-  %170 = phi ptr [ %139, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre96, %._crit_edge.i54 ]
-  %171 = icmp eq i64 %.sroa.12.082, 0
+  %170 = phi ptr [ %139, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre93, %._crit_edge.i54 ]
+  %171 = icmp eq i64 %.sroa.12.079, 0
   br i1 %171, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71, label %172
 
 172:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %174 = load i64, ptr %173, align 8, !tbaa !71
-  %175 = add i64 %174, %.sroa.12.082
+  %175 = add i64 %174, %.sroa.12.079
   store i64 %175, ptr %173, align 8, !tbaa !71
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 1056
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 24
@@ -3320,7 +3320,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4a
   %179 = load ptr, ptr %177, align 8, !tbaa !74
   %180 = ptrtoint ptr %179 to i64
   %181 = sub i64 %178, %180
-  %182 = icmp ugt i64 %.sroa.12.082, %181
+  %182 = icmp ugt i64 %.sroa.12.079, %181
   br i1 %182, label %.lr.ph.i66, label %._crit_edge.i63
 
 .lr.ph.i66:                                       ; preds = %172
@@ -3332,7 +3332,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4a
 186:                                              ; preds = %193, %.lr.ph.i66
   %187 = phi i64 [ %181, %.lr.ph.i66 ], [ 1024, %193 ]
   %188 = phi ptr [ %179, %.lr.ph.i66 ], [ %183, %193 ]
-  %.010.i67 = phi i64 [ %.sroa.12.082, %.lr.ph.i66 ], [ %189, %193 ]
+  %.010.i67 = phi i64 [ %.sroa.12.079, %.lr.ph.i66 ], [ %189, %193 ]
   %189 = sub nuw nsw i64 %.010.i67, %187
   %.not.i68 = icmp eq ptr %176, %188
   br i1 %.not.i68, label %193, label %190
@@ -3356,7 +3356,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4a
   br i1 %197, label %186, label %._crit_edge.i63, !llvm.loop !77
 
 ._crit_edge.i63:                                  ; preds = %193, %172
-  %.0.lcssa.i64 = phi i64 [ %.sroa.12.082, %172 ], [ %189, %193 ]
+  %.0.lcssa.i64 = phi i64 [ %.sroa.12.079, %172 ], [ %189, %193 ]
   %.lcssa.i65 = phi ptr [ %179, %172 ], [ %183, %193 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i65, i8 32, i64 %.0.lcssa.i64, i1 false)
   %198 = load ptr, ptr %177, align 8, !tbaa !74
@@ -3606,8 +3606,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = and i8 %16, 8
-  %.not65.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not65.i.i.i.i, label %19, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i.i
+  %.not62.i.i.i.i = icmp eq i8 %17, 0
+  br i1 %.not62.i.i.i.i, label %19, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i.i
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i.i, %2
   %18 = add i64 %.val.i.i.i.i, 1
@@ -3698,14 +3698,14 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.0.lcssa.i.i.i.i.i
   store ptr %65, ptr %43, align 8, !tbaa !74
   %.pre.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
-  %.pre77.i.i.i.i = load i8, ptr %.pre.i.i.i.i, align 8, !tbaa !25
+  %.pre74.i.i.i.i = load i8, ptr %.pre.i.i.i.i, align 8, !tbaa !25
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i, %35, %30, %28, %19
-  %66 = phi i8 [ %.pre77.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %22, %30 ], [ %22, %35 ], [ %22, %28 ], [ %22, %19 ]
+  %66 = phi i8 [ %.pre74.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %22, %30 ], [ %22, %35 ], [ %22, %28 ], [ %22, %19 ]
   %67 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %12, %30 ], [ %12, %35 ], [ %12, %28 ], [ %12, %19 ]
-  %.sroa.10.064.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ %31, %30 ], [ 0, %35 ], [ 0, %28 ], [ 0, %19 ]
-  %.sroa.7.063.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 0, %30 ], [ %31, %35 ], [ 0, %28 ], [ 0, %19 ]
+  %.sroa.10.061.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ %31, %30 ], [ 0, %35 ], [ 0, %28 ], [ 0, %19 ]
+  %.sroa.7.060.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 0, %30 ], [ %31, %35 ], [ 0, %28 ], [ 0, %19 ]
   %.not1.i.i.i.i = icmp eq i8 %66, 0
   br i1 %.not1.i.i.i.i, label %84, label %68
 
@@ -3737,20 +3737,20 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i: ; preds 
   %82 = load ptr, ptr %75, align 8, !tbaa !74
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %83, ptr %75, align 8, !tbaa !74
-  %.pre78.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
+  %.pre75.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
   br label %84
 
 84:                                               ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i
-  %85 = phi ptr [ %.pre78.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i ], [ %67, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i ]
+  %85 = phi ptr [ %.pre75.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i ], [ %67, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !32
-  %88 = icmp eq i64 %.sroa.7.063.i.i.i.i, 0
+  %88 = icmp eq i64 %.sroa.7.060.i.i.i.i, 0
   br i1 %88, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit25.i.i.i.i, label %89
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !71
-  %92 = add i64 %91, %.sroa.7.063.i.i.i.i
+  %92 = add i64 %91, %.sroa.7.060.i.i.i.i
   store i64 %92, ptr %90, align 8, !tbaa !71
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 1056
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 24
@@ -3758,7 +3758,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i: ; preds 
   %96 = load ptr, ptr %94, align 8, !tbaa !74
   %97 = ptrtoint ptr %96 to i64
   %98 = sub i64 %95, %97
-  %99 = icmp ugt i64 %.sroa.7.063.i.i.i.i, %98
+  %99 = icmp ugt i64 %.sroa.7.060.i.i.i.i, %98
   br i1 %99, label %.lr.ph.i20.i.i.i.i, label %._crit_edge.i17.i.i.i.i
 
 .lr.ph.i20.i.i.i.i:                               ; preds = %89
@@ -3770,7 +3770,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i: ; preds 
 103:                                              ; preds = %110, %.lr.ph.i20.i.i.i.i
   %104 = phi i64 [ %98, %.lr.ph.i20.i.i.i.i ], [ 1024, %110 ]
   %105 = phi ptr [ %96, %.lr.ph.i20.i.i.i.i ], [ %100, %110 ]
-  %.010.i21.i.i.i.i = phi i64 [ %.sroa.7.063.i.i.i.i, %.lr.ph.i20.i.i.i.i ], [ %106, %110 ]
+  %.010.i21.i.i.i.i = phi i64 [ %.sroa.7.060.i.i.i.i, %.lr.ph.i20.i.i.i.i ], [ %106, %110 ]
   %106 = sub nuw nsw i64 %.010.i21.i.i.i.i, %104
   %.not.i22.i.i.i.i = icmp eq ptr %93, %105
   br i1 %.not.i22.i.i.i.i, label %110, label %107
@@ -3794,7 +3794,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit16.i.i.i.i: ; preds 
   br i1 %114, label %103, label %._crit_edge.i17.i.i.i.i, !llvm.loop !77
 
 ._crit_edge.i17.i.i.i.i:                          ; preds = %110, %89
-  %.0.lcssa.i18.i.i.i.i = phi i64 [ %.sroa.7.063.i.i.i.i, %89 ], [ %106, %110 ]
+  %.0.lcssa.i18.i.i.i.i = phi i64 [ %.sroa.7.060.i.i.i.i, %89 ], [ %106, %110 ]
   %.lcssa.i19.i.i.i.i = phi ptr [ %96, %89 ], [ %100, %110 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i19.i.i.i.i, i8 48, i64 %.0.lcssa.i18.i.i.i.i, i1 false)
   %115 = load ptr, ptr %94, align 8, !tbaa !74
@@ -3897,8 +3897,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %169 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i, i64 1
   %170 = load i8, ptr %169, align 1, !tbaa !4
   %171 = and i8 %170, 8
-  %.not66.i.i.i.i = icmp eq i8 %171, 0
-  br i1 %.not66.i.i.i.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.thread.i.i.i.i
+  %.not63.i.i.i.i = icmp eq i8 %171, 0
+  br i1 %.not63.i.i.i.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.thread.i.i.i.i
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.thread.i.i.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.i.i.i.i, %165
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 24
@@ -3928,18 +3928,18 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit38.loopexit.i.i.i.i:
   %186 = load ptr, ptr %178, align 8, !tbaa !74
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 1
   store ptr %187, ptr %178, align 8, !tbaa !74
-  %.pre79.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre79.i.i.i.i, i64 8
-  %.pre80.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !30
-  %188 = getelementptr inbounds nuw i8, ptr %.pre79.i.i.i.i, i64 24
+  %.pre76.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre76.i.i.i.i, i64 8
+  %.pre77.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !30
+  %188 = getelementptr inbounds nuw i8, ptr %.pre76.i.i.i.i, i64 24
   %189 = load ptr, ptr %188, align 8, !tbaa !32
-  %190 = icmp eq i64 %.pre80.i.i.i.i, 0
+  %190 = icmp eq i64 %.pre77.i.i.i.i, 0
   br i1 %190, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i, label %191
 
 191:                                              ; preds = %185
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %193 = load i64, ptr %192, align 8, !tbaa !71
-  %194 = add i64 %193, %.pre80.i.i.i.i
+  %194 = add i64 %193, %.pre77.i.i.i.i
   store i64 %194, ptr %192, align 8, !tbaa !71
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 1056
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -3947,7 +3947,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit38.loopexit.i.i.i.i:
   %198 = load ptr, ptr %196, align 8, !tbaa !74
   %199 = ptrtoint ptr %198 to i64
   %200 = sub i64 %197, %199
-  %201 = icmp ugt i64 %.pre80.i.i.i.i, %200
+  %201 = icmp ugt i64 %.pre77.i.i.i.i, %200
   br i1 %201, label %.lr.ph.i42.i.i.i.i, label %._crit_edge.i39.i.i.i.i
 
 .lr.ph.i42.i.i.i.i:                               ; preds = %191
@@ -3959,7 +3959,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit38.loopexit.i.i.i.i:
 205:                                              ; preds = %212, %.lr.ph.i42.i.i.i.i
   %206 = phi i64 [ %200, %.lr.ph.i42.i.i.i.i ], [ 1024, %212 ]
   %207 = phi ptr [ %198, %.lr.ph.i42.i.i.i.i ], [ %202, %212 ]
-  %.010.i43.i.i.i.i = phi i64 [ %.pre80.i.i.i.i, %.lr.ph.i42.i.i.i.i ], [ %208, %212 ]
+  %.010.i43.i.i.i.i = phi i64 [ %.pre77.i.i.i.i, %.lr.ph.i42.i.i.i.i ], [ %208, %212 ]
   %208 = sub nuw i64 %.010.i43.i.i.i.i, %206
   %.not.i44.i.i.i.i = icmp eq ptr %195, %207
   br i1 %.not.i44.i.i.i.i, label %212, label %209
@@ -3983,30 +3983,30 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit38.loopexit.i.i.i.i:
   br i1 %216, label %205, label %._crit_edge.i39.i.i.i.i, !llvm.loop !77
 
 ._crit_edge.i39.i.i.i.i:                          ; preds = %212, %191
-  %.0.lcssa.i40.i.i.i.i = phi i64 [ %.pre80.i.i.i.i, %191 ], [ %208, %212 ]
+  %.0.lcssa.i40.i.i.i.i = phi i64 [ %.pre77.i.i.i.i, %191 ], [ %208, %212 ]
   %.lcssa.i41.i.i.i.i = phi ptr [ %198, %191 ], [ %202, %212 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i41.i.i.i.i, i8 48, i64 %.0.lcssa.i40.i.i.i.i, i1 false)
   %217 = load ptr, ptr %196, align 8, !tbaa !74
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 %.0.lcssa.i40.i.i.i.i
   store ptr %218, ptr %196, align 8, !tbaa !74
-  %.pre81.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
+  %.pre78.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !106
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i: ; preds = %._crit_edge.i39.i.i.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.i.i.i.i
-  %.sink116.i.i.i.i = phi ptr [ %.pre81.i.i.i.i, %._crit_edge.i39.i.i.i.i ], [ %166, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.i.i.i.i ]
-  %219 = getelementptr inbounds nuw i8, ptr %.sink116.i.i.i.i, i64 24
+  %.sink113.i.i.i.i = phi ptr [ %.pre78.i.i.i.i, %._crit_edge.i39.i.i.i.i ], [ %166, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit29.i.i.i.i ]
+  %219 = getelementptr inbounds nuw i8, ptr %.sink113.i.i.i.i, i64 24
   %220 = load ptr, ptr %219, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i, %185
   %221 = phi ptr [ %189, %185 ], [ %220, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.sink.split.i.i.i.i ]
-  %222 = icmp eq i64 %.sroa.10.064.i.i.i.i, 0
+  %222 = icmp eq i64 %.sroa.10.061.i.i.i.i, 0
   br i1 %222, label %"_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFPositiveExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_15BinaryToDecimalEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit", label %223
 
 223:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %225 = load i64, ptr %224, align 8, !tbaa !71
-  %226 = add i64 %225, %.sroa.10.064.i.i.i.i
+  %226 = add i64 %225, %.sroa.10.061.i.i.i.i
   store i64 %226, ptr %224, align 8, !tbaa !71
   %227 = getelementptr inbounds nuw i8, ptr %221, i64 1056
   %228 = getelementptr inbounds nuw i8, ptr %221, i64 24
@@ -4014,7 +4014,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i: ; preds 
   %230 = load ptr, ptr %228, align 8, !tbaa !74
   %231 = ptrtoint ptr %230 to i64
   %232 = sub i64 %229, %231
-  %233 = icmp ugt i64 %.sroa.10.064.i.i.i.i, %232
+  %233 = icmp ugt i64 %.sroa.10.061.i.i.i.i, %232
   br i1 %233, label %.lr.ph.i51.i.i.i.i, label %._crit_edge.i48.i.i.i.i
 
 .lr.ph.i51.i.i.i.i:                               ; preds = %223
@@ -4026,7 +4026,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i: ; preds 
 237:                                              ; preds = %244, %.lr.ph.i51.i.i.i.i
   %238 = phi i64 [ %232, %.lr.ph.i51.i.i.i.i ], [ 1024, %244 ]
   %239 = phi ptr [ %230, %.lr.ph.i51.i.i.i.i ], [ %234, %244 ]
-  %.010.i52.i.i.i.i = phi i64 [ %.sroa.10.064.i.i.i.i, %.lr.ph.i51.i.i.i.i ], [ %240, %244 ]
+  %.010.i52.i.i.i.i = phi i64 [ %.sroa.10.061.i.i.i.i, %.lr.ph.i51.i.i.i.i ], [ %240, %244 ]
   %240 = sub nuw nsw i64 %.010.i52.i.i.i.i, %238
   %.not.i53.i.i.i.i = icmp eq ptr %227, %239
   br i1 %.not.i53.i.i.i.i, label %244, label %241
@@ -4050,7 +4050,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit47.i.i.i.i: ; preds 
   br i1 %248, label %237, label %._crit_edge.i48.i.i.i.i, !llvm.loop !77
 
 ._crit_edge.i48.i.i.i.i:                          ; preds = %244, %223
-  %.0.lcssa.i49.i.i.i.i = phi i64 [ %.sroa.10.064.i.i.i.i, %223 ], [ %240, %244 ]
+  %.0.lcssa.i49.i.i.i.i = phi i64 [ %.sroa.10.061.i.i.i.i, %223 ], [ %240, %244 ]
   %.lcssa.i50.i.i.i.i = phi ptr [ %230, %223 ], [ %234, %244 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i50.i.i.i.i, i8 32, i64 %.0.lcssa.i49.i.i.i.i, i1 false)
   %249 = load ptr, ptr %228, align 8, !tbaa !74
@@ -4815,11 +4815,11 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %83 = load ptr, ptr %62, align 8, !tbaa !74
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.0.lcssa.i34
   store ptr %84, ptr %62, align 8, !tbaa !74
-  %.pre28 = load ptr, ptr %30, align 8, !tbaa !32
+  %.pre25 = load ptr, ptr %30, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit41
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit41: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, %._crit_edge.i
-  %85 = phi ptr [ %55, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre28, %._crit_edge.i ]
+  %85 = phi ptr [ %55, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre25, %._crit_edge.i ]
   %86 = icmp eq i64 %.0.val, 0
   br i1 %86, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit43, label %87
 
@@ -4947,8 +4947,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread, %._crit_edge.i45
   %152 = phi i8 [ %11, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %.pre, %._crit_edge.i45 ]
   %153 = phi ptr [ %122, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ %123, %._crit_edge.i45 ]
-  %.sroa.10.013 = phi i64 [ %.sroa.10.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i45 ]
-  %.sroa.7.012 = phi i64 [ %.sroa.7.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i45 ]
+  %.sroa.10.010 = phi i64 [ %.sroa.10.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i45 ]
+  %.sroa.7.09 = phi i64 [ %.sroa.7.0.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread ], [ 0, %._crit_edge.i45 ]
   %.not31 = icmp eq i8 %152, 0
   br i1 %.not31, label %169, label %154
 
@@ -5024,13 +5024,13 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4a
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit64: ; preds = %169, %182, %191
   %194 = load ptr, ptr %153, align 8, !tbaa !32
-  %195 = icmp eq i64 %.sroa.7.012, 0
+  %195 = icmp eq i64 %.sroa.7.09, 0
   br i1 %195, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit73, label %196
 
 196:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit64
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %198 = load i64, ptr %197, align 8, !tbaa !71
-  %199 = add i64 %198, %.sroa.7.012
+  %199 = add i64 %198, %.sroa.7.09
   store i64 %199, ptr %197, align 8, !tbaa !71
   %200 = getelementptr inbounds nuw i8, ptr %194, i64 1056
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 24
@@ -5038,7 +5038,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %203 = load ptr, ptr %201, align 8, !tbaa !74
   %204 = ptrtoint ptr %203 to i64
   %205 = sub i64 %202, %204
-  %206 = icmp ugt i64 %.sroa.7.012, %205
+  %206 = icmp ugt i64 %.sroa.7.09, %205
   br i1 %206, label %.lr.ph.i68, label %._crit_edge.i65
 
 .lr.ph.i68:                                       ; preds = %196
@@ -5050,7 +5050,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
 210:                                              ; preds = %217, %.lr.ph.i68
   %211 = phi i64 [ %205, %.lr.ph.i68 ], [ 1024, %217 ]
   %212 = phi ptr [ %203, %.lr.ph.i68 ], [ %207, %217 ]
-  %.010.i69 = phi i64 [ %.sroa.7.012, %.lr.ph.i68 ], [ %213, %217 ]
+  %.010.i69 = phi i64 [ %.sroa.7.09, %.lr.ph.i68 ], [ %213, %217 ]
   %213 = sub nuw nsw i64 %.010.i69, %211
   %.not.i70 = icmp eq ptr %200, %212
   br i1 %.not.i70, label %217, label %214
@@ -5074,17 +5074,17 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   br i1 %221, label %210, label %._crit_edge.i65, !llvm.loop !77
 
 ._crit_edge.i65:                                  ; preds = %217, %196
-  %.0.lcssa.i66 = phi i64 [ %.sroa.7.012, %196 ], [ %213, %217 ]
+  %.0.lcssa.i66 = phi i64 [ %.sroa.7.09, %196 ], [ %213, %217 ]
   %.lcssa.i67 = phi ptr [ %203, %196 ], [ %207, %217 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i67, i8 48, i64 %.0.lcssa.i66, i1 false)
   %222 = load ptr, ptr %201, align 8, !tbaa !74
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 %.0.lcssa.i66
   store ptr %223, ptr %201, align 8, !tbaa !74
-  %.pre26 = load ptr, ptr %153, align 8, !tbaa !32
+  %.pre23 = load ptr, ptr %153, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit73
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit73: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit64, %._crit_edge.i65
-  %224 = phi ptr [ %194, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit64 ], [ %.pre26, %._crit_edge.i65 ]
+  %224 = phi ptr [ %194, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit64 ], [ %.pre23, %._crit_edge.i65 ]
   %225 = icmp ugt i64 %3, %1
   br i1 %225, label %226, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
@@ -5191,11 +5191,11 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %280 = load ptr, ptr %259, align 8, !tbaa !74
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 %.0.lcssa.i80
   store ptr %281, ptr %259, align 8, !tbaa !74
-  %.pre27 = load ptr, ptr %153, align 8, !tbaa !32
+  %.pre24 = load ptr, ptr %153, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit87
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit87: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit78, %._crit_edge.i79
-  %282 = phi ptr [ %252, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit78 ], [ %.pre27, %._crit_edge.i79 ]
+  %282 = phi ptr [ %252, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit78 ], [ %.pre24, %._crit_edge.i79 ]
   %283 = icmp eq i64 %.0.val, 0
   br i1 %283, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit89, label %284
 
@@ -5236,13 +5236,13 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit87: ; preds = %_ZN4a
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit89: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit87, %294, %303
   %306 = load ptr, ptr %153, align 8, !tbaa !32
-  %307 = icmp eq i64 %.sroa.10.013, 0
+  %307 = icmp eq i64 %.sroa.10.010, 0
   br i1 %307, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit43, label %308
 
 308:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit89
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %310 = load i64, ptr %309, align 8, !tbaa !71
-  %311 = add i64 %310, %.sroa.10.013
+  %311 = add i64 %310, %.sroa.10.010
   store i64 %311, ptr %309, align 8, !tbaa !71
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 1056
   %313 = getelementptr inbounds nuw i8, ptr %306, i64 24
@@ -5250,7 +5250,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %315 = load ptr, ptr %313, align 8, !tbaa !74
   %316 = ptrtoint ptr %315 to i64
   %317 = sub i64 %314, %316
-  %318 = icmp ugt i64 %.sroa.10.013, %317
+  %318 = icmp ugt i64 %.sroa.10.010, %317
   br i1 %318, label %.lr.ph.i93, label %._crit_edge.i90
 
 .lr.ph.i93:                                       ; preds = %308
@@ -5262,7 +5262,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
 322:                                              ; preds = %329, %.lr.ph.i93
   %323 = phi i64 [ %317, %.lr.ph.i93 ], [ 1024, %329 ]
   %324 = phi ptr [ %315, %.lr.ph.i93 ], [ %319, %329 ]
-  %.010.i94 = phi i64 [ %.sroa.10.013, %.lr.ph.i93 ], [ %325, %329 ]
+  %.010.i94 = phi i64 [ %.sroa.10.010, %.lr.ph.i93 ], [ %325, %329 ]
   %325 = sub nuw nsw i64 %.010.i94, %323
   %.not.i95 = icmp eq ptr %312, %324
   br i1 %.not.i95, label %329, label %326
@@ -5286,7 +5286,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   br i1 %333, label %322, label %._crit_edge.i90, !llvm.loop !77
 
 ._crit_edge.i90:                                  ; preds = %329, %308
-  %.0.lcssa.i91 = phi i64 [ %.sroa.10.013, %308 ], [ %325, %329 ]
+  %.0.lcssa.i91 = phi i64 [ %.sroa.10.010, %308 ], [ %325, %329 ]
   %.lcssa.i92 = phi ptr [ %315, %308 ], [ %319, %329 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i92, i8 32, i64 %.0.lcssa.i91, i1 false)
   %334 = load ptr, ptr %313, align 8, !tbaa !74

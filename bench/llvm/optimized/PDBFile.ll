@@ -1396,8 +1396,8 @@ define dso_local void @_ZN4llvm3pdb7PDBFile15parseStreamDataEv(ptr dead_on_unwin
   %9 = alloca %"class.llvm::BinaryStreamReader", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %11 = load ptr, ptr %10, align 8, !tbaa !56
-  %.not86 = icmp eq ptr %11, null
-  br i1 %.not86, label %12, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not84 = icmp eq ptr %11, null
+  br i1 %.not84, label %12, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   store ptr null, ptr %0, align 8, !tbaa !139
@@ -1539,11 +1539,11 @@ _ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specifi
   br label %65
 
 65:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
-  %.03591 = phi i32 [ 0, %.lr.ph ], [ %135, %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit ]
+  %.03589 = phi i32 [ 0, %.lr.ph ], [ %135, %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit ]
   %66 = load ptr, ptr %1, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %.03591) #19
+  %69 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %.03589) #19
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %.thread, label %71
 
@@ -1602,17 +1602,17 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %88
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !228
   %.idx = shl nuw nsw i64 %84, 2
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
-  %.not88 = icmp eq i64 %84, 0
-  br i1 %.not88, label %.critedge48, label %.critedge45
+  %.not86 = icmp eq i64 %84, 0
+  br i1 %.not86, label %.critedge48, label %.critedge45
 
 93:                                               ; preds = %.critedge45
-  %94 = getelementptr inbounds nuw i8, ptr %.03489, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.03487, i64 4
   %.not = icmp eq ptr %94, %92
   br i1 %.not, label %.critedge48, label %.critedge45
 
 .critedge45:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit60, %93
-  %.03489 = phi ptr [ %94, %93 ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ]
-  %.0.copyload.i.i.i61 = load i32, ptr %.03489, align 1
+  %.03487 = phi ptr [ %94, %93 ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ]
+  %.0.copyload.i.i.i61 = load i32, ptr %.03487, align 1
   %95 = add i32 %.0.copyload.i.i.i61, 1
   %96 = zext i32 %95 to i64
   %97 = load ptr, ptr %13, align 8, !tbaa !72
@@ -1645,17 +1645,17 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %88
   br label %.critedge
 
 .critedge48:                                      ; preds = %93, %_ZN4llvm5ErrorD2Ev.exit60.thread, %_ZN4llvm5ErrorD2Ev.exit60
-  %.sroa.071.1107 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
-  %.sroa.10.1106 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
+  %.sroa.071.0105 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
+  %.sroa.10.0104 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
   %111 = load ptr, ptr %63, align 8, !tbaa !243
   %112 = load ptr, ptr %64, align 8, !tbaa !71
   %.not.i63 = icmp eq ptr %111, %112
   br i1 %.not.i63, label %115, label %113
 
 113:                                              ; preds = %.critedge48
-  store ptr %.sroa.071.1107, ptr %111, align 8, !tbaa !138
+  store ptr %.sroa.071.0105, ptr %111, align 8, !tbaa !138
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i64 %.sroa.10.1106, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
+  store i64 %.sroa.10.0104, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %114, ptr %63, align 8, !tbaa !243
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
@@ -1684,9 +1684,9 @@ _ZNKSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integr
   %127 = shl nuw nsw i64 %126, 4
   %128 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %127) #21
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %119
-  store ptr %.sroa.071.1107, ptr %129, align 8, !tbaa !138
-  %.sroa.10.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store i64 %.sroa.10.1106, ptr %.sroa.10.0..sroa_idx75, align 8, !tbaa !11
+  store ptr %.sroa.071.0105, ptr %129, align 8, !tbaa !138
+  %.sroa.10.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store i64 %.sroa.10.0104, ptr %.sroa.10.0..sroa_idx74, align 8, !tbaa !11
   %.not10.i.i.i.i.i = icmp eq ptr %116, %111
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1717,7 +1717,7 @@ _ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integra
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
 
 _ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit: ; preds = %113, %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
-  %135 = add nuw i32 %.03591, 1
+  %135 = add nuw i32 %.03589, 1
   %exitcond.not = icmp eq i32 %135, %spec.select.i.i.i
   br i1 %exitcond.not, label %.critedge50, label %65, !llvm.loop !250
 

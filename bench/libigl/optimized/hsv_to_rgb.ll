@@ -118,15 +118,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   br label %_ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit
 
 _ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit:            ; preds = %46, %47, %48, %49, %50, %21, %.sink.split.i.i
-  %.sroa.0.2 = phi double [ 0.000000e+00, %21 ], [ %27, %50 ], [ %42, %46 ], [ %39, %47 ], [ %39, %48 ], [ %45, %49 ], [ %27, %.sink.split.i.i ]
-  %.sroa.10.2 = phi double [ 0.000000e+00, %21 ], [ %39, %50 ], [ %27, %46 ], [ %27, %47 ], [ %42, %48 ], [ %39, %49 ], [ %45, %.sink.split.i.i ]
-  %.sroa.17.1 = phi double [ 0.000000e+00, %21 ], [ %42, %50 ], [ %39, %46 ], [ %45, %47 ], [ %27, %48 ], [ %27, %49 ], [ %39, %.sink.split.i.i ]
+  %.sroa.0.1 = phi double [ 0.000000e+00, %21 ], [ %27, %50 ], [ %42, %46 ], [ %39, %47 ], [ %39, %48 ], [ %45, %49 ], [ %27, %.sink.split.i.i ]
+  %.sroa.10.1 = phi double [ 0.000000e+00, %21 ], [ %39, %50 ], [ %27, %46 ], [ %27, %47 ], [ %42, %48 ], [ %39, %49 ], [ %45, %.sink.split.i.i ]
+  %.sroa.17.0 = phi double [ 0.000000e+00, %21 ], [ %42, %50 ], [ %39, %46 ], [ %45, %47 ], [ %27, %48 ], [ %27, %49 ], [ %39, %.sink.split.i.i ]
   %51 = getelementptr double, ptr %18, i64 %.022
-  store double %.sroa.0.2, ptr %51, align 8, !tbaa !15
+  store double %.sroa.0.1, ptr %51, align 8, !tbaa !15
   %52 = getelementptr double, ptr %51, i64 %20
-  store double %.sroa.10.2, ptr %52, align 8, !tbaa !15
+  store double %.sroa.10.1, ptr %52, align 8, !tbaa !15
   %53 = getelementptr i8, ptr %51, i64 %.idx21
-  store double %.sroa.17.1, ptr %53, align 8, !tbaa !15
+  store double %.sroa.17.0, ptr %53, align 8, !tbaa !15
   %54 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %54, %15
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !17
@@ -324,15 +324,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   br label %_ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit
 
 _ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit: ; preds = %48, %51, %54, %57, %60, %63, %21
-  %.sroa.0.2 = phi float [ 0.000000e+00, %21 ], [ %27, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %27, %63 ]
-  %.sroa.10.2 = phi float [ 0.000000e+00, %21 ], [ %49, %48 ], [ %27, %51 ], [ %27, %54 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ]
-  %.sroa.17.1 = phi float [ 0.000000e+00, %21 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %27, %57 ], [ %27, %60 ], [ %65, %63 ]
+  %.sroa.0.1 = phi float [ 0.000000e+00, %21 ], [ %27, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %27, %63 ]
+  %.sroa.10.1 = phi float [ 0.000000e+00, %21 ], [ %49, %48 ], [ %27, %51 ], [ %27, %54 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ]
+  %.sroa.17.0 = phi float [ 0.000000e+00, %21 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %27, %57 ], [ %27, %60 ], [ %65, %63 ]
   %66 = getelementptr float, ptr %18, i64 %.022
-  store float %.sroa.0.2, ptr %66, align 4, !tbaa !24
+  store float %.sroa.0.1, ptr %66, align 4, !tbaa !24
   %67 = getelementptr float, ptr %66, i64 %20
-  store float %.sroa.10.2, ptr %67, align 4, !tbaa !24
+  store float %.sroa.10.1, ptr %67, align 4, !tbaa !24
   %68 = getelementptr i8, ptr %66, i64 %.idx21
-  store float %.sroa.17.1, ptr %68, align 4, !tbaa !24
+  store float %.sroa.17.0, ptr %68, align 4, !tbaa !24
   %69 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %69, %15
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !26
@@ -410,15 +410,15 @@ define weak_odr dso_local void @_ZN3igl10hsv_to_rgbIN5Eigen6MatrixIhLi64ELi3ELi1
   br label %_ZN3igl10hsv_to_rgbIhEEvPKT_PS1_.exit
 
 _ZN3igl10hsv_to_rgbIhEEvPKT_PS1_.exit:            ; preds = %28, %31, %34, %37, %40, %43, %4
-  %.sroa.0.2 = phi i8 [ 0, %4 ], [ %11, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %11, %43 ]
-  %.sroa.10.2 = phi i8 [ 0, %4 ], [ %29, %28 ], [ %11, %31 ], [ %11, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ]
-  %.sroa.17.1 = phi i8 [ 0, %4 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %11, %37 ], [ %11, %40 ], [ %45, %43 ]
+  %.sroa.0.1 = phi i8 [ 0, %4 ], [ %11, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %11, %43 ]
+  %.sroa.10.1 = phi i8 [ 0, %4 ], [ %29, %28 ], [ %11, %31 ], [ %11, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ]
+  %.sroa.17.0 = phi i8 [ 0, %4 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %11, %37 ], [ %11, %40 ], [ %45, %43 ]
   %46 = getelementptr i8, ptr %1, i64 %5
-  store i8 %.sroa.0.2, ptr %46, align 1, !tbaa !27
+  store i8 %.sroa.0.1, ptr %46, align 1, !tbaa !27
   %47 = getelementptr i8, ptr %46, i64 1
-  store i8 %.sroa.10.2, ptr %47, align 1, !tbaa !27
+  store i8 %.sroa.10.1, ptr %47, align 1, !tbaa !27
   %48 = getelementptr i8, ptr %46, i64 2
-  store i8 %.sroa.17.1, ptr %48, align 1, !tbaa !27
+  store i8 %.sroa.17.0, ptr %48, align 1, !tbaa !27
   %49 = add nuw nsw i64 %.021, 1
   %exitcond.not = icmp eq i64 %49, 64
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !28
@@ -502,15 +502,15 @@ define weak_odr dso_local void @_ZN3igl10hsv_to_rgbIN5Eigen6MatrixIfLi64ELi3ELi1
   br label %_ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit
 
 _ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit: ; preds = %31, %34, %37, %40, %43, %46, %4
-  %.sroa.0.2 = phi float [ 0.000000e+00, %4 ], [ %10, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %10, %46 ]
-  %.sroa.10.2 = phi float [ 0.000000e+00, %4 ], [ %32, %31 ], [ %10, %34 ], [ %10, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ]
-  %.sroa.17.1 = phi float [ 0.000000e+00, %4 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %10, %40 ], [ %10, %43 ], [ %48, %46 ]
+  %.sroa.0.1 = phi float [ 0.000000e+00, %4 ], [ %10, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %10, %46 ]
+  %.sroa.10.1 = phi float [ 0.000000e+00, %4 ], [ %32, %31 ], [ %10, %34 ], [ %10, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ]
+  %.sroa.17.0 = phi float [ 0.000000e+00, %4 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %10, %40 ], [ %10, %43 ], [ %48, %46 ]
   %49 = getelementptr i8, ptr %1, i64 %.idx.i.i.i
-  store float %.sroa.0.2, ptr %49, align 4, !tbaa !24
+  store float %.sroa.0.1, ptr %49, align 4, !tbaa !24
   %50 = getelementptr i8, ptr %49, i64 4
-  store float %.sroa.10.2, ptr %50, align 4, !tbaa !24
+  store float %.sroa.10.1, ptr %50, align 4, !tbaa !24
   %51 = getelementptr i8, ptr %49, i64 8
-  store float %.sroa.17.1, ptr %51, align 4, !tbaa !24
+  store float %.sroa.17.0, ptr %51, align 4, !tbaa !24
   %52 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %52, 64
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !29

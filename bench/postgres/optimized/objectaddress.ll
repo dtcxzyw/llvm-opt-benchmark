@@ -969,8 +969,8 @@ list_length.exit.i302:                            ; preds = %278, %266
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph64.i, %.critedge.i.loopexit.critedge, %.lr.ph.split.i, %list_length.exit.i302
-  %.sroa.0528.3 = phi ptr [ null, %list_length.exit.i302 ], [ %298, %.critedge.i.loopexit.critedge ], [ %298, %.lr.ph64.i ], [ null, %.lr.ph.split.i ]
-  %.sroa.6530.3 = phi ptr [ null, %list_length.exit.i302 ], [ %304, %.critedge.i.loopexit.critedge ], [ null, %.lr.ph64.i ], [ null, %.lr.ph.split.i ]
+  %.sroa.0528.0 = phi ptr [ null, %list_length.exit.i302 ], [ %298, %.critedge.i.loopexit.critedge ], [ %298, %.lr.ph64.i ], [ null, %.lr.ph.split.i ]
+  %.sroa.6530.0 = phi ptr [ null, %list_length.exit.i302 ], [ %304, %.critedge.i.loopexit.critedge ], [ null, %.lr.ph64.i ], [ null, %.lr.ph.split.i ]
   %.sroa.6.0 = phi i64 [ 0, %list_length.exit.i302 ], [ %.sroa.09.4.extract.shift.i.c, %.critedge.i.loopexit.critedge ], [ 0, %.lr.ph64.i ], [ 0, %.lr.ph.split.i ]
   %.sroa.0.0 = phi i32 [ 0, %list_length.exit.i302 ], [ %.sroa.09.4.extract.trunc.i, %.critedge.i.loopexit.critedge ], [ %.sroa.09.4.extract.trunc.i, %.lr.ph64.i ], [ 0, %.lr.ph.split.i ]
   switch i32 %0, label %332 [
@@ -993,8 +993,8 @@ list_length.exit.i302:                            ; preds = %278, %266
   %312 = trunc i64 %276 to i32
   %313 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %314 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %315 = tail call ptr @TypeNameToString(ptr noundef %.sroa.0528.3) #11
-  %316 = tail call ptr @TypeNameToString(ptr noundef %.sroa.6530.3) #11
+  %315 = tail call ptr @TypeNameToString(ptr noundef %.sroa.0528.0) #11
+  %316 = tail call ptr @TypeNameToString(ptr noundef %.sroa.6530.0) #11
   %317 = call ptr @getObjectDescription(ptr noundef nonnull %6, i1 noundef zeroext false)
   %318 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.183, i32 noundef %312, ptr noundef %315, ptr noundef %316, ptr noundef %317) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1746, ptr noundef nonnull @__func__.get_object_address_opf_member) #11
@@ -1015,8 +1015,8 @@ list_length.exit.i302:                            ; preds = %278, %266
   %325 = trunc i64 %276 to i32
   %326 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %327 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %328 = tail call ptr @TypeNameToString(ptr noundef %.sroa.0528.3) #11
-  %329 = tail call ptr @TypeNameToString(ptr noundef %.sroa.6530.3) #11
+  %328 = tail call ptr @TypeNameToString(ptr noundef %.sroa.0528.0) #11
+  %329 = tail call ptr @TypeNameToString(ptr noundef %.sroa.6530.0) #11
   %330 = call ptr @getObjectDescription(ptr noundef nonnull %6, i1 noundef zeroext false)
   %331 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184, i32 noundef %325, ptr noundef %328, ptr noundef %329, ptr noundef %330) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__func__.get_object_address_opf_member) #11

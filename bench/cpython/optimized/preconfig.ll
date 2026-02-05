@@ -2448,26 +2448,26 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
 65:                                               ; preds = %47
   %66 = call ptr @_Py_SetLocaleFromEnv(i32 noundef 0) #17
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !55
-  %.pre184.pre = load i32, ptr %49, align 4, !tbaa !49
-  %.pre185.pre = load i32, ptr %51, align 4, !tbaa !45
-  %.pre186.pre = load i32, ptr %53, align 4, !tbaa !47
-  %.pre187.pre = load i32, ptr %55, align 4, !tbaa !56
-  %.pre188.pre = load i32, ptr %57, align 4, !tbaa !48
-  %.pre190.pre = load i32, ptr %60, align 4, !tbaa !59
-  %.pre191.pre = load i32, ptr %63, align 4, !tbaa !60
+  %.pre176.pre = load i32, ptr %49, align 4, !tbaa !49
+  %.pre177.pre = load i32, ptr %51, align 4, !tbaa !45
+  %.pre178.pre = load i32, ptr %53, align 4, !tbaa !47
+  %.pre179.pre = load i32, ptr %55, align 4, !tbaa !56
+  %.pre180.pre = load i32, ptr %57, align 4, !tbaa !48
+  %.pre182.pre = load i32, ptr %60, align 4, !tbaa !59
+  %.pre183.pre = load i32, ptr %63, align 4, !tbaa !60
   br label %67
 
 67:                                               ; preds = %65, %47
-  %.pre191 = phi i32 [ %.pre191.pre, %65 ], [ %64, %47 ]
-  %.pre190 = phi i32 [ %.pre190.pre, %65 ], [ %61, %47 ]
-  %.pre188 = phi i32 [ %.pre188.pre, %65 ], [ %58, %47 ]
-  %.pre187 = phi i32 [ %.pre187.pre, %65 ], [ 0, %47 ]
-  %.pre186 = phi i32 [ %.pre186.pre, %65 ], [ %54, %47 ]
-  %.pre185 = phi i32 [ %.pre185.pre, %65 ], [ %52, %47 ]
-  %.pre184 = phi i32 [ %.pre184.pre, %65 ], [ %50, %47 ]
+  %.pre183 = phi i32 [ %.pre183.pre, %65 ], [ %64, %47 ]
+  %.pre182 = phi i32 [ %.pre182.pre, %65 ], [ %61, %47 ]
+  %.pre180 = phi i32 [ %.pre180.pre, %65 ], [ %58, %47 ]
+  %.pre179 = phi i32 [ %.pre179.pre, %65 ], [ 0, %47 ]
+  %.pre178 = phi i32 [ %.pre178.pre, %65 ], [ %54, %47 ]
+  %.pre177 = phi i32 [ %.pre177.pre, %65 ], [ %52, %47 ]
+  %.pre176 = phi i32 [ %.pre176.pre, %65 ], [ %50, %47 ]
   %.pre = phi i32 [ %.pre.pre, %65 ], [ %48, %47 ]
   %.pr = load i32, ptr %62, align 4, !tbaa !57
-  %.pre189 = load i32, ptr %59, align 4, !tbaa !58
+  %.pre181 = load i32, ptr %59, align 4, !tbaa !58
   %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10436), align 4, !tbaa !49
   %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !45
@@ -2502,17 +2502,17 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   br label %83
 
 83:                                               ; preds = %67, %.thread
-  %84 = phi i32 [ %.pre191, %67 ], [ %64, %.thread ]
-  %85 = phi i32 [ %.pre190, %67 ], [ %61, %.thread ]
-  %86 = phi i32 [ %.pre189, %67 ], [ %212, %.thread ]
-  %87 = phi i32 [ %.pre188, %67 ], [ %58, %.thread ]
-  %88 = phi i32 [ %.pre187, %67 ], [ %56, %.thread ]
-  %89 = phi i32 [ %.pre186, %67 ], [ %54, %.thread ]
-  %90 = phi i32 [ %.pre185, %67 ], [ %52, %.thread ]
-  %91 = phi i32 [ %.pre184, %67 ], [ %50, %.thread ]
+  %84 = phi i32 [ %.pre183, %67 ], [ %64, %.thread ]
+  %85 = phi i32 [ %.pre182, %67 ], [ %61, %.thread ]
+  %86 = phi i32 [ %.pre181, %67 ], [ %212, %.thread ]
+  %87 = phi i32 [ %.pre180, %67 ], [ %58, %.thread ]
+  %88 = phi i32 [ %.pre179, %67 ], [ %56, %.thread ]
+  %89 = phi i32 [ %.pre178, %67 ], [ %54, %.thread ]
+  %90 = phi i32 [ %.pre177, %67 ], [ %52, %.thread ]
+  %91 = phi i32 [ %.pre176, %67 ], [ %50, %.thread ]
   %92 = phi i32 [ %.pre, %67 ], [ %48, %.thread ]
   %93 = phi i1 [ false, %67 ], [ true, %.thread ]
-  %.0104178 = phi i32 [ 0, %67 ], [ %.2, %.thread ]
+  %.0104170 = phi i32 [ 0, %67 ], [ %.2, %.thread ]
   %94 = phi i32 [ %.pr, %67 ], [ %208, %.thread ]
   store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
   store i32 %91, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10436), align 4, !tbaa !49
@@ -2537,7 +2537,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   %.sroa.20.0.copyload81 = load i32, ptr %.sroa.20.0..sroa_idx80, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not114 = icmp eq i32 %.sroa.016.0.copyload23, 0
-  br i1 %.not114, label %96, label %.thread148
+  br i1 %.not114, label %96, label %.thread146
 
 96:                                               ; preds = %95, %83
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !66
@@ -2550,7 +2550,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   %.sroa.11.sroa.14.0.copyload.i = load i32, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx.sroa_idx.i, align 4, !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !66
   %.not.i119 = icmp eq i32 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i119, label %97, label %.thread148
+  br i1 %.not.i119, label %97, label %.thread146
 
 97:                                               ; preds = %96
   %98 = load i32, ptr %78, align 8, !tbaa !35, !noalias !66
@@ -2707,7 +2707,7 @@ _Py_get_xoption.exit.i.i:                         ; preds = %149
 161:                                              ; preds = %157
   %162 = call i32 @wcscmp(ptr noundef %158, ptr noundef nonnull @.str.24) #18, !noalias !69
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.sink.split.i, label %.thread148
+  br i1 %163, label %.sink.split.i, label %.thread146
 
 _Py_get_xoption.exit.thread.i.i:                  ; preds = %154, %_Py_get_xoption.exit.i.i, %134
   %164 = load i32, ptr %53, align 4, !tbaa !47, !noalias !69
@@ -2721,7 +2721,7 @@ _Py_get_xoption.exit.thread.i.i:                  ; preds = %154, %_Py_get_xopti
 
 167:                                              ; preds = %165
   %168 = load i8, ptr %166, align 1, !tbaa !54, !noalias !69
-  switch i8 %168, label %.thread148 [
+  switch i8 %168, label %.thread146 [
     i8 0, label %175
     i8 49, label %_Py_GetEnv.exit.tail.i23.i
     i8 48, label %.tail.i.i
@@ -2731,13 +2731,13 @@ _Py_GetEnv.exit.tail.i23.i:                       ; preds = %167
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %170 = load i8, ptr %169, align 1, !noalias !69
   %171 = icmp eq i8 %170, 0
-  br i1 %171, label %.sink.split.i, label %.thread148
+  br i1 %171, label %.sink.split.i, label %.thread146
 
 .tail.i.i:                                        ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %173 = load i8, ptr %172, align 1, !noalias !69
   %174 = icmp eq i8 %173, 0
-  br i1 %174, label %.sink.split.i, label %.thread148
+  br i1 %174, label %.sink.split.i, label %.thread146
 
 175:                                              ; preds = %167, %165, %_Py_get_xoption.exit.thread.i.i
   %176 = call ptr @setlocale(i32 noundef 0, ptr noundef null) #17, !noalias !69
@@ -2816,12 +2816,12 @@ _Py_GetEnv.exit.i.i:                              ; preds = %192
 
 200:                                              ; preds = %_Py_GetEnv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !72
-  br label %.thread148
+  br label %.thread146
 
 preconfig_read.exit:                              ; preds = %199, %.thread13.i.i, %185
   %201 = load i32, ptr %59, align 4, !tbaa !58
   %202 = icmp eq i32 %201, 0
-  %203 = icmp ne i32 %.0104178, 0
+  %203 = icmp ne i32 %.0104170, 0
   %or.cond = select i1 %202, i1 true, i1 %203
   br i1 %or.cond, label %206, label %204
 
@@ -2830,20 +2830,20 @@ preconfig_read.exit:                              ; preds = %199, %.thread13.i.i
   br label %206
 
 206:                                              ; preds = %204, %preconfig_read.exit
-  %.2 = phi i32 [ %.0104178, %preconfig_read.exit ], [ 1, %204 ]
+  %.2 = phi i32 [ %.0104170, %preconfig_read.exit ], [ 1, %204 ]
   %207 = icmp eq i32 %94, -1
   %208 = load i32, ptr %62, align 4, !tbaa !57
   br i1 %207, label %209, label %211
 
 209:                                              ; preds = %206
   %210 = icmp ne i32 %208, 1
-  %or.cond173 = and i1 %or.cond, %210
-  br i1 %or.cond173, label %.thread148, label %.thread
+  %or.cond165 = and i1 %or.cond, %210
+  br i1 %or.cond165, label %.thread146, label %.thread
 
 211:                                              ; preds = %206
   %.not116 = icmp eq i32 %208, %94
-  %or.cond172 = and i1 %or.cond, %.not116
-  br i1 %or.cond172, label %.thread148, label %.thread
+  %or.cond164 = and i1 %or.cond, %.not116
+  br i1 %or.cond164, label %.thread146, label %.thread
 
 .thread:                                          ; preds = %209, %211
   %212 = load i32, ptr %59, align 4, !tbaa !58
@@ -2857,9 +2857,9 @@ preconfig_read.exit:                              ; preds = %199, %.thread13.i.i
   store i32 %64, ptr %63, align 4, !tbaa !60
   store i32 %208, ptr %62, align 4, !tbaa !57
   store i32 %212, ptr %59, align 4, !tbaa !58
-  br i1 %93, label %.thread148, label %83
+  br i1 %93, label %.thread146, label %83
 
-.thread148:                                       ; preds = %209, %211, %167, %_Py_GetEnv.exit.tail.i23.i, %.tail.i.i, %96, %161, %95, %.thread, %200
+.thread146:                                       ; preds = %209, %211, %167, %_Py_GetEnv.exit.tail.i23.i, %.tail.i.i, %96, %161, %95, %.thread, %200
   %.sroa.016.1 = phi i32 [ 1, %200 ], [ 0, %211 ], [ 1, %161 ], [ %.sroa.0.0.copyload.i, %96 ], [ 1, %.tail.i.i ], [ 1, %_Py_GetEnv.exit.tail.i23.i ], [ 1, %167 ], [ 1, %.thread ], [ %.sroa.016.0.copyload23, %95 ], [ 0, %209 ]
   %.sroa.15.1 = phi i32 [ 0, %200 ], [ 0, %211 ], [ 0, %161 ], [ %.sroa.11.sroa.0.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.15.0.copyload33, %95 ], [ 0, %209 ]
   %.sroa.17.1 = phi ptr [ @__func__.preconfig_init_allocator, %200 ], [ null, %211 ], [ @__func__.preconfig_init_utf8_mode, %161 ], [ %.sroa.11.sroa.8.0.copyload.i, %96 ], [ @__func__.preconfig_init_utf8_mode, %.tail.i.i ], [ @__func__.preconfig_init_utf8_mode, %_Py_GetEnv.exit.tail.i23.i ], [ @__func__.preconfig_init_utf8_mode, %167 ], [ @__func__._PyPreConfig_Read, %.thread ], [ %.sroa.17.0.copyload45, %95 ], [ null, %209 ]
@@ -2894,7 +2894,7 @@ preconfig_read.exit:                              ; preds = %199, %.thread13.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %214
 
-214:                                              ; preds = %32, %.thread148, %41, %9
+214:                                              ; preds = %32, %.thread146, %41, %9
   ret void
 }
 

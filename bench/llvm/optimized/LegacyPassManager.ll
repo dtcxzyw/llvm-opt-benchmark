@@ -14581,64 +14581,64 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLe
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !518
   %.fr15 = freeze i64 %13
-  %.not26.i = icmp eq i64 %.fr15, 0
-  %spec.select.i = select i1 %.not26.i, ptr %2, ptr %4
+  %.not24.i = icmp eq i64 %.fr15, 0
   %.fr16 = freeze i64 %3
   %.fr17 = freeze i64 %5
-  %spec.select25.i = select i1 %.not26.i, i64 %.fr16, i64 %.fr17
+  %spec.select.i = select i1 %.not24.i, i64 %.fr16, i64 %.fr17
+  %spec.select23.i = select i1 %.not24.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !79
   %16 = zext i32 %15 to i64
-  %.not27.i = icmp eq i32 %15, 0
-  br i1 %.not27.i, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i32 %15, 0
+  br i1 %.not25.i, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val.i = load ptr, ptr %17, align 8, !tbaa !10
-  %18 = icmp eq i64 %spec.select25.i, 0
+  %18 = icmp eq i64 %spec.select.i, 0
   br i1 %18, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
-  %.01528.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us ], [ 0, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %.01528.i.us
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
+  %.01526.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us ], [ 0, %.lr.ph.i ]
+  %19 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %.01526.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !38
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
+  br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us:  ; preds = %.lr.ph.i.split.us
-  %20 = add nuw nsw i64 %.01528.i.us, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us:  ; preds = %.lr.ph.i.split.us
+  %20 = add nuw nsw i64 %.01526.i.us, 1
   %.not.i.us = icmp eq i64 %20, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split.us, !llvm.loop !519
 
-.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
-  %.01528.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i ], [ 0, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %.01528.i
+.lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
+  %.01526.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ 0, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %.01526.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !38
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select25.i
-  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !121
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select25.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select23.i, i64 %spec.select.i)
   %22 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
+  br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %23 = phi i64 [ %.01528.i.us, %.lr.ph.i.split.us ], [ %.01528.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %23 = phi i64 [ %.01526.i.us, %.lr.ph.i.split.us ], [ %.01526.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %24 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load i32, ptr %25, align 4, !tbaa !37
   store i32 %26, ptr %9, align 4, !tbaa !37
   br label %37
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %27 = add nuw nsw i64 %.01528.i, 1
+_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
+  %27 = add nuw nsw i64 %.01526.i, 1
   %.not.i = icmp eq i64 %27, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split, !llvm.loop !519
 
-_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us, %6
+_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -14647,9 +14647,9 @@ _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9Stri
   store i8 5, ptr %29, align 1, !tbaa !415, !alias.scope !520
   store ptr @.str.73, ptr %8, align 8, !tbaa !37, !alias.scope !520
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %30, align 8, !tbaa !37, !alias.scope !520
+  store ptr %spec.select23.i, ptr %30, align 8, !tbaa !37, !alias.scope !520
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select25.i, ptr %31, align 8, !tbaa !37, !alias.scope !520
+  store i64 %spec.select.i, ptr %31, align 8, !tbaa !37, !alias.scope !520
   store ptr %8, ptr %7, align 8, !alias.scope !523
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.74, ptr %32, align 8, !alias.scope !523

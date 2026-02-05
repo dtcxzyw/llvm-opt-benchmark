@@ -15800,10 +15800,10 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118RegionStoreManager15find
   br label %69
 
 69:                                               ; preds = %12, %25, %19, %52, %60, %54, %38, %44
-  %.sroa.6.2 = phi ptr [ null, %52 ], [ null, %54 ], [ %68, %60 ], [ null, %38 ], [ %51, %44 ], [ null, %19 ], [ %35, %25 ], [ %14, %12 ]
-  %.sroa.045.2 = phi ptr [ null, %52 ], [ %58, %54 ], [ %58, %60 ], [ %42, %38 ], [ %42, %44 ], [ %23, %19 ], [ %23, %25 ], [ %13, %12 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.045.2, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.6.2, 1
+  %.sroa.6.1 = phi ptr [ null, %52 ], [ null, %54 ], [ %68, %60 ], [ null, %38 ], [ %51, %44 ], [ null, %19 ], [ %35, %25 ], [ %14, %12 ]
+  %.sroa.045.1 = phi ptr [ null, %52 ], [ %58, %54 ], [ %58, %60 ], [ %42, %38 ], [ %42, %44 ], [ %23, %19 ], [ %23, %25 ], [ %13, %12 ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.045.1, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.6.1, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -28825,8 +28825,8 @@ _ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaI
   br label %_ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE7reserveEm.exit
 
 _ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE7reserveEm.exit: ; preds = %1218, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i
-  %.sroa.017.1 = phi ptr [ %1220, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i ], [ null, %1218 ]
-  %.sroa.2721.1 = phi ptr [ %1221, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i ], [ null, %1218 ]
+  %.sroa.017.0 = phi ptr [ %1220, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i ], [ null, %1218 ]
+  %.sroa.2721.0 = phi ptr [ %1221, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i ], [ null, %1218 ]
   %1222 = load ptr, ptr %77, align 8, !tbaa !292
   %1223 = icmp eq ptr %1222, %919
   br i1 %1223, label %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEENS_26ImutAVLTreeInOrderIteratorIS9_EESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSH_RSH_ED2Ev.exit, label %1224
@@ -29243,7 +29243,7 @@ _ZN4llvm7adl_endIRNS_14iterator_rangeINS_15mapped_iteratorINS_12ImmutableMapIN12
   store i16 %1313, ptr %966, align 8, !alias.scope !1752
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %1314 = ptrtoint ptr %.sroa.017.1 to i64
+  %1314 = ptrtoint ptr %.sroa.017.0 to i64
   store ptr %967, ptr %26, align 8, !tbaa !292
   store i32 0, ptr %968, align 8, !tbaa !290
   store i32 20, ptr %969, align 4, !tbaa !291
@@ -29825,7 +29825,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
   br label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit54.i.i.i.i
 
 _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit54.i.i.i.i: ; preds = %1455, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit.i.i.i.i
-  %1456 = ptrtoint ptr %.sroa.2721.1 to i64
+  %1456 = ptrtoint ptr %.sroa.2721.0 to i64
   %1457 = sub i64 %1456, %1314
   %1458 = ashr exact i64 %1457, 3
   %.not.i.i.i.i260 = icmp ult i64 %1458, %.0.i.i.i.i.i.i245
@@ -29948,7 +29948,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i.i.i.i.i.i135.i.i.i.i: ; preds 
 _ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit143.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i137.i.i.i.i, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit132.i.i.i.i
   %1486 = load i16, ptr %982, align 8
   store i16 %1486, ptr %1010, align 8
-  %1487 = call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_SO_ET0_SH_SH_SR_RSaIT1_E(ptr noundef %18, ptr noundef %19, ptr noundef %.sroa.017.1)
+  %1487 = call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_SO_ET0_SH_SH_SR_RSaIT1_E(ptr noundef %18, ptr noundef %19, ptr noundef %.sroa.017.0)
   %1488 = load ptr, ptr %19, align 8, !tbaa !292
   %1489 = icmp eq ptr %1488, %1007
   br i1 %1489, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit144.i.i.i.i, label %1490
@@ -29967,7 +29967,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
   br label %_ZSt22__uninitialized_move_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit147.i.i.i.i
 
 _ZSt22__uninitialized_move_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit147.i.i.i.i: ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit144.i.i.i.i, %1493
-  %1494 = getelementptr inbounds nuw ptr, ptr %.sroa.017.1, i64 %.0.i.i.i.i.i.i245
+  %1494 = getelementptr inbounds nuw ptr, ptr %.sroa.017.0, i64 %.0.i.i.i.i.i.i245
   store ptr %1011, ptr %20, align 8, !tbaa !292
   store i32 0, ptr %1012, align 8, !tbaa !290
   store i32 20, ptr %1013, align 4, !tbaa !291
@@ -30044,7 +30044,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i.i.i.i.i.i161.i.i.i.i: ; preds 
 _ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit169.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i163.i.i.i.i, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit158.i.i.i.i
   %1512 = load i16, ptr %1002, align 8
   store i16 %1512, ptr %1018, align 8
-  call fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEN9__gnu_cxx17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEET0_SH_SH_SX_(ptr noundef %20, ptr noundef %21, ptr %.sroa.017.1)
+  call fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEN9__gnu_cxx17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEET0_SH_SH_SX_(ptr noundef %20, ptr noundef %21, ptr %.sroa.017.0)
   %1513 = load ptr, ptr %21, align 8, !tbaa !292
   %1514 = icmp eq ptr %1513, %1015
   br i1 %1514, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit170.i.i.i.i, label %1515
@@ -30181,11 +30181,11 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit199.i.i.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit199.i.i.i.i: ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit196.i.i.i.i, %1551
-  %.not.i200.i.i.i.i = icmp eq ptr %.sroa.017.1, null
+  %.not.i200.i.i.i.i = icmp eq ptr %.sroa.017.0, null
   br i1 %.not.i200.i.i.i.i, label %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i, label %1552
 
 1552:                                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit199.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.017.1, i64 noundef %1457) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.017.0, i64 noundef %1457) #24
   br label %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i
 
 _ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i: ; preds = %1552, %_ZSt34__uninitialized_move_if_noexcept_aIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEES9_SaIS8_EET0_T_SC_SB_RT1_.exit199.i.i.i.i
@@ -30193,9 +30193,9 @@ _ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaI
   br label %_ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE15_M_range_insertIN4llvm15mapped_iteratorINSC_12ImmutableMapIS2_S5_NSC_16ImutKeyValueInfoIS2_S5_EEE8iteratorEZNKS1_17RegionBindingsRef9printJsonERNSC_11raw_ostreamEPKcjbEUlRKT_E_S8_EEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EESO_SO_St20forward_iterator_tag.exit.i.i.i
 
 _ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE15_M_range_insertIN4llvm15mapped_iteratorINSC_12ImmutableMapIS2_S5_NSC_16ImutKeyValueInfoIS2_S5_EEE8iteratorEZNKS1_17RegionBindingsRef9printJsonERNSC_11raw_ostreamEPKcjbEUlRKT_E_S8_EEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EESO_SO_St20forward_iterator_tag.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i
-  %.sroa.017.2 = phi ptr [ %.sroa.017.1, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1526, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.017.1, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %.sroa.017.1, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
-  %.sroa.1218.2 = phi ptr [ %.sroa.017.1, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1545, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.017.1, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %1494, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
-  %.sroa.2721.2 = phi ptr [ %.sroa.2721.1, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1553, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.2721.1, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %.sroa.2721.1, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
+  %.sroa.017.1 = phi ptr [ %.sroa.017.0, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1526, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.017.0, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %.sroa.017.0, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
+  %.sroa.1218.1 = phi ptr [ %.sroa.017.0, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1545, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.017.0, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %1494, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
+  %.sroa.2721.1 = phi ptr [ %.sroa.2721.0, %_ZN4llvm15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS3_S6_EEE8iteratorEZNKS2_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS3_S6_EEC2ERKSO_.exit12.thread.i.i.i ], [ %1553, %_ZNSt12_Vector_baseIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.2721.0, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESt26bidirectional_iterator_tagSO_lPSO_SO_EneERKSP_.exit.i.i.i.i ], [ %.sroa.2721.0, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit172.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -30283,29 +30283,29 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
 
 _ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEED2Ev.exit: ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEESB_St26bidirectional_iterator_tagSO_lPSO_SO_ED2Ev.exit.i354, %1577
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
-  %.not.i.i.i.i355 = icmp eq ptr %.sroa.017.2, %.sroa.1218.2
+  %.not.i.i.i.i355 = icmp eq ptr %.sroa.017.1, %.sroa.1218.1
   br i1 %.not.i.i.i.i355, label %_ZN4llvm4sortIRSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaISA_EEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlSA_SA_E_EEvOT_T0_.exit.thread352, label %1578
 
 _ZN4llvm4sortIRSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaISA_EEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlSA_SA_E_EEvOT_T0_.exit.thread352: ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEED2Ev.exit
-  %.pre130 = ptrtoint ptr %.sroa.017.2 to i64
+  %.pre130 = ptrtoint ptr %.sroa.017.1 to i64
   br label %._crit_edge
 
 1578:                                             ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEED2Ev.exit
-  %1579 = ptrtoint ptr %.sroa.1218.2 to i64
-  %1580 = ptrtoint ptr %.sroa.017.2 to i64
+  %1579 = ptrtoint ptr %.sroa.1218.1 to i64
+  %1580 = ptrtoint ptr %.sroa.017.1 to i64
   %1581 = sub i64 %1579, %1580
   %1582 = ashr exact i64 %1581, 3
   %1583 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1582, i1 true)
   %1584 = shl nuw nsw i64 %1583, 1
   %1585 = xor i64 %1584, 126
-  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_T1_(ptr %.sroa.017.2, ptr %.sroa.1218.2, i64 noundef %1585, ptr nonnull readonly %72)
+  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_T1_(ptr %.sroa.017.1, ptr %.sroa.1218.1, i64 noundef %1585, ptr nonnull readonly %72)
   %1586 = icmp sgt i64 %1581, 128
   br i1 %1586, label %1587, label %1903
 
 1587:                                             ; preds = %1578
-  %1588 = getelementptr inbounds nuw i8, ptr %.sroa.017.2, i64 128
-  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %.sroa.017.2, ptr nonnull %1588, ptr nonnull readonly %72)
-  %.not106.i.i.i.i.i.i356 = icmp eq ptr %1588, %.sroa.1218.2
+  %1588 = getelementptr inbounds nuw i8, ptr %.sroa.017.1, i64 128
+  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %.sroa.017.1, ptr nonnull %1588, ptr nonnull readonly %72)
+  %.not106.i.i.i.i.i.i356 = icmp eq ptr %1588, %.sroa.1218.1
   br i1 %.not106.i.i.i.i.i.i356, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i357
 
 .lr.ph.i.i.i.i.i.i357:                            ; preds = %1587, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_T0_.exit.i.i.i.i.i.i
@@ -31054,15 +31054,15 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GL
   %.sroa.08.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.0107.i.i.i.i.i.i358, %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit ], [ %.sroa.0.0107.i.i.i.i.i.i358, %1599 ], [ %.sroa.0.0107.i.i.i.i.i.i358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i ], [ %.sroa.0.0107.i.i.i.i.i.i358, %1594 ], [ %.sroa.0.011.i.i.i.i.i.i.i, %1628 ], [ %.sroa.0.011.i.i.i.i.i.i.i, %1632 ], [ %.sroa.0.011.i.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i.i.i.i.i.i.i ], [ %.sroa.0.011.i.i.i.i.i.i.i, %1899 ]
   store ptr %1589, ptr %.sroa.08.0.lcssa.i.i.i.i.i.i.i, align 8, !tbaa !1754
   %1902 = getelementptr inbounds nuw i8, ptr %.sroa.0.0107.i.i.i.i.i.i358, i64 8
-  %.not.i.i.i.i.i.i359 = icmp eq ptr %1902, %.sroa.1218.2
+  %.not.i.i.i.i.i.i359 = icmp eq ptr %1902, %.sroa.1218.1
   br i1 %.not.i.i.i.i.i.i359, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i357, !llvm.loop !1769
 
 1903:                                             ; preds = %1578
-  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %.sroa.017.2, ptr %.sroa.1218.2, ptr nonnull readonly %72)
+  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %.sroa.017.1, ptr %.sroa.1218.1, ptr nonnull readonly %72)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_T0_.exit.i.i.i.i.i.i, %1903, %1587
-  %1904 = ptrtoint ptr %.sroa.1218.2 to i64
+  %1904 = ptrtoint ptr %.sroa.1218.1 to i64
   %1905 = sub i64 %1904, %1580
   %1906 = ashr exact i64 %1905, 3
   %1907 = add nsw i64 %1906, -1
@@ -31124,7 +31124,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit466:              ; preds = %1926, %1928
 
 1931:                                             ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit493
   %.sroa.7.074 = phi i64 [ 0, %.lr.ph ], [ %2056, %_ZN4llvm11raw_ostreamlsEPKc.exit493 ]
-  %.sroa.03.073 = phi ptr [ %.sroa.017.2, %.lr.ph ], [ %2057, %_ZN4llvm11raw_ostreamlsEPKc.exit493 ]
+  %.sroa.03.073 = phi ptr [ %.sroa.017.1, %.lr.ph ], [ %2057, %_ZN4llvm11raw_ostreamlsEPKc.exit493 ]
   %1932 = load ptr, ptr %.sroa.03.073, align 8, !tbaa !1754
   %1933 = getelementptr inbounds nuw i8, ptr %1932, i64 16
   br i1 %.not.i467, label %_ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit472, label %.lr.ph.i468
@@ -31378,7 +31378,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i490:               ; preds = %_ZN4llvm11raw_ostre
 _ZN4llvm11raw_ostreamlsEPKc.exit493:              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %2050, %2052, %2053
   %2056 = add i64 %.sroa.7.074, 1
   %2057 = getelementptr inbounds nuw i8, ptr %.sroa.03.073, i64 8
-  %.not31 = icmp eq ptr %2057, %.sroa.1218.2
+  %.not31 = icmp eq ptr %2057, %.sroa.1218.1
   br i1 %.not31, label %._crit_edge, label %1931
 
 2058:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit466
@@ -31426,13 +31426,13 @@ _ZN4llvm9StringRefC2EPKc.exit.i498:               ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit501
 
 _ZN4llvm11raw_ostreamlsEPKc.exit501:              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit496, %2072, %2074, %2075
-  %.not.i.i.i502 = icmp eq ptr %.sroa.017.2, null
+  %.not.i.i.i502 = icmp eq ptr %.sroa.017.1, null
   br i1 %.not.i.i.i502, label %_ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EED2Ev.exit, label %2078
 
 2078:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit501
-  %2079 = ptrtoint ptr %.sroa.2721.2 to i64
+  %2079 = ptrtoint ptr %.sroa.2721.1 to i64
   %2080 = sub i64 %2079, %.pre-phi131351
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.017.2, i64 noundef %2080) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.017.1, i64 noundef %2080) #24
   br label %_ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESaIS8_EED2Ev.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit501, %2078

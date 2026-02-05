@@ -9437,7 +9437,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %28 = icmp eq i32 %27, %13
   %29 = icmp eq ptr %23, %1
   %or.cond.i.i.i = and i1 %29, %28
-  br i1 %or.cond.i.i.i, label %.loopexit101, label %32
+  br i1 %or.cond.i.i.i, label %.loopexit98, label %32
 
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = icmp eq ptr %23, null
@@ -9460,7 +9460,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %39 = icmp eq i32 %38, %13
   %40 = icmp eq ptr %34, %1
   %or.cond31.i.i.i = and i1 %40, %39
-  br i1 %or.cond31.i.i.i, label %.loopexit101, label %44
+  br i1 %or.cond31.i.i.i, label %.loopexit98, label %44
 
 41:                                               ; preds = %.lr.ph38.i.i.i
   %42 = icmp eq ptr %34, null
@@ -9478,7 +9478,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !353
 
-.loopexit101:                                     ; preds = %25, %36
+.loopexit98:                                      ; preds = %25, %36
   %.026.i.i.i = phi ptr [ %.137.i.i.i, %36 ], [ %.035.i.i.i, %25 ]
   %45 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !295
@@ -9504,37 +9504,37 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %.idx.i = shl nuw nsw i64 %56, 3
   %57 = getelementptr i8, ptr %53, i64 %.idx.i
   %.not1.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not1.i.i.i, label %.loopexit100, label %.lr.ph.i.i.i32
+  br i1 %.not1.i.i.i, label %.loopexit97, label %.lr.ph.i.i.i32
 
-.lr.ph.i.i.i32:                                   ; preds = %.loopexit101, %60
-  %.sroa.0.0.i = phi ptr [ %61, %60 ], [ %53, %.loopexit101 ]
+.lr.ph.i.i.i32:                                   ; preds = %.loopexit98, %60
+  %.sroa.0.0.i = phi ptr [ %61, %60 ], [ %53, %.loopexit98 ]
   %58 = load ptr, ptr %.sroa.0.0.i, align 8, !tbaa !224
   %59 = icmp ult ptr %58, inttoptr (i64 2 to ptr)
-  br i1 %59, label %60, label %.loopexit100
+  br i1 %59, label %60, label %.loopexit97
 
 60:                                               ; preds = %.lr.ph.i.i.i32
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %.not.i.i.i33 = icmp eq ptr %61, %57
-  br i1 %.not.i.i.i33, label %.loopexit100, label %.lr.ph.i.i.i32, !llvm.loop !354
+  br i1 %.not.i.i.i33, label %.loopexit97, label %.lr.ph.i.i.i32, !llvm.loop !354
 
-.loopexit100:                                     ; preds = %.lr.ph.i.i.i32, %60, %.loopexit101
-  %.sroa.0.1.i = phi ptr [ %53, %.loopexit101 ], [ %57, %60 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i32 ]
+.loopexit97:                                      ; preds = %.lr.ph.i.i.i32, %60, %.loopexit98
+  %.sroa.0.1.i = phi ptr [ %53, %.loopexit98 ], [ %57, %60 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i32 ]
   %62 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %53, i64 %56
-  %.not110 = icmp eq ptr %.sroa.0.1.i, %62
-  br i1 %.not110, label %._crit_edge.thread, label %.lr.ph
+  %.not107 = icmp eq ptr %.sroa.0.1.i, %62
+  br i1 %.not107, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %.loopexit100
+._crit_edge.thread:                               ; preds = %.loopexit97
   %63 = getelementptr i8, ptr %47, i64 64
   br label %.lr.ph.i.i.i38.preheader
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
   %.pre = load ptr, ptr %7, align 8, !tbaa !226
-  %.pre127 = load i32, ptr %48, align 8, !tbaa !229
-  %64 = zext i32 %.pre127 to i64
+  %.pre124 = load i32, ptr %48, align 8, !tbaa !229
+  %64 = zext i32 %.pre124 to i64
   %.idx.i36 = shl nuw nsw i64 %64, 3
   %65 = getelementptr i8, ptr %.pre, i64 %.idx.i36
-  %.not1.i.i.i37 = icmp eq i32 %.pre127, 0
-  br i1 %.not1.i.i.i37, label %.loopexit99, label %.lr.ph.i.i.i38.preheader
+  %.not1.i.i.i37 = icmp eq i32 %.pre124, 0
+  br i1 %.not1.i.i.i37, label %.loopexit96, label %.lr.ph.i.i.i38.preheader
 
 .lr.ph.i.i.i38.preheader:                         ; preds = %._crit_edge.thread, %._crit_edge
   %66 = phi ptr [ %63, %._crit_edge.thread ], [ %65, %._crit_edge ]
@@ -9546,16 +9546,16 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
   %.sroa.0.0.i39 = phi ptr [ %72, %71 ], [ %68, %.lr.ph.i.i.i38.preheader ]
   %69 = load ptr, ptr %.sroa.0.0.i39, align 8, !tbaa !224
   %70 = icmp ult ptr %69, inttoptr (i64 2 to ptr)
-  br i1 %70, label %71, label %.loopexit99
+  br i1 %70, label %71, label %.loopexit96
 
 71:                                               ; preds = %.lr.ph.i.i.i38
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i39, i64 8
   %.not.i.i.i43 = icmp eq ptr %72, %66
-  br i1 %.not.i.i.i43, label %.loopexit99, label %.lr.ph.i.i.i38, !llvm.loop !354
+  br i1 %.not.i.i.i43, label %.loopexit96, label %.lr.ph.i.i.i38, !llvm.loop !354
 
-.lr.ph:                                           ; preds = %.loopexit100, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
-  %.sroa.086.0111 = phi ptr [ %.sroa.086.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %.sroa.0.1.i, %.loopexit100 ]
-  %73 = load ptr, ptr %.sroa.086.0111, align 8, !tbaa !48
+.lr.ph:                                           ; preds = %.loopexit97, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
+  %.sroa.086.0108 = phi ptr [ %.sroa.086.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %.sroa.0.1.i, %.loopexit97 ]
+  %73 = load ptr, ptr %.sroa.086.0108, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %73, ptr %6, align 8, !tbaa !48
   invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -9563,7 +9563,7 @@ define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_de
 
 74:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.086.0111, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.086.0108, i64 8
   %.not1.i.i = icmp eq ptr %75, %57
   br i1 %.not1.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, label %.lr.ph.i.i
 
@@ -9588,16 +9588,16 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
           cleanup
   br label %243
 
-.loopexit99:                                      ; preds = %.lr.ph.i.i.i38, %71, %._crit_edge
+.loopexit96:                                      ; preds = %.lr.ph.i.i.i38, %71, %._crit_edge
   %82 = phi ptr [ %65, %._crit_edge ], [ %66, %71 ], [ %66, %.lr.ph.i.i.i38 ]
   %83 = phi i64 [ 0, %._crit_edge ], [ %67, %71 ], [ %67, %.lr.ph.i.i.i38 ]
   %84 = phi ptr [ %.pre, %._crit_edge ], [ %68, %71 ], [ %68, %.lr.ph.i.i.i38 ]
   %.sroa.0.1.i40 = phi ptr [ %.pre, %._crit_edge ], [ %.sroa.0.0.i39, %.lr.ph.i.i.i38 ], [ %66, %71 ]
   %85 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %84, i64 %83
-  %.not96112 = icmp eq ptr %.sroa.0.1.i40, %85
-  br i1 %.not96112, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %.lr.ph115
+  %.not93109 = icmp eq ptr %.sroa.0.1.i40, %85
+  br i1 %.not93109, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %.lr.ph112
 
-.lr.ph115:                                        ; preds = %.loopexit99
+.lr.ph112:                                        ; preds = %.loopexit96
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -9612,11 +9612,11 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %114
 
-._crit_edge116:                                   ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79
+._crit_edge113:                                   ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79
   %.not.i.i47 = icmp eq ptr %237, null
   br i1 %.not.i.i47, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %98
 
-98:                                               ; preds = %._crit_edge116
+98:                                               ; preds = %._crit_edge113
   %99 = load ptr, ptr %52, align 8, !tbaa !53
   %100 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %101 = load i32, ptr %100, align 4, !tbaa !49
@@ -9636,7 +9636,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iter
   call void @__clang_call_terminate(ptr %107) #22
   unreachable
 
-_ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %.loopexit99, %._crit_edge116, %98, %104
+_ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %.loopexit96, %._crit_edge113, %98, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %108 = load ptr, ptr %7, align 8, !tbaa !226
   %109 = icmp eq ptr %108, null
@@ -9657,10 +9657,10 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK7obj_mapI9func_declP13obj_hashtableI4exprEE4findEPS0_RS4_.exit.thread
 
-114:                                              ; preds = %.lr.ph115, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79
-  %115 = phi ptr [ null, %.lr.ph115 ], [ %237, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79 ]
-  %.sroa.081.0113 = phi ptr [ %.sroa.0.1.i40, %.lr.ph115 ], [ %.sroa.081.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79 ]
-  %116 = load ptr, ptr %.sroa.081.0113, align 8, !tbaa !48
+114:                                              ; preds = %.lr.ph112, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79
+  %115 = phi ptr [ null, %.lr.ph112 ], [ %237, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79 ]
+  %.sroa.081.0110 = phi ptr [ %.sroa.0.1.i40, %.lr.ph112 ], [ %.sroa.081.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79 ]
+  %116 = load ptr, ptr %.sroa.081.0110, align 8, !tbaa !48
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = and i32 %118, 65535
@@ -9993,7 +9993,7 @@ _ZN7obj_refI10quantifier11ast_managerED2Ev.exit:  ; preds = %_ZN7obj_refI9func_d
 
 _ZNK7obj_mapI10quantifierSt4pairIP3appP4exprEE4findEPS0_RS6_.exit.thread: ; preds = %139, %153, %150, %.preheader.i.i.i54, %_ZN7obj_refI10quantifier11ast_managerED2Ev.exit, %114
   %237 = phi ptr [ %115, %153 ], [ %115, %114 ], [ %115, %.preheader.i.i.i54 ], [ %157, %_ZN7obj_refI10quantifier11ast_managerED2Ev.exit ], [ %115, %150 ], [ %115, %139 ]
-  %238 = getelementptr inbounds nuw i8, ptr %.sroa.081.0113, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 8
   %.not1.i.i76 = icmp eq ptr %238, %82
   br i1 %.not1.i.i76, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79, label %.lr.ph.i.i77
 
@@ -10010,8 +10010,8 @@ _ZNK7obj_mapI10quantifierSt4pairIP3appP4exprEE4findEPS0_RS6_.exit.thread: ; pred
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit79: ; preds = %.lr.ph.i.i77, %241, %_ZNK7obj_mapI10quantifierSt4pairIP3appP4exprEE4findEPS0_RS6_.exit.thread
   %.sroa.081.2 = phi ptr [ %238, %_ZNK7obj_mapI10quantifierSt4pairIP3appP4exprEE4findEPS0_RS6_.exit.thread ], [ %.sroa.081.1, %.lr.ph.i.i77 ], [ %242, %241 ]
-  %.not96 = icmp eq ptr %.sroa.081.2, %85
-  br i1 %.not96, label %._crit_edge116, label %114
+  %.not93 = icmp eq ptr %.sroa.081.2, %85
+  br i1 %.not93, label %._crit_edge113, label %114
 
 _ZNK7obj_mapI9func_declP13obj_hashtableI4exprEE4findEPS0_RS4_.exit.thread: ; preds = %30, %44, %41, %.preheader.i.i.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit
   ret void

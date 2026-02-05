@@ -673,8 +673,8 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
   br i1 %.not, label %._crit_edge39, label %.lr.ph38
 
 151:                                              ; preds = %.lr.ph, %151
-  %.sroa.010.135 = phi ptr [ %147, %.lr.ph ], [ %162, %151 ]
-  %152 = load i16, ptr %.sroa.010.135, align 2, !tbaa !226
+  %.sroa.010.035 = phi ptr [ %147, %.lr.ph ], [ %162, %151 ]
+  %152 = load i16, ptr %.sroa.010.035, align 2, !tbaa !226
   %153 = zext i16 %152 to i32
   %154 = and i32 %153, 31
   %155 = shl nuw i32 1, %154
@@ -685,7 +685,7 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
   %160 = load i32, ptr %159, align 4, !tbaa !214
   %161 = and i32 %160, %156
   store i32 %161, ptr %159, align 4, !tbaa !214
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.010.135, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.010.035, i64 2
   %.not21 = icmp eq ptr %162, %149
   br i1 %.not21, label %._crit_edge, label %151, !llvm.loop !236
 
@@ -753,8 +753,8 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread19: ; preds = 
   br label %195
 
 195:                                              ; preds = %.lr.ph42, %215
-  %.sroa.04.141 = phi ptr [ %191, %.lr.ph42 ], [ %216, %215 ]
-  %196 = load i16, ptr %.sroa.04.141, align 2, !tbaa !226
+  %.sroa.04.041 = phi ptr [ %191, %.lr.ph42 ], [ %216, %215 ]
+  %196 = load i16, ptr %.sroa.04.041, align 2, !tbaa !226
   %197 = zext i16 %196 to i32
   %198 = and i32 %197, 63
   %199 = zext nneg i32 %198 to i64
@@ -780,7 +780,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread19: ; preds = 
   br label %215
 
 215:                                              ; preds = %195, %206
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.04.141, i64 2
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.04.041, i64 2
   %.not23 = icmp eq ptr %216, %193
   br i1 %.not23, label %.loopexit, label %195, !llvm.loop !240
 

@@ -6700,28 +6700,28 @@ _ZNK5QHashIi5QListIP7QActionEE10isDetachedEv.exit: ; preds = %2
 
 8:                                                ; preds = %_ZNK5QHashIi5QListIP7QActionEE10isDetachedEv.exit
   store ptr null, ptr %3, align 8
-  br label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17
+  br label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11
 
 9:                                                ; preds = %_ZNK5QHashIi5QListIP7QActionEE10isDetachedEv.exit
   store ptr %5, ptr %3, align 8
   %10 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i = icmp eq i32 %10, -1
-  br i1 %.not.i.i, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
+  br i1 %.not.i.i, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
 
 _ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit:       ; preds = %9
   %11 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pr.pre = load ptr, ptr %0, align 8
   %.not.i5 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i5, label %14, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17
+  br i1 %.not.i5, label %14, label %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11
 
-_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17: ; preds = %8, %9, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
-  %.pr20 = phi ptr [ %.pr.pre, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit ], [ %5, %9 ], [ %5, %8 ]
-  %12 = load atomic i32, ptr %.pr20 monotonic, align 4
+_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11: ; preds = %8, %9, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
+  %.pr14 = phi ptr [ %.pr.pre, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit ], [ %5, %9 ], [ %5, %8 ]
+  %12 = load atomic i32, ptr %.pr14 monotonic, align 4
   %13 = icmp ugt i32 %12, 1
   br i1 %13, label %14, label %_ZN5QHashIi5QListIP7QActionEE6detachEv.exit
 
-14:                                               ; preds = %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
-  %15 = phi ptr [ null, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread ], [ %.pr20, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17 ], [ null, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit ]
+14:                                               ; preds = %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit
+  %15 = phi ptr [ null, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread ], [ %.pr14, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11 ], [ null, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit ]
   %16 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE8detachedEPS7_m(ptr noundef %15, i64 noundef 0)
           to label %.noexc unwind label %37
 
@@ -6729,8 +6729,8 @@ _ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17: ; preds = %8, %9, %_ZN5QHas
   store ptr %16, ptr %0, align 8
   br label %_ZN5QHashIi5QListIP7QActionEE6detachEv.exit
 
-_ZN5QHashIi5QListIP7QActionEE6detachEv.exit:      ; preds = %.noexc, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17
-  %17 = phi ptr [ %16, %.noexc ], [ %.pr20, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread17 ]
+_ZN5QHashIi5QListIP7QActionEE6detachEv.exit:      ; preds = %.noexc, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11
+  %17 = phi ptr [ %16, %.noexc ], [ %.pr14, %_ZN5QHashIi5QListIP7QActionEEC2ERKS4_.exit.thread11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, QList<QAction *>>>::InsertionResult") align 8 %4, ptr noundef align 8 dereferenceable_or_null(40) %17, ptr noundef align 4 dereferenceable(4) %1) #31
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16

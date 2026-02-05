@@ -6066,11 +6066,11 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %4
 59:                                               ; preds = %55
   %60 = and i64 %57, 7
   switch i64 %60, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread [
-    i64 0, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread55
+    i64 0, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread53
     i64 3, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit
   ]
 
-_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread55: ; preds = %59
+_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread53: ; preds = %59
   %61 = inttoptr i64 %57 to ptr
   store ptr %61, ptr %56, align 8, !tbaa !91
   br label %66
@@ -6082,7 +6082,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit: ; preds = %59
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread
 
-66:                                               ; preds = %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread55, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit
+66:                                               ; preds = %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread53, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit
   %67 = load ptr, ptr %14, align 8, !tbaa !206
   %68 = load ptr, ptr %67, align 8, !tbaa !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 128
@@ -6106,17 +6106,17 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit: ; preds = %59
   %81 = and i64 %74, -8
   %82 = inttoptr i64 %81 to ptr
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %.pre58 = load ptr, ptr %83, align 8, !tbaa !186
+  %.pre56 = load ptr, ptr %83, align 8, !tbaa !186
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
 _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %78, %80
-  %84 = phi ptr [ %79, %78 ], [ %.pre58, %80 ]
+  %84 = phi ptr [ %79, %78 ], [ %.pre56, %80 ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %84, align 8
   %85 = and i64 %.sroa.0.0.copyload.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %85, 0
   %86 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
-  %.not57 = icmp eq i64 %86, 0
-  %.not = or i1 %.not.i.i.i.i, %.not57
+  %.not55 = icmp eq i64 %86, 0
+  %.not = or i1 %.not.i.i.i.i, %.not55
   br i1 %.not, label %93, label %87
 
 87:                                               ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit

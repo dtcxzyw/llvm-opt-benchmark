@@ -5108,21 +5108,21 @@ define linkonce_odr void @_ZN4evmc8literals5parseINS_7addressEEET_St17basic_stri
   br i1 %17, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i, label %18
 
 18:                                               ; preds = %.thread, %16
-  %.sroa.02.0.i7 = phi i64 [ %1, %.thread ], [ %.sroa.02.0.i, %16 ]
-  %.sroa.6.0.i6 = phi ptr [ %2, %.thread ], [ %.sroa.6.0.i, %16 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i6, i64 %.sroa.02.0.i7
-  %.not48.i.i = icmp samesign eq i64 %.sroa.02.0.i7, 0
+  %.sroa.02.0.i6 = phi i64 [ %1, %.thread ], [ %.sroa.02.0.i, %16 ]
+  %.sroa.6.0.i5 = phi ptr [ %2, %.thread ], [ %.sroa.6.0.i, %16 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i5, i64 %.sroa.02.0.i6
+  %.not48.i.i = icmp samesign eq i64 %.sroa.02.0.i6, 0
   br i1 %.not48.i.i, label %46, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %18
-  %20 = lshr i64 %.sroa.02.0.i7, 1
+  %20 = lshr i64 %.sroa.02.0.i6, 1
   %21 = sub nuw nsw i64 20, %20
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %select.unfold38.i.i, %.lr.ph.preheader.i.i
   %.02352.i.i = phi ptr [ %.124.ph.i.i, %select.unfold38.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.02851.i.i = phi ptr [ %42, %select.unfold38.i.i ], [ %.sroa.6.0.i6, %.lr.ph.preheader.i.i ]
+  %.02851.i.i = phi ptr [ %42, %select.unfold38.i.i ], [ %.sroa.6.0.i5, %.lr.ph.preheader.i.i ]
   %.02950.i.i = phi i64 [ %43, %select.unfold38.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.03049.i.i = phi i32 [ %.131.ph.i.i, %select.unfold38.i.i ], [ -1, %.lr.ph.preheader.i.i ]
   %23 = load i8, ptr %.02851.i.i, align 1, !tbaa !34, !noalias !220
@@ -5176,7 +5176,7 @@ select.unfold38.i.i:                              ; preds = %38, %36, %_ZN4evmc8
   br i1 %.not.i.i, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i, label %.lr.ph.i.i, !llvm.loop !223
 
 _ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i:        ; preds = %select.unfold38.i.i
-  %44 = and i64 %.sroa.02.0.i7, 1
+  %44 = and i64 %.sroa.02.0.i6, 1
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %46, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i
 

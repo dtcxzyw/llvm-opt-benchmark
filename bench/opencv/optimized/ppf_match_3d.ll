@@ -4803,9 +4803,9 @@ _ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i: ; preds 
   br label %368
 
 368:                                              ; preds = %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
-  %.sroa.0434.2 = phi double [ %353, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
-  %.sroa.7.2 = phi double [ %360, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
-  %.sroa.9.2 = phi double [ %367, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
+  %.sroa.0434.0 = phi double [ %353, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
+  %.sroa.7.0 = phi double [ %360, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
+  %.sroa.9.0 = phi double [ %367, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
@@ -4813,11 +4813,11 @@ _ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %369 = load double, ptr %148, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %370 = fdiv double %.sroa.0434.2, %369
+  %370 = fdiv double %.sroa.0434.0, %369
   %371 = fptosi double %370 to i32
-  %372 = fdiv double %.sroa.7.2, %369
+  %372 = fdiv double %.sroa.7.0, %369
   %373 = fptosi double %372 to i32
-  %374 = fdiv double %.sroa.9.2, %369
+  %374 = fdiv double %.sroa.9.0, %369
   %375 = fptosi double %374 to i32
   %376 = fdiv double %340, %200
   %377 = fptosi double %376 to i32
@@ -5021,11 +5021,11 @@ _ZN2cvplIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %417
 .loopexit:                                        ; preds = %457, %.preheader364, %_ZN2cvplIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  %.pre439 = load i32, ptr %163, align 8, !tbaa !51
+  %.pre435 = load i32, ptr %163, align 8, !tbaa !51
   br label %485
 
 485:                                              ; preds = %.loopexit, %.lr.ph392
-  %486 = phi i32 [ %303, %.lr.ph392 ], [ %.pre439, %.loopexit ]
+  %486 = phi i32 [ %.pre435, %.loopexit ], [ %303, %.lr.ph392 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %487 = sext i32 %486 to i64
   %488 = icmp slt i64 %indvars.iv.next, %487

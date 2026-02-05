@@ -6724,7 +6724,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre20 = load i32, ptr %9, align 4, !tbaa !261
+  %.pre14 = load i32, ptr %9, align 4, !tbaa !261
   br label %56
 
 13:                                               ; preds = %2
@@ -6762,11 +6762,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
   %.pre = load ptr, ptr %33, align 8, !tbaa !310
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !273
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !269
-  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !272
+  %.pre8 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !273
+  %.phi.trans.insert9 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.pre10 = load ptr, ptr %.phi.trans.insert9, align 8, !tbaa !269
+  %.phi.trans.insert11 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8, !tbaa !272
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
 
 .critedge.i.i.i:                                  ; preds = %24
@@ -6775,9 +6775,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit: ; preds = %13, %28, %.critedge.i.i.i
-  %34 = phi ptr [ null, %13 ], [ %.pre18, %28 ], [ null, %.critedge.i.i.i ]
-  %35 = phi ptr [ null, %13 ], [ %.pre16, %28 ], [ null, %.critedge.i.i.i ]
-  %36 = phi ptr [ null, %13 ], [ %.pre14, %28 ], [ null, %.critedge.i.i.i ]
+  %34 = phi ptr [ null, %13 ], [ %.pre12, %28 ], [ null, %.critedge.i.i.i ]
+  %35 = phi ptr [ null, %13 ], [ %.pre10, %28 ], [ null, %.critedge.i.i.i ]
+  %36 = phi ptr [ null, %13 ], [ %.pre8, %28 ], [ null, %.critedge.i.i.i ]
   %37 = phi ptr [ %15, %13 ], [ %.pre, %28 ], [ %15, %.critedge.i.i.i ]
   %38 = phi ptr [ %.pre3.i, %13 ], [ %32, %28 ], [ %.pre.i, %.critedge.i.i.i ]
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %33, %28 ], [ %5, %.critedge.i.i.i ]
@@ -6806,8 +6806,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfL
   %52 = ptrtoint ptr %48 to i64
   %53 = sub i64 %51, %52
   call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #23
-  %.pre19 = load i32, ptr %18, align 8, !tbaa !222
-  %54 = add i32 %.pre19, -1
+  %.pre13 = load i32, ptr %18, align 8, !tbaa !222
+  %54 = add i32 %.pre13, -1
   br label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit: ; preds = %49, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
@@ -6817,7 +6817,7 @@ _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit: ; preds = %49, %_ZN4llv
   br label %56
 
 56:                                               ; preds = %._crit_edge, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit
-  %57 = phi i32 [ %.pre20, %._crit_edge ], [ %55, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit ]
+  %57 = phi i32 [ %.pre14, %._crit_edge ], [ %55, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = zext i32 %57 to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !221

@@ -8607,14 +8607,14 @@ _ZNK4llvm9StringRef5splitEc.exit138.i:            ; preds = %_ZNK4llvm9StringRef
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store ptr %610, ptr %30, align 8, !tbaa !97
   store i64 %611, ptr %.sroa.5317.0..sroa.4314.8..sroa_idx.i, align 8, !tbaa !59
-  %.not368.i = icmp ugt i64 %607, %609
-  br i1 %.not368.i, label %613, label %612
+  %.not366.i = icmp ugt i64 %607, %609
+  br i1 %.not366.i, label %613, label %612
 
 612:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit138.i, %_ZNK4llvm9StringRef5splitEc.exit138.thread.i
-  %.sroa.5309.0341.i = phi i64 [ %.sroa.5309.0.copyload.i, %_ZNK4llvm9StringRef5splitEc.exit138.thread.i ], [ %.sroa.speculated.i.i.i134.i, %_ZNK4llvm9StringRef5splitEc.exit138.i ]
-  %.sroa.0307.0340.i = phi ptr [ %.sroa.0307.0.copyload.i, %_ZNK4llvm9StringRef5splitEc.exit138.thread.i ], [ %608, %_ZNK4llvm9StringRef5splitEc.exit138.i ]
-  store ptr %.sroa.0307.0340.i, ptr %30, align 8, !tbaa !97
-  store i64 %.sroa.5309.0341.i, ptr %.sroa.5317.0..sroa.4314.8..sroa_idx.i, align 8, !tbaa !59
+  %.sroa.5309.0339.i = phi i64 [ %.sroa.5309.0.copyload.i, %_ZNK4llvm9StringRef5splitEc.exit138.thread.i ], [ %.sroa.speculated.i.i.i134.i, %_ZNK4llvm9StringRef5splitEc.exit138.i ]
+  %.sroa.0307.0338.i = phi ptr [ %.sroa.0307.0.copyload.i, %_ZNK4llvm9StringRef5splitEc.exit138.thread.i ], [ %608, %_ZNK4llvm9StringRef5splitEc.exit138.i ]
+  store ptr %.sroa.0307.0338.i, ptr %30, align 8, !tbaa !97
+  store i64 %.sroa.5309.0339.i, ptr %.sroa.5317.0..sroa.4314.8..sroa_idx.i, align 8, !tbaa !59
   br label %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit.i
 
 613:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit138.i
@@ -8971,12 +8971,12 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144.i: ; preds = %
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i: ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144.i, %767, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit233.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %32) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 _ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit.i: ; preds = %622, %612
-  %.sroa.043.0.copyload.i = phi ptr [ %.sroa.0307.0340.i, %612 ], [ %610, %622 ]
-  %.sroa.244.0.copyload.i = phi i64 [ %.sroa.5309.0341.i, %612 ], [ %611, %622 ]
-  %.not369.i = phi i1 [ false, %612 ], [ true, %622 ]
+  %.sroa.043.0.copyload.i = phi ptr [ %.sroa.0307.0338.i, %612 ], [ %610, %622 ]
+  %.sroa.244.0.copyload.i = phi i64 [ %.sroa.5309.0339.i, %612 ], [ %611, %622 ]
+  %.not367.i = phi i1 [ false, %612 ], [ true, %622 ]
   %788 = icmp eq i64 %.sroa.244.0.copyload.i, 0
   br i1 %788, label %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.thread.i, label %789
 
@@ -9010,7 +9010,7 @@ _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i148.i: ; preds = %796, %_ZN
 _ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i: ; preds = %796
   switch i64 %.sroa.244.0.copyload.i, label %_ZN4llvmeqENS_9StringRefES0_.exit163.thread.i [
     i64 1, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
-    i64 9, label %.thread348.i
+    i64 9, label %.thread346.i
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i
@@ -9340,9 +9340,9 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i158.i: ; preds = %
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit159.i: ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i158.i, %942, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit269.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %33) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
-.thread348.i:                                     ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i
+.thread346.i:                                     ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i
   %bcmp.i162.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.sroa.043.0.copyload.i, ptr noundef nonnull dereferenceable(9) @.str.6, i64 9)
   %963 = icmp eq i32 %bcmp.i162.i, 0
   %.not.i = xor i1 %963, true
@@ -9350,7 +9350,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit159.i: ; preds = %
   %or.cond3.i = or i1 %.0117.i, %or.cond.i
   br i1 %or.cond3.i, label %_ZN4llvmeqENS_9StringRefES0_.exit163.thread.i, label %964
 
-964:                                              ; preds = %.thread348.i
+964:                                              ; preds = %.thread346.i
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %965 = getelementptr inbounds nuw i8, ptr %499, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %965, i32 %4, i32 noundef 6229, i1 noundef zeroext false) #18
@@ -9451,10 +9451,10 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i168.i: ; preds = %
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit169.i: ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i168.i, %1000, %998
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %34) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
-_ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i
-  %.0.i161353.i = phi i1 [ %963, %.thread348.i ], [ false, %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+_ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread346.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i
+  %.0.i161351.i = phi i1 [ %963, %.thread346.i ], [ false, %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit152.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %1021 = load i64, ptr %.sroa.9320.16..sroa.0313.0..sroa_idx.i, align 8, !tbaa !854
   %1022 = icmp eq i64 %1021, 0
   br i1 %1022, label %1023, label %1026
@@ -9466,7 +9466,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
   %1025 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %35) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1026:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit163.thread.i
   %1027 = add i64 %1021, -1
@@ -9476,7 +9476,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
   br i1 %1029, label %1030, label %1039
 
 1030:                                             ; preds = %1026
-  br i1 %.0.i161353.i, label %1031, label %1035
+  br i1 %.0.i161351.i, label %1031, label %1035
 
 1031:                                             ; preds = %1030
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -9489,7 +9489,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %36) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1035:                                             ; preds = %1030
   br i1 %.0117.i, label %1036, label %1119
@@ -9501,7 +9501,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
   %1038 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %38) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1039:                                             ; preds = %1026
   %1040 = getelementptr i8, ptr %1028, i64 %1027
@@ -9517,7 +9517,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
   %1045 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %39, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %39) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 .preheader.i:                                     ; preds = %1039, %_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i
   %.1364 = phi i32 [ %1079, %_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i ], [ 0, %1039 ]
@@ -9548,11 +9548,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit163.thread.i:    ; preds = %.thread348.i, %_ZN4
 _ZNK4llvm9StringRef5splitEc.exit174.i:            ; preds = %1049, %1048
   %.sroa.0286.0.i = phi ptr [ %.sroa.0286.0.copyload.i, %1048 ], [ %1051, %1049 ]
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %1048 ], [ %.sroa.speculated.i.i.i170.i, %1049 ]
-  %.sroa.9.1.i = phi i64 [ 0, %1048 ], [ %1054, %1049 ]
-  %.sroa.6.1.i = phi ptr [ null, %1048 ], [ %1053, %1049 ]
+  %.sroa.9.0.i = phi i64 [ 0, %1048 ], [ %1054, %1049 ]
+  %.sroa.6.0.i = phi ptr [ null, %1048 ], [ %1053, %1049 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  store ptr %.sroa.6.1.i, ptr %31, align 8, !tbaa !97
-  store i64 %.sroa.9.1.i, ptr %.sroa.9320.16..sroa.0313.0..sroa_idx.i, align 8, !tbaa !59
+  store ptr %.sroa.6.0.i, ptr %31, align 8, !tbaa !97
+  store i64 %.sroa.9.0.i, ptr %.sroa.9320.16..sroa.0313.0..sroa_idx.i, align 8, !tbaa !59
   %1055 = icmp eq i64 %.sroa.5.0.i, 0
   br i1 %1055, label %.loopexit.i, label %1056
 
@@ -9594,12 +9594,12 @@ _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i178.i: ; preds = %1063, %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %40) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 _ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit182.i: ; preds = %1063
   %.not.i183.i = icmp eq i64 %.sroa.5.0.i, 4
-  %or.cond370.i = and i1 %.not369.i, %.not.i183.i
-  br i1 %or.cond370.i, label %_ZN4llvmeqENS_9StringRefES0_.exit186.i, label %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i
+  %or.cond368.i = and i1 %.not367.i, %.not.i183.i
+  br i1 %or.cond368.i, label %_ZN4llvmeqENS_9StringRefES0_.exit186.i, label %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit186.i:           ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit182.i
   %bcmp.i185.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0286.0.i, ptr noundef nonnull dereferenceable(4) @.str.7, i64 4)
@@ -9617,33 +9617,33 @@ _ZN4llvmeqENS_9StringRefES0_.exit186.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   %1076 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %42, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %42) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
-_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i: ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit182.i
+_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i: ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit182.i
   %.not.i187.i = icmp eq i64 %.sroa.5.0.i, 8
   br i1 %.not.i187.i, label %_ZN4llvmeqENS_9StringRefES0_.exit190.i, label %_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit190.i:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i
+_ZN4llvmeqENS_9StringRefES0_.exit190.i:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i
   %bcmp.i189.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.0286.0.i, ptr noundef nonnull dereferenceable(8) @.str.8, i64 8)
   %1077 = icmp eq i32 %bcmp.i189.i, 0
   %spec.select.i = select i1 %1077, i1 true, i1 %.sroa.3.0.i
   %1078 = zext i1 %1077 to i32
-  %spec.select371.i = add i32 %.0120.i, %1078
+  %spec.select369.i = add i32 %.0120.i, %1078
   br label %_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit190.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i
-  %.sroa.3.1.i = phi i1 [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i ]
-  %.sroa.3293.1.i = phi i8 [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i ]
-  %.1121.i = phi i32 [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %spec.select371.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread356.i ]
+_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit190.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i
+  %.sroa.3.1.i = phi i1 [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.sroa.3.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i ]
+  %.sroa.3293.1.i = phi i8 [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.sroa.3293.0.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i ]
+  %.1121.i = phi i32 [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.i ], [ %spec.select369.i, %_ZN4llvmeqENS_9StringRefES0_.exit190.i ], [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread.i ], [ %.0120.i, %_ZN4llvmeqENS_9StringRefES0_.exit186.thread354.i ]
   %1079 = add i32 %.1364, 1
-  %1080 = icmp eq i64 %.sroa.9.1.i, 0
+  %1080 = icmp eq i64 %.sroa.9.0.i, 0
   br i1 %1080, label %1081, label %.preheader.i, !llvm.loop !872
 
 1081:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit190.thread.i
-  %.0.i161353.not.i = xor i1 %.0.i161353.i, true
+  %.0.i161351.not.i = xor i1 %.0.i161351.i, true
   %1082 = trunc nuw i8 %.sroa.3293.1.i to i1
-  %or.cond367.i = select i1 %.0.i161353.not.i, i1 true, i1 %1082
-  br i1 %or.cond367.i, label %1087, label %1083
+  %or.cond365.i = select i1 %.0.i161351.not.i, i1 true, i1 %1082
+  br i1 %or.cond365.i, label %1087, label %1083
 
 1083:                                             ; preds = %1081
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -9656,39 +9656,39 @@ _ZN4llvmeqENS_9StringRefES0_.exit190.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %43) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1087:                                             ; preds = %1081
   %1088 = icmp eq i32 %.1364, 0
   %.sroa.216.0.copyload.i = load i64, ptr %.sroa.5317.0..sroa.4314.8..sroa_idx.i, align 8
   %.not.i191.i = icmp eq i64 %.sroa.216.0.copyload.i, 4
-  %or.cond448.i = select i1 %1088, i1 %.not.i191.i, i1 false
-  br i1 %or.cond448.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i
+  %or.cond446.i = select i1 %1088, i1 %.not.i191.i, i1 false
+  br i1 %or.cond446.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit194.i:           ; preds = %1087
   %.sroa.015.0.copyload.i = load ptr, ptr %30, align 8, !tbaa !97
   %bcmp.i193.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.015.0.copyload.i, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %1089 = icmp eq i32 %bcmp.i193.i, 0
-  br i1 %1089, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i
+  br i1 %1089, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit194.thread.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194.i
   %.not.i.i195.not.i = icmp ne i64 %.sroa.5.0.i, 1
   %1090 = icmp ne i8 %1057, 95
   %spec.select = or i1 %.not.i.i195.not.i, %1090
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit194.i, %1087
+_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit194.i, %1087
   %1091 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit194.i ], [ false, %1087 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread.i ]
   %or.cond5.i = or i1 %507, %.0117.i
   br i1 %or.cond5.i, label %1092, label %1119
 
-1092:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i
+1092:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i
   %not..i = xor i1 %507, true
   %1093 = zext i1 %not..i to i32
   %1094 = select i1 %507, i32 6222, i32 6227
   %1095 = select i1 %507, i32 1, i32 2
   %spec.select126.i = select i1 %1082, i32 %1095, i32 %1093
-  br i1 %.0.i161353.i, label %1096, label %1115
+  br i1 %.0.i161351.i, label %1096, label %1115
 
 1096:                                             ; preds = %1092
   %1097 = icmp ult i32 %1079, %spec.select126.i
@@ -9701,7 +9701,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9Stri
   %1100 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %45, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %45) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1101:                                             ; preds = %1096
   br i1 %.0117.i, label %1102, label %1111
@@ -9716,7 +9716,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9Stri
   %1105 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %46, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %46) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1106:                                             ; preds = %1102
   %1107 = icmp ugt i32 %.1121.i, 1
@@ -9729,7 +9729,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9Stri
   %1110 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %47, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %47) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1111:                                             ; preds = %1101
   br i1 %.sroa.3.1.i, label %1112, label %1119
@@ -9741,7 +9741,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9Stri
   %1114 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %48, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
 1115:                                             ; preds = %1092
   %.not125.i = icmp eq i32 %1079, %spec.select126.i
@@ -9754,17 +9754,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i: ; preds = %_ZN4llvmeqENS_9Stri
   %1118 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %49, ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %49) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379
+  br label %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377
 
-_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379: ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit159.i, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i, %1023, %1031, %1036, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit169.i, %1043, %1074, %.loopexit.i, %1083, %1112, %1103, %1116, %1108, %1098
+_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377: ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit159.i, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i, %1023, %1031, %1036, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit169.i, %1043, %1074, %.loopexit.i, %1083, %1112, %1103, %1116, %1108, %1098
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge61
 
-1119:                                             ; preds = %1115, %1111, %1106, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i, %1035
-  %.0365 = phi i1 [ %1091, %1106 ], [ %1091, %1115 ], [ %1091, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i ], [ %1091, %1111 ], [ false, %1035 ]
-  %.0363 = phi i32 [ %1079, %1106 ], [ %1079, %1115 ], [ %1079, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread365.i ], [ %1079, %1111 ], [ 0, %1035 ]
+1119:                                             ; preds = %1115, %1111, %1106, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i, %1035
+  %.0365 = phi i1 [ %1091, %1106 ], [ %1091, %1115 ], [ %1091, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i ], [ %1091, %1111 ], [ false, %1035 ]
+  %.0363 = phi i32 [ %1079, %1106 ], [ %1079, %1115 ], [ %1079, %_ZN4llvmeqENS_9StringRefES0_.exit194.thread363.i ], [ %1079, %1111 ], [ 0, %1035 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -9830,8 +9830,8 @@ _ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLoc
 "_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit.loopexit", %1123
   %.0.lcssa.i.i.i = phi i32 [ 0, %1123 ], [ %1147, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit.loopexit" ]
   %1148 = add i32 %.0363, %.0.lcssa.i.i.i
-  %.not400 = icmp ult i32 %1148, %.1
-  br i1 %.not400, label %1152, label %.critedge61
+  %.not398 = icmp ult i32 %1148, %.1
+  br i1 %.not398, label %1152, label %.critedge61
 
 1149:                                             ; preds = %1121
   %1150 = icmp eq i32 %.1, 0
@@ -10540,7 +10540,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %1477
 
 1486:                                             ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %1487 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %1487, label %.loopexit402, label %1488
+  br i1 %1487, label %.loopexit400, label %1488
 
 1488:                                             ; preds = %1486
   %1489 = load i8, ptr %1481, align 1, !tbaa !54
@@ -10549,7 +10549,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %1477
   %1492 = load i16, ptr %1491, align 2, !tbaa !863
   %1493 = and i16 %1492, 224
   %.not.i.i91.not = icmp eq i16 %1493, 0
-  br i1 %.not.i.i91.not, label %.loopexit402, label %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i
+  br i1 %.not.i.i91.not, label %.loopexit400, label %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i
 
 _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i: ; preds = %1488
   %1494 = getelementptr inbounds nuw i8, ptr %1481, i64 %.sroa.speculated.i.i.i
@@ -10567,9 +10567,9 @@ _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i: ; preds = %1495, %_ZN5cla
   %1499 = getelementptr inbounds nuw i8, ptr @_ZZN5clang25isAsciiIdentifierContinueEhE10IDContinue, i64 %1498
   %1500 = load i8, ptr %1499, align 1, !tbaa !54
   %.not.i9.i.not = icmp eq i8 %1500, 0
-  br i1 %.not.i9.i.not, label %.loopexit402, label %1495
+  br i1 %.not.i9.i.not, label %.loopexit400, label %1495
 
-.loopexit402:                                     ; preds = %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i, %1488, %1486
+.loopexit400:                                     ; preds = %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i, %1488, %1486
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %60, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %4, i32 noundef 6223, i1 noundef zeroext false) #18
   %1501 = getelementptr inbounds nuw i8, ptr %60, i64 120
@@ -10577,14 +10577,14 @@ _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i: ; preds = %1495, %_ZN5cla
   %1503 = trunc nuw i8 %1502 to i1
   br i1 %1503, label %1504, label %1508
 
-1504:                                             ; preds = %.loopexit402
+1504:                                             ; preds = %.loopexit400
   %1505 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %1506 = load ptr, ptr %5, align 8, !tbaa !103
   %1507 = ptrtoint ptr %1506 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %1505, i64 noundef %1507, i32 noundef 5)
   br label %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit97
 
-1508:                                             ; preds = %.loopexit402
+1508:                                             ; preds = %.loopexit400
   %1509 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %1510 = getelementptr inbounds nuw i8, ptr %60, i64 132
   %1511 = load i8, ptr %1510, align 4, !tbaa !60, !range !28, !noundef !29
@@ -10672,13 +10672,13 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %1533,
   br label %.critedge61
 
 _ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit: ; preds = %1495, %_ZNK4llvm9StringRef5splitEc.exit, %_ZNK4llvm9StringRef5splitEc.exit.thread
-  %.sroa.0373.0 = phi ptr [ %1481, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.sroa.0321.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ], [ %1483, %1495 ]
-  %.sroa.6.0375 = phi i64 [ %.sroa.speculated.i.i.i, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.sroa.5.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ], [ %1484, %1495 ]
-  %1556 = icmp eq i64 %.sroa.6.0375, 0
+  %.sroa.6.0373 = phi i64 [ %.sroa.speculated.i.i.i, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.sroa.5.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ], [ %1484, %1495 ]
+  %.sroa.0371.0 = phi ptr [ %1481, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.sroa.0321.0.copyload, %_ZNK4llvm9StringRef5splitEc.exit.thread ], [ %1483, %1495 ]
+  %1556 = icmp eq i64 %.sroa.6.0373, 0
   br i1 %1556, label %.loopexit, label %1557
 
 1557:                                             ; preds = %_ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit
-  %1558 = load i8, ptr %.sroa.0373.0, align 1, !tbaa !54
+  %1558 = load i8, ptr %.sroa.0371.0, align 1, !tbaa !54
   %1559 = zext i8 %1558 to i64
   %1560 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %1559
   %1561 = load i16, ptr %1560, align 2, !tbaa !863
@@ -10687,7 +10687,7 @@ _ZN5clang22isValidAsciiIdentifierEN4llvm9StringRefEb.exit: ; preds = %1495, %_ZN
   br i1 %.not.i.i100.not, label %.loopexit, label %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104
 
 _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104: ; preds = %1557
-  %1563 = getelementptr inbounds nuw i8, ptr %.sroa.0373.0, i64 %.sroa.6.0375
+  %1563 = getelementptr inbounds nuw i8, ptr %.sroa.0371.0, i64 %.sroa.6.0373
   br label %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i105
 
 1564:                                             ; preds = %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i105
@@ -10696,7 +10696,7 @@ _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104: ; preds = %1
   br i1 %.not.i108, label %.critedge61, label %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i105, !llvm.loop !865
 
 _ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.i105: ; preds = %1564, %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104
-  %.0820.i106 = phi ptr [ %1565, %1564 ], [ %.sroa.0373.0, %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104 ]
+  %.0820.i106 = phi ptr [ %1565, %1564 ], [ %.sroa.0371.0, %_ZN5clang25isAsciiIdentifierContinueEhb.exit.thread.preheader.i104 ]
   %1566 = load i8, ptr %.0820.i106, align 1, !tbaa !54
   %1567 = zext i8 %1566 to i64
   %1568 = getelementptr inbounds nuw i8, ptr @_ZZN5clang25isAsciiIdentifierContinueEhE10IDContinue, i64 %1567
@@ -11196,8 +11196,8 @@ _ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %.critedge61
 
-.critedge61:                                      ; preds = %1564, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit115, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit90, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77, %1149, %1119, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit", %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit118
-  %.6 = phi i1 [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread ], [ true, %1149 ], [ false, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit118 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit115 ], [ true, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit" ], [ true, %1119 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit ], [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread379 ], [ false, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit90 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ true, %1564 ]
+.critedge61:                                      ; preds = %1564, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit115, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit90, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77, %1149, %1119, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit", %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit118
+  %.6 = phi i1 [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread ], [ true, %1149 ], [ false, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit118 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit115 ], [ true, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit" ], [ true, %1119 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit ], [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread377 ], [ false, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit90 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ true, %1564 ]
   ret i1 %.6
 }
 

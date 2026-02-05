@@ -4132,14 +4132,14 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %._crit_edge.i.i.i, 
   store i8 0, ptr %36, align 1, !tbaa !120
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !113
   %.pre = load ptr, ptr %6, align 8, !tbaa !121
-  %.pre52 = load i64, ptr %34, align 8, !tbaa !118
+  %.pre44 = load i64, ptr %34, align 8, !tbaa !118
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm19DependenceGraphInfoINS_7DDGNodeEEE, i64 16), ptr %0, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %38, ptr %37, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.pre52, ptr %4, align 8, !tbaa !55
-  %39 = icmp ugt i64 %.pre52, 15
+  store i64 %.pre44, ptr %4, align 8, !tbaa !55
+  %39 = icmp ugt i64 %.pre44, 15
   br i1 %39, label %40, label %._crit_edge.i.i.i9
 
 40:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
@@ -4151,7 +4151,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %._crit_edge.i.i.i, 
 
 ._crit_edge.i.i.i9:                               ; preds = %40, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %43 = phi ptr [ %41, %40 ], [ %38, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
-  switch i64 %.pre52, label %46 [
+  switch i64 %.pre44, label %46 [
     i64 1, label %44
     i64 0, label %_ZN4llvm19DependenceGraphInfoINS_7DDGNodeEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DependenceInfoE.exit
   ]
@@ -4162,7 +4162,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %._crit_edge.i.i.i, 
   br label %_ZN4llvm19DependenceGraphInfoINS_7DDGNodeEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DependenceInfoE.exit
 
 46:                                               ; preds = %._crit_edge.i.i.i9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %.pre, i64 %.pre52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %.pre, i64 %.pre44, i1 false)
   br label %_ZN4llvm19DependenceGraphInfoINS_7DDGNodeEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DependenceInfoE.exit
 
 _ZN4llvm19DependenceGraphInfoINS_7DDGNodeEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DependenceInfoE.exit: ; preds = %._crit_edge.i.i.i9.thread, %._crit_edge.i.i.i9, %44, %46
@@ -4405,28 +4405,28 @@ _ZSteqIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElemen
 
 180:                                              ; preds = %_ZSteqIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EEbRKSt6vectorIT_T0_ESE_.exit.i.i
   %.not.not.i.i.i.i.i.i.i = icmp eq ptr %169, %170
-  br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit
+  br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit
 
 _ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit: ; preds = %180
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %170, ptr %175, i64 %173)
   %.not9.i.i.i.i.i3.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i3.i.i.not, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread
+  br i1 %.not9.i.i.i.i.i3.i.i.not, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40, label %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread
 
-_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48: ; preds = %180, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit
+_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40: ; preds = %180, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit
   %.not.i.i.i.i16 = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i16, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i17, label %181
 
-181:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48
+181:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40
   %182 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %183 = load ptr, ptr %182, align 8, !tbaa !167
   %184 = ptrtoint ptr %183 to i64
   %185 = sub i64 %184, %148
   call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %185) #26
-  %.pre53 = load ptr, ptr %136, align 8, !tbaa !162
+  %.pre45 = load ptr, ptr %136, align 8, !tbaa !162
   br label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i17
 
-_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i17: ; preds = %181, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48
-  %186 = phi ptr [ %.pre53, %181 ], [ %175, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread48 ]
+_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_8FunctionENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i17: ; preds = %181, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40
+  %186 = phi ptr [ %.pre45, %181 ], [ %175, %_ZNK4llvm20iterator_facade_baseINS_12scc_iteratorIPNS_8FunctionENS_11GraphTraitsIS3_EEEESt20forward_iterator_tagKSt6vectorIPNS_10BasicBlockESaISA_EElPSD_RSD_EneERKS6_.exit.thread40 ]
   %.not.i.i.i1.i18 = icmp eq ptr %186, null
   br i1 %.not.i.i.i1.i18, label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EED2Ev.exit.i19, label %187
 

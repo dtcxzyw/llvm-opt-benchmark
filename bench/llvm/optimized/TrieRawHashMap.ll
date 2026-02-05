@@ -1556,12 +1556,12 @@ define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getNextT
   %8 = load atomic i64, ptr %7 seq_cst, align 8
   %9 = inttoptr i64 %8 to ptr
   %.not9 = icmp eq i64 %8, 0
-  %spec.select32 = select i1 %.not9, i64 4294967295, i64 4294967294
+  %spec.select28 = select i1 %.not9, i64 4294967295, i64 4294967294
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %4, %3
   %.sroa.0.0 = phi ptr [ null, %4 ], [ null, %3 ], [ %9, %6 ]
-  %.sroa.8.0 = phi i64 [ 4294967295, %4 ], [ 4294967295, %3 ], [ %spec.select32, %6 ]
+  %.sroa.8.0 = phi i64 [ 4294967295, %4 ], [ 4294967295, %3 ], [ %spec.select28, %6 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert

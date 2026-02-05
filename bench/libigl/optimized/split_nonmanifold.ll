@@ -3088,26 +3088,26 @@ _ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiL
   br label %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit
 
 _ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit: ; preds = %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.10178.1 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %50, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
-  %.sroa.8177.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.0.i.i.i.i.i.ph.i, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
-  %.sroa.0174.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %36, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
+  %.sroa.10178.0 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %50, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
+  %.sroa.8177.0 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.0.i.i.i.i.i.ph.i, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
+  %.sroa.0174.0 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %36, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit.loopexit ]
   %51 = load ptr, ptr %19, align 8, !tbaa !35
   %52 = load ptr, ptr %8, align 8, !tbaa !35
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = getelementptr inbounds i8, ptr %52, i64 %55
-  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %56, ptr %.sroa.0174.1, ptr %.sroa.8177.1)
+  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %56, ptr %.sroa.0174.0, ptr %.sroa.8177.0)
           to label %57 unwind label %61
 
 57:                                               ; preds = %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit
-  %.not.i.i.i = icmp eq ptr %.sroa.0174.1, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0174.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %58
 
 58:                                               ; preds = %57
-  %59 = ptrtoint ptr %.sroa.0174.1 to i64
-  %60 = sub i64 %.sroa.10178.1, %59
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0174.1, i64 noundef %60) #24
+  %59 = ptrtoint ptr %.sroa.0174.0 to i64
+  %60 = sub i64 %.sroa.10178.0, %59
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0174.0, i64 noundef %60) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %57, %58
@@ -3128,13 +3128,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %57, %58
 61:                                               ; preds = %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i53 = icmp eq ptr %.sroa.0174.1, null
+  %.not.i.i.i53 = icmp eq ptr %.sroa.0174.0, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIiSaIiEED2Ev.exit54, label %63
 
 63:                                               ; preds = %61
-  %64 = ptrtoint ptr %.sroa.0174.1 to i64
-  %65 = sub i64 %.sroa.10178.1, %64
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0174.1, i64 noundef %65) #24
+  %64 = ptrtoint ptr %.sroa.0174.0 to i64
+  %65 = sub i64 %.sroa.10178.0, %64
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0174.0, i64 noundef %65) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit54
 
 _ZNSt6vectorIiSaIiEED2Ev.exit54:                  ; preds = %.loopexit214, %.loopexit.split-lp, %63, %61

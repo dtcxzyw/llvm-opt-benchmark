@@ -126,9 +126,9 @@ define dso_local void @_ZN4llvm7remarks17ParsedStringTableC2ENS_9StringRefE(ptr 
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %14, %15
-  %.sroa.9.1 = phi i64 [ 0, %14 ], [ %20, %15 ]
+  %.sroa.9.0 = phi i64 [ 0, %14 ], [ %20, %15 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %14 ], [ %17, %15 ]
-  %.sroa.6.1 = phi ptr [ null, %14 ], [ %19, %15 ]
+  %.sroa.6.0 = phi ptr [ null, %14 ], [ %19, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = load ptr, ptr %0, align 8, !tbaa !20
   %22 = ptrtoint ptr %.sroa.0.0 to i64
@@ -194,9 +194,9 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %27, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
-  store ptr %.sroa.6.1, ptr %5, align 8, !tbaa !4
-  store i64 %.sroa.9.1, ptr %6, align 8, !tbaa !9
-  %49 = icmp eq i64 %.sroa.9.1, 0
+  store ptr %.sroa.6.0, ptr %5, align 8, !tbaa !4
+  store i64 %.sroa.9.0, ptr %6, align 8, !tbaa !9
+  %49 = icmp eq i64 %.sroa.9.0, 0
   br i1 %49, label %._crit_edge, label %11, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit, %3

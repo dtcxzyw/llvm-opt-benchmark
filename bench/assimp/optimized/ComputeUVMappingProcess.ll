@@ -265,15 +265,15 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess20ComputeSphereMappingEP6
   %21 = load float, ptr %20, align 4
   %22 = call noundef float @llvm.fmuladd.f32(float %21, float 0.000000e+00, float %19)
   %23 = fcmp ult float %22, 0x3FEE666660000000
-  br i1 %23, label %59, label %.preheader141
+  br i1 %23, label %59, label %.preheader140
 
-.preheader141:                                    ; preds = %4
+.preheader140:                                    ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader141
+.lr.ph:                                           ; preds = %.preheader140
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load float, ptr %6, align 4
   %28 = load float, ptr %9, align 4
@@ -304,29 +304,29 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %30
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %43)
   %45 = fdiv float 1.000000e+00, %sqrt.i.i
   %46 = fmul float %34, %45
-  %.sroa.0130.0.vec.insert = insertelement <2 x float> poison, float %46, i64 0
+  %.sroa.0129.0.vec.insert = insertelement <2 x float> poison, float %46, i64 0
   %47 = fmul float %37, %45
-  %.sroa.0130.4.vec.insert = insertelement <2 x float> %.sroa.0130.0.vec.insert, float %47, i64 1
+  %.sroa.0129.4.vec.insert = insertelement <2 x float> %.sroa.0129.0.vec.insert, float %47, i64 1
   %48 = fmul float %40, %45
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit
 
 _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %30, %_ZN10aiVector3tIfEdVEf.exit.i
-  %.sroa.0130.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %30 ], [ %.sroa.0130.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %.sroa.9137.0 = phi float [ %40, %30 ], [ %48, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %.sroa.0130.0.vec.extract133 = extractelement <2 x float> %.sroa.0130.0, i64 0
-  %.sroa.0130.4.vec.extract136 = extractelement <2 x float> %.sroa.0130.0, i64 1
-  %49 = call noundef float @atan2f(float noundef %.sroa.9137.0, float noundef %.sroa.0130.4.vec.extract136) #21
+  %.sroa.0129.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %30 ], [ %.sroa.0129.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %.sroa.9136.0 = phi float [ %40, %30 ], [ %48, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %.sroa.0129.0.vec.extract132 = extractelement <2 x float> %.sroa.0129.0, i64 0
+  %.sroa.0129.4.vec.extract135 = extractelement <2 x float> %.sroa.0129.0, i64 1
+  %49 = call noundef float @atan2f(float noundef %.sroa.9136.0, float noundef %.sroa.0129.4.vec.extract135) #21
   %50 = fadd float %49, 0x400921FB60000000
   %51 = fdiv float %50, 0x401921FB60000000
-  %52 = call noundef float @asinf(float noundef %.sroa.0130.0.vec.extract133) #21
+  %52 = call noundef float @asinf(float noundef %.sroa.0129.0.vec.extract132) #21
   %53 = fadd float %52, 0x3FF921FB60000000
   %54 = fdiv float %53, 0x400921FB60000000
   %55 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv
   store float %51, ptr %55, align 4
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store float %54, ptr %.sroa.4128.0..sroa_idx, align 4
-  %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store float 0.000000e+00, ptr %.sroa.5129.0..sroa_idx, align 4
+  %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store float %54, ptr %.sroa.4127.0..sroa_idx, align 4
+  %.sroa.5128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store float 0.000000e+00, ptr %.sroa.5128.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %24, align 4
   %57 = zext i32 %56 to i64
@@ -337,25 +337,25 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %30, %_ZN10aiVector3
   %60 = call float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %17)
   %61 = call noundef float @llvm.fmuladd.f32(float %21, float 0.000000e+00, float %60)
   %62 = fcmp ult float %61, 0x3FEE666660000000
-  br i1 %62, label %98, label %.preheader139
+  br i1 %62, label %98, label %.preheader138
 
-.preheader139:                                    ; preds = %59
+.preheader138:                                    ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %64 = load i32, ptr %63, align 4
-  %.not150 = icmp eq i32 %64, 0
-  br i1 %.not150, label %.loopexit, label %.lr.ph145
+  %.not149 = icmp eq i32 %64, 0
+  br i1 %.not149, label %.loopexit, label %.lr.ph144
 
-.lr.ph145:                                        ; preds = %.preheader139
+.lr.ph144:                                        ; preds = %.preheader138
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load float, ptr %6, align 4
   %67 = load float, ptr %9, align 4
   %68 = load float, ptr %10, align 4
   br label %69
 
-69:                                               ; preds = %.lr.ph145, %_ZN10aiVector3tIfE9NormalizeEv.exit69
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next158, %_ZN10aiVector3tIfE9NormalizeEv.exit69 ]
+69:                                               ; preds = %.lr.ph144, %_ZN10aiVector3tIfE9NormalizeEv.exit69
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next157, %_ZN10aiVector3tIfE9NormalizeEv.exit69 ]
   %70 = load ptr, ptr %65, align 8
-  %71 = getelementptr inbounds nuw %class.aiVector3t, ptr %70, i64 %indvars.iv157
+  %71 = getelementptr inbounds nuw %class.aiVector3t, ptr %70, i64 %indvars.iv156
   %72 = load float, ptr %71, align 4
   %73 = fsub float %72, %66
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -376,33 +376,33 @@ _ZN10aiVector3tIfEdVEf.exit.i67:                  ; preds = %69
   %sqrt.i.i68 = call noundef float @llvm.sqrt.f32(float %82)
   %84 = fdiv float 1.000000e+00, %sqrt.i.i68
   %85 = fmul float %73, %84
-  %.sroa.0119.0.vec.insert = insertelement <2 x float> poison, float %85, i64 0
+  %.sroa.0118.0.vec.insert = insertelement <2 x float> poison, float %85, i64 0
   %86 = fmul float %76, %84
-  %.sroa.0119.4.vec.insert = insertelement <2 x float> %.sroa.0119.0.vec.insert, float %86, i64 1
+  %.sroa.0118.4.vec.insert = insertelement <2 x float> %.sroa.0118.0.vec.insert, float %86, i64 1
   %87 = fmul float %79, %84
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit69
 
 _ZN10aiVector3tIfE9NormalizeEv.exit69:            ; preds = %69, %_ZN10aiVector3tIfEdVEf.exit.i67
-  %.sroa.0119.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i64, %69 ], [ %.sroa.0119.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i67 ]
-  %.sroa.9126.0 = phi float [ %79, %69 ], [ %87, %_ZN10aiVector3tIfEdVEf.exit.i67 ]
-  %.sroa.0119.0.vec.extract122 = extractelement <2 x float> %.sroa.0119.0, i64 0
-  %.sroa.0119.4.vec.extract125 = extractelement <2 x float> %.sroa.0119.0, i64 1
-  %88 = call noundef float @atan2f(float noundef %.sroa.0119.0.vec.extract122, float noundef %.sroa.9126.0) #21
+  %.sroa.0118.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i64, %69 ], [ %.sroa.0118.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i67 ]
+  %.sroa.9125.0 = phi float [ %79, %69 ], [ %87, %_ZN10aiVector3tIfEdVEf.exit.i67 ]
+  %.sroa.0118.0.vec.extract121 = extractelement <2 x float> %.sroa.0118.0, i64 0
+  %.sroa.0118.4.vec.extract124 = extractelement <2 x float> %.sroa.0118.0, i64 1
+  %88 = call noundef float @atan2f(float noundef %.sroa.0118.0.vec.extract121, float noundef %.sroa.9125.0) #21
   %89 = fadd float %88, 0x400921FB60000000
   %90 = fdiv float %89, 0x401921FB60000000
-  %91 = call noundef float @asinf(float noundef %.sroa.0119.4.vec.extract125) #21
+  %91 = call noundef float @asinf(float noundef %.sroa.0118.4.vec.extract124) #21
   %92 = fadd float %91, 0x3FF921FB60000000
   %93 = fdiv float %92, 0x400921FB60000000
-  %94 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv157
+  %94 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv156
   store float %90, ptr %94, align 4
-  %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 4
-  store float %93, ptr %.sroa.4117.0..sroa_idx, align 4
-  %.sroa.5118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store float 0.000000e+00, ptr %.sroa.5118.0..sroa_idx, align 4
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store float %93, ptr %.sroa.4116.0..sroa_idx, align 4
+  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store float 0.000000e+00, ptr %.sroa.5117.0..sroa_idx, align 4
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %95 = load i32, ptr %63, align 4
   %96 = zext i32 %95 to i64
-  %97 = icmp samesign ult i64 %indvars.iv.next158, %96
+  %97 = icmp samesign ult i64 %indvars.iv.next157, %96
   br i1 %97, label %69, label %.loopexit, !llvm.loop !8
 
 98:                                               ; preds = %59
@@ -414,20 +414,20 @@ _ZN10aiVector3tIfE9NormalizeEv.exit69:            ; preds = %69, %_ZN10aiVector3
 .preheader:                                       ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %103 = load i32, ptr %102, align 4
-  %.not151 = icmp eq i32 %103, 0
-  br i1 %.not151, label %.loopexit, label %.lr.ph147
+  %.not150 = icmp eq i32 %103, 0
+  br i1 %.not150, label %.loopexit, label %.lr.ph146
 
-.lr.ph147:                                        ; preds = %.preheader
+.lr.ph146:                                        ; preds = %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load float, ptr %6, align 4
   %106 = load float, ptr %9, align 4
   %107 = load float, ptr %10, align 4
   br label %108
 
-108:                                              ; preds = %.lr.ph147, %_ZN10aiVector3tIfE9NormalizeEv.exit76
-  %indvars.iv160 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next161, %_ZN10aiVector3tIfE9NormalizeEv.exit76 ]
+108:                                              ; preds = %.lr.ph146, %_ZN10aiVector3tIfE9NormalizeEv.exit76
+  %indvars.iv159 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next160, %_ZN10aiVector3tIfE9NormalizeEv.exit76 ]
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds nuw %class.aiVector3t, ptr %109, i64 %indvars.iv160
+  %110 = getelementptr inbounds nuw %class.aiVector3t, ptr %109, i64 %indvars.iv159
   %111 = load float, ptr %110, align 4
   %112 = fsub float %111, %105
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -448,33 +448,33 @@ _ZN10aiVector3tIfEdVEf.exit.i74:                  ; preds = %108
   %sqrt.i.i75 = call noundef float @llvm.sqrt.f32(float %121)
   %123 = fdiv float 1.000000e+00, %sqrt.i.i75
   %124 = fmul float %112, %123
-  %.sroa.0108.0.vec.insert = insertelement <2 x float> poison, float %124, i64 0
+  %.sroa.0107.0.vec.insert = insertelement <2 x float> poison, float %124, i64 0
   %125 = fmul float %115, %123
-  %.sroa.0108.4.vec.insert = insertelement <2 x float> %.sroa.0108.0.vec.insert, float %125, i64 1
+  %.sroa.0107.4.vec.insert = insertelement <2 x float> %.sroa.0107.0.vec.insert, float %125, i64 1
   %126 = fmul float %118, %123
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit76
 
 _ZN10aiVector3tIfE9NormalizeEv.exit76:            ; preds = %108, %_ZN10aiVector3tIfEdVEf.exit.i74
-  %.sroa.0108.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i71, %108 ], [ %.sroa.0108.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i74 ]
-  %.sroa.9115.0 = phi float [ %118, %108 ], [ %126, %_ZN10aiVector3tIfEdVEf.exit.i74 ]
-  %.sroa.0108.0.vec.extract111 = extractelement <2 x float> %.sroa.0108.0, i64 0
-  %.sroa.0108.4.vec.extract114 = extractelement <2 x float> %.sroa.0108.0, i64 1
-  %127 = call noundef float @atan2f(float noundef %.sroa.0108.4.vec.extract114, float noundef %.sroa.0108.0.vec.extract111) #21
+  %.sroa.0107.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i71, %108 ], [ %.sroa.0107.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i74 ]
+  %.sroa.9114.0 = phi float [ %118, %108 ], [ %126, %_ZN10aiVector3tIfEdVEf.exit.i74 ]
+  %.sroa.0107.0.vec.extract110 = extractelement <2 x float> %.sroa.0107.0, i64 0
+  %.sroa.0107.4.vec.extract113 = extractelement <2 x float> %.sroa.0107.0, i64 1
+  %127 = call noundef float @atan2f(float noundef %.sroa.0107.4.vec.extract113, float noundef %.sroa.0107.0.vec.extract110) #21
   %128 = fadd float %127, 0x400921FB60000000
   %129 = fdiv float %128, 0x401921FB60000000
-  %130 = call noundef float @asinf(float noundef %.sroa.9115.0) #21
+  %130 = call noundef float @asinf(float noundef %.sroa.9114.0) #21
   %131 = fadd float %130, 0x3FF921FB60000000
   %132 = fdiv float %131, 0x400921FB60000000
-  %133 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv160
+  %133 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv159
   store float %129, ptr %133, align 4
-  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 4
-  store float %132, ptr %.sroa.4106.0..sroa_idx, align 4
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store float 0.000000e+00, ptr %.sroa.5107.0..sroa_idx, align 4
-  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 4
+  store float %132, ptr %.sroa.4105.0..sroa_idx, align 4
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store float 0.000000e+00, ptr %.sroa.5106.0..sroa_idx, align 4
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %134 = load i32, ptr %102, align 4
   %135 = zext i32 %134 to i64
-  %136 = icmp samesign ult i64 %indvars.iv.next161, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next160, %135
   br i1 %136, label %108, label %.loopexit, !llvm.loop !9
 
 137:                                              ; preds = %98
@@ -509,20 +509,20 @@ _ZN10aiVector3tIfE9NormalizeEv.exit76:            ; preds = %108, %_ZN10aiVector
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %157 = load i32, ptr %156, align 4
-  %.not152 = icmp eq i32 %157, 0
-  br i1 %.not152, label %.loopexit, label %.lr.ph149
+  %.not151 = icmp eq i32 %157, 0
+  br i1 %.not151, label %.loopexit, label %.lr.ph148
 
-.lr.ph149:                                        ; preds = %137
+.lr.ph148:                                        ; preds = %137
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %159 = load float, ptr %6, align 4
   %160 = load float, ptr %9, align 4
   %161 = load float, ptr %10, align 4
   br label %162
 
-162:                                              ; preds = %.lr.ph149, %_ZN10aiVector3tIfE9NormalizeEv.exit87
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next164, %_ZN10aiVector3tIfE9NormalizeEv.exit87 ]
+162:                                              ; preds = %.lr.ph148, %_ZN10aiVector3tIfE9NormalizeEv.exit87
+  %indvars.iv162 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next163, %_ZN10aiVector3tIfE9NormalizeEv.exit87 ]
   %163 = load ptr, ptr %158, align 8
-  %164 = getelementptr inbounds nuw %class.aiVector3t, ptr %163, i64 %indvars.iv163
+  %164 = getelementptr inbounds nuw %class.aiVector3t, ptr %163, i64 %indvars.iv162
   %165 = load float, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %167 = load float, ptr %166, align 4
@@ -572,19 +572,19 @@ _ZN10aiVector3tIfE9NormalizeEv.exit87:            ; preds = %162, %_ZN10aiVector
   %196 = call noundef float @asinf(float noundef %.sroa.9.0) #21
   %197 = fadd float %196, 0x3FF921FB60000000
   %198 = fdiv float %197, 0x400921FB60000000
-  %199 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv163
+  %199 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv162
   store float %195, ptr %199, align 4
   %.sroa.4.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %199, i64 4
   store float %198, ptr %.sroa.4.0..sroa_idx88, align 4
   %.sroa.5.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx90, align 4
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %200 = load i32, ptr %156, align 4
   %201 = zext i32 %200 to i64
-  %202 = icmp samesign ult i64 %indvars.iv.next164, %201
+  %202 = icmp samesign ult i64 %indvars.iv.next163, %201
   br i1 %202, label %162, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZN10aiVector3tIfE9NormalizeEv.exit69, %_ZN10aiVector3tIfE9NormalizeEv.exit76, %_ZN10aiVector3tIfE9NormalizeEv.exit87, %.preheader141, %.preheader139, %.preheader, %137
+.loopexit:                                        ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZN10aiVector3tIfE9NormalizeEv.exit69, %_ZN10aiVector3tIfE9NormalizeEv.exit76, %_ZN10aiVector3tIfE9NormalizeEv.exit87, %.preheader140, %.preheader138, %.preheader, %137
   call void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef nonnull %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

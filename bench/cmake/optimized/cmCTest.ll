@@ -63031,8 +63031,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %8
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %21, %.noexc28, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.1168.0 = phi ptr [ %18, %21 ], [ %18, %.noexc28 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.063.0 = phi ptr [ %17, %21 ], [ %17, %.noexc28 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.1165.0 = phi ptr [ %18, %21 ], [ %18, %.noexc28 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.060.0 = phi ptr [ %17, %21 ], [ %17, %.noexc28 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %23 = trunc i64 %11 to i32
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %23, ptr %24, align 8, !tbaa !2799
@@ -63040,7 +63040,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %21, %.noexc28, %_ZN
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %14, ptr %25, align 8, !tbaa !2803
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.sroa.063.0, ptr %26, align 8, !tbaa !2804
+  store ptr %.sroa.060.0, ptr %26, align 8, !tbaa !2804
   %27 = invoke i32 @cm_zlib_deflate(ptr noundef nonnull %3, i32 noundef 4)
           to label %28 unwind label %92
 
@@ -63267,7 +63267,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit40:             ; preds = %115, %.noexc39, %_Z
   %.sroa.11.0 = phi ptr [ %112, %115 ], [ %112, %.noexc39 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34 ]
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %118 = load i64, ptr %117, align 8, !tbaa !2812
-  %119 = invoke i64 @cmsysBase64_Encode(ptr noundef %.sroa.063.0, i64 noundef %118, ptr noundef %.sroa.054.0, i32 noundef 1)
+  %119 = invoke i64 @cmsysBase64_Encode(ptr noundef %.sroa.060.0, i64 noundef %118, ptr noundef %.sroa.054.0, i32 noundef 1)
           to label %120 unwind label %129
 
 120:                                              ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit40
@@ -63305,26 +63305,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds 
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit43
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %.not.i.i.i44 = icmp eq ptr %.sroa.063.0, null
+  %.not.i.i.i44 = icmp eq ptr %.sroa.060.0, null
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIhSaIhEED2Ev.exit45, label %135
 
 135:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %136 = ptrtoint ptr %.sroa.1168.0 to i64
-  %137 = ptrtoint ptr %.sroa.063.0 to i64
+  %136 = ptrtoint ptr %.sroa.1165.0 to i64
+  %137 = ptrtoint ptr %.sroa.060.0 to i64
   %138 = sub i64 %136, %137
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.0, i64 noundef %138) #43
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0, i64 noundef %138) #43
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit45
 
 _ZNSt6vectorIhSaIhEED2Ev.exit43:                  ; preds = %127, %129, %131, %104, %92
   %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %104 ], [ %93, %92 ], [ %128, %127 ], [ %130, %129 ], [ %130, %131 ]
-  %.not.i.i.i46 = icmp eq ptr %.sroa.063.0, null
+  %.not.i.i.i46 = icmp eq ptr %.sroa.060.0, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit47, label %139
 
 139:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit43
-  %140 = ptrtoint ptr %.sroa.1168.0 to i64
-  %141 = ptrtoint ptr %.sroa.063.0 to i64
+  %140 = ptrtoint ptr %.sroa.1165.0 to i64
+  %141 = ptrtoint ptr %.sroa.060.0 to i64
   %142 = sub i64 %140, %141
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.0, i64 noundef %142) #43
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.060.0, i64 noundef %142) #43
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit47
 
 _ZNSt6vectorIhSaIhEED2Ev.exit47:                  ; preds = %139, %_ZNSt6vectorIhSaIhEED2Ev.exit43

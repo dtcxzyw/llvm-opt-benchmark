@@ -5431,7 +5431,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i
   %34 = icmp eq i64 %33, 2
   %35 = icmp ugt ptr %4, inttoptr (i64 4096 to ptr)
   %36 = and i1 %35, %34
-  br i1 %36, label %37, label %.loopexit9
+  br i1 %36, label %37, label %.loopexit7
 
 37:                                               ; preds = %31
   %38 = add nsw i64 %32, -2
@@ -5440,7 +5440,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i
 
 40:                                               ; preds = %.loopexit, %37
   %41 = phi i32 [ 0, %37 ], [ %.ph, %.loopexit ]
-  %42 = phi ptr [ %39, %37 ], [ %.ph7, %.loopexit ]
+  %42 = phi ptr [ %39, %37 ], [ %.ph5, %.loopexit ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = zext i32 %41 to i64
   %45 = getelementptr ptr, ptr %43, i64 %44
@@ -5495,14 +5495,14 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 24
   tail call void @call_rcu(ptr noundef nonnull %74, ptr noundef nonnull @radix_tree_node_rcu_free) #9
   %75 = icmp eq ptr %62, %39
-  br i1 %75, label %.loopexit9, label %61, !llvm.loop !25
+  br i1 %75, label %.loopexit7, label %61, !llvm.loop !25
 
 .loopexit:                                        ; preds = %61, %55
   %.ph = phi i32 [ 0, %55 ], [ %63, %61 ]
-  %.ph7 = phi ptr [ %57, %55 ], [ %62, %61 ]
+  %.ph5 = phi ptr [ %57, %55 ], [ %62, %61 ]
   br label %40, !llvm.loop !24
 
-.loopexit9:                                       ; preds = %65, %31
+.loopexit7:                                       ; preds = %65, %31
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %2) #9
   ret void
 }

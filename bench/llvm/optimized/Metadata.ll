@@ -1101,8 +1101,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %9
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %9
   %14 = getelementptr inbounds i8, ptr %1, i64 -24
   %15 = load i32, ptr %14, align 8, !tbaa !37
-  %.not1731.i = icmp eq i32 %15, 1
-  br i1 %.not1731.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
+  %.not1727.i = icmp eq i32 %15, 1
+  br i1 %.not1727.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
   %16 = lshr i64 %11, 2
@@ -1117,8 +1117,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
   %21 = getelementptr inbounds i8, ptr %1, i64 -32
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = load ptr, ptr %22, align 8, !tbaa !39
-  %.not1833.i = icmp eq ptr %23, null
-  br i1 %.not1833.i, label %24, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
+  %.not1829.i = icmp eq ptr %23, null
+  br i1 %.not1829.i, label %24, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
 
 24:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %25 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr null, i64 0, i32 noundef 0, i1 noundef zeroext true)
@@ -1127,8 +1127,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
 _ZNK4llvm6MDNode10getOperandEj.exit23.i:          ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %26 = phi ptr [ %23, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i ], [ %20, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
   %27 = load i8, ptr %26, align 4, !tbaa !35
-  %.not39.i = icmp eq i8 %27, 1
-  %spec.select.i = select i1 %.not39.i, ptr %26, ptr %1
+  %.not35.i = icmp eq i8 %27, 1
+  %spec.select.i = select i1 %.not35.i, ptr %26, ptr %1
   br label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit: ; preds = %4, %6, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %24, %_ZNK4llvm6MDNode10getOperandEj.exit23.i
@@ -1305,8 +1305,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %8
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 -24
   %14 = load i32, ptr %13, align 8, !tbaa !37
-  %.not1731.i = icmp eq i32 %14, 1
-  br i1 %.not1731.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
+  %.not1727.i = icmp eq i32 %14, 1
+  br i1 %.not1727.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
   %15 = lshr i64 %10, 2
@@ -1321,8 +1321,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
   %20 = getelementptr inbounds i8, ptr %1, i64 -32
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = load ptr, ptr %21, align 8, !tbaa !39
-  %.not1833.i = icmp eq ptr %22, null
-  br i1 %.not1833.i, label %23, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
+  %.not1829.i = icmp eq ptr %22, null
+  br i1 %.not1829.i, label %23, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
 
 23:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %24 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr null, i64 0, i32 noundef 0, i1 noundef zeroext true)
@@ -1331,8 +1331,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
 _ZNK4llvm6MDNode10getOperandEj.exit23.i:          ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %25 = phi ptr [ %22, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i ], [ %19, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
   %26 = load i8, ptr %25, align 4, !tbaa !35
-  %.not39.i = icmp eq i8 %26, 1
-  %spec.select.i = select i1 %.not39.i, ptr %25, ptr %1
+  %.not35.i = icmp eq i8 %26, 1
+  %spec.select.i = select i1 %.not35.i, ptr %25, ptr %1
   br label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit: ; preds = %3, %5, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %23, %_ZNK4llvm6MDNode10getOperandEj.exit23.i
@@ -1420,8 +1420,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %10
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 -24
   %16 = load i32, ptr %15, align 8, !tbaa !37
-  %.not1731.i = icmp eq i32 %16, 1
-  br i1 %.not1731.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
+  %.not1727.i = icmp eq i32 %16, 1
+  br i1 %.not1727.i, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
   %17 = lshr i64 %12, 2
@@ -1436,8 +1436,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
   %22 = getelementptr inbounds i8, ptr %1, i64 -32
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %.not1833.i = icmp eq ptr %24, null
-  br i1 %.not1833.i, label %25, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
+  %.not1829.i = icmp eq ptr %24, null
+  br i1 %.not1829.i, label %25, label %_ZNK4llvm6MDNode10getOperandEj.exit23.i
 
 25:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %26 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr null, i64 0, i32 noundef 0, i1 noundef zeroext true)
@@ -1446,8 +1446,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
 _ZNK4llvm6MDNode10getOperandEj.exit23.i:          ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %27 = phi ptr [ %24, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i ], [ %21, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
   %28 = load i8, ptr %27, align 4, !tbaa !35
-  %.not39.i = icmp eq i8 %28, 1
-  %spec.select.i = select i1 %.not39.i, ptr %27, ptr %1
+  %.not35.i = icmp eq i8 %28, 1
+  %spec.select.i = select i1 %.not35.i, ptr %27, ptr %1
   br label %_ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit
 
 _ZL28canonicalizeMetadataForValueRN4llvm11LLVMContextEPNS_8MetadataE.exit: ; preds = %5, %7, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %25, %_ZNK4llvm6MDNode10getOperandEj.exit23.i
@@ -8727,7 +8727,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44: ; preds = %_ZNK4llvm6MDNod
   %133 = getelementptr inbounds nuw i8, ptr %70, i64 88
   %134 = load ptr, ptr %133, align 8, !tbaa !39
   %135 = icmp ugt i32 %76, 12
-  br i1 %135, label %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i, label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit
+  br i1 %135, label %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i, label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit
 
 _ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45
   %136 = getelementptr inbounds nuw i8, ptr %62, i64 96
@@ -8735,49 +8735,49 @@ _ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i: ; preds = %_ZNK4llvm6MDN
   %.not.i = icmp eq ptr %137, null
   br i1 %.not.i, label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit, label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i
 
-_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44
+_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44
   %138 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %139 = load ptr, ptr %138, align 8, !tbaa !39
-  %.not8.i = icmp eq ptr %139, null
-  br i1 %.not8.i, label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit, label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i
+  %.not6.i = icmp eq ptr %139, null
+  br i1 %.not6.i, label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit, label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i: ; preds = %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i
-  %140 = phi ptr [ %134, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %131, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %141 = phi ptr [ %120, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %109, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %142 = phi ptr [ %116, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %105, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %143 = phi i32 [ %100, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %90, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %144 = phi i32 [ %99, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %89, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %145 = phi i32 [ %98, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %88, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %146 = phi i32 [ %97, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %87, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %147 = phi ptr [ %96, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %86, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %148 = phi ptr [ %72, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %64, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %149 = phi i32 [ %74, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %66, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %150 = phi ptr [ %102, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %92, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %151 = phi ptr [ %118, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %107, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %152 = phi ptr [ %128, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %124, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
-  %153 = phi ptr [ %139, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %137, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i: ; preds = %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i
+  %140 = phi ptr [ %134, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %131, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %141 = phi ptr [ %120, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %109, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %142 = phi ptr [ %116, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %105, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %143 = phi i32 [ %100, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %90, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %144 = phi i32 [ %99, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %89, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %145 = phi i32 [ %98, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %88, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %146 = phi i32 [ %97, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %87, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %147 = phi ptr [ %96, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %86, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %148 = phi ptr [ %72, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %64, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %149 = phi i32 [ %74, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %66, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %150 = phi ptr [ %102, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %92, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %151 = phi ptr [ %118, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %107, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %152 = phi ptr [ %128, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %124, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
+  %153 = phi ptr [ %139, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %137, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !187
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load i64, ptr %155, align 8, !tbaa !190
   br label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit
 
-_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i
-  %158 = phi ptr [ %134, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %134, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %131, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %131, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %140, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %159 = phi ptr [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %120, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %109, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %109, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %141, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %160 = phi ptr [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %116, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %105, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %105, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %142, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %161 = phi i32 [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %100, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %90, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %90, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %143, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph81, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %162 = phi i32 [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %99, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %89, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %89, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %144, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph82, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %163 = phi i32 [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %98, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %88, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %88, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %145, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph83, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %164 = phi i32 [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %97, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %87, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %87, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %146, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph84, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %165 = phi ptr [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %96, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %86, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %86, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %147, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph85, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %166 = phi ptr [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %72, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %64, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %64, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %148, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %167 = phi i32 [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %74, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %66, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %66, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %149, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %168 = phi ptr [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %102, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %92, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %92, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %150, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %169 = phi ptr [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %118, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %107, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %107, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %151, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %112, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %170 = phi ptr [ %128, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %128, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ %124, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %124, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %152, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %128, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %.sroa.0.0.i = phi ptr [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %156, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
-  %.sroa.4.0.i = phi i64 [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %157, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i
+  %158 = phi ptr [ %134, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %134, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %131, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %131, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %140, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %159 = phi ptr [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %120, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %109, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %109, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %141, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %120, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %160 = phi ptr [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %116, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %105, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %105, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %142, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %116, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %161 = phi i32 [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %100, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %90, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %90, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %143, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph81, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %100, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %162 = phi i32 [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %99, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %89, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %89, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %144, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph82, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %99, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %163 = phi i32 [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %98, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %88, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %88, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %145, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph83, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %98, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %164 = phi i32 [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %97, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %87, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %87, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %146, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph84, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %97, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %165 = phi ptr [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %96, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %86, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %86, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %147, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph85, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %96, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %166 = phi ptr [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %72, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %64, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %64, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %148, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %72, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %167 = phi i32 [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %74, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %66, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %66, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %149, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %74, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %168 = phi ptr [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %102, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %92, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %92, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %150, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %.ph, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %102, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %169 = phi ptr [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %118, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %107, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %107, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %151, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ %112, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ %118, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %170 = phi ptr [ %128, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ %128, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ %124, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ %124, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %152, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ %128, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %.sroa.0.0.i = phi ptr [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %156, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
+  %.sroa.4.0.i = phi i64 [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i44 ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread4.i ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i45 ], [ %157, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i38 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32.thread ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i32 ]
   %171 = ptrtoint ptr %160 to i64
   %172 = ptrtoint ptr %159 to i64
   %173 = ptrtoint ptr %170 to i64
@@ -27440,8 +27440,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %141
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %137, %123
   %.035697486 = phi ptr [ %138, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %138, %137 ], [ %71, %123 ]
-  %.sroa.5.37584 = phi i64 [ %149, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %137 ], [ 0, %123 ]
-  %.sroa.059.37682 = phi ptr [ %143, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %137 ], [ null, %123 ]
+  %.sroa.5.07584 = phi i64 [ %149, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %137 ], [ 0, %123 ]
+  %.sroa.059.07682 = phi ptr [ %143, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %137 ], [ null, %123 ]
   %153 = phi i64 [ %150, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ 2, %137 ], [ 2, %123 ]
   %154 = shl nuw nsw i64 %153, 3
   %155 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %154) #28
@@ -27461,13 +27461,13 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorImSaImE
   store i64 35, ptr %155, align 8, !tbaa !72
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i64 %49, ptr %160, align 8, !tbaa !72
-  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.5.37584, 0
+  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.5.07584, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %161
 
 161:                                              ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
-  %.idx.i = shl nuw nsw i64 %.sroa.5.37584, 3
+  %.idx.i = shl nuw nsw i64 %.sroa.5.07584, 3
   %162 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %.sroa.059.37682, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %.sroa.059.07682, i64 %.idx.i, i1 false)
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit, %161

@@ -17395,8 +17395,8 @@ _ZNSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EED2Ev.exit.thread: ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !1017
   %39 = icmp ne i32 %38, 1
-  %.not50 = icmp eq ptr %36, null
-  %.not = or i1 %.not50, %39
+  %.not41 = icmp eq ptr %36, null
+  %.not = or i1 %.not41, %39
   br i1 %.not, label %.critedge, label %40
 
 40:                                               ; preds = %35
@@ -17415,9 +17415,9 @@ _ZNSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EED2Ev.exit.thread: ; preds = %2
   %47 = sub i64 %46, %45
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %46, i64 %47)
   %.not.i = icmp eq i64 %.sroa.speculated.i.i.i, 6
-  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48
+  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread39
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread48:       ; preds = %40
+_ZN4llvmeqENS_9StringRefES0_.exit.thread39:       ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
@@ -17496,7 +17496,7 @@ _ZSt8_DestroyIPN4llvm4yaml15FlowStringValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #25
   br label %_ZNSt8optionalISt6vectorIN4llvm4yaml15FlowStringValueESaIS3_EEEaSERKS6_.exit
 
-.critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread48, %30, %35, %_ZN4llvmeqENS_9StringRefES0_.exit
+.critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread39, %30, %35, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @_ZN4llvm4yaml7yamlizeISt6vectorINS0_15FlowStringValueESaIS3_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS8_bRT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   br label %_ZNSt8optionalISt6vectorIN4llvm4yaml15FlowStringValueESaIS3_EEEaSERKS6_.exit
 
@@ -17509,8 +17509,8 @@ _ZNSt8optionalISt6vectorIN4llvm4yaml15FlowStringValueESaIS3_EEEaSERKS6_.exit: ; 
   br label %_ZNSt8optionalISt6vectorIN4llvm4yaml15FlowStringValueESaIS3_EEEaSERKS6_.exit30
 
 82:                                               ; preds = %_ZNSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EED2Ev.exit.thread
-  %.pre51 = load i8, ptr %8, align 1, !tbaa !53, !range !48
-  %83 = trunc nuw i8 %.pre51 to i1
+  %.pre42 = load i8, ptr %8, align 1, !tbaa !53, !range !48
+  %83 = trunc nuw i8 %.pre42 to i1
   br i1 %83, label %.thread, label %_ZNSt8optionalISt6vectorIN4llvm4yaml15FlowStringValueESaIS3_EEEaSERKS6_.exit30
 
 .thread:                                          ; preds = %_ZNSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EED2Ev.exit, %82
@@ -31958,11 +31958,11 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
 _ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i: ; preds = %168
   %172 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %167) #24
   %.pre.i.i = load ptr, ptr %161, align 8, !tbaa !1129
-  %.pre150.i.i = load ptr, ptr %162, align 8, !tbaa !1129
+  %.pre147.i.i = load ptr, ptr %162, align 8, !tbaa !1129
   br label %_ZNSt12_Vector_baseIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2EmRKS4_.exit.i40.i.i
 
 _ZNSt12_Vector_baseIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2EmRKS4_.exit.i40.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i, %159
-  %173 = phi ptr [ %.pre150.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i ], [ %163, %159 ]
+  %173 = phi ptr [ %.pre147.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i ], [ %163, %159 ]
   %174 = phi ptr [ %.pre.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i ], [ %164, %159 ]
   %175 = phi ptr [ %172, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i39.i.i ], [ null, %159 ]
   %.not7.i.i.i.i.i41.i.i = icmp eq ptr %174, %173
@@ -32127,10 +32127,10 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   br label %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i.i
 
 _ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i.i:       ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i.i21, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit49.i.i
-  %.sroa.079.4.extract.trunc104111.in.i.i = lshr i64 %199, 32
-  %.sroa.079.0.extract.trunc103112.i.i = trunc i64 %199 to i32
-  %.sroa.080.4.extract.trunc102113.in.i.i = lshr i64 %160, 32
-  %.sroa.080.0.extract.trunc101114.i.i = trunc i64 %160 to i32
+  %.sroa.079.4.extract.trunc103109.in.i.i = lshr i64 %199, 32
+  %.sroa.079.0.extract.trunc102110.i.i = trunc i64 %199 to i32
+  %.sroa.080.4.extract.trunc101111.in.i.i = lshr i64 %160, 32
+  %.sroa.080.0.extract.trunc100112.i.i = trunc i64 %160 to i32
   %.not4.i.i.i.i.i4.i.i.i = icmp eq ptr %175, %.0.lcssa.i.i.i.i.i48.i.i
   br i1 %.not4.i.i.i.i.i4.i.i.i, label %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i12.i.i.i, label %.lr.ph.i.i.i.i.i5.i.i.i
 
@@ -32161,9 +32161,9 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i": ; preds = %245, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i12.i.i.i
-  %246 = icmp eq i32 %.sroa.080.0.extract.trunc101114.i.i, %.sroa.079.0.extract.trunc103112.i.i
-  %247 = icmp samesign ult i64 %.sroa.080.4.extract.trunc102113.in.i.i, %.sroa.079.4.extract.trunc104111.in.i.i
-  %248 = icmp ult i32 %.sroa.080.0.extract.trunc101114.i.i, %.sroa.079.0.extract.trunc103112.i.i
+  %246 = icmp eq i32 %.sroa.080.0.extract.trunc100112.i.i, %.sroa.079.0.extract.trunc102110.i.i
+  %247 = icmp samesign ult i64 %.sroa.080.4.extract.trunc101111.in.i.i, %.sroa.079.4.extract.trunc103109.in.i.i
+  %248 = icmp ult i32 %.sroa.080.0.extract.trunc100112.i.i, %.sroa.079.0.extract.trunc102110.i.i
   %.0.i.i.i.i = select i1 %246, i1 %247, i1 %248
   br i1 %.0.i.i.i.i, label %249, label %.preheader.i.i
 
@@ -32277,13 +32277,13 @@ _ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i: 
 
 _ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i: ; preds = %293
   %297 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %292) #24
-  %.pre151.i.i = load ptr, ptr %286, align 8, !tbaa !1129
-  %.pre152.i.i = load ptr, ptr %287, align 8, !tbaa !1129
+  %.pre148.i.i = load ptr, ptr %286, align 8, !tbaa !1129
+  %.pre149.i.i = load ptr, ptr %287, align 8, !tbaa !1129
   br label %_ZNSt12_Vector_baseIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2EmRKS4_.exit.i52.i.i
 
 _ZNSt12_Vector_baseIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2EmRKS4_.exit.i52.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i
-  %298 = phi ptr [ %.pre152.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i ], [ %288, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i ]
-  %299 = phi ptr [ %.pre151.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i ], [ %289, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i ]
+  %298 = phi ptr [ %.pre149.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i ], [ %288, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i ]
+  %299 = phi ptr [ %.pre148.i.i, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i ], [ %289, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i ]
   %300 = phi ptr [ %297, %_ZNSt16allocator_traitsISaIN4llvm4yaml12CallSiteInfo10ArgRegPairEEE8allocateERS4_m.exit.i.i.i.i51.i.i ], [ null, %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit73.i.i ]
   %.not7.i.i.i.i.i53.i.i = icmp eq ptr %299, %298
   br i1 %.not7.i.i.i.i.i53.i.i, label %_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EEC2ERKS5_.exit61.i.i, label %.lr.ph.i.i.i.i.i54.i.i

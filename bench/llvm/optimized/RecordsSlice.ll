@@ -244,7 +244,7 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addRecordENS_9StringR
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
-  %.sroa.031.0.copyload = load ptr, ptr %9, align 8, !tbaa !4
+  %.sroa.029.0.copyload = load ptr, ptr %9, align 8, !tbaa !4
   %.sroa.6.0.copyload = load i64, ptr %11, align 8, !tbaa !9
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
@@ -259,20 +259,20 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addRecordENS_9StringR
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %32, %33
-  %.sroa.9.0 = phi ptr [ null, %32 ], [ %37, %33 ]
-  %.sroa.12.0 = phi i64 [ 0, %32 ], [ %38, %33 ]
   %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload, %32 ], [ %.sroa.speculated.i.i.i, %33 ]
-  %.sroa.031.0 = phi ptr [ %.sroa.031.0.copyload, %32 ], [ %35, %33 ]
+  %.sroa.029.0 = phi ptr [ %.sroa.029.0.copyload, %32 ], [ %35, %33 ]
+  %.sroa.12.0 = phi i64 [ 0, %32 ], [ %38, %33 ]
+  %.sroa.9.0 = phi ptr [ null, %32 ], [ %37, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %40 = call noundef ptr @_Z10findRecordIN4llvm5MachO19ObjCInterfaceRecordENS0_9MapVectorINS0_9StringRefESt10unique_ptrIS2_St14default_deleteIS2_EENS0_8DenseMapIS4_jNS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_jEEEENS0_11SmallVectorISt4pairIS4_S8_ELj0EEEEES4_EPT_T1_RKT0_(ptr %.sroa.031.0, i64 %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(40) %39)
+  %40 = call noundef ptr @_Z10findRecordIN4llvm5MachO19ObjCInterfaceRecordENS0_9MapVectorINS0_9StringRefESt10unique_ptrIS2_St14default_deleteIS2_EENS0_8DenseMapIS4_jNS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_jEEEENS0_11SmallVectorISt4pairIS4_S8_ELj0EEEEES4_EPT_T1_RKT0_(ptr %.sroa.029.0, i64 %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(40) %39)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread
 
 42:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %.sroa.031.0, ptr %7, align 8
+  store ptr %.sroa.029.0, ptr %7, align 8
   %.sroa.01.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.6.0, ptr %.sroa.01.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -294,9 +294,9 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %32, %33
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %55 = load i32, ptr %54, align 8, !tbaa !34
   %56 = icmp eq i32 %53, %55
-  br i1 %56, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread36, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit
+  br i1 %56, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread34, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit
 
-_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread36: ; preds = %42
+_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread34: ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
@@ -311,8 +311,8 @@ _ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit: ; preds = %42
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread
 
-64:                                               ; preds = %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread36, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit
-  %65 = call noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %.sroa.031.0, i64 %.sroa.6.0, ptr null, i64 0)
+64:                                               ; preds = %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread34, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit
+  %65 = call noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %.sroa.029.0, i64 %.sroa.6.0, ptr null, i64 0)
   br label %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread
 
 _ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm9StringRef5splitEc.exit, %64, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit

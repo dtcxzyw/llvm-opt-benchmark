@@ -10136,12 +10136,12 @@ _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.
 69:                                               ; preds = %66
   %70 = zext nneg i8 %67 to i64
   %71 = add nsw i64 %70, -48
-  %storemerge41.i = getelementptr inbounds nuw i8, ptr %.sroa.064.2, i64 1
-  %.not42.i = icmp eq ptr %storemerge41.i, %7
-  br i1 %.not42.i, label %.critedge.i, label %.lr.ph.i.preheader
+  %storemerge36.i = getelementptr inbounds nuw i8, ptr %.sroa.064.2, i64 1
+  %.not37.i = icmp eq ptr %storemerge36.i, %7
+  br i1 %.not37.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %69
-  %72 = load i8, ptr %storemerge41.i, align 1, !tbaa !17
+  %72 = load i8, ptr %storemerge36.i, align 1, !tbaa !17
   %73 = add i8 %72, -48
   %isdigit18.i92 = icmp ult i8 %73, 10
   br i1 %isdigit18.i92, label %.lr.ph, label %.lr.ph.i._crit_edge
@@ -10154,10 +10154,10 @@ _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %76 = phi i8 [ %74, %.lr.ph.i ], [ %72, %.lr.ph.i.preheader ]
-  %.03644.i94 = phi i64 [ %80, %.lr.ph.i ], [ %71, %.lr.ph.i.preheader ]
-  %.sroa.064.393 = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge41.i, %.lr.ph.i.preheader ]
+  %.03139.i94 = phi i64 [ %80, %.lr.ph.i ], [ %71, %.lr.ph.i.preheader ]
+  %.sroa.064.393 = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %storemerge36.i, %.lr.ph.i.preheader ]
   %77 = zext nneg i8 %76 to i64
-  %78 = mul i64 %.03644.i94, 10
+  %78 = mul i64 %.03139.i94, 10
   %79 = add i64 %78, -48
   %80 = add i64 %79, %77
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.sroa.064.393, i64 1
@@ -10165,22 +10165,22 @@ _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.
   br i1 %.not.i22, label %.critedge.i, label %.lr.ph.i, !llvm.loop !248
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.sroa.064.3.lcssa = phi ptr [ %storemerge41.i, %.lr.ph.i.preheader ], [ %storemerge.i, %.lr.ph.i ]
-  %.03644.i.lcssa = phi i64 [ %71, %.lr.ph.i.preheader ], [ %80, %.lr.ph.i ]
-  %.pn43.i.lcssa = phi ptr [ %.sroa.064.2, %.lr.ph.i.preheader ], [ %.sroa.064.393, %.lr.ph.i ]
+  %.sroa.064.3.lcssa = phi ptr [ %storemerge36.i, %.lr.ph.i.preheader ], [ %storemerge.i, %.lr.ph.i ]
+  %.03139.i.lcssa = phi i64 [ %71, %.lr.ph.i.preheader ], [ %80, %.lr.ph.i ]
+  %.pn38.i.lcssa = phi ptr [ %.sroa.064.2, %.lr.ph.i.preheader ], [ %.sroa.064.393, %.lr.ph.i ]
   %.lcssa83 = phi i8 [ %72, %.lr.ph.i.preheader ], [ %74, %.lr.ph.i ]
   %81 = icmp eq i8 %.lcssa83, 33
-  %82 = getelementptr inbounds nuw i8, ptr %.pn43.i.lcssa, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.pn38.i.lcssa, i64 2
   %spec.select = select i1 %81, ptr %82, ptr %.sroa.064.3.lcssa
   %spec.select76 = select i1 %81, i64 4294967296, i64 0
   %83 = or i64 %spec.select76, %.017.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.i._crit_edge, %69
-  %.sroa.064.4 = phi ptr [ %storemerge41.i, %69 ], [ %spec.select, %.lr.ph.i._crit_edge ], [ %storemerge.i, %.lr.ph ]
-  %.03639.i = phi i64 [ %71, %69 ], [ %.03644.i.lcssa, %.lr.ph.i._crit_edge ], [ %80, %.lr.ph ]
+  %.sroa.064.4 = phi ptr [ %storemerge36.i, %69 ], [ %spec.select, %.lr.ph.i._crit_edge ], [ %storemerge.i, %.lr.ph ]
+  %.03134.i = phi i64 [ %71, %69 ], [ %.03139.i.lcssa, %.lr.ph.i._crit_edge ], [ %80, %.lr.ph ]
   %.0.i = phi i64 [ %.017.i, %69 ], [ %83, %.lr.ph.i._crit_edge ], [ %.017.i, %.lr.ph ]
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.03639.i, i64 64)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.03134.i, i64 64)
   br label %84
 
 84:                                               ; preds = %.critedge.i, %66, %64, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
@@ -11534,52 +11534,52 @@ define dso_local { i64, i64 } @_ZN6spdlog17pattern_formatter15handle_padspec_ERN
 15:                                               ; preds = %12
   %16 = zext nneg i8 %13 to i64
   %17 = add nsw i64 %16, -48
-  %storemerge41 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store ptr %storemerge41, ptr %0, align 8, !tbaa !290
-  %.not42 = icmp eq ptr %storemerge41, %1
-  br i1 %.not42, label %.critedge, label %.lr.ph.preheader
+  %storemerge36 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store ptr %storemerge36, ptr %0, align 8, !tbaa !290
+  %.not37 = icmp eq ptr %storemerge36, %1
+  br i1 %.not37, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
-  %18 = load i8, ptr %storemerge41, align 1, !tbaa !17
+  %18 = load i8, ptr %storemerge36, align 1, !tbaa !17
   %19 = add i8 %18, -48
-  %isdigit1860 = icmp ult i8 %19, 10
-  br i1 %isdigit1860, label %.lr.ph63, label %.lr.ph._crit_edge
+  %isdigit1855 = icmp ult i8 %19, 10
+  br i1 %isdigit1855, label %.lr.ph58, label %.lr.ph._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph63
+.lr.ph:                                           ; preds = %.lr.ph58
   %20 = load i8, ptr %storemerge, align 1, !tbaa !17
   %21 = add i8 %20, -48
   %isdigit18 = icmp ult i8 %21, 10
-  br i1 %isdigit18, label %.lr.ph63, label %.lr.ph._crit_edge, !llvm.loop !248
+  br i1 %isdigit18, label %.lr.ph58, label %.lr.ph._crit_edge, !llvm.loop !248
 
-.lr.ph63:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph58:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %22 = phi i8 [ %20, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.0364462 = phi i64 [ %26, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %storemerge4561 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge41, %.lr.ph.preheader ]
+  %.0313957 = phi i64 [ %26, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %storemerge4056 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge36, %.lr.ph.preheader ]
   %23 = zext nneg i8 %22 to i64
-  %24 = mul i64 %.0364462, 10
+  %24 = mul i64 %.0313957, 10
   %25 = add i64 %24, -48
   %26 = add i64 %25, %23
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge4561, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge4056, i64 1
   store ptr %storemerge, ptr %0, align 8, !tbaa !290
   %.not = icmp eq ptr %storemerge, %1
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !248
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.03644.lcssa = phi i64 [ %17, %.lr.ph.preheader ], [ %26, %.lr.ph ]
-  %.pn43.lcssa = phi ptr [ %10, %.lr.ph.preheader ], [ %storemerge4561, %.lr.ph ]
+  %.03139.lcssa = phi i64 [ %17, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %.pn38.lcssa = phi ptr [ %10, %.lr.ph.preheader ], [ %storemerge4056, %.lr.ph ]
   %.lcssa = phi i8 [ %18, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %27 = icmp eq i8 %.lcssa, 33
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %.lr.ph._crit_edge
-  %29 = getelementptr inbounds nuw i8, ptr %.pn43.lcssa, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.pn38.lcssa, i64 2
   store ptr %29, ptr %0, align 8, !tbaa !290
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph63, %15, %.lr.ph._crit_edge, %28
-  %.03639 = phi i64 [ %.03644.lcssa, %28 ], [ %.03644.lcssa, %.lr.ph._crit_edge ], [ %17, %15 ], [ %26, %.lr.ph63 ]
-  %.0 = phi i64 [ 4294967296, %28 ], [ 0, %.lr.ph._crit_edge ], [ 0, %15 ], [ 0, %.lr.ph63 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.03639, i64 64)
+.critedge:                                        ; preds = %.lr.ph58, %15, %.lr.ph._crit_edge, %28
+  %.03134 = phi i64 [ %.03139.lcssa, %28 ], [ %.03139.lcssa, %.lr.ph._crit_edge ], [ %17, %15 ], [ %26, %.lr.ph58 ]
+  %.0 = phi i64 [ 4294967296, %28 ], [ 0, %.lr.ph._crit_edge ], [ 0, %15 ], [ 0, %.lr.ph58 ]
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.03134, i64 64)
   %.sroa.6.13.insert.insert = or disjoint i64 %.017, %.0
   br label %30
 

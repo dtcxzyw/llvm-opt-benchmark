@@ -3908,11 +3908,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %207, ptr %15, align 8, !tbaa !50
   %213 = load i64, ptr %202, align 8, !tbaa !36
   store i64 %213, ptr %206, align 8, !tbaa !36
-  %.pre244 = load i64, ptr %203, align 8, !tbaa !53
+  %.pre234 = load i64, ptr %203, align 8, !tbaa !53
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %209, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %214 = phi i64 [ %210, %209 ], [ %.pre244, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %214 = phi i64 [ %210, %209 ], [ %.pre234, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %214, ptr %215, align 8, !tbaa !53
   store ptr %202, ptr %13, align 8, !tbaa !50
@@ -3970,11 +3970,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %235 = load i64, ptr %228, align 8, !tbaa !36
   store i64 %235, ptr %226, align 8, !tbaa !36
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.pre245 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !53
+  %.pre235 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !53
   br label %_ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEEvDpOT0_.exit.i206
 
 _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEEvDpOT0_.exit.i206: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205, %230
-  %236 = phi i64 [ %.pre245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205 ], [ %232, %230 ]
+  %236 = phi i64 [ %.pre235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205 ], [ %232, %230 ]
   %237 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %236, ptr %238, align 8, !tbaa !53
@@ -4128,11 +4128,11 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit:   ; preds = %_ZN4llvm4json12_GLO
 
 291:                                              ; preds = %.critedge
   call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJDnEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr %287, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %.pre243 = load ptr, ptr %281, align 8, !tbaa !65
+  %.pre233 = load ptr, ptr %281, align 8, !tbaa !65
   br label %_ZN4llvm4json5Array12emplace_backIJDnEEEvDpOT_.exit
 
 _ZN4llvm4json5Array12emplace_backIJDnEEEvDpOT_.exit: ; preds = %289, %291
-  %292 = phi ptr [ %290, %289 ], [ %.pre243, %291 ]
+  %292 = phi ptr [ %290, %289 ], [ %.pre233, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %293 = getelementptr inbounds i8, ptr %292, i64 -40
   %294 = call fastcc noundef zeroext i1 @_ZN4llvm4json12_GLOBAL__N_16Parser10parseValueERNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %293)
@@ -4250,47 +4250,47 @@ _ZN4llvm4json6ObjectD2Ev.exit:                    ; preds = %_ZN4llvm4json12_GLO
 _ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit103: ; preds = %.lr.ph.i100, %.critedge2.i101, %_ZN4llvm4json6ObjectD2Ev.exit
   %.val20 = phi ptr [ %.promoted.i98, %_ZN4llvm4json6ObjectD2Ev.exit ], [ %318, %.lr.ph.i100 ], [ %320, %.critedge2.i101 ]
   %321 = icmp eq ptr %.val20, %317
-  br i1 %321, label %.critedge235.preheader, label %_ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104
+  br i1 %321, label %.critedge225.preheader, label %_ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104
 
-.critedge235.preheader:                           ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104, %_ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit103
+.critedge225.preheader:                           ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104, %_ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit103
   %322 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %324 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %325 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.critedge235
+  br label %.critedge225
 
 _ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104: ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit103
   %328 = load i8, ptr %.val20, align 1, !tbaa !36
   %329 = icmp eq i8 %328, 125
-  br i1 %329, label %330, label %.critedge235.preheader
+  br i1 %329, label %330, label %.critedge225.preheader
 
 330:                                              ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4peekEv.exit104
   %331 = getelementptr inbounds nuw i8, ptr %.val20, i64 1
   store ptr %331, ptr %22, align 8, !tbaa !176
   br label %.loopexit
 
-.critedge235:                                     ; preds = %.critedge235.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182
-  %.5 = phi i1 [ %.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ undef, %.critedge235.preheader ]
+.critedge225:                                     ; preds = %.critedge225.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182
+  %.5 = phi i1 [ %.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ undef, %.critedge225.preheader ]
   %332 = load ptr, ptr %22, align 8, !tbaa !176
   %333 = load ptr, ptr %23, align 8, !tbaa !177
   %334 = icmp eq ptr %332, %333
   br i1 %334, label %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread, label %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105
 
-_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105: ; preds = %.critedge235
+_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105: ; preds = %.critedge225
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 1
   store ptr %335, ptr %22, align 8, !tbaa !176
   %336 = load i8, ptr %332, align 1, !tbaa !36
   %.not = icmp eq i8 %336, 34
-  br i1 %.not, label %364, label %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit359
+  br i1 %.not, label %364, label %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit349
 
-_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit359: ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105
+_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit349: ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105
   %337 = getelementptr inbounds nuw i8, ptr %332, i64 1
   br label %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread
 
-_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread: ; preds = %.critedge235, %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit359
-  %338 = phi ptr [ %337, %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit359 ], [ %332, %.critedge235 ]
+_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread: ; preds = %.critedge225, %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit349
+  %338 = phi ptr [ %337, %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit105.thread.split.loop.exit349 ], [ %332, %.critedge225 ]
   %339 = load ptr, ptr %326, align 8, !tbaa !170
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %338 to i64
@@ -4498,11 +4498,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i147:
   store ptr %405, ptr %21, align 8, !tbaa !50
   %411 = load i64, ptr %322, align 8, !tbaa !36
   store i64 %411, ptr %324, align 8, !tbaa !36
-  %.pre240 = load i64, ptr %323, align 8, !tbaa !53
+  %.pre230 = load i64, ptr %323, align 8, !tbaa !53
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit148
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit148: ; preds = %407, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i147
-  %412 = phi i64 [ %408, %407 ], [ %.pre240, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i147 ]
+  %412 = phi i64 [ %408, %407 ], [ %.pre230, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i147 ]
   store i64 %412, ptr %325, align 8, !tbaa !53
   store ptr %322, ptr %19, align 8, !tbaa !50
   store i64 0, ptr %323, align 8, !tbaa !53
@@ -4699,7 +4699,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %469, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i180
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %cond, label %.critedge235, label %.loopexit
+  br i1 %cond, label %.critedge225, label %.loopexit
 
 474:                                              ; preds = %_ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit
   %475 = add i8 %59, -48

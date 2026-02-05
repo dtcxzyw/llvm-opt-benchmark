@@ -1275,8 +1275,8 @@ if.then:                                          ; preds = %entry
   %call2.i = tail call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %2) #22
   %call3.i = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22
-  %cmp.i.i13.i = icmp ult i32 %call5.i.i.i, 40
-  br i1 %cmp.i.i13.i, label %do.body10.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  %cmp.i.i12.i = icmp ult i32 %call5.i.i.i, 40
+  br i1 %cmp.i.i12.i, label %do.body10.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.then
   %4 = load i64, ptr %call2.i, align 8
@@ -1307,34 +1307,34 @@ do.body10.i:                                      ; preds = %_ZN4node11Environme
 do.end11.i:                                       ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
   %call12.i = tail call ptr @uvwasi_embedder_err_code_to_string(i16 noundef zeroext %call) #22
   %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %call12.i, i32 noundef 0, i32 noundef -1) #22
-  %cmp.i.i.i14.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i.i14.i, label %if.then.i.i.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
+  %cmp.i.i.i13.i = icmp eq ptr %call.i.i, null
+  br i1 %cmp.i.i.i13.i, label %if.then.i.i.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
 
 if.then.i.i.i:                                    ; preds = %do.end11.i
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #22
   br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i: ; preds = %if.then.i.i.i, %do.end11.i
-  %call.i15.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef -1) #22
-  %cmp.i.i.i16.i = icmp eq ptr %call.i15.i, null
-  br i1 %cmp.i.i.i16.i, label %if.then.i.i17.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18.i
+  %call.i14.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef -1) #22
+  %cmp.i.i.i15.i = icmp eq ptr %call.i14.i, null
+  br i1 %cmp.i.i.i15.i, label %if.then.i.i16.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit17.i
 
-if.then.i.i17.i:                                  ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
+if.then.i.i16.i:                                  ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #22
-  br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18.i
+  br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit17.i
 
-_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18.i: ; preds = %if.then.i.i17.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
+_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit17.i: ; preds = %if.then.i.i16.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit.i
   %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef nonnull @.str.98, i32 noundef 0, i32 noundef 2) #22
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18.i
+if.then.i.i.i.i:                                  ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit17.i
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #22
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i
 
-_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i: ; preds = %if.then.i.i.i.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit18.i
+_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i: ; preds = %if.then.i.i.i.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit17.i
   %call33.i = tail call ptr @_ZN2v86String6ConcatEPNS_7IsolateENS_5LocalIS0_EES4_(ptr noundef %call3.i, ptr %call.i.i, ptr %call.i.i.i) #22
-  %call46.i = tail call ptr @_ZN2v86String6ConcatEPNS_7IsolateENS_5LocalIS0_EES4_(ptr noundef %call3.i, ptr %call33.i, ptr %call.i15.i) #22
+  %call46.i = tail call ptr @_ZN2v86String6ConcatEPNS_7IsolateENS_5LocalIS0_EES4_(ptr noundef %call3.i, ptr %call33.i, ptr %call.i14.i) #22
   %call56.i = tail call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call46.i) #22
   %call65.i = tail call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call56.i, ptr nonnull %call2.i) #22
   %cmp.i.i.i = icmp eq ptr %call65.i, null
@@ -1362,7 +1362,7 @@ lor.rhs.i:                                        ; preds = %lor.lhs.false.i
   %18 = load ptr, ptr %isolate_data_.i.i.i, align 8
   %syscall_string_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 2280
   %19 = load ptr, ptr %syscall_string_.i.i.i, align 8
-  %call160.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %19, ptr %call.i15.i) #22
+  %call160.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %19, ptr %call.i14.i) #22
   %tobool.i.i = trunc i16 %call160.i to i1
   br i1 %tobool.i.i, label %do.end31, label %do.body30
 

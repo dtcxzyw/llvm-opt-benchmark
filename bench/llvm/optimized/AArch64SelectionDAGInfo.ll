@@ -436,7 +436,7 @@ declare void @_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8Arr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo33EmitStreamingCompatibleMemLibCallERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5RTLIB7LibcallE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit:
-  %.sroa.0228 = alloca { ptr, %"class.llvm::SDValue" }, align 8
+  %.sroa.0225 = alloca { ptr, %"class.llvm::SDValue" }, align 8
   %.sroa.0178 = alloca { ptr, %"class.llvm::SDValue" }, align 8
   %.sroa.0159 = alloca { ptr, %"class.llvm::SDValue" }, align 8
   %.sroa.0140 = alloca { ptr, %"class.llvm::SDValue" }, align 8
@@ -448,23 +448,23 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.e
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !178
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1312
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0228)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0228, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0225)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0225, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !278
   %18 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #17
-  %.sroa.0228.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0228, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0228.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !169
+  %.sroa.0225.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0225, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0225.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !169
   %19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0228, i64 24, i1 false)
-  %.sroa.6229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %18, ptr %.sroa.6229.0..sroa_idx, align 8
-  %.sroa.7231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i16 0, ptr %.sroa.7231.0..sroa_idx, align 8
-  %.sroa.9235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 35
-  store i8 0, ptr %.sroa.9235.0..sroa_idx, align 1
-  %.sroa.10239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr null, ptr %.sroa.10239.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0225, i64 24, i1 false)
+  %.sroa.6226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr %18, ptr %.sroa.6226.0..sroa_idx, align 8
+  %.sroa.7228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i16 0, ptr %.sroa.7228.0..sroa_idx, align 8
+  %.sroa.9232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 35
+  store i8 0, ptr %.sroa.9232.0..sroa_idx, align 1
+  %.sroa.10236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store ptr null, ptr %.sroa.10236.0..sroa_idx, align 8
   %20 = load ptr, ptr %11, align 8, !tbaa !80
   %21 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1065) %20) #17
   %22 = load ptr, ptr %15, align 8, !tbaa !3
@@ -564,8 +564,8 @@ _ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmP
   %.sroa.37.0 = phi ptr [ %31, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i66 ], [ %37, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i80 ], [ %44, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i94 ]
   %.sroa.0202.0 = phi ptr [ %29, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i66 ], [ %35, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i80 ], [ %42, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i94 ]
   %.pn = phi { ptr, i32 } [ %28, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i66 ], [ %34, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i80 ], [ %40, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i94 ]
-  %.sroa.7242.0 = extractvalue { ptr, i32 } %.pn, 1
-  %.sroa.0241.0 = extractvalue { ptr, i32 } %.pn, 0
+  %.sroa.7239.0 = extractvalue { ptr, i32 } %.pn, 1
+  %.sroa.0238.0 = extractvalue { ptr, i32 } %.pn, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i8 0, i64 24, i1 false)
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
@@ -720,8 +720,8 @@ _ZN4llvm14TargetLowering16CallLoweringInfo11setDebugLocERKNS_5SDLocE.exit: ; pre
   %114 = getelementptr inbounds nuw i32, ptr %112, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !168
   store ptr %102, ptr %70, align 8, !tbaa !295
-  store ptr %.sroa.0241.0, ptr %76, align 8, !tbaa !167
-  store i32 %.sroa.7242.0, ptr %77, align 8, !tbaa !168
+  store ptr %.sroa.0238.0, ptr %76, align 8, !tbaa !167
+  store i32 %.sroa.7239.0, ptr %77, align 8, !tbaa !168
   store i32 %115, ptr %75, align 8, !tbaa !330
   %116 = ptrtoint ptr %.sroa.16.5 to i64
   %117 = ptrtoint ptr %61 to i64
@@ -758,7 +758,7 @@ _ZN4llvm14TargetLowering16CallLoweringInfo12setLibCalleeEjPNS_4TypeENS_7SDValueE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK4llvm14TargetLowering11LowerCallToERNS0_16CallLoweringInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(4392) %9) #17
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.0243.0.copyload = load ptr, ptr %136, align 8, !tbaa !167
+  %.sroa.0240.0.copyload = load ptr, ptr %136, align 8, !tbaa !167
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !168
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -829,11 +829,11 @@ _ZN4llvm5SDLocD2Ev.exit.i:                        ; preds = %150, %_ZN4llvm11Sma
   br label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit: ; preds = %.thread, %157
-  %.sroa.0243.0251 = phi ptr [ %.sroa.0243.0.copyload, %.thread ], [ null, %157 ]
-  %.sroa.4.0250 = phi i32 [ %.sroa.4.0.copyload, %.thread ], [ 0, %157 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0228)
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0243.0251, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.4.0250, 1
+  %.sroa.0240.0248 = phi ptr [ %.sroa.0240.0.copyload, %.thread ], [ null, %157 ]
+  %.sroa.4.0247 = phi i32 [ %.sroa.4.0.copyload, %.thread ], [ 0, %157 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0225)
+  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0240.0248, 0
+  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.4.0247, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 

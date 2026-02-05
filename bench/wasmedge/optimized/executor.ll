@@ -2252,8 +2252,8 @@ define void @_ZN8WasmEdge8Executor8Executor6invokeEPKNS_7Runtime8Instance16Funct
   br label %38
 
 38:                                               ; preds = %29, %24
-  %.sroa.4122.0 = phi i64 [ 0, %24 ], [ %37, %29 ]
-  %.sroa.0121.0 = phi ptr [ null, %24 ], [ %31, %29 ]
+  %.sroa.4116.0 = phi i64 [ 0, %24 ], [ %37, %29 ]
+  %.sroa.0115.0 = phi ptr [ null, %24 ], [ %31, %29 ]
   %39 = load ptr, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i64, ptr %40, align 8
@@ -2282,7 +2282,7 @@ define void @_ZN8WasmEdge8Executor8Executor6invokeEPKNS_7Runtime8Instance16Funct
   %.013.i = phi i32 [ %50, %49 ], [ 0, %.preheader.i ]
   %54 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %39, i64 %53
   %55 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %42, i64 %53
-  %56 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %.sroa.0121.0, i64 %.sroa.4122.0, ptr noundef nonnull align 4 dereferenceable(8) %54, ptr %.sroa.0121.0, i64 %.sroa.4122.0, ptr noundef nonnull align 4 dereferenceable(8) %55) #21
+  %56 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %.sroa.0115.0, i64 %.sroa.4116.0, ptr noundef nonnull align 4 dereferenceable(8) %54, ptr %.sroa.0115.0, i64 %.sroa.4116.0, ptr noundef nonnull align 4 dereferenceable(8) %55) #21
   br i1 %56, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %38
@@ -2434,7 +2434,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %_ZN8WasmEdge7ErrIn
 
 .lr.ph:                                           ; preds = %49, %131
   %118 = phi i64 [ %133, %131 ], [ 0, %49 ]
-  %.053134 = phi i32 [ %132, %131 ], [ 0, %49 ]
+  %.053126 = phi i32 [ %132, %131 ], [ 0, %49 ]
   %119 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %39, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
   %121 = load i8, ptr %120, align 2
@@ -2466,7 +2466,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %_ZN8WasmEdge7ErrIn
   br label %_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit
 
 131:                                              ; preds = %.lr.ph, %122
-  %132 = add i32 %.053134, 1
+  %132 = add i32 %.053126, 1
   %133 = zext i32 %132 to i64
   %134 = icmp ugt i64 %41, %133
   br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !21
@@ -2557,21 +2557,21 @@ _ZNSt12_Vector_baseISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_
   %169 = add i64 %.01012.i.i.i.i.i, -1
   %170 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %169, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph137, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i, label %.lr.ph129, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
-.lr.ph137:                                        ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph129:                                        ; preds = %.lr.ph.i.i.i.i.i
   %171 = getelementptr inbounds nuw %"struct.std::pair", ptr %167, i64 %163
   %172 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %173 = getelementptr inbounds nuw i8, ptr %19, i64 2
   br label %174
 
-174:                                              ; preds = %.lr.ph137, %236
-  %175 = phi ptr [ %159, %.lr.ph137 ], [ %.sink186, %236 ]
-  %176 = phi ptr [ %158, %.lr.ph137 ], [ %.sink187, %236 ]
-  %177 = phi i64 [ %162, %.lr.ph137 ], [ %239, %236 ]
-  %178 = phi i64 [ 0, %.lr.ph137 ], [ %245, %236 ]
-  %.054136 = phi i32 [ 0, %.lr.ph137 ], [ %244, %236 ]
-  %.sroa.191.0135 = phi ptr [ undef, %.lr.ph137 ], [ %.sroa.191.2, %236 ]
+174:                                              ; preds = %.lr.ph129, %236
+  %175 = phi ptr [ %159, %.lr.ph129 ], [ %.sink178, %236 ]
+  %176 = phi ptr [ %158, %.lr.ph129 ], [ %.sink179, %236 ]
+  %177 = phi i64 [ %162, %.lr.ph129 ], [ %239, %236 ]
+  %178 = phi i64 [ 0, %.lr.ph129 ], [ %245, %236 ]
+  %.054128 = phi i32 [ 0, %.lr.ph129 ], [ %244, %236 ]
+  %.sroa.191.0127 = phi ptr [ undef, %.lr.ph129 ], [ %.sroa.191.2, %236 ]
   %179 = load ptr, ptr %136, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %180, align 16
@@ -2594,10 +2594,10 @@ _ZNSt12_Vector_baseISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_
   %188 = lshr i64 %.sroa.0.0.copyload.i, 24
   %189 = trunc i64 %188 to i8
   %190 = and i64 %.sroa.0.0.copyload.i, 65280
-  %.not132 = icmp eq i64 %190, 0
-  br i1 %.not132, label %193, label %.thread175
+  %.not124 = icmp eq i64 %190, 0
+  br i1 %.not124, label %193, label %.thread167
 
-.thread175:                                       ; preds = %186
+.thread167:                                       ; preds = %186
   store i64 1868824576, ptr %19, align 16
   br label %228
 
@@ -2664,7 +2664,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %202
   br i1 %.not.i76, label %216, label %213
 
 213:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %214 = ptrtoint ptr %.sroa.191.0135 to i64
+  %214 = ptrtoint ptr %.sroa.191.0127 to i64
   %.sroa.191.8.insert.mask = and i64 %214, -4294967296
   %.sroa.191.8.insert.insert = or disjoint i64 %.sroa.191.8.insert.mask, 1025
   %215 = inttoptr i64 %.sroa.191.8.insert.insert to ptr
@@ -2700,13 +2700,13 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %213, %
   %.sroa.289.0.insert.insert = or disjoint i64 %switch.load, %.sroa.289.0.insert.shift
   store i64 %.sroa.289.0.insert.insert, ptr %19, align 16
   %.pre = load ptr, ptr %157, align 8
-  %.pre142 = load ptr, ptr %27, align 8
+  %.pre134 = load ptr, ptr %27, align 8
   br label %228
 
-228:                                              ; preds = %.thread175, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196
-  %229 = phi ptr [ %.pre142, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %.thread175 ]
-  %230 = phi ptr [ %.pre, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %.thread175 ]
-  %.sroa.191.1 = phi ptr [ %.sroa.191.3, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %196 ], [ %.sroa.191.0135, %.thread175 ]
+228:                                              ; preds = %.thread167, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196, %196
+  %229 = phi ptr [ %.pre134, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %196 ], [ %175, %.thread167 ]
+  %230 = phi ptr [ %.pre, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %196 ], [ %176, %.thread167 ]
+  %.sroa.191.1 = phi ptr [ %.sroa.191.3, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %196 ], [ %.sroa.191.0127, %.thread167 ]
   %.sroa.085.0.copyload = load i128, ptr %19, align 16
   %231 = trunc i128 %.sroa.085.0.copyload to i64
   br label %236
@@ -2720,13 +2720,13 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %213, %
   br label %236
 
 236:                                              ; preds = %228, %232
-  %.sink187 = phi ptr [ %230, %228 ], [ %234, %232 ]
-  %.sink186 = phi ptr [ %229, %228 ], [ %235, %232 ]
+  %.sink179 = phi ptr [ %230, %228 ], [ %234, %232 ]
+  %.sink178 = phi ptr [ %229, %228 ], [ %235, %232 ]
   %.sroa.085.0.copyload.sink = phi i128 [ %.sroa.085.0.copyload, %228 ], [ %.sroa.0.0.copyload, %232 ]
   %.sink = phi i64 [ %231, %228 ], [ %233, %232 ]
-  %.sroa.191.2 = phi ptr [ %.sroa.191.1, %228 ], [ %.sroa.191.0135, %232 ]
-  %237 = ptrtoint ptr %.sink187 to i64
-  %238 = ptrtoint ptr %.sink186 to i64
+  %.sroa.191.2 = phi ptr [ %.sroa.191.1, %228 ], [ %.sroa.191.0127, %232 ]
+  %237 = ptrtoint ptr %.sink179 to i64
+  %238 = ptrtoint ptr %.sink178 to i64
   %239 = sub i64 %237, %238
   %240 = ashr exact i64 %239, 3
   %241 = getelementptr %"struct.std::pair", ptr %167, i64 %240
@@ -2734,22 +2734,22 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %213, %
   store i128 %.sroa.085.0.copyload.sink, ptr %242, align 16
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store i64 %.sink, ptr %243, align 16
-  %244 = add i32 %.054136, 1
+  %244 = add i32 %.054128, 1
   %245 = zext i32 %244 to i64
   %246 = icmp ugt i64 %240, %245
   br i1 %246, label %174, label %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EED2Ev.exit79, !llvm.loop !32
 
 _ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EED2Ev.exit79: ; preds = %236, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
-  %.0.lcssa.i.i.i.i.i172 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %170, %236 ]
-  %.sroa.097.0171 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %167, %236 ]
-  %.sroa.11.0170 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %171, %236 ]
+  %.0.lcssa.i.i.i.i.i164 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %170, %236 ]
+  %.sroa.097.0163 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %167, %236 ]
+  %.sroa.11.0162 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %171, %236 ]
   store i8 1, ptr %0, align 8
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.097.0171, ptr %247, align 8
+  store ptr %.sroa.097.0163, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.lcssa.i.i.i.i.i172, ptr %248, align 8
+  store ptr %.0.lcssa.i.i.i.i.i164, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.0170, ptr %249, align 8
+  store ptr %.sroa.11.0162, ptr %249, align 8
   br label %250
 
 250:                                              ; preds = %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EED2Ev.exit79, %150

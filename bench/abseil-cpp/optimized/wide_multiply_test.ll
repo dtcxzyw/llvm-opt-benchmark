@@ -2285,12 +2285,12 @@ _ZN7testing15AssertionResultD2Ev.exit377:         ; preds = %643, %_ZNKSt14defau
 679:                                              ; preds = %675, %669, %664
   %.sroa.0997.0 = phi i64 [ %.sroa.0.0.extract.trunc.i47.i, %675 ], [ %.sroa.0.0.extract.trunc.i29.i, %669 ], [ 0, %664 ]
   %.sroa.4999.0 = phi i64 [ %.sroa.2.0.extract.trunc.i49.i, %675 ], [ %.sroa.2.0.extract.trunc.i31.i, %669 ], [ 0, %664 ]
-  %.sroa.81005.1 = phi i64 [ 0, %675 ], [ %.sroa.2.0.extract.trunc.i40.i, %669 ], [ -1, %664 ]
-  %.sroa.61002.1 = phi i64 [ 0, %675 ], [ %.sroa.0.0.extract.trunc.i38.i, %669 ], [ -1, %664 ]
+  %.sroa.81005.0 = phi i64 [ 0, %675 ], [ %.sroa.2.0.extract.trunc.i40.i, %669 ], [ -1, %664 ]
+  %.sroa.61002.0 = phi i64 [ 0, %675 ], [ %.sroa.0.0.extract.trunc.i38.i, %669 ], [ -1, %664 ]
   store i64 %.sroa.0997.0, ptr %43, align 16
   store i64 %.sroa.4999.0, ptr %.sroa.41058.0..sroa_idx, align 8
-  store i64 %.sroa.61002.1, ptr %.sroa.51059.0..sroa_idx, align 16
-  store i64 %.sroa.81005.1, ptr %.sroa.61060.0..sroa_idx, align 8
+  store i64 %.sroa.61002.0, ptr %.sroa.51059.0..sroa_idx, align 16
+  store i64 %.sroa.81005.0, ptr %.sroa.61060.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %680 = zext nneg i32 %665 to i128
   %681 = shl nuw i128 1, %680
@@ -2474,12 +2474,12 @@ _ZN7testing15AssertionResultD2Ev.exit412:         ; preds = %714, %_ZNKSt14defau
 736:                                              ; preds = %732, %726, %_ZN7testing15AssertionResultD2Ev.exit412
   %.sroa.0981.0 = phi i64 [ %.sroa.0.0.extract.trunc.i47.i420, %732 ], [ %.sroa.0.0.extract.trunc.i29.i437, %726 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
   %.sroa.4983.0 = phi i64 [ %.sroa.2.0.extract.trunc.i49.i422, %732 ], [ %.sroa.2.0.extract.trunc.i31.i439, %726 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
-  %.sroa.8989.1 = phi i64 [ 0, %732 ], [ %.sroa.2.0.extract.trunc.i40.i442, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
-  %.sroa.6986.1 = phi i64 [ 0, %732 ], [ %.sroa.0.0.extract.trunc.i38.i440, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.8989.0 = phi i64 [ 0, %732 ], [ %.sroa.2.0.extract.trunc.i40.i442, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.6986.0 = phi i64 [ 0, %732 ], [ %.sroa.0.0.extract.trunc.i38.i440, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
   store i64 %.sroa.0981.0, ptr %48, align 16
   store i64 %.sroa.4983.0, ptr %.sroa.41076.0..sroa_idx, align 8
-  store i64 %.sroa.6986.1, ptr %.sroa.51077.0..sroa_idx, align 16
-  store i64 %.sroa.8989.1, ptr %.sroa.61078.0..sroa_idx, align 8
+  store i64 %.sroa.6986.0, ptr %.sroa.51077.0..sroa_idx, align 16
+  store i64 %.sroa.8989.0, ptr %.sroa.61078.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %737 = zext nneg i32 %722 to i128
   %738 = shl nuw i128 1, %737
@@ -2698,10 +2698,10 @@ _ZN12_GLOBAL__N_19LeftShiftEN4absl15random_internal4U256Ei.exit535: ; preds = %.
   %.sroa.0.0.extract.trunc.i38.i532 = trunc i128 %797 to i64
   %.sroa.2.0.extract.shift.i39.i533 = lshr i128 %797, 64
   %.sroa.2.0.extract.trunc.i40.i534 = trunc nuw i128 %.sroa.2.0.extract.shift.i39.i533 to i64
-  %.sroa.8.2 = select i1 %795, i64 0, i64 %.sroa.2.0.extract.trunc.i40.i534
+  %.sroa.8.0 = select i1 %795, i64 0, i64 %.sroa.2.0.extract.trunc.i40.i534
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store i64 %.sroa.0.0.extract.trunc.i38.i532, ptr %.sroa.51099.0..sroa_idx, align 16
-  store i64 %.sroa.8.2, ptr %.sroa.61100.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.61100.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %798 = zext nneg i32 %.01821137 to i128
   %799 = shl nuw nsw i128 1, %798

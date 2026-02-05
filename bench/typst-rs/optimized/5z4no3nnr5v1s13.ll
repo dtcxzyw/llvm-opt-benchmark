@@ -110259,7 +110259,7 @@ define internal fastcc noundef i128 @"_ZN5typst13introspection12introspector1_10
   %11 = alloca { ptr, [2 x i64] }, align 8
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = load i32, ptr %0, align 16, !range !7645, !noundef !14
-  switch i32 %13, label %default.unreachable15 [
+  switch i32 %13, label %default.unreachable13 [
     i32 0, label %14
     i32 1, label %48
     i32 2, label %52
@@ -110270,7 +110270,7 @@ define internal fastcc noundef i128 @"_ZN5typst13introspection12introspector1_10
     i32 7, label %147
   ]
 
-default.unreachable15:                            ; preds = %1
+default.unreachable13:                            ; preds = %1
   unreachable
 
 14:                                               ; preds = %1

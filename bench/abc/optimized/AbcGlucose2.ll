@@ -2686,7 +2686,7 @@ bmcg2_sat_solver_set_nvars.exit:                  ; preds = %.lr.ph.i, %16
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
   %indvars.iv = phi i64 [ 0, %.preheader.i.preheader ], [ %indvars.iv.next, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
-  %.sroa.12.3 = phi i32 [ 0, %.preheader.i.preheader ], [ %.sroa.12.4, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
+  %.sroa.12.0 = phi i32 [ 0, %.preheader.i.preheader ], [ %.sroa.12.1, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
   %.0813.i = phi ptr [ %33, %.preheader.i.preheader ], [ %106, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
   %42 = phi ptr [ null, %.preheader.i.preheader ], [ %104, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
   %43 = load i32, ptr %.0813.i, align 4, !tbaa !6
@@ -2696,7 +2696,7 @@ bmcg2_sat_solver_set_nvars.exit:                  ; preds = %.lr.ph.i, %16
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i50
 
 ._crit_edge15.i:                                  ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i, %30
-  %.sroa.6.2 = phi i32 [ 0, %30 ], [ %40, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
+  %.sroa.6.0 = phi i32 [ 0, %30 ], [ %40, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
   %.lcssa10.i = phi ptr [ null, %30 ], [ %104, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
   %46 = load ptr, ptr %28, align 8, !tbaa !13
   %.not.i.i53 = icmp eq ptr %46, null
@@ -2712,16 +2712,16 @@ bmcg2_sat_solver_set_nvars.exit:                  ; preds = %.lr.ph.i, %16
 
 _ZN6Gluco23vecINS_3LitEE5clearEb.exit.i:          ; preds = %.preheader.i.i, %._ZN6Gluco23vecINS_3LitEE5clearEb.exit_crit_edge.i
   %47 = phi i32 [ %.pre.i58, %._ZN6Gluco23vecINS_3LitEE5clearEb.exit_crit_edge.i ], [ 0, %.preheader.i.i ]
-  %.not.i7.i = icmp slt i32 %47, %.sroa.6.2
+  %.not.i7.i = icmp slt i32 %47, %.sroa.6.0
   br i1 %.not.i7.i, label %48, label %_ZN6Gluco23vecINS_3LitEE6growToEi.exit.i
 
 48:                                               ; preds = %_ZN6Gluco23vecINS_3LitEE5clearEb.exit.i
   %49 = load i32, ptr %29, align 4, !tbaa !19
-  %.not.i.i.i57 = icmp slt i32 %49, %.sroa.6.2
+  %.not.i.i.i57 = icmp slt i32 %49, %.sroa.6.0
   br i1 %.not.i.i.i57, label %50, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i.i
 
 50:                                               ; preds = %48
-  %51 = add nuw i32 %.sroa.6.2, 1
+  %51 = add nuw i32 %.sroa.6.0, 1
   %52 = sub i32 %51, %49
   %53 = and i32 %52, -2
   %54 = ashr i32 %49, 1
@@ -2754,16 +2754,16 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit.i:          ; preds = %.preheader.i.i, %._
 
 _ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i.i:     ; preds = %66, %60, %48
   %71 = load i32, ptr %.phi.trans.insert.i54, align 8, !tbaa !16
-  %72 = icmp slt i32 %71, %.sroa.6.2
+  %72 = icmp slt i32 %71, %.sroa.6.0
   br i1 %72, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i.i
   %73 = sext i32 %71 to i64
-  %wide.trip.count.i.i = zext nneg i32 %.sroa.6.2 to i64
+  %wide.trip.count.i.i = zext nneg i32 %.sroa.6.0 to i64
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i.i
-  store i32 %.sroa.6.2, ptr %.phi.trans.insert.i54, align 8, !tbaa !16
+  store i32 %.sroa.6.0, ptr %.phi.trans.insert.i54, align 8, !tbaa !16
   br label %_ZN6Gluco23vecINS_3LitEE6growToEi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -2776,12 +2776,12 @@ _ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i.i:     ; preds = %66, %60, %48
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !126
 
 _ZN6Gluco23vecINS_3LitEE6growToEi.exit.i:         ; preds = %._crit_edge.i.i, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit.i
-  %76 = icmp sgt i32 %.sroa.6.2, 0
+  %76 = icmp sgt i32 %.sroa.6.0, 0
   br i1 %76, label %.lr.ph.i56, label %_ZNK6Gluco23vecINS_3LitEE6copyToERS2_.exit
 
 .lr.ph.i56:                                       ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEi.exit.i
   %77 = load ptr, ptr %28, align 8, !tbaa !13
-  %78 = zext nneg i32 %.sroa.6.2 to i64
+  %78 = zext nneg i32 %.sroa.6.0 to i64
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i56
@@ -2817,7 +2817,7 @@ _ZNK6Gluco23vecINS_3LitEE6copyToERS2_.exit:       ; preds = %_ZN6Gluco23vecINS_3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i50, %.preheader.i
   %.lcssa.i = phi i32 [ %43, %.preheader.i ], [ %86, %.lr.ph.i50 ]
-  %89 = zext i32 %.sroa.12.3 to i64
+  %89 = zext i32 %.sroa.12.0 to i64
   %90 = icmp eq i64 %indvars.iv, %89
   br i1 %90, label %91, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
 
@@ -2843,7 +2843,7 @@ _ZNK6Gluco23vecINS_3LitEE6copyToERS2_.exit:       ; preds = %_ZN6Gluco23vecINS_3
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i:       ; preds = %98, %._crit_edge.i
-  %.sroa.12.4 = phi i32 [ %99, %98 ], [ %.sroa.12.3, %._crit_edge.i ]
+  %.sroa.12.1 = phi i32 [ %99, %98 ], [ %.sroa.12.0, %._crit_edge.i ]
   %104 = phi ptr [ %102, %98 ], [ %42, %._crit_edge.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %104, i64 %indvars.iv

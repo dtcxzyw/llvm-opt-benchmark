@@ -572,8 +572,8 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit.i: ; preds = %105, %98
   store ptr null, ptr %.sroa.2885.88..sroa_idx.i, align 8
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %111 = load ptr, ptr %110, align 8, !tbaa !120
-  %.not94.i = icmp eq ptr %111, null
-  br i1 %.not94.i, label %112, label %188
+  %.not88.i = icmp eq ptr %111, null
+  br i1 %.not88.i, label %112, label %188
 
 112:                                              ; preds = %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26)

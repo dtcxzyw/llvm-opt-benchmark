@@ -2559,9 +2559,9 @@ _ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread: ; preds = %409, %44
 
 _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread, %464, %477
   %495 = phi float [ %470, %477 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %470, %464 ]
-  %.sroa.0422.3604 = phi float [ %466, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %466, %464 ]
-  %.sroa.29.3603 = phi float [ %468, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %468, %464 ]
-  %.sroa.15.3602 = phi float [ %467, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %467, %464 ]
+  %.sroa.0422.1604 = phi float [ %466, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %466, %464 ]
+  %.sroa.29.1603 = phi float [ %468, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %468, %464 ]
+  %.sroa.15.1602 = phi float [ %467, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %467, %464 ]
   %.0.i404 = phi float [ %494, %477 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %470, %464 ]
   %496 = fdiv float %.0.i404, %495
   %497 = getelementptr inbounds nuw i8, ptr %385, i64 492
@@ -2569,17 +2569,17 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %499 = getelementptr inbounds nuw i8, ptr %385, i64 412
   store float %498, ptr %499, align 4
   %500 = fmul float %498, %496
-  %501 = fmul float %.sroa.0422.3604, %500
-  %502 = fmul float %.sroa.15.3602, %500
-  %503 = fmul float %.sroa.29.3603, %500
+  %501 = fmul float %.sroa.0422.1604, %500
+  %502 = fmul float %.sroa.15.1602, %500
+  %503 = fmul float %.sroa.29.1603, %500
   br label %504
 
 504:                                              ; preds = %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit, %391
   %505 = phi float [ %sqrt.i397, %391 ], [ %498, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
   %506 = phi i8 [ %.pre, %391 ], [ %405, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
-  %.sroa.15.2 = phi float [ %395, %391 ], [ %502, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
-  %.sroa.29.2 = phi float [ %397, %391 ], [ %503, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
-  %.sroa.0422.2 = phi float [ %393, %391 ], [ %501, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
+  %.sroa.15.0 = phi float [ %395, %391 ], [ %502, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
+  %.sroa.29.0 = phi float [ %397, %391 ], [ %503, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
+  %.sroa.0422.0 = phi float [ %393, %391 ], [ %501, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
   %507 = and i8 %506, 4
   %.not377 = icmp eq i8 %507, 0
   br i1 %.not377, label %._crit_edge.thread, label %508
@@ -2609,9 +2609,9 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 524:                                              ; preds = %.lr.ph467, %549
   %indvars.iv520 = phi i64 [ 0, %.lr.ph467 ], [ %indvars.iv.next521, %549 ]
   %.0337466 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.1, %549 ]
-  %.sroa.7420.3464 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.7420.4, %549 ]
-  %.sroa.4.3463 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.4.4, %549 ]
-  %.sroa.0417.3462 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.0417.4, %549 ]
+  %.sroa.7420.0464 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.7420.1, %549 ]
+  %.sroa.4.0463 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.4.1, %549 ]
+  %.sroa.0417.0462 = phi float [ 0.000000e+00, %.lr.ph467 ], [ %.sroa.0417.1, %549 ]
   %525 = getelementptr inbounds nuw %struct.dtCrowdNeighbour, ptr %518, i64 %indvars.iv520
   %526 = load i32, ptr %525, align 8
   %527 = sext i32 %526 to i64
@@ -2636,16 +2636,16 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %542 = fsub float 1.000000e+00, %541
   %543 = fmul float %513, %542
   %544 = fdiv float %543, %sqrt
-  %545 = call float @llvm.fmuladd.f32(float %531, float %544, float %.sroa.0417.3462)
-  %546 = call float @llvm.fmuladd.f32(float %544, float 0.000000e+00, float %.sroa.4.3463)
-  %547 = call float @llvm.fmuladd.f32(float %534, float %544, float %.sroa.7420.3464)
+  %545 = call float @llvm.fmuladd.f32(float %531, float %544, float %.sroa.0417.0462)
+  %546 = call float @llvm.fmuladd.f32(float %544, float 0.000000e+00, float %.sroa.4.0463)
+  %547 = call float @llvm.fmuladd.f32(float %534, float %544, float %.sroa.7420.0464)
   %548 = fadd float %.0337466, 1.000000e+00
   br label %549
 
 549:                                              ; preds = %524, %539
-  %.sroa.0417.4 = phi float [ %.sroa.0417.3462, %524 ], [ %545, %539 ]
-  %.sroa.4.4 = phi float [ %.sroa.4.3463, %524 ], [ %546, %539 ]
-  %.sroa.7420.4 = phi float [ %.sroa.7420.3464, %524 ], [ %547, %539 ]
+  %.sroa.0417.1 = phi float [ %.sroa.0417.0462, %524 ], [ %545, %539 ]
+  %.sroa.4.1 = phi float [ %.sroa.4.0463, %524 ], [ %546, %539 ]
+  %.sroa.7420.1 = phi float [ %.sroa.7420.0464, %524 ], [ %547, %539 ]
   %.1 = phi float [ %.0337466, %524 ], [ %548, %539 ]
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
@@ -2657,9 +2657,9 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 
 551:                                              ; preds = %._crit_edge
   %552 = fdiv float 1.000000e+00, %.1
-  %553 = call float @llvm.fmuladd.f32(float %.sroa.0417.4, float %552, float %.sroa.0422.2)
-  %554 = call float @llvm.fmuladd.f32(float %.sroa.4.4, float %552, float %.sroa.15.2)
-  %555 = call float @llvm.fmuladd.f32(float %.sroa.7420.4, float %552, float %.sroa.29.2)
+  %553 = call float @llvm.fmuladd.f32(float %.sroa.0417.1, float %552, float %.sroa.0422.0)
+  %554 = call float @llvm.fmuladd.f32(float %.sroa.4.1, float %552, float %.sroa.15.0)
+  %555 = call float @llvm.fmuladd.f32(float %.sroa.7420.1, float %552, float %.sroa.29.0)
   %556 = fmul float %554, %554
   %557 = call float @llvm.fmuladd.f32(float %553, float %553, float %556)
   %558 = call noundef float @llvm.fmuladd.f32(float %555, float %555, float %557)
@@ -2675,15 +2675,15 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %508, %._crit_edge, %561, %551, %504
-  %.sroa.15.4 = phi float [ %.sroa.15.2, %504 ], [ %564, %561 ], [ %554, %551 ], [ %.sroa.15.2, %._crit_edge ], [ %.sroa.15.2, %508 ]
-  %.sroa.29.4 = phi float [ %.sroa.29.2, %504 ], [ %565, %561 ], [ %555, %551 ], [ %.sroa.29.2, %._crit_edge ], [ %.sroa.29.2, %508 ]
-  %.sroa.0422.4 = phi float [ %.sroa.0422.2, %504 ], [ %563, %561 ], [ %553, %551 ], [ %.sroa.0422.2, %._crit_edge ], [ %.sroa.0422.2, %508 ]
+  %.sroa.15.2 = phi float [ %.sroa.15.0, %504 ], [ %564, %561 ], [ %554, %551 ], [ %.sroa.15.0, %._crit_edge ], [ %.sroa.15.0, %508 ]
+  %.sroa.29.2 = phi float [ %.sroa.29.0, %504 ], [ %565, %561 ], [ %555, %551 ], [ %.sroa.29.0, %._crit_edge ], [ %.sroa.29.0, %508 ]
+  %.sroa.0422.2 = phi float [ %.sroa.0422.0, %504 ], [ %563, %561 ], [ %553, %551 ], [ %.sroa.0422.0, %._crit_edge ], [ %.sroa.0422.0, %508 ]
   %566 = getelementptr inbounds nuw i8, ptr %385, i64 440
-  store float %.sroa.0422.4, ptr %566, align 4
+  store float %.sroa.0422.2, ptr %566, align 4
   %567 = getelementptr inbounds nuw i8, ptr %385, i64 444
-  store float %.sroa.15.4, ptr %567, align 4
+  store float %.sroa.15.2, ptr %567, align 4
   %568 = getelementptr inbounds nuw i8, ptr %385, i64 448
-  store float %.sroa.29.4, ptr %568, align 4
+  store float %.sroa.29.2, ptr %568, align 4
   br label %569
 
 569:                                              ; preds = %388, %383, %._crit_edge.thread

@@ -7130,8 +7130,8 @@ _ZN4llvm11raw_ostreamlsEc.exit111.i:              ; preds = %685, %683
   store i64 %689, ptr %0, align 8
   %690 = load i64, ptr %23, align 16
   %691 = and i64 %690, 18014123631575040
-  %.not341.i = icmp eq i64 %691, 0
-  br i1 %.not341.i, label %._crit_edge.i282, label %.lr.ph.i279
+  %.not335.i = icmp eq i64 %691, 0
+  br i1 %.not335.i, label %._crit_edge.i282, label %.lr.ph.i279
 
 .lr.ph.i279:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit111.i
   %692 = lshr i64 %690, 38
@@ -7140,19 +7140,19 @@ _ZN4llvm11raw_ostreamlsEc.exit111.i:              ; preds = %685, %683
   br label %701
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit473
-  %.pre350.i = load i64, ptr %0, align 8
+  %.pre344.i = load i64, ptr %0, align 8
   br label %._crit_edge.i282
 
 ._crit_edge.i282:                                 ; preds = %._crit_edge.loopexit.i, %_ZN4llvm11raw_ostreamlsEc.exit111.i
-  %695 = phi i64 [ %.pre350.i, %._crit_edge.loopexit.i ], [ %689, %_ZN4llvm11raw_ostreamlsEc.exit111.i ]
+  %695 = phi i64 [ %.pre344.i, %._crit_edge.loopexit.i ], [ %689, %_ZN4llvm11raw_ostreamlsEc.exit111.i ]
   %696 = and i64 %695, -257
   %697 = or disjoint i64 %696, %688
   store i64 %697, ptr %0, align 8
   %698 = load i64, ptr %23, align 16
   %699 = and i64 %698, 1152921504606846976
-  %.not338.i = icmp eq i64 %699, 0
+  %.not332.i = icmp eq i64 %699, 0
   %700 = and i64 %698, 18014123631575040
-  br i1 %.not338.i, label %1004, label %981
+  br i1 %.not332.i, label %1004, label %981
 
 701:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit473, %.lr.ph.i279
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i279 ], [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit473 ]
@@ -7304,8 +7304,8 @@ _ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i: ; preds = %_ZN4llvm
   %phi.call.in.i = phi ptr [ %787, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i117.i ], [ %738, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i ]
   %phi.call.i = load i8, ptr %phi.call.in.i, align 1, !tbaa !13
   %788 = and i8 %phi.call.i, 16
-  %.not336.i = icmp eq i8 %788, 0
-  br i1 %.not336.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit127.i, label %789
+  %.not330.i = icmp eq i8 %788, 0
+  br i1 %.not330.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit127.i, label %789
 
 789:                                              ; preds = %_ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i
   %790 = load ptr, ptr %17, align 8, !tbaa !3
@@ -7329,8 +7329,8 @@ _ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i: ; preds = %_ZN4llvm
 
 _ZN4llvm11raw_ostreamlsEPKc.exit127.i:            ; preds = %798, %796, %_ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i
   %801 = and i8 %phi.call.i, 64
-  %.not337.i = icmp eq i8 %801, 0
-  br i1 %.not337.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit130.i, label %802
+  %.not331.i = icmp eq i8 %801, 0
+  br i1 %.not331.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit130.i, label %802
 
 802:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit127.i
   %803 = load ptr, ptr %17, align 8, !tbaa !3
@@ -7372,8 +7372,8 @@ _ZN5clang23getParameterABISpellingENS_12ParameterABIE.exit.i: ; preds = %_ZN4llv
 
 823:                                              ; preds = %_ZN5clang23getParameterABISpellingENS_12ParameterABIE.exit.i
   %824 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %.str.11..str.10.i, i64 noundef %..i) #18
-  %.phi.trans.insert348.i = getelementptr inbounds nuw i8, ptr %824, i64 32
-  %.pre349.i = load ptr, ptr %.phi.trans.insert348.i, align 8, !tbaa !12
+  %.phi.trans.insert342.i = getelementptr inbounds nuw i8, ptr %824, i64 32
+  %.pre343.i = load ptr, ptr %.phi.trans.insert342.i, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 825:                                              ; preds = %_ZN5clang23getParameterABISpellingENS_12ParameterABIE.exit.i
@@ -7384,7 +7384,7 @@ _ZN5clang23getParameterABISpellingENS_12ParameterABIE.exit.i: ; preds = %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %825, %823
-  %828 = phi ptr [ %.pre349.i, %823 ], [ %827, %825 ]
+  %828 = phi ptr [ %.pre343.i, %823 ], [ %827, %825 ]
   %.0.i133.i = phi ptr [ %824, %823 ], [ %2, %825 ]
   %829 = getelementptr inbounds nuw i8, ptr %.0.i133.i, i64 24
   %830 = load ptr, ptr %829, align 8, !tbaa !3
@@ -7704,31 +7704,31 @@ _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11ra
 
 981:                                              ; preds = %._crit_edge.i282
   %.not98.i = icmp eq i64 %700, 0
-  %.pre352.i = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre346.i = load ptr, ptr %16, align 8, !tbaa !12
   br i1 %.not98.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit157.i, label %982
 
 982:                                              ; preds = %981
   %983 = load ptr, ptr %17, align 8, !tbaa !3
   %984 = ptrtoint ptr %983 to i64
-  %985 = ptrtoint ptr %.pre352.i to i64
+  %985 = ptrtoint ptr %.pre346.i to i64
   %986 = sub i64 %984, %985
   %987 = icmp ult i64 %986, 2
   br i1 %987, label %988, label %990
 
 988:                                              ; preds = %982
   %989 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.2, i64 noundef 2) #18
-  %.pre351.i = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre345.i = load ptr, ptr %16, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit157.i
 
 990:                                              ; preds = %982
-  store i16 8236, ptr %.pre352.i, align 1
+  store i16 8236, ptr %.pre346.i, align 1
   %991 = load ptr, ptr %16, align 8, !tbaa !12
   %992 = getelementptr inbounds nuw i8, ptr %991, i64 2
   store ptr %992, ptr %16, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit157.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit157.i:            ; preds = %990, %988, %981
-  %993 = phi ptr [ %992, %990 ], [ %.pre351.i, %988 ], [ %.pre352.i, %981 ]
+  %993 = phi ptr [ %992, %990 ], [ %.pre345.i, %988 ], [ %.pre346.i, %981 ]
   %994 = load ptr, ptr %17, align 8, !tbaa !3
   %995 = ptrtoint ptr %994 to i64
   %996 = ptrtoint ptr %993 to i64
@@ -7751,8 +7751,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit157.i:            ; preds = %990, %988, %981
   %1005 = icmp ne i64 %700, 0
   %1006 = and i64 %695, 536870912
   %.not97.i = icmp eq i64 %1006, 0
-  %or.cond335.i = select i1 %1005, i1 true, i1 %.not97.i
-  br i1 %or.cond335.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit160.i, label %1007
+  %or.cond329.i = select i1 %1005, i1 true, i1 %.not97.i
+  br i1 %or.cond329.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit160.i, label %1007
 
 1007:                                             ; preds = %1004
   %1008 = load ptr, ptr %17, align 8, !tbaa !3
@@ -8232,7 +8232,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit210.i:            ; preds = %1270, %1268, %1258,
   %1273 = load i64, ptr %23, align 16, !noalias !232
   %1274 = and i64 %1273, 576460752303423488
   %.not13.i.i = icmp eq i64 %1274, 0
-  br i1 %.not13.i.i, label %._crit_edge346.i, label %1275
+  br i1 %.not13.i.i, label %._crit_edge340.i, label %1275
 
 1275:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit210.i
   %1276 = getelementptr inbounds nuw i8, ptr %.tr474, i64 48
@@ -8249,7 +8249,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit210.i:            ; preds = %1270, %1268, %1258,
   %1287 = load i16, ptr %1286, align 8, !noalias !232
   %1288 = lshr i16 %1287, 12
   %.not.not.i.i = icmp eq i16 %1288, 0
-  br i1 %.not.not.i.i, label %._crit_edge346.i, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
+  br i1 %.not.not.i.i, label %._crit_edge340.i, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
 
 _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i: ; preds = %1275
   %1289 = and i16 %1287, 2048
@@ -8288,7 +8288,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %1314 = lshr i64 %1273, 37
   %1315 = and i64 %1314, 1
   %1316 = getelementptr inbounds nuw %"class.clang::Qualifiers", ptr %1313, i64 %1315
-  br i1 %.not10.i.i, label %.lr.ph345.i, label %switch.lookup
+  br i1 %.not10.i.i, label %.lr.ph339.i, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
   %1317 = and i64 %1297, 15
@@ -8306,33 +8306,33 @@ switch.lookup:                                    ; preds = %_ZN4llvm25trailing_
   %1326 = add i64 %1325, %1322
   %1327 = and i64 %1326, -8
   %1328 = inttoptr i64 %1327 to ptr
-  br label %.lr.ph345.i
+  br label %.lr.ph339.i
 
-.lr.ph345.i:                                      ; preds = %switch.lookup, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
+.lr.ph339.i:                                      ; preds = %switch.lookup, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
   %.sroa.7.0.i = phi ptr [ null, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i ], [ %1328, %switch.lookup ]
   %1329 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %1330 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %1333
 
-._crit_edge346.loopexit.i:                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit237.i
-  %.pre353.i = load i64, ptr %23, align 16
-  br label %._crit_edge346.i
+._crit_edge340.loopexit.i:                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit237.i
+  %.pre347.i = load i64, ptr %23, align 16
+  br label %._crit_edge340.i
 
-._crit_edge346.i:                                 ; preds = %._crit_edge346.loopexit.i, %1275, %_ZN4llvm11raw_ostreamlsEPKc.exit210.i
-  %1331 = phi i64 [ %.pre353.i, %._crit_edge346.loopexit.i ], [ %1273, %1275 ], [ %1273, %_ZN4llvm11raw_ostreamlsEPKc.exit210.i ]
+._crit_edge340.i:                                 ; preds = %._crit_edge340.loopexit.i, %1275, %_ZN4llvm11raw_ostreamlsEPKc.exit210.i
+  %1331 = phi i64 [ %.pre347.i, %._crit_edge340.loopexit.i ], [ %1273, %1275 ], [ %1273, %_ZN4llvm11raw_ostreamlsEPKc.exit210.i ]
   %1332 = and i64 %1331, 2305843009213693952
-  %.not340.i = icmp eq i64 %1332, 0
-  br i1 %.not340.i, label %1425, label %1393
+  %.not334.i = icmp eq i64 %1332, 0
+  br i1 %.not334.i, label %1425, label %1393
 
-1333:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit237.i, %.lr.ph345.i
-  %.sroa.5.0344.i = phi i64 [ 0, %.lr.ph345.i ], [ %1392, %_ZN4llvm11raw_ostreamlsEPKc.exit237.i ]
+1333:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit237.i, %.lr.ph339.i
+  %.sroa.5.0338.i = phi i64 [ 0, %.lr.ph339.i ], [ %1392, %_ZN4llvm11raw_ostreamlsEPKc.exit237.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1334 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %1316, i64 %.sroa.5.0344.i
+  %1334 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %1316, i64 %.sroa.5.0338.i
   %.sroa.0.0.copyload.i219.i = load i8, ptr %1334, align 1, !tbaa !235
   br i1 %.not10.i.i, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.i, label %1335
 
 1335:                                             ; preds = %1333
-  %1336 = getelementptr inbounds nuw %"class.clang::EffectConditionExpr", ptr %.sroa.7.0.i, i64 %.sroa.5.0344.i
+  %1336 = getelementptr inbounds nuw %"class.clang::EffectConditionExpr", ptr %.sroa.7.0.i, i64 %.sroa.5.0338.i
   %1337 = load i64, ptr %1336, align 8, !tbaa !28
   %1338 = inttoptr i64 %1337 to ptr
   br label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.i
@@ -8452,11 +8452,11 @@ _ZN4llvm11raw_ostreamlsEc.exit234.i:              ; preds = %1379, %1377, %_ZN4l
 
 _ZN4llvm11raw_ostreamlsEPKc.exit237.i:            ; preds = %1389, %1387
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %1392 = add nuw i64 %.sroa.5.0344.i, 1
-  %.not339.i = icmp eq i64 %1392, %1290
-  br i1 %.not339.i, label %._crit_edge346.loopexit.i, label %1333
+  %1392 = add nuw i64 %.sroa.5.0338.i, 1
+  %.not333.i = icmp eq i64 %1392, %1290
+  br i1 %.not333.i, label %._crit_edge340.loopexit.i, label %1333
 
-1393:                                             ; preds = %._crit_edge346.i
+1393:                                             ; preds = %._crit_edge340.i
   %1394 = load ptr, ptr %17, align 8, !tbaa !3
   %1395 = load ptr, ptr %16, align 8, !tbaa !12
   %1396 = ptrtoint ptr %1394 to i64
@@ -8519,7 +8519,7 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit268.i: ; 
   call fastcc void @_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %.sroa.09.0.i.i264.i, i64 %.sroa.3.0.i.i265.i, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr null, i64 0)
   br label %_ZN12_GLOBAL__N_111TypePrinter23printFunctionProtoAfterEPKN5clang17FunctionProtoTypeERN4llvm11raw_ostreamE.exit
 
-1425:                                             ; preds = %._crit_edge346.i
+1425:                                             ; preds = %._crit_edge340.i
   %1426 = getelementptr inbounds nuw i8, ptr %.tr474, i64 24
   %.sroa.0.0.copyload.i246.i = load i64, ptr %1426, align 8, !tbaa !13
   %.val.i247.i = load i64, ptr %0, align 8
@@ -10438,8 +10438,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds = %34, %36
   %.sroa.09.0.i.i = phi ptr [ %40, %36 ], [ %33, %34 ]
   %.sroa.3.0.i.i = phi i64 [ %39, %36 ], [ %35, %34 ]
-  %.not.i15 = icmp eq ptr %.sroa.09.0.i.i, null
-  br i1 %.not.i15, label %41, label %53
+  %.not.i13 = icmp eq ptr %.sroa.09.0.i.i, null
+  br i1 %.not.i13, label %41, label %53
 
 41:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
   %42 = load ptr, ptr %8, align 8, !tbaa !3
@@ -13066,8 +13066,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 16
   %62 = load i8, ptr %61, align 16
   %63 = icmp ne i8 %62, 45
-  %.not.i387 = icmp eq ptr %.sroa.09.0.i.i, null
-  %.not.i = or i1 %.not.i387, %63
+  %.not.i381 = icmp eq ptr %.sroa.09.0.i.i, null
+  %.not.i = or i1 %.not.i381, %63
   br i1 %.not.i, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, label %64
 
 64:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
@@ -13128,8 +13128,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %64
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit: ; preds = %80, %76, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
-  %.sroa.0348.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %80 ], [ %79, %76 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0348.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0342.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %80 ], [ %79, %76 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0342.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 100:                                              ; preds = %3
@@ -13197,8 +13197,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit189: ; pr
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i185, i64 16
   %135 = load i8, ptr %134, align 16
   %136 = icmp ne i8 %135, 45
-  %.not.i79386 = icmp eq ptr %.sroa.09.0.i.i185, null
-  %.not.i79 = or i1 %.not.i79386, %136
+  %.not.i79380 = icmp eq ptr %.sroa.09.0.i.i185, null
+  %.not.i79 = or i1 %.not.i79380, %136
   br i1 %.not.i79, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit81, label %137
 
 137:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit189
@@ -13255,12 +13255,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit179:     ; preds = %137
   %.unshifted.i.i170 = xor i64 %storemerge6.i.i169, %.sroa.0.0.copyload.i.i.i177
   %171 = icmp ult i64 %.unshifted.i.i170, 4294967296
   %172 = and i64 %storemerge6.i.i169, 4294967295
-  %spec.select375 = select i1 %171, i64 %172, i64 %storemerge6.i.i169
+  %spec.select369 = select i1 %171, i64 %172, i64 %storemerge6.i.i169
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit81
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit81: ; preds = %153, %149, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit189
-  %.sroa.0352.0 = phi i64 [ %.sroa.3.0.i.i186, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit189 ], [ %spec.select375, %153 ], [ %152, %149 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i185, i64 %.sroa.0352.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0346.0 = phi i64 [ %.sroa.3.0.i.i186, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit189 ], [ %spec.select369, %153 ], [ %152, %149 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i185, i64 %.sroa.0346.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 173:                                              ; preds = %3
@@ -13361,8 +13361,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit213: ; pr
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i209, i64 16
   %224 = load i8, ptr %223, align 16
   %225 = icmp ne i8 %224, 45
-  %.not.i90385 = icmp eq ptr %.sroa.09.0.i.i209, null
-  %.not.i90 = or i1 %.not.i90385, %225
+  %.not.i90379 = icmp eq ptr %.sroa.09.0.i.i209, null
+  %.not.i90 = or i1 %.not.i90379, %225
   br i1 %.not.i90, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit92, label %226
 
 226:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit213
@@ -13419,12 +13419,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit203:     ; preds = %226
   %.unshifted.i.i194 = xor i64 %storemerge6.i.i193, %.sroa.0.0.copyload.i.i.i201
   %260 = icmp ult i64 %.unshifted.i.i194, 4294967296
   %261 = and i64 %storemerge6.i.i193, 4294967295
-  %spec.select376 = select i1 %260, i64 %261, i64 %storemerge6.i.i193
+  %spec.select370 = select i1 %260, i64 %261, i64 %storemerge6.i.i193
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit92
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit92: ; preds = %242, %238, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit213
-  %.sroa.0356.0 = phi i64 [ %.sroa.3.0.i.i210, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit213 ], [ %spec.select376, %242 ], [ %241, %238 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i209, i64 %.sroa.0356.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0350.0 = phi i64 [ %.sroa.3.0.i.i210, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit213 ], [ %spec.select370, %242 ], [ %241, %238 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i209, i64 %.sroa.0350.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 262:                                              ; preds = %3
@@ -13525,8 +13525,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit237: ; pr
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i233, i64 16
   %313 = load i8, ptr %312, align 16
   %314 = icmp ne i8 %313, 45
-  %.not.i101384 = icmp eq ptr %.sroa.09.0.i.i233, null
-  %.not.i101 = or i1 %.not.i101384, %314
+  %.not.i101378 = icmp eq ptr %.sroa.09.0.i.i233, null
+  %.not.i101 = or i1 %.not.i101378, %314
   br i1 %.not.i101, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103, label %315
 
 315:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit237
@@ -13583,12 +13583,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit227:     ; preds = %315
   %.unshifted.i.i218 = xor i64 %storemerge6.i.i217, %.sroa.0.0.copyload.i.i.i225
   %349 = icmp ult i64 %.unshifted.i.i218, 4294967296
   %350 = and i64 %storemerge6.i.i217, 4294967295
-  %spec.select377 = select i1 %349, i64 %350, i64 %storemerge6.i.i217
+  %spec.select371 = select i1 %349, i64 %350, i64 %storemerge6.i.i217
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103: ; preds = %331, %327, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit237
-  %.sroa.0360.0 = phi i64 [ %.sroa.3.0.i.i234, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit237 ], [ %spec.select377, %331 ], [ %330, %327 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i233, i64 %.sroa.0360.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0354.0 = phi i64 [ %.sroa.3.0.i.i234, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit237 ], [ %spec.select371, %331 ], [ %330, %327 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i233, i64 %.sroa.0354.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 351:                                              ; preds = %3
@@ -13686,8 +13686,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit109:              ; preds = %376, %378
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit246: ; preds = %394, %396
   %.sroa.09.0.i.i242 = phi ptr [ %400, %396 ], [ %393, %394 ]
   %.sroa.3.0.i.i243 = phi i64 [ %399, %396 ], [ %395, %394 ]
-  %.not.i407 = icmp eq ptr %.sroa.09.0.i.i242, null
-  br i1 %.not.i407, label %401, label %413
+  %.not.i401 = icmp eq ptr %.sroa.09.0.i.i242, null
+  br i1 %.not.i401, label %401, label %413
 
 401:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit246
   %402 = load ptr, ptr %352, align 8, !tbaa !3
@@ -13780,8 +13780,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit270: ; pr
   %446 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i266, i64 16
   %447 = load i8, ptr %446, align 16
   %448 = icmp ne i8 %447, 45
-  %.not.i117383 = icmp eq ptr %.sroa.09.0.i.i266, null
-  %.not.i117 = or i1 %.not.i117383, %448
+  %.not.i117377 = icmp eq ptr %.sroa.09.0.i.i266, null
+  %.not.i117 = or i1 %.not.i117377, %448
   br i1 %.not.i117, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119, label %449
 
 449:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit270
@@ -13838,12 +13838,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit260:     ; preds = %449
   %.unshifted.i.i251 = xor i64 %storemerge6.i.i250, %.sroa.0.0.copyload.i.i.i258
   %483 = icmp ult i64 %.unshifted.i.i251, 4294967296
   %484 = and i64 %storemerge6.i.i250, 4294967295
-  %spec.select378 = select i1 %483, i64 %484, i64 %storemerge6.i.i250
+  %spec.select372 = select i1 %483, i64 %484, i64 %storemerge6.i.i250
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119: ; preds = %465, %461, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit270
-  %.sroa.0364.0 = phi i64 [ %.sroa.3.0.i.i267, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit270 ], [ %spec.select378, %465 ], [ %464, %461 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i266, i64 %.sroa.0364.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0358.0 = phi i64 [ %.sroa.3.0.i.i267, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit270 ], [ %spec.select372, %465 ], [ %464, %461 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i266, i64 %.sroa.0358.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 485:                                              ; preds = %3, %3
@@ -13882,13 +13882,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit122:              ; preds = %494, %496
   %503 = load i32, ptr %9, align 16
   %504 = and i32 %503, 7864320
   %505 = icmp eq i32 %504, 3670016
-  %.pre388 = load ptr, ptr %488, align 8, !tbaa !12
+  %.pre382 = load ptr, ptr %488, align 8, !tbaa !12
   br i1 %505, label %506, label %_ZN4llvm11raw_ostreamlsEPKc.exit125
 
 506:                                              ; preds = %501
   %507 = load ptr, ptr %486, align 8, !tbaa !3
   %508 = ptrtoint ptr %507 to i64
-  %509 = ptrtoint ptr %.pre388 to i64
+  %509 = ptrtoint ptr %.pre382 to i64
   %510 = sub i64 %508, %509
   %511 = icmp ult i64 %510, 4
   br i1 %511, label %512, label %514
@@ -13899,14 +13899,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit122:              ; preds = %494, %496
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit125
 
 514:                                              ; preds = %506
-  store i32 941632032, ptr %.pre388, align 1
+  store i32 941632032, ptr %.pre382, align 1
   %515 = load ptr, ptr %488, align 8, !tbaa !12
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 4
   store ptr %516, ptr %488, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit125
 
 _ZN4llvm11raw_ostreamlsEPKc.exit125:              ; preds = %514, %512, %501
-  %517 = phi ptr [ %516, %514 ], [ %.pre, %512 ], [ %.pre388, %501 ]
+  %517 = phi ptr [ %516, %514 ], [ %.pre, %512 ], [ %.pre382, %501 ]
   %518 = load ptr, ptr %486, align 8, !tbaa !3
   %519 = ptrtoint ptr %518 to i64
   %520 = ptrtoint ptr %517 to i64
@@ -13965,8 +13965,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit128:              ; preds = %523, %525
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit279: ; preds = %541, %543
   %.sroa.09.0.i.i275 = phi ptr [ %547, %543 ], [ %540, %541 ]
   %.sroa.3.0.i.i276 = phi i64 [ %546, %543 ], [ %542, %541 ]
-  %.not.i408 = icmp eq ptr %.sroa.09.0.i.i275, null
-  br i1 %.not.i408, label %548, label %560
+  %.not.i402 = icmp eq ptr %.sroa.09.0.i.i275, null
+  br i1 %.not.i402, label %548, label %560
 
 548:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit279
   %549 = load ptr, ptr %486, align 8, !tbaa !3
@@ -13979,14 +13979,14 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit279: ; pr
 
 555:                                              ; preds = %548
   %556 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.40, i64 noundef 9) #18
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403
 
 557:                                              ; preds = %548
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %550, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %558 = load ptr, ptr %488, align 8, !tbaa !12
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 9
   store ptr %559, ptr %488, align 8, !tbaa !12
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403
 
 560:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit279
   %561 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -13995,9 +13995,9 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit279: ; pr
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i275, i64 %.sroa.3.0.i.i276, ptr noundef nonnull align 8 dereferenceable(48) %2)
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i275, ptr noundef nonnull align 8 dereferenceable(48) %2)
   store i8 %562, ptr %561, align 4, !tbaa !127
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403
 
-_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409: ; preds = %555, %557, %560
+_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403: ; preds = %555, %557, %560
   %563 = load ptr, ptr %486, align 8, !tbaa !3
   %564 = load ptr, ptr %488, align 8, !tbaa !12
   %565 = ptrtoint ptr %563 to i64
@@ -14006,11 +14006,11 @@ _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11ra
   %568 = icmp ult i64 %567, 5
   br i1 %568, label %569, label %571
 
-569:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409
+569:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403
   %570 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.79, i64 noundef 5) #18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit133
 
-571:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit409
+571:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit403
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %564, ptr noundef nonnull align 1 dereferenceable(5) @.str.79, i64 5, i1 false)
   %572 = load ptr, ptr %488, align 8, !tbaa !12
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 5
@@ -14080,8 +14080,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit303: ; pr
   %605 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i299, i64 16
   %606 = load i8, ptr %605, align 16
   %607 = icmp ne i8 %606, 45
-  %.not.i139382 = icmp eq ptr %.sroa.09.0.i.i299, null
-  %.not.i139 = or i1 %.not.i139382, %607
+  %.not.i139376 = icmp eq ptr %.sroa.09.0.i.i299, null
+  %.not.i139 = or i1 %.not.i139376, %607
   br i1 %.not.i139, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit141, label %608
 
 608:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit303
@@ -14138,12 +14138,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit293:     ; preds = %608
   %.unshifted.i.i284 = xor i64 %storemerge6.i.i283, %.sroa.0.0.copyload.i.i.i291
   %642 = icmp ult i64 %.unshifted.i.i284, 4294967296
   %643 = and i64 %storemerge6.i.i283, 4294967295
-  %spec.select379 = select i1 %642, i64 %643, i64 %storemerge6.i.i283
+  %spec.select373 = select i1 %642, i64 %643, i64 %storemerge6.i.i283
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit141
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit141: ; preds = %624, %620, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit303
-  %.sroa.0368.0 = phi i64 [ %.sroa.3.0.i.i300, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit303 ], [ %spec.select379, %624 ], [ %623, %620 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i299, i64 %.sroa.0368.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0362.0 = phi i64 [ %.sroa.3.0.i.i300, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit303 ], [ %spec.select373, %624 ], [ %623, %620 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i299, i64 %.sroa.0362.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 644:                                              ; preds = %3, %3, %3, %3, %3
@@ -14238,8 +14238,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit147:              ; preds = %668, %670
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit312: ; preds = %686, %688
   %.sroa.09.0.i.i308 = phi ptr [ %692, %688 ], [ %685, %686 ]
   %.sroa.3.0.i.i309 = phi i64 [ %691, %688 ], [ %687, %686 ]
-  %.not.i410 = icmp eq ptr %.sroa.09.0.i.i308, null
-  br i1 %.not.i410, label %693, label %705
+  %.not.i404 = icmp eq ptr %.sroa.09.0.i.i308, null
+  br i1 %.not.i404, label %693, label %705
 
 693:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit312
   %694 = load ptr, ptr %645, align 8, !tbaa !3
@@ -14252,14 +14252,14 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit312: ; pr
 
 700:                                              ; preds = %693
   %701 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.40, i64 noundef 9) #18
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405
 
 702:                                              ; preds = %693
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %695, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %703 = load ptr, ptr %647, align 8, !tbaa !12
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 9
   store ptr %704, ptr %647, align 8, !tbaa !12
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405
 
 705:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit312
   %706 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -14268,9 +14268,9 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit312: ; pr
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i308, i64 %.sroa.3.0.i.i309, ptr noundef nonnull align 8 dereferenceable(48) %2)
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i308, ptr noundef nonnull align 8 dereferenceable(48) %2)
   store i8 %707, ptr %706, align 4, !tbaa !127
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405
 
-_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411: ; preds = %700, %702, %705
+_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405: ; preds = %700, %702, %705
   %708 = load ptr, ptr %645, align 8, !tbaa !3
   %709 = load ptr, ptr %647, align 8, !tbaa !12
   %710 = ptrtoint ptr %708 to i64
@@ -14279,11 +14279,11 @@ _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11ra
   %713 = icmp ult i64 %712, 5
   br i1 %713, label %714, label %716
 
-714:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411
+714:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405
   %715 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.79, i64 noundef 5) #18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit152
 
-716:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit411
+716:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit405
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %709, ptr noundef nonnull align 1 dereferenceable(5) @.str.79, i64 5, i1 false)
   %717 = load ptr, ptr %647, align 8, !tbaa !12
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 5
@@ -14353,8 +14353,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit336: ; pr
   %750 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i332, i64 16
   %751 = load i8, ptr %750, align 16
   %752 = icmp ne i8 %751, 45
-  %.not.i158381 = icmp eq ptr %.sroa.09.0.i.i332, null
-  %.not.i158 = or i1 %.not.i158381, %752
+  %.not.i158375 = icmp eq ptr %.sroa.09.0.i.i332, null
+  %.not.i158 = or i1 %.not.i158375, %752
   br i1 %.not.i158, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit160, label %753
 
 753:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit336
@@ -14411,12 +14411,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit326:     ; preds = %753
   %.unshifted.i.i317 = xor i64 %storemerge6.i.i316, %.sroa.0.0.copyload.i.i.i324
   %787 = icmp ult i64 %.unshifted.i.i317, 4294967296
   %788 = and i64 %storemerge6.i.i316, 4294967295
-  %spec.select380 = select i1 %787, i64 %788, i64 %storemerge6.i.i316
+  %spec.select374 = select i1 %787, i64 %788, i64 %storemerge6.i.i316
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit160
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit160: ; preds = %769, %765, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit336
-  %.sroa.0372.0 = phi i64 [ %.sroa.3.0.i.i333, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit336 ], [ %spec.select380, %769 ], [ %768, %765 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i332, i64 %.sroa.0372.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0366.0 = phi i64 [ %.sroa.3.0.i.i333, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit336 ], [ %spec.select374, %769 ], [ %768, %765 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i332, i64 %.sroa.0366.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %24, %22, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit160, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit141, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit92, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit81, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, %3
@@ -15919,8 +15919,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 16
   %32 = load i8, ptr %31, align 16
   %33 = icmp ne i8 %32, 45
-  %.not.i946 = icmp eq ptr %.sroa.09.0.i.i, null
-  %.not.i9 = or i1 %.not.i946, %33
+  %.not.i944 = icmp eq ptr %.sroa.09.0.i.i, null
+  %.not.i9 = or i1 %.not.i944, %33
   br i1 %.not.i9, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, label %34
 
 34:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
@@ -15981,8 +15981,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %34
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit: ; preds = %50, %46, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
-  %.sroa.043.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %50 ], [ %49, %46 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.043.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.041.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %50 ], [ %49, %46 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.041.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %.sroa.0.0.copyload.i11 = load i64, ptr %11, align 16, !tbaa !13
   %70 = and i64 %.sroa.0.0.copyload.i11, -16
   %71 = inttoptr i64 %70 to ptr
@@ -16012,14 +16012,14 @@ _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostrea
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %83, %81, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
-  %.sroa.032.0.copyload = load i64, ptr %0, align 8, !tbaa !13
+  %.sroa.030.0.copyload = load i64, ptr %0, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !122
-  %85 = and i64 %.sroa.032.0.copyload, -1025
+  %85 = and i64 %.sroa.030.0.copyload, -1025
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %85, ptr %4, align 8, !tbaa !13
-  %.sroa.6.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx34, align 8, !tbaa !122
+  %.sroa.6.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx32, align 8, !tbaa !122
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %86, align 8, !tbaa !123
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -16029,7 +16029,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %83, %81, %_ZN12_GLO
   %90 = load ptr, ptr %89, align 8, !tbaa !285
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, -16
-  %93 = and i64 %.sroa.032.0.copyload, 1099511627776
+  %93 = and i64 %.sroa.030.0.copyload, 1099511627776
   %.not.i20 = icmp eq i64 %93, 0
   br i1 %.not.i20, label %98, label %94
 
@@ -16062,8 +16062,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %83, %81, %_ZN12_GLO
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit28: ; preds = %102, %104
   %.sroa.09.0.i.i24 = phi ptr [ %108, %104 ], [ %101, %102 ]
   %.sroa.3.0.i.i25 = phi i64 [ %107, %104 ], [ %103, %102 ]
-  %.not.i50 = icmp eq ptr %.sroa.09.0.i.i24, null
-  br i1 %.not.i50, label %109, label %123
+  %.not.i48 = icmp eq ptr %.sroa.09.0.i.i24, null
+  br i1 %.not.i48, label %109, label %123
 
 109:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit28
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -16471,8 +16471,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printObjCObjectBefo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
-  %or.cond145 = select i1 %or.cond, i1 true, i1 %8
-  br i1 %or.cond145, label %._crit_edge132, label %9
+  %or.cond141 = select i1 %or.cond, i1 true, i1 %8
+  br i1 %or.cond141, label %._crit_edge128, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -16517,8 +16517,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 16
   %31 = load i8, ptr %30, align 16
   %32 = icmp ne i8 %31, 45
-  %.not.i46121 = icmp eq ptr %.sroa.09.0.i.i, null
-  %.not.i46 = or i1 %.not.i46121, %32
+  %.not.i46117 = icmp eq ptr %.sroa.09.0.i.i, null
+  %.not.i46 = or i1 %.not.i46117, %32
   br i1 %.not.i46, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, label %33
 
 33:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
@@ -16579,14 +16579,14 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %33
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit: ; preds = %49, %45, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
-  %.sroa.0109.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %49 ], [ %48, %45 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0109.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0105.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %49 ], [ %48, %45 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0105.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN12_GLOBAL__N_111TypePrinter22spaceBeforePlaceHolderERN4llvm11raw_ostreamE.exit
 
-._crit_edge132:                                   ; preds = %3
+._crit_edge128:                                   ; preds = %3
   br i1 %8, label %69, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-69:                                               ; preds = %._crit_edge132
+69:                                               ; preds = %._crit_edge128
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -16608,7 +16608,7 @@ _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostrea
   store ptr %82, ptr %72, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %80, %78, %._crit_edge132
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %80, %78, %._crit_edge128
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i48 = load i64, ptr %83, align 8, !tbaa !13
   %.val.i49 = load i64, ptr %0, align 8
@@ -16685,8 +16685,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit89: ; pre
 _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit: ; preds = %112, %114, %117
   %120 = load i32, ptr %4, align 16
   %121 = and i32 %120, 66584576
-  %.not122 = icmp eq i32 %121, 0
-  br i1 %.not122, label %_ZN4llvm11raw_ostreamlsEc.exit53, label %122
+  %.not118 = icmp eq i32 %121, 0
+  br i1 %.not118, label %_ZN4llvm11raw_ostreamlsEc.exit53, label %122
 
 122:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -16713,14 +16713,14 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %127, %129
   %134 = and i32 %133, 1016
   %.idx = zext nneg i32 %134 to i64
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx
-  %.not123 = icmp eq i32 %134, 0
-  br i1 %.not123, label %._crit_edge, label %.lr.ph.preheader
+  %.not119 = icmp eq i32 %134, 0
+  br i1 %.not119, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147, %_ZN4llvm11raw_ostreamlsEc.exit
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143, %_ZN4llvm11raw_ostreamlsEc.exit
   %137 = load ptr, ptr %123, align 8, !tbaa !12
   %138 = load ptr, ptr %125, align 8, !tbaa !3
   %.not.i51 = icmp ult ptr %137, %138
@@ -16736,11 +16736,11 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %127, %129
   store i8 62, ptr %137, align 1, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEc.exit53thread-pre-split
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147
-  %.0125 = phi i1 [ false, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147 ], [ true, %.lr.ph.preheader ]
-  %.041124 = phi ptr [ %185, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147 ], [ %131, %.lr.ph.preheader ]
-  %.sroa.08.0.copyload = load i64, ptr %.041124, align 8, !tbaa !13
-  br i1 %.0125, label %_ZN4llvm11raw_ostreamlsEPKc.exit56, label %143
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143
+  %.0121 = phi i1 [ false, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143 ], [ true, %.lr.ph.preheader ]
+  %.041120 = phi ptr [ %185, %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143 ], [ %131, %.lr.ph.preheader ]
+  %.sroa.08.0.copyload = load i64, ptr %.041120, align 8, !tbaa !13
+  br i1 %.0121, label %_ZN4llvm11raw_ostreamlsEPKc.exit56, label %143
 
 143:                                              ; preds = %.lr.ph
   %144 = load ptr, ptr %125, align 8, !tbaa !3
@@ -16797,8 +16797,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit56:               ; preds = %149, %147, %.lr.ph
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit98: ; preds = %164, %166
   %.sroa.09.0.i.i94 = phi ptr [ %170, %166 ], [ %163, %164 ]
   %.sroa.3.0.i.i95 = phi i64 [ %169, %166 ], [ %165, %164 ]
-  %.not.i146 = icmp eq ptr %.sroa.09.0.i.i94, null
-  br i1 %.not.i146, label %171, label %183
+  %.not.i142 = icmp eq ptr %.sroa.09.0.i.i94, null
+  br i1 %.not.i142, label %171, label %183
 
 171:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit98
   %172 = load ptr, ptr %125, align 8, !tbaa !3
@@ -16811,14 +16811,14 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit98: ; pre
 
 178:                                              ; preds = %171
   %179 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.40, i64 noundef 9) #18
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143
 
 180:                                              ; preds = %171
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %173, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %181 = load ptr, ptr %123, align 8, !tbaa !12
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 9
   store ptr %182, ptr %123, align 8, !tbaa !12
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143
 
 183:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit98
   %184 = load i8, ptr %136, align 4, !tbaa !127, !range !128, !noundef !129
@@ -16826,10 +16826,10 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit98: ; pre
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i94, i64 %.sroa.3.0.i.i95, ptr noundef nonnull align 8 dereferenceable(48) %2)
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i94, ptr noundef nonnull align 8 dereferenceable(48) %2)
   store i8 %184, ptr %136, align 4, !tbaa !127
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143
 
-_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit147: ; preds = %178, %180, %183
-  %185 = getelementptr inbounds nuw i8, ptr %.041124, i64 8
+_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit143: ; preds = %178, %180, %183
+  %185 = getelementptr inbounds nuw i8, ptr %.041120, i64 8
   %.not = icmp eq ptr %185, %135
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -16869,34 +16869,34 @@ _ZN4llvm11raw_ostreamlsEc.exit60:                 ; preds = %193, %195
   %202 = getelementptr inbounds nuw %"class.clang::QualType", ptr %197, i64 %201
   %203 = lshr i32 %198, 23
   %204 = and i32 %203, 504
-  %.idx131 = zext nneg i32 %204 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx131
-  %.not45126 = icmp eq i32 %204, 0
-  br i1 %.not45126, label %._crit_edge130, label %.lr.ph129
+  %.idx127 = zext nneg i32 %204 to i64
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx127
+  %.not45122 = icmp eq i32 %204, 0
+  br i1 %.not45122, label %._crit_edge126, label %.lr.ph125
 
-._crit_edge130:                                   ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEc.exit60
+._crit_edge126:                                   ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEc.exit60
   %206 = load ptr, ptr %189, align 8, !tbaa !12
   %207 = load ptr, ptr %191, align 8, !tbaa !3
   %.not.i63 = icmp ult ptr %206, %207
   br i1 %.not.i63, label %210, label %208
 
-208:                                              ; preds = %._crit_edge130
+208:                                              ; preds = %._crit_edge126
   %209 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 noundef zeroext 62) #18
   br label %_ZN4llvm11raw_ostreamlsEc.exit65
 
-210:                                              ; preds = %._crit_edge130
+210:                                              ; preds = %._crit_edge126
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 1
   store ptr %211, ptr %189, align 8, !tbaa !12
   store i8 62, ptr %206, align 1, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEc.exit65
 
-.lr.ph129:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit60, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %.042128 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit60 ]
-  %.044127 = phi ptr [ %243, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %202, %_ZN4llvm11raw_ostreamlsEc.exit60 ]
-  %212 = load ptr, ptr %.044127, align 8, !tbaa !287
-  br i1 %.042128, label %_ZN4llvm11raw_ostreamlsEc.exit68, label %213
+.lr.ph125:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit60, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
+  %.042124 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit60 ]
+  %.044123 = phi ptr [ %243, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %202, %_ZN4llvm11raw_ostreamlsEc.exit60 ]
+  %212 = load ptr, ptr %.044123, align 8, !tbaa !287
+  br i1 %.042124, label %_ZN4llvm11raw_ostreamlsEc.exit68, label %213
 
-213:                                              ; preds = %.lr.ph129
+213:                                              ; preds = %.lr.ph125
   %214 = load ptr, ptr %189, align 8, !tbaa !12
   %215 = load ptr, ptr %191, align 8, !tbaa !3
   %.not.i66 = icmp ult ptr %214, %215
@@ -16912,7 +16912,7 @@ _ZN4llvm11raw_ostreamlsEc.exit60:                 ; preds = %193, %195
   store i8 44, ptr %214, align 1, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEc.exit68
 
-_ZN4llvm11raw_ostreamlsEc.exit68:                 ; preds = %218, %216, %.lr.ph129
+_ZN4llvm11raw_ostreamlsEc.exit68:                 ; preds = %218, %216, %.lr.ph125
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %221 = load i64, ptr %220, align 8, !tbaa !289
   %222 = and i64 %221, 7
@@ -16953,9 +16953,9 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit68, %237, %239, %240
-  %243 = getelementptr inbounds nuw i8, ptr %.044127, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %.044123, i64 8
   %.not45 = icmp eq ptr %243, %205
-  br i1 %.not45, label %._crit_edge130, label %.lr.ph129
+  br i1 %.not45, label %._crit_edge126, label %.lr.ph125
 
 _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %210, %208, %_ZN4llvm11raw_ostreamlsEc.exit53
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -17927,8 +17927,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %38, %40
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds = %56, %58
   %.sroa.09.0.i.i = phi ptr [ %62, %58 ], [ %55, %56 ]
   %.sroa.3.0.i.i = phi i64 [ %61, %58 ], [ %57, %56 ]
-  %.not.i21 = icmp eq ptr %.sroa.09.0.i.i, null
-  br i1 %.not.i21, label %63, label %75
+  %.not.i19 = icmp eq ptr %.sroa.09.0.i.i, null
+  br i1 %.not.i19, label %63, label %75
 
 63:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
   %64 = load ptr, ptr %11, align 8, !tbaa !3
@@ -19459,8 +19459,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds = %35, %37
   %.sroa.09.0.i.i = phi ptr [ %41, %37 ], [ %34, %35 ]
   %.sroa.3.0.i.i = phi i64 [ %40, %37 ], [ %36, %35 ]
-  %.not.i13 = icmp eq ptr %.sroa.09.0.i.i, null
-  br i1 %.not.i13, label %42, label %54
+  %.not.i11 = icmp eq ptr %.sroa.09.0.i.i, null
+  br i1 %.not.i11, label %42, label %54
 
 42:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
   %43 = load ptr, ptr %9, align 8, !tbaa !3
@@ -19725,8 +19725,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %71, %73
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds = %88, %90
   %.sroa.09.0.i.i = phi ptr [ %94, %90 ], [ %87, %88 ]
   %.sroa.3.0.i.i = phi i64 [ %93, %90 ], [ %89, %88 ]
-  %.not.i39 = icmp eq ptr %.sroa.09.0.i.i, null
-  br i1 %.not.i39, label %95, label %109
+  %.not.i37 = icmp eq ptr %.sroa.09.0.i.i, null
+  br i1 %.not.i37, label %95, label %109
 
 95:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -19939,8 +19939,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 16
   %57 = load i8, ptr %56, align 16
   %58 = icmp ne i8 %57, 45
-  %.not.i362 = icmp eq ptr %.sroa.09.0.i.i, null
-  %.not.i = or i1 %.not.i362, %58
+  %.not.i356 = icmp eq ptr %.sroa.09.0.i.i, null
+  %.not.i = or i1 %.not.i356, %58
   br i1 %.not.i, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, label %59
 
 59:                                               ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
@@ -20001,8 +20001,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %59
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit: ; preds = %75, %71, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit
-  %.sroa.0323.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %75 ], [ %74, %71 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0323.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0317.0 = phi i64 [ %.sroa.3.0.i.i, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit ], [ %spec.select, %75 ], [ %74, %71 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i, i64 %.sroa.0317.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 95:                                               ; preds = %3
@@ -20070,8 +20070,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit164: ; pr
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i160, i64 16
   %130 = load i8, ptr %129, align 16
   %131 = icmp ne i8 %130, 45
-  %.not.i63361 = icmp eq ptr %.sroa.09.0.i.i160, null
-  %.not.i63 = or i1 %.not.i63361, %131
+  %.not.i63355 = icmp eq ptr %.sroa.09.0.i.i160, null
+  %.not.i63 = or i1 %.not.i63355, %131
   br i1 %.not.i63, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit65, label %132
 
 132:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit164
@@ -20128,12 +20128,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit154:     ; preds = %132
   %.unshifted.i.i145 = xor i64 %storemerge6.i.i144, %.sroa.0.0.copyload.i.i.i152
   %166 = icmp ult i64 %.unshifted.i.i145, 4294967296
   %167 = and i64 %storemerge6.i.i144, 4294967295
-  %spec.select350 = select i1 %166, i64 %167, i64 %storemerge6.i.i144
+  %spec.select344 = select i1 %166, i64 %167, i64 %storemerge6.i.i144
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit65
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit65: ; preds = %148, %144, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit164
-  %.sroa.0327.0 = phi i64 [ %.sroa.3.0.i.i161, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit164 ], [ %spec.select350, %148 ], [ %147, %144 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i160, i64 %.sroa.0327.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0321.0 = phi i64 [ %.sroa.3.0.i.i161, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit164 ], [ %spec.select344, %148 ], [ %147, %144 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i160, i64 %.sroa.0321.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 168:                                              ; preds = %3
@@ -20228,8 +20228,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit188: ; pr
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i184, i64 16
   %220 = load i8, ptr %219, align 16
   %221 = icmp ne i8 %220, 45
-  %.not.i74360 = icmp eq ptr %.sroa.09.0.i.i184, null
-  %.not.i74 = or i1 %.not.i74360, %221
+  %.not.i74354 = icmp eq ptr %.sroa.09.0.i.i184, null
+  %.not.i74 = or i1 %.not.i74354, %221
   br i1 %.not.i74, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit76, label %222
 
 222:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit188
@@ -20286,12 +20286,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit178:     ; preds = %222
   %.unshifted.i.i169 = xor i64 %storemerge6.i.i168, %.sroa.0.0.copyload.i.i.i176
   %256 = icmp ult i64 %.unshifted.i.i169, 4294967296
   %257 = and i64 %storemerge6.i.i168, 4294967295
-  %spec.select351 = select i1 %256, i64 %257, i64 %storemerge6.i.i168
+  %spec.select345 = select i1 %256, i64 %257, i64 %storemerge6.i.i168
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit76
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit76: ; preds = %238, %234, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit188
-  %.sroa.0331.0 = phi i64 [ %.sroa.3.0.i.i185, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit188 ], [ %spec.select351, %238 ], [ %237, %234 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i184, i64 %.sroa.0331.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0325.0 = phi i64 [ %.sroa.3.0.i.i185, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit188 ], [ %spec.select345, %238 ], [ %237, %234 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i184, i64 %.sroa.0325.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 258:                                              ; preds = %3
@@ -20386,8 +20386,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit212: ; pr
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i208, i64 16
   %310 = load i8, ptr %309, align 16
   %311 = icmp ne i8 %310, 45
-  %.not.i85359 = icmp eq ptr %.sroa.09.0.i.i208, null
-  %.not.i85 = or i1 %.not.i85359, %311
+  %.not.i85353 = icmp eq ptr %.sroa.09.0.i.i208, null
+  %.not.i85 = or i1 %.not.i85353, %311
   br i1 %.not.i85, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit87, label %312
 
 312:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit212
@@ -20444,12 +20444,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit202:     ; preds = %312
   %.unshifted.i.i193 = xor i64 %storemerge6.i.i192, %.sroa.0.0.copyload.i.i.i200
   %346 = icmp ult i64 %.unshifted.i.i193, 4294967296
   %347 = and i64 %storemerge6.i.i192, 4294967295
-  %spec.select352 = select i1 %346, i64 %347, i64 %storemerge6.i.i192
+  %spec.select346 = select i1 %346, i64 %347, i64 %storemerge6.i.i192
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit87
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit87: ; preds = %328, %324, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit212
-  %.sroa.0335.0 = phi i64 [ %.sroa.3.0.i.i209, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit212 ], [ %spec.select352, %328 ], [ %327, %324 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i208, i64 %.sroa.0335.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0329.0 = phi i64 [ %.sroa.3.0.i.i209, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit212 ], [ %spec.select346, %328 ], [ %327, %324 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i208, i64 %.sroa.0329.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 348:                                              ; preds = %3
@@ -20541,8 +20541,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %374, %376
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit221: ; preds = %392, %394
   %.sroa.09.0.i.i217 = phi ptr [ %398, %394 ], [ %391, %392 ]
   %.sroa.3.0.i.i218 = phi i64 [ %397, %394 ], [ %393, %392 ]
-  %.not.i378 = icmp eq ptr %.sroa.09.0.i.i217, null
-  br i1 %.not.i378, label %399, label %411
+  %.not.i372 = icmp eq ptr %.sroa.09.0.i.i217, null
+  br i1 %.not.i372, label %399, label %411
 
 399:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit221
   %400 = load ptr, ptr %349, align 8, !tbaa !3
@@ -20635,8 +20635,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit245: ; pr
   %444 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i241, i64 16
   %445 = load i8, ptr %444, align 16
   %446 = icmp ne i8 %445, 45
-  %.not.i101358 = icmp eq ptr %.sroa.09.0.i.i241, null
-  %.not.i101 = or i1 %.not.i101358, %446
+  %.not.i101352 = icmp eq ptr %.sroa.09.0.i.i241, null
+  %.not.i101 = or i1 %.not.i101352, %446
   br i1 %.not.i101, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103, label %447
 
 447:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit245
@@ -20693,12 +20693,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit235:     ; preds = %447
   %.unshifted.i.i226 = xor i64 %storemerge6.i.i225, %.sroa.0.0.copyload.i.i.i233
   %481 = icmp ult i64 %.unshifted.i.i226, 4294967296
   %482 = and i64 %storemerge6.i.i225, 4294967295
-  %spec.select353 = select i1 %481, i64 %482, i64 %storemerge6.i.i225
+  %spec.select347 = select i1 %481, i64 %482, i64 %storemerge6.i.i225
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103: ; preds = %463, %459, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit245
-  %.sroa.0339.0 = phi i64 [ %.sroa.3.0.i.i242, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit245 ], [ %spec.select353, %463 ], [ %462, %459 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i241, i64 %.sroa.0339.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0333.0 = phi i64 [ %.sroa.3.0.i.i242, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit245 ], [ %spec.select347, %463 ], [ %462, %459 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i241, i64 %.sroa.0333.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 483:                                              ; preds = %3, %3
@@ -20730,8 +20730,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit106:              ; preds = %492, %494
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %501 = load i32, ptr %500, align 4, !tbaa !13
   %502 = shl i32 %501, 3
-  %.sink377 = select i1 %499, i32 %502, i32 %501
-  %503 = zext i32 %.sink377 to i64
+  %.sink371 = select i1 %499, i32 %502, i32 %501
+  %503 = zext i32 %.sink371 to i64
   %504 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %503) #18
   %505 = load ptr, ptr %484, align 8, !tbaa !3
   %506 = load ptr, ptr %486, align 8, !tbaa !12
@@ -20792,8 +20792,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit109:              ; preds = %511, %513
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit254: ; preds = %529, %531
   %.sroa.09.0.i.i250 = phi ptr [ %535, %531 ], [ %528, %529 ]
   %.sroa.3.0.i.i251 = phi i64 [ %534, %531 ], [ %530, %529 ]
-  %.not.i379 = icmp eq ptr %.sroa.09.0.i.i250, null
-  br i1 %.not.i379, label %536, label %548
+  %.not.i373 = icmp eq ptr %.sroa.09.0.i.i250, null
+  br i1 %.not.i373, label %536, label %548
 
 536:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit254
   %537 = load ptr, ptr %484, align 8, !tbaa !3
@@ -20806,14 +20806,14 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit254: ; pr
 
 543:                                              ; preds = %536
   %544 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.40, i64 noundef 9) #18
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374
 
 545:                                              ; preds = %536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %538, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %546 = load ptr, ptr %486, align 8, !tbaa !12
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 9
   store ptr %547, ptr %486, align 8, !tbaa !12
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374
 
 548:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit254
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -20822,9 +20822,9 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit254: ; pr
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i250, i64 %.sroa.3.0.i.i251, ptr noundef nonnull align 8 dereferenceable(48) %2)
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i250, ptr noundef nonnull align 8 dereferenceable(48) %2)
   store i8 %550, ptr %549, align 4, !tbaa !127
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374
 
-_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380: ; preds = %543, %545, %548
+_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374: ; preds = %543, %545, %548
   %551 = load ptr, ptr %484, align 8, !tbaa !3
   %552 = load ptr, ptr %486, align 8, !tbaa !12
   %553 = ptrtoint ptr %551 to i64
@@ -20833,11 +20833,11 @@ _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11ra
   %556 = icmp ult i64 %555, 9
   br i1 %556, label %557, label %559
 
-557:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380
+557:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374
   %558 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.118, i64 noundef 9) #18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit114
 
-559:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit380
+559:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit374
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %552, ptr noundef nonnull align 1 dereferenceable(9) @.str.118, i64 9, i1 false)
   %560 = load ptr, ptr %486, align 8, !tbaa !12
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 9
@@ -20886,8 +20886,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit278: ; pr
   %581 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i274, i64 16
   %582 = load i8, ptr %581, align 16
   %583 = icmp ne i8 %582, 45
-  %.not.i117357 = icmp eq ptr %.sroa.09.0.i.i274, null
-  %.not.i117 = or i1 %.not.i117357, %583
+  %.not.i117351 = icmp eq ptr %.sroa.09.0.i.i274, null
+  %.not.i117 = or i1 %.not.i117351, %583
   br i1 %.not.i117, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119, label %584
 
 584:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit278
@@ -20944,12 +20944,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit268:     ; preds = %584
   %.unshifted.i.i259 = xor i64 %storemerge6.i.i258, %.sroa.0.0.copyload.i.i.i266
   %618 = icmp ult i64 %.unshifted.i.i259, 4294967296
   %619 = and i64 %storemerge6.i.i258, 4294967295
-  %spec.select354 = select i1 %618, i64 %619, i64 %storemerge6.i.i258
+  %spec.select348 = select i1 %618, i64 %619, i64 %storemerge6.i.i258
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119: ; preds = %600, %596, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit278
-  %.sroa.0343.0 = phi i64 [ %.sroa.3.0.i.i275, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit278 ], [ %spec.select354, %600 ], [ %599, %596 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i274, i64 %.sroa.0343.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0337.0 = phi i64 [ %.sroa.3.0.i.i275, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit278 ], [ %spec.select348, %600 ], [ %599, %596 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i274, i64 %.sroa.0337.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 620:                                              ; preds = %3, %3, %3, %3, %3
@@ -21038,8 +21038,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit125:              ; preds = %644, %646
 _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit287: ; preds = %662, %664
   %.sroa.09.0.i.i283 = phi ptr [ %668, %664 ], [ %661, %662 ]
   %.sroa.3.0.i.i284 = phi i64 [ %667, %664 ], [ %663, %662 ]
-  %.not.i381 = icmp eq ptr %.sroa.09.0.i.i283, null
-  br i1 %.not.i381, label %669, label %681
+  %.not.i375 = icmp eq ptr %.sroa.09.0.i.i283, null
+  br i1 %.not.i375, label %669, label %681
 
 669:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit287
   %670 = load ptr, ptr %621, align 8, !tbaa !3
@@ -21052,14 +21052,14 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit287: ; pr
 
 676:                                              ; preds = %669
   %677 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.40, i64 noundef 9) #18
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376
 
 678:                                              ; preds = %669
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %671, ptr noundef nonnull align 1 dereferenceable(9) @.str.40, i64 9, i1 false)
   %679 = load ptr, ptr %623, align 8, !tbaa !12
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 9
   store ptr %680, ptr %623, align 8, !tbaa !12
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376
 
 681:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit287
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -21068,9 +21068,9 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit287: ; pr
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i283, i64 %.sroa.3.0.i.i284, ptr noundef nonnull align 8 dereferenceable(48) %2)
   tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i283, ptr noundef nonnull align 8 dereferenceable(48) %2)
   store i8 %683, ptr %682, align 4, !tbaa !127
-  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382
+  br label %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376
 
-_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382: ; preds = %676, %678, %681
+_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376: ; preds = %676, %678, %681
   %684 = load ptr, ptr %621, align 8, !tbaa !3
   %685 = load ptr, ptr %623, align 8, !tbaa !12
   %686 = ptrtoint ptr %684 to i64
@@ -21079,11 +21079,11 @@ _ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11ra
   %689 = icmp ult i64 %688, 9
   br i1 %689, label %690, label %692
 
-690:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382
+690:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376
   %691 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.118, i64 noundef 9) #18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit130
 
-692:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit382
+692:                                              ; preds = %_ZN12_GLOBAL__N_111TypePrinter5printEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamENS6_9StringRefE.exit376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %685, ptr noundef nonnull align 1 dereferenceable(9) @.str.118, i64 9, i1 false)
   %693 = load ptr, ptr %623, align 8, !tbaa !12
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 9
@@ -21132,8 +21132,8 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit311: ; pr
   %714 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i307, i64 16
   %715 = load i8, ptr %714, align 16
   %716 = icmp ne i8 %715, 45
-  %.not.i133356 = icmp eq ptr %.sroa.09.0.i.i307, null
-  %.not.i133 = or i1 %.not.i133356, %716
+  %.not.i133350 = icmp eq ptr %.sroa.09.0.i.i307, null
+  %.not.i133 = or i1 %.not.i133350, %716
   br i1 %.not.i133, label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit135, label %717
 
 717:                                              ; preds = %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit311
@@ -21190,12 +21190,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit301:     ; preds = %717
   %.unshifted.i.i292 = xor i64 %storemerge6.i.i291, %.sroa.0.0.copyload.i.i.i299
   %751 = icmp ult i64 %.unshifted.i.i292, 4294967296
   %752 = and i64 %storemerge6.i.i291, 4294967295
-  %spec.select355 = select i1 %751, i64 %752, i64 %storemerge6.i.i291
+  %spec.select349 = select i1 %751, i64 %752, i64 %storemerge6.i.i291
   br label %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit135
 
 _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit135: ; preds = %733, %729, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit311
-  %.sroa.0347.0 = phi i64 [ %.sroa.3.0.i.i308, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit311 ], [ %spec.select355, %733 ], [ %732, %729 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i307, i64 %.sroa.0347.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %.sroa.0341.0 = phi i64 [ %.sroa.3.0.i.i308, %_ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit311 ], [ %spec.select349, %733 ], [ %732, %729 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_111TypePrinter11printBeforeEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.sroa.09.0.i.i307, i64 %.sroa.0341.0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %17, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit135, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit119, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit103, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit87, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit76, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit65, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit, %3

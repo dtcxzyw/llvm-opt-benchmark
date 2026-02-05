@@ -884,13 +884,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   store i8 0, ptr %44, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %45 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.1) #37
-  %.not248 = icmp eq i32 %45, 0
-  br i1 %.not248, label %53, label %46
+  %.not245 = icmp eq i32 %45, 0
+  br i1 %.not245, label %53, label %46
 
 46:                                               ; preds = %40
   %47 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.2) #37
-  %.not249 = icmp eq i32 %47, 0
-  br i1 %.not249, label %53, label %48
+  %.not246 = icmp eq i32 %47, 0
+  br i1 %.not246, label %53, label %48
 
 48:                                               ; preds = %46
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str, i64 noundef 28)

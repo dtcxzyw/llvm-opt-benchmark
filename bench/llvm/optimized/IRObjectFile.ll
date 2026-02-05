@@ -595,8 +595,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i8: ; 
   %28 = load ptr, ptr %5, align 8, !tbaa !85
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !85
-  %.not72 = icmp eq ptr %28, %30
-  br i1 %.not72, label %_ZNSt10unique_ptrIN4llvm6object12IRObjectFileESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph
+  %.not69 = icmp eq ptr %28, %30
+  br i1 %.not69, label %_ZNSt10unique_ptrIN4llvm6object12IRObjectFileESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -612,17 +612,17 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i8: ; 
   br label %43
 
 41:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.038.074, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.038.071, i64 64
   %.not = icmp eq ptr %42, %30
   br i1 %.not, label %_ZNSt10unique_ptrIN4llvm6object12IRObjectFileESt14default_deleteIS2_EED2Ev.exit, label %43
 
 43:                                               ; preds = %.lr.ph, %41
-  %.sroa.041.076 = phi ptr [ null, %.lr.ph ], [ %.sroa.041.1, %41 ]
-  %.sroa.9.075 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %41 ]
-  %.sroa.038.074 = phi ptr [ %28, %.lr.ph ], [ %42, %41 ]
-  %.sroa.15.073 = phi ptr [ null, %.lr.ph ], [ %.sroa.15.1, %41 ]
+  %.sroa.041.073 = phi ptr [ null, %.lr.ph ], [ %.sroa.041.1, %41 ]
+  %.sroa.9.072 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %41 ]
+  %.sroa.038.071 = phi ptr [ %28, %.lr.ph ], [ %42, %41 ]
+  %.sroa.15.070 = phi ptr [ null, %.lr.ph ], [ %.sroa.15.1, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.038.074, i64 64, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.038.071, i64 64, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   call void @_ZN4llvm13BitcodeModule13getLazyModuleERNS_11LLVMContextEbbNS_15ParserCallbacksE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.139") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8) #16
@@ -686,19 +686,19 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11: ;
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 68:                                               ; preds = %_ZN4llvm15ParserCallbacksD2Ev.exit
-  %.not.i.i = icmp eq ptr %.sroa.9.075, %.sroa.15.073
+  %.not.i.i = icmp eq ptr %.sroa.9.072, %.sroa.15.070
   br i1 %.not.i.i, label %72, label %69
 
 69:                                               ; preds = %68
   %70 = load i64, ptr %7, align 8, !tbaa !19
-  store i64 %70, ptr %.sroa.9.075, align 8, !tbaa !19
+  store i64 %70, ptr %.sroa.9.072, align 8, !tbaa !19
   store ptr null, ptr %7, align 8, !tbaa !19
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.9.075, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.9.072, i64 8
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 72:                                               ; preds = %68
-  %73 = ptrtoint ptr %.sroa.9.075 to i64
-  %74 = ptrtoint ptr %.sroa.041.076 to i64
+  %73 = ptrtoint ptr %.sroa.9.072 to i64
+  %74 = ptrtoint ptr %.sroa.041.073 to i64
   %75 = sub i64 %73, %74
   %76 = icmp eq i64 %75, 9223372036854775800
   br i1 %76, label %77, label %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -722,12 +722,12 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_
   %86 = load i64, ptr %7, align 8, !tbaa !19
   store i64 %86, ptr %85, align 8, !tbaa !19
   store ptr null, ptr %7, align 8, !tbaa !19
-  %.not10.i.i.i.i = icmp eq ptr %.sroa.041.076, %.sroa.9.075
+  %.not10.i.i.i.i = icmp eq ptr %.sroa.041.073, %.sroa.9.072
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i33
 
 .lr.ph.i.i.i.i33:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i33
   %.012.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i33 ], [ %84, %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i33 ], [ %.sroa.041.076, %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i33 ], [ %.sroa.041.073, %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %87 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !19, !alias.scope !108, !noalias !105
@@ -735,17 +735,17 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_
   store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !19, !alias.scope !108, !noalias !105
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i34 = icmp eq ptr %88, %.sroa.9.075
+  %.not.i.i.i.i34 = icmp eq ptr %88, %.sroa.9.072
   br i1 %.not.i.i.i.i34, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i33, !llvm.loop !110
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i33, %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %84, %_ZNKSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %89, %.lr.ph.i.i.i.i33 ]
   %90 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %.sroa.041.076, null
+  %.not.i23.i = icmp eq ptr %.sroa.041.073, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %91
 
 91:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.076, i64 noundef %75) #17
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.041.073, i64 noundef %75) #17
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %91
@@ -755,9 +755,9 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_r
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11, %69
   %93 = phi ptr [ null, %69 ], [ %.pr.pre, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.073, %69 ], [ %92, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.15.073, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
-  %.sroa.9.1 = phi ptr [ %71, %69 ], [ %90, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.9.075, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
-  %.sroa.041.1 = phi ptr [ %.sroa.041.076, %69 ], [ %84, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.041.076, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.070, %69 ], [ %92, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.15.070, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
+  %.sroa.9.1 = phi ptr [ %71, %69 ], [ %90, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.9.072, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
+  %.sroa.041.1 = phi ptr [ %.sroa.041.073, %69 ], [ %84, %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit ], [ %.sroa.041.073, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11 ]
   %94 = load i8, ptr %39, align 8
   %95 = trunc i8 %94 to i1
   %.not.i1.i = icmp eq ptr %93, null

@@ -2935,9 +2935,9 @@ define internal fastcc void @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18F
   br label %5
 
 5:                                                ; preds = %3, %28
-  %.038 = phi i64 [ 2, %3 ], [ %31, %28 ]
+  %.035 = phi i64 [ 2, %3 ], [ %31, %28 ]
   %6 = load i64, ptr %4, align 8, !tbaa !10
-  %7 = mul i64 %6, %.038
+  %7 = mul i64 %6, %.035
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %.noexc, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2960,10 +2960,10 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   br label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %.noexc21, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.13.1 = phi i64 [ %13, %.noexc21 ], [ 0, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.028.1 = phi ptr [ %9, %.noexc21 ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.13.0 = phi i64 [ %13, %.noexc21 ], [ 0, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.028.0 = phi ptr [ %9, %.noexc21 ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i ]
   %14 = load ptr, ptr %1, align 8, !tbaa !44
-  %15 = tail call i64 @strftime(ptr noundef nonnull %.sroa.028.1, i64 noundef %7, ptr noundef %14, ptr noundef nonnull %2) #21
+  %15 = tail call i64 @strftime(ptr noundef nonnull %.sroa.028.0, i64 noundef %7, ptr noundef %14, ptr noundef nonnull %2) #21
   %.not19 = icmp eq i64 %15, 0
   br i1 %.not19, label %28, label %16
 
@@ -2982,28 +2982,28 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %.noexc21, %_ZNSt6ve
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %16
-  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.028.1, i64 noundef %15)
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.028.0, i64 noundef %15)
           to label %_ZNSt6vectorIcSaIcEED2Ev.exit25 unwind label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %21
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = ptrtoint ptr %.sroa.028.1 to i64
-  %25 = sub i64 %.sroa.13.1, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.1, i64 noundef %25) #20
+  %24 = ptrtoint ptr %.sroa.028.0 to i64
+  %25 = sub i64 %.sroa.13.0, %24
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %25) #20
   resume { ptr, i32 } %23
 
 _ZNSt6vectorIcSaIcEED2Ev.exit25:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %26 = ptrtoint ptr %.sroa.028.1 to i64
-  %27 = sub i64 %.sroa.13.1, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.1, i64 noundef %27) #20
+  %26 = ptrtoint ptr %.sroa.028.0 to i64
+  %27 = sub i64 %.sroa.13.0, %26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %27) #20
   br label %.loopexit
 
 28:                                               ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
-  %29 = ptrtoint ptr %.sroa.028.1 to i64
-  %30 = sub i64 %.sroa.13.1, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.1, i64 noundef %30) #20
-  %31 = shl i64 %.038, 1
+  %29 = ptrtoint ptr %.sroa.028.0 to i64
+  %30 = sub i64 %.sroa.13.0, %29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0, i64 noundef %30) #20
+  %31 = shl i64 %.035, 1
   %.not = icmp eq i64 %31, 32
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !56
 

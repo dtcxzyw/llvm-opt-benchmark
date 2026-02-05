@@ -23083,7 +23083,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %35, %25, %_ZNK
   br i1 %.not.i.i, label %.critedge33.thread, label %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread: ; preds = %47, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %28, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit
-  %.not.i.i388594137 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %28 ], [ %40, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %40, %47 ]
+  %.not.i.i388190133 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %28 ], [ %40, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %40, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %52 = atomicrmw sub ptr %51, i32 1 seq_cst, align 4
   %.not5.i.i.i41 = icmp eq i32 %52, 1
@@ -23102,7 +23102,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i42: ; preds = %53
 
 57:                                               ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i42
   tail call void @_ZdlPv(ptr noundef nonnull %19) #34
-  br i1 %.not.i.i388594137, label %.critedge37.thread.sink.split, label %.critedge33.thread
+  br i1 %.not.i.i388190133, label %.critedge37.thread.sink.split, label %.critedge33.thread
 
 58:                                               ; preds = %53
   %59 = landingpad { ptr, i32 }
@@ -23112,7 +23112,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i42: ; preds = %53
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i42
-  br i1 %.not.i.i388594137, label %.critedge37.thread.sink.split, label %.critedge33.thread
+  br i1 %.not.i.i388190133, label %.critedge37.thread.sink.split, label %.critedge33.thread
 
 .critedge33.thread:                               ; preds = %27, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit, %57, %1, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -23217,7 +23217,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64: ; preds = %94, %84, %_Z
   br i1 %.not.i.i45, label %.critedge37.thread, label %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64.thread
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64.thread: ; preds = %106, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i62, %87, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64
-  %.not.i.i59103112148 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64 ], [ false, %87 ], [ %99, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i62 ], [ %99, %106 ]
+  %.not.i.i5999108144 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit64 ], [ false, %87 ], [ %99, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i62 ], [ %99, %106 ]
   %110 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %111 = atomicrmw sub ptr %110, i32 1 seq_cst, align 4
   %.not5.i.i.i66 = icmp eq i32 %111, 1
@@ -23236,7 +23236,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i67: ; preds = %11
 
 116:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i67
   tail call void @_ZdlPv(ptr noundef nonnull %78) #34
-  br i1 %.not.i.i59103112148, label %.critedge37.thread.sink.split, label %.critedge37.thread
+  br i1 %.not.i.i5999108144, label %.critedge37.thread.sink.split, label %.critedge37.thread
 
 117:                                              ; preds = %112
   %118 = landingpad { ptr, i32 }
@@ -23246,7 +23246,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i67: ; preds = %11
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit69:  ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i67
-  br i1 %.not.i.i59103112148, label %.critedge37.thread.sink.split, label %.critedge37.thread
+  br i1 %.not.i.i5999108144, label %.critedge37.thread.sink.split, label %.critedge37.thread
 
 .critedge37.thread.sink.split:                    ; preds = %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit69, %116, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, %57
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -29991,9 +29991,9 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr noundef align 8 dere
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %9) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = invoke noundef align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEPKc(ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef nonnull @.str.107)
-          to label %.preheader194 unwind label %88
+          to label %.preheader178 unwind label %88
 
-.preheader194:                                    ; preds = %26
+.preheader178:                                    ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -30023,9 +30023,9 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr noundef align 8 dere
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %55
 
-55:                                               ; preds = %.preheader194, %211
-  %.047 = phi i32 [ %212, %211 ], [ 0, %.preheader194 ]
-  %.043 = phi i32 [ %.245, %211 ], [ 0, %.preheader194 ]
+55:                                               ; preds = %.preheader178, %211
+  %.047 = phi i32 [ %212, %211 ], [ 0, %.preheader178 ]
+  %.043 = phi i32 [ %.245, %211 ], [ 0, %.preheader178 ]
   %56 = sext i32 %.047 to i64
   %57 = load ptr, ptr %28, align 8
   %58 = icmp eq ptr %57, null
@@ -30076,9 +30076,9 @@ _ZNK8QPointerI8UatModelEptEv.exit.i:              ; preds = %_ZNK8QPointerI8UatM
 
 76:                                               ; preds = %73
   %77 = invoke noundef align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef align 8 dereferenceable_or_null(16) %1, i8 noundef signext 10)
-          to label %.lr.ph209 unwind label %88
+          to label %.lr.ph193 unwind label %88
 
-.lr.ph209:                                        ; preds = %76
+.lr.ph193:                                        ; preds = %76
   %78 = sext i32 %25 to i64
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -30506,12 +30506,12 @@ _ZN7QStringD2Ev.exit126:                          ; preds = %209, %_ZN17QArrayDa
   %212 = add i32 %.047, 1
   br label %55, !llvm.loop !225
 
-._crit_edge210:                                   ; preds = %339
+._crit_edge194:                                   ; preds = %339
   %213 = load ptr, ptr %8, align 8
   %.not.i.i.i127 = icmp eq ptr %213, null
   br i1 %.not.i.i.i127, label %_ZN5QListIP7IOGraphED2Ev.exit, label %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i: ; preds = %._crit_edge210
+_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i: ; preds = %._crit_edge194
   %214 = atomicrmw sub ptr %213, i32 1 seq_cst, align 4
   %.not.i.i128 = icmp eq i32 %214, 1
   br i1 %.not.i.i128, label %215, label %_ZN5QListIP7IOGraphED2Ev.exit
@@ -30521,13 +30521,13 @@ _ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i: ; preds = %._crit_edge210
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %216, i64 noundef 8, i64 noundef 8) #34
   br label %_ZN5QListIP7IOGraphED2Ev.exit
 
-_ZN5QListIP7IOGraphED2Ev.exit:                    ; preds = %._crit_edge210, %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i, %215
+_ZN5QListIP7IOGraphED2Ev.exit:                    ; preds = %._crit_edge194, %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i, %215
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-217:                                              ; preds = %.lr.ph209, %339
-  %.046208 = phi i32 [ 0, %.lr.ph209 ], [ %340, %339 ]
-  %218 = sext i32 %.046208 to i64
+217:                                              ; preds = %.lr.ph193, %339
+  %.046192 = phi i32 [ 0, %.lr.ph193 ], [ %340, %339 ]
+  %218 = sext i32 %.046192 to i64
   %219 = mul nsw i64 %218, %78
   %220 = load ptr, ptr %18, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 208
@@ -30612,7 +30612,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %244, %234, %_Z
   br i1 %.not.i.i129, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, label %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread: ; preds = %237, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit
-  %.ph256 = phi i1 [ %.ph, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %237 ]
+  %.ph240 = phi i1 [ %.ph, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %237 ]
   %259 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %260 = atomicrmw sub ptr %259, i32 1 seq_cst, align 4
   %.not5.i.i.i135 = icmp eq i32 %260, 1
@@ -30631,7 +30631,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136: ; preds = %2
 
 265:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136
   call void @_ZdlPv(ptr noundef nonnull %228) #34
-  br i1 %.ph256, label %269, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit.thread
+  br i1 %.ph240, label %269, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit.thread
 
 266:                                              ; preds = %261
   %267 = landingpad { ptr, i32 }
@@ -30641,8 +30641,8 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136: ; preds = %2
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136
-  %.ph257 = phi i1 [ %.ph, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ %.ph256, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136 ]
-  br i1 %.ph257, label %269, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit.thread
+  %.ph241 = phi i1 [ %.ph, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ %.ph240, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136 ]
+  br i1 %.ph241, label %269, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit.thread
 
 269:                                              ; preds = %265, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -30714,8 +30714,8 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit.thread: ; preds = %236, %265, %_ZN
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP7IOGraphEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %294, %298
   %.idx = shl i64 %297, 3
   %300 = getelementptr i8, ptr %296, i64 %.idx
-  %.not193205 = icmp eq i64 %.idx, 0
-  br i1 %.not193205, label %._crit_edge, label %.lr.ph
+  %.not177189 = icmp eq i64 %.idx, 0
+  br i1 %.not177189, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %337, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7IOGraphEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit, label %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i.i
@@ -30734,11 +30734,11 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit: ; preds = %._crit_
           to label %339 unwind label %292
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7IOGraphEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %337
-  %.sroa.12.0206 = phi ptr [ %338, %337 ], [ %296, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7IOGraphEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
-  %304 = load ptr, ptr %.sroa.12.0206, align 8
+  %.sroa.12.0190 = phi ptr [ %338, %337 ], [ %296, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7IOGraphEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %304 = load ptr, ptr %.sroa.12.0190, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 248
   %306 = load i32, ptr %305, align 8
-  %.not50 = icmp sgt i32 %.046208, %306
+  %.not50 = icmp sgt i32 %.046192, %306
   br i1 %.not50, label %_ZNK7IOGraph12getItemValueEiPK13_capture_file.exit, label %307
 
 307:                                              ; preds = %.lr.ph
@@ -30778,7 +30778,7 @@ _ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit.i: ; preds = %_ZNK11CaptureFil
   %326 = getelementptr inbounds nuw i8, ptr %304, i64 216
   %327 = load i8, ptr %326, align 8, !range !12, !noundef !13
   %328 = trunc nuw i8 %327 to i1
-  %329 = invoke noundef double @get_io_graph_item(ptr noundef %317, i32 noundef %320, i32 noundef %.046208, i32 noundef %322, ptr noundef %313, i32 noundef %324, i32 noundef %325, i1 noundef zeroext %328)
+  %329 = invoke noundef double @get_io_graph_item(ptr noundef %317, i32 noundef %320, i32 noundef %.046192, i32 noundef %322, ptr noundef %313, i32 noundef %324, i32 noundef %325, i1 noundef zeroext %328)
           to label %_ZNK7IOGraph12getItemValueEiPK13_capture_file.exit unwind label %330
 
 330:                                              ; preds = %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit.i, %307, %335, %_ZNK7IOGraph12getItemValueEiPK13_capture_file.exit
@@ -30805,14 +30805,14 @@ _ZNK7IOGraph12getItemValueEiPK13_capture_file.exit: ; preds = %_ZNKSt6vectorI16_
           to label %337 unwind label %330
 
 337:                                              ; preds = %335
-  %338 = getelementptr i8, ptr %.sroa.12.0206, i64 8
-  %.not193 = icmp eq ptr %338, %300
-  br i1 %.not193, label %._crit_edge, label %.lr.ph, !llvm.loop !238
+  %338 = getelementptr i8, ptr %.sroa.12.0190, i64 8
+  %.not177 = icmp eq ptr %338, %300
+  br i1 %.not177, label %._crit_edge, label %.lr.ph, !llvm.loop !238
 
 339:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit
-  %340 = add i32 %.046208, 1
+  %340 = add i32 %.046192, 1
   %.not = icmp sgt i32 %340, %.043
-  br i1 %.not, label %._crit_edge210, label %217, !llvm.loop !239
+  br i1 %.not, label %._crit_edge194, label %217, !llvm.loop !239
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit145: ; preds = %330, %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i.i143, %333, %88, %_ZN7QStringD2Ev.exit126, %90, %292, %282, %87
   %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %87 ], [ %89, %88 ], [ %91, %90 ], [ %.pn60.pn, %_ZN7QStringD2Ev.exit126 ], [ %331, %333 ], [ %293, %292 ], [ %283, %282 ], [ %331, %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i.i143 ], [ %331, %330 ]
@@ -32363,7 +32363,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %35, %25, %_ZNK
   br i1 %.not.i.i, label %.critedge30.thread, label %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread: ; preds = %47, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %28, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit
-  %.not.i.i358190133 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %28 ], [ %40, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %40, %47 ]
+  %.not.i.i357786129 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ], [ false, %28 ], [ %40, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i ], [ %40, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %52 = atomicrmw sub ptr %51, i32 1 seq_cst, align 4
   %.not5.i.i.i38 = icmp eq i32 %52, 1
@@ -32382,7 +32382,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i39: ; preds = %53
 
 57:                                               ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i39
   tail call void @_ZdlPv(ptr noundef nonnull %19) #34
-  br i1 %.not.i.i358190133, label %.critedge34.thread.sink.split, label %.critedge30.thread
+  br i1 %.not.i.i357786129, label %.critedge34.thread.sink.split, label %.critedge30.thread
 
 58:                                               ; preds = %53
   %59 = landingpad { ptr, i32 }
@@ -32392,7 +32392,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i39: ; preds = %53
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i39
-  br i1 %.not.i.i358190133, label %.critedge34.thread.sink.split, label %.critedge30.thread
+  br i1 %.not.i.i357786129, label %.critedge34.thread.sink.split, label %.critedge30.thread
 
 .critedge30.thread:                               ; preds = %27, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit, %57, %1, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -32497,7 +32497,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61: ; preds = %94, %84, %_Z
   br i1 %.not.i.i42, label %.critedge34.thread, label %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61.thread
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61.thread: ; preds = %106, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i59, %87, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61
-  %.not.i.i5699108144 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61 ], [ false, %87 ], [ %99, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i59 ], [ %99, %106 ]
+  %.not.i.i5695104140 = phi i1 [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit61 ], [ false, %87 ], [ %99, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i59 ], [ %99, %106 ]
   %110 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %111 = atomicrmw sub ptr %110, i32 1 seq_cst, align 4
   %.not5.i.i.i63 = icmp eq i32 %111, 1
@@ -32516,7 +32516,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i64: ; preds = %11
 
 116:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i64
   tail call void @_ZdlPv(ptr noundef nonnull %78) #34
-  br i1 %.not.i.i5699108144, label %.critedge34.thread.sink.split, label %.critedge34.thread
+  br i1 %.not.i.i5695104140, label %.critedge34.thread.sink.split, label %.critedge34.thread
 
 117:                                              ; preds = %112
   %118 = landingpad { ptr, i32 }
@@ -32526,7 +32526,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i64: ; preds = %11
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit66:  ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i64
-  br i1 %.not.i.i5699108144, label %.critedge34.thread.sink.split, label %.critedge34.thread
+  br i1 %.not.i.i5695104140, label %.critedge34.thread.sink.split, label %.critedge34.thread
 
 .critedge34.thread.sink.split:                    ; preds = %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit66, %116, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, %57
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 200

@@ -5923,8 +5923,8 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit45: ; preds = %_ZSt8_Destroy
 
 _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit.thread: ; preds = %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit45
   %71 = load ptr, ptr %3, align 8, !tbaa !97
-  %.not131 = icmp eq ptr %71, null
-  br i1 %.not131, label %87, label %80
+  %.not128 = icmp eq ptr %71, null
+  br i1 %.not128, label %87, label %80
 
 _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit45
   %72 = load i64, ptr %68, align 16
@@ -5945,8 +5945,8 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %_ZN5clang10extracta
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 16
   %84 = and i64 %83, 1152921504606846976
-  %.not132 = icmp eq i64 %84, 0
-  br i1 %.not132, label %87, label %85
+  %.not129 = icmp eq i64 %84, 0
+  br i1 %.not129, label %87, label %85
 
 85:                                               ; preds = %80
   %86 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull @.str.45, i64 5, i32 noundef 10, ptr nonnull @.str, i64 0, ptr noundef null)
@@ -6054,8 +6054,8 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit60: ; preds = %_ZSt8_Destroy
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 16
   %133 = and i64 %132, 1152921504606846976
-  %.not130 = icmp eq i64 %133, 0
-  br i1 %.not130, label %136, label %134
+  %.not127 = icmp eq i64 %133, 0
+  br i1 %.not127, label %136, label %134
 
 134:                                              ; preds = %129
   %135 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull @.str.48, i64 5, i32 noundef 10, ptr nonnull @.str, i64 0, ptr noundef null)
@@ -10105,8 +10105,8 @@ define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder31getFr
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 127
   %23 = icmp ne i32 %22, 36
-  %.not125 = icmp eq ptr %1, null
-  %.not = or i1 %.not125, %23
+  %.not122 = icmp eq ptr %1, null
+  %.not = or i1 %.not122, %23
   br i1 %.not, label %80, label %24
 
 24:                                               ; preds = %2
@@ -10461,8 +10461,8 @@ _ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaI
 _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i, %144
   %149 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull @.str.14, i64 1, i32 noundef 10, ptr nonnull @.str, i64 0, ptr noundef null)
   %150 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
-  %.not9126 = icmp eq i32 %150, 0
-  br i1 %.not9126, label %._crit_edge, label %.lr.ph
+  %.not9123 = icmp eq i32 %150, 0
+  br i1 %.not9123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 120

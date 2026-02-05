@@ -13948,8 +13948,8 @@ define noundef zeroext i1 @_ZN6duckdb13UpdateSegment10HasUpdatesEmm(ptr noundef 
 .lr.ph.split:                                     ; preds = %8, %.thread
   %.01525 = phi i64 [ %29, %.thread ], [ %9, %8 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %11, null
-  br i1 %.not4.i, label %.thread, label %12
+  %.not2.i = icmp eq ptr %11, null
+  br i1 %.not2.i, label %.thread, label %12
 
 12:                                               ; preds = %.lr.ph.split
   %13 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -15572,8 +15572,8 @@ define noundef zeroext i1 @_ZN6duckdb13UpdateSegment21HasUncommittedUpdatesEm(pt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %8, null
-  br i1 %.not4.i, label %.thread, label %9
+  %.not2.i = icmp eq ptr %8, null
+  br i1 %.not2.i, label %.thread, label %9
 
 9:                                                ; preds = %2
   %10 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -15694,8 +15694,8 @@ define void @_ZN6duckdb13UpdateSegment14FetchCommittedEmRNS_6VectorE(ptr noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %9, null
-  br i1 %.not4.i, label %.thread, label %10
+  %.not2.i = icmp eq ptr %9, null
+  br i1 %.not2.i, label %.thread, label %10
 
 10:                                               ; preds = %3
   %11 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -15816,8 +15816,8 @@ define void @_ZN6duckdb13UpdateSegment12FetchUpdatesENS_15TransactionDataEmRNS_6
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %10, null
-  br i1 %.not4.i, label %.thread, label %11
+  %.not2.i = icmp eq ptr %10, null
+  br i1 %.not2.i, label %.thread, label %11
 
 11:                                               ; preds = %4
   %12 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -15983,8 +15983,8 @@ define void @_ZN6duckdb13UpdateSegment8FetchRowENS_15TransactionDataEmRNS_6Vecto
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %14, null
-  br i1 %.not4.i, label %_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm.exit.thread, label %15
+  %.not2.i = icmp eq ptr %14, null
+  br i1 %.not2.i, label %_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm.exit.thread, label %15
 
 15:                                               ; preds = %5
   %16 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -18029,8 +18029,8 @@ define void @_ZN6duckdb13UpdateSegment19FetchCommittedRangeEmmRNS_6VectorE(ptr n
   %.034 = phi i64 [ %52, %_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm.exit.thread ], [ %11, %.lr.ph.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %7, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %22, null
-  br i1 %.not4.i, label %_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm.exit.thread, label %23
+  %.not2.i = icmp eq ptr %22, null
+  br i1 %.not2.i, label %_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm.exit.thread, label %23
 
 23:                                               ; preds = %.lr.ph.split
   %24 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -61793,8 +61793,8 @@ define void @_ZN6duckdb10UpdateInfo6VerifyEv(ptr noundef nonnull readnone align 
 define { ptr, i64 } @_ZNK6duckdb13UpdateSegment13GetUpdateNodeEm(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !895
-  %.not4 = icmp eq ptr %4, null
-  br i1 %.not4, label %19, label %5
+  %.not2 = icmp eq ptr %4, null
+  br i1 %.not2, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -62033,8 +62033,8 @@ define void @_ZN6duckdb13UpdateSegment14RollbackUpdateERNS_10UpdateInfoE(ptr nou
   %8 = load i64, ptr %7, align 8, !tbaa !1024
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %10, null
-  br i1 %.not4.i, label %.thread, label %11
+  %.not2.i = icmp eq ptr %10, null
+  br i1 %.not2.i, label %.thread, label %11
 
 11:                                               ; preds = %2
   %12 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -63054,8 +63054,8 @@ define noundef zeroext i1 @_ZNK6duckdb13UpdateSegment10HasUpdatesEm(ptr noundef 
   call void @_ZN6duckdb11StorageLock13GetSharedLockEv(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.777") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !895
-  %.not4.i = icmp eq ptr %6, null
-  br i1 %.not4.i, label %22, label %7
+  %.not2.i = icmp eq ptr %6, null
+  br i1 %.not2.i, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_10UpdateNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5)

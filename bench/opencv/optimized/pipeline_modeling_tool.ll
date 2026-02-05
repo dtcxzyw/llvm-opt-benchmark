@@ -46498,18 +46498,18 @@ _ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit: ; preds = %.
   br i1 %.not.i.i.i.i19, label %_ZN11OutputDescrD2Ev.exit, label %48
 
 48:                                               ; preds = %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit
-  %.sroa.8.sroa.6.062 = phi i64 [ %40, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
-  %.sroa.6.060 = phi i32 [ 1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
-  %.sroa.21.056 = phi ptr [ null, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ %.sroa.21.0, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
-  %.sroa.1336.152 = phi ptr [ null, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ %.sroa.1336.1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
+  %.sroa.8.sroa.6.057 = phi i64 [ %40, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
+  %.sroa.6.055 = phi i32 [ 1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
+  %.sroa.21.051 = phi ptr [ null, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ %.sroa.21.0, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
+  %.sroa.1336.147 = phi ptr [ null, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit.thread ], [ %.sroa.1336.1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ]
   call void @_ZdlPv(ptr noundef nonnull %27) #41
   br label %_ZN11OutputDescrD2Ev.exit
 
 _ZN11OutputDescrD2Ev.exit:                        ; preds = %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit, %48
-  %.sroa.8.sroa.6.063 = phi i64 [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.8.sroa.6.062, %48 ]
-  %.sroa.6.061 = phi i32 [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.6.060, %48 ]
-  %.sroa.21.057 = phi ptr [ %.sroa.21.0, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.21.056, %48 ]
-  %.sroa.1336.153 = phi ptr [ %.sroa.1336.1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.1336.152, %48 ]
+  %.sroa.8.sroa.6.058 = phi i64 [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.8.sroa.6.057, %48 ]
+  %.sroa.6.056 = phi i32 [ -1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.6.055, %48 ]
+  %.sroa.21.052 = phi ptr [ %.sroa.21.0, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.21.051, %48 ]
+  %.sroa.1336.148 = phi ptr [ %.sroa.1336.1, %_ZN9DummyCall6GDummy7outMetaERKN2cv8GMatDescEdRK11OutputDescr.exit ], [ %.sroa.1336.147, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !55
@@ -46527,17 +46527,17 @@ _ZN2cv8GMatDescD2Ev.exit:                         ; preds = %_ZN11OutputDescrD2E
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %33, ptr %52, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %.sroa.6.061, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 %.sroa.6.056, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %.sroa.8.sroa.6.063, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %.sroa.8.sroa.6.058, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %54 = ptrtoint ptr %.sroa.21.057 to i64
-  %55 = ptrtoint ptr %.sroa.1336.153 to i64
+  %54 = ptrtoint ptr %.sroa.21.052 to i64
+  %55 = ptrtoint ptr %.sroa.1336.148 to i64
   %56 = sub i64 %54, %55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.sroa.21.057, %.sroa.1336.153
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %.sroa.21.052, %.sroa.1336.148
   br i1 %.not.i.i.i.i.i.i.i, label %.noexc22.thread, label %60
 
 .noexc22.thread:                                  ; preds = %_ZN2cv8GMatDescD2Ev.exit
@@ -46570,7 +46570,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 %56
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %65, ptr %66, align 8, !tbaa !58
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %62, ptr align 4 %.sroa.1336.153, i64 %56, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %62, ptr align 4 %.sroa.1336.148, i64 %56, i1 false)
   br label %67
 
 67:                                               ; preds = %63, %.noexc22.thread
@@ -46610,11 +46610,11 @@ _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescEN
 
 _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not.i.i.i.i26 = icmp eq ptr %.sroa.1336.153, null
+  %.not.i.i.i.i26 = icmp eq ptr %.sroa.1336.148, null
   br i1 %.not.i.i.i.i26, label %_ZN2cv8GMatDescD2Ev.exit27, label %82
 
 82:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.1336.153) #41
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.1336.148) #41
   br label %_ZN2cv8GMatDescD2Ev.exit27
 
 _ZN2cv8GMatDescD2Ev.exit27:                       ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit, %82
@@ -46684,11 +46684,11 @@ _ZN2cv8GMatDescD2Ev.exit31:                       ; preds = %.body, %93
 .loopexit:                                        ; preds = %.body24, %94
   %.pn14 = phi { ptr, i32 } [ %95, %94 ], [ %76, %.body24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not.i.i.i.i33 = icmp eq ptr %.sroa.1336.153, null
+  %.not.i.i.i.i33 = icmp eq ptr %.sroa.1336.148, null
   br i1 %.not.i.i.i.i33, label %_ZN2cv8GMatDescD2Ev.exit34, label %103
 
 103:                                              ; preds = %.loopexit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.1336.153) #41
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.1336.148) #41
   br label %_ZN2cv8GMatDescD2Ev.exit34
 
 _ZN2cv8GMatDescD2Ev.exit34:                       ; preds = %103, %.loopexit, %_ZN2cv8GMatDescD2Ev.exit31

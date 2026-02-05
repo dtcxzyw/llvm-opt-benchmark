@@ -991,10 +991,10 @@ apply_round_stamp.exit.i:                         ; preds = %.split142.us.i.i, %
 .lr.ph103.i:                                      ; preds = %.lr.ph107.i, %435
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %435 ], [ 0, %.lr.ph107.i ]
   %413 = phi i32 [ %441, %435 ], [ %405, %.lr.ph107.i ]
-  %.sroa.9.1100.i = phi float [ %436, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
-  %.sroa.7.199.i = phi float [ %437, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
-  %.sroa.5.198.i = phi float [ %440, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
-  %.sroa.0.197.i = phi float [ %438, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
+  %.sroa.9.0100.i = phi float [ %436, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
+  %.sroa.7.099.i = phi float [ %437, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
+  %.sroa.5.098.i = phi float [ %440, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
+  %.sroa.0.097.i = phi float [ %438, %435 ], [ 0.000000e+00, %.lr.ph107.i ]
   %414 = getelementptr inbounds nuw { float, float }, ptr %408, i64 %indvars.iv114.i
   %415 = sext i32 %413 to i64
   %416 = getelementptr inbounds { float, float }, ptr %408, i64 %415
@@ -1019,12 +1019,12 @@ apply_round_stamp.exit.i:                         ; preds = %.split142.us.i.i, %
   br i1 %424, label %425, label %426
 
 425:                                              ; preds = %419
-  store float %.sroa.0.197.i, ptr %414, align 8
-  store float %.sroa.5.198.i, ptr %420, align 4
+  store float %.sroa.0.097.i, ptr %414, align 8
+  store float %.sroa.5.098.i, ptr %420, align 4
   br label %426
 
 426:                                              ; preds = %425, %419
-  %427 = phi float [ %.sroa.0.197.i, %425 ], [ %.pre120.i, %419 ]
+  %427 = phi float [ %.sroa.0.097.i, %425 ], [ %.pre120.i, %419 ]
   %428 = load float, ptr %418, align 8
   %429 = getelementptr inbounds nuw i8, ptr %418, i64 4
   %430 = load float, ptr %429, align 4
@@ -1034,14 +1034,14 @@ apply_round_stamp.exit.i:                         ; preds = %.split142.us.i.i, %
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %426
-  store float %.sroa.7.199.i, ptr %418, align 8
-  store float %.sroa.9.1100.i, ptr %429, align 4
+  store float %.sroa.7.099.i, ptr %418, align 8
+  store float %.sroa.9.0100.i, ptr %429, align 4
   %.pre119.i = load float, ptr %414, align 8
   br label %435
 
 435:                                              ; preds = %434, %426, %.lr.ph103._crit_edge.i
-  %436 = phi float [ %430, %426 ], [ %.sroa.9.1100.i, %434 ], [ %.pre122.i, %.lr.ph103._crit_edge.i ]
-  %437 = phi float [ %428, %426 ], [ %.sroa.7.199.i, %434 ], [ %.pre121.i, %.lr.ph103._crit_edge.i ]
+  %436 = phi float [ %430, %426 ], [ %.sroa.9.0100.i, %434 ], [ %.pre122.i, %.lr.ph103._crit_edge.i ]
+  %437 = phi float [ %428, %426 ], [ %.sroa.7.099.i, %434 ], [ %.pre121.i, %.lr.ph103._crit_edge.i ]
   %438 = phi float [ %427, %426 ], [ %.pre119.i, %434 ], [ %.pre120.i, %.lr.ph103._crit_edge.i ]
   %439 = getelementptr inbounds nuw i8, ptr %414, i64 4
   %440 = load float, ptr %439, align 4

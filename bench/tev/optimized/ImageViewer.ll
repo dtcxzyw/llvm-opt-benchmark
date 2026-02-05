@@ -7914,25 +7914,25 @@ define dso_local void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrIN
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %16 = load ptr, ptr %15, align 16
-  %.not110 = icmp eq ptr %14, %16
-  br i1 %.not110, label %._crit_edge, label %.lr.ph
+  %.not108 = icmp eq ptr %14, %16
+  br i1 %.not108, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.sroa.095.0111 = phi ptr [ %21, %.lr.ph ], [ %14, %12 ]
-  %17 = load ptr, ptr %.sroa.095.0111, align 8
+  %.sroa.093.0109 = phi ptr [ %21, %.lr.ph ], [ %14, %12 ]
+  %17 = load ptr, ptr %.sroa.093.0109, align 8
   %18 = load ptr, ptr %1, align 8
   %.not.i = icmp ne ptr %18, null
   %19 = zext i1 %.not.i to i8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 89
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.095.0111, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.093.0109, i64 8
   %.not = icmp eq ptr %21, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %22 = load ptr, ptr %1, align 8
-  %.not100 = icmp eq ptr %22, null
-  br i1 %.not100, label %23, label %94
+  %.not98 = icmp eq ptr %22, null
+  br i1 %.not98, label %23, label %94
 
 23:                                               ; preds = %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -7941,18 +7941,18 @@ define dso_local void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrIN
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
-  %.not134 = icmp eq ptr %28, %29
-  br i1 %.not134, label %._crit_edge129, label %.lr.ph128
+  %.not132 = icmp eq ptr %28, %29
+  br i1 %.not132, label %._crit_edge127, label %.lr.ph126
 
-.lr.ph128:                                        ; preds = %23, %.lr.ph128
-  %30 = phi ptr [ %37, %.lr.ph128 ], [ %29, %23 ]
-  %.0126 = phi i64 [ %35, %.lr.ph128 ], [ 0, %23 ]
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %.0126
+.lr.ph126:                                        ; preds = %23, %.lr.ph126
+  %30 = phi ptr [ %37, %.lr.ph126 ], [ %29, %23 ]
+  %.0124 = phi i64 [ %35, %.lr.ph126 ], [ 0, %23 ]
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %.0124
   %32 = load ptr, ptr %31, align 8, !nonnull !10, !noundef !10
   %33 = tail call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 224
   store i8 0, ptr %34, align 16
-  %35 = add nuw i64 %.0126, 1
+  %35 = add nuw i64 %.0124, 1
   %36 = load ptr, ptr %27, align 8
   %37 = load ptr, ptr %26, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -7960,9 +7960,9 @@ define dso_local void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrIN
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
   %42 = icmp ult i64 %35, %41
-  br i1 %42, label %.lr.ph128, label %._crit_edge129, !llvm.loop !105
+  br i1 %42, label %.lr.ph126, label %._crit_edge127, !llvm.loop !105
 
-._crit_edge129:                                   ; preds = %.lr.ph128, %23
+._crit_edge127:                                   ; preds = %.lr.ph126, %23
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr null, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -7971,7 +7971,7 @@ define dso_local void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrIN
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i, label %46
 
-46:                                               ; preds = %._crit_edge129
+46:                                               ; preds = %._crit_edge127
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = atomicrmw add ptr %47, i64 -1 acq_rel, align 8
   %49 = icmp eq i64 %48, 0
@@ -7985,7 +7985,7 @@ define dso_local void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrIN
   tail call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #42
   br label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i
 
-_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i: ; preds = %._crit_edge129, %46, %50
+_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i: ; preds = %._crit_edge127, %46, %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 192
@@ -8023,11 +8023,11 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56: ; preds = %63, %59, %_
   %76 = lshr exact i64 %75, 3
   %77 = trunc i64 %76 to i32
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph130, label %._crit_edge131
+  br i1 %78, label %.lr.ph128, label %._crit_edge129
 
-.lr.ph130:                                        ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56, %.lr.ph130
-  %79 = phi i32 [ %91, %.lr.ph130 ], [ %77, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56 ]
-  %80 = phi ptr [ %82, %.lr.ph130 ], [ %68, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56 ]
+.lr.ph128:                                        ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56, %.lr.ph128
+  %79 = phi i32 [ %91, %.lr.ph128 ], [ %77, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56 ]
+  %80 = phi ptr [ %82, %.lr.ph128 ], [ %68, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56 ]
   %81 = add nsw i32 %79, -1
   tail call void @_ZN7nanogui6Widget15remove_child_atEi(ptr noundef nonnull align 8 dereferenceable(132) %80, i32 noundef %81)
   %82 = load ptr, ptr %67, align 16
@@ -8041,9 +8041,9 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56: ; preds = %63, %59, %_
   %90 = lshr exact i64 %89, 3
   %91 = trunc i64 %90 to i32
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph130, label %._crit_edge131, !llvm.loop !106
+  br i1 %92, label %.lr.ph128, label %._crit_edge129, !llvm.loop !106
 
-._crit_edge131:                                   ; preds = %.lr.ph130, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56
+._crit_edge129:                                   ; preds = %.lr.ph128, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit56
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 521
   store i8 1, ptr %93, align 1
   br label %.thread
@@ -8094,20 +8094,20 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
 .preheader:                                       ; preds = %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 72
   %123 = load ptr, ptr %122, align 8
-  %.not132 = icmp eq ptr %123, %116
-  br i1 %.not132, label %._crit_edge114, label %.lr.ph113
+  %.not130 = icmp eq ptr %123, %116
+  br i1 %.not130, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph113:                                        ; preds = %.preheader, %.lr.ph113
-  %124 = phi ptr [ %133, %.lr.ph113 ], [ %116, %.preheader ]
-  %.048112 = phi i64 [ %131, %.lr.ph113 ], [ 0, %.preheader ]
-  %125 = getelementptr inbounds ptr, ptr %124, i64 %.048112
+.lr.ph111:                                        ; preds = %.preheader, %.lr.ph111
+  %124 = phi ptr [ %133, %.lr.ph111 ], [ %116, %.preheader ]
+  %.048110 = phi i64 [ %131, %.lr.ph111 ], [ 0, %.preheader ]
+  %125 = getelementptr inbounds ptr, ptr %124, i64 %.048110
   %126 = load ptr, ptr %125, align 8, !nonnull !10, !noundef !10
   %127 = tail call ptr @__dynamic_cast(ptr nonnull %126, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
-  %128 = icmp eq i64 %.048112, %112
+  %128 = icmp eq i64 %.048110, %112
   %129 = zext i1 %128 to i8
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 224
   store i8 %129, ptr %130, align 16
-  %131 = add nuw i64 %.048112, 1
+  %131 = add nuw i64 %.048110, 1
   %132 = load ptr, ptr %122, align 8
   %133 = load ptr, ptr %115, align 8
   %134 = ptrtoint ptr %132 to i64
@@ -8115,26 +8115,26 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
   %138 = icmp ult i64 %131, %137
-  br i1 %138, label %.lr.ph113, label %._crit_edge114.loopexit, !llvm.loop !108
+  br i1 %138, label %.lr.ph111, label %._crit_edge112.loopexit, !llvm.loop !108
 
-._crit_edge114.loopexit:                          ; preds = %.lr.ph113
+._crit_edge112.loopexit:                          ; preds = %.lr.ph111
   %.pre = load ptr, ptr %1, align 8
-  br label %._crit_edge114
+  br label %._crit_edge112
 
-._crit_edge114:                                   ; preds = %._crit_edge114.loopexit, %.preheader
-  %139 = phi ptr [ %.pre, %._crit_edge114.loopexit ], [ %22, %.preheader ]
+._crit_edge112:                                   ; preds = %._crit_edge112.loopexit, %.preheader
+  %139 = phi ptr [ %.pre, %._crit_edge112.loopexit ], [ %22, %.preheader ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %142 = load ptr, ptr %141, align 8
   %.not.i.i59 = icmp eq ptr %142, null
   br i1 %.not.i.i59, label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i, label %143
 
-143:                                              ; preds = %._crit_edge114
+143:                                              ; preds = %._crit_edge112
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %145 = atomicrmw add ptr %144, i64 1 monotonic, align 8
   br label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i
 
-_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i: ; preds = %143, %._crit_edge114
+_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i: ; preds = %143, %._crit_edge112
   store ptr %139, ptr %140, align 16
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %147 = load ptr, ptr %146, align 8
@@ -8158,11 +8158,11 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i: ; preds = %143, %.
 
 _ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exitthread-pre-split: ; preds = %152, %148
   %.pr = load ptr, ptr %146, align 8
-  %.pre148 = load ptr, ptr %140, align 16
+  %.pre146 = load ptr, ptr %140, align 16
   br label %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exit
 
 _ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exit: ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exitthread-pre-split, %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i
-  %156 = phi ptr [ %.pre148, %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exitthread-pre-split ], [ %139, %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i ]
+  %156 = phi ptr [ %.pre146, %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exitthread-pre-split ], [ %139, %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i ]
   %157 = phi ptr [ %.pr, %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000ERKS3_.exitthread-pre-split ], [ %142, %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %159 = load ptr, ptr %158, align 8
@@ -8228,11 +8228,11 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   %192 = lshr exact i64 %191, 3
   %193 = trunc i64 %192 to i32
   %194 = icmp sgt i32 %193, 0
-  br i1 %194, label %.lr.ph115, label %._crit_edge116
+  br i1 %194, label %.lr.ph113, label %._crit_edge114
 
-.lr.ph115:                                        ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66, %.lr.ph115
-  %195 = phi i32 [ %207, %.lr.ph115 ], [ %193, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66 ]
-  %196 = phi ptr [ %198, %.lr.ph115 ], [ %184, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66 ]
+.lr.ph113:                                        ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66, %.lr.ph113
+  %195 = phi i32 [ %207, %.lr.ph113 ], [ %193, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66 ]
+  %196 = phi ptr [ %198, %.lr.ph113 ], [ %184, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66 ]
   %197 = add nsw i32 %195, -1
   tail call void @_ZN7nanogui6Widget15remove_child_atEi(ptr noundef nonnull align 8 dereferenceable(132) %196, i32 noundef %197)
   %198 = load ptr, ptr %183, align 16
@@ -8246,18 +8246,18 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   %206 = lshr exact i64 %205, 3
   %207 = trunc i64 %206 to i32
   %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %.lr.ph115, label %._crit_edge116, !llvm.loop !109
+  br i1 %208, label %.lr.ph113, label %._crit_edge114, !llvm.loop !109
 
-._crit_edge116:                                   ; preds = %.lr.ph115, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66
+._crit_edge114:                                   ; preds = %.lr.ph113, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66
   %209 = load ptr, ptr %140, align 16
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 296
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 304
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %210, align 8
-  %.not133 = icmp eq ptr %212, %213
-  br i1 %.not133, label %._crit_edge121, label %.lr.ph120
+  %.not131 = icmp eq ptr %212, %213
+  br i1 %.not131, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph120:                                        ; preds = %._crit_edge116
+.lr.ph118:                                        ; preds = %._crit_edge114
   %214 = ptrtoint ptr %212 to i64
   %215 = ptrtoint ptr %213 to i64
   %216 = sub i64 %214, %215
@@ -8266,8 +8266,8 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %220
 
-220:                                              ; preds = %.lr.ph120, %_ZNSt3__18functionIFvvEED2Ev.exit
-  %.049118 = phi i64 [ 0, %.lr.ph120 ], [ %240, %_ZNSt3__18functionIFvvEED2Ev.exit ]
+220:                                              ; preds = %.lr.ph118, %_ZNSt3__18functionIFvvEED2Ev.exit
+  %.049116 = phi i64 [ 0, %.lr.ph118 ], [ %240, %_ZNSt3__18functionIFvvEED2Ev.exit ]
   %221 = load ptr, ptr %140, align 16, !noalias !110
   %.not.i67 = icmp eq ptr %221, null
   br i1 %.not.i67, label %222, label %223
@@ -8285,7 +8285,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   %229 = ptrtoint ptr %227 to i64
   %230 = sub i64 %228, %229
   %231 = sdiv exact i64 %230, 48
-  %.not.i.i68 = icmp ult i64 %.049118, %231
+  %.not.i.i68 = icmp ult i64 %.049116, %231
   br i1 %.not.i.i68, label %_ZNKSt3__16vectorIN3tev12ChannelGroupENS_9allocatorIS2_EEE2atEm.exit.i, label %232
 
 232:                                              ; preds = %223
@@ -8294,7 +8294,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   unreachable
 
 _ZNKSt3__16vectorIN3tev12ChannelGroupENS_9allocatorIS2_EEE2atEm.exit.i: ; preds = %223
-  %234 = getelementptr inbounds %"struct.tev::ChannelGroup", ptr %227, i64 %.049118
+  %234 = getelementptr inbounds %"struct.tev::ChannelGroup", ptr %227, i64 %.049116
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %234)
   br label %_ZN3tev11ImageViewer9groupNameEm.exit
 
@@ -8310,7 +8310,7 @@ _ZN3tev11ImageViewer9groupNameEm.exit:            ; preds = %222, %_ZNKSt3__16ve
 238:                                              ; preds = %236
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 120
   store i32 15, ptr %239, align 8
-  %240 = add nuw i64 %.049118, 1
+  %240 = add nuw i64 %.049116, 1
   %241 = getelementptr inbounds nuw i8, ptr %235, i64 336
   store i64 %240, ptr %241, align 16
   store ptr %0, ptr %6, align 8
@@ -8345,7 +8345,7 @@ _ZN3tev11ImageViewer9groupNameEm.exit:            ; preds = %222, %_ZNKSt3__16ve
   %251 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %248) #43
-  %.pre212 = load ptr, ptr %243, align 8
+  %.pre210 = load ptr, ptr %243, align 8
   br label %_ZNSt3__18functionIFvvEED2Ev.exit74.body
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %.noexc
@@ -8377,7 +8377,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %255, %.sink.split.i
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #42
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #42
   %exitcond.not = icmp eq i64 %240, %217
-  br i1 %exitcond.not, label %._crit_edge121, label %220, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge119, label %220, !llvm.loop !113
 
 262:                                              ; preds = %238, %_ZN3tev11ImageViewer9groupNameEm.exit
   %263 = landingpad { ptr, i32 }
@@ -8401,7 +8401,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit74:              ; preds = %244
   br label %_ZNSt3__18functionIFvvEED2Ev.exit74.body
 
 _ZNSt3__18functionIFvvEED2Ev.exit74.body:         ; preds = %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i", %_ZNSt3__18functionIFvvEED2Ev.exit74
-  %269 = phi ptr [ getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), %_ZNSt3__18functionIFvvEED2Ev.exit74 ], [ %.pre212, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
+  %269 = phi ptr [ getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), %_ZNSt3__18functionIFvvEED2Ev.exit74 ], [ %.pre210, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
   %eh.lpad-body = phi { ptr, i32 } [ %268, %_ZNSt3__18functionIFvvEED2Ev.exit74 ], [ %251, %"_ZNSt3__110unique_ptrINS_10__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS3_5ImageEEEbE3$_0NS_9allocatorISA_EEFvvEEENS_22__allocator_destructorINSB_ISE_EEEEED2B8ne190000Ev.exit3.i" ]
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 40
   %271 = load ptr, ptr %270, align 8
@@ -8413,7 +8413,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit74.body:         ; preds = %"_ZNSt3__110unique_
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #42
   br label %353
 
-._crit_edge121:                                   ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit, %._crit_edge116
+._crit_edge119:                                   ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit, %._crit_edge114
   %273 = load ptr, ptr %1, align 8
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 296
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 304
@@ -8437,7 +8437,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit74.body:         ; preds = %"_ZNSt3__110unique_
   %292 = trunc i8 %291 to i1
   br i1 %292, label %_ZN3tev11ImageViewer12setUiVisibleEb.exit, label %293
 
-293:                                              ; preds = %._crit_edge121
+293:                                              ; preds = %._crit_edge119
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %295 = load i32, ptr %294, align 16
   %296 = icmp eq i32 %295, 4
@@ -8447,7 +8447,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit74.body:         ; preds = %"_ZNSt3__110unique_
   store i32 0, ptr %294, align 16
   br label %_ZN3tev11ImageViewer12setUiVisibleEb.exit
 
-_ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge121, %293, %297
+_ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge119, %293, %297
   %298 = and i8 %291, 1
   store i8 %298, ptr %290, align 8
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -8477,17 +8477,17 @@ _ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge121, %29
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 72
   %316 = load ptr, ptr %315, align 8
-  %.not101122 = icmp eq ptr %314, %316
-  br i1 %.not101122, label %.thread, label %.lr.ph125
+  %.not99120 = icmp eq ptr %314, %316
+  br i1 %.not99120, label %.thread, label %.lr.ph123
 
-317:                                              ; preds = %.lr.ph125
-  %318 = getelementptr inbounds nuw i8, ptr %.sroa.077.0123, i64 8
-  %.not101 = icmp eq ptr %318, %316
-  br i1 %.not101, label %.thread, label %.lr.ph125
+317:                                              ; preds = %.lr.ph123
+  %318 = getelementptr inbounds nuw i8, ptr %.sroa.077.0121, i64 8
+  %.not99 = icmp eq ptr %318, %316
+  br i1 %.not99, label %.thread, label %.lr.ph123
 
-.lr.ph125:                                        ; preds = %311, %317
-  %.sroa.077.0123 = phi ptr [ %318, %317 ], [ %314, %311 ]
-  %319 = load ptr, ptr %.sroa.077.0123, align 8, !nonnull !10, !noundef !10
+.lr.ph123:                                        ; preds = %311, %317
+  %.sroa.077.0121 = phi ptr [ %318, %317 ], [ %314, %311 ]
+  %319 = load ptr, ptr %.sroa.077.0121, align 8, !nonnull !10, !noundef !10
   %320 = call ptr @__dynamic_cast(ptr nonnull %319, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 224
   %322 = load i8, ptr %321, align 16
@@ -8499,7 +8499,7 @@ _ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge121, %29
           cleanup
   br label %353
 
-326:                                              ; preds = %.lr.ph125
+326:                                              ; preds = %.lr.ph123
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 52
@@ -8533,7 +8533,7 @@ _ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge121, %29
   store float %.sroa.speculated, ptr %339, align 8
   br label %.thread
 
-.thread:                                          ; preds = %317, %311, %326, %337, %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit, %._crit_edge131
+.thread:                                          ; preds = %317, %311, %326, %337, %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit, %._crit_edge129
   ret void
 
 353:                                              ; preds = %262, %264, %272, %324
@@ -8581,18 +8581,18 @@ define dso_local void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_p
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %.not93 = icmp eq ptr %9, %10
-  br i1 %.not93, label %._crit_edge86, label %.lr.ph85
+  %.not91 = icmp eq ptr %9, %10
+  br i1 %.not91, label %._crit_edge84, label %.lr.ph83
 
-.lr.ph85:                                         ; preds = %4, %.lr.ph85
-  %11 = phi ptr [ %18, %.lr.ph85 ], [ %10, %4 ]
-  %.083 = phi i64 [ %16, %.lr.ph85 ], [ 0, %4 ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %.083
+.lr.ph83:                                         ; preds = %4, %.lr.ph83
+  %11 = phi ptr [ %18, %.lr.ph83 ], [ %10, %4 ]
+  %.081 = phi i64 [ %16, %.lr.ph83 ], [ 0, %4 ]
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %.081
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !noundef !10
   %14 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 169
   store i8 0, ptr %15, align 1
-  %16 = add nuw i64 %.083, 1
+  %16 = add nuw i64 %.081, 1
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -8600,27 +8600,27 @@ define dso_local void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_p
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = icmp ult i64 %16, %22
-  br i1 %23, label %.lr.ph85, label %._crit_edge86, !llvm.loop !114
+  br i1 %23, label %.lr.ph83, label %._crit_edge84, !llvm.loop !114
 
-._crit_edge86:                                    ; preds = %.lr.ph85, %4
+._crit_edge84:                                    ; preds = %.lr.ph83, %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
-  %.not94 = icmp eq ptr %28, %29
-  br i1 %.not94, label %._crit_edge90, label %.lr.ph89
+  %.not92 = icmp eq ptr %28, %29
+  br i1 %.not92, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph89:                                         ; preds = %._crit_edge86, %.lr.ph89
-  %30 = phi ptr [ %37, %.lr.ph89 ], [ %29, %._crit_edge86 ]
-  %.03687 = phi i64 [ %35, %.lr.ph89 ], [ 0, %._crit_edge86 ]
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %.03687
+.lr.ph87:                                         ; preds = %._crit_edge84, %.lr.ph87
+  %30 = phi ptr [ %37, %.lr.ph87 ], [ %29, %._crit_edge84 ]
+  %.03685 = phi i64 [ %35, %.lr.ph87 ], [ 0, %._crit_edge84 ]
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %.03685
   %32 = load ptr, ptr %31, align 8, !nonnull !10, !noundef !10
   %33 = tail call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #42
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 89
   store i8 0, ptr %34, align 1
-  %35 = add nuw i64 %.03687, 1
+  %35 = add nuw i64 %.03685, 1
   %36 = load ptr, ptr %27, align 8
   %37 = load ptr, ptr %26, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -8628,9 +8628,9 @@ define dso_local void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_p
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
   %42 = icmp ult i64 %35, %41
-  br i1 %42, label %.lr.ph89, label %._crit_edge90, !llvm.loop !115
+  br i1 %42, label %.lr.ph87, label %._crit_edge88, !llvm.loop !115
 
-._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge86
+._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge84
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr null, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -8639,7 +8639,7 @@ define dso_local void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_p
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i, label %46
 
-46:                                               ; preds = %._crit_edge90
+46:                                               ; preds = %._crit_edge88
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = atomicrmw add ptr %47, i64 -1 acq_rel, align 8
   %49 = icmp eq i64 %48, 0
@@ -8653,7 +8653,7 @@ define dso_local void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_p
   tail call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #42
   br label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i
 
-_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i: ; preds = %._crit_edge90, %46, %50
+_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i: ; preds = %._crit_edge88, %46, %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 208
@@ -8716,20 +8716,20 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %88, align 8
-  %.not91 = icmp eq ptr %90, %91
-  br i1 %.not91, label %._crit_edge, label %.lr.ph
+  %.not89 = icmp eq ptr %90, %91
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit, %.lr.ph
   %92 = phi ptr [ %101, %.lr.ph ], [ %91, %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit ]
-  %.03775 = phi i64 [ %99, %.lr.ph ], [ 0, %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit ]
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %.03775
+  %.03773 = phi i64 [ %99, %.lr.ph ], [ 0, %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit ]
+  %93 = getelementptr inbounds ptr, ptr %92, i64 %.03773
   %94 = load ptr, ptr %93, align 8, !nonnull !10, !noundef !10
   %95 = tail call ptr @__dynamic_cast(ptr nonnull %94, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
-  %96 = icmp eq i64 %.03775, %85
+  %96 = icmp eq i64 %.03773, %85
   %97 = zext i1 %96 to i8
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 169
   store i8 %97, ptr %98, align 1
-  %99 = add nuw i64 %.03775, 1
+  %99 = add nuw i64 %.03773, 1
   %100 = load ptr, ptr %89, align 8
   %101 = load ptr, ptr %88, align 8
   %102 = ptrtoint ptr %100 to i64
@@ -8746,18 +8746,18 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %109, align 8
-  %.not92 = icmp eq ptr %111, %112
-  br i1 %.not92, label %._crit_edge79, label %.lr.ph78
+  %.not90 = icmp eq ptr %111, %112
+  br i1 %.not90, label %._crit_edge77, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %._crit_edge, %.lr.ph78
-  %113 = phi ptr [ %120, %.lr.ph78 ], [ %112, %._crit_edge ]
-  %.03976 = phi i64 [ %118, %.lr.ph78 ], [ 0, %._crit_edge ]
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %.03976
+.lr.ph76:                                         ; preds = %._crit_edge, %.lr.ph76
+  %113 = phi ptr [ %120, %.lr.ph76 ], [ %112, %._crit_edge ]
+  %.03974 = phi i64 [ %118, %.lr.ph76 ], [ 0, %._crit_edge ]
+  %114 = getelementptr inbounds ptr, ptr %113, i64 %.03974
   %115 = load ptr, ptr %114, align 8, !nonnull !10, !noundef !10
   %116 = tail call ptr @__dynamic_cast(ptr nonnull %115, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #42
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 89
   store i8 1, ptr %117, align 1
-  %118 = add nuw i64 %.03976, 1
+  %118 = add nuw i64 %.03974, 1
   %119 = load ptr, ptr %110, align 8
   %120 = load ptr, ptr %109, align 8
   %121 = ptrtoint ptr %119 to i64
@@ -8765,9 +8765,9 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
   %125 = icmp ult i64 %118, %124
-  br i1 %125, label %.lr.ph78, label %._crit_edge79, !llvm.loop !117
+  br i1 %125, label %.lr.ph76, label %._crit_edge77, !llvm.loop !117
 
-._crit_edge79:                                    ; preds = %.lr.ph78, %._crit_edge
+._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %127 = load ptr, ptr %1, align 8
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8775,12 +8775,12 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   %.not.i.i45 = icmp eq ptr %129, null
   br i1 %.not.i.i45, label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i, label %130
 
-130:                                              ; preds = %._crit_edge79
+130:                                              ; preds = %._crit_edge77
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %132 = atomicrmw add ptr %131, i64 1 monotonic, align 8
   br label %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i
 
-_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i: ; preds = %130, %._crit_edge79
+_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i: ; preds = %130, %._crit_edge77
   store ptr %127, ptr %126, align 16
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %134 = load ptr, ptr %133, align 8
@@ -8867,24 +8867,24 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52: ; preds = %_ZN3tev11Im
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 72
   %174 = load ptr, ptr %173, align 8
-  %.not7480 = icmp eq ptr %172, %174
-  br i1 %.not7480, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42, label %.lr.ph82
+  %.not7278 = icmp eq ptr %172, %174
+  br i1 %.not7278, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42, label %.lr.ph80
 
-175:                                              ; preds = %.lr.ph82
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.055.081, i64 8
-  %.not74 = icmp eq ptr %176, %174
-  br i1 %.not74, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42, label %.lr.ph82
+175:                                              ; preds = %.lr.ph80
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.055.079, i64 8
+  %.not72 = icmp eq ptr %176, %174
+  br i1 %.not72, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42, label %.lr.ph80
 
-.lr.ph82:                                         ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52, %175
-  %.sroa.055.081 = phi ptr [ %176, %175 ], [ %172, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52 ]
-  %177 = load ptr, ptr %.sroa.055.081, align 8, !nonnull !10, !noundef !10
+.lr.ph80:                                         ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52, %175
+  %.sroa.055.079 = phi ptr [ %176, %175 ], [ %172, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52 ]
+  %177 = load ptr, ptr %.sroa.055.079, align 8, !nonnull !10, !noundef !10
   %178 = tail call ptr @__dynamic_cast(ptr nonnull %177, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #42
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 169
   %180 = load i8, ptr %179, align 1
   %181 = trunc i8 %180 to i1
   br i1 %181, label %182, label %175
 
-182:                                              ; preds = %.lr.ph82
+182:                                              ; preds = %.lr.ph80
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 52
@@ -14990,8 +14990,8 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %44, label %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i_crit_edge, label %45
 
 ._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i_crit_edge: ; preds = %42
-  %.pre70 = ptrtoint ptr %.08.i.i.i.i to i64
-  %.pre72 = sub i64 %.pre70, %17
+  %.pre66 = ptrtoint ptr %.08.i.i.i.i to i64
+  %.pre68 = sub i64 %.pre66, %17
   br label %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i
 
 45:                                               ; preds = %42
@@ -15000,9 +15000,9 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %.not.i.i.i.i, label %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i, label %42, !llvm.loop !107
 
 _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i: ; preds = %45, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i_crit_edge
-  %.pre-phi73 = phi i64 [ %.pre72, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i_crit_edge ], [ %21, %45 ]
-  %47 = lshr exact i64 %.pre-phi73, 4
-  %.not.i.i = icmp ult i64 %.pre-phi73, %21
+  %.pre-phi69 = phi i64 [ %.pre68, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i_crit_edge ], [ %21, %45 ]
+  %47 = lshr exact i64 %.pre-phi69, 4
+  %.not.i.i = icmp ult i64 %.pre-phi69, %21
   %48 = trunc i64 %47 to i32
   %49 = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %.sroa.speculated.i = select i1 %.not.i.i, i32 %49, i32 0
@@ -15049,11 +15049,11 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i: ; preds
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8, !noalias !171
   %.pre = load ptr, ptr %6, align 16
-  %.pre65 = load ptr, ptr %8, align 8
+  %.pre61 = load ptr, ptr %8, align 8
   br label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit
 
 _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit: ; preds = %70, %76
-  %79 = phi ptr [ %.pre65, %76 ], [ %9, %70 ]
+  %79 = phi ptr [ %.pre61, %76 ], [ %9, %70 ]
   %80 = phi ptr [ %.pre, %76 ], [ %7, %70 ]
   %.not7.i.i.i13 = icmp eq ptr %80, %79
   br i1 %.not7.i.i.i13, label %.thread, label %.lr.ph.i.i.i14
@@ -15099,8 +15099,8 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %100, label %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23_crit_edge, label %101
 
 ._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23_crit_edge: ; preds = %98
-  %.pre67 = ptrtoint ptr %.08.i.i.i.i21 to i64
-  %.pre68 = sub i64 %.pre67, %87
+  %.pre63 = ptrtoint ptr %.08.i.i.i.i21 to i64
+  %.pre64 = sub i64 %.pre63, %87
   br label %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23
 
 101:                                              ; preds = %98
@@ -15109,9 +15109,9 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %.not.i.i.i.i22, label %_ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23, label %98, !llvm.loop !107
 
 _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23: ; preds = %101, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23_crit_edge
-  %.pre-phi69 = phi i64 [ %.pre68, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23_crit_edge ], [ %91, %101 ]
-  %103 = lshr exact i64 %.pre-phi69, 4
-  %.not.i.i25 = icmp ult i64 %.pre-phi69, %91
+  %.pre-phi65 = phi i64 [ %.pre64, %._ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23_crit_edge ], [ %91, %101 ]
+  %103 = lshr exact i64 %.pre-phi65, 4
+  %.not.i.i25 = icmp ult i64 %.pre-phi65, %91
   %104 = trunc i64 %103 to i32
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %.sroa.speculated.i26 = select i1 %.not.i.i25, i32 %105, i32 0
@@ -15159,8 +15159,8 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit.i23: ; pre
 _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit32: ; preds = %.thread, %131, %126
   %134 = phi ptr [ %75, %131 ], [ %75, %126 ], [ %95, %.thread ]
   %.sroa.4.0 = phi ptr [ %130, %131 ], [ null, %126 ], [ null, %.thread ]
-  %.sroa.053.0 = phi ptr [ %128, %131 ], [ %128, %126 ], [ null, %.thread ]
-  store ptr %.sroa.053.0, ptr %3, align 8
+  %.sroa.051.0 = phi ptr [ %128, %131 ], [ %128, %126 ], [ null, %.thread ]
+  store ptr %.sroa.051.0, ptr %3, align 8
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.4.0, ptr %135, align 8
   %.not.i.i33 = icmp eq ptr %134, null
@@ -15219,8 +15219,8 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit38: ; preds = %149, %152, 
 
 160:                                              ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit38
   %161 = load ptr, ptr %6, align 16
-  %sext60 = shl i64 %18, 28
-  %162 = ashr i64 %sext60, 32
+  %sext56 = shl i64 %18, 28
+  %162 = ashr i64 %sext56, 32
   %163 = getelementptr inbounds %"class.std::__1::shared_ptr.24", ptr %161, i64 %162
   %164 = ptrtoint ptr %163 to i64
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 16
@@ -15341,11 +15341,11 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42: ; preds = %203
           to label %._crit_edge unwind label %144
 
 ._crit_edge:                                      ; preds = %211
-  %.pre66 = load ptr, ptr %1, align 8
+  %.pre62 = load ptr, ptr %1, align 8
   br label %212
 
 212:                                              ; preds = %._crit_edge, %206
-  %213 = phi ptr [ %.pre66, %._crit_edge ], [ %209, %206 ]
+  %213 = phi ptr [ %.pre62, %._crit_edge ], [ %209, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %215 = load ptr, ptr %214, align 16
   %216 = icmp eq ptr %215, %213

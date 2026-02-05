@@ -10374,16 +10374,16 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
   %13 = load ptr, ptr %12, align 8
   %.fr = freeze ptr %13
   %14 = load ptr, ptr %2, align 8
-  %.fr33 = freeze ptr %14
+  %.fr30 = freeze ptr %14
   %15 = ptrtoint ptr %.fr to i64
-  %16 = ptrtoint ptr %.fr33 to i64
+  %16 = ptrtoint ptr %.fr30 to i64
   %17 = sub i64 %15, %16
-  %.not.i.i.i.i.i = icmp eq ptr %.fr, %.fr33
+  %.not.i.i.i.i.i = icmp eq ptr %.fr, %.fr30
   br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv56
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us ], [ 0, %.lr.ph ]
+  %18 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
@@ -10391,15 +10391,15 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = icmp eq i64 %17, %24
-  br i1 %25, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us
+  br i1 %25, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us
 
-_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us: ; preds = %.lr.ph.split.us
-  %indvars.iv.next57 = add nuw i64 %indvars.iv56, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %11
-  br i1 %exitcond60.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split.us, !llvm.loop !185
+_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us: ; preds = %.lr.ph.split.us
+  %indvars.iv.next54 = add nuw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %11
+  br i1 %exitcond57.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split.us, !llvm.loop !185
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7 ], [ 0, %.lr.ph ]
   %26 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -10408,20 +10408,20 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us: ; preds = %.lr.ph.split.u
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = icmp eq i64 %17, %32
-  br i1 %33, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10
+  br i1 %33, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.split
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %.fr33, ptr %29, i64 %17)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %.fr30, ptr %29, i64 %17)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10
+  br i1 %.not7.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %.lr.ph.split.us
-  %.us-phi19 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
+  %.us-phi16 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %34 = phi ptr [ %21, %.lr.ph.split.us ], [ %29, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
-  %.us-phi22 = phi i64 [ %indvars.iv56, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
-  %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi22
+  %.us-phi19 = phi i64 [ %indvars.iv53, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
+  %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %.us-phi19, %34
+  %.not.i.i.i.i.i.i = icmp eq ptr %.us-phi16, %34
   br i1 %.not.i.i.i.i.i.i, label %40, label %37
 
 37:                                               ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
@@ -10438,7 +10438,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %37
   br label %40
 
 40:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
-  %41 = phi ptr [ %.us-phi19, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
+  %41 = phi ptr [ %.us-phi16, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
   %42 = phi ptr [ null, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %39, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
   store ptr %42, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10460,12 +10460,12 @@ _ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_
   store ptr %50, ptr %43, align 8
   br label %55
 
-_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10: ; preds = %.lr.ph.split, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
+_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7: ; preds = %.lr.ph.split, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split, !llvm.loop !185
 
-_ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us, %3
+_ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us, %3
   %51 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #27
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
@@ -10477,7 +10477,7 @@ _ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt
   br label %55
 
 55:                                               ; preds = %_ZN10open_spiel10bargaining5OfferD2Ev.exit, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %.sink = phi i64 [ -1, %_ZN10open_spiel10bargaining5OfferD2Ev.exit ], [ %.us-phi22, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
+  %.sink = phi i64 [ -1, %_ZN10open_spiel10bargaining5OfferD2Ev.exit ], [ %.us-phi19, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sink, ptr %56, align 8
   ret void

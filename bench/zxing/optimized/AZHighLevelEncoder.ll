@@ -169,8 +169,8 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit34:        ; preds = %2
 
 77:                                               ; preds = %.lr.ph, %452
   %78 = phi i32 [ %30, %.lr.ph ], [ %454, %452 ]
-  %.025202 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %452 ]
-  %79 = add nsw i32 %.025202, 1
+  %.025196 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %452 ]
+  %79 = add nsw i32 %.025196, 1
   %80 = icmp slt i32 %79, %78
   %.pre = load ptr, ptr %1, align 8, !tbaa !30
   br i1 %80, label %81, label %86
@@ -184,7 +184,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit34:        ; preds = %2
 
 86:                                               ; preds = %77, %81
   %87 = phi i32 [ %85, %81 ], [ 0, %77 ]
-  %88 = sext i32 %.025202 to i64
+  %88 = sext i32 %.025196 to i64
   %89 = getelementptr inbounds nuw i8, ptr %.pre, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !31
   switch i8 %90, label %277 [
@@ -235,7 +235,7 @@ select.unfold:                                    ; preds = %95, %93, %91, %97
   %.sroa.09.013.i = phi ptr [ %.sroa.09.012.i, %.lr.ph.i ], [ %.sroa.09.0.i, %270 ]
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !32
-  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %103, i32 noundef %.025202) #17
+  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %103, i32 noundef %.025196) #17
           to label %.noexc.i unwind label %272, !noalias !32
 
 .noexc.i:                                         ; preds = %102
@@ -493,7 +493,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit50.i.i:    ; preds = %203, %_ZN5ZXing5Azt
 212:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !32
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !32
-  invoke fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(36) %103, i32 noundef %.025202) #17
+  invoke fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(36) %103, i32 noundef %.025196) #17
           to label %213 unwind label %238, !noalias !32
 
 213:                                              ; preds = %212
@@ -656,7 +656,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
   call void @_ZNSt7__cxx114listIN5ZXing5Aztec13EncodingStateESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19) #16
   call void @_ZNSt7__cxx1110_List_baseIN5ZXing5Aztec13EncodingStateESaIS3_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.pre204 = add nsw i32 %.025202, 2
+  %.pre198 = add nsw i32 %.025196, 2
   br label %452
 
 277:                                              ; preds = %97, %91, %93, %95, %86
@@ -715,7 +715,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
 
 304:                                              ; preds = %303
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !40
-  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %280, i32 noundef %.025202) #17
+  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %280, i32 noundef %.025196) #17
           to label %305 unwind label %319, !noalias !40
 
 305:                                              ; preds = %304
@@ -937,7 +937,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit58.i.i:    ; preds = %390, %387, %385
 
 403:                                              ; preds = %395, %292
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !40
-  invoke fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %280, i32 noundef %.025202) #17
+  invoke fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %280, i32 noundef %.025196) #17
           to label %404 unwind label %422, !noalias !40
 
 404:                                              ; preds = %403
@@ -1068,7 +1068,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit67.i.i:    ; preds = %441, %439
   br label %452
 
 452:                                              ; preds = %451, %276
-  %.pre-phi = phi i32 [ %79, %451 ], [ %.pre204, %276 ]
+  %.pre-phi = phi i32 [ %79, %451 ], [ %.pre198, %276 ]
   %453 = load i64, ptr %28, align 8, !tbaa !16
   %454 = trunc i64 %453 to i32
   %455 = icmp slt i32 %.pre-phi, %454

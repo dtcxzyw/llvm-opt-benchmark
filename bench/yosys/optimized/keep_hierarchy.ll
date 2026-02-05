@@ -1149,7 +1149,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit46: ; preds = %206
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %206, %.lr.ph
   %indvars.iv = phi i64 [ %162, %.lr.ph ], [ %indvars.iv.next, %206 ]
-  %.023104 = phi i64 [ 0, %.lr.ph ], [ %.124, %206 ]
+  %.023102 = phi i64 [ 0, %.lr.ph ], [ %.124, %206 ]
   %169 = load ptr, ptr %149, align 8, !tbaa !91
   %170 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Cell *>::entry_t", ptr %169, i64 %indvars.iv
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -1201,7 +1201,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %206, %.lr.ph
 191:                                              ; preds = %183
   %192 = load ptr, ptr %0, align 8, !tbaa !30
   %193 = invoke noundef ptr @_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(376) %192, ptr noundef nonnull align 4 dereferenceable(4) %173)
-          to label %194 unwind label %.loopexit69
+          to label %194 unwind label %.loopexit67
 
 194:                                              ; preds = %191
   %.not28 = icmp eq ptr %193, null
@@ -1209,49 +1209,49 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %206, %.lr.ph
 
 195:                                              ; preds = %194
   %196 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %173)
-          to label %197 unwind label %.loopexit.split-lp70
+          to label %197 unwind label %.loopexit.split-lp68
 
 197:                                              ; preds = %195
   %198 = getelementptr inbounds nuw i8, ptr %172, i64 72
   %199 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %198)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp70
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp68
 
 _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %197
   %200 = load ptr, ptr %3, align 8, !tbaa !67
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 304
   %202 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %201)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp70
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp68
 
 _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.29, ptr noundef %196, ptr noundef %199, ptr noundef %202) #27
-          to label %203 unwind label %.loopexit.split-lp70
+          to label %203 unwind label %.loopexit.split-lp68
 
 203:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   unreachable
 
-.loopexit69:                                      ; preds = %191, %204
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+.loopexit67:                                      ; preds = %191, %204
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit50
 
-.loopexit.split-lp70:                             ; preds = %195, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %197, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
-  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
+.loopexit.split-lp68:                             ; preds = %195, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %197, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
+  %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit50
 
 204:                                              ; preds = %194
   %205 = invoke fastcc noundef i64 @_ZN12_GLOBAL__N_125ThresholdHierarchyKeeping5visitEPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %193)
-          to label %206 unwind label %.loopexit69
+          to label %206 unwind label %.loopexit67
 
 206:                                              ; preds = %204, %189
   %.pn30 = phi i64 [ %190, %189 ], [ %205, %204 ]
-  %.124 = add i64 %.pn30, %.023104
+  %.124 = add i64 %.pn30, %.023102
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %207 = icmp eq i64 %indvars.iv, 0
   br i1 %207, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit46, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit50: ; preds = %.loopexit.split-lp, %.loopexit, %.loopexit.split-lp70, %.loopexit69
-  %.pn31.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit69 ], [ %lpad.loopexit.split-lp72, %.loopexit.split-lp70 ]
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit50: ; preds = %.loopexit.split-lp, %.loopexit, %.loopexit.split-lp68, %.loopexit67
+  %.pn31.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
   %208 = load i32, ptr %154, align 4, !tbaa !24
   %209 = add nsw i32 %208, -1
   store i32 %209, ptr %154, align 4, !tbaa !24

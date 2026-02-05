@@ -10346,8 +10346,8 @@ _ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit: ; preds = %_ZNK6vectorIPN3eu
 
 .lr.ph123:                                        ; preds = %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit, %._crit_edge
   %.044122 = phi ptr [ %186, %._crit_edge ], [ %19, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit ]
-  %.sroa.054.1121 = phi i64 [ %.sroa.054.3.lcssa, %._crit_edge ], [ 0, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit ]
-  %.sroa.555.1120 = phi i64 [ %.sroa.555.3.lcssa, %._crit_edge ], [ 0, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit ]
+  %.sroa.054.0121 = phi i64 [ %.sroa.054.1.lcssa, %._crit_edge ], [ 0, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit ]
+  %.sroa.555.0120 = phi i64 [ %.sroa.555.1.lcssa, %._crit_edge ], [ 0, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit ]
   %26 = load ptr, ptr %.044122, align 8, !tbaa !148
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !157
@@ -10367,8 +10367,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %.lr.ph123
 
 .lr.ph:                                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread
   %.043117 = phi ptr [ %185, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ], [ %30, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %.sroa.054.3116 = phi i64 [ %.sroa.054.5.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ], [ %.sroa.054.1121, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %.sroa.555.3115 = phi i64 [ %.sroa.555.5.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ], [ %.sroa.555.1120, %_ZN6vectorIjLb0EjE3endEv.exit ]
+  %.sroa.054.1116 = phi i64 [ %.sroa.054.3.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ], [ %.sroa.054.0121, %_ZN6vectorIjLb0EjE3endEv.exit ]
+  %.sroa.555.1115 = phi i64 [ %.sroa.555.3.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ], [ %.sroa.555.0120, %_ZN6vectorIjLb0EjE3endEv.exit ]
   %37 = load i32, ptr %.043117, align 4, !tbaa !109
   %38 = load ptr, ptr %6, align 8, !tbaa !111
   %39 = zext i32 %37 to i64
@@ -10410,9 +10410,9 @@ _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i: ; preds = %56, %_ZNK3euf
 
 60:                                               ; preds = %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i
   %61 = load i64, ptr %8, align 8, !tbaa !77
-  %.not.i = icmp eq i64 %.sroa.054.3116, %61
+  %.not.i = icmp eq i64 %.sroa.054.1116, %61
   %brmerge = or i1 %55, %.not.i
-  %.sroa.555.3.mux = select i1 %.not.i, i64 %.sroa.555.3115, i64 0
+  %.sroa.555.1.mux = select i1 %.not.i, i64 %.sroa.555.1115, i64 0
   br i1 %brmerge, label %._crit_edge27.i, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i
 
 _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i: ; preds = %60
@@ -10442,7 +10442,7 @@ _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i: ; preds = %60
   br i1 %.not20.i, label %._crit_edge27.i, label %.lr.ph.i
 
 ._crit_edge27.i:                                  ; preds = %.lr.ph.i, %60, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i
-  %.sroa.555.7 = phi i64 [ %.sroa.555.3.mux, %60 ], [ 0, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i ], [ %77, %.lr.ph.i ]
+  %.sroa.555.5 = phi i64 [ %.sroa.555.1.mux, %60 ], [ 0, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i ], [ %77, %.lr.ph.i ]
   %79 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !234
   %81 = icmp eq i64 %80, %61
@@ -10524,8 +10524,8 @@ _ZNK3euf9ac_plugin9is_sortedERKNS0_10monomial_tE.exit.thread.i.i: ; preds = %_ZN
 
 _ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit: ; preds = %._crit_edge27.i, %_ZNK3euf9ac_plugin9is_sortedERKNS0_10monomial_tE.exit.thread.i.i
   %.0.i22.i = load i64, ptr %82, align 8, !tbaa !235
-  %121 = or i64 %.0.i22.i, %.sroa.555.7
-  %122 = icmp eq i64 %121, %.sroa.555.7
+  %121 = or i64 %.0.i22.i, %.sroa.555.5
+  %122 = icmp eq i64 %121, %.sroa.555.5
   br i1 %122, label %123, label %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread
 
 123:                                              ; preds = %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit
@@ -10662,15 +10662,15 @@ _ZN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6con
   br label %187
 
 _ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread: ; preds = %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i", %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i, %.lr.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit
-  %.sroa.555.5.ph = phi i64 [ %.sroa.555.7, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ %.sroa.555.3115, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %.sroa.555.3115, %.lr.ph ], [ %.sroa.555.7, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %.sroa.555.7, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
-  %.sroa.054.5.ph = phi i64 [ %61, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ %.sroa.054.3116, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %.sroa.054.3116, %.lr.ph ], [ %61, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %61, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
+  %.sroa.555.3.ph = phi i64 [ %.sroa.555.5, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ %.sroa.555.1115, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %.sroa.555.1115, %.lr.ph ], [ %.sroa.555.5, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %.sroa.555.5, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
+  %.sroa.054.3.ph = phi i64 [ %61, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ %.sroa.054.1116, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %.sroa.054.1116, %.lr.ph ], [ %61, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %61, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
   %185 = getelementptr inbounds nuw i8, ptr %.043117, i64 4
   %.not45 = icmp eq ptr %185, %36
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread, %.lr.ph123, %_ZN6vectorIjLb0EjE3endEv.exit
-  %.sroa.555.3.lcssa = phi i64 [ %.sroa.555.1120, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %.sroa.555.1120, %.lr.ph123 ], [ %.sroa.555.5.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ]
-  %.sroa.054.3.lcssa = phi i64 [ %.sroa.054.1121, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %.sroa.054.1121, %.lr.ph123 ], [ %.sroa.054.5.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ]
+  %.sroa.555.1.lcssa = phi i64 [ %.sroa.555.0120, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %.sroa.555.0120, %.lr.ph123 ], [ %.sroa.555.3.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ]
+  %.sroa.054.1.lcssa = phi i64 [ %.sroa.054.0121, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %.sroa.054.0121, %.lr.ph123 ], [ %.sroa.054.3.ph, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit.thread ]
   %186 = getelementptr inbounds nuw i8, ptr %.044122, i64 8
   %.not = icmp eq ptr %186, %25
   br i1 %.not, label %.thread86, label %.lr.ph123

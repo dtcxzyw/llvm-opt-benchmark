@@ -1024,8 +1024,8 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit: ; preds = 
   br label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit
 
 _ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit: ; preds = %24, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit, %.thread
-  %.024.sink = phi ptr [ %35, %.thread ], [ %31, %24 ], [ %1, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit ]
-  %36 = tail call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %.024.sink, ptr %20, i64 %19) #13
+  %.022.sink = phi ptr [ %35, %.thread ], [ %31, %24 ], [ %1, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit ]
+  %36 = tail call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %.022.sink, ptr %20, i64 %19) #13
   %37 = load i64, ptr %17, align 8, !tbaa !392
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %14, align 8, !tbaa !16

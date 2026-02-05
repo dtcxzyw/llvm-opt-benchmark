@@ -1429,8 +1429,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %96, %97
   %103 = phi i64 [ %.sroa.595.0.copyload, %96 ], [ %98, %97 ]
   %.sroa.094.0 = phi ptr [ %.sroa.094.0.copyload, %96 ], [ %99, %97 ]
   %.sroa.595.0 = phi i64 [ %.sroa.595.0.copyload, %96 ], [ %.sroa.speculated.i.i.i, %97 ]
-  %.sroa.10.3 = phi i64 [ 0, %96 ], [ %102, %97 ]
-  %.sroa.7.3 = phi ptr [ null, %96 ], [ %101, %97 ]
+  %.sroa.10.0 = phi i64 [ 0, %96 ], [ %102, %97 ]
+  %.sroa.7.0 = phi ptr [ null, %96 ], [ %101, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 0, ptr %21, align 8, !tbaa !52
   %104 = load i64, ptr %22, align 8, !tbaa !53
@@ -1531,14 +1531,14 @@ _ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallVe
 
 .sink.split:                                      ; preds = %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit, %_ZN4llvm11SmallStringILj16EEpLEc.exit
   %.sink = phi i64 [ %127, %_ZN4llvm11SmallStringILj16EEpLEc.exit ], [ %135, %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit ]
-  %.sroa.0.2.ph = phi ptr [ %.sroa.7.3, %_ZN4llvm11SmallStringILj16EEpLEc.exit ], [ null, %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit ]
-  %.sroa.5.2.ph = phi i64 [ %.sroa.10.3, %_ZN4llvm11SmallStringILj16EEpLEc.exit ], [ 0, %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.7.0, %_ZN4llvm11SmallStringILj16EEpLEc.exit ], [ null, %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit ]
+  %.sroa.5.0.ph = phi i64 [ %.sroa.10.0, %_ZN4llvm11SmallStringILj16EEpLEc.exit ], [ 0, %_ZN4llvm11SmallStringILj16EEaSENS_9StringRefE.exit ]
   store i64 %.sink, ptr %21, align 8, !tbaa !52
   br label %136
 
 136:                                              ; preds = %.sink.split, %_ZNK4llvm9StringRef4findEcm.exit
-  %.sroa.0.2 = phi ptr [ %.sroa.7.3, %_ZNK4llvm9StringRef4findEcm.exit ], [ %.sroa.0.2.ph, %.sink.split ]
-  %.sroa.5.2 = phi i64 [ %.sroa.10.3, %_ZNK4llvm9StringRef4findEcm.exit ], [ %.sroa.5.2.ph, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ %.sroa.7.0, %_ZNK4llvm9StringRef4findEcm.exit ], [ %.sroa.0.0.ph, %.sink.split ]
+  %.sroa.5.0 = phi i64 [ %.sroa.10.0, %_ZNK4llvm9StringRef4findEcm.exit ], [ %.sroa.5.0.ph, %.sink.split ]
   %137 = load i32, ptr %.058113, align 8, !tbaa !69
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %.loopexit, label %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit
@@ -1559,7 +1559,7 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit
   %.not.i.i.i = icmp eq i64 %74, %.sroa.speculated4.i.i.i
-  %148 = icmp eq i64 %.sroa.5.2, 0
+  %148 = icmp eq i64 %.sroa.5.0, 0
   %or.cond = and i1 %92, %148
   %149 = zext i1 %or.cond to i32
   br label %150
@@ -1663,8 +1663,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm11SmallStri
   %189 = load i64, ptr %18, align 8, !tbaa !52
   store ptr %188, ptr %14, align 8, !alias.scope !115
   store i64 %189, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !61, !alias.scope !115
-  store ptr %.sroa.0.2, ptr %35, align 8, !alias.scope !115
-  store i64 %.sroa.5.2, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !alias.scope !115
+  store ptr %.sroa.0.0, ptr %35, align 8, !alias.scope !115
+  store i64 %.sroa.5.0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !61, !alias.scope !115
   store i8 5, ptr %36, align 8, !tbaa !92, !alias.scope !115
   store i8 5, ptr %37, align 1, !tbaa !95, !alias.scope !115
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(34) %14) #23

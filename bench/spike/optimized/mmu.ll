@@ -663,7 +663,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %35, %28, %2, %30, %
   br label %261
 
 .thread:                                          ; preds = %55, %62
-  %.0163257 = phi i32 [ %4, %62 ], [ 1, %55 ]
+  %.0163247 = phi i32 [ %4, %62 ], [ 1, %55 ]
   %70 = icmp ne i64 %15, 1
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 2176
   %72 = load ptr, ptr %71, align 8, !tbaa !191
@@ -710,7 +710,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %35, %28, %2, %30, %
   %.0173 = phi i64 [ %152, %150 ], [ %.sroa.37.0, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %102 = icmp sgt i64 %indvars.iv, 0
-  br i1 %102, label %103, label %.thread279
+  br i1 %102, label %103, label %.thread269
 
 103:                                              ; preds = %101
   %104 = mul nsw i64 %indvars.iv.next, %100
@@ -719,15 +719,15 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %35, %28, %2, %30, %
   %107 = and i64 %106, %98
   %108 = mul nuw nsw i64 %107, %.sroa.28.0
   %109 = add nsw i64 %108, %.0173
-  %110 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %109, i32 noundef 0, i32 noundef %.0163257, i1 noundef zeroext %9, i1 noundef zeroext false, i1 noundef zeroext true)
+  %110 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %109, i32 noundef 0, i32 noundef %.0163247, i1 noundef zeroext %9, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %52, label %111, label %113
 
 111:                                              ; preds = %103
-  %112 = tail call noundef i64 @_ZN5mmu_t8pte_loadIjEEmmmb11access_type(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163257)
+  %112 = tail call noundef i64 @_ZN5mmu_t8pte_loadIjEEmmmb11access_type(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163247)
   br label %_ZN5mmu_t8pte_loadEmmb11access_typem.exit
 
 113:                                              ; preds = %103
-  %114 = tail call noundef i64 @_ZN5mmu_t8pte_loadImEEmmmb11access_type(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163257)
+  %114 = tail call noundef i64 @_ZN5mmu_t8pte_loadImEEmmmb11access_type(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163247)
   br label %_ZN5mmu_t8pte_loadEmmb11access_typem.exit
 
 _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
@@ -754,11 +754,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(37) %132) #28
-  %.not181261267.in = and i64 %122, 4611686018427387904
-  %.not181261267 = icmp eq i64 %.not181261267.in, 0
+  %.not181251257.in = and i64 %122, 4611686018427387904
+  %.not181251257 = icmp eq i64 %.not181251257.in, 0
   %137 = and i64 %.0.i, 2287828610704211968
   %.not188 = icmp eq i64 %137, 0
-  br i1 %.not188, label %138, label %.thread279
+  br i1 %.not188, label %138, label %.thread269
 
 138:                                              ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit
   %139 = load ptr, ptr %16, align 8, !tbaa !39
@@ -768,15 +768,15 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %143 = icmp ne i64 %142, 0
   %.not189 = icmp sgt i64 %.0.i, -1
   %or.cond214 = or i1 %.not189, %143
-  br i1 %or.cond214, label %144, label %.thread279
+  br i1 %or.cond214, label %144, label %.thread269
 
 144:                                              ; preds = %138
   %145 = and i64 %.0.i, 6917529027641081856
   %.not190 = icmp ne i64 %145, 0
-  %or.cond215.not291 = and i1 %.not190, %.not181261267
+  %or.cond215.not281 = and i1 %.not190, %.not181251257
   %146 = icmp eq i64 %145, 6917529027641081856
-  %or.cond229 = or i1 %146, %or.cond215.not291
-  br i1 %or.cond229, label %.thread279, label %147
+  %or.cond229 = or i1 %146, %or.cond215.not281
+  br i1 %or.cond229, label %.thread269, label %147
 
 147:                                              ; preds = %144
   %148 = and i64 %.0.i, 15
@@ -787,12 +787,12 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %151 = and i64 %.0.i, -2305843009213693744
   %.not207 = icmp eq i64 %151, 0
   %152 = shl nuw nsw i64 %115, 12
-  br i1 %.not207, label %101, label %.thread279, !llvm.loop !194
+  br i1 %.not207, label %101, label %.thread269, !llvm.loop !194
 
 153:                                              ; preds = %147
   %154 = and i64 %115, 17592186044415
-  %.not183269.in.le = and i64 %129, 2305843009213693952
-  %.not183269.le = icmp eq i64 %.not183269.in.le, 0
+  %.not183259.in.le = and i64 %129, 2305843009213693952
+  %.not183259.le = icmp eq i64 %.not183259.in.le, 0
   %155 = and i64 %136, 8
   %156 = icmp ne i64 %155, 0
   %157 = and i64 %.0.i, 2
@@ -808,18 +808,18 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   br i1 %.not191, label %165, label %163
 
 163:                                              ; preds = %153
-  %164 = icmp ne i32 %.0163257, 2
+  %164 = icmp ne i32 %.0163247, 2
   %or.cond = and i1 %164, %75
   %or.cond217 = select i1 %70, i1 true, i1 %or.cond
-  br i1 %or.cond217, label %166, label %.thread279
+  br i1 %or.cond217, label %166, label %.thread269
 
 165:                                              ; preds = %153
-  br i1 %70, label %.thread279, label %166
+  br i1 %70, label %.thread269, label %166
 
 166:                                              ; preds = %165, %163
   %167 = and i64 %.0.i, 1
   %.not192 = icmp eq i64 %167, 0
-  br i1 %.not192, label %.thread279, label %168
+  br i1 %.not192, label %.thread269, label %168
 
 168:                                              ; preds = %166
   br i1 %or.cond213.not.le, label %169, label %171
@@ -828,7 +828,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %170 = and i64 %.0.i, 8
   %.not194 = icmp eq i64 %170, 0
   %or.cond222 = and i1 %.not194, %156
-  br i1 %or.cond222, label %171, label %.thread279
+  br i1 %or.cond222, label %171, label %.thread269
 
 171:                                              ; preds = %169, %168
   %172 = and i64 %104, 4294967295
@@ -836,23 +836,23 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %173 = xor i64 %notmask196, -1
   %174 = and i64 %154, %173
   %.not197 = icmp eq i64 %174, 0
-  br i1 %.not197, label %175, label %.thread279
+  br i1 %.not197, label %175, label %.thread269
 
 175:                                              ; preds = %171
-  br i1 %161, label %178, label %.thread271
+  br i1 %161, label %178, label %.thread261
 
-.thread271:                                       ; preds = %175
-  %176 = icmp eq i32 %.0163257, 2
+.thread261:                                       ; preds = %175
+  %176 = icmp eq i32 %.0163247, 2
   %177 = select i1 %176, i1 true, i1 %13
   br label %195
 
 178:                                              ; preds = %175
-  %179 = icmp ne i32 %.0163257, 1
+  %179 = icmp ne i32 %.0163247, 1
   %or.cond4 = or i1 %54, %179
   %180 = and i8 %11, 16
   %.not198 = icmp eq i8 %180, 0
-  %or.cond290 = select i1 %or.cond4, i1 %.not198, i1 false
-  br i1 %or.cond290, label %187, label %181
+  %or.cond280 = select i1 %or.cond4, i1 %.not198, i1 false
+  br i1 %or.cond280, label %187, label %181
 
 181:                                              ; preds = %178
   %182 = tail call ptr @__cxa_allocate_exception(i64 48) #28
@@ -869,7 +869,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   unreachable
 
 187:                                              ; preds = %178
-  %188 = icmp eq i32 %.0163257, 2
+  %188 = icmp eq i32 %.0163247, 2
   br i1 %188, label %189, label %195
 
 189:                                              ; preds = %187
@@ -886,8 +886,8 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI29trap_instruction_access_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-195:                                              ; preds = %.thread271, %187
-  %or.cond11 = phi i1 [ %177, %.thread271 ], [ %13, %187 ]
+195:                                              ; preds = %.thread261, %187
+  %or.cond11 = phi i1 [ %177, %.thread261 ], [ %13, %187 ]
   %or.cond223.not = icmp eq i64 %159, 6
   br i1 %or.cond223.not, label %199, label %196
 
@@ -920,10 +920,10 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
 207:                                              ; preds = %206
   %208 = and i64 %.0.i, 8
   %.not202 = icmp eq i64 %208, 0
-  br i1 %.not202, label %.thread279, label %215
+  br i1 %.not202, label %.thread269, label %215
 
 209:                                              ; preds = %206
-  %210 = icmp eq i32 %.0163257, 0
+  %210 = icmp eq i32 %.0163247, 0
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %209
@@ -935,13 +935,13 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %213 = and i64 %.0.i, 8
   %.not201 = icmp eq i64 %213, 0
   %or.cond225 = or i1 %.not, %.not201
-  br i1 %or.cond225, label %.thread279.thread, label %215
+  br i1 %or.cond225, label %.thread269.thread, label %215
 
 214:                                              ; preds = %209
-  br i1 %.not186.le, label %.thread279, label %215
+  br i1 %.not186.le, label %.thread269, label %215
 
 215:                                              ; preds = %212, %211, %214, %207
-  %216 = icmp eq i32 %.0163257, 1
+  %216 = icmp eq i32 %.0163247, 1
   %217 = select i1 %216, i64 192, i64 64
   br i1 %.not189, label %224, label %218
 
@@ -950,11 +950,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %220 = add nuw nsw i32 %219, 1
   %221 = icmp ne i64 %154, 0
   %222 = icmp eq i64 %indvars.iv.next, 0
-  %or.cond17.not294 = select i1 %221, i1 %222, i1 false
+  %or.cond17.not284 = select i1 %221, i1 %222, i1 false
   %223 = and i32 %220, 123
   %or.cond20.not = icmp eq i32 %223, 0
-  %or.cond226 = select i1 %or.cond17.not294, i1 %or.cond20.not, i1 false
-  br i1 %or.cond226, label %224, label %.thread279
+  %or.cond226 = select i1 %or.cond17.not284, i1 %or.cond20.not, i1 false
+  br i1 %or.cond226, label %224, label %.thread269
 
 224:                                              ; preds = %215, %218
   %225 = phi i32 [ %220, %218 ], [ 0, %215 ]
@@ -963,12 +963,12 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   br i1 %.not204, label %231, label %227
 
 227:                                              ; preds = %224
-  br i1 %.not183269.le, label %.thread279, label %228
+  br i1 %.not183259.le, label %.thread269, label %228
 
 228:                                              ; preds = %227
-  %229 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %109, i32 noundef 1, i32 noundef %.0163257, i1 noundef zeroext %9, i1 noundef zeroext false, i1 noundef zeroext true)
+  %229 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %109, i32 noundef 1, i32 noundef %.0163247, i1 noundef zeroext %9, i1 noundef zeroext false, i1 noundef zeroext true)
   %230 = or i64 %.0.i, %217
-  tail call void @_ZN5mmu_t9pte_storeEmmmb11access_typem(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %230, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163257, i64 noundef %.sroa.28.0)
+  tail call void @_ZN5mmu_t9pte_storeEmmmb11access_typem(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %110, i64 noundef %230, i64 noundef %6, i1 noundef zeroext %9, i32 noundef %.0163247, i64 noundef %.sroa.28.0)
   br label %231
 
 231:                                              ; preds = %224, %228
@@ -983,17 +983,17 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %239 = shl nuw i64 %238, 12
   %240 = and i64 %6, 4095
   %241 = or disjoint i64 %239, %240
-  %242 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %241, i32 noundef %.0163257, i32 noundef %.0163257, i1 noundef zeroext %9, i1 noundef zeroext %13, i1 noundef zeroext false)
+  %242 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %241, i32 noundef %.0163247, i32 noundef %.0163247, i1 noundef zeroext %9, i1 noundef zeroext %13, i1 noundef zeroext false)
   br label %261
 
-.thread279:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %144, %150, %138, %101, %227, %166, %207, %171, %165, %163, %169, %214, %218
-  switch i32 %.0163257, label %260 [
+.thread269:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %144, %150, %138, %101, %227, %166, %207, %171, %165, %163, %169, %214, %218
+  switch i32 %.0163247, label %260 [
     i32 2, label %243
-    i32 0, label %.thread279.thread
+    i32 0, label %.thread269.thread
     i32 1, label %254
   ]
 
-243:                                              ; preds = %.thread279
+243:                                              ; preds = %.thread269
   %244 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store i64 12, ptr %245, align 8, !tbaa !58
@@ -1007,7 +1007,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   tail call void @__cxa_throw(ptr nonnull %244, ptr nonnull @_ZTI27trap_instruction_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-.thread279.thread:                                ; preds = %212, %.thread279
+.thread269.thread:                                ; preds = %212, %.thread269
   %249 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i64 13, ptr %250, align 8, !tbaa !58
@@ -1021,7 +1021,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   tail call void @__cxa_throw(ptr nonnull %249, ptr nonnull @_ZTI20trap_load_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-254:                                              ; preds = %.thread279
+254:                                              ; preds = %.thread269
   %255 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 15, ptr %256, align 8, !tbaa !58
@@ -1035,7 +1035,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   tail call void @__cxa_throw(ptr nonnull %255, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-260:                                              ; preds = %.thread279
+260:                                              ; preds = %.thread269
   tail call void @abort() #27
   unreachable
 
@@ -3023,13 +3023,13 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   unreachable
 
 28:                                               ; preds = %22, %20, %25, %24
-  %.sink204 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sink199 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
   %.sroa.0.0.ph = phi i32 [ 5, %25 ], [ 4, %24 ], [ 2, %20 ], [ 3, %22 ]
   %.sroa.12.0.ph = phi i32 [ 9, %25 ], [ 9, %24 ], [ 10, %20 ], [ 9, %22 ]
   %29 = phi i1 [ false, %25 ], [ false, %24 ], [ true, %20 ], [ false, %22 ]
   %.sroa.24.0.ph = phi i64 [ 8, %25 ], [ 8, %24 ], [ 4, %20 ], [ %23, %22 ]
   %30 = shl i64 %19, 12
-  %31 = and i64 %30, %.sink204
+  %31 = and i64 %30, %.sink199
   %32 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.0.ph
   %33 = add nuw nsw i32 %32, 14
   %34 = zext nneg i32 %33 to i64
@@ -3060,7 +3060,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %54 = or disjoint i32 %53, %49
   %55 = lshr i64 %2, %34
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.preheader.preheader, label %.thread174
+  br i1 %56, label %.preheader.preheader, label %.thread169
 
 .preheader.preheader:                             ; preds = %42
   %57 = zext nneg i32 %.sroa.0.0.ph to i64
@@ -3072,7 +3072,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %.0105 = phi i64 [ %31, %.preheader.preheader ], [ %107, %105 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %59 = icmp sgt i64 %indvars.iv, 0
-  br i1 %59, label %60, label %.thread174
+  br i1 %59, label %60, label %.thread169
 
 60:                                               ; preds = %.preheader
   %61 = mul nsw i64 %indvars.iv.next, %58
@@ -3118,7 +3118,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %91 = tail call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(37) %87) #28
   %92 = and i64 %.0.i, 2287828610704211968
   %.not113 = icmp eq i64 %92, 0
-  br i1 %.not113, label %93, label %.thread174
+  br i1 %.not113, label %93, label %.thread169
 
 93:                                               ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit
   %94 = load ptr, ptr %10, align 8, !tbaa !39
@@ -3128,15 +3128,15 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %98 = icmp ne i64 %97, 0
   %.not114 = icmp sgt i64 %.0.i, -1
   %or.cond130 = or i1 %.not114, %98
-  br i1 %or.cond130, label %99, label %.thread174
+  br i1 %or.cond130, label %99, label %.thread169
 
 99:                                               ; preds = %93
   %100 = and i64 %.0.i, 6917529027641081856
   %.not115 = icmp ne i64 %100, 0
-  %or.cond131.not183 = and i1 %.not115, %.not
+  %or.cond131.not178 = and i1 %.not115, %.not
   %101 = icmp eq i64 %100, 6917529027641081856
-  %or.cond139 = or i1 %101, %or.cond131.not183
-  br i1 %or.cond139, label %.thread174, label %102
+  %or.cond139 = or i1 %101, %or.cond131.not178
+  br i1 %or.cond139, label %.thread169, label %102
 
 102:                                              ; preds = %99
   %103 = and i64 %.0.i, 15
@@ -3147,7 +3147,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %106 = and i64 %.0.i, -2305843009213693744
   %.not128 = icmp eq i64 %106, 0
   %107 = shl nuw nsw i64 %76, 12
-  br i1 %.not128, label %.preheader, label %.thread174, !llvm.loop !258
+  br i1 %.not128, label %.preheader, label %.thread169, !llvm.loop !258
 
 108:                                              ; preds = %102
   %109 = and i64 %76, 17592186044415
@@ -3155,7 +3155,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %.not112.le = icmp eq i64 %110, 0
   %111 = and i64 %.0.i, 1
   %.not116 = icmp eq i64 %111, 0
-  br i1 %.not116, label %.thread174, label %112
+  br i1 %.not116, label %.thread169, label %112
 
 112:                                              ; preds = %108
   %113 = and i64 %.0.i, 2
@@ -3165,7 +3165,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %115 = and i64 %.0.i, 16
   %.not119 = icmp eq i64 %115, 0
   %or.cond142 = or i1 %or.cond132.not, %.not119
-  br i1 %or.cond142, label %.thread174, label %116
+  br i1 %or.cond142, label %.thread169, label %116
 
 116:                                              ; preds = %112
   %117 = icmp eq i32 %3, 2
@@ -3175,7 +3175,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
 118:                                              ; preds = %116
   %119 = and i64 %.0.i, 8
   %.not122 = icmp eq i64 %119, 0
-  br i1 %.not122, label %.thread174, label %126
+  br i1 %.not122, label %.thread169, label %126
 
 120:                                              ; preds = %116
   %121 = icmp eq i32 %3, 0
@@ -3188,11 +3188,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %124 = and i64 %.0.i, 8
   %.not121 = icmp eq i64 %124, 0
   %or.cond134 = or i1 %.not133, %.not121
-  br i1 %or.cond134, label %.thread174, label %126
+  br i1 %or.cond134, label %.thread169, label %126
 
 125:                                              ; preds = %120
   %or.cond135.not = icmp eq i64 %114, 6
-  br i1 %or.cond135.not, label %126, label %.thread174
+  br i1 %or.cond135.not, label %126, label %.thread169
 
 126:                                              ; preds = %125, %123, %122, %118
   %127 = and i64 %61, 4294967295
@@ -3200,7 +3200,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %128 = xor i64 %notmask123, -1
   %129 = and i64 %109, %128
   %.not124 = icmp eq i64 %129, 0
-  br i1 %.not124, label %130, label %.thread174
+  br i1 %.not124, label %130, label %.thread169
 
 130:                                              ; preds = %126
   %131 = select i1 %50, i64 192, i64 64
@@ -3211,11 +3211,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %134 = add nuw nsw i32 %133, 1
   %135 = icmp ne i64 %109, 0
   %136 = icmp eq i64 %indvars.iv.next, 0
-  %or.cond4.not186 = select i1 %135, i1 %136, i1 false
+  %or.cond4.not181 = select i1 %135, i1 %136, i1 false
   %137 = and i32 %134, 123
   %or.cond6.not = icmp eq i32 %137, 0
-  %or.cond136 = select i1 %or.cond4.not186, i1 %or.cond6.not, i1 false
-  br i1 %or.cond136, label %138, label %.thread174
+  %or.cond136 = select i1 %or.cond4.not181, i1 %or.cond6.not, i1 false
+  br i1 %or.cond136, label %138, label %.thread169
 
 138:                                              ; preds = %130, %132
   %139 = phi i32 [ %134, %132 ], [ 0, %130 ]
@@ -3224,7 +3224,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   br i1 %.not126, label %144, label %141
 
 141:                                              ; preds = %138
-  br i1 %.not112.le, label %.thread174, label %142
+  br i1 %.not112.le, label %.thread169, label %142
 
 142:                                              ; preds = %141
   %143 = or i64 %.0.i, %131
@@ -3245,14 +3245,14 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %154 = or disjoint i64 %152, %153
   br label %_Z14decode_vm_infoibmm.exit
 
-.thread174:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %99, %105, %93, %.preheader, %141, %132, %118, %126, %108, %112, %125, %123, %42
+.thread169:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %99, %105, %93, %.preheader, %141, %132, %118, %126, %108, %112, %125, %123, %42
   switch i32 %4, label %182 [
     i32 2, label %155
     i32 0, label %164
     i32 1, label %173
   ]
 
-155:                                              ; preds = %.thread174
+155:                                              ; preds = %.thread169
   %156 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %157 = lshr i64 %2, 2
   %158 = zext nneg i32 %54 to i64
@@ -3270,7 +3270,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   tail call void @__cxa_throw(ptr nonnull %156, ptr nonnull @_ZTI33trap_instruction_guest_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-164:                                              ; preds = %.thread174
+164:                                              ; preds = %.thread169
   %165 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %166 = lshr i64 %2, 2
   %167 = zext nneg i32 %54 to i64
@@ -3288,7 +3288,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   tail call void @__cxa_throw(ptr nonnull %165, ptr nonnull @_ZTI26trap_load_guest_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-173:                                              ; preds = %.thread174
+173:                                              ; preds = %.thread169
   %174 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %175 = lshr i64 %2, 2
   %176 = zext nneg i32 %54 to i64
@@ -3306,7 +3306,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   tail call void @__cxa_throw(ptr nonnull %174, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #29
   unreachable
 
-182:                                              ; preds = %.thread174
+182:                                              ; preds = %.thread169
   tail call void @abort() #27
   unreachable
 

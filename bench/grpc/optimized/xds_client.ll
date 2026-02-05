@@ -17979,15 +17979,15 @@ _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204, %475
-  %.sroa.6305.1 = phi ptr [ %.sroa.010.0.copyload11.i269, %475 ], [ null, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ null, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
-  %.sroa.0304.1 = phi i64 [ %.sroa.9.0.copyload13.i271, %475 ], [ 0, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
+  %.sroa.6305.0 = phi ptr [ %.sroa.010.0.copyload11.i269, %475 ], [ null, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ null, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
+  %.sroa.0304.0 = phi i64 [ %.sroa.9.0.copyload13.i271, %475 ], [ 0, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
   %.sroa.0308.0 = phi i64 [ %.sroa.9.0.copyload13.i264, %475 ], [ %.sroa.9.0.copyload13.i214, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ %.sroa.9.0.copyload13.i214, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.9.0.copyload13.i214446, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
   %.sroa.7.0339 = phi ptr [ %.sroa.010.0.copyload11.i262, %475 ], [ %.sroa.010.0.copyload11.i212, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ %.sroa.010.0.copyload11.i212, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.010.0.copyload11.i212444, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
   %.sroa.034.0 = phi i64 [ %.sroa.05.0.i256, %475 ], [ %.sroa.05.0.i206, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ 35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.9.0.copyload13.i198, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
   %.sroa.7.0 = phi ptr [ %.sroa.4.0.i257, %475 ], [ %.sroa.4.0.i207, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i204 ], [ %.sroa.4.0.i207, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.010.0.copyload11.i196, %_ZN4absl12lts_2024072211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit211.thread ]
   store i64 %.sroa.0308.0, ptr %30, align 8, !tbaa !94
   store ptr %.sroa.7.0339, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !95
-  call void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall13ParseResourceEmSt17basic_string_viewIcSt11char_traitsIcEES6_S6_PNS2_13DecodeContextE(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.099354, i64 %.sroa.034.0, ptr %.sroa.7.0, i64 %.sroa.0304.1, ptr %.sroa.6305.1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %30, ptr noundef nonnull %4)
+  call void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall13ParseResourceEmSt17basic_string_viewIcSt11char_traitsIcEES6_S6_PNS2_13DecodeContextE(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.099354, i64 %.sroa.034.0, ptr %.sroa.7.0, i64 %.sroa.0304.0, ptr %.sroa.6305.0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %30, ptr noundef nonnull %4)
   br label %.thread345
 
 .thread345:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
@@ -18018,8 +18018,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %486
 
 486:                                              ; preds = %.lr.ph356, %483
-  %.sroa.0294.1 = phi i64 [ 0, %.lr.ph356 ], [ %.sroa.9.0.copyload13.i278, %483 ]
-  %.sroa.6.1 = phi ptr [ null, %.lr.ph356 ], [ %.sroa.010.0.copyload11.i276, %483 ]
+  %.sroa.0294.0 = phi i64 [ 0, %.lr.ph356 ], [ %.sroa.9.0.copyload13.i278, %483 ]
+  %.sroa.6.0 = phi ptr [ null, %.lr.ph356 ], [ %.sroa.010.0.copyload11.i276, %483 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 1, ptr %31, align 8, !tbaa !28
   %487 = load ptr, ptr %479, align 8, !tbaa !499
@@ -18056,7 +18056,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %490
   %499 = phi i64 [ %495, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 1, %486 ]
   store i64 %499, ptr %33, align 8, !tbaa !28
   store i64 55, ptr %31, align 8, !tbaa !28
-  invoke void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall33HandleServerReportedResourceErrorEmSt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202407226StatusEPNS2_13DecodeContextE(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.0100355, i64 %.sroa.0294.1, ptr %.sroa.6.1, ptr noundef nonnull %33, ptr noundef nonnull %4)
+  invoke void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall33HandleServerReportedResourceErrorEmSt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202407226StatusEPNS2_13DecodeContextE(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.0100355, i64 %.sroa.0294.0, ptr %.sroa.6.0, ptr noundef nonnull %33, ptr noundef nonnull %4)
           to label %500 unwind label %509
 
 500:                                              ; preds = %498

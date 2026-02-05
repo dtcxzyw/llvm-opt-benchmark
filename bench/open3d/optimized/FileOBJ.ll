@@ -21741,7 +21741,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit465.thread.us: ; preds = %_ZNSt6vectorIjS
   %.0310736.us = phi i64 [ %307, %521 ], [ %153, %.lr.ph738.us.preheader ]
   %.0312735.us = phi i64 [ %.1313.us, %521 ], [ %160, %.lr.ph738.us.preheader ]
   %.0320734.us = phi i64 [ %.2322.us, %521 ], [ 0, %.lr.ph738.us.preheader ]
-  %.sroa.20.2733.us = phi ptr [ %.sroa.20.3.us, %521 ], [ %.0.lcssa.i.i.i.i.i.i.us, %.lr.ph738.us.preheader ]
+  %.sroa.20.0733.us = phi ptr [ %.sroa.20.1.us, %521 ], [ %.0.lcssa.i.i.i.i.i.i.us, %.lr.ph738.us.preheader ]
   %.not351.us = icmp ult i64 %.0320734.us, %307
   %308 = select i1 %.not351.us, i64 0, i64 %307
   %spec.select.us = sub nuw i64 %.0320734.us, %308
@@ -22227,7 +22227,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.us:       ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %511, label %.lr.ph732.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph732.us, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.us
-  %512 = getelementptr inbounds i8, ptr %.sroa.20.2733.us, i64 -12
+  %512 = getelementptr inbounds i8, ptr %.sroa.20.0733.us, i64 -12
   br label %521
 
 .lr.ph732.us:                                     ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.us, %.lr.ph732.us
@@ -22250,9 +22250,9 @@ select.unfold.us:                                 ; preds = %_ZN7tinyobjL6pnpoly
   br label %521, !llvm.loop !435
 
 521:                                              ; preds = %519, %._crit_edge.us, %367
-  %.sroa.20.3.us = phi ptr [ %.sroa.20.2733.us, %519 ], [ %.sroa.20.2733.us, %367 ], [ %512, %._crit_edge.us ]
+  %.sroa.20.1.us = phi ptr [ %.sroa.20.0733.us, %519 ], [ %.sroa.20.0733.us, %367 ], [ %512, %._crit_edge.us ]
   %.2322.us = phi i64 [ %520, %519 ], [ %368, %367 ], [ %spec.select.us, %._crit_edge.us ]
-  %522 = ptrtoint ptr %.sroa.20.3.us to i64
+  %522 = ptrtoint ptr %.sroa.20.1.us to i64
   %523 = sub i64 %522, %151
   %524 = sdiv exact i64 %523, 12
   %525 = icmp ugt i64 %524, 3

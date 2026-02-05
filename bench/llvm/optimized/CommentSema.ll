@@ -5811,8 +5811,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit81:          ; preds = %_ZNSt7__cxx1112basi
   %196 = load i32, ptr %187, align 8, !tbaa !221
   %197 = icmp ugt i32 %195, %196
   %198 = load ptr, ptr %7, align 8
-  %.not9.i = icmp eq ptr %198, null
-  %.not.i85 = select i1 %197, i1 true, i1 %.not9.i
+  %.not7.i = icmp eq ptr %198, null
+  %.not.i85 = select i1 %197, i1 true, i1 %.not7.i
   br i1 %.not.i85, label %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit, label %199
 
 199:                                              ; preds = %185
@@ -5969,8 +5969,8 @@ define dso_local { ptr, i64 } @_ZN5clang8comments4Sema28correctTypoInTParamRefer
   %16 = load i32, ptr %7, align 8, !tbaa !221
   %17 = icmp ugt i32 %15, %16
   %18 = load ptr, ptr %5, align 8
-  %.not9 = icmp eq ptr %18, null
-  %.not = select i1 %17, i1 true, i1 %.not9
+  %.not7 = icmp eq ptr %18, null
+  %.not = select i1 %17, i1 true, i1 %.not7
   br i1 %.not, label %.critedge, label %19
 
 19:                                               ; preds = %4

@@ -6357,8 +6357,8 @@ _ZN5boost8optionalIN3ue217undirected_detail32undirected_graph_edge_descriptorINS
 255:                                              ; preds = %251
   store i8 1, ptr %66, align 8
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i180, i64 136
-  %.not16.i.i = icmp eq ptr %237, %256
-  br i1 %.not16.i.i, label %.noexc111, label %.lr.ph.i.i
+  %.not14.i.i = icmp eq ptr %237, %256
+  br i1 %.not14.i.i, label %.noexc111, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i180, i64 104
@@ -6413,8 +6413,8 @@ _ZN5boost8optionalIN3ue217undirected_detail32undirected_graph_edge_descriptorINS
   store ptr %277, ptr %61, align 8
   %.sroa.06.0.copyload.i1.i = load ptr, ptr %10, align 8
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1.i, i64 136
-  %.not16.i3.i = icmp eq ptr %277, %278
-  br i1 %.not16.i3.i, label %.noexc111, label %.lr.ph.i4.i
+  %.not14.i3.i = icmp eq ptr %277, %278
+  br i1 %.not14.i3.i, label %.noexc111, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %276
   %279 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1.i, i64 104
@@ -6728,8 +6728,8 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
   br i1 %408, label %409, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit.i
 
 409:                                              ; preds = %400
-  %.not16.i.i.i.i = icmp eq ptr %406, %405
-  br i1 %.not16.i.i.i.i, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit.i, label %.lr.ph.i.i.i.i
+  %.not14.i.i.i.i = icmp eq ptr %406, %405
+  br i1 %.not14.i.i.i.i, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %409
   %410 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.fr.i.i.i.i.i.i.i120, i64 104
@@ -6874,8 +6874,8 @@ _ZNK5boost6detail18out_edge_predicateINS_8keep_allEN3ue217bad_vertex_filterISt13
   br i1 %467, label %468, label %.noexc187
 
 468:                                              ; preds = %465
-  %.not16.i.i218 = icmp eq ptr %.sroa.14514.0, %405
-  br i1 %.not16.i.i218, label %.noexc187, label %.lr.ph.i.i219
+  %.not14.i.i218 = icmp eq ptr %.sroa.14514.0, %405
+  br i1 %.not14.i.i218, label %.noexc187, label %.lr.ph.i.i219
 
 .lr.ph.i.i219:                                    ; preds = %468
   %469 = load i64, ptr %435, align 8, !noalias !542
@@ -6925,8 +6925,8 @@ _ZNK5boost6detail18out_edge_predicateINS_8keep_allEN3ue217bad_vertex_filterISt13
 
 487:                                              ; preds = %_ZNK5boost6detail18out_edge_predicateINS_8keep_allEN3ue217bad_vertex_filterISt13unordered_setINS3_12graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESt4hashISD_ESt8equal_toISD_ESaISD_EEEENS_14filtered_graphINS3_16undirected_graphIS9_RKS9_EES2_SK_EEEclINS3_17undirected_detail32undirected_graph_edge_descriptorIS9_EEEEbRKT_.exit.i
   %488 = load ptr, ptr %.sroa.14514.0, align 8
-  %.not16.i3.i231 = icmp eq ptr %488, %405
-  br i1 %.not16.i3.i231, label %.noexc187, label %.lr.ph.i4.i232
+  %.not14.i3.i231 = icmp eq ptr %488, %405
+  br i1 %.not14.i3.i231, label %.noexc187, label %.lr.ph.i4.i232
 
 .lr.ph.i4.i232:                                   ; preds = %487
   %489 = load i64, ptr %435, align 8, !noalias !547
@@ -7076,8 +7076,8 @@ _ZNSt4pairIN5boost8optionalIN3ue217undirected_detail32undirected_graph_edge_desc
 530:                                              ; preds = %526
   store i8 1, ptr %66, align 8
   %531 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i188, i64 136
-  %.not16.i.i190 = icmp eq ptr %237, %531
-  br i1 %.not16.i.i190, label %.noexc173, label %.lr.ph.i.i191
+  %.not14.i.i190 = icmp eq ptr %237, %531
+  br i1 %.not14.i.i190, label %.noexc173, label %.lr.ph.i.i191
 
 .lr.ph.i.i191:                                    ; preds = %530
   %532 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i188, i64 104
@@ -7132,8 +7132,8 @@ _ZNSt4pairIN5boost8optionalIN3ue217undirected_detail32undirected_graph_edge_desc
   store ptr %552, ptr %61, align 8
   %.sroa.06.0.copyload.i1.i202 = load ptr, ptr %10, align 8
   %553 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1.i202, i64 136
-  %.not16.i3.i203 = icmp eq ptr %552, %553
-  br i1 %.not16.i3.i203, label %.noexc173, label %.lr.ph.i4.i204
+  %.not14.i3.i203 = icmp eq ptr %552, %553
+  br i1 %.not14.i3.i203, label %.noexc173, label %.lr.ph.i4.i204
 
 .lr.ph.i4.i204:                                   ; preds = %551
   %554 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1.i202, i64 104
@@ -7270,8 +7270,8 @@ define linkonce_odr hidden void @_ZN5boost9out_edgesIN3ue216undirected_graphINS1
   br i1 %14, label %15, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit
 
 15:                                               ; preds = %4
-  %.not16.i.i.i = icmp eq ptr %12, %11
-  br i1 %.not16.i.i.i, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit, label %.lr.ph.i.i.i
+  %.not14.i.i.i = icmp eq ptr %12, %11
+  br i1 %.not14.i.i.i, label %_ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_16undirected_graphIS3_RKS3_EE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -8102,8 +8102,8 @@ define linkonce_odr hidden void @_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted.i = load ptr, ptr %13, align 8
-  %.not16.i = icmp eq ptr %.promoted.i, %12
-  br i1 %.not16.i, label %_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17adj_edge_iteratorILb0EE20find_first_valid_outEv.exit, label %.lr.ph.i
+  %.not14.i = icmp eq ptr %.promoted.i, %12
+  br i1 %.not14.i, label %_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17adj_edge_iteratorILb0EE20find_first_valid_outEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 104
@@ -8160,8 +8160,8 @@ define linkonce_odr hidden void @_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17
   store ptr %37, ptr %35, align 8
   %.sroa.06.0.copyload.i1 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1, i64 136
-  %.not16.i3 = icmp eq ptr %37, %38
-  br i1 %.not16.i3, label %_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17adj_edge_iteratorILb0EE20find_first_valid_outEv.exit, label %.lr.ph.i4
+  %.not14.i3 = icmp eq ptr %37, %38
+  br i1 %.not14.i3, label %_ZN3ue216undirected_graphINS_8NGHolderERKS1_E17adj_edge_iteratorILb0EE20find_first_valid_outEv.exit, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i1, i64 104

@@ -1897,30 +1897,30 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56: ;
   br i1 %.not136, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56
-  %.sroa.14.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %94, %.lr.ph ]
-  %.sroa.9.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %91, %.lr.ph ]
-  %.sroa.079.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %88, %.lr.ph ]
-  %.sroa.1492.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %85, %.lr.ph ]
-  %.sroa.989.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %82, %.lr.ph ]
-  %.sroa.086.1.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %79, %.lr.ph ]
+  %.sroa.14.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %94, %.lr.ph ]
+  %.sroa.9.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %91, %.lr.ph ]
+  %.sroa.079.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %88, %.lr.ph ]
+  %.sroa.1492.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %85, %.lr.ph ]
+  %.sroa.989.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %82, %.lr.ph ]
+  %.sroa.086.0.lcssa = phi double [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ], [ %79, %.lr.ph ]
   %59 = load ptr, ptr %25, align 8, !tbaa !157
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %.pre to i64
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 24
   %64 = uitofp i64 %63 to double
-  %65 = fdiv double %.sroa.086.1.lcssa, %64
-  %66 = fdiv double %.sroa.989.1.lcssa, %64
-  %67 = fdiv double %.sroa.1492.1.lcssa, %64
+  %65 = fdiv double %.sroa.086.0.lcssa, %64
+  %66 = fdiv double %.sroa.989.0.lcssa, %64
+  %67 = fdiv double %.sroa.1492.0.lcssa, %64
   %68 = load ptr, ptr %38, align 8, !tbaa !157
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %.pre149 to i64
   %71 = sub i64 %69, %70
   %72 = sdiv exact i64 %71, 24
   %73 = uitofp i64 %72 to double
-  %74 = fdiv double %.sroa.079.1.lcssa, %73
-  %75 = fdiv double %.sroa.9.1.lcssa, %73
-  %76 = fdiv double %.sroa.14.1.lcssa, %73
+  %74 = fdiv double %.sroa.079.0.lcssa, %73
+  %75 = fdiv double %.sroa.9.0.lcssa, %73
+  %76 = fdiv double %.sroa.14.0.lcssa, %73
   br i1 %.not136, label %._crit_edge125, label %.lr.ph124
 
 .loopexit:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i52
@@ -1935,30 +1935,30 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56: ;
 
 .lr.ph:                                           ; preds = %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56, %.lr.ph
   %.031115 = phi i64 [ %95, %.lr.ph ], [ 0, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.086.1114 = phi double [ %79, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.989.1113 = phi double [ %82, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.1492.1112 = phi double [ %85, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.079.1111 = phi double [ %88, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.9.1110 = phi double [ %91, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
-  %.sroa.14.1109 = phi double [ %94, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.086.0114 = phi double [ %79, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.989.0113 = phi double [ %82, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.1492.0112 = phi double [ %85, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.079.0111 = phi double [ %88, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.9.0110 = phi double [ %91, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
+  %.sroa.14.0109 = phi double [ %94, %.lr.ph ], [ 0.000000e+00, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i56 ]
   %77 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %.pre, i64 %.031115
   %78 = load double, ptr %77, align 8, !tbaa !152
-  %79 = fadd double %.sroa.086.1114, %78
+  %79 = fadd double %.sroa.086.0114, %78
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load double, ptr %80, align 8, !tbaa !153
-  %82 = fadd double %.sroa.989.1113, %81
+  %82 = fadd double %.sroa.989.0113, %81
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %84 = load double, ptr %83, align 8, !tbaa !154
-  %85 = fadd double %.sroa.1492.1112, %84
+  %85 = fadd double %.sroa.1492.0112, %84
   %86 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %.pre149, i64 %.031115
   %87 = load double, ptr %86, align 8, !tbaa !152
-  %88 = fadd double %.sroa.079.1111, %87
+  %88 = fadd double %.sroa.079.0111, %87
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load double, ptr %89, align 8, !tbaa !153
-  %91 = fadd double %.sroa.9.1110, %90
+  %91 = fadd double %.sroa.9.0110, %90
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %93 = load double, ptr %92, align 8, !tbaa !154
-  %94 = fadd double %.sroa.14.1109, %93
+  %94 = fadd double %.sroa.14.0109, %93
   %95 = add nuw i64 %.031115, 1
   %exitcond.not = icmp eq i64 %95, %58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !159
@@ -30771,18 +30771,18 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.lr
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !706
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
-  %.pre24 = load ptr, ptr %23, align 8, !tbaa !157
-  %.pre25 = load ptr, ptr %0, align 8, !tbaa !146
-  %.pre26 = ptrtoint ptr %.pre24 to i64
-  %.pre27 = ptrtoint ptr %.pre25 to i64
-  %.pre29 = sub i64 %.pre26, %.pre27
-  %31 = sdiv exact i64 %.pre29, -24
+  %.pre21 = load ptr, ptr %23, align 8, !tbaa !157
+  %.pre22 = load ptr, ptr %0, align 8, !tbaa !146
+  %.pre23 = ptrtoint ptr %.pre21 to i64
+  %.pre24 = ptrtoint ptr %.pre22 to i64
+  %.pre26 = sub i64 %.pre23, %.pre24
+  %31 = sdiv exact i64 %.pre26, -24
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit, %29
-  %.pre-phi30 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
-  %32 = phi ptr [ %.pre24, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = add i64 %.pre-phi30, %1
+  %.pre-phi27 = phi i64 [ %31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ 0, %29 ]
+  %32 = phi ptr [ %.pre21, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.loopexit ], [ %24, %29 ]
+  %33 = add i64 %.pre-phi27, %1
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN12colvarmodule7rvectorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i12
 

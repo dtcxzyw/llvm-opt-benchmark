@@ -481,7 +481,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
 204:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_cmp_q.exit153 ]
   %.sroa.12.2158 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
-  %.sroa.019.2156 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
+  %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
   %205 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 92
   %.sroa.03.0.copyload = load i64, ptr %206, align 4
@@ -490,7 +490,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %207 = ashr exact i64 %sext.i146, 32
   %208 = sext i32 %.sroa.12.2158 to i64
   %209 = mul nsw i64 %207, %208
-  %210 = sext i32 %.sroa.019.2156 to i64
+  %210 = sext i32 %.sroa.019.2157 to i64
   %211 = ashr i64 %.sroa.03.0.copyload, 32
   %212 = mul nsw i64 %211, %210
   %.not.i148 = icmp eq i64 %209, %212
@@ -513,13 +513,13 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
 
 223:                                              ; preds = %220
   %224 = icmp ne i32 %.sroa.011.0.extract.trunc.i144, 0
-  %225 = icmp ne i32 %.sroa.019.2156, 0
+  %225 = icmp ne i32 %.sroa.019.2157, 0
   %or.cond5.i151 = and i1 %225, %224
   br i1 %or.cond5.i151, label %226, label %av_cmp_q.exit153
 
 226:                                              ; preds = %223
   %227 = ashr i32 %.sroa.011.0.extract.trunc.i144, 31
-  %.neg.i152 = lshr i32 %.sroa.019.2156, 31
+  %.neg.i152 = lshr i32 %.sroa.019.2157, 31
   %228 = add nsw i32 %227, %.neg.i152
   br label %av_cmp_q.exit153
 
@@ -528,7 +528,7 @@ av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %2
   %229 = icmp sgt i32 %.0.i149, 0
   %.sroa.12.0.extract.shift = lshr i64 %.sroa.03.0.copyload, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
-  %.sroa.019.3 = select i1 %229, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2156
+  %.sroa.019.3 = select i1 %229, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2157
   %.sroa.12.3 = select i1 %229, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1163,8 +1163,8 @@ define dso_local void @_ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_
 18:                                               ; preds = %5
   call void @_ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(34) %2)
   %19 = load i32, ptr %4, align 8, !tbaa !28
-  %.not3032 = icmp eq i32 %19, 0
-  br i1 %.not3032, label %.critedge.lr.ph, label %.thread29
+  %.not2527 = icmp eq i32 %19, 0
+  br i1 %.not2527, label %.critedge.lr.ph, label %.thread24
 
 .critedge.lr.ph:                                  ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1270,10 +1270,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %64, %6
 
 _ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit: ; preds = %33, %45, %52, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %67
   %68 = load i32, ptr %4, align 8, !tbaa !28
-  %.not30 = icmp eq i32 %68, 0
-  br i1 %.not30, label %.critedge, label %.thread29, !llvm.loop !70
+  %.not25 = icmp eq i32 %68, 0
+  br i1 %.not25, label %.critedge, label %.thread24, !llvm.loop !70
 
-.thread29:                                        ; preds = %_ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit, %18
+.thread24:                                        ; preds = %_ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit, %18
   %69 = load ptr, ptr %6, align 8, !tbaa !62
   store ptr %69, ptr %0, align 8, !tbaa !62
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1288,12 +1288,12 @@ _ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit: ; preds = %33, 
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr dead_on_unwind writable sret(%"class.llvm::vfs::directory_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(16) %4) #20
-  %.pre34 = load ptr, ptr %23, align 8, !tbaa !32
-  %.not.i.i.i15 = icmp eq ptr %.pre34, null
+  %.pre29 = load ptr, ptr %23, align 8, !tbaa !32
+  %.not.i.i.i15 = icmp eq ptr %.pre29, null
   br i1 %.not.i.i.i15, label %_ZN4llvm3vfs18directory_iteratorD2Ev.exit19, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %.pre34, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.pre29, i64 8
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = icmp eq i64 %80, 4294967297
   %82 = trunc i64 %80 to i32
@@ -1301,16 +1301,16 @@ _ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit: ; preds = %33, 
 
 83:                                               ; preds = %78
   store i32 0, ptr %79, align 8, !tbaa !35
-  %84 = getelementptr inbounds nuw i8, ptr %.pre34, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %.pre29, i64 12
   store i32 0, ptr %84, align 4, !tbaa !37
-  %85 = load ptr, ptr %.pre34, align 8, !tbaa !3
+  %85 = load ptr, ptr %.pre29, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(16) %.pre34) #20
-  %88 = load ptr, ptr %.pre34, align 8, !tbaa !3
+  call void %87(ptr noundef nonnull align 8 dereferenceable(16) %.pre29) #20
+  %88 = load ptr, ptr %.pre29, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %.pre34) #20
+  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %.pre29) #20
   br label %_ZN4llvm3vfs18directory_iteratorD2Ev.exit19
 
 91:                                               ; preds = %78
@@ -1333,10 +1333,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17: ; preds = %95, %9
   br i1 %97, label %98, label %_ZN4llvm3vfs18directory_iteratorD2Ev.exit19, !prof !39
 
 98:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre34) #20
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre29) #20
   br label %_ZN4llvm3vfs18directory_iteratorD2Ev.exit19
 
-_ZN4llvm3vfs18directory_iteratorD2Ev.exit19:      ; preds = %13, %.thread29, %73, %83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %98
+_ZN4llvm3vfs18directory_iteratorD2Ev.exit19:      ; preds = %13, %.thread24, %73, %83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

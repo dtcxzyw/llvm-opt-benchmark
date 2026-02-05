@@ -941,8 +941,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %49
           to label %_ZNSolsEd.exit.preheader unwind label %53
 
 _ZNSolsEd.exit.preheader:                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
-  %.not47 = icmp eq i64 %41, 1
-  br i1 %.not47, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %.lr.ph
+  %.not44 = icmp eq i64 %41, 1
+  br i1 %.not44, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %.lr.ph
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSolsEd.exit33, %_ZNSolsEd.exit.preheader
   tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %44) #23
@@ -954,18 +954,18 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSolsEd.exit33, %
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 .lr.ph:                                           ; preds = %_ZNSolsEd.exit.preheader, %_ZNSolsEd.exit33
-  %.046 = phi i64 [ %59, %_ZNSolsEd.exit33 ], [ 1, %_ZNSolsEd.exit.preheader ]
+  %.043 = phi i64 [ %59, %_ZNSolsEd.exit33 ], [ 1, %_ZNSolsEd.exit.preheader ]
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31 unwind label %60
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31: ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw double, ptr %45, i64 %.046
+  %56 = getelementptr inbounds nuw double, ptr %45, i64 %.043
   %57 = load double, ptr %56, align 8, !tbaa !27
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %57)
           to label %_ZNSolsEd.exit33 unwind label %60
 
 _ZNSolsEd.exit33:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31
-  %59 = add nuw i64 %.046, 1
+  %59 = add nuw i64 %.043, 1
   %exitcond.not = icmp eq i64 %59, %41
   br i1 %exitcond.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %.lr.ph, !llvm.loop !70
 

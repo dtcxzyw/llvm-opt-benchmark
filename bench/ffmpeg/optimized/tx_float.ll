@@ -3644,8 +3644,8 @@ define internal void @ff_tx_fft_naive_float_c(ptr noundef readonly captures(none
 
 15:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %.sroa.011.136.us = phi float [ 0.000000e+00, %.preheader.us ], [ %32, %15 ]
-  %.sroa.6.135.us = phi float [ 0.000000e+00, %.preheader.us ], [ %33, %15 ]
+  %.sroa.011.036.us = phi float [ 0.000000e+00, %.preheader.us ], [ %32, %15 ]
+  %.sroa.6.035.us = phi float [ 0.000000e+00, %.preheader.us ], [ %33, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = uitofp nneg i32 %16 to double
   %18 = fmul nsz double %14, %17
@@ -3662,8 +3662,8 @@ define internal void @ff_tx_fft_naive_float_c(ptr noundef readonly captures(none
   %29 = tail call nsz float @llvm.fmuladd.f32(float %24, float %20, float %28)
   %30 = fmul nsz float %26, %20
   %31 = tail call nsz float @llvm.fmuladd.f32(float %24, float %22, float %30)
-  %32 = fadd nsz float %.sroa.011.136.us, %29
-  %33 = fadd nsz float %.sroa.6.135.us, %31
+  %32 = fadd nsz float %.sroa.011.036.us, %29
+  %33 = fadd nsz float %.sroa.6.035.us, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
   br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !76
@@ -3701,8 +3701,8 @@ define internal void @ff_tx_fft_naive_small_float_c(ptr noundef readonly capture
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %.sroa.010.131.us = phi float [ 0.000000e+00, %.preheader.us ], [ %22, %10 ]
-  %.sroa.6.129.us = phi float [ 0.000000e+00, %.preheader.us ], [ %23, %10 ]
+  %.sroa.010.031.us = phi float [ 0.000000e+00, %.preheader.us ], [ %22, %10 ]
+  %.sroa.6.029.us = phi float [ 0.000000e+00, %.preheader.us ], [ %23, %10 ]
   %11 = mul nuw nsw i64 %indvars.iv, %indvars.iv37
   %12 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %9, i64 %11
   %.sroa.0.0.copyload.us = load float, ptr %12, align 4, !tbaa !28
@@ -3717,8 +3717,8 @@ define internal void @ff_tx_fft_naive_small_float_c(ptr noundef readonly capture
   %19 = tail call nsz float @llvm.fmuladd.f32(float %14, float %.sroa.0.0.copyload.us, float %18)
   %20 = fmul nsz float %.sroa.0.0.copyload.us, %16
   %21 = tail call nsz float @llvm.fmuladd.f32(float %14, float %.sroa.5.0.copyload.us, float %20)
-  %22 = fadd nsz float %.sroa.010.131.us, %19
-  %23 = fadd nsz float %.sroa.6.129.us, %21
+  %22 = fadd nsz float %.sroa.010.031.us, %19
+  %23 = fadd nsz float %.sroa.6.029.us, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !78

@@ -15712,7 +15712,7 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %.03751043 = phi i64 [ %682, %934 ], [ %674, %.lr.ph1045.preheader ]
   %.03771042 = phi i64 [ %.1378, %934 ], [ %681, %.lr.ph1045.preheader ]
   %.03851041 = phi i64 [ %.2387, %934 ], [ 0, %.lr.ph1045.preheader ]
-  %.sroa.20.21040 = phi ptr [ %.sroa.20.3, %934 ], [ %.0.lcssa.i.i.i.i.i.i, %.lr.ph1045.preheader ]
+  %.sroa.20.01040 = phi ptr [ %.sroa.20.1, %934 ], [ %.0.lcssa.i.i.i.i.i.i, %.lr.ph1045.preheader ]
   %.not414 = icmp ult i64 %.03851041, %682
   %683 = select i1 %.not414, i64 0, i64 %682
   %spec.select = sub nuw i64 %.03851041, %683
@@ -16313,13 +16313,13 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit614:       ; preds = %_ZNSt6vectorIjSaIjE
   br label %1087
 
 ._crit_edge:                                      ; preds = %.lr.ph1039, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit614
-  %933 = getelementptr inbounds i8, ptr %.sroa.20.21040, i64 -12
+  %933 = getelementptr inbounds i8, ptr %.sroa.20.01040, i64 -12
   br label %934
 
 934:                                              ; preds = %772, %._crit_edge, %734
-  %.sroa.20.3 = phi ptr [ %.sroa.20.21040, %734 ], [ %.sroa.20.21040, %772 ], [ %933, %._crit_edge ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.01040, %734 ], [ %.sroa.20.01040, %772 ], [ %933, %._crit_edge ]
   %.2387 = phi i64 [ %735, %734 ], [ %773, %772 ], [ %spec.select, %._crit_edge ]
-  %935 = ptrtoint ptr %.sroa.20.3 to i64
+  %935 = ptrtoint ptr %.sroa.20.1 to i64
   %936 = sub i64 %935, %672
   %937 = sdiv exact i64 %936, 12
   %938 = icmp ugt i64 %937, 3

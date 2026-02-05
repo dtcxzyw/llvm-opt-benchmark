@@ -1640,17 +1640,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit166:                 ; preds = %288, %_ZNSt6vectorI
   br i1 %.not.i.i.i167, label %.body, label %293
 
 293:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit166
-  %.pn44.pn.pn.pn193 = phi { ptr, i32 } [ %61, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
-  %.sroa.0171.1192 = phi ptr [ %28, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.sroa.0171.2, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
-  %.sroa.15.1191 = phi ptr [ %30, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.sroa.15.2, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
-  %294 = ptrtoint ptr %.sroa.15.1191 to i64
-  %295 = ptrtoint ptr %.sroa.0171.1192 to i64
+  %.pn44.pn.pn.pn190 = phi { ptr, i32 } [ %61, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
+  %.sroa.0171.1189 = phi ptr [ %28, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.sroa.0171.2, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
+  %.sroa.15.1188 = phi ptr [ %30, %_ZNSt6vectorIiSaIiEED2Ev.exit166.thread ], [ %.sroa.15.2, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
+  %294 = ptrtoint ptr %.sroa.15.1188 to i64
+  %295 = ptrtoint ptr %.sroa.0171.1189 to i64
   %296 = sub i64 %294, %295
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.1192, i64 noundef %296) #31
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0171.1189, i64 noundef %296) #31
   br label %.body
 
 .body:                                            ; preds = %293, %_ZNSt6vectorIiSaIiEED2Ev.exit166, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i
-  %.pn44.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %.pn44.pn.pn.pn193, %293 ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
+  %.pn44.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %.pn44.pn.pn.pn190, %293 ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   br label %297
 

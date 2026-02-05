@@ -18214,8 +18214,8 @@ _ZN5clang13UsingPackDeclC2EPNS_11DeclContextEPNS_9NamedDeclEN4llvm8ArrayRefIS4_E
   store ptr null, ptr %25, align 8, !tbaa !770
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %2, ptr %26, align 8, !tbaa !772
-  %.not14 = icmp eq i32 %2, 0
-  br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
+  %.not12 = icmp eq i32 %2, 0
+  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang13UsingPackDeclC2EPNS_11DeclContextEPNS_9NamedDeclEN4llvm8ArrayRefIS4_EE.exit
   %27 = getelementptr i8, ptr %6, i64 64
@@ -18720,8 +18720,8 @@ _ZN5clang17DecompositionDeclC2ERNS_10ASTContextEPNS_11DeclContextENS_14SourceLoc
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17DecompositionDeclE, i64 16), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %2, ptr %6, align 4, !tbaa !788
-  %.not19 = icmp eq i32 %2, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
+  %.not17 = icmp eq i32 %2, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang17DecompositionDeclC2ERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES5_NS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefIPNS_11BindingDeclEEE.exit
   %7 = getelementptr i8, ptr %5, i64 104

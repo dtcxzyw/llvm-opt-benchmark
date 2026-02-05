@@ -1089,8 +1089,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %13, %_ZSt6fill_nIPd
 
 36:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not128 = icmp eq ptr %16, %14
-  br i1 %.not128, label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i
+  %.not122 = icmp eq ptr %16, %14
+  br i1 %.not122, label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %36
   %38 = shl nuw nsw i64 %33, 5
@@ -1123,8 +1123,8 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
   br label %.body
 
 46:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit
-  %.sroa.060.088 = phi ptr [ %14, %.lr.ph ], [ %72, %_ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.060.088, i64 40
+  %.sroa.060.082 = phi ptr [ %14, %.lr.ph ], [ %72, %_ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.060.082, i64 40
   %48 = load ptr, ptr %42, align 8, !tbaa !16
   %49 = load ptr, ptr %37, align 8, !tbaa !21
   %.not.i35 = icmp eq ptr %48, %49
@@ -1133,7 +1133,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.060.088, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.060.082, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   %54 = load ptr, ptr %53, align 8, !tbaa !17
   %.not.i.i.not.i.i.i.i = icmp eq ptr %54, null
@@ -1144,7 +1144,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
           to label %57 unwind label %61
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.060.088, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.060.082, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !52
   store ptr %59, ptr %52, align 8, !tbaa !52
   %60 = load ptr, ptr %53, align 8, !tbaa !17
@@ -1181,7 +1181,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
           to label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit unwind label %73
 
 _ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit: ; preds = %71, %_ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.060.088, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.060.082, i64 72
   %.not = icmp eq ptr %72, %16
   br i1 %.not, label %._crit_edge, label %46
 
@@ -1232,10 +1232,10 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   %91 = load ptr, ptr %90, align 8, !tbaa !89
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !89
-  %.not8090 = icmp eq ptr %91, %93
-  br i1 %.not8090, label %._crit_edge95, label %.lr.ph94
+  %.not7484 = icmp eq ptr %91, %93
+  br i1 %.not7484, label %._crit_edge89, label %.lr.ph88
 
-.lr.ph94:                                         ; preds = %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
+.lr.ph88:                                         ; preds = %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1243,23 +1243,23 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %124
 
-._crit_edge95.loopexit:                           ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %.pre100 = load ptr, ptr %1, align 8, !tbaa !57
-  br label %._crit_edge95
+._crit_edge89.loopexit:                           ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %.pre94 = load ptr, ptr %1, align 8, !tbaa !57
+  br label %._crit_edge89
 
-._crit_edge95:                                    ; preds = %._crit_edge95.loopexit, %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
-  %98 = phi ptr [ %.pre100, %._crit_edge95.loopexit ], [ %90, %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit ]
+._crit_edge89:                                    ; preds = %._crit_edge89.loopexit, %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
+  %98 = phi ptr [ %.pre94, %._crit_edge89.loopexit ], [ %90, %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store i8 1, ptr %99, align 8, !tbaa !65
   %100 = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i39 = icmp eq ptr %100, null
   br i1 %.not.i39, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit40, label %101
 
-101:                                              ; preds = %._crit_edge95
+101:                                              ; preds = %._crit_edge89
   call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %100)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit40
 
-_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit40: ; preds = %._crit_edge95, %101
+_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit40: ; preds = %._crit_edge89, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %102 = load ptr, ptr %4, align 8, !tbaa !13
   %103 = load ptr, ptr %81, align 8, !tbaa !16
@@ -1330,24 +1330,24 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   store ptr null, ptr %6, align 8, !tbaa !4
   br label %155
 
-124:                                              ; preds = %.lr.ph94, %_ZNSt14_Function_baseD2Ev.exit
-  %.02393 = phi i64 [ 0, %.lr.ph94 ], [ %139, %_ZNSt14_Function_baseD2Ev.exit ]
-  %.02492 = phi i32 [ 0, %.lr.ph94 ], [ %140, %_ZNSt14_Function_baseD2Ev.exit ]
-  %.sroa.056.091 = phi ptr [ %91, %.lr.ph94 ], [ %147, %_ZNSt14_Function_baseD2Ev.exit ]
+124:                                              ; preds = %.lr.ph88, %_ZNSt14_Function_baseD2Ev.exit
+  %.02387 = phi i64 [ 0, %.lr.ph88 ], [ %139, %_ZNSt14_Function_baseD2Ev.exit ]
+  %.02486 = phi i32 [ 0, %.lr.ph88 ], [ %140, %_ZNSt14_Function_baseD2Ev.exit ]
+  %.sroa.056.085 = phi ptr [ %91, %.lr.ph88 ], [ %147, %_ZNSt14_Function_baseD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %97, align 8
   store ptr %43, ptr %7, align 8, !tbaa !4
-  store i32 %.02492, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !48
+  store i32 %.02486, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !48
   store ptr @"_ZNSt17_Function_handlerIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEZNS0_25ObservablesReducerBuilder5buildEvE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %95, align 8, !tbaa !94
   store ptr @"_ZNSt17_Function_handlerIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEZNS0_25ObservablesReducerBuilder5buildEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %94, align 8, !tbaa !17
-  %125 = load i32, ptr %.sroa.056.091, align 8, !tbaa !70
+  %125 = load i32, ptr %.sroa.056.085, align 8, !tbaa !70
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds double, ptr %.sroa.066.2, i64 %.02393
+  %127 = getelementptr inbounds double, ptr %.sroa.066.2, i64 %.02387
   %128 = getelementptr inbounds double, ptr %127, i64 %126
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %127, ptr %3, align 8
   store ptr %128, ptr %96, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.056.091, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.056.085, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %130, null
   br i1 %.not.i.i, label %131, label %132
@@ -1360,18 +1360,18 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   unreachable
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.056.091, i64 8
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.056.091, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.056.085, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.056.085, i64 32
   %135 = load ptr, ptr %134, align 8, !tbaa !73
   invoke void %135(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %136 unwind label %.loopexit
 
 136:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %137 = load i32, ptr %.sroa.056.091, align 8, !tbaa !70
+  %137 = load i32, ptr %.sroa.056.085, align 8, !tbaa !70
   %138 = sext i32 %137 to i64
-  %139 = add i64 %.02393, %138
-  %140 = add nuw nsw i32 %.02492, 1
+  %139 = add i64 %.02387, %138
+  %140 = add nuw nsw i32 %.02486, 1
   %141 = load ptr, ptr %94, align 8, !tbaa !17
   %.not.i48 = icmp eq ptr %141, null
   br i1 %.not.i48, label %_ZNSt14_Function_baseD2Ev.exit, label %142
@@ -1389,9 +1389,9 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %136, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.056.091, i64 72
-  %.not80 = icmp eq ptr %147, %93
-  br i1 %.not80, label %._crit_edge95.loopexit, label %124
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.056.085, i64 72
+  %.not74 = icmp eq ptr %147, %93
+  br i1 %.not74, label %._crit_edge89.loopexit, label %124
 
 .loopexit:                                        ; preds = %132
   %lpad.loopexit = landingpad { ptr, i32 }

@@ -424,8 +424,8 @@ define dso_local i64 @_ZN5clang4Sema15ActOnGCCAsmStmtENS_14SourceLocationEbbjjPP
   br label %166
 
 166:                                              ; preds = %160, %155
-  %.sroa.5919.1 = phi i64 [ 0, %155 ], [ %165, %160 ]
-  %.sroa.0918.1 = phi ptr [ null, %155 ], [ %163, %160 ]
+  %.sroa.5919.0 = phi i64 [ 0, %155 ], [ %165, %160 ]
+  %.sroa.0918.0 = phi ptr [ null, %155 ], [ %163, %160 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 4
@@ -439,7 +439,7 @@ define dso_local i64 @_ZN5clang4Sema15ActOnGCCAsmStmtENS_14SourceLocationEbbjjPP
   %176 = load i32, ptr %175, align 8, !tbaa !693
   %177 = mul i32 %174, %176
   %178 = zext i32 %177 to i64
-  call void @_ZN5clang10TargetInfo14ConstraintInfoC2EN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(168) %52, ptr nonnull %171, i64 %178, ptr %.sroa.0918.1, i64 %.sroa.5919.1)
+  call void @_ZN5clang10TargetInfo14ConstraintInfoC2EN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(168) %52, ptr nonnull %171, i64 %178, ptr %.sroa.0918.0, i64 %.sroa.5919.0)
   %179 = load ptr, ptr %120, align 8, !tbaa !684
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 17288
   %181 = load ptr, ptr %180, align 8, !tbaa !694
@@ -1239,8 +1239,8 @@ _ZN5clang10TargetInfo14ConstraintInfoD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   br label %586
 
 586:                                              ; preds = %580, %574
-  %.sroa.5906.1 = phi i64 [ 0, %574 ], [ %585, %580 ]
-  %.sroa.0905.1 = phi ptr [ null, %574 ], [ %583, %580 ]
+  %.sroa.5906.0 = phi i64 [ 0, %574 ], [ %585, %580 ]
+  %.sroa.0905.0 = phi ptr [ null, %574 ], [ %583, %580 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %587 = getelementptr inbounds nuw i8, ptr %577, i64 20
   %588 = getelementptr inbounds nuw i8, ptr %577, i64 4
@@ -1254,7 +1254,7 @@ _ZN5clang10TargetInfo14ConstraintInfoD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   %596 = load i32, ptr %595, align 8, !tbaa !693
   %597 = mul i32 %594, %596
   %598 = zext i32 %597 to i64
-  call void @_ZN5clang10TargetInfo14ConstraintInfoC2EN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(168) %58, ptr nonnull %591, i64 %598, ptr %.sroa.0905.1, i64 %.sroa.5906.1)
+  call void @_ZN5clang10TargetInfo14ConstraintInfoC2EN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(168) %58, ptr nonnull %591, i64 %598, ptr %.sroa.0905.0, i64 %.sroa.5906.0)
   %599 = load ptr, ptr %120, align 8, !tbaa !684
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 17288
   %601 = load ptr, ptr %600, align 8, !tbaa !694

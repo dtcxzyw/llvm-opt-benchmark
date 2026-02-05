@@ -8788,7 +8788,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   br label %206
 
 206:                                              ; preds = %189, %186, %182, %177, %174, %170, %167, %153
-  %.sroa.0.1 = phi i64 [ 0, %153 ], [ 0, %177 ], [ %200, %189 ], [ 0, %186 ], [ 0, %182 ], [ 0, %167 ], [ 0, %174 ], [ 0, %170 ]
+  %.sroa.0.0 = phi i64 [ 0, %153 ], [ 0, %177 ], [ %200, %189 ], [ 0, %186 ], [ 0, %182 ], [ 0, %167 ], [ 0, %174 ], [ 0, %170 ]
   %.sroa.5.0 = phi i64 [ 0, %153 ], [ 0, %177 ], [ %204, %189 ], [ 0, %186 ], [ 0, %182 ], [ 0, %167 ], [ 0, %174 ], [ 0, %170 ]
   %207 = phi i32 [ 1, %153 ], [ 0, %177 ], [ 0, %189 ], [ 1, %186 ], [ 0, %182 ], [ 1, %167 ], [ 1, %174 ], [ 1, %170 ]
   %208 = phi i32 [ 3, %153 ], [ 0, %177 ], [ 1, %189 ], [ 3, %186 ], [ 2, %182 ], [ 3, %167 ], [ 3, %174 ], [ 3, %170 ]
@@ -8842,7 +8842,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   ]
 
 239:                                              ; preds = %.loopexit29
-  %.sroa.speculated = select i1 %219, i64 %.sroa.5.0, i64 %.sroa.0.1
+  %.sroa.speculated = select i1 %219, i64 %.sroa.5.0, i64 %.sroa.0.0
   %240 = mul i64 %238, %.sroa.speculated
   %241 = udiv i64 %240, %209
   br label %245

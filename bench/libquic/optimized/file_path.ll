@@ -367,9 +367,9 @@ _ZNK4base8FilePathneERKS0_.exit.thread:           ; preds = %37
 
 41:                                               ; preds = %37
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %_ZNK4base8FilePathneERKS0_.exit.thread72, label %_ZNK4base8FilePathneERKS0_.exit
+  br i1 %42, label %_ZNK4base8FilePathneERKS0_.exit.thread69, label %_ZNK4base8FilePathneERKS0_.exit
 
-_ZNK4base8FilePathneERKS0_.exit.thread72:         ; preds = %41
+_ZNK4base8FilePathneERKS0_.exit.thread69:         ; preds = %41
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
@@ -378,10 +378,10 @@ _ZNK4base8FilePathneERKS0_.exit:                  ; preds = %41
   %43 = load ptr, ptr %10, align 8, !tbaa !13
   %44 = load ptr, ptr %8, align 8, !tbaa !13
   %bcmp.i.i.i = call i32 @bcmp(ptr %44, ptr %43, i64 %38)
-  %.not78 = icmp eq i32 %bcmp.i.i.i, 0
+  %.not75 = icmp eq i32 %bcmp.i.i.i, 0
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not78, label %.loopexit, label %45
+  br i1 %.not75, label %.loopexit, label %45
 
 45:                                               ; preds = %_ZNK4base8FilePathneERKS0_.exit.thread, %_ZNK4base8FilePathneERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -549,7 +549,7 @@ _ZN4base8FilePathaSERKS0_.exit36:                 ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %167
 
-.loopexit:                                        ; preds = %_ZNK4base8FilePathneERKS0_.exit, %_ZNK4base8FilePathneERKS0_.exit.thread72
+.loopexit:                                        ; preds = %_ZNK4base8FilePathneERKS0_.exit, %_ZNK4base8FilePathneERKS0_.exit.thread69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZNK4base8FilePath8BaseNameEv(ptr dead_on_unwind nonnull writable sret(%"class.base::FilePath") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %93 unwind label %121
@@ -567,8 +567,8 @@ _ZN4base8FilePathaSERKS0_.exit38:                 ; preds = %93
 
 96:                                               ; preds = %_ZN4base8FilePathaSERKS0_.exit38
   %97 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @_ZN4base8FilePath17kCurrentDirectoryE) #22
-  %.not79 = icmp eq i32 %97, 0
-  br i1 %.not79, label %131, label %98
+  %.not76 = icmp eq i32 %97, 0
+  br i1 %.not76, label %131, label %98
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

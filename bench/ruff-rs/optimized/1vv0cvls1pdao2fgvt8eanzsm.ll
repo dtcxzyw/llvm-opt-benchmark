@@ -33889,13 +33889,13 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17haac817f03bf464dbE.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17haac817f03bf464dbE.exit": ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17h5932d7f67bd6fa6bE.exit", %53, %55
-  %.sroa.0.018 = phi i64 [ %.sroa.0.0.i, %55 ], [ %.sroa.0.0.i, %53 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17h5932d7f67bd6fa6bE.exit" ]
+  %.sroa.0.017 = phi i64 [ %.sroa.0.0.i, %55 ], [ %.sroa.0.0.i, %53 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17h5932d7f67bd6fa6bE.exit" ]
   %.sroa.5.0 = phi i64 [ %56, %55 ], [ %50, %53 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17h5932d7f67bd6fa6bE.exit" ]
   %.sroa.11.0 = phi i64 [ 0, %55 ], [ %54, %53 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7reserve17h5932d7f67bd6fa6bE.exit" ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.sroa.0.018
-  %60 = sub i64 %.sroa.5.0, %.sroa.0.018
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.sroa.0.017
+  %60 = sub i64 %.sroa.5.0, %.sroa.0.017
   %61 = load i64, ptr %6, align 8, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load i64, ptr %62, align 8, !noundef !4
@@ -66860,13 +66860,13 @@ define void @"_ZN11ruff_linter5rules9pyupgrade5rules6pep695152_$LT$impl$u20$core
   %10 = alloca [32 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i8, ptr %11, align 8, !range !422, !noundef !4
-  switch i8 %12, label %default.unreachable259 [
+  switch i8 %12, label %default.unreachable257 [
     i8 0, label %14
     i8 1, label %31
     i8 2, label %48
   ]
 
-default.unreachable259:                           ; preds = %2
+default.unreachable257:                           ; preds = %2
   unreachable
 
 13:                                               ; preds = %69
@@ -66880,9 +66880,9 @@ default.unreachable259:                           ; preds = %2
   %18 = load i64, ptr %17, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199, label %20
+  br i1 %19, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197, label %20
 
-_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199: ; preds = %14
+_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197: ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 
@@ -66935,9 +66935,9 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i: ; preds = %28, %25
   %35 = load i64, ptr %34, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213, label %37
+  br i1 %36, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211, label %37
 
-_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213: ; preds = %31
+_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211: ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %127
 
@@ -66959,14 +66959,14 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i68: ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %4, i8 0, i64 23, i1 false), !noalias !6548
   %43 = trunc nuw nsw i64 %35 to i8
   %44 = or disjoint i8 %43, -64
-  %.23..23..23..23..23..23..23..23..sroa_idx262 = getelementptr inbounds nuw i8, ptr %4, i64 23
-  store i8 %44, ptr %.23..23..23..23..23..23..23..23..sroa_idx262, align 1, !noalias !6548
+  %.23..23..23..23..23..23..23..23..sroa_idx260 = getelementptr inbounds nuw i8, ptr %4, i64 23
+  store i8 %44, ptr %.23..23..23..23..23..23..23..23..sroa_idx260, align 1, !noalias !6548
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %33, i64 %35, i1 false), !noalias !6549
   %.0..0..0..0..0..sroa.02.0.copyload3.i70 = load ptr, ptr %4, align 8, !noalias !6550
-  %.8..8..8..8..8..sroa_idx260 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.8..8..8..8..8..sroa.6.0.copyload6.i72 = load i64, ptr %.8..8..8..8..8..sroa_idx260, align 8, !noalias !6550
-  %.16..16..16..16..16..sroa_idx261 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.16..16..16..16..16..sroa.7.0.copyload9.i74 = load i64, ptr %.16..16..16..16..16..sroa_idx261, align 8, !noalias !6550
+  %.8..8..8..8..8..sroa_idx258 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..8..8..8..sroa.6.0.copyload6.i72 = load i64, ptr %.8..8..8..8..8..sroa_idx258, align 8, !noalias !6550
+  %.16..16..16..16..16..sroa_idx259 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.16..16..16..16..16..sroa.7.0.copyload9.i74 = load i64, ptr %.16..16..16..16..16..sroa_idx259, align 8, !noalias !6550
   br label %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58
 
 45:                                               ; preds = %39
@@ -66980,8 +66980,8 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58: ; preds = %45, %42
   %.sroa.7.0.i61 = phi i64 [ %46, %45 ], [ %.16..16..16..16..16..sroa.7.0.copyload9.i74, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = and i64 %.sroa.7.0.i61, -72057594037927936
-  %or.cond236 = icmp eq i64 %47, -2738188573441261568
-  br i1 %or.cond236, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread, label %127, !prof !6537
+  %or.cond234 = icmp eq i64 %47, -2738188573441261568
+  br i1 %or.cond234, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread, label %127, !prof !6537
 
 48:                                               ; preds = %2
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -66990,9 +66990,9 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58: ; preds = %45, %42
   %52 = load i64, ptr %51, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227, label %54
+  br i1 %53, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225, label %54
 
-_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227: ; preds = %48
+_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225: ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %129
 
@@ -67014,14 +67014,14 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i88: ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %3, i8 0, i64 23, i1 false), !noalias !6562
   %60 = trunc nuw nsw i64 %52 to i8
   %61 = or disjoint i8 %60, -64
-  %.23..23..23..23..23..23..23..23..sroa_idx265 = getelementptr inbounds nuw i8, ptr %3, i64 23
-  store i8 %61, ptr %.23..23..23..23..23..23..23..23..sroa_idx265, align 1, !noalias !6562
+  %.23..23..23..23..23..23..23..23..sroa_idx263 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  store i8 %61, ptr %.23..23..23..23..23..23..23..23..sroa_idx263, align 1, !noalias !6562
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull readonly align 1 %50, i64 %52, i1 false), !noalias !6563
   %.0..0..0..0..0..sroa.02.0.copyload3.i90 = load ptr, ptr %3, align 8, !noalias !6564
-  %.8..8..8..8..8..sroa_idx263 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.8..8..8..8..8..sroa.6.0.copyload6.i92 = load i64, ptr %.8..8..8..8..8..sroa_idx263, align 8, !noalias !6564
-  %.16..16..16..16..16..sroa_idx264 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.16..16..16..16..16..sroa.7.0.copyload9.i94 = load i64, ptr %.16..16..16..16..16..sroa_idx264, align 8, !noalias !6564
+  %.8..8..8..8..8..sroa_idx261 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.8..8..8..8..8..sroa.6.0.copyload6.i92 = load i64, ptr %.8..8..8..8..8..sroa_idx261, align 8, !noalias !6564
+  %.16..16..16..16..16..sroa_idx262 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.16..16..16..16..16..sroa.7.0.copyload9.i94 = load i64, ptr %.16..16..16..16..16..sroa_idx262, align 8, !noalias !6564
   br label %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78
 
 62:                                               ; preds = %56
@@ -67035,23 +67035,23 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78: ; preds = %62, %59
   %.sroa.7.0.i81 = phi i64 [ %63, %62 ], [ %.16..16..16..16..16..sroa.7.0.copyload9.i94, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = and i64 %.sroa.7.0.i81, -72057594037927936
-  %or.cond237 = icmp eq i64 %64, -2738188573441261568
-  br i1 %or.cond237, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread, label %129, !prof !6537
+  %or.cond235 = icmp eq i64 %64, -2738188573441261568
+  br i1 %or.cond235, label %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread, label %129, !prof !6537
 
 _ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17he5045e13a520481bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.343) #42
   unreachable
 
-65:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199
-  %.sroa.0136.0207 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199 ], [ %.sroa.02.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
-  %.sroa.4.0206 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199 ], [ %.sroa.6.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
-  %.sroa.5.0205 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread199 ], [ %.sroa.7.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
+65:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197
+  %.sroa.0136.0205 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197 ], [ %.sroa.02.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
+  %.sroa.4.0204 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197 ], [ %.sroa.6.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
+  %.sroa.5.0203 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit.thread197 ], [ %.sroa.7.0.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i ]
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sroa.0136.0207, ptr %66, align 8
+  store ptr %.sroa.0136.0205, ptr %66, align 8
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %.sroa.4.0206, ptr %.sroa.4143.0..sroa_idx, align 8
+  store i64 %.sroa.4.0204, ptr %.sroa.4143.0..sroa_idx, align 8
   %.sroa.5144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.sroa.5.0205, ptr %.sroa.5144.0..sroa_idx, align 8
+  store i64 %.sroa.5.0203, ptr %.sroa.5144.0..sroa_idx, align 8
   store i32 0, ptr %10, align 8
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %67, align 4
@@ -67196,15 +67196,15 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h0ed499b7dbad91c3E.exit: ; preds
 
 110:                                              ; preds = %105
   store i32 27, ptr %107, align 8
-  %.sroa.4239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr inttoptr (i64 7500915 to ptr), ptr %.sroa.4239.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx240 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx240, align 8
-  %.sroa.6.0..sroa_idx241 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store i64 -4395513236313604096, ptr %.sroa.6.0..sroa_idx241, align 8
-  %.sroa.7242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %.sroa.4237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store ptr inttoptr (i64 7500915 to ptr), ptr %.sroa.4237.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx238 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx238, align 8
+  %.sroa.6.0..sroa_idx239 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  store i64 -4395513236313604096, ptr %.sroa.6.0..sroa_idx239, align 8
+  %.sroa.7240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.7242.0..sroa_idx, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.7240.0..sroa_idx, i8 0, i64 9, i1 false)
   store i32 27, ptr %111, align 8
   %.sroa.422.sroa.0.sroa.3.0..sroa.422.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 72
   store ptr inttoptr (i64 495623371106 to ptr), ptr %.sroa.422.sroa.0.sroa.3.0..sroa.422.0..sroa_idx.sroa_idx, align 8
@@ -67277,17 +67277,17 @@ _ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread: ; pre
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17he5045e13a520481bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.343) #42
   unreachable
 
-127:                                              ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213
-  %.sroa.5165.0221 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213 ], [ %.sroa.7.0.i61, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
-  %.sroa.4164.0220 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213 ], [ %.sroa.6.0.i60, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
-  %.sroa.0163.0219 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread213 ], [ %.sroa.02.0.i59, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
+127:                                              ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211
+  %.sroa.5165.0219 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211 ], [ %.sroa.7.0.i61, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
+  %.sroa.4164.0218 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211 ], [ %.sroa.6.0.i60, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
+  %.sroa.0163.0217 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit76.thread211 ], [ %.sroa.02.0.i59, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i58 ]
   %.sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  store ptr %.sroa.0163.0219, ptr %.sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0163.0217, ptr %.sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx, align 8
   %.sroa.632.sroa.5.sroa.4.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.4164.0220, ptr %.sroa.632.sroa.5.sroa.4.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4164.0218, ptr %.sroa.632.sroa.5.sroa.4.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.632.sroa.5.sroa.5.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.5165.0221, ptr %.sroa.632.sroa.5.sroa.5.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.5165.0219, ptr %.sroa.632.sroa.5.sroa.5.0..sroa.632.sroa.5.0..sroa.632.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 -38, ptr %128, align 1
   br label %122
@@ -67296,17 +67296,17 @@ _ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread: ; pre
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17he5045e13a520481bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.343) #42
   unreachable
 
-129:                                              ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227
-  %.sroa.5174.0235 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227 ], [ %.sroa.7.0.i81, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
-  %.sroa.4173.0234 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227 ], [ %.sroa.6.0.i80, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
-  %.sroa.0172.0233 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread227 ], [ %.sroa.02.0.i79, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
+129:                                              ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225
+  %.sroa.5174.0233 = phi i64 [ -4611686018427387904, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225 ], [ %.sroa.7.0.i81, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
+  %.sroa.4173.0232 = phi i64 [ 0, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225 ], [ %.sroa.6.0.i80, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
+  %.sroa.0172.0231 = phi ptr [ null, %_ZN11compact_str13CompactString7try_new17h26c3a1d262d078f2E.exit96.thread225 ], [ %.sroa.02.0.i79, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i78 ]
   %.sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  store ptr %.sroa.0172.0233, ptr %.sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0172.0231, ptr %.sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx, align 8
   %.sroa.639.sroa.5.sroa.4.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.4173.0234, ptr %.sroa.639.sroa.5.sroa.4.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4173.0232, ptr %.sroa.639.sroa.5.sroa.4.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.639.sroa.5.sroa.5.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.5174.0235, ptr %.sroa.639.sroa.5.sroa.5.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.5174.0233, ptr %.sroa.639.sroa.5.sroa.5.0..sroa.639.sroa.5.0..sroa.639.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 -37, ptr %130, align 1
   br label %122

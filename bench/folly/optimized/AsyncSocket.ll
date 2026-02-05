@@ -20068,15 +20068,15 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly22ObserverContainerStoreINS_21O
   %.not1.i.i = icmp slt i64 %5, 0
   %8 = select i1 %.not1.i.i, ptr %7, ptr %6
   %9 = and i64 %5, 4611686018427387903
-  %.idx21 = shl nuw nsw i64 %9, 4
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx21
+  %.idx19 = shl nuw nsw i64 %9, 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx19
   %11 = lshr i64 %9, 2
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %12 = load ptr, ptr %1, align 8, !tbaa !333
-  %13 = and i64 %.idx21, 9223372036854775744
+  %13 = and i64 %.idx19, 9223372036854775744
   %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %13
   br label %14
 
@@ -20097,13 +20097,13 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly22ObserverContainerStoreINS_21O
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !333
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39, label %25
+  br i1 %24, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit37, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !333
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit41, label %29
+  br i1 %28, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 64
@@ -20164,18 +20164,18 @@ _ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserv
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39: ; preds = %21
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit37: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit41: ; preds = %25
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 48
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit: ; preds = %14, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit41, %34, %40, %46
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %40 ], [ %.029.lcssa.i.i.i, %34 ], [ %.2.i.i.i, %46 ], [ %52, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit41 ], [ %51, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39 ], [ %50, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %14 ]
-  %.not22 = icmp eq ptr %.028.i.i.i, %10
-  br i1 %.not22, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.thread, label %53
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit: ; preds = %14, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit37, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39, %34, %40, %46
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %40 ], [ %.029.lcssa.i.i.i, %34 ], [ %.2.i.i.i, %46 ], [ %52, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit39 ], [ %51, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit37 ], [ %50, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %14 ]
+  %.not20 = icmp eq ptr %.028.i.i.i, %10
+  br i1 %.not20, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit.thread, label %53
 
 53:                                               ; preds = %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEESA_ET_SC_SC_RKT0_.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48

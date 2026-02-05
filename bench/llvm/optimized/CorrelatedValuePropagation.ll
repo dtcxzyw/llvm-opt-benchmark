@@ -2092,9 +2092,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %946, %943, %_ZN4llv
   br i1 %.not.i.i.i26.i.i, label %962, label %_ZNK4llvm5APInt13isNonPositiveEv.exit.i.i
 
 962:                                              ; preds = %949
-  br i1 %955, label %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread35.i.i, label %965
+  br i1 %955, label %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread33.i.i, label %965
 
-_ZNK4llvm5APInt13isNonPositiveEv.exit.thread35.i.i: ; preds = %962
+_ZNK4llvm5APInt13isNonPositiveEv.exit.thread33.i.i: ; preds = %962
   %963 = icmp eq ptr %956, null
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br i1 %963, label %970, label %1006
@@ -2102,7 +2102,7 @@ _ZNK4llvm5APInt13isNonPositiveEv.exit.thread35.i.i: ; preds = %962
 _ZNK4llvm5APInt13isNonPositiveEv.exit.i.i:        ; preds = %949
   %964 = icmp eq ptr %956, null
   %or.cond.i.i126 = select i1 %955, i1 true, i1 %964
-  br i1 %or.cond.i.i126, label %.sink.split.i.i, label %.thread52.i.i
+  br i1 %or.cond.i.i126, label %.sink.split.i.i, label %.thread50.i.i
 
 965:                                              ; preds = %962
   %966 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %77) #17
@@ -2110,7 +2110,7 @@ _ZNK4llvm5APInt13isNonPositiveEv.exit.i.i:        ; preds = %949
   %968 = icmp eq ptr %956, null
   br i1 %968, label %_ZN4llvm5APIntD2Ev.exit27.i.i, label %969
 
-.thread52.i.i:                                    ; preds = %_ZNK4llvm5APInt13isNonPositiveEv.exit.i.i
+.thread50.i.i:                                    ; preds = %_ZNK4llvm5APInt13isNonPositiveEv.exit.i.i
   call void @_ZdaPv(ptr noundef nonnull %956) #18
   br label %.sink.split.i.i
 
@@ -2123,11 +2123,11 @@ _ZN4llvm5APIntD2Ev.exit27.i.i:                    ; preds = %965
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br i1 %967, label %970, label %1006
 
-.sink.split.i.i:                                  ; preds = %.thread52.i.i, %_ZNK4llvm5APInt13isNonPositiveEv.exit.i.i
+.sink.split.i.i:                                  ; preds = %.thread50.i.i, %_ZNK4llvm5APInt13isNonPositiveEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %970
 
-970:                                              ; preds = %.sink.split.i.i, %_ZN4llvm5APIntD2Ev.exit27.i.i, %969, %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread35.i.i
+970:                                              ; preds = %.sink.split.i.i, %_ZN4llvm5APIntD2Ev.exit27.i.i, %969, %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread33.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %78, ptr noundef nonnull align 8 dereferenceable(88) %495, ptr noundef null, ptr null, i64 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
@@ -2215,7 +2215,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit.i.i
 
-1006:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit27.i.i, %969, %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread35.i.i
+1006:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit27.i.i, %969, %_ZNK4llvm5APInt13isNonPositiveEv.exit.thread33.i.i
   br i1 %.0.i.i.i.i, label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit.i.i, label %1007
 
 1007:                                             ; preds = %1006
@@ -3907,7 +3907,7 @@ _ZL11processSRemPN4llvm14BinaryOperatorERKNS_13ConstantRangeES4_PNS_13LazyValueI
   %1710 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1709) #17
   %1711 = call noundef i32 @_ZNK4llvm13ConstantRange16getMinSignedBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #16
   %1712 = call noundef i32 @_ZNK4llvm13ConstantRange16getMinSignedBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #16
-  %.sroa.speculated67.i.i = call i32 @llvm.umax.i32(i32 %1711, i32 %1712)
+  %.sroa.speculated65.i.i = call i32 @llvm.umax.i32(i32 %1711, i32 %1712)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 %1710, ptr %261, align 8, !tbaa !46, !alias.scope !199
   %1713 = icmp ult i32 %1710, 65
@@ -3935,12 +3935,12 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i.i:            ; preds = %1721, %1714
 1723:                                             ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i32 %.sroa.speculated67.i.i, ptr %262, align 8, !tbaa !46, !alias.scope !202
-  %1724 = icmp ult i32 %.sroa.speculated67.i.i, 65
+  store i32 %.sroa.speculated65.i.i, ptr %262, align 8, !tbaa !46, !alias.scope !202
+  %1724 = icmp ult i32 %.sroa.speculated65.i.i, 65
   br i1 %1724, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i.i.i140, label %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i135
 
 _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i.i140:       ; preds = %1723
-  %1725 = add nuw nsw i32 %.sroa.speculated67.i.i, 63
+  %1725 = add nuw nsw i32 %.sroa.speculated65.i.i, 63
   %1726 = and i32 %1725, 63
   %1727 = zext nneg i32 %1726 to i64
   %1728 = shl nuw i64 1, %1727
@@ -3949,7 +3949,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i.i.i140:       ; preds = %1723
 _ZN4llvm5APIntC2Ejmbb.exit.i.i.i135:              ; preds = %1723
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %36, i64 noundef 0, i1 noundef zeroext false) #16
   %.pr.i.i.i136 = load i32, ptr %262, align 8, !tbaa !46, !alias.scope !202
-  %1729 = add i32 %.sroa.speculated67.i.i, -1
+  %1729 = add i32 %.sroa.speculated65.i.i, -1
   %1730 = and i32 %1729, 63
   %1731 = zext nneg i32 %1730 to i64
   %1732 = shl nuw i64 1, %1731
@@ -4029,7 +4029,7 @@ _ZN4llvm5APIntD2Ev.exit50.i.i:                    ; preds = %1756, %1753, %_ZN4l
 
 _ZN4llvm5APIntD2Ev.exit51.i.i:                    ; preds = %1764, %1761, %.critedge49.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %spec.select.i.i132 = add i32 %1758, %.sroa.speculated67.i.i
+  %spec.select.i.i132 = add i32 %1758, %.sroa.speculated65.i.i
   %or.cond.i.i.i = icmp eq i32 %spec.select.i.i132, 0
   br i1 %or.cond.i.i.i, label %_ZN4llvm12PowerOf2CeilEm.exit.i.i, label %1765
 
@@ -6410,12 +6410,12 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 _ZL16expandUDivOrURemPN4llvm14BinaryOperatorERKNS_13ConstantRangeES4_.exit: ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit.i
   %282 = call noundef i32 @_ZNK4llvm13ConstantRange13getActiveBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
   %283 = call noundef i32 @_ZNK4llvm13ConstantRange13getActiveBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #16
-  %.sroa.speculated47.i = call i32 @llvm.umax.i32(i32 %282, i32 %283)
-  %or.cond.i.i = icmp eq i32 %.sroa.speculated47.i, 0
+  %.sroa.speculated45.i = call i32 @llvm.umax.i32(i32 %282, i32 %283)
+  %or.cond.i.i = icmp eq i32 %.sroa.speculated45.i, 0
   br i1 %or.cond.i.i, label %_ZN4llvm12PowerOf2CeilEm.exit.i, label %284
 
 284:                                              ; preds = %_ZL16expandUDivOrURemPN4llvm14BinaryOperatorERKNS_13ConstantRangeES4_.exit
-  %285 = zext i32 %.sroa.speculated47.i to i64
+  %285 = zext i32 %.sroa.speculated45.i to i64
   %286 = add nsw i64 %285, -1
   %287 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %286, i1 false)
   %288 = sub nuw nsw i64 64, %287

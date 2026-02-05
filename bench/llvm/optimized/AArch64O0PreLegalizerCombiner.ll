@@ -13240,8 +13240,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 _ZNK4llvm9StringRef5splitES0_.exit.i.i.i:         ; preds = %36, %35
   %.sroa.5.0.i.i.i = phi i64 [ %.sroa.5.0.copyload.i.i.i, %35 ], [ %.sroa.speculated.i.i.i.i.i, %36 ]
   %.sroa.01.0.i.i.i = phi ptr [ %.sroa.01.0.copyload.i.i.i, %35 ], [ %38, %36 ]
-  %.sroa.10.1.i.i.i = phi i64 [ 0, %35 ], [ %41, %36 ]
-  %.sroa.7.1.i.i.i = phi ptr [ null, %35 ], [ %40, %36 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %35 ], [ %41, %36 ]
+  %.sroa.7.0.i.i.i = phi ptr [ null, %35 ], [ %40, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 3, ptr %26, align 8, !tbaa !1026, !alias.scope !1029
@@ -13300,9 +13300,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit4.thread.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit4.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store ptr %.sroa.7.1.i.i.i, ptr %3, align 8, !tbaa !49
-  store i64 %.sroa.10.1.i.i.i, ptr %8, align 8, !tbaa !50
-  %59 = icmp eq i64 %.sroa.10.1.i.i.i, 0
+  store ptr %.sroa.7.0.i.i.i, ptr %3, align 8, !tbaa !49
+  store i64 %.sroa.10.0.i.i.i, ptr %8, align 8, !tbaa !50
+  %59 = icmp eq i64 %.sroa.10.0.i.i.i, 0
   br i1 %59, label %"_ZSt10__invoke_rIvRN12_GLOBAL__N_13$_1EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %32, !llvm.loop !1033
 
 "_ZSt10__invoke_rIvRN12_GLOBAL__N_13$_1EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i

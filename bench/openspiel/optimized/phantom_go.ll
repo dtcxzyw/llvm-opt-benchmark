@@ -1921,13 +1921,13 @@ _ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %_ZN
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit, %140
-  %.sroa.08.019 = phi ptr [ %141, %140 ], [ %73, %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit ]
-  %138 = load i16, ptr %.sroa.08.019, align 2
+  %.sroa.08.016 = phi ptr [ %141, %140 ], [ %73, %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit ]
+  %138 = load i16, ptr %.sroa.08.016, align 2
   %139 = invoke noundef zeroext i1 @_ZN10open_spiel10phantom_go14PhantomGoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(8706) %24, i16 noundef zeroext %138, i8 noundef zeroext 0)
           to label %140 unwind label %142
 
 140:                                              ; preds = %.lr.ph
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.08.019, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 2
   %.not = icmp eq ptr %141, %74
   br i1 %.not, label %.loopexit, label %.lr.ph
 

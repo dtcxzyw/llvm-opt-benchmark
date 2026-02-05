@@ -1760,8 +1760,8 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
           to label %.preheader unwind label %13
 
 .preheader:                                       ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
-  %.not41 = icmp eq ptr %.sroa.029.0, %.0.i.i.i.i.i
-  br i1 %.not41, label %.critedge21, label %.lr.ph
+  %.not38 = icmp eq ptr %.sroa.029.0, %.0.i.i.i.i.i
+  br i1 %.not38, label %.critedge21, label %.lr.ph
 
 13:                                               ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
   %14 = landingpad { ptr, i32 }
@@ -1769,8 +1769,8 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
   br label %27
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
-  %.sroa.025.042 = phi ptr [ %25, %.critedge ], [ %.sroa.029.0, %.preheader ]
-  %15 = load i32, ptr %.sroa.025.042, align 8, !tbaa !45
+  %.sroa.025.039 = phi ptr [ %25, %.critedge ], [ %.sroa.029.0, %.preheader ]
+  %15 = load i32, ptr %.sroa.025.039, align 8, !tbaa !45
   %16 = invoke noundef zeroext i1 %0(i32 noundef %15)
           to label %17 unwind label %23, !callees !47
 
@@ -1779,7 +1779,7 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !48
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.13, ptr noundef %21) #24
   br label %.critedge21
@@ -1790,12 +1790,12 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
   br label %27
 
 .critedge:                                        ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 16
   %.not = icmp eq ptr %25, %.0.i.i.i.i.i
   br i1 %.not, label %.critedge21, label %.lr.ph
 
 .critedge21:                                      ; preds = %.critedge, %.preheader, %18
-  %.not38 = phi i1 [ false, %18 ], [ true, %.preheader ], [ true, %.critedge ]
+  %.not35 = phi i1 [ false, %18 ], [ true, %.preheader ], [ true, %.critedge ]
   %.not.i.i.i = icmp eq ptr %.sroa.029.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit, label %26
 
@@ -1804,7 +1804,7 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit: ; preds = %.critedge21, %26
-  ret i1 %.not38
+  ret i1 %.not35
 
 27:                                               ; preds = %23, %13
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]

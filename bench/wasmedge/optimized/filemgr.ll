@@ -488,8 +488,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %13, %.noexc5
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = load i32, ptr %1, align 8, !noalias !7
-  %.not.i36 = icmp eq i32 %18, 0
-  br i1 %.not.i36, label %.thread, label %33
+  %.not.i30 = icmp eq i32 %18, 0
+  br i1 %.not.i30, label %.thread, label %33
 
 19:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   %.not11.i = icmp eq ptr %.0.i.i.i.i.i, %8
@@ -518,16 +518,16 @@ _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i:            ; preds = %20
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i, %19
-  %.sroa.11.13749 = phi ptr [ %9, %19 ], [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
-  %.sroa.011.13948 = phi ptr [ %8, %19 ], [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
-  %.0.i.i.i.i.i4147 = phi ptr [ %.0.i.i.i.i.i, %19 ], [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.11.13143 = phi ptr [ %9, %19 ], [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.011.13342 = phi ptr [ %8, %19 ], [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i.i3541 = phi ptr [ %.0.i.i.i.i.i, %19 ], [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   store i8 1, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.011.13948, ptr %30, align 8
+  store ptr %.sroa.011.13342, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i4147, ptr %31, align 8
+  store ptr %.0.i.i.i.i.i3541, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.13749, ptr %32, align 8
+  store ptr %.sroa.11.13143, ptr %32, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 33:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread

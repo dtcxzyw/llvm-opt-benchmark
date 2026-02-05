@@ -213,8 +213,8 @@ _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread: ; preds = 
 92:                                               ; preds = %90, %67
   %.2 = phi ptr [ %spec.select, %90 ], [ %.02866, %67 ]
   %93 = add nuw i64 %50, 1
-  %.not12.i.i = icmp ult i64 %93, %58
-  br i1 %.not12.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
+  %.not11.i.i = icmp ult i64 %93, %58
+  br i1 %.not11.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %92, %tailrecurse.i.i
   %94 = load ptr, ptr %45, align 8, !tbaa !78
@@ -251,10 +251,10 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 
 _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %92
   %112 = phi ptr [ %49, %92 ], [ %103, %tailrecurse.i.i ]
-  %.lcssa7.i.i = phi i64 [ %93, %92 ], [ %102, %tailrecurse.i.i ]
+  %.lcssa6.i.i = phi i64 [ %93, %92 ], [ %102, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %54, %92 ], [ %107, %tailrecurse.i.i ]
-  store i64 %.lcssa7.i.i, ptr %41, align 8, !tbaa !83
-  %113 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
+  store i64 %.lcssa6.i.i, ptr %41, align 8, !tbaa !83
+  %113 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa6.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !72
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %116 = load i32, ptr %115, align 8
@@ -272,7 +272,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %9
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit: ; preds = %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i
-  %120 = phi i64 [ %.pre81, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa7.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
+  %120 = phi i64 [ %.pre81, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa6.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
   %121 = phi ptr [ %.pre80, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ null, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %112, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
   %.not.i34 = icmp ne ptr %121, null
   %122 = icmp ne i64 %120, 0
@@ -470,8 +470,8 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
 
 .critedge:                                        ; preds = %51
   %61 = add nuw i64 %41, 1
-  %.not12.i.i = icmp ult i64 %61, %49
-  br i1 %.not12.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
+  %.not11.i.i = icmp ult i64 %61, %49
+  br i1 %.not11.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge, %tailrecurse.i.i
   %62 = load ptr, ptr %36, align 8, !tbaa !78
@@ -508,10 +508,10 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 
 _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %.critedge
   %80 = phi ptr [ %40, %.critedge ], [ %71, %tailrecurse.i.i ]
-  %.lcssa7.i.i = phi i64 [ %61, %.critedge ], [ %70, %tailrecurse.i.i ]
+  %.lcssa6.i.i = phi i64 [ %61, %.critedge ], [ %70, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %45, %.critedge ], [ %75, %tailrecurse.i.i ]
-  store i64 %.lcssa7.i.i, ptr %33, align 8, !tbaa !83
-  %81 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
+  store i64 %.lcssa6.i.i, ptr %33, align 8, !tbaa !83
+  %81 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa6.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !72
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load i32, ptr %83, align 8
@@ -529,7 +529,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %.
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit: ; preds = %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i
-  %88 = phi i64 [ %.pre62, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa7.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
+  %88 = phi i64 [ %.pre62, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa6.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
   %89 = phi ptr [ %.pre61, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ null, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %80, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
   %.not.i16 = icmp ne ptr %89, null
   %90 = icmp ne i64 %88, 0
@@ -672,8 +672,8 @@ define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4Node
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %.not12 = icmp ult i64 %4, %13
-  br i1 %.not12, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %.lr.ph
+  %.not11 = icmp ult i64 %4, %13
+  br i1 %.not11, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -713,10 +713,10 @@ tailrecurse:                                      ; preds = %15
   br i1 %.not, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %15
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %tailrecurse, %1
-  %.lcssa7 = phi i64 [ %4, %1 ], [ %24, %tailrecurse ]
+  %.lcssa6 = phi i64 [ %4, %1 ], [ %24, %tailrecurse ]
   %.lcssa = phi ptr [ %9, %1 ], [ %29, %tailrecurse ]
-  store i64 %.lcssa7, ptr %2, align 8, !tbaa !83
-  %34 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.lcssa7
+  store i64 %.lcssa6, ptr %2, align 8, !tbaa !83
+  %34 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.lcssa6
   %35 = load ptr, ptr %34, align 8, !tbaa !72
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
