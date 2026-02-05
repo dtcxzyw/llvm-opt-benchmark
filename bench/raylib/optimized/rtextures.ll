@@ -13493,27 +13493,27 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias writable writeonl
   %48 = trunc i32 %47 to i8
   %gep = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep, i64 %indvars.iv
   store i8 %48, ptr %gep, align 1
-  %49 = fmul float %42, %23
-  %50 = fmul float %44, %24
-  %51 = fadd float %49, %50
-  %52 = fptosi float %51 to i32
-  %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  store i8 %53, ptr %54, align 1
-  %55 = fmul float %42, %25
-  %56 = fmul float %44, %26
-  %57 = fadd float %55, %56
-  %58 = fptosi float %57 to i32
-  %59 = trunc i32 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %gep, i64 2
-  store i8 %59, ptr %60, align 1
-  %61 = fmul float %42, %27
-  %62 = fmul float %44, %28
-  %63 = fadd float %61, %62
-  %64 = fptosi float %63 to i32
-  %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %gep, i64 3
-  store i8 %65, ptr %66, align 1
+  %53 = fmul float %42, %23
+  %54 = fmul float %44, %24
+  %55 = fadd float %53, %54
+  %56 = fptosi float %55 to i32
+  %57 = trunc i32 %56 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  store i8 %57, ptr %58, align 1
+  %59 = fmul float %42, %25
+  %60 = fmul float %44, %26
+  %61 = fadd float %59, %60
+  %62 = fptosi float %61 to i32
+  %63 = trunc i32 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %gep, i64 2
+  store i8 %63, ptr %64, align 1
+  %65 = fmul float %42, %27
+  %66 = fmul float %44, %28
+  %67 = fadd float %65, %66
+  %68 = fptosi float %67 to i32
+  %69 = trunc i32 %68 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %gep, i64 3
+  store i8 %69, ptr %70, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %34
@@ -13525,14 +13525,14 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias writable writeonl
 
 ._crit_edge61:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 7, ptr %70, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 7, ptr %74, align 4
   ret void
 }
 

@@ -204,7 +204,7 @@ declare float @llvm.exp2.f32(float) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @init_global(ptr noundef writeonly captures(none) initializes((520, 528)) %0) local_unnamed_addr #6 {
-  %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #20
+  %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %2, ptr %3, align 8, !tbaa !88
   store i32 -1, ptr %2, align 4, !tbaa !89
@@ -245,7 +245,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 24)) %2) local_unnamed_addr #11 {
-  %4 = tail call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #21
+  %4 = tail call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !71
   ret void
@@ -308,7 +308,7 @@ define void @color_picker_apply(ptr noundef readonly captures(none) %0, ptr noun
   %25 = fpext reassoc nsz arcp contract afn float %22 to double
   br label %26
 
-26:                                               ; preds = %3, %9
+26:; preds = %3, %9
   %.010 = phi double [ %23, %9 ], [ 0x7FF8000000000000, %3 ]
   %.09 = phi double [ %24, %9 ], [ 0x7FF8000000000000, %3 ]
   %.0 = phi double [ %25, %9 ], [ 0x7FF8000000000000, %3 ]
@@ -343,14 +343,14 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %7, ptr noundef %8) #17
   %9 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #17
-  %10 = tail call i64 @gtk_box_get_type() #22
+  %10 = tail call i64 @gtk_box_get_type() #21
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #17
   %12 = tail call ptr @dtgtk_gradient_slider_new_with_color_and_name(ptr noundef nonnull byval(%struct._GdkRGBA) align 8 @gui_init._gradient_L, ptr noundef nonnull byval(%struct._GdkRGBA) align 8 getelementptr inbounds nuw (i8, ptr @gui_init._gradient_L, i64 32), ptr noundef nonnull @.str.8) #17
   %13 = tail call i64 @dtgtk_gradient_slider_get_type() #17
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #17
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !101
-  %16 = tail call i64 @gtk_widget_get_type() #22
+  %16 = tail call i64 @gtk_widget_get_type() #21
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %16) #17
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %17, ptr noundef %18) #17
@@ -484,7 +484,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %7, label %14, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.14) #23
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.14) #22
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %9, label %11
 
@@ -493,7 +493,7 @@ sub_1:                                            ; preds = %sub_0
   br label %14
 
 11:                                               ; preds = %.tail.thread
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.12) #23
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.12) #22
   %.not9 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %spec.select = select i1 %.not9, ptr %13, ptr null

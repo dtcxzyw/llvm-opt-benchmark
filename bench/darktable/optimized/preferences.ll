@@ -8899,8 +8899,8 @@ define internal void @dpi_scaling_changed_callback(ptr noundef %0, ptr readnone 
   %.0 = select nsz i1 %7, float %8, float %6
   tail call void @dt_conf_set_float(ptr noundef nonnull @.str.67, float noundef %.0) #13
   store i32 1, ptr @restart_required, align 4, !tbaa !62
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !6
-  tail call void @dt_configure_ppd_dpi(ptr noundef %9) #13
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !6
+  tail call void @dt_configure_ppd_dpi(ptr noundef %13) #13
   tail call void (...) @dt_bauhaus_load_theme() #13
   ret void
 }
@@ -16244,7 +16244,7 @@ declare i64 @gtk_tree_store_get_type() local_unnamed_addr #2
 declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @gtk_widget_get_toplevel(ptr noundef) local_unnamed_addr #1
 
@@ -16454,10 +16454,10 @@ declare ptr @dt_shortcuts_prefs(ptr noundef) local_unnamed_addr #1
 declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #12

@@ -333,7 +333,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %77 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %76, float 1.000000e+00)
   br label %78
 
-78:                                               ; preds = %46, %10
+78:; preds = %46, %10
   %.sink55 = phi float [ %42, %10 ], [ %77, %46 ]
   %.sink = phi i32 [ %45, %10 ], [ %68, %46 ]
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 8

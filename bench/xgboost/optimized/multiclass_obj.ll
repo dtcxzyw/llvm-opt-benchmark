@@ -13730,13 +13730,13 @@ _ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551
   %94 = tail call float @llvm.maxnum.f32(float %93, float 0x3C9CD2B2A0000000)
   %95 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %3, i64 %80
   store float %89, ptr %95, align 4
-  %.sroa_idx60 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store float %94, ptr %.sroa_idx60, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  store float %94, ptr %97, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = load i32, ptr %0, align 4, !tbaa !403
-  %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %._crit_edge86, !llvm.loop !413
+  %98 = load i32, ptr %0, align 4, !tbaa !403
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %.lr.ph, label %._crit_edge86, !llvm.loop !413
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
