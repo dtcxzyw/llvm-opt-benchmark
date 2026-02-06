@@ -12635,9 +12635,9 @@ define hidden noundef i32 @_ZNK8seq_util8max_plusEjj(ptr noundef nonnull readnon
 define hidden noundef i32 @_ZNK8seq_util7max_mulEjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %umul = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %1, i32 %2)
   %umul.value = extractvalue { i32, i1 } %umul, 0
-  %4 = extractvalue { i32, i1 } %umul, 1
-  %5 = select i1 %4, i32 -1, i32 %umul.value
-  ret i32 %5
+  %umul.overflow = extractvalue { i32, i1 } %umul, 1
+  %4 = select i1 %umul.overflow, i32 -1, i32 %umul.value
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16642,7 +16642,7 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %85
 
 98:                                               ; preds = %93
   %99 = call noundef zeroext i1 @_ZNK8seq_util3rex7is_loopEPK4exprRPS1_RjS6_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br i1 %99, label %100, label %106
+  br i1 %99, label %100, label %105
 
 100:                                              ; preds = %98
   %101 = load i32, ptr %6, align 4, !tbaa !29
@@ -16650,69 +16650,69 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %85
   %103 = call noundef i32 @_ZNK8seq_util3rex10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %102)
   %umul.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %101, i32 %103)
   %umul.value.i = extractvalue { i32, i1 } %umul.i, 0
-  %104 = extractvalue { i32, i1 } %umul.i, 1
-  %105 = select i1 %104, i32 -1, i32 %umul.value.i
+  %umul.overflow.i = extractvalue { i32, i1 } %umul.i, 1
+  %104 = select i1 %umul.overflow.i, i32 -1, i32 %umul.value.i
   br label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
 
-106:                                              ; preds = %98
-  %107 = call noundef zeroext i1 @_ZNK8seq_util3rex8is_to_reEPK4exprRPS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %107, label %108, label %113
+105:                                              ; preds = %98
+  %106 = call noundef zeroext i1 @_ZNK8seq_util3rex8is_to_reEPK4exprRPS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %106, label %107, label %112
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr %0, align 8, !tbaa !257
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %111 = load ptr, ptr %4, align 8, !tbaa !177
-  %112 = call noundef i32 @_ZNK8seq_util3str10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(20) %110, ptr noundef %111)
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %0, align 8, !tbaa !257
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %110 = load ptr, ptr %4, align 8, !tbaa !177
+  %111 = call noundef i32 @_ZNK8seq_util3str10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(20) %109, ptr noundef %110)
   br label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
 
-113:                                              ; preds = %106
-  %114 = load i32, ptr %7, align 8, !tbaa !206
-  %.fr61 = freeze i32 %114
-  %115 = load i32, ptr %9, align 4
-  %116 = and i32 %115, 65535
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
+112:                                              ; preds = %105
+  %113 = load i32, ptr %7, align 8, !tbaa !206
+  %.fr61 = freeze i32 %113
+  %114 = load i32, ptr %9, align 4
+  %115 = and i32 %114, 65535
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !185
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !41
-  %.not.i.i.i.i23 = icmp eq ptr %122, null
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !185
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !41
+  %.not.i.i.i.i23 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i23, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread, label %_ZNK8seq_util3rex8is_rangeEPK4expr.exit
 
-_ZNK8seq_util3rex8is_rangeEPK4expr.exit:          ; preds = %118
-  %123 = load i32, ptr %122, align 8, !tbaa !44
-  %124 = icmp eq i32 %123, %.fr61
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp eq i32 %126, 27
-  %128 = select i1 %124, i1 %127, i1 false
-  br i1 %128, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread, label %_ZNK8seq_util3rex10is_of_predEPK4expr.exit
+_ZNK8seq_util3rex8is_rangeEPK4expr.exit:          ; preds = %117
+  %122 = load i32, ptr %121, align 8, !tbaa !44
+  %123 = icmp eq i32 %122, %.fr61
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp eq i32 %125, 27
+  %127 = select i1 %123, i1 %126, i1 false
+  br i1 %127, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread, label %_ZNK8seq_util3rex10is_of_predEPK4expr.exit
 
 _ZNK8seq_util3rex10is_of_predEPK4expr.exit:       ; preds = %_ZNK8seq_util3rex8is_rangeEPK4expr.exit
-  %129 = load i32, ptr %122, align 8, !tbaa !44
-  %130 = icmp eq i32 %129, %.fr61
-  %131 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %132, 38
-  %134 = select i1 %130, i1 %133, i1 false
-  br i1 %134, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit
+  %128 = load i32, ptr %121, align 8, !tbaa !44
+  %129 = icmp eq i32 %128, %.fr61
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, 38
+  %133 = select i1 %129, i1 %132, i1 false
+  br i1 %133, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit
 
 _ZNK8seq_util3rex12is_full_charEPK4expr.exit:     ; preds = %_ZNK8seq_util3rex10is_of_predEPK4expr.exit
-  %135 = load i32, ptr %122, align 8, !tbaa !44
-  %.fr = freeze i32 %135
-  %136 = icmp eq i32 %.fr, %.fr61
-  %137 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %138 = load i32, ptr %137, align 4
-  %.fr62 = freeze i32 %138
-  %139 = icmp eq i32 %.fr62, 37
-  %140 = and i1 %136, %139
-  %spec.select = select i1 %140, i32 1, i32 -1
+  %134 = load i32, ptr %121, align 8, !tbaa !44
+  %.fr = freeze i32 %134
+  %135 = icmp eq i32 %.fr, %.fr61
+  %136 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %137 = load i32, ptr %136, align 4
+  %.fr62 = freeze i32 %137
+  %138 = icmp eq i32 %.fr62, 37
+  %139 = and i1 %135, %138
+  %spec.select = select i1 %139, i32 1, i32 -1
   br label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
 
-_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread: ; preds = %118, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit, %113, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit, %108, %100, %95, %72, %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit, %34
-  %.0 = phi i32 [ 1, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit ], [ %.0.i14, %34 ], [ %.sroa.speculated29, %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit ], [ %.sroa.speculated, %72 ], [ %97, %95 ], [ %105, %100 ], [ %112, %108 ], [ 0, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit ], [ 1, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit ], [ -1, %113 ], [ %spec.select, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ -1, %118 ]
+_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread: ; preds = %117, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit, %112, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit, %107, %100, %95, %72, %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit, %34
+  %.0 = phi i32 [ 1, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit ], [ %.0.i14, %34 ], [ %.sroa.speculated29, %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit ], [ %.sroa.speculated, %72 ], [ %97, %95 ], [ %104, %100 ], [ %111, %107 ], [ 0, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit ], [ 1, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit ], [ -1, %112 ], [ %spec.select, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ -1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

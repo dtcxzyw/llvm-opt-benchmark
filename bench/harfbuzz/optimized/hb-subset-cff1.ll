@@ -16730,7 +16730,7 @@ define linkonce_odr dso_local void @_ZN3CFF15parsed_cs_str_t7compactEv(ptr nound
   %wide.trip.count = zext i32 %4 to i64
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %62
+._crit_edge.loopexit:                             ; preds = %59
   %.pre = load i32, ptr %3, align 4, !tbaa !484
   br label %._crit_edge
 
@@ -16798,9 +16798,9 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   store i32 %.sink.i.i.i, ptr %2, align 8, !tbaa !483
   br label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE6shrinkEib.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
-  %.03847 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %62 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %59
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
+  %.03847 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %59 ]
   %27 = load ptr, ptr %6, align 8, !tbaa !590
   %28 = zext i32 %.03847 to i64
   %29 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %28
@@ -16839,30 +16839,28 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %41
-  %50 = zext i8 %44 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %52 = load i8, ptr %51, align 4, !tbaa !302
-  %53 = zext i8 %52 to i32
-  %54 = add nuw nsw i32 %53, %50
-  %55 = icmp samesign ult i32 %54, 256
-  br i1 %55, label %56, label %.critedge
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %51 = load i8, ptr %50, align 4, !tbaa !302
+  %52 = xor i8 %44, -1
+  %not.add.overflow.not = icmp ugt i8 %51, %52
+  br i1 %not.add.overflow.not, label %.critedge, label %53
 
-56:                                               ; preds = %49
-  %57 = add i8 %52, %44
-  store i8 %57, ptr %43, align 4, !tbaa !302
+53:                                               ; preds = %49
+  %54 = add i8 %51, %44
+  store i8 %54, ptr %43, align 4, !tbaa !302
   store i32 65535, ptr %30, align 8, !tbaa !298
-  br label %62
+  br label %59
 
 .critedge:                                        ; preds = %41, %36, %32, %32, %.lr.ph, %.lr.ph, %49
-  %58 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %indvars.iv
-  %59 = add i32 %.03847, 1
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
-  br label %62
+  %55 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %indvars.iv
+  %56 = add i32 %.03847, 1
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %57
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
+  br label %59
 
-62:                                               ; preds = %.critedge, %56
-  %.1 = phi i32 [ %.03847, %56 ], [ %59, %.critedge ]
+59:                                               ; preds = %.critedge, %53
+  %.1 = phi i32 [ %.03847, %53 ], [ %56, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !591
@@ -20637,7 +20635,7 @@ define linkonce_odr dso_local void @_ZNK3CFF16subr_subsetter_tI21cff1_subr_subse
   br i1 %.not24, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph31:                                         ; preds = %.lr.ph36, %_ZN3CFF15parsed_cs_str_t7compactEv.exit
-  %.02329 = phi ptr [ %83, %_ZN3CFF15parsed_cs_str_t7compactEv.exit ], [ %16, %.lr.ph36 ]
+  %.02329 = phi ptr [ %80, %_ZN3CFF15parsed_cs_str_t7compactEv.exit ], [ %16, %.lr.ph36 ]
   %22 = getelementptr inbounds nuw i8, ptr %.02329, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.02329, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !579
@@ -20653,7 +20651,7 @@ define linkonce_odr dso_local void @_ZNK3CFF16subr_subsetter_tI21cff1_subr_subse
   %wide.trip.count.i = zext i32 %24 to i64
   br label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %82
+._crit_edge.loopexit.i:                           ; preds = %79
   %.pre.i = load i32, ptr %23, align 4, !tbaa !484
   br label %._crit_edge.i
 
@@ -20721,9 +20719,9 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   store i32 %.sink.i.i.i.i, ptr %22, align 8, !tbaa !483
   br label %_ZN3CFF15parsed_cs_str_t7compactEv.exit
 
-.lr.ph.i:                                         ; preds = %82, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %82 ]
-  %.03847.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %82 ]
+.lr.ph.i:                                         ; preds = %79, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %79 ]
+  %.03847.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %79 ]
   %47 = load ptr, ptr %26, align 8, !tbaa !590
   %48 = zext i32 %.03847.i to i64
   %49 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %48
@@ -20762,37 +20760,35 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   br i1 %68, label %69, label %.critedge.i
 
 69:                                               ; preds = %61
-  %70 = zext i8 %64 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  %72 = load i8, ptr %71, align 4, !tbaa !302
-  %73 = zext i8 %72 to i32
-  %74 = add nuw nsw i32 %73, %70
-  %75 = icmp samesign ult i32 %74, 256
-  br i1 %75, label %76, label %.critedge.i
+  %70 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  %71 = load i8, ptr %70, align 4, !tbaa !302
+  %72 = xor i8 %64, -1
+  %not.add.overflow.not.i = icmp ugt i8 %71, %72
+  br i1 %not.add.overflow.not.i, label %.critedge.i, label %73
 
-76:                                               ; preds = %69
-  %77 = add i8 %72, %64
-  store i8 %77, ptr %63, align 4, !tbaa !302
+73:                                               ; preds = %69
+  %74 = add i8 %71, %64
+  store i8 %74, ptr %63, align 4, !tbaa !302
   store i32 65535, ptr %50, align 8, !tbaa !298
-  br label %82
+  br label %79
 
 .critedge.i:                                      ; preds = %69, %61, %56, %52, %52, %.lr.ph.i, %.lr.ph.i
-  %78 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %indvars.iv.i
-  %79 = add i32 %.03847.i, 1
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
-  br label %82
+  %75 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %indvars.iv.i
+  %76 = add i32 %.03847.i, 1
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
+  br label %79
 
-82:                                               ; preds = %.critedge.i, %76
-  %.1.i = phi i32 [ %.03847.i, %76 ], [ %79, %.critedge.i ]
+79:                                               ; preds = %.critedge.i, %73
+  %.1.i = phi i32 [ %.03847.i, %73 ], [ %76, %.critedge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !591
 
 _ZN3CFF15parsed_cs_str_t7compactEv.exit:          ; preds = %.lr.ph31, %._crit_edge.i, %30, %33, %42, %.sink.split.i.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %.02329, i64 40
-  %.not25 = icmp eq ptr %83, %20
+  %80 = getelementptr inbounds nuw i8, ptr %.02329, i64 40
+  %.not25 = icmp eq ptr %80, %20
   br i1 %.not25, label %._crit_edge32, label %.lr.ph31
 }
 

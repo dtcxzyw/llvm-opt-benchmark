@@ -48,96 +48,96 @@ define hidden void @std_trans(ptr noundef writeonly captures(none) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @transpose_pow2(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %1)
-  %4 = extractvalue { i64, i1 } %umul.i, 1
-  br i1 %4, label %5, label %mul_size_t.exit
+  %umul.overflow.i = extractvalue { i64, i1 } %umul.i, 1
+  br i1 %umul.overflow.i, label %4, label %mul_size_t.exit
 
-5:                                                ; preds = %3
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %8) #11
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %11 = tail call i32 @fputc(i32 noundef 10, ptr noundef %10)
+4:                                                ; preds = %3
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %7) #11
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %10 = tail call i32 @fputc(i32 noundef 10, ptr noundef %9)
   tail call void @abort() #12
   unreachable
 
 mul_size_t.exit:                                  ; preds = %3
   %umul.value.i = extractvalue { i64, i1 } %umul.i, 0
-  %12 = icmp eq i64 %2, %1
-  br i1 %12, label %13, label %14
+  %11 = icmp eq i64 %2, %1
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %mul_size_t.exit
+  tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %2)
+  br label %41
 
 13:                                               ; preds = %mul_size_t.exit
-  tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %2)
-  br label %44
+  %umul.overflow.i30 = icmp slt i64 %1, 0
+  br i1 %umul.overflow.i30, label %14, label %mul_size_t.exit32
 
-14:                                               ; preds = %mul_size_t.exit
-  %15 = icmp slt i64 %1, 0
-  br i1 %15, label %16, label %mul_size_t.exit31
-
-16:                                               ; preds = %14
+14:                                               ; preds = %13
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
   %17 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %17) #11
   %19 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %19) #11
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %22 = tail call i32 @fputc(i32 noundef 10, ptr noundef %21)
+  %20 = tail call i32 @fputc(i32 noundef 10, ptr noundef %19)
   tail call void @abort() #12
   unreachable
 
-mul_size_t.exit31:                                ; preds = %14
-  %umul.value.i30 = shl nuw i64 %1, 1
-  %23 = icmp eq i64 %2, %umul.value.i30
-  br i1 %23, label %24, label %29
+mul_size_t.exit32:                                ; preds = %13
+  %umul.value.i31 = shl nuw i64 %1, 1
+  %21 = icmp eq i64 %2, %umul.value.i31
+  br i1 %21, label %22, label %27
 
-24:                                               ; preds = %mul_size_t.exit31
-  %25 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0)
-  %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %45, label %26
+22:                                               ; preds = %mul_size_t.exit32
+  %23 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0)
+  %.not28 = icmp eq i32 %23, 0
+  br i1 %.not28, label %42, label %24
 
-26:                                               ; preds = %24
+24:                                               ; preds = %22
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %1)
-  %27 = lshr i64 %umul.value.i, 1
-  %28 = getelementptr i64, ptr %0, i64 %27
-  tail call fastcc void @squaretrans_pow2(ptr noundef %28, i64 noundef %1)
-  br label %44
+  %25 = lshr i64 %umul.value.i, 1
+  %26 = getelementptr i64, ptr %0, i64 %25
+  tail call fastcc void @squaretrans_pow2(ptr noundef %26, i64 noundef %1)
+  br label %41
 
-29:                                               ; preds = %mul_size_t.exit31
-  %30 = icmp slt i64 %2, 0
-  br i1 %30, label %31, label %mul_size_t.exit34
+27:                                               ; preds = %mul_size_t.exit32
+  %umul.overflow.i34 = icmp slt i64 %2, 0
+  br i1 %umul.overflow.i34, label %28, label %mul_size_t.exit36
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %34) #11
-  %36 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %37 = tail call i32 @fputc(i32 noundef 10, ptr noundef %36)
+28:                                               ; preds = %27
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 622) #10
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %31) #11
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %34 = tail call i32 @fputc(i32 noundef 10, ptr noundef %33)
   tail call void @abort() #12
   unreachable
 
-mul_size_t.exit34:                                ; preds = %29
-  %umul.value.i33 = shl nuw i64 %2, 1
-  %38 = icmp eq i64 %1, %umul.value.i33
-  br i1 %38, label %39, label %43
+mul_size_t.exit36:                                ; preds = %27
+  %umul.value.i35 = shl nuw i64 %2, 1
+  %35 = icmp eq i64 %1, %umul.value.i35
+  br i1 %35, label %36, label %40
 
-39:                                               ; preds = %mul_size_t.exit34
+36:                                               ; preds = %mul_size_t.exit36
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %2)
-  %40 = lshr i64 %umul.value.i, 1
-  %41 = getelementptr i64, ptr %0, i64 %40
-  tail call fastcc void @squaretrans_pow2(ptr noundef %41, i64 noundef %2)
-  %42 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %2, i64 noundef %1, i32 noundef 1)
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %45, label %44
+  %37 = lshr i64 %umul.value.i, 1
+  %38 = getelementptr i64, ptr %0, i64 %37
+  tail call fastcc void @squaretrans_pow2(ptr noundef %38, i64 noundef %2)
+  %39 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %2, i64 noundef %1, i32 noundef 1)
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %42, label %41
 
-43:                                               ; preds = %mul_size_t.exit34
+40:                                               ; preds = %mul_size_t.exit36
   tail call void @abort() #12
   unreachable
 
-44:                                               ; preds = %26, %39, %13
-  br label %45
+41:                                               ; preds = %24, %36, %12
+  br label %42
 
-45:                                               ; preds = %39, %24, %44
-  %.0 = phi i32 [ 1, %44 ], [ 0, %24 ], [ 0, %39 ]
+42:                                               ; preds = %36, %22, %41
+  %.0 = phi i32 [ 1, %41 ], [ 0, %22 ], [ 0, %36 ]
   ret i32 %.0
 }
 

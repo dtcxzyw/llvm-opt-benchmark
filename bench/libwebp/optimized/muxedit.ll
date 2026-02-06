@@ -732,63 +732,63 @@ define range(i32 -1, 2) i32 @WebPMuxSetCanvasSize(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %umul = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %1, i32 %2)
-  %10 = extractvalue { i32, i1 } %umul, 1
-  br i1 %10, label %MuxDeleteAllNamedData.exit.thread, label %11
+  %umul.overflow = extractvalue { i32, i1 } %umul, 1
+  br i1 %umul.overflow, label %MuxDeleteAllNamedData.exit.thread, label %10
 
-11:                                               ; preds = %9
-  %12 = mul nsw i32 %2, %1
-  %13 = icmp ne i32 %12, 0
+10:                                               ; preds = %9
+  %11 = mul nsw i32 %2, %1
+  %12 = icmp ne i32 %11, 0
   %.not = icmp eq i32 %6, 0
-  %or.cond30 = or i1 %13, %.not
-  br i1 %or.cond30, label %14, label %MuxDeleteAllNamedData.exit.thread
+  %or.cond30 = or i1 %12, %.not
+  br i1 %or.cond30, label %13, label %MuxDeleteAllNamedData.exit.thread
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr @kChunks, align 16, !tbaa !29
-  %16 = tail call i32 @ChunkGetIdFromTag(i32 noundef %15) #7
-  switch i32 %16, label %17 [
+13:                                               ; preds = %10
+  %14 = load i32, ptr @kChunks, align 16, !tbaa !29
+  %15 = tail call i32 @ChunkGetIdFromTag(i32 noundef %14) #7
+  switch i32 %15, label %16 [
     i32 3, label %MuxDeleteAllNamedData.exit.thread
     i32 5, label %MuxDeleteAllNamedData.exit.thread
     i32 6, label %MuxDeleteAllNamedData.exit.thread
   ]
 
-17:                                               ; preds = %14
-  %18 = tail call ptr @MuxGetChunkListFromId(ptr noundef nonnull %0, i32 noundef %16) #7
-  %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %.not10.i.i = icmp eq ptr %19, null
+16:                                               ; preds = %13
+  %17 = tail call ptr @MuxGetChunkListFromId(ptr noundef nonnull %0, i32 noundef %15) #7
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %.not10.i.i = icmp eq ptr %18, null
   br i1 %.not10.i.i, label %MuxDeleteAllNamedData.exit.thread33, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %17, %27
-  %20 = phi ptr [ %28, %27 ], [ %19, %17 ]
-  %.012.i.i = phi ptr [ %.1.i.i, %27 ], [ %18, %17 ]
-  %21 = load i32, ptr %20, align 8, !tbaa !17
-  %22 = icmp eq i32 %21, %15
-  br i1 %22, label %23, label %25
+.lr.ph.i.i:                                       ; preds = %16, %26
+  %19 = phi ptr [ %27, %26 ], [ %18, %16 ]
+  %.012.i.i = phi ptr [ %.1.i.i, %26 ], [ %17, %16 ]
+  %20 = load i32, ptr %19, align 8, !tbaa !17
+  %21 = icmp eq i32 %20, %14
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = tail call ptr @ChunkDelete(ptr noundef nonnull %20) #7
-  store ptr %24, ptr %.012.i.i, align 8, !tbaa !15
-  br label %27
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = tail call ptr @ChunkDelete(ptr noundef nonnull %19) #7
+  store ptr %23, ptr %.012.i.i, align 8, !tbaa !15
+  br label %26
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.pre.i.i = load ptr, ptr %26, align 8, !tbaa !15
-  br label %27
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.pre.i.i = load ptr, ptr %25, align 8, !tbaa !15
+  br label %26
 
-27:                                               ; preds = %25, %23
-  %28 = phi ptr [ %24, %23 ], [ %.pre.i.i, %25 ]
-  %.1.i.i = phi ptr [ %.012.i.i, %23 ], [ %26, %25 ]
-  %.not.i.i = icmp eq ptr %28, null
+26:                                               ; preds = %24, %22
+  %27 = phi ptr [ %23, %22 ], [ %.pre.i.i, %24 ]
+  %.1.i.i = phi ptr [ %.012.i.i, %22 ], [ %25, %24 ]
+  %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %MuxDeleteAllNamedData.exit.thread33, label %.lr.ph.i.i, !llvm.loop !20
 
-MuxDeleteAllNamedData.exit.thread33:              ; preds = %27, %17
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %1, ptr %29, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %2, ptr %30, align 4, !tbaa !51
+MuxDeleteAllNamedData.exit.thread33:              ; preds = %26, %16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %1, ptr %28, align 8, !tbaa !50
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %2, ptr %29, align 4, !tbaa !51
   br label %MuxDeleteAllNamedData.exit.thread
 
-MuxDeleteAllNamedData.exit.thread:                ; preds = %14, %14, %14, %11, %9, %5, %3, %MuxDeleteAllNamedData.exit.thread33
-  %.0 = phi i32 [ 1, %MuxDeleteAllNamedData.exit.thread33 ], [ -1, %3 ], [ -1, %5 ], [ -1, %9 ], [ -1, %11 ], [ -1, %14 ], [ -1, %14 ], [ -1, %14 ]
+MuxDeleteAllNamedData.exit.thread:                ; preds = %13, %13, %13, %10, %9, %5, %3, %MuxDeleteAllNamedData.exit.thread33
+  %.0 = phi i32 [ 1, %MuxDeleteAllNamedData.exit.thread33 ], [ -1, %3 ], [ -1, %5 ], [ -1, %9 ], [ -1, %10 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ]
   ret i32 %.0
 }
 

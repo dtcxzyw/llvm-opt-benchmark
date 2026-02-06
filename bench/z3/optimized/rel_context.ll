@@ -1484,34 +1484,34 @@ _ZNK6symbol19is_non_empty_stringEv.exit.thread:   ; preds = %35, %_ZNK6symbol19i
   %spec.select = sub i32 %.071, %144
   %145 = load ptr, ptr %9, align 8, !tbaa !271
   %146 = invoke noundef i32 @_ZNK7datalog7context23initial_restart_timeoutEv(ptr noundef nonnull align 8 dereferenceable(3028) %145)
-          to label %147 unwind label %153
+          to label %147 unwind label %152
 
 147:                                              ; preds = %143
   %umul = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.074, i32 %146)
-  %148 = extractvalue { i32, i1 } %umul, 1
+  %umul.overflow = extractvalue { i32, i1 } %umul, 1
   %umul.value = extractvalue { i32, i1 } %umul, 0
-  %storemerge = select i1 %148, i32 -1, i32 %umul.value
-  %149 = load ptr, ptr %1, align 8, !tbaa !342
-  invoke void @_ZN7datalog7context6reopenEv(ptr noundef nonnull align 8 dereferenceable(3028) %149)
-          to label %.noexc44 unwind label %153
+  %storemerge = select i1 %umul.overflow, i32 -1, i32 %umul.value
+  %148 = load ptr, ptr %1, align 8, !tbaa !342
+  invoke void @_ZN7datalog7context6reopenEv(ptr noundef nonnull align 8 dereferenceable(3028) %148)
+          to label %.noexc44 unwind label %152
 
 .noexc44:                                         ; preds = %147
-  %150 = load ptr, ptr %1, align 8, !tbaa !342
-  invoke void @_ZN7datalog7context19restrict_predicatesERK13obj_hashtableI9func_declE(ptr noundef nonnull align 8 dereferenceable(3028) %150, ptr noundef nonnull align 8 dereferenceable(20) %18)
-          to label %.noexc45 unwind label %153
+  %149 = load ptr, ptr %1, align 8, !tbaa !342
+  invoke void @_ZN7datalog7context19restrict_predicatesERK13obj_hashtableI9func_declE(ptr noundef nonnull align 8 dereferenceable(3028) %149, ptr noundef nonnull align 8 dereferenceable(20) %18)
+          to label %.noexc45 unwind label %152
 
 .noexc45:                                         ; preds = %.noexc44
-  %151 = load ptr, ptr %1, align 8, !tbaa !342
-  invoke void @_ZN7datalog7context13replace_rulesERKNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(3028) %151, ptr noundef nonnull align 8 dereferenceable(248) %19)
-          to label %.noexc46 unwind label %153
+  %150 = load ptr, ptr %1, align 8, !tbaa !342
+  invoke void @_ZN7datalog7context13replace_rulesERKNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(3028) %150, ptr noundef nonnull align 8 dereferenceable(248) %19)
+          to label %.noexc46 unwind label %152
 
 .noexc46:                                         ; preds = %.noexc45
-  %152 = load ptr, ptr %1, align 8, !tbaa !342
-  invoke void @_ZN7datalog7context5closeEv(ptr noundef nonnull align 8 dereferenceable(3028) %152)
-          to label %_ZN7datalog11rel_context12scoped_query5resetEv.exit unwind label %153
+  %151 = load ptr, ptr %1, align 8, !tbaa !342
+  invoke void @_ZN7datalog7context5closeEv(ptr noundef nonnull align 8 dereferenceable(3028) %151)
+          to label %_ZN7datalog11rel_context12scoped_query5resetEv.exit unwind label %152
 
-153:                                              ; preds = %.noexc46, %.noexc45, %.noexc44, %147, %143
-  %154 = landingpad { ptr, i32 }
+152:                                              ; preds = %.noexc46, %.noexc45, %.noexc44, %147, %143
+  %153 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1519,19 +1519,19 @@ _ZN7datalog11rel_context12scoped_query5resetEv.exit.thread: ; preds = %.noexc42,
   %.lcssa133.sink = phi ptr [ %134, %133 ], [ %142, %141 ], [ %139, %138 ], [ %29, %.noexc ], [ %129, %.noexc42 ]
   %.sink = phi i32 [ 0, %133 ], [ 1, %141 ], [ 2, %138 ], [ 6, %.noexc ], [ 6, %.noexc42 ]
   %.1 = phi i32 [ 1, %133 ], [ 0, %141 ], [ 0, %138 ], [ 0, %.noexc ], [ 0, %.noexc42 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.lcssa133.sink, i64 2988
-  store i32 %.sink, ptr %155, align 4, !tbaa !340
-  %156 = load ptr, ptr %9, align 8, !tbaa !271
-  invoke void @_ZN7datalog7context24record_transformed_rulesEv(ptr noundef nonnull align 8 dereferenceable(3028) %156)
-          to label %157 unwind label %.loopexit.split-lp
+  %154 = getelementptr inbounds nuw i8, ptr %.lcssa133.sink, i64 2988
+  store i32 %.sink, ptr %154, align 4, !tbaa !340
+  %155 = load ptr, ptr %9, align 8, !tbaa !271
+  invoke void @_ZN7datalog7context24record_transformed_rulesEv(ptr noundef nonnull align 8 dereferenceable(3028) %155)
+          to label %156 unwind label %.loopexit.split-lp
 
-157:                                              ; preds = %_ZN7datalog11rel_context12scoped_query5resetEv.exit.thread
+156:                                              ; preds = %_ZN7datalog11rel_context12scoped_query5resetEv.exit.thread
   call void @_ZN7datalog17instruction_blockD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %103, %153, %87, %75, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %54
-  %.pn34 = phi { ptr, i32 } [ %76, %75 ], [ %.pn30.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %55, %54 ], [ %104, %103 ], [ %88, %87 ], [ %154, %153 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %103, %152, %87, %75, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %54
+  %.pn34 = phi { ptr, i32 } [ %76, %75 ], [ %.pn30.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %55, %54 ], [ %104, %103 ], [ %88, %87 ], [ %153, %152 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7datalog17instruction_blockD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn34

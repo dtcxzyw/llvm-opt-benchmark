@@ -2820,7 +2820,7 @@ mpd_iszero.exit:                                  ; preds = %3
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %.not53 = icmp eq i64 %12, 0
-  br i1 %.not53, label %57, label %13
+  br i1 %.not53, label %55, label %13
 
 13:                                               ; preds = %mpd_iszero.exit
   %.not25 = icmp eq i32 %0, 0
@@ -2853,16 +2853,16 @@ mpd_iszero.exit:                                  ; preds = %3
   %26 = sub i64 0, %17
   call fastcc void @mpd_qsshiftr(ptr noundef %4, ptr noundef nonnull %1, i64 noundef %26)
   %.pre = load ptr, ptr %.019.sroa.gep38, align 8, !tbaa !17
-  %.pre57 = load i64, ptr %.019.sroa.gep41, align 8, !tbaa !18
-  %.phi.trans.insert = getelementptr i64, ptr %.pre, i64 %.pre57
-  %.phi.trans.insert58 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
-  %.pre59 = load i64, ptr %.phi.trans.insert58, align 8, !tbaa !3
+  %.pre58 = load i64, ptr %.019.sroa.gep41, align 8, !tbaa !18
+  %.phi.trans.insert = getelementptr i64, ptr %.pre, i64 %.pre58
+  %.phi.trans.insert59 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
+  %.pre60 = load i64, ptr %.phi.trans.insert59, align 8, !tbaa !3
   br label %27
 
 27:                                               ; preds = %24, %20
   %28 = phi i64 [ 0, %24 ], [ %17, %20 ]
-  %29 = phi i64 [ %.pre59, %24 ], [ %12, %20 ]
-  %30 = phi i64 [ %.pre57, %24 ], [ %9, %20 ]
+  %29 = phi i64 [ %.pre60, %24 ], [ %12, %20 ]
+  %30 = phi i64 [ %.pre58, %24 ], [ %9, %20 ]
   %31 = phi ptr [ %.pre, %24 ], [ %8, %20 ]
   %.019.sroa.phi = phi ptr [ %.019.sroa.gep35, %24 ], [ %.019.sroa.gep36, %20 ]
   %32 = icmp sgt i64 %30, 1
@@ -2880,39 +2880,39 @@ mpd_iszero.exit:                                  ; preds = %3
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %umul = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %41, i64 %29)
   %umul.value = extractvalue { i64, i1 } %umul, 0
-  %42 = extractvalue { i64, i1 } %umul, 1
-  %43 = getelementptr i8, ptr %34, i64 -16
-  %44 = load i64, ptr %43, align 8, !tbaa !3
-  %45 = getelementptr i64, ptr @mpd_pow10, i64 %38
-  %46 = getelementptr i8, ptr %45, i64 -8
-  %47 = load i64, ptr %46, align 8, !tbaa !3
-  %48 = udiv i64 %44, %47
-  %49 = add i64 %48, %umul.value
-  %50 = icmp ult i64 %49, %48
-  %or.cond.not = select i1 %50, i1 true, i1 %42
+  %umul.overflow = extractvalue { i64, i1 } %umul, 1
+  %42 = getelementptr i8, ptr %34, i64 -16
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %44 = getelementptr i64, ptr @mpd_pow10, i64 %38
+  %45 = getelementptr i8, ptr %44, i64 -8
+  %46 = load i64, ptr %45, align 8, !tbaa !3
+  %47 = udiv i64 %43, %46
+  %48 = add i64 %47, %umul.value
+  %49 = icmp ult i64 %48, %47
+  %or.cond.not = select i1 %49, i1 true, i1 %umul.overflow
   br i1 %or.cond.not, label %.sink.split, label %_mpd_get_msdigits.exit.thread
 
 _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
-  %.148 = phi i64 [ %49, %33 ], [ %29, %27 ]
-  %.not64 = icmp eq i64 %28, 0
-  br i1 %.not64, label %57, label %51
+  %.148 = phi i64 [ %48, %33 ], [ %29, %27 ]
+  %.not65 = icmp eq i64 %28, 0
+  br i1 %.not65, label %55, label %50
 
-51:                                               ; preds = %_mpd_get_msdigits.exit.thread
-  %52 = getelementptr i64, ptr @mpd_pow10, i64 %28
-  %53 = load i64, ptr %52, align 8, !tbaa !3
-  %umul55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %53, i64 %.148)
+50:                                               ; preds = %_mpd_get_msdigits.exit.thread
+  %51 = getelementptr i64, ptr @mpd_pow10, i64 %28
+  %52 = load i64, ptr %51, align 8, !tbaa !3
+  %umul55 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %52, i64 %.148)
   %umul.value56 = extractvalue { i64, i1 } %umul55, 0
-  %54 = extractvalue { i64, i1 } %umul55, 1
-  br i1 %54, label %.sink.split, label %57
+  %umul.overflow57 = extractvalue { i64, i1 } %umul55, 1
+  br i1 %umul.overflow57, label %.sink.split, label %55
 
-.sink.split:                                      ; preds = %51, %33, %22, %15, %13, %3
-  %55 = load i32, ptr %2, align 4, !tbaa !23
-  %56 = or i32 %55, 256
-  store i32 %56, ptr %2, align 4, !tbaa !23
-  br label %57
+.sink.split:                                      ; preds = %50, %33, %22, %15, %13, %3
+  %53 = load i32, ptr %2, align 4, !tbaa !23
+  %54 = or i32 %53, 256
+  store i32 %54, ptr %2, align 4, !tbaa !23
+  br label %55
 
-57:                                               ; preds = %.sink.split, %_mpd_get_msdigits.exit.thread, %51, %mpd_iszero.exit
-  %.0 = phi i64 [ 0, %mpd_iszero.exit ], [ %umul.value56, %51 ], [ %.148, %_mpd_get_msdigits.exit.thread ], [ -1, %.sink.split ]
+55:                                               ; preds = %.sink.split, %_mpd_get_msdigits.exit.thread, %50, %mpd_iszero.exit
+  %.0 = phi i64 [ 0, %mpd_iszero.exit ], [ %umul.value56, %50 ], [ %.148, %_mpd_get_msdigits.exit.thread ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
@@ -33023,71 +33023,71 @@ add_size_t.exit9:                                 ; preds = %add_size_t.exit
   %22 = lshr i64 %21, 1
   %23 = add nuw nsw i64 %22, 1
   %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %23, i64 range(i64 1, -9223372036854775807) 3)
-  %24 = extractvalue { i64, i1 } %umul.i, 1
-  br i1 %24, label %25, label %mul_size_t.exit
+  %umul.overflow.i = extractvalue { i64, i1 } %umul.i, 1
+  br i1 %umul.overflow.i, label %24, label %mul_size_t.exit
 
-25:                                               ; preds = %add_size_t.exit9
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %28) #37
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %31 = tail call i32 @fputc(i32 noundef 10, ptr noundef %30)
+24:                                               ; preds = %add_size_t.exit9
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %27) #37
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %30 = tail call i32 @fputc(i32 noundef 10, ptr noundef %29)
   tail call void @abort() #35
   unreachable
 
 mul_size_t.exit:                                  ; preds = %add_size_t.exit9
-  %32 = add nuw i64 %12, 1
+  %31 = add nuw i64 %12, 1
   %umul.value.i = extractvalue { i64, i1 } %umul.i, 0
-  %33 = tail call i64 @llvm.umax.i64(i64 %umul.value.i, i64 %32)
-  ret i64 %33
+  %32 = tail call i64 @llvm.umax.i64(i64 %umul.value.i, i64 %31)
+  ret i64 %32
 }
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
 define internal fastcc i64 @_kmul_worksize(i64 noundef %0, i64 noundef range(i64 16, 6442450945) %1) unnamed_addr #29 {
   %.not = icmp ugt i64 %0, %1
-  br i1 %.not, label %3, label %26
+  br i1 %.not, label %3, label %25
 
 3:                                                ; preds = %2
   %4 = add i64 %0, 1
   %5 = lshr i64 %4, 1
   %6 = add nuw i64 %5, 1
-  %7 = icmp slt i64 %6, 0
-  br i1 %7, label %8, label %mul_size_t.exit
+  %umul.overflow.i = icmp slt i64 %6, 0
+  br i1 %umul.overflow.i, label %7, label %mul_size_t.exit
 
-8:                                                ; preds = %3
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %11) #37
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %14 = tail call i32 @fputc(i32 noundef 10, ptr noundef %13)
+7:                                                ; preds = %3
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 622) #36
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 41, i64 1, ptr %10) #37
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %13 = tail call i32 @fputc(i32 noundef 10, ptr noundef %12)
   tail call void @abort() #35
   unreachable
 
 mul_size_t.exit:                                  ; preds = %3
   %umul.value.i = shl nuw i64 %6, 1
-  %15 = tail call fastcc i64 @_kmul_worksize(i64 noundef %6, i64 noundef %1)
-  %16 = xor i64 %15, -1
-  %17 = icmp ugt i64 %umul.value.i, %16
-  br i1 %17, label %18, label %add_size_t.exit
+  %14 = tail call fastcc i64 @_kmul_worksize(i64 noundef %6, i64 noundef %1)
+  %15 = xor i64 %14, -1
+  %16 = icmp ugt i64 %umul.value.i, %15
+  br i1 %16, label %17, label %add_size_t.exit
 
-18:                                               ; preds = %mul_size_t.exit
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %21) #37
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %24 = tail call i32 @fputc(i32 noundef 10, ptr noundef %23)
+17:                                               ; preds = %mul_size_t.exit
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 597) #36
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 41, i64 1, ptr %20) #37
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %23 = tail call i32 @fputc(i32 noundef 10, ptr noundef %22)
   tail call void @abort() #35
   unreachable
 
 add_size_t.exit:                                  ; preds = %mul_size_t.exit
-  %25 = add i64 %15, %umul.value.i
-  br label %26
+  %24 = add i64 %14, %umul.value.i
+  br label %25
 
-26:                                               ; preds = %2, %add_size_t.exit
-  %.0 = phi i64 [ %25, %add_size_t.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %add_size_t.exit
+  %.0 = phi i64 [ %24, %add_size_t.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 
