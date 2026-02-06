@@ -352,27 +352,27 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !47
   store ptr %7, ptr %4, align 8, !noalias !47
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %11, ptr %12, align 8, !noalias !47
-  %13 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7ce701cbf54a7f6E.llvm.17788874430417167"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !50
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h83393ea4669ac7bdE.exit", label %.lr.ph.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %11, ptr %11, align 8, !noalias !47
+  %12 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7ce701cbf54a7f6E.llvm.17788874430417167"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !50
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h83393ea4669ac7bdE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %15 = phi ptr [ %17, %.lr.ph.i.i ], [ %13, %2 ]
+  %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %12, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !47
-  store ptr %15, ptr %3, align 8, !noalias !47
-  %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
+  store ptr %14, ptr %3, align 8, !noalias !47
+  %15 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !47
-  %17 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7ce701cbf54a7f6E.llvm.17788874430417167"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h83393ea4669ac7bdE.exit", label %.lr.ph.i.i
+  %16 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7ce701cbf54a7f6E.llvm.17788874430417167"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h83393ea4669ac7bdE.exit", label %.lr.ph.i.i
 
 "_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h83393ea4669ac7bdE.exit": ; preds = %.lr.ph.i.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !47
-  %19 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !42
-  ret i1 %19
+  ret i1 %18
 }
 
 ; Function Attrs: nonlazybind uwtable

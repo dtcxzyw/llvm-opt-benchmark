@@ -623,9 +623,9 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %cmp15.not.i = icmp ult ptr %pStateInput.010.i, %add.ptr14.i
   %spec.select8.i = select i1 %cmp15.not.i, ptr %pStateInput.010.i, ptr %add.ptr7.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %spec.select8.i, i64 4
-  %3 = load i32, ptr %spec.select8.i, align 4
+  %1 = load i32, ptr %spec.select8.i, align 4
   %pStateOutput.0.add.i = add nuw nsw i64 %pStateOutput.0.idx9.i, 4
-  store i32 %3, ptr %pStateOutput.0.ptr.i, align 4
+  store i32 %1, ptr %pStateOutput.0.ptr.i, align 4
   %cmp11.i = icmp samesign ult i64 %pStateOutput.0.idx9.i, 2492
   br i1 %cmp11.i, label %while.body.i, label %_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit, !llvm.loop !12
 
@@ -663,9 +663,9 @@ while.body:                                       ; preds = %if.then, %while.bod
   %cmp15.not = icmp ult ptr %pStateInput.010, %add.ptr14
   %spec.select8 = select i1 %cmp15.not, ptr %pStateInput.010, ptr %add.ptr7
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %spec.select8, i64 4
-  %3 = load i32, ptr %spec.select8, align 4
+  %1 = load i32, ptr %spec.select8, align 4
   %pStateOutput.0.add = add nuw nsw i64 %pStateOutput.0.idx9, 4
-  store i32 %3, ptr %pStateOutput.0.ptr, align 4
+  store i32 %1, ptr %pStateOutput.0.ptr, align 4
   %cmp11 = icmp samesign ult i64 %pStateOutput.0.idx9, 2492
   br i1 %cmp11, label %while.body, label %if.end20, !llvm.loop !12
 

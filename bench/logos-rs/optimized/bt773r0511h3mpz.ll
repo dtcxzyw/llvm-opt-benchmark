@@ -40,32 +40,32 @@ define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..For
   %11 = shl nsw i64 %10, 2
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   store ptr %9, ptr %4, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 0, ptr %14, align 8
-  %15 = call i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hff272508b7c0cdf9E"(ptr nonnull align 8 %4, i64 0)
-  %16 = load i64, ptr %6, align 8
-  %17 = add i64 %16, %15
-  store i64 %17, ptr %6, align 8
-  %18 = load ptr, ptr %0, align 8
-  %19 = call align 4 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17hb9ee707558d39a04E"(i64 %17, ptr align 4 %18, i64 256)
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %43, label %21
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %12, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 0, ptr %13, align 8
+  %14 = call i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hff272508b7c0cdf9E"(ptr nonnull align 8 %4, i64 0)
+  %15 = load i64, ptr %6, align 8
+  %16 = add i64 %15, %14
+  store i64 %16, ptr %6, align 8
+  %17 = load ptr, ptr %0, align 8
+  %18 = call align 4 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17hb9ee707558d39a04E"(i64 %16, ptr align 4 %17, i64 256)
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %41, label %20
 
-21:                                               ; preds = %1
-  %22 = load i32, ptr %19, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %43, label %24
+20:                                               ; preds = %1
+  %21 = load i32, ptr %18, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %41, label %23
 
-24:                                               ; preds = %21
-  store i32 %22, ptr %3, align 4
-  %25 = load i64, ptr %6, align 8
-  %26 = load ptr, ptr %0, align 8
-  %27 = call { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64 %25, ptr align 4 %26, i64 256, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.2)
-  %28 = extractvalue { ptr, i64 } %27, 0
-  %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = shl nsw i64 %29, 2
+23:                                               ; preds = %20
+  store i32 %21, ptr %3, align 4
+  %24 = load i64, ptr %6, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = call { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64 %24, ptr align 4 %25, i64 256, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.2)
+  %27 = extractvalue { ptr, i64 } %26, 0
+  %28 = extractvalue { ptr, i64 } %26, 1
+  %30 = shl nsw i64 %28, 2
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   store ptr %28, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -82,15 +82,15 @@ define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..For
   %39 = shl i64 %37, 8
   %.sroa.213.0.insert.ext = add i64 %39, 65280
   %.sroa.213.0.insert.shift = and i64 %.sroa.213.0.insert.ext, 65280
-  %.sroa.012.0.insert.ext = and i64 %25, 255
+  %.sroa.012.0.insert.ext = and i64 %24, 255
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.012.0.insert.ext, %.sroa.213.0.insert.shift
-  %40 = zext i32 %38 to i64
-  %41 = shl nuw i64 %40, 32
-  %42 = or disjoint i64 %.sroa.012.0.insert.insert, %41
-  br label %43
+  %38 = zext i32 %38 to i64
+  %39 = shl nuw i64 %38, 32
+  %40 = or disjoint i64 %.sroa.012.0.insert.insert, %39
+  br label %41
 
-43:                                               ; preds = %21, %1, %24
-  %.sroa.0.0.insert.insert = phi i64 [ %42, %24 ], [ 0, %1 ], [ 0, %21 ]
+41:                                               ; preds = %20, %1, %23
+  %.sroa.0.0.insert.insert = phi i64 [ %40, %24 ], [ 0, %1 ], [ 0, %21 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 

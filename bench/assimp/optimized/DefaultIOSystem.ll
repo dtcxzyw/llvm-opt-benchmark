@@ -1871,7 +1871,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc unwind label %81
+          to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   store ptr %30, ptr %24, align 8
@@ -2017,33 +2017,33 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %78, ptr %72, align 8
   ret void
 
-79:                                               ; preds = %81
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %80
+  %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %86 unwind label %87
+          to label %86 unwind label %86
 
-81:                                               ; preds = %.noexc.i.i.i
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %.noexc.i.i.i
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  %84 = call ptr @__cxa_begin_catch(ptr %83) #24
-  %85 = shl nuw nsw i64 %17, 5
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %85) #26
+  %82 = extractvalue { ptr, i32 } %81, 0
+  %83 = call ptr @__cxa_begin_catch(ptr %82) #24
+  %84 = shl nuw nsw i64 %17, 5
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %84) #26
   invoke void @__cxa_rethrow() #25
-          to label %90 unwind label %79
+          to label %90 unwind label %78
 
-86:                                               ; preds = %79
-  resume { ptr, i32 } %80
+85:                                               ; preds = %78
+  resume { ptr, i32 } %79
 
-87:                                               ; preds = %79
-  %88 = landingpad { ptr, i32 }
+86:                                               ; preds = %78
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #28
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #28
   unreachable
 
-90:                                               ; preds = %81
+89:                                               ; preds = %80
   unreachable
 }
 

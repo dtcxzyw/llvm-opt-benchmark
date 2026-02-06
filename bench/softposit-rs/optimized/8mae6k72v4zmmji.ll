@@ -45,7 +45,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 7:                                                ; preds = %5
   %8 = icmp ugt i64 %1, %3
-  br i1 %8, label %16, label %10
+  br i1 %8, label %15, label %10
 
 9:                                                ; preds = %5
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h5e9dd78f70220ca8E(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #14
@@ -59,7 +59,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   %15 = insertvalue { ptr, i64 } %14, i64 %11, 1
   ret { ptr, i64 } %15
 
-16:                                               ; preds = %7
+15:                                               ; preds = %7
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef %1, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #14
   unreachable
 }
@@ -67,7 +67,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609"(i64 noundef %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
   %5 = icmp ugt i64 %0, %2
-  br i1 %5, label %12, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %4
   %7 = sub nuw i64 %2, %0
@@ -77,7 +77,7 @@ define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$
   %11 = insertvalue { ptr, i64 } %10, i64 %7, 1
   ret { ptr, i64 } %11
 
-12:                                               ; preds = %4
+11:                                               ; preds = %4
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h559b8f6dc3428c29E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #14
   unreachable
 }

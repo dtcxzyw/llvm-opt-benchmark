@@ -2607,7 +2607,7 @@ define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951
   %20 = icmp eq i64 %19, -9223372036854775808
   br i1 %20, label %22, label %31
 
-21:                                               ; preds = %57, %31, %16
+21:                                               ; preds = %56, %31, %16
   ret void
 
 22:                                               ; preds = %18
@@ -2654,12 +2654,12 @@ define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951
   store i64 %.sroa.510.0.copyload, ptr %.sroa.330.0..sroa_idx, align 8
   br label %21
 
-32:                                               ; preds = %44, %33
+32:                                               ; preds = %43, %33
   %.pn35 = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %44 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h28b3adda64971326E"(ptr nonnull align 8 %12) #10
-          to label %60 unwind label %58
+          to label %60 unwind label %57
 
-33:                                               ; preds = %.noexc, %22, %55
+33:                                               ; preds = %.noexc, %22, %54
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %32
@@ -2675,59 +2675,59 @@ define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951
   %40 = mul nsw i64 %39, 24
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   store ptr %37, ptr %8, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %10, ptr %43, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %41, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %10, ptr %42, align 8
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf47b998b323ff626E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr nonnull align 8 %8)
-          to label %47 unwind label %45
+          to label %47 unwind label %44
 
-44:                                               ; preds = %52, %45
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %46, %45 ]
+43:                                               ; preds = %51, %44
+  %.pn = phi { ptr, i32 } [ %52, %52 ], [ %45, %45 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h9047adbd2c7f56acE"(ptr nonnull align 8 %10) #10
-          to label %32 unwind label %58
+          to label %32 unwind label %57
 
-45:                                               ; preds = %35
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %35
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %51 = load i64, ptr %50, align 8
-  invoke void @_ZN5alloc5slice11stable_sort17h787b7fcdb3f1a6cbE(ptr align 8 %49, i64 %51)
-          to label %54 unwind label %52
+46:                                               ; preds = %35
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %50 = load i64, ptr %49, align 8
+  invoke void @_ZN5alloc5slice11stable_sort17h787b7fcdb3f1a6cbE(ptr align 8 %48, i64 %50)
+          to label %54 unwind label %51
 
-52:                                               ; preds = %54, %47
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %53, %46
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h28b3adda64971326E"(ptr nonnull align 8 %9) #10
-          to label %44 unwind label %58
+          to label %44 unwind label %57
 
-54:                                               ; preds = %47
+53:                                               ; preds = %46
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h8d4b81d3464e9db4E"(ptr nonnull align 8 %9)
-          to label %55 unwind label %52
+          to label %55 unwind label %51
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h9047adbd2c7f56acE"(ptr nonnull align 8 %10)
           to label %57 unwind label %33
 
-57:                                               ; preds = %55
+56:                                               ; preds = %54
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h28b3adda64971326E"(ptr nonnull align 8 %12)
   br label %21
 
-58:                                               ; preds = %52, %44, %32
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %51, %43, %32
+  %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #11
   unreachable
 
-60:                                               ; preds = %32
+59:                                               ; preds = %32
   resume { ptr, i32 } %.pn35
 }
 

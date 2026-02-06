@@ -613,13 +613,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   store i64 %sub, ptr %arrayidx, align 8
   %add = add i64 %sub, %total.020
   %data_ = getelementptr inbounds nuw i8, ptr %pos.022, i64 40
-  %4 = load ptr, ptr %data_, align 8
-  %5 = load i64, ptr %read_pos_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
+  %3 = load ptr, ptr %data_, align 8
+  %4 = load i64, ptr %read_pos_, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
   %arrayidx4 = getelementptr inbounds i8, ptr %out, i64 %3
   store ptr %add.ptr, ptr %arrayidx4, align 8
-  %6 = load ptr, ptr %write_head_, align 8
-  %cmp5 = icmp eq ptr %pos.022, %6
+  %5 = load ptr, ptr %write_head_, align 8
+  %cmp5 = icmp eq ptr %pos.022, %5
   br i1 %cmp5, label %for.end, label %if.else
 
 if.else:                                          ; preds = %for.body

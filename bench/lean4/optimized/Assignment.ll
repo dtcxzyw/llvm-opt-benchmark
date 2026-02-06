@@ -627,16 +627,16 @@ l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignment____x40_Std_Tactic_BVDecide_LRA
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString(i8 noundef zeroext %0) local_unnamed_addr #3 {
   %2 = icmp ult i8 %0, 3
-  br i1 %2, label %switch.lookup, label %5
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = shl nuw nsw i8 %0, 3
   %4 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %switch.lookup
+4:                                                ; preds = %1, %switch.lookup
   %.0.in = phi ptr [ %switch.load, %switch.lookup ], [ @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___closed__4, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !10
   ret ptr %.0

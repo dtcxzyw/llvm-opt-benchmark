@@ -647,7 +647,7 @@ define range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %0) local
   %.not37 = icmp eq ptr %51, null
   br i1 %.not37, label %55, label %52
 
-52:                                               ; preds = %31
+52:; preds = %31
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %54 = call i32 %53(i32 noundef 0, ptr noundef nonnull %51) #7
   br label %55

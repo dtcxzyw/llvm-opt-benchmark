@@ -108,7 +108,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse3amdERKNS1_10SparseViewERN5Eig
   store i32 -1, ptr %24, align 8, !tbaa !6
   %25 = call ptr @cs_di_amd(i32 noundef 1, ptr noundef nonnull %4)
   %.not = icmp ne ptr %25, null
-  br i1 %.not, label %26, label %56
+  br i1 %.not, label %26, label %54
 
 26:                                               ; preds = %3
   %27 = load i32, ptr %10, align 4, !tbaa !28
@@ -168,7 +168,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %38, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %53, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
   %49 = shl nsw i64 %.011.i.i.i.i.i.i.i.i, 2
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 %49
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 %49
   %52 = load <2 x i64>, ptr %51, align 1, !tbaa !45
   store <2 x i64> %52, ptr %50, align 16, !tbaa !45
@@ -177,10 +177,10 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
   br i1 %54, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !46
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %55 = call ptr @cs_di_free(ptr noundef nonnull %25)
-  br label %56
+  %53 = call ptr @cs_di_free(ptr noundef nonnull %25)
+  br label %54
 
-56:                                               ; preds = %3, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
+54:                                               ; preds = %3, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }

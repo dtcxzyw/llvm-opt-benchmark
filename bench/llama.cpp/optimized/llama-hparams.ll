@@ -11,7 +11,7 @@ define noundef i32 @_ZNK13llama_hparams6n_headEj(ptr noundef nonnull readonly al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -21,7 +21,7 @@ define noundef i32 @_ZNK13llama_hparams6n_headEj(ptr noundef nonnull readonly al
   %11 = load i32, ptr %10, align 4, !tbaa !17
   ret i32 %11
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 10, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -34,7 +34,7 @@ define noundef i32 @_ZNK13llama_hparams9n_head_kvEj(ptr noundef nonnull readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
@@ -44,7 +44,7 @@ define noundef i32 @_ZNK13llama_hparams9n_head_kvEj(ptr noundef nonnull readonly
   %11 = load i32, ptr %10, align 4, !tbaa !17
   ret i32 %11
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 18, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -54,7 +54,7 @@ define noundef i32 @_ZNK13llama_hparams4n_ffEj(ptr noundef nonnull readonly alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4160
@@ -64,7 +64,7 @@ define noundef i32 @_ZNK13llama_hparams4n_ffEj(ptr noundef nonnull readonly alig
   %11 = load i32, ptr %10, align 4, !tbaa !17
   ret i32 %11
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -89,14 +89,14 @@ _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %18, label %13
 
-13:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
+13: ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %8
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = udiv i32 %16, %11
   br label %18
 
-18:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %13
+18: ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %13
   %.0 = phi i32 [ %17, %13 ], [ 0, %_ZNK13llama_hparams9n_head_kvEj.exit ]
   ret i32 %.0
 }

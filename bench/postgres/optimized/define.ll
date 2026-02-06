@@ -607,10 +607,10 @@ define dso_local nonnull ptr @defGetStringList(ptr noundef readonly captures(non
 .critedge:                                        ; preds = %22, %.preheader
   ret ptr %3
 
-29:                                               ; preds = %23
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  %31 = load i32, ptr %26, align 4
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %31) #6
+28:                                               ; preds = %23
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %30 = load i32, ptr %26, align 4
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %30) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.defGetStringList) #6
   unreachable
 }

@@ -40,11 +40,11 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
 
 .lr.ph26:                                         ; preds = %.preheader, %29
   %.01225 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.01225
-  %20 = load i8, ptr %19, align 1, !tbaa !7
-  %21 = zext i8 %20 to i64
-  %22 = lshr i64 %21, 3
-  %23 = and i64 %22, 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.01225
+  %19 = load i8, ptr %18, align 1, !tbaa !7
+  %20 = zext i8 %19 to i64
+  %21 = lshr i64 %20, 3
+  %23 = and i64 %21, 24
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = and i64 %21, 63
   %26 = load i64, ptr %24, align 8, !tbaa !10
@@ -53,7 +53,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %.not21 = icmp eq i64 %28, 0
   br i1 %.not21, label %29, label %._crit_edge
 
-29:                                               ; preds = %.lr.ph26
+29:; preds = %.lr.ph26
   %30 = add nuw i64 %.01225, 1
   %exitcond.not = icmp eq i64 %30, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !12

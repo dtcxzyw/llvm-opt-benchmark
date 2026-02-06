@@ -274,18 +274,18 @@ define noundef zeroext i1 @"_ZN73_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits.
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   br label %8
 
-8:                                                ; preds = %10, %2
-  %9 = phi ptr [ %11, %10 ], [ %3, %2 ]
-  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %9, %7
-  br i1 %.not.not.not.i.not.not.not.not.not, label %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit"
+7:                                                ; preds = %9, %2
+  %8 = phi ptr [ %10, %10 ], [ %3, %2 ]
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %8, %7
+  br i1 %.not.not.not.i.not.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit"
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.val3.i = load i32, ptr %9, align 4, !range !43, !noalias !44, !noundef !4
-  %12 = icmp eq i32 %.val3.i, %1
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit", label %8
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.val3.i = load i32, ptr %8, align 4, !range !43, !noalias !44, !noundef !4
+  %11 = icmp eq i32 %.val3.i, %1
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit", label %7
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit": ; preds = %8, %10
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0ffc5ca326e65b64E.exit": ; preds = %7, %9
   ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
@@ -300,14 +300,14 @@ define noundef zeroext i1 @"_ZN77_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits.
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   br label %9
 
-9:                                                ; preds = %11, %2
+9: ; preds = %11, %2
   %10 = phi ptr [ %12, %11 ], [ %4, %2 ]
   %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %10, %8
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %11, label %"_ZN73_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits..FindToken$LT$char$GT$$GT$10find_token17h4bcf14d14e9a2285E.exit"
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.val3.i.i = load i32, ptr %10, align 4, !range !43, !noalias !51, !noundef !4
+11: ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.val3.i.i = load i32, ptr %9, align 4, !range !43, !noalias !51, !noundef !4
   %13 = icmp eq i32 %.val3.i.i, %3
   br i1 %13, label %"_ZN73_$LT$$RF$$u5b$char$u5d$$u20$as$u20$nom..traits..FindToken$LT$char$GT$$GT$10find_token17h4bcf14d14e9a2285E.exit", label %9
 

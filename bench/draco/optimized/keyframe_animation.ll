@@ -218,13 +218,13 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit17: ;
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21, label %72
 
 72:                                               ; preds = %.thread, %71
-  %.pn38 = phi { ptr, i32 } [ %44, %.thread ], [ %68, %71 ]
+  %.pn36 = phi { ptr, i32 } [ %44, %.thread ], [ %68, %71 ]
   %73 = phi ptr [ %32, %.thread ], [ %.pre, %71 ]
   call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %73)
   br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21
 
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit21: ; preds = %72, %71, %42
-  %.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %68, %71 ], [ %.pn38, %72 ]
+  %.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %68, %71 ], [ %.pn36, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 

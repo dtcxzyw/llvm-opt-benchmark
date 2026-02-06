@@ -53,8 +53,8 @@ switch.lookup:
   %6 = zext nneg i8 %5 to i64
   %switch.gep1 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h204167215a51c6f7E.9", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
-  ret i1 %7
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable

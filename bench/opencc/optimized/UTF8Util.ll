@@ -24,58 +24,58 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [3 x i32], align 4
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %28, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i64 @ftell(ptr noundef nonnull %0)
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %28
+  br i1 %.not, label %6, label %26
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %7
 
-7:                                                ; preds = %6, %11
+7:                                                ; preds = %6, %10
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
   %8 = tail call i32 @getc(ptr noundef nonnull %0)
   %9 = shl nuw nsw i64 %indvars.iv, 2
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   store i32 %8, ptr %10, align 4, !tbaa !3
   %.not20 = icmp eq i32 %8, -1
-  br i1 %.not20, label %.critedge.split.loop.exit28, label %11
+  br i1 %.not20, label %.critedge.split.loop.exit28, label %10
 
-11:                                               ; preds = %7
+10:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !7
 
 .critedge.split.loop.exit28:                      ; preds = %7
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %11, %.critedge.split.loop.exit28
-  %.0.lcssa = phi i32 [ %12, %.critedge.split.loop.exit28 ], [ 3, %11 ]
-  %13 = load i32, ptr %2, align 4
-  %14 = icmp ne i32 %13, 239
-  %or.cond = select i1 %.not20, i1 true, i1 %14
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ne i32 %16, 187
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %17
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 191
-  %or.cond8 = select i1 %or.cond5, i1 true, i1 %20
-  %21 = icmp sgt i32 %.0.lcssa, 0
-  %or.cond23 = and i1 %or.cond8, %21
+.critedge:                                        ; preds = %10, %.critedge.split.loop.exit28
+  %.0.lcssa = phi i32 [ %11, %.critedge.split.loop.exit28 ], [ 3, %11 ]
+  %12 = load i32, ptr %2, align 4
+  %13 = icmp ne i32 %12, 239
+  %or.cond = select i1 %.not20, i1 true, i1 %13
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp ne i32 %15, 187
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp ne i32 %18, 191
+  %or.cond8 = select i1 %or.cond5, i1 true, i1 %19
+  %20 = icmp sgt i32 %.0.lcssa, 0
+  %or.cond23 = and i1 %or.cond8, %20
   br i1 %or.cond23, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.critedge
-  %22 = zext nneg i32 %.0.lcssa to i64
+  %21 = zext nneg i32 %.0.lcssa to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv25 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next26, %.lr.ph ]
+  %indvars.iv25 = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next26, %.lr.ph ]
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
   %23 = shl nuw nsw i64 %indvars.iv.next26, 2
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %23
@@ -86,9 +86,9 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(ad
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %28
+  br label %26
 
-28:                                               ; preds = %4, %1, %.loopexit
+26:                                               ; preds = %4, %1, %.loopexit
   ret void
 }
 

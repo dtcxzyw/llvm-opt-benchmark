@@ -197,8 +197,8 @@ switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %3 = load float, ptr %switch.load, align 4
-  store float %3, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
+  %2 = load float, ptr %switch.load, align 4
+  store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   br label %_ZN2EA4StdC9Stopwatch8SetUnitsEi.exit
 
 _ZN2EA4StdC9Stopwatch8SetUnitsEi.exit:            ; preds = %entry, %switch.lookup
@@ -208,21 +208,21 @@ _ZN2EA4StdC9Stopwatch8SetUnitsEi.exit:            ; preds = %entry, %switch.look
 if.then:                                          ; preds = %_ZN2EA4StdC9Stopwatch8SetUnitsEi.exit
   tail call void @_Z20EAStdCStopwatchSetupv()
   %.pre = load i64, ptr %this, align 8
-  %4 = icmp eq i64 %.pre, 0
+  %3 = icmp eq i64 %.pre, 0
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN2EA4StdC9Stopwatch8SetUnitsEi.exit
-  %tobool.not.i = phi i1 [ %4, %if.then ], [ true, %_ZN2EA4StdC9Stopwatch8SetUnitsEi.exit ]
+  %tobool.not.i = phi i1 [ %3, %if.then ], [ true, %_ZN2EA4StdC9Stopwatch8SetUnitsEi.exit ]
   %or.cond = select i1 %bStartImmediately, i1 %tobool.not.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.end3
 
 if.then.i:                                        ; preds = %if.end
-  %5 = load i32, ptr %mnUnits, align 8
-  %cmp.i = icmp eq i32 %5, 1
+  %4 = load i32, ptr %mnUnits, align 8
+  %cmp.i = icmp eq i32 %4, 1
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %6 = tail call noundef i64 @llvm.x86.rdtsc()
+  %5 = tail call noundef i64 @llvm.x86.rdtsc()
   br label %if.end6.sink.split.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -237,15 +237,15 @@ if.then.i.i:                                      ; preds = %if.else.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i: ; preds = %if.then.i.i, %if.else.i
   %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
-  %7 = load i64, ptr %tv_nsec.i.i, align 8
-  %8 = load i64, ptr %ts.i.i, align 8
-  %mul.i.i = mul i64 %8, 1000000000
-  %add.i.i = add i64 %mul.i.i, %7
+  %6 = load i64, ptr %tv_nsec.i.i, align 8
+  %7 = load i64, ptr %ts.i.i, align 8
+  %mul.i.i = mul i64 %7, 1000000000
+  %add.i.i = add i64 %mul.i.i, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i)
   br label %if.end6.sink.split.i
 
 if.end6.sink.split.i:                             ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i, %if.then2.i
-  %.sink.i = phi i64 [ %6, %if.then2.i ], [ %add.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i ]
+  %.sink.i = phi i64 [ %5, %if.then2.i ], [ %add.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i ]
   store i64 %.sink.i, ptr %this, align 8
   br label %if.end3
 
@@ -269,8 +269,8 @@ switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %3 = load float, ptr %switch.load, align 4
-  store float %3, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
+  %2 = load float, ptr %switch.load, align 4
+  store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %switch.lookup
@@ -421,15 +421,15 @@ switch.lookup:                                    ; preds = %if.then13
   %12 = zext nneg i32 %11 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = load float, ptr %switch.load, align 4
-  store float %13, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
+  %12 = load float, ptr %switch.load, align 4
+  store float %12, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %switch.lookup, %if.end11
-  %14 = phi float [ %13, %switch.lookup ], [ 1.000000e+00, %if.then13 ], [ %8, %if.end11 ]
+  %13 = phi float [ %12, %switch.lookup ], [ 1.000000e+00, %if.then13 ], [ %8, %if.end11 ]
   %conv = uitofp i64 %nFinalTotalElapsedTime64.0 to float
-  %15 = call float @llvm.fmuladd.f32(float %conv, float %14, float 0x3FDFFFD600000000)
-  %conv17 = fptoui float %15 to i64
+  %14 = call float @llvm.fmuladd.f32(float %conv, float %13, float 0x3FDFFFD600000000)
+  %conv17 = fptoui float %14 to i64
   ret i64 %conv17
 }
 

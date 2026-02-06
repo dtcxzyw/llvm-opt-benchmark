@@ -179,7 +179,7 @@ define noundef nonnull align 4 dereferenceable(108) ptr @_ZN3MD58finalizeEv(ptr 
   %2 = alloca [8 x i8], align 8
   %3 = load i8, ptr %0, align 4, !tbaa !6, !range !22, !noundef !23
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %79, label %_ZN3MD56encodeEPhPKjj.exit
+  br i1 %4, label %78, label %_ZN3MD56encodeEPhPKjj.exit
 
 _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -315,9 +315,9 @@ _ZN3MD56encodeEPhPKjj.exit19:                     ; preds = %.lr.ph.i13
   store i64 0, ptr %5, align 4
   store i8 1, ptr %0, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit19, %1
+78:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit19, %1
   ret ptr %0
 }
 

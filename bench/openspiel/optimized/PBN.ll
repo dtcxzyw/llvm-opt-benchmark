@@ -64,7 +64,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
   %.074 = phi i32 [ 3, %12 ], [ 1, %10 ], [ 2, %11 ], [ 0, %9 ], [ 0, %9 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %49 ]
   %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %49 ]
   %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %49 ]
@@ -138,30 +138,30 @@ default.unreachable:                              ; preds = %17
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %35, %42
   store i32 %43, ptr %41, align 4
-  br label %49
+  br label %46
 
-44:                                               ; preds = %15
+44:; preds = %15
   switch i8 %14, label %49 [
     i8 46, label %45
     i8 32, label %47
   ]
 
-45:                                               ; preds = %44
-  %46 = add nsw i32 %.07196, 1
-  br label %49
+42:                                               ; preds = %44
+  %43 = add nsw i32 %.07196, 1
+  br label %46
 
-47:                                               ; preds = %44
-  %48 = add nsw i32 %.07295, 1
-  br label %49
+44:                                               ; preds = %44
+  %45 = add nsw i32 %.07295, 1
+  br label %46
 
-49:                                               ; preds = %44, %45, %47, %29
-  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %45 ], [ %48, %47 ], [ %.07295, %44 ]
-  %.1 = phi i32 [ %.07196, %29 ], [ %46, %45 ], [ 0, %47 ], [ %.07196, %44 ]
+46:                                               ; preds = %44, %42, %44, %29
+  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %45 ], [ %45, %47 ], [ %.07295, %44 ]
+  %.1 = phi i32 [ %.07196, %29 ], [ %43, %45 ], [ 0, %47 ], [ %.07196, %44 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 80
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !6
 
-.critedge2:                                       ; preds = %49, %.lr.ph, %.critedge
+.critedge2:                                       ; preds = %46, %.lr.ph, %.critedge
   %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %49 ]
   ret i32 %.070
 }

@@ -86,7 +86,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind8make_set17h4dc0d3e9e7b3af7dE(ptr
   %9 = load ptr, ptr %8, align 8, !alias.scope !8, !nonnull !4, !noundef !4
   %10 = shl nsw i64 %3, 2
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
-  store i32 %7, ptr %11, align 4
+  store i32 %7, ptr %10, align 4
   %12 = add i64 %3, 1
   store i64 %12, ptr %2, align 8, !alias.scope !8
   ret i32 %7
@@ -124,7 +124,7 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %_ZN3egg9
   %.not = icmp eq i32 %.sroa.0.0, %10
   br i1 %.not, label %11, label %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7
 
-11:                                               ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit
+10:                                               ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit
   ret i32 %.sroa.0.0
 }
 
@@ -156,16 +156,16 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %2, %_ZN3
   ret i32 %.sroa.0.021
 
 _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit
-  %12 = zext i32 %10 to i64
-  %13 = icmp ugt i64 %.val9, %12
-  br i1 %13, label %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit, label %14, !prof !11
+  %11 = zext i32 %10 to i64
+  %12 = icmp ugt i64 %.val9, %11
+  br i1 %12, label %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit, label %13, !prof !11
 
-14:                                               ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %12, i64 noundef %.val9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !19
+13:                                               ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %11, i64 noundef %.val9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !19
   unreachable
 
 _ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
-  %15 = shl nuw nsw i64 %12, 2
+  %15 = shl nuw nsw i64 %11, 2
   %16 = getelementptr inbounds nuw i8, ptr %.val8, i64 %15
   %17 = load i32, ptr %16, align 4, !noundef !4
   store i32 %17, ptr %9, align 4

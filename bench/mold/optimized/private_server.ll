@@ -519,11 +519,11 @@ _ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8
   %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %33, label %32
 
-32:                                               ; preds = %.lr.ph
+32:; preds = %.lr.ph
   tail call void %31(ptr noundef nonnull %30, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2)
   br label %33
 
-33:                                               ; preds = %32, %.lr.ph
+33: ; preds = %32, %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %35 = load atomic i64, ptr %18 monotonic, align 8

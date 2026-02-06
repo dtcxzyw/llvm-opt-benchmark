@@ -59,7 +59,7 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !10, !noundef !9
   %.not = icmp eq i8 %8, %10
-  br i1 %.not, label %11, label %46
+  br i1 %.not, label %11, label %45
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67,7 +67,7 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !9
   %.not10 = icmp eq i64 %13, %15
-  br i1 %.not10, label %16, label %46
+  br i1 %.not10, label %16, label %45
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -88,7 +88,7 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
 25:                                               ; preds = %32, %26
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17he6839a659e0d3758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #8
-          to label %49 unwind label %47
+          to label %49 unwind label %46
 
 26:                                               ; preds = %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc31c88bcec0b1222E.exit"
   %27 = landingpad { ptr, i32 }
@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17he6839a659e0d3758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #8
-          to label %25 unwind label %47
+          to label %25 unwind label %46
 
 _ZN5alloc5slice11stable_sort17h6a92ab619d042f8dE.exit: ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68017a393e756342E.exit"
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -134,36 +134,36 @@ _ZN5alloc5slice11stable_sort17h6a92ab619d042f8dE.exit: ; preds = %"_ZN67_$LT$all
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %39
-  %43 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he118547b8014c3bbE.llvm.18221057410045122173(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  %42 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he118547b8014c3bbE.llvm.18221057410045122173(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %.noexc16 unwind label %32
 
 .noexc16:                                         ; preds = %.noexc
-  %44 = xor i1 %43, true
+  %43 = xor i1 %42, true
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc31c88bcec0b1222E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc31c88bcec0b1222E.exit": ; preds = %.noexc16, %38
-  %.0.i = phi i1 [ %44, %.noexc16 ], [ false, %38 ]
+  %.0.i = phi i1 [ %43, %.noexc16 ], [ false, %38 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17he6839a659e0d3758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %45 unwind label %26
 
-45:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc31c88bcec0b1222E.exit"
+44:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc31c88bcec0b1222E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17he6839a659e0d3758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %46
+  br label %45
 
-46:                                               ; preds = %11, %2, %45
+45:                                               ; preds = %11, %2, %44
   %.0 = phi i1 [ %.0.i, %45 ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 
-47:                                               ; preds = %32, %25
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %32, %25
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
-49:                                               ; preds = %25
+48:                                               ; preds = %25
   resume { ptr, i32 } %.pn
 }
 

@@ -552,7 +552,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i42, %do.bo
   %add = add nuw nsw i32 %controlPoints.0, 1
   %idxprom = zext nneg i32 %add to i64
   %2 = shl nuw nsw i64 %idxprom, 4
-  %arrayidx55 = getelementptr inbounds nuw i8, ptr %p, i64 %2
+  %y.i55 = getelementptr inbounds nuw i8, ptr %p, i64 %2
   %y.i55 = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
   %call.i56 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx55, ptr noundef nonnull %y.i55)
   switch i32 %call.i56, label %do.body.i57 [
@@ -601,7 +601,7 @@ invoke.cont79:                                    ; preds = %sw.bb72
   br label %do.body.i35.backedge
 
 lpad78:                                           ; preds = %sw.bb72
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -619,7 +619,7 @@ invoke.cont91:                                    ; preds = %sw.bb82
   br label %do.body.i35.backedge
 
 lpad90:                                           ; preds = %sw.bb82
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -639,7 +639,7 @@ invoke.cont105:                                   ; preds = %sw.bb94
   br label %do.body.i35.backedge
 
 lpad104:                                          ; preds = %sw.bb94
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -649,7 +649,7 @@ return:                                           ; preds = %READ_CONTROL_POINTS
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
   %ref.tmp95.sink = phi ptr [ %ref.tmp95, %lpad104 ], [ %ref.tmp83, %lpad90 ], [ %ref.tmp73, %lpad78 ], [ %ref.tmp28, %lpad32 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %5, %lpad104 ], [ %4, %lpad90 ], [ %3, %lpad78 ], [ %1, %lpad32 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad104 ], [ %5, %lpad90 ], [ %4, %lpad78 ], [ %1, %lpad32 ], [ %0, %lpad ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #13
   resume { ptr, i32 } %.pn
 }
@@ -1354,16 +1354,16 @@ FINISH_EDGE:                                      ; preds = %do.body.i62, %do.bo
   store ptr null, ptr %end.i90, align 8
   %call.i91 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %end.i90) #13
   store double %call.i91, ptr %arrayidx55, align 16
-  %34 = load ptr, ptr %end.i90, align 8
-  %35 = load ptr, ptr %input, align 8
-  %cmp.not.i92 = icmp ugt ptr %34, %35
+  %35 = load ptr, ptr %end.i90, align 8
+  %36 = load ptr, ptr %input, align 8
+  %cmp.not.i92 = icmp ugt ptr %35, %36
   br i1 %cmp.not.i92, label %while.cond.i94, label %if.else61
 
 while.cond.i94:                                   ; preds = %FINISH_EDGE, %while.body.i102
-  %storemerge.i95 = phi ptr [ %incdec.ptr.i103, %while.body.i102 ], [ %34, %FINISH_EDGE ]
+  %storemerge.i95 = phi ptr [ %incdec.ptr.i103, %while.body.i102 ], [ %35, %FINISH_EDGE ]
   store ptr %storemerge.i95, ptr %input, align 8
-  %36 = load i8, ptr %storemerge.i95, align 1
-  switch i8 %36, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread [
+  %37 = load i8, ptr %storemerge.i95, align 1
+  switch i8 %37, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread [
     i8 32, label %while.body.i102
     i8 9, label %while.body.i102
     i8 10, label %while.body.i102
@@ -1379,11 +1379,11 @@ if.end12.i96:                                     ; preds = %while.cond.i94
   %incdec.ptr13.i97 = getelementptr inbounds nuw i8, ptr %storemerge.i95, i64 1
   store ptr %incdec.ptr13.i97, ptr %input, align 8
   %call14.i98 = call double @strtod(ptr noundef nonnull %incdec.ptr13.i97, ptr noundef nonnull %end.i90) #13
-  %y.i99 = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
+  %y.i99 = getelementptr inbounds nuw i8, ptr %y.i55, i64 8
   store double %call14.i98, ptr %y.i99, align 8
-  %37 = load ptr, ptr %end.i90, align 8
-  %38 = load ptr, ptr %input, align 8
-  %cmp15.not.i100 = icmp ugt ptr %37, %38
+  %38 = load ptr, ptr %end.i90, align 8
+  %39 = load ptr, ptr %input, align 8
+  %cmp15.not.i100 = icmp ugt ptr %38, %39
   br i1 %cmp15.not.i100, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread: ; preds = %if.end12.i96, %while.cond.i94
@@ -1391,7 +1391,7 @@ _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread: ; preds = %if.end12.i9
   br label %return
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104: ; preds = %if.end12.i96
-  store ptr %37, ptr %input, align 8
+  store ptr %38, ptr %input, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i90)
   br label %if.end71
 
@@ -1400,11 +1400,11 @@ if.else61:                                        ; preds = %FINISH_EDGE
   br label %do.body.i106
 
 do.body.i106:                                     ; preds = %do.body.i106.backedge, %if.else61
-  %incdec.ptr10.i107 = phi ptr [ %35, %if.else61 ], [ %incdec.ptr.i108, %do.body.i106.backedge ]
+  %incdec.ptr10.i107 = phi ptr [ %36, %if.else61 ], [ %incdec.ptr.i108, %do.body.i106.backedge ]
   %incdec.ptr.i108 = getelementptr inbounds nuw i8, ptr %incdec.ptr10.i107, i64 1
   store ptr %incdec.ptr.i108, ptr %input, align 8
-  %39 = load i8, ptr %incdec.ptr10.i107, align 1
-  switch i8 %39, label %return [
+  %40 = load i8, ptr %incdec.ptr10.i107, align 1
+  switch i8 %40, label %return [
     i8 32, label %do.body.i106.backedge
     i8 13, label %do.body.i106.backedge
     i8 10, label %do.body.i106.backedge
@@ -1417,7 +1417,7 @@ do.body.i106.backedge:                            ; preds = %do.body.i106, %do.b
 
 if.then64:                                        ; preds = %do.body.i106
   store double %start.sroa.0.0.copyload, ptr %arrayidx55, align 16
-  %start.sroa.5.0.arrayidx55.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
+  %start.sroa.5.0.arrayidx55.sroa_idx = getelementptr inbounds nuw i8, ptr %y.i55, i64 8
   store double %start.sroa.5.0.copyload, ptr %start.sroa.5.0.arrayidx55.sroa_idx, align 8
   br label %if.end71
 
@@ -1444,7 +1444,7 @@ invoke.cont79:                                    ; preds = %sw.bb72
   br label %while.cond.backedge
 
 lpad78:                                           ; preds = %sw.bb72
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1462,7 +1462,7 @@ invoke.cont91:                                    ; preds = %sw.bb82
   br label %while.cond.backedge
 
 lpad90:                                           ; preds = %sw.bb82
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1482,7 +1482,7 @@ invoke.cont105:                                   ; preds = %sw.bb94
   br label %while.cond.backedge
 
 lpad104:                                          ; preds = %sw.bb94
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1492,7 +1492,7 @@ return:                                           ; preds = %_ZN7msdfgen9readCha
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
   %ref.tmp95.sink = phi ptr [ %ref.tmp95, %lpad104 ], [ %ref.tmp83, %lpad90 ], [ %ref.tmp73, %lpad78 ], [ %ref.tmp28, %lpad32 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %42, %lpad104 ], [ %41, %lpad90 ], [ %40, %lpad78 ], [ %15, %lpad32 ], [ %13, %lpad ]
+  %.pn = phi { ptr, i32 } [ %43, %lpad104 ], [ %42, %lpad90 ], [ %41, %lpad78 ], [ %15, %lpad32 ], [ %13, %lpad ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #13
   resume { ptr, i32 } %.pn
 }

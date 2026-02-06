@@ -754,9 +754,9 @@ switch.lookup:
   %3 = shl nuw nsw i64 %1, 3
   %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE.4", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
-  ret { ptr, i64 } %5
+  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
+  %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: nonlazybind uwtable

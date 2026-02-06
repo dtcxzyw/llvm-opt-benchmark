@@ -573,7 +573,7 @@ define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef %0, ptr noundef %1
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %8, %21
+.preheader:                                       ; preds = %8, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %8 ]
   %11 = shl nuw nsw i64 %indvars.iv, 3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
@@ -581,29 +581,29 @@ define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef %0, ptr noundef %1
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %14
 
-14:                                               ; preds = %.preheader
+14:; preds = %.preheader
   %15 = tail call i32 @_mi_strnicmp(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %6) #10
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %21
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %6
-  %19 = load i8, ptr %18, align 1, !tbaa !33
-  %20 = icmp eq i8 %19, 61
-  br i1 %20, label %.critedge, label %21
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %6
+  %18 = load i8, ptr %17, align 1, !tbaa !33
+  %19 = icmp eq i8 %18, 61
+  br i1 %19, label %.critedge, label %20
 
-21:                                               ; preds = %17, %14
+20:                                               ; preds = %16, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10000
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !42
 
-.critedge:                                        ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %6
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  tail call void @_mi_strlcpy(ptr noundef %1, ptr noundef nonnull %23, i64 noundef %2) #10
+.critedge:                                        ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  tail call void @_mi_strlcpy(ptr noundef %1, ptr noundef nonnull %22, i64 noundef %2) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %.preheader, %.critedge, %5, %8, %3
+.loopexit:                                        ; preds = %20, %.preheader, %.critedge, %5, %8, %3
   %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ false, %8 ], [ true, %.critedge ], [ false, %.preheader ], [ false, %21 ]
   ret i1 %.0
 }

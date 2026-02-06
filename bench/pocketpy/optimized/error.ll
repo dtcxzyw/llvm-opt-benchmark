@@ -143,7 +143,7 @@ _ZN4pkpy7SStreamC2Ei.exit:                        ; preds = %.tail, %28, %31
 33:                                               ; preds = %5
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  br label %77
 
 .lr.ph:                                           ; preds = %_ZN4pkpy7SStreamC2Ei.exit, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %spec.select, %_ZN4pkpy7SStreamC2Ei.exit ]
@@ -159,12 +159,12 @@ _ZN4pkpy7SStreamC2Ei.exit:                        ; preds = %.tail, %28, %31
 .loopexit:                                        ; preds = %37
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 39:                                               ; preds = %37, %.lr.ph
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -197,7 +197,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %42
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %73
+  br label %72
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %42
   %.sink = phi i8 [ %spec.select47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %42 ]
@@ -245,38 +245,38 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %.not.i.i22 = icmp eq ptr %71, null
   br i1 %.not.i.i22, label %_ZN4pkpy7SStreamD2Ev.exit, label %72
 
-72:                                               ; preds = %64
+72: ; preds = %64
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %71) #18
   br label %_ZN4pkpy7SStreamD2Ev.exit
 
 _ZN4pkpy7SStreamD2Ev.exit:                        ; preds = %64, %72
   ret void
 
-73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %48
+72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %48
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %74 = load ptr, ptr %26, align 8
-  %.not.i.i23 = icmp eq ptr %74, null
-  br i1 %.not.i.i23, label %_ZN4pkpy7SStreamD2Ev.exit24, label %75
+  %73 = load ptr, ptr %26, align 8
+  %.not.i.i23 = icmp eq ptr %73, null
+  br i1 %.not.i.i23, label %_ZN4pkpy7SStreamD2Ev.exit24, label %74
 
-75:                                               ; preds = %73
-  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %74) #18
+74:                                               ; preds = %72
+  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %73) #18
   br label %_ZN4pkpy7SStreamD2Ev.exit24
 
-_ZN4pkpy7SStreamD2Ev.exit24:                      ; preds = %75, %73
+_ZN4pkpy7SStreamD2Ev.exit24:                      ; preds = %74, %72
   call void @_ZNSt6vectorIN4pkpy3StrESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  %76 = load ptr, ptr %13, align 8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit, label %77
+  %75 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit, label %76
 
-77:                                               ; preds = %_ZN4pkpy7SStreamD2Ev.exit24
-  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %76) #18
+76:                                               ; preds = %_ZN4pkpy7SStreamD2Ev.exit24
+  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %75) #18
   br label %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit
 
-_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit:           ; preds = %_ZN4pkpy7SStreamD2Ev.exit24, %77
+_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit:           ; preds = %_ZN4pkpy7SStreamD2Ev.exit24, %76
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit, %33
+77:                                               ; preds = %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit, %33
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4pkpy10pod_vectorIPKcLi2EED2Ev.exit ], [ %34, %33 ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   resume { ptr, i32 } %.pn.pn.pn
@@ -341,7 +341,7 @@ define void @_ZN4pkpy10SourceDataC2ERKNS_3StrENS_11CompileModeE(ptr noundef nonn
   store i32 %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4pkpy3StrC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %6 unwind label %33
+          to label %6 unwind label %32
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -395,11 +395,11 @@ define void @_ZN4pkpy10SourceDataC2ERKNS_3StrENS_11CompileModeE(ptr noundef nonn
   store ptr %13, ptr %32, align 8
   ret void
 
-33:                                               ; preds = %3
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

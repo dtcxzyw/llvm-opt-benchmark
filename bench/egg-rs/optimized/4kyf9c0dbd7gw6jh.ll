@@ -119,14 +119,14 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0e91ff9af32add60E.llvm.5520512306816613332"(i64 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
   %5 = icmp ult i64 %0, %2
-  br i1 %5, label %6, label %9, !prof !11
+  br i1 %5, label %6, label %8, !prof !11
 
 6:                                                ; preds = %4
   %7 = mul nsw i64 %0, 12
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   ret ptr %8
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #15
   unreachable
 }

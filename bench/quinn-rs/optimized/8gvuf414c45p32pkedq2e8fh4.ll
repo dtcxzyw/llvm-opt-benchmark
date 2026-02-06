@@ -264,10 +264,10 @@ define hidden void @"_ZN5alloc11collections9vec_deque5drain18Drain$LT$T$C$A$GT$9
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
   %24 = sub i64 %16, %14
   store ptr %20, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %26, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %23, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %24, ptr %27, align 8
   ret void

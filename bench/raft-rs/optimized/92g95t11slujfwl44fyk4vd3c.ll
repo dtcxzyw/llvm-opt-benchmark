@@ -37,8 +37,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbd644e701d7b2c74E.exit": ; preds = %11, %3
   %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %17, %11 ]
-  %20 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %20)
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !12
   ret void
 }
@@ -77,8 +77,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha90eb76f519a5b65E.exit": ; preds = %11, %3
   %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %17, %11 ]
-  %20 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %20)
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !22
   ret void
 }
@@ -117,8 +117,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f7a0b09fc730bccE.exit": ; preds = %11, %3
   %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %17, %11 ]
-  %20 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %20)
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !32
   ret void
 }
@@ -157,8 +157,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0bcbd9757a05f28dE.exit": ; preds = %11, %3
   %storemerge = phi i64 [ %.sroa.5.0.copyload, %3 ], [ %17, %11 ]
-  %20 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %20)
+  %18 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %18)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !42
   ret void
 }

@@ -46,31 +46,31 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %11, label %15
 
-15:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.1) #10
   unreachable
 
-16:                                               ; preds = %.lr.ph19
+15:                                               ; preds = %.lr.ph19
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %4
   br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
 
-.lr.ph19:                                         ; preds = %11, %16
-  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %16 ], [ 0, %11 ]
-  %17 = shl nuw nsw i64 %indvars.iv21, 3
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
-  %19 = load i64, ptr %18, align 8
-  %20 = call i32 @pthread_join(i64 noundef %19, ptr noundef null) #9
-  %.not14 = icmp eq i32 %20, 0
+.lr.ph19:                                         ; preds = %11, %15
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %15 ], [ 0, %11 ]
+  %16 = shl nuw nsw i64 %indvars.iv21, 3
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %17
+  %18 = load i64, ptr %18, align 8
+  %19 = call i32 @pthread_join(i64 noundef %18, ptr noundef null) #9
+  %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %16, label %21
 
-21:                                               ; preds = %.lr.ph19
+19:                                               ; preds = %.lr.ph19
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2) #10
   unreachable
 
-._crit_edge:                                      ; preds = %16, %.preheader16
+._crit_edge:                                      ; preds = %15, %.preheader16
   call void @free(ptr noundef %6) #9
-  %22 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
+  %20 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
   ret void
 }
 
@@ -98,7 +98,7 @@ define internal noalias noundef nonnull ptr @taskqueue_thread(ptr noundef %0) #5
   br i1 %.not18, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %8
-  %5 = phi ptr [ %19, %8 ], [ %4, %1 ]
+  %5 = phi ptr [ %18, %8 ], [ %4, %1 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = load i32, ptr %6, align 4
   %.not15 = icmp eq i32 %7, 0
@@ -111,18 +111,18 @@ define internal noalias noundef nonnull ptr @taskqueue_thread(ptr noundef %0) #5
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   store i32 %9, ptr %6, align 4
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void %15(ptr noundef %17) #9
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
-  %19 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %19, null
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load ptr, ptr %15, align 8
+  tail call void %15(ptr noundef %16) #9
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %18 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %8, %1
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
   tail call void @pthread_exit(ptr noundef null) #10
   unreachable
 }

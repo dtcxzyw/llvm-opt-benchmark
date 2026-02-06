@@ -2301,7 +2301,7 @@ _ZNSt12_Vector_baseIN4YAML4NodeESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
 
 .noexc.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN4YAML4NodeESaIS1_EE11_M_allocateEm.exit
   %33 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc unwind label %99
+          to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i
   store ptr %33, ptr %26, align 8, !tbaa !6
@@ -2366,12 +2366,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i: ; pred
   %60 = load ptr, ptr %59, align 8, !tbaa !46
   store ptr %60, ptr %58, align 8, !tbaa !46
   %61 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4YAML4NodeEPS1_ET0_T_S6_S5_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %23)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %96
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %95
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4YAML4NodeEPS1_ET0_T_S6_S5_(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %62)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit30 unwind label %99
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit30 unwind label %98
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit30: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.not4.i.i.i = icmp eq ptr %7, %6
@@ -2461,45 +2461,45 @@ _ZNSt12_Vector_baseIN4YAML4NodeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
   store ptr %95, ptr %93, align 8, !tbaa !108
   ret void
 
-96:                                               ; preds = %57
+95:                                               ; preds = %57
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
-  %98 = call ptr @__cxa_begin_catch(ptr %97) #21
+  %96 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
+  %97 = call ptr @__cxa_begin_catch(ptr %96) #21
   call void @_ZNSt16allocator_traitsISaIN4YAML4NodeEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24) #21
-  br label %104
+  br label %103
 
-99:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %.noexc.i.i.i.i
+98:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %.noexc.i.i.i.i
   %.0.ph = phi ptr [ %23, %.noexc.i.i.i.i ], [ %62, %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML4NodeES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
-  %101 = call ptr @__cxa_begin_catch(ptr %100) #21
+  %99 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
+  %100 = call ptr @__cxa_begin_catch(ptr %99) #21
   invoke void @_ZSt8_DestroyIPN4YAML4NodeES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %23, ptr noundef nonnull %.0.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %104 unwind label %102
+          to label %104 unwind label %101
 
-102:                                              ; preds = %104, %99
-  %103 = landingpad { ptr, i32 }
+101:                                              ; preds = %103, %98
+  %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %105 unwind label %106
+          to label %105 unwind label %105
 
-104:                                              ; preds = %96, %99
+103:                                              ; preds = %95, %98
   call void @_ZdlPv(ptr noundef nonnull %23) #20
   invoke void @__cxa_rethrow() #22
-          to label %109 unwind label %102
+          to label %109 unwind label %101
 
-105:                                              ; preds = %102
-  resume { ptr, i32 } %103
+104:                                              ; preds = %101
+  resume { ptr, i32 } %102
 
-106:                                              ; preds = %102
-  %107 = landingpad { ptr, i32 }
+105:                                              ; preds = %101
+  %106 = landingpad { ptr, i32 }
           catch ptr null
-  %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #23
+  %107 = extractvalue { ptr, i32 } %106, 0
+  call void @__clang_call_terminate(ptr %107) #23
   unreachable
 
-109:                                              ; preds = %104
+108:                                              ; preds = %103
   unreachable
 }
 

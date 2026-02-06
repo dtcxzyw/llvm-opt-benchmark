@@ -25,11 +25,11 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   %9 = mul nsw i64 %8, 80
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
   store ptr %6, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %10, ptr %11, align 8
-  %12 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb844b111d5be2405E"(ptr nonnull align 8 %3, ptr nonnull align 8 %.val1)
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %10, ptr %10, align 8
+  %11 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb844b111d5be2405E"(ptr nonnull align 8 %3, ptr nonnull align 8 %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %12
+  ret i1 %11
 }
 
 ; Function Attrs: nonlazybind uwtable

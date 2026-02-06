@@ -171,43 +171,43 @@ define dso_local range(i32 -1, 65535) i32 @crypto_verify_64(ptr noundef nonnull 
   %14 = load <2 x i64>, ptr %13, align 1
   store volatile <2 x i64> %14, ptr %3, align 16
   %.0..0..0..0..0..0.1.i = load volatile ptr, ptr %8, align 8
-  %15 = getelementptr i8, ptr %.0..0..0..0..0..0.1.i, i64 %12
-  %16 = load <2 x i64>, ptr %15, align 1
-  store volatile <2 x i64> %16, ptr %4, align 16
+  %14 = getelementptr i8, ptr %.0..0..0..0..0..0.1.i, i64 %12
+  %15 = load <2 x i64>, ptr %14, align 1
+  store volatile <2 x i64> %15, ptr %4, align 16
   %.0..0..0..0..0..0.8.i = load volatile <2 x i64>, ptr %5, align 16
   %.0..0..0..0..0..0.13.i = load volatile <2 x i64>, ptr %3, align 16
   %.0..0..0..0..0..0.11.i = load volatile <2 x i64>, ptr %4, align 16
-  %17 = xor <2 x i64> %.0..0..0..0..0..0.11.i, %.0..0..0..0..0..0.13.i
-  %18 = or <2 x i64> %17, %.0..0..0..0..0..0.8.i
-  store volatile <2 x i64> %18, ptr %5, align 16
+  %16 = xor <2 x i64> %.0..0..0..0..0..0.11.i, %.0..0..0..0..0..0.13.i
+  %17 = or <2 x i64> %16, %.0..0..0..0..0..0.8.i
+  store volatile <2 x i64> %17, ptr %5, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %crypto_verify_n.exit, label %.lr.ph.i, !llvm.loop !4
 
 crypto_verify_n.exit:                             ; preds = %.lr.ph.i
   %.0..0..0..0..0..0.9.i = load volatile <2 x i64>, ptr %5, align 16
-  %19 = bitcast <2 x i64> %.0..0..0..0..0..0.9.i to <4 x i32>
-  %20 = icmp eq <4 x i32> %19, zeroinitializer
-  %21 = sext <4 x i1> %20 to <4 x i32>
-  %22 = bitcast <4 x i32> %21 to <16 x i8>
-  %23 = icmp slt <16 x i8> %22, zeroinitializer
-  %24 = bitcast <16 x i1> %23 to i16
-  %25 = zext i16 %24 to i32
-  store volatile i32 %25, ptr %6, align 4
+  %18 = bitcast <2 x i64> %.0..0..0..0..0..0.9.i to <4 x i32>
+  %19 = icmp eq <4 x i32> %18, zeroinitializer
+  %20 = sext <4 x i1> %19 to <4 x i32>
+  %21 = bitcast <4 x i32> %20 to <16 x i8>
+  %22 = icmp slt <16 x i8> %21, zeroinitializer
+  %23 = bitcast <16 x i1> %22 to i16
+  %24 = zext i16 %23 to i32
+  store volatile i32 %24, ptr %6, align 4
   store volatile <2 x i64> zeroinitializer, ptr %3, align 16
   store volatile <2 x i64> zeroinitializer, ptr %4, align 16
   store volatile <2 x i64> zeroinitializer, ptr %5, align 16
   %.0..0..0..0..0..0.7.i = load volatile i32, ptr %6, align 4
-  %26 = add i32 %.0..0..0..0..0..0.7.i, 1
-  %27 = lshr i32 %26, 16
-  %28 = add nsw i32 %27, -1
+  %25 = add i32 %.0..0..0..0..0..0.7.i, 1
+  %26 = lshr i32 %25, 16
+  %27 = add nsw i32 %26, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %28
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

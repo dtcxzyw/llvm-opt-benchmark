@@ -101,12 +101,12 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %6
 
-.preheader:                                       ; preds = %12
+.preheader:                                       ; preds = %11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %13
+  br label %12
 
-6:                                                ; preds = %2, %12
+9:                                                ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
   %7 = shl nuw nsw i64 %indvars.iv, 3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
@@ -119,12 +119,12 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
   store i32 %1, ptr %11, align 4, !tbaa !42
   br label %12
 
-12:                                               ; preds = %6, %10
+11:                                               ; preds = %6, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !44
 
-13:                                               ; preds = %.preheader, %24
+12:                                               ; preds = %.preheader, %24
   %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %24 ]
   %14 = shl nuw nsw i64 %indvars.iv23, 3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
@@ -132,18 +132,18 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
 
-17:                                               ; preds = %13
+17: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 276
   store i32 %1, ptr %18, align 4, !tbaa !46
   br label %19
 
-19:                                               ; preds = %17, %13
+19: ; preds = %17, %13
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 %14
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %.not18 = icmp eq ptr %21, null
   br i1 %.not18, label %24, label %22
 
-22:                                               ; preds = %19
+22: ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 276
   store i32 %1, ptr %23, align 4, !tbaa !46
   br label %24
@@ -151,9 +151,9 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
 24:                                               ; preds = %19, %22
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %25, label %13, !llvm.loop !48
+  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !48
 
-25:                                               ; preds = %24
+23:                                               ; preds = %24
   ret void
 }
 

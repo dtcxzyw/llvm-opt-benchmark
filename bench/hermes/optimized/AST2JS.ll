@@ -2523,8 +2523,8 @@ entry:
   %2 = shl nuw nsw i64 %1, 3
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = zext nneg i32 %0 to i64
-  %4 = shl nuw nsw i64 %3, 3
+  %2 = zext nneg i32 %0 to i64
+  %4 = shl nuw nsw i64 %2, 3
   %switch.gep465 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv.214, i64 %4
   %switch.load466 = load ptr, ptr %switch.gep465, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load466, 0

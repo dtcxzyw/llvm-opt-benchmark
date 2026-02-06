@@ -172,42 +172,42 @@ define range(i32 0, 552) i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   %4 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str, i64 noundef 3) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %20
+  br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, i64 noundef 4) #6
   %.not2 = icmp eq i32 %6, 0
-  br i1 %.not2, label %7, label %20
+  br i1 %.not2, label %7, label %19
 
 7:                                                ; preds = %5
   %8 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i64 noundef 5) #6
   %.not3 = icmp eq i32 %8, 0
-  br i1 %.not3, label %9, label %20
+  br i1 %.not3, label %9, label %19
 
 9:                                                ; preds = %7
   %10 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 22) #6
   %.not4 = icmp eq i32 %10, 0
-  br i1 %.not4, label %11, label %20
+  br i1 %.not4, label %11, label %19
 
 11:                                               ; preds = %9
   %12 = call i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #6
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %14, label %20
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ult i32 %16, 4
-  br i1 %17, label %switch.lookup, label %20
+  br i1 %17, label %switch.lookup, label %19
 
 switch.lookup:                                    ; preds = %14
   %18 = shl nuw nsw i32 %16, 2
   %19 = zext nneg i32 %18 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.cli_ooxml_filetype, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %20
+  br label %19
 
-20:                                               ; preds = %14, %switch.lookup, %11, %9, %7, %5, %2
+19:                                               ; preds = %14, %switch.lookup, %11, %9, %7, %5, %2
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %11 ], [ 0, %9 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

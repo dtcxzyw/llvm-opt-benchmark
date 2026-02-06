@@ -64,7 +64,7 @@ define void @_ZN11fish_printf3arg3Arg6as_str17h6cb0ad0bcf0e4a4cE(ptr dead_on_unw
   store i64 %23, ptr %24, align 8
   br label %43
 
-25:                                               ; preds = %3
+25: ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -74,7 +74,7 @@ define void @_ZN11fish_printf3arg3Arg6as_str17h6cb0ad0bcf0e4a4cE(ptr dead_on_unw
   store i64 %29, ptr %30, align 8
   br label %43
 
-31:                                               ; preds = %3
+31: ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -82,7 +82,7 @@ define void @_ZN11fish_printf3arg3Arg6as_str17h6cb0ad0bcf0e4a4cE(ptr dead_on_unw
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i64, ptr %35, align 8, !noundef !4
   %37 = shl nuw nsw i64 %36, 2
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %37
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %37
   tail call void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h3898b777581243afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %34, ptr noundef nonnull %38)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4

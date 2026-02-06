@@ -939,25 +939,25 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd2813538d9b6973bE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = shl nsw i64 %1, 5
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %8 = icmp eq i64 %1, 0
-  br i1 %8, label %_ZN4core3fmt8builders9DebugList7entries17h198ed4eafdf52885E.exit, label %.lr.ph.i
+  %.idx = shl nsw i64 %1, 5
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %7 = icmp eq i64 %1, 0
+  br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h198ed4eafdf52885E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.0.05.i = phi ptr [ %9, %.lr.ph.i ], [ %0, %3 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 32
+  %.sroa.0.05.i = phi ptr [ %8, %.lr.ph.i ], [ %0, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !140
   store ptr %.sroa.0.05.i, ptr %4, align 8, !noalias !140
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h7138f9ad1313f5b4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.25.llvm.14933412330345768097)
+  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h7138f9ad1313f5b4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.25.llvm.14933412330345768097)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !140
-  %11 = icmp eq ptr %9, %7
-  br i1 %11, label %_ZN4core3fmt8builders9DebugList7entries17h198ed4eafdf52885E.exit, label %.lr.ph.i
+  %10 = icmp eq ptr %8, %6
+  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h198ed4eafdf52885E.exit, label %.lr.ph.i
 
 _ZN4core3fmt8builders9DebugList7entries17h198ed4eafdf52885E.exit: ; preds = %.lr.ph.i, %3
-  %12 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %12
+  ret i1 %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -966,25 +966,25 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd2813538d9b6973bE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = mul nsw i64 %1, 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %8 = icmp eq i64 %1, 0
-  br i1 %8, label %_ZN4core3fmt8builders9DebugList7entries17haad787d9a3df6617E.exit, label %.lr.ph.i
+  %.idx = mul nsw i64 %1, 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %7 = icmp eq i64 %1, 0
+  br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17haad787d9a3df6617E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.0.05.i = phi ptr [ %9, %.lr.ph.i ], [ %0, %3 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 56
+  %.sroa.0.05.i = phi ptr [ %8, %.lr.ph.i ], [ %0, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !143
   store ptr %.sroa.0.05.i, ptr %4, align 8, !noalias !143
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h7138f9ad1313f5b4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.29.llvm.14933412330345768097)
+  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h7138f9ad1313f5b4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.29.llvm.14933412330345768097)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !143
-  %11 = icmp eq ptr %9, %7
-  br i1 %11, label %_ZN4core3fmt8builders9DebugList7entries17haad787d9a3df6617E.exit, label %.lr.ph.i
+  %10 = icmp eq ptr %8, %6
+  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17haad787d9a3df6617E.exit, label %.lr.ph.i
 
 _ZN4core3fmt8builders9DebugList7entries17haad787d9a3df6617E.exit: ; preds = %.lr.ph.i, %3
-  %12 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %12
+  ret i1 %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4098,12 +4098,12 @@ switch.lookup:
   %4 = shl nuw nsw i64 %3, 3
   %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$nom..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4428fde0a6474567E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i8 %2 to i64
-  %6 = shl nuw nsw i64 %5, 3
+  %4 = zext nneg i8 %2 to i64
+  %.idx = shl nuw nsw i64 %4, 3
   %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$nom..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4428fde0a6474567E.25", i64 %6
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %7
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -4116,12 +4116,12 @@ switch.lookup:
   %5 = shl nuw nsw i64 %4, 3
   %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = shl nuw nsw i64 %4, 3
+  %.idx = shl nuw nsw i64 %4, 3
   %switch.gep1 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.26", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %7 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %switch.load, 1
-  ret { ptr, i64 } %8
+  %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -4298,12 +4298,12 @@ switch.lookup:
   %4 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN60_$LT$thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e9d99703c6f3412E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = shl nuw nsw i8 %2, 3
-  %6 = zext nneg i8 %5 to i64
+  %4 = shl nuw nsw i8 %2, 3
+  %.idx = zext nneg i8 %5 to i64
   %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN60_$LT$thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e9d99703c6f3412E.27", i64 %6
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %7
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4431,9 +4431,9 @@ switch.lookup:
   %3 = shl nuw nsw i64 %1, 3
   %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.28", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
-  ret { ptr, i64 } %5
+  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
+  %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

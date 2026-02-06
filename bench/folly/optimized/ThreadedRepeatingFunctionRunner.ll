@@ -417,7 +417,7 @@ _ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exi
 
 35:                                               ; preds = %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit
   invoke fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvRS1_PT_DpOT0_"(ptr noundef %32, ptr noundef nonnull align 16 dereferenceable(112) %5)
-          to label %.noexc unwind label %86
+          to label %.noexc unwind label %85
 
 .noexc:                                           ; preds = %35
   %36 = load ptr, ptr %31, align 8, !tbaa !26
@@ -435,7 +435,7 @@ _ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exi
 
 44:                                               ; preds = %38
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #22
-          to label %.noexc3 unwind label %86
+          to label %.noexc3 unwind label %85
 
 .noexc3:                                          ; preds = %44
   unreachable
@@ -453,7 +453,7 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %38
 50:                                               ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %51 = shl nuw nsw i64 %49, 3
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #25
-          to label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i unwind label %86
+          to label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i unwind label %85
 
 _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %50, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %53 = phi ptr [ null, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %52, %50 ]
@@ -542,36 +542,36 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i: ; preds =
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
 
 "_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", %.noexc
-  %79 = load ptr, ptr %24, align 8, !tbaa !41
-  %.not.i.i.i5 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i5, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i, label %80
+  %78 = load ptr, ptr %24, align 8, !tbaa !41
+  %.not.i.i.i5 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i5, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i, label %79
 
-80:                                               ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
-  %81 = call noundef i64 %79(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %20, ptr noundef null) #21
+79:                                               ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
+  %80 = call noundef i64 %79(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %20, ptr noundef null) #21
   br label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i
 
-_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i: ; preds = %80, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
-  %82 = load ptr, ptr %5, align 16, !tbaa !35
-  %83 = icmp eq ptr %82, %7
-  br i1 %83, label %"_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i: ; preds = %79, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEERS0_DpOT_.exit"
+  %81 = load ptr, ptr %5, align 16, !tbaa !35
+  %82 = icmp eq ptr %81, %7
+  br i1 %82, label %"_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i
-  %84 = load i64, ptr %7, align 16, !tbaa !38
-  %85 = add i64 %84, 1
-  call void @_ZdlPvm(ptr noundef %82, i64 noundef %85) #24
+  %83 = load i64, ptr %7, align 16, !tbaa !38
+  %84 = add i64 %83, 1
+  call void @_ZdlPvm(ptr noundef %81, i64 noundef %84) #24
   br label %"_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev.exit"
 
 "_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev.exit": ; preds = %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-86:                                               ; preds = %50, %44, %35
-  %87 = landingpad { ptr, i32 }
+85:                                               ; preds = %50, %44, %35
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %70, %86
-  %eh.lpad-body = phi { ptr, i32 } [ %87, %86 ], [ %71, %70 ]
+.body:                                            ; preds = %70, %85
+  %eh.lpad-body = phi { ptr, i32 } [ %86, %86 ], [ %71, %70 ]
   call fastcc void @"_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev"(ptr noundef nonnull align 16 dereferenceable(112) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body

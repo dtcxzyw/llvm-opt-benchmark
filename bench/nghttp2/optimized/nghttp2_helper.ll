@@ -641,16 +641,16 @@ define hidden ptr @nghttp2_cpymem(ptr noundef writeonly captures(ret: address, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @nghttp2_http2_strerror(i32 noundef %0) local_unnamed_addr #7 {
   %2 = icmp ult i32 %0, 14
-  br i1 %2, label %switch.lookup, label %5
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = shl nuw nsw i32 %0, 3
   %4 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.nghttp2_http2_strerror, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %switch.lookup
+4:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.59, %1 ]
   ret ptr %.0
 }

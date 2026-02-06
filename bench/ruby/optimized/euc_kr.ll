@@ -51,7 +51,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @euckr_mbc_enc_len(ptr n
   %21 = sub nsw i32 0, %20
   br label %32
 
-22:                                               ; preds = %15
+22:; preds = %15
   %23 = shl nsw i64 %9, 8
   %24 = and i64 %23, 1099511627520
   %25 = getelementptr inbounds nuw i8, ptr @trans, i64 %24

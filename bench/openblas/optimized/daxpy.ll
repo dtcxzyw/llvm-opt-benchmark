@@ -20,7 +20,7 @@ define void @daxpy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %15 = icmp slt i32 %8, 1
   %16 = fcmp oeq double %14, 0.000000e+00
   %or.cond47 = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond47, label %38, label %17
+  br i1 %or.cond47, label %36, label %17
 
 17:                                               ; preds = %6
   %18 = icmp eq i32 %10, 0
@@ -35,7 +35,7 @@ define void @daxpy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %24 = load double, ptr %4, align 8, !tbaa !7
   %25 = tail call double @llvm.fmuladd.f64(double %22, double %23, double %24)
   store double %25, ptr %4, align 8, !tbaa !7
-  br label %38
+  br label %36
 
 26:                                               ; preds = %17
   %27 = icmp slt i32 %10, 0
@@ -50,24 +50,24 @@ define void @daxpy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %.039.idx = select i1 %29, i64 %30, i64 0
   %.039 = getelementptr inbounds nuw i8, ptr %4, i64 %.039.idx
   %or.cond3 = select i1 %18, i1 true, i1 %19
-  %31 = icmp samesign ult i32 %8, 10001
-  %or.cond5 = or i1 %31, %or.cond3
-  br i1 %or.cond5, label %.thread, label %32
+  %29 = icmp samesign ult i32 %8, 10001
+  %or.cond5 = or i1 %29, %or.cond3
+  br i1 %or.cond5, label %.thread, label %30
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %.thread, label %36
+30:                                               ; preds = %26
+  %31 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %.thread, label %34
 
-.thread:                                          ; preds = %26, %32
-  %35 = tail call i32 @daxpy_k(i64 noundef %9, i64 noundef 0, i64 noundef 0, double noundef %14, ptr noundef %.038, i64 noundef %11, ptr noundef %.039, i64 noundef %13, ptr noundef null, i64 noundef 0) #4
-  br label %38
+.thread:                                          ; preds = %26, %30
+  %33 = tail call i32 @daxpy_k(i64 noundef %9, i64 noundef 0, i64 noundef 0, double noundef %14, ptr noundef %.038, i64 noundef %11, ptr noundef %.039, i64 noundef %13, ptr noundef null, i64 noundef 0) #4
+  br label %36
 
-36:                                               ; preds = %32
-  %37 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.038, i64 noundef %11, ptr noundef %.039, i64 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull @daxpy_k, i32 noundef %33) #4
-  br label %38
+34:                                               ; preds = %30
+  %35 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.038, i64 noundef %11, ptr noundef %.039, i64 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull @daxpy_k, i32 noundef %31) #4
+  br label %36
 
-38:                                               ; preds = %.thread, %36, %6, %20
+36:                                               ; preds = %.thread, %34, %6, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

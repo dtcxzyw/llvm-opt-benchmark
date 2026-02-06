@@ -55,12 +55,12 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %17, !prof !9
+  br i1 %3, label %4, label %16, !prof !9
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g) #5
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %17, label %6
+  br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %4
   store i64 5489, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, align 8, !tbaa !10
@@ -84,13 +84,13 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
 16:                                               ; preds = %7
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g) #5
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %4, %1
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
-  %19 = add i64 %18, 1
-  %20 = urem i64 %19, 624
-  %21 = shl nuw nsw i64 %18, 3
+16:                                               ; preds = %16, %4, %1
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
+  %18 = add i64 %17, 1
+  %19 = urem i64 %18, 624
+  %21 = shl nuw nsw i64 %17, 3
   %22 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !10
   %24 = and i64 %23, -2147483648
@@ -115,8 +115,8 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
   %42 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !10
   %44 = lshr i64 %43, 11
-  %45 = and i64 %44, 4294967295
-  %46 = xor i64 %45, %43
+  %43 = and i64 %44, 4294967295
+  %44 = xor i64 %43, %43
   store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   %47 = shl i64 %46, 7
   %48 = and i64 %47, 2636928640

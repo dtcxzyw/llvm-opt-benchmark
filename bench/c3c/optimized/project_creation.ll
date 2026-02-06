@@ -143,7 +143,7 @@ mkdir_or_fail.exit:                               ; preds = %create_file_or_fail
 30:                                               ; preds = %mkdir_or_fail.exit24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %37, label %mkdir_or_fail.exit24, !llvm.loop !7
+  br i1 %exitcond.not, label %36, label %mkdir_or_fail.exit24, !llvm.loop !7
 
 mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit, %30
   %indvars.iv = phi i64 [ 0, %mkdir_or_fail.exit ], [ %indvars.iv.next, %30 ]
@@ -155,15 +155,15 @@ mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit,
   %35 = tail call zeroext i1 @dir_make(ptr noundef %33) #9
   br i1 %35, label %30, label %36
 
-36:                                               ; preds = %mkdir_or_fail.exit24
+36:   ; preds = %mkdir_or_fail.exit24
   tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.54, ptr noundef %33)
   unreachable
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr @MANIFEST_TEMPLATE, align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = tail call ptr @scratch_buffer_to_string() #9
-  tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+36:                                               ; preds = %30
+  %37 = load ptr, ptr @MANIFEST_TEMPLATE, align 8
+  %38 = load ptr, ptr %2, align 8
+  %39 = tail call ptr @scratch_buffer_to_string() #9
+  tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef %37, ptr noundef %38, ptr noundef %39)
   ret void
 }
 

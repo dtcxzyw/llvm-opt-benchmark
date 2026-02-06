@@ -177,14 +177,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %30 = call noundef zeroext i1 @_ZNK7Imf_3_46Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49) %27)
   br i1 %30, label %31, label %35
 
-31:                                               ; preds = %.lr.ph
+31:; preds = %.lr.ph
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %27)
   %33 = call noundef zeroext i1 @_ZN7Imf_3_47isImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %32)
   %34 = or i32 %spec.select18, 2048
   %spec.select19 = select i1 %33, i32 %spec.select18, i32 %34
   br label %35
 
-35:                                               ; preds = %31, %.lr.ph
+35:; preds = %31, %.lr.ph
   %.3 = phi i32 [ %spec.select18, %.lr.ph ], [ %spec.select19, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

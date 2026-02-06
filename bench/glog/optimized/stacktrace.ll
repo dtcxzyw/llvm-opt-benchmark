@@ -29,7 +29,7 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   %7 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN6google24glog_internal_namespace_L12g_tl_enteredE)
   %8 = load i8, ptr %7, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %35, label %10
+  br i1 %9, label %34, label %10
 
 10:                                               ; preds = %3
   store i8 1, ptr %7, align 1, !tbaa !3
@@ -46,7 +46,7 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   %16 = add nsw i32 %2, 1
   br label %17
 
-17:                                               ; preds = %32, %15
+17:                                               ; preds = %31, %15
   %.012 = phi i32 [ %16, %15 ], [ %.214, %32 ]
   %.011 = phi i32 [ 0, %15 ], [ %.3, %32 ]
   %18 = icmp slt i32 %.011, %1
@@ -63,7 +63,7 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
 
 24:                                               ; preds = %22
   %25 = add nsw i32 %.012, -1
-  br label %32
+  br label %31
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %4, align 8, !tbaa !9
@@ -74,19 +74,19 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   store ptr %27, ptr %31, align 8, !tbaa !9
   br label %32
 
-32:                                               ; preds = %26, %24
+31:                                               ; preds = %26, %24
   %.214 = phi i32 [ %25, %24 ], [ %.012, %26 ]
   %.3 = phi i32 [ %.011, %24 ], [ %28, %26 ]
-  %33 = call i32 @_ULx86_64_step(ptr noundef nonnull %5)
-  %34 = icmp slt i32 %33, 1
-  br i1 %34, label %.thread, label %17
+  %32 = call i32 @_ULx86_64_step(ptr noundef nonnull %5)
+  %33 = icmp slt i32 %32, 1
+  br i1 %33, label %.thread, label %17
 
-.thread:                                          ; preds = %32, %19, %17
+.thread:                                          ; preds = %31, %19, %17
   %.1 = phi i32 [ %.011, %17 ], [ %.011, %19 ], [ %.3, %32 ]
   store i8 0, ptr %7, align 1, !tbaa !3
-  br label %35
+  br label %34
 
-35:                                               ; preds = %3, %.thread
+34:                                               ; preds = %3, %.thread
   %.015 = phi i32 [ %.1, %.thread ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

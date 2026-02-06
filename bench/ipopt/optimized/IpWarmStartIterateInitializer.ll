@@ -15420,26 +15420,26 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit52:           ; preds = %36, %_ZNK5Ipopt16De
   %62 = fcmp ogt double %58, %61
   br i1 %62, label %63, label %67
 
-63:                                               ; preds = %.lr.ph
+63:; preds = %.lr.ph
   %64 = fdiv double %3, %58
   store double %64, ptr %59, align 8, !tbaa !655
   %65 = load double, ptr %57, align 8, !tbaa !655
   %66 = fcmp ogt double %64, %65
   br i1 %66, label %.sink.split, label %75
 
-67:                                               ; preds = %.lr.ph
+67:; preds = %.lr.ph
   %68 = fmul double %58, 1.000000e+04
   %69 = fcmp ogt double %60, %68
   br i1 %69, label %70, label %.sink.split
 
-70:                                               ; preds = %67
+70:; preds = %67
   %71 = fdiv double %3, %60
   store double %71, ptr %57, align 8, !tbaa !655
   %72 = load double, ptr %59, align 8, !tbaa !655
   %73 = fcmp ogt double %71, %72
   br i1 %73, label %.sink.split, label %75
 
-.sink.split:                                      ; preds = %67, %70, %63
+.sink.split:; preds = %67, %70, %63
   %74 = tail call double @sqrt(double noundef %3) #19, !tbaa !656
   store double %74, ptr %59, align 8, !tbaa !655
   store double %74, ptr %57, align 8, !tbaa !655
@@ -15447,10 +15447,10 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit52:           ; preds = %36, %_ZNK5Ipopt16De
 
 75:                                               ; preds = %.sink.split, %63, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %53, align 4, !tbaa !653
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !657
+  %75 = load i32, ptr %53, align 4, !tbaa !653
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !657
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

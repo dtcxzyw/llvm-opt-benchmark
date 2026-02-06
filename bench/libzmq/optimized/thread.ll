@@ -281,7 +281,7 @@ define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull r
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load i64, ptr %47, align 8, !tbaa !35
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %76, label %50
+  br i1 %49, label %75, label %50
 
 50:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -295,7 +295,7 @@ define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull r
 ._crit_edge:                                      ; preds = %67, %50
   %54 = call i32 @pthread_setaffinity_np(i64 noundef %5, i64 noundef 128, ptr noundef nonnull %4) #16
   %.not27 = icmp eq i32 %54, 0
-  br i1 %.not27, label %75, label %69, !prof !24
+  br i1 %.not27, label %74, label %68, !prof !24
 
 .lr.ph:                                           ; preds = %50, %67
   %.sroa.028.034 = phi ptr [ %68, %67 ], [ %52, %50 ]
@@ -316,25 +316,25 @@ define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull r
   store i64 %66, ptr %64, align 8, !tbaa !37
   br label %67
 
-67:                                               ; preds = %.lr.ph, %58
+67:; preds = %.lr.ph, %58
   %68 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.028.034) #19
   %.not30 = icmp eq ptr %68, %53
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-69:                                               ; preds = %._crit_edge
-  %70 = call ptr @strerror(i32 noundef %54) #16
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str, ptr noundef %70, ptr noundef nonnull @.str.1, i32 noundef 343) #17
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %74 = call i32 @fflush(ptr noundef %73)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %70)
+68:                                               ; preds = %._crit_edge
+  %69 = call ptr @strerror(i32 noundef %54) #16
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str, ptr noundef %69, ptr noundef nonnull @.str.1, i32 noundef 343) #17
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %73 = call i32 @fflush(ptr noundef %72)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %69)
+  br label %74
+
+74:                                               ; preds = %68, %._crit_edge
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
-75:                                               ; preds = %69, %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
-
-76:                                               ; preds = %75, %46
+75:                                               ; preds = %74, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

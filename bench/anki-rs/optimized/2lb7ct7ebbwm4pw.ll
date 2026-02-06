@@ -576,8 +576,8 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
-9:                                                ; preds = %20
-  resume { ptr, i32 } %21
+9:                                                ; preds = %19
+  resume { ptr, i32 } %20
 
 10:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
@@ -592,9 +592,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
 
 14:                                               ; preds = %10
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha658e71fba1194afE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr align 8 %1)
-          to label %22 unwind label %20
+          to label %22 unwind label %19
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit": ; preds = %22, %29, %10
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit": ; preds = %21, %28, %10
   %15 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %16 = mul nsw i64 %11, 80
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
@@ -602,31 +602,31 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
   %18 = add i64 %11, 1
   store i64 %18, ptr %7, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1775fbae45b0b460E"(ptr nonnull sret({ ptr, [9 x i64] }) align 8 %5, ptr align 8 %1)
-  %19 = load ptr, ptr %5, align 8, !noundef !3
-  %.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %5, align 8, !noundef !3
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %10
 
-20:                                               ; preds = %29, %14
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %28, %14
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %4) #15
-          to label %9 unwind label %30
+          to label %9 unwind label %29
 
-22:                                               ; preds = %14
-  %23 = load i64, ptr %3, align 8, !noundef !3
-  %24 = call i64 @llvm.uadd.sat.i64(i64 %23, i64 1)
-  %25 = load i64, ptr %7, align 8, !noundef !3
-  %26 = load i64, ptr %8, align 8, !noundef !3
-  %27 = sub i64 %26, %25
-  %28 = icmp ugt i64 %24, %27
-  br i1 %28, label %29, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
+21:                                               ; preds = %14
+  %22 = load i64, ptr %3, align 8, !noundef !3
+  %23 = call i64 @llvm.uadd.sat.i64(i64 %22, i64 1)
+  %24 = load i64, ptr %7, align 8, !noundef !3
+  %25 = load i64, ptr %8, align 8, !noundef !3
+  %26 = sub i64 %25, %24
+  %27 = icmp ugt i64 %23, %26
+  br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
 
-29:                                               ; preds = %22
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %25, i64 %24)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit" unwind label %20
+28:                                               ; preds = %21
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %24, i64 %23)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit" unwind label %19
 
-30:                                               ; preds = %20
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable

@@ -111,7 +111,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress sspstrong uwtable
 define hidden noalias noundef ptr @_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %11, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8, !tbaa !3
@@ -133,9 +133,9 @@ switch.lookup:                                    ; preds = %3
 .sink.split:                                      ; preds = %3, %switch.lookup
   %.sink = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %3 ]
   store ptr %.sink, ptr %5, align 8, !tbaa !15
-  br label %11
+  br label %10
 
-11:                                               ; preds = %.sink.split, %1
+10:                                               ; preds = %.sink.split, %1
   %.015 = phi ptr [ null, %1 ], [ %5, %.sink.split ]
   ret ptr %.015
 }
@@ -2491,7 +2491,7 @@ define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_Cue
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = zext i32 %2 to i64
-  %15 = shl nuw nsw i64 %14, 4
+  %15 = shl nuw nsw i64 %13, 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !43
   ret void
@@ -3625,22 +3625,22 @@ define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr noundef n
   store ptr %4, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = icmp ult i32 %7, 7
-  br i1 %11, label %switch.lookup, label %14
+  br i1 %11, label %switch.lookup, label %13
 
 switch.lookup:                                    ; preds = %6
   %12 = shl nuw nsw i32 %7, 3
   %13 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %6, %switch.lookup
+13:                                               ; preds = %6, %switch.lookup
   %.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7UnknownE, i64 16), %6 ]
   store ptr %.sink.i, ptr %8, align 8, !tbaa !15
   store i8 1, ptr %10, align 8, !tbaa !14
   br label %_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread
 
-_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread: ; preds = %1, %14
+_ZN4FLAC8Metadata5local15construct_blockEP20FLAC__StreamMetadata.exit.thread: ; preds = %1, %13
   %.015.i6 = phi ptr [ %8, %14 ], [ null, %1 ]
   ret ptr %.015.i6
 }

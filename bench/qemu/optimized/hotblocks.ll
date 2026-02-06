@@ -40,34 +40,34 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
-13:                                               ; preds = %.lr.ph
+13:; preds = %.lr.ph
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %14, ptr noundef %16, ptr noundef nonnull @do_inline) #7
   br i1 %17, label %glib_auto_cleanup_GStrv.exit, label %18
 
-glib_auto_cleanup_GStrv.exit:                     ; preds = %13
+glib_auto_cleanup_GStrv.exit:; preds = %13
   tail call void @g_strfreev(ptr noundef nonnull %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
-18:                                               ; preds = %.lr.ph, %13
+17:                                               ; preds = %.lr.ph, %13
   %.str.3.sink = phi ptr [ @.str.2, %13 ], [ @.str.3, %.lr.ph ]
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull %.str.3.sink, ptr noundef %8) #8
+  %18 = load ptr, ptr @stderr, align 8
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.3.sink, ptr noundef %8) #8
   tail call void @g_strfreev(ptr noundef nonnull %9) #7
-  br label %22
+  br label %21
 
 ._crit_edge:                                      ; preds = %glib_auto_cleanup_GStrv.exit, %4
-  %21 = tail call ptr @g_hash_table_new(ptr noundef nonnull @exec_count_hash, ptr noundef nonnull @exec_count_equal) #7
-  store ptr %21, ptr @hotblocks, align 8
+  %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @exec_count_hash, ptr noundef nonnull @exec_count_equal) #7
+  store ptr %20, ptr @hotblocks, align 8
   tail call void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef %0, ptr noundef nonnull @vcpu_tb_trans) #7
   tail call void @qemu_plugin_register_atexit_cb(i64 noundef %0, ptr noundef nonnull @plugin_exit, ptr noundef null) #7
-  br label %22
+  br label %21
 
-22:                                               ; preds = %18, %._crit_edge
+21:                                               ; preds = %17, %._crit_edge
   %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %18 ]
   ret i32 %.3
 }

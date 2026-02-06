@@ -91,8 +91,8 @@ define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
 12:                                               ; preds = %11, %22
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %22 ]
   %13 = mul nuw nsw i64 %indvars.iv, 12
-  %14 = getelementptr inbounds nuw i8, ptr @known_microarch, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %12 = getelementptr inbounds nuw i8, ptr @known_microarch, i64 %13
+  %15 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %4, %15
   br i1 %.not, label %16, label %22
 

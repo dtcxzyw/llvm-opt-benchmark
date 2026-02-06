@@ -368,8 +368,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17h9c00040c67
   %20 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %19), !noalias !44
   %21 = atomicrmw or ptr %20, i64 %18 release, align 8, !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !41
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %22), !noalias !41
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %21), !noalias !41
   ret void
 }
 
@@ -420,8 +420,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17haf3af6da
   %18 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %17), !noalias !50
   %19 = atomicrmw or ptr %18, i64 %16 release, align 8, !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %20)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %19)
   ret void
 }
 

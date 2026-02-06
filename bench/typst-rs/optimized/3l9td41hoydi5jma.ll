@@ -326,7 +326,7 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
 
 26:                                               ; preds = %22
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %36
+          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %35
 
 27:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
   %28 = phi i64 [ %.pre.i, %.noexc ], [ %18, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
@@ -348,21 +348,21 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
   store i64 %11, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 56
   store i8 1, ptr %.sroa.8.0..sroa_idx, align 8
-  %32 = add i64 %28, 1
-  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !72
-  %33 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
-  %34 = extractvalue { i8, i1 } %33, 1
-  br i1 %34, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3", label %35
+  %31 = add i64 %28, 1
+  store i64 %31, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !72
+  %32 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
+  %33 = extractvalue { i8, i1 } %32, 1
+  br i1 %33, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3", label %34
 
-35:                                               ; preds = %27
+34:                                               ; preds = %27
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3"
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3": ; preds = %27, %35
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3": ; preds = %27, %34
   ret void
 
-36:                                               ; preds = %26
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %26
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable

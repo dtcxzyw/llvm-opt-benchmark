@@ -331,7 +331,7 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
-12:                                               ; preds = %8
+12:; preds = %8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #7
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %._crit_edge.loopexit.split.loop.exit17, label %15
@@ -342,11 +342,11 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
   br i1 %exitcond.not, label %._crit_edge, label %8
 
 ._crit_edge.loopexit.split.loop.exit17:           ; preds = %12
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit17, %2
-  %.010 = phi i32 [ -1, %2 ], [ %16, %._crit_edge.loopexit.split.loop.exit17 ], [ -1, %15 ]
+  %.010 = phi i32 [ -1, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit17 ], [ -1, %15 ]
   ret i32 %.010
 }
 

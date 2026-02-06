@@ -46,7 +46,7 @@ define void @_ZN5draco30CreateCornerTableFromAttributeEPKNS_4MeshENS_17GeometryA
 
 8:                                                ; preds = %3
   store ptr null, ptr %0, align 8, !tbaa !3
-  br label %56
+  br label %54
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -119,7 +119,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = load ptr, ptr %4, align 8, !tbaa !53
   %.not.i.i.i.i22 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i22, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23, label %51
+  br i1 %.not.i.i.i.i22, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23, label %49
 
 .split:                                           ; preds = %.lr.ph.split, %.split32
   %indvar = phi i64 [ 0, %.lr.ph.split ], [ %indvar.next, %.split32 ]
@@ -149,37 +149,37 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split32, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, !llvm.loop !55
 
-44:                                               ; preds = %._crit_edge
+42:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %45 = load ptr, ptr %4, align 8, !tbaa !53
-  %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, label %46
+  %43 = load ptr, ptr %4, align 8, !tbaa !53
+  %.not.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, label %44
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %24, align 8, !tbaa !13
-  %48 = ptrtoint ptr %47 to i64
-  %49 = ptrtoint ptr %45 to i64
-  %50 = sub i64 %48, %49
-  call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %50) #11
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %24, align 8, !tbaa !13
+  %46 = ptrtoint ptr %45 to i64
+  %47 = ptrtoint ptr %43 to i64
+  %48 = sub i64 %46, %47
+  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %48) #11
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit: ; preds = %44, %46
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit: ; preds = %42, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %56
+  br label %54
 
-51:                                               ; preds = %32
-  %52 = load ptr, ptr %24, align 8, !tbaa !13
-  %53 = ptrtoint ptr %52 to i64
-  %54 = ptrtoint ptr %34 to i64
-  %55 = sub i64 %53, %54
-  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %55) #11
+49:                                               ; preds = %32
+  %50 = load ptr, ptr %24, align 8, !tbaa !13
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %34 to i64
+  %53 = sub i64 %51, %52
+  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %53) #11
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23: ; preds = %32, %51
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit23: ; preds = %32, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %33
 
-56:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, %8
+54:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_21VertexIndex_tag_type_EEELm3EEED2Ev.exit, %8
   ret void
 }
 

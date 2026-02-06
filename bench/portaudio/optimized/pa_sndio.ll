@@ -20,7 +20,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   store ptr null, ptr %0, align 8, !tbaa !3
   %4 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 1552) #17
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %57, label %6
+  br i1 %5, label %55, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -56,7 +56,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   %21 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #17
   store ptr %21, ptr %18, align 8, !tbaa !24
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %57, label %23
+  br i1 %22, label %55, label %23
 
 23:                                               ; preds = %20
   store ptr %21, ptr %3, align 8, !tbaa !32
@@ -110,39 +110,39 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br i1 %exitcond.not, label %.outer.split.us, label %.outer.split, !llvm.loop !34
 
 .loopexit.loopexit:                               ; preds = %25
-  %44 = trunc nuw nsw i64 %.1.ph46 to i32
+  %42 = trunc nuw nsw i64 %.1.ph46 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.outer.split.us, %6
-  %.0 = phi i32 [ 1, %6 ], [ 16, %.outer.split.us ], [ %44, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 1, %6 ], [ 16, %.outer.split.us ], [ %42, %.loopexit.loopexit ]
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %45, align 8, !tbaa !36
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 17, ptr %46, align 4, !tbaa !37
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.3, ptr %47, align 8, !tbaa !38
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %.0, ptr %48, align 8, !tbaa !39
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %49, align 4, !tbaa !40
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %50, align 8, !tbaa !41
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %17, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @Terminate, ptr %52, align 8, !tbaa !43
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @OpenStream, ptr %53, align 8, !tbaa !44
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @IsFormatSupported, ptr %54, align 8, !tbaa !45
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %55, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #17
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %56, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #17
-  br label %57
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1, ptr %43, align 8, !tbaa !36
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 17, ptr %44, align 4, !tbaa !37
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @.str.3, ptr %45, align 8, !tbaa !38
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %.0, ptr %46, align 8, !tbaa !39
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 0, ptr %47, align 4, !tbaa !40
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 0, ptr %48, align 8, !tbaa !41
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %17, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr @Terminate, ptr %50, align 8, !tbaa !43
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr @OpenStream, ptr %51, align 8, !tbaa !44
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr @IsFormatSupported, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %53, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #17
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %54, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #17
+  br label %55
 
-57:                                               ; preds = %20, %2, %.loopexit
+55:                                               ; preds = %20, %2, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
@@ -359,9 +359,9 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 84:                                               ; preds = %83
   %.mux = select i1 %.not, ptr %3, ptr %2
-  %.pn115.in.in = load i32, ptr %.mux, align 8, !tbaa !48
-  %.pn115.in = sext i32 %.pn115.in.in to i64
-  %.pn115 = mul nsw i64 %.pn115.in, 72
+  %.pn115.in = load i32, ptr %.mux, align 8, !tbaa !48
+  %.pn115 = sext i32 %.pn115.in to i64
+  %.pn115 = mul nsw i64 %.pn115, 72
   %.pn = getelementptr i8, ptr %0, i64 %.pn115
   %.0.in = getelementptr i8, ptr %.pn, i64 272
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13

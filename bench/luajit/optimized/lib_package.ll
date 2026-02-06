@@ -78,8 +78,8 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
   %5 = phi ptr [ @lj_cf_package_loader_preload, %1 ], [ %10, %4 ]
   %6 = tail call ptr @lj_lib_pushcc(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i32 noundef %7) #7
+  %8 = trunc nuw nsw i64 %indvars.iv.next to i32
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i32 noundef %8) #7
   %8 = shl nuw nsw i64 %indvars.iv.next, 3
   %9 = getelementptr inbounds nuw i8, ptr @package_loaders, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
@@ -89,48 +89,48 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
 11:                                               ; preds = %4
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.3) #7
   tail call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.4) #7
-  %12 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #7
+  %10 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #7
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #7
-  %13 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #7
-  %14 = icmp eq ptr %13, null
-  %15 = icmp ne i32 %12, 0
-  %or.cond.i = or i1 %15, %14
-  br i1 %or.cond.i, label %16, label %17
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #7
+  %12 = icmp eq ptr %11, null
+  %13 = icmp ne i32 %10, 0
+  %or.cond.i = or i1 %13, %12
+  br i1 %or.cond.i, label %14, label %15
 
-16:                                               ; preds = %11
+14:                                               ; preds = %11
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.7) #7
   br label %setpath.exit
 
-17:                                               ; preds = %11
-  %18 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #7
-  %19 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef %18, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.7) #7
+15:                                               ; preds = %11
+  %16 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #7
+  %17 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef %16, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.7) #7
   tail call void @lua_remove(ptr noundef %0, i32 noundef -2) #7
   br label %setpath.exit
 
-setpath.exit:                                     ; preds = %16, %17
+setpath.exit:                                     ; preds = %14, %15
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.5) #7
-  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #7
-  %21 = icmp eq ptr %20, null
-  %or.cond.i29 = or i1 %15, %21
-  br i1 %or.cond.i29, label %22, label %23
+  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #7
+  %19 = icmp eq ptr %18, null
+  %or.cond.i29 = or i1 %13, %19
+  br i1 %or.cond.i29, label %20, label %21
 
-22:                                               ; preds = %setpath.exit
+20:                                               ; preds = %setpath.exit
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.10) #7
   br label %setpath.exit30
 
-23:                                               ; preds = %setpath.exit
-  %24 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #7
-  %25 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef %24, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.10) #7
+21:                                               ; preds = %setpath.exit
+  %22 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #7
+  %23 = tail call ptr @luaL_gsub(ptr noundef %0, ptr noundef %22, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.10) #7
   tail call void @lua_remove(ptr noundef %0, i32 noundef -2) #7
   br label %setpath.exit30
 
-setpath.exit30:                                   ; preds = %22, %23
+setpath.exit30:                                   ; preds = %20, %21
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.8) #7
   tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef 10) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.12) #7
-  %26 = tail call ptr @luaL_findtable(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.13, i32 noundef 16) #7
+  %24 = tail call ptr @luaL_findtable(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.13, i32 noundef 16) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.14) #7
-  %27 = tail call ptr @luaL_findtable(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.15, i32 noundef 4) #7
+  %25 = tail call ptr @luaL_findtable(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.15, i32 noundef 4) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.16) #7
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -10002) #7
   tail call void @luaL_register(ptr noundef %0, ptr noundef null, ptr noundef nonnull @package_global) #7

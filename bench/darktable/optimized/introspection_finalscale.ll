@@ -346,11 +346,11 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %10, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f1, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !133
-  br label %10
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
@@ -362,7 +362,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %.preheader
 
-10:                                               ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

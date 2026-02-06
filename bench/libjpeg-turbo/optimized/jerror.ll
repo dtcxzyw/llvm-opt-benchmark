@@ -275,7 +275,7 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   %25 = sext i32 %24 to i64
   br label %26
 
-26:                                               ; preds = %23, %10
+26:; preds = %23, %10
   %.sink55 = phi i64 [ %25, %23 ], [ %13, %10 ]
   %.sink = phi ptr [ %16, %23 ], [ %12, %10 ]
   %27 = shl nsw i64 %.sink55, 3

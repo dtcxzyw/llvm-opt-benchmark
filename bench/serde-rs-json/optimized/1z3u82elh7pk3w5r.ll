@@ -347,10 +347,10 @@ default.unreachable6:                             ; preds = %2
 
 42:                                               ; preds = %2
   %43 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.27, i64 noundef 7)
-  br i1 %43, label %44, label %54
+  br i1 %43, label %44, label %53
 
-44:                                               ; preds = %42, %40, %54, %45, %32, %24, %16, %14
-  %.0.shrunk = phi i1 [ %15, %14 ], [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %53, %45 ], [ true, %40 ], [ %56, %54 ], [ true, %42 ]
+44:                                               ; preds = %42, %40, %53, %45, %32, %24, %16, %14
+  %.0.shrunk = phi i1 [ %15, %14 ], [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %53, %45 ], [ true, %40 ], [ %55, %54 ], [ true, %42 ]
   ret i1 %.0.shrunk
 
 45:                                               ; preds = %40
@@ -368,9 +368,9 @@ default.unreachable6:                             ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !56
   br label %44
 
-54:                                               ; preds = %42
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = tail call noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h799016f3ff553187E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+53:                                               ; preds = %42
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = tail call noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h799016f3ff553187E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %44
 }
 

@@ -37,11 +37,11 @@ define dso_local i32 @str_findlist(ptr noundef readonly captures(none) %0, i32 n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %.lr.ph
-  %10 = trunc nuw i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit.split.loop.exit12, %3
-  %.07 = phi i32 [ -1, %3 ], [ %10, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %9 ]
+  %.07 = phi i32 [ -1, %3 ], [ %9, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %9 ]
   ret i32 %.07
 }
 

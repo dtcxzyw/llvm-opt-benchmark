@@ -327,15 +327,15 @@ define noundef zeroext i1 @_ZNK5arrow7compute8Ordering12IsSuborderOfERKS1_(ptr n
   store ptr %42, ptr %30, align 8, !tbaa !10
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(44) %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %45 = load i8, ptr %3, align 1, !tbaa !3, !range !12, !noundef !13
-  %46 = trunc nuw i8 %45 to i1
+  %44 = load i8, ptr %3, align 1, !tbaa !3, !range !12, !noundef !13
+  %45 = trunc nuw i8 %44 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %48, %50
-  %.not12 = select i1 %46, i1 %51, i1 false
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp eq i32 %47, %49
+  %.not12 = select i1 %45, i1 %50, i1 false
   br i1 %.not12, label %31, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %31, %19, %14, %9

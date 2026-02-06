@@ -230,7 +230,7 @@ define void @_ZN3zmq7radio_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull al
   tail call void @_ZN3zmq6pipe_t11set_nodelayEv(ptr noundef nonnull align 8 dereferenceable(328) %1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   tail call void @_ZN3zmq6dist_t6attachEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(49) %11, ptr noundef nonnull %1)
-  br i1 %2, label %12, label %43
+  br i1 %2, label %12, label %40
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1880
@@ -269,7 +269,7 @@ _ZNKSt6vectorIPN3zmq6pipe_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
   %.not.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i, label %32
 
-32:                                               ; preds = %_ZNKSt6vectorIPN3zmq6pipe_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+32:; preds = %_ZNKSt6vectorIPN3zmq6pipe_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %33 = shl nuw nsw i64 %31, 3
   %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #29
   br label %_ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i
@@ -286,27 +286,27 @@ _ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %3
   br label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %38, %_ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.not.i17.i.i = icmp eq ptr %21, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %40
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
 
-40:                                               ; preds = %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+38:                                               ; preds = %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %21) #24
   br label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %35, ptr %13, align 8, !tbaa !91
-  store ptr %39, ptr %14, align 8, !tbaa !95
+  store ptr %37, ptr %14, align 8, !tbaa !95
   %41 = shl nuw nsw i64 %31, 3
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 %41
   store ptr %42, ptr %16, align 8, !tbaa !96
   br label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit
 
-43:                                               ; preds = %10
+40:                                               ; preds = %10
   tail call void @_ZN3zmq7radio_t15xread_activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1968) %0, ptr noundef %1)
   br label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %18, %43
+_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %18, %40
   ret void
 }
 

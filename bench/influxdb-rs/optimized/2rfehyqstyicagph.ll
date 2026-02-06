@@ -6321,9 +6321,9 @@ switch.lookup:
   %6 = shl nuw nsw i64 %4, 3
   %switch.gep1 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.10", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %7 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %switch.load, 1
-  ret { ptr, i64 } %8
+  %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6489,7 +6489,7 @@ define hidden { i16, i16 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60108dfdfe809
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !9
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %14, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = add i64 %3, -1
@@ -6504,12 +6504,12 @@ define hidden { i16, i16 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60108dfdfe809
   %13 = load i16, ptr %12, align 2, !noundef !9
   br label %14
 
-14:                                               ; preds = %1, %5
+13:                                               ; preds = %1, %5
   %.sroa.3.0 = phi i16 [ %13, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i16 [ 1, %5 ], [ 0, %1 ]
-  %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %16 = insertvalue { i16, i16 } %15, i16 %.sroa.3.0, 1
-  ret { i16, i16 } %16
+  %14 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %15 = insertvalue { i16, i16 } %14, i16 %.sroa.3.0, 1
+  ret { i16, i16 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6694,9 +6694,9 @@ switch.lookup:
   %3 = shl nuw nsw i64 %1, 3
   %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.11", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
-  ret { ptr, i64 } %5
+  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
+  %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

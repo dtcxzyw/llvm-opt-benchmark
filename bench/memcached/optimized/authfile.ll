@@ -198,18 +198,18 @@ define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef
   %10 = icmp eq i64 %3, %9
   br i1 %10, label %11, label %.critedge
 
-11:                                               ; preds = %.lr.ph
+11: ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = icmp eq i64 %4, %13
   br i1 %14, label %15, label %.critedge
 
-15:                                               ; preds = %11
+15:; preds = %11
   %16 = load ptr, ptr %7, align 16, !tbaa !12
   %17 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %3) #9
   br i1 %17, label %18, label %.critedge
 
-18:                                               ; preds = %15
+18: ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load ptr, ptr %19, align 16, !tbaa !17
   %21 = load i64, ptr %12, align 8, !tbaa !18
@@ -218,9 +218,9 @@ define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef
 
 .critedge:                                        ; preds = %18, %15, %11, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr @entry_cnt, align 4, !tbaa !22
-  %24 = sext i32 %23 to i64
-  %.not = icmp slt i64 %indvars.iv.next, %24
+  %22 = load i32, ptr @entry_cnt, align 4, !tbaa !22
+  %23 = sext i32 %22 to i64
+  %.not = icmp slt i64 %indvars.iv.next, %23
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge, %18, %2

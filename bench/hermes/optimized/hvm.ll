@@ -2377,8 +2377,8 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
-  %11 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i = add i32 %11, 1
+  %10 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i = add i32 %10, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
   %inc.i = add nuw i32 %i.04.i, 1
   %cmp.not.i = icmp eq i32 %inc.i, %call2.i
@@ -2717,8 +2717,8 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
-  %11 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i = add i32 %11, 1
+  %10 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i = add i32 %10, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
   %inc.i = add nuw i32 %i.04.i, 1
   %cmp.not.i = icmp eq i32 %inc.i, %call2.i

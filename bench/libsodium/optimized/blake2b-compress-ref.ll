@@ -1463,9 +1463,9 @@ define hidden noundef i32 @_sodium_blake2b_compress_ref(ptr noundef captures(non
   store i64 %1397, ptr %1390, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %1398, label %1388, !llvm.loop !4
+  br i1 %exitcond.not, label %1397, label %1388, !llvm.loop !4
 
-1398:                                             ; preds = %1388
+1397:                                             ; preds = %1388
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }

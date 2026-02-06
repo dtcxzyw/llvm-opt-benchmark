@@ -647,12 +647,12 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 .thread:                                          ; preds = %6
   call void @_Z13luaL_checkanyP9lua_Statei(ptr noundef %0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %32
+  br label %31
 
 9:                                                ; preds = %6
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %33
+  br label %32
 
 10:                                               ; preds = %1
   %11 = tail call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef null)
@@ -669,7 +669,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   %15 = call i64 @strtoull(ptr noundef %11, ptr noundef nonnull %3, i32 noundef %4) #11
   %16 = load ptr, ptr %3, align 8, !tbaa !36
   %.not = icmp eq ptr %11, %16
-  br i1 %.not, label %31, label %.preheader
+  br i1 %.not, label %30, label %.preheader
 
 .preheader:                                       ; preds = %14
   %17 = tail call ptr @__ctype_b_loc() #12
@@ -688,25 +688,25 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br i1 %.not22, label %28, label %19, !llvm.loop !41
 
-28:                                               ; preds = %19
+28:; preds = %19
   %29 = icmp eq i8 %21, 0
   br i1 %29, label %.critedge, label %31
 
-.critedge:                                        ; preds = %28
+.critedge:; preds = %28
   %30 = uitofp i64 %15 to double
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %33
-
-31:                                               ; preds = %14, %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
-32:                                               ; preds = %.thread, %31
-  call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
-  br label %33
+30:                                               ; preds = %14, %28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %31
 
-33:                                               ; preds = %9, %.critedge, %32
+31:                                               ; preds = %.thread, %30
+  call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
+  br label %32
+
+32:                                               ; preds = %9, %.critedge, %31
   ret i32 1
 }
 

@@ -37,16 +37,16 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @uv_handle_type_name(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 17
-  br i1 %2, label %switch.lookup, label %5
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = shl nuw nsw i32 %switch.tableidx, 3
   %4 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.uv_handle_type_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %switch.lookup
+4:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %1 ]
   ret ptr %.0
 }
@@ -81,16 +81,16 @@ define dso_local void @uv_handle_set_data(ptr noundef writeonly captures(none) i
 define dso_local noundef ptr @uv_req_type_name(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 10
-  br i1 %2, label %switch.lookup, label %5
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = shl nuw nsw i32 %switch.tableidx, 3
   %4 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.uv_req_type_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %switch.lookup
+4:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %1 ]
   ret ptr %.0
 }

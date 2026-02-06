@@ -210,9 +210,9 @@ define void @Mvc_CubeBitRemoveDcs(ptr noundef captures(none) %0) local_unnamed_a
   store i32 %15, ptr %9, align 4, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %16, label %7, !llvm.loop !24
+  br i1 %.not, label %15, label %7, !llvm.loop !24
 
-16:                                               ; preds = %7
+15:                                               ; preds = %7
   ret void
 }
 
