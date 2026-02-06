@@ -15217,7 +15217,7 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   br label %18
 
 18:                                               ; preds = %.thread41, %9
-  %19 = phi ptr [ %0, %9 ], [ %386, %.thread41 ]
+  %19 = phi ptr [ %0, %9 ], [ %388, %.thread41 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = sub i32 %21, %5
@@ -15644,7 +15644,7 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %303 = icmp sgt i32 %302, -1
   br label %304
 
-304:                                              ; preds = %299, %290
+290:                                              ; preds = %299, %290
   %305 = phi i1 [ false, %290 ], [ %303, %299 ]
   %306 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %307 = load i16, ptr %306, align 8
@@ -15652,9 +15652,9 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %309 = select i1 %308, i1 true, i1 %305
   br i1 %309, label %345, label %310
 
-310:                                              ; preds = %304
-  %311 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  %312 = load i32, ptr %311, align 4
+310:  ; preds = %290
+  %297 = getelementptr inbounds nuw i8, ptr %19, i64 44
+  %312 = load i32, ptr %297, align 4
   %313 = sub i32 %4, %312
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %315, label %.thread41
@@ -15665,23 +15665,23 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %318 = zext i16 %317 to i32
   br i1 %298, label %322, label %319
 
-319:                                              ; preds = %315
+301:                                              ; preds = %315
   %320 = sub i32 %4, %296
   %321 = tail call i32 @llvm.umax.i32(i32 %320, i32 %318)
   br label %325
 
-322:                                              ; preds = %315
+306:                                              ; preds = %315
   %323 = sub i32 %5, %296
   %324 = icmp ult i32 %323, %318
   br i1 %324, label %.loopexit, label %325
 
-325:                                              ; preds = %322, %319
+325:; preds = %322, %301
   %326 = phi i32 [ %323, %322 ], [ %321, %319 ]
   %327 = freeze i32 %326
   %328 = icmp ugt i32 %327, %318
   br i1 %328, label %329, label %336
 
-329:                                              ; preds = %325
+329:; preds = %325
   %330 = urem i32 %327, %318
   %331 = sub nuw i32 %327, %330
   %332 = icmp eq i32 %330, 0
@@ -15690,27 +15690,27 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %335 = add i32 %331, %334
   br label %336
 
-336:                                              ; preds = %329, %325
-  %337 = phi i32 [ %335, %329 ], [ %327, %325 ]
-  %338 = getelementptr inbounds nuw i8, ptr %19, i64 112
-  %339 = load i32, ptr %338, align 8
-  %340 = icmp ult i32 %337, %339
-  %341 = or i1 %298, %340
-  br i1 %341, label %342, label %.thread34
+338:                                              ; preds = %329, %325
+  %339 = phi i32 [ %335, %329 ], [ %327, %325 ]
+  %340 = getelementptr inbounds nuw i8, ptr %19, i64 112
+  %341 = load i32, ptr %340, align 8
+  %342 = icmp ult i32 %339, %341
+  %343 = or i1 %298, %342
+  br i1 %343, label %344, label %.thread34
 
-342:                                              ; preds = %336
-  %343 = tail call i32 @tcp_fragment(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %19, i32 noundef %337, i32 noundef %318, i32 noundef 2080) #20
-  %344 = icmp slt i32 %343, 0
-  br i1 %344, label %.loopexit, label %345
+344:                                              ; preds = %338
+  %345 = tail call i32 @tcp_fragment(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %19, i32 noundef %339, i32 noundef %318, i32 noundef 2080) #20
+  %346 = icmp slt i32 %345, 0
+  br i1 %346, label %.loopexit, label %347
 
-.thread34:                                        ; preds = %336, %288, %164, %167, %199
+.thread34:                                        ; preds = %338, %288, %164, %167, %199
   br label %.thread41
 
-345:                                              ; preds = %304, %342
-  %346 = phi i1 [ %298, %342 ], [ %305, %304 ]
-  br i1 %346, label %.thread37, label %.thread41
+347:                                              ; preds = %304, %344
+  %348 = phi i1 [ %298, %342 ], [ %305, %304 ]
+  br i1 %348, label %.thread37, label %.thread41
 
-.thread37:                                        ; preds = %76, %80, %345
+372:                                              ; preds = %76, %80, %347
   %.ph3040 = phi i1 [ %291, %345 ], [ true, %80 ], [ true, %76 ]
   %347 = getelementptr inbounds nuw i8, ptr %19, i64 53
   %348 = load i8, ptr %347, align 1
@@ -15765,20 +15765,20 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   %383 = icmp slt i32 %382, 0
   br i1 %383, label %.thread41, label %384
 
-384:                                              ; preds = %379
-  %385 = tail call ptr @rb_next(ptr noundef nonnull %19) #20
-  store ptr %385, ptr %16, align 8
+386:                                              ; preds = %379
+  %387 = tail call ptr @rb_next(ptr noundef nonnull %19) #20
+  store ptr %387, ptr %16, align 8
   br label %.thread41
 
-.thread41:                                        ; preds = %310, %288, %345, %379, %384, %.thread34
+.thread41:                                        ; preds = %310, %288, %347, %379, %386, %.thread34
   %.ph43 = phi ptr [ %103, %288 ], [ %19, %.thread34 ], [ %19, %384 ], [ %19, %379 ], [ %19, %345 ], [ %19, %310 ]
-  %386 = tail call ptr @rb_next(ptr noundef nonnull %.ph43) #20
-  %387 = icmp eq ptr %386, null
-  br i1 %387, label %.loopexit, label %18, !llvm.loop !228
+  %388 = tail call ptr @rb_next(ptr noundef nonnull %.ph43) #20
+  %389 = icmp eq ptr %388, null
+  br i1 %389, label %.loopexit, label %18, !llvm.loop !228
 
-.loopexit:                                        ; preds = %18, %342, %322, %.thread41, %7
-  %388 = phi ptr [ null, %7 ], [ %19, %322 ], [ %19, %342 ], [ %19, %18 ], [ null, %.thread41 ]
-  ret ptr %388
+.loopexit:                                        ; preds = %18, %344, %322, %.thread41, %7
+  %390 = phi ptr [ null, %7 ], [ %19, %322 ], [ %19, %342 ], [ %19, %18 ], [ null, %.thread41 ]
+  ret ptr %390
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

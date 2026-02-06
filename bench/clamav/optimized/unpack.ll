@@ -509,30 +509,30 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %28
-  %35 = phi ptr [ %.pre, %.preheader.loopexit ], [ %27, %28 ]
-  %.not3957 = icmp eq ptr %35, %2
+  %36 = phi ptr [ %.pre, %.preheader.loopexit ], [ %27, %28 ]
+  %.not3957 = icmp eq ptr %36, %2
   br i1 %.not3957, label %._crit_edge59, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.preheader
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  br label %58
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  br label %63
 
 .lr.ph47:                                         ; preds = %.preheader42, %42
-  %37 = phi ptr [ %53, %42 ], [ %32, %.preheader42 ]
-  %38 = phi i16 [ %50, %42 ], [ %.promoted46, %.preheader42 ]
+  %38 = phi ptr [ %53, %42 ], [ %32, %.preheader42 ]
+  %39 = phi i16 [ %50, %42 ], [ %.promoted46, %.preheader42 ]
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %40 = load i16, ptr %39, align 1, !tbaa !44
   %41 = xor i16 %38, -1
   %not.add.overflow.not = icmp ugt i16 %40, %41
   br i1 %not.add.overflow.not, label %.critedge, label %42
 
-42:                                               ; preds = %.lr.ph47
+42:  ; preds = %.lr.ph47
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %44 = load ptr, ptr %43, align 1, !tbaa !42
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %46 = load ptr, ptr %45, align 1, !tbaa !38
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store ptr %44, ptr %47, align 1, !tbaa !42
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %48 = load ptr, ptr %47, align 1, !tbaa !38
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store ptr %44, ptr %49, align 1, !tbaa !42
   %48 = load ptr, ptr %43, align 1, !tbaa !42
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store ptr %46, ptr %49, align 1, !tbaa !38
@@ -545,53 +545,53 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   %55 = icmp eq i16 %54, -1
   br i1 %55, label %.lr.ph47, label %.critedge, !llvm.loop !47
 
-.critedge:                                        ; preds = %42, %.lr.ph47, %.preheader42
+.critedge:; preds = %42, %.lr.ph47, %.preheader42
   %56 = getelementptr inbounds nuw i8, ptr %.03350, i64 4
   %57 = load ptr, ptr %56, align 1, !tbaa !42
   %.not38 = icmp eq ptr %57, %2
   br i1 %.not38, label %.preheader.loopexit, label %.preheader42, !llvm.loop !48
 
-58:                                               ; preds = %.lr.ph58, %._crit_edge55._crit_edge
-  %59 = phi ptr [ %35, %.lr.ph58 ], [ %98, %._crit_edge55._crit_edge ]
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load ptr, ptr %60, align 1, !tbaa !42
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %63 = load ptr, ptr %62, align 1, !tbaa !38
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store ptr %61, ptr %64, align 1, !tbaa !42
-  %65 = load ptr, ptr %60, align 1, !tbaa !42
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  store ptr %63, ptr %66, align 1, !tbaa !38
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 2
-  %68 = load i16, ptr %67, align 1, !tbaa !44
-  %69 = zext i16 %68 to i32
-  %70 = icmp ugt i16 %68, 128
-  br i1 %70, label %.lr.ph54.preheader, label %._crit_edge55
+63:                                               ; preds = %.lr.ph58, %._crit_edge55._crit_edge
+  %64 = phi ptr [ %36, %.lr.ph58 ], [ %103, %._crit_edge55._crit_edge ]
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = load ptr, ptr %65, align 1, !tbaa !42
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %68 = load ptr, ptr %67, align 1, !tbaa !38
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store ptr %66, ptr %69, align 1, !tbaa !42
+  %70 = load ptr, ptr %65, align 1, !tbaa !42
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  store ptr %68, ptr %71, align 1, !tbaa !38
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 2
+  %73 = load i16, ptr %72, align 1, !tbaa !44
+  %74 = zext i16 %73 to i32
+  %75 = icmp ugt i16 %73, 128
+  br i1 %75, label %.lr.ph54.preheader, label %._crit_edge55
 
-.lr.ph54.preheader:                               ; preds = %58
-  %.pre62 = load ptr, ptr %36, align 8, !tbaa !34
+.lr.ph54.preheader:                               ; preds = %63
+  %.pre62 = load ptr, ptr %37, align 8, !tbaa !34
   br label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
-  %71 = phi ptr [ %.151, %.lr.ph54 ], [ %.pre62, %.lr.ph54.preheader ]
-  %.052 = phi i32 [ %72, %.lr.ph54 ], [ %69, %.lr.ph54.preheader ]
-  %.151 = phi ptr [ %73, %.lr.ph54 ], [ %59, %.lr.ph54.preheader ]
-  store ptr %71, ptr %.151, align 8, !tbaa !34
-  store ptr %.151, ptr %36, align 8, !tbaa !34
-  %72 = add nsw i32 %.052, -128
-  %73 = getelementptr inbounds nuw i8, ptr %.151, i64 2560
-  %74 = icmp samesign ugt i32 %.052, 256
-  br i1 %74, label %.lr.ph54, label %._crit_edge55, !llvm.loop !49
+  %76 = phi ptr [ %.151, %.lr.ph54 ], [ %.pre62, %.lr.ph54.preheader ]
+  %.052 = phi i32 [ %77, %.lr.ph54 ], [ %74, %.lr.ph54.preheader ]
+  %.151 = phi ptr [ %78, %.lr.ph54 ], [ %64, %.lr.ph54.preheader ]
+  store ptr %76, ptr %.151, align 8, !tbaa !34
+  store ptr %.151, ptr %37, align 8, !tbaa !34
+  %77 = add nsw i32 %.052, -128
+  %78 = getelementptr inbounds nuw i8, ptr %.151, i64 2560
+  %79 = icmp samesign ugt i32 %.052, 256
+  br i1 %79, label %.lr.ph54, label %._crit_edge55, !llvm.loop !49
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %58
-  %.1.lcssa = phi ptr [ %59, %58 ], [ %73, %.lr.ph54 ]
-  %.0.lcssa = phi i32 [ %69, %58 ], [ %72, %.lr.ph54 ]
-  %75 = zext nneg i32 %.0.lcssa to i64
-  %76 = getelementptr i8, ptr %0, i64 %75
-  %77 = getelementptr i8, ptr %76, i64 45
-  %78 = load i8, ptr %77, align 1, !tbaa !27
-  %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %12, i64 %79
+._crit_edge55:                                    ; preds = %.lr.ph54, %63
+  %.1.lcssa = phi ptr [ %64, %58 ], [ %78, %.lr.ph54 ]
+  %.0.lcssa = phi i32 [ %74, %58 ], [ %77, %.lr.ph54 ]
+  %80 = zext nneg i32 %.0.lcssa to i64
+  %81 = getelementptr i8, ptr %0, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 45
+  %83 = load i8, ptr %82, align 1, !tbaa !27
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 %84
   %81 = load i8, ptr %80, align 1, !tbaa !27
   %82 = zext i8 %81 to i32
   %.not40 = icmp eq i32 %.0.lcssa, %82
@@ -604,26 +604,26 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   %86 = load i8, ptr %85, align 1, !tbaa !27
   %87 = zext i8 %86 to i32
   %88 = mul nuw nsw i32 %87, 20
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 %89
+  %.pre63 = zext nneg i32 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 %.pre63
   %91 = xor i32 %87, -1
   %92 = add nsw i32 %.0.lcssa, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %"struct.SubAllocator::RAR_NODE", ptr %11, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !34
-  store ptr %95, ptr %90, align 8, !tbaa !34
-  store ptr %90, ptr %94, align 8, !tbaa !34
+  %90 = getelementptr inbounds %"struct.SubAllocator::RAR_NODE", ptr %11, i64 %93
+  %91 = load ptr, ptr %90, align 8, !tbaa !34
+  store ptr %91, ptr %90, align 8, !tbaa !34
+  store ptr %90, ptr %90, align 8, !tbaa !34
   br label %._crit_edge55._crit_edge
 
 ._crit_edge55._crit_edge:                         ; preds = %._crit_edge55, %83
   %.pre-phi = phi i64 [ %84, %83 ], [ %.pre63, %._crit_edge55 ]
-  %96 = getelementptr inbounds %"struct.SubAllocator::RAR_NODE", ptr %11, i64 %.pre-phi
-  %97 = load ptr, ptr %96, align 8, !tbaa !34
-  store ptr %97, ptr %.1.lcssa, align 8, !tbaa !34
-  store ptr %.1.lcssa, ptr %96, align 8, !tbaa !34
-  %98 = load ptr, ptr %10, align 1, !tbaa !42
-  %.not39 = icmp eq ptr %98, %2
-  br i1 %.not39, label %._crit_edge59, label %58, !llvm.loop !50
+  %101 = getelementptr inbounds %"struct.SubAllocator::RAR_NODE", ptr %11, i64 %.pre-phi
+  %102 = load ptr, ptr %101, align 8, !tbaa !34
+  store ptr %102, ptr %.1.lcssa, align 8, !tbaa !34
+  store ptr %.1.lcssa, ptr %101, align 8, !tbaa !34
+  %103 = load ptr, ptr %10, align 1, !tbaa !42
+  %.not39 = icmp eq ptr %103, %2
+  br i1 %.not39, label %._crit_edge59, label %63, !llvm.loop !50
 
 ._crit_edge59:                                    ; preds = %._crit_edge55._crit_edge, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

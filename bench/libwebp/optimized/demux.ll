@@ -1072,7 +1072,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %.val34 = load i64, ptr %2, align 8, !tbaa !91
   %3 = sub i64 %.val34, %.val33
   %4 = icmp ult i64 %3, 8
-  br i1 %4, label %60, label %5
+  br i1 %4, label %61, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1087,7 +1087,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   store i64 %11, ptr %0, align 8, !tbaa !89
   %12 = add i32 %.val.i.i, 9
   %or.cond = icmp ult i32 %12, 19
-  br i1 %or.cond, label %60, label %13
+  br i1 %or.cond, label %61, label %13
 
 13:                                               ; preds = %5
   %14 = and i32 %.val.i.i, 1
@@ -1097,12 +1097,12 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %.val36 = load i64, ptr %17, align 8, !tbaa !90
   %18 = sub i64 %.val36, %11
   %.not = icmp ult i64 %18, %16
-  br i1 %.not, label %60, label %19
+  br i1 %.not, label %61, label %19
 
 19:                                               ; preds = %13
   %20 = sub i64 %.val34, %11
   %21 = icmp ult i64 %20, %16
-  br i1 %21, label %60, label %22
+  br i1 %21, label %61, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 %11
@@ -1139,31 +1139,31 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %46, ptr %47, align 8, !tbaa !23
   %umul = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %36, i32 %46)
-  %umul.overflow = extractvalue { i32, i1 } %umul, 1
-  br i1 %umul.overflow, label %60, label %48
+  %48 = extractvalue { i32, i1 } %umul, 1
+  br i1 %48, label %61, label %49
 
-48:                                               ; preds = %22
-  %49 = add i32 %15, -10
-  %50 = zext i32 %49 to i64
-  %51 = add i64 %45, %50
-  store i64 %51, ptr %0, align 8, !tbaa !89
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %52, align 8, !tbaa !13
-  %53 = sub i64 %.val36, %51
-  %54 = icmp ugt i64 %53, 7
-  br i1 %54, label %55, label %60
+49:                                               ; preds = %22
+  %50 = add i32 %15, -10
+  %51 = zext i32 %50 to i64
+  %52 = add i64 %45, %51
+  store i64 %52, ptr %0, align 8, !tbaa !89
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 1, ptr %53, align 8, !tbaa !13
+  %54 = sub i64 %.val36, %52
+  %55 = icmp ugt i64 %54, 7
+  br i1 %55, label %56, label %61
 
-55:                                               ; preds = %48
-  %56 = sub i64 %.val34, %51
-  %57 = icmp ult i64 %56, 8
-  br i1 %57, label %60, label %58
+56:                                               ; preds = %49
+  %57 = sub i64 %.val34, %52
+  %58 = icmp ult i64 %57, 8
+  br i1 %58, label %61, label %59
 
-58:                                               ; preds = %55
-  %59 = tail call fastcc i32 @ParseVP8XChunks(ptr noundef nonnull %0)
-  br label %60
+59:                                               ; preds = %56
+  %60 = tail call fastcc i32 @ParseVP8XChunks(ptr noundef nonnull %0)
+  br label %61
 
-60:                                               ; preds = %55, %48, %22, %19, %13, %5, %1, %58
-  %.0 = phi i32 [ %59, %58 ], [ 1, %1 ], [ 2, %5 ], [ 1, %55 ], [ 2, %13 ], [ 1, %19 ], [ 2, %22 ], [ 2, %48 ]
+61:                                               ; preds = %56, %49, %22, %19, %13, %5, %1, %59
+  %.0 = phi i32 [ %60, %58 ], [ 1, %1 ], [ 2, %5 ], [ 1, %55 ], [ 2, %13 ], [ 1, %19 ], [ 2, %22 ], [ 2, %48 ]
   ret i32 %.0
 }
 
@@ -1522,8 +1522,8 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   %.pre = load i64, ptr %0, align 8, !tbaa !89
   br label %14
 
-14:                                               ; preds = %168, %1
-  %15 = phi i64 [ %.pre, %1 ], [ %165, %168 ]
+14:                                               ; preds = %169, %1
+  %15 = phi i64 [ %.pre, %1 ], [ %166, %168 ]
   %.048 = phi i32 [ 0, %1 ], [ %.250, %168 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !93
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
@@ -1554,9 +1554,9 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
     i32 1278758998, label %28
     i32 1296649793, label %32
     i32 1179471425, label %48
-    i32 1346585417, label %148
-    i32 1179211845, label %146
-    i32 542133592, label %147
+    i32 1346585417, label %149
+    i32 1179211845, label %147
+    i32 542133592, label %148
   ]
 
 28:                                               ; preds = %27, %27, %27
@@ -1703,137 +1703,137 @@ NewFrame.exit.i:                                  ; preds = %59
   %120 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %119, ptr %120, align 4, !tbaa !73
   %umul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %91, i32 %101)
-  %umul.overflow.i = extractvalue { i32, i1 } %umul.i, 1
-  br i1 %umul.overflow.i, label %121, label %122
-
-121:                                              ; preds = %NewFrame.exit.i
-  tail call void @WebPSafeFree(ptr noundef nonnull %60) #13
-  br label %ParseAnimationFrame.exit
+  %121 = extractvalue { i32, i1 } %umul.i, 1
+  br i1 %121, label %122, label %123
 
 122:                                              ; preds = %NewFrame.exit.i
-  %123 = load i32, ptr %9, align 4, !tbaa !44
-  %124 = add nsw i32 %123, 1
-  %125 = tail call fastcc i32 @StoreFrame(i32 noundef %124, i32 noundef %54, ptr noundef nonnull %0, ptr noundef nonnull %60)
-  %.not40.i = icmp eq i32 %125, 2
-  br i1 %.not40.i, label %.thread.i, label %126
-
-126:                                              ; preds = %122
-  %127 = load i64, ptr %0, align 8, !tbaa !89
-  %128 = sub i64 %127, %114
-  %129 = zext i32 %54 to i64
-  %130 = icmp ugt i64 %128, %129
-  %spec.select.i = select i1 %130, i32 2, i32 %125
-  %131 = icmp ne i32 %spec.select.i, 2
-  %or.cond.i = select i1 %131, i1 %53, i1 false
-  br i1 %or.cond.i, label %132, label %.thread.i
-
-132:                                              ; preds = %126
-  %133 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %134 = load i32, ptr %133, align 8, !tbaa !39
-  %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %136, label %.thread.i
-
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %10, align 8, !tbaa !24
-  %138 = load ptr, ptr %137, align 8, !tbaa !41
-  %.not.i.i = icmp eq ptr %138, null
-  br i1 %.not.i.i, label %142, label %139
-
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 36
-  %141 = load i32, ptr %140, align 4, !tbaa !40
-  %.not9.i.i = icmp eq i32 %141, 0
-  br i1 %.not9.i.i, label %.thread.i, label %142
-
-142:                                              ; preds = %139, %136
-  store ptr %60, ptr %137, align 8, !tbaa !41
-  %143 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  store ptr null, ptr %143, align 8, !tbaa !42
-  store ptr %143, ptr %10, align 8, !tbaa !24
-  %144 = load i32, ptr %9, align 4, !tbaa !44
-  %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %9, align 4, !tbaa !44
-  br label %ParseAnimationFrame.exit
-
-.thread.i:                                        ; preds = %139, %132, %126, %122
-  %.1.ph.i = phi i32 [ %spec.select.i, %126 ], [ 2, %122 ], [ %125, %132 ], [ 2, %139 ]
   tail call void @WebPSafeFree(ptr noundef nonnull %60) #13
   br label %ParseAnimationFrame.exit
 
-146:                                              ; preds = %27
-  br label %148
+123:                                              ; preds = %NewFrame.exit.i
+  %124 = load i32, ptr %9, align 4, !tbaa !44
+  %125 = add nsw i32 %124, 1
+  %126 = tail call fastcc i32 @StoreFrame(i32 noundef %125, i32 noundef %54, ptr noundef nonnull %0, ptr noundef nonnull %60)
+  %.not40.i = icmp eq i32 %126, 2
+  br i1 %.not40.i, label %.thread.i, label %127
+
+127:                                              ; preds = %123
+  %128 = load i64, ptr %0, align 8, !tbaa !89
+  %129 = sub i64 %128, %114
+  %130 = zext i32 %54 to i64
+  %131 = icmp ugt i64 %129, %130
+  %spec.select.i = select i1 %131, i32 2, i32 %126
+  %132 = icmp ne i32 %spec.select.i, 2
+  %or.cond.i = select i1 %132, i1 %53, i1 false
+  br i1 %or.cond.i, label %133, label %.thread.i
+
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %135 = load i32, ptr %134, align 8, !tbaa !39
+  %136 = icmp sgt i32 %135, 0
+  br i1 %136, label %137, label %.thread.i
+
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %10, align 8, !tbaa !24
+  %139 = load ptr, ptr %138, align 8, !tbaa !41
+  %.not.i.i = icmp eq ptr %139, null
+  br i1 %.not.i.i, label %143, label %140
+
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 36
+  %142 = load i32, ptr %141, align 4, !tbaa !40
+  %.not9.i.i = icmp eq i32 %142, 0
+  br i1 %.not9.i.i, label %.thread.i, label %143
+
+143:                                              ; preds = %140, %137
+  store ptr %60, ptr %138, align 8, !tbaa !41
+  %144 = getelementptr inbounds nuw i8, ptr %60, i64 72
+  store ptr null, ptr %144, align 8, !tbaa !42
+  store ptr %144, ptr %10, align 8, !tbaa !24
+  %145 = load i32, ptr %9, align 4, !tbaa !44
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %9, align 4, !tbaa !44
+  br label %ParseAnimationFrame.exit
+
+.thread.i:                                        ; preds = %140, %133, %127, %123
+  %.1.ph.i = phi i32 [ %spec.select.i, %126 ], [ 2, %122 ], [ %126, %132 ], [ 2, %139 ]
+  tail call void @WebPSafeFree(ptr noundef nonnull %60) #13
+  br label %ParseAnimationFrame.exit
 
 147:                                              ; preds = %27
-  br label %148
+  br label %149
 
-148:                                              ; preds = %27, %146, %147
+148:                                              ; preds = %27
+  br label %149
+
+149:                                              ; preds = %27, %147, %148
   %.sink108 = phi i32 [ 2, %147 ], [ 3, %146 ], [ 5, %27 ]
   %.val65 = load i64, ptr %6, align 8, !tbaa !91
-  %149 = sub i64 %.val65, %20
-  %.not60 = icmp ult i64 %149, %25
-  br i1 %.not60, label %ParseAnimationFrame.exit, label %152
+  %150 = sub i64 %.val65, %20
+  %.not60 = icmp ult i64 %150, %25
+  br i1 %.not60, label %ParseAnimationFrame.exit, label %153
 
 .thread99:                                        ; preds = %37
   %.val65101 = load i64, ptr %6, align 8, !tbaa !91
-  %150 = sub i64 %.val65101, %20
-  %.not60102 = icmp ult i64 %150, %25
+  %151 = sub i64 %.val65101, %20
+  %.not60102 = icmp ult i64 %151, %25
   br i1 %.not60102, label %ParseAnimationFrame.exit, label %.thread104
 
 .thread:                                          ; preds = %27
   %.val6573 = load i64, ptr %6, align 8, !tbaa !91
-  %151 = sub i64 %.val6573, %20
-  %.not6074 = icmp ult i64 %151, %25
+  %152 = sub i64 %.val6573, %20
+  %.not6074 = icmp ult i64 %152, %25
   br i1 %.not6074, label %ParseAnimationFrame.exit, label %.thread76
 
-152:                                              ; preds = %148
-  %153 = load i32, ptr %2, align 8, !tbaa !43
-  %154 = shl nuw nsw i32 1, %.sink108
-  %155 = and i32 %153, %154
-  %.not61 = icmp eq i32 %155, 0
+153:                                              ; preds = %149
+  %154 = load i32, ptr %2, align 8, !tbaa !43
+  %155 = shl nuw nsw i32 1, %.sink108
+  %156 = and i32 %154, %155
+  %.not61 = icmp eq i32 %156, 0
   br i1 %.not61, label %.thread104, label %.thread76
 
-.thread76:                                        ; preds = %.thread, %152
-  %156 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 24) #13
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %.thread81, label %StoreChunk.exit
+.thread76:                                        ; preds = %.thread, %153
+  %157 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 24) #13
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %.thread81, label %StoreChunk.exit
 
 StoreChunk.exit:                                  ; preds = %.thread76
-  %158 = add nuw i32 %.val.i.i70, 8
-  store i64 %15, ptr %156, align 8, !tbaa !81
-  %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i64 %159, ptr %160, align 8, !tbaa !85
-  %161 = load ptr, ptr %13, align 8, !tbaa !25
-  store ptr %156, ptr %161, align 8, !tbaa !80
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store ptr null, ptr %162, align 8, !tbaa !53
-  store ptr %162, ptr %13, align 8, !tbaa !25
+  %159 = add nuw i32 %.val.i.i70, 8
+  store i64 %15, ptr %157, align 8, !tbaa !81
+  %160 = zext i32 %159 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store i64 %160, ptr %161, align 8, !tbaa !85
+  %162 = load ptr, ptr %13, align 8, !tbaa !25
+  store ptr %157, ptr %162, align 8, !tbaa !80
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  store ptr null, ptr %163, align 8, !tbaa !53
+  store ptr %163, ptr %13, align 8, !tbaa !25
   %.pre92 = load i64, ptr %0, align 8, !tbaa !89
   br label %.thread104
 
-.thread104:                                       ; preds = %.thread99, %StoreChunk.exit, %152
-  %163 = phi i64 [ %.pre92, %StoreChunk.exit ], [ %20, %152 ], [ %20, %.thread99 ]
-  %164 = add i64 %163, %25
-  store i64 %164, ptr %0, align 8, !tbaa !89
+.thread104:                                       ; preds = %.thread99, %StoreChunk.exit, %153
+  %164 = phi i64 [ %.pre92, %StoreChunk.exit ], [ %20, %152 ], [ %20, %.thread99 ]
+  %165 = add i64 %164, %25
+  store i64 %165, ptr %0, align 8, !tbaa !89
   br label %ParseAnimationFrame.exit
 
-ParseAnimationFrame.exit:                         ; preds = %.thread99, %.thread, %.thread.i, %142, %121, %59, %56, %50, %148, %34, %.thread104, %39, %30
-  %.253 = phi i32 [ 0, %.thread104 ], [ 1, %34 ], [ %31, %30 ], [ 1, %148 ], [ 0, %39 ], [ %125, %142 ], [ 2, %121 ], [ %.1.ph.i, %.thread.i ], [ 2, %50 ], [ 1, %56 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread99 ]
+ParseAnimationFrame.exit:                         ; preds = %.thread99, %.thread, %.thread.i, %143, %122, %59, %56, %50, %149, %34, %.thread104, %39, %30
+  %.253 = phi i32 [ 0, %.thread104 ], [ 1, %34 ], [ %31, %30 ], [ 1, %148 ], [ 0, %39 ], [ %126, %142 ], [ 2, %121 ], [ %.1.ph.i, %.thread.i ], [ 2, %50 ], [ 1, %56 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread99 ]
   %.250 = phi i32 [ %.048, %.thread104 ], [ %.048, %34 ], [ 0, %30 ], [ %.048, %148 ], [ 1, %39 ], [ 1, %142 ], [ 1, %121 ], [ 1, %.thread.i ], [ 1, %50 ], [ 1, %56 ], [ 1, %59 ], [ %.048, %.thread ], [ %.048, %.thread99 ]
-  %165 = load i64, ptr %0, align 8, !tbaa !89
-  %166 = load i64, ptr %8, align 8, !tbaa !90
-  %167 = icmp eq i64 %165, %166
-  br i1 %167, label %.thread81, label %168
+  %166 = load i64, ptr %0, align 8, !tbaa !89
+  %167 = load i64, ptr %8, align 8, !tbaa !90
+  %168 = icmp eq i64 %166, %167
+  br i1 %168, label %.thread81, label %169
 
-168:                                              ; preds = %ParseAnimationFrame.exit
+169:                                              ; preds = %ParseAnimationFrame.exit
   %.val63 = load i64, ptr %6, align 8, !tbaa !91
-  %169 = sub i64 %.val63, %165
-  %170 = icmp ult i64 %169, 8
-  %spec.select = select i1 %170, i32 1, i32 %.253
-  %171 = icmp eq i32 %spec.select, 0
-  br i1 %171, label %14, label %.thread81, !llvm.loop !98
+  %170 = sub i64 %.val63, %166
+  %171 = icmp ult i64 %170, 8
+  %spec.select = select i1 %171, i32 1, i32 %.253
+  %172 = icmp eq i32 %spec.select, 0
+  br i1 %172, label %14, label %.thread81, !llvm.loop !98
 
-.thread81:                                        ; preds = %.thread76, %28, %27, %22, %48, %14, %32, %168, %ParseAnimationFrame.exit
+.thread81:                                        ; preds = %.thread76, %28, %27, %22, %48, %14, %32, %169, %ParseAnimationFrame.exit
   %.2 = phi i32 [ %.253, %ParseAnimationFrame.exit ], [ %spec.select, %168 ], [ 2, %32 ], [ 2, %14 ], [ 2, %48 ], [ 2, %22 ], [ 2, %27 ], [ 2, %28 ], [ 2, %.thread76 ]
   ret i32 %.2
 }
