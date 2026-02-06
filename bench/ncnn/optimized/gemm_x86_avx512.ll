@@ -46957,27 +46957,30 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %1334 = getelementptr float, ptr %1333, i64 %1239
   %1335 = load float, ptr %1334, align 4, !tbaa !61
   %1336 = insertelement <4 x float> poison, float %1335, i64 0
-  %1337 = shufflevector <4 x float> %1336, <4 x float> poison, <4 x i32> zeroinitializer
-  %1338 = getelementptr i8, ptr %1334, i64 4
-  %1339 = load float, ptr %1338, align 4, !tbaa !61
-  %1340 = insertelement <4 x float> poison, float %1339, i64 0
-  %1341 = shufflevector <4 x float> %1340, <4 x float> poison, <4 x i32> zeroinitializer
-  br i1 %1215, label %.lr.ph1365.i.us, label %.loopexit1219.i.us
+  %1337 = getelementptr i8, ptr %1334, i64 4
+  %1338 = load float, ptr %1337, align 4, !tbaa !61
+  %1339 = insertelement <4 x float> poison, float %1338, i64 0
+  br i1 %1215, label %.lr.ph1365.i.us.preheader, label %.loopexit1219.i.us
 
-.lr.ph1365.i.us:                                  ; preds = %1332, %.lr.ph1365.i.us
-  %.361364.i.us = phi ptr [ %1361, %.lr.ph1365.i.us ], [ %.301388.i.us, %1332 ]
-  %.58761363.i.us = phi ptr [ %1362, %.lr.ph1365.i.us ], [ %1241, %1332 ]
-  %.08821362.i.us = phi i32 [ %1363, %.lr.ph1365.i.us ], [ 0, %1332 ]
+.lr.ph1365.i.us.preheader:                        ; preds = %1332
+  %1340 = shufflevector <4 x float> %1336, <4 x float> %1339, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  %1341 = shufflevector <4 x float> %1336, <4 x float> %1339, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  br label %.lr.ph1365.i.us
+
+.lr.ph1365.i.us:                                  ; preds = %.lr.ph1365.i.us.preheader, %.lr.ph1365.i.us
+  %.361364.i.us = phi ptr [ %1361, %.lr.ph1365.i.us ], [ %.301388.i.us, %.lr.ph1365.i.us.preheader ]
+  %.58761363.i.us = phi ptr [ %1362, %.lr.ph1365.i.us ], [ %1241, %.lr.ph1365.i.us.preheader ]
+  %.08821362.i.us = phi i32 [ %1363, %.lr.ph1365.i.us ], [ 0, %.lr.ph1365.i.us.preheader ]
   %1342 = load <4 x float>, ptr %.58761363.i.us, align 16, !tbaa !86
   %1343 = getelementptr inbounds nuw i8, ptr %.58761363.i.us, i64 16
   %1344 = load <4 x float>, ptr %1343, align 16, !tbaa !86
-  %1345 = fmul fast <4 x float> %1342, %1337
-  %1346 = fmul fast <4 x float> %1344, %1341
-  %1347 = shufflevector <4 x float> %1345, <4 x float> %1346, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %1348 = shufflevector <4 x float> %1345, <4 x float> %1346, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %1349 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1347)
+  %1345 = shufflevector <4 x float> %1342, <4 x float> %1344, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %1346 = fmul fast <4 x float> %1345, %1340
+  %1347 = shufflevector <4 x float> %1342, <4 x float> %1344, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %1348 = fmul fast <4 x float> %1347, %1341
+  %1349 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1346)
   %1350 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1348)
-  %1351 = fadd fast <4 x float> %1349, %1347
+  %1351 = fadd fast <4 x float> %1349, %1346
   %1352 = fadd fast <4 x float> %1350, %1348
   %1353 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %1351)
   %1354 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %1352)

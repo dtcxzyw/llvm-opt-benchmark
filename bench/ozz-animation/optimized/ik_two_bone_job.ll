@@ -812,7 +812,7 @@ _ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15
   %618 = select <4 x i1> %616, <4 x i32> splat (i32 -2147483648), <4 x i32> zeroinitializer
   %619 = xor <4 x i32> %618, %617
   %620 = fcmp olt float %29, 1.000000e+00
-  br i1 %620, label %621, label %654
+  br i1 %620, label %621, label %655
 
 621:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
   %622 = bitcast <4 x i32> %619 to <4 x float>
@@ -834,30 +834,31 @@ _ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15
   %638 = fadd <4 x float> %636, %637
   %639 = shufflevector <4 x float> %635, <4 x float> %638, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %640 = shufflevector <4 x float> %635, <4 x float> %638, <4 x i32> <i32 1, i32 5, i32 poison, i32 poison>
-  %641 = fadd <4 x float> %639, %640
-  %642 = shufflevector <4 x float> %641, <4 x float> %635, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %643 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %642)
-  %644 = fmul <4 x float> %643, splat (float 5.000000e-01)
-  %645 = fmul <4 x float> %643, %642
-  %646 = fmul <4 x float> %643, %645
-  %647 = fsub <4 x float> splat (float 3.000000e+00), %646
-  %648 = fmul <4 x float> %644, %647
-  %649 = shufflevector <4 x float> %648, <4 x float> poison, <4 x i32> zeroinitializer
-  %650 = fmul <4 x float> %629, %649
-  store <4 x float> %650, ptr %10, align 16, !tbaa !14
-  %651 = shufflevector <4 x float> %648, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %652 = fmul <4 x float> %632, %651
-  %653 = load ptr, ptr %11, align 16, !tbaa !30
-  store <4 x float> %652, ptr %653, align 16, !tbaa !14
+  %641 = shufflevector <4 x float> %639, <4 x float> %633, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %642 = shufflevector <4 x float> %640, <4 x float> %633, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %643 = fadd <4 x float> %641, %642
+  %644 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %643)
+  %645 = fmul <4 x float> %644, splat (float 5.000000e-01)
+  %646 = fmul <4 x float> %644, %643
+  %647 = fmul <4 x float> %644, %646
+  %648 = fsub <4 x float> splat (float 3.000000e+00), %647
+  %649 = fmul <4 x float> %645, %648
+  %650 = shufflevector <4 x float> %649, <4 x float> poison, <4 x i32> zeroinitializer
+  %651 = fmul <4 x float> %629, %650
+  store <4 x float> %651, ptr %10, align 16, !tbaa !14
+  %652 = shufflevector <4 x float> %649, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %653 = fmul <4 x float> %632, %652
+  %654 = load ptr, ptr %11, align 16, !tbaa !30
+  store <4 x float> %653, ptr %654, align 16, !tbaa !14
   br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
-654:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
+655:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
   store <4 x i32> %614, ptr %10, align 16, !tbaa !14
-  %655 = load ptr, ptr %11, align 16, !tbaa !30
-  store <4 x i32> %619, ptr %655, align 16, !tbaa !14
+  %656 = load ptr, ptr %11, align 16, !tbaa !30
+  store <4 x i32> %619, ptr %656, align 16, !tbaa !14
   br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
-_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit: ; preds = %654, %621, %31, %35, %1
+_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit: ; preds = %655, %621, %31, %35, %1
   ret i1 %26
 }
 

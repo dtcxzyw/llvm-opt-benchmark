@@ -3156,27 +3156,30 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %588 = getelementptr float, ptr %587, i64 %546
   %589 = load float, ptr %588, align 4, !tbaa !77
   %590 = insertelement <4 x float> poison, float %589, i64 0
-  %591 = shufflevector <4 x float> %590, <4 x float> poison, <4 x i32> zeroinitializer
-  %592 = getelementptr i8, ptr %588, i64 4
-  %593 = load float, ptr %592, align 4, !tbaa !77
-  %594 = insertelement <4 x float> poison, float %593, i64 0
-  %595 = shufflevector <4 x float> %594, <4 x float> poison, <4 x i32> zeroinitializer
-  br i1 %330, label %.lr.ph695.i, label %.loopexit614.i
+  %591 = getelementptr i8, ptr %588, i64 4
+  %592 = load float, ptr %591, align 4, !tbaa !77
+  %593 = insertelement <4 x float> poison, float %592, i64 0
+  br i1 %330, label %.lr.ph695.i.preheader, label %.loopexit614.i
 
-.lr.ph695.i:                                      ; preds = %586, %.lr.ph695.i
-  %.20694.i = phi ptr [ %615, %.lr.ph695.i ], [ %.16718.i, %586 ]
-  %.3482693.i = phi ptr [ %616, %.lr.ph695.i ], [ %548, %586 ]
-  %.0487692.i = phi i32 [ %617, %.lr.ph695.i ], [ 0, %586 ]
+.lr.ph695.i.preheader:                            ; preds = %586
+  %594 = shufflevector <4 x float> %590, <4 x float> %593, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  %595 = shufflevector <4 x float> %590, <4 x float> %593, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  br label %.lr.ph695.i
+
+.lr.ph695.i:                                      ; preds = %.lr.ph695.i.preheader, %.lr.ph695.i
+  %.20694.i = phi ptr [ %615, %.lr.ph695.i ], [ %.16718.i, %.lr.ph695.i.preheader ]
+  %.3482693.i = phi ptr [ %616, %.lr.ph695.i ], [ %548, %.lr.ph695.i.preheader ]
+  %.0487692.i = phi i32 [ %617, %.lr.ph695.i ], [ 0, %.lr.ph695.i.preheader ]
   %596 = load <4 x float>, ptr %.3482693.i, align 16, !tbaa !15
   %597 = getelementptr inbounds nuw i8, ptr %.3482693.i, i64 16
   %598 = load <4 x float>, ptr %597, align 16, !tbaa !15
-  %599 = fmul fast <4 x float> %596, %591
-  %600 = fmul fast <4 x float> %598, %595
-  %601 = shufflevector <4 x float> %599, <4 x float> %600, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %602 = shufflevector <4 x float> %599, <4 x float> %600, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %603 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %601)
+  %599 = shufflevector <4 x float> %596, <4 x float> %598, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %600 = fmul fast <4 x float> %599, %594
+  %601 = shufflevector <4 x float> %596, <4 x float> %598, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %602 = fmul fast <4 x float> %601, %595
+  %603 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %600)
   %604 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %602)
-  %605 = fadd fast <4 x float> %603, %601
+  %605 = fadd fast <4 x float> %603, %600
   %606 = fadd fast <4 x float> %604, %602
   %607 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %605)
   %608 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %606)
