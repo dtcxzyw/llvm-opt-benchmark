@@ -910,15 +910,15 @@ _ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EER
   %33 = ptrtoint ptr %spec.select.i.i.i to i64
   %34 = ptrtoint ptr %8 to i64
   %35 = sub i64 %33, %34
-  %36 = ashr exact i64 %35, 4
+  %36 = lshr exact i64 %35, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false), !alias.scope !46
   br label %37
 
 37:                                               ; preds = %37, %_ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EERKS8_SA_EUlS7_T0_E_ES7_S7_S7_SB_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EERKS8_SA_EUlS7_T0_E_ES7_S7_S7_SB_.exit.i ], [ %indvars.iv.next.i, %37 ]
   %38 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %7, i64 %indvars.iv.i
-  %39 = add nsw i64 %indvars.iv.i, %36
-  %40 = srem i64 %39, 4
+  %39 = add nuw nsw i64 %indvars.iv.i, %36
+  %40 = and i64 %39, 3
   %41 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %8, i64 %40
   %42 = load double, ptr %38, align 8, !tbaa !50, !noalias !46
   %43 = load double, ptr %41, align 8, !tbaa !50, !noalias !46
