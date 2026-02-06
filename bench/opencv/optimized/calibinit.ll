@@ -31408,7 +31408,7 @@ _ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_9L2_SimpleIfEEE10KMean
 _ZNK7cvflann9L2_SimpleIfEclIPfNS_12ZeroIteratorIfEEEEfT_T0_mf.exit85: ; preds = %.lr.ph.i79, %106
   %.08.lcssa.i84 = phi float [ 0.000000e+00, %106 ], [ %114, %.lr.ph.i79 ]
   %116 = fadd float %.06588, %.08.lcssa.i84
-  %sqrtf = tail call float @sqrtf(float noundef %.08.lcssa.i84) #24
+  %sqrtf = tail call float @sqrtf(float noundef %.08.lcssa.i84) #42
   %117 = fadd float %.06489, %sqrtf
   %118 = sext i32 %.16887 to i64
   %119 = getelementptr inbounds i32, ptr %2, i64 %118

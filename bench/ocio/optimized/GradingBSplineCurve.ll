@@ -5777,7 +5777,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %103 = fneg float %101
   %104 = fmul float %102, %103
   %105 = tail call float @llvm.fmuladd.f32(float %92, float %92, float %104)
-  %sqrtf = tail call float @sqrtf(float noundef %105) #15
+  %sqrtf = tail call float @sqrtf(float noundef %105) #22
   %106 = fmul float %101, 2.000000e+00
   %107 = fadd float %92, %sqrtf
   %108 = fdiv float %106, %107

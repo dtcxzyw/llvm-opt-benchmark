@@ -8602,7 +8602,7 @@ define hidden noundef ptr @_ZNK9SqrtFNode5ValueEP8PhaseGVN(ptr noundef nonnull r
   br label %31
 
 29:                                               ; preds = %23
-  %sqrtf = tail call float @sqrtf(float noundef %25) #7
+  %sqrtf = tail call float @sqrtf(float noundef %25) #12
   %30 = tail call noundef ptr @_ZN5TypeF4makeEf(float noundef %sqrtf) #12
   br label %31
 

@@ -3734,7 +3734,7 @@ define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 
   %15 = load i32, ptr %14, align 8, !tbaa !40
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 14
-  %18 = call noalias ptr @malloc(i64 noundef %17) #33
+  %18 = call noalias ptr @malloc(i64 noundef %17) #31
   store ptr %18, ptr %2, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %18, ptr %19, align 8, !tbaa !44
@@ -3790,7 +3790,7 @@ define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noun
   %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 14
-  %17 = call noalias ptr @malloc(i64 noundef %16) #33
+  %17 = call noalias ptr @malloc(i64 noundef %16) #31
   store ptr %17, ptr %2, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %18, align 8, !tbaa !44
@@ -4613,7 +4613,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %83
   %115 = add nuw nsw i32 %114, %113
   %narrow = mul nuw nsw i32 %115, 14
   %116 = zext nneg i32 %narrow to i64
-  %117 = tail call noalias ptr @malloc(i64 noundef %116) #33
+  %117 = tail call noalias ptr @malloc(i64 noundef %116) #31
   %.not368 = icmp eq ptr %117, null
   br i1 %.not368, label %.thread, label %118
 
@@ -5320,7 +5320,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %512 = load i32, ptr %379, align 8, !tbaa !40
   %513 = sext i32 %512 to i64
   %514 = mul nsw i64 %513, 14
-  %515 = call noalias ptr @malloc(i64 noundef %514) #33
+  %515 = call noalias ptr @malloc(i64 noundef %514) #31
   store ptr %515, ptr %6, align 8, !tbaa !43
   store ptr %515, ptr %380, align 8, !tbaa !44
   %516 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %393, ptr noundef nonnull %5)
@@ -5397,7 +5397,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %507, %stbtt__GetGly
   %556 = add nuw nsw i32 %.0.i379, %.7397
   %557 = zext nneg i32 %556 to i64
   %558 = mul nuw nsw i64 %557, 14
-  %559 = call noalias ptr @malloc(i64 noundef %558) #33
+  %559 = call noalias ptr @malloc(i64 noundef %558) #31
   %.not348 = icmp eq ptr %559, null
   br i1 %.not348, label %560, label %563
 
@@ -5406,14 +5406,14 @@ stbtt_GetGlyphShape.exit:                         ; preds = %507, %stbtt__GetGly
   br i1 %.not349, label %.thread448, label %561
 
 561:                                              ; preds = %560
-  call void @free(ptr noundef nonnull %.1273398) #34
+  call void @free(ptr noundef nonnull %.1273398) #32
   %.pre441 = load ptr, ptr %6, align 8, !tbaa !43
   %.not350 = icmp eq ptr %.pre441, null
   br i1 %.not350, label %578, label %.thread448
 
 .thread448:                                       ; preds = %560, %561
   %562 = phi ptr [ %.pre441, %561 ], [ %521, %560 ]
-  call void @free(ptr noundef nonnull %562) #34
+  call void @free(ptr noundef nonnull %562) #32
   br label %578
 
 563:                                              ; preds = %555
@@ -5438,13 +5438,13 @@ stbtt_GetGlyphShape.exit:                         ; preds = %507, %stbtt__GetGly
   br i1 %565, label %573, label %574
 
 573:                                              ; preds = %.thread382, %570
-  call void @free(ptr noundef nonnull %.1273398) #34
+  call void @free(ptr noundef nonnull %.1273398) #32
   %.pre = load ptr, ptr %6, align 8, !tbaa !43
   br label %574
 
 574:                                              ; preds = %573, %570
   %575 = phi ptr [ %.pre, %573 ], [ %521, %570 ]
-  call void @free(ptr noundef %575) #34
+  call void @free(ptr noundef %575) #32
   br label %576
 
 576:                                              ; preds = %stbtt_GetGlyphShape.exit, %574
@@ -8648,7 +8648,7 @@ define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %0, i32 n
   %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, 14
-  %12 = call noalias ptr @malloc(i64 noundef %11) #33
+  %12 = call noalias ptr @malloc(i64 noundef %11) #31
   store ptr %12, ptr %2, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %12, ptr %13, align 8, !tbaa !44
@@ -10262,7 +10262,7 @@ define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbtt_FreeShape(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #19 {
-  tail call void @free(ptr noundef %1) #34
+  tail call void @free(ptr noundef %1) #32
   ret void
 }
 
@@ -10927,7 +10927,7 @@ define ptr @stbtt__hheap_alloc(ptr noundef captures(none) %0, i64 noundef %1, pt
   %17 = zext nneg i32 %16 to i64
   %18 = mul i64 %1, %17
   %19 = add i64 %18, 8
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #33
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #31
   %21 = icmp eq ptr %20, null
   br i1 %21, label %31, label %.thread
 
@@ -10971,7 +10971,7 @@ define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi ptr [ %4, %.lr.ph ], [ %3, %2 ]
   %4 = load ptr, ptr %.06, align 8, !tbaa !97
-  tail call void @free(ptr noundef nonnull %.06) #34
+  tail call void @free(ptr noundef nonnull %.06) #32
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
@@ -11003,7 +11003,7 @@ define ptr @stbtt__new_active(ptr noundef captures(none) %0, ptr noundef readonl
   br label %19
 
 15:                                               ; preds = %10
-  %16 = tail call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #33
+  %16 = tail call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #31
   %17 = icmp eq ptr %16, null
   br i1 %17, label %stbtt__hheap_alloc.exit, label %.thread.i
 
@@ -12885,7 +12885,7 @@ define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %
   %14 = or disjoint i32 %13, 1
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #33
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #31
   br label %18
 
 18:                                               ; preds = %7, %12
@@ -12997,7 +12997,7 @@ define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %
   br label %71
 
 68:                                               ; preds = %65
-  %69 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #33
+  %69 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #31
   %70 = icmp eq ptr %69, null
   br i1 %70, label %stbtt__new_active.exit.thread, label %.thread.i.i
 
@@ -13151,7 +13151,7 @@ stbtt__new_active.exit.thread:                    ; preds = %68, %101, %57
 .lr.ph.i:                                         ; preds = %._crit_edge129, %.lr.ph.i
   %.06.i = phi ptr [ %142, %.lr.ph.i ], [ %.sroa.0.1.lcssa, %._crit_edge129 ]
   %142 = load ptr, ptr %.06.i, align 8, !tbaa !97
-  call void @free(ptr noundef nonnull %.06.i) #34
+  call void @free(ptr noundef nonnull %.06.i) #32
   %.not.i = icmp eq ptr %142, null
   br i1 %.not.i, label %stbtt__hheap_cleanup.exit, label %.lr.ph.i, !llvm.loop !99
 
@@ -13160,7 +13160,7 @@ stbtt__hheap_cleanup.exit:                        ; preds = %.lr.ph.i, %18, %._c
   br i1 %.not, label %144, label %143
 
 143:                                              ; preds = %stbtt__hheap_cleanup.exit
-  call void @free(ptr noundef %.079) #34
+  call void @free(ptr noundef %.079) #32
   br label %144
 
 144:                                              ; preds = %143, %stbtt__hheap_cleanup.exit
@@ -13440,12 +13440,12 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
   %19 = add nsw i32 %18, 1
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 20
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #33
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #31
   %23 = icmp eq ptr %22, null
   br i1 %23, label %115, label %.lr.ph104
 
 ._crit_edge.thread:                               ; preds = %12
-  %24 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #33
+  %24 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #31
   %25 = icmp eq ptr %24, null
   br i1 %25, label %115, label %._crit_edge105.thread
 
@@ -13693,7 +13693,7 @@ stbtt__sort_edges.exit:                           ; preds = %113, %._crit_edge10
   %.1.lcssa162 = phi i32 [ 0, %._crit_edge105.thread ], [ %.1.lcssa, %._crit_edge105 ], [ %.1.lcssa, %113 ]
   %114 = phi ptr [ %24, %._crit_edge105.thread ], [ %22, %._crit_edge105 ], [ %22, %113 ]
   tail call void @stbtt__rasterize_sorted_edges(ptr noundef %0, ptr noundef nonnull %114, i32 noundef %.1.lcssa162, i32 poison, i32 noundef %8, i32 noundef %9, ptr poison)
-  tail call void @free(ptr noundef nonnull %114) #34
+  tail call void @free(ptr noundef nonnull %114) #32
   br label %115
 
 115:                                              ; preds = %._crit_edge.thread, %._crit_edge, %stbtt__sort_edges.exit
@@ -13919,7 +13919,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
 16:                                               ; preds = %._crit_edge
   %17 = zext nneg i32 %spec.select to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #33
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #31
   store ptr %19, ptr %3, align 8, !tbaa !140
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit.sink.split, label %.preheader.split.us.preheader
@@ -13940,7 +13940,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
 25:                                               ; preds = %.preheader.split.us
   %26 = sext i32 %22 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #33
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #31
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.split.us, label %.lr.ph124.us
 
@@ -14080,7 +14080,7 @@ stbtt__add_point.exit.us:                         ; preds = %100, %92, %81, %73,
   br i1 %24, label %.preheader.split.us, label %.loopexit, !llvm.loop !143
 
 .split.us:                                        ; preds = %25
-  tail call void @free(ptr noundef nonnull %21) #34
+  tail call void @free(ptr noundef nonnull %21) #32
   store ptr null, ptr %3, align 8, !tbaa !140
   br label %.loopexit.sink.split
 
@@ -14113,8 +14113,8 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   %20 = load ptr, ptr %14, align 8, !tbaa !140
   %21 = load i32, ptr %13, align 4, !tbaa !17
   tail call void @stbtt__rasterize(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %20, i32 noundef %21, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr poison)
-  tail call void @free(ptr noundef %20) #34
-  tail call void @free(ptr noundef nonnull %18) #34
+  tail call void @free(ptr noundef %20) #32
+  tail call void @free(ptr noundef nonnull %18) #32
   br label %22
 
 22:                                               ; preds = %19, %12
@@ -14125,7 +14125,7 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbtt_FreeBitmap(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #19 {
-  tail call void @free(ptr noundef %0) #34
+  tail call void @free(ptr noundef %0) #32
   ret void
 }
 
@@ -14167,7 +14167,7 @@ define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(n
   %29 = load i32, ptr %28, align 8, !tbaa !40
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %30, 14
-  %32 = call noalias ptr @malloc(i64 noundef %31) #33
+  %32 = call noalias ptr @malloc(i64 noundef %31) #31
   store ptr %32, ptr %20, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %32, ptr %33, align 8, !tbaa !44
@@ -14298,7 +14298,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
 82:                                               ; preds = %79
   %83 = mul nsw i32 %69, %68
   %84 = sext i32 %83 to i64
-  %85 = call noalias ptr @malloc(i64 noundef %84) #33
+  %85 = call noalias ptr @malloc(i64 noundef %84) #31
   store ptr %85, ptr %71, align 8, !tbaa !124
   %.not42 = icmp eq ptr %85, null
   %.pre57 = load ptr, ptr %20, align 8, !tbaa !43
@@ -14322,8 +14322,8 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
   %93 = load ptr, ptr %12, align 8, !tbaa !140
   %94 = load i32, ptr %11, align 4, !tbaa !17
   call void @stbtt__rasterize(ptr noundef nonnull readonly %19, ptr noundef nonnull %91, ptr noundef %93, i32 noundef %94, float noundef %.029, float noundef %.mux, float noundef %3, float noundef %4, i32 noundef %.052, i32 noundef %.054, i32 noundef 1, ptr readnone poison)
-  call void @free(ptr noundef %93) #34
-  call void @free(ptr noundef nonnull %91) #34
+  call void @free(ptr noundef %93) #32
+  call void @free(ptr noundef nonnull %91) #32
   br label %stbtt_Rasterize.exit
 
 stbtt_Rasterize.exit:                             ; preds = %86, %92
@@ -14334,7 +14334,7 @@ stbtt_Rasterize.exit:                             ; preds = %86, %92
 95:                                               ; preds = %stbtt_Rasterize.exit, %82, %._crit_edge, %41
   %.sink = phi ptr [ %42, %41 ], [ %.pre57, %82 ], [ %.pre57, %stbtt_Rasterize.exit ], [ %.pre, %._crit_edge ]
   %.0 = phi ptr [ null, %41 ], [ null, %82 ], [ %85, %stbtt_Rasterize.exit ], [ null, %._crit_edge ]
-  call void @free(ptr noundef %.sink) #34
+  call void @free(ptr noundef %.sink) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret ptr %.0
@@ -14383,7 +14383,7 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
   %29 = load i32, ptr %28, align 8, !tbaa !40
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %30, 14
-  %32 = call noalias ptr @malloc(i64 noundef %31) #33
+  %32 = call noalias ptr @malloc(i64 noundef %31) #31
   store ptr %32, ptr %19, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %32, ptr %33, align 8, !tbaa !44
@@ -14468,8 +14468,8 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %stbtt_GetGlyphShape
   %63 = load ptr, ptr %12, align 8, !tbaa !140
   %64 = load i32, ptr %11, align 4, !tbaa !17
   call void @stbtt__rasterize(ptr noundef nonnull readonly %20, ptr noundef nonnull %61, ptr noundef %63, i32 noundef %64, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %.022, i32 noundef %.0, i32 noundef 1, ptr readnone poison)
-  call void @free(ptr noundef %63) #34
-  call void @free(ptr noundef nonnull %61) #34
+  call void @free(ptr noundef %63) #32
+  call void @free(ptr noundef nonnull %61) #32
   br label %stbtt_Rasterize.exit
 
 stbtt_Rasterize.exit:                             ; preds = %57, %62
@@ -14478,7 +14478,7 @@ stbtt_Rasterize.exit:                             ; preds = %57, %62
   br label %65
 
 65:                                               ; preds = %stbtt_Rasterize.exit, %stbtt_GetGlyphBitmapBoxSubpixel.exit
-  call void @free(ptr noundef %.pre) #34
+  call void @free(ptr noundef %.pre) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
@@ -15010,10 +15010,10 @@ define void @stbrp_pack_rects(ptr noundef captures(none) %0, ptr noundef capture
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #23 {
-  %8 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #33
+  %8 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #31
   %9 = sub nsw i32 %2, %5
   %10 = sext i32 %9 to i64
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #33
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #31
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %11, null
   %or.cond = or i1 %12, %13
@@ -15023,14 +15023,14 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
   br i1 %12, label %16, label %15
 
 15:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %8) #34
+  tail call void @free(ptr noundef nonnull %8) #32
   br label %16
 
 16:                                               ; preds = %15, %14
   br i1 %13, label %38, label %17
 
 17:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %11) #34
+  tail call void @free(ptr noundef nonnull %11) #32
   br label %38
 
 18:                                               ; preds = %7
@@ -15085,10 +15085,10 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
 define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !183
-  tail call void @free(ptr noundef %3) #34
+  tail call void @free(ptr noundef %3) #32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !182
-  tail call void @free(ptr noundef %5) #34
+  tail call void @free(ptr noundef %5) #32
   ret void
 }
 
@@ -17055,7 +17055,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
 
 ._crit_edge57:                                    ; preds = %5, %._crit_edge57.loopexit
   %.044.lcssa = phi i64 [ 0, %5 ], [ %21, %._crit_edge57.loopexit ]
-  %22 = tail call noalias ptr @malloc(i64 noundef %.044.lcssa) #33
+  %22 = tail call noalias ptr @malloc(i64 noundef %.044.lcssa) #31
   %23 = icmp eq ptr %22, null
   br i1 %23, label %69, label %24
 
@@ -17154,7 +17154,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
 
 stbtt_PackFontRangesPackRects.exit:               ; preds = %62, %.lr.ph44.i.i, %._crit_edge.i.i
   %68 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %22)
-  tail call void @free(ptr noundef nonnull %22) #34
+  tail call void @free(ptr noundef nonnull %22) #32
   br label %69
 
 69:                                               ; preds = %._crit_edge57, %stbtt_PackFontRangesPackRects.exit
@@ -17392,7 +17392,7 @@ define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #25 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load float, ptr %7, align 4, !tbaa !71
@@ -17434,7 +17434,7 @@ define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly cap
 
 41:                                               ; preds = %36
   %42 = fdiv float -1.000000e+00, %32
-  %sqrtf = tail call float @sqrtf(float noundef %39) #14
+  %sqrtf = tail call float @sqrtf(float noundef %39) #32
   %43 = fadd float %33, %sqrtf
   %44 = fmul float %42, %43
   %45 = fsub float %33, %sqrtf
@@ -17544,8 +17544,8 @@ define range(i32 0, 2) i32 @equal(ptr noundef readonly captures(none) %0, ptr no
   ret i32 %14
 }
 
-; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
-define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #26 {
+; Function Attrs: nounwind uwtable
+define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #25 {
   %5 = alloca [2 x float], align 4
   %6 = alloca [2 x float], align 8
   %7 = alloca [2 x float], align 4
@@ -17556,7 +17556,7 @@ define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 n
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1065353216, ptr %6, align 8
   %11 = fpext float %1 to double
-  %12 = tail call double @fmod(double noundef %11, double noundef 1.000000e+00) #34, !tbaa !17
+  %12 = tail call double @fmod(double noundef %11, double noundef 1.000000e+00) #32, !tbaa !17
   %13 = fcmp olt double %12, 0x3F847AE130000000
   br i1 %13, label %14, label %16
 
@@ -17787,21 +17787,21 @@ equal.exit165.thread:                             ; preds = %equal.exit.thread
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #27 {
+define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #26 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %1
   %4 = fneg float %0
   %5 = fpext float %4 to double
-  %6 = tail call double @pow(double noundef %5, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %6 = tail call double @pow(double noundef %5, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %7 = fptrunc double %6 to float
   %8 = fneg float %7
   br label %13
 
 9:                                                ; preds = %1
   %10 = fpext float %0 to double
-  %11 = tail call double @pow(double noundef %10, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %11 = tail call double @pow(double noundef %10, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %12 = fptrunc double %11 to float
   br label %13
 
@@ -17813,8 +17813,8 @@ define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #27 {
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
-define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #28 {
+; Function Attrs: nounwind uwtable
+define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #25 {
   %5 = fdiv float %0, -3.000000e+00
   %6 = fmul float %0, %0
   %7 = fdiv float %6, 3.000000e+00
@@ -17834,7 +17834,7 @@ define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %
   br i1 %20, label %51, label %21
 
 21:                                               ; preds = %4
-  %sqrtf47 = tail call float @sqrtf(float noundef %19) #14
+  %sqrtf47 = tail call float @sqrtf(float noundef %19) #32
   %22 = fneg float %14
   %23 = fsub float %sqrtf47, %14
   %24 = fmul float %23, 5.000000e-01
@@ -17846,14 +17846,14 @@ define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %
 28:                                               ; preds = %21
   %29 = fneg float %24
   %30 = fpext float %29 to double
-  %31 = tail call double @pow(double noundef %30, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %31 = tail call double @pow(double noundef %30, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %32 = fptrunc double %31 to float
   %33 = fneg float %32
   br label %stbtt__cuberoot.exit
 
 34:                                               ; preds = %21
   %35 = fpext float %24 to double
-  %36 = tail call double @pow(double noundef %35, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %36 = tail call double @pow(double noundef %35, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %37 = fptrunc double %36 to float
   br label %stbtt__cuberoot.exit
 
@@ -17865,14 +17865,14 @@ stbtt__cuberoot.exit:                             ; preds = %28, %34
 39:                                               ; preds = %stbtt__cuberoot.exit
   %40 = fneg float %26
   %41 = fpext float %40 to double
-  %42 = tail call double @pow(double noundef %41, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %42 = tail call double @pow(double noundef %41, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %43 = fptrunc double %42 to float
   %44 = fneg float %43
   br label %stbtt__cuberoot.exit49
 
 45:                                               ; preds = %stbtt__cuberoot.exit
   %46 = fpext float %26 to double
-  %47 = tail call double @pow(double noundef %46, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %47 = tail call double @pow(double noundef %46, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %48 = fptrunc double %47 to float
   br label %stbtt__cuberoot.exit49
 
@@ -17885,22 +17885,22 @@ stbtt__cuberoot.exit49:                           ; preds = %39, %45
 
 51:                                               ; preds = %4
   %52 = fdiv float %8, -3.000000e+00
-  %sqrtf = tail call float @sqrtf(float noundef %52) #14
+  %sqrtf = tail call float @sqrtf(float noundef %52) #32
   %53 = fdiv float -2.700000e+01, %16
   %54 = fpext float %53 to double
-  %55 = tail call double @sqrt(double noundef %54) #34, !tbaa !17
+  %55 = tail call double @sqrt(double noundef %54) #32, !tbaa !17
   %56 = fneg double %55
   %57 = fpext float %14 to double
   %58 = fmul double %57, %56
   %59 = fmul double %58, 5.000000e-01
-  %60 = tail call double @acos(double noundef %59) #34, !tbaa !17
+  %60 = tail call double @acos(double noundef %59) #32, !tbaa !17
   %61 = fptrunc double %60 to float
   %62 = fdiv float %61, 3.000000e+00
   %63 = fpext float %62 to double
-  %64 = tail call double @cos(double noundef %63) #34, !tbaa !17
+  %64 = tail call double @cos(double noundef %63) #32, !tbaa !17
   %65 = fptrunc double %64 to float
   %66 = fadd double %63, 0xBFF921FAFC8B007A
-  %67 = tail call double @cos(double noundef %66) #34, !tbaa !17
+  %67 = tail call double @cos(double noundef %66) #32, !tbaa !17
   %68 = fptrunc double %67 to float
   %69 = fmul float %68, 0x3FFBB67AE0000000
   %70 = fmul float %sqrtf, 2.000000e+00
@@ -17928,8 +17928,8 @@ declare double @acos(double noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #14
 
-; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
+; Function Attrs: nounwind uwtable
+define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #25 {
   %11 = alloca %struct.stbtt__csctx, align 8
   %12 = alloca %struct.stbtt__csctx, align 8
   %13 = alloca i32, align 4
@@ -18056,7 +18056,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
   %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, 14
-  %72 = call noalias ptr @malloc(i64 noundef %71) #33
+  %72 = call noalias ptr @malloc(i64 noundef %71) #31
   store ptr %72, ptr %17, align 8, !tbaa !43
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %72, ptr %73, align 8, !tbaa !44
@@ -18086,10 +18086,10 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   %.0.i.fr = freeze i32 %.0.i
   %79 = mul nsw i32 %51, %50
   %80 = sext i32 %79 to i64
-  %81 = call noalias ptr @malloc(i64 noundef %80) #33
+  %81 = call noalias ptr @malloc(i64 noundef %80) #31
   %82 = sext i32 %.0.i.fr to i64
   %83 = shl nsw i64 %82, 2
-  %84 = call noalias ptr @malloc(i64 noundef %83) #33
+  %84 = call noalias ptr @malloc(i64 noundef %83) #31
   %85 = icmp sgt i32 %.0.i.fr, 0
   br i1 %85, label %.lr.ph, label %.preheader514
 
@@ -18262,7 +18262,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   br i1 %202, label %233, label %203
 
 203:                                              ; preds = %176
-  %sqrtf47.i.us.us.us = call float @sqrtf(float noundef %201) #14
+  %sqrtf47.i.us.us.us = call float @sqrtf(float noundef %201) #32
   %204 = fneg float %196
   %205 = fsub float %sqrtf47.i.us.us.us, %196
   %206 = fmul float %205, 5.000000e-01
@@ -18273,14 +18273,14 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
 
 210:                                              ; preds = %203
   %211 = fpext float %206 to double
-  %212 = call double @pow(double noundef %211, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %212 = call double @pow(double noundef %211, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %213 = fptrunc double %212 to float
   br label %stbtt__cuberoot.exit.i.us.us.us
 
 214:                                              ; preds = %203
   %215 = fneg float %206
   %216 = fpext float %215 to double
-  %217 = call double @pow(double noundef %216, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %217 = call double @pow(double noundef %216, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %218 = fptrunc double %217 to float
   %219 = fneg float %218
   br label %stbtt__cuberoot.exit.i.us.us.us
@@ -18292,14 +18292,14 @@ stbtt__cuberoot.exit.i.us.us.us:                  ; preds = %214, %210
 
 221:                                              ; preds = %stbtt__cuberoot.exit.i.us.us.us
   %222 = fpext float %208 to double
-  %223 = call double @pow(double noundef %222, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %223 = call double @pow(double noundef %222, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %224 = fptrunc double %223 to float
   br label %stbtt__cuberoot.exit49.i.us.us.us
 
 225:                                              ; preds = %stbtt__cuberoot.exit.i.us.us.us
   %226 = fneg float %208
   %227 = fpext float %226 to double
-  %228 = call double @pow(double noundef %227, double noundef 0x3FD5555560000000) #34, !tbaa !17
+  %228 = call double @pow(double noundef %227, double noundef 0x3FD5555560000000) #32, !tbaa !17
   %229 = fptrunc double %228 to float
   %230 = fneg float %229
   br label %stbtt__cuberoot.exit49.i.us.us.us
@@ -18312,22 +18312,22 @@ stbtt__cuberoot.exit49.i.us.us.us:                ; preds = %225, %221
 
 233:                                              ; preds = %176
   %234 = fdiv float %190, -3.000000e+00
-  %sqrtf.i.us.us.us = call float @sqrtf(float noundef %234) #14
+  %sqrtf.i.us.us.us = call float @sqrtf(float noundef %234) #32
   %235 = fdiv float -2.700000e+01, %198
   %236 = fpext float %235 to double
-  %237 = call double @sqrt(double noundef %236) #34, !tbaa !17
+  %237 = call double @sqrt(double noundef %236) #32, !tbaa !17
   %238 = fneg double %237
   %239 = fpext float %196 to double
   %240 = fmul double %239, %238
   %241 = fmul double %240, 5.000000e-01
-  %242 = call double @acos(double noundef %241) #34, !tbaa !17
+  %242 = call double @acos(double noundef %241) #32, !tbaa !17
   %243 = fptrunc double %242 to float
   %244 = fdiv float %243, 3.000000e+00
   %245 = fpext float %244 to double
-  %246 = call double @cos(double noundef %245) #34, !tbaa !17
+  %246 = call double @cos(double noundef %245) #32, !tbaa !17
   %247 = fptrunc double %246 to float
   %248 = fadd double %245, 0xBFF921FAFC8B007A
-  %249 = call double @cos(double noundef %248) #34, !tbaa !17
+  %249 = call double @cos(double noundef %248) #32, !tbaa !17
   %250 = fptrunc double %249 to float
   %251 = fmul float %250, 0x3FFBB67AE0000000
   %252 = fmul float %sqrtf.i.us.us.us, 2.000000e+00
@@ -18360,7 +18360,7 @@ stbtt__cuberoot.exit49.i.us.us.us:                ; preds = %225, %221
   br i1 %274, label %stbtt__solve_cubic.exit.us.us.us, label %275
 
 275:                                              ; preds = %269
-  %sqrtf.us.us.us = call float @sqrtf(float noundef %273) #14
+  %sqrtf.us.us.us = call float @sqrtf(float noundef %273) #32
   %276 = fneg float %264
   %277 = fsub float %276, %sqrtf.us.us.us
   %278 = fmul float %175, 2.000000e+00
@@ -18683,8 +18683,8 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
   br i1 %exitcond.not, label %.preheader514, label %431, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %._crit_edge522.split.us527, %._crit_edge522.split.us.us.us, %.preheader.lr.ph, %.preheader514
-  call void @free(ptr noundef %84) #34
-  call void @free(ptr noundef %.pre.pre) #34
+  call void @free(ptr noundef %84) #32
+  call void @free(ptr noundef %.pre.pre) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %496
 
@@ -18693,8 +18693,8 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
   ret ptr %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
+; Function Attrs: nounwind uwtable
+define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #25 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %2)
   %12 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %0, float noundef %1, i32 noundef %11, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
@@ -18702,7 +18702,7 @@ define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbtt_FreeSDF(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #19 {
-  tail call void @free(ptr noundef %0) #34
+  tail call void @free(ptr noundef %0) #32
   ret void
 }
 
@@ -19308,8 +19308,8 @@ define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__matches(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #29 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #35
+define range(i32 0, 2) i32 @stbtt__matches(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #27 {
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
   %6 = trunc i64 %5 to i32
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
@@ -19520,10 +19520,10 @@ stbtt__find_table.exit56.thread:                  ; preds = %83, %63, %113, %111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #30
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #29 {
+define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.thread, label %.lr.ph
@@ -19632,7 +19632,7 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %1, %3, %6, %10, %14
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #29 {
+define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #27 {
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %stbtt_FindMatchingFont_internal.exit, label %.lr.ph.i
@@ -19664,39 +19664,39 @@ define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #31
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #31
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 declare float @sqrtf(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #32
+declare float @llvm.fabs.f32(float) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #32
+declare float @llvm.floor.f32(float) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #32
+declare float @llvm.ceil.f32(float) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #32
+declare i32 @llvm.smin.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #32
+declare i16 @llvm.smin.i16(i16, i16) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #32
+declare i16 @llvm.smax.i16(i16, i16) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #32
+declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #32
+declare float @llvm.sqrt.f32(float) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #32
+declare double @llvm.sqrt.f64(double) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -19723,17 +19723,15 @@ attributes #21 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uw
 attributes #22 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #33 = { nounwind allocsize(0) }
-attributes #34 = { nounwind }
-attributes #35 = { nounwind willreturn memory(read) }
+attributes #25 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #30 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

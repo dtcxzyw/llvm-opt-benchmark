@@ -671,8 +671,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %21
 
 14:                                               ; preds = %21
-  %sqrtf = tail call float @sqrtf(float noundef %33) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
+  %sqrtf = tail call float @sqrtf(float noundef %33) #4
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #4
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -772,8 +772,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %13
 
 6:                                                ; preds = %13
-  %sqrtf = tail call float @sqrtf(float noundef %23) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %24) #2
+  %sqrtf = tail call float @sqrtf(float noundef %23) #4
+  %sqrtf32 = tail call float @sqrtf(float noundef %24) #4
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split
@@ -876,8 +876,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %21
 
 14:                                               ; preds = %21
-  %sqrtf = tail call float @sqrtf(float noundef %33) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
+  %sqrtf = tail call float @sqrtf(float noundef %33) #4
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #4
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -1400,8 +1400,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %21
 
 14:                                               ; preds = %21
-  %sqrtf = tail call float @sqrtf(float noundef %33) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
+  %sqrtf = tail call float @sqrtf(float noundef %33) #4
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #4
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -1498,8 +1498,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %13
 
 6:                                                ; preds = %13
-  %sqrtf = tail call float @sqrtf(float noundef %23) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %24) #2
+  %sqrtf = tail call float @sqrtf(float noundef %23) #4
+  %sqrtf32 = tail call float @sqrtf(float noundef %24) #4
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split

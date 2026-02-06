@@ -1070,7 +1070,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
 
 62:                                               ; preds = %._crit_edge272
   %63 = fptrunc double %52 to float
-  %sqrtf = tail call float @sqrtf(float noundef %63) #32
+  %sqrtf = tail call float @sqrtf(float noundef %63) #17
   br label %64
 
 64:                                               ; preds = %._crit_edge272, %62
@@ -32666,7 +32666,6 @@ attributes #28 = { noreturn }
 attributes #29 = { builtin allocsize(0) }
 attributes #30 = { builtin nounwind }
 attributes #31 = { noreturn nounwind }
-attributes #32 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

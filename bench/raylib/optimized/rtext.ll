@@ -6453,7 +6453,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %855, %866, %stbtt_F
 
 2338:                                             ; preds = %2333
   %2339 = fdiv float -1.000000e+00, %2324
-  %sqrtf.i.i.us.i.us.us.i = call float @sqrtf(float noundef %2336) #18
+  %sqrtf.i.i.us.i.us.us.i = call float @sqrtf(float noundef %2336) #46
   %2340 = fadd float %2325, %sqrtf.i.i.us.i.us.us.i
   %2341 = fmul float %2339, %2340
   %2342 = fsub float %2325, %sqrtf.i.i.us.i.us.us.i
@@ -6692,7 +6692,7 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2367, %.thread21.i.
   br i1 %2510, label %2541, label %2511
 
 2511:                                             ; preds = %2484
-  %sqrtf47.i.us.i.us.us.i = call float @sqrtf(float noundef %2509) #18
+  %sqrtf47.i.us.i.us.us.i = call float @sqrtf(float noundef %2509) #46
   %2512 = fneg float %2504
   %2513 = fsub float %sqrtf47.i.us.i.us.us.i, %2504
   %2514 = fmul float %2513, 5.000000e-01
@@ -6742,7 +6742,7 @@ stbtt__cuberoot.exit49.i.us.i.us.us.i:            ; preds = %2533, %2529
 
 2541:                                             ; preds = %2484
   %2542 = fdiv float %2498, -3.000000e+00
-  %sqrtf.i.us.i.us.us.i = call float @sqrtf(float noundef %2542) #18
+  %sqrtf.i.us.i.us.us.i = call float @sqrtf(float noundef %2542) #46
   %2543 = fdiv float -2.700000e+01, %2506
   %2544 = fpext float %2543 to double
   %2545 = call double @sqrt(double noundef %2544) #46
@@ -6790,7 +6790,7 @@ stbtt__cuberoot.exit49.i.us.i.us.us.i:            ; preds = %2533, %2529
   br i1 %2582, label %stbtt__solve_cubic.exit.us.i.us.us.i, label %2583
 
 2583:                                             ; preds = %2577
-  %sqrtf.us.i.us.us.i = call float @sqrtf(float noundef %2581) #18
+  %sqrtf.us.i.us.us.i = call float @sqrtf(float noundef %2581) #46
   %2584 = fneg float %2572
   %2585 = fsub float %2584, %sqrtf.us.i.us.us.i
   %2586 = fmul float %2483, 2.000000e+00

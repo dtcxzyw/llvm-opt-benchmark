@@ -11214,85 +11214,89 @@ define internal void @_ZL31llama_sampler_top_n_sigma_applyP13llama_samplerP22lla
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = load ptr, ptr %1, align 8, !tbaa !17
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !22
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %._crit_edge51.thread, label %.lr.ph.preheader
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load float, ptr %6, align 4, !tbaa !209
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !22
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %9 = load float, ptr %8, align 4, !tbaa !209
-  br label %.lr.ph
+._crit_edge.thread:                               ; preds = %2
+  %10 = uitofp nneg i64 %9 to float
+  br label %._crit_edge52
 
-._crit_edge51.thread:                             ; preds = %2
-  %10 = uitofp nneg i64 %7 to float
-  %11 = fdiv float 0.000000e+00, %10
-  %sqrtf69 = tail call float @sqrtf(float noundef %11) #19
-  br label %._crit_edge56
+.lr.ph51.preheader:                               ; preds = %.lr.ph
+  %11 = uitofp i64 %9 to float
+  %12 = fdiv float %17, %11
+  br label %.lr.ph51
 
-.lr.ph50.preheader:                               ; preds = %.lr.ph
-  %12 = uitofp i64 %7 to float
-  %13 = fdiv float %18, %12
-  br label %.lr.ph50
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.03445 = phi float [ %.1, %.lr.ph ], [ %7, %2 ]
+  %.03744 = phi float [ %17, %.lr.ph ], [ 0.000000e+00, %2 ]
+  %.03843 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
+  %13 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03843
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load float, ptr %14, align 4, !tbaa !209
+  %16 = fcmp ogt float %15, %.03445
+  %.1 = select i1 %16, float %15, float %.03445
+  %17 = fadd float %.03744, %15
+  %18 = add nuw i64 %.03843, 1
+  %exitcond.not = icmp eq i64 %18, %9
+  br i1 %exitcond.not, label %.lr.ph51.preheader, label %.lr.ph, !llvm.loop !338
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03444 = phi float [ %.1, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.03743 = phi float [ %18, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.03842 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03842
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load float, ptr %15, align 4, !tbaa !209
-  %17 = fcmp ogt float %16, %.03444
-  %.1 = select i1 %17, float %16, float %.03444
-  %18 = fadd float %.03743, %16
-  %19 = add nuw i64 %.03842, 1
-  %exitcond.not = icmp eq i64 %19, %7
-  br i1 %exitcond.not, label %.lr.ph50.preheader, label %.lr.ph, !llvm.loop !338
+._crit_edge52:                                    ; preds = %.lr.ph51, %._crit_edge.thread
+  %19 = phi float [ %10, %._crit_edge.thread ], [ %11, %.lr.ph51 ]
+  %.034.lcssa68 = phi float [ %7, %._crit_edge.thread ], [ %.1, %.lr.ph51 ]
+  %.036.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %33, %.lr.ph51 ]
+  %20 = fdiv float %.036.lcssa, %19
+  %sqrtf = tail call float @sqrtf(float noundef %20) #34
+  %21 = load i64, ptr %8, align 8, !tbaa !22
+  %.not59 = icmp eq i64 %21, 0
+  br i1 %.not59, label %._crit_edge57, label %.lr.ph56
 
-.lr.ph55:                                         ; preds = %.lr.ph50
-  %20 = fdiv float %31, %12
-  %sqrtf = tail call float @sqrtf(float noundef %20) #19
-  %21 = load float, ptr %4, align 4, !tbaa !125
-  %22 = fneg float %21
-  %23 = tail call float @llvm.fmuladd.f32(float %22, float %sqrtf, float %.1)
-  br label %33
+.lr.ph56:                                         ; preds = %._crit_edge52
+  %22 = load ptr, ptr %1, align 8, !tbaa !17
+  %23 = load float, ptr %4, align 4, !tbaa !125
+  %24 = fneg float %23
+  %25 = tail call float @llvm.fmuladd.f32(float %24, float %sqrtf, float %.034.lcssa68)
+  br label %35
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
-  %.03548 = phi i64 [ %32, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
-  %.03647 = phi float [ %31, %.lr.ph50 ], [ 0.000000e+00, %.lr.ph50.preheader ]
-  %24 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03548
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !209
-  %27 = fsub float %26, %13
-  %28 = fpext float %27 to double
-  %square = fmul double %28, %28
-  %29 = fpext float %.03647 to double
-  %30 = fadd double %square, %29
-  %31 = fptrunc double %30 to float
-  %32 = add nuw i64 %.03548, 1
-  %exitcond60.not = icmp eq i64 %32, %7
-  br i1 %exitcond60.not, label %.lr.ph55, label %.lr.ph50, !llvm.loop !339
+.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
+  %.03549 = phi i64 [ %34, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
+  %.03648 = phi float [ %33, %.lr.ph51 ], [ 0.000000e+00, %.lr.ph51.preheader ]
+  %26 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03549
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load float, ptr %27, align 4, !tbaa !209
+  %29 = fsub float %28, %12
+  %30 = fpext float %29 to double
+  %square = fmul double %30, %30
+  %31 = fpext float %.03648 to double
+  %32 = fadd double %square, %31
+  %33 = fptrunc double %32 to float
+  %34 = add nuw i64 %.03549, 1
+  %exitcond61.not = icmp eq i64 %34, %9
+  br i1 %exitcond61.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !339
 
-._crit_edge56:                                    ; preds = %39, %._crit_edge51.thread
+._crit_edge57:                                    ; preds = %41, %._crit_edge52
   tail call fastcc void @_ZL26llama_sampler_softmax_implP22llama_token_data_array(ptr noundef nonnull %1)
   ret void
 
-33:                                               ; preds = %.lr.ph55, %39
-  %.053 = phi i64 [ 0, %.lr.ph55 ], [ %40, %39 ]
-  %34 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.053
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = load float, ptr %35, align 4, !tbaa !209
-  %37 = fcmp olt float %36, %23
-  br i1 %37, label %38, label %39
+35:                                               ; preds = %.lr.ph56, %41
+  %.054 = phi i64 [ 0, %.lr.ph56 ], [ %42, %41 ]
+  %36 = getelementptr inbounds nuw %struct.llama_token_data, ptr %22, i64 %.054
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load float, ptr %37, align 4, !tbaa !209
+  %39 = fcmp olt float %38, %25
+  br i1 %39, label %40, label %41
 
-38:                                               ; preds = %33
-  store float 0xFFF0000000000000, ptr %35, align 4, !tbaa !209
-  br label %39
+40:                                               ; preds = %35
+  store float 0xFFF0000000000000, ptr %37, align 4, !tbaa !209
+  br label %41
 
-39:                                               ; preds = %33, %38
-  %40 = add nuw i64 %.053, 1
-  %exitcond61.not = icmp eq i64 %40, %7
-  br i1 %exitcond61.not, label %._crit_edge56, label %33, !llvm.loop !340
+41:                                               ; preds = %35, %40
+  %42 = add nuw i64 %.054, 1
+  %exitcond62.not = icmp eq i64 %42, %21
+  br i1 %exitcond62.not, label %._crit_edge57, label %35, !llvm.loop !340
 }
 
 ; Function Attrs: mustprogress uwtable

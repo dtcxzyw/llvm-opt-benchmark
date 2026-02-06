@@ -2956,7 +2956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %59
   br label %633
 
 631:                                              ; preds = %633
-  %sqrtf = call float @sqrtf(float noundef %641) #13
+  %sqrtf = call float @sqrtf(float noundef %641) #44
   %632 = fcmp ogt float %sqrtf, 0x3E80000000000000
   br i1 %632, label %.preheader, label %645
 

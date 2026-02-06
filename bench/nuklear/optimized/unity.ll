@@ -27361,7 +27361,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
 
 193:                                              ; preds = %188
   %194 = fdiv float -1.000000e+00, %179
-  %sqrtf.i.i.us = call float @sqrtf(float noundef %191) #29
+  %sqrtf.i.i.us = call float @sqrtf(float noundef %191) #56
   %195 = fadd float %180, %sqrtf.i.i.us
   %196 = fmul float %194, %195
   %197 = fsub float %180, %sqrtf.i.i.us
@@ -27635,7 +27635,7 @@ stbtt__compute_crossings_x.exit.us:               ; preds = %.thread.i.us
   br i1 %380, label %411, label %381
 
 381:                                              ; preds = %354
-  %sqrtf47.i.us = call float @sqrtf(float noundef %379) #29
+  %sqrtf47.i.us = call float @sqrtf(float noundef %379) #56
   %382 = fneg float %374
   %383 = fsub float %sqrtf47.i.us, %374
   %384 = fmul float %383, 5.000000e-01
@@ -27685,7 +27685,7 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
 
 411:                                              ; preds = %354
   %412 = fdiv float %368, -3.000000e+00
-  %sqrtf.i.us = call float @sqrtf(float noundef %412) #29
+  %sqrtf.i.us = call float @sqrtf(float noundef %412) #56
   %413 = fdiv float -2.700000e+01, %376
   %414 = fpext float %413 to double
   %415 = call double @sqrt(double noundef %414) #56, !tbaa !7
@@ -27732,7 +27732,7 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
   br i1 %451, label %stbtt__solve_cubic.exit.us, label %452
 
 452:                                              ; preds = %446
-  %sqrtf.us = call float @sqrtf(float noundef %450) #29
+  %sqrtf.us = call float @sqrtf(float noundef %450) #56
   %453 = fneg float %442
   %454 = fsub float %453, %sqrtf.us
   %455 = fmul float %353, 2.000000e+00
