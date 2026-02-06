@@ -2625,7 +2625,7 @@ invoke.cont292.i:                                 ; preds = %if.end.i.i
   %conv287.i = uitofp nneg i32 %232 to double
   %mul288.i = fmul nnan double %conv287.i, 0x401921FB54442D18
   %div290.i = fmul nnan double %mul288.i, 0x3F30000000000000
-  %mul.rl.i.i330.i = fmul double %div290.i, -0.000000e+00
+  %mul.rl.i.i322.i = fmul double %div290.i, -0.000000e+00
   br label %invoke.cont307.i
 
 invoke.cont307.i:                                 ; preds = %invoke.cont332.i, %invoke.cont292.i

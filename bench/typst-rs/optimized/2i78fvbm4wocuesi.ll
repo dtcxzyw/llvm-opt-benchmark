@@ -118167,7 +118167,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %14
 
-14:                                               ; preds = %49, %2
+14:                                               ; preds = %50, %2
   %.sroa.4.0 = phi i64 [ %1, %2 ], [ %.sroa.725.0, %49 ]
   %.sroa.0.0 = phi ptr [ %0, %2 ], [ %.sroa.023.0, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -118191,7 +118191,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
 15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb1bd5fe26ba89da7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #83
-          to label %41 unwind label %55
+          to label %41 unwind label %56
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %11, align 1, !range !22842, !noundef !4
@@ -118259,23 +118259,23 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !range !570, !noalias !22863, !noundef !4
   %.not.i.i.i48 = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i48, label %54, label %35
+  br i1 %.not.i.i.i48, label %55, label %35
 
 35:                                               ; preds = %.noexc49
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !22863, !noundef !4
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %54, label %39
+  br i1 %38, label %55, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %3, align 8, !noalias !22863, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef %34) #85
-  br label %54
+  br label %55
 
 41:                                               ; preds = %.loopexit77, %.loopexit.split-lp78, %15
   %.pn = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit.split-lp80, %.loopexit.split-lp78 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$png..decoder..stream..StreamingDecoder$GT$17ha231a1b7f1f19330E"(ptr noalias noundef nonnull align 8 dereferenceable(464) %8) #83
-          to label %57 unwind label %55
+          to label %57 unwind label %56
 
 .loopexit77:                                      ; preds = %25
   %lpad.loopexit79 = landingpad { ptr, i32 }
@@ -118299,7 +118299,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
 
 43:                                               ; preds = %42
   %or.cond11 = icmp eq i32 %.sroa.029.sroa.4.sroa.4.0.copyload, 1413563465
-  br i1 %or.cond11, label %.loopexit82, label %49
+  br i1 %or.cond11, label %.loopexit82, label %50
 
 44:                                               ; preds = %42
   %.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.sroa.029.sroa.4.sroa.0.0.copyload, i32 %.sroa.029.sroa.4.sroa.4.0.copyload)
@@ -118311,37 +118311,37 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
   %.sroa.015.1 = zext nneg i8 %trunc.mask to i64
   br label %.loopexit82
 
-.loopexit82:                                      ; preds = %43, %42, %42, %49, %54, %44
+.loopexit82:                                      ; preds = %43, %42, %42, %50, %55, %44
   %.sroa.7.2 = phi double [ %.sroa.7.1, %44 ], [ undef, %54 ], [ undef, %49 ], [ undef, %42 ], [ undef, %42 ], [ undef, %43 ]
   %.sroa.015.2 = phi i64 [ %.sroa.015.1, %44 ], [ 0, %54 ], [ 0, %49 ], [ 0, %42 ], [ 0, %42 ], [ 0, %43 ]
   call void @"_ZN4core3ptr59drop_in_place$LT$png..decoder..stream..StreamingDecoder$GT$17ha231a1b7f1f19330E"(ptr noalias noundef nonnull align 8 dereferenceable(464) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %47 = insertvalue { i64, double } poison, i64 %.sroa.015.2, 0
-  %48 = insertvalue { i64, double } %47, double %.sroa.7.2, 1
-  ret { i64, double } %48
+  %48 = insertvalue { i64, double } poison, i64 %.sroa.015.2, 0
+  %49 = insertvalue { i64, double } %48, double %.sroa.7.2, 1
+  ret { i64, double } %49
 
-49:                                               ; preds = %42, %43
-  %50 = icmp ugt i64 %.sroa.029.sroa.0.0.copyload, %.sroa.4.0
-  %51 = sub nuw i64 %.sroa.4.0, %.sroa.029.sroa.0.0.copyload
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.029.sroa.0.0.copyload
-  %.sroa.725.0 = select i1 %50, i64 undef, i64 %51
-  %.sroa.023.0 = select i1 %50, ptr null, ptr %52
-  %53 = add i64 %.sroa.029.sroa.0.0.copyload, -1
-  %or.cond.not = icmp ult i64 %53, %.sroa.4.0
+50:                                               ; preds = %42, %43
+  %51 = icmp ugt i64 %.sroa.029.sroa.0.0.copyload, %.sroa.4.0
+  %52 = sub nuw i64 %.sroa.4.0, %.sroa.029.sroa.0.0.copyload
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.029.sroa.0.0.copyload
+  %.sroa.725.0 = select i1 %51, i64 undef, i64 %52
+  %.sroa.023.0 = select i1 %51, ptr null, ptr %53
+  %54 = add i64 %.sroa.029.sroa.0.0.copyload, -1
+  %or.cond.not = icmp ult i64 %54, %.sroa.4.0
   br i1 %or.cond.not, label %14, label %.loopexit82
 
-54:                                               ; preds = %39, %35, %.noexc49
+55:                                               ; preds = %39, %35, %.noexc49
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !22863
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit82
 
-55:                                               ; preds = %41, %15
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %41, %15
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #84
   unreachable
 
-57:                                               ; preds = %41
+58:                                               ; preds = %41
   resume { ptr, i32 } %.pn
 }
 
