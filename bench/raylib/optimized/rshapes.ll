@@ -418,8 +418,8 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
 12:                                               ; preds = %4
   %.sroa.028.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.019.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %sqrt = tail call float @llvm.sqrt.f32(float %9)
-  %13 = fmul float %sqrt, 2.000000e+00
+  %sqrt = tail call nnan float @llvm.sqrt.f32(float %9)
+  %13 = fmul nnan float %sqrt, 2.000000e+00
   %14 = fdiv float %2, %13
   %15 = fneg float %14
   %16 = fmul float %7, %15
@@ -791,7 +791,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.5.0.extract.trunc, i8 noundef zeroext %.sroa.7.0.extract.trunc) #16
   %10 = add nuw nsw i32 %.021, 10
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul float %11, 0x3F91DF46A0000000
+  %12 = fmul nnan float %11, 0x3F91DF46A0000000
   %13 = tail call float @cosf(float noundef %12) #16
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %2, float %6)
   %15 = tail call float @sinf(float noundef %12) #16
@@ -799,7 +799,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   tail call void @rlVertex2f(float noundef %14, float noundef %16) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.5.0.extract.trunc, i8 noundef zeroext %.sroa.7.0.extract.trunc) #16
   %17 = uitofp nneg i32 %.021 to float
-  %18 = fmul float %17, 0x3F91DF46A0000000
+  %18 = fmul nnan float %17, 0x3F91DF46A0000000
   %19 = tail call float @cosf(float noundef %18) #16
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %6)
   %21 = tail call float @sinf(float noundef %18) #16
@@ -827,7 +827,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
 7:                                                ; preds = %7, %4
   %.014.i = phi i32 [ 0, %4 ], [ %14, %7 ]
   %8 = uitofp nneg i32 %.014.i to float
-  %9 = fmul float %8, 0x3F91DF46A0000000
+  %9 = fmul nnan float %8, 0x3F91DF46A0000000
   %10 = tail call float @cosf(float noundef %9) #16
   %11 = tail call float @llvm.fmuladd.f32(float %10, float %2, float %5)
   %12 = tail call float @sinf(float noundef %9) #16
@@ -835,7 +835,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
   tail call void @rlVertex2f(float noundef %11, float noundef %13) #16
   %14 = add nuw nsw i32 %.014.i, 10
   %15 = uitofp nneg i32 %14 to float
-  %16 = fmul float %15, 0x3F91DF46A0000000
+  %16 = fmul nnan float %15, 0x3F91DF46A0000000
   %17 = tail call float @cosf(float noundef %16) #16
   %18 = tail call float @llvm.fmuladd.f32(float %17, float %2, float %5)
   %19 = tail call float @sinf(float noundef %16) #16
@@ -871,7 +871,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
 5:                                                ; preds = %3, %5
   %.014 = phi i32 [ 0, %3 ], [ %12, %5 ]
   %6 = uitofp nneg i32 %.014 to float
-  %7 = fmul float %6, 0x3F91DF46A0000000
+  %7 = fmul nnan float %6, 0x3F91DF46A0000000
   %8 = tail call float @cosf(float noundef %7) #16
   %9 = tail call float @llvm.fmuladd.f32(float %8, float %1, float %.sroa.09.0.vec.extract)
   %10 = tail call float @sinf(float noundef %7) #16
@@ -879,7 +879,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
   tail call void @rlVertex2f(float noundef %9, float noundef %11) #16
   %12 = add nuw nsw i32 %.014, 10
   %13 = uitofp nneg i32 %12 to float
-  %14 = fmul float %13, 0x3F91DF46A0000000
+  %14 = fmul nnan float %13, 0x3F91DF46A0000000
   %15 = tail call float @cosf(float noundef %14) #16
   %16 = tail call float @llvm.fmuladd.f32(float %15, float %1, float %.sroa.09.0.vec.extract)
   %17 = tail call float @sinf(float noundef %14) #16
@@ -913,14 +913,14 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
   tail call void @rlVertex2f(float noundef %6, float noundef %7) #16
   %10 = add nuw nsw i32 %.015, 10
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul float %11, 0x3F91DF46A0000000
+  %12 = fmul nnan float %11, 0x3F91DF46A0000000
   %13 = tail call float @cosf(float noundef %12) #16
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %2, float %6)
   %15 = tail call float @sinf(float noundef %12) #16
   %16 = tail call float @llvm.fmuladd.f32(float %15, float %3, float %7)
   tail call void @rlVertex2f(float noundef %14, float noundef %16) #16
   %17 = uitofp nneg i32 %.015 to float
-  %18 = fmul float %17, 0x3F91DF46A0000000
+  %18 = fmul nnan float %17, 0x3F91DF46A0000000
   %19 = tail call float @cosf(float noundef %18) #16
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %6)
   %21 = tail call float @sinf(float noundef %18) #16
@@ -953,14 +953,14 @@ define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, 
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %10 = add nuw nsw i32 %.013, 10
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul float %11, 0x3F91DF46A0000000
+  %12 = fmul nnan float %11, 0x3F91DF46A0000000
   %13 = tail call float @cosf(float noundef %12) #16
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %2, float %6)
   %15 = tail call float @sinf(float noundef %12) #16
   %16 = tail call float @llvm.fmuladd.f32(float %15, float %3, float %7)
   tail call void @rlVertex2f(float noundef %14, float noundef %16) #16
   %17 = uitofp nneg i32 %.013 to float
-  %18 = fmul float %17, 0x3F91DF46A0000000
+  %18 = fmul nnan float %17, 0x3F91DF46A0000000
   %19 = tail call float @cosf(float noundef %18) #16
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %6)
   %21 = tail call float @sinf(float noundef %18) #16
@@ -2689,8 +2689,8 @@ define void @DrawPoly(<2 x float> %0, i32 noundef %1, float noundef %2, float no
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
   %7 = uitofp nneg i32 %spec.store.select to float
-  %8 = fdiv float 3.600000e+02, %7
-  %9 = fmul float %8, 0x3F91DF46A0000000
+  %8 = fdiv nnan float 3.600000e+02, %7
+  %9 = fmul nnan float %8, 0x3F91DF46A0000000
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 4
   tail call void @rlSetTexture(i32 noundef %.sroa.0.0.copyload) #16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 8
@@ -2777,8 +2777,8 @@ define void @DrawPolyLines(<2 x float> %0, i32 noundef %1, float noundef %2, flo
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
   %7 = uitofp nneg i32 %spec.store.select to float
-  %8 = fdiv float 3.600000e+02, %7
-  %9 = fmul float %8, 0x3F91DF46A0000000
+  %8 = fdiv nnan float 3.600000e+02, %7
+  %9 = fmul nnan float %8, 0x3F91DF46A0000000
   tail call void @rlBegin(i32 noundef 1) #16
   %.sroa.017.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.017.4.vec.extract = extractelement <2 x float> %0, i64 1
@@ -2820,10 +2820,10 @@ define void @DrawPolyLinesEx(<2 x float> %0, i32 noundef %1, float noundef %2, f
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %7 = fmul float %3, 0x3F91DF46A0000000
   %8 = uitofp nneg i32 %spec.store.select to float
-  %9 = fdiv float 3.600000e+02, %8
-  %10 = fmul float %9, 0x3F91DF46A0000000
-  %11 = fmul float %10, 0x3F91DF46A0000000
-  %12 = fmul float %11, 5.000000e-01
+  %9 = fdiv nnan float 3.600000e+02, %8
+  %10 = fmul nnan float %9, 0x3F91DF46A0000000
+  %11 = fmul nnan float %10, 0x3F91DF46A0000000
+  %12 = fmul nnan float %11, 5.000000e-01
   %13 = tail call float @cosf(float noundef %12) #16
   %14 = fneg float %4
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %13, float %2)
@@ -2939,9 +2939,9 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   %25 = fsub float %22, %24
   %26 = fmul float %25, %25
   %27 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %26)
-  %sqrt = tail call float @llvm.sqrt.f32(float %27)
+  %sqrt = tail call nnan float @llvm.sqrt.f32(float %27)
   %28 = fcmp ogt float %27, 0.000000e+00
-  %29 = fmul float %sqrt, 2.000000e+00
+  %29 = fmul nnan float %sqrt, 2.000000e+00
   %30 = fdiv float %2, %29
   %.1 = select i1 %28, float %30, float %.050
   %31 = fneg float %.1
@@ -3292,19 +3292,19 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %37 = fdiv float %36, 2.400000e+01
   %38 = fneg float %37
   %39 = fmul float %37, %38
-  %40 = fmul float %37, 2.000000e+00
+  %40 = fmul nnan float %37, 2.000000e+00
   %41 = fmul float %37, %40
   %42 = tail call float @llvm.fmuladd.f32(float %39, float %37, float %41)
   %43 = fsub float %42, %37
-  %44 = fmul float %37, 3.000000e+00
+  %44 = fmul nnan float %37, 3.000000e+00
   %45 = fmul float %37, %44
-  %46 = fmul float %37, -5.000000e+00
+  %46 = fmul nnan float %37, -5.000000e+00
   %47 = fmul float %37, %46
   %48 = tail call float @llvm.fmuladd.f32(float %45, float %37, float %47)
   %49 = fadd float %48, 2.000000e+00
-  %50 = fmul float %37, -3.000000e+00
+  %50 = fmul nnan float %37, -3.000000e+00
   %51 = fmul float %37, %50
-  %52 = fmul float %37, 4.000000e+00
+  %52 = fmul nnan float %37, 4.000000e+00
   %53 = fmul float %37, %52
   %54 = tail call float @llvm.fmuladd.f32(float %51, float %37, float %53)
   %55 = fadd float %37, %54
@@ -3420,10 +3420,10 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   %25 = phi float [ 0.000000e+00, %14 ], [ %55, %51 ]
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   %27 = uitofp nneg i32 %26 to float
-  %28 = fmul float %27, 0x3FA5555560000000
+  %28 = fmul nnan float %27, 0x3FA5555560000000
   %29 = fsub float 1.000000e+00, %28
   %square.i = fmul float %29, %29
-  %30 = fmul float %29, 2.000000e+00
+  %30 = fmul nnan float %29, 2.000000e+00
   %31 = fmul float %28, %30
   %square55.i = fmul float %28, %28
   %32 = fmul float %.sroa.049.4.vec.extract.i, %31
@@ -3528,10 +3528,10 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %17 = phi float [ 0.000000e+00, %5 ], [ %47, %43 ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = uitofp nneg i32 %18 to float
-  %20 = fmul float %19, 0x3FA5555560000000
+  %20 = fmul nnan float %19, 0x3FA5555560000000
   %21 = fsub float 1.000000e+00, %20
   %square = fmul float %21, %21
-  %22 = fmul float %21, 2.000000e+00
+  %22 = fmul nnan float %21, 2.000000e+00
   %23 = fmul float %20, %22
   %square55 = fmul float %20, %20
   %24 = fmul float %.sroa.049.4.vec.extract, %23
@@ -3654,13 +3654,13 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %18 = phi float [ 0.000000e+00, %6 ], [ %54, %50 ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = uitofp nneg i32 %19 to float
-  %21 = fmul float %20, 0x3FA5555560000000
+  %21 = fmul nnan float %20, 0x3FA5555560000000
   %22 = fsub float 1.000000e+00, %21
   %23 = tail call float @powf(float noundef %22, float noundef 3.000000e+00) #16
   %square = fmul float %22, %22
-  %24 = fmul float %square, 3.000000e+00
+  %24 = fmul nnan float %square, 3.000000e+00
   %25 = fmul float %21, %24
-  %26 = fmul float %22, 3.000000e+00
+  %26 = fmul nnan float %22, 3.000000e+00
   %square60 = fmul float %21, %21
   %27 = fmul float %square60, %26
   %28 = tail call float @powf(float noundef %21, float noundef 3.000000e+00) #16
@@ -3736,8 +3736,8 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
 12:                                               ; preds = %4
   %.sroa.028.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.019.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %sqrt = tail call float @llvm.sqrt.f32(float %9)
-  %13 = fmul float %sqrt, 2.000000e+00
+  %sqrt = tail call nnan float @llvm.sqrt.f32(float %9)
+  %13 = fmul nnan float %sqrt, 2.000000e+00
   %14 = fdiv float %2, %13
   %15 = fneg float %14
   %16 = fmul float %7, %15
@@ -3834,7 +3834,7 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
   %.sroa.847.089 = phi float [ %37, %6 ], [ %52, %66 ]
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = uitofp nneg i32 %44 to float
-  %46 = fmul float %45, 0x3FA5555560000000
+  %46 = fmul nnan float %45, 0x3FA5555560000000
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %12, float %16)
   %48 = tail call float @llvm.fmuladd.f32(float %46, float %47, float %19)
   %49 = tail call float @llvm.fmuladd.f32(float %46, float %48, float %22)
@@ -3919,22 +3919,22 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %.sroa.061.077 = phi float [ %.sroa.071.0.vec.extract73, %6 ], [ %42, %61 ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = uitofp nneg i32 %14 to float
-  %16 = fmul float %15, 0x3FA5555560000000
+  %16 = fmul nnan float %15, 0x3FA5555560000000
   %17 = fneg float %16
   %18 = fmul float %16, %17
-  %19 = fmul float %16, 2.000000e+00
+  %19 = fmul nnan float %16, 2.000000e+00
   %20 = fmul float %16, %19
   %21 = tail call float @llvm.fmuladd.f32(float %18, float %16, float %20)
   %22 = fsub float %21, %16
-  %23 = fmul float %16, 3.000000e+00
+  %23 = fmul nnan float %16, 3.000000e+00
   %24 = fmul float %16, %23
-  %25 = fmul float %16, -5.000000e+00
+  %25 = fmul nnan float %16, -5.000000e+00
   %26 = fmul float %16, %25
   %27 = tail call float @llvm.fmuladd.f32(float %24, float %16, float %26)
   %28 = fadd float %27, 2.000000e+00
-  %29 = fmul float %16, -3.000000e+00
+  %29 = fmul nnan float %16, -3.000000e+00
   %30 = fmul float %16, %29
-  %31 = fmul float %16, 4.000000e+00
+  %31 = fmul nnan float %16, 4.000000e+00
   %32 = fmul float %16, %31
   %33 = tail call float @llvm.fmuladd.f32(float %30, float %16, float %32)
   %34 = fadd float %16, %33
@@ -4520,7 +4520,7 @@ define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x 
   %13 = sitofp i32 %3 to float
   %14 = tail call float @llvm.fabs.f32(float %7)
   %15 = tail call float @llvm.fabs.f32(float %8)
-  %16 = tail call float @llvm.maxnum.f32(float %14, float %15)
+  %16 = tail call nsz float @llvm.maxnum.f32(float %14, float %15)
   %17 = fmul float %16, %13
   %18 = fcmp olt float %12, %17
   br i1 %18, label %19, label %41

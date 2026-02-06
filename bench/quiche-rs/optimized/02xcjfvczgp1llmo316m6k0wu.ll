@@ -408,8 +408,8 @@ define internal fastcc { i64, i32 } @_ZN4core4time8Duration7mul_f6417hc55e05d673
   %4 = alloca [16 x i8], align 8
   %5 = uitofp i64 %0 to double
   %6 = uitofp nneg i32 %1 to double
-  %7 = fdiv double %6, 1.000000e+09
-  %8 = fadd double %7, %5
+  %7 = fdiv nnan double %6, 1.000000e+09
+  %8 = fadd nnan double %7, %5
   %9 = fmul double %2, %8
   %10 = fcmp olt double %9, 0.000000e+00
   br i1 %10, label %64, label %11
@@ -710,9 +710,9 @@ define internal fastcc noundef i64 @"_ZN6quiche6minmax15Minmax$LT$T$GT$11running
 73:                                               ; preds = %64
   %74 = uitofp i64 %1 to float
   %75 = uitofp nneg i32 %2 to float
-  %76 = fdiv float %75, 1.000000e+09
-  %77 = fadd float %76, %74
-  %78 = fmul float %77, 2.500000e-01
+  %76 = fdiv nnan float %75, 1.000000e+09
+  %77 = fadd nnan float %76, %74
+  %78 = fmul nnan float %77, 2.500000e-01
   %79 = bitcast float %78 to i32
   %80 = and i32 %79, 8388607
   %81 = or disjoint i32 %80, 8388608
@@ -821,9 +821,9 @@ _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i: ; preds = %126, %108,
 140:                                              ; preds = %68
   %141 = uitofp i64 %1 to float
   %142 = uitofp nneg i32 %2 to float
-  %143 = fdiv float %142, 1.000000e+09
-  %144 = fadd float %143, %141
-  %145 = fmul float %144, 5.000000e-01
+  %143 = fdiv nnan float %142, 1.000000e+09
+  %144 = fadd nnan float %143, %141
+  %145 = fmul nnan float %144, 5.000000e-01
   %146 = bitcast float %145 to i32
   %147 = and i32 %146, 8388607
   %148 = or disjoint i32 %147, 8388608
@@ -1598,9 +1598,9 @@ define hidden void @_ZN6quiche8recovery11QlogMetrics12maybe_update17h088a8ca786b
   store i32 %15, ptr %16, align 8
   %17 = uitofp i64 %7 to float
   %18 = uitofp nneg i32 %15 to float
-  %19 = fdiv float %18, 1.000000e+09
-  %20 = fadd float %19, %17
-  %21 = fmul float %20, 1.000000e+03
+  %19 = fdiv nnan float %18, 1.000000e+09
+  %20 = fadd nnan float %19, %17
+  %21 = fmul nnan float %20, 1.000000e+03
   br label %22
 
 22:                                               ; preds = %9, %14
@@ -1634,9 +1634,9 @@ define hidden void @_ZN6quiche8recovery11QlogMetrics12maybe_update17h088a8ca786b
   store i32 %34, ptr %35, align 8
   %36 = uitofp i64 %26 to float
   %37 = uitofp nneg i32 %34 to float
-  %38 = fdiv float %37, 1.000000e+09
-  %39 = fadd float %38, %36
-  %40 = fmul float %39, 1.000000e+03
+  %38 = fdiv nnan float %37, 1.000000e+09
+  %39 = fadd nnan float %38, %36
+  %40 = fmul nnan float %39, 1.000000e+03
   br label %41
 
 41:                                               ; preds = %28, %33
@@ -1670,9 +1670,9 @@ define hidden void @_ZN6quiche8recovery11QlogMetrics12maybe_update17h088a8ca786b
   store i32 %53, ptr %54, align 8
   %55 = uitofp i64 %45 to float
   %56 = uitofp nneg i32 %53 to float
-  %57 = fdiv float %56, 1.000000e+09
-  %58 = fadd float %57, %55
-  %59 = fmul float %58, 1.000000e+03
+  %57 = fdiv nnan float %56, 1.000000e+09
+  %58 = fadd nnan float %57, %55
+  %59 = fmul nnan float %58, 1.000000e+03
   br label %60
 
 60:                                               ; preds = %47, %52
@@ -1706,9 +1706,9 @@ define hidden void @_ZN6quiche8recovery11QlogMetrics12maybe_update17h088a8ca786b
   store i32 %72, ptr %73, align 8
   %74 = uitofp i64 %64 to float
   %75 = uitofp nneg i32 %72 to float
-  %76 = fdiv float %75, 1.000000e+09
-  %77 = fadd float %76, %74
-  %78 = fmul float %77, 1.000000e+03
+  %76 = fdiv nnan float %75, 1.000000e+09
+  %77 = fadd nnan float %76, %74
+  %78 = fmul nnan float %77, 1.000000e+03
   br label %79
 
 79:                                               ; preds = %66, %71
@@ -2008,10 +2008,10 @@ _ZN6quiche8recovery10congestion3bbr7per_ack16bbr_update_btlbw17h453b99b89cf2a52d
   %82 = select i1 %79, i64 %81, i64 0
   %.sroa.0.0.i.i.i = add i64 %82, %66
   %83 = uitofp nneg i32 %76 to double
-  %84 = fdiv double %83, 1.000000e+09
+  %84 = fdiv nnan double %83, 1.000000e+09
   %85 = extractvalue { i64, i32 } %75, 0
   %86 = uitofp i64 %85 to double
-  %87 = fadd double %84, %86
+  %87 = fadd nnan double %84, %86
   %88 = uitofp i64 %78 to double
   %89 = fmul double %87, %88
   %90 = call i64 @llvm.fptoui.sat.i64.f64(double %89)
@@ -2043,8 +2043,8 @@ _ZN6quiche8recovery10congestion3bbr7per_ack16bbr_update_btlbw17h453b99b89cf2a52d
   %104 = mul i64 %81, 3
   %105 = uitofp i64 %55 to double
   %106 = uitofp nneg i32 %101 to double
-  %107 = fdiv double %106, 1.000000e+09
-  %108 = fadd double %107, %105
+  %107 = fdiv nnan double %106, 1.000000e+09
+  %108 = fadd nnan double %107, %105
   %109 = fmul double %108, %88
   %110 = call i64 @llvm.fptoui.sat.i64.f64(double %109)
   %111 = add i64 %110, %104
@@ -2079,8 +2079,8 @@ _ZN6quiche8recovery10congestion3bbr7per_ack12bbr_inflight17he96f6c957c91184cE.ex
   %125 = mul i64 %81, 3
   %126 = uitofp i64 %55 to double
   %127 = uitofp nneg i32 %122 to double
-  %128 = fdiv double %127, 1.000000e+09
-  %129 = fadd double %128, %126
+  %128 = fdiv nnan double %127, 1.000000e+09
+  %129 = fadd nnan double %128, %126
   %130 = fmul double %129, %88
   %131 = fmul double %48, %130
   %132 = call i64 @llvm.fptoui.sat.i64.f64(double %131)
@@ -2137,7 +2137,7 @@ _ZN6quiche8recovery10congestion3bbr7per_ack21bbr_check_cycle_phase17hed293808ff2
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %157 = load i64, ptr %156, align 8, !alias.scope !113, !noundef !3
   %158 = uitofp i64 %157 to double
-  %159 = fmul double %158, 1.250000e+00
+  %159 = fmul nnan double %158, 1.250000e+00
   %160 = call i64 @llvm.fptoui.sat.i64.f64(double %159)
   %.not4.i4 = icmp ult i64 %155, %160
   br i1 %.not4.i4, label %161, label %166
@@ -2216,10 +2216,10 @@ _ZN6quiche8recovery10congestion3bbr7per_ack19bbr_check_full_pipe17h11b979834a14e
   %spec.select = select i1 %cond.fr.i, i64 %193, i64 0
   %.sroa.0.0.i.i = add i64 %spec.select, %2
   %194 = uitofp nneg i32 %188 to double
-  %195 = fdiv double %194, 1.000000e+09
+  %195 = fdiv nnan double %194, 1.000000e+09
   %196 = extractvalue { i64, i32 } %187, 0
   %197 = uitofp i64 %196 to double
-  %198 = fadd double %195, %197
+  %198 = fadd nnan double %195, %197
   %199 = uitofp i64 %190 to double
   %200 = fmul double %198, %199
   %201 = call i64 @llvm.fptoui.sat.i64.f64(double %200)
@@ -2238,8 +2238,8 @@ _ZN6quiche8recovery10congestion3bbr7per_ack19bbr_check_full_pipe17h11b979834a14e
   %210 = mul i64 %193, 3
   %211 = uitofp i64 %204 to double
   %212 = uitofp nneg i32 %207 to double
-  %213 = fdiv double %212, 1.000000e+09
-  %214 = fadd double %213, %211
+  %213 = fdiv nnan double %212, 1.000000e+09
+  %214 = fadd nnan double %213, %211
   %215 = fmul double %214, %199
   %216 = call i64 @llvm.fptoui.sat.i64.f64(double %215)
   %217 = add i64 %216, %210
@@ -2525,8 +2525,8 @@ _ZN6quiche8recovery10congestion3bbr7per_ack20bbr_set_send_quantum17he9e9a916a732
   %35 = uitofp i64 %34 to double
   %36 = uitofp i64 %23 to double
   %37 = uitofp nneg i32 %26 to double
-  %38 = fdiv double %37, 1.000000e+09
-  %39 = fadd double %38, %36
+  %38 = fdiv nnan double %37, 1.000000e+09
+  %39 = fadd nnan double %38, %36
   %40 = fmul double %39, %35
   %41 = fmul double %30, %40
   %42 = tail call i64 @llvm.fptoui.sat.i64.f64(double %41)
@@ -2690,8 +2690,8 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_update_mo
   %22 = icmp ult i32 %17, 1000000000
   tail call void @llvm.assume(i1 %22)
   %23 = uitofp nneg i32 %17 to double
-  %24 = fdiv double %23, 1.000000e+09
-  %25 = fadd double %24, %21
+  %24 = fdiv nnan double %23, 1.000000e+09
+  %25 = fadd nnan double %24, %21
   %26 = fmul double %25, %20
   %27 = tail call i64 @llvm.fptoui.sat.i64.f64(double %26)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -2864,9 +2864,9 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_update_mo
 115:                                              ; preds = %99
   %116 = uitofp i64 %.sroa.04.0.i to float
   %117 = uitofp nneg i32 %.sroa.3.0.i to float
-  %118 = fdiv float %117, 1.000000e+09
-  %119 = fadd float %118, %116
-  %120 = fmul float %119, 2.500000e-01
+  %118 = fdiv nnan float %117, 1.000000e+09
+  %119 = fadd nnan float %118, %116
+  %120 = fmul nnan float %119, 2.500000e-01
   %121 = bitcast float %120 to i32
   %122 = and i32 %121, 8388607
   %123 = or disjoint i32 %122, 8388608
@@ -2975,9 +2975,9 @@ _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i.i.i: ; preds = %168, %
 182:                                              ; preds = %._crit_edge.i
   %183 = uitofp i64 %.sroa.04.0.i to float
   %184 = uitofp nneg i32 %.sroa.3.0.i to float
-  %185 = fdiv float %184, 1.000000e+09
-  %186 = fadd float %185, %183
-  %187 = fmul float %186, 5.000000e-01
+  %185 = fdiv nnan float %184, 1.000000e+09
+  %186 = fadd nnan float %185, %183
+  %187 = fmul nnan float %186, 5.000000e-01
   %188 = bitcast float %187 to i32
   %189 = and i32 %188, 8388607
   %190 = or disjoint i32 %189, 8388608
@@ -3129,7 +3129,7 @@ _ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_update_ack_aggregation17h1bdf
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %270 = load i64, ptr %269, align 8, !alias.scope !220, !noundef !3
   %271 = uitofp i64 %270 to double
-  %272 = fmul double %271, 1.250000e+00
+  %272 = fmul nnan double %271, 1.250000e+00
   %273 = call i64 @llvm.fptoui.sat.i64.f64(double %272)
   %.not4.i.i = icmp ult i64 %268, %273
   br i1 %.not4.i.i, label %274, label %279
@@ -3192,8 +3192,8 @@ _ZN6quiche8recovery10congestion4bbr27per_ack33bbr2_check_startup_full_bandwidth1
   %306 = uitofp i64 %305 to double
   %307 = uitofp i64 %298 to double
   %308 = uitofp nneg i32 %301 to double
-  %309 = fdiv double %308, 1.000000e+09
-  %310 = fadd double %309, %307
+  %309 = fdiv nnan double %308, 1.000000e+09
+  %310 = fadd nnan double %309, %307
   %311 = fmul double %310, %306
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %313 = call i64 @llvm.fptoui.sat.i64.f64(double %311)
@@ -3274,8 +3274,8 @@ _ZN6quiche8recovery10congestion4bbr27per_ack23bbr2_check_startup_done17h8e76918a
   %353 = uitofp i64 %352 to double
   %354 = uitofp i64 %345 to double
   %355 = uitofp nneg i32 %348 to double
-  %356 = fdiv double %355, 1.000000e+09
-  %357 = fadd double %356, %354
+  %356 = fdiv nnan double %355, 1.000000e+09
+  %357 = fadd nnan double %356, %354
   %358 = fmul double %357, %353
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %360 = call i64 @llvm.fptoui.sat.i64.f64(double %358)
@@ -3630,7 +3630,7 @@ _ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_check_time_to_probe_bw17hdfd7
 
 _ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_inflight_with_headroom17h2c400ac3723ae00fE.exit.i.i: ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_check_time_to_probe_bw17hdfd7f758332b2f2fE.exit.i
   %531 = uitofp i64 %.val.i13.i to double
-  %532 = fmul double %531, 8.500000e-01
+  %532 = fmul nnan double %531, 8.500000e-01
   %533 = call i64 @llvm.fptoui.sat.i64.f64(double %532)
   %.sroa.0.0.sroa.speculated.i.i.i15.i = call noundef i64 @llvm.umax.i64(i64 %533, i64 1)
   %534 = call i64 @llvm.usub.sat.i64(i64 %.val.i13.i, i64 %.sroa.0.0.sroa.speculated.i.i.i15.i)
@@ -3654,8 +3654,8 @@ _ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_inflight_with_headroom17h2c40
   %545 = uitofp i64 %544 to double
   %546 = uitofp i64 %537 to double
   %547 = uitofp nneg i32 %540 to double
-  %548 = fdiv double %547, 1.000000e+09
-  %549 = fadd double %548, %546
+  %548 = fdiv nnan double %547, 1.000000e+09
+  %549 = fadd nnan double %548, %546
   %550 = fmul double %549, %545
   %551 = call i64 @llvm.fptoui.sat.i64.f64(double %550)
   store i64 %551, ptr %476, align 8, !alias.scope !320
@@ -3750,14 +3750,14 @@ _ZN6quiche8recovery10congestion4bbr27per_ack22bbr2_start_probe_bw_up17h7feb3018b
   %598 = uitofp i64 %597 to double
   %599 = uitofp i64 %591 to double
   %600 = uitofp nneg i32 %593 to double
-  %601 = fdiv double %600, 1.000000e+09
-  %602 = fadd double %601, %599
+  %601 = fdiv nnan double %600, 1.000000e+09
+  %602 = fadd nnan double %601, %599
   %603 = fmul double %602, %598
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %605 = call i64 @llvm.fptoui.sat.i64.f64(double %603)
   store i64 %605, ptr %604, align 8, !alias.scope !344
   %606 = uitofp i64 %605 to double
-  %607 = fmul double %606, 1.250000e+00
+  %607 = fmul nnan double %606, 1.250000e+00
   %608 = call i64 @llvm.fptoui.sat.i64.f64(double %607)
   %.phi.trans.insert.i.i9 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %.pre.i.i10 = load i64, ptr %.phi.trans.insert.i.i9, align 8, !alias.scope !349
@@ -3975,14 +3975,14 @@ _ZN6quiche8recovery10congestion4bbr27per_ack19bbr2_update_min_rtt17h7a9721e70890
   %726 = uitofp i64 %725 to double
   %727 = uitofp i64 %719 to double
   %728 = uitofp nneg i32 %722 to double
-  %729 = fdiv double %728, 1.000000e+09
-  %730 = fadd double %729, %727
+  %729 = fdiv nnan double %728, 1.000000e+09
+  %730 = fadd nnan double %729, %727
   %731 = fmul double %730, %726
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %733 = call i64 @llvm.fptoui.sat.i64.f64(double %731)
   store i64 %733, ptr %732, align 8, !alias.scope !373
   %734 = uitofp i64 %733 to double
-  %735 = fmul double %734, 5.000000e-01
+  %735 = fmul nnan double %734, 5.000000e-01
   %736 = call i64 @llvm.fptoui.sat.i64.f64(double %735)
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !alias.scope !378
@@ -4110,8 +4110,8 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack30bbr2_update_co
   %26 = uitofp i64 %25 to double
   %27 = uitofp i64 %16 to double
   %28 = uitofp nneg i32 %19 to double
-  %29 = fdiv double %28, 1.000000e+09
-  %30 = fadd double %29, %27
+  %29 = fdiv nnan double %28, 1.000000e+09
+  %30 = fadd nnan double %29, %27
   %31 = fmul double %30, %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %33 = tail call i64 @llvm.fptoui.sat.i64.f64(double %31)
@@ -4202,14 +4202,14 @@ _ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h
   %80 = uitofp i64 %79 to double
   %81 = uitofp i64 %16 to double
   %82 = uitofp nneg i32 %19 to double
-  %83 = fdiv double %82, 1.000000e+09
-  %84 = fadd double %83, %81
+  %83 = fdiv nnan double %82, 1.000000e+09
+  %84 = fadd nnan double %83, %81
   %85 = fmul double %84, %80
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %87 = tail call i64 @llvm.fptoui.sat.i64.f64(double %85)
   store i64 %87, ptr %86, align 8, !alias.scope !420
   %88 = uitofp i64 %87 to double
-  %89 = fmul double %88, 5.000000e-01
+  %89 = fmul nnan double %88, 5.000000e-01
   %90 = tail call i64 @llvm.fptoui.sat.i64.f64(double %89)
   br label %.thread.i
 
@@ -4239,7 +4239,7 @@ _ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h
 
 102:                                              ; preds = %98
   %103 = uitofp i64 %.val.i.i to double
-  %104 = fmul double %103, 8.500000e-01
+  %104 = fmul nnan double %103, 8.500000e-01
   %105 = tail call i64 @llvm.fptoui.sat.i64.f64(double %104)
   %.sroa.0.0.sroa.speculated.i.i.i6.i = tail call noundef i64 @llvm.umax.i64(i64 %105, i64 1)
   %106 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i6.i)

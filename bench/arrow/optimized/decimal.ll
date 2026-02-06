@@ -2563,7 +2563,7 @@ define noundef float @_ZNK5arrow10Decimal1287ToFloatEi(ptr noundef nonnull align
 
 ._crit_edge.i.i:                                  ; preds = %11
   %14 = sitofp i64 %.val11.pre.i.i to float
-  %15 = fmul float %14, 0x43F0000000000000
+  %15 = fmul nnan float %14, 0x43F0000000000000
   br label %19
 
 16:                                               ; preds = %11
@@ -2594,7 +2594,7 @@ define noundef float @_ZNK5arrow10Decimal1287ToFloatEi(ptr noundef nonnull align
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %28, %23
   %.0.i.i.i.i = phi float [ %27, %23 ], [ %30, %28 ]
   %31 = uitofp i64 %.val.pre.i.i to float
-  %32 = fadd float %.val11.i.i, %31
+  %32 = fadd nnan float %.val11.i.i, %31
   %33 = fmul float %32, %.0.i.i.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i
 
@@ -2608,9 +2608,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
   %.sroa.420.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.420.0.copyload.i.i = load i64, ptr %.sroa.420.0..sroa_idx.i.i, align 8
   %35 = sitofp i64 %.sroa.420.0.copyload.i.i to float
-  %36 = fmul float %35, 0x43F0000000000000
+  %36 = fmul nnan float %35, 0x43F0000000000000
   %37 = uitofp i64 %.sroa.019.0.copyload.i.i to float
-  %38 = fadd float %36, %37
+  %38 = fadd nnan float %36, %37
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -2633,9 +2633,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit18.i.i: ; preds = %46, %41
   %.0.i.i17.i.i = phi float [ %45, %41 ], [ %48, %46 ]
   %49 = sitofp i64 %.sroa.4.0.copyload.i.i to float
-  %50 = fmul float %49, 0x43F0000000000000
+  %50 = fmul nnan float %49, 0x43F0000000000000
   %51 = uitofp i64 %.sroa.0.0.copyload.i.i to float
-  %52 = fadd float %50, %51
+  %52 = fadd nnan float %50, %51
   %53 = fmul float %52, %.0.i.i17.i.i
   %54 = fadd float %38, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2655,7 +2655,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10De
 
 ._crit_edge.i21.i:                                ; preds = %56
   %58 = uitofp nneg i64 %9 to float
-  %59 = fmul float %58, 0x43F0000000000000
+  %59 = fmul nnan float %58, 0x43F0000000000000
   br label %63
 
 60:                                               ; preds = %56
@@ -2686,7 +2686,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10De
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i19.i: ; preds = %72, %67
   %.0.i.i.i20.i = phi float [ %71, %67 ], [ %74, %72 ]
   %75 = uitofp i64 %.val.pre.i5.i to float
-  %76 = fadd float %.val11.i18.i, %75
+  %76 = fadd nnan float %.val11.i18.i, %75
   %77 = fmul float %76, %.0.i.i.i20.i
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIfEET_RKS2_i.exit
 
@@ -2700,9 +2700,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
   %.sroa.420.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.420.0.copyload.i11.i = load i64, ptr %.sroa.420.0..sroa_idx.i10.i, align 8
   %79 = sitofp i64 %.sroa.420.0.copyload.i11.i to float
-  %80 = fmul float %79, 0x43F0000000000000
+  %80 = fmul nnan float %79, 0x43F0000000000000
   %81 = uitofp i64 %.sroa.019.0.copyload.i9.i to float
-  %82 = fadd float %80, %81
+  %82 = fadd nnan float %80, %81
   %.sroa.0.0.copyload.i12.i = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload.i14.i = load i64, ptr %.sroa.4.0..sroa_idx.i13.i, align 8
@@ -2725,9 +2725,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit18.i15.i: ; preds = %90, %85
   %.0.i.i17.i16.i = phi float [ %89, %85 ], [ %92, %90 ]
   %93 = sitofp i64 %.sroa.4.0.copyload.i14.i to float
-  %94 = fmul float %93, 0x43F0000000000000
+  %94 = fmul nnan float %93, 0x43F0000000000000
   %95 = uitofp i64 %.sroa.0.0.copyload.i12.i to float
-  %96 = fadd float %94, %95
+  %96 = fadd nnan float %94, %95
   %97 = fmul float %96, %.0.i.i17.i16.i
   %98 = fadd float %82, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2763,7 +2763,7 @@ define noundef double @_ZNK5arrow10Decimal1288ToDoubleEi(ptr noundef nonnull ali
 
 ._crit_edge.i.i:                                  ; preds = %11
   %14 = sitofp i64 %.val11.pre.i.i to double
-  %15 = fmul double %14, 0x43F0000000000000
+  %15 = fmul nnan double %14, 0x43F0000000000000
   br label %19
 
 16:                                               ; preds = %11
@@ -2794,7 +2794,7 @@ define noundef double @_ZNK5arrow10Decimal1288ToDoubleEi(ptr noundef nonnull ali
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %28, %23
   %.0.i.i.i.i = phi double [ %27, %23 ], [ %30, %28 ]
   %31 = uitofp i64 %.val.pre.i.i to double
-  %32 = fadd double %.val11.i.i, %31
+  %32 = fadd nnan double %.val11.i.i, %31
   %33 = fmul double %32, %.0.i.i.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i
 
@@ -2808,9 +2808,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
   %.sroa.420.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.420.0.copyload.i.i = load i64, ptr %.sroa.420.0..sroa_idx.i.i, align 8
   %35 = sitofp i64 %.sroa.420.0.copyload.i.i to double
-  %36 = fmul double %35, 0x43F0000000000000
+  %36 = fmul nnan double %35, 0x43F0000000000000
   %37 = uitofp i64 %.sroa.019.0.copyload.i.i to double
-  %38 = fadd double %36, %37
+  %38 = fadd nnan double %36, %37
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -2833,9 +2833,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit18.i.i: ; preds = %46, %41
   %.0.i.i17.i.i = phi double [ %45, %41 ], [ %48, %46 ]
   %49 = sitofp i64 %.sroa.4.0.copyload.i.i to double
-  %50 = fmul double %49, 0x43F0000000000000
+  %50 = fmul nnan double %49, 0x43F0000000000000
   %51 = uitofp i64 %.sroa.0.0.copyload.i.i to double
-  %52 = fadd double %50, %51
+  %52 = fadd nnan double %50, %51
   %53 = fmul double %52, %.0.i.i17.i.i
   %54 = fadd double %38, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2855,7 +2855,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10De
 
 ._crit_edge.i21.i:                                ; preds = %56
   %58 = uitofp nneg i64 %9 to double
-  %59 = fmul double %58, 0x43F0000000000000
+  %59 = fmul nnan double %58, 0x43F0000000000000
   br label %63
 
 60:                                               ; preds = %56
@@ -2886,7 +2886,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10De
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i19.i: ; preds = %72, %67
   %.0.i.i.i20.i = phi double [ %71, %67 ], [ %74, %72 ]
   %75 = uitofp i64 %.val.pre.i5.i to double
-  %76 = fadd double %.val11.i18.i, %75
+  %76 = fadd nnan double %.val11.i18.i, %75
   %77 = fmul double %76, %.0.i.i.i20.i
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIdEET_RKS2_i.exit
 
@@ -2900,9 +2900,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
   %.sroa.420.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.420.0.copyload.i11.i = load i64, ptr %.sroa.420.0..sroa_idx.i10.i, align 8
   %79 = sitofp i64 %.sroa.420.0.copyload.i11.i to double
-  %80 = fmul double %79, 0x43F0000000000000
+  %80 = fmul nnan double %79, 0x43F0000000000000
   %81 = uitofp i64 %.sroa.019.0.copyload.i9.i to double
-  %82 = fadd double %80, %81
+  %82 = fadd nnan double %80, %81
   %.sroa.0.0.copyload.i12.i = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload.i14.i = load i64, ptr %.sroa.4.0..sroa_idx.i13.i, align 8
@@ -2925,9 +2925,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit18.i15.i: ; preds = %90, %85
   %.0.i.i17.i16.i = phi double [ %89, %85 ], [ %92, %90 ]
   %93 = sitofp i64 %.sroa.4.0.copyload.i14.i to double
-  %94 = fmul double %93, 0x43F0000000000000
+  %94 = fmul nnan double %93, 0x43F0000000000000
   %95 = uitofp i64 %.sroa.0.0.copyload.i12.i to double
-  %96 = fadd double %94, %95
+  %96 = fadd nnan double %94, %95
   %97 = fmul double %96, %.0.i.i17.i16.i
   %98 = fadd double %82, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -12395,7 +12395,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RK
   %26 = select i1 %25, float 0.000000e+00, float 0x7FF0000000000000
   %27 = fadd float %26, %24
   %28 = uitofp i64 %.sroa.418.0.copyload to float
-  %29 = fmul float %28, 0x43F0000000000000
+  %29 = fmul nnan float %28, 0x43F0000000000000
   %30 = fadd float %29, %27
   %31 = uitofp i64 %.sroa.017.0.copyload to float
   %32 = fadd float %30, %31
@@ -12421,7 +12421,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RK
   %38 = select i1 %37, float 0.000000e+00, float 0x7FF0000000000000
   %39 = fadd float %38, %36
   %40 = uitofp i64 %.sroa.414.0.copyload to float
-  %41 = fmul float %40, 0x43F0000000000000
+  %41 = fmul nnan float %40, 0x43F0000000000000
   %42 = fadd float %41, %39
   %43 = uitofp i64 %.sroa.013.0.copyload to float
   %44 = fadd float %42, %43
@@ -12456,7 +12456,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RK
   %58 = select i1 %57, float 0.000000e+00, float 0x7FF0000000000000
   %59 = fadd float %58, %56
   %60 = uitofp i64 %.sroa.4.0.copyload to float
-  %61 = fmul float %60, 0x43F0000000000000
+  %61 = fmul nnan float %60, 0x43F0000000000000
   %62 = fadd float %61, %59
   %63 = uitofp i64 %.sroa.0.0.copyload to float
   %64 = fadd float %62, %63
@@ -12518,12 +12518,12 @@ define internal fastcc noundef double @_ZN5arrow12_GLOBAL__N_124Decimal256RealCo
 _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit: ; preds = %15, %20
   %.0.i.i = phi double [ %19, %15 ], [ %22, %20 ]
   %23 = uitofp i64 %.sroa.620.0.copyload to double
-  %24 = fmul double %23, 0x4BF0000000000000
+  %24 = fmul nnan double %23, 0x4BF0000000000000
   %25 = uitofp i64 %.sroa.519.0.copyload to double
-  %26 = fmul double %25, 0x47F0000000000000
+  %26 = fmul nnan double %25, 0x47F0000000000000
   %27 = fadd double %26, %24
   %28 = uitofp i64 %.sroa.418.0.copyload to double
-  %29 = fmul double %28, 0x43F0000000000000
+  %29 = fmul nnan double %28, 0x43F0000000000000
   %30 = fadd double %29, %27
   %31 = uitofp i64 %.sroa.017.0.copyload to double
   %32 = fadd double %30, %31
@@ -12544,12 +12544,12 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
   %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.616.0.copyload = load i64, ptr %.sroa.616.0..sroa_idx, align 8
   %35 = uitofp i64 %.sroa.616.0.copyload to double
-  %36 = fmul double %35, 0x4BF0000000000000
+  %36 = fmul nnan double %35, 0x4BF0000000000000
   %37 = uitofp i64 %.sroa.515.0.copyload to double
-  %38 = fmul double %37, 0x47F0000000000000
+  %38 = fmul nnan double %37, 0x47F0000000000000
   %39 = fadd double %38, %36
   %40 = uitofp i64 %.sroa.414.0.copyload to double
-  %41 = fmul double %40, 0x43F0000000000000
+  %41 = fmul nnan double %40, 0x43F0000000000000
   %42 = fadd double %41, %39
   %43 = uitofp i64 %.sroa.013.0.copyload to double
   %44 = fadd double %42, %43
@@ -12579,12 +12579,12 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
 _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12: ; preds = %47, %52
   %.0.i.i11 = phi double [ %51, %47 ], [ %54, %52 ]
   %55 = uitofp i64 %.sroa.6.0.copyload to double
-  %56 = fmul double %55, 0x4BF0000000000000
+  %56 = fmul nnan double %55, 0x4BF0000000000000
   %57 = uitofp i64 %.sroa.5.0.copyload to double
-  %58 = fmul double %57, 0x47F0000000000000
+  %58 = fmul nnan double %57, 0x47F0000000000000
   %59 = fadd double %58, %56
   %60 = uitofp i64 %.sroa.4.0.copyload to double
-  %61 = fmul double %60, 0x43F0000000000000
+  %61 = fmul nnan double %60, 0x43F0000000000000
   %62 = fadd double %61, %59
   %63 = uitofp i64 %.sroa.0.0.copyload to double
   %64 = fadd double %62, %63

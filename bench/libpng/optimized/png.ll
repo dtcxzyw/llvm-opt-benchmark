@@ -1408,7 +1408,7 @@ png_fp_add.exit7.i:                               ; preds = %27, %23, %21
 
 31:                                               ; preds = %29
   %32 = sitofp i32 %4 to double
-  %33 = fmul double %32, 1.000000e+05
+  %33 = fmul nnan double %32, 1.000000e+05
   %34 = sitofp i32 %.0.i4.i to double
   %35 = fdiv double %33, %34
   %36 = fadd double %35, 5.000000e-01
@@ -1432,7 +1432,7 @@ png_fp_add.exit7.i:                               ; preds = %27, %23, %21
 
 46:                                               ; preds = %42
   %47 = sitofp i32 %44 to double
-  %48 = fmul double %47, 1.000000e+05
+  %48 = fmul nnan double %47, 1.000000e+05
   %49 = sitofp i32 %.0.i4.i to double
   %50 = fdiv double %48, %49
   %51 = fadd double %50, 5.000000e-01
@@ -1519,7 +1519,7 @@ png_fp_add.exit7.i56:                             ; preds = %82, %78, %76
 
 88:                                               ; preds = %86
   %89 = sitofp i32 %59 to double
-  %90 = fmul double %89, 1.000000e+05
+  %90 = fmul nnan double %89, 1.000000e+05
   %91 = sitofp i32 %.0.i4.i57 to double
   %92 = fdiv double %90, %91
   %93 = fadd double %92, 5.000000e-01
@@ -1543,7 +1543,7 @@ png_fp_add.exit7.i56:                             ; preds = %82, %78, %76
 
 103:                                              ; preds = %99
   %104 = sitofp i32 %101 to double
-  %105 = fmul double %104, 1.000000e+05
+  %105 = fmul nnan double %104, 1.000000e+05
   %106 = sitofp i32 %.0.i4.i57 to double
   %107 = fdiv double %105, %106
   %108 = fadd double %107, 5.000000e-01
@@ -1631,7 +1631,7 @@ png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
 
 145:                                              ; preds = %143
   %146 = sitofp i32 %116 to double
-  %147 = fmul double %146, 1.000000e+05
+  %147 = fmul nnan double %146, 1.000000e+05
   %148 = sitofp i32 %.0.i4.i82 to double
   %149 = fdiv double %147, %148
   %150 = fadd double %149, 5.000000e-01
@@ -1655,7 +1655,7 @@ png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
 
 160:                                              ; preds = %156
   %161 = sitofp i32 %158 to double
-  %162 = fmul double %161, 1.000000e+05
+  %162 = fmul nnan double %161, 1.000000e+05
   %163 = sitofp i32 %.0.i4.i82 to double
   %164 = fdiv double %162, %163
   %165 = fadd double %164, 5.000000e-01
@@ -1708,7 +1708,7 @@ png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
 
 190:                                              ; preds = %188
   %191 = sitofp i32 %180 to double
-  %192 = fmul double %191, 1.000000e+05
+  %192 = fmul nnan double %191, 1.000000e+05
   %193 = sitofp i32 %174 to double
   %194 = fdiv double %192, %193
   %195 = fadd double %194, 5.000000e-01
@@ -1731,7 +1731,7 @@ png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
 
 204:                                              ; preds = %201
   %205 = sitofp i32 %186 to double
-  %206 = fmul double %205, 1.000000e+05
+  %206 = fmul nnan double %205, 1.000000e+05
   %207 = sitofp i32 %174 to double
   %208 = fdiv double %206, %207
   %209 = fadd double %208, 5.000000e-01
@@ -1835,7 +1835,7 @@ define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, 
 8:                                                ; preds = %5
   %9 = sitofp i32 %1 to double
   %10 = sitofp i32 %2 to double
-  %11 = fmul double %9, %10
+  %11 = fmul nnan double %9, %10
   %12 = sitofp i32 %3 to double
   %13 = fdiv double %11, %12
   %14 = fadd double %13, 5.000000e-01
@@ -1930,8 +1930,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 42:                                               ; preds = %37
   %43 = sitofp i32 %38 to double
   %44 = sitofp i32 %39 to double
-  %45 = fmul double %43, %44
-  %46 = fmul double %45, 1.250000e-01
+  %45 = fmul nnan double %43, %44
+  %46 = fmul nnan double %45, 1.250000e-01
   %47 = fadd double %46, 5.000000e-01
   %48 = tail call double @llvm.floor.f64(double %47)
   %49 = fcmp ole double %48, 0x41DFFFFFFFC00000
@@ -1955,8 +1955,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 58:                                               ; preds = %53
   %59 = sitofp i32 %54 to double
   %60 = sitofp i32 %55 to double
-  %61 = fmul double %60, %59
-  %62 = fmul double %61, 1.250000e-01
+  %61 = fmul nnan double %60, %59
+  %62 = fmul nnan double %61, 1.250000e-01
   %63 = fadd double %62, 5.000000e-01
   %64 = tail call double @llvm.floor.f64(double %63)
   %65 = fcmp ole double %64, 0x41DFFFFFFFC00000
@@ -2001,8 +2001,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 82:                                               ; preds = %.thread273
   %83 = sitofp i32 %38 to double
   %84 = sitofp i32 %80 to double
-  %85 = fmul double %83, %84
-  %86 = fmul double %85, 1.250000e-01
+  %85 = fmul nnan double %83, %84
+  %86 = fmul nnan double %85, 1.250000e-01
   %87 = fadd double %86, 5.000000e-01
   %88 = tail call double @llvm.floor.f64(double %87)
   %89 = fcmp ole double %88, 0x41DFFFFFFFC00000
@@ -2024,8 +2024,8 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 96:                                               ; preds = %93
   %97 = sitofp i32 %54 to double
   %98 = sitofp i32 %94 to double
-  %99 = fmul double %97, %98
-  %100 = fmul double %99, 1.250000e-01
+  %99 = fmul nnan double %97, %98
+  %100 = fmul nnan double %99, 1.250000e-01
   %101 = fadd double %100, 5.000000e-01
   %102 = tail call double @llvm.floor.f64(double %101)
   %103 = fcmp ole double %102, 0x41DFFFFFFFC00000
@@ -2074,7 +2074,7 @@ png_fp_sub.exit130.thread:                        ; preds = %108, %114, %png_fp_
 119:                                              ; preds = %png_fp_sub.exit130.thread
   %120 = uitofp nneg i32 %33 to double
   %121 = sitofp i32 %.0.i.ph to double
-  %122 = fmul double %120, %121
+  %122 = fmul nnan double %120, %121
   %123 = sitofp i32 %.0.i127310 to double
   %124 = fdiv double %122, %123
   %125 = fadd double %124, 5.000000e-01
@@ -2101,8 +2101,8 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
 132:                                              ; preds = %131
   %133 = sitofp i32 %39 to double
   %134 = sitofp i32 %94 to double
-  %135 = fmul double %133, %134
-  %136 = fmul double %135, 1.250000e-01
+  %135 = fmul nnan double %133, %134
+  %136 = fmul nnan double %135, 1.250000e-01
   %137 = fadd double %136, 5.000000e-01
   %138 = tail call double @llvm.floor.f64(double %137)
   %139 = fcmp ole double %138, 0x41DFFFFFFFC00000
@@ -2122,8 +2122,8 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
 144:                                              ; preds = %143
   %145 = sitofp i32 %55 to double
   %146 = sitofp i32 %80 to double
-  %147 = fmul double %145, %146
-  %148 = fmul double %147, 1.250000e-01
+  %147 = fmul nnan double %145, %146
+  %148 = fmul nnan double %147, 1.250000e-01
   %149 = fadd double %148, 5.000000e-01
   %150 = tail call double @llvm.floor.f64(double %149)
   %151 = fcmp ole double %150, 0x41DFFFFFFFC00000
@@ -2171,7 +2171,7 @@ png_fp_sub.exit153.thread:                        ; preds = %156, %162, %png_fp_
 166:                                              ; preds = %png_fp_sub.exit153.thread
   %167 = uitofp nneg i32 %33 to double
   %168 = sitofp i32 %.0.i.ph to double
-  %169 = fmul double %167, %168
+  %169 = fmul nnan double %167, %168
   %170 = sitofp i32 %.0.i150334 to double
   %171 = fdiv double %169, %170
   %172 = fadd double %171, 5.000000e-01
@@ -2280,7 +2280,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 
 223:                                              ; preds = %221
   %224 = uitofp nneg i32 %3 to double
-  %225 = fmul double %224, 1.000000e+05
+  %225 = fmul nnan double %224, 1.000000e+05
   %226 = fdiv double %225, %186
   %227 = fadd double %226, 5.000000e-01
   %228 = tail call double @llvm.floor.f64(double %227)
@@ -2303,7 +2303,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 
 237:                                              ; preds = %233
   %238 = sitofp i32 %235 to double
-  %239 = fmul double %238, 1.000000e+05
+  %239 = fmul nnan double %238, 1.000000e+05
   %240 = fdiv double %239, %186
   %241 = fadd double %240, 5.000000e-01
   %242 = tail call double @llvm.floor.f64(double %241)
@@ -2329,7 +2329,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 253:                                              ; preds = %247
   %254 = sub i32 100000, %251
   %255 = sitofp i32 %254 to double
-  %256 = fmul double %255, 1.000000e+05
+  %256 = fmul nnan double %255, 1.000000e+05
   %257 = fdiv double %256, %186
   %258 = fadd double %257, 5.000000e-01
   %259 = tail call double @llvm.floor.f64(double %258)
@@ -2352,7 +2352,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 
 268:                                              ; preds = %264
   %269 = sitofp i32 %266 to double
-  %270 = fmul double %269, 1.000000e+05
+  %270 = fmul nnan double %269, 1.000000e+05
   %271 = fdiv double %270, %202
   %272 = fadd double %271, 5.000000e-01
   %273 = tail call double @llvm.floor.f64(double %272)
@@ -2375,7 +2375,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 
 282:                                              ; preds = %278
   %283 = sitofp i32 %280 to double
-  %284 = fmul double %283, 1.000000e+05
+  %284 = fmul nnan double %283, 1.000000e+05
   %285 = fdiv double %284, %202
   %286 = fadd double %285, 5.000000e-01
   %287 = tail call double @llvm.floor.f64(double %286)
@@ -2401,7 +2401,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 298:                                              ; preds = %292
   %299 = sub i32 100000, %296
   %300 = sitofp i32 %299 to double
-  %301 = fmul double %300, 1.000000e+05
+  %301 = fmul nnan double %300, 1.000000e+05
   %302 = fdiv double %301, %202
   %303 = fadd double %302, 5.000000e-01
   %304 = tail call double @llvm.floor.f64(double %303)
@@ -2425,7 +2425,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 313:                                              ; preds = %309
   %314 = sitofp i32 %311 to double
   %315 = uitofp nneg i32 %.0.i171 to double
-  %316 = fmul double %315, %314
+  %316 = fmul nnan double %315, %314
   %317 = fdiv double %316, 1.000000e+05
   %318 = fadd double %317, 5.000000e-01
   %319 = tail call double @llvm.floor.f64(double %318)
@@ -2449,7 +2449,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
 328:                                              ; preds = %324
   %329 = sitofp i32 %326 to double
   %330 = uitofp nneg i32 %.0.i171 to double
-  %331 = fmul double %330, %329
+  %331 = fmul nnan double %330, %329
   %332 = fdiv double %331, 1.000000e+05
   %333 = fadd double %332, 5.000000e-01
   %334 = tail call double @llvm.floor.f64(double %333)
@@ -2476,7 +2476,7 @@ png_fp_sub.exit174:                               ; preds = %212, %214, %218
   %346 = sub i32 100000, %343
   %347 = sitofp i32 %346 to double
   %348 = uitofp nneg i32 %.0.i171 to double
-  %349 = fmul double %348, %347
+  %349 = fmul nnan double %348, %347
   %350 = fdiv double %349, 1.000000e+05
   %351 = fadd double %350, 5.000000e-01
   %352 = tail call double @llvm.floor.f64(double %351)
@@ -3097,7 +3097,7 @@ have_chromaticities.exit.thread87:                ; preds = %6
 
 26:                                               ; preds = %24
   %27 = uitofp nneg i32 %15 to double
-  %28 = fmul double %27, 3.276800e+04
+  %28 = fmul nnan double %27, 3.276800e+04
   %29 = uitofp nneg i32 %21 to double
   %30 = fdiv double %28, %29
   %31 = fadd double %30, 5.000000e-01
@@ -3124,7 +3124,7 @@ png_muldiv.exit:                                  ; preds = %24, %35
 
 41:                                               ; preds = %39
   %42 = uitofp nneg i32 %17 to double
-  %43 = fmul double %42, 3.276800e+04
+  %43 = fmul nnan double %42, 3.276800e+04
   %44 = uitofp nneg i32 %21 to double
   %45 = fdiv double %43, %44
   %46 = fadd double %45, 5.000000e-01
@@ -3151,7 +3151,7 @@ png_muldiv.exit55:                                ; preds = %39, %50
 
 56:                                               ; preds = %54
   %57 = uitofp nneg i32 %19 to double
-  %58 = fmul double %57, 3.276800e+04
+  %58 = fmul nnan double %57, 3.276800e+04
   %59 = uitofp nneg i32 %21 to double
   %60 = fdiv double %58, %59
   %61 = fadd double %60, 5.000000e-01
@@ -4367,7 +4367,7 @@ define zeroext i8 @png_gamma_8bit_correct(i32 noundef %0, i32 noundef %1) local_
   %5 = uitofp nneg i32 %0 to double
   %6 = fdiv double %5, 2.550000e+02
   %7 = sitofp i32 %1 to double
-  %8 = fmul double %7, 1.000000e-05
+  %8 = fmul nnan double %7, 1.000000e-05
   %9 = tail call double @pow(double noundef %6, double noundef %8) #31, !tbaa !43
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 2.550000e+02, double 5.000000e-01)
   %11 = tail call double @llvm.floor.f64(double %10)
@@ -4396,7 +4396,7 @@ define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) loca
   %5 = uitofp nneg i32 %0 to double
   %6 = fdiv double %5, 6.553500e+04
   %7 = sitofp i32 %1 to double
-  %8 = fmul double %7, 1.000000e-05
+  %8 = fmul nnan double %7, 1.000000e-05
   %9 = tail call double @pow(double noundef %6, double noundef %8) #31, !tbaa !43
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 6.553500e+04, double 5.000000e-01)
   %11 = tail call double @llvm.floor.f64(double %10)
@@ -4428,7 +4428,7 @@ define zeroext i16 @png_gamma_correct(ptr noalias noundef readonly captures(none
   %10 = uitofp nneg i32 %1 to double
   %11 = fdiv double %10, 2.550000e+02
   %12 = sitofp i32 %2 to double
-  %13 = fmul double %12, 1.000000e-05
+  %13 = fmul nnan double %12, 1.000000e-05
   %14 = tail call double @pow(double noundef %11, double noundef %13) #31, !tbaa !43
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = tail call double @llvm.floor.f64(double %15)
@@ -4452,7 +4452,7 @@ png_gamma_8bit_correct.exit:                      ; preds = %9, %18
   %23 = uitofp nneg i32 %1 to double
   %24 = fdiv double %23, 6.553500e+04
   %25 = sitofp i32 %2 to double
-  %26 = fmul double %25, 1.000000e-05
+  %26 = fmul nnan double %25, 1.000000e-05
   %27 = tail call double @pow(double noundef %24, double noundef %26) #31, !tbaa !43
   %28 = tail call double @llvm.fmuladd.f64(double %27, double 6.553500e+04, double 5.000000e-01)
   %29 = tail call double @llvm.floor.f64(double %28)
@@ -4679,7 +4679,7 @@ png_reciprocal2.exit:                             ; preds = %38, %30, %9
 
 .preheader13.i:                                   ; preds = %40
   %44 = sitofp i32 %.063 to double
-  %45 = fmul double %44, 1.000000e-05
+  %45 = fmul nnan double %44, 1.000000e-05
   br label %46
 
 46:                                               ; preds = %png_gamma_8bit_correct.exit.i, %.preheader13.i
@@ -4736,7 +4736,7 @@ png_build_8bit_table.exit:                        ; preds = %png_gamma_8bit_corr
 
 .preheader13.i76:                                 ; preds = %64
   %69 = sitofp i32 %.0.i to double
-  %70 = fmul double %69, 1.000000e-05
+  %70 = fmul nnan double %69, 1.000000e-05
   br label %71
 
 71:                                               ; preds = %png_gamma_8bit_correct.exit.i79, %.preheader13.i76
@@ -4786,7 +4786,7 @@ png_build_8bit_table.exit87:                      ; preds = %png_gamma_8bit_corr
 
 .preheader13.i88:                                 ; preds = %png_build_8bit_table.exit87
   %90 = sitofp i32 %.062 to double
-  %91 = fmul double %90, 1.000000e-05
+  %91 = fmul nnan double %90, 1.000000e-05
   br label %92
 
 92:                                               ; preds = %png_gamma_8bit_correct.exit.i91, %.preheader13.i88
@@ -4888,7 +4888,7 @@ png_gamma_8bit_correct.exit.i91:                  ; preds = %102, %95
   %141 = fptosi double %138 to i32
   %142 = sub nuw nsw i32 16, %126
   %143 = sitofp i32 %141 to double
-  %144 = fmul double %143, 1.000000e-05
+  %144 = fmul nnan double %143, 1.000000e-05
   %145 = select i1 %or.cond.i100, double %144, double 0.000000e+00
   %146 = lshr i32 255, %126
   br label %png_gamma_16bit_correct.exit.i
@@ -4996,7 +4996,7 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %notmask = shl nsw i32 -1, %7
   %8 = xor i32 %notmask, -1
   %9 = uitofp nneg i32 %8 to double
-  %10 = fdiv double 1.000000e+00, %9
+  %10 = fdiv nnan double 1.000000e+00, %9
   %11 = xor i32 %2, 15
   %12 = shl nuw nsw i32 1, %11
   %13 = zext nneg i32 %6 to i64
@@ -5006,7 +5006,7 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %16 = add i32 %3, -95000
   %17 = icmp ult i32 %16, 10001
   %18 = sitofp i32 %3 to double
-  %19 = fmul double %18, 1.000000e-05
+  %19 = fmul nnan double %18, 1.000000e-05
   br i1 %17, label %.split.us, label %.preheader40
 
 .split.us:                                        ; preds = %4

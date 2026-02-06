@@ -22459,7 +22459,7 @@ define hidden { i32, i32 } @_ZN5image4math5utils17resize_dimensions17hc7ef2b668d
   br i1 %25, label %34, label %31
 
 26:                                               ; preds = %16
-  %27 = fdiv double 0x41EFFFFFFFE00000, %7
+  %27 = fdiv nnan double 0x41EFFFFFFFE00000, %7
   %28 = fmul double %27, %10
   %29 = tail call double @llvm.round.f64(double %28)
   %30 = tail call i32 @llvm.fptoui.sat.i32.f64(double %29)
@@ -22472,7 +22472,7 @@ define hidden { i32, i32 } @_ZN5image4math5utils17resize_dimensions17hc7ef2b668d
   br label %39
 
 34:                                               ; preds = %24
-  %35 = fdiv double 0x41EFFFFFFFE00000, %10
+  %35 = fdiv nnan double 0x41EFFFFFFFE00000, %10
   %36 = fmul double %35, %7
   %37 = tail call double @llvm.round.f64(double %36)
   %38 = tail call i32 @llvm.fptoui.sat.i32.f64(double %37)
@@ -29053,7 +29053,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %55, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160206 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %55 ]
   %73 = uitofp i32 %.0.i160206 to float
-  %74 = fdiv float 2.550000e+02, %73
+  %74 = fdiv nnan float 2.550000e+02, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 %4
   %76 = icmp eq i64 %4, 0
   br i1 %76, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h837ace297e4ddf4cE.exit", label %.lr.ph.i
@@ -29322,7 +29322,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %67, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160207 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %67 ]
   %85 = uitofp i32 %.0.i160207 to float
-  %86 = fdiv float 2.550000e+02, %85
+  %86 = fdiv nnan float 2.550000e+02, %85
   %87 = getelementptr inbounds i8, ptr %3, i64 %4
   %88 = icmp eq i64 %4, 0
   br i1 %88, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h6fb306fb80c16051E.exit", label %.lr.ph.i
@@ -29584,7 +29584,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %60, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160217 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %60 ]
   %78 = uitofp i32 %.0.i160217 to float
-  %79 = fdiv float 6.553500e+04, %78
+  %79 = fdiv nnan float 6.553500e+04, %78
   %80 = and i64 %4, -2
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
@@ -29837,7 +29837,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %59, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i178260 = phi i32 [ %.0.i178, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %59 ]
   %76 = uitofp i32 %.0.i178260 to float
-  %77 = fdiv float 2.550000e+02, %76
+  %77 = fdiv nnan float 2.550000e+02, %76
   %78 = getelementptr inbounds i8, ptr %3, i64 %4
   %79 = icmp eq i64 %4, 0
   br i1 %79, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb084bf1c12b4a1f0E.exit", label %.lr.ph.i
@@ -30099,7 +30099,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %60, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160217 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %60 ]
   %78 = uitofp i32 %.0.i160217 to float
-  %79 = fdiv float 6.553500e+04, %78
+  %79 = fdiv nnan float 6.553500e+04, %78
   %80 = and i64 %4, -2
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %.loopexit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
@@ -30352,7 +30352,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %59, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i178260 = phi i32 [ %.0.i178, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %59 ]
   %76 = uitofp i32 %.0.i178260 to float
-  %77 = fdiv float 2.550000e+02, %76
+  %77 = fdiv nnan float 2.550000e+02, %76
   %78 = getelementptr inbounds i8, ptr %3, i64 %4
   %79 = icmp eq i64 %4, 0
   br i1 %79, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h11e0519f321fd064E.exit", label %.lr.ph.i
@@ -30621,7 +30621,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %67, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160207 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %67 ]
   %85 = uitofp i32 %.0.i160207 to float
-  %86 = fdiv float 2.550000e+02, %85
+  %86 = fdiv nnan float 2.550000e+02, %85
   %87 = getelementptr inbounds i8, ptr %3, i64 %4
   %88 = icmp eq i64 %4, 0
   br i1 %88, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf4ddbefeb2af77e9E.exit", label %.lr.ph.i
@@ -30872,7 +30872,7 @@ _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit: 
 _ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit.thread: ; preds = %55, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit
   %.0.i160206 = phi i32 [ %.0.i160, %_ZN5image6codecs3pnm6header9PnmHeader14maximal_sample17h139d4b8bf4281fe3E.exit ], [ 1, %55 ]
   %73 = uitofp i32 %.0.i160206 to float
-  %74 = fdiv float 2.550000e+02, %73
+  %74 = fdiv nnan float 2.550000e+02, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 %4
   %76 = icmp eq i64 %4, 0
   br i1 %76, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3d3a4d5bc79f7100E.exit", label %.lr.ph.i

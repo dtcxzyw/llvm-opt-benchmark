@@ -3917,7 +3917,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i180.i = load i16, ptr %111, align 1, !alias.scope !725, !noalias !688
   %112 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i180.i)
   %113 = sitofp i16 %112 to float
-  %114 = fmul float %113, 0x3F10000000000000
+  %114 = fmul nnan float %113, 0x3F10000000000000
   br label %128
 
 115:                                              ; preds = %102
@@ -3932,12 +3932,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i183.i = load i16, ptr %120, align 1, !alias.scope !734, !noalias !688
   %121 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i183.i)
   %122 = sitofp i16 %121 to float
-  %123 = fmul float %122, 0x3F10000000000000
+  %123 = fmul nnan float %122, 0x3F10000000000000
   %124 = getelementptr inbounds i8, ptr %25, i64 %103
   %.val.i.i.i.i190.i = load i16, ptr %124, align 1, !alias.scope !743, !noalias !688
   %125 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i190.i)
   %126 = sitofp i16 %125 to float
-  %127 = fmul float %126, 0x3F10000000000000
+  %127 = fmul nnan float %126, 0x3F10000000000000
   br label %128
 
 128:                                              ; preds = %152, %119, %110, %99
@@ -3957,7 +3957,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i194.i = load i16, ptr %133, align 1, !alias.scope !752, !noalias !688
   %134 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i194.i)
   %135 = sitofp i16 %134 to float
-  %136 = fmul float %135, 0x3F10000000000000
+  %136 = fmul nnan float %135, 0x3F10000000000000
   %137 = add i64 %.sroa.7113.1, 4
   %138 = icmp ugt i64 %96, -3
   %139 = icmp ugt i64 %137, %24
@@ -3969,7 +3969,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i201.i = load i16, ptr %141, align 1, !alias.scope !761, !noalias !688
   %142 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i201.i)
   %143 = sitofp i16 %142 to float
-  %144 = fmul float %143, 0x3F10000000000000
+  %144 = fmul nnan float %143, 0x3F10000000000000
   %145 = add i64 %.sroa.7113.1, 6
   %146 = icmp ugt i64 %137, -3
   %147 = icmp ugt i64 %145, %24
@@ -3988,12 +3988,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i208.i = load i16, ptr %153, align 1, !alias.scope !770, !noalias !688
   %154 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i208.i)
   %155 = sitofp i16 %154 to float
-  %156 = fmul float %155, 0x3F10000000000000
+  %156 = fmul nnan float %155, 0x3F10000000000000
   %157 = getelementptr inbounds i8, ptr %25, i64 %145
   %.val.i.i.i.i215.i = load i16, ptr %157, align 1, !alias.scope !779, !noalias !688
   %158 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i215.i)
   %159 = sitofp i16 %158 to float
-  %160 = fmul float %159, 0x3F10000000000000
+  %160 = fmul nnan float %159, 0x3F10000000000000
   br label %128
 
 161:                                              ; preds = %128
@@ -5752,7 +5752,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %60, %_ZN3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17hcd60aaa96e785967E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17hcd60aaa96e785967E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float, {} }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN176_$LT$palette..xyz..Xyz$LT$palette..white_point..D65$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17h8db69894a700eca5E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %0)
@@ -5770,7 +5770,7 @@ define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 10:                                               ; preds = %1
-  %11 = fmul float %4, 0x4029D70A40000000
+  %11 = fmul nnan float %4, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %6, %10
@@ -5781,7 +5781,7 @@ define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklch..Oklch$LT$T$GT$$GT$$GT$20from_color_unclamped17ha0aa494470b8b53dE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklch..Oklch$LT$T$GT$$GT$$GT$20from_color_unclamped17ha0aa494470b8b53dE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float }, align 4
   %3 = alloca { float, float, float, {} }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5803,7 +5803,7 @@ define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 11:                                               ; preds = %1
-  %12 = fmul float %5, 0x4029D70A40000000
+  %12 = fmul nnan float %5, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %7, %11
@@ -5814,7 +5814,7 @@ define hidden noundef i32 @"_ZN160_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17h5b95893fca6b15adE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17h5b95893fca6b15adE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float, {} }, align 4
   %3 = alloca { float, float, float, {} }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5836,7 +5836,7 @@ define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 11:                                               ; preds = %1
-  %12 = fmul float %5, 0x4029D70A40000000
+  %12 = fmul nnan float %5, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %7, %11
@@ -5847,7 +5847,7 @@ define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hd28053d88976107bE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hd28053d88976107bE"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float, {} }, align 4
   %3 = alloca { float, float, float, {} }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5869,7 +5869,7 @@ define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 11:                                               ; preds = %1
-  %12 = fmul float %5, 0x4029D70A40000000
+  %12 = fmul nnan float %5, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %7, %11
@@ -5880,7 +5880,7 @@ define hidden noundef i32 @"_ZN161_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hb76eadf8c4e507e4E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hb76eadf8c4e507e4E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float, {} }, align 4
   %3 = alloca [9 x float], align 4
   %4 = alloca { float, float, float, {} }, align 4
@@ -5932,7 +5932,7 @@ define hidden noundef i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 14:                                               ; preds = %1
-  %15 = fmul float %8, 0x4029D70A40000000
+  %15 = fmul nnan float %8, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %10, %14
@@ -5943,7 +5943,7 @@ define hidden noundef i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hdc926368c9fd7407E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17hdc926368c9fd7407E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { float, float, float, {} }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN158_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hb2a47f941427f2f8E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %0)
@@ -5961,7 +5961,7 @@ define hidden noundef i32 @"_ZN166_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 10:                                               ; preds = %1
-  %11 = fmul float %4, 0x4029D70A40000000
+  %11 = fmul nnan float %4, 0x4029D70A40000000
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit"
 
 "_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414.exit": ; preds = %6, %10
@@ -6298,7 +6298,7 @@ define internal fastcc void @_ZN20unicode_segmentation8grapheme14GraphemeCursor1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$S$u20$as$u20$palette..luma..LumaStandard$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped17h9b16f0118bbce749E.llvm.7889846851399105414"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$S$u20$as$u20$palette..luma..LumaStandard$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped17h9b16f0118bbce749E.llvm.7889846851399105414"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load float, ptr %2, align 4, !noundef !4
   %4 = fcmp ugt float %3, 0x3F69A5C380000000
@@ -6311,7 +6311,7 @@ define hidden noundef i32 @"_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.7889846851399105414.exit"
 
 9:                                                ; preds = %1
-  %10 = fmul float %3, 0x4029D70A40000000
+  %10 = fmul nnan float %3, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.7889846851399105414.exit"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.7889846851399105414.exit": ; preds = %5, %9
@@ -51699,7 +51699,7 @@ define hidden noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20
   br label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17hf3a5f13271aec1bdE.exit"
 
 7:                                                ; preds = %1
-  %8 = fmul float %0, 0x4029D70A40000000
+  %8 = fmul nnan float %0, 0x4029D70A40000000
   br label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17hf3a5f13271aec1bdE.exit"
 
 "_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17hf3a5f13271aec1bdE.exit": ; preds = %3, %7
@@ -51720,7 +51720,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17he1215783357962baE.llvm.7889846851399105414"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11844)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load float, ptr %2, align 4, !alias.scope !11844, !noundef !4
@@ -51734,7 +51734,7 @@ define hidden noundef i32 @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_c
   br label %"_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$S$u20$as$u20$palette..luma..LumaStandard$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped17h9b16f0118bbce749E.llvm.7889846851399105414.exit"
 
 9:                                                ; preds = %1
-  %10 = fmul float %3, 0x4029D70A40000000
+  %10 = fmul nnan float %3, 0x4029D70A40000000
   br label %"_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$S$u20$as$u20$palette..luma..LumaStandard$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped17h9b16f0118bbce749E.llvm.7889846851399105414.exit"
 
 "_ZN219_$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$S$u20$as$u20$palette..luma..LumaStandard$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped17h9b16f0118bbce749E.llvm.7889846851399105414.exit": ; preds = %5, %9
@@ -60570,7 +60570,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit206.i: ; preds 
   br label %1191
 
 1188:                                             ; preds = %1160
-  %1189 = fmul double %.1272.i, 5.000000e-01
+  %1189 = fmul nnan double %.1272.i, 5.000000e-01
   %1190 = fsub double %1189, %.0.i.i.i169.i
   %.0.i.inv.i.i.i1.i217.i = fcmp ord double %1190, 0.000000e+00
   %.0.i.i.i2.i218.i = select i1 %.0.i.inv.i.i.i1.i217.i, double %1190, double 0.000000e+00
@@ -67230,7 +67230,7 @@ define hidden { ptr, i64 } @_ZN5typst4math6matrix17layout_delimiters17hd3f58579e
   %.0.i.inv.i.i.i.i.i = fcmp ord double %32, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %32, double 0.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %33 = fmul double %.0.i.i.i.i.i, 1.000000e-01
+  %33 = fmul nnan double %.0.i.i.i.i.i, 1.000000e-01
   %34 = call double @llvm.fabs.f64(double %33)
   %35 = fcmp one double %34, 0x7FF0000000000000
   %.0.i = select i1 %35, double %33, double 0.000000e+00
@@ -79266,9 +79266,9 @@ define noundef zeroext i1 @"_ZN75_$LT$typst..text..font..variant..FontWeight$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i16 @_ZN5typst4text4font7variant11FontStretch10from_ratio17h5aa923a70542aca6E(double noundef %0) unnamed_addr #5 {
-  %2 = tail call double @llvm.maxnum.f64(double %0, double 5.000000e-01)
-  %3 = tail call double @llvm.minnum.f64(double %2, double 2.000000e+00)
-  %4 = fmul double %3, 1.000000e+03
+  %2 = tail call nsz double @llvm.maxnum.f64(double %0, double 5.000000e-01)
+  %3 = tail call nnan nsz double @llvm.minnum.f64(double %2, double 2.000000e+00)
+  %4 = fmul nnan double %3, 1.000000e+03
   %5 = tail call i16 @llvm.fptoui.sat.i16.f64(double %4)
   ret i16 %5
 }
@@ -79318,8 +79318,8 @@ define noundef i16 @"_ZN82_$LT$typst..text..font..variant..FontStretch$u20$as$u2
 define void @"_ZN90_$LT$typst..text..font..variant..FontStretch$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h5dd17052fc75922eE"(ptr noalias noundef sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #1 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to double
-  %5 = fdiv double %4, 1.000000e+03
-  %6 = fmul double %5, 1.000000e+02
+  %5 = fdiv nnan double %4, 1.000000e+03
+  %6 = fmul nnan double %5, 1.000000e+02
   tail call void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %0, double noundef %6, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1), !noalias !17465
   ret void
 }
@@ -79979,7 +79979,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit"
 
 34:                                               ; preds = %26
-  %35 = fmul float %28, 0x4029D70A40000000
+  %35 = fmul nnan float %28, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit": ; preds = %30, %34
@@ -80026,7 +80026,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit"
 
 50:                                               ; preds = %42
-  %51 = fmul float %44, 0x4029D70A40000000
+  %51 = fmul nnan float %44, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit": ; preds = %46, %50
@@ -80070,7 +80070,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit"
 
 66:                                               ; preds = %58
-  %67 = fmul float %60, 0x4029D70A40000000
+  %67 = fmul nnan float %60, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit": ; preds = %62, %66
@@ -80143,7 +80143,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit"
 
 84:                                               ; preds = %74
-  %85 = fmul float %78, 0x4029D70A40000000
+  %85 = fmul nnan float %78, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit": ; preds = %80, %84
@@ -80232,7 +80232,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
 
 127:                                              ; preds = %92
-  %128 = fmul float %121, 0x4029D70A40000000
+  %128 = fmul nnan float %121, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76": ; preds = %123, %127
@@ -80272,7 +80272,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
 140:                                              ; preds = %132
-  %141 = fmul float %134, 0x4029D70A40000000
+  %141 = fmul nnan float %134, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit": ; preds = %136, %140
@@ -80319,7 +80319,7 @@ default.unreachable148:                           ; preds = %2
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
 156:                                              ; preds = %148
-  %157 = fmul float %150, 0x4029D70A40000000
+  %157 = fmul nnan float %150, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
 "_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit": ; preds = %152, %156
@@ -81115,7 +81115,7 @@ default.unreachable127:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 57:                                               ; preds = %53
-  %58 = fmul float %.sroa.091.0.copyload, 0x4029D70A40000000
+  %58 = fmul nnan float %.sroa.091.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i": ; preds = %57, %55
@@ -81131,7 +81131,7 @@ default.unreachable127:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 62:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
-  %63 = fmul float %.sroa.292.0.copyload, 0x4029D70A40000000
+  %63 = fmul nnan float %.sroa.292.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i": ; preds = %62, %60
@@ -81147,7 +81147,7 @@ default.unreachable127:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 67:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
-  %68 = fmul float %.sroa.3.0.copyload, 0x4029D70A40000000
+  %68 = fmul nnan float %.sroa.3.0.copyload, 0x4029D70A40000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit": ; preds = %65, %67
@@ -81613,7 +81613,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
 
 113:                                              ; preds = %101
-  %114 = fmul float %.1.i.i.i.i69, 0x3FB3D07220000000
+  %114 = fmul nnan float %.1.i.i.i.i69, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i": ; preds = %113, %111
@@ -81629,7 +81629,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
 
 118:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
-  %119 = fmul float %.1.i.i3.i.i71, 0x3FB3D07220000000
+  %119 = fmul nnan float %.1.i.i3.i.i71, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i": ; preds = %118, %116
@@ -81645,7 +81645,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit"
 
 123:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
-  %124 = fmul float %.1.i.i5.i.i73, 0x3FB3D07220000000
+  %124 = fmul nnan float %.1.i.i5.i.i73, 0x3FB3D07220000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit": ; preds = %121, %123
@@ -81693,7 +81693,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
 
 137:                                              ; preds = %125
-  %138 = fmul float %.1.i.i.i.i87, 0x3FB3D07220000000
+  %138 = fmul nnan float %.1.i.i.i.i87, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101": ; preds = %137, %135
@@ -81709,7 +81709,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
 
 142:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
-  %143 = fmul float %.1.i.i3.i.i89, 0x3FB3D07220000000
+  %143 = fmul nnan float %.1.i.i3.i.i89, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103": ; preds = %142, %140
@@ -81725,7 +81725,7 @@ default.unreachable164:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108"
 
 147:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
-  %148 = fmul float %.1.i.i5.i.i91, 0x3FB3D07220000000
+  %148 = fmul nnan float %.1.i.i5.i.i91, 0x3FB3D07220000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108": ; preds = %145, %147
@@ -81928,7 +81928,7 @@ default.unreachable132:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 89:                                               ; preds = %85
-  %90 = fmul float %.sroa.084.0.copyload, 0x4029D70A40000000
+  %90 = fmul nnan float %.sroa.084.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i": ; preds = %89, %87
@@ -81944,7 +81944,7 @@ default.unreachable132:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 94:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
-  %95 = fmul float %.sroa.285.0.copyload, 0x4029D70A40000000
+  %95 = fmul nnan float %.sroa.285.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i": ; preds = %94, %92
@@ -81960,7 +81960,7 @@ default.unreachable132:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 99:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
-  %100 = fmul float %.sroa.386.0.copyload, 0x4029D70A40000000
+  %100 = fmul nnan float %.sroa.386.0.copyload, 0x4029D70A40000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit": ; preds = %97, %99
@@ -82288,7 +82288,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 62:                                               ; preds = %58
-  %63 = fmul float %.sroa.088.0.copyload, 0x4029D70A40000000
+  %63 = fmul nnan float %.sroa.088.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i": ; preds = %62, %60
@@ -82304,7 +82304,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 67:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
-  %68 = fmul float %.sroa.289.0.copyload, 0x4029D70A40000000
+  %68 = fmul nnan float %.sroa.289.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i": ; preds = %67, %65
@@ -82320,7 +82320,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 72:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
-  %73 = fmul float %.sroa.3.0.copyload, 0x4029D70A40000000
+  %73 = fmul nnan float %.sroa.3.0.copyload, 0x4029D70A40000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit": ; preds = %70, %72
@@ -82670,7 +82670,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 62:                                               ; preds = %58
-  %63 = fmul float %.sroa.088.0.copyload, 0x4029D70A40000000
+  %63 = fmul nnan float %.sroa.088.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i": ; preds = %62, %60
@@ -82686,7 +82686,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 67:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit.i"
-  %68 = fmul float %.sroa.289.0.copyload, 0x4029D70A40000000
+  %68 = fmul nnan float %.sroa.289.0.copyload, 0x4029D70A40000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i": ; preds = %67, %65
@@ -82702,7 +82702,7 @@ default.unreachable138:                           ; preds = %2
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 72:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..FromLinear$LT$T$C$T$GT$$GT$11from_linear17h6183038ff6b1c85aE.llvm.3683678558897460461.exit3.i"
-  %73 = fmul float %.sroa.3.0.copyload, 0x4029D70A40000000
+  %73 = fmul nnan float %.sroa.3.0.copyload, 0x4029D70A40000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit"
 
 "_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit": ; preds = %70, %72
@@ -165281,13 +165281,13 @@ define void @_ZN5typst9visualize7polygon11PolygonElem7regular17h9f895c1f6d958cd3
   %36 = phi i64 [ 0, %.lr.ph.i.i ], [ %37, %.noexc30 ]
   %37 = add nuw i64 %36, 1
   %38 = uitofp i64 %36 to double
-  %39 = fmul double %38, 0x401921FB54442D18
+  %39 = fmul nnan double %38, 0x401921FB54442D18
   %40 = load i64, ptr %24, align 8, !noalias !35837, !noundef !4
   %41 = uitofp i64 %40 to double
   %42 = fdiv double %39, %41
-  %43 = fdiv double 1.000000e+00, %41
-  %44 = fsub double 5.000000e-01, %43
-  %45 = fmul double %44, 0x400921FB54442D18
+  %43 = fdiv nnan double 1.000000e+00, %41
+  %44 = fsub nnan double 5.000000e-01, %43
+  %45 = fmul nnan double %44, 0x400921FB54442D18
   %46 = fadd double %42, %45
   %47 = call double @llvm.cos.f64(double %46)
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp ord double %47, 0.000000e+00
@@ -165364,11 +165364,11 @@ define void @_ZN5typst9visualize7polygon11PolygonElem7regular17h9f895c1f6d958cd3
   %.sroa.8.0.lcssa121.i.i = phi double [ %.0.i.i.i4.i, %7 ], [ %.sroa.5.0.i.i.i.i.i, %._crit_edge.i.i.loopexit ]
   %.sroa.051.0.lcssa120.i.i = phi double [ %.0.i.i.i.i, %7 ], [ %.sroa.0.0.i.i.i.i.i, %._crit_edge.i.i.loopexit ]
   %63 = uitofp i64 %6 to double
-  %64 = fmul double %63, 0x401921FB54442D18
+  %64 = fmul nnan double %63, 0x401921FB54442D18
   %65 = fdiv double %64, %62
-  %66 = fdiv double 1.000000e+00, %62
-  %67 = fsub double 5.000000e-01, %66
-  %68 = fmul double %67, 0x400921FB54442D18
+  %66 = fdiv nnan double 1.000000e+00, %62
+  %67 = fsub nnan double 5.000000e-01, %66
+  %68 = fmul nnan double %67, 0x400921FB54442D18
   %69 = fadd double %65, %68
   %70 = call double @llvm.cos.f64(double %69)
   %.0.i.inv.i.i.i.i.i.i.i.i.i14.i.i = fcmp ord double %70, 0.000000e+00
@@ -173120,9 +173120,9 @@ default.unreachable109:                           ; preds = %3
 
 41:                                               ; preds = %36
   %42 = fsub float 1.000000e+00, %.sroa.077.0.copyload
-  %43 = tail call noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
+  %43 = tail call nsz noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
   %44 = fsub float 1.000000e+00, %.sroa.278.0.copyload
-  %45 = tail call noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
+  %45 = tail call nsz noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
   %46 = fsub float 1.000000e+00, %.sroa.379.0.copyload
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit"
 
@@ -173177,9 +173177,9 @@ default.unreachable109:                           ; preds = %3
 
 66:                                               ; preds = %61
   %67 = fsub float 1.000000e+00, %.sroa.069.0.copyload
-  %68 = tail call noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
+  %68 = tail call nsz noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
   %69 = fsub float 1.000000e+00, %.sroa.270.0.copyload
-  %70 = tail call noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
+  %70 = tail call nsz noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
   %71 = fsub float 1.000000e+00, %.sroa.371.0.copyload
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit"
 
@@ -173439,9 +173439,9 @@ default.unreachable121:                           ; preds = %3
 
 41:                                               ; preds = %36
   %42 = fsub float 1.000000e+00, %.sroa.089.0.copyload
-  %43 = tail call noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
+  %43 = tail call nsz noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
   %44 = fsub float 1.000000e+00, %.sroa.290.0.copyload
-  %45 = tail call noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
+  %45 = tail call nsz noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
   %46 = fsub float 1.000000e+00, %.sroa.391.0.copyload
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit"
 
@@ -173496,9 +173496,9 @@ default.unreachable121:                           ; preds = %3
 
 66:                                               ; preds = %61
   %67 = fsub float 1.000000e+00, %.sroa.081.0.copyload
-  %68 = tail call noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
+  %68 = tail call nsz noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
   %69 = fsub float 1.000000e+00, %.sroa.282.0.copyload
-  %70 = tail call noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
+  %70 = tail call nsz noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
   %71 = fsub float 1.000000e+00, %.sroa.383.0.copyload
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit"
 
@@ -175099,9 +175099,9 @@ define void @"_ZN95_$LT$typst..text..font..variant..FontStretch$u20$as$u20$typst
   br label %21
 
 24:                                               ; preds = %15
-  %25 = tail call double @llvm.maxnum.f64(double %18, double 5.000000e-01)
-  %26 = tail call double @llvm.minnum.f64(double %25, double 2.000000e+00)
-  %27 = fmul double %26, 1.000000e+03
+  %25 = tail call nsz double @llvm.maxnum.f64(double %18, double 5.000000e-01)
+  %26 = tail call nnan nsz double @llvm.minnum.f64(double %25, double 2.000000e+00)
+  %27 = fmul nnan double %26, 1.000000e+03
   %28 = tail call noundef i16 @llvm.fptoui.sat.i16.f64(double %27)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %28, ptr %29, align 2

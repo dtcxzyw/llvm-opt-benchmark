@@ -59,10 +59,10 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %18 = sdiv i32 %2, 2
   %19 = sitofp i32 %18 to float
   %20 = sitofp i32 %1 to double
-  %21 = fmul double %20, 5.000000e-02
+  %21 = fmul nnan double %20, 5.000000e-02
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = fmul double %20, 1.000000e-02
+  %24 = fmul nnan double %20, 1.000000e-02
   br label %26
 
 25:                                               ; preds = %79
@@ -72,17 +72,17 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %.07686 = phi i32 [ 0, %.preheader ], [ %44, %79 ]
   %27 = shl nuw nsw i32 %.07686, 1
   %28 = uitofp nneg i32 %27 to double
-  %29 = fmul double %28, 0x400921FB54442D18
+  %29 = fmul nnan double %28, 0x400921FB54442D18
   %30 = fdiv double %29, 5.600000e+03
   %31 = fptrunc double %30 to float
   %32 = fpext float %31 to double
-  %33 = fmul double %32, 2.000000e+00
+  %33 = fmul nnan double %32, 2.000000e+00
   %34 = tail call double @sin(double noundef %33) #13, !tbaa !10
-  %35 = fmul double %32, 1.500000e+01
+  %35 = fmul nnan double %32, 1.500000e+01
   %36 = tail call double @sin(double noundef %35) #13, !tbaa !10
   %37 = tail call double @llvm.fmuladd.f64(double %36, double 2.000000e-01, double %34)
   %38 = fptrunc double %37 to float
-  %39 = fmul double %32, 3.000000e+00
+  %39 = fmul nnan double %32, 3.000000e+00
   %40 = tail call double @cos(double noundef %39) #13, !tbaa !10
   %41 = tail call double @cos(double noundef %35) #13, !tbaa !10
   %42 = tail call double @llvm.fmuladd.f64(double %41, double 2.000000e-01, double %40)
@@ -92,8 +92,8 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %46 = fdiv float %45, 5.600000e+03
   %47 = fpext float %38 to double
   %48 = fpext float %46 to double
-  %49 = fmul double %48, 3.000000e-01
-  %50 = fmul double %32, 8.000000e+01
+  %49 = fmul nnan double %48, 3.000000e-01
+  %50 = fmul nnan double %32, 8.000000e+01
   %51 = tail call double @sin(double noundef %50) #13, !tbaa !10
   %52 = tail call double @llvm.fmuladd.f64(double %49, double %51, double %47)
   %53 = fptrunc double %52 to float
@@ -116,7 +116,7 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   br i1 %66, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26
-  %.pre = fmul double %48, 5.000000e-01
+  %.pre = fmul nnan double %48, 5.000000e-01
   %.pre95 = fmul double %.pre, %48
   %.pre97 = fptrunc double %.pre95 to float
   br label %79
@@ -130,7 +130,7 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %73 = fadd float %72, %19
   %74 = fmul double %21, %48
   %75 = fptrunc double %74 to float
-  %76 = fmul double %48, 5.000000e-01
+  %76 = fmul nnan double %48, 5.000000e-01
   %77 = fmul double %76, %48
   %78 = fptrunc double %77 to float
   tail call fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEEEiifffffff(i64 %.val79.pre91, ptr %.val80.pre93, i32 noundef %1, i32 noundef %2, float noundef %70, float noundef %73, float noundef %75, float noundef 2.000000e+00, float noundef 0x3FE99999A0000000, float noundef 0x3FB99999A0000000, float noundef %78)
@@ -258,8 +258,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEE
   %59 = tail call double @llvm.fmuladd.f64(double %58, double 7.071000e-01, double %57)
   %60 = fptrunc double %59 to float
   %61 = fcmp olt double %59, 0xB690000000000000
-  %62 = fpext float %60 to double
-  %63 = fmul double %62, -1.000000e-01
+  %62 = fpext nnan float %60 to double
+  %63 = fmul nnan double %62, -1.000000e-01
   %64 = fptrunc double %63 to float
   %.077 = select i1 %61, float %64, float %60
   br label %65
@@ -714,22 +714,22 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %.04149 = phi i32 [ 0, %.preheader ], [ %195, %_ZN12_GLOBAL__N_13zspERN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS1_IfEEiifffff.exit ]
   %38 = shl nuw nsw i32 %.04149, 1
   %39 = uitofp nneg i32 %38 to double
-  %40 = fmul double %39, 0x400921FB54442D18
+  %40 = fmul nnan double %39, 0x400921FB54442D18
   %41 = fdiv double %40, 2.000000e+03
   %42 = fptrunc double %41 to float
   %43 = fpext float %42 to double
-  %44 = fmul double %43, 4.000000e+00
+  %44 = fmul nnan double %43, 4.000000e+00
   %45 = tail call double @sin(double noundef %44) #13, !tbaa !10
-  %46 = fmul double %43, 1.500000e+01
+  %46 = fmul nnan double %43, 1.500000e+01
   %47 = tail call double @sin(double noundef %46) #13, !tbaa !10
   %48 = tail call double @llvm.fmuladd.f64(double %47, double 2.000000e-01, double %45)
   %49 = fptrunc double %48 to float
-  %50 = fmul double %43, 3.000000e+00
+  %50 = fmul nnan double %43, 3.000000e+00
   %51 = tail call double @cos(double noundef %50) #13, !tbaa !10
   %52 = tail call double @cos(double noundef %46) #13, !tbaa !10
   %53 = tail call double @llvm.fmuladd.f64(double %52, double 2.000000e-01, double %51)
   %54 = fptrunc double %53 to float
-  %55 = fmul double %43, 5.000000e+00
+  %55 = fmul nnan double %43, 5.000000e+00
   %56 = tail call double @sin(double noundef %55) #13, !tbaa !10
   %57 = fptrunc double %56 to float
   %58 = tail call double @sin(double noundef %46) #13, !tbaa !10
@@ -841,8 +841,8 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %127 = tail call double @llvm.fmuladd.f64(double %126, double 7.071000e-01, double %125)
   %128 = fptrunc double %127 to float
   %129 = fcmp olt double %127, 0xB690000000000000
-  %130 = fpext float %128 to double
-  %131 = fmul double %130, -1.000000e-01
+  %130 = fpext nnan float %128 to double
+  %131 = fmul nnan double %130, -1.000000e-01
   %132 = fptrunc double %131 to float
   %.054.i = select i1 %129, float %132, float %128
   br label %133
@@ -1410,7 +1410,7 @@ _ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us: ; preds = %270, %267, %265, %
 
 291:                                              ; preds = %530
   %292 = uitofp nneg i32 %537 to float
-  %293 = fmul float %292, 3.906250e-03
+  %293 = fmul nnan float %292, 3.906250e-03
   %294 = bitcast float %293 to i32
   %295 = icmp samesign ugt i32 %294, 947912703
   br i1 %295, label %313, label %296
@@ -1476,11 +1476,11 @@ _ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us: ; preds = %270, %267, %265, %
 _ZN9Imath_3_24halfaSEf.exit.i.us.us:              ; preds = %326, %324, %317, %315, %311, %308, %296
   %.0.i.i.i.i75.us.us = phi i16 [ 0, %296 ], [ %333, %326 ], [ %306, %308 ], [ %323, %317 ], [ 31744, %324 ], [ %312, %311 ], [ 31744, %315 ]
   store i16 %.0.i.i.i.i75.us.us, ptr %280, align 2, !tbaa !4
-  %334 = fmul float %293, 4.000000e+00
+  %334 = fmul nnan float %293, 4.000000e+00
   %335 = fptosi float %334 to i32
   %336 = sitofp i32 %335 to float
-  %337 = fsub float %334, %336
-  %338 = fmul float %337, 2.000000e+00
+  %337 = fsub nnan float %334, %336
+  %338 = fmul nnan float %337, 2.000000e+00
   %339 = fcmp olt float %338, 1.000000e+00
   %340 = fsub float 2.000000e+00, %338
   %341 = select i1 %339, float %338, float %340
@@ -1571,8 +1571,8 @@ _ZN9Imath_3_24halfpLEf.exit.i.us.us:              ; preds = %391, %388, %386, %3
   %399 = fadd float %334, 0x3FD5554760000000
   %400 = fptosi float %399 to i32
   %401 = sitofp i32 %400 to float
-  %402 = fsub float %399, %401
-  %403 = fmul float %402, 2.000000e+00
+  %402 = fsub nnan float %399, %401
+  %403 = fmul nnan float %402, 2.000000e+00
   %404 = fcmp olt float %403, 1.000000e+00
   %405 = fsub float 2.000000e+00, %403
   %406 = select i1 %404, float %403, float %405
@@ -1663,8 +1663,8 @@ _ZN9Imath_3_24halfpLEf.exit15.i.us.us:            ; preds = %456, %453, %451, %4
   %464 = fadd float %334, 0x3FE5555C60000000
   %465 = fptosi float %464 to i32
   %466 = sitofp i32 %465 to float
-  %467 = fsub float %464, %466
-  %468 = fmul float %467, 2.000000e+00
+  %467 = fsub nnan float %464, %466
+  %468 = fmul nnan float %467, 2.000000e+00
   %469 = fcmp olt float %468, 1.000000e+00
   %470 = fsub float 2.000000e+00, %468
   %471 = select i1 %469, float %468, float %470
@@ -1823,7 +1823,7 @@ define dso_local void @_Z10drawImage6RN7Imf_3_47Array2DI2GZEEii(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %5, align 8
   %6 = sitofp i32 %2 to double
-  %7 = fmul double %6, 3.500000e+00
+  %7 = fmul nnan double %6, 3.500000e+00
   %8 = sitofp i32 %1 to double
   %9 = fdiv double %7, %8
   %10 = fadd double %9, -1.333300e+00
@@ -1945,7 +1945,7 @@ define dso_local void @_Z10drawImage6RN7Imf_3_47Array2DI2GZEEii(ptr noundef nonn
 _ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i:          ; preds = %75, %72, %70, %61, %55, %52, %38
   %.0.i.i.i.i.us.i = phi i16 [ %36, %38 ], [ %82, %75 ], [ %71, %70 ], [ %69, %61 ], [ %73, %72 ], [ %56, %55 ], [ %50, %52 ]
   store i16 %.0.i.i.i.i.us.i, ptr %22, align 2, !tbaa !4
-  %83 = fmul float %93, 0x3FBC71C740000000
+  %83 = fmul nnan float %93, 0x3FBC71C740000000
   store float %83, ptr %23, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1966,16 +1966,16 @@ _ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i:          ; preds = %75, %72, %70, %61, 
 
 90:                                               ; preds = %160
   %91 = uitofp nneg i32 %167 to float
-  %92 = fmul float %91, 3.906250e-03
-  %93 = fmul float %92, 5.000000e+00
+  %92 = fmul nnan float %91, 3.906250e-03
+  %93 = fmul nnan float %92, 5.000000e+00
   %94 = fptosi float %93 to i32
   %95 = sitofp i32 %94 to float
-  %96 = fsub float %93, %95
-  %97 = fmul float %96, 2.000000e+00
+  %96 = fsub nnan float %93, %95
+  %97 = fmul nnan float %96, 2.000000e+00
   %98 = fcmp olt float %97, 1.000000e+00
-  %99 = fsub float 2.000000e+00, %97
+  %99 = fsub nnan float 2.000000e+00, %97
   %100 = select i1 %98, float %97, float %99
-  %101 = fmul float %100, 4.000000e+00
+  %101 = fmul nnan float %100, 4.000000e+00
   %102 = zext i16 %.0.i.i.i.i7556.us.i to i64
   %103 = getelementptr inbounds nuw %union.imath_half_uif, ptr %16, i64 %102
   %104 = load float, ptr %103, align 4, !tbaa !17
@@ -2125,7 +2125,7 @@ define dso_local void @_Z10drawImage7RN7Imf_3_45ArrayINS_4RgbaEEEiii(ptr noundef
   %16 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %8)
   %sqrt = tail call float @llvm.sqrt.f32(float %16)
   %17 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %10, i64 %indvars.iv
-  %18 = fmul float %sqrt, 0x3FB99999A0000000
+  %18 = fmul nnan float %sqrt, 0x3FB99999A0000000
   %19 = tail call noundef float @sinf(float noundef %18) #13, !tbaa !10
   %20 = fmul float %19, 0x3FD3333340000000
   %21 = tail call float @llvm.fmuladd.f32(float %15, float 3.000000e+00, float %20)
@@ -2210,7 +2210,7 @@ define dso_local void @_Z10drawImage7RN7Imf_3_45ArrayINS_4RgbaEEEiii(ptr noundef
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %33, %36, %46, %48, %57, %71, %74
   %.0.i.i.i = phi i16 [ %29, %57 ], [ %43, %36 ], [ %47, %46 ], [ %56, %48 ], [ %34, %33 ], [ %75, %74 ], [ %69, %71 ]
   store i16 %.0.i.i.i, ptr %17, align 2, !tbaa !4
-  %76 = fmul float %sqrt, 0x3FBC28F5C0000000
+  %76 = fmul nnan float %sqrt, 0x3FBC28F5C0000000
   %77 = tail call noundef float @sinf(float noundef %76) #13, !tbaa !10
   %78 = fmul float %77, 0x3FD3333340000000
   %79 = tail call float @llvm.fmuladd.f32(float %15, float 3.000000e+00, float %78)
@@ -2296,7 +2296,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %33, %36, %46, %48, 
 _ZN9Imath_3_24halfaSEf.exit29:                    ; preds = %92, %95, %105, %107, %116, %130, %133
   %.0.i.i.i28 = phi i16 [ %88, %116 ], [ %102, %95 ], [ %106, %105 ], [ %115, %107 ], [ %93, %92 ], [ %134, %133 ], [ %128, %130 ]
   store i16 %.0.i.i.i28, ptr %82, align 2, !tbaa !4
-  %135 = fmul float %sqrt, 0x3FBEB851E0000000
+  %135 = fmul nnan float %sqrt, 0x3FBEB851E0000000
   %136 = tail call noundef float @sinf(float noundef %135) #13, !tbaa !10
   %137 = fmul float %136, 0x3FD3333340000000
   %138 = tail call float @llvm.fmuladd.f32(float %15, float 3.000000e+00, float %137)

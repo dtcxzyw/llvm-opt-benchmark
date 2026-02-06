@@ -4176,7 +4176,7 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
 
 131:                                              ; preds = %129
   %132 = sitofp i32 %.fr to double
-  %133 = fmul double %132, 1.000000e+02
+  %133 = fmul nnan double %132, 1.000000e+02
   %134 = uitofp nneg i32 %.fr252 to double
   %135 = fdiv double %133, %134
   %136 = fsub double 1.000000e+02, %135
@@ -7219,7 +7219,7 @@ define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly captur
 
 14:                                               ; preds = %12
   %15 = uitofp nneg i64 %.029 to double
-  %16 = fmul double %15, 0x3F50000000000000
+  %16 = fmul nnan double %15, 0x3F50000000000000
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0, i64 noundef %1, ptr noundef nonnull @.str.116, double noundef %16) #34
   br label %36
 
@@ -7229,7 +7229,7 @@ define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly captur
 
 20:                                               ; preds = %18
   %21 = uitofp nneg i64 %.029 to double
-  %22 = fmul double %21, 0x3EB0000000000000
+  %22 = fmul nnan double %21, 0x3EB0000000000000
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0, i64 noundef %1, ptr noundef nonnull @.str.117, double noundef %22) #34
   br label %36
 
@@ -7239,7 +7239,7 @@ define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly captur
 
 26:                                               ; preds = %24
   %27 = uitofp nneg i64 %.029 to double
-  %28 = fmul double %27, 0x3E10000000000000
+  %28 = fmul nnan double %27, 0x3E10000000000000
   %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0, i64 noundef %1, ptr noundef nonnull @.str.118, double noundef %28) #34
   br label %36
 
@@ -7249,7 +7249,7 @@ define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly captur
 
 32:                                               ; preds = %30
   %33 = uitofp nneg i64 %.029 to double
-  %34 = fmul double %33, 0x3D70000000000000
+  %34 = fmul nnan double %33, 0x3D70000000000000
   %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0, i64 noundef %1, ptr noundef nonnull @.str.119, double noundef %34) #34
   br label %36
 
@@ -8560,7 +8560,7 @@ sub_1619.i:                                       ; preds = %sub_0618.i
 168:                                              ; preds = %157
   %169 = fptosi double %162 to i64
   store i64 %169, ptr getelementptr inbounds nuw (i8, ptr @config, i64 32), align 8, !tbaa !255
-  %170 = fmul double %162, 1.000000e+06
+  %170 = fmul nnan double %162, 1.000000e+06
   %171 = fptosi double %170 to i64
   %172 = srem i64 %171, 1000000
   store i64 %172, ptr getelementptr inbounds nuw (i8, ptr @config, i64 40), align 8, !tbaa !256
@@ -11649,7 +11649,7 @@ addSizeDist.exit.i:                               ; preds = %1559
 
 1633:                                             ; preds = %1631
   %1634 = uitofp nneg i64 %.029.i187 to double
-  %1635 = fmul double %1634, 0x3F50000000000000
+  %1635 = fmul nnan double %1634, 0x3F50000000000000
   %1636 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i188, i64 noundef 32, ptr noundef nonnull @.str.116, double noundef %1635) #34
   br label %bytesToHuman.exit189
 
@@ -11659,7 +11659,7 @@ addSizeDist.exit.i:                               ; preds = %1559
 
 1639:                                             ; preds = %1637
   %1640 = uitofp nneg i64 %.029.i187 to double
-  %1641 = fmul double %1640, 0x3EB0000000000000
+  %1641 = fmul nnan double %1640, 0x3EB0000000000000
   %1642 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i188, i64 noundef 32, ptr noundef nonnull @.str.117, double noundef %1641) #34
   br label %bytesToHuman.exit189
 
@@ -11669,7 +11669,7 @@ addSizeDist.exit.i:                               ; preds = %1559
 
 1645:                                             ; preds = %1643
   %1646 = uitofp nneg i64 %.029.i187 to double
-  %1647 = fmul double %1646, 0x3E10000000000000
+  %1647 = fmul nnan double %1646, 0x3E10000000000000
   %1648 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i188, i64 noundef 32, ptr noundef nonnull @.str.118, double noundef %1647) #34
   br label %bytesToHuman.exit189
 
@@ -11679,7 +11679,7 @@ addSizeDist.exit.i:                               ; preds = %1559
 
 1651:                                             ; preds = %1649
   %1652 = uitofp nneg i64 %.029.i187 to double
-  %1653 = fmul double %1652, 0x3D70000000000000
+  %1653 = fmul nnan double %1652, 0x3D70000000000000
   %1654 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i188, i64 noundef 32, ptr noundef nonnull @.str.119, double noundef %1653) #34
   br label %bytesToHuman.exit189
 
@@ -11762,7 +11762,7 @@ displayKeyStatsSizeDist.exit.i:                   ; preds = %1658, %1605
 
 1691:                                             ; preds = %1689
   %1692 = uitofp nneg i64 %.029.i184 to double
-  %1693 = fmul double %1692, 0x3F50000000000000
+  %1693 = fmul nnan double %1692, 0x3F50000000000000
   %1694 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i185, i64 noundef 256, ptr noundef nonnull @.str.116, double noundef %1693) #34
   br label %bytesToHuman.exit186
 
@@ -11772,7 +11772,7 @@ displayKeyStatsSizeDist.exit.i:                   ; preds = %1658, %1605
 
 1697:                                             ; preds = %1695
   %1698 = uitofp nneg i64 %.029.i184 to double
-  %1699 = fmul double %1698, 0x3EB0000000000000
+  %1699 = fmul nnan double %1698, 0x3EB0000000000000
   %1700 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i185, i64 noundef 256, ptr noundef nonnull @.str.117, double noundef %1699) #34
   br label %bytesToHuman.exit186
 
@@ -11782,7 +11782,7 @@ displayKeyStatsSizeDist.exit.i:                   ; preds = %1658, %1605
 
 1703:                                             ; preds = %1701
   %1704 = uitofp nneg i64 %.029.i184 to double
-  %1705 = fmul double %1704, 0x3E10000000000000
+  %1705 = fmul nnan double %1704, 0x3E10000000000000
   %1706 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i185, i64 noundef 256, ptr noundef nonnull @.str.118, double noundef %1705) #34
   br label %bytesToHuman.exit186
 
@@ -11792,13 +11792,13 @@ displayKeyStatsSizeDist.exit.i:                   ; preds = %1658, %1605
 
 1709:                                             ; preds = %1707
   %1710 = uitofp nneg i64 %.029.i184 to double
-  %1711 = fmul double %1710, 0x3D70000000000000
+  %1711 = fmul nnan double %1710, 0x3D70000000000000
   %1712 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i185, i64 noundef 256, ptr noundef nonnull @.str.119, double noundef %1711) #34
   br label %bytesToHuman.exit186
 
 bytesToHuman.exit186:                             ; preds = %1687, %1691, %1697, %1703, %1707, %1709
   %1713 = uitofp i64 %1681 to double
-  %1714 = fmul double %1713, 1.000000e+02
+  %1714 = fmul nnan double %1713, 1.000000e+02
   %1715 = fdiv double %1714, %1672
   %1716 = call i32 (ptr, ...) @cleanPrintfln(ptr noundef nonnull @.str.736, ptr noundef nonnull %1671, double noundef %1715, i64 noundef %1681)
   br label %1717
@@ -11887,7 +11887,7 @@ displayKeyStatsLengthDist.exit.i:                 ; preds = %1724, %1722
 
 1757:                                             ; preds = %1755
   %1758 = uitofp nneg i64 %.029.i181 to double
-  %1759 = fmul double %1758, 0x3F50000000000000
+  %1759 = fmul nnan double %1758, 0x3F50000000000000
   %1760 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i182, i64 noundef 64, ptr noundef nonnull @.str.116, double noundef %1759) #34
   br label %bytesToHuman.exit183
 
@@ -11897,7 +11897,7 @@ displayKeyStatsLengthDist.exit.i:                 ; preds = %1724, %1722
 
 1763:                                             ; preds = %1761
   %1764 = uitofp nneg i64 %.029.i181 to double
-  %1765 = fmul double %1764, 0x3EB0000000000000
+  %1765 = fmul nnan double %1764, 0x3EB0000000000000
   %1766 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i182, i64 noundef 64, ptr noundef nonnull @.str.117, double noundef %1765) #34
   br label %bytesToHuman.exit183
 
@@ -11907,7 +11907,7 @@ displayKeyStatsLengthDist.exit.i:                 ; preds = %1724, %1722
 
 1769:                                             ; preds = %1767
   %1770 = uitofp nneg i64 %.029.i181 to double
-  %1771 = fmul double %1770, 0x3E10000000000000
+  %1771 = fmul nnan double %1770, 0x3E10000000000000
   %1772 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i182, i64 noundef 64, ptr noundef nonnull @.str.118, double noundef %1771) #34
   br label %bytesToHuman.exit183
 
@@ -11917,7 +11917,7 @@ displayKeyStatsLengthDist.exit.i:                 ; preds = %1724, %1722
 
 1775:                                             ; preds = %1773
   %1776 = uitofp nneg i64 %.029.i181 to double
-  %1777 = fmul double %1776, 0x3D70000000000000
+  %1777 = fmul nnan double %1776, 0x3D70000000000000
   %1778 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i182, i64 noundef 64, ptr noundef nonnull @.str.119, double noundef %1777) #34
   br label %bytesToHuman.exit183
 
@@ -11949,7 +11949,7 @@ bytesToHuman.exit183:                             ; preds = %1753, %1757, %1763,
 
 1791:                                             ; preds = %1789
   %1792 = uitofp nneg i64 %.029.i178 to double
-  %1793 = fmul double %1792, 0x3F50000000000000
+  %1793 = fmul nnan double %1792, 0x3F50000000000000
   %1794 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i179, i64 noundef 64, ptr noundef nonnull @.str.116, double noundef %1793) #34
   br label %bytesToHuman.exit180
 
@@ -11959,7 +11959,7 @@ bytesToHuman.exit183:                             ; preds = %1753, %1757, %1763,
 
 1797:                                             ; preds = %1795
   %1798 = uitofp nneg i64 %.029.i178 to double
-  %1799 = fmul double %1798, 0x3EB0000000000000
+  %1799 = fmul nnan double %1798, 0x3EB0000000000000
   %1800 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i179, i64 noundef 64, ptr noundef nonnull @.str.117, double noundef %1799) #34
   br label %bytesToHuman.exit180
 
@@ -11969,7 +11969,7 @@ bytesToHuman.exit183:                             ; preds = %1753, %1757, %1763,
 
 1803:                                             ; preds = %1801
   %1804 = uitofp nneg i64 %.029.i178 to double
-  %1805 = fmul double %1804, 0x3E10000000000000
+  %1805 = fmul nnan double %1804, 0x3E10000000000000
   %1806 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i179, i64 noundef 64, ptr noundef nonnull @.str.118, double noundef %1805) #34
   br label %bytesToHuman.exit180
 
@@ -11979,7 +11979,7 @@ bytesToHuman.exit183:                             ; preds = %1753, %1757, %1763,
 
 1809:                                             ; preds = %1807
   %1810 = uitofp nneg i64 %.029.i178 to double
-  %1811 = fmul double %1810, 0x3D70000000000000
+  %1811 = fmul nnan double %1810, 0x3D70000000000000
   %1812 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i179, i64 noundef 64, ptr noundef nonnull @.str.119, double noundef %1811) #34
   br label %bytesToHuman.exit180
 
@@ -12041,7 +12041,7 @@ bytesToHuman.exit180:                             ; preds = %1787, %1791, %1797,
 
 1841:                                             ; preds = %1839
   %1842 = uitofp nneg i64 %.029.i175 to double
-  %1843 = fmul double %1842, 0x3F50000000000000
+  %1843 = fmul nnan double %1842, 0x3F50000000000000
   %1844 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i176, i64 noundef 64, ptr noundef nonnull @.str.116, double noundef %1843) #34
   br label %bytesToHuman.exit177
 
@@ -12051,7 +12051,7 @@ bytesToHuman.exit180:                             ; preds = %1787, %1791, %1797,
 
 1847:                                             ; preds = %1845
   %1848 = uitofp nneg i64 %.029.i175 to double
-  %1849 = fmul double %1848, 0x3EB0000000000000
+  %1849 = fmul nnan double %1848, 0x3EB0000000000000
   %1850 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i176, i64 noundef 64, ptr noundef nonnull @.str.117, double noundef %1849) #34
   br label %bytesToHuman.exit177
 
@@ -12061,7 +12061,7 @@ bytesToHuman.exit180:                             ; preds = %1787, %1791, %1797,
 
 1853:                                             ; preds = %1851
   %1854 = uitofp nneg i64 %.029.i175 to double
-  %1855 = fmul double %1854, 0x3E10000000000000
+  %1855 = fmul nnan double %1854, 0x3E10000000000000
   %1856 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i176, i64 noundef 64, ptr noundef nonnull @.str.118, double noundef %1855) #34
   br label %bytesToHuman.exit177
 
@@ -12071,7 +12071,7 @@ bytesToHuman.exit180:                             ; preds = %1787, %1791, %1797,
 
 1859:                                             ; preds = %1857
   %1860 = uitofp nneg i64 %.029.i175 to double
-  %1861 = fmul double %1860, 0x3D70000000000000
+  %1861 = fmul nnan double %1860, 0x3D70000000000000
   %1862 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i176, i64 noundef 64, ptr noundef nonnull @.str.119, double noundef %1861) #34
   br label %bytesToHuman.exit177
 
@@ -12102,7 +12102,7 @@ bytesToHuman.exit177:                             ; preds = %1837, %1841, %1847,
 
 1874:                                             ; preds = %1872
   %1875 = uitofp nneg i64 %.029.i173 to double
-  %1876 = fmul double %1875, 0x3F50000000000000
+  %1876 = fmul nnan double %1875, 0x3F50000000000000
   %1877 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i174, i64 noundef 64, ptr noundef nonnull @.str.116, double noundef %1876) #34
   br label %bytesToHuman.exit
 
@@ -12112,7 +12112,7 @@ bytesToHuman.exit177:                             ; preds = %1837, %1841, %1847,
 
 1880:                                             ; preds = %1878
   %1881 = uitofp nneg i64 %.029.i173 to double
-  %1882 = fmul double %1881, 0x3EB0000000000000
+  %1882 = fmul nnan double %1881, 0x3EB0000000000000
   %1883 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i174, i64 noundef 64, ptr noundef nonnull @.str.117, double noundef %1882) #34
   br label %bytesToHuman.exit
 
@@ -12122,7 +12122,7 @@ bytesToHuman.exit177:                             ; preds = %1837, %1841, %1847,
 
 1886:                                             ; preds = %1884
   %1887 = uitofp nneg i64 %.029.i173 to double
-  %1888 = fmul double %1887, 0x3E10000000000000
+  %1888 = fmul nnan double %1887, 0x3E10000000000000
   %1889 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i174, i64 noundef 64, ptr noundef nonnull @.str.118, double noundef %1888) #34
   br label %bytesToHuman.exit
 
@@ -12132,7 +12132,7 @@ bytesToHuman.exit177:                             ; preds = %1837, %1841, %1847,
 
 1892:                                             ; preds = %1890
   %1893 = uitofp nneg i64 %.029.i173 to double
-  %1894 = fmul double %1893, 0x3D70000000000000
+  %1894 = fmul nnan double %1893, 0x3D70000000000000
   %1895 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i174, i64 noundef 64, ptr noundef nonnull @.str.119, double noundef %1894) #34
   br label %bytesToHuman.exit
 
@@ -12145,7 +12145,7 @@ bytesToHuman.exit:                                ; preds = %1892, %1890, %1886,
   %1899 = load ptr, ptr %1742, align 8, !tbaa !211
   %1900 = load i64, ptr %1743, align 8, !tbaa !307
   %1901 = uitofp i64 %1900 to double
-  %1902 = fmul double %1901, 1.000000e+02
+  %1902 = fmul nnan double %1901, 1.000000e+02
   %1903 = fdiv double %1902, %1735
   %1904 = select i1 %.not39.i186.i, double 0.000000e+00, double %1903
   %1905 = call i32 (ptr, ...) @cleanPrintfln(ptr noundef nonnull @.str.743, ptr noundef %1899, i64 noundef %1900, double noundef %1904, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32)
@@ -12287,7 +12287,7 @@ displayKeyStatsType.exit.i:                       ; preds = %1906, %displayKeySt
   %.074.i = phi i64 [ 0, %1934 ], [ %.175.lcssa.i, %2171 ]
   %.072.i = phi i64 [ %1941, %1934 ], [ %.173.i, %2171 ]
   %1956 = uitofp i64 %.074.i to double
-  %1957 = fmul double %1956, 1.000000e+02
+  %1957 = fmul nnan double %1956, 1.000000e+02
   %1958 = fdiv double %1957, %1945
   %1959 = call fastcc ptr @sendScan(ptr noundef %28)
   %1960 = add i64 %.081.i, 1
@@ -12988,7 +12988,7 @@ getLongInfoField.exit44.thread.i:                 ; preds = %getLongInfoField.ex
 
 2308:                                             ; preds = %2306
   %2309 = uitofp nneg i64 %.029.i.i to double
-  %2310 = fmul double %2309, 0x3F50000000000000
+  %2310 = fmul nnan double %2309, 0x3F50000000000000
   %2311 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i45.i, i64 noundef 64, ptr noundef nonnull @.str.116, double noundef %2310) #34
   br label %bytesToHuman.exit.i
 
@@ -12998,7 +12998,7 @@ getLongInfoField.exit44.thread.i:                 ; preds = %getLongInfoField.ex
 
 2314:                                             ; preds = %2312
   %2315 = uitofp nneg i64 %.029.i.i to double
-  %2316 = fmul double %2315, 0x3EB0000000000000
+  %2316 = fmul nnan double %2315, 0x3EB0000000000000
   %2317 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i45.i, i64 noundef 64, ptr noundef nonnull @.str.117, double noundef %2316) #34
   br label %bytesToHuman.exit.i
 
@@ -13008,7 +13008,7 @@ getLongInfoField.exit44.thread.i:                 ; preds = %getLongInfoField.ex
 
 2320:                                             ; preds = %2318
   %2321 = uitofp nneg i64 %.029.i.i to double
-  %2322 = fmul double %2321, 0x3E10000000000000
+  %2322 = fmul nnan double %2321, 0x3E10000000000000
   %2323 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i45.i, i64 noundef 64, ptr noundef nonnull @.str.118, double noundef %2322) #34
   br label %bytesToHuman.exit.i
 
@@ -13018,7 +13018,7 @@ getLongInfoField.exit44.thread.i:                 ; preds = %getLongInfoField.ex
 
 2326:                                             ; preds = %2324
   %2327 = uitofp nneg i64 %.029.i.i to double
-  %2328 = fmul double %2327, 0x3D70000000000000
+  %2328 = fmul nnan double %2327, 0x3D70000000000000
   %2329 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0.i45.i, i64 noundef 64, ptr noundef nonnull @.str.119, double noundef %2328) #34
   br label %bytesToHuman.exit.i
 
@@ -14704,7 +14704,7 @@ define internal fastcc void @findBigKeys(i32 noundef range(i32 0, 2) %0, i64 nou
   %.0126 = phi i64 [ 0, %2 ], [ %.1127.lcssa, %229 ]
   %.0 = phi i64 [ 0, %2 ], [ %.1.lcssa, %229 ]
   %46 = uitofp i64 %.0 to double
-  %47 = fmul double %46, 1.000000e+02
+  %47 = fmul nnan double %46, 1.000000e+02
   %48 = fdiv double %47, %41
   %49 = call fastcc ptr @sendScan(ptr noundef %11)
   %50 = add i64 %.0134, 1
@@ -15218,7 +15218,7 @@ displayKeyStatsProgressbar.exit:                  ; preds = %172, %182
 306:                                              ; preds = %295, %303
   %307 = phi ptr [ %305, %303 ], [ @.str.98, %295 ]
   %308 = uitofp i64 %299 to double
-  %309 = fmul double %308, 1.000000e+02
+  %309 = fmul nnan double %308, 1.000000e+02
   %310 = fdiv double %309, %263
   %311 = select i1 %.not171, double 0.000000e+00, double %310
   %.not172 = icmp eq i64 %299, 0
@@ -19108,7 +19108,7 @@ define internal fastcc void @clusterManagerWaitForClusterJoin() unnamed_addr #0 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !84
   %7 = uitofp i64 %6 to float
-  %8 = fmul float %7, 0x3FC3333340000000
+  %8 = fmul nnan float %7, 0x3FC3333340000000
   %9 = fptosi float %8 to i32
   %10 = add nsw i32 %9, 20
   %11 = tail call fastcc i32 @clusterManagerIsConfigConsistent()
@@ -24854,7 +24854,7 @@ define internal fastcc void @clusterManagerShowClusterInfo() unnamed_addr #0 {
   %.0.lcssa = phi i32 [ 0, %0 ], [ %.2, %67 ]
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 4, ptr noundef nonnull @.str.365, i64 noundef %.041.lcssa, i32 noundef %.0.lcssa)
   %69 = uitofp nneg i64 %.041.lcssa to float
-  %70 = fmul float %69, 0x3F10000000000000
+  %70 = fmul nnan float %69, 0x3F10000000000000
   %71 = fpext float %70 to double
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.366, double noundef %71)
   br label %73

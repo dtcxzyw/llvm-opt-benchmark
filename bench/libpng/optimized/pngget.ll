@@ -748,7 +748,7 @@ define float @png_get_x_offset_inches(ptr noalias noundef readnone captures(addr
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %15 = load i32, ptr %14, align 4, !tbaa !43, !alias.scope !77, !noalias !80
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 3.937000e-05
+  %17 = fmul nnan double %16, 3.937000e-05
   %18 = fptrunc double %17 to float
   br label %png_get_x_offset_microns.exit
 
@@ -781,7 +781,7 @@ define float @png_get_y_offset_inches(ptr noalias noundef readnone captures(addr
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %15 = load i32, ptr %14, align 8, !tbaa !44, !alias.scope !82, !noalias !85
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 3.937000e-05
+  %17 = fmul nnan double %16, 3.937000e-05
   %18 = fptrunc double %17 to float
   br label %png_get_y_offset_microns.exit
 
@@ -943,7 +943,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %20 = load i32, ptr %19, align 8, !tbaa !90
   %21 = sitofp i32 %20 to double
-  %22 = fmul double %21, 1.000000e-05
+  %22 = fmul nnan double %21, 1.000000e-05
   store double %22, ptr %2, align 8, !tbaa !91
   br label %23
 
@@ -955,7 +955,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %26 = load i32, ptr %25, align 4, !tbaa !93
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 1.000000e-05
+  %28 = fmul nnan double %27, 1.000000e-05
   store double %28, ptr %3, align 8, !tbaa !91
   br label %29
 
@@ -967,7 +967,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %32 = load i32, ptr %31, align 8, !tbaa !94
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 1.000000e-05
+  %34 = fmul nnan double %33, 1.000000e-05
   store double %34, ptr %4, align 8, !tbaa !91
   br label %35
 
@@ -979,7 +979,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %38 = load i32, ptr %37, align 4, !tbaa !95
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 1.000000e-05
+  %40 = fmul nnan double %39, 1.000000e-05
   store double %40, ptr %5, align 8, !tbaa !91
   br label %41
 
@@ -991,7 +991,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %44 = load i32, ptr %43, align 8, !tbaa !96
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 1.000000e-05
+  %46 = fmul nnan double %45, 1.000000e-05
   store double %46, ptr %6, align 8, !tbaa !91
   br label %47
 
@@ -1003,7 +1003,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %50 = load i32, ptr %49, align 4, !tbaa !97
   %51 = sitofp i32 %50 to double
-  %52 = fmul double %51, 1.000000e-05
+  %52 = fmul nnan double %51, 1.000000e-05
   store double %52, ptr %7, align 8, !tbaa !91
   br label %53
 
@@ -1015,7 +1015,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %56 = load i32, ptr %55, align 8, !tbaa !98
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 1.000000e-05
+  %58 = fmul nnan double %57, 1.000000e-05
   store double %58, ptr %8, align 8, !tbaa !91
   br label %59
 
@@ -1027,7 +1027,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %62 = load i32, ptr %61, align 4, !tbaa !99
   %63 = sitofp i32 %62 to double
-  %64 = fmul double %63, 1.000000e-05
+  %64 = fmul nnan double %63, 1.000000e-05
   store double %64, ptr %9, align 8, !tbaa !91
   br label %65
 
@@ -1065,7 +1065,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
 24:                                               ; preds = %23
   %25 = load i32, ptr %12, align 4, !tbaa !100
   %26 = sitofp i32 %25 to double
-  %27 = fmul double %26, 1.000000e-05
+  %27 = fmul nnan double %26, 1.000000e-05
   store double %27, ptr %2, align 8, !tbaa !91
   br label %28
 
@@ -1077,7 +1077,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !102
   %32 = sitofp i32 %31 to double
-  %33 = fmul double %32, 1.000000e-05
+  %33 = fmul nnan double %32, 1.000000e-05
   store double %33, ptr %3, align 8, !tbaa !91
   br label %34
 
@@ -1089,7 +1089,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !103
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 1.000000e-05
+  %39 = fmul nnan double %38, 1.000000e-05
   store double %39, ptr %4, align 8, !tbaa !91
   br label %40
 
@@ -1101,7 +1101,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %43 = load i32, ptr %42, align 4, !tbaa !104
   %44 = sitofp i32 %43 to double
-  %45 = fmul double %44, 1.000000e-05
+  %45 = fmul nnan double %44, 1.000000e-05
   store double %45, ptr %5, align 8, !tbaa !91
   br label %46
 
@@ -1113,7 +1113,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %49 = load i32, ptr %48, align 4, !tbaa !105
   %50 = sitofp i32 %49 to double
-  %51 = fmul double %50, 1.000000e-05
+  %51 = fmul nnan double %50, 1.000000e-05
   store double %51, ptr %6, align 8, !tbaa !91
   br label %52
 
@@ -1125,7 +1125,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !106
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, 1.000000e-05
+  %57 = fmul nnan double %56, 1.000000e-05
   store double %57, ptr %7, align 8, !tbaa !91
   br label %58
 
@@ -1137,7 +1137,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %61 = load i32, ptr %60, align 4, !tbaa !107
   %62 = sitofp i32 %61 to double
-  %63 = fmul double %62, 1.000000e-05
+  %63 = fmul nnan double %62, 1.000000e-05
   store double %63, ptr %8, align 8, !tbaa !91
   br label %64
 
@@ -1149,7 +1149,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %67 = load i32, ptr %66, align 4, !tbaa !108
   %68 = sitofp i32 %67 to double
-  %69 = fmul double %68, 1.000000e-05
+  %69 = fmul nnan double %68, 1.000000e-05
   store double %69, ptr %9, align 8, !tbaa !91
   br label %70
 
@@ -1161,7 +1161,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %73 = load i32, ptr %72, align 4, !tbaa !109
   %74 = sitofp i32 %73 to double
-  %75 = fmul double %74, 1.000000e-05
+  %75 = fmul nnan double %74, 1.000000e-05
   store double %75, ptr %10, align 8, !tbaa !91
   br label %76
 
@@ -1440,7 +1440,7 @@ define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone captures(a
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %13 = load i32, ptr %12, align 8, !tbaa !110
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 1.000000e-05
+  %15 = fmul nnan double %14, 1.000000e-05
   store double %15, ptr %2, align 8, !tbaa !91
   br label %16
 
@@ -1660,7 +1660,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captu
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = load i32, ptr %13, align 4, !tbaa !123
   %15 = uitofp i32 %14 to double
-  %16 = fmul double %15, 1.000000e-04
+  %16 = fmul nnan double %15, 1.000000e-04
   store double %16, ptr %2, align 8, !tbaa !91
   br label %17
 
@@ -1672,7 +1672,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captu
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 8, !tbaa !124
   %21 = uitofp i32 %20 to double
-  %22 = fmul double %21, 1.000000e-04
+  %22 = fmul nnan double %21, 1.000000e-04
   store double %22, ptr %3, align 8, !tbaa !91
   br label %23
 
@@ -1838,7 +1838,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %22 = load i16, ptr %21, align 8, !tbaa !125
   %23 = uitofp i16 %22 to double
-  %24 = fmul double %23, 2.000000e-05
+  %24 = fmul nnan double %23, 2.000000e-05
   store double %24, ptr %2, align 8, !tbaa !91
   br label %25
 
@@ -1850,7 +1850,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 98
   %28 = load i16, ptr %27, align 2, !tbaa !126
   %29 = uitofp i16 %28 to double
-  %30 = fmul double %29, 2.000000e-05
+  %30 = fmul nnan double %29, 2.000000e-05
   store double %30, ptr %3, align 8, !tbaa !91
   br label %31
 
@@ -1862,7 +1862,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %34 = load i16, ptr %33, align 4, !tbaa !127
   %35 = uitofp i16 %34 to double
-  %36 = fmul double %35, 2.000000e-05
+  %36 = fmul nnan double %35, 2.000000e-05
   store double %36, ptr %4, align 8, !tbaa !91
   br label %37
 
@@ -1874,7 +1874,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %40 = load i16, ptr %39, align 2, !tbaa !128
   %41 = uitofp i16 %40 to double
-  %42 = fmul double %41, 2.000000e-05
+  %42 = fmul nnan double %41, 2.000000e-05
   store double %42, ptr %5, align 8, !tbaa !91
   br label %43
 
@@ -1886,7 +1886,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %46 = load i16, ptr %45, align 8, !tbaa !129
   %47 = uitofp i16 %46 to double
-  %48 = fmul double %47, 2.000000e-05
+  %48 = fmul nnan double %47, 2.000000e-05
   store double %48, ptr %6, align 8, !tbaa !91
   br label %49
 
@@ -1898,7 +1898,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %52 = load i16, ptr %51, align 2, !tbaa !130
   %53 = uitofp i16 %52 to double
-  %54 = fmul double %53, 2.000000e-05
+  %54 = fmul nnan double %53, 2.000000e-05
   store double %54, ptr %7, align 8, !tbaa !91
   br label %55
 
@@ -1910,7 +1910,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %58 = load i16, ptr %57, align 4, !tbaa !131
   %59 = uitofp i16 %58 to double
-  %60 = fmul double %59, 2.000000e-05
+  %60 = fmul nnan double %59, 2.000000e-05
   store double %60, ptr %8, align 8, !tbaa !91
   br label %61
 
@@ -1922,7 +1922,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 94
   %64 = load i16, ptr %63, align 2, !tbaa !132
   %65 = uitofp i16 %64 to double
-  %66 = fmul double %65, 2.000000e-05
+  %66 = fmul nnan double %65, 2.000000e-05
   store double %66, ptr %9, align 8, !tbaa !91
   br label %67
 
@@ -1934,7 +1934,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %70 = load i32, ptr %69, align 4, !tbaa !133
   %71 = uitofp i32 %70 to double
-  %72 = fmul double %71, 1.000000e-04
+  %72 = fmul nnan double %71, 1.000000e-04
   store double %72, ptr %10, align 8, !tbaa !91
   br label %73
 
@@ -1946,7 +1946,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %76 = load i32, ptr %75, align 8, !tbaa !134
   %77 = uitofp i32 %76 to double
-  %78 = fmul double %77, 1.000000e-04
+  %78 = fmul nnan double %77, 1.000000e-04
   store double %78, ptr %11, align 8, !tbaa !91
   br label %79
 

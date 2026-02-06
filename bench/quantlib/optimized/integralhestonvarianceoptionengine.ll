@@ -1513,7 +1513,7 @@ for.cond80.preheader.i:                           ; preds = %for.body.i
   %mul177.i = fmul double %call83, %fneg.i
   %fneg221.i = fneg double %31
   %mul.rl.i.i242.i = fmul double %31, -0.000000e+00
-  %mul_ad.i.i254.i = fmul double %mul.rl.i.i242.i, 0.000000e+00
+  %mul_ad.i.i254.i = fmul ninf double %mul.rl.i.i242.i, 0.000000e+00
   %mul344.i = fmul double %.pre298, %.pre298
   %mul345.i = fmul double %mul344.i, 5.000000e-01
   %fneg279.i = fneg double %.pre298
@@ -1524,7 +1524,7 @@ for.body.i:                                       ; preds = %arrayctor.loop.preh
   %93 = trunc i64 %indvars.iv.i to i32
   %94 = add i32 %93, -32768
   %sub73.i = sitofp i32 %94 to double
-  %mul74.i = fmul double %sub73.i, 0x3F840D931FF62705
+  %mul74.i = fmul nnan double %sub73.i, 0x3F840D931FF62705
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %call.i137, i64 %indvars.iv.next.i
   store double %mul74.i, ptr %arrayidx.i.i, align 8, !tbaa !90
@@ -1852,9 +1852,9 @@ for.body371.i:                                    ; preds = %invoke.cont355.i, %
   %139 = trunc nuw nsw i64 %indvars.iv716.i to i32
   %conv.i.i = uitofp nneg i32 %139 to double
   %call.i.i136 = call noundef double @pow(double noundef -1.000000e+00, double noundef %conv.i.i) #26, !tbaa !93
-  %mul380.i = fmul double %conv.i.i, 0xC11921FB54442D18
-  %mul381.i = fmul double %mul380.i, 5.000000e-01
-  %div383.i = fmul double %mul381.i, 0x3EF0000000000000
+  %mul380.i = fmul nnan double %conv.i.i, 0xC11921FB54442D18
+  %mul381.i = fmul nnan double %mul380.i, 5.000000e-01
+  %div383.i = fmul nnan double %mul381.i, 0x3EF0000000000000
   %mul_ac.i.i506.i = fmul double %div383.i, 0.000000e+00
   %mul_i.i.i511.i = fadd double %div383.i, 0.000000e+00
   %indvars.iv.next717.i = add nuw nsw i64 %indvars.iv716.i, 1
@@ -2400,7 +2400,7 @@ for.cond92.preheader.i:                           ; preds = %for.body.i169
   %mul185.i = fmul double %call83, %fneg.i176
   %fneg228.i = fneg double %31
   %mul.rl.i.i237.i = fmul double %31, -0.000000e+00
-  %mul_ad.i.i249.i = fmul double %mul.rl.i.i237.i, 0.000000e+00
+  %mul_ad.i.i249.i = fmul ninf double %mul.rl.i.i237.i, 0.000000e+00
   br label %for.body95.i
 
 for.body.i169:                                    ; preds = %arrayctor.loop.preheader.i150, %for.body.i169
@@ -2408,11 +2408,11 @@ for.body.i169:                                    ; preds = %arrayctor.loop.preh
   %201 = trunc i64 %indvars.iv.i170 to i32
   %202 = add i32 %201, -2048
   %sub76.i = sitofp i32 %202 to double
-  %mul77.i = fmul double %sub76.i, 0x3FA40D931FF62705
+  %mul77.i = fmul nnan double %sub76.i, 0x3FA40D931FF62705
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %arrayidx.i.i172 = getelementptr inbounds nuw double, ptr %call.i197, i64 %indvars.iv.next.i171
   store double %mul77.i, ptr %arrayidx.i.i172, align 8, !tbaa !90
-  %mul85.i = fmul double %sub76.i, 0x401921FB54442D18
+  %mul85.i = fmul nnan double %sub76.i, 0x401921FB54442D18
   %div88.i = fdiv double %mul85.i, 0x40640D931FF62705
   %arrayidx.i82.i = getelementptr inbounds nuw double, ptr %call1.i147, i64 %indvars.iv.next.i171
   store double %div88.i, ptr %arrayidx.i82.i, align 8, !tbaa !90
@@ -2623,9 +2623,9 @@ invoke.cont292.i:                                 ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i.i)
   %232 = trunc nuw nsw i64 %indvars.iv484.i to i32
   %conv287.i = uitofp nneg i32 %232 to double
-  %mul288.i = fmul double %conv287.i, 0x401921FB54442D18
-  %div290.i = fmul double %mul288.i, 0x3F30000000000000
-  %mul.rl.i.i322.i = fmul double %div290.i, 0.000000e+00
+  %mul288.i = fmul nnan double %conv287.i, 0x401921FB54442D18
+  %div290.i = fmul nnan double %mul288.i, 0x3F30000000000000
+  %mul.rl.i.i330.i = fmul double %div290.i, -0.000000e+00
   br label %invoke.cont307.i
 
 invoke.cont307.i:                                 ; preds = %invoke.cont332.i, %invoke.cont292.i
@@ -2634,7 +2634,6 @@ invoke.cont307.i:                                 ; preds = %invoke.cont332.i, %
   %233 = trunc nuw nsw i64 %indvars.iv480.i to i32
   %conv304.i = uitofp nneg i32 %233 to double
   %fneg305.i = fneg double %conv304.i
-  %mul.rl.i.i330.i = fmul double %mul.rl.i.i322.i, %fneg305.i
   %mul.il.i.i331.i = fmul double %div290.i, %fneg305.i
   %call.i.i190 = call noundef double @pow(double noundef -1.000000e+00, double noundef %conv304.i) #26, !tbaa !93
   %indvars.iv.next481.i = add nuw nsw i64 %indvars.iv480.i, 1

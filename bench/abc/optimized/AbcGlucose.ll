@@ -987,7 +987,7 @@ define void @_Z19glucose_print_statsRN5Gluco10SimpSolverEl(ptr noundef nonnull r
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %60 = load i64, ptr %59, align 8, !tbaa !94
   %61 = sitofp i64 %60 to float
-  %62 = fmul float %61, 1.000000e+02
+  %62 = fmul nnan float %61, 1.000000e+02
   %63 = sitofp i64 %57 to float
   %64 = fdiv float %62, %63
   %65 = fpext float %64 to double

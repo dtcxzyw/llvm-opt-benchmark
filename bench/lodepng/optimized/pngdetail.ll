@@ -2679,7 +2679,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %indvars.iv230 = phi i64 [ 0, %.lr.ph191.us.us.preheader ], [ %indvars.iv.next231, %._crit_edge192.split.us.us.us ]
   %42 = trunc nuw nsw i64 %indvars.iv230 to i32
   %43 = uitofp nneg i32 %42 to double
-  %44 = fadd double %43, 5.000000e-01
+  %44 = fadd nnan double %43, 5.000000e-01
   %45 = fmul double %44, %34
   %46 = fdiv double %45, %35
   %47 = fadd double %46, -5.000000e-01
@@ -2692,7 +2692,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %._crit_edge.us.us.us ], [ 0, %.lr.ph191.us.us ]
   %51 = trunc nuw nsw i64 %indvars.iv227 to i32
   %52 = uitofp nneg i32 %51 to double
-  %53 = fadd double %52, 5.000000e-01
+  %53 = fadd nnan double %52, 5.000000e-01
   %54 = fmul double %53, %37
   %55 = fdiv double %54, %38
   %56 = fadd double %55, -5.000000e-01
@@ -2819,12 +2819,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
 .lr.ph205:                                        ; preds = %.preheader186, %.loopexit185
   %.0154204 = phi i32 [ %102, %.loopexit185 ], [ 0, %.preheader186 ]
   %98 = uitofp nneg i32 %.0154204 to double
-  %99 = fmul double %81, %98
+  %99 = fmul nnan double %81, %98
   %100 = fdiv double %99, %82
   %101 = fptrunc double %100 to float
   %102 = add nuw nsw i32 %.0154204, 1
   %103 = uitofp nneg i32 %102 to double
-  %104 = fmul double %81, %103
+  %104 = fmul nnan double %81, %103
   %105 = fdiv double %104, %82
   %106 = fptrunc double %105 to float
   %107 = fptosi float %101 to i32
@@ -2922,13 +2922,13 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.loopexit ], [ 0, %.preheader ]
   %155 = trunc nuw nsw i64 %indvars.iv268 to i32
   %156 = uitofp nneg i32 %155 to double
-  %157 = fmul double %85, %156
+  %157 = fmul nnan double %85, %156
   %158 = fdiv double %157, %86
   %159 = fptrunc double %158 to float
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %160 = trunc nuw nsw i64 %indvars.iv.next269 to i32
   %161 = uitofp nneg i32 %160 to double
-  %162 = fmul double %85, %161
+  %162 = fmul nnan double %85, %161
   %163 = fdiv double %162, %86
   %164 = fptrunc double %163 to float
   %165 = fptosi float %159 to i32
@@ -9281,7 +9281,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit663: ; preds = %7
   %802 = zext i8 %801 to i32
   %803 = or disjoint i32 %799, %802
   %804 = sitofp i32 %803 to double
-  %805 = fmul double %804, 0x3EF0000000000000
+  %805 = fmul nnan double %804, 0x3EF0000000000000
   %806 = fptrunc double %805 to float
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %808 = load i8, ptr %807, align 1, !tbaa !32
@@ -9302,7 +9302,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit663: ; preds = %7
   %823 = zext i8 %822 to i32
   %824 = or disjoint i32 %820, %823
   %825 = sitofp i32 %824 to double
-  %826 = fmul double %825, 0x3EF0000000000000
+  %826 = fmul nnan double %825, 0x3EF0000000000000
   %827 = fptrunc double %826 to float
   %828 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %829 = load i8, ptr %828, align 1, !tbaa !32
@@ -9323,7 +9323,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit663: ; preds = %7
   %844 = zext i8 %843 to i32
   %845 = or disjoint i32 %841, %844
   %846 = sitofp i32 %845 to double
-  %847 = fmul double %846, 0x3EF0000000000000
+  %847 = fmul nnan double %846, 0x3EF0000000000000
   %848 = fptrunc double %847 to float
   %849 = fadd float %806, %827
   %850 = fadd float %849, %848
@@ -10220,7 +10220,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit509: ; preds = %_ZSt
   %1345 = zext i8 %1344 to i32
   %1346 = or disjoint i32 %1342, %1345
   %1347 = sitofp i32 %1346 to double
-  %1348 = fmul double %1347, 0x3EF0000000000000
+  %1348 = fmul nnan double %1347, 0x3EF0000000000000
   %1349 = fptrunc double %1348 to float
   br label %_ZL15getICC15Fixed16PKhmm.exit511
 
@@ -10250,7 +10250,7 @@ _ZL15getICC15Fixed16PKhmm.exit511:                ; preds = %1328, %1325
   %1369 = zext i8 %1368 to i32
   %1370 = or disjoint i32 %1366, %1369
   %1371 = sitofp i32 %1370 to double
-  %1372 = fmul double %1371, 0x3EF0000000000000
+  %1372 = fmul nnan double %1371, 0x3EF0000000000000
   %1373 = fptrunc double %1372 to float
   br label %_ZL15getICC15Fixed16PKhmm.exit513
 
@@ -10280,7 +10280,7 @@ _ZL15getICC15Fixed16PKhmm.exit513:                ; preds = %1352, %_ZL15getICC1
   %1393 = zext i8 %1392 to i32
   %1394 = or disjoint i32 %1390, %1393
   %1395 = sitofp i32 %1394 to double
-  %1396 = fmul double %1395, 0x3EF0000000000000
+  %1396 = fmul nnan double %1395, 0x3EF0000000000000
   %1397 = fptrunc double %1396 to float
   br label %_ZL15getICC15Fixed16PKhmm.exit515
 
@@ -10415,7 +10415,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit528: ; preds = %1450
   %1458 = zext i8 %1457 to i32
   %1459 = or disjoint i32 %1455, %1458
   %1460 = uitofp nneg i32 %1459 to double
-  %1461 = fmul double %1460, 3.906250e-03
+  %1461 = fmul nnan double %1460, 3.906250e-03
   %1462 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %1461)
           to label %.invoke unwind label %1463
 
@@ -10482,7 +10482,7 @@ _ZL12getICCUint16PKhmm.exit534:                   ; preds = %1472, %1475
   %1503 = zext i8 %1502 to i32
   %1504 = or disjoint i32 %1500, %1503
   %1505 = sitofp i32 %1504 to double
-  %1506 = fmul double %1505, 0x3EF0000000000000
+  %1506 = fmul nnan double %1505, 0x3EF0000000000000
   %1507 = fptrunc double %1506 to float
   %1508 = fpext float %1507 to double
   br label %_ZL15getICC15Fixed16PKhmm.exit536
@@ -10569,7 +10569,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit541: ; preds = %1524
   %1549 = zext i8 %1548 to i32
   %1550 = or disjoint i32 %1546, %1549
   %1551 = sitofp i32 %1550 to double
-  %1552 = fmul double %1551, 0x3EF0000000000000
+  %1552 = fmul nnan double %1551, 0x3EF0000000000000
   %1553 = fptrunc double %1552 to float
   %1554 = fpext float %1553 to double
   br label %_ZL15getICC15Fixed16PKhmm.exit543
@@ -10624,7 +10624,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit545.preheader: ; pre
   %1581 = zext i8 %1580 to i32
   %1582 = or disjoint i32 %1578, %1581
   %1583 = sitofp i32 %1582 to double
-  %1584 = fmul double %1583, 0x3EF0000000000000
+  %1584 = fmul nnan double %1583, 0x3EF0000000000000
   %1585 = fptrunc double %1584 to float
   %1586 = fpext float %1585 to double
   br label %_ZL15getICC15Fixed16PKhmm.exit547
@@ -10744,7 +10744,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit558: ; preds = %.lr.
   %1646 = zext i8 %1645 to i32
   %1647 = or disjoint i32 %1643, %1646
   %1648 = uitofp i32 %1647 to double
-  %1649 = fmul double %1648, 0x3EF0000000000000
+  %1649 = fmul nnan double %1648, 0x3EF0000000000000
   %1650 = fptrunc double %1649 to float
   %1651 = fpext float %1650 to double
   br label %_ZL15getICC16Fixed16PKhmm.exit
@@ -10783,7 +10783,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit561: ; preds = %_ZNS
   %1673 = zext i8 %1672 to i32
   %1674 = or disjoint i32 %1670, %1673
   %1675 = uitofp i32 %1674 to double
-  %1676 = fmul double %1675, 0x3EF0000000000000
+  %1676 = fmul nnan double %1675, 0x3EF0000000000000
   %1677 = fptrunc double %1676 to float
   %1678 = fpext float %1677 to double
   br label %_ZL15getICC16Fixed16PKhmm.exit563
@@ -14321,7 +14321,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit60: ; preds = %13
 .preheader:                                       ; preds = %._crit_edge.us
   %172 = mul i32 %143, %142
   %173 = uitofp i32 %172 to double
-  %174 = fmul double %173, 2.570000e+02
+  %174 = fmul nnan double %173, 2.570000e+02
   br label %184
 
 175:                                              ; preds = %104, %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit

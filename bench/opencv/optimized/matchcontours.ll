@@ -108,9 +108,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %34 = fcmp olt double %21, 0.000000e+00
   %. = select i1 %34, double -1.000000e+00, double 0.000000e+00
   %.094 = select i1 %33, double 1.000000e+00, double %.
-  %35 = call double @llvm.log10.f64(double %22), !tbaa !7
+  %35 = call nnan double @llvm.log10.f64(double %22)
   %36 = fmul double %35, %.094
-  %37 = call double @llvm.log10.f64(double %25), !tbaa !7
+  %37 = call nnan double @llvm.log10.f64(double %25)
   %38 = fmul double %37, %.097
   %39 = fdiv double 1.000000e+00, %38
   %40 = fdiv double 1.000000e+00, %36
@@ -123,7 +123,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.185 = phi double [ %43, %30 ], [ %.084135, %.preheader ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next144, 7
-  br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .preheader122:                                    ; preds = %15, %67
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %67 ], [ 0, %15 ]
@@ -154,8 +154,8 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %59 = fcmp olt double %46, 0.000000e+00
   %.116 = select i1 %59, double -1.000000e+00, double 0.000000e+00
   %.195 = select i1 %58, double 1.000000e+00, double %.116
-  %60 = call double @llvm.log10.f64(double %47), !tbaa !7
-  %61 = call double @llvm.log10.f64(double %50), !tbaa !7
+  %60 = call nnan double @llvm.log10.f64(double %47)
+  %61 = call nnan double @llvm.log10.f64(double %50)
   %62 = fmul double %61, %.198
   %63 = fmul double %60, %.195
   %64 = fsub double %62, %63
@@ -167,7 +167,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.488 = phi double [ %66, %55 ], [ %.387131, %.preheader122 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next141, 7
-  br i1 %exitcond142.not, label %.loopexit, label %.preheader122, !llvm.loop !11
+  br i1 %exitcond142.not, label %.loopexit, label %.preheader122, !llvm.loop !9
 
 .preheader124:                                    ; preds = %15, %92
   %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %15 ]
@@ -198,9 +198,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %82 = fcmp olt double %69, 0.000000e+00
   %.119 = select i1 %82, double -1.000000e+00, double 0.000000e+00
   %.296 = select i1 %81, double 1.000000e+00, double %.119
-  %83 = call double @llvm.log10.f64(double %70), !tbaa !7
+  %83 = call nnan double @llvm.log10.f64(double %70)
   %84 = fmul double %83, %.296
-  %85 = call double @llvm.log10.f64(double %73), !tbaa !7
+  %85 = call nnan double @llvm.log10.f64(double %73)
   %86 = fmul double %85, %.299
   %87 = fsub double %84, %86
   %88 = fdiv double %87, %84
@@ -215,7 +215,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.690 = phi double [ %89, %91 ], [ %.589127, %78 ], [ %.589127, %.preheader124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %.preheader124, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.preheader124, !llvm.loop !10
 
 93:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -238,7 +238,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
 98:                                               ; preds = %94
   %99 = landingpad { ptr, i32 }
           cleanup
-  %100 = load ptr, ptr %10, align 8, !tbaa !13
+  %100 = load ptr, ptr %10, align 8, !tbaa !11
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %102 = icmp eq ptr %100, %101
   br i1 %102, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -260,7 +260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %98, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !19
+  %104 = load i32, ptr %103, align 8, !tbaa !17
   %.not.i = icmp eq i32 %104, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %105
 
@@ -310,7 +310,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(p
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !19
+  %3 = load i32, ptr %2, align 8, !tbaa !17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -339,14 +339,14 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
   %10 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %11, ptr %5, align 8, !tbaa !22
+  store ptr %11, ptr %5, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 136, ptr %12, align 8, !tbaa !25
+  store i64 136, ptr %12, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %13, ptr %6, align 8, !tbaa !22
+  store ptr %13, ptr %6, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 136, ptr %14, align 8, !tbaa !25
+  store i64 136, ptr %14, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %5)
           to label %15 unwind label %31
@@ -359,20 +359,20 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
 16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !26
+  store i32 0, ptr %17, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %18, align 4, !tbaa !28
-  store i32 16842752, ptr %9, align 8, !tbaa !29
+  store i32 0, ptr %18, align 4, !tbaa !27
+  store i32 16842752, ptr %9, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %19, align 8, !tbaa !31
+  store ptr %7, ptr %19, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %20, align 8, !tbaa !26
+  store i32 0, ptr %20, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 0, ptr %21, align 4, !tbaa !28
-  store i32 16842752, ptr %10, align 8, !tbaa !29
+  store i32 0, ptr %21, align 4, !tbaa !27
+  store i32 16842752, ptr %10, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %8, ptr %22, align 8, !tbaa !31
+  store ptr %8, ptr %22, align 8, !tbaa !30
   %23 = invoke noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %2, double poison)
           to label %24 unwind label %35
 
@@ -383,7 +383,7 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %25 = load ptr, ptr %6, align 8, !tbaa !22
+  %25 = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %25, %13
   %26 = icmp eq ptr %25, null
   %or.cond = or i1 %.not.i.i, %26
@@ -395,7 +395,7 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %27, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %28 = load ptr, ptr %5, align 8, !tbaa !22
+  %28 = load ptr, ptr %5, align 8, !tbaa !21
   %.not.i.i13 = icmp eq ptr %28, %11
   %29 = icmp eq ptr %28, null
   %or.cond25 = or i1 %.not.i.i13, %29
@@ -436,7 +436,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %30, %_ZN2cv10AutoBu
 38:                                               ; preds = %37, %31
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %37 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %39 = load ptr, ptr %6, align 8, !tbaa !22
+  %39 = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i.i15 = icmp eq ptr %39, %13
   %40 = icmp eq ptr %39, null
   %or.cond26 = or i1 %.not.i.i15, %40
@@ -448,7 +448,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %30, %_ZN2cv10AutoBu
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit16:           ; preds = %41, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %42 = load ptr, ptr %5, align 8, !tbaa !22
+  %42 = load ptr, ptr %5, align 8, !tbaa !21
   %.not.i.i17 = icmp eq ptr %42, %11
   %43 = icmp eq ptr %42, null
   %or.cond27 = or i1 %.not.i.i17, %43
@@ -522,28 +522,27 @@ attributes #14 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = !{!14, !16, i64 0}
-!14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !15, i64 0, !18, i64 8, !5, i64 16}
-!15 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !5, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!20, !8, i64 8}
-!20 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !21, i64 0, !8, i64 8}
-!21 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !17, i64 0}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN2cv10AutoBufferIdLm136EEE", !24, i64 0, !18, i64 8, !5, i64 16}
-!24 = !{!"p1 double", !17, i64 0}
-!25 = !{!23, !18, i64 8}
-!26 = !{!27, !8, i64 0}
-!27 = !{!"_ZTSN2cv5Size_IiEE", !8, i64 0, !8, i64 4}
-!28 = !{!27, !8, i64 4}
-!29 = !{!30, !8, i64 0}
-!30 = !{!"_ZTSN2cv11_InputArrayE", !8, i64 0, !17, i64 8, !27, i64 16}
-!31 = !{!30, !17, i64 8}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !14, i64 0}
+!12 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0, !16, i64 8, !5, i64 16}
+!13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !20, i64 8}
+!18 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !15, i64 0}
+!20 = !{!"int", !5, i64 0}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN2cv10AutoBufferIdLm136EEE", !23, i64 0, !16, i64 8, !5, i64 16}
+!23 = !{!"p1 double", !15, i64 0}
+!24 = !{!22, !16, i64 8}
+!25 = !{!26, !20, i64 0}
+!26 = !{!"_ZTSN2cv5Size_IiEE", !20, i64 0, !20, i64 4}
+!27 = !{!26, !20, i64 4}
+!28 = !{!29, !20, i64 0}
+!29 = !{!"_ZTSN2cv11_InputArrayE", !20, i64 0, !15, i64 8, !26, i64 16}
+!30 = !{!29, !15, i64 8}
