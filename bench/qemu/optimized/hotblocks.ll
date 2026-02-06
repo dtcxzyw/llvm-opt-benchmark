@@ -31,43 +31,44 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %glib_auto_cleanup_GStrv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %glib_auto_cleanup_GStrv.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @g_strsplit(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 2) #7
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef nonnull @.str.1) #7
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %17
+  %6 = shl nuw nsw i64 %indvars.iv, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call ptr @g_strsplit(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 2) #7
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull @.str.1) #7
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %18
 
-12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %13, ptr noundef %15, ptr noundef nonnull @do_inline) #7
-  br i1 %16, label %glib_auto_cleanup_GStrv.exit, label %17
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %14, ptr noundef %16, ptr noundef nonnull @do_inline) #7
+  br i1 %17, label %glib_auto_cleanup_GStrv.exit, label %18
 
-glib_auto_cleanup_GStrv.exit:                     ; preds = %12
-  tail call void @g_strfreev(ptr noundef nonnull %8) #7
+glib_auto_cleanup_GStrv.exit:                     ; preds = %13
+  tail call void @g_strfreev(ptr noundef nonnull %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
-17:                                               ; preds = %.lr.ph, %12
-  %.str.3.sink = phi ptr [ @.str.2, %12 ], [ @.str.3, %.lr.ph ]
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.3.sink, ptr noundef %7) #8
-  tail call void @g_strfreev(ptr noundef nonnull %8) #7
-  br label %21
+18:                                               ; preds = %.lr.ph, %13
+  %.str.3.sink = phi ptr [ @.str.2, %13 ], [ @.str.3, %.lr.ph ]
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull %.str.3.sink, ptr noundef %8) #8
+  tail call void @g_strfreev(ptr noundef nonnull %9) #7
+  br label %22
 
 ._crit_edge:                                      ; preds = %glib_auto_cleanup_GStrv.exit, %4
-  %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @exec_count_hash, ptr noundef nonnull @exec_count_equal) #7
-  store ptr %20, ptr @hotblocks, align 8
+  %21 = tail call ptr @g_hash_table_new(ptr noundef nonnull @exec_count_hash, ptr noundef nonnull @exec_count_equal) #7
+  store ptr %21, ptr @hotblocks, align 8
   tail call void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef %0, ptr noundef nonnull @vcpu_tb_trans) #7
   tail call void @qemu_plugin_register_atexit_cb(i64 noundef %0, ptr noundef nonnull @plugin_exit, ptr noundef null) #7
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17, %._crit_edge
-  %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %17 ]
+22:                                               ; preds = %18, %._crit_edge
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %18 ]
   ret i32 %.3
 }
 

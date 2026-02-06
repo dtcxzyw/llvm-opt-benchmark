@@ -1792,68 +1792,70 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %.147 = phi i64 [ %21, %._crit_edge ], [ %.147.be, %.backedge ]
   %.1 = phi ptr [ %22, %._crit_edge ], [ %.1.be, %.backedge ]
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 256
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.147
-  %26 = load ptr, ptr %25, align 8, !tbaa !120
-  %27 = getelementptr i8, ptr %26, i64 11
-  %28 = load i8, ptr %27, align 1, !tbaa !124
-  %.not.i55 = icmp eq i8 %28, 0
-  br i1 %.not.i55, label %.lr.ph66, label %37
+  %25 = shl nuw nsw i64 %.147, 3
+  %26 = and i64 %25, 2040
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !120
+  %29 = getelementptr i8, ptr %28, i64 11
+  %30 = load i8, ptr %29, align 1, !tbaa !124
+  %.not.i55 = icmp eq i8 %30, 0
+  br i1 %.not.i55, label %.lr.ph66, label %39
 
 .lr.ph66:                                         ; preds = %23, %.lr.ph66
-  %.25165 = phi ptr [ %30, %.lr.ph66 ], [ %26, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.25165, i64 256
-  %30 = load ptr, ptr %29, align 8, !tbaa !120
-  %31 = getelementptr i8, ptr %30, i64 11
-  %32 = load i8, ptr %31, align 1, !tbaa !124
-  %.not.i56 = icmp eq i8 %32, 0
+  %.25165 = phi ptr [ %32, %.lr.ph66 ], [ %28, %23 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.25165, i64 256
+  %32 = load ptr, ptr %31, align 8, !tbaa !120
+  %33 = getelementptr i8, ptr %32, i64 11
+  %34 = load i8, ptr %33, align 1, !tbaa !124
+  %.not.i56 = icmp eq i8 %34, 0
   br i1 %.not.i56, label %.lr.ph66, label %._crit_edge67, !llvm.loop !126
 
 ._crit_edge67:                                    ; preds = %.lr.ph66
-  %33 = getelementptr i8, ptr %30, i64 8
-  %34 = load i8, ptr %33, align 1, !tbaa !124
-  %35 = zext i8 %34 to i64
-  %36 = load ptr, ptr %30, align 8, !tbaa !120
-  br label %37
+  %35 = getelementptr i8, ptr %32, i64 8
+  %36 = load i8, ptr %35, align 1, !tbaa !124
+  %37 = zext i8 %36 to i64
+  %38 = load ptr, ptr %32, align 8, !tbaa !120
+  br label %39
 
-37:                                               ; preds = %._crit_edge67, %23
-  %38 = phi i8 [ %32, %._crit_edge67 ], [ %28, %23 ]
-  %.150 = phi ptr [ %30, %._crit_edge67 ], [ %26, %23 ]
-  %.248 = phi i64 [ %35, %._crit_edge67 ], [ %.147, %23 ]
-  %.2 = phi ptr [ %36, %._crit_edge67 ], [ %.1, %23 ]
-  %39 = zext i8 %38 to i64
-  %40 = shl nuw nsw i64 %39, 3
-  %41 = add nuw nsw i64 %40, 23
-  %42 = and i64 %41, 4088
-  tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %42) #21
-  %43 = getelementptr i8, ptr %.2, i64 10
-  %44 = load i8, ptr %43, align 1, !tbaa !124
-  %45 = zext i8 %44 to i64
-  %.not.not = icmp samesign ult i64 %.248, %45
+39:                                               ; preds = %._crit_edge67, %23
+  %40 = phi i8 [ %34, %._crit_edge67 ], [ %30, %23 ]
+  %.150 = phi ptr [ %32, %._crit_edge67 ], [ %28, %23 ]
+  %.248 = phi i64 [ %37, %._crit_edge67 ], [ %.147, %23 ]
+  %.2 = phi ptr [ %38, %._crit_edge67 ], [ %.1, %23 ]
+  %41 = zext i8 %40 to i64
+  %42 = shl nuw nsw i64 %41, 3
+  %43 = add nuw nsw i64 %42, 23
+  %44 = and i64 %43, 4088
+  tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %44) #21
+  %45 = getelementptr i8, ptr %.2, i64 10
+  %46 = load i8, ptr %45, align 1, !tbaa !124
+  %47 = zext i8 %46 to i64
+  %.not.not = icmp samesign ult i64 %.248, %47
   br i1 %.not.not, label %.backedge, label %.preheader58
 
-.backedge:                                        ; preds = %37, %53
-  %.147.be.in = phi i64 [ %.248, %37 ], [ %54, %53 ]
-  %.1.be = phi ptr [ %.2, %37 ], [ %48, %53 ]
+.backedge:                                        ; preds = %39, %55
+  %.147.be.in = phi i64 [ %.248, %39 ], [ %56, %55 ]
+  %.1.be = phi ptr [ %.2, %39 ], [ %50, %55 ]
   %.147.be = add nuw nsw i64 %.147.be.in, 1
   br label %23, !llvm.loop !127
 
-.preheader58:                                     ; preds = %37, %50
-  %.3 = phi ptr [ %48, %50 ], [ %.2, %37 ]
-  %46 = getelementptr i8, ptr %.3, i64 8
-  %47 = load i8, ptr %46, align 1, !tbaa !124
-  %48 = load ptr, ptr %.3, align 8, !tbaa !120
+.preheader58:                                     ; preds = %39, %52
+  %.3 = phi ptr [ %50, %52 ], [ %.2, %39 ]
+  %48 = getelementptr i8, ptr %.3, i64 8
+  %49 = load i8, ptr %48, align 1, !tbaa !124
+  %50 = load ptr, ptr %.3, align 8, !tbaa !120
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 504) #21
-  %49 = icmp eq ptr %48, %14
-  br i1 %49, label %.loopexit, label %50
+  %51 = icmp eq ptr %50, %14
+  br i1 %51, label %.loopexit, label %52
 
-50:                                               ; preds = %.preheader58
-  %51 = getelementptr i8, ptr %48, i64 10
-  %52 = load i8, ptr %51, align 1, !tbaa !124
-  %.not = icmp ult i8 %47, %52
-  br i1 %.not, label %53, label %.preheader58, !llvm.loop !128
+52:                                               ; preds = %.preheader58
+  %53 = getelementptr i8, ptr %50, i64 10
+  %54 = load i8, ptr %53, align 1, !tbaa !124
+  %.not = icmp ult i8 %49, %54
+  br i1 %.not, label %55, label %.preheader58, !llvm.loop !128
 
-53:                                               ; preds = %50
-  %54 = zext i8 %47 to i64
+55:                                               ; preds = %52
+  %56 = zext i8 %49 to i64
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %10, %5

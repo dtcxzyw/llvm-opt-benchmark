@@ -179,7 +179,7 @@ define noundef nonnull align 4 dereferenceable(108) ptr @_ZN3MD58finalizeEv(ptr 
   %2 = alloca [8 x i8], align 8
   %3 = load i8, ptr %0, align 4, !tbaa !6, !range !22, !noundef !23
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %78, label %_ZN3MD56encodeEPhPKjj.exit
+  br i1 %4, label %79, label %_ZN3MD56encodeEPhPKjj.exit
 
 _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -284,26 +284,27 @@ _ZN3MD56updateEPKhj.exit12:                       ; preds = %48, %53
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13, %_ZN3MD56updateEPKhj.exit12
   %indvars.iv22.i14 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next23.i16, %.lr.ph.i13 ]
   %indvars.iv.i15 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next.i17, %.lr.ph.i13 ]
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv22.i14
-  %63 = load i32, ptr %62, align 4, !tbaa !11
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i15
-  store i8 %64, ptr %65, align 4, !tbaa !24
-  %66 = load i32, ptr %62, align 4, !tbaa !11
-  %67 = lshr i32 %66, 8
-  %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  store i8 %68, ptr %69, align 1, !tbaa !24
-  %70 = load i32, ptr %62, align 4, !tbaa !11
-  %71 = lshr i32 %70, 16
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 2
-  store i8 %72, ptr %73, align 2, !tbaa !24
-  %74 = load i32, ptr %62, align 4, !tbaa !11
-  %75 = lshr i32 %74, 24
-  %76 = trunc nuw i32 %75 to i8
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 3
-  store i8 %76, ptr %77, align 1, !tbaa !24
+  %62 = shl nuw nsw i64 %indvars.iv22.i14, 2
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !11
+  %65 = trunc i32 %64 to i8
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i15
+  store i8 %65, ptr %66, align 4, !tbaa !24
+  %67 = load i32, ptr %63, align 4, !tbaa !11
+  %68 = lshr i32 %67, 8
+  %69 = trunc i32 %68 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 1
+  store i8 %69, ptr %70, align 1, !tbaa !24
+  %71 = load i32, ptr %63, align 4, !tbaa !11
+  %72 = lshr i32 %71, 16
+  %73 = trunc i32 %72 to i8
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 2
+  store i8 %73, ptr %74, align 2, !tbaa !24
+  %75 = load i32, ptr %63, align 4, !tbaa !11
+  %76 = lshr i32 %75, 24
+  %77 = trunc nuw i32 %76 to i8
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 3
+  store i8 %77, ptr %78, align 1, !tbaa !24
   %indvars.iv.next23.i16 = add nuw nsw i64 %indvars.iv22.i14, 1
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 4
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next23.i16, 4
@@ -314,9 +315,9 @@ _ZN3MD56encodeEPhPKjj.exit19:                     ; preds = %.lr.ph.i13
   store i64 0, ptr %5, align 4
   store i8 1, ptr %0, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %78
+  br label %79
 
-78:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit19, %1
+79:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit19, %1
   ret ptr %0
 }
 
@@ -359,8 +360,9 @@ define void @_ZN3MD56decodeEPjPKhj(ptr noundef writeonly captures(none) %0, ptr 
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
   %27 = or disjoint i32 %21, %26
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv16
-  store i32 %27, ptr %28, align 4, !tbaa !11
+  %28 = shl nuw nsw i64 %indvars.iv16, 2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
+  store i32 %27, ptr %29, align 4, !tbaa !11
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count
@@ -385,29 +387,30 @@ define void @_ZN3MD56encodeEPhPKjj(ptr noundef writeonly captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv22 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next23, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22
-  %8 = load i32, ptr %7, align 4, !tbaa !11
-  %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %9, ptr %10, align 1, !tbaa !24
-  %11 = load i32, ptr %7, align 4, !tbaa !11
-  %12 = lshr i32 %11, 8
-  %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store i8 %13, ptr %15, align 1, !tbaa !24
-  %16 = load i32, ptr %7, align 4, !tbaa !11
-  %17 = lshr i32 %16, 16
-  %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  store i8 %18, ptr %20, align 1, !tbaa !24
-  %21 = load i32, ptr %7, align 4, !tbaa !11
-  %22 = lshr i32 %21, 24
-  %23 = trunc nuw i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 3
-  store i8 %23, ptr %25, align 1, !tbaa !24
+  %7 = shl nuw nsw i64 %indvars.iv22, 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %10 = trunc i32 %9 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %10, ptr %11, align 1, !tbaa !24
+  %12 = load i32, ptr %8, align 4, !tbaa !11
+  %13 = lshr i32 %12, 8
+  %14 = trunc i32 %13 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 %14, ptr %16, align 1, !tbaa !24
+  %17 = load i32, ptr %8, align 4, !tbaa !11
+  %18 = lshr i32 %17, 16
+  %19 = trunc i32 %18 to i8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  store i8 %19, ptr %21, align 1, !tbaa !24
+  %22 = load i32, ptr %8, align 4, !tbaa !11
+  %23 = lshr i32 %22, 24
+  %24 = trunc nuw i32 %23 to i8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 3
+  store i8 %24, ptr %26, align 1, !tbaa !24
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count

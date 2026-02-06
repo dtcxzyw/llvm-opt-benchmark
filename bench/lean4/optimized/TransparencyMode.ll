@@ -11,15 +11,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i64 7, 18) i64 @l_Lean_Meta_TransparencyMode_hash(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = icmp ult i8 %0, 3
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %3
+  %3 = shl nuw nsw i8 %0, 3
+  %4 = zext nneg i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi i64 [ %switch.load, %switch.lookup ], [ 17, %1 ]
   ret i64 %.0
 }
@@ -55,29 +56,30 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br i1 %13, label %switch.lookup, label %l_Lean_Meta_TransparencyMode_hash.exit
 
 switch.lookup:                                    ; preds = %lean_dec.exit
-  %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %14
+  %14 = shl i64 %3, 3
+  %15 = and i64 %14, 24
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %l_Lean_Meta_TransparencyMode_hash.exit
 
 l_Lean_Meta_TransparencyMode_hash.exit:           ; preds = %lean_dec.exit, %switch.lookup
   %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 17, %lean_dec.exit ]
   tail call void @lean_inc_heartbeat() #4
-  %15 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %lean_box_uint64.exit
+  %16 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %lean_box_uint64.exit
 
-17:                                               ; preds = %l_Lean_Meta_TransparencyMode_hash.exit
+18:                                               ; preds = %l_Lean_Meta_TransparencyMode_hash.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 lean_box_uint64.exit:                             ; preds = %l_Lean_Meta_TransparencyMode_hash.exit
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 1, ptr %15, align 4, !tbaa !4
-  store i32 16, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.0.i, ptr %19, align 8, !tbaa !10
-  ret ptr %15
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 1, ptr %16, align 4, !tbaa !4
+  store i32 16, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %.0.i, ptr %20, align 8, !tbaa !10
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

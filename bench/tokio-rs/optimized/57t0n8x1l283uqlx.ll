@@ -360,15 +360,16 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17h9c00040c67
 
 "_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17haf3af6da6da89c41E.llvm.7688985788547768091.exit": ; preds = %7
   %15 = and i64 %9, 31
-  %16 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %10, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !41
-  %17 = shl nuw nsw i64 1, %15
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 1040
-  %19 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %18), !noalias !44
-  %20 = atomicrmw or ptr %19, i64 %17 release, align 8, !noalias !47
+  %16 = shl nuw nsw i64 %15, 5
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !41
+  %18 = shl nuw nsw i64 1, %15
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 1040
+  %20 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %19), !noalias !44
+  %21 = atomicrmw or ptr %20, i64 %18 release, align 8, !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !41
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %21), !noalias !41
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %22), !noalias !41
   ret void
 }
 
@@ -411,15 +412,16 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17haf3af6da
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17he6b629a43108f28fE.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %8, i64 %13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %15 = shl nuw nsw i64 1, %13
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 1040
-  %17 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %16), !noalias !50
-  %18 = atomicrmw or ptr %17, i64 %15 release, align 8, !noalias !53
+  %14 = shl nuw nsw i64 %13, 5
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %16 = shl nuw nsw i64 1, %13
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 1040
+  %18 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %17), !noalias !50
+  %19 = atomicrmw or ptr %18, i64 %16 release, align 8, !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %19)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE(ptr noundef nonnull align 8 %20)
   ret void
 }
 

@@ -61,13 +61,13 @@ define void @_ZN10open_spiel5oware10OwareBoardC2Eii(ptr noundef nonnull align 8 
   store ptr %6, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = shl nsw i32 %1, 1
-  %10 = sext i32 %9 to i64
+  %10 = zext i32 %9 to i64
   %11 = icmp slt i32 %1, 0
   br i1 %11, label %12, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 12:                                               ; preds = %.noexc
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #16
-          to label %.noexc8 unwind label %23
+          to label %.noexc8 unwind label %22
 
 .noexc8:                                          ; preds = %12
   unreachable
@@ -84,48 +84,47 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 14:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %10, 2
   %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #15
-          to label %.noexc9 unwind label %23
+          to label %.noexc9 unwind label %22
 
 .noexc9:                                          ; preds = %14
   store ptr %16, ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i.i5
 
 .lr.ph.i.i.i.i.i.i.i.i.i5:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i5, %.noexc9
-  %.06.i.i.i.i.i.i.i.i.i6 = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i5 ], [ %16, %.noexc9 ]
+  %.06.i.i.i.i.i.i.i.i.i6 = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i5 ], [ %16, %.noexc9 ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i.i.i6, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i6, i64 4
-  %.not.i.i.i.i.i.i.i.i.i7 = icmp eq ptr %21, %20
+  %20 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i6, i64 4
+  %.not.i.i.i.i.i.i.i.i.i7 = icmp eq ptr %20, %18
   br i1 %.not.i.i.i.i.i.i.i.i.i7, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i5, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i5, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %22 = phi ptr [ %13, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i5 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i5 ]
-  store ptr %.0.i.i.i.i.i.i.i, ptr %22, align 8
+  %21 = phi ptr [ %13, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i5 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i5 ]
+  store ptr %.0.i.i.i.i.i.i.i, ptr %21, align 8
   ret void
 
-23:                                               ; preds = %14, %12
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %14, %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %3, align 8
-  %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %26
+  %24 = load ptr, ptr %3, align 8
+  %.not.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %25
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %7, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %25 to i64
-  %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %30) #17
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %7, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %24 to i64
+  %29 = sub i64 %27, %28
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %29) #17
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %26, %23
-  resume { ptr, i32 } %24
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %25, %22
+  resume { ptr, i32 } %23
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -165,7 +164,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %16
   store ptr %20, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %2, align 8
@@ -214,7 +213,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i11: ; preds = %38
   store ptr %41, ptr %31, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 %37
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %37
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %3, align 8

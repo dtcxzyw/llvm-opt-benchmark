@@ -183,8 +183,9 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   %60 = fmul float %.sroa.05.0.vec.extract.i, %55
   %61 = fadd float %59, %60
   %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %61, i64 1
-  %62 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv
-  store <2 x float> %.sroa.010.4.vec.insert.i, ptr %62, align 8
+  %62 = shl nuw nsw i64 %indvars.iv, 3
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 %62
+  store <2 x float> %.sroa.010.4.vec.insert.i, ptr %63, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %17, label %22, !llvm.loop !35
@@ -335,23 +336,24 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %62, i64 %indvars.iv
-  %.sroa.07.0.copyload = load <2 x float>, ptr %66, align 8
+  %66 = shl nuw nsw i64 %indvars.iv, 3
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 %66
+  %.sroa.07.0.copyload = load <2 x float>, ptr %67, align 8
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.07.0.copyload, float noundef 5.000000e+00, i32 noundef 255)
-  %.sroa.05.0.copyload = load <2 x float>, ptr %66, align 8
+  %.sroa.05.0.copyload = load <2 x float>, ptr %67, align 8
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.05.0.copyload, i64 0
-  %67 = fadd float %.sroa.01.0.vec.extract.i, 0x3FB99999A0000000
-  %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %67, i64 0
+  %68 = fadd float %.sroa.01.0.vec.extract.i, 0x3FB99999A0000000
+  %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %68, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.05.0.copyload, i64 1
-  %68 = fadd float %.sroa.01.4.vec.extract.i, 0x3FB99999A0000000
-  %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %68, i64 1
-  %69 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i, ptr noundef nonnull @.str.6, i32 noundef %69)
+  %69 = fadd float %.sroa.01.4.vec.extract.i, 0x3FB99999A0000000
+  %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %69, i64 1
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i, ptr noundef nonnull @.str.6, i32 noundef %70)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %59, align 8, !tbaa !34
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %65, label %.preheader, !llvm.loop !44
+  %71 = load i32, ptr %59, align 8, !tbaa !34
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %65, label %.preheader, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -359,14 +361,15 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.lr.ph35 ], [ 0, %.preheader ]
-  %73 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv37
-  %.sroa.0.0.copyload = load <2 x float>, ptr %73, align 4
+  %74 = shl nuw nsw i64 %indvars.iv37, 3
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %74
+  %.sroa.0.0.copyload = load <2 x float>, ptr %75, align 4
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, float noundef 6.000000e+00, i32 noundef 32768)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %74 = load i32, ptr %57, align 4, !tbaa !41
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next38, %75
-  br i1 %76, label %.lr.ph35, label %._crit_edge, !llvm.loop !45
+  %76 = load i32, ptr %57, align 4, !tbaa !41
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next38, %77
+  br i1 %78, label %.lr.ph35, label %._crit_edge, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -68,26 +68,28 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %4, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @createsearcherstable.searchers, i64 %indvars.iv.i
+  %5 = phi ptr [ @searcher_preload, %1 ], [ %8, %4 ]
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #7
-  %6 = load ptr, ptr %5, align 8, !tbaa !4
-  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef %6, i32 noundef 1) #7
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %indvars.iv.next.i) #7
-  %.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %.not.i, label %createsearcherstable.exit, label %4
+  %6 = shl nuw nsw i64 %indvars.iv.next.i, 3
+  %7 = getelementptr inbounds nuw i8, ptr @createsearcherstable.searchers, i64 %6
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.i, label %createsearcherstable.exit, label %4
 
 createsearcherstable.exit:                        ; preds = %4
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.16) #7
   tail call fastcc void @setpath(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   tail call fastcc void @setpath(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
-  %7 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.6) #7
+  %9 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.6) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.7) #7
-  %8 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.8) #7
+  %10 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.8) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.9) #7
-  %9 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.10) #7
+  %11 = tail call i32 @luaL_getsubtable(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.10) #7
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11) #7
-  %10 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef -1001000, i64 noundef 2) #7
+  %12 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef -1001000, i64 noundef 2) #7
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #7
   tail call void @luaL_setfuncs(ptr noundef %0, ptr noundef nonnull @ll_funcs, i32 noundef 1) #7
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #7

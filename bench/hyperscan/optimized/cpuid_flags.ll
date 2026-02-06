@@ -86,29 +86,34 @@ define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
 
 11:                                               ; preds = %0, %7
   %.015 = phi i32 [ %10, %7 ], [ %6, %0 ]
-  %.not = icmp eq i32 %4, 6
-  br i1 %.not, label %.split.us, label %.loopexit
+  br label %12
 
-.split.us:                                        ; preds = %11, %15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %11 ]
-  %12 = getelementptr inbounds nuw %struct.family_id, ptr @known_microarch, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4
-  %.not17.us = icmp eq i32 %.015, %14
-  br i1 %.not17.us, label %.split20.us, label %15
+12:                                               ; preds = %11, %22
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %22 ]
+  %13 = mul nuw nsw i64 %indvars.iv, 12
+  %14 = getelementptr inbounds nuw i8, ptr @known_microarch, i64 %13
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp eq i32 %4, %15
+  br i1 %.not, label %16, label %22
 
-15:                                               ; preds = %.split.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond, label %.loopexit, label %.split.us
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4
+  %.not17 = icmp eq i32 %.015, %18
+  br i1 %.not17, label %19, label %22
 
-.split20.us:                                      ; preds = %.split.us
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load i32, ptr %16, align 4
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %21 = load i32, ptr %20, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %11, %.split20.us
-  %spec.select = phi i32 [ %17, %.split20.us ], [ 0, %11 ], [ 0, %15 ]
+22:                                               ; preds = %16, %12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, 29
+  br i1 %exitcond, label %.loopexit, label %12
+
+.loopexit:                                        ; preds = %22, %19
+  %spec.select = phi i32 [ %21, %19 ], [ 0, %22 ]
   ret i32 %spec.select
 }
 

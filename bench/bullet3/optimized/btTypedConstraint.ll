@@ -304,7 +304,7 @@ define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btS
   %wide.trip.count = zext nneg i32 %63 to i64
   br label %73
 
-.preheader:                                       ; preds = %78, %30
+.preheader:                                       ; preds = %79, %30
   %67 = load ptr, ptr %10, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 604
   %69 = load i32, ptr %68, align 4, !tbaa !48
@@ -315,41 +315,43 @@ define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btS
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 616
   %72 = load ptr, ptr %71, align 8, !tbaa !52
   %wide.trip.count37 = zext nneg i32 %69 to i64
+  br label %80
+
+73:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %74 = shl nuw nsw i64 %indvars.iv, 3
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !53
+  %77 = icmp eq ptr %76, %0
+  br i1 %77, label %78, label %79
+
+78:                                               ; preds = %73
+  store i32 1, ptr %60, align 8, !tbaa !47
   br label %79
 
-73:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
-  %75 = load ptr, ptr %74, align 8, !tbaa !53
-  %76 = icmp eq ptr %75, %0
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %73
-  store i32 1, ptr %60, align 8, !tbaa !47
-  br label %78
-
-78:                                               ; preds = %73, %77
+79:                                               ; preds = %73, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %73, !llvm.loop !55
 
-79:                                               ; preds = %.lr.ph32, %84
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next35, %84 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv34
-  %81 = load ptr, ptr %80, align 8, !tbaa !53
-  %82 = icmp eq ptr %81, %0
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %.lr.ph32, %86
+  %indvars.iv34 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next35, %86 ]
+  %81 = shl nuw nsw i64 %indvars.iv34, 3
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 %81
+  %83 = load ptr, ptr %82, align 8, !tbaa !53
+  %84 = icmp eq ptr %83, %0
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %79
+85:                                               ; preds = %80
   store i32 1, ptr %60, align 8, !tbaa !47
-  br label %84
+  br label %86
 
-84:                                               ; preds = %79, %83
+86:                                               ; preds = %80, %85
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %79, !llvm.loop !57
+  br i1 %exitcond38.not, label %._crit_edge, label %80, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %84, %.preheader
+._crit_edge:                                      ; preds = %86, %.preheader
   ret ptr @.str
 }
 

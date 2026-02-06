@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigaction = type { %union.anon.6, %struct.__sigset_t, i32, ptr }
 %union.anon.6 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.GDBProcess = type { i32, i8, ptr }
 
 @gdbserver_system_state = dso_local global %struct.GDBSystemState zeroinitializer, align 8
 @gdbserver_state = external global %struct.GDBState, align 8
@@ -745,7 +744,7 @@ define internal void @gdb_chr_receive(ptr readnone captures(none) %0, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %1) #2 {
   %cond = icmp eq i32 %1, 1
-  br i1 %cond, label %.preheader, label %19
+  br i1 %cond, label %.preheader, label %20
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4168
@@ -761,27 +760,28 @@ define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %struct.GDBProcess, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = zext i1 %.not to i8
-  store i8 %11, ptr %10, align 4
+  %9 = shl nuw nsw i64 %indvars.iv, 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = zext i1 %.not to i8
+  store i8 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %3, align 8
-  %13 = sext i32 %12 to i64
-  %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !11
+  %13 = load i32, ptr %3, align 8
+  %14 = sext i32 %13 to i64
+  %15 = icmp slt i64 %indvars.iv.next, %14
+  br i1 %15, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7, %.preheader
-  %15 = tail call ptr @gdb_first_attached_cpu() #16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %17, align 8
-  %18 = tail call i32 @vm_stop(i32 noundef 4) #16
+  %16 = tail call ptr @gdb_first_attached_cpu() #16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %18, align 8
+  %19 = tail call i32 @vm_stop(i32 noundef 4) #16
   tail call void @replay_gdb_attached() #16
-  br label %19
+  br label %20
 
-19:                                               ; preds = %2, %._crit_edge
+20:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -1463,7 +1463,7 @@ declare ptr @object_get_root() local_unnamed_addr #3
 define internal i32 @find_cpu_clusters(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call ptr @object_dynamic_cast(ptr noundef %0, ptr noundef nonnull @.str.41) #16
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %24, label %4
+  br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, i32 noundef 58, ptr noundef nonnull @__func__.CPU_CLUSTER) #16
@@ -1489,21 +1489,22 @@ define internal i32 @find_cpu_clusters(ptr noundef %0, ptr noundef %1) #2 {
   %17 = load i32, ptr %6, align 8
   %18 = add i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.GDBProcess, ptr %12, i64 %19
-  %21 = add nuw i32 %14, 1
-  store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr null, ptr %23, align 8
-  br label %26
+  %20 = shl nsw i64 %19, 4
+  %21 = getelementptr inbounds i8, ptr %12, i64 %20
+  %22 = add nuw i32 %14, 1
+  store i32 %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i8 0, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr null, ptr %24, align 8
+  br label %27
 
-24:                                               ; preds = %2
-  %25 = tail call i32 @object_child_foreach(ptr noundef %0, ptr noundef nonnull @find_cpu_clusters, ptr noundef %1) #16
-  br label %26
+25:                                               ; preds = %2
+  %26 = tail call i32 @object_child_foreach(ptr noundef %0, ptr noundef nonnull @find_cpu_clusters, ptr noundef %1) #16
+  br label %27
 
-26:                                               ; preds = %24, %16
-  %.0 = phi i32 [ 0, %16 ], [ %25, %24 ]
+27:                                               ; preds = %25, %16
+  %.0 = phi i32 [ 0, %16 ], [ %26, %25 ]
   ret i32 %.0
 }
 

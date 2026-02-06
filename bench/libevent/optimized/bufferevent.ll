@@ -578,12 +578,12 @@ define range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %0) local
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %8 = load ptr, ptr %7, align 8
   %.not38 = icmp eq ptr %8, null
-  br i1 %.not38, label %53, label %9
+  br i1 %.not38, label %55, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %11 = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %8) #7
-  br label %53
+  br label %55
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -626,32 +626,34 @@ define range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %0) local
   %.029 = phi i32 [ 3, %18 ], [ 4, %29 ], [ 3, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %.029 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %34
-  %36 = sub nuw nsw i32 16, %.029
-  %37 = call i32 @evbuffer_get_callbacks_(ptr noundef %33, ptr noundef nonnull %35, i32 noundef %36) #7
-  %38 = add nsw i32 %37, %.029
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %40 = load ptr, ptr %39, align 8
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %41
-  %43 = sub nsw i32 16, %38
-  %44 = call i32 @evbuffer_get_callbacks_(ptr noundef %40, ptr noundef nonnull %42, i32 noundef %43) #7
-  %45 = add nsw i32 %44, %38
-  %46 = load ptr, ptr %0, align 8
-  %47 = call i32 @event_callback_finalize_many_(ptr noundef %46, i32 noundef %45, ptr noundef nonnull %2, ptr noundef nonnull @bufferevent_finalize_cb_) #7
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %49 = load ptr, ptr %48, align 8
-  %.not37 = icmp eq ptr %49, null
-  br i1 %.not37, label %53, label %50
+  %34 = shl nuw nsw i32 %.029, 3
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %35
+  %37 = sub nuw nsw i32 16, %.029
+  %38 = call i32 @evbuffer_get_callbacks_(ptr noundef %33, ptr noundef nonnull %36, i32 noundef %37) #7
+  %39 = add nsw i32 %38, %.029
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %41 = load ptr, ptr %40, align 8
+  %42 = sext i32 %39 to i64
+  %43 = shl nsw i64 %42, 3
+  %44 = getelementptr inbounds i8, ptr %2, i64 %43
+  %45 = sub nsw i32 16, %39
+  %46 = call i32 @evbuffer_get_callbacks_(ptr noundef %41, ptr noundef nonnull %44, i32 noundef %45) #7
+  %47 = add nsw i32 %46, %39
+  %48 = load ptr, ptr %0, align 8
+  %49 = call i32 @event_callback_finalize_many_(ptr noundef %48, i32 noundef %47, ptr noundef nonnull %2, ptr noundef nonnull @bufferevent_finalize_cb_) #7
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %51 = load ptr, ptr %50, align 8
+  %.not37 = icmp eq ptr %51, null
+  br i1 %.not37, label %55, label %52
 
-50:                                               ; preds = %31
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %52 = call i32 %51(i32 noundef 0, ptr noundef nonnull %49) #7
-  br label %53
+52:                                               ; preds = %31
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %54 = call i32 %53(i32 noundef 0, ptr noundef nonnull %51) #7
+  br label %55
 
-53:                                               ; preds = %31, %50, %6, %9
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %50 ], [ 1, %31 ]
+55:                                               ; preds = %31, %52, %6, %9
+  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %52 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

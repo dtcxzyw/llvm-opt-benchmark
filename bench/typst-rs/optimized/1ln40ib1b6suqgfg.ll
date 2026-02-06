@@ -1106,14 +1106,16 @@ define hidden void @_ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a23
 define hidden noundef zeroext i1 @"_ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !78, !noundef !17
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927", i64 %3
+  %3 = shl nuw nsw i8 %2, 3
+  %4 = zext nneg i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927.4", i64 %4
+  %5 = shl nuw nsw i8 %2, 3
+  %6 = zext nneg i8 %5 to i64
+  %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927.4", i64 %6
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %5
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %7
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -1464,8 +1466,8 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %27 = getelementptr i8, ptr %26, i64 16
   store i8 %20, ptr %27, align 1, !noalias !100
   %28 = load ptr, ptr %5, align 8, !alias.scope !107, !noalias !100, !nonnull !17, !noundef !17
-  %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %29 = mul i64 %10, -48
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1529,8 +1531,8 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %27 = getelementptr i8, ptr %26, i64 16
   store i8 %20, ptr %27, align 1, !noalias !108
   %28 = load ptr, ptr %5, align 8, !alias.scope !115, !noalias !108, !nonnull !17, !noundef !17
-  %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %29 = mul i64 %10, -48
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1594,8 +1596,8 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %27 = getelementptr i8, ptr %26, i64 16
   store i8 %20, ptr %27, align 1, !noalias !116
   %28 = load ptr, ptr %5, align 8, !alias.scope !123, !noalias !116, !nonnull !17, !noundef !17
-  %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %29 = mul i64 %10, -48
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16

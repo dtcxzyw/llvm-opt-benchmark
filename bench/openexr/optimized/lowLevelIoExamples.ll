@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.C_IStream = type { %"class.Imf_3_4::IStream", ptr }
 %"class.Imf_3_4::IStream" = type { ptr, %"class.std::__cxx11::basic_string" }
 %"class.Imf_3_4::RgbaInputFile" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string" }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -328,15 +326,15 @@ define dso_local void @_Z12readRgbaFILEP8_IO_FILEPKcRN7Imf_3_47Array2DINS3_4Rgba
   store ptr %0, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = invoke noundef i32 @_ZN7Imf_3_417globalThreadCountEv()
-          to label %10 unwind label %48
+          to label %10 unwind label %46
 
 10:                                               ; preds = %5
   invoke void @_ZN7Imf_3_413RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %9)
-          to label %11 unwind label %48
+          to label %11 unwind label %46
 
 11:                                               ; preds = %10
   %12 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_413RgbaInputFile10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %13 unwind label %50
+          to label %13 unwind label %48
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4, !tbaa !24
@@ -360,7 +358,7 @@ define dso_local void @_Z12readRgbaFILEP8_IO_FILEPKcRN7Imf_3_47Array2DINS3_4Rgba
   %29 = shl nuw i64 %27, 3
   %30 = select i1 %28, i64 -1, i64 %29
   %31 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %30) #20
-          to label %.noexc unwind label %50
+          to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %13
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -371,50 +369,50 @@ define dso_local void @_Z12readRgbaFILEP8_IO_FILEPKcRN7Imf_3_47Array2DINS3_4Rgba
 35:                                               ; preds = %.noexc
   call void @_ZdaPv(ptr noundef nonnull %33) #21
   %.pre = load i32, ptr %3, align 4, !tbaa !28
-  %.pre17 = sext i32 %.pre to i64
+  %.pre19 = sext i32 %.pre to i64
   br label %36
 
 36:                                               ; preds = %35, %.noexc
-  %.pre-phi = phi i64 [ %.pre17, %35 ], [ %26, %.noexc ]
+  %.pre-phi = phi i64 [ %.pre19, %35 ], [ %26, %.noexc ]
   %37 = phi i32 [ %.pre, %35 ], [ %25, %.noexc ]
   store i64 %24, ptr %2, align 8, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %26, ptr %38, align 8, !tbaa !33
   store ptr %31, ptr %32, align 8, !tbaa !29
   %39 = sext i32 %14 to i64
-  %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %31, i64 %40
-  %42 = mul nsw i32 %37, %16
-  %43 = sext i32 %42 to i64
-  %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %44
-  invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %45, i64 noundef 1, i64 noundef %.pre-phi)
-          to label %46 unwind label %50
+  %.neg = mul nsw i64 %39, -8
+  %40 = getelementptr inbounds i8, ptr %31, i64 %.neg
+  %41 = mul nsw i32 %37, %16
+  %42 = sext i32 %41 to i64
+  %.neg12 = mul nsw i64 %42, -8
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.neg12
+  invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %43, i64 noundef 1, i64 noundef %.pre-phi)
+          to label %44 unwind label %48
 
-46:                                               ; preds = %36
+44:                                               ; preds = %36
   invoke void @_ZN7Imf_3_413RgbaInputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %16, i32 noundef %20)
-          to label %47 unwind label %50
+          to label %45 unwind label %48
 
-47:                                               ; preds = %46
+45:                                               ; preds = %44
   call void @_ZN7Imf_3_413RgbaInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7Imf_3_47IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-48:                                               ; preds = %10, %5
+46:                                               ; preds = %10, %5
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  br label %50
+
+48:                                               ; preds = %13, %44, %36, %11
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %52
-
-50:                                               ; preds = %13, %46, %36, %11
-  %51 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN7Imf_3_413RgbaInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
-  br label %52
+  br label %50
 
-52:                                               ; preds = %50, %48
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
+50:                                               ; preds = %48, %46
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7Imf_3_47IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

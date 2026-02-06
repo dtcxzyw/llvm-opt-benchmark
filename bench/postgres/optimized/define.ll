@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/define.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [24 x i8] c"%s requires a parameter\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"define.c\00", align 1
 @__func__.defGetString = private unnamed_addr constant [13 x i8] c"defGetString\00", align 1
@@ -599,19 +597,20 @@ define dso_local nonnull ptr @defGetStringList(ptr noundef readonly captures(non
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, 467
-  br i1 %27, label %22, label %28
+  %24 = shl nuw nsw i64 %indvars.iv, 3
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %24
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 467
+  br i1 %28, label %22, label %29
 
 .critedge:                                        ; preds = %22, %.preheader
   ret ptr %3
 
-28:                                               ; preds = %23
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  %30 = load i32, ptr %25, align 4
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %30) #6
+29:                                               ; preds = %23
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %31 = load i32, ptr %26, align 4
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %31) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.defGetStringList) #6
   unreachable
 }

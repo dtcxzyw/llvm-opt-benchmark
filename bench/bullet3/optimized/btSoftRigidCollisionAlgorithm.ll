@@ -75,40 +75,41 @@ define dso_local void @_ZN29btSoftRigidCollisionAlgorithm16processCollisionEPK24
   %wide.trip.count.i = zext nneg i32 %14 to i64
   br label %18
 
-18:                                               ; preds = %22, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
-  %21 = icmp eq ptr %20, %12
-  br i1 %21, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %22
+18:                                               ; preds = %23, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
+  %19 = shl nuw nsw i64 %indvars.iv.i, 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %22 = icmp eq ptr %21, %12
+  br i1 %22, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %23
 
-22:                                               ; preds = %18
+23:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread, label %18, !llvm.loop !29
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %18
-  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %24 = icmp eq i32 %14, %23
-  br i1 %24, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread, label %32
+  %24 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %25 = icmp eq i32 %14, %24
+  br i1 %25, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread, label %33
 
-_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread: ; preds = %22, %5, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 408
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
-  %27 = load ptr, ptr %26, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull %10, ptr noundef nonnull %.)
-          to label %32 unwind label %30
+_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread: ; preds = %23, %5, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 408
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %28 = load ptr, ptr %27, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %30 = load ptr, ptr %29, align 8
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull %10, ptr noundef nonnull %.)
+          to label %33 unwind label %31
 
-30:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %32
 
-32:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
+33:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.thread, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

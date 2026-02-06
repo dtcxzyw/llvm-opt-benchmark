@@ -101,57 +101,59 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %6
 
-.preheader:                                       ; preds = %11
+.preheader:                                       ; preds = %12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  br label %13
+
+6:                                                ; preds = %2, %12
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
+  %7 = shl nuw nsw i64 %indvars.iv, 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %.not19 = icmp eq ptr %9, null
+  br i1 %.not19, label %12, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store i32 %1, ptr %11, align 4, !tbaa !42
   br label %12
 
-6:                                                ; preds = %2, %11
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  %.not19 = icmp eq ptr %8, null
-  br i1 %.not19, label %11, label %9
-
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i32 %1, ptr %10, align 4, !tbaa !42
-  br label %11
-
-11:                                               ; preds = %6, %9
+12:                                               ; preds = %6, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !44
 
-12:                                               ; preds = %.preheader, %22
-  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %22 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv23
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %17, label %15
+13:                                               ; preds = %.preheader, %24
+  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %24 ]
+  %14 = shl nuw nsw i64 %indvars.iv23, 3
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %19, label %17
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 276
-  store i32 %1, ptr %16, align 4, !tbaa !46
-  br label %17
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 276
+  store i32 %1, ptr %18, align 4, !tbaa !46
+  br label %19
 
-17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv23
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
-  %.not18 = icmp eq ptr %19, null
-  br i1 %.not18, label %22, label %20
+19:                                               ; preds = %17, %13
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %14
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %.not18 = icmp eq ptr %21, null
+  br i1 %.not18, label %24, label %22
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 276
-  store i32 %1, ptr %21, align 4, !tbaa !46
-  br label %22
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 276
+  store i32 %1, ptr %23, align 4, !tbaa !46
+  br label %24
 
-22:                                               ; preds = %17, %20
+24:                                               ; preds = %19, %22
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !48
+  br i1 %exitcond26.not, label %25, label %13, !llvm.loop !48
 
-23:                                               ; preds = %22
+25:                                               ; preds = %24
   ret void
 }
 

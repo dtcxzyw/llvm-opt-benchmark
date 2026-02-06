@@ -105,8 +105,8 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly c
   %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.2, ptr noundef %31) #9
   br label %._crit_edge.thread
 
-34:                                               ; preds = %.lr.ph, %91
-  %.04085 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
+34:                                               ; preds = %.lr.ph, %93
+  %.04085 = phi i32 [ 0, %.lr.ph ], [ %94, %93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -193,66 +193,68 @@ hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 switch.lookup:                                    ; preds = %70
-  %74 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hwloc_cuda_discover, i64 %74
+  %74 = shl nuw nsw i32 %66, 2
+  %75 = zext nneg i32 %74 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.hwloc_cuda_discover, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 switch.lookup91:                                  ; preds = %72
-  %75 = zext nneg i32 %66 to i64
-  %switch.gep92 = getelementptr inbounds nuw i32, ptr @switch.table.hwloc_cuda_discover.3, i64 %75
+  %76 = shl nuw nsw i32 %66, 2
+  %77 = zext nneg i32 %76 to i64
+  %switch.gep92 = getelementptr inbounds nuw i8, ptr @switch.table.hwloc_cuda_discover.3, i64 %77
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup91, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %69, %67
   %.0.i59 = phi i32 [ 32, %68 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load, %switch.lookup ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ 192, %52 ], [ 128, %69 ], [ 8, %67 ]
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
-  %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
+  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
+  %79 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60
 
 hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, %52, %hwloc_cuda_cores_per_MP.exit.thread
-  %78 = load i64, ptr %23, align 8, !tbaa !37
-  %79 = lshr i64 %78, 10
-  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %79) #8
-  %81 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %7) #8
+  %80 = load i64, ptr %23, align 8, !tbaa !37
+  %81 = lshr i64 %80, 10
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %81) #8
+  %83 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %82 = call i32 @cudaGetDeviceProperties_v2(ptr noundef nonnull %3, i32 noundef %.04085) #8
-  %.not.i = icmp eq i32 %82, 0
-  br i1 %.not.i, label %84, label %.thread
+  %84 = call i32 @cudaGetDeviceProperties_v2(ptr noundef nonnull %3, i32 noundef %.04085) #8
+  %.not.i = icmp eq i32 %84, 0
+  br i1 %.not.i, label %86, label %.thread
 
 .thread:                                          ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
-  %83 = tail call ptr @__errno_location() #10
-  store i32 38, ptr %83, align 4, !tbaa !14
+  %85 = tail call ptr @__errno_location() #10
+  store i32 38, ptr %85, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %89
-
-84:                                               ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
-  %85 = load i32, ptr %24, align 8, !tbaa !38
-  %86 = load i32, ptr %25, align 8, !tbaa !39
-  %87 = load i32, ptr %26, align 4, !tbaa !40
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %88 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %10, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef 0) #8
-  %.not46 = icmp eq ptr %88, null
-  br i1 %.not46, label %89, label %91
-
-89:                                               ; preds = %.thread, %84
-  %90 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
   br label %91
 
-91:                                               ; preds = %89, %84
-  %.1 = phi ptr [ %88, %84 ], [ %90, %89 ]
+86:                                               ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
+  %87 = load i32, ptr %24, align 8, !tbaa !38
+  %88 = load i32, ptr %25, align 8, !tbaa !39
+  %89 = load i32, ptr %26, align 4, !tbaa !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %90 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %10, i32 noundef %87, i32 noundef %88, i32 noundef %89, i32 noundef 0) #8
+  %.not46 = icmp eq ptr %90, null
+  br i1 %.not46, label %91, label %93
+
+91:                                               ; preds = %.thread, %86
+  %92 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
+  br label %93
+
+93:                                               ; preds = %91, %86
+  %.1 = phi ptr [ %90, %86 ], [ %92, %91 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %10, ptr noundef %.1, ptr noundef nonnull %35) #8
-  %92 = add nuw nsw i32 %.04085, 1
+  %94 = add nuw nsw i32 %.04085, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %93 = load i32, ptr %5, align 4, !tbaa !14
-  %94 = icmp slt i32 %92, %93
-  br i1 %94, label %34, label %._crit_edge, !llvm.loop !41
+  %95 = load i32, ptr %5, align 4, !tbaa !14
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %34, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %91
-  %95 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
-  %96 = call i32 @hwloc_modify_infos(ptr noundef %95, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
+._crit_edge:                                      ; preds = %93
+  %97 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
+  %98 = call i32 @hwloc_modify_infos(ptr noundef %97, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %27, %30, %14, %2

@@ -3,7 +3,6 @@ source_filename = "bench/portaudio/original/pa_sndio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PaDeviceInfo = type { i32, ptr, i32, i32, i32, double, double, double, double, double }
 %struct.sio_par = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [3 x i32], i32 }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.PaStreamCallbackTimeInfo = type { double, double, double }
@@ -21,7 +20,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   store ptr null, ptr %0, align 8, !tbaa !3
   %4 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 1552) #17
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %55, label %6
+  br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -57,7 +56,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   %21 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #17
   store ptr %21, ptr %18, align 8, !tbaa !24
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %55, label %23
+  br i1 %22, label %57, label %23
 
 23:                                               ; preds = %20
   store ptr %21, ptr %3, align 8, !tbaa !32
@@ -68,7 +67,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br label %.loopexit
 
 .outer.split:                                     ; preds = %23, %.outer
-  %.1.ph46 = phi i64 [ 1, %23 ], [ %41, %.outer ]
+  %.1.ph46 = phi i64 [ 1, %23 ], [ %43, %.outer ]
   br label %25
 
 25:                                               ; preds = %.outer.split, %27
@@ -82,66 +81,68 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br i1 %29, label %25, label %.outer, !llvm.loop !34
 
 .outer:                                           ; preds = %27
-  %30 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %7, i64 %.1.ph46
-  store i32 2, ptr %30, align 8, !tbaa !8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %26, ptr %31, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i32 %1, ptr %32, align 8, !tbaa !14
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  store i32 128, ptr %33, align 4, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i32 128, ptr %34, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store double 1.000000e-02, ptr %35, align 8, !tbaa !17
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store double 1.000000e-02, ptr %36, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store double 5.000000e-01, ptr %37, align 8, !tbaa !19
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store double 5.000000e-01, ptr %38, align 8, !tbaa !20
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  store double 4.800000e+04, ptr %39, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw ptr, ptr %17, i64 %.1.ph46
-  store ptr %30, ptr %40, align 8, !tbaa !22
-  %41 = add nuw nsw i64 %.1.ph46, 1
-  %exitcond.not = icmp eq i64 %41, 16
+  %30 = mul nuw nsw i64 %.1.ph46, 72
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %30
+  store i32 2, ptr %31, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %26, ptr %32, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i32 %1, ptr %33, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  store i32 128, ptr %34, align 4, !tbaa !15
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store i32 128, ptr %35, align 8, !tbaa !16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store double 1.000000e-02, ptr %36, align 8, !tbaa !17
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store double 1.000000e-02, ptr %37, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store double 5.000000e-01, ptr %38, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store double 5.000000e-01, ptr %39, align 8, !tbaa !20
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  store double 4.800000e+04, ptr %40, align 8, !tbaa !21
+  %41 = shl nuw nsw i64 %.1.ph46, 3
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 %41
+  store ptr %31, ptr %42, align 8, !tbaa !22
+  %43 = add nuw nsw i64 %.1.ph46, 1
+  %exitcond.not = icmp eq i64 %43, 16
   br i1 %exitcond.not, label %.outer.split.us, label %.outer.split, !llvm.loop !34
 
 .loopexit.loopexit:                               ; preds = %25
-  %42 = trunc nuw nsw i64 %.1.ph46 to i32
+  %44 = trunc nuw nsw i64 %.1.ph46 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.outer.split.us, %6
-  %.0 = phi i32 [ 1, %6 ], [ 16, %.outer.split.us ], [ %42, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 1, %6 ], [ 16, %.outer.split.us ], [ %44, %.loopexit.loopexit ]
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %43, align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 17, ptr %44, align 4, !tbaa !37
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.3, ptr %45, align 8, !tbaa !38
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %.0, ptr %46, align 8, !tbaa !39
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %47, align 4, !tbaa !40
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %48, align 8, !tbaa !41
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %17, ptr %49, align 8, !tbaa !42
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @Terminate, ptr %50, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @OpenStream, ptr %51, align 8, !tbaa !44
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @IsFormatSupported, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %53, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #17
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %54, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #17
-  br label %55
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1, ptr %45, align 8, !tbaa !36
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 17, ptr %46, align 4, !tbaa !37
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @.str.3, ptr %47, align 8, !tbaa !38
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %.0, ptr %48, align 8, !tbaa !39
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 0, ptr %49, align 4, !tbaa !40
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 0, ptr %50, align 8, !tbaa !41
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %17, ptr %51, align 8, !tbaa !42
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr @Terminate, ptr %52, align 8, !tbaa !43
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr @OpenStream, ptr %53, align 8, !tbaa !44
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr @IsFormatSupported, ptr %54, align 8, !tbaa !45
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %55, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #17
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %56, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #17
+  br label %57
 
-55:                                               ; preds = %20, %2, %.loopexit
+57:                                               ; preds = %20, %2, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
@@ -358,9 +359,10 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 84:                                               ; preds = %83
   %.mux = select i1 %.not, ptr %3, ptr %2
-  %.pn115.in = load i32, ptr %.mux, align 8, !tbaa !48
-  %.pn115 = sext i32 %.pn115.in to i64
-  %.pn = getelementptr %struct.PaDeviceInfo, ptr %0, i64 %.pn115
+  %.pn115.in.in = load i32, ptr %.mux, align 8, !tbaa !48
+  %.pn115.in = sext i32 %.pn115.in.in to i64
+  %.pn115 = mul nsw i64 %.pn115.in, 72
+  %.pn = getelementptr i8, ptr %0, i64 %.pn115
   %.0.in = getelementptr i8, ptr %.pn, i64 272
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13
   %85 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #17

@@ -238,52 +238,53 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %9 = load i32, ptr %8, align 8, !tbaa !16
   %.not = icmp sgt i32 %5, %9
-  br i1 %.not, label %15, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
-  br label %28
+  br label %26
 
-15:                                               ; preds = %7, %2
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  %.not42 = icmp eq ptr %17, null
-  br i1 %.not42, label %.thread, label %18
+14:                                               ; preds = %7, %2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %.not42 = icmp eq ptr %16, null
+  br i1 %.not42, label %.thread, label %17
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %20 = load i32, ptr %19, align 8, !tbaa !28
-  %.not43 = icmp slt i32 %5, %20
-  br i1 %.not43, label %.thread, label %21
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %19 = load i32, ptr %18, align 8, !tbaa !28
+  %.not43 = icmp slt i32 %5, %19
+  br i1 %.not43, label %.thread, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %23 = load i32, ptr %22, align 4, !tbaa !29
-  %.not44 = icmp sgt i32 %5, %23
-  br i1 %.not44, label %.thread, label %24
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 164
+  %22 = load i32, ptr %21, align 4, !tbaa !29
+  %.not44 = icmp sgt i32 %5, %22
+  br i1 %.not44, label %.thread, label %23
 
-24:                                               ; preds = %21
-  %25 = sub nsw i32 %5, %20
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %17, i64 %26
-  br label %28
+23:                                               ; preds = %20
+  %24 = sub nsw i32 %5, %19
+  %25 = sext i32 %24 to i64
+  br label %26
 
-28:                                               ; preds = %24, %10
-  %.036.in = phi ptr [ %14, %10 ], [ %27, %24 ]
-  %.036 = load ptr, ptr %.036.in, align 8, !tbaa !30
+26:                                               ; preds = %23, %10
+  %.sink55 = phi i64 [ %25, %23 ], [ %13, %10 ]
+  %.sink = phi ptr [ %16, %23 ], [ %12, %10 ]
+  %27 = shl nsw i64 %.sink55, 3
+  %28 = getelementptr inbounds i8, ptr %.sink, i64 %27
+  %.036 = load ptr, ptr %28, align 8, !tbaa !30
   %29 = icmp eq ptr %.036, null
   br i1 %29, label %.thread, label %34
 
-.thread:                                          ; preds = %15, %18, %21, %28
+.thread:                                          ; preds = %14, %17, %20, %26
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %5, ptr %30, align 4, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -291,8 +292,8 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   %33 = load ptr, ptr %32, align 8, !tbaa !30
   br label %34
 
-34:                                               ; preds = %.thread, %28
-  %.1 = phi ptr [ %33, %.thread ], [ %.036, %28 ]
+34:                                               ; preds = %.thread, %26
+  %.1 = phi ptr [ %33, %.thread ], [ %.036, %26 ]
   br label %35
 
 35:                                               ; preds = %35, %34

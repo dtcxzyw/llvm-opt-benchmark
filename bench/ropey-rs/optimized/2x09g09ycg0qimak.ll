@@ -210,10 +210,12 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   unreachable
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds { [4 x i64] }, ptr %0, i64 %9
-  %20 = getelementptr inbounds { [4 x i64] }, ptr %0, i64 %4
-  %21 = shl i64 %11, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %19, i64 %21, i1 false)
+  %19 = shl nsw i64 %9, 5
+  %20 = getelementptr inbounds i8, ptr %0, i64 %19
+  %21 = shl nsw i64 %4, 5
+  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %23 = shl i64 %11, 5
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 8 %20, i64 %23, i1 false)
   ret void
 }
 
@@ -279,22 +281,23 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..inner..NodeChildrenInternal$GT$17haf21cb8a7decc8feE"(ptr noalias noundef nonnull align 8 dereferenceable(968) %3) #16
-          to label %25 unwind label %23
+          to label %27 unwind label %25
 
 .lr.ph:                                           ; preds = %.preheader, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
-  %.sroa.8.061 = phi i64 [ %22, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit" ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sroa.8.061
-  %.val = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
-  %14 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
-  %15 = icmp slt i64 %14, 0
-  br i1 %15, label %16, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
+  %.sroa.8.061 = phi i64 [ %24, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit" ], [ 0, %.preheader ]
+  %13 = shl nsw i64 %.sroa.8.061, 3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %.val = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
+  %15 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
+  %16 = icmp slt i64 %15, 0
+  br i1 %16, label %17, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
 
-16:                                               ; preds = %.lr.ph
+17:                                               ; preds = %.lr.ph
   tail call void @llvm.trap()
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 192
   br label %.lr.ph64
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader
@@ -304,28 +307,29 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   ret void
 
 .lr.ph64:                                         ; preds = %._crit_edge, %.lr.ph64
-  %.sroa.851.062 = phi i64 [ %18, %.lr.ph64 ], [ 0, %._crit_edge ]
-  %18 = add nuw nsw i64 %.sroa.851.062, 1
-  %19 = getelementptr inbounds nuw { [4 x i64] }, ptr %4, i64 %.sroa.851.062
-  %20 = getelementptr inbounds nuw { [4 x i64] }, ptr %17, i64 %.sroa.851.062
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %exitcond67.not = icmp eq i64 %18, %8
+  %.sroa.851.062 = phi i64 [ %19, %.lr.ph64 ], [ 0, %._crit_edge ]
+  %19 = add nuw nsw i64 %.sroa.851.062, 1
+  %20 = shl nsw i64 %.sroa.851.062, 5
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
+  %exitcond67.not = icmp eq i64 %19, %8
   br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit": ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %.sroa.8.061
-  %22 = add nuw nsw i64 %.sroa.8.061, 1
-  store ptr %.val, ptr %21, align 8
-  %exitcond.not = icmp eq i64 %22, %8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  %24 = add nuw nsw i64 %.sroa.8.061, 1
+  store ptr %.val, ptr %23, align 8
+  %exitcond.not = icmp eq i64 %24, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %11
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %11
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #17
   unreachable
 
-25:                                               ; preds = %11
+27:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 

@@ -287,43 +287,48 @@ define void @_ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %4, align 4, !tbaa !14
   %5 = icmp ult i32 %1, 3
-  br i1 %5, label %switch.lookup, label %18
+  br i1 %5, label %switch.lookup, label %23
 
 switch.lookup:                                    ; preds = %2
-  %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE, i64 %6
+  %6 = shl nuw nsw i32 %1, 2
+  %7 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
-  %7 = zext nneg i32 %1 to i64
-  %switch.gep17 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.1, i64 %7
+  %8 = shl nuw nsw i32 %1, 2
+  %9 = zext nneg i32 %8 to i64
+  %switch.gep17 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.1, i64 %9
   %switch.load18 = load i32, ptr %switch.gep17, align 4
-  %8 = zext nneg i32 %1 to i64
-  %switch.gep19 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.2, i64 %8
+  %10 = shl nuw nsw i32 %1, 3
+  %11 = zext nneg i32 %10 to i64
+  %switch.gep19 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.2, i64 %11
   %switch.load20 = load double, ptr %switch.gep19, align 8
-  %9 = zext nneg i32 %1 to i64
-  %switch.gep21 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.3, i64 %9
+  %12 = shl nuw nsw i32 %1, 3
+  %13 = zext nneg i32 %12 to i64
+  %switch.gep21 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.3, i64 %13
   %switch.load22 = load double, ptr %switch.gep21, align 8
-  %10 = zext nneg i32 %1 to i64
-  %switch.gep23 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.4, i64 %10
+  %14 = shl nuw nsw i32 %1, 3
+  %15 = zext nneg i32 %14 to i64
+  %switch.gep23 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.4, i64 %15
   %switch.load24 = load double, ptr %switch.gep23, align 8
   store i32 %switch.load, ptr %3, align 8, !tbaa !4
   store i32 %switch.load18, ptr %4, align 4, !tbaa !14
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %14, align 8
-  store double 1.000000e+00, ptr %15, align 8, !tbaa !17
-  store double %switch.load20, ptr %11, align 8, !tbaa !17
-  store double %switch.load20, ptr %13, align 8, !tbaa !17
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %switch.load22, ptr %16, align 8, !tbaa !17
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %switch.load24, ptr %17, align 8, !tbaa !17
-  br label %18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %19, align 8
+  store double 1.000000e+00, ptr %20, align 8, !tbaa !17
+  store double %switch.load20, ptr %16, align 8, !tbaa !17
+  store double %switch.load20, ptr %18, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %switch.load22, ptr %21, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store double %switch.load24, ptr %22, align 8, !tbaa !17
+  br label %23
 
-18:                                               ; preds = %2, %switch.lookup
+23:                                               ; preds = %2, %switch.lookup
   ret void
 }
 

@@ -64,10 +64,10 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
   %.074 = phi i32 [ 3, %12 ], [ 1, %10 ], [ 2, %11 ], [ 0, %9 ], [ 0, %9 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %46 ]
-  %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %46 ]
-  %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %46 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %49 ]
+  %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %49 ]
+  %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %49 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv103
   %14 = load i8, ptr %13, align 1
   %.not89 = icmp eq i8 %14, 0
@@ -76,7 +76,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
 15:                                               ; preds = %.lr.ph
   %16 = tail call noundef i32 @_Z6IsCardc(i8 noundef signext %14)
   %.not90 = icmp eq i32 %16, 0
-  br i1 %.not90, label %41, label %17
+  br i1 %.not90, label %44, label %17
 
 17:                                               ; preds = %15
   switch i32 %.074, label %default.unreachable [
@@ -123,43 +123,46 @@ default.unreachable:                              ; preds = %17
 
 29:                                               ; preds = %26, %22, %18, %17, %24, %23, %20, %19
   %.0 = phi i32 [ 2, %22 ], [ %spec.select, %26 ], [ %25, %24 ], [ %.07295, %17 ], [ 0, %19 ], [ %21, %20 ], [ 1, %18 ], [ 3, %23 ]
-  %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %30
-  %32 = load i16, ptr %31, align 2
-  %33 = zext i16 %32 to i32
-  %34 = shl nuw nsw i32 %33, 2
-  %35 = sext i32 %.0 to i64
-  %36 = getelementptr inbounds [4 x i32], ptr %1, i64 %35
-  %37 = sext i32 %.07196 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = or i32 %34, %39
-  store i32 %40, ptr %38, align 4
-  br label %46
+  %30 = shl nuw nsw i32 %16, 1
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @bitMapRank, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = zext i16 %33 to i32
+  %35 = shl nuw nsw i32 %34, 2
+  %36 = sext i32 %.0 to i64
+  %37 = shl nsw i64 %36, 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 %37
+  %39 = sext i32 %.07196 to i64
+  %40 = shl nsw i64 %39, 2
+  %41 = getelementptr inbounds i8, ptr %38, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = or i32 %35, %42
+  store i32 %43, ptr %41, align 4
+  br label %49
 
-41:                                               ; preds = %15
-  switch i8 %14, label %46 [
-    i8 46, label %42
-    i8 32, label %44
+44:                                               ; preds = %15
+  switch i8 %14, label %49 [
+    i8 46, label %45
+    i8 32, label %47
   ]
 
-42:                                               ; preds = %41
-  %43 = add nsw i32 %.07196, 1
-  br label %46
+45:                                               ; preds = %44
+  %46 = add nsw i32 %.07196, 1
+  br label %49
 
-44:                                               ; preds = %41
-  %45 = add nsw i32 %.07295, 1
-  br label %46
+47:                                               ; preds = %44
+  %48 = add nsw i32 %.07295, 1
+  br label %49
 
-46:                                               ; preds = %41, %42, %44, %29
-  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %42 ], [ %45, %44 ], [ %.07295, %41 ]
-  %.1 = phi i32 [ %.07196, %29 ], [ %43, %42 ], [ 0, %44 ], [ %.07196, %41 ]
+49:                                               ; preds = %44, %45, %47, %29
+  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %45 ], [ %48, %47 ], [ %.07295, %44 ]
+  %.1 = phi i32 [ %.07196, %29 ], [ %46, %45 ], [ 0, %47 ], [ %.07196, %44 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 80
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !6
 
-.critedge2:                                       ; preds = %46, %.lr.ph, %.critedge
-  %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %46 ]
+.critedge2:                                       ; preds = %49, %.lr.ph, %.critedge
+  %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %49 ]
   ret i32 %.070
 }
 
@@ -272,8 +275,8 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 
 14:                                               ; preds = %10, %.fold.split46, %.fold.split45, %.fold.split
   %.040 = phi i32 [ 1, %.fold.split ], [ 0, %10 ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
-  %15 = lshr exact i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %15
+  %15 = shl nuw i64 %indvars.iv, 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   store i32 %.040, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %18 = load i8, ptr %17, align 1
@@ -282,7 +285,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   store i32 %19, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %23 = icmp samesign ult i64 %indvars.iv.next, %9

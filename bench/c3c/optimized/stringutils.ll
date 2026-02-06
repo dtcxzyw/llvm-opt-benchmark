@@ -22,25 +22,26 @@ define dso_local i32 @str_findlist(ptr noundef readonly captures(none) %0, i32 n
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #20
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %._crit_edge.loopexit.split.loop.exit12, label %8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
+  %4 = shl nuw nsw i64 %indvars.iv, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %4
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #20
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %._crit_edge.loopexit.split.loop.exit12, label %9
 
-8:                                                ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %.lr.ph
-  %9 = trunc nuw i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit.split.loop.exit12, %3
-  %.07 = phi i32 [ -1, %3 ], [ %9, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %8 ]
+._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit.split.loop.exit12, %3
+  %.07 = phi i32 [ -1, %3 ], [ %10, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %9 ]
   ret i32 %.07
 }
 

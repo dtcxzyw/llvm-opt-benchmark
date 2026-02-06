@@ -942,9 +942,10 @@ sw.bb29:                                          ; preds = %sw.bb24, %if.end5
 sw.epilog:                                        ; preds = %sw.bb29, %if.end5
   %source.2 = phi ptr [ %source.069, %if.end5 ], [ %incdec.ptr30, %sw.bb29 ]
   %ch.0 = phi i32 [ 0, %if.end5 ], [ %add32, %sw.bb29 ]
-  %arrayidx34 = getelementptr inbounds nuw i32, ptr @_ZN4llvhL15offsetsFromUTF8E, i64 %conv1
-  %9 = load i32, ptr %arrayidx34, align 4
-  %sub = sub i32 %ch.0, %9
+  %9 = shl nuw nsw i64 %conv1, 2
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr @_ZN4llvhL15offsetsFromUTF8E, i64 %9
+  %10 = load i32, ptr %arrayidx34, align 4
+  %sub = sub i32 %ch.0, %10
   %cmp35.not = icmp ult ptr %target.070, %targetEnd
   br i1 %cmp35.not, label %if.end39, label %if.then36
 
@@ -959,8 +960,8 @@ if.end39:                                         ; preds = %sw.epilog
   br i1 %cmp40, label %if.then41, label %if.else58
 
 if.then41:                                        ; preds = %if.end39
-  %10 = and i32 %sub, 63488
-  %or.cond = icmp eq i32 %10, 55296
+  %11 = and i32 %sub, 63488
+  %or.cond = icmp eq i32 %11, 55296
   br i1 %or.cond, label %if.then44, label %if.else54
 
 if.then44:                                        ; preds = %if.then41
@@ -1015,12 +1016,12 @@ if.then74:                                        ; preds = %if.else71
 if.end80:                                         ; preds = %if.else71
   %sub81 = add nuw nsw i32 %sub, 67043328
   %shr = lshr i32 %sub81, 10
-  %11 = trunc i32 %shr to i16
-  %conv83 = add nuw nsw i16 %11, -10240
+  %12 = trunc i32 %shr to i16
+  %conv83 = add nuw nsw i16 %12, -10240
   store i16 %conv83, ptr %target.070, align 2
-  %12 = trunc i32 %sub to i16
-  %13 = and i16 %12, 1023
-  %conv86 = or disjoint i16 %13, -9216
+  %13 = trunc i32 %sub to i16
+  %14 = and i16 %13, 1023
+  %conv86 = or disjoint i16 %14, -9216
   %incdec.ptr87 = getelementptr inbounds nuw i8, ptr %target.070, i64 4
   store i16 %conv86, ptr %add.ptr72, align 2
   br label %if.end89
@@ -1391,15 +1392,16 @@ sw.bb44:                                          ; preds = %sw.bb39, %if.end19
 sw.epilog:                                        ; preds = %sw.bb44, %if.end19
   %source.2 = phi ptr [ %source.0102, %if.end19 ], [ %incdec.ptr45, %sw.bb44 ]
   %ch.0 = phi i32 [ 0, %if.end19 ], [ %add47, %sw.bb44 ]
-  %arrayidx49 = getelementptr inbounds nuw i32, ptr @_ZN4llvhL15offsetsFromUTF8E, i64 %conv1
-  %43 = load i32, ptr %arrayidx49, align 4
-  %sub = sub i32 %ch.0, %43
+  %43 = shl nuw nsw i64 %conv1, 2
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr @_ZN4llvhL15offsetsFromUTF8E, i64 %43
+  %44 = load i32, ptr %arrayidx49, align 4
+  %sub = sub i32 %ch.0, %44
   %cmp50 = icmp ult i32 %sub, 1114112
   br i1 %cmp50, label %if.then51, label %while.cond.backedge
 
 if.then51:                                        ; preds = %sw.epilog
-  %44 = and i32 %sub, 2095104
-  %or.cond1 = icmp eq i32 %44, 55296
+  %45 = and i32 %sub, 2095104
+  %or.cond1 = icmp eq i32 %45, 55296
   %brmerge.not = and i1 %or.cond1, %cmp3
   %sub.mux = select i1 %or.cond1, i32 65533, i32 %sub
   br i1 %brmerge.not, label %if.then56, label %while.cond.backedge

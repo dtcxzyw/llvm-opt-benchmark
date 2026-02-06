@@ -146,15 +146,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @curl_easy_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 102
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_easy_strerror, i64 %3
+  %3 = shl nuw nsw i32 %0, 3
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.curl_easy_strerror, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.87, %1 ]
   ret ptr %.0
 }
@@ -163,15 +164,16 @@ switch.lookup:                                    ; preds = %1
 define noundef nonnull ptr @curl_multi_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, 1
   %2 = icmp ult i32 %switch.tableidx, 14
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_multi_strerror, i64 %3
+  %3 = shl nuw nsw i32 %switch.tableidx, 3
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.curl_multi_strerror, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.87, %1 ]
   ret ptr %.0
 }
@@ -179,15 +181,16 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @curl_share_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 6
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_share_strerror, i64 %3
+  %3 = shl nuw nsw i32 %0, 3
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.curl_share_strerror, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.100, %1 ]
   ret ptr %.0
 }
@@ -195,15 +198,16 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @curl_url_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 32
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_url_strerror, i64 %3
+  %3 = shl nuw nsw i32 %0, 3
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.curl_url_strerror, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.132, %1 ]
   ret ptr %.0
 }

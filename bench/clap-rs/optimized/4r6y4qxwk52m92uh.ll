@@ -109,27 +109,28 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs4next17h67c1e2c729ff7522E(ptr noalias n
 
 _ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread: ; preds = %2
   %6 = tail call i64 @llvm.uadd.sat.i64(i64 %5, i64 1)
-  br label %16
+  br label %17
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !10, !noalias !13, !nonnull !4
-  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %9, i64 %5
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !15, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load i64, ptr %13, align 8, !noalias !15, !noundef !4
-  %15 = add nuw i64 %5, 1
-  br label %16
+  %10 = mul nsw i64 %5, 24
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !15, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %15 = load i64, ptr %14, align 8, !noalias !15, !noundef !4
+  %16 = add nuw i64 %5, 1
+  br label %17
 
-16:                                               ; preds = %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread, %7
-  %storemerge = phi i64 [ %6, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %15, %7 ]
-  %.sroa.3.0 = phi i64 [ undef, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %14, %7 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %12, %7 ]
+17:                                               ; preds = %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread, %7
+  %storemerge = phi i64 [ %6, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %16, %7 ]
+  %.sroa.3.0 = phi i64 [ undef, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %15, %7 ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %13, %7 ]
   store i64 %storemerge, ptr %1, align 8, !alias.scope !13, !noalias !10
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %18
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -138,26 +139,27 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E(ptr noalia
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %1, align 8, !noundef !4
   %.not = icmp ult i64 %5, %4
-  br i1 %.not, label %6, label %14
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  br label %14
+  %9 = mul nsw i64 %5, 24
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = load i64, ptr %13, align 8, !noundef !4
+  br label %15
 
-14:                                               ; preds = %2, %6
-  %.sroa.3.0 = phi i64 [ %13, %6 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %11, %6 ], [ null, %2 ]
-  %15 = tail call i64 @llvm.uadd.sat.i64(i64 %5, i64 1)
-  store i64 %15, ptr %1, align 8
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %17
+15:                                               ; preds = %2, %6
+  %.sroa.3.0 = phi i64 [ %14, %6 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %12, %6 ], [ null, %2 ]
+  %16 = tail call i64 @llvm.uadd.sat.i64(i64 %5, i64 1)
+  store i64 %16, ptr %1, align 8
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
@@ -173,19 +175,20 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs4peek17h9c091d774d1c058fE(ptr noalias n
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !16, !noalias !19, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !21, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !21, !noundef !4
+  %9 = mul nsw i64 %5, 24
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !21, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = load i64, ptr %13, align 8, !noalias !21, !noundef !4
   br label %_ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE.exit.thread
 
 _ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE.exit.thread: ; preds = %2, %6
-  %.sroa.3.0 = phi i64 [ %13, %6 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %11, %6 ], [ null, %2 ]
-  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %15
+  %.sroa.3.0 = phi i64 [ %14, %6 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %12, %6 ], [ null, %2 ]
+  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -194,24 +197,25 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE(ptr noalia
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %1, align 8, !noundef !4
   %.not = icmp ult i64 %5, %4
-  br i1 %.not, label %6, label %14
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %8, i64 %5
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  br label %14
+  %9 = mul nsw i64 %5, 24
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = load i64, ptr %13, align 8, !noundef !4
+  br label %15
 
-14:                                               ; preds = %2, %6
-  %.sroa.3.0 = phi i64 [ %13, %6 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %11, %6 ], [ null, %2 ]
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %16
+15:                                               ; preds = %2, %6
+  %.sroa.3.0 = phi i64 [ %14, %6 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %12, %6 ], [ null, %2 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -229,12 +233,15 @@ define { ptr, ptr } @_ZN8clap_lex7RawArgs9remaining17h51b7b126f9c1f904E(ptr noal
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfb34af44b3b02965E.exit": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %.val, i64 %3
-  %9 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %.val, i64 %.val2
+  %8 = sub nuw i64 %.val2, %3
+  %9 = mul nsw i64 %3, 24
+  %10 = getelementptr inbounds i8, ptr %.val, i64 %9
+  %11 = mul nsw i64 %8, 24
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   store i64 %.val2, ptr %1, align 8
-  %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
-  ret { ptr, ptr } %11
+  %13 = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
+  ret { ptr, ptr } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

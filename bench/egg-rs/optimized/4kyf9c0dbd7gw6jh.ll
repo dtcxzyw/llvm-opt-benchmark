@@ -28,10 +28,11 @@ define hidden { ptr, ptr } @"_ZN101_$LT$$RF$mut$u20$smallvec..SmallVec$LT$A$GT$$
   %.sink10.idx.i = select i1 %3, i64 16, i64 0
   %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %6 = load i64, ptr %.sink10.i, align 8, !noundef !9
-  %7 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink11.i, i64 %6
-  %8 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
-  %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
-  ret { ptr, ptr } %9
+  %7 = mul nsw i64 %6, 12
+  %8 = getelementptr inbounds i8, ptr %.sink11.i, i64 %7
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -118,13 +119,14 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0e91ff9af32add60E.llvm.5520512306816613332"(i64 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
   %5 = icmp ult i64 %0, %2
-  br i1 %5, label %6, label %8, !prof !11
+  br i1 %5, label %6, label %9, !prof !11
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %1, i64 %0
-  ret ptr %7
+  %7 = mul nsw i64 %0, 12
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  ret ptr %8
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #15
   unreachable
 }
@@ -147,8 +149,9 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallv
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !12, !noalias !15, !nonnull !9
   %.sink14.i = select i1 %5, ptr %11, ptr %10
-  %12 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink14.i, i64 %1
-  ret ptr %12
+  %12 = mul nsw i64 %1, 12
+  %13 = getelementptr inbounds i8, ptr %.sink14.i, i64 %12
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

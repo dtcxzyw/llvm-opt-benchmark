@@ -1913,10 +1913,11 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %23 = icmp ult i64 %20, %22
   tail call void @llvm.assume(i1 %23)
   %24 = load ptr, ptr %1, align 8, !alias.scope !661, !nonnull !9, !noundef !9
-  %25 = getelementptr inbounds i16, ptr %24, i64 %20
-  %26 = load i16, ptr %25, align 2, !noalias !661, !noundef !9
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i16 %26, ptr %27, align 8
+  %25 = shl nsw i64 %20, 1
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  %27 = load i16, ptr %26, align 2, !noalias !661, !noundef !9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i16 %27, ptr %28, align 8
   store i64 4, ptr %0, align 8
   ret void
 }
@@ -1972,10 +1973,11 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %23 = icmp ult i64 %20, %22
   tail call void @llvm.assume(i1 %23)
   %24 = load ptr, ptr %1, align 8, !alias.scope !673, !nonnull !9, !noundef !9
-  %25 = getelementptr inbounds i16, ptr %24, i64 %20
-  %26 = load i16, ptr %25, align 2, !noalias !673, !noundef !9
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i16 %26, ptr %27, align 8
+  %25 = shl nsw i64 %20, 1
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  %27 = load i16, ptr %26, align 2, !noalias !673, !noundef !9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i16 %27, ptr %28, align 8
   store i64 4, ptr %0, align 8
   ret void
 }
@@ -2185,11 +2187,12 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h07c350b959eadf32E.llvm.3086495437288348183.exit": ; preds = %3, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %7, %3 ]
   %13 = load ptr, ptr %1, align 8, !alias.scope !701, !nonnull !9, !noundef !9
-  %14 = getelementptr inbounds i16, ptr %13, i64 %12
-  store i16 %5, ptr %14, align 2
-  %15 = load i64, ptr %6, align 8, !alias.scope !701, !noundef !9
-  %16 = add i64 %15, 1
-  store i64 %16, ptr %6, align 8, !alias.scope !701
+  %14 = shl nsw i64 %12, 1
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
+  store i16 %5, ptr %15, align 2
+  %16 = load i64, ptr %6, align 8, !alias.scope !701, !noundef !9
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %6, align 8, !alias.scope !701
   store i16 0, ptr %4, align 8
   store i64 4, ptr %0, align 8
   ret void
@@ -2214,11 +2217,12 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h07c350b959eadf32E.llvm.3086495437288348183.exit": ; preds = %3, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %7, %3 ]
   %13 = load ptr, ptr %1, align 8, !alias.scope !704, !nonnull !9, !noundef !9
-  %14 = getelementptr inbounds i16, ptr %13, i64 %12
-  store i16 %5, ptr %14, align 2
-  %15 = load i64, ptr %6, align 8, !alias.scope !704, !noundef !9
-  %16 = add i64 %15, 1
-  store i64 %16, ptr %6, align 8, !alias.scope !704
+  %14 = shl nsw i64 %12, 1
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
+  store i16 %5, ptr %15, align 2
+  %16 = load i64, ptr %6, align 8, !alias.scope !704, !noundef !9
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %6, align 8, !alias.scope !704
   store i16 0, ptr %4, align 8
   store i64 4, ptr %0, align 8
   ret void
@@ -6311,13 +6315,15 @@ switch.lookup:
   %2 = add nsw i64 %1, -6
   %3 = icmp ult i64 %2, 10
   %4 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %4
+  %5 = shl nuw nsw i64 %4, 3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.10", i64 %4
+  %6 = shl nuw nsw i64 %4, 3
+  %switch.gep1 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.10", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
-  %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1
-  ret { ptr, i64 } %6
+  %7 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %switch.load, 1
+  ret { ptr, i64 } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6483,7 +6489,7 @@ define hidden { i16, i16 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60108dfdfe809
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !9
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %13, label %5
+  br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
   %6 = add i64 %3, -1
@@ -6493,16 +6499,17 @@ define hidden { i16, i16 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60108dfdfe809
   %9 = icmp ult i64 %6, %8
   tail call void @llvm.assume(i1 %9)
   %10 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %11 = getelementptr inbounds i16, ptr %10, i64 %6
-  %12 = load i16, ptr %11, align 2, !noundef !9
-  br label %13
+  %11 = shl nsw i64 %6, 1
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %13 = load i16, ptr %12, align 2, !noundef !9
+  br label %14
 
-13:                                               ; preds = %1, %5
-  %.sroa.3.0 = phi i16 [ %12, %5 ], [ undef, %1 ]
+14:                                               ; preds = %1, %5
+  %.sroa.3.0 = phi i16 [ %13, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i16 [ 1, %5 ], [ 0, %1 ]
-  %14 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %15 = insertvalue { i16, i16 } %14, i16 %.sroa.3.0, 1
-  ret { i16, i16 } %15
+  %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %16 = insertvalue { i16, i16 } %15, i16 %.sroa.3.0, 1
+  ret { i16, i16 } %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6522,11 +6529,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h07c350b959eadf32E.ll
 9:                                                ; preds = %8, %2
   %10 = phi i64 [ %.pre, %8 ], [ %4, %2 ]
   %11 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %12 = getelementptr inbounds i16, ptr %11, i64 %10
-  store i16 %1, ptr %12, align 2
-  %13 = load i64, ptr %3, align 8, !noundef !9
-  %14 = add i64 %13, 1
-  store i64 %14, ptr %3, align 8
+  %12 = shl nsw i64 %10, 1
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  store i16 %1, ptr %13, align 2
+  %14 = load i64, ptr %3, align 8, !noundef !9
+  %15 = add i64 %14, 1
+  store i64 %15, ptr %3, align 8
   ret void
 }
 
@@ -6680,13 +6688,15 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 define internal { ptr, i64 } @"_ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #8 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !1114, !noundef !9
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %1
+  %2 = shl nuw nsw i64 %1, 3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.11", i64 %1
+  %3 = shl nuw nsw i64 %1, 3
+  %switch.gep2 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.11", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
-  ret { ptr, i64 } %3
+  %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

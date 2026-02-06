@@ -648,15 +648,17 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_08Filter1D11num_filtersEv() local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11OpenImageIO6v3_1_08Filter1D14get_filterdescEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.OpenImageIO::v3_1_0::FilterDesc", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113filter1d_listE, i64 %2
-  ret ptr %3
+  %3 = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113filter1d_listE, i64 %3
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11OpenImageIO6v3_1_08Filter1D14get_filterdescEiPNS0_10FilterDescE(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %"class.OpenImageIO::v3_1_0::FilterDesc", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113filter1d_listE, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !3
+  %4 = mul nsw i64 %3, 24
+  %5 = getelementptr inbounds i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113filter1d_listE, i64 %4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !3
   ret void
 }
 
@@ -1046,15 +1048,17 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_08Filter2D11num_filtersEv() local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11OpenImageIO6v3_1_08Filter2D14get_filterdescEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"class.OpenImageIO::v3_1_0::FilterDesc", ptr @_ZN11OpenImageIO6v3_1_0L13filter2d_listE, i64 %2
-  ret ptr %3
+  %3 = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr @_ZN11OpenImageIO6v3_1_0L13filter2d_listE, i64 %3
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11OpenImageIO6v3_1_08Filter2D14get_filterdescEiPNS0_10FilterDescE(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %"class.OpenImageIO::v3_1_0::FilterDesc", ptr @_ZN11OpenImageIO6v3_1_0L13filter2d_listE, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !3
+  %4 = mul nsw i64 %3, 24
+  %5 = getelementptr inbounds i8, ptr @_ZN11OpenImageIO6v3_1_0L13filter2d_listE, i64 %4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !3
   ret void
 }
 

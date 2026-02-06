@@ -95,21 +95,22 @@ define void @event_logv_(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 24:                                               ; preds = %21
   %25 = icmp ult i32 %0, 4
-  br i1 %25, label %switch.lookup, label %27
+  br i1 %25, label %switch.lookup, label %28
 
 switch.lookup:                                    ; preds = %24
-  %26 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.event_logv_, i64 %26
+  %26 = shl nuw nsw i32 %0, 3
+  %27 = zext nneg i32 %26 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.event_logv_, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %24, %switch.lookup
+28:                                               ; preds = %24, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.5, %24 ]
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0.i, ptr noundef nonnull %5) #16
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0.i, ptr noundef nonnull %5) #16
   br label %event_log.exit
 
-event_log.exit:                                   ; preds = %27, %23, %4
+event_log.exit:                                   ; preds = %28, %23, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

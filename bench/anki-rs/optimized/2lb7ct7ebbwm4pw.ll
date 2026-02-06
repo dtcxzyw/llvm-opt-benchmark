@@ -20,10 +20,11 @@ define { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %2, i64 %4
-  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
-  ret { ptr, ptr } %7
+  %5 = mul nsw i64 %4, 80
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
+  %7 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -31,10 +32,11 @@ define { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, ptr %2, i64 %4
-  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
-  ret { ptr, ptr } %7
+  %5 = mul nsw i64 %4, 72
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
+  %7 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -42,10 +44,11 @@ define { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, ptr %2, i64 %4
-  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
-  ret { ptr, ptr } %7
+  %5 = mul nsw i64 %4, 96
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
+  %7 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -519,11 +522,12 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closur
   %4 = load ptr, ptr %3, align 8, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, ptr %4, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
-  %8 = load i64, ptr %5, align 8, !noundef !3
-  %9 = add i64 %8, 1
-  store i64 %9, ptr %5, align 8
+  %7 = mul nsw i64 %6, 96
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
+  %9 = load i64, ptr %5, align 8, !noundef !3
+  %10 = add i64 %9, 1
+  store i64 %10, ptr %5, align 8
   ret void
 }
 
@@ -533,11 +537,12 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closur
   %4 = load ptr, ptr %3, align 8, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, ptr %4, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
-  %8 = load i64, ptr %5, align 8, !noundef !3
-  %9 = add i64 %8, 1
-  store i64 %9, ptr %5, align 8
+  %7 = mul nsw i64 %6, 72
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  %9 = load i64, ptr %5, align 8, !noundef !3
+  %10 = add i64 %9, 1
+  store i64 %10, ptr %5, align 8
   ret void
 }
 
@@ -547,11 +552,12 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closur
   %4 = load ptr, ptr %3, align 8, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %4, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  %8 = load i64, ptr %5, align 8, !noundef !3
-  %9 = add i64 %8, 1
-  store i64 %9, ptr %5, align 8
+  %7 = mul nsw i64 %6, 80
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
+  %9 = load i64, ptr %5, align 8, !noundef !3
+  %10 = add i64 %9, 1
+  store i64 %10, ptr %5, align 8
   ret void
 }
 
@@ -570,8 +576,8 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
-9:                                                ; preds = %19
-  resume { ptr, i32 } %20
+9:                                                ; preds = %20
+  resume { ptr, i32 } %21
 
 10:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
@@ -586,40 +592,41 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
 
 14:                                               ; preds = %10
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha658e71fba1194afE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr align 8 %1)
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit": ; preds = %21, %28, %10
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit": ; preds = %22, %29, %10
   %15 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %15, i64 %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
-  %17 = add i64 %11, 1
-  store i64 %17, ptr %7, align 8
+  %16 = mul nsw i64 %11, 80
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  %18 = add i64 %11, 1
+  store i64 %18, ptr %7, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1775fbae45b0b460E"(ptr nonnull sret({ ptr, [9 x i64] }) align 8 %5, ptr align 8 %1)
-  %18 = load ptr, ptr %5, align 8, !noundef !3
-  %.not = icmp eq ptr %18, null
+  %19 = load ptr, ptr %5, align 8, !noundef !3
+  %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %10
 
-19:                                               ; preds = %28, %14
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %29, %14
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %4) #15
-          to label %9 unwind label %29
+          to label %9 unwind label %30
 
-21:                                               ; preds = %14
-  %22 = load i64, ptr %3, align 8, !noundef !3
-  %23 = call i64 @llvm.uadd.sat.i64(i64 %22, i64 1)
-  %24 = load i64, ptr %7, align 8, !noundef !3
-  %25 = load i64, ptr %8, align 8, !noundef !3
-  %26 = sub i64 %25, %24
-  %27 = icmp ugt i64 %23, %26
-  br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
+22:                                               ; preds = %14
+  %23 = load i64, ptr %3, align 8, !noundef !3
+  %24 = call i64 @llvm.uadd.sat.i64(i64 %23, i64 1)
+  %25 = load i64, ptr %7, align 8, !noundef !3
+  %26 = load i64, ptr %8, align 8, !noundef !3
+  %27 = sub i64 %26, %25
+  %28 = icmp ugt i64 %24, %27
+  br i1 %28, label %29, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
 
-28:                                               ; preds = %21
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %24, i64 %23)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit" unwind label %19
+29:                                               ; preds = %22
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %25, i64 %24)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit" unwind label %20
 
-29:                                               ; preds = %19
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %20
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable

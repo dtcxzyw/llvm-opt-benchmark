@@ -11,16 +11,17 @@ define noundef i32 @_ZNK13llama_hparams6n_headEj(ptr noundef nonnull readonly al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  ret i32 %10
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  ret i32 %11
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 10, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -33,16 +34,17 @@ define noundef i32 @_ZNK13llama_hparams9n_head_kvEj(ptr noundef nonnull readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  ret i32 %10
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  ret i32 %11
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 18, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -52,16 +54,17 @@ define noundef i32 @_ZNK13llama_hparams4n_ffEj(ptr noundef nonnull readonly alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp ult i32 %1, %4
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  ret i32 %10
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  ret i32 %11
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #4
   unreachable
 }
@@ -79,21 +82,22 @@ define noundef i32 @_ZNK13llama_hparams5n_gqaEj(ptr noundef nonnull readonly ali
 
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %17, label %12
+  %8 = shl nuw nsw i64 %7, 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %7
-  %15 = load i32, ptr %14, align 4, !tbaa !17
-  %16 = udiv i32 %15, %10
-  br label %17
+13:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %8
+  %16 = load i32, ptr %15, align 4, !tbaa !17
+  %17 = udiv i32 %16, %11
+  br label %18
 
-17:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %12
-  %.0 = phi i32 [ %16, %12 ], [ 0, %_ZNK13llama_hparams9n_head_kvEj.exit ]
+18:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit, %13
+  %.0 = phi i32 [ %17, %13 ], [ 0, %_ZNK13llama_hparams9n_head_kvEj.exit ]
   ret i32 %.0
 }
 
@@ -111,12 +115,13 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_k_gqaEj(ptr noundef nonnull read
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !18
-  %13 = mul i32 %12, %10
-  ret i32 %13
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %13 = load i32, ptr %12, align 4, !tbaa !18
+  %14 = mul i32 %13, %11
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -133,12 +138,13 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_v_gqaEj(ptr noundef nonnull read
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !17
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 4, !tbaa !19
-  %13 = mul i32 %12, %10
-  ret i32 %13
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %14 = mul i32 %13, %11
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

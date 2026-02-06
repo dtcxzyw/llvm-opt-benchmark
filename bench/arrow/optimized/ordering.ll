@@ -17,19 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.arrow::compute::SortKey" = type { %"class.arrow::FieldRef", i32, [4 x i8] }
-%"class.arrow::FieldRef" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.2" }
-%"union.std::__detail::__variant::_Variadic_union.2" = type { %"struct.std::__detail::__variant::_Uninitialized.3" }
-%"struct.std::__detail::__variant::_Uninitialized.3" = type { %"struct.__gnu_cxx::__aligned_membuf.4" }
-%"struct.__gnu_cxx::__aligned_membuf.4" = type { [32 x i8] }
 
 $_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_ = comdat any
 
@@ -329,25 +316,26 @@ define noundef zeroext i1 @_ZNK5arrow7compute8Ordering12IsSuborderOfERKS1_(ptr n
 39:                                               ; preds = %.lr.ph, %31
   %40 = phi ptr [ %5, %.lr.ph ], [ %34, %31 ]
   %.0913 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %41 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %40, i64 %.0913
-  %42 = load ptr, ptr %1, align 8, !tbaa !68
-  %43 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %42, i64 %.0913
+  %41 = mul nuw nsw i64 %.0913, 48
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
+  %43 = load ptr, ptr %1, align 8, !tbaa !68
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !7
-  store ptr %41, ptr %30, align 8, !tbaa !10
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(44) %43)
+  store ptr %42, ptr %30, align 8, !tbaa !10
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(44) %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %44 = load i8, ptr %3, align 1, !tbaa !3, !range !12, !noundef !13
-  %45 = trunc nuw i8 %44 to i1
+  %45 = load i8, ptr %3, align 1, !tbaa !3, !range !12, !noundef !13
+  %46 = trunc nuw i8 %45 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %47, %49
-  %.not12 = select i1 %45, i1 %50, i1 false
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %48, %50
+  %.not12 = select i1 %46, i1 %51, i1 false
   br i1 %.not12, label %31, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %31, %19, %14, %9

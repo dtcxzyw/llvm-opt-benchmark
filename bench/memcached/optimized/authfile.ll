@@ -191,39 +191,40 @@ define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %2, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %struct.auth_entry, ptr @main_auth_entries, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !16
-  %9 = icmp eq i64 %3, %8
-  br i1 %9, label %10, label %.critedge
+  %6 = shl nuw nsw i64 %indvars.iv, 5
+  %7 = getelementptr inbounds nuw i8, ptr @main_auth_entries, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !16
+  %10 = icmp eq i64 %3, %9
+  br i1 %10, label %11, label %.critedge
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !18
-  %13 = icmp eq i64 %4, %12
-  br i1 %13, label %14, label %.critedge
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %14 = icmp eq i64 %4, %13
+  br i1 %14, label %15, label %.critedge
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 16, !tbaa !12
-  %16 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %0, ptr noundef %15, i64 noundef %3) #9
-  br i1 %16, label %17, label %.critedge
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %7, align 16, !tbaa !12
+  %17 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %3) #9
+  br i1 %17, label %18, label %.critedge
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %19 = load ptr, ptr %18, align 16, !tbaa !17
-  %20 = load i64, ptr %11, align 8, !tbaa !18
-  %21 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %1, ptr noundef %19, i64 noundef %20) #9
-  br i1 %21, label %._crit_edge, label %.critedge
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = load ptr, ptr %19, align 16, !tbaa !17
+  %21 = load i64, ptr %12, align 8, !tbaa !18
+  %22 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %1, ptr noundef %20, i64 noundef %21) #9
+  br i1 %22, label %._crit_edge, label %.critedge
 
-.critedge:                                        ; preds = %17, %14, %10, %.lr.ph
+.critedge:                                        ; preds = %18, %15, %11, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr @entry_cnt, align 4, !tbaa !22
-  %23 = sext i32 %22 to i64
-  %.not = icmp slt i64 %indvars.iv.next, %23
+  %23 = load i32, ptr @entry_cnt, align 4, !tbaa !22
+  %24 = sext i32 %23 to i64
+  %.not = icmp slt i64 %indvars.iv.next, %24
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.critedge, %17, %2
-  %.not.lcssa = phi i32 [ 0, %2 ], [ 1, %17 ], [ 0, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %18, %2
+  %.not.lcssa = phi i32 [ 0, %2 ], [ 1, %18 ], [ 0, %.critedge ]
   ret i32 %.not.lcssa
 }
 

@@ -1451,20 +1451,21 @@ define hidden noundef i32 @_sodium_blake2b_compress_ref(ptr noundef captures(non
 
 1388:                                             ; preds = %.preheader.preheader, %1388
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %1388 ]
-  %1389 = getelementptr i64, ptr %0, i64 %indvars.iv
-  %1390 = load i64, ptr %1389, align 1
-  %1391 = getelementptr i64, ptr %2, i64 %indvars.iv
-  %1392 = load i64, ptr %1391, align 8
-  %1393 = xor i64 %1392, %1390
-  %1394 = getelementptr i8, ptr %1391, i64 64
-  %1395 = load i64, ptr %1394, align 8
-  %1396 = xor i64 %1393, %1395
-  store i64 %1396, ptr %1389, align 1
+  %1389 = shl nuw nsw i64 %indvars.iv, 3
+  %1390 = getelementptr i8, ptr %0, i64 %1389
+  %1391 = load i64, ptr %1390, align 1
+  %1392 = getelementptr i8, ptr %2, i64 %1389
+  %1393 = load i64, ptr %1392, align 8
+  %1394 = xor i64 %1393, %1391
+  %1395 = getelementptr i8, ptr %1392, i64 64
+  %1396 = load i64, ptr %1395, align 8
+  %1397 = xor i64 %1394, %1396
+  store i64 %1397, ptr %1390, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %1397, label %1388, !llvm.loop !4
+  br i1 %exitcond.not, label %1398, label %1388, !llvm.loop !4
 
-1397:                                             ; preds = %1388
+1398:                                             ; preds = %1388
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }

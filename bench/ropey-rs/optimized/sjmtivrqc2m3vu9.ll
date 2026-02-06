@@ -306,13 +306,14 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbeb9c33922d8d8bcE.llvm.16952314824741166450"(i64 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = icmp ult i64 %0, %2
-  br i1 %5, label %6, label %8, !prof !45
+  br i1 %5, label %6, label %9, !prof !45
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
-  ret ptr %7
+  %7 = shl nsw i64 %0, 3
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  ret ptr %8
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #19
   unreachable
 }
@@ -320,13 +321,14 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45ec3214435d9227E.llvm.16952314824741166450"(i64 noundef %0, ptr noalias noundef nonnull readnone align 8 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = icmp ult i64 %0, %2
-  br i1 %5, label %6, label %8, !prof !45
+  br i1 %5, label %6, label %9, !prof !45
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
-  ret ptr %7
+  %7 = shl nsw i64 %0, 3
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  ret ptr %8
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #19
   unreachable
 }
@@ -352,8 +354,9 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$smallve
   %11 = load ptr, ptr %10, align 8, !nonnull !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink8.i = select i1 %5, ptr %11, ptr %12
-  %13 = getelementptr inbounds ptr, ptr %.sink8.i, i64 %1
-  ret ptr %13
+  %13 = shl nsw i64 %1, 3
+  %14 = getelementptr inbounds i8, ptr %.sink8.i, i64 %13
+  ret ptr %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -443,8 +446,9 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$smallve
   %11 = load ptr, ptr %10, align 8, !nonnull !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink13.i = select i1 %5, ptr %11, ptr %12
-  %13 = getelementptr inbounds ptr, ptr %.sink13.i, i64 %1
-  ret ptr %13
+  %13 = shl nsw i64 %1, 3
+  %14 = getelementptr inbounds i8, ptr %.sink13.i, i64 %13
+  ret ptr %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -785,7 +789,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit"
 
-14:                                               ; preds = %32, %21
+14:                                               ; preds = %33, %21
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !113
@@ -795,7 +799,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
 18:                                               ; preds = %14
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc31afbaf454bf08eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$GT$17h6e1db2bdc1e26a9dE.llvm.16952314824741166450.exit" unwind label %41
+          to label %"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$GT$17h6e1db2bdc1e26a9dE.llvm.16952314824741166450.exit" unwind label %42
 
 "_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit": ; preds = %12, %8
   %19 = phi i64 [ %.pre, %8 ], [ %6, %12 ]
@@ -814,7 +818,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
   %.sroa.05.0 = phi ptr [ %28, %25 ], [ %.sink12.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit" ]
   %.sroa.04.0 = phi ptr [ %27, %25 ], [ %.sink13.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit" ]
   %24 = icmp ugt i64 %1, %23
-  br i1 %24, label %32, label %29
+  br i1 %24, label %33, label %29
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -824,33 +828,34 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
   br label %22
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds ptr, ptr %.sroa.04.0, i64 %1
-  %31 = icmp ult i64 %1, %23
-  br i1 %31, label %36, label %33
+  %30 = shl nsw i64 %1, 3
+  %31 = getelementptr inbounds i8, ptr %.sroa.04.0, i64 %30
+  %32 = icmp ult i64 %1, %23
+  br i1 %32, label %37, label %34
 
-32:                                               ; preds = %22
+33:                                               ; preds = %22
   invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.066e256b88afcb17f824fe9d079f94fa.14.llvm.16952314824741166450, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.066e256b88afcb17f824fe9d079f94fa.15.llvm.16952314824741166450) #19
-          to label %40 unwind label %14
+          to label %41 unwind label %14
 
-33:                                               ; preds = %36, %29
-  %34 = add i64 %23, 1
-  store i64 %34, ptr %.sroa.05.0, align 8
-  %35 = load ptr, ptr %4, align 8, !nonnull !11, !noundef !11
-  store ptr %35, ptr %30, align 8
+34:                                               ; preds = %37, %29
+  %35 = add i64 %23, 1
+  store i64 %35, ptr %.sroa.05.0, align 8
+  %36 = load ptr, ptr %4, align 8, !nonnull !11, !noundef !11
+  store ptr %36, ptr %31, align 8
   ret void
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %38 = sub nuw i64 %23, %1
-  %39 = shl i64 %38, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %30, i64 %39, i1 false)
-  br label %33
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %39 = sub nuw i64 %23, %1
+  %40 = shl i64 %39, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %31, i64 %40, i1 false)
+  br label %34
 
-40:                                               ; preds = %32
+41:                                               ; preds = %33
   unreachable
 
-41:                                               ; preds = %18
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %18
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #21
   unreachable

@@ -1352,20 +1352,21 @@ define hidden noundef ptr @_glfwGetScancodeNameNull(i32 noundef %0) local_unname
 
 3:                                                ; preds = %1
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str, i32 noundef %0) #11
-  br label %7
+  br label %8
 
 4:                                                ; preds = %1
   %switch.tableidx = add nsw i32 %0, -2
   %5 = icmp ult i32 %switch.tableidx, 110
-  br i1 %5, label %switch.lookup, label %7
+  br i1 %5, label %switch.lookup, label %8
 
 switch.lookup:                                    ; preds = %4
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._glfwGetScancodeNameNull, i64 %6
+  %6 = shl nuw nsw i32 %switch.tableidx, 3
+  %7 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._glfwGetScancodeNameNull, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %7
+  br label %8
 
-7:                                                ; preds = %4, %switch.lookup, %3
+8:                                                ; preds = %4, %switch.lookup, %3
   %.0 = phi ptr [ null, %3 ], [ %switch.load, %switch.lookup ], [ null, %4 ]
   ret ptr %.0
 }

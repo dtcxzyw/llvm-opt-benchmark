@@ -647,12 +647,12 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 .thread:                                          ; preds = %6
   call void @_Z13luaL_checkanyP9lua_Statei(ptr noundef %0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %31
+  br label %32
 
 9:                                                ; preds = %6
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %32
+  br label %33
 
 10:                                               ; preds = %1
   %11 = tail call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef null)
@@ -669,7 +669,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   %15 = call i64 @strtoull(ptr noundef %11, ptr noundef nonnull %3, i32 noundef %4) #11
   %16 = load ptr, ptr %3, align 8, !tbaa !36
   %.not = icmp eq ptr %11, %16
-  br i1 %.not, label %30, label %.preheader
+  br i1 %.not, label %31, label %.preheader
 
 .preheader:                                       ; preds = %14
   %17 = tail call ptr @__ctype_b_loc() #12
@@ -677,35 +677,36 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %19, %.preheader
-  %20 = phi ptr [ %16, %.preheader ], [ %26, %19 ]
+  %20 = phi ptr [ %16, %.preheader ], [ %27, %19 ]
   %21 = load i8, ptr %20, align 1, !tbaa !34
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %18, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !40
-  %25 = and i16 %24, 8192
-  %.not22 = icmp eq i16 %25, 0
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  br i1 %.not22, label %27, label %19, !llvm.loop !41
+  %23 = shl nuw nsw i64 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %23
+  %25 = load i16, ptr %24, align 2, !tbaa !40
+  %26 = and i16 %25, 8192
+  %.not22 = icmp eq i16 %26, 0
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  br i1 %.not22, label %28, label %19, !llvm.loop !41
 
-27:                                               ; preds = %19
-  %28 = icmp eq i8 %21, 0
-  br i1 %28, label %.critedge, label %30
+28:                                               ; preds = %19
+  %29 = icmp eq i8 %21, 0
+  br i1 %29, label %.critedge, label %31
 
-.critedge:                                        ; preds = %27
-  %29 = uitofp i64 %15 to double
-  tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %29)
+.critedge:                                        ; preds = %28
+  %30 = uitofp i64 %15 to double
+  tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %33
+
+31:                                               ; preds = %14, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
-30:                                               ; preds = %14, %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %31
-
-31:                                               ; preds = %.thread, %30
+32:                                               ; preds = %.thread, %31
   call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %9, %.critedge, %31
+33:                                               ; preds = %9, %.critedge, %32
   ret i32 1
 }
 

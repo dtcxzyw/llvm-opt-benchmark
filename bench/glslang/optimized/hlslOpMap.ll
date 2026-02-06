@@ -11,15 +11,16 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef range(i32 0, 600) i32 @_ZN7glslang9HlslOpMap10assignmentENS_15EHlslTokenClassE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -344
   %2 = icmp ult i32 %switch.tableidx, 11
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang9HlslOpMap10assignmentENS_15EHlslTokenClassE, i64 %3
+  %3 = shl nuw nsw i32 %switch.tableidx, 2
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN7glslang9HlslOpMap10assignmentENS_15EHlslTokenClassE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }
@@ -28,15 +29,16 @@ switch.lookup:                                    ; preds = %1
 define noundef range(i32 0, 182) i32 @_ZN7glslang9HlslOpMap6binaryENS_15EHlslTokenClassE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -333
   %2 = icmp ult i32 %switch.tableidx, 45
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang9HlslOpMap6binaryENS_15EHlslTokenClassE, i64 %3
+  %3 = shl nuw nsw i32 %switch.tableidx, 2
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN7glslang9HlslOpMap6binaryENS_15EHlslTokenClassE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }
@@ -109,15 +111,16 @@ define noundef range(i32 0, 188) i32 @_ZN7glslang9HlslOpMap9postUnaryENS_15EHlsl
 define noundef range(i32 0, 12) i32 @_ZN7glslang9HlslOpMap15precedenceLevelENS_9TOperatorE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -156
   %2 = icmp ult i32 %switch.tableidx, 26
-  br i1 %2, label %switch.lookup, label %4
+  br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang9HlslOpMap15precedenceLevelENS_9TOperatorE, i64 %3
+  %3 = shl nuw nsw i32 %switch.tableidx, 2
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN7glslang9HlslOpMap15precedenceLevelENS_9TOperatorE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }

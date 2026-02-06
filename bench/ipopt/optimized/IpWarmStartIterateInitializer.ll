@@ -15406,50 +15406,51 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit52:           ; preds = %36, %_ZNK5Ipopt16De
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %74, %_ZN5Ipopt11DenseVector6ValuesEv.exit52
+._crit_edge:                                      ; preds = %75, %_ZN5Ipopt11DenseVector6ValuesEv.exit52
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit52, %74
-  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %_ZN5Ipopt11DenseVector6ValuesEv.exit52 ]
-  %56 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
-  %57 = load double, ptr %56, align 8, !tbaa !655
-  %58 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv
-  %59 = load double, ptr %58, align 8, !tbaa !655
-  %60 = fmul double %59, 1.000000e+04
-  %61 = fcmp ogt double %57, %60
-  br i1 %61, label %62, label %66
+.lr.ph:                                           ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit52, %75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %_ZN5Ipopt11DenseVector6ValuesEv.exit52 ]
+  %56 = shl nuw nsw i64 %indvars.iv, 3
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 %56
+  %58 = load double, ptr %57, align 8, !tbaa !655
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 %56
+  %60 = load double, ptr %59, align 8, !tbaa !655
+  %61 = fmul double %60, 1.000000e+04
+  %62 = fcmp ogt double %58, %61
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %.lr.ph
-  %63 = fdiv double %3, %57
-  store double %63, ptr %58, align 8, !tbaa !655
-  %64 = load double, ptr %56, align 8, !tbaa !655
-  %65 = fcmp ogt double %63, %64
-  br i1 %65, label %.sink.split, label %74
+63:                                               ; preds = %.lr.ph
+  %64 = fdiv double %3, %58
+  store double %64, ptr %59, align 8, !tbaa !655
+  %65 = load double, ptr %57, align 8, !tbaa !655
+  %66 = fcmp ogt double %64, %65
+  br i1 %66, label %.sink.split, label %75
 
-66:                                               ; preds = %.lr.ph
-  %67 = fmul double %57, 1.000000e+04
-  %68 = fcmp ogt double %59, %67
-  br i1 %68, label %69, label %.sink.split
+67:                                               ; preds = %.lr.ph
+  %68 = fmul double %58, 1.000000e+04
+  %69 = fcmp ogt double %60, %68
+  br i1 %69, label %70, label %.sink.split
 
-69:                                               ; preds = %66
-  %70 = fdiv double %3, %59
-  store double %70, ptr %56, align 8, !tbaa !655
-  %71 = load double, ptr %58, align 8, !tbaa !655
-  %72 = fcmp ogt double %70, %71
-  br i1 %72, label %.sink.split, label %74
+70:                                               ; preds = %67
+  %71 = fdiv double %3, %60
+  store double %71, ptr %57, align 8, !tbaa !655
+  %72 = load double, ptr %59, align 8, !tbaa !655
+  %73 = fcmp ogt double %71, %72
+  br i1 %73, label %.sink.split, label %75
 
-.sink.split:                                      ; preds = %66, %69, %62
-  %73 = tail call double @sqrt(double noundef %3) #19, !tbaa !656
-  store double %73, ptr %58, align 8, !tbaa !655
-  store double %73, ptr %56, align 8, !tbaa !655
-  br label %74
+.sink.split:                                      ; preds = %67, %70, %63
+  %74 = tail call double @sqrt(double noundef %3) #19, !tbaa !656
+  store double %74, ptr %59, align 8, !tbaa !655
+  store double %74, ptr %57, align 8, !tbaa !655
+  br label %75
 
-74:                                               ; preds = %.sink.split, %62, %69
+75:                                               ; preds = %.sink.split, %63, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = load i32, ptr %53, align 4, !tbaa !653
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !657
+  %76 = load i32, ptr %53, align 4, !tbaa !653
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !657
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

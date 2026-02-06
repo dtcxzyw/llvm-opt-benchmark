@@ -107,13 +107,14 @@ define float @YGNodeLayoutGetMargin(ptr noundef %0, i32 noundef %1) local_unname
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %.mask = and i32 %1, 255
-  %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %.mask = shl i32 %1, 2
+  %25 = and i32 %.mask, 1020
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23
-  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %26, %23 ]
+  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %27, %23 ]
   %.0.i = load float, ptr %.0.in.i, align 4, !tbaa !4
   ret float %.0.i
 }
@@ -160,13 +161,14 @@ define float @YGNodeLayoutGetBorder(ptr noundef %0, i32 noundef %1) local_unname
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  %.mask = and i32 %1, 255
-  %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %.mask = shl i32 %1, 2
+  %25 = and i32 %.mask, 1020
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23
-  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %26, %23 ]
+  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %27, %23 ]
   %.0.i = load float, ptr %.0.in.i, align 4, !tbaa !4
   ret float %.0.i
 }
@@ -213,13 +215,14 @@ define float @YGNodeLayoutGetPadding(ptr noundef %0, i32 noundef %1) local_unnam
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %.mask = and i32 %1, 255
-  %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %.mask = shl i32 %1, 2
+  %25 = and i32 %.mask, 1020
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23
-  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %26, %23 ]
+  %.0.in.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ %22, %21 ], [ %27, %23 ]
   %.0.i = load float, ptr %.0.in.i, align 4, !tbaa !4
   ret float %.0.i
 }

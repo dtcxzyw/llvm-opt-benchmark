@@ -108,7 +108,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse3amdERKNS1_10SparseViewERN5Eig
   store i32 -1, ptr %24, align 8, !tbaa !6
   %25 = call ptr @cs_di_amd(i32 noundef 1, ptr noundef nonnull %4)
   %.not = icmp ne ptr %25, null
-  br i1 %.not, label %26, label %54
+  br i1 %.not, label %26, label %56
 
 26:                                               ; preds = %3
   %27 = load i32, ptr %10, align 4, !tbaa !28
@@ -155,30 +155,32 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
   br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %44 = getelementptr inbounds i32, ptr %39, i64 %.05.i.i.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds i32, ptr %25, i64 %.05.i.i.i.i.i.i.i.i.i
-  %46 = load i32, ptr %45, align 4, !tbaa !25
-  store i32 %46, ptr %44, align 4, !tbaa !25
-  %47 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %47, %28
+  %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i.i.i ]
+  %44 = shl nsw i64 %.05.i.i.i.i.i.i.i.i.i, 2
+  %45 = getelementptr inbounds i8, ptr %39, i64 %44
+  %46 = getelementptr inbounds i8, ptr %25, i64 %44
+  %47 = load i32, ptr %46, align 4, !tbaa !25
+  store i32 %47, ptr %45, align 4, !tbaa !25
+  %48 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %48, %28
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %38, %.lr.ph.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.011.i.i.i.i.i.i.i.i
-  %49 = getelementptr inbounds nuw i32, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
-  %50 = load <2 x i64>, ptr %49, align 1, !tbaa !45
-  store <2 x i64> %50, ptr %48, align 16, !tbaa !45
-  %51 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
-  %52 = icmp slt i64 %51, %41
-  br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !46
+  %.011.i.i.i.i.i.i.i.i = phi i64 [ %53, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
+  %49 = shl nsw i64 %.011.i.i.i.i.i.i.i.i, 2
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 %49
+  %52 = load <2 x i64>, ptr %51, align 1, !tbaa !45
+  store <2 x i64> %52, ptr %50, align 16, !tbaa !45
+  %53 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
+  %54 = icmp slt i64 %53, %41
+  br i1 %54, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !46
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %53 = call ptr @cs_di_free(ptr noundef nonnull %25)
-  br label %54
+  %55 = call ptr @cs_di_free(ptr noundef nonnull %25)
+  br label %56
 
-54:                                               ; preds = %3, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
+56:                                               ; preds = %3, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIKS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }

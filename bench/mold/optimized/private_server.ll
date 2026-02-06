@@ -3,15 +3,6 @@ source_filename = "bench/mold/original/private_server.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.tbb::detail::r1::rml::padded_private_worker" = type { %"class.tbb::detail::r1::rml::private_worker", [72 x i8] }
-%"class.tbb::detail::r1::rml::private_worker" = type { %"struct.std::atomic", ptr, ptr, i64, %"class.tbb::detail::r1::rml::internal::thread_monitor", i64, ptr }
-%"struct.std::atomic" = type { i32 }
-%"class.tbb::detail::r1::rml::internal::thread_monitor" = type { %"struct.std::atomic.0", %"class.tbb::detail::r1::binary_semaphore" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.tbb::detail::r1::binary_semaphore" = type { %"struct.std::atomic.1" }
-%"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
-%"struct.std::__atomic_base.2" = type { i32 }
 %"class.tbb::detail::d1::unique_scoped_lock" = type { ptr }
 %"class.tbb::detail::r1::affinity_helper" = type <{ ptr, i32, [4 x i8] }>
 %union.pthread_attr_t = type { i64, [48 x i8] }
@@ -505,46 +496,47 @@ _ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %32, %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit
+._crit_edge:                                      ; preds = %33, %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit
   ret void
 
-.lr.ph:                                           ; preds = %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit, %32
-  %.01215 = phi i64 [ %37, %32 ], [ 0, %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit ]
+.lr.ph:                                           ; preds = %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit, %33
+  %.01215 = phi i64 [ %38, %33 ], [ 0, %_ZN3tbb6detail2d123cache_aligned_allocatorINS0_2r13rml21padded_private_workerEE8allocateEm.exit ]
   %23 = load ptr, ptr %17, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw %"class.tbb::detail::r1::rml::padded_private_worker", ptr %23, i64 %.01215
-  store i32 0, ptr %24, align 4, !tbaa !46
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %0, ptr %25, align 8, !tbaa !47
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %1, ptr %26, align 8, !tbaa !41
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %.01215, ptr %27, align 8, !tbaa !48
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i8 0, ptr %28, align 8, !tbaa !49
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  store atomic i32 1, ptr %29 seq_cst, align 4
-  %30 = load ptr, ptr @__itt_sync_create_ptr__3_0, align 8, !tbaa !50
-  %.not.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i, label %32, label %31
+  %24 = shl nuw nsw i64 %.01215, 7
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  store i32 0, ptr %25, align 4, !tbaa !46
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %0, ptr %26, align 8, !tbaa !47
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %1, ptr %27, align 8, !tbaa !41
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 %.01215, ptr %28, align 8, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i8 0, ptr %29, align 8, !tbaa !49
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  store atomic i32 1, ptr %30 seq_cst, align 4
+  %31 = load ptr, ptr @__itt_sync_create_ptr__3_0, align 8, !tbaa !50
+  %.not.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i, label %33, label %32
 
-31:                                               ; preds = %.lr.ph
-  tail call void %30(ptr noundef nonnull %29, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2)
-  br label %32
+32:                                               ; preds = %.lr.ph
+  tail call void %31(ptr noundef nonnull %30, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2)
+  br label %33
 
-32:                                               ; preds = %31, %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  %34 = load atomic i64, ptr %18 monotonic, align 8
-  %.0.i.i = inttoptr i64 %34 to ptr
-  %35 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %.0.i.i, ptr %35, align 8, !tbaa !27
-  %36 = ptrtoint ptr %24 to i64
-  store atomic i64 %36, ptr %18 monotonic, align 8
-  %37 = add nuw nsw i64 %.01215, 1
-  %38 = load i32, ptr %3, align 8, !tbaa !42
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %37, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+33:                                               ; preds = %32, %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  %35 = load atomic i64, ptr %18 monotonic, align 8
+  %.0.i.i = inttoptr i64 %35 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store ptr %.0.i.i, ptr %36, align 8, !tbaa !27
+  %37 = ptrtoint ptr %25 to i64
+  store atomic i64 %37, ptr %18 monotonic, align 8
+  %38 = add nuw nsw i64 %.01215, 1
+  %39 = load i32, ptr %3, align 8, !tbaa !42
+  %40 = zext i32 %39 to i64
+  %41 = icmp samesign ult i64 %38, %40
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -865,15 +857,16 @@ _ZN3tbb6detail2r13rml14private_server17remove_server_refEv.exit: ; preds = %._cr
   ret void
 
 17:                                               ; preds = %.lr.ph, %17
-  %.03 = phi i64 [ 0, %.lr.ph ], [ %20, %17 ]
+  %.03 = phi i64 [ 0, %.lr.ph ], [ %21, %17 ]
   %18 = load ptr, ptr %5, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw %"class.tbb::detail::r1::rml::padded_private_worker", ptr %18, i64 %.03
-  tail call void @_ZN3tbb6detail2r13rml14private_worker14start_shutdownEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
-  %20 = add nuw nsw i64 %.03, 1
-  %21 = load i32, ptr %3, align 8, !tbaa !42
-  %22 = zext i32 %21 to i64
-  %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %17, label %._crit_edge, !llvm.loop !62
+  %19 = shl nuw nsw i64 %.03, 7
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  tail call void @_ZN3tbb6detail2r13rml14private_worker14start_shutdownEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
+  %21 = add nuw nsw i64 %.03, 1
+  %22 = load i32, ptr %3, align 8, !tbaa !42
+  %23 = zext i32 %22 to i64
+  %24 = icmp samesign ult i64 %21, %23
+  br i1 %24, label %17, label %._crit_edge, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable

@@ -23,41 +23,43 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   br i1 %.not1524.not, label %._crit_edge, label %.lr.ph26
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.01423 = phi ptr [ %17, %.lr.ph ], [ %2, %4 ]
+  %.01423 = phi ptr [ %18, %.lr.ph ], [ %2, %4 ]
   %9 = load i8, ptr %.01423, align 1, !tbaa !7
   %10 = zext i8 %9 to i64
-  %11 = lshr i64 %10, 6
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %11
-  %13 = and i64 %10, 63
-  %14 = shl nuw i64 1, %13
-  %15 = load i64, ptr %12, align 8, !tbaa !10
-  %16 = or i64 %14, %15
-  store i64 %16, ptr %12, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
-  %.not = icmp eq ptr %17, %3
+  %11 = lshr i64 %10, 3
+  %12 = and i64 %11, 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
+  %14 = and i64 %10, 63
+  %15 = shl nuw i64 1, %14
+  %16 = load i64, ptr %13, align 8, !tbaa !10
+  %17 = or i64 %15, %16
+  store i64 %17, ptr %13, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
+  %.not = icmp eq ptr %18, %3
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.lr.ph26:                                         ; preds = %.preheader, %27
-  %.01225 = phi i64 [ %28, %27 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.01225
-  %19 = load i8, ptr %18, align 1, !tbaa !7
-  %20 = zext i8 %19 to i64
-  %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %21
-  %23 = and i64 %20, 63
-  %24 = load i64, ptr %22, align 8, !tbaa !10
-  %25 = shl nuw i64 1, %23
-  %26 = and i64 %25, %24
-  %.not21 = icmp eq i64 %26, 0
-  br i1 %.not21, label %27, label %._crit_edge
+.lr.ph26:                                         ; preds = %.preheader, %29
+  %.01225 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.01225
+  %20 = load i8, ptr %19, align 1, !tbaa !7
+  %21 = zext i8 %20 to i64
+  %22 = lshr i64 %21, 3
+  %23 = and i64 %22, 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
+  %25 = and i64 %21, 63
+  %26 = load i64, ptr %24, align 8, !tbaa !10
+  %27 = shl nuw i64 1, %25
+  %28 = and i64 %27, %26
+  %.not21 = icmp eq i64 %28, 0
+  br i1 %.not21, label %29, label %._crit_edge
 
-27:                                               ; preds = %.lr.ph26
-  %28 = add nuw i64 %.01225, 1
-  %exitcond.not = icmp eq i64 %28, %8
+29:                                               ; preds = %.lr.ph26
+  %30 = add nuw i64 %.01225, 1
+  %exitcond.not = icmp eq i64 %30, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph26, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %27, %.lr.ph26, %.preheader
-  %spec.select = phi i64 [ -1, %.preheader ], [ %.01225, %.lr.ph26 ], [ -1, %27 ]
+._crit_edge:                                      ; preds = %29, %.lr.ph26, %.preheader
+  %spec.select = phi i64 [ -1, %.preheader ], [ %.01225, %.lr.ph26 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %spec.select
 }

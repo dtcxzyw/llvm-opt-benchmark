@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.pxrInternal_v0_24__pxrReserved__::TraceEventContainer" = type { ptr, ptr, ptr, i64 }
-%"class.pxrInternal_v0_24__pxrReserved__::TraceEvent" = type { %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", i32, i8, i8, i64, %"union.std::aligned_storage<8, 8>::type" }
-%"class.pxrInternal_v0_24__pxrReserved__::TraceKey" = type { ptr }
-%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 
 @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2Ev
 @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerD2Ev
@@ -392,10 +389,11 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC2EPNS_10TraceEventEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %1, i64 %2
-  store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %5 = shl nsw i64 %2, 5
+  %6 = getelementptr inbounds i8, ptr %1, i64 %5
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   ret void
 }
 

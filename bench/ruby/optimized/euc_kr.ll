@@ -38,31 +38,33 @@ define internal range(i32 -2147483647, -2147483648) i32 @euckr_mbc_enc_len(ptr n
 12:                                               ; preds = %3
   %13 = icmp eq i8 %8, -1
   %14 = select i1 %13, i32 1, i32 -1
-  br label %30
+  br label %32
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %4, %1
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr @EncLen_EUCKR, i64 %6
-  %19 = load i32, ptr %18, align 4, !tbaa !9
-  %20 = sub nsw i32 0, %19
-  br label %30
+  %18 = shl nuw nsw i64 %6, 2
+  %19 = getelementptr inbounds nuw i8, ptr @EncLen_EUCKR, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %21 = sub nsw i32 0, %20
+  br label %32
 
-21:                                               ; preds = %15
-  %22 = and i64 %9, 4294967295
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %22
-  %24 = load i8, ptr %4, align 1, !tbaa !6
-  %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !6
-  %28 = icmp eq i8 %27, -1
-  %29 = select i1 %28, i32 2, i32 -1
-  br label %30
+22:                                               ; preds = %15
+  %23 = shl nsw i64 %9, 8
+  %24 = and i64 %23, 1099511627520
+  %25 = getelementptr inbounds nuw i8, ptr @trans, i64 %24
+  %26 = load i8, ptr %4, align 1, !tbaa !6
+  %27 = zext i8 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !6
+  %30 = icmp eq i8 %29, -1
+  %31 = select i1 %30, i32 2, i32 -1
+  br label %32
 
-30:                                               ; preds = %21, %17, %12
-  %.0 = phi i32 [ %14, %12 ], [ %20, %17 ], [ %29, %21 ]
+32:                                               ; preds = %22, %17, %12
+  %.0 = phi i32 [ %14, %12 ], [ %21, %17 ], [ %31, %22 ]
   ret i32 %.0
 }
 

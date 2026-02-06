@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.ozz::animation::offline::(anonymous namespace)::JointCounter" = type { i32 }
-%"struct.ozz::animation::offline::RawSkeleton::Joint" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", %"struct.ozz::math::Transform" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -197,22 +186,23 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   ret void
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %6 = phi ptr [ %12, %.lr.ph ], [ %5, %2 ]
-  %.01 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %6, i64 %.01
-  %8 = load i32, ptr %1, align 4, !tbaa !22
-  %9 = add nsw i32 %8, 1
-  store i32 %9, ptr %1, align 4, !tbaa !22
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_12JointCounterEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %10 = add nuw i64 %.01, 1
-  %11 = load ptr, ptr %3, align 8, !tbaa !10
-  %12 = load ptr, ptr %0, align 8, !tbaa !4
-  %13 = ptrtoint ptr %11 to i64
+  %6 = phi ptr [ %13, %.lr.ph ], [ %5, %2 ]
+  %.01 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
+  %7 = mul nuw nsw i64 %.01, 96
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = load i32, ptr %1, align 4, !tbaa !22
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %1, align 4, !tbaa !22
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_12JointCounterEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %11 = add nuw i64 %.01, 1
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
+  %13 = load ptr, ptr %0, align 8, !tbaa !4
   %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 96
-  %17 = icmp ult i64 %10, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = sdiv exact i64 %16, 96
+  %18 = icmp ult i64 %11, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

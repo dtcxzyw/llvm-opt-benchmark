@@ -125,23 +125,24 @@ ExUtilGetInt.exit:                                ; preds = %.lr.ph
 14:                                               ; preds = %.lr.ph
   %15 = trunc i64 %10 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %15, ptr %16, align 4, !tbaa !9
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01628, i32 noundef 44) #10
-  %.not21 = icmp ne ptr %17, null
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %spec.select = select i1 %.not21, ptr %18, ptr null
+  %16 = shl nuw nsw i64 %indvars.iv, 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
+  store i32 %15, ptr %17, align 4, !tbaa !9
+  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01628, i32 noundef 44) #10
+  %.not21 = icmp ne ptr %18, null
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %spec.select = select i1 %.not21, ptr %19, ptr null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = icmp samesign ult i64 %indvars.iv.next, %9
-  %20 = select i1 %.not21, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !13
+  %20 = icmp samesign ult i64 %indvars.iv.next, %9
+  %21 = select i1 %.not21, i1 %20, i1 false
+  br i1 %21, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !13
 
 .critedge.loopexit:                               ; preds = %14
-  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %4, %ExUtilGetInt.exit
-  %.2 = phi i32 [ -1, %ExUtilGetInt.exit ], [ 0, %4 ], [ %21, %.critedge.loopexit ]
+  %.2 = phi i32 [ -1, %ExUtilGetInt.exit ], [ 0, %4 ], [ %22, %.critedge.loopexit ]
   ret i32 %.2
 }
 
@@ -297,7 +298,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 
 .lr.ph:                                           ; preds = %28, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %28 ]
-  %.02438 = phi ptr [ %38, %35 ], [ %30, %28 ]
+  %.02438 = phi ptr [ %39, %35 ], [ %30, %28 ]
   %31 = icmp eq i64 %indvars.iv, 16384
   br i1 %31, label %32, label %35
 
@@ -310,18 +311,19 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %9, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  store ptr %.02438, ptr %37, align 8, !tbaa !4
-  %38 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
-  %.not30 = icmp eq ptr %38, null
+  %37 = shl nuw nsw i64 %indvars.iv, 3
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  store ptr %.02438, ptr %38, align 8, !tbaa !4
+  %39 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
+  %.not30 = icmp eq ptr %39, null
   br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %35
-  %39 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
-  %.026.lcssa = phi i32 [ 0, %28 ], [ %39, %._crit_edge.loopexit ]
+  %.026.lcssa = phi i32 [ 0, %28 ], [ %40, %._crit_edge.loopexit ]
   store i32 %.026.lcssa, ptr %2, align 8, !tbaa !22
   br label %.thread
 

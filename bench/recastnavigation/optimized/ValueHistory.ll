@@ -21,15 +21,16 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr noundef n
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %5 = load float, ptr %4, align 4
-  %6 = fcmp olt float %5, %.068
-  %.1 = select i1 %6, float %5, float %.068
+  %4 = shl nuw nsw i64 %indvars.iv, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %6 = load float, ptr %5, align 4
+  %7 = fcmp olt float %6, %.068
+  %.1 = select i1 %7, float %6, float %.068
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !5
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !5
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   ret float %.1
 }
 
@@ -41,15 +42,16 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef n
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %5 = load float, ptr %4, align 4
-  %6 = fcmp ogt float %5, %.068
-  %.1 = select i1 %6, float %5, float %.068
+  %4 = shl nuw nsw i64 %indvars.iv, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %6 = load float, ptr %5, align 4
+  %7 = fcmp ogt float %6, %.068
+  %.1 = select i1 %7, float %6, float %.068
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !7
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   ret float %.1
 }
 
@@ -59,17 +61,18 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr noundef non
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.056 = phi float [ 0.000000e+00, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %4 = load float, ptr %3, align 4
-  %5 = fadd float %.056, %4
+  %.056 = phi float [ 0.000000e+00, %1 ], [ %6, %2 ]
+  %3 = shl nuw nsw i64 %indvars.iv, 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
+  %5 = load float, ptr %4, align 4
+  %6 = fadd float %.056, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !8
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !8
 
-6:                                                ; preds = %2
-  %7 = fmul float %5, 3.906250e-03
-  ret float %7
+7:                                                ; preds = %2
+  %8 = fmul float %6, 3.906250e-03
+  ret float %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -232,67 +235,69 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   br label %36
 
-36:                                               ; preds = %5, %47
-  %.050 = phi float [ 0.000000e+00, %5 ], [ %38, %47 ]
-  %.04549 = phi float [ 0.000000e+00, %5 ], [ %45, %47 ]
-  %.04648 = phi i32 [ 0, %5 ], [ %48, %47 ]
+36:                                               ; preds = %5, %48
+  %.050 = phi float [ 0.000000e+00, %5 ], [ %38, %48 ]
+  %.04549 = phi float [ 0.000000e+00, %5 ], [ %46, %48 ]
+  %.04648 = phi i32 [ 0, %5 ], [ %49, %48 ]
   %37 = uitofp nneg i32 %.04648 to float
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %14, float %28)
   %39 = load i32, ptr %35, align 4
   %40 = add nsw i32 %39, %.04648
   %41 = srem i32 %40, 256
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds float, ptr %1, i64 %42
-  %44 = load float, ptr %43, align 4
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float %24, float %34)
+  %43 = shl nsw i64 %42, 2
+  %44 = getelementptr inbounds i8, ptr %1, i64 %43
+  %45 = load float, ptr %44, align 4
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %24, float %34)
   %.not = icmp eq i32 %.04648, 0
-  br i1 %.not, label %47, label %46
+  br i1 %.not, label %48, label %47
 
-46:                                               ; preds = %36
-  tail call void @_Z13imguiDrawLinefffffj(float noundef %.050, float noundef %.04549, float noundef %38, float noundef %45, float noundef 2.000000e+00, i32 noundef %4)
-  br label %47
+47:                                               ; preds = %36
+  tail call void @_Z13imguiDrawLinefffffj(float noundef %.050, float noundef %.04549, float noundef %38, float noundef %46, float noundef 2.000000e+00, i32 noundef %4)
+  br label %48
 
-47:                                               ; preds = %46, %36
-  %48 = add nuw nsw i32 %.04648, 1
-  %exitcond.not = icmp eq i32 %48, 255
-  br i1 %exitcond.not, label %49, label %36, !llvm.loop !10
+48:                                               ; preds = %47, %36
+  %49 = add nuw nsw i32 %.04648, 1
+  %exitcond.not = icmp eq i32 %49, 255
+  br i1 %exitcond.not, label %50, label %36, !llvm.loop !10
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %0, align 4
-  %51 = load i32, ptr %7, align 4
-  %52 = add nsw i32 %51, %50
-  %53 = add nsw i32 %52, 5
-  %54 = load i32, ptr %29, align 4
-  %55 = load i32, ptr %15, align 4
+50:                                               ; preds = %48
+  %51 = load i32, ptr %0, align 4
+  %52 = load i32, ptr %7, align 4
+  %53 = add nsw i32 %52, %51
+  %54 = add nsw i32 %53, 5
+  %55 = load i32, ptr %29, align 4
+  %56 = load i32, ptr %15, align 4
   %.neg = mul i32 %2, -25
-  %56 = add i32 %.neg, -25
-  %.neg47 = add i32 %56, %54
-  %57 = add i32 %.neg47, %55
-  %58 = sitofp i32 %53 to float
-  %59 = sitofp i32 %57 to float
-  tail call void @_Z20imguiDrawRoundedRectfffffj(float noundef %58, float noundef %59, float noundef 1.500000e+01, float noundef 1.500000e+01, float noundef 2.000000e+00, i32 noundef %4)
-  br label %60
+  %57 = add i32 %.neg, -25
+  %.neg47 = add i32 %57, %55
+  %58 = add i32 %.neg47, %56
+  %59 = sitofp i32 %54 to float
+  %60 = sitofp i32 %58 to float
+  tail call void @_Z20imguiDrawRoundedRectfffffj(float noundef %59, float noundef %60, float noundef 1.500000e+01, float noundef 1.500000e+01, float noundef 2.000000e+00, i32 noundef %4)
+  br label %61
 
-60:                                               ; preds = %60, %49
-  %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %60 ]
-  %.056.i = phi float [ 0.000000e+00, %49 ], [ %63, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
-  %62 = load float, ptr %61, align 4
-  %63 = fadd float %.056.i, %62
+61:                                               ; preds = %61, %50
+  %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %61 ]
+  %.056.i = phi float [ 0.000000e+00, %50 ], [ %65, %61 ]
+  %62 = shl nuw nsw i64 %indvars.iv.i, 2
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
+  %64 = load float, ptr %63, align 4
+  %65 = fadd float %.056.i, %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZNK12ValueHistory10getAverageEv.exit, label %60, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK12ValueHistory10getAverageEv.exit, label %61, !llvm.loop !8
 
-_ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
-  %64 = fmul float %63, 3.906250e-03
-  %65 = fpext float %64 to double
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #9
-  %68 = add nsw i32 %52, 25
-  %69 = add nsw i32 %57, 3
-  tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %68, i32 noundef %69, i32 noundef 0, ptr noundef %3, i32 noundef -1056964609)
-  %70 = add nsw i32 %52, 170
-  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %70, i32 noundef %69, i32 noundef 2, ptr noundef nonnull %6, i32 noundef -2130706433)
+_ZNK12ValueHistory10getAverageEv.exit:            ; preds = %61
+  %66 = fmul float %65, 3.906250e-03
+  %67 = fpext float %66 to double
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %67, ptr noundef nonnull %68) #9
+  %70 = add nsw i32 %53, 25
+  %71 = add nsw i32 %58, 3
+  tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %70, i32 noundef %71, i32 noundef 0, ptr noundef %3, i32 noundef -1056964609)
+  %72 = add nsw i32 %53, 170
+  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %72, i32 noundef %71, i32 noundef 2, ptr noundef nonnull %6, i32 noundef -2130706433)
   ret void
 }
 

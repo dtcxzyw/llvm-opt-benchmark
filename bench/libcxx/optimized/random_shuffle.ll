@@ -55,73 +55,78 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %16, !prof !9
+  br i1 %3, label %4, label %17, !prof !9
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g) #5
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %16, label %6
+  br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %4
   store i64 5489, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, align 8, !tbaa !10
   br label %7
 
 7:                                                ; preds = %7, %6
-  %store_forwarded = phi i64 [ 5489, %6 ], [ %13, %7 ]
-  %.07.i.i.i = phi i64 [ 1, %6 ], [ %14, %7 ]
-  %8 = getelementptr i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %.07.i.i.i
-  %9 = lshr i64 %store_forwarded, 30
-  %10 = xor i64 %9, %store_forwarded
-  %11 = mul nuw nsw i64 %10, 1812433253
-  %12 = add nuw i64 %11, %.07.i.i.i
-  %13 = and i64 %12, 4294967295
-  store i64 %13, ptr %8, align 8, !tbaa !10
-  %14 = add nuw nsw i64 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %14, 624
-  br i1 %exitcond.not.i.i.i, label %15, label %7, !llvm.loop !12
+  %store_forwarded = phi i64 [ 5489, %6 ], [ %14, %7 ]
+  %.07.i.i.i = phi i64 [ 1, %6 ], [ %15, %7 ]
+  %8 = shl nuw nsw i64 %.07.i.i.i, 3
+  %9 = getelementptr i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %8
+  %10 = lshr i64 %store_forwarded, 30
+  %11 = xor i64 %10, %store_forwarded
+  %12 = mul nuw nsw i64 %11, 1812433253
+  %13 = add nuw i64 %12, %.07.i.i.i
+  %14 = and i64 %13, 4294967295
+  store i64 %14, ptr %9, align 8, !tbaa !10
+  %15 = add nuw nsw i64 %.07.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %15, 624
+  br i1 %exitcond.not.i.i.i, label %16, label %7, !llvm.loop !12
 
-15:                                               ; preds = %7
+16:                                               ; preds = %7
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g) #5
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %4, %1
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
-  %18 = add i64 %17, 1
-  %19 = urem i64 %18, 624
-  %20 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %17
-  %21 = load i64, ptr %20, align 8, !tbaa !10
-  %22 = and i64 %21, -2147483648
-  %23 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %19
-  %24 = load i64, ptr %23, align 8, !tbaa !10
-  %25 = and i64 %24, 2147483646
-  %26 = or disjoint i64 %25, %22
-  %27 = add i64 %17, 397
-  %28 = urem i64 %27, 624
-  %29 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !10
-  %31 = lshr exact i64 %26, 1
-  %32 = trunc i64 %24 to i1
-  %33 = select i1 %32, i64 2567483615, i64 0
-  %34 = xor i64 %33, %30
-  %35 = xor i64 %34, %31
-  store i64 %35, ptr %20, align 8, !tbaa !10
-  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !10
-  %39 = lshr i64 %38, 11
-  %40 = and i64 %39, 4294967295
-  %41 = xor i64 %40, %38
-  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
-  %42 = shl i64 %41, 7
-  %43 = and i64 %42, 2636928640
-  %44 = xor i64 %43, %41
-  %45 = shl i64 %44, 15
-  %46 = and i64 %45, 4022730752
-  %47 = xor i64 %46, %44
-  %48 = lshr i64 %47, 18
-  %49 = xor i64 %48, %47
-  ret i64 %49
+17:                                               ; preds = %16, %4, %1
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
+  %19 = add i64 %18, 1
+  %20 = urem i64 %19, 624
+  %21 = shl nuw nsw i64 %18, 3
+  %22 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !10
+  %24 = and i64 %23, -2147483648
+  %25 = shl nuw nsw i64 %20, 3
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %25
+  %27 = load i64, ptr %26, align 8, !tbaa !10
+  %28 = and i64 %27, 2147483646
+  %29 = or disjoint i64 %28, %24
+  %30 = add i64 %18, 397
+  %31 = urem i64 %30, 624
+  %32 = shl nuw nsw i64 %31, 3
+  %33 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %32
+  %34 = load i64, ptr %33, align 8, !tbaa !10
+  %35 = lshr exact i64 %29, 1
+  %36 = trunc i64 %27 to i1
+  %37 = select i1 %36, i64 2567483615, i64 0
+  %38 = xor i64 %37, %34
+  %39 = xor i64 %38, %35
+  store i64 %39, ptr %22, align 8, !tbaa !10
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
+  %41 = shl nuw nsw i64 %40, 3
+  %42 = getelementptr inbounds nuw i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %41
+  %43 = load i64, ptr %42, align 8, !tbaa !10
+  %44 = lshr i64 %43, 11
+  %45 = and i64 %44, 4294967295
+  %46 = xor i64 %45, %43
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
+  %47 = shl i64 %46, 7
+  %48 = and i64 %47, 2636928640
+  %49 = xor i64 %48, %46
+  %50 = shl i64 %49, 15
+  %51 = and i64 %50, 4022730752
+  %52 = xor i64 %51, %49
+  %53 = lshr i64 %52, 18
+  %54 = xor i64 %53, %52
+  ret i64 %54
 }
 
 ; Function Attrs: nofree nounwind

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.Luau::FValue" = type { i8, i8, ptr, ptr }
-%"struct.Luau::CodeGen::IrConst" = type { i8, %union.anon }
-%union.anon = type { double }
-%struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
-%union.Value = type { ptr }
 %"struct.Luau::CodeGen::IrOp" = type { i32 }
 
 $_ZN4Luau6FValueIbE4listE = comdat any
@@ -689,10 +685,10 @@ define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %15 = lshr i32 %4, 4
-  %16 = zext nneg i32 %15 to i64
-  %17 = load ptr, ptr %14, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %17, i64 %16
+  %15 = and i32 %4, -16
+  %16 = load ptr, ptr %14, align 8, !tbaa !14
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 8, !tbaa !17
   %.not5.i = icmp eq i8 %19, 2
   br i1 %.not5.i, label %20, label %.critedge
@@ -1378,10 +1374,10 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit74: ; preds 
 
 32:                                               ; preds = %_ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit74
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %34 = lshr i32 %.sroa.03.0.i73, 4
-  %35 = zext nneg i32 %34 to i64
-  %36 = load ptr, ptr %33, align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %36, i64 %35
+  %34 = and i32 %.sroa.03.0.i73, -16
+  %35 = load ptr, ptr %33, align 8, !tbaa !14
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = load i8, ptr %37, align 8, !tbaa !17
   %.not5.i = icmp eq i8 %38, 2
   br i1 %.not5.i, label %39, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread
@@ -1411,10 +1407,10 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread: ; preds = %32, 
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %52 = lshr i32 %storemerge, 4
-  %53 = zext nneg i32 %52 to i64
-  %54 = load ptr, ptr %51, align 8, !tbaa !14
-  %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %54, i64 %53
+  %52 = and i32 %storemerge, -16
+  %53 = load ptr, ptr %51, align 8, !tbaa !14
+  %54 = zext i32 %52 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   %56 = load i8, ptr %55, align 8, !tbaa !17
   %.not5.i77 = icmp eq i8 %56, 0
   br i1 %.not5.i77, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread
@@ -1539,10 +1535,10 @@ define internal fastcc range(i64 -4294967296, 4294967298) i64 @_ZN4Luau7CodeGenL
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %18 = lshr i32 %4, 4
-  %19 = zext nneg i32 %18 to i64
-  %20 = load ptr, ptr %17, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %20, i64 %19
+  %18 = and i32 %4, -16
+  %19 = load ptr, ptr %17, align 8, !tbaa !14
+  %20 = zext i32 %18 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load double, ptr %22, align 8, !tbaa !29
   %24 = fptosi double %23 to i32
@@ -1599,10 +1595,10 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit186: ; preds
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %48 = lshr i32 %.sroa.03.0.i185, 4
-  %49 = zext nneg i32 %48 to i64
-  %50 = load ptr, ptr %47, align 8, !tbaa !14
-  %51 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %50, i64 %49
+  %48 = and i32 %.sroa.03.0.i185, -16
+  %49 = load ptr, ptr %47, align 8, !tbaa !14
+  %50 = zext i32 %48 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load double, ptr %52, align 8, !tbaa !29
   %54 = fptosi double %53 to i32
@@ -1726,10 +1722,10 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
   %.sroa.03.0.i = phi i32 [ %21, %20 ], [ %17, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit ]
   %22 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 66, i32 %.sroa.03.0.i)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = lshr i32 %4, 4
-  %25 = zext nneg i32 %24 to i64
-  %26 = load ptr, ptr %23, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %26, i64 %25
+  %24 = and i32 %4, -16
+  %25 = load ptr, ptr %23, align 8, !tbaa !14
+  %26 = zext i32 %24 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !29
   %30 = fptosi double %29 to i32
@@ -2155,9 +2151,9 @@ define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27transla
   %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !112
-  %36 = lshr i32 %3, 4
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.lua_TValue, ptr %35, i64 %37
+  %36 = and i32 %3, -16
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !121
   %41 = trunc i32 %40 to i8

@@ -33,7 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.hlist_head = type { ptr }
 %struct.rb_root = type { ptr }
 %struct.path = type { ptr, ptr }
-%struct.mem_dqinfo = type { ptr, i32, %struct.list_head, i64, i32, i32, i64, i64, ptr }
 %struct.qc_state = type { i32, [3 x %struct.qc_type_state] }
 %struct.qc_type_state = type { i32, i32, i32, i32, i32, i32, i32, i64, i64, i64 }
 %struct.if_dqinfo = type { i64, i64, i32, i32 }
@@ -895,8 +894,9 @@ define internal fastcc range(i32 -14, 1) i32 @quota_getfmt(ptr noundef readonly 
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr %struct.mem_dqinfo, ptr %15, i64 %16
+  %narrow = mul nuw nsw i32 %1, 72
+  %16 = zext nneg i32 %narrow to i64
+  %17 = getelementptr i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %4, align 4
@@ -932,8 +932,9 @@ define internal fastcc i32 @quota_getinfo(ptr noundef %0, i32 noundef range(i32 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr %struct.qc_type_state, ptr %15, i64 %16
+  %narrow = mul nuw nsw i32 %1, 56
+  %16 = zext nneg i32 %narrow to i64
+  %17 = getelementptr i8, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 4
   %20 = icmp eq i32 %19, 0
@@ -1540,8 +1541,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
   %32 = load i32, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %32, ptr %33, align 8
-  %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr %struct.qc_type_state, ptr %15, i64 %34
+  %narrow = mul nuw nsw i32 %1, 56
+  %34 = zext nneg i32 %narrow to i64
+  %35 = getelementptr i8, ptr %15, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 60
@@ -1857,8 +1859,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
   %41 = load i32, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr %struct.qc_type_state, ptr %24, i64 %43
+  %narrow = mul nuw nsw i32 %1, 56
+  %43 = zext nneg i32 %narrow to i64
+  %44 = getelementptr i8, ptr %24, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 80

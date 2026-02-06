@@ -11,12 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { ptr }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<const opencc::DictEntry *, std::allocator<const opencc::DictEntry *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const opencc::DictEntry *, std::allocator<const opencc::DictEntry *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const opencc::DictEntry *, std::allocator<const opencc::DictEntry *>>::_Vector_impl_data" }
@@ -1283,13 +1277,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN6opencc9DictEntryE
   %.014.i.i = phi i64 [ %.1.i.i, %.noexc36 ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.sroa.012.013.i.i = phi ptr [ %.sroa.012.1.i.i, %.noexc36 ], [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %57 = lshr i64 %.014.i.i, 1
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.012.013.i.i, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !15
+  %58 = shl nuw nsw i64 %57, 3
+  %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.012.013.i.i, i64 %58
+  %59 = load ptr, ptr %.sink.i.i.i.i, align 8, !tbaa !15
   %60 = invoke noundef zeroext i1 @_ZNK6opencc9DictEntryltERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.noexc36 unwind label %107
 
 .noexc36:                                         ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
   %62 = xor i64 %57, -1
   %63 = add nsw i64 %.014.i.i, %62
   %.sroa.012.1.i.i = select i1 %60, ptr %61, ptr %.sroa.012.013.i.i

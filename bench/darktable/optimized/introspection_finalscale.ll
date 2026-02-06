@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"modulename\04scale into final size\00", align 1
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
@@ -349,22 +346,23 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %9, label %.preheader
+  br i1 %or.cond, label %10, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f1, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !133
-  br label %9
+  br label %10
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %0, ptr %8, align 8, !tbaa !133
+  %7 = mul nuw nsw i64 %indvars.iv, 88
+  %8 = getelementptr inbounds nuw i8, ptr @introspection_linear, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %0, ptr %9, align 8, !tbaa !133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %.preheader
 
-9:                                                ; preds = %2, %6
+10:                                               ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

@@ -123,10 +123,11 @@ define ptr @Mvc_CubeDup(ptr noundef readonly captures(none) %0, ptr noundef read
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !21
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  store i32 %22, ptr %23, align 4, !tbaa !21
+  %21 = shl nuw nsw i64 %indvars.iv, 2
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !21
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %21
+  store i32 %23, ptr %24, align 4, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !22
@@ -198,19 +199,20 @@ define void @Mvc_CubeBitRemoveDcs(ptr noundef captures(none) %0) local_unnamed_a
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ %6, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !21
-  %10 = lshr i32 %9, 1
-  %11 = xor i32 %10, %9
-  %12 = and i32 %11, 1431655765
-  %13 = mul nuw i32 %12, 3
-  %14 = and i32 %13, %9
-  store i32 %14, ptr %8, align 4, !tbaa !21
+  %8 = shl nuw nsw i64 %indvars.iv, 2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
+  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %11 = lshr i32 %10, 1
+  %12 = xor i32 %11, %10
+  %13 = and i32 %12, 1431655765
+  %14 = mul nuw i32 %13, 3
+  %15 = and i32 %14, %10
+  store i32 %15, ptr %9, align 4, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %15, label %7, !llvm.loop !24
+  br i1 %.not, label %16, label %7, !llvm.loop !24
 
-15:                                               ; preds = %7
+16:                                               ; preds = %7
   ret void
 }
 

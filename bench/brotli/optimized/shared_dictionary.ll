@@ -34,26 +34,27 @@ define range(i32 0, 2) i32 @BrotliSharedDictionaryAttach(ptr noundef captures(ad
   %.not = icmp ne ptr %0, null
   %5 = icmp eq i32 %1, 0
   %or.cond = and i1 %.not, %5
-  br i1 %or.cond, label %6, label %16
+  br i1 %or.cond, label %6, label %17
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 8, !tbaa !16
   %8 = icmp ugt i32 %7, 14
-  br i1 %8, label %16, label %9
+  br i1 %8, label %17, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
-  store i64 %2, ptr %12, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %11
-  store ptr %3, ptr %14, align 8, !tbaa !19
-  %15 = add nuw nsw i32 %7, 1
-  store i32 %15, ptr %0, align 8, !tbaa !16
-  br label %16
+  %11 = shl nuw nsw i32 %7, 3
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  store i64 %2, ptr %13, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
+  store ptr %3, ptr %15, align 8, !tbaa !19
+  %16 = add nuw nsw i32 %7, 1
+  store i32 %16, ptr %0, align 8, !tbaa !16
+  br label %17
 
-16:                                               ; preds = %6, %4, %9
+17:                                               ; preds = %6, %4, %9
   %.0 = phi i32 [ 0, %4 ], [ 1, %9 ], [ 0, %6 ]
   ret i32 %.0
 }

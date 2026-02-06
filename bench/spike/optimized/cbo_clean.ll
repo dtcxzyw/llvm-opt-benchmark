@@ -295,9 +295,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cbo_cleanP
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %66 = load ptr, ptr %65, align 8, !tbaa !95
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %68 = lshr i64 %1, 15
-  %69 = and i64 %68, 31
-  %70 = getelementptr inbounds nuw i64, ptr %67, i64 %69
+  %68 = lshr i64 %1, 12
+  %69 = and i64 %68, 248
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %66, i64 noundef %71, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %64
@@ -844,9 +844,9 @@ define noundef i64 @_Z20fast_rv64i_cbo_cleanP11processor_t6insn_tm(ptr noundef r
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %64 = load ptr, ptr %63, align 8, !tbaa !95
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %66 = lshr i64 %1, 15
-  %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %66 = lshr i64 %1, 12
+  %67 = and i64 %66, 248
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %62
@@ -958,9 +958,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cbo_clea
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %66 = load ptr, ptr %65, align 8, !tbaa !95
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %68 = lshr i64 %1, 15
-  %69 = and i64 %68, 31
-  %70 = getelementptr inbounds nuw i64, ptr %67, i64 %69
+  %68 = lshr i64 %1, 12
+  %69 = and i64 %68, 248
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %66, i64 noundef %71, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %64
@@ -1070,9 +1070,9 @@ define noundef i64 @_Z22logged_rv64i_cbo_cleanP11processor_t6insn_tm(ptr noundef
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %64 = load ptr, ptr %63, align 8, !tbaa !95
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %66 = lshr i64 %1, 15
-  %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %66 = lshr i64 %1, 12
+  %67 = and i64 %66, 248
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %62
@@ -1202,9 +1202,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_cleanP
   %74 = add i64 %73, 17179869184
   %75 = ashr exact i64 %74, 32
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %63
-  %78 = load i64, ptr %77, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %78, i1 noundef zeroext true, i1 noundef zeroext false)
+  %77 = shl nuw nsw i64 %63, 3
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !3
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %79, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %75
 }
 
@@ -1330,9 +1331,10 @@ define noundef i64 @_Z20fast_rv64e_cbo_cleanP11processor_t6insn_tm(ptr noundef r
   %72 = load ptr, ptr %71, align 8, !tbaa !95
   %73 = add i64 %2, 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %63
-  %76 = load i64, ptr %75, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %76, i1 noundef zeroext true, i1 noundef zeroext false)
+  %75 = shl nuw nsw i64 %63, 3
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = load i64, ptr %76, align 8, !tbaa !3
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %77, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %73
 }
 
@@ -1460,9 +1462,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_clea
   %74 = add i64 %73, 17179869184
   %75 = ashr exact i64 %74, 32
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %63
-  %78 = load i64, ptr %77, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %78, i1 noundef zeroext true, i1 noundef zeroext false)
+  %77 = shl nuw nsw i64 %63, 3
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !3
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %79, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %75
 }
 
@@ -1588,9 +1591,10 @@ define noundef i64 @_Z22logged_rv64e_cbo_cleanP11processor_t6insn_tm(ptr noundef
   %72 = load ptr, ptr %71, align 8, !tbaa !95
   %73 = add i64 %2, 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %63
-  %76 = load i64, ptr %75, align 8, !tbaa !3
-  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %76, i1 noundef zeroext true, i1 noundef zeroext false)
+  %75 = shl nuw nsw i64 %63, 3
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = load i64, ptr %76, align 8, !tbaa !3
+  tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %77, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %73
 }
 
